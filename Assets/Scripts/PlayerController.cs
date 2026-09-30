@@ -1,0 +1,665 @@
+using System;
+using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
+
+/// <summary>
+/// Beat 'em up -pelaaja.
+/// Liikkuu kadun tasolla (x = vasen/oikea, y = syvyys), hyppää erillisellä korkeusakselilla
+/// ja soittaa ruutuanimaatioita leikatuista sprite sheeteistä.
+/// </summary>
+public class PlayerController : MonoBehaviour
+{
+    [Header("Spritet (raahaa kaikki leikatut spritet, järjestys korjataan automaattisesti)")]
+    public Sprite[] idleSprites;     // idle.png: 6 kuvaa
+    public Sprite[] actionSprites;   // hahmo_spritesheet.png: 19 kuvaa
+
+    [Header("Viittaukset")]
+    public SpriteRenderer body;      // lapsi "Visual"
+    public SpriteRenderer shadow;    // lapsi "Shadow" (varjo luodaan koodilla jos tyhjä)
+
+    [Header("Liike")]
+    public float moveSpeedX = 3.5f;
+    public float moveSpeedY = 2f;
+    public float minDepthY = -3.5f;
+    public float maxDepthY = -0.5f;
+    [Tooltip("Pois päältä = ukko liukuu idle-animaatiolla. Päällä = käytetään juoksun 3 kuvaa.")]
+    public bool useRunFramesWhenMoving = false;
+    [Tooltip("Kävelyn kuvat (kavely.png). Jos tyhjä, käytetään yllä olevaa valintaa.")]
+    public Sprite[] walkSprites;
+    public float walkFrameTime = 0.11f;
+
+    [Header("Juoksu (Shift / ohjaimen RB)")]
+    [Tooltip("Juoksun kuvat (juoksu.png).")]
+    public Sprite[] runSprites;
+    public float runSpriteFrameTime = 0.075f;
+    [Tooltip("Kuinka monta kertaa kävelyä nopeammin juostaan sivusuunnassa.")]
+    public float runSpeedMultiplier = 2f;
+    [Tooltip("Syvyyssuunnan nopeuskerroin juostessa.")]
+    public float runDepthMultiplier = 1.2f;
+
+    [Header("Jalkakäytävä (kynnys)")]
+    [Tooltip("Onko kentässä korotettu jalkakäytävä.")]
+    public bool useSidewalk = true;
+    [Tooltip("Syvyys (y), josta jalkakäytävä alkaa: tätä ylempänä (seinän puolella) ollaan jalkakäytävällä.")]
+    public float curbDepthY = -1.20f;
+    [Tooltip("Kuinka paljon jalkakäytävä on ajorataa korkeammalla (yksikköä).")]
+    public float sidewalkHeight = 0.42f;
+    [Tooltip("Kuinka nopeasti kynnyksen yli astutaan (sekuntia).")]
+    public float stepTime = 0.07f;
+
+    [Header("Hyppy")]
+    public float jumpVelocity = 11f;
+    public float gravity = 30f;
+    public float jumpSquatTime = 0.08f;
+    public float landingTime = 0.14f;
+
+    [Header("Hyökkäykset")]
+    public float kickTime = 0.38f;
+
+    [Header("Lyöntikombo (hakkaa lyöntinappia)")]
+    [Tooltip("Kombon iskut järjestyksessä. Täytä valikosta Beat em up → 3. Päivitä lyöntikombo.")]
+    public ComboHit[] punchCombo =
+    {
+        new ComboHit { name = "Jab",         windupTime = 0.04f, frame = 8,  duration = 0.16f, lunge = 0.10f },
+        new ComboHit { name = "Takasuora",   windupTime = 0.05f, frame = 8,  duration = 0.20f, lunge = 0.15f },
+        new ComboHit { name = "Kiertopotku", windupTime = 0.06f, frame = 11, duration = 0.38f, lunge = 0.30f },
+    };
+    [Tooltip("Kuinka aikaisin iskun aikana seuraava painallus jo hyväksytään (0 = heti, 1 = vasta lopussa).")]
+    [Range(0f, 1f)] public float comboInputFrom = 0.25f;
+    [Tooltip("Pieni tauko kombon viimeisen iskun jälkeen ennen kuin voi taas liikkua.")]
+    public float comboRecovery = 0.12f;
+
+    [Header("Kestävyys")]
+    public int maxHealth = 100;
+    [HideInInspector] public int health;
+    public float hurtTime = 0.35f;
+    [Tooltip("Pelaajan omat kipuäänet (valinnainen).")]
+    public AudioClip[] hurtSounds;
+
+    [Header("Potkujen osumat")]
+    public int kickDamage = 10;
+    public float kickReach = 1.9f;
+    public int jumpKickDamage = 12;
+    public float jumpKickReach = 1.9f;
+    [Tooltip("Kuinka lähellä syvyyssuunnassa vihollisen pitää olla, jotta isku osuu.")]
+    public float attackDepth = 0.4f;
+
+    [Header("Äänet")]
+    [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
+    public AudioClip[] attackGrunts;
+    [Range(0f, 1f)] public float gruntVolume = 0.9f;
+    [Tooltip("Satunnainen sävelkorkeuden vaihtelu, ettei sama ääni toistu samanlaisena.")]
+    [Range(0f, 0.3f)] public float gruntPitchVariation = 0.06f;
+
+    [Header("Animaation nopeus")]
+    public float idleFrameTime = 0.15f;
+    public float runFrameTime = 0.11f;
+
+    [Header("Spriten sijoitus")]
+    [Tooltip("Ruudussa on 8 px tyhjää maiharien alla (PPU 100 = 0.08 yksikköä).")]
+    public float footOffset = 0.08f;
+
+    // hahmo_spritesheet.png -ruutujen numerot
+    const int F_STAND = 0, F_RUN1 = 1, F_CROUCH = 4, F_JUMP_UP = 5, F_JUMP_TOP = 6, F_JUMP_DOWN = 7;
+    const int F_PUNCH = 8, F_HURT = 9, F_KNEE = 10, F_KICK = 11, F_LAND1 = 12, F_LAND2 = 13, F_JUMPKICK1 = 14;
+
+    [Serializable]
+    public class ComboHit
+    {
+        public string name;
+
+        [Header("Oma animaatio (jos tyhjä, käytetään alla olevaa yhtä kuvaa)")]
+        public Sprite[] sprites;
+        [Tooltip("Aika per kuva, paitsi osumakuva.")]
+        public float frameTime = 0.05f;
+        [Tooltip("Monesko kuva (0 = ensimmäinen) on osumahetki, jota pidetään pidempään.")]
+        public int impactFrame = 2;
+        [Tooltip("Kuinka kauan osumakuvaa näytetään.")]
+        public float impactHold = 0.10f;
+
+        [Header("Varakuva hahmo_spritesheetistä")]
+        [Tooltip("Lyhyt käden veto taakse ennen iskua (näytetään seisontakuva). 0 = ei vetoa.")]
+        public float windupTime;
+        public int frame;
+        public float duration;
+
+        [Header("Liike")]
+        [Tooltip("Kuinka paljon ukko liukuu eteenpäin iskun aikana (yksikköä).")]
+        public float lunge;
+
+        [Header("Osuma")]
+        public int damage = 8;
+        [Tooltip("Kuinka kauas isku ulottuu (yksikköä).")]
+        public float reach = 1.7f;
+        [Tooltip("Kaataako isku vihollisen.")]
+        public bool knockdown;
+
+        public bool HasAnimation => sprites != null && sprites.Length > 0;
+
+        /// Iskun kokonaiskesto sekunteina.
+        public float TotalTime =>
+            HasAnimation ? frameTime * (sprites.Length - 1) + impactHold : windupTime + duration;
+
+        /// Aika alusta osumahetkeen (liukuminen tapahtuu tänä aikana).
+        public float ImpactTime =>
+            HasAnimation ? frameTime * Mathf.Clamp(impactFrame, 0, sprites.Length - 1) : windupTime + duration * 0.4f;
+
+        /// Mikä animaation kuva näytetään hetkellä t (-1 = käytä varakuvaa).
+        public int SpriteIndexAt(float t)
+        {
+            if (!HasAnimation) return -1;
+            int impact = Mathf.Clamp(impactFrame, 0, sprites.Length - 1);
+            float impactStart = frameTime * impact;
+            if (t < impactStart) return Mathf.Min((int)(t / frameTime), impact);
+            if (t < impactStart + impactHold) return impact;
+            int after = impact + 1 + (int)((t - impactStart - impactHold) / frameTime);
+            return Mathf.Min(after, sprites.Length - 1);
+        }
+    }
+
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt }
+
+    int comboIndex;
+    bool comboQueued;
+
+    State state = State.Ground;
+    float stateTime;
+    float height;          // korkeus maasta (hyppy)
+    float verticalVel;
+    Vector2 airVel;
+    bool jumpKick;
+    float jumpKickTime;
+    bool facingRight = true;
+    bool moving;
+    float animClock;
+
+    void Awake()
+    {
+        SortByFrameNumber(idleSprites);
+        SortByFrameNumber(actionSprites);
+        SortByFrameNumber(walkSprites);
+        SortByFrameNumber(runSprites);
+        groundHeight = TargetGroundHeight();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;   // 2D-ääni
+        health = maxHealth;
+        if (shadow != null && shadow.sprite == null)
+            shadow.sprite = CreateShadowSprite();
+    }
+
+    void Update()
+    {
+        float dt = Time.deltaTime;
+        stateTime += dt;
+        animClock += dt;
+
+        Vector2 move = ReadMove();
+        bool jumpPressed = JumpPressed();
+        bool punchPressed = PunchPressed();
+        bool kickPressed = KickPressed();
+
+        UpdateGroundHeight(dt);
+
+        switch (state)
+        {
+            case State.Ground:
+                if (jumpPressed)
+                {
+                    // muista juoksu ja vauhti, jotta ne säilyvät hypyssä
+                    jumpFromRun = running;
+                    squatVel = moving ? lastGroundVel : Vector2.zero;
+                    Enter(State.JumpSquat);
+                    break;
+                }
+                if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
+                if (kickPressed) { Enter(State.Kick); attackHit = false; PlayGrunt(); break; }
+                Walk(move, dt);
+                break;
+
+            case State.JumpSquat:
+                MoveOnGround(squatVel * dt);   // vauhti ei katkea ponnistuksen ajaksi
+                if (stateTime >= jumpSquatTime)
+                {
+                    verticalVel = jumpVelocity;
+                    bool runJump = jumpFromRun || (RunHeld() && Mathf.Abs(move.x) > 0.1f);
+                    float sx = moveSpeedX * (runJump ? runSpeedMultiplier : 1f);
+                    float sy = moveSpeedY * (runJump ? runDepthMultiplier : 1f);
+                    airVel = new Vector2(move.x * sx, move.y * sy);
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+                    jumpKick = false;
+                    Enter(State.Air);
+                }
+                break;
+
+            case State.Air:
+                MoveOnGround(airVel * dt);
+                verticalVel -= gravity * dt;
+                height += verticalVel * dt;
+                if (!jumpKick && (kickPressed || punchPressed)) { jumpKick = true; jumpKickTime = 0f; attackHit = false; PlayGrunt(); }
+                if (jumpKick)
+                {
+                    jumpKickTime += dt;
+                    if (!attackHit && jumpKickTime >= 0.08f && jumpKickTime <= 0.45f)
+                        attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true);
+                }
+                if (height <= 0f) { height = 0f; Enter(State.Landing); }
+                break;
+
+            case State.Landing:
+                if (stateTime >= landingTime) Enter(State.Ground);
+                break;
+
+            case State.Punch:
+            {
+                ComboHit hit = punchCombo[comboIndex];
+                float total = hit.TotalTime;
+
+                // eteenpäin liukuminen osumahetkeen asti
+                float lungeTime = Mathf.Max(hit.ImpactTime, 0.03f);
+                if (stateTime <= lungeTime && lungeTime > 0f)
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * hit.lunge / lungeTime * dt, 0f));
+
+                // osumahetki: tarkistetaan lyhyen aikaikkunan ajan, osuuko isku
+                if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
+                    attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown);
+
+                // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
+                if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;
+
+                if (stateTime >= total)
+                {
+                    bool hasNext = comboIndex + 1 < punchCombo.Length;
+                    if (comboQueued && hasNext) StartComboHit(comboIndex + 1);
+                    else if (!hasNext) Enter(State.Recovery);
+                    else Enter(State.Ground);
+                }
+                break;
+            }
+
+            case State.Recovery:
+                if (stateTime >= comboRecovery) Enter(State.Ground);
+                break;
+
+            case State.Kick:
+                if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
+                    attackHit = AttackEnemies(kickReach, kickDamage, false);
+                if (stateTime >= kickTime) Enter(State.Ground);
+                break;
+
+            case State.Hurt:
+                MoveOnGround(hurtVel * dt);
+                hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
+                if (height > 0f)   // osuma ilmassa: pudotaan maahan
+                {
+                    verticalVel -= gravity * dt;
+                    height = Mathf.Max(0f, height + verticalVel * dt);
+                }
+                if (stateTime >= hurtTime && height <= 0f) Enter(State.Ground);
+                break;
+        }
+
+        ApplyVisual();
+    }
+
+    void Enter(State s)
+    {
+        state = s;
+        stateTime = 0f;
+        if (s != State.Ground) { moving = false; running = false; }
+    }
+
+    AudioSource audioSource;
+    int lastGrunt = -1;
+
+    /// Soittaa satunnaisen gruntin (ei samaa kahdesti peräkkäin) pienellä sävelkorkeuden vaihtelulla.
+    void PlayGrunt()
+    {
+        if (audioSource == null || attackGrunts == null || attackGrunts.Length == 0) return;
+        int i = UnityEngine.Random.Range(0, attackGrunts.Length);
+        if (attackGrunts.Length > 1 && i == lastGrunt) i = (i + 1) % attackGrunts.Length;
+        lastGrunt = i;
+        if (attackGrunts[i] == null) return;
+        audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
+        audioSource.PlayOneShot(attackGrunts[i], gruntVolume);
+    }
+
+    // ---------------- Taistelu ----------------
+
+    bool attackHit;
+    Vector2 hurtVel;
+
+    /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
+    public bool IsDown => state == State.Hurt;
+    /// Kuinka korkealla pelaaja on hypyssä (vihollisen lyönti menee ali, jos korkealla).
+    public float AirHeight => height;
+
+    /// Tarkistaa, osuuko pelaajan isku viholliseen. Palauttaa true, jos osui ainakin yhteen.
+    bool AttackEnemies(float reach, int damage, bool knockdown)
+    {
+        Vector3 me = transform.position;
+        bool any = false;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 p = e.transform.position;
+            float dx = p.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach : dx <= 0.3f && dx >= -reach;
+            if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (e.TakeHit(damage, me.x, knockdown)) any = true;
+        }
+        if (any) HitFx.OnHit(knockdown);
+        return any;
+    }
+
+    /// Siirtää pelaajan heti uuteen paikkaan (ovet): maahan, perustilaan.
+    public void TeleportTo(Vector3 pos)
+    {
+        transform.position = pos;
+        height = 0f;
+        verticalVel = 0f;
+        airVel = Vector2.zero;
+        hurtVel = Vector2.zero;
+        jumpKick = false;
+        Enter(State.Ground);
+        groundHeight = TargetGroundHeight();
+        ApplyVisual();
+    }
+
+    /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
+    public bool TakeHit(int damage, float attackerX)
+    {
+        if (state == State.Hurt) return false;
+        health = Mathf.Max(0, health - damage);
+        bool fromRight = attackerX > transform.position.x;
+        facingRight = fromRight;                    // käänny lyöjää kohti
+        hurtVel = new Vector2(fromRight ? -2.5f : 2.5f, 0f);
+        if (height > 0f) verticalVel = Mathf.Min(verticalVel, 0f);
+        Enter(State.Hurt);
+        PlayClip(hurtSounds);
+        HitFx.OnHit(false);
+        if (health <= 0) health = maxHealth;         // väliaikaisesti: ei vielä peli ohi -ruutua
+        return true;
+    }
+
+    void PlayClip(AudioClip[] clips)
+    {
+        if (audioSource == null || clips == null || clips.Length == 0) return;
+        var c = clips[UnityEngine.Random.Range(0, clips.Length)];
+        if (c == null) return;
+        audioSource.pitch = 1f + UnityEngine.Random.Range(-0.05f, 0.05f);
+        audioSource.PlayOneShot(c, 0.9f);
+    }
+
+    void StartComboHit(int index)
+    {
+        attackHit = false;
+        PlayGrunt();
+        comboIndex = index;
+        comboQueued = false;
+        Enter(State.Punch);
+    }
+
+    bool running;
+    bool jumpFromRun;
+    Vector2 lastGroundVel, squatVel;
+
+    void Walk(Vector2 move, float dt)
+    {
+        moving = move.sqrMagnitude > 0.01f;
+        running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f;
+        if (!moving) return;
+        if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+        float sx = moveSpeedX * (running ? runSpeedMultiplier : 1f);
+        float sy = moveSpeedY * (running ? runDepthMultiplier : 1f);
+        lastGroundVel = new Vector2(move.x * sx, move.y * sy);
+        MoveOnGround(lastGroundVel * dt);
+    }
+
+    void MoveOnGround(Vector2 delta)
+    {
+        Vector3 p = transform.position;
+        p.x += delta.x;
+        p.y = Mathf.Clamp(p.y + delta.y, minDepthY, maxDepthY);
+        transform.position = p;
+    }
+
+    // ---------------- Grafiikka ----------------
+
+    float groundHeight;   // maan korkeus ukon kohdalla (0 = ajorata, sidewalkHeight = jalkakäytävä)
+
+    float TargetGroundHeight()
+    {
+        return useSidewalk && transform.position.y > curbDepthY ? sidewalkHeight : 0f;
+    }
+
+    /// Kynnyksen yli astuminen. Maassa noustaan/laskeudutaan nopealla askeleella;
+    /// ilmassa ukon oikea korkeus säilyy, jolloin hyppy jalkakäytävälle laskeutuu sen pinnalle.
+    void UpdateGroundHeight(float dt)
+    {
+        float target = TargetGroundHeight();
+        if (Mathf.Approximately(target, groundHeight)) return;
+
+        if (state == State.Air)
+        {
+            height -= target - groundHeight;   // pidä ukko samassa kohdassa ruudulla
+            groundHeight = target;
+        }
+        else
+        {
+            float speed = sidewalkHeight / Mathf.Max(stepTime, 0.001f);
+            groundHeight = Mathf.MoveTowards(groundHeight, target, speed * dt);
+        }
+    }
+
+    void ApplyVisual()
+    {
+        if (body == null) return;
+
+        body.sprite = CurrentSprite();
+        body.flipX = !facingRight;
+        // Korjaa spriten kiinnityspisteen (pivot) vaikutus: jalat keskelle alas joka kuvassa,
+        // leikattiinpa kuva millä pivot-asetuksella tahansa.
+        Vector2 pivotFix = Vector2.zero;
+        Sprite spr = body.sprite;
+        if (spr != null)
+        {
+            float ppu = spr.pixelsPerUnit;
+            pivotFix.x = (spr.pivot.x - spr.rect.width * 0.5f) / ppu;
+            pivotFix.y = spr.pivot.y / ppu;
+            if (body.flipX) pivotFix.x = -pivotFix.x;
+        }
+        body.transform.localPosition = new Vector3(pivotFix.x, groundHeight + height - footOffset + pivotFix.y, 0f);
+        if (shadow != null) shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
+
+        // lähempänä kameraa (pienempi y) piirretään päälle
+        int order = Mathf.RoundToInt(-transform.position.y * 100f);
+        body.sortingOrder = order;
+
+        if (shadow != null)
+        {
+            shadow.sortingOrder = order - 1;
+            float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f));
+            shadow.transform.localScale = new Vector3(1.5f * s, 0.45f * s, 1f);
+        }
+    }
+
+    Sprite CurrentSprite()
+    {
+        switch (state)
+        {
+            case State.JumpSquat:
+                return Action(F_CROUCH);
+
+            case State.Air:
+                if (jumpKick)
+                {
+                    float t = jumpKickTime;
+                    if (t < 0.05f) return Action(F_JUMPKICK1);
+                    if (t < 0.10f) return Action(F_JUMPKICK1 + 1);
+                    if (t < 0.40f) return Action(F_JUMPKICK1 + 2);   // täysi potku
+                    if (t < 0.50f) return Action(F_JUMPKICK1 + 3);
+                    return Action(F_JUMPKICK1 + 4);
+                }
+                if (verticalVel > 3f) return Action(F_JUMP_UP);
+                if (verticalVel > -3f) return Action(F_JUMP_TOP);
+                return Action(F_JUMP_DOWN);
+
+            case State.Landing:
+                return Action(stateTime < landingTime * 0.5f ? F_LAND1 : F_LAND2);
+
+            case State.Punch:
+            {
+                ComboHit hit = punchCombo[comboIndex];
+                int idx = hit.SpriteIndexAt(stateTime);
+                if (idx >= 0 && hit.sprites[idx] != null) return hit.sprites[idx];
+                return Action(stateTime < hit.windupTime ? F_STAND : hit.frame);
+            }
+
+            case State.Recovery:
+            {
+                if (punchCombo.Length == 0) return Action(F_STAND);
+                ComboHit last = punchCombo[punchCombo.Length - 1];
+                if (last.HasAnimation) return last.sprites[last.sprites.Length - 1];
+                return Action(last.frame);
+            }
+
+            case State.Hurt:
+                return Action(F_HURT);
+
+            case State.Kick:
+                if (stateTime < 0.07f) return Action(F_KNEE);
+                if (stateTime < 0.30f) return Action(F_KICK);
+                return Action(F_KNEE);
+
+            default: // Ground
+                if (running && runSprites != null && runSprites.Length > 0)
+                    return runSprites[(int)(animClock / runSpriteFrameTime) % runSprites.Length];
+                if (moving && walkSprites != null && walkSprites.Length > 0)
+                    return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
+                if (moving && useRunFramesWhenMoving)
+                    return Action(F_RUN1 + (int)(animClock / runFrameTime) % 3);
+                return IdleFrame();
+        }
+    }
+
+    Sprite IdleFrame()
+    {
+        if (idleSprites == null || idleSprites.Length == 0) return Action(F_STAND);
+        int n = idleSprites.Length;
+        if (n == 1) return idleSprites[0];
+        // edestakaisin: 0,1,...,n-1,n-2,...,1
+        int period = 2 * n - 2;
+        int i = (int)(animClock / idleFrameTime) % period;
+        return idleSprites[i < n ? i : period - i];
+    }
+
+    Sprite Action(int index)
+    {
+        if (actionSprites == null || actionSprites.Length == 0) return null;
+        return actionSprites[Mathf.Clamp(index, 0, actionSprites.Length - 1)];
+    }
+
+    // ---------------- Syöte (näppäimistö + peliohjain) ----------------
+
+    Vector2 ReadMove()
+    {
+        Vector2 v = Vector2.zero;
+#if ENABLE_INPUT_SYSTEM
+        var k = Keyboard.current;
+        if (k != null)
+        {
+            if (k.aKey.isPressed || k.leftArrowKey.isPressed) v.x -= 1;
+            if (k.dKey.isPressed || k.rightArrowKey.isPressed) v.x += 1;
+            if (k.sKey.isPressed || k.downArrowKey.isPressed) v.y -= 1;
+            if (k.wKey.isPressed || k.upArrowKey.isPressed) v.y += 1;
+        }
+        var g = Gamepad.current;
+        if (g != null)
+        {
+            Vector2 stick = g.leftStick.ReadValue();
+            if (stick.magnitude > 0.25f) v += stick;
+            v += g.dpad.ReadValue();
+        }
+#else
+        v = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+#endif
+        return Vector2.ClampMagnitude(v, 1f);
+    }
+
+    bool JumpPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.Space);
+#endif
+    }
+
+    bool PunchPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.J);
+#endif
+    }
+
+    bool RunHeld()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && (Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))
+            || (Gamepad.current != null && Gamepad.current.rightShoulder.isPressed);
+#else
+        return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+#endif
+    }
+
+    bool KickPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.K);
+#endif
+    }
+
+    // ---------------- Apufunktiot ----------------
+
+    /// Unity nimeää leikatut spritet "tiedosto_0", "tiedosto_1"... Järjestetään numeron mukaan,
+    /// ettei raahausjärjestyksellä ole väliä (muuten _10 voisi tulla ennen _2).
+    public static void SortByFrameNumber(Sprite[] sprites)
+    {
+        if (sprites == null) return;
+        Array.Sort(sprites, (a, b) => FrameNumber(a).CompareTo(FrameNumber(b)));
+    }
+
+    static int FrameNumber(Sprite s)
+    {
+        if (s == null) return int.MaxValue;
+        int u = s.name.LastIndexOf('_');
+        return u >= 0 && int.TryParse(s.name.Substring(u + 1), out int n) ? n : 0;
+    }
+
+    public static Sprite CreateShadowSprite()
+    {
+        const int w = 64, h = 32;
+        var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+        for (int y = 0; y < h; y++)
+            for (int x = 0; x < w; x++)
+            {
+                float dx = (x + 0.5f) / w * 2f - 1f, dy = (y + 0.5f) / h * 2f - 1f;
+                float d = Mathf.Sqrt(dx * dx + dy * dy);
+                float a = Mathf.Clamp01((1f - d) * 3f) * 0.45f;
+                tex.SetPixel(x, y, new Color(0f, 0f, 0f, a));
+            }
+        tex.Apply();
+        return Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), w);
+    }
+}
