@@ -25,6 +25,10 @@ public class HitFx : MonoBehaviour
     public AudioClip[] impactSounds;
     [Range(0f, 1f)] public float impactVolume = 0.8f;
 
+    [Header("Rahan keräys (Assets/Audio/sfx/setelin nosto)")]
+    public AudioClip pickupSound;
+    [Range(0f, 1f)] public float pickupVolume = 0.8f;
+
     [Header("Tuntuma")]
     public float lightHitstop = 0.05f;
     public float heavyHitstop = 0.10f;
@@ -51,6 +55,15 @@ public class HitFx : MonoBehaviour
         fx.PlayImpact();
         CameraFollow.Shake(heavy ? fx.heavyShake : fx.lightShake, heavy ? 0.2f : 0.12f);
         fx.Hitstop(heavy ? fx.heavyHitstop : fx.lightHitstop);
+    }
+
+    /// Rahan keräysääni. Tukku soi vähän matalammalta ja kovempaa.
+    public static void PlayPickup(bool rare)
+    {
+        var fx = Instance;
+        if (fx.pickupSound == null) return;
+        fx.source.pitch = rare ? 0.9f : Random.Range(0.97f, 1.05f);
+        fx.source.PlayOneShot(fx.pickupSound, rare ? 1f : fx.pickupVolume);
     }
 
     void Hitstop(float duration)

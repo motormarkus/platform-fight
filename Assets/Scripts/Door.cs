@@ -106,7 +106,7 @@ public class Door : MonoBehaviour
             style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter };
             style.normal.textColor = Color.white;
         }
-        string text = "[E]  " + prompt;
+        string text = "[E]  " + Loc.T(prompt);
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;
         GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), text, style);
     }

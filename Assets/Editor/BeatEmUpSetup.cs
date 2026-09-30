@@ -48,12 +48,14 @@ public static class BeatEmUpSetup
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
         int CellW = baseName0.StartsWith("tanssija") ? 256 : BeatEmUpSetup.CellW;
+        // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
+        int ppu = baseName0.StartsWith("myyja") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
 
         var ti = (TextureImporter)AssetImporter.GetAtPath(path);
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Multiple;
-        ti.spritePixelsPerUnit = 100;
+        ti.spritePixelsPerUnit = ppu;
         ti.filterMode = FilterMode.Bilinear;
         ti.textureCompression = TextureImporterCompression.Uncompressed;
         ti.maxTextureSize = 2048;
@@ -634,6 +636,7 @@ public static class BeatEmUpSetup
     // Lavan kohta S-Clubin sisäkuvassa (pikseleinä): tanko x = 770, jalat lavan pinnalla rivillä ~ 525
     const float StageFeetRow = 527f;
     static readonly float[] DancerPx = { 655f, 890f };
+    const float DancerScale = 1.2f;   // tanssijat 20 % isompina
 
     [MenuItem("Beat em up/11. Lisää tanssijat lavalle")]
     static void AddDancers()
@@ -660,6 +663,7 @@ public static class BeatEmUpSetup
             var go = new GameObject("Tanssija " + (i + 1));
             go.transform.SetParent(root.transform, false);
             go.transform.position = new Vector3(left + DancerPx[i] / ppu, top - StageFeetRow / ppu, 0f);
+            go.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);   // jalat pysyvät paikallaan
             var sr = go.AddComponent<SpriteRenderer>();
             sr.sprite = sprites[0];
             sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
@@ -673,6 +677,326 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         EditorUtility.DisplayDialog("Beat em up", $"Kaksi tanssijaa lavalla ({sprites.Length} kuvaa, silmukka).\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    // ---------------- Punkkari ----------------
+    // Kadulla (x pelaajan aloituskohdasta, syvyys y) ja S-Clubin sisällä (x sisätilan vasemmasta reunasta, syvyys 0 = keskellä)
+    static readonly Vector2[] PunkStreet = { new Vector2(18f, -2.8f), new Vector2(40f, -2.2f), new Vector2(70f, -3.0f), new Vector2(100f, -2.4f) };
+    static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f) };
+
+    static Sprite[] EnemySheet(string name, List<string> report)
+    {
+        string path = AssetDatabase.FindAssets("t:Texture2D " + name, new[] { EnemyFolder })
+            .Select(AssetDatabase.GUIDToAssetPath)
+            .FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == name);
+        Sprite[] sp = path == null ? new Sprite[0] :
+            AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
+                .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0)
+                .ToArray();
+        report.Add(sp.Length > 0 ? $"{name}.png: {sp.Length} kuvaa" : $"{name}.png: puuttuu (varaliike)");
+        return sp;
+    }
+
+    [MenuItem("Beat em up/12. Lisää Punkkarit (katu ja S-Club)")]
+    static void AddPunks()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        var report = new List<string>();
+        Sprite[] idle = EnemySheet("punk_idle", report);
+        if (idle.Length == 0)
+        {
+            EditorUtility.DisplayDialog("Beat em up", "punk_idle.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK");
+            return;
+        }
+
+        // vanhat punkkarit pois
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+            if (e.gameObject.name.StartsWith("Punkkari")) Undo.DestroyObjectImmediate(e.gameObject);
+
+        // malli
+        var go = new GameObject("Punkkari");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Punkkari";
+        t.idleSprites = idle;
+        t.walkSprites = EnemySheet("punk_kavely", report);
+        t.punchSprites = EnemySheet("punk_lyonti", report);
+        t.altAttackSprites = EnemySheet("punk_pusku", report);
+        t.hurtSprites = EnemySheet("punk_osuma", report);
+        t.knockdownSprites = EnemySheet("punk_kaatuminen", report);
+        t.getUpSprites = EnemySheet("punk_ylosnousu", report);
+        t.idleFrameTime = 0.2f;
+        t.walkFrameTime = 0.115f;          // videon oma tahti (12 kuvaa, 1.4 s sykli)
+        t.moveSpeedX = 2.6f;               // Kovista nopeampi
+        t.moveSpeedY = 1.6f;
+        t.maxHealth = 45;                  // mutta kestää vähemmän
+        t.punchDamage = 7;
+        t.punchImpactFrame = 3;
+        t.altImpactFrame = 4;              // pusku osuu kuvassa 5 (tähti)
+        t.altDamage = 12;
+        t.altChance = 0.35f;
+        t.attackCooldown = 1.3f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        t.hurtVolume = 0.99f;
+        Undo.RegisterCreatedObjectUndo(go, "Punkkari");
+
+        var positions = new List<Vector3>();
+        float x0 = pc.transform.position.x;
+        foreach (var v in PunkStreet)
+            positions.Add(new Vector3(x0 + v.x, Mathf.Clamp(v.y, pc.minDepthY, pc.maxDepthY), 0f));
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        if (club != null)
+        {
+            float mid = (club.minDepthY + club.maxDepthY) * 0.5f;
+            foreach (var v in PunkClub)
+                positions.Add(new Vector3(ClubX0 + v.x, Mathf.Clamp(mid + v.y, club.minDepthY, club.maxDepthY), 0f));
+        }
+        go.transform.position = positions[0];
+        for (int i = 1; i < positions.Count; i++)
+        {
+            var c = Object.Instantiate(go);
+            c.name = "Punkkari_" + (i + 1);
+            c.transform.position = positions[i];
+            Undo.RegisterCreatedObjectUndo(c, "Punkkari");
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Punkkareita: {PunkStreet.Length} kadulla" + (club != null ? $", {PunkClub.Length} S-Clubissa" : " (S-Club puuttuu, tee kohta 10)") +
+            "\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/13. Päivitä erikoisliike (pyörähdyspotku)")]
+    static void UpdateSpecial()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] sp = LoadSprites("erikoispotku")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "erikoispotku.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK"); return; }
+        Undo.RecordObject(pc, "Erikoisliike");
+        pc.specialSprites = sp;
+        pc.specialFrameTime = 0.045f;
+        // nopea 360: potku eteen kuvissa 7–9, heti perään taakse kuvissa 10–13 (18 kuvaa × 0.045 s)
+        pc.specialHitFrom = 0.25f;
+        pc.specialHitTo = 0.60f;
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Pyörähdyspotku: {sp.Length} kuvaa ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molempiin suuntiin ja kaataa.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
+    const float BarCounterPx = 2155f, BarCounterHalfPx = 410f;
+    const float CounterTopRow = 402f;   // tiskin yläreuna sisäkuvassa
+
+    [MenuItem("Beat em up/14. Luo baaritiski (kauppa) S-Clubiin")]
+    static void CreateShop()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        if (club == null) { EditorUtility.DisplayDialog("Beat em up", "Tee ensin kohta 10 (S-Clubin sisätila).", "OK"); return; }
+        var old = GameObject.Find("Baaritiski");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Baaritiski");
+        go.transform.position = new Vector3(ClubX0 + BarCounterPx / ClubPPU, club.maxDepthY, 0f);
+        var shop = go.AddComponent<ShopCounter>();
+        shop.here = club;
+        shop.halfWidth = BarCounterHalfPx / ClubPPU;
+        shop.maxDistanceFromWall = 1.0f;
+        // ostoäänet kansiosta Assets/Audio/sfx (sama ääni käy usealle tuotteelle)
+        var soundFor = new Dictionary<string, string>
+        {
+            { "Sipsipussi", "sipsipussi" }, { "Grillimakkara", "grillimakkara" }, { "Lonkero", "lonkero" },
+            { "Makkaraperunat", "grillimakkara" }, { "Tuoppi", "lonkero" }, { "Kossupaukku", "kossupaukku" },
+        };
+        int soundCount = 0;
+        foreach (var it in shop.items)
+            if (soundFor.TryGetValue(it.name, out string file))
+            {
+                it.sound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/" + file + ".wav");
+                if (it.sound != null) soundCount++;
+            }
+        Undo.RegisterCreatedObjectUndo(go, "Baaritiski");
+
+        // HUD tarvitaan rahojen ja elämien näyttämiseen
+        if (Object.FindFirstObjectByType<GameHUD>() == null)
+        {
+            var hud = new GameObject("HUD").AddComponent<GameHUD>();
+            Undo.RegisterCreatedObjectUndo(hud.gameObject, "HUD");
+        }
+        // myyjä Sohvi tiskin taakse: kuvan alareuna = tiskin yläreuna (rivi 402 sisäkuvassa)
+        string sohviInfo = "Sohvi: myyja_sohvi.png puuttuu (kohta 1)";
+        var oldS = GameObject.Find("Sohvi");
+        if (oldS != null) Undo.DestroyObjectImmediate(oldS);
+        var sohviSprites = LoadSprites("myyja_sohvi")
+            .OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        var clubBg = GameObject.Find("S-Club sisä");
+        if (sohviSprites.Length > 0 && clubBg != null)
+        {
+            var bgSr = clubBg.GetComponent<SpriteRenderer>();
+            float top = clubBg.transform.position.y + bgSr.bounds.size.y * 0.5f;
+            var sGo = new GameObject("Sohvi");
+            sGo.transform.position = new Vector3(ClubX0 + BarCounterPx / ClubPPU, top - CounterTopRow / ClubPPU, 0f);
+            var sSr = sGo.AddComponent<SpriteRenderer>();
+            sSr.sprite = sohviSprites[0];
+            sSr.sortingOrder = -9500;                   // taustan edessä, kaikkien hahmojen takana
+            var anim = sGo.AddComponent<Dancer>();      // silmukka-animaatio (hengitys edestakaisin)
+            anim.sprites = sohviSprites;
+            anim.frameTime = 0.18f;
+            Undo.RegisterCreatedObjectUndo(sGo, "Sohvi");
+            shop.transform.position = new Vector3(sGo.transform.position.x, shop.transform.position.y, 0f);
+            sohviInfo = $"Sohvi tiskin takana ({sohviSprites.Length} kuvaa)";
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        EditorUtility.DisplayDialog("Beat em up",
+            sohviInfo + "\n" + $"Baaritiski luotu S-Clubin oikealle puolelle ({soundCount}/{shop.items.Length} tuotteella ääni).\nMene tiskin eteen ja paina E: juomat ja snackit maksavat markkoja,\njoita putoaa kaatuneista vihollisista.\n\nValikoimaa ja hintoja voi muuttaa Baaritiski-objektista.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/15. Aseta rahapudotusten kuvat")]
+    static void SetupPickups()
+    {
+        var report = new List<string>();
+        foreach (var n in new[] { "seteli", "setelitukku" })
+        {
+            string path = "Assets/Resources/Pickups/" + n + ".png";
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) { report.Add(n + ".png: puuttuu"); continue; }
+            ti.textureType = TextureImporterType.Sprite;
+            ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 200;                      // n. 0.65 yksikköä leveä maassa
+            ti.filterMode = FilterMode.Bilinear;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            ti.mipmapEnabled = false;
+            ti.alphaIsTransparency = true;
+            var st = new TextureImporterSettings();
+            ti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)SpriteAlignment.BottomCenter;
+            ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+            report.Add(n + ".png: OK");
+        }
+        // keräysääni HitFx-objektiin
+        var fx = Object.FindFirstObjectByType<HitFx>();
+        if (fx == null)
+        {
+            fx = new GameObject("HitFx").AddComponent<HitFx>();
+            Undo.RegisterCreatedObjectUndo(fx.gameObject, "HitFx");
+        }
+        Undo.RecordObject(fx, "Keräysääni");
+        fx.pickupSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/setelin nosto.wav");
+        EditorUtility.SetDirty(fx);
+        EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
+        report.Add("Keräysääni (setelin nosto.wav): " + (fx.pickupSound != null ? "OK" : "puuttuu"));
+        EditorUtility.DisplayDialog("Beat em up",
+            "Rahapudotukset:\n" + string.Join("\n", report) + "\n\nSeteli 1 mk, setelitukku 50 mk (1/25).\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    // ---------------- Rekvisiitta: moottoripyörät ----------------
+    const string BikePath = "Assets/Sprites/Rekvisiitta/moottoripyora.png";             // keula vasemmalle
+    const string BikeRightPath = "Assets/Sprites/Rekvisiitta/moottoripyora_oikea.png";  // keula oikealle (pakoputket oikealla puolella)
+    // Ovet kadun kuvasarjassa (pikseliä sarjan vasemmasta reunasta): baari 2260, S-Club 3769.
+    // Pyörät oven molemmin puolin niin, ettei oviaukko peity. (x sarjan alusta, keula oikealle?)
+    // Kuvia ei peilata, koska pakoputket olisivat silloin väärällä puolella.
+    static readonly (float px, bool flip)[] BikeSpots =
+    {
+        (2260f - 470f, false), (2260f + 300f, true),     // baarin edessä (vasen roskisten vasemmalla puolella)
+        (3769f - 330f, true),  (3769f + 320f, false),    // S-Clubin edessä
+    };
+
+    [MenuItem("Beat em up/16. Lisää moottoripyörät jalkakäytävälle")]
+    static void AddBikes()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var street = GameObject.Find("Tausta");
+        var sprite = ImportProp(BikePath);
+        var spriteRight = ImportProp(BikeRightPath);
+        if (pc == null || street == null || sprite == null)
+        {
+            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + BikePath, "OK");
+            return;
+        }
+
+        var old = GameObject.Find("Moottoripyörät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Moottoripyörät");
+        Undo.RegisterCreatedObjectUndo(root, "Moottoripyörät");
+
+        // kadun arvot: käytetään katualueen asetuksia, jos pelaaja on juuri klubissa
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        float curb = streetArea != null ? streetArea.curbDepthY : pc.curbDepthY;
+        float wall = streetArea != null ? streetArea.maxDepthY : pc.maxDepthY;
+        float kerb = streetArea != null ? streetArea.sidewalkHeight : pc.sidewalkHeight;
+        float y = (curb + wall) * 0.5f;                       // keskellä jalkakäytävää
+
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float left = street.transform.position.x - ssr.size.x * 0.5f;
+        float setU = StreetSetPx / BackgroundPPU;
+        int sets = Mathf.RoundToInt(ssr.size.x / setU);
+        int count = 0;
+        for (int s = 0; s < sets; s++)
+            foreach (var spot in BikeSpots)
+            {
+                var go = new GameObject("Moottoripyörä " + (++count));
+                go.transform.SetParent(root.transform, false);
+                go.transform.position = new Vector3(left + spot.px / BackgroundPPU + s * setU, y, 0f);
+                var vis = new GameObject("Visual");
+                vis.transform.SetParent(go.transform, false);
+                vis.transform.localPosition = new Vector3(0f, kerb, 0f);   // jalkakäytävän pinnalla
+                var sr = vis.AddComponent<SpriteRenderer>();
+                // oikealle osoittava pyörä omasta kuvastaan; jos sitä ei ole, peilataan varalta
+                sr.sprite = spot.flip && spriteRight != null ? spriteRight : sprite;
+                sr.flipX = spot.flip && spriteRight == null;
+                sr.sortingOrder = Mathf.RoundToInt(-y * 100f);            // sama syvyysjärjestys kuin hahmoilla
+            }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Selection.activeGameObject = root;
+        EditorUtility.DisplayDialog("Beat em up",
+            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/17. Päivitä sivupotku")]
+    static void UpdateSideKick()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] sp = LoadSprites("sivupotku")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "sivupotku.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK"); return; }
+        Undo.RecordObject(pc, "Sivupotku");
+        pc.sideKickSprites = sp;
+        pc.sideKickFrameTime = 0.06f;
+        pc.sideKickImpactFrame = 3;
+        pc.sideKickImpactHold = 0.14f;
+        pc.sideKickArtOffset = 0.43f;     // sheetin kuvat siirretty 43 px vasemmalle
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Sivupotku: {sp.Length} kuvaa.\nK-nappi vuorottelee tavallisen potkun ja sivupotkun välillä.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    /// Rekvisiittakuvan tuonti: yksi sprite, 100 px/yksikkö, kiinnitys alareunan keskelle.
+    static Sprite ImportProp(string path)
+    {
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (ti == null) return null;
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = 100;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.mipmapEnabled = false;
+        ti.alphaIsTransparency = true;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteAlignment = (int)SpriteAlignment.BottomCenter;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

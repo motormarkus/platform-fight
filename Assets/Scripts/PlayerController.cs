@@ -74,6 +74,12 @@ public class PlayerController : MonoBehaviour
     [Header("Kestävyys")]
     public int maxHealth = 100;
     [HideInInspector] public int health;
+    [Tooltip("Elämiä pelin alussa. Kun energia loppuu, menee yksi elämä ja energia täyttyy.")]
+    public int lives = 3;
+    [Tooltip("Rahat (markat): vihollisista putoaa, klubin baarissa voi ostaa.")]
+    public int money;
+    [Tooltip("Suoja-aika (s) elämän menettämisen jälkeen.")]
+    public float respawnInvulnerable = 2.5f;
     public float hurtTime = 0.35f;
     [Tooltip("Pelaajan omat kipuäänet (valinnainen).")]
     public AudioClip[] hurtSounds;
@@ -85,6 +91,29 @@ public class PlayerController : MonoBehaviour
     public float jumpKickReach = 1.9f;
     [Tooltip("Kuinka lähellä syvyyssuunnassa vihollisen pitää olla, jotta isku osuu.")]
     public float attackDepth = 0.4f;
+
+    [Header("Sivupotku (K vuorottelee tavallisen potkun kanssa)")]
+    public Sprite[] sideKickSprites;
+    public float sideKickFrameTime = 0.06f;
+    [Tooltip("Kuva, jossa jalka on ojennettuna (0 = ensimmäinen).")]
+    public int sideKickImpactFrame = 3;
+    [Tooltip("Kuinka kauan ojennettu jalka pidetään (osuma-aika).")]
+    public float sideKickImpactHold = 0.14f;
+    public int sideKickDamage = 12;
+    public float sideKickReach = 2.5f;
+    [Tooltip("Sheetissä kuvat on siirretty vasemmalle, jotta potku mahtuu ruutuun (yksikköä); korjataan tässä.")]
+    public float sideKickArtOffset = 0.43f;
+    bool nextKickSide;
+
+    [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen LB), osuu joka suuntaan")]
+    public Sprite[] specialSprites;
+    public float specialFrameTime = 0.055f;
+    public int specialDamage = 16;
+    [Tooltip("Ulottuvuus molempiin suuntiin (yksikköä).")]
+    public float specialReach = 2.4f;
+    [Tooltip("Aikaikkuna, jolloin potkut osuvat (s liikkeen alusta): ensin taakse, sitten eteen.")]
+    public float specialHitFrom = 0.30f;
+    public float specialHitTo = 0.88f;
 
     [Header("Äänet")]
     [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
@@ -159,7 +188,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick }
 
     int comboIndex;
     bool comboQueued;
@@ -181,6 +210,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(runSprites);
+        SortByFrameNumber(specialSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -197,10 +227,18 @@ public class PlayerController : MonoBehaviour
         stateTime += dt;
         animClock += dt;
 
+        if (invulnTimer > 0f)
+        {
+            invulnTimer -= dt;
+            if (body != null) body.enabled = invulnTimer <= 0f || Mathf.FloorToInt(invulnTimer * 12f) % 2 == 0;
+        }
+        if (GameOver) { ApplyVisual(); return; }
+
         Vector2 move = ReadMove();
         bool jumpPressed = JumpPressed();
         bool punchPressed = PunchPressed();
         bool kickPressed = KickPressed();
+        bool specialPressed = SpecialPressed();
 
         UpdateGroundHeight(dt);
 
@@ -216,7 +254,16 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
-                if (kickPressed) { Enter(State.Kick); attackHit = false; PlayGrunt(); break; }
+                if (kickPressed)
+                {
+                    bool side = nextKickSide && sideKickSprites != null && sideKickSprites.Length > 0;
+                    nextKickSide = !nextKickSide;       // vuorotellen tavallinen potku ja sivupotku
+                    Enter(side ? State.SideKick : State.Kick); attackHit = false; PlayGrunt(); break;
+                }
+                if (specialPressed && specialSprites != null && specialSprites.Length > 0)
+                {
+                    Enter(State.Special); specialHits.Clear(); PlayGrunt(); break;
+                }
                 Walk(move, dt);
                 break;
 
@@ -284,6 +331,22 @@ public class PlayerController : MonoBehaviour
                 if (stateTime >= comboRecovery) Enter(State.Ground);
                 break;
 
+            case State.SideKick:
+            {
+                float hitFrom = sideKickImpactFrame * sideKickFrameTime;
+                float hitTo = hitFrom + sideKickImpactHold;
+                if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
+                    attackHit = AttackEnemies(sideKickReach, sideKickDamage, false);
+                if (stateTime >= hitTo + (sideKickSprites.Length - sideKickImpactFrame - 1) * sideKickFrameTime)
+                    Enter(State.Ground);
+                break;
+            }
+
+            case State.Special:
+                if (stateTime >= specialHitFrom && stateTime <= specialHitTo) AttackAround();
+                if (stateTime >= specialSprites.Length * specialFrameTime) Enter(State.Ground);
+                break;
+
             case State.Kick:
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false);
@@ -333,7 +396,20 @@ public class PlayerController : MonoBehaviour
     Vector2 hurtVel;
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt;
+    public bool IsDown => state == State.Hurt || GameOver || invulnTimer > 0f;
+    /// Elämät loppuivat.
+    public bool GameOver { get; private set; }
+    float invulnTimer;
+
+    /// Energian palautus (ruoka ja juoma). Palauttaa todellisen lisäyksen.
+    public int Heal(int amount)
+    {
+        int before = health;
+        health = Mathf.Min(maxHealth, health + amount);
+        return health - before;
+    }
+
+    public void AddMoney(int amount) { money += amount; }
     /// Kuinka korkealla pelaaja on hypyssä (vihollisen lyönti menee ali, jos korkealla).
     public float AirHeight => height;
 
@@ -369,10 +445,28 @@ public class PlayerController : MonoBehaviour
         ApplyVisual();
     }
 
+    readonly System.Collections.Generic.HashSet<Enemy> specialHits = new System.Collections.Generic.HashSet<Enemy>();
+
+    /// Pyörähdyspotku: osuu kaikkiin lähellä oleviin molemmin puolin, kerran kuhunkin, ja kaataa.
+    void AttackAround()
+    {
+        Vector3 me = transform.position;
+        bool any = false;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead || specialHits.Contains(e)) continue;
+            Vector3 p = e.transform.position;
+            if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
+            if (e.TakeHit(specialDamage, me.x, true)) { specialHits.Add(e); any = true; }
+        }
+        if (any) HitFx.OnHit(true);
+    }
+
     /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
     public bool TakeHit(int damage, float attackerX)
     {
-        if (state == State.Hurt) return false;
+        if (state == State.Hurt || state == State.Special) return false;   // pyörähdyksen aikana ei voi lyödä
+        if (GameOver || invulnTimer > 0f) return false;
         health = Mathf.Max(0, health - damage);
         bool fromRight = attackerX > transform.position.x;
         facingRight = fromRight;                    // käänny lyöjää kohti
@@ -381,7 +475,12 @@ public class PlayerController : MonoBehaviour
         Enter(State.Hurt);
         PlayClip(hurtSounds);
         HitFx.OnHit(false);
-        if (health <= 0) health = maxHealth;         // väliaikaisesti: ei vielä peli ohi -ruutua
+        if (health <= 0)
+        {
+            lives--;
+            if (lives > 0) { health = maxHealth; invulnTimer = respawnInvulnerable; }
+            else GameOver = true;
+        }
         return true;
     }
 
@@ -470,6 +569,7 @@ public class PlayerController : MonoBehaviour
             float ppu = spr.pixelsPerUnit;
             pivotFix.x = (spr.pivot.x - spr.rect.width * 0.5f) / ppu;
             pivotFix.y = spr.pivot.y / ppu;
+            if (state == State.SideKick) pivotFix.x += sideKickArtOffset;   // kuvat on siirretty sheetissä vasemmalle -> takaisin oikealle
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
         body.transform.localPosition = new Vector3(pivotFix.x, groundHeight + height - footOffset + pivotFix.y, 0f);
@@ -529,6 +629,20 @@ public class PlayerController : MonoBehaviour
 
             case State.Hurt:
                 return Action(F_HURT);
+
+            case State.SideKick:
+            {
+                float hitFrom = sideKickImpactFrame * sideKickFrameTime;
+                float hitTo = hitFrom + sideKickImpactHold;
+                int i;
+                if (stateTime < hitFrom) i = (int)(stateTime / sideKickFrameTime);
+                else if (stateTime < hitTo) i = sideKickImpactFrame;
+                else i = sideKickImpactFrame + 1 + (int)((stateTime - hitTo) / sideKickFrameTime);
+                return sideKickSprites[Mathf.Clamp(i, 0, sideKickSprites.Length - 1)];
+            }
+
+            case State.Special:
+                return specialSprites[Mathf.Min((int)(stateTime / specialFrameTime), specialSprites.Length - 1)];
 
             case State.Kick:
                 if (stateTime < 0.07f) return Action(F_KNEE);
@@ -627,6 +741,16 @@ public class PlayerController : MonoBehaviour
             || (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame);
 #else
         return Input.GetKeyDown(KeyCode.K);
+#endif
+    }
+
+    bool SpecialPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.L);
 #endif
     }
 

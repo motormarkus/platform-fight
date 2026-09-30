@@ -51,11 +51,31 @@ public class Enemy : MonoBehaviour
     [Tooltip("Lyöntianimaatiossa kuva, jossa käsi on täysin ojennettu (0 = ensimmäinen).")]
     public int punchImpactFrame = 3;
 
+    [Header("Toinen hyökkäys (esim. pusku) – vapaaehtoinen")]
+    public Sprite[] altAttackSprites;
+    [Tooltip("Kuva, jossa isku osuu (0 = ensimmäinen).")]
+    public int altImpactFrame = 4;
+    public int altDamage = 12;
+    [Tooltip("Kuinka usein toista hyökkäystä käytetään (0–1).")]
+    [Range(0f, 1f)] public float altChance = 0.35f;
+    [Tooltip("Veto kestää tämän verran pidempään (pelaaja ehtii väistää).")]
+    public float altExtraWindup = 0.15f;
+    [Tooltip("Ulottuvuus (pusku syöksyy pidemmälle kuin lyönti).")]
+    public float altReach = 2.3f;
+
     [Header("Kestävyys")]
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
     public float downTime = 1.0f;
     public float getUpTime = 0.5f;
+
+    [Header("Pudotus (kun kaatuu lopullisesti)")]
+    [Tooltip("Tavallinen pudotus: yksi seteli.")]
+    public int noteValue = 1;
+    [Tooltip("Harvinainen pudotus: setelitukku.")]
+    public int stackValue = 50;
+    [Tooltip("Tukun todennäköisyys (0.04 = 1/25).")]
+    [Range(0f, 1f)] public float stackChance = 0.04f;
 
     [Header("Äänet")]
     public AudioClip[] hurtSounds;
@@ -94,6 +114,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(punchSprites);
+        PlayerController.SortByFrameNumber(altAttackSprites);
         PlayerController.SortByFrameNumber(hurtSprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
@@ -135,7 +156,7 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Windup:
-                if (stateTime >= windupTime) { punchLanded = false; Enter(State.Punch); }
+                if (stateTime >= CurrentWindup) { punchLanded = false; Enter(State.Punch); }
                 break;
 
             case State.Punch:
@@ -172,7 +193,7 @@ public class Enemy : MonoBehaviour
             case State.Down:
                 if (stateTime >= downTime)
                 {
-                    if (health <= 0) Enter(State.Dead);
+                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
                     else Enter(State.GetUp);
                 }
                 break;
@@ -240,6 +261,7 @@ public class Enemy : MonoBehaviour
         if (inRange && attackRank <= 1 && cooldown <= 0f && !player.IsDown)
         {
             moving = false;
+            usingAlt = Has(altAttackSprites) && Random.value < altChance;
             Enter(State.Windup);
             return;
         }
@@ -259,10 +281,10 @@ public class Enemy : MonoBehaviour
         Vector3 p = player.transform.position, me = transform.position;
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
-        if (!front || Mathf.Abs(dx) > attackRange + 0.2f) return false;
+        if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
-        return player.TakeHit(punchDamage, me.x);
+        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x);
     }
 
     // ---------------- Osumat ----------------
@@ -379,30 +401,30 @@ public class Enemy : MonoBehaviour
                 return IdleFrame();
 
             case State.Windup:
-                if (Has(punchSprites))
+                if (Has(AtkSprites))
                 {
                     // veto taakse: kuvat ennen iskun liikettä (esim. 0 ja 1), jaettuna vetoajalle
-                    int wind = Mathf.Clamp(PunchImpact - 1, 1, punchSprites.Length);
-                    return punchSprites[Mathf.Min((int)(stateTime / windupTime * wind), wind - 1)];
+                    int wind = Mathf.Clamp(PunchImpact - 1, 1, AtkSprites.Length);
+                    return AtkSprites[Mathf.Min((int)(stateTime / CurrentWindup * wind), wind - 1)];
                 }
                 return IdleFrame();
 
             case State.Punch:
-                if (Has(punchSprites))
+                if (Has(AtkSprites))
                 {
                     // lyhyt välikuva ja sitten täysin ojennettu käsi
                     int imp = PunchImpact;
-                    return punchSprites[stateTime < 0.04f && imp > 0 ? imp - 1 : imp];
+                    return AtkSprites[stateTime < 0.04f && imp > 0 ? imp - 1 : imp];
                 }
                 return IdleFrame();
 
             case State.Recover:
-                if (Has(punchSprites))
+                if (Has(AtkSprites))
                 {
                     // käsi pysyy ojennettuna hetken, sitten palautuskuvat
                     int imp = PunchImpact;
-                    int n = punchSprites.Length - imp;
-                    return punchSprites[imp + Mathf.Min((int)(stateTime / punchRecoverTime * n), n - 1)];
+                    int n = AtkSprites.Length - imp;
+                    return AtkSprites[imp + Mathf.Min((int)(stateTime / punchRecoverTime * n), n - 1)];
                 }
                 return IdleFrame();
 
@@ -435,7 +457,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    int PunchImpact => Mathf.Clamp(punchImpactFrame, 0, punchSprites.Length - 1);
+    bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
+    Sprite[] AtkSprites => usingAlt ? altAttackSprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    float CurrentWindup => windupTime + (usingAlt ? altExtraWindup : 0f);
+    float CurrentReach => usingAlt ? altReach : attackRange;
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
 
