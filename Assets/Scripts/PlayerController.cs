@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp }
 
     int comboIndex;
     bool comboQueued;
@@ -211,6 +211,8 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
+        SortByFrameNumber(thrownSprites);
+        SortByFrameNumber(kipUpSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -353,6 +355,48 @@ public class PlayerController : MonoBehaviour
                 if (stateTime >= kickTime) Enter(State.Ground);
                 break;
 
+            case State.Grabbed:
+                break;   // tarttuja liikuttaa (SetHeld)
+
+            case State.Thrown:
+                MoveOnGround(airVel * dt);
+                verticalVel -= gravity * dt;
+                height += verticalVel * dt;
+                // kierähtää lennossa vaaka-asentoon (pää lentosuuntaan)
+                heldRot = Mathf.MoveTowards(heldRot, airVel.x < 0f ? 90f : -90f, 360f * dt);
+                if (height <= 0f)
+                {
+                    height = 0f;
+                    heldRot = airVel.x < 0f ? 90f : -90f;
+                    PlayClip(hurtSounds);
+                    HitFx.OnHit(true);
+                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.25f);
+                    ApplyDamage(pendingDamage);
+                    Enter(State.Down);
+                }
+                break;
+
+            case State.Down:
+                if (stateTime >= thrownDownTime)
+                {
+                    heldRot = 0f;
+                    if (kipUpSprites != null && kipUpSprites.Length > 0) Enter(State.KipUp);   // ponnistaa jaloilleen
+                    else
+                    {
+                        invulnTimer = Mathf.Max(invulnTimer, 1.0f);   // hetki suojaa noustessa
+                        Enter(State.Ground);
+                    }
+                }
+                break;
+
+            case State.KipUp:
+                if (stateTime >= kipUpSprites.Length * kipUpFrameTime)
+                {
+                    invulnTimer = Mathf.Max(invulnTimer, 0.6f);
+                    Enter(State.Ground);
+                }
+                break;
+
             case State.Hurt:
                 MoveOnGround(hurtVel * dt);
                 hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
@@ -396,7 +440,65 @@ public class PlayerController : MonoBehaviour
     Vector2 hurtVel;
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt || GameOver || invulnTimer > 0f;
+    public bool IsDown => state == State.Hurt || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
+                          || GameOver || invulnTimer > 0f;
+
+    // ---------------- Heitto (vihollinen tarttuu kiinni) ----------------
+    [Header("Heitetyksi joutuminen")]
+    [Tooltip("Kuinka kauan maataan heiton jälkeen.")]
+    public float thrownDownTime = 0.9f;
+    [Tooltip("8 kuvaa: 0–1 ote, 2 nostettuna, 3 pään yllä, 4 lento, 5 isku maahan, 6 pomppu, 7 makaa.")]
+    public Sprite[] thrownSprites;
+    public bool HasThrowSprites => thrownSprites != null && thrownSprites.Length >= 8;
+    [Tooltip("Kip-up-nousu maasta (6 kuvaa).")]
+    public Sprite[] kipUpSprites;
+    public float kipUpFrameTime = 0.1f;
+    float heldRot;          // kuvan kierto nostossa ja lennossa (astetta), jos omia kuvia ei ole
+    int heldPose;           // mikä kuvista 0–3 näytetään nostossa
+    int pendingDamage;
+
+    /// Vihollinen yrittää tarttua. Onnistuu vain, kun pelaaja on maassa eikä kesken erikoisliikkeen.
+    public bool BeginGrab(float enemyX)
+    {
+        if (GameOver || invulnTimer > 0f || height > 0.3f) return false;
+        if (state == State.Hurt || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
+            || state == State.Air || state == State.JumpSquat) return false;
+        facingRight = enemyX > transform.position.x;    // kasvot tarttujaan päin
+        Enter(State.Grabbed);
+        heldRot = 0f;
+        return true;
+    }
+
+    /// Tarttuja liikuttaa pelaajaa: paikka (x, syvyys), korkeus maasta ja kierto.
+    public void SetHeld(Vector3 pos, float lift, float rot, int pose = 0)
+    {
+        if (state != State.Grabbed) return;
+        transform.position = new Vector3(pos.x, Mathf.Clamp(pos.y, minDepthY, maxDepthY), 0f);
+        height = lift;
+        heldRot = rot;
+        heldPose = pose;
+    }
+
+    /// Tarttuja heittää: lento vaakanopeudella vx, ylöspäin up; vahinko tulee maahan osuessa.
+    public void Throw(float vx, float up, int damage)
+    {
+        if (state != State.Grabbed) return;
+        airVel = new Vector2(vx, 0f);
+        verticalVel = up;
+        pendingDamage = damage;
+        Enter(State.Thrown);
+    }
+
+    void ApplyDamage(int damage)
+    {
+        health = Mathf.Max(0, health - damage);
+        if (health <= 0)
+        {
+            lives--;
+            if (lives > 0) { health = maxHealth; invulnTimer = respawnInvulnerable; }
+            else GameOver = true;
+        }
+    }
     /// Elämät loppuivat.
     public bool GameOver { get; private set; }
     float invulnTimer;
@@ -466,8 +568,8 @@ public class PlayerController : MonoBehaviour
     public bool TakeHit(int damage, float attackerX)
     {
         if (state == State.Hurt || state == State.Special) return false;   // pyörähdyksen aikana ei voi lyödä
+        if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
-        health = Mathf.Max(0, health - damage);
         bool fromRight = attackerX > transform.position.x;
         facingRight = fromRight;                    // käänny lyöjää kohti
         hurtVel = new Vector2(fromRight ? -2.5f : 2.5f, 0f);
@@ -475,12 +577,7 @@ public class PlayerController : MonoBehaviour
         Enter(State.Hurt);
         PlayClip(hurtSounds);
         HitFx.OnHit(false);
-        if (health <= 0)
-        {
-            lives--;
-            if (lives > 0) { health = maxHealth; invulnTimer = respawnInvulnerable; }
-            else GameOver = true;
-        }
+        ApplyDamage(damage);
         return true;
     }
 
@@ -573,6 +670,8 @@ public class PlayerController : MonoBehaviour
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
         body.transform.localPosition = new Vector3(pivotFix.x, groundHeight + height - footOffset + pivotFix.y, 0f);
+        bool held = state == State.Grabbed || state == State.Thrown || state == State.Down;
+        body.transform.localRotation = Quaternion.Euler(0f, 0f, held && !HasThrowSprites ? heldRot : 0f);
         if (shadow != null) shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
 
         // lähempänä kameraa (pienempi y) piirretään päälle
@@ -627,6 +726,17 @@ public class PlayerController : MonoBehaviour
                 return Action(last.frame);
             }
 
+            case State.Grabbed:
+                if (HasThrowSprites) return thrownSprites[Mathf.Clamp(heldPose, 0, 3)];
+                return Action(F_HURT);
+            case State.Thrown:
+                if (HasThrowSprites) return thrownSprites[4];
+                return Action(F_HURT);
+            case State.Down:
+                if (HasThrowSprites) return thrownSprites[stateTime < 0.08f ? 5 : stateTime < 0.2f ? 6 : 7];
+                return Action(F_HURT);
+            case State.KipUp:
+                return kipUpSprites[Mathf.Min((int)(stateTime / kipUpFrameTime), kipUpSprites.Length - 1)];
             case State.Hurt:
                 return Action(F_HURT);
 

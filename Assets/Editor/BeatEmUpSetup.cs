@@ -444,6 +444,7 @@ public static class BeatEmUpSetup
         e.hurtSprites = Sheet("vihu_osuma");
         e.knockdownSprites = Sheet("vihu_kaatuminen");
         e.getUpSprites = Sheet("vihu_ylosnousu");
+        e.grabSprites = Sheet("vihu_heitto");      // tarttuu ja heittää välillä, kun pääsee viereen
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         e.hurtVolume = 0.99f;
         report.Add($"Osumaäänet (gasp): {e.hurtSounds.Length} kpl");
@@ -997,6 +998,23 @@ public static class BeatEmUpSetup
         ti.SetTextureSettings(st);
         ti.SaveAndReimport();
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    }
+
+    [MenuItem("Beat em up/18. Päivitä heron heittokuvat")]
+    static void UpdateHeroThrown()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] sp = LoadSprites("hero_heitetty")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"hero_heitetty.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        Undo.RecordObject(pc, "Heittokuvat");
+        pc.thrownSprites = sp;
+        pc.kipUpSprites = LoadSprites("hero_kipup")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up", $"Heron heittokuvat: {sp.Length} kuvaa.\nKip-up-nousu: {pc.kipUpSprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

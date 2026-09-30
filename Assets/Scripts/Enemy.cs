@@ -63,6 +63,17 @@ public class Enemy : MonoBehaviour
     [Tooltip("Ulottuvuus (pusku syöksyy pidemmälle kuin lyönti).")]
     public float altReach = 2.3f;
 
+    [Header("Heitto (vapaaehtoinen): tarttuu, nostaa pään yli ja heittää taakse")]
+    [Tooltip("8 kuvaa: 0 kurotus, 1 ote, 2–4 nosto, 5–6 heitto, 7 asento heiton jälkeen (katsoo heittosuuntaan).")]
+    public Sprite[] grabSprites;
+    [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
+    [Range(0f, 1f)] public float grabChance = 0.3f;
+    [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
+    public float grabRange = 1.3f;
+    public float grabReachTime = 0.3f;
+    public float grabLiftTime = 0.8f;
+    public int throwDamage = 18;
+
     [Header("Kestävyys")]
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
@@ -84,7 +95,9 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead }
+    enum State { Idle, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow }
+    bool grabIntent;   // seuraava hyökkäys on heittoyritys
+    bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
     float stateTime, animClock, cooldown;
     int health;
@@ -115,6 +128,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(punchSprites);
         PlayerController.SortByFrameNumber(altAttackSprites);
+        PlayerController.SortByFrameNumber(grabSprites);
         PlayerController.SortByFrameNumber(hurtSprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
@@ -202,6 +216,37 @@ public class Enemy : MonoBehaviour
                 if (stateTime >= getUpTime) { cooldown = Mathf.Max(cooldown, 0.6f); Enter(State.Chase); }
                 break;
 
+            case State.GrabReach:
+                if (stateTime >= grabReachTime)
+                {
+                    grabIntent = false;
+                    if (CanGrabPlayer() && player.BeginGrab(transform.position.x)) Enter(State.GrabLift);
+                    else Enter(State.Recover);           // ohi
+                }
+                break;
+
+            case State.GrabLift:
+                HoldPlayer(Mathf.Clamp01(stateTime / grabLiftTime) * 3f);        // avainasennot 0..3 (kuvat 1..4)
+                if (stateTime >= grabLiftTime) Enter(State.GrabThrow);
+                break;
+
+            case State.GrabThrow:
+                if (stateTime < ThrowSwing) HoldPlayer(3f + stateTime / ThrowSwing);   // heilautus taakse
+                else if (!thrown)
+                {
+                    thrown = true;
+                    float dir = facingRight ? -1f : 1f;                  // heitetään selän taakse
+                    player.Throw(dir * 5.5f, 4f, throwDamage);
+                }
+                if (stateTime >= ThrowSwing + 0.15f + 0.4f)
+                {
+                    facingRight = !facingRight;                          // Kovis on kääntynyt heittosuuntaan
+                    cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
+                    grabIntent = false;
+                    Enter(State.Idle);
+                }
+                break;
+
             case State.Dead:
                 // vilkkuu ja katoaa
                 if (body != null) body.enabled = Mathf.FloorToInt(stateTime * 12f) % 2 == 0;
@@ -212,8 +257,51 @@ public class Enemy : MonoBehaviour
         ApplyVisual();
     }
 
+    const float ThrowSwing = 0.18f;
+    bool thrown;
+
+    bool CanGrabPlayer()
+    {
+        if (player == null || player.IsDown) return false;
+        Vector3 p = player.transform.position, me = transform.position;
+        float dx = p.x - me.x;
+        bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
+        return front && Mathf.Abs(dx) <= grabRange + 0.3f && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 0.3f;
+    }
+
+    /// Pidä pelaajaa käsissä. k = 0 ote, 1 nosto, 2–3 pään yllä, 4 heilautus taakse.
+    void HoldPlayer(float k)
+    {
+        // avainasennot: (x eteenpäin, korkeus, kierto) Koviksen katsesuunnan mukaan
+        bool art = player.HasThrowSprites;   // pelaajalla omat heittokuvat -> ei kiertoa, kuvat hoitavat asennon
+        Vector3[] artKeys =
+        {
+            new Vector3(1.0f, 0.0f, 0f),     // ote
+            new Vector3(0.9f, 0.3f, 0f),     // nostettuna, jalat irti
+            new Vector3(0.3f, 2.2f, 0f),     // pään yllä vaakatasossa
+            new Vector3(0.0f, 2.4f, 0f),
+            new Vector3(-0.6f, 2.5f, 0f),    // heilautus selän taakse
+        };
+        Vector3[] rotKeys =
+        {
+            new Vector3(0.9f, 0.0f, 0f),
+            new Vector3(0.8f, 0.9f, 25f),
+            new Vector3(1.5f, 3.0f, 90f),
+            new Vector3(1.4f, 3.2f, 95f),
+            new Vector3(-0.3f, 3.1f, 130f),
+        };
+        Vector3[] keys = art ? artKeys : rotKeys;
+        int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
+        int pose = k < 0.5f ? 0 : k < 1f ? 1 : k < 2f ? 2 : 3;
+        Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
+        float dir = facingRight ? 1f : -1f;
+        Vector3 me = transform.position;
+        player.SetHeld(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z, pose);
+    }
+
     void Enter(State s)
     {
+        if (s == State.GrabThrow) thrown = false;
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -244,7 +332,13 @@ public class Enemy : MonoBehaviour
             }
         }
         float side = me.x >= p.x ? 1f : -1f;
-        float dist = attackRange * 0.8f;
+        // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
+        if (cooldown <= 0f && !attackRolled)
+        {
+            grabIntent = Has(grabSprites) && Random.value < grabChance;
+            attackRolled = true;
+        }
+        float dist = grabIntent ? grabRange * 0.6f : attackRange * 0.8f;   // heittoa varten mennään aivan viereen
         float yOff = 0f;
         if (attackRank == 1 && first != null) side = first.transform.position.x >= p.x ? -1f : 1f;
         else if (attackRank >= 2)
@@ -257,10 +351,12 @@ public class Enemy : MonoBehaviour
 
         facingRight = p.x > me.x;
 
-        bool inRange = Mathf.Abs(me.x - p.x) <= attackRange && Mathf.Abs(me.y - p.y) <= depthTolerance;
+        bool inRange = Mathf.Abs(me.x - p.x) <= (grabIntent ? grabRange : attackRange) && Mathf.Abs(me.y - p.y) <= depthTolerance;
         if (inRange && attackRank <= 1 && cooldown <= 0f && !player.IsDown)
         {
             moving = false;
+            attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
+            if (grabIntent) { Enter(State.GrabReach); return; }
             usingAlt = Has(altAttackSprites) && Random.value < altChance;
             Enter(State.Windup);
             return;
@@ -293,6 +389,7 @@ public class Enemy : MonoBehaviour
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
+        if (state == State.GrabLift || state == State.GrabThrow) return false;   // heiton aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
         awake = true;
@@ -446,6 +543,22 @@ public class Enemy : MonoBehaviour
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];
                 rot = 90f;
                 return FirstIdle();
+
+            case State.GrabReach:
+                return Has(grabSprites) ? grabSprites[0] : IdleFrame();
+
+            case State.GrabLift:
+                if (Has(grabSprites)) return grabSprites[Mathf.Clamp(1 + (int)(stateTime / grabLiftTime * 4f), 1, 4)];
+                return IdleFrame();
+
+            case State.GrabThrow:
+                if (Has(grabSprites))
+                {
+                    if (stateTime < ThrowSwing) return grabSprites[Mathf.Min(5, grabSprites.Length - 1)];
+                    if (stateTime < ThrowSwing + 0.15f) return grabSprites[Mathf.Min(6, grabSprites.Length - 1)];
+                    return grabSprites[grabSprites.Length - 1];
+                }
+                return IdleFrame();
 
             case State.GetUp:
                 if (Has(getUpSprites)) return getUpSprites[Mathf.Min((int)(stateTime / getUpTime * getUpSprites.Length), getUpSprites.Length - 1)];
