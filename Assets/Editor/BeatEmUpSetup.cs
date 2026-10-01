@@ -1337,8 +1337,9 @@ public static class BeatEmUpSetup
         t.hurtSprites = EnemySheet("lippis_osuma", report);
         t.headlockThrownSprites = EnemySheet("lippis_niskalenkki", report);   // pelaajan niskalenkki (kun kuvat on lisätty)
         t.idleFrameTime = 0.14f;
-        t.moveSpeedX = 2.5f;
-        t.moveSpeedY = 1.5f;
+        // askelpituus kävelykuvissa n. 1.5 yksikköä, kaksi askelta 0.92 s:ssa -> 3.2 yks/s (jalat eivät liu'u)
+        t.moveSpeedX = 3.2f;
+        t.moveSpeedY = 1.9f;
         t.maxHealth = 55;
         t.punchDamage = 8;
         t.punchImpactFrame = 3;            // käsi suorana kuvassa 4
