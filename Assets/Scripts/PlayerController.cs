@@ -664,6 +664,7 @@ public class PlayerController : MonoBehaviour
 
     bool attackHit;
     Vector2 hurtVel;
+    float shakeUntil;       // osuman tärinä (reaaliaikaa, näkyy osumapysäytyksen aikana)
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
     public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
@@ -840,6 +841,7 @@ public class PlayerController : MonoBehaviour
             blockStun = blockStunTime;
             stateTime = Mathf.Max(stateTime, blockRaiseTime);   // kädet heti ylös
             HitFx.OnHit(false);
+            shakeUntil = HitFx.ShakeUntil(false);
             HitSpark.Spawn(transform.position + new Vector3((fromRight ? 0.5f : -0.5f), 2.3f, 0f), false,
                            Mathf.RoundToInt(-transform.position.y * 100f) + 5, true);
             int chip = Mathf.RoundToInt(damage * blockDamageFactor);
@@ -853,6 +855,7 @@ public class PlayerController : MonoBehaviour
         Enter(State.Hurt);
         PlayClip(hurtSounds);
         HitFx.OnHit(false);
+        shakeUntil = HitFx.ShakeUntil(false);
         HitSpark.Spawn(transform.position + new Vector3((fromRight ? 0.35f : -0.35f), height + 2.2f, 0f), false,
                        Mathf.RoundToInt(-transform.position.y * 100f) + 5);
         ApplyDamage(damage);
@@ -1152,7 +1155,7 @@ public class PlayerController : MonoBehaviour
             if (state == State.HiKick) pivotFix.x += hiKickArtOffset;
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
-        body.transform.localPosition = new Vector3(pivotFix.x, groundHeight + height - footOffset + pivotFix.y, 0f);
+        body.transform.localPosition = new Vector3(pivotFix.x + HitFx.ShakeOffset(shakeUntil), groundHeight + height - footOffset + pivotFix.y, 0f);
         bool held = state == State.Grabbed || state == State.Thrown || state == State.Down;
         body.transform.localRotation = Quaternion.Euler(0f, 0f, held && !HasThrowSprites ? heldRot : 0f);
         if (shadow != null) shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);

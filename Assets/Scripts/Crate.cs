@@ -36,7 +36,7 @@ public class Crate : MonoBehaviour
     enum State { Idle, Carried, Flying, Breaking }
     State state = State.Idle;
     int hits;
-    float height, verticalVel, stateTime, shakeTimer;
+    float height, verticalVel, stateTime, shakeTimer, shakeUntil;
     Vector2 vel;
     bool thrown;            // heitetty (hajoaa osuessaan) vai vain pudotettu (jää ehjäksi)
     int carriedOrder;
@@ -70,6 +70,7 @@ public class Crate : MonoBehaviour
         if (!CanBeHit) return false;
         hits++;
         shakeTimer = 0.15f;
+        shakeUntil = HitFx.ShakeUntil(false);
         if (hits >= hitsToBreak) Break();
         return true;
     }
@@ -196,6 +197,7 @@ public class Crate : MonoBehaviour
             pivotFix.y = spr.pivot.y / ppu;
         }
         float shake = shakeTimer > 0f ? Mathf.Sin(shakeTimer * 120f) * 0.05f : 0f;
+        shake += HitFx.ShakeOffset(shakeUntil, 0.05f);   // tärisee myös osumapysäytyksen aikana
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
         // lennossa laatikko pyörii hieman
         float rot = state == State.Flying && thrown ? -Mathf.Sign(vel.x) * stateTime * 360f : 0f;

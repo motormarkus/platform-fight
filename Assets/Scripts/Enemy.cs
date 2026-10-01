@@ -438,6 +438,7 @@ public class Enemy : MonoBehaviour
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;   // käänny lyöjään päin
         flashTimer = 0.1f;
+        shakeUntil = HitFx.ShakeUntil(knockdown || health <= 0);   // tärisee osumapysäytyksen ajan
         PlayHurtSound();
 
         if (knockdown || health <= 0)
@@ -458,6 +459,7 @@ public class Enemy : MonoBehaviour
     // ---------------- Pelaajan vastaheitto ----------------
 
     bool thrownByPlayer;
+    float shakeUntil;       // osuman tärinä (reaaliaikaa)
     bool artThrow;          // heitetään omilla kuvilla (artSet)
     bool flipLanded;        // maassa omilla alastulokuvilla
     int heldPose = -1;      // mikä omista kuvista näytetään otteessa (-1 = osumakuva + kierto)
@@ -587,7 +589,7 @@ public class Enemy : MonoBehaviour
             pivotFix.y = spr.pivot.y / ppu;
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
-        float shake = (state == State.Hurt && stateTime < 0.15f) ? Mathf.Sin(stateTime * 90f) * 0.05f : 0f;
+        float shake = HitFx.ShakeOffset(shakeUntil);
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
         // kaatumisen väliaikainen korvike: käännetään kuvaa, kun oikeat kuvat puuttuvat
         body.transform.localRotation = Quaternion.Euler(0f, 0f, facingRight ? rot : -rot);

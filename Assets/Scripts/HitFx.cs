@@ -57,6 +57,21 @@ public class HitFx : MonoBehaviour
         fx.Hitstop(heavy ? fx.heavyHitstop : fx.lightHitstop);
     }
 
+    /// Osuman saaneen tärinän loppuhetki (reaaliaikaa): koko pysäytyksen ajan ja vähän sen jälkeen.
+    public static float ShakeUntil(bool heavy)
+    {
+        var fx = Instance;
+        return Time.unscaledTime + (heavy ? fx.heavyHitstop : fx.lightHitstop) + 0.1f;
+    }
+
+    /// Vaakasuuntainen tärinä (yksikköä) reaaliajassa, jotta se näkyy myös pysäytyksen aikana.
+    public static float ShakeOffset(float until, float amplitude = 0.07f)
+    {
+        float left = until - Time.unscaledTime;
+        if (left <= 0f) return 0f;
+        return Mathf.Sin(Time.unscaledTime * 95f) * amplitude * Mathf.Clamp01(left / 0.1f);
+    }
+
     /// Rahan keräysääni. Tukku soi vähän matalammalta ja kovempaa.
     public static void PlayPickup(bool rare)
     {
