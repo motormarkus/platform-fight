@@ -1284,6 +1284,14 @@ public class PlayerController : MonoBehaviour
         Vector3 p = transform.position;
         p.x += delta.x;
         p.y = Mathf.Clamp(p.y + delta.y, minDepthY, maxDepthY);
+        // ei kävellä alueen taustakuvan ulkopuolelle (kameran rajat + puoli ruutua)
+        var cf = CameraFollow.Instance;
+        var cam = Camera.main;
+        if (cf != null && cam != null)
+        {
+            float halfW = cam.orthographicSize * cam.aspect - 0.6f;
+            p.x = Mathf.Clamp(p.x, cf.minX - halfW, cf.maxX + halfW);
+        }
         transform.position = p;
     }
 

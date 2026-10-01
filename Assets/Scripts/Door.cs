@@ -31,6 +31,9 @@ public class Door : MonoBehaviour
 
     [Header("Siirtymä")]
     public float fadeTime = 0.25f;
+    [Tooltip("Palotikkaat: pelaaja kiipeää näin monta yksikköä ylös (negatiivinen = alas) ennen pimennystä. 0 = tavallinen ovi.")]
+    public float climbHeight = 0f;
+    public float climbTime = 0.8f;
 
     PlayerController pc;
     bool near;
@@ -64,7 +67,20 @@ public class Door : MonoBehaviour
         near = false;
         pc.enabled = false;
 
-        for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
+        if (climbHeight != 0f)
+        {
+            // kiipeäminen: ukko siirtyy tikkaiden kohdalle ja nousee, ruutu pimenee loppumatkasta
+            Vector3 start = new Vector3(transform.position.x, pc.transform.position.y, 0f);
+            for (float t = 0f; t < climbTime; t += Time.unscaledDeltaTime)
+            {
+                float k = t / climbTime;
+                pc.transform.position = start + Vector3.up * climbHeight * k;
+                fade = Mathf.Clamp01((k - 0.45f) / 0.55f);
+                yield return null;
+            }
+        }
+        else
+            for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
         fade = 1f;
 
         Area dest = target;

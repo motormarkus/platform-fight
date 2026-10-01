@@ -44,6 +44,7 @@ public static class BeatEmUpSetup
             AddKovisGroups();
             AddPunks();
             AddLippis();
+            CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -1463,6 +1464,137 @@ public static class BeatEmUpSetup
         Selection.activeGameObject = go;
         Info(
             $"Kadun jatko lisätty: {wU:0.0} yksikköä (x {right:0.0} … {right + wU:0.0}).\nKamera kulkee nyt loppuun asti.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Palotikkaat ja katto ----------------
+    // Palotikkaiden kohta katu_jatko.png:ssä (pikseleinä vasemmasta reunasta). katto.png: sama korkeus kuin S-Clubin
+    // sisäkuvalla (täyttää ruudun), katon takareuna rivillä RoofFloorRow.
+    const float FireEscapePx = 5362f;
+    const string RoofPath = "Assets/Sprites/Taustat/katto.png";
+    const float RoofPPU = 85f, RoofFloorRow = 600f, RoofX0 = 2000f;
+    // katon viholliset: (malli, x katon vasemmasta reunasta, syvyys 0 = takareuna … 1 = etureuna)
+    static readonly (string template, float x, float depth)[] RoofEnemies =
+    {
+        ("Punkkari", 11f, 0.3f), ("Lippis", 13f, 0.7f),
+        ("Kovis", 19f, 0.4f), ("Punkkari", 21f, 0.8f), ("Lippis", 22f, 0.2f),
+    };
+    const float RoofBossX = 31f;
+
+    [MenuItem("Beat em up/30. Palotikkaat ja katto (viholliset ja pomo)")]
+    static void CreateRoof()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var cam = Camera.main;
+        var ext = GameObject.Find("Tausta jatko");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        var ti = AssetImporter.GetAtPath(RoofPath) as TextureImporter;
+        if (pc == null || cam == null || ext == null || streetArea == null || ti == null)
+        {
+            Info("Tarvitaan pelaaja, kamera, kadun jatko (kohta 28), S-Clubin alueet (kohta 10) ja kuva " + RoofPath);
+            return;
+        }
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = RoofPPU;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(RoofPath);
+        float wU = sprite.rect.width / RoofPPU, hU = sprite.rect.height / RoofPPU;
+
+        foreach (var n in new[] { "Katto", "Alue: Katto", "Palotikkaat", "Katon viholliset" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+
+        float camY = cam.transform.position.y;
+        float halfW = cam.orthographicSize * 16f / 9f;
+
+        var bg = new GameObject("Katto");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(RoofX0 + wU * 0.5f, camY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Katto");
+
+        var roof = new GameObject("Alue: Katto").AddComponent<Area>();
+        roof.areaName = "Katto";
+        roof.maxDepthY = camY + hU * 0.5f - RoofFloorRow / RoofPPU;
+        roof.minDepthY = pc.minDepthY;
+        roof.useSidewalk = false;
+        roof.camMinX = RoofX0 + halfW;
+        roof.camMaxX = RoofX0 + wU - halfW;
+        Undo.RegisterCreatedObjectUndo(roof.gameObject, "Alue");
+
+        // tikkaat kadulla ja paluu katolta
+        var esr = ext.GetComponent<SpriteRenderer>();
+        float extLeft = ext.transform.position.x - esr.sprite.rect.width / BackgroundPPU * 0.5f;
+        float ladderX = extLeft + FireEscapePx / BackgroundPPU;
+        var group = new GameObject("Palotikkaat");
+        Undo.RegisterCreatedObjectUndo(group, "Palotikkaat");
+        var up = new GameObject("Tikkaat ylös").AddComponent<Door>();
+        up.transform.SetParent(group.transform, false);
+        up.transform.position = new Vector3(ladderX, streetArea.maxDepthY - 0.25f, 0f);
+        up.prompt = "Kiipeä katolle";
+        up.here = streetArea;
+        up.target = roof;
+        up.spawnPoint = new Vector2(RoofX0 + 3f, roof.maxDepthY - 0.4f);
+        up.halfWidth = 1.2f;
+        up.maxDistanceFromWall = 0.9f;
+        up.climbHeight = 3f;
+        var down = new GameObject("Tikkaat alas").AddComponent<Door>();
+        down.transform.SetParent(group.transform, false);
+        down.transform.position = new Vector3(RoofX0 + 1.4f, roof.maxDepthY, 0f);
+        down.prompt = "Laskeudu kadulle";
+        down.here = roof;
+        down.target = streetArea;
+        down.returnToLastDoor = true;
+        down.halfWidth = 1.6f;
+        down.maxDistanceFromWall = 1.5f;
+        down.climbHeight = -1.5f;
+        down.spawnPoint = new Vector2(ladderX, streetArea.maxDepthY - 0.25f);
+
+        // viholliset: kopiot kadun malleista
+        var enemies = new GameObject("Katon viholliset");
+        Undo.RegisterCreatedObjectUndo(enemies, "Katon viholliset");
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        var report = new List<string>();
+        float Depth(float k) => Mathf.Lerp(roof.maxDepthY - 0.2f, roof.minDepthY + 0.3f, k);
+        for (int i = 0; i < RoofEnemies.Length; i++)
+        {
+            var (name, x, depth) = RoofEnemies[i];
+            var t = all.FirstOrDefault(e => e.gameObject.name == name);
+            if (t == null) { report.Add("Puuttuu malli: " + name); continue; }
+            var go = Object.Instantiate(t.gameObject, enemies.transform);
+            go.name = "Katto " + name + " " + (i + 1);
+            go.transform.position = new Vector3(RoofX0 + x, Depth(depth), 0f);
+        }
+        var kovis = all.FirstOrDefault(e => e.gameObject.name == "Kovis");
+        if (kovis != null)
+        {
+            // pomo: iso ja kestävä Kovis
+            var go = Object.Instantiate(kovis.gameObject, enemies.transform);
+            go.name = "Pomo";
+            go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
+            go.transform.localScale = Vector3.one * 1.3f;
+            var b = go.GetComponent<Enemy>();
+            b.displayName = "Pomo";
+            b.maxHealth = 260;
+            b.punchDamage = Mathf.RoundToInt(b.punchDamage * 1.6f);
+            b.altDamage = Mathf.RoundToInt(b.altDamage * 1.6f);
+            b.attackCooldown = 1.0f;
+            b.wakeDistance = 12f;
+        }
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info(
+            $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
+            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas katon vasemmasta reunasta.\n" +
+            (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
+            "\nKaton tausta on väliaikainen, kunnes kattokuvat valmistuvat.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

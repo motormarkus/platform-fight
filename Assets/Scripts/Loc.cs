@@ -49,6 +49,8 @@ public static class Loc
         { "Mene sisään", "Go inside" },
         { "Mene S-Clubiin", "Enter S-Club" },
         { "Ulos kadulle", "Back to the street" },
+        { "Kiipeä katolle", "Climb to the roof" },
+        { "Laskeudu kadulle", "Climb down to the street" },
 
         // --- Baaritiski ---
         { "S-CLUB  BAARI", "S-CLUB  BAR" },
