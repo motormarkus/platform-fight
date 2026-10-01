@@ -1467,11 +1467,11 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Palotikkaat ja katto ----------------
-    // Palotikkaiden kohta katu_jatko.png:ssä (pikseleinä vasemmasta reunasta). katto.png: sama korkeus kuin S-Clubin
-    // sisäkuvalla (täyttää ruudun), katon takareuna rivillä RoofFloorRow.
+    // Palotikkaiden kohta katu_jatko.png:ssä (pikseleinä vasemmasta reunasta). katto.png (1024 px korkea) täyttää ruudun
+    // kuten S-Clubin sisäkuva, katon takareuna rivillä RoofFloorRow.
     const float FireEscapePx = 5362f;
     const string RoofPath = "Assets/Sprites/Taustat/katto.png";
-    const float RoofPPU = 85f, RoofFloorRow = 600f, RoofX0 = 2000f;
+    const float RoofPPU = 85f, RoofFloorRow = 574f, RoofX0 = 2000f;
     // katon viholliset: (malli, x katon vasemmasta reunasta, syvyys 0 = takareuna … 1 = etureuna)
     static readonly (string template, float x, float depth)[] RoofEnemies =
     {
@@ -1541,19 +1541,19 @@ public static class BeatEmUpSetup
         up.prompt = "Kiipeä katolle";
         up.here = streetArea;
         up.target = roof;
-        up.spawnPoint = new Vector2(RoofX0 + 5.5f, roof.maxDepthY - 0.4f);
+        up.spawnPoint = new Vector2(RoofX0 + 3.4f, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.75f));   // tikkaiden juurelta
         up.halfWidth = 1.2f;
         up.maxDistanceFromWall = 0.9f;
         up.climbHeight = 3f;
         var down = new GameObject("Tikkaat alas").AddComponent<Door>();
         down.transform.SetParent(group.transform, false);
-        down.transform.position = new Vector3(RoofX0 + 5.5f, roof.maxDepthY, 0f);
+        down.transform.position = new Vector3(RoofX0 + 2.2f, roof.maxDepthY, 0f);   // tikkaat katon vasemmassa etukulmassa
         down.prompt = "Laskeudu kadulle";
         down.here = roof;
         down.target = streetArea;
         down.returnToLastDoor = true;
         down.halfWidth = 1.6f;
-        down.maxDistanceFromWall = 1.5f;
+        down.maxDistanceFromWall = 100f;   // tikkaiden juuri on edessä, koko syvyys käy
         down.climbHeight = -1.5f;
         down.spawnPoint = new Vector2(ladderX, streetArea.maxDepthY - 0.25f);
 
@@ -1592,9 +1592,9 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info(
             $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
-            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas palotikkaiden kohdalta vasemmalta.\n" +
+            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas vasemman reunan tikkailta.\n" +
             (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
-            "\nKaton tausta on koottu kadun kuvista, kunnes kattokuvat valmistuvat.\n\nTallenna scene (Ctrl+S).");
+            "\nKaton oikea puoli on kattokuvan 1 peilikuva, kunnes kuvat 2 ja 3 valmistuvat.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
