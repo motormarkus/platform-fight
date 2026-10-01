@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
     public float scissorReach = 2.1f;
     [Tooltip("Painovoiman kerroin potkujen aikana: ukko leijuu hetken, jotta molemmat potkut ehtivät.")]
     [Range(0.1f, 1f)] public float scissorGravityScale = 0.5f;
+    [Tooltip("Ponnistuksen nopeus maasta (ylös, alas, K, K). 8 = n. 1.6 yksikön loikka; tavallinen hyppy on Jump Velocity.")]
+    public float scissorJumpVelocity = 8f;
     [Tooltip("Maasta: ylös, alas, K, K. Aikaikkuna ylös→alas ja alas→potkut (s).")]
     public float scissorInputWindow = 0.45f;
     bool scissor;           // saksipotku käynnissä ilmassa
@@ -439,7 +441,7 @@ public class PlayerController : MonoBehaviour
                     {
                         // saksipotku maasta: lyhyt loikka eteen, potkut alkavat heti
                         scissorJump = false;
-                        verticalVel = jumpVelocity * 0.9f;
+                        verticalVel = scissorJumpVelocity;
                         airVel = new Vector2((facingRight ? 1f : -1f) * moveSpeedX * 0.8f, 0f);
                         scissor = true; scissorTime = 0f; scissorHit1 = scissorHit2 = false;
                     }
@@ -449,8 +451,8 @@ public class PlayerController : MonoBehaviour
 
             case State.Air:
                 MoveOnGround(airVel * dt);
-                // saksipotkun aikana leijutaan hetki, jotta molemmat potkut ehtivät
-                float g = scissor && scissorTime < ScissorKick2End ? gravity * scissorGravityScale : gravity;
+                // saksipotkun aikana leijutaan laskussa hetki, jotta molemmat potkut ehtivät (ei nosta lisää korkeutta)
+                float g = scissor && scissorTime < ScissorKick2End && verticalVel < 0f ? gravity * scissorGravityScale : gravity;
                 verticalVel -= g * dt;
                 height += verticalVel * dt;
                 if (!jumpKick && !scissor && kickPressed && HasScissor)
