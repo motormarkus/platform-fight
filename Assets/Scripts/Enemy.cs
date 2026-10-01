@@ -437,7 +437,6 @@ public class Enemy : MonoBehaviour
             new Vector3(0.0f, 2.4f, 0f),
             new Vector3(-0.6f, 2.5f, 0f),    // heilautus selän taakse
         };
-        if (throwForward) { artKeys[4] = new Vector3(1.3f, 2.0f, 0f); rotKeys[4] = new Vector3(1.6f, 2.4f, 60f); }   // heitto eteen: pelaaja lähtee käsistä edestä
         Vector3[] rotKeys =
         {
             new Vector3(0.9f, 0.0f, 0f),
@@ -446,6 +445,7 @@ public class Enemy : MonoBehaviour
             new Vector3(1.4f, 3.2f, 95f),
             new Vector3(-0.3f, 3.1f, 130f),
         };
+        if (throwForward) { artKeys[4] = new Vector3(1.3f, 2.0f, 0f); rotKeys[4] = new Vector3(1.6f, 2.4f, 60f); }   // heitto eteen: pelaaja lähtee käsistä edestä
         Vector3[] keys = art ? artKeys : rotKeys;
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
         int pose = k < 0.5f ? 0 : k < 1f ? 1 : k < 2f ? 2 : 3;
