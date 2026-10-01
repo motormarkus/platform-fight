@@ -1276,7 +1276,7 @@ public static class BeatEmUpSetup
             "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
-    [MenuItem("Beat em up/26. Päivitä saksipotku (hyppy + K)")]
+    [MenuItem("Beat em up/26. Päivitä saksipotku (ylös, alas, K, K)")]
     static void UpdateScissorKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1291,7 +1291,7 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
-            "Saksipotku: hyppy + K. Kaksi potkua vuorojaloin, toinen kaataa.\nHyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).", "OK");
+            "Saksipotku: ylös, alas, K, K (maasta) tai hyppy + K (ilmassa).\nKaksi potkua vuorojaloin, toinen kaataa. Hyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
