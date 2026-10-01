@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Sheetissä kuvat on siirretty vasemmalle, jotta potku mahtuu ruutuun (yksikköä); korjataan tässä.")]
     public float sideKickArtOffset = 0.43f;
 
-    [Header("Potkukombo (hakkaa K): korkea potku → etupotku (sivupotku) → matala potku")]
+    [Header("Potkukombo (hakkaa K): matala potku → etupotku (sivupotku) → korkea potku")]
     [Tooltip("korkea_potku.png: 6 kuvaa (0 asento, 1–2 nosto, 3 potku, 4 lasku, 5 asento).")]
     public Sprite[] hiKickSprites;
     public float hiKickFrameTime = 0.05f;
@@ -115,13 +115,13 @@ public class PlayerController : MonoBehaviour
     public float hiKickReach = 2.1f;
     [Tooltip("Sheetissä kuvat on siirretty vasemmalle, jotta potku mahtuu ruutuun (yksikköä); korjataan tässä.")]
     public float hiKickArtOffset = 0.64f;
-    [Tooltip("Kaataako kombon viimeinen potku (matala potku) vihollisen.")]
+    [Tooltip("Kaataako kombon viimeinen potku (korkea potku) vihollisen.")]
     public bool kickFinisherKnockdown = true;
     [Header("Liuku eteenpäin iskun aikana (yksikköä), antaa iskuille painoa")]
     public float hiKickLunge = 0.22f;
     public float sideKickLunge = 0.3f;
     public float lowKickLunge = 0.2f;
-    int kickComboIndex;     // 0 korkea, 1 etupotku, 2 matala
+    int kickComboIndex;     // 0 matala, 1 etupotku, 2 korkea
     bool kickQueued;
 
     [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen LB), osuu joka suuntaan")]
@@ -373,7 +373,7 @@ public class PlayerController : MonoBehaviour
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
-                if (kickPressed) { StartKick(HasHiKick ? 0 : 1); break; }
+                if (kickPressed) { StartKick(0); break; }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0)
                 {
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
@@ -561,11 +561,12 @@ public class PlayerController : MonoBehaviour
                 if (stateTime >= specialSprites.Length * specialFrameTime) Enter(State.Ground);
                 break;
 
-            case State.Kick:   // matala potku, kombon viimeinen: kaataa
+            case State.Kick:   // matala potku, kombon ensimmäinen
                 Lunge(lowKickLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
-                    attackHit = AttackEnemies(kickReach, kickDamage, kickFinisherKnockdown, 1.2f);
-                if (stateTime >= kickTime) Enter(State.Ground);
+                    attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
+                if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
+                if (stateTime >= kickTime) EndKick();
                 break;
 
             case State.HiKick:
@@ -573,9 +574,8 @@ public class PlayerController : MonoBehaviour
                 float hitFrom = hiKickImpactFrame * hiKickFrameTime;
                 Lunge(hiKickLunge, hitFrom, dt);
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitFrom + hiKickImpactHold)
-                    attackHit = AttackEnemies(hiKickReach, hiKickDamage, false, 2.8f);
-                if (kickPressed && stateTime >= HiKickTotal * comboInputFrom) kickQueued = true;
-                if (stateTime >= HiKickTotal) EndKick();
+                    attackHit = AttackEnemies(hiKickReach, hiKickDamage, kickFinisherKnockdown, 2.8f);   // kombon viimeinen
+                if (stateTime >= HiKickTotal) Enter(State.Ground);
                 break;
             }
 
@@ -1048,15 +1048,16 @@ public class PlayerController : MonoBehaviour
     bool HasSideKick => sideKickSprites != null && sideKickSprites.Length > 0;
     float HiKickTotal => hiKickFrameTime * (hiKickSprites.Length - 1) + hiKickImpactHold;
 
-    /// Potkukombon isku: 0 korkea, 1 etupotku (sivupotku), 2 matala (viimeinen, kaataa).
+    /// Potkukombon isku: 0 matala, 1 etupotku (sivupotku), 2 korkea (viimeinen, kaataa).
     void StartKick(int index)
     {
-        if (index == 1 && !HasSideKick) index = 2;   // ei sivupotkun kuvia: suoraan matalaan
+        if (index == 1 && !HasSideKick) index = 2;   // ei sivupotkun kuvia: suoraan korkeaan
+        if (index == 2 && !HasHiKick) { Enter(State.Ground); return; }
         kickComboIndex = index;
         kickQueued = false;
         attackHit = false;
         PlayGrunt();
-        Enter(index == 0 ? State.HiKick : index == 1 ? State.SideKick : State.Kick);
+        Enter(index == 0 ? State.Kick : index == 1 ? State.SideKick : State.HiKick);
     }
 
     /// Liukuu eteenpäin yhteensä distance yksikköä ajassa until (iskun osumahetkeen asti), hidastuen loppua kohti.

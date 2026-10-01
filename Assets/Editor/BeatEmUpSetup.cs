@@ -1226,7 +1226,7 @@ public static class BeatEmUpSetup
             "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
-    [MenuItem("Beat em up/24. Päivitä potkukombo (korkea, matala, etupotku)")]
+    [MenuItem("Beat em up/24. Päivitä potkukombo (matala, etupotku, korkea)")]
     static void UpdateKickCombo()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1245,7 +1245,7 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
-            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: korkea potku → etupotku → matala potku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
+            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: matala potku → etupotku → korkea potku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     [MenuItem("Beat em up/25. Päivitä iskujen tuntuma")]
