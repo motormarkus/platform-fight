@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow }
+    enum State { Idle, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -175,6 +175,7 @@ public class Enemy : MonoBehaviour
 
             case State.Punch:
                 if (!punchLanded) punchLanded = TryHitPlayer();
+                if (state != State.Punch) break;   // pelaaja nappasi kädestä kiinni
                 if (stateTime >= punchActiveTime) Enter(State.Recover);
                 break;
 
@@ -192,13 +193,32 @@ public class Enemy : MonoBehaviour
                 if (stateTime >= hurtTime) Enter(State.Chase);
                 break;
 
+            case State.Held:
+                // pelaaja liikuttaa (SetHeldByPlayer); varmuuden vuoksi irti, jos heitto jää kesken
+                if (stateTime > 3f) ReleaseThrow(0f, 2f, 0);
+                break;
+
             case State.Airborne:
                 Move(knockVel * dt);
                 verticalVel -= 30f * dt;
                 height += verticalVel * dt;
+                if (thrownByPlayer)
+                {
+                    // pyörähdys jatkuu selälleen, kiertopiste laskeutuu kohti maata
+                    float dir = Mathf.Sign(spinRot);
+                    spinRot = Mathf.MoveTowards(spinRot, dir * 265f, 420f * dt);
+                    spinCenter = Mathf.MoveTowards(spinCenter, 0.4f, 3f * dt);
+                }
                 if (height <= 0f)
                 {
                     height = 0f;
+                    if (thrownByPlayer)
+                    {
+                        thrownByPlayer = false;
+                        PlayHurtSound();
+                        HitFx.OnHit(true);
+                        knockVel = Vector2.zero;
+                    }
                     Enter(State.Down);
                     if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
                 }
@@ -380,7 +400,7 @@ public class Enemy : MonoBehaviour
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
-        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x);
+        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this);
     }
 
     // ---------------- Osumat ----------------
@@ -389,7 +409,7 @@ public class Enemy : MonoBehaviour
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
-        if (state == State.GrabLift || state == State.GrabThrow) return false;   // heiton aikana ei keskeytetä
+        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held) return false;   // heiton aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
         awake = true;
@@ -413,6 +433,51 @@ public class Enemy : MonoBehaviour
             Enter(State.Hurt);
         }
         return true;
+    }
+
+    // ---------------- Pelaajan vastaheitto ----------------
+
+    bool thrownByPlayer;
+    float spinRot;          // kierto (astetta, maailman z), kun pelaaja pitää tai heittää
+    float spinCenter;       // kiertopisteen korkeus jaloista (yksikköä)
+
+    /// Voiko pelaaja napata kiinni (vain kesken lyönnin, ei heiton tai kaatuneena).
+    public bool CanBeCaught => state == State.Punch;
+
+    /// Pelaaja nappaa lyövästä kädestä kiinni.
+    public void BeginHeldByPlayer(float playerX)
+    {
+        facingRight = playerX > transform.position.x;   // kasvot pelaajaan päin
+        knockVel = Vector2.zero;
+        spinRot = 0f;
+        spinCenter = 1.5f;
+        Enter(State.Held);
+    }
+
+    /// Pelaaja liikuttaa: kehon keskikohta (x, syvyys), korkeus ja kierto keskikohdan ympäri.
+    public void SetHeldByPlayer(Vector3 pos, float lift, float rot)
+    {
+        if (state != State.Held) return;
+        Vector3 p = transform.position;
+        float minY = player != null ? player.minDepthY : -4.3f;
+        float maxY = player != null ? player.maxDepthY : -0.8f;
+        transform.position = new Vector3(pos.x, Mathf.Clamp(pos.y, minY, maxY), p.z);
+        height = lift;
+        spinRot = rot;
+    }
+
+    /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
+    public void ReleaseThrow(float vx, float up, int damage)
+    {
+        if (state != State.Held) return;
+        awake = true;
+        health = Mathf.Max(0, health - damage);
+        LastHit = this; LastHitTime = Time.time;
+        knockVel = new Vector2(vx, 0f);
+        verticalVel = up;
+        height = Mathf.Max(height, 0.05f);
+        thrownByPlayer = true;
+        Enter(State.Airborne);
     }
 
     void PlayHurtSound()
@@ -474,6 +539,14 @@ public class Enemy : MonoBehaviour
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
         // kaatumisen väliaikainen korvike: käännetään kuvaa, kun oikeat kuvat puuttuvat
         body.transform.localRotation = Quaternion.Euler(0f, 0f, facingRight ? rot : -rot);
+        if (state == State.Held || (state == State.Airborne && thrownByPlayer))
+        {
+            // pelaajan heitossa kierretään kehon keskikohdan ympäri, ei jalkojen
+            var q = Quaternion.Euler(0f, 0f, spinRot);
+            Vector3 c = new Vector3(0f, spinCenter, 0f);
+            body.transform.localRotation = q;
+            body.transform.localPosition += c - q * c;
+        }
 
         body.color = flashTimer > 0f ? new Color(1f, 0.55f, 0.55f) : Color.white;
 
@@ -530,6 +603,7 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Airborne:
+                if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (Has(knockdownSprites))
                 {
                     int airFrames = Mathf.Max(1, knockdownSprites.Length - 1);
@@ -537,6 +611,9 @@ public class Enemy : MonoBehaviour
                 }
                 rot = Mathf.Lerp(20f, 80f, Mathf.Clamp01(stateTime / 0.35f));
                 return FirstIdle();
+
+            case State.Held:
+                return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
             case State.Down:
             case State.Dead:

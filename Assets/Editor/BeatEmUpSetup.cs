@@ -388,7 +388,7 @@ public static class BeatEmUpSetup
 
         Selection.activeGameObject = player;
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-        Debug.Log("Pelaaja luotu. Paina Play. Ohjaus: WASD/nuolet, Space = hyppy, J = lyönti, K = potku (ilmassa = hyppypotku), U = pusku, I (pidä) = suojaus.");
+        Debug.Log("Pelaaja luotu. Paina Play. Ohjaus: WASD/nuolet, Space = hyppy, J = lyönti, K = potku (ilmassa = hyppypotku), U = pusku, I (pidä) = suojaus, O = vastaheitto.");
     }
 
     const string EnemyFolder = "Assets/Sprites/Viholliset";
@@ -1042,6 +1042,23 @@ public static class BeatEmUpSetup
         EditorUtility.DisplayDialog("Beat em up",
             $"Pusku: {push.Length} kuvaa (U, ohjaimessa RT, tai lyönti suojauksesta). Kaataa vihollisen.\n" +
             $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/20. Päivitä vastaheitto")]
+    static void UpdateCounterThrow()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] sp = LoadSprites("heitto")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 7) { EditorUtility.DisplayDialog("Beat em up", $"heitto.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        Undo.RecordObject(pc, "Vastaheitto");
+        pc.counterThrowSprites = sp;
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Vastaheitto: {sp.Length} kuvaa.\nPaina O (ohjaimessa oikean tatin painallus) juuri kun vihollinen lyö:\n" +
+            "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
