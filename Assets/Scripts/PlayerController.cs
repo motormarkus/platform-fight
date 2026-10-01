@@ -63,9 +63,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Kombon iskut järjestyksessä. Täytä valikosta Beat em up → 3. Päivitä lyöntikombo.")]
     public ComboHit[] punchCombo =
     {
-        new ComboHit { name = "Jab",         windupTime = 0.04f, frame = 8,  duration = 0.16f, lunge = 0.10f },
-        new ComboHit { name = "Takasuora",   windupTime = 0.05f, frame = 8,  duration = 0.20f, lunge = 0.15f },
-        new ComboHit { name = "Kiertopotku", windupTime = 0.06f, frame = 11, duration = 0.38f, lunge = 0.30f },
+        new ComboHit { name = "Jab",       windupTime = 0.04f, frame = 8, duration = 0.16f, lunge = 0.18f },
+        new ComboHit { name = "Takasuora", windupTime = 0.05f, frame = 8, duration = 0.20f, lunge = 0.26f },
+        new ComboHit { name = "Jab",       windupTime = 0.04f, frame = 8, duration = 0.16f, lunge = 0.18f },
+        new ComboHit { name = "Uppercut",  windupTime = 0.06f, frame = 8, duration = 0.30f, lunge = 0.30f, knockdown = true },
     };
     [Tooltip("Kuinka aikaisin iskun aikana seuraava painallus jo hyväksytään (0 = heti, 1 = vasta lopussa).")]
     [Range(0f, 1f)] public float comboInputFrom = 0.25f;
@@ -426,7 +427,7 @@ public class PlayerController : MonoBehaviour
 
                 // osumahetki: tarkistetaan lyhyen aikaikkunan ajan, osuuko isku
                 if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
-                    attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown, 2.4f);
+                    attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown, hit.knockdown ? 2.9f : 2.4f);   // uppercut leukaan
 
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
                 if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;

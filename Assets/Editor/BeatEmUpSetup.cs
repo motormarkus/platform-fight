@@ -18,7 +18,7 @@ public static class BeatEmUpSetup
     const int CellW = 512, CellH = 384;
     const string SpriteFolder = "Assets/Sprites";
     // Kombon iskujen sprite sheetit (tiedostonimi ilman .png)
-    const string JabName = "jab", CrossName = "takasuora", RoundhouseName = "kiertopotku";
+    const string JabName = "jab", CrossName = "takasuora", UppercutName = "uppercut";
 
     [MenuItem("Beat em up/1. Aseta ja leikkaa kaikki spritet")]
     static void FixImportSettings()
@@ -299,12 +299,15 @@ public static class BeatEmUpSetup
         var combo = new List<PlayerController.ComboHit>();
         var found = new List<string>();
 
-        combo.Add(MakeHit("Jab", JabName, impactFrame: 2, frameTime: 0.045f, impactHold: 0.09f, lunge: 0.10f,
+        combo.Add(MakeHit("Jab", JabName, impactFrame: 2, frameTime: 0.045f, impactHold: 0.09f, lunge: 0.18f,
             fallbackFrame: 8, found, damage: 6, reach: 1.6f, knockdown: false));
-        combo.Add(MakeHit("Takasuora", CrossName, impactFrame: 3, frameTime: 0.05f, impactHold: 0.11f, lunge: 0.18f,
+        combo.Add(MakeHit("Takasuora", CrossName, impactFrame: 3, frameTime: 0.05f, impactHold: 0.11f, lunge: 0.26f,
             fallbackFrame: 8, found, damage: 8, reach: 1.7f, knockdown: false));
-        combo.Add(MakeHit("Kiertopotku", RoundhouseName, impactFrame: 3, frameTime: 0.055f, impactHold: 0.14f, lunge: 0.30f,
-            fallbackFrame: 11, found, damage: 14, reach: 1.9f, knockdown: true));
+        combo.Add(MakeHit("Jab", JabName, impactFrame: 2, frameTime: 0.045f, impactHold: 0.09f, lunge: 0.18f,
+            fallbackFrame: 8, found, damage: 6, reach: 1.6f, knockdown: false));
+        // uppercut: kyykky (kuva 1), nousu ja isku ylös (kuva 4), kaataa
+        combo.Add(MakeHit("Uppercut", UppercutName, impactFrame: 4, frameTime: 0.055f, impactHold: 0.16f, lunge: 0.30f,
+            fallbackFrame: 8, found, damage: 14, reach: 1.7f, knockdown: true));
 
         Undo.RecordObject(pc, "Päivitä lyöntikombo");
         pc.punchCombo = combo.ToArray();
@@ -312,7 +315,7 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
 
         EditorUtility.DisplayDialog("Beat em up",
-            "Kombo päivitetty: Jab → Takasuora → Kiertopotku.\n\n" + string.Join("\n", found) +
+            "Kombo päivitetty: Jab → Takasuora → Jab → Uppercut.\n\n" + string.Join("\n", found) +
             "\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
@@ -1264,13 +1267,13 @@ public static class BeatEmUpSetup
         if (pc != null && pc.punchCombo != null)
         {
             Undo.RecordObject(pc, "Liuku");
-            float[] lunges = { 0.18f, 0.26f, 0.40f };
+            float[] lunges = { 0.18f, 0.26f, 0.18f, 0.30f };
             for (int i = 0; i < pc.punchCombo.Length && i < lunges.Length; i++) pc.punchCombo[i].lunge = lunges[i];
             EditorUtility.SetDirty(pc);
         }
         EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
-            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.40.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
+            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
