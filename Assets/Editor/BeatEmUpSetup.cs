@@ -46,6 +46,7 @@ public static class BeatEmUpSetup
             AddLippis();
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
+            AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -82,7 +83,7 @@ public static class BeatEmUpSetup
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512 : BeatEmUpSetup.CellH;
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
-        int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") ? 200 : 100;
+        int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
 
         var ti = (TextureImporter)AssetImporter.GetAtPath(path);
@@ -1629,6 +1630,10 @@ public static class BeatEmUpSetup
             b.punchDamage = 16;
             b.attackCooldown = 1.0f;
             b.wakeDistance = 12f;
+            b.throwsBarrels = true;         // hakee tynnyrin ja paiskaa sen kovaa
+            b.barrelThrowSpeed = 16f;
+            b.barrelThrowUp = 4f;
+            b.barrelDamage = 20;
         }
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
@@ -1682,6 +1687,92 @@ public static class BeatEmUpSetup
             "Lippis: juoksee, kiertää selän taakse, iskee ja vetäytyy, torjuu (2 peräkkäin, sitten suoja murtuu). Potku nopeampi ja liukuu.\n" +
             "Punkkari: nopea, kiertää välillä.\nKovis: hidas ja suoraviivainen.\nPomo: torjuu ja kiertää.\n\n" +
             string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Tynnyrit ----------------
+    const string BarrelPath = "Assets/Sprites/Rekvisiitta/tynnyri.png";
+    // katolla: (x katon vasemmasta reunasta, syvyys 0 = takareuna … 1 = etureuna)
+    static readonly Vector2[] RoofBarrels = { new Vector2(8f, 0.15f), new Vector2(15f, 0.6f), new Vector2(24f, 0.2f), new Vector2(27.5f, 0.75f), new Vector2(33f, 0.3f) };
+
+    [MenuItem("Beat em up/32. Tynnyrit (katto ja katu)")]
+    static void AddBarrels()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var street = GameObject.Find("Tausta");
+        if (pc == null || street == null || AssetImporter.GetAtPath(BarrelPath) == null)
+        {
+            Info("Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + BarrelPath);
+            return;
+        }
+        SetupAndSlice(BarrelPath);
+        Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(BarrelPath).OfType<Sprite>().ToArray();
+        var old = GameObject.Find("Tynnyrit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Tynnyrit");
+        Undo.RegisterCreatedObjectUndo(root, "Tynnyrit");
+
+        int count = 0;
+        void Make(Vector3 pos)
+        {
+            var go = new GameObject("Tynnyri " + (++count));
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = pos;
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>();
+            vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+            sh.transform.SetParent(go.transform, false);
+            var c = go.AddComponent<Crate>();
+            c.sprites = sprites;
+            c.breakable = false;
+            c.throwDamage = 20;
+            c.hitRadiusX = 0.8f;
+            c.moneyChance = 0f;
+            c.body = vis;
+            c.shadow = sh;
+            vis.sprite = sprites.Length > 0 ? sprites[0] : null;
+        }
+
+        // katu: satunnaisesti (aina sama järjestys), ei ovien, pyörien eikä laatikoiden kohdalle
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        float curb = streetArea != null ? streetArea.curbDepthY : pc.curbDepthY;
+        float wall = streetArea != null ? streetArea.maxDepthY : pc.maxDepthY;
+        var blocked = new List<float>();
+        var bikes = GameObject.Find("Moottoripyörät");
+        if (bikes != null) foreach (Transform b in bikes.transform) blocked.Add(b.position.x);
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None)) blocked.Add(d.transform.position.x);
+        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsSortMode.None)) blocked.Add(c.transform.position.x);
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float left = street.transform.position.x - ssr.size.x * 0.5f;
+        float right = street.transform.position.x + ssr.size.x * 0.5f;
+        var ext = GameObject.Find("Tausta jatko");
+        if (ext != null) right = Mathf.Max(right, ext.GetComponent<SpriteRenderer>().bounds.max.x);
+        var rnd = new System.Random(7);
+        int streetCount = 0;
+        for (float x = left + 14f; x < right - 8f; x += 18f + (float)rnd.NextDouble() * 22f)
+        {
+            float bx = x;
+            for (int tries = 0; tries < 4 && blocked.Any(b => Mathf.Abs(b - bx) < 2f); tries++) bx += 1.6f;
+            if (blocked.Any(b => Mathf.Abs(b - bx) < 2f)) continue;
+            float k = (float)rnd.NextDouble();
+            Make(new Vector3(bx, Mathf.Lerp(wall - 0.15f, curb + 0.2f, k), 0f));   // jalkakäytävällä
+            streetCount++;
+        }
+
+        // katto
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katto");
+        int roofCount = 0;
+        if (roof != null)
+            foreach (var v in RoofBarrels)
+            {
+                Make(new Vector3(RoofX0 + v.x, Mathf.Lerp(roof.maxDepthY - 0.2f, roof.minDepthY + 0.3f, v.y), 0f));
+                roofCount++;
+            }
+
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info(
+            $"Tynnyreitä: kadulla {streetCount}, katolla {roofCount}{(roof == null ? " (katto puuttuu, tee kohta 30)" : "")}.\n\n" +
+            "O tynnyrin vieressä nostaa, lyönti/potku heittää. Tynnyri ei hajoa: se kaataa kaikki lentoreitillään.\n" +
+            "Pomo hakee tynnyrin, kun olet kaukana, ja paiskaa sen kovaa sinua kohti (hyppää yli tai väistä sivulle).\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

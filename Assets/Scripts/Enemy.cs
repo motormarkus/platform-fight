@@ -87,6 +87,14 @@ public class Enemy : MonoBehaviour
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
     public float altTimeScale = 1f;
 
+    [Header("Tynnyrit (pomo)")]
+    [Tooltip("Hakee lähellä olevan tynnyrin ja heittää sen pelaajaa kohti (heittokuvat: 2–3 nosto, 4 veto, 5 heitto, 7 jälkeen).")]
+    public bool throwsBarrels;
+    public float barrelThrowSpeed = 16f, barrelThrowUp = 4f;
+    public int barrelDamage = 20;
+    [Tooltip("Kuinka usein (1/s) tynnyriä lähdetään hakemaan, kun pelaaja on kaukana.")]
+    public float barrelRate = 0.35f;
+
     [Header("Taktiikka")]
     [Tooltip("Kaukana pelaajasta liikutaan näin paljon nopeammin (juoksu).")]
     public float runSpeedMultiplier = 1.3f;
@@ -145,7 +153,7 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Block, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
+    enum State { Idle, Block, BarrelLift, BarrelThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -163,6 +171,8 @@ public class Enemy : MonoBehaviour
 
     PlayerController player;
     bool awake;
+    Crate targetBarrel;     // tynnyri, jota ollaan hakemassa
+    Crate heldBarrel;       // tynnyri käsissä
     float closeTimer;       // kauanko pelaaja on ollut aivan vieressä
     bool flanking;          // tämä hyökkäys tehdään pelaajan selän takaa
     float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
@@ -254,6 +264,38 @@ public class Enemy : MonoBehaviour
                 {
                     cooldown = attackCooldown * Random.Range(0.7f, 1.3f);
                     if (Random.value < retreatChance) retreatTimer = retreatTime;   // iske ja vetäydy
+                    Enter(State.Idle);
+                }
+                break;
+
+            case State.BarrelLift:
+            {
+                // nosto pään yli ja tähtäys: siirtyy samalle syvyydelle pelaajan kanssa
+                float k = Mathf.Clamp01(stateTime / 0.45f);
+                if (player != null)
+                {
+                    facingRight = player.transform.position.x > transform.position.x;
+                    float dy = player.transform.position.y - transform.position.y;
+                    Move(new Vector2(0f, Mathf.Clamp(dy, -moveSpeedY * dt, moveSpeedY * dt)));
+                }
+                HoldBarrel(Mathf.Lerp(0.9f, 0.1f, k), Mathf.Lerp(0.3f, 3.5f, k));
+                if (stateTime >= 0.7f) Enter(State.BarrelThrow);
+            }
+                break;
+
+            case State.BarrelThrow:
+                if (stateTime < 0.15f) HoldBarrel(-0.3f, 3.6f);                 // veto taakse
+                else if (heldBarrel != null)
+                {
+                    HoldBarrel(0.7f, 3.0f);
+                    float dir = facingRight ? 1f : -1f;
+                    heldBarrel.Throw(dir * barrelThrowSpeed, barrelThrowUp, this, barrelDamage);
+                    heldBarrel = null;
+                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
+                }
+                if (stateTime >= 0.6f)
+                {
+                    cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
                     Enter(State.Idle);
                 }
                 break;
@@ -413,8 +455,23 @@ public class Enemy : MonoBehaviour
         player.SetHeld(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z, pose);
     }
 
+    void HoldBarrel(float forward, float lift)
+    {
+        if (heldBarrel == null) return;
+        Vector3 me = transform.position;
+        heldBarrel.SetCarried(new Vector3(me.x + (facingRight ? forward : -forward), me.y - 0.01f, 0f), lift,
+                              Mathf.RoundToInt(-me.y * 100f) + 2);
+    }
+
+    void DropBarrel()
+    {
+        if (heldBarrel != null) heldBarrel.Drop();
+        heldBarrel = null;
+    }
+
     void Enter(State s)
     {
+        if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Down && s != State.Dead) flipLanded = false;
         state = s;
@@ -447,6 +504,45 @@ public class Enemy : MonoBehaviour
             }
         }
         float side = me.x >= p.x ? 1f : -1f;
+
+        // tynnyri: pelaajan ollessa kaukana haetaan lähin tynnyri ja heitetään se
+        if (throwsBarrels)
+        {
+            if (targetBarrel != null && !targetBarrel.CanPickUp) targetBarrel = null;
+            if (targetBarrel == null && cooldown <= 0f && Mathf.Abs(p.x - me.x) > 3.5f && Random.value < barrelRate * dt)
+            {
+                float best = 6f;
+                foreach (var c in Crate.All)
+                {
+                    if (c == null || c.breakable || !c.CanPickUp) continue;
+                    float d = Vector2.Distance(c.transform.position, me);
+                    if (d < best) { best = d; targetBarrel = c; }
+                }
+            }
+            if (targetBarrel != null)
+            {
+                Vector3 b = targetBarrel.transform.position;
+                float toPlayer = p.x > b.x ? 1f : -1f;
+                Vector2 spot = new Vector2(b.x - toPlayer * 0.8f, b.y);   // tynnyrin taakse, pelaajasta katsoen
+                Vector2 tb = spot - (Vector2)me;
+                facingRight = b.x > me.x;
+                if (tb.magnitude < 0.15f)
+                {
+                    targetBarrel.PickUp();
+                    heldBarrel = targetBarrel;
+                    targetBarrel = null;
+                    moving = false;
+                    Enter(State.BarrelLift);
+                    return;
+                }
+                moving = true;
+                float stepX = Mathf.Min(Mathf.Abs(tb.x), moveSpeedX * runSpeedMultiplier * dt);
+                float stepY = Mathf.Min(Mathf.Abs(tb.y), moveSpeedY * runSpeedMultiplier * dt);
+                Move(new Vector2(Mathf.Sign(tb.x) * stepX, Mathf.Sign(tb.y) * stepY));
+                animClock += dt * (runSpeedMultiplier - 1f);
+                return;
+            }
+        }
 
         // liian kauan aivan vieressä: tarttuu heti (pomo)
         bool close = Mathf.Abs(p.x - me.x) <= grabRange + 0.3f && Mathf.Abs(p.y - me.y) <= depthTolerance;
@@ -787,6 +883,14 @@ public class Enemy : MonoBehaviour
                     int n = AtkSprites.Length - imp;
                     return AtkSprites[imp + Mathf.Min((int)(stateTime / CurrentRecover * n), n - 1)];
                 }
+                return IdleFrame();
+
+            case State.BarrelLift:
+                if (Has(grabSprites) && grabSprites.Length >= 8) return grabSprites[stateTime < 0.2f ? 1 : stateTime < 0.45f ? 2 : 3];
+                return IdleFrame();
+
+            case State.BarrelThrow:
+                if (Has(grabSprites) && grabSprites.Length >= 8) return grabSprites[stateTime < 0.15f ? 4 : stateTime < 0.3f ? 5 : 7];
                 return IdleFrame();
 
             case State.Block:
