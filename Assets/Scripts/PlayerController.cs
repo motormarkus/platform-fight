@@ -115,6 +115,35 @@ public class PlayerController : MonoBehaviour
     public float specialHitFrom = 0.30f;
     public float specialHitTo = 0.88f;
 
+    [Header("Pusku (U / ohjaimen RT, tai lyönti suojauksesta): työntää vihollisen kumoon")]
+    [Tooltip("pusku.png: 6 kuvaa (0 asento, 1–2 vauhti, 3 pusku, 4–5 paluu).")]
+    public Sprite[] pushSprites;
+    public float pushFrameTime = 0.06f;
+    [Tooltip("Kuva, jossa olkapää osuu (0 = ensimmäinen).")]
+    public int pushImpactFrame = 3;
+    [Tooltip("Kuinka kauan osumakuvaa pidetään.")]
+    public float pushImpactHold = 0.14f;
+    public int pushDamage = 8;
+    public float pushReach = 1.6f;
+    [Tooltip("Kuinka paljon ukko syöksyy eteenpäin puskun aikana (yksikköä).")]
+    public float pushLunge = 0.45f;
+
+    [Header("Suojaus (pidä I / ohjaimen LT)")]
+    [Tooltip("suojaus.png: 5 kuvaa (0 asento, 1 nosto, 2 suoja, 3 lasku, 4 asento).")]
+    public Sprite[] blockSprites;
+    [Tooltip("Kädet nousevat suojaan (s). Suoja on voimassa heti painalluksesta.")]
+    public float blockRaiseTime = 0.06f;
+    [Tooltip("Aika per kuva, kun kädet lasketaan.")]
+    public float blockLowerFrameTime = 0.06f;
+    [Tooltip("Kuinka kauan torjuttu isku pitää suojassa (s).")]
+    public float blockStunTime = 0.2f;
+    [Tooltip("Torjutun iskun työntö taaksepäin (yksikköä/s).")]
+    public float blockPushback = 1.8f;
+    [Tooltip("Osuus vahingosta, joka menee suojan läpi (0 = ei mitään).")]
+    [Range(0f, 1f)] public float blockDamageFactor = 0f;
+    bool blockReleasing;
+    float blockReleaseTime, blockStun;
+
     [Header("Äänet")]
     [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
     public AudioClip[] attackGrunts;
@@ -188,7 +217,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block }
 
     int comboIndex;
     bool comboQueued;
@@ -213,6 +242,8 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(specialSprites);
         SortByFrameNumber(thrownSprites);
         SortByFrameNumber(kipUpSprites);
+        SortByFrameNumber(pushSprites);
+        SortByFrameNumber(blockSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -241,6 +272,8 @@ public class PlayerController : MonoBehaviour
         bool punchPressed = PunchPressed();
         bool kickPressed = KickPressed();
         bool specialPressed = SpecialPressed();
+        bool pushPressed = PushPressed();
+        bool blockHeld = BlockHeld();
 
         UpdateGroundHeight(dt);
 
@@ -255,6 +288,8 @@ public class PlayerController : MonoBehaviour
                     Enter(State.JumpSquat);
                     break;
                 }
+                if (blockHeld && HasBlock) { StartBlock(); break; }
+                if (pushPressed && HasPush) { StartPush(); break; }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed)
                 {
@@ -343,6 +378,40 @@ public class PlayerController : MonoBehaviour
                     Enter(State.Ground);
                 break;
             }
+
+            case State.Push:
+            {
+                float impact = pushImpactFrame * pushFrameTime;
+                // syöksy eteenpäin osumahetkeen asti
+                if (stateTime <= impact && impact > 0f)
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / impact * dt, 0f));
+                if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
+                    attackHit = AttackEnemies(pushReach, pushDamage, true);
+                if (stateTime >= PushTotalTime) Enter(State.Ground);
+                break;
+            }
+
+            case State.Block:
+                MoveOnGround(hurtVel * dt);   // torjutun iskun työntö
+                hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
+                blockStun -= dt;
+                if (!blockReleasing)
+                {
+                    // suojasta suoraan puskuun (lyönti tai puskunappi)
+                    if ((pushPressed || punchPressed) && HasPush && blockStun <= 0f) { StartPush(); break; }
+                    if (!blockHeld && stateTime >= blockRaiseTime && blockStun <= 0f)
+                    {
+                        blockReleasing = true;
+                        blockReleaseTime = 0f;
+                    }
+                }
+                else
+                {
+                    blockReleaseTime += dt;
+                    if (blockHeld) { blockReleasing = false; stateTime = blockRaiseTime; }   // takaisin suojaan
+                    else if (blockReleaseTime >= blockLowerFrameTime * 2f) Enter(State.Ground);
+                }
+                break;
 
             case State.Special:
                 if (stateTime >= specialHitFrom && stateTime <= specialHitTo) AttackAround();
@@ -571,6 +640,17 @@ public class PlayerController : MonoBehaviour
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
+        // suojaus torjuu edestä tulevat iskut (ei selän takaa)
+        if (state == State.Block && !blockReleasing && fromRight == facingRight)
+        {
+            hurtVel = new Vector2(fromRight ? -blockPushback : blockPushback, 0f);
+            blockStun = blockStunTime;
+            stateTime = Mathf.Max(stateTime, blockRaiseTime);   // kädet heti ylös
+            HitFx.OnHit(false);
+            int chip = Mathf.RoundToInt(damage * blockDamageFactor);
+            if (chip > 0) ApplyDamage(chip);
+            return true;
+        }
         facingRight = fromRight;                    // käänny lyöjää kohti
         hurtVel = new Vector2(fromRight ? -2.5f : 2.5f, 0f);
         if (height > 0f) verticalVel = Mathf.Min(verticalVel, 0f);
@@ -588,6 +668,25 @@ public class PlayerController : MonoBehaviour
         if (c == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-0.05f, 0.05f);
         audioSource.PlayOneShot(c, 0.9f);
+    }
+
+    bool HasPush => pushSprites != null && pushSprites.Length > 0;
+    bool HasBlock => blockSprites != null && blockSprites.Length >= 5;
+    float PushTotalTime => pushFrameTime * (pushSprites.Length - 1) + pushImpactHold;
+
+    void StartPush()
+    {
+        attackHit = false;
+        PlayGrunt();
+        Enter(State.Push);
+    }
+
+    void StartBlock()
+    {
+        blockReleasing = false;
+        blockStun = 0f;
+        hurtVel = Vector2.zero;
+        Enter(State.Block);
     }
 
     void StartComboHit(int index)
@@ -751,6 +850,22 @@ public class PlayerController : MonoBehaviour
                 return sideKickSprites[Mathf.Clamp(i, 0, sideKickSprites.Length - 1)];
             }
 
+            case State.Push:
+            {
+                float hitFrom = pushImpactFrame * pushFrameTime;
+                float hitTo = hitFrom + pushImpactHold;
+                int i;
+                if (stateTime < hitFrom) i = (int)(stateTime / pushFrameTime);
+                else if (stateTime < hitTo) i = pushImpactFrame;
+                else i = pushImpactFrame + 1 + (int)((stateTime - hitTo) / pushFrameTime);
+                return pushSprites[Mathf.Clamp(i, 0, pushSprites.Length - 1)];
+            }
+
+            case State.Block:
+                if (blockReleasing)
+                    return blockSprites[Mathf.Min(3 + (int)(blockReleaseTime / blockLowerFrameTime), 4)];
+                return blockSprites[stateTime < blockRaiseTime ? 1 : 2];
+
             case State.Special:
                 return specialSprites[Mathf.Min((int)(stateTime / specialFrameTime), specialSprites.Length - 1)];
 
@@ -861,6 +976,26 @@ public class PlayerController : MonoBehaviour
             || (Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame);
 #else
         return Input.GetKeyDown(KeyCode.L);
+#endif
+    }
+
+    bool PushPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.uKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.U);
+#endif
+    }
+
+    bool BlockHeld()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.iKey.isPressed)
+            || (Gamepad.current != null && Gamepad.current.leftTrigger.isPressed);
+#else
+        return Input.GetKey(KeyCode.I);
 #endif
     }
 

@@ -388,7 +388,7 @@ public static class BeatEmUpSetup
 
         Selection.activeGameObject = player;
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-        Debug.Log("Pelaaja luotu. Paina Play. Ohjaus: WASD/nuolet, Space = hyppy, J = lyönti, K = potku (ilmassa = hyppypotku).");
+        Debug.Log("Pelaaja luotu. Paina Play. Ohjaus: WASD/nuolet, Space = hyppy, J = lyönti, K = potku (ilmassa = hyppypotku), U = pusku, I (pidä) = suojaus.");
     }
 
     const string EnemyFolder = "Assets/Sprites/Viholliset";
@@ -1015,6 +1015,33 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up", $"Heron heittokuvat: {sp.Length} kuvaa.\nKip-up-nousu: {pc.kipUpSprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/19. Päivitä pusku ja suojaus")]
+    static void UpdatePushAndBlock()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] push = LoadSprites("pusku")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        Sprite[] block = LoadSprites("suojaus")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (push.Length < 6 || block.Length < 5)
+        {
+            EditorUtility.DisplayDialog("Beat em up", $"pusku.png: {push.Length}/6 kuvaa, suojaus.png: {block.Length}/5 kuvaa. Tee ensin kohta 1.", "OK");
+            return;
+        }
+        Undo.RecordObject(pc, "Pusku ja suojaus");
+        pc.pushSprites = push;
+        pc.pushFrameTime = 0.06f;
+        pc.pushImpactFrame = 3;          // kuva 4: olkapää edellä, täysi syöksy
+        pc.pushImpactHold = 0.14f;
+        pc.blockSprites = block;
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Pusku: {push.Length} kuvaa (U, ohjaimessa RT, tai lyönti suojauksesta). Kaataa vihollisen.\n" +
+            $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
