@@ -401,7 +401,7 @@ public class PlayerController : MonoBehaviour
                 {
                     jumpKickTime += dt;
                     if (!attackHit && jumpKickTime >= 0.08f && jumpKickTime <= 0.45f)
-                        attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true);
+                        attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true, 2.2f);
                 }
                 if (height <= 0f) { height = 0f; Enter(State.Landing); }
                 break;
@@ -422,7 +422,7 @@ public class PlayerController : MonoBehaviour
 
                 // osumahetki: tarkistetaan lyhyen aikaikkunan ajan, osuuko isku
                 if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
-                    attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown);
+                    attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown, 2.4f);
 
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
                 if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;
@@ -446,7 +446,7 @@ public class PlayerController : MonoBehaviour
                 float hitFrom = sideKickImpactFrame * sideKickFrameTime;
                 float hitTo = hitFrom + sideKickImpactHold;
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
-                    attackHit = AttackEnemies(sideKickReach, sideKickDamage, kickFinisherKnockdown);   // kombon viimeinen
+                    attackHit = AttackEnemies(sideKickReach, sideKickDamage, kickFinisherKnockdown, 2.0f);   // kombon viimeinen
                 if (stateTime >= hitTo + (sideKickSprites.Length - sideKickImpactFrame - 1) * sideKickFrameTime)
                     Enter(State.Ground);
                 break;
@@ -459,7 +459,7 @@ public class PlayerController : MonoBehaviour
                 if (stateTime <= impact && impact > 0f)
                     MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / impact * dt, 0f));
                 if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
-                    attackHit = AttackEnemies(pushReach, pushDamage, true);
+                    attackHit = AttackEnemies(pushReach, pushDamage, true, 2.1f);
                 if (stateTime >= PushTotalTime) Enter(State.Ground);
                 break;
             }
@@ -557,7 +557,7 @@ public class PlayerController : MonoBehaviour
 
             case State.Kick:
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
-                    attackHit = AttackEnemies(kickReach, kickDamage, false);
+                    attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
                 if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
                 if (stateTime >= kickTime) EndKick();
                 break;
@@ -566,7 +566,7 @@ public class PlayerController : MonoBehaviour
             {
                 float hitFrom = hiKickImpactFrame * hiKickFrameTime;
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitFrom + hiKickImpactHold)
-                    attackHit = AttackEnemies(hiKickReach, hiKickDamage, false);
+                    attackHit = AttackEnemies(hiKickReach, hiKickDamage, false, 2.8f);
                 if (kickPressed && stateTime >= HiKickTotal * comboInputFrom) kickQueued = true;
                 if (stateTime >= HiKickTotal) EndKick();
                 break;
@@ -736,8 +736,10 @@ public class PlayerController : MonoBehaviour
     public float AirHeight => height;
 
     /// Tarkistaa, osuuko pelaajan isku viholliseen. Palauttaa true, jos osui ainakin yhteen.
-    bool AttackEnemies(float reach, int damage, bool knockdown)
+    /// sparkHeight = osumaläiskän korkeus maasta (pää n. 2.8, vatsa 2.0, jalat 1.2).
+    bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
+        float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false;
         foreach (var e in Enemy.All.ToArray())
@@ -747,7 +749,11 @@ public class PlayerController : MonoBehaviour
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach : dx <= 0.3f && dx >= -reach;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            if (e.TakeHit(damage, me.x, knockdown)) any = true;
+            if (e.TakeHit(damage, me.x, knockdown))
+            {
+                any = true;
+                HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown, Mathf.RoundToInt(-p.y * 100f) + 5);
+            }
         }
         foreach (var c in Crate.All.ToArray())
         {
@@ -756,7 +762,11 @@ public class PlayerController : MonoBehaviour
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            if (c.TakeHit(damage)) any = true;
+            if (c.TakeHit(damage))
+            {
+                any = true;
+                HitSpark.Spawn(new Vector3(p.x - side * 0.4f, p.y + 0.8f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
+            }
         }
         if (any) HitFx.OnHit(knockdown);
         return any;
@@ -823,6 +833,8 @@ public class PlayerController : MonoBehaviour
             blockStun = blockStunTime;
             stateTime = Mathf.Max(stateTime, blockRaiseTime);   // kädet heti ylös
             HitFx.OnHit(false);
+            HitSpark.Spawn(transform.position + new Vector3((fromRight ? 0.5f : -0.5f), 2.3f, 0f), false,
+                           Mathf.RoundToInt(-transform.position.y * 100f) + 5, true);
             int chip = Mathf.RoundToInt(damage * blockDamageFactor);
             if (chip > 0) ApplyDamage(chip);
             return true;
@@ -834,6 +846,8 @@ public class PlayerController : MonoBehaviour
         Enter(State.Hurt);
         PlayClip(hurtSounds);
         HitFx.OnHit(false);
+        HitSpark.Spawn(transform.position + new Vector3((fromRight ? 0.35f : -0.35f), height + 2.2f, 0f), false,
+                       Mathf.RoundToInt(-transform.position.y * 100f) + 5);
         ApplyDamage(damage);
         return true;
     }

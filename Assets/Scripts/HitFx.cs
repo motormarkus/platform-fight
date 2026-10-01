@@ -30,10 +30,10 @@ public class HitFx : MonoBehaviour
     [Range(0f, 1f)] public float pickupVolume = 0.8f;
 
     [Header("Tuntuma")]
-    public float lightHitstop = 0.05f;
-    public float heavyHitstop = 0.10f;
-    public float lightShake = 0.06f;
-    public float heavyShake = 0.16f;
+    public float lightHitstop = 0.08f;
+    public float heavyHitstop = 0.16f;
+    public float lightShake = 0.08f;
+    public float heavyShake = 0.22f;
 
     AudioSource source;
     bool stopping;

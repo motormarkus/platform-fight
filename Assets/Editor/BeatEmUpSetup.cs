@@ -1248,6 +1248,22 @@ public static class BeatEmUpSetup
             $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: korkea potku → matala potku → etupotku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    [MenuItem("Beat em up/25. Päivitä iskujen tuntuma")]
+    static void UpdateHitFeel()
+    {
+        var fx = Object.FindFirstObjectByType<HitFx>();
+        if (fx == null) { fx = new GameObject("HitFx").AddComponent<HitFx>(); Undo.RegisterCreatedObjectUndo(fx.gameObject, "HitFx"); }
+        Undo.RecordObject(fx, "Iskujen tuntuma");
+        fx.lightHitstop = 0.08f;   // ennen 0.05
+        fx.heavyHitstop = 0.16f;   // ennen 0.10
+        fx.lightShake = 0.08f;
+        fx.heavyShake = 0.22f;
+        EditorUtility.SetDirty(fx);
+        EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nOsumaläiskät ja vihollisen työntö ovat koodissa (ei tarvitse asettaa).\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];

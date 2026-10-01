@@ -449,7 +449,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            knockVel = new Vector2(fromLeft ? 2.2f : -2.2f, 0f);
+            knockVel = new Vector2(fromLeft ? 3.2f : -3.2f, 0f);   // tuntuva työntö osumasta
             Enter(State.Hurt);
         }
         return true;
