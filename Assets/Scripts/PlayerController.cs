@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
     Enemy heldEnemy;
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
+    bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
     [Header("Äänet")]
     [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
@@ -489,7 +490,7 @@ public class PlayerController : MonoBehaviour
                 if (stateTime >= thrownDownTime)
                 {
                     heldRot = 0f;
-                    if (kipUpSprites != null && kipUpSprites.Length > 0) Enter(State.KipUp);   // ponnistaa jaloilleen
+                    if (kipUpSprites != null && kipUpSprites.Length > 0) { kipUpAfterOwnThrow = false; Enter(State.KipUp); }   // ponnistaa jaloilleen
                     else
                     {
                         invulnTimer = Mathf.Max(invulnTimer, 1.0f);   // hetki suojaa noustessa
@@ -501,7 +502,9 @@ public class PlayerController : MonoBehaviour
             case State.KipUp:
                 if (stateTime >= kipUpSprites.Length * kipUpFrameTime)
                 {
-                    invulnTimer = Mathf.Max(invulnTimer, 0.6f);
+                    // heitetyksi joutumisen jälkeen hetki suojaa; oman heiton jälkeen ei (ei välkettä)
+                    if (!kipUpAfterOwnThrow) invulnTimer = Mathf.Max(invulnTimer, 0.6f);
+                    kipUpAfterOwnThrow = false;
                     Enter(State.Ground);
                 }
                 break;
@@ -765,9 +768,9 @@ public class PlayerController : MonoBehaviour
     {
         new Vector3( 0.95f, 1.50f,   0f),
         new Vector3( 0.60f, 1.50f,   0f),
-        new Vector3( 0.30f, 1.80f,  10f),
-        new Vector3(-0.20f, 2.80f,   5f),
-        new Vector3(-1.00f, 2.20f,  10f),
+        new Vector3( 0.30f, 2.20f,  10f),   // jalat irti maasta
+        new Vector3(-0.20f, 3.40f,   5f),   // korkealla olan yli
+        new Vector3(-1.00f, 2.70f,  10f),
     };
     static readonly int[] CounterPosesArt = { 1, 2, 3, 4, 5 };
     bool heldArt;        // vastus käyttää omia heittokuviaan
@@ -819,8 +822,8 @@ public class PlayerController : MonoBehaviour
             // kuvat loppuun, hetki makuulla ja kip-upilla ylös (kuvat jatkuvat samasta asennosta)
             if (stateTime >= ft * (FlipFrames.Length - 1) + monkeyFlipEndHold)
             {
-                if (kipUpSprites != null && kipUpSprites.Length > 0) Enter(State.KipUp);
-                else { invulnTimer = Mathf.Max(invulnTimer, 0.6f); Enter(State.Ground); }
+                if (kipUpSprites != null && kipUpSprites.Length > 0) { kipUpAfterOwnThrow = true; Enter(State.KipUp); }
+                else Enter(State.Ground);
             }
             return;
         }
