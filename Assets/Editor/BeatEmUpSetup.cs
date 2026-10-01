@@ -1577,11 +1577,12 @@ public static class BeatEmUpSetup
         if (kovis != null)
         {
             // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
-            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto" })
+            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus" })
                 SetupAndSlice(EnemyFolder + "/" + f + ".png");
             var idle = EnemySheet("pomo_idle", report);
             var run = EnemySheet("pomo_juoksu", report);
             var grab = EnemySheet("pomo_heitto", report);
+            var tackle = EnemySheet("pomo_taklaus", report);
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
@@ -1595,7 +1596,21 @@ public static class BeatEmUpSetup
             // lyönti: kahden käden töytäisy heittokuvista (ote -> kurotus -> jälkiliike)
             b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none;
             b.punchImpactFrame = 1;
-            b.altAttackSprites = none; b.altChance = 0f;
+            // taklaus: juoksee matkan päästä pelaajaa kohti ja kaataa (0–1 vauhti, 2 osuma, 3–4 palautuminen)
+            b.altAttackSprites = tackle;
+            b.altChance = tackle.Length > 0 ? 0.5f : 0f;
+            b.altImpactFrame = 2;
+            b.altDamage = 18;
+            b.altReach = 1.6f;
+            b.altExtraWindup = 0.15f;
+            b.altTimeScale = 1.4f;          // selvä ennakkovaroitus ja hidas palautuminen: rangaistuksen paikka
+            b.altLungeSpeed = 11f;
+            b.altLungeTime = 0.5f;
+            b.altKnockdown = true;
+            b.altKnockSpeed = 8f;
+            b.altKnockUp = 6f;
+            b.chargeRange = 7f;
+            b.chargeMinRange = 2.6f;
             b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none;   // omat kuvat myöhemmin
             b.flipThrownSprites = none; b.headlockThrownSprites = none;
             b.grabSprites = grab;

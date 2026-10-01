@@ -923,6 +923,27 @@ public class PlayerController : MonoBehaviour
     }
 
     /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
+    /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.
+    public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null)
+    {
+        if (state == State.Block) return TakeHit(damage, attackerX, attacker);
+        if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;
+        if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
+        if (GameOver || invulnTimer > 0f) return false;
+        bool fromRight = attackerX > transform.position.x;
+        DropCrate();
+        facingRight = fromRight;
+        heldRot = 0f;
+        height = Mathf.Max(height, 0.05f);
+        airVel = new Vector2(fromRight ? -speed : speed, 0f);
+        verticalVel = up;
+        pendingDamage = damage;
+        HitFx.OnHit(true);
+        HitSpark.Spawn(transform.position + new Vector3(fromRight ? 0.4f : -0.4f, 2.0f, 0f), true, Mathf.RoundToInt(-transform.position.y * 100f) + 5);
+        Enter(State.Thrown);
+        return true;
+    }
+
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null)
     {
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä

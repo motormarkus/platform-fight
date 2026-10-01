@@ -73,6 +73,13 @@ public class Enemy : MonoBehaviour
     [Tooltip("Kuinka kauan syöksy kestää (s). Hyökkäys on aktiivinen koko syöksyn ajan.")]
     public float altLungeTime = 0.25f;
 
+    [Tooltip("Toinen hyökkäys kaataa pelaajan (taklaus): lento taaksepäin.")]
+    public bool altKnockdown;
+    public float altKnockSpeed = 7f, altKnockUp = 6f;
+    [Tooltip("Rynnäkkö: toinen hyökkäys aloitetaan jo näin kaukaa (x), ja syöksy kantaa pelaajaan asti. 0 = ei käytössä.")]
+    public float chargeRange = 0f;
+    [Tooltip("Rynnäkkö aloitetaan aikaisintaan tältä etäisyydeltä (lähempänä lyö tavallisesti).")]
+    public float chargeMinRange = 2.6f;
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
     public float altTimeScale = 1f;
 
@@ -478,13 +485,26 @@ public class Enemy : MonoBehaviour
 
         facingRight = p.x > me.x;
 
+        // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
+        float adx = Mathf.Abs(me.x - p.x);
+        if (chargeRange > 0f && Has(altAttackSprites) && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown
+            && !grabIntent && adx >= chargeMinRange && adx <= chargeRange && Mathf.Abs(me.y - p.y) <= depthTolerance * 0.8f
+            && Random.value < altChance * dt * 3f)
+        {
+            moving = false;
+            attackRolled = false;
+            usingAlt = true;
+            Enter(State.Windup);
+            return;
+        }
+
         bool inRange = Mathf.Abs(me.x - p.x) <= (grabIntent ? grabRange : attackRange) && Mathf.Abs(me.y - p.y) <= depthTolerance;
         if (inRange && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown)
         {
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
             if (grabIntent) { Enter(State.GrabReach); return; }
-            usingAlt = Has(altAttackSprites) && Random.value < altChance;
+            usingAlt = chargeRange <= 0f && Has(altAttackSprites) && Random.value < altChance;   // rynnäkkö vain kaukaa
             Enter(State.Windup);
             return;
         }
@@ -510,6 +530,7 @@ public class Enemy : MonoBehaviour
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
+        if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this);
     }
 
