@@ -1307,7 +1307,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
-        foreach (var n in new[] { "lippis_idle", "lippis_lyonti", "lippis_potku" })
+        foreach (var n in new[] { "lippis_idle", "lippis_lyonti", "lippis_potku", "lippis_kaatuminen", "lippis_ylosnousu" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1330,7 +1330,9 @@ public static class BeatEmUpSetup
         t.idleSprites = idle;
         t.punchSprites = EnemySheet("lippis_lyonti", report);
         t.altAttackSprites = EnemySheet("lippis_potku", report);   // potku toisena hyökkäyksenä
-        // kävely-, osuma-, kaatumis- ja nousukuvia ei vielä ole: varaliikkeet (idle, väläys, kuvan kääntö)
+        t.knockdownSprites = EnemySheet("lippis_kaatuminen", report);   // pyörähtää ja kaatuu kasvoilleen
+        t.getUpSprites = EnemySheet("lippis_ylosnousu", report);
+        // kävely- ja osumakuvia ei vielä ole: varaliikkeet (idle, väläys)
         t.idleFrameTime = 0.14f;
         t.moveSpeedX = 2.5f;
         t.moveSpeedY = 1.5f;
@@ -1358,7 +1360,7 @@ public static class BeatEmUpSetup
         Selection.activeGameObject = go;
         EditorUtility.DisplayDialog("Beat em up",
             $"Lippiksiä kadulla: {LippisStreet.Length}\n\n" + string.Join("\n", report) +
-            "\n\nLyö ja potkaisee. Kävely-, osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliikkeet).\n\nTallenna scene (Ctrl+S).", "OK");
+            "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
