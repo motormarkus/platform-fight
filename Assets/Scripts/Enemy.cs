@@ -73,6 +73,10 @@ public class Enemy : MonoBehaviour
     [Tooltip("Kuinka kauan syöksy kestää (s). Hyökkäys on aktiivinen koko syöksyn ajan.")]
     public float altLungeTime = 0.25f;
 
+    [Tooltip("Tavallinen lyönti kaataa pelaajan (pomon isku ylhäältä).")]
+    public bool punchKnockdown;
+    [Tooltip("Lyönnin osuessa maahan kamera tärähtää (voimakkuus). 0 = ei.")]
+    public float punchShake = 0f;
     [Tooltip("Toinen hyökkäys kaataa pelaajan (taklaus): lento taaksepäin.")]
     public bool altKnockdown;
     public float altKnockSpeed = 7f, altKnockUp = 6f;
@@ -225,7 +229,12 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Windup:
-                if (stateTime >= CurrentWindup) { punchLanded = false; Enter(State.Punch); }
+                if (stateTime >= CurrentWindup)
+                {
+                    punchLanded = false;
+                    if (!usingAlt && punchShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan
+                    Enter(State.Punch);
+                }
                 break;
 
             case State.Punch:
@@ -531,6 +540,7 @@ public class Enemy : MonoBehaviour
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this);
+        if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this);
     }
 

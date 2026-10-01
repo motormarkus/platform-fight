@@ -79,8 +79,8 @@ public static class BeatEmUpSetup
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
         int CellW = baseName0.StartsWith("tanssija") ? 256 : BeatEmUpSetup.CellW;
-        // saksipotkun ilmakuvat tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("saksipotku") ? 512 : BeatEmUpSetup.CellH;
+        // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
+        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512 : BeatEmUpSetup.CellH;
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -1577,12 +1577,13 @@ public static class BeatEmUpSetup
         if (kovis != null)
         {
             // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
-            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus" })
+            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti" })
                 SetupAndSlice(EnemyFolder + "/" + f + ".png");
             var idle = EnemySheet("pomo_idle", report);
             var run = EnemySheet("pomo_juoksu", report);
             var grab = EnemySheet("pomo_heitto", report);
             var tackle = EnemySheet("pomo_taklaus", report);
+            var slam = EnemySheet("pomo_lyonti", report);
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
@@ -1593,9 +1594,10 @@ public static class BeatEmUpSetup
             var none = new Sprite[0];
             if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; b.idleFrameTime = 0.16f; }   // 6 kuvaa, suu liikkuu (puhuu)
             if (run.Length > 0) { b.walkSprites = run; b.walkFrameTime = 0.07f; }   // pomo ei kävele, se juoksee
-            // lyönti: kahden käden töytäisy heittokuvista (ote -> kurotus -> jälkiliike)
-            b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none;
-            b.punchImpactFrame = 1;
+            // lyönti ylhäältä alas: lataa nyrkkiä 0.3 s (ehtii alta pois), heilautus ja isku maahan kaataa.
+            // Varalla kahden käden töytäisy heittokuvista.
+            if (slam.Length >= 4) { b.punchSprites = slam; b.punchImpactFrame = 2; b.windupTime = 0.3f; b.punchKnockdown = true; b.punchShake = 0.18f; }
+            else { b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none; b.punchImpactFrame = 1; }
             // taklaus: juoksee matkan päästä pelaajaa kohti ja kaataa (0–1 vauhti, 2 osuma, 3–4 palautuminen)
             b.altAttackSprites = tackle;
             b.altChance = tackle.Length > 0 ? 0.5f : 0f;
@@ -1624,7 +1626,7 @@ public static class BeatEmUpSetup
             b.moveSpeedX = 3.4f;
             b.moveSpeedY = 1.9f;
             b.maxHealth = 260;
-            b.punchDamage = 14;
+            b.punchDamage = 16;
             b.attackCooldown = 1.0f;
             b.wakeDistance = 12f;
         }
