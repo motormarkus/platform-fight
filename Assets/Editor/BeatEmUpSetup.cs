@@ -1541,13 +1541,13 @@ public static class BeatEmUpSetup
         up.prompt = "Kiipeä katolle";
         up.here = streetArea;
         up.target = roof;
-        up.spawnPoint = new Vector2(RoofX0 + 3f, roof.maxDepthY - 0.4f);
+        up.spawnPoint = new Vector2(RoofX0 + 5.5f, roof.maxDepthY - 0.4f);
         up.halfWidth = 1.2f;
         up.maxDistanceFromWall = 0.9f;
         up.climbHeight = 3f;
         var down = new GameObject("Tikkaat alas").AddComponent<Door>();
         down.transform.SetParent(group.transform, false);
-        down.transform.position = new Vector3(RoofX0 + 1.4f, roof.maxDepthY, 0f);
+        down.transform.position = new Vector3(RoofX0 + 5.5f, roof.maxDepthY, 0f);
         down.prompt = "Laskeudu kadulle";
         down.here = roof;
         down.target = streetArea;
@@ -1592,9 +1592,9 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info(
             $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
-            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas katon vasemmasta reunasta.\n" +
+            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas palotikkaiden kohdalta vasemmalta.\n" +
             (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
-            "\nKaton tausta on väliaikainen, kunnes kattokuvat valmistuvat.\n\nTallenna scene (Ctrl+S).");
+            "\nKaton tausta on koottu kadun kuvista, kunnes kattokuvat valmistuvat.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
