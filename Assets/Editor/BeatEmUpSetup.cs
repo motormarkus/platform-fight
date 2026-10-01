@@ -447,6 +447,7 @@ public static class BeatEmUpSetup
         e.grabSprites = Sheet("vihu_heitto");      // tarttuu ja heittää välillä, kun pääsee viereen
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         e.hurtVolume = 0.99f;
+        e.bigBody = true;                          // pelaaja heittää kuperkeikalla
         report.Add($"Osumaäänet (gasp): {e.hurtSounds.Length} kpl");
         EditorUtility.SetDirty(e);
 
@@ -1059,6 +1060,33 @@ public static class BeatEmUpSetup
         EditorUtility.DisplayDialog("Beat em up",
             $"Vastaheitto: {sp.Length} kuvaa.\nPaina O (ohjaimessa oikean tatin painallus) juuri kun vihollinen lyö:\n" +
             "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    [MenuItem("Beat em up/21. Päivitä kuperkeikkaheitto (isot vastukset)")]
+    static void UpdateMonkeyFlip()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        Sprite[] sp = LoadSprites("kuperkeikka")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"kuperkeikka.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        Undo.RecordObject(pc, "Kuperkeikkaheitto");
+        pc.monkeyFlipSprites = sp;
+        EditorUtility.SetDirty(pc);
+        // Koviksille iso-merkintä (kuperkeikka), punkkareille ei (niskalenkki)
+        int big = 0, small = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+        {
+            Undo.RecordObject(e, "Iso vastus");
+            e.bigBody = e.gameObject.name.StartsWith("Kovis");
+            if (e.bigBody) big++; else small++;
+            EditorUtility.SetDirty(e);
+        }
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Kuperkeikkaheitto: {sp.Length} kuvaa (+ kip-up lopuksi).\n" +
+            $"Isoja vastuksia (Kovis, kuperkeikka): {big}\nMuita (niskalenkki): {small}\n\n" +
+            "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

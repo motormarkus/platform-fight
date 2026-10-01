@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public static float LastHitTime;
 
     public string displayName = "Kovis";
+    [Tooltip("Iso vastus (Kovis): pelaajan vastaheitto on kuperkeikkaheitto, muille niskalenkki.")]
+    public bool bigBody;
 
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;

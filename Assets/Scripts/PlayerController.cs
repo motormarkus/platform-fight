@@ -158,8 +158,19 @@ public class PlayerController : MonoBehaviour
     public int counterThrowDamage = 20;
     [Tooltip("Lentonopeus selän taakse (yksikköä/s).")]
     public float counterThrowSpeed = 5f;
+
+    [Header("Kuperkeikkaheitto isoille vastuksille (Kovis): sama nappi, valitaan automaattisesti")]
+    [Tooltip("kuperkeikka.png: 8 kuvaa (0 ote, 1 kyykky, 2 istahdus, 3 selälleen, 4 jalat vatsaan, 5 potku pään yli, 6–7 makaa). Lopuksi kip-up.")]
+    public Sprite[] monkeyFlipSprites;
+    public float monkeyFlipFrameTime = 0.1f;
+    [Tooltip("Kuinka kauan maataan viimeisessä kuvassa ennen kip-upia.")]
+    public float monkeyFlipEndHold = 0.25f;
+    public int monkeyFlipDamage = 26;
+    [Tooltip("Lentonopeus pään yli taakse (yksikköä/s).")]
+    public float monkeyFlipSpeed = 6f;
     Enemy heldEnemy;
     bool counterReleased;
+    bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
 
     [Header("Äänet")]
     [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
@@ -262,6 +273,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(pushSprites);
         SortByFrameNumber(blockSprites);
         SortByFrameNumber(counterThrowSprites);
+        SortByFrameNumber(monkeyFlipSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -710,6 +722,7 @@ public class PlayerController : MonoBehaviour
     float PushTotalTime => pushFrameTime * (pushSprites.Length - 1) + pushImpactHold;
 
     bool HasCounterThrow => counterThrowSprites != null && counterThrowSprites.Length >= 7;
+    bool HasMonkeyFlip => monkeyFlipSprites != null && monkeyFlipSprites.Length >= 8;
 
     // Heiton kuvat järjestyksessä (heitto.png) ja vihollisen kehon keskikohta kussakin:
     // (eteenpäin pelaajasta, korkeus maasta, kierto astetta)
@@ -723,10 +736,28 @@ public class PlayerController : MonoBehaviour
         new Vector3(-1.00f, 2.00f, 175f),   // irti, selän taakse
     };
 
+    // Kuperkeikkaheitto (kuperkeikka.png): kuvat 0–7, irti kuvan 5 alussa
+    static readonly int[] FlipFrames = { 0, 1, 2, 3, 4, 5, 6, 7 };
+    static readonly Vector3[] FlipKeys =
+    {
+        new Vector3( 1.00f, 1.50f,   0f),   // ote
+        new Vector3( 0.85f, 1.45f,  10f),   // kyykky, veto
+        new Vector3( 0.60f, 1.35f,  30f),   // istahdus, vastus kallistuu
+        new Vector3( 0.35f, 1.30f,  55f),   // selälleen, vastus kaatuu päälle
+        new Vector3( 0.10f, 1.60f,  95f),   // jalat vatsassa, vastus vaakatasossa
+        new Vector3(-0.70f, 2.40f, 150f),   // potku pään yli, irti
+    };
+
+    int[] CurFrames => monkeyFlip ? FlipFrames : CounterFrames;
+    Vector3[] CurKeys => monkeyFlip ? FlipKeys : CounterKeys;
+    Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
+    float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
+
     void StartCounterThrow(Enemy e)
     {
         heldEnemy = e;
         counterReleased = false;
+        monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
         e.BeginHeldByPlayer(transform.position.x);
         PlayGrunt();
         HitFx.OnHit(false);
@@ -736,22 +767,34 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCounterThrow()
     {
-        float ft = Mathf.Max(counterThrowFrameTime, 0.01f);
-        float releaseAt = ft * (CounterKeys.Length - 1);
+        float ft = CurThrowFrameTime;
+        Vector3[] keys = CurKeys;
+        float releaseAt = ft * (keys.Length - 1);
         float dir = facingRight ? 1f : -1f;
         if (!counterReleased && heldEnemy != null)
         {
-            float k = Mathf.Clamp(stateTime / ft, 0f, CounterKeys.Length - 1);
-            int i = Mathf.Min((int)k, CounterKeys.Length - 2);
-            Vector3 v = Vector3.Lerp(CounterKeys[i], CounterKeys[i + 1], k - i);
+            float k = Mathf.Clamp(stateTime / ft, 0f, keys.Length - 1);
+            int i = Mathf.Min((int)k, keys.Length - 2);
+            Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], k - i);
             Vector3 me = transform.position;
             heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.02f, 0f), v.y - 1.5f, dir * v.z);
             if (stateTime >= releaseAt)
             {
                 counterReleased = true;
-                heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, 3.5f, counterThrowDamage);
+                if (monkeyFlip) heldEnemy.ReleaseThrow(-dir * monkeyFlipSpeed, 6f, monkeyFlipDamage);
+                else heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, 3.5f, counterThrowDamage);
                 heldEnemy = null;
             }
+        }
+        if (monkeyFlip)
+        {
+            // kuvat loppuun, hetki makuulla ja kip-upilla ylös (kuvat jatkuvat samasta asennosta)
+            if (stateTime >= ft * (FlipFrames.Length - 1) + monkeyFlipEndHold)
+            {
+                if (kipUpSprites != null && kipUpSprites.Length > 0) Enter(State.KipUp);
+                else { invulnTimer = Mathf.Max(invulnTimer, 0.6f); Enter(State.Ground); }
+            }
+            return;
         }
         if (stateTime >= releaseAt + counterThrowEndHold)
         {
@@ -952,8 +995,10 @@ public class PlayerController : MonoBehaviour
 
             case State.CounterThrow:
             {
-                int k = Mathf.Min((int)(stateTime / Mathf.Max(counterThrowFrameTime, 0.01f)), CounterFrames.Length - 1);
-                return counterThrowSprites[Mathf.Min(CounterFrames[k], counterThrowSprites.Length - 1)];
+                int[] fr = CurFrames;
+                Sprite[] sp = CurThrowSprites;
+                int k = Mathf.Min((int)(stateTime / CurThrowFrameTime), fr.Length - 1);
+                return sp[Mathf.Min(fr[k], sp.Length - 1)];
             }
 
             case State.Block:
