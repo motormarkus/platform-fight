@@ -106,6 +106,12 @@ public class Enemy : MonoBehaviour
     public float grabReachTime = 0.3f;
     public float grabLiftTime = 0.8f;
     public int throwDamage = 18;
+    [Tooltip("Heittää eteenpäin (ruudun poikki) eikä selän taakse.")]
+    public bool throwForward;
+    [Tooltip("Heiton vauhti vaakaan ja ylös.")]
+    public float throwSpeed = 5.5f, throwUp = 4f;
+    [Tooltip("Jos pelaaja pysyy näin kauan (s) aivan vieressä, vihu tarttuu heti. 0 = ei käytössä.")]
+    public float grabWhenCloseTime = 0f;
 
     [Header("Kestävyys")]
     public int maxHealth = 60;
@@ -146,6 +152,7 @@ public class Enemy : MonoBehaviour
 
     PlayerController player;
     bool awake;
+    float closeTimer;       // kauanko pelaaja on ollut aivan vieressä
     bool flanking;          // tämä hyökkäys tehdään pelaajan selän takaa
     float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
     int blocksInRow;
@@ -325,12 +332,12 @@ public class Enemy : MonoBehaviour
                 else if (!thrown)
                 {
                     thrown = true;
-                    float dir = facingRight ? -1f : 1f;                  // heitetään selän taakse
-                    player.Throw(dir * 5.5f, 4f, throwDamage);
+                    float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
+                    player.Throw(dir * throwSpeed, throwUp, throwDamage);
                 }
                 if (stateTime >= ThrowSwing + 0.15f + 0.4f)
                 {
-                    facingRight = !facingRight;                          // Kovis on kääntynyt heittosuuntaan
+                    if (!throwForward) facingRight = !facingRight;       // Kovis on kääntynyt heittosuuntaan
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
                     grabIntent = false;
                     Enter(State.Idle);
@@ -372,6 +379,7 @@ public class Enemy : MonoBehaviour
             new Vector3(0.0f, 2.4f, 0f),
             new Vector3(-0.6f, 2.5f, 0f),    // heilautus selän taakse
         };
+        if (throwForward) { artKeys[4] = new Vector3(1.3f, 2.0f, 0f); rotKeys[4] = new Vector3(1.6f, 2.4f, 60f); }   // heitto eteen: pelaaja lähtee käsistä edestä
         Vector3[] rotKeys =
         {
             new Vector3(0.9f, 0.0f, 0f),
@@ -423,6 +431,16 @@ public class Enemy : MonoBehaviour
             }
         }
         float side = me.x >= p.x ? 1f : -1f;
+
+        // liian kauan aivan vieressä: tarttuu heti (pomo)
+        bool close = Mathf.Abs(p.x - me.x) <= grabRange + 0.3f && Mathf.Abs(p.y - me.y) <= depthTolerance;
+        closeTimer = close ? closeTimer + dt : Mathf.Max(0f, closeTimer - dt);
+        if (grabWhenCloseTime > 0f && closeTimer >= grabWhenCloseTime && Has(grabSprites) && !player.IsDown)
+        {
+            closeTimer = 0f;
+            facingRight = p.x > me.x;
+            if (CanGrabPlayer()) { moving = false; grabIntent = false; attackRolled = false; Enter(State.GrabReach); return; }
+        }
         // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
         if (cooldown <= 0f && !attackRolled)
         {

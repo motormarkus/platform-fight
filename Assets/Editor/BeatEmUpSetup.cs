@@ -1576,16 +1576,40 @@ public static class BeatEmUpSetup
         var kovis = all.FirstOrDefault(e => e.gameObject.name == "Kovis");
         if (kovis != null)
         {
-            // pomo: iso ja kestävä Kovis
+            // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
+            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto" })
+                SetupAndSlice(EnemyFolder + "/" + f + ".png");
+            var idle = EnemySheet("pomo_idle", report);
+            var run = EnemySheet("pomo_juoksu", report);
+            var grab = EnemySheet("pomo_heitto", report);
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
-            go.transform.localScale = Vector3.one * 1.3f;
+            go.transform.localScale = Vector3.one;
             var b = go.GetComponent<Enemy>();
-            b.displayName = "Pomo";
+            b.displayName = "Metsuri";
+            b.bigBody = true;
+            var none = new Sprite[0];
+            if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; }
+            if (run.Length > 0) { b.walkSprites = run; b.walkFrameTime = 0.07f; }   // pomo ei kävele, se juoksee
+            // lyönti: kahden käden töytäisy heittokuvista (ote -> kurotus -> jälkiliike)
+            b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none;
+            b.punchImpactFrame = 1;
+            b.altAttackSprites = none; b.altChance = 0f;
+            b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none;   // omat kuvat myöhemmin
+            b.flipThrownSprites = none; b.headlockThrownSprites = none;
+            b.grabSprites = grab;
+            b.grabChance = 0.1f;
+            b.grabRange = 1.4f;
+            b.grabWhenCloseTime = 1.0f;     // liian kauan vieressä -> nappaa ja viskaa ruudun poikki
+            b.throwForward = true;
+            b.throwSpeed = 12f;
+            b.throwUp = 5f;
+            b.throwDamage = 22;
+            b.moveSpeedX = 3.4f;
+            b.moveSpeedY = 1.9f;
             b.maxHealth = 260;
-            b.punchDamage = Mathf.RoundToInt(b.punchDamage * 1.6f);
-            b.altDamage = Mathf.RoundToInt(b.altDamage * 1.6f);
+            b.punchDamage = 14;
             b.attackCooldown = 1.0f;
             b.wakeDistance = 12f;
         }
@@ -1611,7 +1635,7 @@ public static class BeatEmUpSetup
             Undo.RecordObject(e, "Taktiikka");
             if (n == "Pomo")
             {
-                e.runSpeedMultiplier = 1.3f; e.flankChance = 0.3f; e.retreatChance = 0.2f;
+                e.runSpeedMultiplier = 1.2f; e.flankChance = 0.3f; e.retreatChance = 0.2f;
                 e.blockChance = 0.25f; e.maxBlocksInRow = 2;
             }
             else if (n.StartsWith("Lippis"))
