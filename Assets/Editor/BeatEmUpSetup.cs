@@ -448,6 +448,7 @@ public static class BeatEmUpSetup
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         e.hurtVolume = 0.99f;
         e.bigBody = true;                          // pelaaja heittää kuperkeikalla
+        e.flipThrownSprites = Sheet("vihu_kuperkeikka");
         report.Add($"Osumaäänet (gasp): {e.hurtSounds.Length} kpl");
         EditorUtility.SetDirty(e);
 
@@ -1075,17 +1076,21 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         // Koviksille iso-merkintä (kuperkeikka), punkkareille ei (niskalenkki)
         int big = 0, small = 0;
+        var sheetReport = new List<string>();
+        Sprite[] kovisFlip = EnemySheet("vihu_kuperkeikka", sheetReport);
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
         {
             Undo.RecordObject(e, "Iso vastus");
             e.bigBody = e.gameObject.name.StartsWith("Kovis");
+            if (e.bigBody) e.flipThrownSprites = kovisFlip;   // Koviksen oma lento ja alastulo
             if (e.bigBody) big++; else small++;
             EditorUtility.SetDirty(e);
         }
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
             $"Kuperkeikkaheitto: {sp.Length} kuvaa (+ kip-up lopuksi).\n" +
-            $"Isoja vastuksia (Kovis, kuperkeikka): {big}\nMuita (niskalenkki): {small}\n\n" +
+            $"Isoja vastuksia (Kovis, kuperkeikka): {big}\nMuita (niskalenkki): {small}\n" +
+            $"Koviksen omat kuvat: {string.Join(", ", sheetReport)}\n\n" +
             "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 

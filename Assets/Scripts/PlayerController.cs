@@ -748,8 +748,22 @@ public class PlayerController : MonoBehaviour
         new Vector3(-0.70f, 2.40f, 150f),   // potku pään yli, irti
     };
 
+    // Sama heitto, kun vastuksella on omat kuvat (Kovis): kuvat hoitavat asennon, kiertoa vain potkussa.
+    // Vastuksen kuva kussakin avainkohdassa: 0 ote, 1 veto, 2 nostettuna jaloille.
+    static readonly Vector3[] FlipKeysArt =
+    {
+        new Vector3( 1.00f, 1.50f,   0f),
+        new Vector3( 0.85f, 1.50f,   0f),
+        new Vector3( 0.60f, 1.50f,   0f),
+        new Vector3( 0.35f, 1.80f,   0f),
+        new Vector3( 0.10f, 2.10f,  30f),
+        new Vector3(-0.60f, 2.60f, 110f),
+    };
+    static readonly int[] FlipPosesArt = { 0, 1, 1, 2, 2, 2 };
+    bool heldArt;        // vastus käyttää omia kuperkeikkakuviaan
+
     int[] CurFrames => monkeyFlip ? FlipFrames : CounterFrames;
-    Vector3[] CurKeys => monkeyFlip ? FlipKeys : CounterKeys;
+    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys) : CounterKeys;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
     float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
 
@@ -758,6 +772,7 @@ public class PlayerController : MonoBehaviour
         heldEnemy = e;
         counterReleased = false;
         monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
+        heldArt = monkeyFlip && e.HasFlipArt;
         e.BeginHeldByPlayer(transform.position.x);
         PlayGrunt();
         HitFx.OnHit(false);
@@ -777,7 +792,8 @@ public class PlayerController : MonoBehaviour
             int i = Mathf.Min((int)k, keys.Length - 2);
             Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], k - i);
             Vector3 me = transform.position;
-            heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.02f, 0f), v.y - 1.5f, dir * v.z);
+            int pose = heldArt ? FlipPosesArt[Mathf.Min((int)k, FlipPosesArt.Length - 1)] : -1;
+            heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.02f, 0f), v.y - 1.5f, dir * v.z, pose);
             if (stateTime >= releaseAt)
             {
                 counterReleased = true;

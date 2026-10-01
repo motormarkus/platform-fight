@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public string displayName = "Kovis";
     [Tooltip("Iso vastus (Kovis): pelaajan vastaheitto on kuperkeikkaheitto, muille niskalenkki.")]
     public bool bigBody;
+    [Tooltip("Oma kuvasarja pelaajan kuperkeikkaheittoon (vihu_kuperkeikka.png, 8 kuvaa): 0 ote, 1 veto, 2 nosto jaloille, 3 lento, 4–7 alastulo selälleen.")]
+    public Sprite[] flipThrownSprites;
 
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;
@@ -134,6 +136,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(hurtSprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
+        PlayerController.SortByFrameNumber(flipThrownSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -204,7 +207,14 @@ public class Enemy : MonoBehaviour
                 Move(knockVel * dt);
                 verticalVel -= 30f * dt;
                 height += verticalVel * dt;
-                if (thrownByPlayer)
+                if (thrownByPlayer && artThrow)
+                {
+                    // omat kuvat: ensin nostokuva kiertyy vielä hetken, sitten lentokuva (kuva 3) suorana
+                    float dir = Mathf.Sign(spinRot);
+                    if (stateTime < ArtSpinTime) spinRot = Mathf.MoveTowards(spinRot, dir * 180f, 700f * dt);
+                    else spinRot = 0f;
+                }
+                else if (thrownByPlayer)
                 {
                     // pyörähdys jatkuu selälleen, kiertopiste laskeutuu kohti maata
                     float dir = Mathf.Sign(spinRot);
@@ -216,6 +226,9 @@ public class Enemy : MonoBehaviour
                     height = 0f;
                     if (thrownByPlayer)
                     {
+                        flipLanded = artThrow;   // alastulokuvat 4–7
+                        artThrow = false;
+                        spinRot = 0f;
                         thrownByPlayer = false;
                         PlayHurtSound();
                         HitFx.OnHit(true);
@@ -324,6 +337,7 @@ public class Enemy : MonoBehaviour
     void Enter(State s)
     {
         if (s == State.GrabThrow) thrown = false;
+        if (s != State.Down && s != State.Dead) flipLanded = false;
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -440,6 +454,13 @@ public class Enemy : MonoBehaviour
     // ---------------- Pelaajan vastaheitto ----------------
 
     bool thrownByPlayer;
+    bool artThrow;          // heitetään omilla kuvilla (flipThrownSprites)
+    bool flipLanded;        // maassa omilla alastulokuvilla
+    int heldPose = -1;      // mikä omista kuvista näytetään otteessa (-1 = osumakuva + kierto)
+    const float ArtSpinTime = 0.1f;
+    const float FlipLandFrameTime = 0.08f;
+
+    public bool HasFlipArt => flipThrownSprites != null && flipThrownSprites.Length >= 8;
     float spinRot;          // kierto (astetta, maailman z), kun pelaaja pitää tai heittää
     float spinCenter;       // kiertopisteen korkeus jaloista (yksikköä)
 
@@ -453,11 +474,12 @@ public class Enemy : MonoBehaviour
         knockVel = Vector2.zero;
         spinRot = 0f;
         spinCenter = 1.5f;
+        heldPose = -1;
         Enter(State.Held);
     }
 
     /// Pelaaja liikuttaa: kehon keskikohta (x, syvyys), korkeus ja kierto keskikohdan ympäri.
-    public void SetHeldByPlayer(Vector3 pos, float lift, float rot)
+    public void SetHeldByPlayer(Vector3 pos, float lift, float rot, int pose = -1)
     {
         if (state != State.Held) return;
         Vector3 p = transform.position;
@@ -466,6 +488,7 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector3(pos.x, Mathf.Clamp(pos.y, minY, maxY), p.z);
         height = lift;
         spinRot = rot;
+        heldPose = HasFlipArt ? pose : -1;
     }
 
     /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
@@ -479,6 +502,7 @@ public class Enemy : MonoBehaviour
         verticalVel = up;
         height = Mathf.Max(height, 0.05f);
         thrownByPlayer = true;
+        artThrow = heldPose >= 0;
         Enter(State.Airborne);
     }
 
@@ -605,6 +629,7 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Airborne:
+                if (thrownByPlayer && artThrow) return flipThrownSprites[stateTime < ArtSpinTime ? 2 : 3];
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (Has(knockdownSprites))
                 {
@@ -615,10 +640,13 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Held:
+                if (heldPose >= 0) return flipThrownSprites[Mathf.Clamp(heldPose, 0, 2)];
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
             case State.Down:
             case State.Dead:
+                if (flipLanded && HasFlipArt)
+                    return flipThrownSprites[Mathf.Min(4 + (int)(stateTime / FlipLandFrameTime), 7)];
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];
                 rot = 90f;
                 return FirstIdle();
