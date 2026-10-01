@@ -1276,6 +1276,24 @@ public static class BeatEmUpSetup
             "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    [MenuItem("Beat em up/26. Päivitä saksipotku (hyppy + K)")]
+    static void UpdateScissorKick()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        string path = FindTexture("saksipotku");
+        if (path != null) SetupAndSlice(path);
+        Sprite[] sp = LoadSprites("saksipotku")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"saksipotku.png: {sp.Length}/8 kuvaa.", "OK"); return; }
+        Undo.RecordObject(pc, "Saksipotku");
+        pc.scissorSprites = sp;
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            "Saksipotku: hyppy + K. Kaksi potkua vuorojaloin, toinen kaataa.\nHyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];
