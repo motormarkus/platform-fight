@@ -48,6 +48,8 @@ public static class BeatEmUpSetup
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
         int CellW = baseName0.StartsWith("tanssija") ? 256 : BeatEmUpSetup.CellW;
+        // saksipotkun ilmakuvat tarvitsevat enemmän korkeutta (512 × 512)
+        int CellH = baseName0.StartsWith("saksipotku") ? 512 : BeatEmUpSetup.CellH;
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -76,7 +78,7 @@ public static class BeatEmUpSetup
             for (int c = 0; c < cols; c++)
             {
                 int x = c * CellW, y = h - (r + 1) * CellH;
-                if (IsEmpty(tex, x, y, CellW)) continue;
+                if (IsEmpty(tex, x, y, CellW, CellH)) continue;
                 string n = $"{baseName}_{rects.Count}";
                 rects.Add(new SpriteRect
                 {
@@ -97,9 +99,9 @@ public static class BeatEmUpSetup
         return rects.Count;
     }
 
-    static bool IsEmpty(Texture2D tex, int x, int y, int cellW)
+    static bool IsEmpty(Texture2D tex, int x, int y, int cellW, int cellH)
     {
-        Color[] px = tex.GetPixels(x, y, cellW, CellH);
+        Color[] px = tex.GetPixels(x, y, cellW, cellH);
         for (int i = 0; i < px.Length; i += 7)
             if (px[i].a > 0.1f) return false;
         return true;
