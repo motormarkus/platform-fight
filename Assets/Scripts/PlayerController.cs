@@ -105,7 +105,14 @@ public class PlayerController : MonoBehaviour
     public float scissorReach = 2.1f;
     [Tooltip("Painovoiman kerroin potkujen aikana: ukko leijuu hetken, jotta molemmat potkut ehtivät.")]
     [Range(0.1f, 1f)] public float scissorGravityScale = 0.5f;
+    [Tooltip("Maasta: ylös, alas, K, K. Aikaikkuna ylös→alas ja alas→potkut (s).")]
+    public float scissorInputWindow = 0.45f;
     bool scissor;           // saksipotku käynnissä ilmassa
+    bool scissorJump;       // ponnistus maasta saksipotkuun (ylös, alas, K, K)
+    bool landedFromScissor;
+    float lastUpTime = -10f, upDownTime = -10f, scissorArmTime = -10f;
+    float prevMoveY;
+    bool scissorArmed;      // ylös-alas tehty ja ensimmäinen K painettu: toinen K laukaisee
     float scissorTime;
     bool scissorHit1, scissorHit2;
 
@@ -368,6 +375,10 @@ public class PlayerController : MonoBehaviour
         if (GameOver) { ApplyVisual(); return; }
 
         Vector2 move = ReadMove();
+        // ylös → alas -liike saksipotkua varten
+        if (move.y > 0.5f && prevMoveY <= 0.5f) lastUpTime = Time.time;
+        if (move.y < -0.5f && prevMoveY >= -0.5f && Time.time - lastUpTime <= scissorInputWindow) upDownTime = Time.time;
+        prevMoveY = move.y;
         bool jumpPressed = JumpPressed();
         bool punchPressed = PunchPressed();
         bool kickPressed = KickPressed();
@@ -398,7 +409,13 @@ public class PlayerController : MonoBehaviour
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
-                if (kickPressed) { StartKick(0); break; }
+                if (kickPressed)
+                {
+                    if (scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor) { StartScissorJump(); break; }
+                    ArmScissor();
+                    StartKick(0);
+                    break;
+                }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0)
                 {
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
@@ -418,6 +435,14 @@ public class PlayerController : MonoBehaviour
                     if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
                     jumpKick = false;
                     scissor = false;
+                    if (scissorJump)
+                    {
+                        // saksipotku maasta: lyhyt loikka eteen, potkut alkavat heti
+                        scissorJump = false;
+                        verticalVel = jumpVelocity * 0.9f;
+                        airVel = new Vector2((facingRight ? 1f : -1f) * moveSpeedX * 0.8f, 0f);
+                        scissor = true; scissorTime = 0f; scissorHit1 = scissorHit2 = false;
+                    }
                     Enter(State.Air);
                 }
                 break;
@@ -451,7 +476,7 @@ public class PlayerController : MonoBehaviour
                     if (!attackHit && jumpKickTime >= 0.08f && jumpKickTime <= 0.45f)
                         attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true, 2.2f);
                 }
-                if (height <= 0f) { height = 0f; scissor = false; Enter(State.Landing); }
+                if (height <= 0f) { height = 0f; landedFromScissor = scissor; scissor = false; Enter(State.Landing); }
                 break;
 
             case State.Landing:
@@ -620,6 +645,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case State.Kick:   // matala potku, kombon ensimmäinen
+                if (kickPressed && scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor)
+                {
+                    StartScissorJump();   // ylös, alas, K, K: matala potku katkeaa saksipotkuksi
+                    break;
+                }
                 Lunge(lowKickLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
@@ -703,6 +733,7 @@ public class PlayerController : MonoBehaviour
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
         if (s != State.Punch) flurryKickQueued = false;
+        if (s != State.JumpSquat) scissorJump = false;
         if (s != State.Ground) { moving = false; running = false; }
     }
 
@@ -1105,6 +1136,23 @@ public class PlayerController : MonoBehaviour
         Enter(State.Block);
     }
 
+    /// Ylös-alas tehty juuri ennen potkua: seuraava K (pian) laukaisee saksipotkun.
+    void ArmScissor()
+    {
+        scissorArmed = Time.time - upDownTime <= scissorInputWindow;
+        scissorArmTime = Time.time;
+    }
+
+    void StartScissorJump()
+    {
+        scissorArmed = false;
+        scissorJump = true;
+        jumpFromRun = false;
+        squatVel = Vector2.zero;
+        PlayGrunt();
+        Enter(State.JumpSquat);
+    }
+
     bool HasScissor => scissorSprites != null && scissorSprites.Length >= 8;
     float ScissorKick1Start => scissorFrameTime;
     float ScissorKick2Start => ScissorKick1Start + scissorKickHold + scissorFrameTime;
@@ -1250,6 +1298,7 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case State.JumpSquat:
+                if (scissorJump && HasScissor) return scissorSprites[stateTime < jumpSquatTime * 0.5f ? 0 : 1];
                 return Action(F_CROUCH);
 
             case State.Air:
@@ -1277,6 +1326,7 @@ public class PlayerController : MonoBehaviour
                 return Action(F_JUMP_DOWN);
 
             case State.Landing:
+                if (landedFromScissor && HasScissor && stateTime >= landingTime * 0.5f) return scissorSprites[7];
                 return Action(stateTime < landingTime * 0.5f ? F_LAND1 : F_LAND2);
 
             case State.Punch:
