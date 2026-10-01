@@ -125,6 +125,14 @@ public class PlayerController : MonoBehaviour
     int kickComboIndex;     // 0 matala, 1 etupotku, 2 korkea
     bool kickQueued;
 
+    [Header("Flurry: J, J, K, K (iskut katkaistaan heti osuman jälkeen)")]
+    [Tooltip("Monennesta lyönnistä alkaen potku ketjuttuu flurryksi (1 = toinen lyönti, eli J, J, K).")]
+    public int flurryFromPunch = 1;
+    [Tooltip("Flurryssa isku katkaistaan näin pian osumakuvan alun jälkeen (s), palautusta ei odoteta.")]
+    public float flurryCancelAfterImpact = 0.06f;
+    bool flurry;            // ketju käynnissä: lyönneistä potkuihin, korkea potku ilman nostoa
+    bool flurryKickQueued;  // lyönnin aikana painettiin potkua
+
     [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen LB), osuu joka suuntaan")]
     public Sprite[] specialSprites;
     public float specialFrameTime = 0.055f;
@@ -431,6 +439,20 @@ public class PlayerController : MonoBehaviour
 
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
                 if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;
+                // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
+                if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
+
+                // ketjussa isku katkaistaan heti osuman jälkeen, palautusta ei odoteta
+                float cancelAt = hit.ImpactTime + flurryCancelAfterImpact;
+                if (flurryKickQueued && stateTime >= cancelAt)
+                {
+                    flurry = true;
+                    StartKick(0);
+                    break;
+                }
+                bool hasNextPunch = comboIndex + 1 < punchCombo.Length;
+                // seuraava lyönti jo painettu: katkaistaan heti osuman jälkeen (nopea sarja)
+                if (comboQueued && hasNextPunch && stateTime >= cancelAt) { StartComboHit(comboIndex + 1); break; }
 
                 if (stateTime >= total)
                 {
@@ -567,6 +589,7 @@ public class PlayerController : MonoBehaviour
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
                 if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
+                if (flurry && kickQueued && stateTime >= 0.07f + flurryCancelAfterImpact) { EndKick(); break; }   // flurry: heti perään
                 if (stateTime >= kickTime) EndKick();
                 break;
 
@@ -643,6 +666,8 @@ public class PlayerController : MonoBehaviour
     {
         state = s;
         stateTime = 0f;
+        if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
+        if (s != State.Punch) flurryKickQueued = false;
         if (s != State.Ground) { moving = false; running = false; }
     }
 
@@ -1073,6 +1098,13 @@ public class PlayerController : MonoBehaviour
     /// Potku loppui: seuraava kombossa, jos K painettiin ajoissa, muuten perusasentoon (kombo alkaa alusta).
     void EndKick()
     {
+        if (flurry && kickQueued && kickComboIndex == 0 && HasHiKick)
+        {
+            // flurry: korkea potku heti matalan perään, nostovaihe ohitetaan (alkaa osumakuvasta)
+            StartKick(2);
+            stateTime = hiKickImpactFrame * hiKickFrameTime;
+            return;
+        }
         if (kickQueued && kickComboIndex < 2) StartKick(kickComboIndex + 1);
         else Enter(State.Ground);
     }
