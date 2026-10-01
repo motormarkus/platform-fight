@@ -1245,7 +1245,7 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
-            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: korkea potku → matala potku → etupotku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
+            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: korkea potku → etupotku → matala potku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     [MenuItem("Beat em up/25. Päivitä iskujen tuntuma")]
@@ -1259,9 +1259,18 @@ public static class BeatEmUpSetup
         fx.lightShake = 0.08f;
         fx.heavyShake = 0.22f;
         EditorUtility.SetDirty(fx);
+        // lyöntikombon liuku eteenpäin pidemmäksi
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc != null && pc.punchCombo != null)
+        {
+            Undo.RecordObject(pc, "Liuku");
+            float[] lunges = { 0.18f, 0.26f, 0.40f };
+            for (int i = 0; i < pc.punchCombo.Length && i < lunges.Length; i++) pc.punchCombo[i].lunge = lunges[i];
+            EditorUtility.SetDirty(pc);
+        }
         EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
         EditorUtility.DisplayDialog("Beat em up",
-            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nOsumaläiskät ja vihollisen työntö ovat koodissa (ei tarvitse asettaa).\n\nTallenna scene (Ctrl+S).", "OK");
+            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.40.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
