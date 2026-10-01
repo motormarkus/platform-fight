@@ -249,11 +249,16 @@ public static class BeatEmUpSetup
             $"Iskujen gruntit: {grunts.Length} kpl\nOsuman gaspit (gasphero): {pc.hurtSounds.Length} kpl\n(Assets/Audio/Pelaaja)\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    // Pelin taustamusiikki (tiedostonimi ilman päätettä kansiossa Assets/Audio/Musiikki)
+    const string MusicName = "Blade Anthem";
+
     [MenuItem("Beat em up/7. Aseta taustamusiikki")]
     static void SetupMusic()
     {
-        string path = AssetDatabase.FindAssets("t:AudioClip", new[] { "Assets/Audio/Musiikki" })
-            .Select(AssetDatabase.GUIDToAssetPath).OrderBy(p => p).FirstOrDefault();
+        var paths = AssetDatabase.FindAssets("t:AudioClip", new[] { "Assets/Audio/Musiikki" })
+            .Select(AssetDatabase.GUIDToAssetPath).OrderBy(p => p).ToList();
+        // valittu kappale, tai jos sitä ei löydy, ensimmäinen kansiosta
+        string path = paths.FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == MusicName) ?? paths.FirstOrDefault();
         if (path == null)
         {
             EditorUtility.DisplayDialog("Beat em up", "Kansiosta Assets/Audio/Musiikki ei löytynyt äänitiedostoa.", "OK");
