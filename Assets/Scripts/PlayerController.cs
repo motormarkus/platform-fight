@@ -176,6 +176,20 @@ public class PlayerController : MonoBehaviour
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
+    [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
+    [Tooltip("nosto_heitto.png: 6 kuvaa (0 kyykky, 1 nousu, 2 pään yllä, 3 veto taakse, 4 heitto, 5 asento).")]
+    public Sprite[] carrySprites;
+    public float liftTime = 0.3f;
+    [Tooltip("Kävelyn nopeuskerroin laatikkoa kantaessa.")]
+    public float carrySpeedFactor = 0.75f;
+    [Tooltip("Laatikon korkeus pään yllä (yksikköä maasta).")]
+    public float carryHeight = 3.0f;
+    public float crateThrowTime = 0.32f;
+    public float crateThrowSpeed = 9f;
+    public float crateThrowUp = 3f;
+    Crate carried;
+    bool crateReleased;
+
     [Header("Äänet")]
     [Tooltip("Iskujen gruntit (grunt1–grunt6). Täytä valikosta Beat em up → 6. Päivitä äänet.")]
     public AudioClip[] attackGrunts;
@@ -249,7 +263,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow }
 
     int comboIndex;
     bool comboQueued;
@@ -278,6 +292,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(blockSprites);
         SortByFrameNumber(counterThrowSprites);
         SortByFrameNumber(monkeyFlipSprites);
+        SortByFrameNumber(carrySprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -325,7 +340,12 @@ public class PlayerController : MonoBehaviour
                 }
                 if (blockHeld && HasBlock) { StartBlock(); break; }
                 if (pushPressed && HasPush) { StartPush(); break; }
-                if (catchPressed && HasCounterThrow) { Enter(State.Catch); break; }
+                if (catchPressed)
+                {
+                    Crate c = NearbyCrate();
+                    if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
+                    if (HasCounterThrow) { Enter(State.Catch); break; }
+                }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed)
                 {
@@ -335,7 +355,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0)
                 {
-                    Enter(State.Special); specialHits.Clear(); PlayGrunt(); break;
+                    Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
                 }
                 Walk(move, dt);
                 break;
@@ -424,6 +444,55 @@ public class PlayerController : MonoBehaviour
                 if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
                     attackHit = AttackEnemies(pushReach, pushDamage, true);
                 if (stateTime >= PushTotalTime) Enter(State.Ground);
+                break;
+            }
+
+            case State.Lift:
+            {
+                // kyykky, sitten laatikko nousee pään yli
+                float k = Mathf.Clamp01((stateTime - liftTime * 0.35f) / (liftTime * 0.65f));
+                float dir = facingRight ? 1f : -1f;
+                HoldCrate(Mathf.Lerp(0.9f, 0.05f, k) * dir, Mathf.Lerp(0f, carryHeight, k));
+                if (stateTime >= liftTime) Enter(State.Carry);
+                break;
+            }
+
+            case State.Carry:
+                if (carried == null) { Enter(State.Ground); break; }
+                if (punchPressed || kickPressed || catchPressed || pushPressed)
+                {
+                    crateReleased = false;
+                    PlayGrunt();
+                    Enter(State.CrateThrow);
+                    break;
+                }
+                // kävely hitaammin, ei juoksua eikä hyppyä
+                moving = move.sqrMagnitude > 0.01f;
+                if (moving)
+                {
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+                    MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * carrySpeedFactor * dt);
+                }
+                HoldCrate((facingRight ? 1f : -1f) * 0.05f, carryHeight);
+                break;
+
+            case State.CrateThrow:
+            {
+                float dir = facingRight ? 1f : -1f;
+                float release = crateThrowTime * 0.45f;    // irti heittokuvan alussa
+                if (!crateReleased)
+                {
+                    // veto taakse, sitten eteen
+                    float k = Mathf.Clamp01(stateTime / release);
+                    HoldCrate(Mathf.Lerp(-0.25f, 0.6f, k) * dir, Mathf.Lerp(carryHeight + 0.1f, carryHeight - 0.4f, k));
+                    if (stateTime >= release && carried != null)
+                    {
+                        carried.Throw(dir * crateThrowSpeed, crateThrowUp);
+                        carried = null;
+                        crateReleased = true;
+                    }
+                }
+                if (stateTime >= crateThrowTime) Enter(State.Ground);
                 break;
             }
 
@@ -579,6 +648,7 @@ public class PlayerController : MonoBehaviour
         if (state == State.Hurt || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
             || state == State.Air || state == State.JumpSquat || state == State.CounterThrow) return false;
         facingRight = enemyX > transform.position.x;    // kasvot tarttujaan päin
+        DropCrate();
         Enter(State.Grabbed);
         heldRot = 0f;
         return true;
@@ -644,6 +714,15 @@ public class PlayerController : MonoBehaviour
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             if (e.TakeHit(damage, me.x, knockdown)) any = true;
         }
+        foreach (var c in Crate.All.ToArray())
+        {
+            if (c == null || !c.CanBeHit) continue;
+            Vector3 p = c.transform.position;
+            float dx = p.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
+            if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (c.TakeHit(damage)) any = true;
+        }
         if (any) HitFx.OnHit(knockdown);
         return any;
     }
@@ -657,12 +736,14 @@ public class PlayerController : MonoBehaviour
         airVel = Vector2.zero;
         hurtVel = Vector2.zero;
         jumpKick = false;
+        DropCrate();
         Enter(State.Ground);
         groundHeight = TargetGroundHeight();
         ApplyVisual();
     }
 
     readonly System.Collections.Generic.HashSet<Enemy> specialHits = new System.Collections.Generic.HashSet<Enemy>();
+    readonly System.Collections.Generic.HashSet<Crate> specialCrates = new System.Collections.Generic.HashSet<Crate>();
 
     /// Pyörähdyspotku: osuu kaikkiin lähellä oleviin molemmin puolin, kerran kuhunkin, ja kaataa.
     void AttackAround()
@@ -675,6 +756,13 @@ public class PlayerController : MonoBehaviour
             Vector3 p = e.transform.position;
             if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
             if (e.TakeHit(specialDamage, me.x, true)) { specialHits.Add(e); any = true; }
+        }
+        foreach (var c in Crate.All.ToArray())
+        {
+            if (c == null || !c.CanBeHit || specialCrates.Contains(c)) continue;
+            Vector3 p = c.transform.position;
+            if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
+            if (c.TakeHit(specialDamage)) { specialCrates.Add(c); any = true; }
         }
         if (any) HitFx.OnHit(true);
     }
@@ -704,6 +792,7 @@ public class PlayerController : MonoBehaviour
             if (chip > 0) ApplyDamage(chip);
             return true;
         }
+        DropCrate();
         facingRight = fromRight;                    // käänny lyöjää kohti
         hurtVel = new Vector2(fromRight ? -2.5f : 2.5f, 0f);
         if (height > 0f) verticalVel = Mathf.Min(verticalVel, 0f);
@@ -727,6 +816,7 @@ public class PlayerController : MonoBehaviour
     bool HasBlock => blockSprites != null && blockSprites.Length >= 5;
     float PushTotalTime => pushFrameTime * (pushSprites.Length - 1) + pushImpactHold;
 
+    bool HasCarrySprites => carrySprites != null && carrySprites.Length >= 6;
     bool HasCounterThrow => counterThrowSprites != null && counterThrowSprites.Length >= 7;
     bool HasMonkeyFlip => monkeyFlipSprites != null && monkeyFlipSprites.Length >= 8;
 
@@ -783,6 +873,48 @@ public class PlayerController : MonoBehaviour
     int[] CurPoses => monkeyFlip ? FlipPosesArt : CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
     float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
+
+    // ---------------- Laatikko ----------------
+
+    /// Ehjä laatikko edessä nostoetäisyydellä.
+    Crate NearbyCrate()
+    {
+        Vector3 me = transform.position;
+        Crate best = null; float bestD = float.MaxValue;
+        foreach (var c in Crate.All)
+        {
+            if (c == null || !c.CanPickUp) continue;
+            Vector3 p = c.transform.position;
+            float dx = p.x - me.x;
+            bool front = facingRight ? dx >= -0.4f && dx <= 1.5f : dx <= 0.4f && dx >= -1.5f;
+            if (!front || Mathf.Abs(p.y - me.y) > 0.45f) continue;
+            if (Mathf.Abs(dx) < bestD) { bestD = Mathf.Abs(dx); best = c; }
+        }
+        return best;
+    }
+
+    void StartLift(Crate c)
+    {
+        carried = c;
+        c.PickUp();
+        Enter(State.Lift);
+    }
+
+    /// Pitää laatikkoa: dx vaakasuunnassa pelaajasta, korkeus pelaajan jaloista.
+    void HoldCrate(float dx, float lift)
+    {
+        if (carried == null) return;
+        Vector3 me = transform.position;
+        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift,
+                           Mathf.RoundToInt(-me.y * 100f) + 1);
+    }
+
+    /// Laatikko putoaa käsistä (osuma, tarttuminen, ovi).
+    void DropCrate()
+    {
+        if (carried != null) carried.Drop();
+        carried = null;
+    }
 
     void StartCounterThrow(Enemy e)
     {
@@ -1023,6 +1155,29 @@ public class PlayerController : MonoBehaviour
                 else i = pushImpactFrame + 1 + (int)((stateTime - hitTo) / pushFrameTime);
                 return pushSprites[Mathf.Clamp(i, 0, pushSprites.Length - 1)];
             }
+
+            case State.Lift:
+                if (HasCarrySprites) return carrySprites[stateTime < liftTime * 0.35f ? 0 : stateTime < liftTime * 0.7f ? 1 : 2];
+                return Action(F_CROUCH);
+
+            case State.Carry:
+                if (HasCarrySprites) return carrySprites[2];   // laatikko pään yllä (myös kävellessä)
+                if (moving && walkSprites != null && walkSprites.Length > 0)
+                    return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
+                return IdleFrame();
+
+            case State.CrateThrow:
+                if (HasCarrySprites)
+                {
+                    float r = crateThrowTime * 0.45f;
+                    return carrySprites[stateTime < r ? 3 : stateTime < crateThrowTime * 0.85f ? 4 : 5];
+                }
+                if (punchCombo.Length > 1 && punchCombo[1].HasAnimation)
+                {
+                    var hs = punchCombo[1].sprites;
+                    return hs[Mathf.Min((int)(stateTime / crateThrowTime * hs.Length), hs.Length - 1)];
+                }
+                return Action(F_PUNCH);
 
             case State.Catch:
                 return counterThrowSprites[stateTime <= catchWindow ? 0 : 7 % counterThrowSprites.Length];

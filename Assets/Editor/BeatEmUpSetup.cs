@@ -49,7 +49,7 @@ public static class BeatEmUpSetup
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
         int CellW = baseName0.StartsWith("tanssija") ? 256 : BeatEmUpSetup.CellW;
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
-        int ppu = baseName0.StartsWith("myyja") ? 200 : 100;
+        int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
 
         var ti = (TextureImporter)AssetImporter.GetAtPath(path);
@@ -1117,6 +1117,101 @@ public static class BeatEmUpSetup
         EditorUtility.DisplayDialog("Beat em up",
             $"Hypyn korkeus n. {h:0.0} yksikköä (Jump Velocity {pc.jumpVelocity}).\n" +
             $"Kuperkeikka: nopeus {pc.monkeyFlipSpeed}, nousu {pc.monkeyFlipUp}.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
+    // ---------------- Puulaatikot ----------------
+    const string CratePath = "Assets/Sprites/Rekvisiitta/laatikko.png";
+    const string CrateBurstPath = "Assets/Sprites/Rekvisiitta/laatikko_sirpaleet.png";
+    const float CrateSpacing = 9f;   // laatikoiden väli kävelykadulla (yksikköä)
+
+    [MenuItem("Beat em up/23. Lisää puulaatikot kävelykadulle")]
+    static void AddCrates()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var street = GameObject.Find("Tausta");
+        if (pc == null || street == null || AssetImporter.GetAtPath(CratePath) == null)
+        {
+            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + CratePath, "OK");
+            return;
+        }
+        SetupAndSlice(CratePath);
+        Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(CratePath).OfType<Sprite>()
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        Sprite burst = null;
+        var bti = AssetImporter.GetAtPath(CrateBurstPath) as TextureImporter;
+        if (bti != null)
+        {
+            bti.textureType = TextureImporterType.Sprite;
+            bti.spriteImportMode = SpriteImportMode.Single;
+            bti.spritePixelsPerUnit = 200;
+            bti.filterMode = FilterMode.Bilinear;
+            bti.textureCompression = TextureImporterCompression.Uncompressed;
+            bti.mipmapEnabled = false;
+            bti.alphaIsTransparency = true;
+            var st = new TextureImporterSettings();
+            bti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)SpriteAlignment.Center;
+            bti.SetTextureSettings(st);
+            bti.SaveAndReimport();
+            burst = AssetDatabase.LoadAssetAtPath<Sprite>(CrateBurstPath);
+        }
+
+        // pelaajan nosto- ja heittokuvat, jos ne on jo lisätty
+        Sprite[] carry = LoadSprites("nosto_heitto")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        Undo.RecordObject(pc, "Nostokuvat");
+        pc.carrySprites = carry;
+        EditorUtility.SetDirty(pc);
+
+        var old = GameObject.Find("Laatikot");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Laatikot");
+        Undo.RegisterCreatedObjectUndo(root, "Laatikot");
+
+        // kävelykadun keskikohta syvyyssuunnassa (kuten moottoripyörillä)
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        float curb = streetArea != null ? streetArea.curbDepthY : pc.curbDepthY;
+        float wall = streetArea != null ? streetArea.maxDepthY : pc.maxDepthY;
+        float y = (curb + wall) * 0.5f;
+
+        // vältetään moottoripyörät ja ovet
+        var blocked = new List<float>();
+        var bikes = GameObject.Find("Moottoripyörät");
+        if (bikes != null) foreach (Transform b in bikes.transform) blocked.Add(b.position.x);
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None)) blocked.Add(d.transform.position.x);
+
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float left = street.transform.position.x - ssr.size.x * 0.5f;
+        float right = street.transform.position.x + ssr.size.x * 0.5f;
+        int count = 0;
+        for (float x = left + 7f; x < right - 4f; x += CrateSpacing)
+        {
+            float cx = x;
+            // siirretään vähän sivuun, jos kohdalla on pyörä tai ovi
+            for (int tries = 0; tries < 4 && blocked.Any(b => Mathf.Abs(b - cx) < 1.8f); tries++) cx += 1.5f;
+            if (blocked.Any(b => Mathf.Abs(b - cx) < 1.8f)) continue;
+
+            var go = new GameObject("Laatikko " + (++count));
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(cx, y, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>();
+            vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+            sh.transform.SetParent(go.transform, false);
+            var c = go.AddComponent<Crate>();
+            c.sprites = sprites;
+            c.burstSprite = burst;
+            c.body = vis;
+            c.shadow = sh;
+            vis.sprite = sprites.Length > 0 ? sprites[0] : null;
+            vis.transform.localPosition = new Vector3(0f, pc.sidewalkHeight - c.footOffset, 0f);
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Selection.activeGameObject = root;
+        EditorUtility.DisplayDialog("Beat em up",
+            $"{count} puulaatikkoa kävelykadulla {CrateSpacing:0} yksikön välein ({sprites.Length} kuvaa, sirpaleet: {(burst != null ? "OK" : "puuttuu")}).\n" +
+            $"Pelaajan nosto- ja heittokuvat (nosto_heitto.png): {(carry.Length > 0 ? carry.Length + " kuvaa" : "puuttuu, käytetään varakuvia")}\n\n" +
+            "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
