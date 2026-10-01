@@ -181,13 +181,15 @@ public class PlayerController : MonoBehaviour
     public Sprite[] carrySprites;
     [Tooltip("Kävely laatikko pään yllä (kanto_kavely.png). Käyttää kävelyn tahtia (Walk Frame Time). Jos tyhjä, liukuu kantoasennossa.")]
     public Sprite[] carryWalkSprites;
+    [Tooltip("Kantoasento seisoessa (kanto.png), jos täyttä nosto/heitto-sarjaa ei ole.")]
+    public Sprite carryPoseSprite;
     [Tooltip("Laatikon keinunta askelten tahdissa kävellessä (yksikköä).")]
     public float carryBob = 0.06f;
     public float liftTime = 0.3f;
     [Tooltip("Kävelyn nopeuskerroin laatikkoa kantaessa.")]
     public float carrySpeedFactor = 0.75f;
     [Tooltip("Laatikon korkeus pään yllä (yksikköä maasta).")]
-    public float carryHeight = 3.0f;
+    public float carryHeight = 3.45f;
     public float crateThrowTime = 0.32f;
     public float crateThrowSpeed = 9f;
     public float crateThrowUp = 3f;
@@ -1171,12 +1173,14 @@ public class PlayerController : MonoBehaviour
 
             case State.Lift:
                 if (HasCarrySprites) return carrySprites[stateTime < liftTime * 0.35f ? 0 : stateTime < liftTime * 0.7f ? 1 : 2];
+                if (carryPoseSprite != null && stateTime >= liftTime * 0.5f) return carryPoseSprite;
                 return Action(F_CROUCH);
 
             case State.Carry:
                 if (moving && HasCarryWalk)
                     return carryWalkSprites[(int)(animClock / walkFrameTime) % carryWalkSprites.Length];
                 if (HasCarrySprites) return carrySprites[2];   // laatikko pään yllä
+                if (carryPoseSprite != null) return carryPoseSprite;
                 if (moving && walkSprites != null && walkSprites.Length > 0)
                     return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();
