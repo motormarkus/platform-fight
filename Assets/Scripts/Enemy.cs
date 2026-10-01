@@ -73,6 +73,29 @@ public class Enemy : MonoBehaviour
     [Tooltip("Kuinka kauan syöksy kestää (s). Hyökkäys on aktiivinen koko syöksyn ajan.")]
     public float altLungeTime = 0.25f;
 
+    [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
+    public float altTimeScale = 1f;
+
+    [Header("Taktiikka")]
+    [Tooltip("Kaukana pelaajasta liikutaan näin paljon nopeammin (juoksu).")]
+    public float runSpeedMultiplier = 1.3f;
+    [Tooltip("Kuinka usein lähin vihu kiertää pelaajan selän taakse (0–1).")]
+    [Range(0f, 1f)] public float flankChance = 0.25f;
+    [Tooltip("Kierrettäessä kaarretaan syvyyssuunnassa näin kauas pelaajan ohi.")]
+    public float flankArcDepth = 1.3f;
+    [Tooltip("Kuinka usein hyökkäyksen jälkeen perääntyy hetkeksi (0–1).")]
+    [Range(0f, 1f)] public float retreatChance = 0.2f;
+    public float retreatTime = 0.7f;
+
+    [Header("Torjunta (vapaaehtoinen)")]
+    [Tooltip("Torjuntakuvat: 0 suoja ylös, 1 torjunta, 2 paluu. Jos tyhjä, käytetään idle-kuvaa.")]
+    public Sprite[] blockSprites;
+    [Tooltip("Kuinka usein edestä tuleva isku torjutaan (0–1). 0 = ei torju koskaan.")]
+    [Range(0f, 1f)] public float blockChance = 0f;
+    [Tooltip("Montako iskua peräkkäin voi torjua; seuraava menee läpi.")]
+    public int maxBlocksInRow = 2;
+    public float blockTime = 0.35f;
+
     [Header("Heitto (vapaaehtoinen): tarttuu, nostaa pään yli ja heittää taakse")]
     [Tooltip("8 kuvaa: 0 kurotus, 1 ote, 2–4 nosto, 5–6 heitto, 7 asento heiton jälkeen (katsoo heittosuuntaan).")]
     public Sprite[] grabSprites;
@@ -105,7 +128,7 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
+    enum State { Idle, Block, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -123,6 +146,11 @@ public class Enemy : MonoBehaviour
 
     PlayerController player;
     bool awake;
+    bool flanking;          // tämä hyökkäys tehdään pelaajan selän takaa
+    float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
+    int blocksInRow;
+    /// Torjuiko vihu juuri saamansa iskun (pelaaja näyttää sinisen läiskän).
+    public bool JustBlocked { get; private set; }
     int attackRank;   // 0 = lähin, 1 = toinen (vastakkaiselta puolelta), 2+ = odottaa vuoroaan
 
     public int Health => health;
@@ -140,6 +168,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(altAttackSprites);
         PlayerController.SortByFrameNumber(grabSprites);
         PlayerController.SortByFrameNumber(hurtSprites);
+        PlayerController.SortByFrameNumber(blockSprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
         PlayerController.SortByFrameNumber(flipThrownSprites);
@@ -198,10 +227,22 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Recover:
-                if (stateTime >= punchRecoverTime)
+                if (stateTime >= CurrentRecover)
                 {
                     cooldown = attackCooldown * Random.Range(0.7f, 1.3f);
+                    if (Random.value < retreatChance) retreatTimer = retreatTime;   // iske ja vetäydy
                     Enter(State.Idle);
+                }
+                break;
+
+            case State.Block:
+                Move(knockVel * dt);
+                knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 10f * dt);
+                if (stateTime >= blockTime)
+                {
+                    cooldown = Mathf.Min(cooldown, 0.1f);   // vastaisku heti torjunnan perään
+                    attackRolled = false;
+                    Enter(State.Chase);
                 }
                 break;
 
@@ -386,23 +427,41 @@ public class Enemy : MonoBehaviour
         if (cooldown <= 0f && !attackRolled)
         {
             grabIntent = Has(grabSprites) && Random.value < grabChance;
+            flanking = Random.value < flankChance;
             attackRolled = true;
         }
         float dist = grabIntent ? grabRange * 0.6f : attackRange * 0.8f;   // heittoa varten mennään aivan viereen
         float yOff = 0f;
-        if (attackRank == 1 && first != null) side = first.transform.position.x >= p.x ? -1f : 1f;
+        if (attackRank == 0 && flanking) side = player.FacingRight ? -1f : 1f;   // pelaajan selän taakse
+        else if (attackRank == 1 && first != null) side = first.transform.position.x >= p.x ? -1f : 1f;
         else if (attackRank >= 2)
         {
             dist = 3.4f + (attackRank - 2) * 0.9f;
             yOff = (attackRank % 2 == 0) ? 0.7f : -0.7f;
+            yOff += Mathf.Sin(Time.time * 1.1f + GetInstanceID() * 0.37f) * 0.5f;   // vuoroaan odottavat liikehtivät
+        }
+        if (retreatTimer > 0f)
+        {
+            // iske ja vetäydy: hetki kauempana ennen seuraavaa hyökkäystä
+            retreatTimer -= dt;
+            dist = 3.6f;
         }
         Vector2 target = new Vector2(p.x + side * dist, p.y + yOff);
+        // toiselle puolelle mennessä kaarretaan pelaajan ohi syvyyssuunnassa, ei kävellä läpi
+        bool crossing = Mathf.Sign(me.x - p.x) != side && Mathf.Abs(me.x - p.x) < dist + 1.5f;
+        if (crossing)
+        {
+            float minY = player.minDepthY, maxY = player.maxDepthY;
+            float arc = me.y >= p.y ? 1f : -1f;
+            if (p.y + arc * flankArcDepth > maxY || p.y + arc * flankArcDepth < minY) arc = -arc;
+            target.y = Mathf.Clamp(p.y + arc * flankArcDepth, minY, maxY);
+        }
         Vector2 to = target - (Vector2)me;
 
         facingRight = p.x > me.x;
 
         bool inRange = Mathf.Abs(me.x - p.x) <= (grabIntent ? grabRange : attackRange) && Mathf.Abs(me.y - p.y) <= depthTolerance;
-        if (inRange && attackRank <= 1 && cooldown <= 0f && !player.IsDown)
+        if (inRange && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown)
         {
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
@@ -416,7 +475,10 @@ public class Enemy : MonoBehaviour
         {
             moving = true;
             Vector2 dir = to.normalized;
-            Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * dt);
+            // kaukana juostaan (myös kierrettäessä selän taakse)
+            float run = to.magnitude > 3.5f || crossing ? runSpeedMultiplier : 1f;
+            if (run > 1f) animClock += dt * (run - 1f);   // askeleet tihenevät
+            Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
         }
         else moving = false;
     }
@@ -441,6 +503,22 @@ public class Enemy : MonoBehaviour
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held) return false;   // heiton aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
+
+        // torjunta: vain edestä, kun ei olla itse kesken iskun; muutaman torjunnan jälkeen suoja murtuu
+        bool facingAttacker = (attackerX > transform.position.x) == facingRight;
+        bool guardState = state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake);
+        if (blockChance > 0f && facingAttacker && guardState && blocksInRow < maxBlocksInRow
+            && (state == State.Block || Random.value < blockChance))
+        {
+            blocksInRow++;
+            JustBlocked = true;
+            knockVel = new Vector2(attackerX < transform.position.x ? 1.6f : -1.6f, 0f);
+            shakeUntil = HitFx.ShakeUntil(false);
+            Enter(State.Block);
+            return true;
+        }
+        JustBlocked = false;
+        blocksInRow = 0;
 
         awake = true;
         health = Mathf.Max(0, health - damage);
@@ -658,9 +736,13 @@ public class Enemy : MonoBehaviour
                     // käsi pysyy ojennettuna hetken, sitten palautuskuvat
                     int imp = PunchImpact;
                     int n = AtkSprites.Length - imp;
-                    return AtkSprites[imp + Mathf.Min((int)(stateTime / punchRecoverTime * n), n - 1)];
+                    return AtkSprites[imp + Mathf.Min((int)(stateTime / CurrentRecover * n), n - 1)];
                 }
                 return IdleFrame();
+
+            case State.Block:
+                if (Has(blockSprites)) return blockSprites[Mathf.Min((int)(stateTime / blockTime * blockSprites.Length), blockSprites.Length - 1)];
+                return FirstIdle();
 
             case State.Hurt:
                 if (Has(hurtSprites)) return hurtSprites[Mathf.Min((int)(stateTime / hurtTime * hurtSprites.Length), hurtSprites.Length - 1)];
@@ -719,7 +801,8 @@ public class Enemy : MonoBehaviour
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
     Sprite[] AtkSprites => usingAlt ? altAttackSprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => windupTime + (usingAlt ? altExtraWindup : 0f);
+    float CurrentWindup => usingAlt ? (windupTime + altExtraWindup) * altTimeScale : windupTime;
+    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : attackRange;
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;

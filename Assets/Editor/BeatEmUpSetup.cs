@@ -45,6 +45,7 @@ public static class BeatEmUpSetup
             AddPunks();
             AddLippis();
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
+            SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -1595,6 +1596,51 @@ public static class BeatEmUpSetup
             $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas vasemman reunan tikkailta.\n" +
             (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
             "\nKaton oikea puoli on kattokuvan 1 peilikuva, kunnes kuvat 2 ja 3 valmistuvat.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Vihujen taktiikka ----------------
+    [MenuItem("Beat em up/31. Vihujen taktiikka (juoksu, kiertäminen, torjunta)")]
+    static void SetEnemyTactics()
+    {
+        var report = new List<string>();
+        var lippisBlock = EnemySheet("lippis_torjunta", report);
+        int count = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+        {
+            string n = e.gameObject.name.Replace("Katto ", "");
+            Undo.RecordObject(e, "Taktiikka");
+            if (n == "Pomo")
+            {
+                e.runSpeedMultiplier = 1.3f; e.flankChance = 0.3f; e.retreatChance = 0.2f;
+                e.blockChance = 0.25f; e.maxBlocksInRow = 2;
+            }
+            else if (n.StartsWith("Lippis"))
+            {
+                // nopea ja ovela: juoksee, kiertää selän taakse, iskee ja vetäytyy, torjuu
+                e.runSpeedMultiplier = 1.5f; e.flankChance = 0.5f; e.retreatChance = 0.4f;
+                e.blockChance = 0.35f; e.maxBlocksInRow = 2;
+                if (lippisBlock.Length > 0) e.blockSprites = lippisBlock;
+                // potku: lähes kaksi kertaa nopeampi ja liukuu eteen
+                e.altTimeScale = 0.55f; e.altLungeSpeed = 7f; e.altLungeTime = 0.22f;
+            }
+            else if (n.StartsWith("Punkkari"))
+            {
+                e.runSpeedMultiplier = 1.6f; e.flankChance = 0.35f; e.retreatChance = 0.3f; e.blockChance = 0f;
+            }
+            else if (n.StartsWith("Kovis"))
+            {
+                e.runSpeedMultiplier = 1.15f; e.flankChance = 0.1f; e.retreatChance = 0f; e.blockChance = 0f;
+            }
+            else continue;
+            EditorUtility.SetDirty(e);
+            count++;
+        }
+        if (count > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info(
+            $"Taktiikka asetettu {count} viholliselle.\n\n" +
+            "Lippis: juoksee, kiertää selän taakse, iskee ja vetäytyy, torjuu (2 peräkkäin, sitten suoja murtuu). Potku nopeampi ja liukuu.\n" +
+            "Punkkari: nopea, kiertää välillä.\nKovis: hidas ja suoraviivainen.\nPomo: torjuu ja kiertää.\n\n" +
+            string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

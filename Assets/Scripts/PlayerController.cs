@@ -845,7 +845,7 @@ public class PlayerController : MonoBehaviour
     {
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
-        bool any = false;
+        bool any = false, heavy = false;
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead) continue;
@@ -856,7 +856,9 @@ public class PlayerController : MonoBehaviour
             if (e.TakeHit(damage, me.x, knockdown))
             {
                 any = true;
-                HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown, Mathf.RoundToInt(-p.y * 100f) + 5);
+                // torjuttu isku: sinertävä pieni läiskä
+                HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown && !e.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
+                if (knockdown && !e.JustBlocked) heavy = true;   // torjuttu isku: kevyt pysäytys
             }
         }
         foreach (var c in Crate.All.ToArray())
@@ -869,12 +871,16 @@ public class PlayerController : MonoBehaviour
             if (c.TakeHit(damage))
             {
                 any = true;
+                heavy |= knockdown;
                 HitSpark.Spawn(new Vector3(p.x - side * 0.4f, p.y + 0.8f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
             }
         }
-        if (any) HitFx.OnHit(knockdown);
+        if (any) HitFx.OnHit(heavy);
         return any;
     }
+
+    /// Katsooko pelaaja oikealle (viholliset kiertävät selän taakse).
+    public bool FacingRight => facingRight;
 
     /// Siirtää pelaajan heti uuteen paikkaan (ovet): maahan, perustilaan.
     public void TeleportTo(Vector3 pos)
