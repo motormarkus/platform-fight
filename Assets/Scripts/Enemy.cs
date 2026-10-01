@@ -787,6 +787,14 @@ public class Enemy : MonoBehaviour
         float maxY = player != null ? player.maxDepthY : -0.8f;
         p.x += delta.x;
         p.y = Mathf.Clamp(p.y + delta.y, minY, maxY);
+        // pelaajan alueella pysytään taustakuvan sisällä (esim. taklaus ei liu'u katolta yli)
+        var cf = CameraFollow.Instance; var cam = Camera.main;
+        if (cf != null && cam != null)
+        {
+            float halfW = cam.orthographicSize * cam.aspect - 0.5f;
+            float lo = cf.minX - halfW, hi = cf.maxX + halfW;
+            if (p.x >= lo - 3f && p.x <= hi + 3f) p.x = Mathf.Clamp(p.x, lo, hi);
+        }
         transform.position = p;
     }
 

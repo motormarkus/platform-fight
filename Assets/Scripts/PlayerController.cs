@@ -868,7 +868,7 @@ public class PlayerController : MonoBehaviour
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            if (c.TakeHit(damage))
+            if (c.TakeHit(damage, me.x))
             {
                 any = true;
                 heavy |= knockdown;

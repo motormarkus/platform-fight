@@ -1588,7 +1588,7 @@ public static class BeatEmUpSetup
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
-            go.transform.localScale = Vector3.one;
+            go.transform.localScale = Vector3.one * 1.15f;   // 15 % Kovista isompi
             var b = go.GetComponent<Enemy>();
             b.displayName = "Metsuri";
             b.bigBody = true;
@@ -1607,12 +1607,12 @@ public static class BeatEmUpSetup
             b.altReach = 1.6f;
             b.altExtraWindup = 0.15f;
             b.altTimeScale = 1.4f;          // selvä ennakkovaroitus ja hidas palautuminen: rangaistuksen paikka
-            b.altLungeSpeed = 11f;
-            b.altLungeTime = 0.5f;
+            b.altLungeSpeed = 17f;          // pitkä ja nopea liuku (n. 13 yksikköä)
+            b.altLungeTime = 0.75f;
             b.altKnockdown = true;
             b.altKnockSpeed = 8f;
             b.altKnockUp = 6f;
-            b.chargeRange = 7f;
+            b.chargeRange = 10f;
             b.chargeMinRange = 2.6f;
             b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none;   // omat kuvat myöhemmin
             b.flipThrownSprites = none; b.headlockThrownSprites = none;
@@ -1691,6 +1691,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Tynnyrit ----------------
     const string BarrelPath = "Assets/Sprites/Rekvisiitta/tynnyri.png";
+    const string BarrelRollPath = "Assets/Sprites/Rekvisiitta/tynnyri_pyorii.png";
     // katolla: (x katon vasemmasta reunasta, syvyys 0 = takareuna … 1 = etureuna)
     static readonly Vector2[] RoofBarrels = { new Vector2(8f, 0.15f), new Vector2(15f, 0.6f), new Vector2(24f, 0.2f), new Vector2(27.5f, 0.75f), new Vector2(33f, 0.3f) };
 
@@ -1706,6 +1707,14 @@ public static class BeatEmUpSetup
         }
         SetupAndSlice(BarrelPath);
         Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(BarrelPath).OfType<Sprite>().ToArray();
+        // kyljellään: pyöriminen ja kanto
+        Sprite[] roll = new Sprite[0];
+        if (AssetImporter.GetAtPath(BarrelRollPath) != null)
+        {
+            SetupAndSlice(BarrelRollPath);
+            roll = AssetDatabase.LoadAllAssetsAtPath(BarrelRollPath).OfType<Sprite>()
+                .OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        }
         var old = GameObject.Find("Tynnyrit");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var root = new GameObject("Tynnyrit");
@@ -1724,6 +1733,7 @@ public static class BeatEmUpSetup
             var c = go.AddComponent<Crate>();
             c.sprites = sprites;
             c.breakable = false;
+            c.rollSprites = roll;
             c.throwDamage = 20;
             c.hitRadiusX = 0.8f;
             c.moneyChance = 0f;
@@ -1771,7 +1781,9 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info(
             $"Tynnyreitä: kadulla {streetCount}, katolla {roofCount}{(roof == null ? " (katto puuttuu, tee kohta 30)" : "")}.\n\n" +
-            "O tynnyrin vieressä nostaa, lyönti/potku heittää. Tynnyri ei hajoa: se kaataa kaikki lentoreitillään.\n" +
+            $"Pyörimiskuvat (tynnyri_pyorii.png): {(roll.Length > 0 ? roll.Length + " kuvaa" : "puuttuu")}\n\n" +
+            "O tynnyrin vieressä nostaa (kannetaan vaakatasossa), lyönti/potku heittää. Heitetty tynnyri pyörii, vierii ja kaataa kaikki tieltään.\n" +
+            "Lyönti tai potku maassa olevaan tynnyriin kaataa sen vierimään.\n" +
             "Pomo hakee tynnyrin, kun olet kaukana, ja paiskaa sen kovaa sinua kohti (hyppää yli tai väistä sivulle).\n\nTallenna scene (Ctrl+S).");
     }
 

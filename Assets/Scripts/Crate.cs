@@ -18,6 +18,16 @@ public class Crate : MonoBehaviour
     public SpriteRenderer body;
     public SpriteRenderer shadow;
 
+    [Header("Tynnyri")]
+    [Tooltip("Kyljellään olevan tynnyrin kuvat (tynnyri_pyorii.png): pyöriminen ja kanto. Kuva 0 = kantoasento.")]
+    public Sprite[] rollSprites;
+    [Tooltip("Todennäköisyys, että pysähtynyt tynnyri pomppaa takaisin pystyyn.")]
+    [Range(0f, 1f)] public float standUpChance = 0.2f;
+    [Tooltip("Vierimisen hidastuminen (yksikköä/s²).")]
+    public float rollFriction = 5f;
+    [Tooltip("Lyöty tynnyri lähtee vierimään tällä nopeudella.")]
+    public float kickRollSpeed = 9f;
+
     [Header("Kestävyys")]
     [Tooltip("Pois päältä = tynnyri: ei hajoa iskuista eikä heitosta.")]
     public bool breakable = true;
@@ -37,7 +47,7 @@ public class Crate : MonoBehaviour
     [Tooltip("Ruudussa on 10 px tyhjää laatikon alla (200 px/yksikkö).")]
     public float footOffset = 0.05f;
 
-    enum State { Idle, Carried, Flying, Breaking }
+    enum State { Idle, Carried, Flying, Rolling, Breaking }
     State state = State.Idle;
     int hits;
     float height, verticalVel, stateTime, shakeTimer, shakeUntil;
@@ -48,6 +58,9 @@ public class Crate : MonoBehaviour
     int enemyDamage;
     readonly HashSet<Enemy> alreadyHit = new HashSet<Enemy>();
     float groundHeight;
+    bool lying;             // tynnyri kyljellään
+    float rollDist;         // vieritty matka (kuvan valinta)
+    bool HasRoll => !breakable && rollSprites != null && rollSprites.Length > 0;
     SpriteRenderer burst;
     PlayerController player;
 
@@ -62,6 +75,7 @@ public class Crate : MonoBehaviour
     void Awake()
     {
         PlayerController.SortByFrameNumber(sprites);
+        PlayerController.SortByFrameNumber(rollSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
     }
 
@@ -72,12 +86,26 @@ public class Crate : MonoBehaviour
     }
 
     /// Pelaajan isku osuu laatikkoon.
-    public bool TakeHit(int damage)
+    public bool TakeHit(int damage, float attackerX = float.NaN)
     {
         if (!CanBeHit) return false;
         shakeTimer = 0.15f;
         shakeUntil = HitFx.ShakeUntil(false);
-        if (!breakable) return true;   // tynnyri kumahtaa, mutta kestää
+        if (!breakable)
+        {
+            // tynnyri kaatuu kyljelleen ja lähtee vierimään iskun suuntaan, kaataa vihut tieltään
+            if (HasRoll && !float.IsNaN(attackerX))
+            {
+                lying = true;
+                vel = new Vector2((transform.position.x >= attackerX ? 1f : -1f) * kickRollSpeed, 0f);
+                thrown = true;
+                thrownBy = null;
+                alreadyHit.Clear();
+                state = State.Rolling;
+                stateTime = 0f;
+            }
+            return true;
+        }
         hits++;
         if (hits >= hitsToBreak) Break();
         return true;
@@ -85,6 +113,7 @@ public class Crate : MonoBehaviour
 
     public void PickUp()
     {
+        if (HasRoll) { lying = true; rollDist = 0f; }   // tynnyriä kannetaan vaaka-asennossa
         state = State.Carried;
         stateTime = 0f;
     }
@@ -155,6 +184,7 @@ public class Crate : MonoBehaviour
                 Vector3 p = transform.position;
                 p.x += vel.x * dt;
                 transform.position = p;
+                if (thrown) rollDist += Mathf.Abs(vel.x) * dt;   // pyörii lennossa
                 verticalVel -= 30f * dt;
                 height += verticalVel * dt;
                 if (thrown && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath()))
@@ -174,7 +204,35 @@ public class Crate : MonoBehaviour
                         shakeTimer = 0.1f;
                         if (CameraFollow.Instance != null) CameraFollow.Shake(0.06f, 0.1f);
                     }
+                    else if (thrown && HasRoll && Mathf.Abs(vel.x) > 0.5f) { state = State.Rolling; stateTime = 0f; }   // vierii eteenpäin
                     else { state = State.Idle; shakeTimer = 0.1f; thrown = false; thrownBy = null; }
+                }
+                break;
+            }
+
+            case State.Rolling:
+            {
+                Vector3 p = transform.position;
+                p.x += vel.x * dt;
+                // alueen reunasta kimpoaa takaisin
+                var cf = CameraFollow.Instance; var cam = Camera.main;
+                if (cf != null && cam != null)
+                {
+                    float halfW = cam.orthographicSize * cam.aspect - 0.6f;
+                    float lo = cf.minX - halfW, hi = cf.maxX + halfW;
+                    if (p.x >= lo - 5f && p.x <= hi + 5f && (p.x < lo || p.x > hi)) { p.x = Mathf.Clamp(p.x, lo, hi); vel.x = -vel.x * 0.4f; }
+                }
+                transform.position = p;
+                rollDist += Mathf.Abs(vel.x) * dt;
+                if (thrown && Mathf.Abs(vel.x) > 2.5f && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath())) vel.x *= 0.6f;
+                vel.x = Mathf.MoveTowards(vel.x, 0f, rollFriction * dt);
+                if (Mathf.Abs(vel.x) < 0.25f)
+                {
+                    vel = Vector2.zero;
+                    state = State.Idle;
+                    thrown = false;
+                    thrownBy = null;
+                    if (Random.value < standUpChance) { lying = false; shakeTimer = 0.15f; }   // pomppaa pystyyn
                 }
                 break;
             }
@@ -239,7 +297,7 @@ public class Crate : MonoBehaviour
         shake += HitFx.ShakeOffset(shakeUntil, 0.05f);   // tärisee myös osumapysäytyksen aikana
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
         // lennossa laatikko pyörii hieman
-        float rot = state == State.Flying && thrown ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
+        float rot = state == State.Flying && thrown && !HasRoll ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
         body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
 
         int order = state == State.Carried ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
@@ -272,6 +330,8 @@ public class Crate : MonoBehaviour
 
     Sprite CurrentSprite()
     {
+        if (HasRoll && lying)
+            return rollSprites[state == State.Carried ? 0 : (int)(rollDist / 0.3f) % rollSprites.Length];
         if (sprites == null || sprites.Length == 0) return null;
         if (state == State.Breaking)
             return sprites[Mathf.Min(stateTime < 0.12f ? 3 : 4, sprites.Length - 1)];
