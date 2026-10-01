@@ -68,6 +68,10 @@ public class Enemy : MonoBehaviour
     public float altExtraWindup = 0.15f;
     [Tooltip("Ulottuvuus (pusku syöksyy pidemmälle kuin lyönti).")]
     public float altReach = 2.3f;
+    [Tooltip("Toisen hyökkäyksen syöksy eteen (yksikköä/s). 0 = ei syöksyä. Syöksy pysähtyy osumaan.")]
+    public float altLungeSpeed = 0f;
+    [Tooltip("Kuinka kauan syöksy kestää (s). Hyökkäys on aktiivinen koko syöksyn ajan.")]
+    public float altLungeTime = 0.25f;
 
     [Header("Heitto (vapaaehtoinen): tarttuu, nostaa pään yli ja heittää taakse")]
     [Tooltip("8 kuvaa: 0 kurotus, 1 ote, 2–4 nosto, 5–6 heitto, 7 asento heiton jälkeen (katsoo heittosuuntaan).")]
@@ -182,9 +186,15 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Punch:
+            {
+                bool lunging = usingAlt && altLungeSpeed > 0f;
+                // pusku: syöksy eteen, kunnes osuu tai aika loppuu
+                if (lunging && !punchLanded && stateTime < altLungeTime)
+                    Move(new Vector2((facingRight ? 1f : -1f) * altLungeSpeed * dt, 0f));
                 if (!punchLanded) punchLanded = TryHitPlayer();
                 if (state != State.Punch) break;   // pelaaja nappasi kädestä kiinni
-                if (stateTime >= punchActiveTime) Enter(State.Recover);
+                if (stateTime >= (lunging ? Mathf.Max(punchActiveTime, altLungeTime) : punchActiveTime)) Enter(State.Recover);
+            }
                 break;
 
             case State.Recover:

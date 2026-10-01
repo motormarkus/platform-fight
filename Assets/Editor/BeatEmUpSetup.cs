@@ -20,6 +20,35 @@ public static class BeatEmUpSetup
     // Kombon iskujen sprite sheetit (tiedostonimi ilman .png)
     const string JabName = "jab", CrossName = "takasuora", UppercutName = "uppercut";
 
+    static bool batch;   // koko kadun rakennus: ilmoitukset lokiin eikä ikkunoihin
+
+    static void Info(string msg)
+    {
+        if (batch) Debug.Log("Beat em up: " + msg.Replace("\n", " "));
+        else EditorUtility.DisplayDialog("Beat em up", msg, "OK");
+    }
+
+    [MenuItem("Beat em up/29. Rakenna koko katu uudestaan (tausta, ovet, rekvisiitta, viholliset)")]
+    static void RebuildStreet()
+    {
+        batch = true;
+        try
+        {
+            SetupBackground();      // talo, baari, S-Club kerran
+            CreateClub();           // S-Clubin ovi ja sisätila
+            AddDancers();
+            CreateShop();
+            AddBikes();
+            AddStreetExtension();   // liikerakennus ja pelihalli
+            AddCrates();            // koko kadun matkalle
+            AddKovisGroups();
+            AddPunks();
+            AddLippis();
+        }
+        finally { batch = false; }
+        Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/1. Aseta ja leikkaa kaikki spritet")]
     static void FixImportSettings()
     {
@@ -31,9 +60,9 @@ public static class BeatEmUpSetup
             int count = SetupAndSlice(path);
             if (count >= 0) report.Add($"{Path.GetFileName(path)}: {count} kuvaa");
         }
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             report.Count == 0 ? "Sprites-kansiosta ei löytynyt sprite sheetejä." :
-            "Leikattu (512 × 384, jalat alareunassa):\n\n" + string.Join("\n", report), "OK");
+            "Leikattu (512 × 384, jalat alareunassa):\n\n" + string.Join("\n", report));
     }
 
     /// Asettaa tuontiasetukset ja leikkaa kuvan 512 × 384 ruutuihin (tyhjät ruudut ohitetaan).
@@ -116,7 +145,7 @@ public static class BeatEmUpSetup
     // Seinän ja jalkakäytävän rajan korkeus kuvassa (osuus ylhäältä), ja mihin y-kohtaan se asetetaan pelissä.
     const float WallBaseFromTop = 590f / 1024f;
     const float WallBaseWorldY = -0.3f;
-    const int BackgroundRepeats = 2;   // kuinka monta kertaa kolmen kuvan sarja toistetaan (kadun pituus)
+    const int BackgroundRepeats = 1;   // kolmen kuvan sarja (talo, baari, S-Club) kerran, sen jälkeen kadun jatko
     // Mitattu kuvasta: jalkakäytävän pinta riveillä 592–615, kynnyksen etureuna 615–637.
     const float CurbTopRow = 615f, CurbBottomRow = 637f, WallBaseRow = 590f;
 
@@ -126,7 +155,7 @@ public static class BeatEmUpSetup
         var ti = AssetImporter.GetAtPath(BackgroundPath) as TextureImporter;
         if (ti == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", $"Taustakuvaa ei löytynyt:\n{BackgroundPath}", "OK");
+            Info( $"Taustakuvaa ei löytynyt:\n{BackgroundPath}");
             return;
         }
         ti.textureType = TextureImporterType.Sprite;
@@ -203,19 +232,19 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Tausta lisätty ({BackgroundRepeats} × {wU:0.0} yksikköä). Testikatu piilotettu.\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Tausta lisätty ({BackgroundRepeats} × {wU:0.0} yksikköä). Testikatu piilotettu.\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/5. Päivitä kävely ja juoksu")]
     static void UpdateWalk()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa. Tee ensin kohta 2.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa. Tee ensin kohta 2."); return; }
         Sprite[] walk = LoadSprites("kavely")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0)
             .ToArray();
-        if (walk.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "kavely.png ei löytynyt tai sitä ei ole leikattu. Tee ensin kohta 1.", "OK"); return; }
+        if (walk.Length == 0) { Info( "kavely.png ei löytynyt tai sitä ei ole leikattu. Tee ensin kohta 1."); return; }
         Sprite[] run = LoadSprites("juoksu")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0)
             .ToArray();
@@ -228,14 +257,14 @@ public static class BeatEmUpSetup
         if (run.Length > 0) pc.runSpriteFrameTime = 0.73f / run.Length;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up", $"Kävely: {walk.Length} kuvaa ({pc.walkFrameTime:0.000} s/kuva)\nJuoksu: {run.Length} kuvaa ({pc.runSpriteFrameTime:0.000} s/kuva) (Shift)\n\nTallenna scene (Ctrl+S).", "OK");
+        Info( $"Kävely: {walk.Length} kuvaa ({pc.walkFrameTime:0.000} s/kuva)\nJuoksu: {run.Length} kuvaa ({pc.runSpriteFrameTime:0.000} s/kuva) (Shift)\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/6. Päivitä äänet")]
     static void UpdateSounds()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa. Tee ensin kohta 2.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa. Tee ensin kohta 2."); return; }
         AudioClip[] grunts = AssetDatabase.FindAssets("t:AudioClip grunt", new[] { "Assets/Audio/Pelaaja" })
             .Select(AssetDatabase.GUIDToAssetPath)
             .OrderBy(p => p)
@@ -247,8 +276,8 @@ public static class BeatEmUpSetup
         pc.hurtSounds = LoadClips("Assets/Audio/Pelaaja", "gasphero");
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Iskujen gruntit: {grunts.Length} kpl\nOsuman gaspit (gasphero): {pc.hurtSounds.Length} kpl\n(Assets/Audio/Pelaaja)\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Iskujen gruntit: {grunts.Length} kpl\nOsuman gaspit (gasphero): {pc.hurtSounds.Length} kpl\n(Assets/Audio/Pelaaja)\n\nTallenna scene (Ctrl+S).");
     }
 
     // Pelin taustamusiikki (tiedostonimi ilman päätettä kansiossa Assets/Audio/Musiikki)
@@ -263,7 +292,7 @@ public static class BeatEmUpSetup
         string path = paths.FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == MusicName) ?? paths.FirstOrDefault();
         if (path == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Kansiosta Assets/Audio/Musiikki ei löytynyt äänitiedostoa.", "OK");
+            Info( "Kansiosta Assets/Audio/Musiikki ei löytynyt äänitiedostoa.");
             return;
         }
         // musiikki kannattaa striimata levyltä eikä ladata kokonaan muistiin
@@ -288,15 +317,15 @@ public static class BeatEmUpSetup
         mp.music = clip;
         EditorUtility.SetDirty(mp);
         EditorSceneManager.MarkSceneDirty(mp.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 0.6 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 0.6 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/3. Päivitä lyöntikombo")]
     static void UpdateCombo()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa. Tee ensin kohta 2.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa. Tee ensin kohta 2."); return; }
 
         var combo = new List<PlayerController.ComboHit>();
         var found = new List<string>();
@@ -316,9 +345,9 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
 
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             "Kombo päivitetty: Jab → Takasuora → Jab → Uppercut.\n\n" + string.Join("\n", found) +
-            "\n\nTallenna scene (Ctrl+S).", "OK");
+            "\n\nTallenna scene (Ctrl+S).");
     }
 
     static PlayerController.ComboHit MakeHit(string label, string sheet, int impactFrame, float frameTime, float impactHold,
@@ -354,9 +383,9 @@ public static class BeatEmUpSetup
         Sprite[] action = LoadSprites(ActionName);
         if (idle.Length == 0 || action.Length == 0)
         {
-            EditorUtility.DisplayDialog("Beat em up",
+            Info(
                 $"Spritejä ei löytynyt (idle: {idle.Length}, hahmo_spritesheet: {action.Length}).\n\n" +
-                "Tee ensin kohta 1 ja leikkaa kuvat Sprite Editorissa (512 × 384).", "OK");
+                "Tee ensin kohta 1 ja leikkaa kuvat Sprite Editorissa (512 × 384).");
             return;
         }
 
@@ -407,7 +436,7 @@ public static class BeatEmUpSetup
     static void AddEnemy()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa. Tee ensin kohta 2.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa. Tee ensin kohta 2."); return; }
 
         var report = new List<string>();
         Sprite[] Sheet(string name)
@@ -426,7 +455,7 @@ public static class BeatEmUpSetup
         Sprite[] idle = Sheet("vihu_idle");
         if (idle.Length == 0)
         {
-            EditorUtility.DisplayDialog("Beat em up", "vihu_idle.png ei löytynyt kansiosta " + EnemyFolder + " tai sitä ei ole leikattu. Tee ensin kohta 1.", "OK");
+            Info( "vihu_idle.png ei löytynyt kansiosta " + EnemyFolder + " tai sitä ei ole leikattu. Tee ensin kohta 1.");
             return;
         }
 
@@ -487,16 +516,18 @@ public static class BeatEmUpSetup
 
         Selection.activeGameObject = e.gameObject;
         EditorSceneManager.MarkSceneDirty(e.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up", "Kovis valmis.\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).", "OK");
+        Info( "Kovis valmis.\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     // Koviksien ryhmät kadun varrella: (x, syvyys y). Ruudun leveys on n. 29.5 yksikköä.
     static readonly Vector2[] KovisSpawns =
     {
-        new Vector2(9f, -2.0f), new Vector2(12f, -3.3f),                               // 1. ruutu: kerrostalo
-        new Vector2(27f, -1.6f), new Vector2(30f, -3.6f), new Vector2(33f, -2.5f),     // 2. ruutu: baari
-        new Vector2(56f, -2.0f), new Vector2(59f, -3.4f), new Vector2(62f, -1.7f), new Vector2(65f, -2.9f), // 3. ruutu: S-Club
-        new Vector2(84f, -2.2f), new Vector2(88f, -3.2f), new Vector2(92f, -1.8f),     // loppu
+        new Vector2(9f, -2.0f), new Vector2(12f, -3.3f),                               // kerrostalo
+        new Vector2(30f, -1.6f), new Vector2(33f, -3.6f),                              // baari
+        new Vector2(60f, -2.0f), new Vector2(63f, -3.4f),                              // S-Club
+        new Vector2(95f, -2.2f), new Vector2(98f, -3.2f),                              // jatko: mainostaulu
+        new Vector2(138f, -1.8f), new Vector2(141f, -3.0f), new Vector2(144f, -2.4f), // lähikauppa
+        new Vector2(160f, -2.0f), new Vector2(163f, -3.3f), new Vector2(166f, -2.6f), // pelihalli: kadun loppu
     };
 
     [MenuItem("Beat em up/9. Lisää Koviksia kadulle")]
@@ -506,7 +537,7 @@ public static class BeatEmUpSetup
         var template = Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None).FirstOrDefault(x => x.gameObject.name == "Kovis");
         if (pc == null || template == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tee ensin kohta 8 (Kovis), sitten tämä.", "OK");
+            Info( "Tee ensin kohta 8 (Kovis), sitten tämä.");
             return;
         }
         // vanhat kopiot pois, alkuperäinen Kovis siirretään ensimmäiseen kohtaan
@@ -514,6 +545,10 @@ public static class BeatEmUpSetup
             if (e.gameObject.name.StartsWith("Kovis_")) Undo.DestroyObjectImmediate(e.gameObject);
 
         float x0 = pc.transform.position.x;
+        Undo.RecordObject(template, "Kovis kestävyys");
+        template.maxHealth = 85;           // ennen 60: kaatuivat liian helposti
+        template.attackCooldown = 1.4f;    // ennen 1.6: lyö useammin
+        EditorUtility.SetDirty(template);
         Undo.RecordObject(template.transform, "Siirrä Kovis");
         template.transform.position = new Vector3(x0 + KovisSpawns[0].x, Mathf.Clamp(KovisSpawns[0].y, pc.minDepthY, pc.maxDepthY), 0f);
         for (int i = 1; i < KovisSpawns.Length; i++)
@@ -524,9 +559,9 @@ public static class BeatEmUpSetup
             Undo.RegisterCreatedObjectUndo(go, "Lisää Kovis");
         }
         EditorSceneManager.MarkSceneDirty(template.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Kadulla on nyt {KovisSpawns.Length} Kovista ryhmissä (2, 3, 4 ja 3).\n" +
-            "Ne heräävät, kun tulet n. 9 yksikön päähän. Kaksi lyö kerrallaan, muut odottavat vuoroaan.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Kadulla on nyt {KovisSpawns.Length} Kovista ryhmissä koko kadun matkalla.\n" +
+            "Ne heräävät, kun tulet n. 9 yksikön päähän. Kaksi lyö kerrallaan, muut odottavat vuoroaan.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- S-Club sisältä ----------------
@@ -547,7 +582,7 @@ public static class BeatEmUpSetup
         var ti = AssetImporter.GetAtPath(ClubInteriorPath) as TextureImporter;
         if (pc == null || street == null || cam == null || follow == null || ti == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan pelaaja, katutausta (kohta 4), kamera ja kuva " + ClubInteriorPath, "OK");
+            Info( "Tarvitaan pelaaja, katutausta (kohta 4), kamera ja kuva " + ClubInteriorPath);
             return;
         }
 
@@ -639,10 +674,10 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Selection.activeGameObject = bg;
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             "S-Club sisätila luotu (stage vasemmalla, baaritiski oikealla).\n\n" + string.Join("\n", report) +
             $"\nSisällä syvyys {clubArea.minDepthY:0.00} … {clubArea.maxDepthY:0.00}\n\n" +
-            "Mene oven eteen jalkakäytävälle ja paina E (ohjaimessa B).\nSisältä pääsee ulos vasemmasta reunasta samalla napilla.\n\nTallenna scene (Ctrl+S).", "OK");
+            "Mene oven eteen jalkakäytävälle ja paina E (ohjaimessa B).\nSisältä pääsee ulos vasemmasta reunasta samalla napilla.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Tanssijat ----------------
@@ -659,7 +694,7 @@ public static class BeatEmUpSetup
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         if (club == null || sprites.Length == 0)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan S-Clubin sisätila (kohta 10) ja leikattu tanssija.png (kohta 1).", "OK");
+            Info( "Tarvitaan S-Clubin sisätila (kohta 10) ja leikattu tanssija.png (kohta 1).");
             return;
         }
         var old = GameObject.Find("Tanssijat");
@@ -689,12 +724,12 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        EditorUtility.DisplayDialog("Beat em up", $"Kaksi tanssijaa lavalla ({sprites.Length} kuvaa, silmukka).\n\nTallenna scene (Ctrl+S).", "OK");
+        Info( $"Kaksi tanssijaa lavalla ({sprites.Length} kuvaa, silmukka).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Punkkari ----------------
     // Kadulla (x pelaajan aloituskohdasta, syvyys y) ja S-Clubin sisällä (x sisätilan vasemmasta reunasta, syvyys 0 = keskellä)
-    static readonly Vector2[] PunkStreet = { new Vector2(18f, -2.8f), new Vector2(40f, -2.2f), new Vector2(70f, -3.0f), new Vector2(100f, -2.4f) };
+    static readonly Vector2[] PunkStreet = { new Vector2(20f, -2.8f), new Vector2(45f, -2.2f), new Vector2(85f, -3.0f), new Vector2(115f, -2.4f), new Vector2(150f, -3.1f) };
     static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f) };
 
     static Sprite[] EnemySheet(string name, List<string> report)
@@ -714,12 +749,12 @@ public static class BeatEmUpSetup
     static void AddPunks()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         var report = new List<string>();
         Sprite[] idle = EnemySheet("punk_idle", report);
         if (idle.Length == 0)
         {
-            EditorUtility.DisplayDialog("Beat em up", "punk_idle.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK");
+            Info( "punk_idle.png puuttuu tai sitä ei ole leikattu (kohta 1).");
             return;
         }
 
@@ -748,13 +783,17 @@ public static class BeatEmUpSetup
         t.walkFrameTime = 0.115f;          // videon oma tahti (12 kuvaa, 1.4 s sykli)
         t.moveSpeedX = 2.6f;               // Kovista nopeampi
         t.moveSpeedY = 1.6f;
-        t.maxHealth = 45;                  // mutta kestää vähemmän
+        t.maxHealth = 65;                  // ennen 45: kaatui liian helposti
         t.punchDamage = 7;
         t.punchImpactFrame = 3;
         t.altImpactFrame = 4;              // pusku osuu kuvassa 5 (tähti)
         t.altDamage = 12;
-        t.altChance = 0.35f;
-        t.attackCooldown = 1.3f;
+        t.altChance = 0.4f;
+        t.attackCooldown = 1.1f;
+        // pusku syöksyy eteen: liukuu n. 2.2 yksikköä, vaarallisempi ja pidempi kantama
+        t.altLungeSpeed = 8f;
+        t.altLungeTime = 0.28f;
+        t.altReach = 1.4f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.99f;
         Undo.RegisterCreatedObjectUndo(go, "Punkkari");
@@ -779,19 +818,19 @@ public static class BeatEmUpSetup
             Undo.RegisterCreatedObjectUndo(c, "Punkkari");
         }
         EditorSceneManager.MarkSceneDirty(go.scene);
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Punkkareita: {PunkStreet.Length} kadulla" + (club != null ? $", {PunkClub.Length} S-Clubissa" : " (S-Club puuttuu, tee kohta 10)") +
-            "\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).", "OK");
+            "\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/13. Päivitä erikoisliike (pyörähdyspotku)")]
     static void UpdateSpecial()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] sp = LoadSprites("erikoispotku")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "erikoispotku.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK"); return; }
+        if (sp.Length == 0) { Info( "erikoispotku.png puuttuu tai sitä ei ole leikattu (kohta 1)."); return; }
         Undo.RecordObject(pc, "Erikoisliike");
         pc.specialSprites = sp;
         pc.specialFrameTime = 0.045f;
@@ -800,8 +839,8 @@ public static class BeatEmUpSetup
         pc.specialHitTo = 0.60f;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Pyörähdyspotku: {sp.Length} kuvaa ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molempiin suuntiin ja kaataa.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Pyörähdyspotku: {sp.Length} kuvaa ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molempiin suuntiin ja kaataa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
@@ -812,7 +851,7 @@ public static class BeatEmUpSetup
     static void CreateShop()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
-        if (club == null) { EditorUtility.DisplayDialog("Beat em up", "Tee ensin kohta 10 (S-Clubin sisätila).", "OK"); return; }
+        if (club == null) { Info( "Tee ensin kohta 10 (S-Clubin sisätila)."); return; }
         var old = GameObject.Find("Baaritiski");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var go = new GameObject("Baaritiski");
@@ -867,8 +906,8 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
-        EditorUtility.DisplayDialog("Beat em up",
-            sohviInfo + "\n" + $"Baaritiski luotu S-Clubin oikealle puolelle ({soundCount}/{shop.items.Length} tuotteella ääni).\nMene tiskin eteen ja paina E: juomat ja snackit maksavat markkoja,\njoita putoaa kaatuneista vihollisista.\n\nValikoimaa ja hintoja voi muuttaa Baaritiski-objektista.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            sohviInfo + "\n" + $"Baaritiski luotu S-Clubin oikealle puolelle ({soundCount}/{shop.items.Length} tuotteella ääni).\nMene tiskin eteen ja paina E: juomat ja snackit maksavat markkoja,\njoita putoaa kaatuneista vihollisista.\n\nValikoimaa ja hintoja voi muuttaa Baaritiski-objektista.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/15. Aseta rahapudotusten kuvat")]
@@ -906,8 +945,8 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(fx);
         EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
         report.Add("Keräysääni (setelin nosto.wav): " + (fx.pickupSound != null ? "OK" : "puuttuu"));
-        EditorUtility.DisplayDialog("Beat em up",
-            "Rahapudotukset:\n" + string.Join("\n", report) + "\n\nSeteli 1 mk, setelitukku 50 mk (1/25).\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            "Rahapudotukset:\n" + string.Join("\n", report) + "\n\nSeteli 1 mk, setelitukku 50 mk (1/25).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Rekvisiitta: moottoripyörät ----------------
@@ -931,7 +970,7 @@ public static class BeatEmUpSetup
         var spriteRight = ImportProp(BikeRightPath);
         if (pc == null || street == null || sprite == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + BikePath, "OK");
+            Info( "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + BikePath);
             return;
         }
 
@@ -969,18 +1008,18 @@ public static class BeatEmUpSetup
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        EditorUtility.DisplayDialog("Beat em up",
-            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/17. Päivitä sivupotku")]
     static void UpdateSideKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] sp = LoadSprites("sivupotku")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "sivupotku.png puuttuu tai sitä ei ole leikattu (kohta 1).", "OK"); return; }
+        if (sp.Length == 0) { Info( "sivupotku.png puuttuu tai sitä ei ole leikattu (kohta 1)."); return; }
         Undo.RecordObject(pc, "Sivupotku");
         pc.sideKickSprites = sp;
         pc.sideKickFrameTime = 0.06f;
@@ -989,8 +1028,8 @@ public static class BeatEmUpSetup
         pc.sideKickArtOffset = 0.43f;     // sheetin kuvat siirretty 43 px vasemmalle
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Sivupotku: {sp.Length} kuvaa.\nK-nappi vuorottelee tavallisen potkun ja sivupotkun välillä.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Sivupotku: {sp.Length} kuvaa.\nK-nappi vuorottelee tavallisen potkun ja sivupotkun välillä.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Rekvisiittakuvan tuonti: yksi sprite, 100 px/yksikkö, kiinnitys alareunan keskelle.
@@ -1017,31 +1056,31 @@ public static class BeatEmUpSetup
     static void UpdateHeroThrown()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] sp = LoadSprites("hero_heitetty")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"hero_heitetty.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        if (sp.Length < 8) { Info( $"hero_heitetty.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1."); return; }
         Undo.RecordObject(pc, "Heittokuvat");
         pc.thrownSprites = sp;
         pc.kipUpSprites = LoadSprites("hero_kipup")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up", $"Heron heittokuvat: {sp.Length} kuvaa.\nKip-up-nousu: {pc.kipUpSprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info( $"Heron heittokuvat: {sp.Length} kuvaa.\nKip-up-nousu: {pc.kipUpSprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/19. Päivitä pusku ja suojaus")]
     static void UpdatePushAndBlock()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] push = LoadSprites("pusku")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         Sprite[] block = LoadSprites("suojaus")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         if (push.Length < 6 || block.Length < 5)
         {
-            EditorUtility.DisplayDialog("Beat em up", $"pusku.png: {push.Length}/6 kuvaa, suojaus.png: {block.Length}/5 kuvaa. Tee ensin kohta 1.", "OK");
+            Info( $"pusku.png: {push.Length}/6 kuvaa, suojaus.png: {block.Length}/5 kuvaa. Tee ensin kohta 1.");
             return;
         }
         Undo.RecordObject(pc, "Pusku ja suojaus");
@@ -1052,36 +1091,36 @@ public static class BeatEmUpSetup
         pc.blockSprites = block;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Pusku: {push.Length} kuvaa (U, ohjaimessa RT, tai lyönti suojauksesta). Kaataa vihollisen.\n" +
-            $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).", "OK");
+            $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/20. Päivitä vastaheitto")]
     static void UpdateCounterThrow()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] sp = LoadSprites("heitto")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length < 7) { EditorUtility.DisplayDialog("Beat em up", $"heitto.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        if (sp.Length < 7) { Info( $"heitto.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1."); return; }
         Undo.RecordObject(pc, "Vastaheitto");
         pc.counterThrowSprites = sp;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Vastaheitto: {sp.Length} kuvaa.\nPaina O (ohjaimessa oikean tatin painallus) juuri kun vihollinen lyö:\n" +
-            "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).", "OK");
+            "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/21. Päivitä vastaheitot (Kovis kuperkeikka, Punkkari niskalenkki)")]
     static void UpdateMonkeyFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Sprite[] sp = LoadSprites("kuperkeikka")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"kuperkeikka.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1.", "OK"); return; }
+        if (sp.Length < 8) { Info( $"kuperkeikka.png: {sp.Length}/8 kuvaa. Tee ensin kohta 1."); return; }
         Undo.RecordObject(pc, "Kuperkeikkaheitto");
         pc.monkeyFlipSprites = sp;
         EditorUtility.SetDirty(pc);
@@ -1100,18 +1139,18 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(e);
         }
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Kuperkeikkaheitto: {sp.Length} kuvaa (+ kip-up lopuksi).\n" +
             $"Isoja vastuksia (Kovis, kuperkeikka): {big}\nMuita (niskalenkki): {small}\n" +
             $"Vihollisten omat kuvat: {string.Join(", ", sheetReport)}\n\n" +
-            "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).", "OK");
+            "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/22. Päivitä hyppy ja heittojen lento")]
     static void UpdateJumpAndFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Undo.RecordObject(pc, "Hyppy ja heitto");
         pc.jumpVelocity = 12.5f;     // n. 2.6 yksikköä korkea hyppy (ennen 2.0)
         pc.monkeyFlipSpeed = 13f;    // nopea, matala lento: n. 4.5 yksikköä, iskeytyy maahan
@@ -1121,9 +1160,9 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         float h = pc.jumpVelocity * pc.jumpVelocity / (2f * pc.gravity);
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Hypyn korkeus n. {h:0.0} yksikköä (Jump Velocity {pc.jumpVelocity}).\n" +
-            $"Kuperkeikka: nopeus {pc.monkeyFlipSpeed}, nousu {pc.monkeyFlipUp}.\n\nTallenna scene (Ctrl+S).", "OK");
+            $"Kuperkeikka: nopeus {pc.monkeyFlipSpeed}, nousu {pc.monkeyFlipUp}.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Puulaatikot ----------------
@@ -1138,7 +1177,7 @@ public static class BeatEmUpSetup
         var street = GameObject.Find("Tausta");
         if (pc == null || street == null || AssetImporter.GetAtPath(CratePath) == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + CratePath, "OK");
+            Info( "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + CratePath);
             return;
         }
         SetupAndSlice(CratePath);
@@ -1201,6 +1240,8 @@ public static class BeatEmUpSetup
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
         float right = street.transform.position.x + ssr.size.x * 0.5f;
+        var ext = GameObject.Find("Tausta jatko");      // laatikot myös kadun jatkolle
+        if (ext != null) right = Mathf.Max(right, ext.GetComponent<SpriteRenderer>().bounds.max.x);
         int count = 0;
         for (float x = left + 7f; x < right - 4f; x += CrateSpacing)
         {
@@ -1226,23 +1267,23 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"{count} puulaatikkoa kävelykadulla {CrateSpacing:0} yksikön välein ({sprites.Length} kuvaa, sirpaleet: {(burst != null ? "OK" : "puuttuu")}).\n" +
             $"Pelaajan nosto- ja heittokuvat (nosto_heitto.png): {(carry.Length > 0 ? carry.Length + " kuvaa" : "puuttuu, käytetään varakuvia")}\n" +
             $"Kantoasento (kanto.png): {(carryPose != null ? "OK" : "puuttuu")}, kantokävely (kanto_kavely.png): {(carryWalk.Length > 0 ? carryWalk.Length + " kuvaa" : "puuttuu")}\n\n" +
-            "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).", "OK");
+            "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/24. Päivitä potkukombo (matala, etupotku, korkea)")]
     static void UpdateKickCombo()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         string path = FindTexture("korkea_potku");
         if (path != null) SetupAndSlice(path);
         Sprite[] sp = LoadSprites("korkea_potku")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length < 4) { EditorUtility.DisplayDialog("Beat em up", "korkea_potku.png puuttuu.", "OK"); return; }
+        if (sp.Length < 4) { Info( "korkea_potku.png puuttuu."); return; }
         Undo.RecordObject(pc, "Potkukombo");
         pc.hiKickSprites = sp;
         pc.hiKickFrameTime = 0.05f;
@@ -1251,8 +1292,8 @@ public static class BeatEmUpSetup
         pc.hiKickArtOffset = 0.64f;     // sheetin kuvat siirretty 64 px vasemmalle
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: matala potku → etupotku → korkea potku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: matala potku → etupotku → korkea potku (kaataa).\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/25. Päivitä iskujen tuntuma")]
@@ -1276,37 +1317,37 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(pc);
         }
         EditorSceneManager.MarkSceneDirty(fx.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/26. Päivitä saksipotku (ylös, alas, K, K)")]
     static void UpdateScissorKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         string path = FindTexture("saksipotku");
         if (path != null) SetupAndSlice(path);
         Sprite[] sp = LoadSprites("saksipotku")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
-        if (sp.Length < 8) { EditorUtility.DisplayDialog("Beat em up", $"saksipotku.png: {sp.Length}/8 kuvaa.", "OK"); return; }
+        if (sp.Length < 8) { Info( $"saksipotku.png: {sp.Length}/8 kuvaa."); return; }
         Undo.RecordObject(pc, "Saksipotku");
         pc.scissorSprites = sp;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        EditorUtility.DisplayDialog("Beat em up",
-            "Saksipotku: ylös, alas, K, K (maasta) tai hyppy + K (ilmassa).\nKaksi potkua vuorojaloin, toinen kaataa. Hyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            "Saksipotku: ylös, alas, K, K (maasta) tai hyppy + K (ilmassa).\nKaksi potkua vuorojaloin, toinen kaataa. Hyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Lippis (uusi vihollinen) ----------------
     // Kadulla (x pelaajan aloituskohdasta, syvyys y)
-    static readonly Vector2[] LippisStreet = { new Vector2(24f, -2.6f), new Vector2(47f, -3.1f), new Vector2(78f, -2.2f), new Vector2(95f, -3.0f) };
+    static readonly Vector2[] LippisStreet = { new Vector2(26f, -2.6f), new Vector2(50f, -3.1f), new Vector2(80f, -2.2f), new Vector2(105f, -3.0f), new Vector2(125f, -2.0f), new Vector2(155f, -2.8f) };
 
     [MenuItem("Beat em up/27. Lisää Lippikset (uusi vihollinen)")]
     static void AddLippis()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         foreach (var n in new[] { "lippis_idle", "lippis_kavely", "lippis_lyonti", "lippis_potku", "lippis_osuma", "lippis_kaatuminen", "lippis_ylosnousu", "lippis_niskalenkki" })
         {
             string path = FindTexture(n);
@@ -1314,7 +1355,7 @@ public static class BeatEmUpSetup
         }
         var report = new List<string>();
         Sprite[] idle = EnemySheet("lippis_idle", report);
-        if (idle.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "lippis_idle.png puuttuu.", "OK"); return; }
+        if (idle.Length == 0) { Info( "lippis_idle.png puuttuu."); return; }
 
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
             if (e.gameObject.name.StartsWith("Lippis")) Undo.DestroyObjectImmediate(e.gameObject);
@@ -1340,14 +1381,14 @@ public static class BeatEmUpSetup
         // askelpituus kävelykuvissa n. 1.5 yksikköä, kaksi askelta 0.92 s:ssa -> 3.2 yks/s (jalat eivät liu'u)
         t.moveSpeedX = 3.2f;
         t.moveSpeedY = 1.9f;
-        t.maxHealth = 55;
+        t.maxHealth = 75;                  // ennen 55
         t.punchDamage = 8;
         t.punchImpactFrame = 3;            // käsi suorana kuvassa 4
         t.altImpactFrame = 4;              // potku ojennettuna kuvassa 5
         t.altDamage = 13;
         t.altChance = 0.4f;
         t.altReach = 2.4f;
-        t.attackCooldown = 1.4f;
+        t.attackCooldown = 1.2f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.99f;
         Undo.RegisterCreatedObjectUndo(go, "Lippis");
@@ -1362,9 +1403,9 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
-        EditorUtility.DisplayDialog("Beat em up",
+        Info(
             $"Lippiksiä kadulla: {LippisStreet.Length}\n\n" + string.Join("\n", report) +
-            "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).", "OK");
+            "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Kadun jatko ----------------
@@ -1379,7 +1420,7 @@ public static class BeatEmUpSetup
         var ti = AssetImporter.GetAtPath(StreetExtPath) as TextureImporter;
         if (street == null || ti == null)
         {
-            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan katutausta (kohta 4) ja kuva " + StreetExtPath, "OK");
+            Info( "Tarvitaan katutausta (kohta 4) ja kuva " + StreetExtPath);
             return;
         }
         ti.textureType = TextureImporterType.Sprite;
@@ -1420,8 +1461,8 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
-        EditorUtility.DisplayDialog("Beat em up",
-            $"Kadun jatko lisätty: {wU:0.0} yksikköä (x {right:0.0} … {right + wU:0.0}).\nKamera kulkee nyt loppuun asti.\n\nTallenna scene (Ctrl+S).", "OK");
+        Info(
+            $"Kadun jatko lisätty: {wU:0.0} yksikköä (x {right:0.0} … {right + wU:0.0}).\nKamera kulkee nyt loppuun asti.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
