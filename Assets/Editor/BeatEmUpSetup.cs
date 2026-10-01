@@ -1367,6 +1367,63 @@ public static class BeatEmUpSetup
             "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    // ---------------- Kadun jatko ----------------
+    // katu_jatko.png: tiilitalo loppuu -> aita ja mainostaulu -> liikerakennus -> pelihalli.
+    // Sama korkeus (1024 px) ja mittakaava kuin katu_sarja.png: seinän juuri rivillä 590, reunakivi 615–637.
+    const string StreetExtPath = "Assets/Sprites/Taustat/katu_jatko.png";
+
+    [MenuItem("Beat em up/28. Lisää kadun jatko (liikerakennus ja pelihalli)")]
+    static void AddStreetExtension()
+    {
+        var street = GameObject.Find("Tausta");
+        var ti = AssetImporter.GetAtPath(StreetExtPath) as TextureImporter;
+        if (street == null || ti == null)
+        {
+            EditorUtility.DisplayDialog("Beat em up", "Tarvitaan katutausta (kohta 4) ja kuva " + StreetExtPath, "OK");
+            return;
+        }
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = BackgroundPPU;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(StreetExtPath);
+        float wU = sprite.rect.width / BackgroundPPU;
+
+        var old = GameObject.Find("Tausta jatko");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float right = street.transform.position.x + ssr.size.x * 0.5f;   // nykyisen kadun oikea reuna
+        var go = new GameObject("Tausta jatko");
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        // sama korkeus ja keskikohta kuin kadulla, joten jalkakäytävä ja reunakivi jatkuvat suoraan
+        go.transform.position = new Vector3(right + wU * 0.5f, street.transform.position.y, 0f);
+        Undo.RegisterCreatedObjectUndo(go, "Kadun jatko");
+
+        // kamera saa kulkea jatkon loppuun asti (myös katualueen asetuksissa, joita ovet käyttävät)
+        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        float newMax = right + wU - halfW;
+        var follow = Object.FindFirstObjectByType<CameraFollow>();
+        if (follow != null) { Undo.RecordObject(follow, "Kameran rajat"); follow.maxX = newMax; EditorUtility.SetDirty(follow); }
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        if (streetArea != null) { Undo.RecordObject(streetArea, "Kameran rajat"); streetArea.camMaxX = newMax; EditorUtility.SetDirty(streetArea); }
+
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Kadun jatko lisätty: {wU:0.0} yksikköä (x {right:0.0} … {right + wU:0.0}).\nKamera kulkee nyt loppuun asti.\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];
