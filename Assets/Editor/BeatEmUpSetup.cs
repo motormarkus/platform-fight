@@ -1307,7 +1307,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
-        foreach (var n in new[] { "lippis_idle", "lippis_kavely", "lippis_lyonti", "lippis_potku", "lippis_kaatuminen", "lippis_ylosnousu" })
+        foreach (var n in new[] { "lippis_idle", "lippis_kavely", "lippis_lyonti", "lippis_potku", "lippis_osuma", "lippis_kaatuminen", "lippis_ylosnousu", "lippis_niskalenkki" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1334,7 +1334,8 @@ public static class BeatEmUpSetup
         t.altAttackSprites = EnemySheet("lippis_potku", report);   // potku toisena hyökkäyksenä
         t.knockdownSprites = EnemySheet("lippis_kaatuminen", report);   // pyörähtää ja kaatuu kasvoilleen
         t.getUpSprites = EnemySheet("lippis_ylosnousu", report);
-        // osumakuvia ei vielä ole: varaliike (väläys ja tärinä)
+        t.hurtSprites = EnemySheet("lippis_osuma", report);
+        t.headlockThrownSprites = EnemySheet("lippis_niskalenkki", report);   // pelaajan niskalenkki (kun kuvat on lisätty)
         t.idleFrameTime = 0.14f;
         t.moveSpeedX = 2.5f;
         t.moveSpeedY = 1.5f;
