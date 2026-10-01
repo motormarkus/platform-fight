@@ -1591,7 +1591,7 @@ public static class BeatEmUpSetup
             b.displayName = "Metsuri";
             b.bigBody = true;
             var none = new Sprite[0];
-            if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; }
+            if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; b.idleFrameTime = 0.16f; }   // 6 kuvaa, suu liikkuu (puhuu)
             if (run.Length > 0) { b.walkSprites = run; b.walkFrameTime = 0.07f; }   // pomo ei kävele, se juoksee
             // lyönti: kahden käden töytäisy heittokuvista (ote -> kurotus -> jälkiliike)
             b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none;
