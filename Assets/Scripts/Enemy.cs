@@ -208,7 +208,7 @@ public class Enemy : MonoBehaviour
 
             case State.Airborne:
                 Move(knockVel * dt);
-                verticalVel -= 30f * dt;
+                verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
                 if (thrownByPlayer && artThrow)
                 {
@@ -222,7 +222,7 @@ public class Enemy : MonoBehaviour
                 {
                     // pyörähdys jatkuu selälleen, kiertopiste laskeutuu kohti maata
                     float dir = facingRight ? -1f : 1f;
-                    spinRot = Mathf.MoveTowards(spinRot, dir * 265f, 420f * dt);
+                    spinRot = Mathf.MoveTowards(spinRot, dir * 265f, 650f * dt);
                     spinCenter = Mathf.MoveTowards(spinCenter, 0.4f, 3f * dt);
                 }
                 if (height <= 0f)
@@ -495,7 +495,7 @@ public class Enemy : MonoBehaviour
         {
             // niskalenkki: ylösalaisin-kuva (5) kiertyy lennon aikana selälleen päin, alastulo 6–7
             artSet = headlockThrownSprites;
-            artSpinPose = 5; artFlightPose = -1; artSpinTarget = 45f; artSpinRate = 160f;
+            artSpinPose = 5; artFlightPose = -1; artSpinTarget = 45f; artSpinRate = 300f;
             artLandFirst = 6; artLandFrameTime = 0.12f;
         }
         facingRight = playerX > transform.position.x;   // kasvot pelaajaan päin

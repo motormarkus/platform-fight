@@ -209,7 +209,9 @@ public class PlayerController : MonoBehaviour
     public float counterThrowEndHold = 0.3f;
     public int counterThrowDamage = 20;
     [Tooltip("Lentonopeus selän taakse (yksikköä/s).")]
-    public float counterThrowSpeed = 5f;
+    public float counterThrowSpeed = 7f;
+    [Tooltip("Niskalenkin lennon nousunopeus (pieni = matala ja nopea isku maahan).")]
+    public float counterThrowUp = 1.5f;
 
     [Header("Kuperkeikkaheitto isoille vastuksille (Kovis): sama nappi, valitaan automaattisesti")]
     [Tooltip("kuperkeikka.png: 8 kuvaa (0 ote, 1 kyykky, 2 istahdus, 3 selälleen, 4 jalat vatsaan, 5 potku pään yli, 6–7 makaa). Lopuksi kip-up.")]
@@ -219,9 +221,9 @@ public class PlayerController : MonoBehaviour
     public float monkeyFlipEndHold = 0.25f;
     public int monkeyFlipDamage = 26;
     [Tooltip("Lentonopeus pään yli taakse (yksikköä/s).")]
-    public float monkeyFlipSpeed = 9f;
+    public float monkeyFlipSpeed = 13f;
     [Tooltip("Lennon nousunopeus ylöspäin (suurempi = korkeampi ja pidempi kaari).")]
-    public float monkeyFlipUp = 7.5f;
+    public float monkeyFlipUp = 6f;
     Enemy heldEnemy;
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
@@ -675,7 +677,7 @@ public class PlayerController : MonoBehaviour
 
             case State.Thrown:
                 MoveOnGround(airVel * dt);
-                verticalVel -= gravity * dt;
+                verticalVel -= gravity * 1.6f * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
                 // kierähtää lennossa vaaka-asentoon (pää lentosuuntaan)
                 heldRot = Mathf.MoveTowards(heldRot, airVel.x < 0f ? 90f : -90f, 360f * dt);
@@ -1083,15 +1085,40 @@ public class PlayerController : MonoBehaviour
         UpdateCounterThrow();
     }
 
+    // Avainvälien kestot (× kuvan aika): nosto rauhallisesti, heitto lyhyt. Kaksi viimeistä väliä kiihtyvät (ease-in).
+    static readonly float[] CounterSegs = { 1.3f, 1.3f, 1.0f, 0.55f };
+    static readonly float[] FlipSegs = { 1.2f, 1.2f, 1.1f, 0.9f, 0.5f };
+    float[] CurSegs => monkeyFlip ? FlipSegs : CounterSegs;
+    float ThrowReleaseTime { get { float s = 0f; foreach (var d in CurSegs) s += d; return s * CurThrowFrameTime; } }
+
+    /// Heiton eteneminen avainasentoina (0 … avaimia-1) hetkellä t, irrotuksen jälkeen kuvat jatkuvat tasaisesti.
+    float ThrowKeyAt(float t)
+    {
+        float ft = CurThrowFrameTime;
+        float[] segs = CurSegs;
+        for (int i = 0; i < segs.Length; i++)
+        {
+            float d = segs[i] * ft;
+            if (t < d)
+            {
+                float f = t / d;
+                if (i >= segs.Length - 2) f *= f;   // heittovaihe kiihtyy loppua kohti
+                return i + f;
+            }
+            t -= d;
+        }
+        return segs.Length + t / ft;   // irrotuksen jälkeen: loput kuvat tasaisesti
+    }
+
     void UpdateCounterThrow()
     {
         float ft = CurThrowFrameTime;
         Vector3[] keys = CurKeys;
-        float releaseAt = ft * (keys.Length - 1);
+        float releaseAt = ThrowReleaseTime;
         float dir = facingRight ? 1f : -1f;
         if (!counterReleased && heldEnemy != null)
         {
-            float k = Mathf.Clamp(stateTime / ft, 0f, keys.Length - 1);
+            float k = Mathf.Clamp(ThrowKeyAt(stateTime), 0f, keys.Length - 1);
             int i = Mathf.Min((int)k, keys.Length - 2);
             Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], k - i);
             Vector3 me = transform.position;
@@ -1102,14 +1129,14 @@ public class PlayerController : MonoBehaviour
             {
                 counterReleased = true;
                 if (monkeyFlip) heldEnemy.ReleaseThrow(-dir * monkeyFlipSpeed, monkeyFlipUp, monkeyFlipDamage);
-                else heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, 3.5f, counterThrowDamage);
+                else heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, counterThrowUp, counterThrowDamage);
                 heldEnemy = null;
             }
         }
         if (monkeyFlip)
         {
             // kuvat loppuun, hetki makuulla ja kip-upilla ylös (kuvat jatkuvat samasta asennosta)
-            if (stateTime >= ft * (FlipFrames.Length - 1) + monkeyFlipEndHold)
+            if (stateTime >= releaseAt + ft * (FlipFrames.Length - 1 - FlipSegs.Length) + monkeyFlipEndHold)
             {
                 if (kipUpSprites != null && kipUpSprites.Length > 0) { kipUpAfterOwnThrow = true; Enter(State.KipUp); }
                 else Enter(State.Ground);
@@ -1417,7 +1444,7 @@ public class PlayerController : MonoBehaviour
             {
                 int[] fr = CurFrames;
                 Sprite[] sp = CurThrowSprites;
-                int k = Mathf.Min((int)(stateTime / CurThrowFrameTime), fr.Length - 1);
+                int k = Mathf.Min((int)ThrowKeyAt(stateTime), fr.Length - 1);
                 return sp[Mathf.Min(fr[k], sp.Length - 1)];
             }
 

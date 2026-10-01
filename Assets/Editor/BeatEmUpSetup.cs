@@ -1107,15 +1107,17 @@ public static class BeatEmUpSetup
             "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
-    [MenuItem("Beat em up/22. Päivitä hyppy ja kuperkeikan lento")]
+    [MenuItem("Beat em up/22. Päivitä hyppy ja heittojen lento")]
     static void UpdateJumpAndFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
         Undo.RecordObject(pc, "Hyppy ja heitto");
         pc.jumpVelocity = 12.5f;     // n. 2.6 yksikköä korkea hyppy (ennen 2.0)
-        pc.monkeyFlipSpeed = 9f;     // kuperkeikka lennättää n. 5.5 yksikköä (ennen n. 3)
-        pc.monkeyFlipUp = 7.5f;
+        pc.monkeyFlipSpeed = 13f;    // nopea, matala lento: n. 4.5 yksikköä, iskeytyy maahan
+        pc.monkeyFlipUp = 6f;
+        pc.counterThrowSpeed = 7f;   // niskalenkki: matala ja nopea
+        pc.counterThrowUp = 1.5f;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         float h = pc.jumpVelocity * pc.jumpVelocity / (2f * pc.gravity);
