@@ -179,6 +179,10 @@ public class PlayerController : MonoBehaviour
     [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
     [Tooltip("nosto_heitto.png: 6 kuvaa (0 kyykky, 1 nousu, 2 pään yllä, 3 veto taakse, 4 heitto, 5 asento).")]
     public Sprite[] carrySprites;
+    [Tooltip("Kävely laatikko pään yllä (kanto_kavely.png). Käyttää kävelyn tahtia (Walk Frame Time). Jos tyhjä, liukuu kantoasennossa.")]
+    public Sprite[] carryWalkSprites;
+    [Tooltip("Laatikon keinunta askelten tahdissa kävellessä (yksikköä).")]
+    public float carryBob = 0.06f;
     public float liftTime = 0.3f;
     [Tooltip("Kävelyn nopeuskerroin laatikkoa kantaessa.")]
     public float carrySpeedFactor = 0.75f;
@@ -293,6 +297,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(counterThrowSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
+        SortByFrameNumber(carryWalkSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -473,7 +478,14 @@ public class PlayerController : MonoBehaviour
                     if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
                     MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * carrySpeedFactor * dt);
                 }
-                HoldCrate((facingRight ? 1f : -1f) * 0.05f, carryHeight);
+                // laatikko keinuu askelten tahdissa (kaksi keinahdusta kävelysyklissä)
+                float bob = 0f;
+                if (moving && HasCarryWalk)
+                {
+                    float cycle = walkFrameTime * carryWalkSprites.Length;
+                    bob = -Mathf.Abs(Mathf.Sin(animClock / cycle * Mathf.PI * 2f)) * carryBob;
+                }
+                HoldCrate((facingRight ? 1f : -1f) * 0.05f, carryHeight + bob);
                 break;
 
             case State.CrateThrow:
@@ -816,6 +828,7 @@ public class PlayerController : MonoBehaviour
     bool HasBlock => blockSprites != null && blockSprites.Length >= 5;
     float PushTotalTime => pushFrameTime * (pushSprites.Length - 1) + pushImpactHold;
 
+    bool HasCarryWalk => carryWalkSprites != null && carryWalkSprites.Length > 0;
     bool HasCarrySprites => carrySprites != null && carrySprites.Length >= 6;
     bool HasCounterThrow => counterThrowSprites != null && counterThrowSprites.Length >= 7;
     bool HasMonkeyFlip => monkeyFlipSprites != null && monkeyFlipSprites.Length >= 8;
@@ -1161,7 +1174,9 @@ public class PlayerController : MonoBehaviour
                 return Action(F_CROUCH);
 
             case State.Carry:
-                if (HasCarrySprites) return carrySprites[2];   // laatikko pään yllä (myös kävellessä)
+                if (moving && HasCarryWalk)
+                    return carryWalkSprites[(int)(animClock / walkFrameTime) % carryWalkSprites.Length];
+                if (HasCarrySprites) return carrySprites[2];   // laatikko pään yllä
                 if (moving && walkSprites != null && walkSprites.Length > 0)
                     return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();

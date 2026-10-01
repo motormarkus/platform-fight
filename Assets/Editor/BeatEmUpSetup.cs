@@ -1159,8 +1159,11 @@ public static class BeatEmUpSetup
         // pelaajan nosto- ja heittokuvat, jos ne on jo lisätty
         Sprite[] carry = LoadSprites("nosto_heitto")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        Sprite[] carryWalk = LoadSprites("kanto_kavely")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         Undo.RecordObject(pc, "Nostokuvat");
         pc.carrySprites = carry;
+        pc.carryWalkSprites = carryWalk;
         EditorUtility.SetDirty(pc);
 
         var old = GameObject.Find("Laatikot");
@@ -1210,7 +1213,8 @@ public static class BeatEmUpSetup
         Selection.activeGameObject = root;
         EditorUtility.DisplayDialog("Beat em up",
             $"{count} puulaatikkoa kävelykadulla {CrateSpacing:0} yksikön välein ({sprites.Length} kuvaa, sirpaleet: {(burst != null ? "OK" : "puuttuu")}).\n" +
-            $"Pelaajan nosto- ja heittokuvat (nosto_heitto.png): {(carry.Length > 0 ? carry.Length + " kuvaa" : "puuttuu, käytetään varakuvia")}\n\n" +
+            $"Pelaajan nosto- ja heittokuvat (nosto_heitto.png): {(carry.Length > 0 ? carry.Length + " kuvaa" : "puuttuu, käytetään varakuvia")}\n" +
+            $"Kantokävely (kanto_kavely.png): {(carryWalk.Length > 0 ? carryWalk.Length + " kuvaa" : "puuttuu")}\n\n" +
             "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
