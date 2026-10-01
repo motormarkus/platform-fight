@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public bool bigBody;
     [Tooltip("Oma kuvasarja pelaajan kuperkeikkaheittoon (vihu_kuperkeikka.png, 8 kuvaa): 0 ote, 1 veto, 2 nosto jaloille, 3 lento, 4–7 alastulo selälleen.")]
     public Sprite[] flipThrownSprites;
+    [Tooltip("Oma kuvasarja pelaajan niskalenkkiin (punk_niskalenkki.png, 8 kuvaa): 0 lyönti, 1 ote, 2 veto, 3 askel, 4 olan yli, 5 ylösalaisin, 6–7 alastulo selälleen.")]
+    public Sprite[] headlockThrownSprites;
 
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;
@@ -137,6 +139,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
         PlayerController.SortByFrameNumber(flipThrownSprites);
+        PlayerController.SortByFrameNumber(headlockThrownSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -209,15 +212,16 @@ public class Enemy : MonoBehaviour
                 height += verticalVel * dt;
                 if (thrownByPlayer && artThrow)
                 {
-                    // omat kuvat: ensin nostokuva kiertyy vielä hetken, sitten lentokuva (kuva 3) suorana
-                    float dir = Mathf.Sign(spinRot);
-                    if (stateTime < ArtSpinTime) spinRot = Mathf.MoveTowards(spinRot, dir * 180f, 700f * dt);
+                    // omat kuvat: kiertokuva kiertyy eteenpäin (kuperkeikassa hetken, sitten suora lentokuva)
+                    float dir = facingRight ? -1f : 1f;   // eteenpäin kaatuminen pelaajan yli
+                    if (artFlightPose < 0 || stateTime < ArtSpinTime)
+                        spinRot = Mathf.MoveTowards(spinRot, dir * artSpinTarget, artSpinRate * dt);
                     else spinRot = 0f;
                 }
                 else if (thrownByPlayer)
                 {
                     // pyörähdys jatkuu selälleen, kiertopiste laskeutuu kohti maata
-                    float dir = Mathf.Sign(spinRot);
+                    float dir = facingRight ? -1f : 1f;
                     spinRot = Mathf.MoveTowards(spinRot, dir * 265f, 420f * dt);
                     spinCenter = Mathf.MoveTowards(spinCenter, 0.4f, 3f * dt);
                 }
@@ -226,7 +230,7 @@ public class Enemy : MonoBehaviour
                     height = 0f;
                     if (thrownByPlayer)
                     {
-                        flipLanded = artThrow;   // alastulokuvat 4–7
+                        flipLanded = artThrow;   // omat alastulokuvat
                         artThrow = false;
                         spinRot = 0f;
                         thrownByPlayer = false;
@@ -454,13 +458,20 @@ public class Enemy : MonoBehaviour
     // ---------------- Pelaajan vastaheitto ----------------
 
     bool thrownByPlayer;
-    bool artThrow;          // heitetään omilla kuvilla (flipThrownSprites)
+    bool artThrow;          // heitetään omilla kuvilla (artSet)
     bool flipLanded;        // maassa omilla alastulokuvilla
     int heldPose = -1;      // mikä omista kuvista näytetään otteessa (-1 = osumakuva + kierto)
     const float ArtSpinTime = 0.1f;
-    const float FlipLandFrameTime = 0.08f;
+
+    // Käytössä oleva kuvasarja ja sen rakenne (kuperkeikka tai niskalenkki)
+    Sprite[] artSet;
+    int artSpinPose, artFlightPose, artLandFirst;
+    float artSpinTarget, artSpinRate, artLandFrameTime;
 
     public bool HasFlipArt => flipThrownSprites != null && flipThrownSprites.Length >= 8;
+    public bool HasHeadlockArt => headlockThrownSprites != null && headlockThrownSprites.Length >= 8;
+    /// Onko vastuksella omat kuvat tähän heittoon.
+    public bool HasArtFor(bool monkeyFlip) => monkeyFlip ? HasFlipArt : HasHeadlockArt;
     float spinRot;          // kierto (astetta, maailman z), kun pelaaja pitää tai heittää
     float spinCenter;       // kiertopisteen korkeus jaloista (yksikköä)
 
@@ -468,8 +479,23 @@ public class Enemy : MonoBehaviour
     public bool CanBeCaught => state == State.Punch;
 
     /// Pelaaja nappaa lyövästä kädestä kiinni.
-    public void BeginHeldByPlayer(float playerX)
+    public void BeginHeldByPlayer(float playerX, bool monkeyFlip = false)
     {
+        artSet = null;
+        if (monkeyFlip && HasFlipArt)
+        {
+            // kuperkeikka: nosto (2) kiertyy puolikkaan, lento (3) suorana, alastulo 4–7
+            artSet = flipThrownSprites;
+            artSpinPose = 2; artFlightPose = 3; artSpinTarget = 180f; artSpinRate = 700f;
+            artLandFirst = 4; artLandFrameTime = 0.08f;
+        }
+        else if (!monkeyFlip && HasHeadlockArt)
+        {
+            // niskalenkki: ylösalaisin-kuva (5) kiertyy lennon aikana selälleen päin, alastulo 6–7
+            artSet = headlockThrownSprites;
+            artSpinPose = 5; artFlightPose = -1; artSpinTarget = 45f; artSpinRate = 160f;
+            artLandFirst = 6; artLandFrameTime = 0.12f;
+        }
         facingRight = playerX > transform.position.x;   // kasvot pelaajaan päin
         knockVel = Vector2.zero;
         spinRot = 0f;
@@ -488,7 +514,7 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector3(pos.x, Mathf.Clamp(pos.y, minY, maxY), p.z);
         height = lift;
         spinRot = rot;
-        heldPose = HasFlipArt ? pose : -1;
+        heldPose = artSet != null ? pose : -1;
     }
 
     /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
@@ -629,7 +655,8 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Airborne:
-                if (thrownByPlayer && artThrow) return flipThrownSprites[stateTime < ArtSpinTime ? 2 : 3];
+                if (thrownByPlayer && artThrow)
+                    return artSet[artFlightPose >= 0 && stateTime >= ArtSpinTime ? artFlightPose : artSpinPose];
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (Has(knockdownSprites))
                 {
@@ -640,13 +667,13 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Held:
-                if (heldPose >= 0) return flipThrownSprites[Mathf.Clamp(heldPose, 0, 2)];
+                if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
             case State.Down:
             case State.Dead:
-                if (flipLanded && HasFlipArt)
-                    return flipThrownSprites[Mathf.Min(4 + (int)(stateTime / FlipLandFrameTime), 7)];
+                if (flipLanded && artSet != null)
+                    return artSet[Mathf.Min(artLandFirst + (int)(stateTime / artLandFrameTime), artSet.Length - 1)];
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];
                 rot = 90f;
                 return FirstIdle();

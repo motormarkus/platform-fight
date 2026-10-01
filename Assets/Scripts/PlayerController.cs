@@ -760,10 +760,21 @@ public class PlayerController : MonoBehaviour
         new Vector3(-0.60f, 2.60f, 110f),
     };
     static readonly int[] FlipPosesArt = { 0, 1, 1, 2, 2, 2 };
-    bool heldArt;        // vastus käyttää omia kuperkeikkakuviaan
+    // Niskalenkki, kun vastuksella on omat kuvat (Punkkari): 1 ote, 2 veto, 3 askel, 4 olan yli, 5 ylösalaisin
+    static readonly Vector3[] CounterKeysArt =
+    {
+        new Vector3( 0.95f, 1.50f,   0f),
+        new Vector3( 0.60f, 1.50f,   0f),
+        new Vector3( 0.30f, 1.80f,  10f),
+        new Vector3(-0.20f, 2.80f,   5f),
+        new Vector3(-1.00f, 2.20f,  10f),
+    };
+    static readonly int[] CounterPosesArt = { 1, 2, 3, 4, 5 };
+    bool heldArt;        // vastus käyttää omia heittokuviaan
 
     int[] CurFrames => monkeyFlip ? FlipFrames : CounterFrames;
-    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys) : CounterKeys;
+    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys) : (heldArt ? CounterKeysArt : CounterKeys);
+    int[] CurPoses => monkeyFlip ? FlipPosesArt : CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
     float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
 
@@ -772,8 +783,8 @@ public class PlayerController : MonoBehaviour
         heldEnemy = e;
         counterReleased = false;
         monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
-        heldArt = monkeyFlip && e.HasFlipArt;
-        e.BeginHeldByPlayer(transform.position.x);
+        heldArt = e.HasArtFor(monkeyFlip);
+        e.BeginHeldByPlayer(transform.position.x, monkeyFlip);
         PlayGrunt();
         HitFx.OnHit(false);
         Enter(State.CounterThrow);
@@ -792,7 +803,8 @@ public class PlayerController : MonoBehaviour
             int i = Mathf.Min((int)k, keys.Length - 2);
             Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], k - i);
             Vector3 me = transform.position;
-            int pose = heldArt ? FlipPosesArt[Mathf.Min((int)k, FlipPosesArt.Length - 1)] : -1;
+            int[] poses = CurPoses;
+            int pose = heldArt ? poses[Mathf.Min((int)k, poses.Length - 1)] : -1;
             heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.02f, 0f), v.y - 1.5f, dir * v.z, pose);
             if (stateTime >= releaseAt)
             {

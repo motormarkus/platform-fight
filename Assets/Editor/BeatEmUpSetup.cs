@@ -733,6 +733,7 @@ public static class BeatEmUpSetup
         t.hurtSprites = EnemySheet("punk_osuma", report);
         t.knockdownSprites = EnemySheet("punk_kaatuminen", report);
         t.getUpSprites = EnemySheet("punk_ylosnousu", report);
+        t.headlockThrownSprites = EnemySheet("punk_niskalenkki", report);   // pelaajan niskalenkki
         t.idleFrameTime = 0.2f;
         t.walkFrameTime = 0.115f;          // videon oma tahti (12 kuvaa, 1.4 s sykli)
         t.moveSpeedX = 2.6f;               // Kovista nopeampi
@@ -1063,7 +1064,7 @@ public static class BeatEmUpSetup
             "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
-    [MenuItem("Beat em up/21. Päivitä kuperkeikkaheitto (isot vastukset)")]
+    [MenuItem("Beat em up/21. Päivitä vastaheitot (Kovis kuperkeikka, Punkkari niskalenkki)")]
     static void UpdateMonkeyFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1078,11 +1079,13 @@ public static class BeatEmUpSetup
         int big = 0, small = 0;
         var sheetReport = new List<string>();
         Sprite[] kovisFlip = EnemySheet("vihu_kuperkeikka", sheetReport);
+        Sprite[] punkHeadlock = EnemySheet("punk_niskalenkki", sheetReport);
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
         {
             Undo.RecordObject(e, "Iso vastus");
             e.bigBody = e.gameObject.name.StartsWith("Kovis");
             if (e.bigBody) e.flipThrownSprites = kovisFlip;   // Koviksen oma lento ja alastulo
+            else if (e.gameObject.name.StartsWith("Punkkari")) e.headlockThrownSprites = punkHeadlock;
             if (e.bigBody) big++; else small++;
             EditorUtility.SetDirty(e);
         }
@@ -1090,7 +1093,7 @@ public static class BeatEmUpSetup
         EditorUtility.DisplayDialog("Beat em up",
             $"Kuperkeikkaheitto: {sp.Length} kuvaa (+ kip-up lopuksi).\n" +
             $"Isoja vastuksia (Kovis, kuperkeikka): {big}\nMuita (niskalenkki): {small}\n" +
-            $"Koviksen omat kuvat: {string.Join(", ", sheetReport)}\n\n" +
+            $"Vihollisten omat kuvat: {string.Join(", ", sheetReport)}\n\n" +
             "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
