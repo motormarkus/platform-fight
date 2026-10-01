@@ -495,7 +495,7 @@ public class PlayerController : MonoBehaviour
                 // eteenpäin liukuminen osumahetkeen asti
                 float lungeTime = Mathf.Max(hit.ImpactTime, 0.03f);
                 if (stateTime <= lungeTime && lungeTime > 0f)
-                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * hit.lunge / lungeTime * dt, 0f));
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * attackLunge / lungeTime * dt, 0f));
 
                 // osumahetki: tarkistetaan lyhyen aikaikkunan ajan, osuuko isku
                 if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
@@ -536,7 +536,7 @@ public class PlayerController : MonoBehaviour
             {
                 float hitFrom = sideKickImpactFrame * sideKickFrameTime;
                 float hitTo = hitFrom + sideKickImpactHold;
-                Lunge(sideKickLunge, hitFrom, dt);
+                Lunge(attackLunge, hitFrom, dt);
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
                     attackHit = AttackEnemies(sideKickReach, sideKickDamage, false, 2.0f);
                 float sideTotal = hitTo + (sideKickSprites.Length - sideKickImpactFrame - 1) * sideKickFrameTime;
@@ -654,7 +654,7 @@ public class PlayerController : MonoBehaviour
                     StartScissorJump();   // ylös, alas, K, K: matala potku katkeaa saksipotkuksi
                     break;
                 }
-                Lunge(lowKickLunge, 0.1f, dt);
+                Lunge(attackLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
                 if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
@@ -665,7 +665,7 @@ public class PlayerController : MonoBehaviour
             case State.HiKick:
             {
                 float hitFrom = hiKickImpactFrame * hiKickFrameTime;
-                Lunge(hiKickLunge, hitFrom, dt);
+                Lunge(attackLunge, hitFrom, dt);
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitFrom + hiKickImpactHold)
                     attackHit = AttackEnemies(hiKickReach, hiKickDamage, kickFinisherKnockdown, 2.8f);   // kombon viimeinen
                 if (stateTime >= HiKickTotal) Enter(State.Ground);
@@ -1200,6 +1200,9 @@ public class PlayerController : MonoBehaviour
         attackHit = false;
         PlayGrunt();
         Enter(index == 0 ? State.Kick : index == 1 ? State.SideKick : State.HiKick);
+        attackLunge = index == 0 ? ChaseLunge(lowKickLunge, kickReach)
+                    : index == 1 ? ChaseLunge(sideKickLunge, sideKickReach)
+                    : ChaseLunge(hiKickLunge, hiKickReach);
     }
 
     /// Liukuu eteenpäin yhteensä distance yksikköä ajassa until (iskun osumahetkeen asti), hidastuen loppua kohti.
@@ -1232,6 +1235,32 @@ public class PlayerController : MonoBehaviour
         comboIndex = index;
         comboQueued = false;
         Enter(State.Punch);
+        attackLunge = ChaseLunge(punchCombo[index].lunge, punchCombo[index].reach);
+    }
+
+    [Header("Liuku seuraa vihollista")]
+    [Tooltip("Kuinka pitkälle isku saa enintään liukua vihollisen perään (yksikköä), jotta kombo pysyy kasassa.")]
+    public float maxChaseLunge = 0.9f;
+    [Tooltip("Mihin osaan ulottuvuudesta liu'utaan (0.7 = vihollinen jää 70 % ulottuvuuden päähän).")]
+    [Range(0.3f, 1f)] public float chaseReachFactor = 0.7f;
+    float attackLunge;      // käynnissä olevan iskun liuku
+
+    /// Liuku iskun alussa: vähintään baseLunge, ja tarvittaessa enemmän, jotta lähin edessä oleva
+    /// vihollinen (esim. edellisen osuman työntämä) on ulottuvilla.
+    float ChaseLunge(float baseLunge, float reach)
+    {
+        Vector3 me = transform.position;
+        float best = float.MaxValue;
+        foreach (var e in Enemy.All)
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 p = e.transform.position;
+            float dx = (p.x - me.x) * (facingRight ? 1f : -1f);
+            if (dx < -0.3f || dx > reach + maxChaseLunge + 0.5f || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            best = Mathf.Min(best, dx);
+        }
+        if (best == float.MaxValue) return baseLunge;
+        return Mathf.Clamp(best - reach * chaseReachFactor, baseLunge, Mathf.Max(baseLunge, maxChaseLunge));
     }
 
     bool running;
