@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     public float stepTime = 0.07f;
 
     [Header("Hyppy")]
-    public float jumpVelocity = 11f;
+    [Tooltip("Hypyn lähtönopeus. Korkeus = nopeus² / (2 × painovoima): 12.5 → n. 2.6 yksikköä.")]
+    public float jumpVelocity = 12.5f;
     public float gravity = 30f;
     public float jumpSquatTime = 0.08f;
     public float landingTime = 0.14f;
@@ -167,7 +168,9 @@ public class PlayerController : MonoBehaviour
     public float monkeyFlipEndHold = 0.25f;
     public int monkeyFlipDamage = 26;
     [Tooltip("Lentonopeus pään yli taakse (yksikköä/s).")]
-    public float monkeyFlipSpeed = 6f;
+    public float monkeyFlipSpeed = 9f;
+    [Tooltip("Lennon nousunopeus ylöspäin (suurempi = korkeampi ja pidempi kaari).")]
+    public float monkeyFlipUp = 7.5f;
     Enemy heldEnemy;
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
@@ -812,7 +815,7 @@ public class PlayerController : MonoBehaviour
             if (stateTime >= releaseAt)
             {
                 counterReleased = true;
-                if (monkeyFlip) heldEnemy.ReleaseThrow(-dir * monkeyFlipSpeed, 6f, monkeyFlipDamage);
+                if (monkeyFlip) heldEnemy.ReleaseThrow(-dir * monkeyFlipSpeed, monkeyFlipUp, monkeyFlipDamage);
                 else heldEnemy.ReleaseThrow(-dir * counterThrowSpeed, 3.5f, counterThrowDamage);
                 heldEnemy = null;
             }
