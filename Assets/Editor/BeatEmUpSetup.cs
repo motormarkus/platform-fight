@@ -1226,6 +1226,28 @@ public static class BeatEmUpSetup
             "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    [MenuItem("Beat em up/24. Päivitä potkukombo (korkea, matala, etupotku)")]
+    static void UpdateKickCombo()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        string path = FindTexture("korkea_potku");
+        if (path != null) SetupAndSlice(path);
+        Sprite[] sp = LoadSprites("korkea_potku")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 4) { EditorUtility.DisplayDialog("Beat em up", "korkea_potku.png puuttuu.", "OK"); return; }
+        Undo.RecordObject(pc, "Potkukombo");
+        pc.hiKickSprites = sp;
+        pc.hiKickFrameTime = 0.05f;
+        pc.hiKickImpactFrame = 3;
+        pc.hiKickImpactHold = 0.14f;
+        pc.hiKickArtOffset = 0.64f;     // sheetin kuvat siirretty 64 px vasemmalle
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: korkea potku → matala potku → etupotku (kaataa).\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];

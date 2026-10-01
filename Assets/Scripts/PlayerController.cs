@@ -104,7 +104,21 @@ public class PlayerController : MonoBehaviour
     public float sideKickReach = 2.5f;
     [Tooltip("Sheetissä kuvat on siirretty vasemmalle, jotta potku mahtuu ruutuun (yksikköä); korjataan tässä.")]
     public float sideKickArtOffset = 0.43f;
-    bool nextKickSide;
+
+    [Header("Potkukombo (hakkaa K): korkea potku → matala potku → etupotku (sivupotku)")]
+    [Tooltip("korkea_potku.png: 6 kuvaa (0 asento, 1–2 nosto, 3 potku, 4 lasku, 5 asento).")]
+    public Sprite[] hiKickSprites;
+    public float hiKickFrameTime = 0.05f;
+    public int hiKickImpactFrame = 3;
+    public float hiKickImpactHold = 0.14f;
+    public int hiKickDamage = 10;
+    public float hiKickReach = 2.1f;
+    [Tooltip("Sheetissä kuvat on siirretty vasemmalle, jotta potku mahtuu ruutuun (yksikköä); korjataan tässä.")]
+    public float hiKickArtOffset = 0.64f;
+    [Tooltip("Kaataako kombon viimeinen potku (etupotku) vihollisen.")]
+    public bool kickFinisherKnockdown = true;
+    int kickComboIndex;     // 0 korkea, 1 matala, 2 etupotku
+    bool kickQueued;
 
     [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen LB), osuu joka suuntaan")]
     public Sprite[] specialSprites;
@@ -269,7 +283,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick }
 
     int comboIndex;
     bool comboQueued;
@@ -299,6 +313,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(counterThrowSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
+        SortByFrameNumber(hiKickSprites);
         SortByFrameNumber(carryWalkSprites);
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
@@ -354,12 +369,7 @@ public class PlayerController : MonoBehaviour
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
-                if (kickPressed)
-                {
-                    bool side = nextKickSide && sideKickSprites != null && sideKickSprites.Length > 0;
-                    nextKickSide = !nextKickSide;       // vuorotellen tavallinen potku ja sivupotku
-                    Enter(side ? State.SideKick : State.Kick); attackHit = false; PlayGrunt(); break;
-                }
+                if (kickPressed) { StartKick(HasHiKick ? 0 : 1); break; }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0)
                 {
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
@@ -436,7 +446,7 @@ public class PlayerController : MonoBehaviour
                 float hitFrom = sideKickImpactFrame * sideKickFrameTime;
                 float hitTo = hitFrom + sideKickImpactHold;
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
-                    attackHit = AttackEnemies(sideKickReach, sideKickDamage, false);
+                    attackHit = AttackEnemies(sideKickReach, sideKickDamage, kickFinisherKnockdown);   // kombon viimeinen
                 if (stateTime >= hitTo + (sideKickSprites.Length - sideKickImpactFrame - 1) * sideKickFrameTime)
                     Enter(State.Ground);
                 break;
@@ -548,8 +558,19 @@ public class PlayerController : MonoBehaviour
             case State.Kick:
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false);
-                if (stateTime >= kickTime) Enter(State.Ground);
+                if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
+                if (stateTime >= kickTime) EndKick();
                 break;
+
+            case State.HiKick:
+            {
+                float hitFrom = hiKickImpactFrame * hiKickFrameTime;
+                if (!attackHit && stateTime >= hitFrom && stateTime <= hitFrom + hiKickImpactHold)
+                    attackHit = AttackEnemies(hiKickReach, hiKickDamage, false);
+                if (kickPressed && stateTime >= HiKickTotal * comboInputFrom) kickQueued = true;
+                if (stateTime >= HiKickTotal) EndKick();
+                break;
+            }
 
             case State.Grabbed:
                 break;   // tarttuja liikuttaa (SetHeld)
@@ -999,6 +1020,28 @@ public class PlayerController : MonoBehaviour
         Enter(State.Block);
     }
 
+    bool HasHiKick => hiKickSprites != null && hiKickSprites.Length > hiKickImpactFrame;
+    bool HasSideKick => sideKickSprites != null && sideKickSprites.Length > 0;
+    float HiKickTotal => hiKickFrameTime * (hiKickSprites.Length - 1) + hiKickImpactHold;
+
+    /// Potkukombon isku: 0 korkea, 1 matala, 2 etupotku (sivupotku).
+    void StartKick(int index)
+    {
+        if (index == 2 && !HasSideKick) { Enter(State.Ground); return; }
+        kickComboIndex = index;
+        kickQueued = false;
+        attackHit = false;
+        PlayGrunt();
+        Enter(index == 0 ? State.HiKick : index == 1 ? State.Kick : State.SideKick);
+    }
+
+    /// Potku loppui: seuraava kombossa, jos K painettiin ajoissa, muuten perusasentoon (kombo alkaa alusta).
+    void EndKick()
+    {
+        if (kickQueued && kickComboIndex < 2) StartKick(kickComboIndex + 1);
+        else Enter(State.Ground);
+    }
+
     void StartComboHit(int index)
     {
         attackHit = false;
@@ -1076,6 +1119,7 @@ public class PlayerController : MonoBehaviour
             pivotFix.x = (spr.pivot.x - spr.rect.width * 0.5f) / ppu;
             pivotFix.y = spr.pivot.y / ppu;
             if (state == State.SideKick) pivotFix.x += sideKickArtOffset;   // kuvat on siirretty sheetissä vasemmalle -> takaisin oikealle
+            if (state == State.HiKick) pivotFix.x += hiKickArtOffset;
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
         body.transform.localPosition = new Vector3(pivotFix.x, groundHeight + height - footOffset + pivotFix.y, 0f);
@@ -1213,6 +1257,17 @@ public class PlayerController : MonoBehaviour
                 if (blockReleasing)
                     return blockSprites[Mathf.Min(3 + (int)(blockReleaseTime / blockLowerFrameTime), 4)];
                 return blockSprites[stateTime < blockRaiseTime ? 1 : 2];
+
+            case State.HiKick:
+            {
+                float hitFrom = hiKickImpactFrame * hiKickFrameTime;
+                float hitTo = hitFrom + hiKickImpactHold;
+                int i;
+                if (stateTime < hitFrom) i = (int)(stateTime / hiKickFrameTime);
+                else if (stateTime < hitTo) i = hiKickImpactFrame;
+                else i = hiKickImpactFrame + 1 + (int)((stateTime - hitTo) / hiKickFrameTime);
+                return hiKickSprites[Mathf.Clamp(i, 0, hiKickSprites.Length - 1)];
+            }
 
             case State.Special:
                 return specialSprites[Mathf.Min((int)(stateTime / specialFrameTime), specialSprites.Length - 1)];
