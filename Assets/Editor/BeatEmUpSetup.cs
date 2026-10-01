@@ -1298,6 +1298,69 @@ public static class BeatEmUpSetup
             "Saksipotku: ylös, alas, K, K (maasta) tai hyppy + K (ilmassa).\nKaksi potkua vuorojaloin, toinen kaataa. Hyppy + J = vanha hyppypotku.\n\nTallenna scene (Ctrl+S).", "OK");
     }
 
+    // ---------------- Lippis (uusi vihollinen) ----------------
+    // Kadulla (x pelaajan aloituskohdasta, syvyys y)
+    static readonly Vector2[] LippisStreet = { new Vector2(24f, -2.6f), new Vector2(47f, -3.1f), new Vector2(78f, -2.2f), new Vector2(95f, -3.0f) };
+
+    [MenuItem("Beat em up/27. Lisää Lippikset (uusi vihollinen)")]
+    static void AddLippis()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { EditorUtility.DisplayDialog("Beat em up", "Scenessä ei ole pelaajaa.", "OK"); return; }
+        foreach (var n in new[] { "lippis_idle", "lippis_lyonti", "lippis_potku" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var report = new List<string>();
+        Sprite[] idle = EnemySheet("lippis_idle", report);
+        if (idle.Length == 0) { EditorUtility.DisplayDialog("Beat em up", "lippis_idle.png puuttuu.", "OK"); return; }
+
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+            if (e.gameObject.name.StartsWith("Lippis")) Undo.DestroyObjectImmediate(e.gameObject);
+
+        var go = new GameObject("Lippis");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Lippis";
+        t.idleSprites = idle;
+        t.punchSprites = EnemySheet("lippis_lyonti", report);
+        t.altAttackSprites = EnemySheet("lippis_potku", report);   // potku toisena hyökkäyksenä
+        // kävely-, osuma-, kaatumis- ja nousukuvia ei vielä ole: varaliikkeet (idle, väläys, kuvan kääntö)
+        t.idleFrameTime = 0.14f;
+        t.moveSpeedX = 2.5f;
+        t.moveSpeedY = 1.5f;
+        t.maxHealth = 55;
+        t.punchDamage = 8;
+        t.punchImpactFrame = 3;            // käsi suorana kuvassa 4
+        t.altImpactFrame = 4;              // potku ojennettuna kuvassa 5
+        t.altDamage = 13;
+        t.altChance = 0.4f;
+        t.altReach = 2.4f;
+        t.attackCooldown = 1.4f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        t.hurtVolume = 0.99f;
+        Undo.RegisterCreatedObjectUndo(go, "Lippis");
+
+        float x0 = pc.transform.position.x;
+        for (int i = 0; i < LippisStreet.Length; i++)
+        {
+            var v = LippisStreet[i];
+            var c = i == 0 ? go : Object.Instantiate(go);
+            if (i > 0) { c.name = "Lippis_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Lippis"); }
+            c.transform.position = new Vector3(x0 + v.x, Mathf.Clamp(v.y, pc.minDepthY, pc.maxDepthY), 0f);
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        EditorUtility.DisplayDialog("Beat em up",
+            $"Lippiksiä kadulla: {LippisStreet.Length}\n\n" + string.Join("\n", report) +
+            "\n\nLyö ja potkaisee. Kävely-, osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliikkeet).\n\nTallenna scene (Ctrl+S).", "OK");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];
