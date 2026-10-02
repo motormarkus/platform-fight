@@ -83,7 +83,8 @@ public class GameHUD : MonoBehaviour
             bigStyle = new GUIStyle(label) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(119 * s) };
         }
 
-        float x = 40 * s, y = 30 * s, w = 420 * s, h = 26 * s;
+        // reunoista selvä marginaali: editorin Game-ikkuna voi leikata reunoja
+        float x = 40 * s + Screen.width * 0.025f, y = 30 * s + Screen.height * 0.035f, w = 420 * s, h = 26 * s;
 
         if (player != null)
         {
