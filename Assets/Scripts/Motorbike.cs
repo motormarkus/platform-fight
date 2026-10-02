@@ -167,7 +167,11 @@ public class Motorbike : MonoBehaviour
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
         animClock += dt * (6f + speed * 1.4f);
         if (rideSprites != null && rideSprites.Length > 0)
-            ShowRider(rideSprites[(int)animClock % rideSprites.Length]);
+        {
+            // videon kuvat soitetaan takaperin: pyörät pyörivät ajosuuntaan
+            int n = rideSprites.Length;
+            ShowRider(rideSprites[n - 1 - (int)animClock % n]);
+        }
 
         if (speed >= runOverMinSpeed) RunOver(p);
         if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
