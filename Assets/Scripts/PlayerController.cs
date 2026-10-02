@@ -1631,7 +1631,10 @@ public class PlayerController : MonoBehaviour
 #endif
     }
 
-    bool PunchPressed()
+    bool PunchPressed() => PunchInput();
+
+    /// Lyöntinappi (J / ohjaimen neliö), myös muiden skriptien käyttöön (esim. prätkä).
+    public static bool PunchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)

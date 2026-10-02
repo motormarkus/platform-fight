@@ -1025,12 +1025,13 @@ public static class BeatEmUpSetup
 
         // ajettavat pyörät: nousu- ja ajokuvat sekä käynnistysääni
         Sprite[] ride = new Sprite[0], mount = new Sprite[0];
-        foreach (var n in new[] { "pratka_ajo", "pratka_nousu" })
+        foreach (var n in new[] { "pratka_ajo", "pratka_nousu", "pratka_lyonti" })
         {
             string tp = FindTexture(n);
             if (tp != null) SetupAndSlice(tp);
         }
         ride = LoadSprites("pratka_ajo").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var punchR = LoadSprites("pratka_lyonti").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
         // erilliset vanteet (pyörivät koodilla)
@@ -1083,6 +1084,7 @@ public static class BeatEmUpSetup
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
                     mb.rearWheel = rearW; mb.frontWheel = frontW;
+                    mb.punchSprites = punchR;
                 }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);

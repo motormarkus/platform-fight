@@ -107,6 +107,18 @@ public class EnemyBike : MonoBehaviour
         if (ahead < -30f) Destroy(gameObject);
     }
 
+    /// Pelaajan lyönti: vihu lentää pyörältä ja pyörä kaatuu.
+    public void KnockOff(float attackerX)
+    {
+        if (state == S.Crash) return;
+        Vector3 me = transform.position;
+        state = S.Crash; t = 0f; vSpin = 8f;
+        HitFx.OnHit(true);
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.2f);
+        HitSpark.Spawn(me + new Vector3(0f, 1.8f, 0f), true, Mathf.RoundToInt(-me.y * 100f) + 5);
+        if (crashMoney > 0) Pickup.SpawnMoney(me, crashMoney, false);
+    }
+
     void ApplyVisual()
     {
         if (body == null || sprites == null || sprites.Length == 0) return;

@@ -22,7 +22,12 @@ public class Motorbike : MonoBehaviour
     [Tooltip("Erilliset vanteet, jotka pyörivät koodilla (jos tyhjä, ajokuvissa on pyörät valmiina).")]
     public Sprite rearWheel, frontWheel;
     [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
-    public Vector2 rearWheelPos = new Vector2(-2.316f, 0.727f), frontWheelPos = new Vector2(2.191f, 0.866f);
+    public Vector2 rearWheelPos = new Vector2(-2.314f, 0.741f), frontWheelPos = new Vector2(2.165f, 0.86f);
+    [Tooltip("Lyönti ajon aikana (pratka_lyonti.png): eteen oikealle.")]
+    public Sprite[] punchSprites;
+    public int punchImpact = 3;
+    public float punchFrameTime = 0.06f;
+    public float punchReach = 3.6f;
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
@@ -52,7 +57,8 @@ public class Motorbike : MonoBehaviour
     public static Motorbike Current => active != null && active.riding ? active : null;
     public float Speed => speed;
     public bool FacingRight => facingRight;
-    float wobble, wheelAngle;
+    float wobble, wheelAngle, punchT = -1f;
+    bool punchHit;
     SpriteRenderer rearR, frontR;
 
     void EnsureWheels()
@@ -103,6 +109,7 @@ public class Motorbike : MonoBehaviour
     {
         PlayerController.SortByFrameNumber(rideSprites);
         PlayerController.SortByFrameNumber(mountSprites);
+        PlayerController.SortByFrameNumber(punchSprites);
         audioSrc = gameObject.AddComponent<AudioSource>();
         audioSrc.playOnAwake = false;
         audioSrc.spatialBlend = 0f;
@@ -228,13 +235,29 @@ public class Motorbike : MonoBehaviour
         groundHeight = Mathf.MoveTowards(groundHeight, GroundAt(p.y), 3f * dt);   // reunakiven yli
 
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
-        animClock += dt * (6f + speed * 1.4f);
+        animClock += dt * (rearWheel != null ? 12f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti
         UpdateWheels(true, dt);
+        // lyönti eteen (vain oikealle ajettaessa)
+        if (punchT < 0f && facingRight && punchSprites != null && punchSprites.Length > 0 && PlayerController.PunchInput())
+        { punchT = 0f; punchHit = false; }
+        if (punchT >= 0f)
+        {
+            punchT += dt;
+            int f = (int)(punchT / punchFrameTime);
+            if (!punchHit && f >= punchImpact) { punchHit = true; PunchAhead(p); }
+            if (f >= punchSprites.Length) punchT = -1f;
+            else
+            {
+                ShowRider(punchSprites[f]);
+                if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
+                return;
+            }
+        }
         if (rideSprites != null && rideSprites.Length > 0)
         {
-            // videon kuvat soitetaan takaperin: pyörät pyörivät ajosuuntaan
+            // erilliset vanteet: kuvat eteenpäin (takin lepatus); muuten takaperin, jotta kuvien pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
-            ShowRider(rideSprites[n - 1 - (int)animClock % n]);
+            ShowRider(rideSprites[rearWheel != null ? (int)animClock % n : n - 1 - (int)animClock % n]);
             if (n == 1 && pc.body != null)   // yksi kuva: moottorin tärinä ja pieni jousitus
                 pc.body.transform.localPosition += new Vector3(0f, Mathf.Sin(animClock * 2.3f) * 0.025f + Mathf.Sin(animClock * 9f) * 0.008f, 0f);
             if (wobble > 0f && pc.body != null)
@@ -246,6 +269,24 @@ public class Motorbike : MonoBehaviour
 
         if (speed >= runOverMinSpeed) RunOver(p);
         if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
+    }
+
+    void PunchAhead(Vector3 me)
+    {
+        foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
+        {
+            Vector3 q = eb.transform.position;
+            float ahead = q.x - me.x;
+            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.5f) eb.KnockOff(me.x);
+        }
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 q = e.transform.position;
+            float ahead = q.x - me.x;
+            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.45f && e.TakeHit(15, me.x, true))
+                HitSpark.Spawn(new Vector3(q.x, q.y + 2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+        }
     }
 
     void RunOver(Vector3 me)
