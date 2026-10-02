@@ -1903,7 +1903,7 @@ public static class BeatEmUpSetup
     // takakuja.png: sama mittakaava ja korkeus kuin katu (seinän juuri 590, reunakivi 637, PPU 52).
     const string AlleyPath = "Assets/Sprites/Taustat/takakuja.png";
     const float AlleyX0 = 3000f;
-    const float AlleyLadderPx = 300f, AlleyBikePx = 1449f;   // palotikkaiden juuri ja prätkän parkkiruutu kuvassa
+    const float AlleyLadderPx = 285f, AlleyBikePx = 1446f;   // palotikkaiden juuri ja prätkän parkkiruutu kuvassa
 
     [MenuItem("Beat em up/34. Takakuja ja prätkä (katolta alas)")]
     static void CreateBackAlley()
