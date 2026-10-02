@@ -48,6 +48,7 @@ public static class BeatEmUpSetup
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
+            CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -1897,6 +1898,105 @@ public static class BeatEmUpSetup
 
     static bool Blocked(List<Vector2> obstacles, float x, float myHalf)
         => obstacles.Any(o => Mathf.Abs(o.x - x) < o.y + myHalf + 0.3f);
+
+    // ---------------- Takakuja (katolta alas, prätkä) ----------------
+    // takakuja.png: sama mittakaava ja korkeus kuin katu (seinän juuri 590, reunakivi 637, PPU 52).
+    const string AlleyPath = "Assets/Sprites/Taustat/takakuja.png";
+    const float AlleyX0 = 3000f;
+    const float AlleyLadderPx = 300f, AlleyBikePx = 1449f;   // palotikkaiden juuri ja prätkän parkkiruutu kuvassa
+
+    [MenuItem("Beat em up/34. Takakuja ja prätkä (katolta alas)")]
+    static void CreateBackAlley()
+    {
+        var street = GameObject.Find("Tausta");
+        var roofBg = GameObject.Find("Katto");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katto");
+        var ti = AssetImporter.GetAtPath(AlleyPath) as TextureImporter;
+        if (street == null || roofBg == null || streetArea == null || roof == null || ti == null)
+        {
+            Info("Tarvitaan katu (kohta 29), katto (kohta 30) ja kuva " + AlleyPath);
+            return;
+        }
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = BackgroundPPU;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 4096;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(AlleyPath);
+        float wU = sprite.rect.width / BackgroundPPU;
+
+        foreach (var n in new[] { "Takakuja", "Alue: Takakuja", "Takakujan ovet", "Takakujan prätkä" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var bg = new GameObject("Takakuja");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(AlleyX0 + wU * 0.5f, street.transform.position.y, 0f);   // sama korkeus kuin katu
+        Undo.RegisterCreatedObjectUndo(bg, "Takakuja");
+
+        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        var alley = new GameObject("Alue: Takakuja").AddComponent<Area>();
+        alley.areaName = "Takakuja";
+        alley.minDepthY = streetArea.minDepthY;
+        alley.maxDepthY = streetArea.maxDepthY;
+        alley.useSidewalk = streetArea.useSidewalk;
+        alley.sidewalkHeight = streetArea.sidewalkHeight;
+        alley.curbDepthY = streetArea.curbDepthY;
+        alley.camMinX = AlleyX0 + halfW;
+        alley.camMaxX = AlleyX0 + wU - halfW;
+        Undo.RegisterCreatedObjectUndo(alley.gameObject, "Alue");
+
+        // ovet: katon oikeasta päästä alas, ja kujan palotikkailta takaisin ylös
+        var doors = new GameObject("Takakujan ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        float roofRight = roofBg.GetComponent<SpriteRenderer>().bounds.max.x;
+        float ladderX = AlleyX0 + AlleyLadderPx / BackgroundPPU;
+        var down = new GameObject("Katolta alas kujalle").AddComponent<Door>();
+        down.transform.SetParent(doors.transform, false);
+        down.transform.position = new Vector3(roofRight - 2.2f, roof.maxDepthY, 0f);
+        down.prompt = "Laskeudu kujalle";
+        down.here = roof; down.target = alley;
+        down.spawnPoint = new Vector2(ladderX + 1.2f, alley.maxDepthY - 0.25f);
+        down.halfWidth = 1.8f; down.maxDistanceFromWall = 100f; down.climbHeight = -1.5f;
+        var up = new GameObject("Kujalta katolle").AddComponent<Door>();
+        up.transform.SetParent(doors.transform, false);
+        up.transform.position = new Vector3(ladderX, alley.maxDepthY - 0.25f, 0f);
+        up.prompt = "Kiipeä katolle";
+        up.here = alley; up.target = roof;
+        up.spawnPoint = new Vector2(roofRight - 3.4f, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.75f));
+        up.halfWidth = 1.2f; up.maxDistanceFromWall = 0.9f; up.climbHeight = 3f;
+
+        // prätkä parkkiruutuun: kopio kadun ajettavasta pyörästä, nokka oikealle
+        string bikeInfo = "prätkä puuttuu (tee kohta 16/29 ensin)";
+        var template = Object.FindObjectsByType<Motorbike>(FindObjectsSortMode.None).FirstOrDefault();
+        if (template != null)
+        {
+            var go = Object.Instantiate(template.gameObject);
+            go.name = "Takakujan prätkä";
+            float y = (streetArea.curbDepthY + streetArea.maxDepthY) * 0.5f;
+            go.transform.position = new Vector3(AlleyX0 + AlleyBikePx / BackgroundPPU, y, 0f);
+            var mb = go.GetComponent<Motorbike>();
+            if (mb.parkedRight != null) { mb.parked.sprite = mb.parkedRight; mb.parked.flipX = false; }
+            else mb.parked.flipX = true;
+            mb.parked.sortingOrder = Mathf.RoundToInt(-y * 100f);
+            Undo.RegisterCreatedObjectUndo(go, "Prätkä");
+            bikeInfo = $"prätkä parkkiruudussa (x = {go.transform.position.x:0.0})";
+        }
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Takakuja luotu ({wU:0.0} yksikköä). Katon oikeasta päästä E: alas kujalle.\n{bikeInfo}.\nKujan palotikkailta pääsee takaisin katolle.\n\nTallenna scene (Ctrl+S).");
+    }
 
     static AudioClip[] LoadClips(string folder, string filter)
     {
