@@ -1821,9 +1821,7 @@ public static class BeatEmUpSetup
         sr.sprite = sp.Length > 0 ? sp[0] : null;
         sr.sortingOrder = Mathf.RoundToInt(-depth * 100f);
         var npc = vis.AddComponent<NpcIdle>();
-        npc.sprites = sp;
-        npc.framesPerSet = 6;
-        npc.frameTime = 0.35f;
+        npc.sprites = sp;   // perusasento: sarja 2 (katselee ympärilleen), eleet sarjoista 1 ja 3
         var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
         sh.transform.SetParent(go.transform, false);
         sh.sprite = PlayerController.CreateShadowSprite();
