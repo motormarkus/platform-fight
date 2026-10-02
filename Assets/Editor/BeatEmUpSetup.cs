@@ -869,15 +869,15 @@ public static class BeatEmUpSetup
         if (sp.Length == 0) { Info("tuulimylly.png puuttuu."); return; }
         Undo.RecordObject(pc, "Tuulimylly");
         pc.specialSprites = sp;
-        pc.specialFrameTime = 0.06f;            // 14 kuvaa = 0.84 s, kaksi kierrosta
-        pc.specialHitFrom = 0.12f;              // kädet ojennettuina kuvasta 3 alkaen
-        pc.specialHitTo = 0.72f;
-        pc.specialHitEvery = 0.30f;             // osuu joka kierroksella (5 kuvaa)
+        pc.specialFrameTime = 0.045f;           // 20 kuvaa = 0.9 s: veto, kaksi 8-suunnan kierrosta, paluu
+        pc.specialHitFrom = 0.09f;
+        pc.specialHitTo = 0.81f;
+        pc.specialHitEvery = 0.36f;             // osuu joka kierroksella (8 kuvaa)
         pc.specialDamage = 10;                  // kaksi osumaa = 20
         pc.specialReach = 2.6f;                 // kädet ylettyvät kauas molemmin puolin
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        Info($"Tuulimylly: {sp.Length} kuvaa, kaksi kierrosta ({sp.Length * 0.06f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molemmin puolin kummallakin kierroksella ja kaataa.\n\nTallenna scene (Ctrl+S).");
+        Info($"Tuulimylly: {sp.Length} kuvaa, kaksi kierrosta ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molemmin puolin kummallakin kierroksella ja kaataa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
