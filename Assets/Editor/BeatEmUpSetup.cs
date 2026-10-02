@@ -1716,6 +1716,15 @@ public static class BeatEmUpSetup
                 b.getUpTime = 0.6f;
             }
             else { b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none; }
+            // äänet (Assets/Audio/pomo1): grunt osumasta ja lyödessä, nauru vatsatöytäisyn jälkeen
+            var grunts = LoadClips("Assets/Audio/pomo1", "pomogrunt");
+            if (grunts.Length > 0)
+            {
+                b.hurtSounds = grunts; b.hurtVolume = 0.95f;
+                b.attackSounds = grunts; b.attackVolume = 0.9f; b.attackSoundChance = 0.8f;
+            }
+            b.laughSound = LoadClips("Assets/Audio/pomo1", "pomonauru").FirstOrDefault();
+            report.Add($"Pomon äänet: {grunts.Length} gruntia, nauru {(b.laughSound != null ? "ok" : "puuttuu (Assets/Audio/pomo1/pomonauru)")}");
             // taklauksen juoksu: töminä ja ruudun tärinä
             b.stompSounds = LoadClips("Assets/Audio/sfx", "tomina");
             b.stompVolume = 0.85f;

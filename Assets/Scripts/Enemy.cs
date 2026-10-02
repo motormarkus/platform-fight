@@ -147,6 +147,9 @@ public class Enemy : MonoBehaviour
     public float bellyKnockSpeed = 14f, bellyKnockUp = 5.5f;
     [Tooltip("Töytäisyn kuvat (0–4) ja naurun kuvat (5,6,5,6,7): nauru kestää vähän töytäisyä pidempään.")]
     public float bellyPumpFrameTime = 0.08f, bellyLaughFrameTime = 0.13f;
+    [Tooltip("Nauru töytäisyn jälkeen.")]
+    public AudioClip laughSound;
+    [Range(0f, 1f)] public float laughVolume = 1f;
 
     [Header("Töminä (pomon taklausjuoksu)")]
     public AudioClip[] stompSounds;
@@ -207,7 +210,7 @@ public class Enemy : MonoBehaviour
     float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
     int blocksInRow;
     int comboHits; float lastHitTime;   // pelaajan kombo (vatsatöytäisyn vastaisku)
-    bool bellyHit;
+    bool bellyHit, bellyLaughed;
     static readonly int[] BellyPump = { 0, 1, 2, 3, 4 }, BellyLaugh = { 5, 6, 5, 6, 7 };
     float BellyImpactTime => 3f * bellyPumpFrameTime;
     float BellyPumpTime => BellyPump.Length * bellyPumpFrameTime;
@@ -345,6 +348,11 @@ public class Enemy : MonoBehaviour
                     if (Random.value < attackSoundChance) PlayAttackSound();
                     if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);
                     TryBellyHit();
+                }
+                if (!bellyLaughed && stateTime >= BellyPumpTime)
+                {
+                    bellyLaughed = true;
+                    if (laughSound != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(laughSound, laughVolume); }
                 }
                 if (stateTime >= BellyTotalTime)
                 {
@@ -699,7 +707,7 @@ public class Enemy : MonoBehaviour
     void StartBelly(bool counter)
     {
         moving = false;
-        bellyHit = false;
+        bellyHit = false; bellyLaughed = false;
         if (player != null) facingRight = player.transform.position.x > transform.position.x;
         Enter(State.Belly);
         if (counter) stateTime = bellyPumpFrameTime;   // vastaisku alkaa suoraan latauksesta
