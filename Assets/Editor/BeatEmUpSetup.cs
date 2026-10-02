@@ -551,6 +551,11 @@ public static class BeatEmUpSetup
         Undo.RecordObject(template, "Kovis kestävyys");
         template.maxHealth = 85;           // ennen 60: kaatuivat liian helposti
         template.attackCooldown = 1.4f;    // ennen 1.6: lyö useammin
+        // heitto: nopeampi tarttuminen ja nosto, heilautus kiihtyy ja pelaaja lentää kovempaa
+        template.grabReachTime = 0.22f;    // ennen 0.3
+        template.grabLiftTime = 0.55f;     // ennen 0.8
+        template.throwSpeed = 8.5f;        // ennen 5.5
+        template.throwUp = 5f;             // ennen 4
         EditorUtility.SetDirty(template);
         Undo.RecordObject(template.transform, "Siirrä Kovis");
         template.transform.position = new Vector3(x0 + KovisSpawns[0].x, Mathf.Clamp(KovisSpawns[0].y, pc.minDepthY, pc.maxDepthY), 0f);

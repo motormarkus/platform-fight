@@ -381,19 +381,19 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.GrabLift:
-                HoldPlayer(Mathf.Clamp01(stateTime / grabLiftTime) * 3f);        // avainasennot 0..3 (kuvat 1..4)
+                HoldPlayer(LiftEase * 3f);        // avainasennot 0..3 (kuvat 1..4), nosto pehmeästi kiihtyen ja hidastuen
                 if (stateTime >= grabLiftTime) Enter(State.GrabThrow);
                 break;
 
             case State.GrabThrow:
-                if (stateTime < ThrowSwing) HoldPlayer(3f + stateTime / ThrowSwing);   // heilautus taakse
+                if (stateTime < ThrowSwing) { float k = stateTime / ThrowSwing; HoldPlayer(3f + k * k); }   // heilautus kiihtyy loppua kohti
                 else if (!thrown)
                 {
                     thrown = true;
                     float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
                     player.Throw(dir * throwSpeed, throwUp, throwDamage);
                 }
-                if (stateTime >= ThrowSwing + 0.15f + 0.4f)
+                if (stateTime >= ThrowSwing + 0.15f + 0.3f)
                 {
                     if (!throwForward) facingRight = !facingRight;       // Kovis on kääntynyt heittosuuntaan
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
@@ -412,7 +412,9 @@ public class Enemy : MonoBehaviour
         ApplyVisual();
     }
 
-    const float ThrowSwing = 0.18f;
+    const float ThrowSwing = 0.13f;
+    /// Noston eteneminen 0..1: rauhallinen alku, vauhti keskellä, pieni pysähdys pään yllä ennen heilautusta.
+    float LiftEase { get { float t = Mathf.Clamp01(stateTime / grabLiftTime); return t * t * (3f - 2f * t); } }
     bool thrown;
 
     bool CanGrabPlayer()
@@ -937,7 +939,7 @@ public class Enemy : MonoBehaviour
                 return Has(grabSprites) ? grabSprites[0] : IdleFrame();
 
             case State.GrabLift:
-                if (Has(grabSprites)) return grabSprites[Mathf.Clamp(1 + (int)(stateTime / grabLiftTime * 4f), 1, 4)];
+                if (Has(grabSprites)) return grabSprites[Mathf.Clamp(1 + (int)(LiftEase * 4f), 1, 4)];
                 return IdleFrame();
 
             case State.GrabThrow:
