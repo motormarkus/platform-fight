@@ -1848,8 +1848,8 @@ public static class BeatEmUpSetup
         if (folder == null) return;
         var gasps = LoadClips(folder, "gasp");
         var attacks = LoadClips(folder, "attack");
-        if (gasps.Length > 0) e.hurtSounds = gasps;
-        if (attacks.Length > 0) e.attackSounds = attacks;
+        if (gasps.Length > 0) { e.hurtSounds = gasps; e.hurtVolume = 0.79f; }        // 20 % hiljempaa (ennen 0.99)
+        if (attacks.Length > 0) { e.attackSounds = attacks; e.attackVolume = 0.72f; } // 20 % hiljempaa (ennen 0.9)
         Debug.Log($"{e.name}: punkkarin äänet {folder}: gasp {gasps.Length}, attack {attacks.Length}");
     }
 
