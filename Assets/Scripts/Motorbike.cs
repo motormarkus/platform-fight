@@ -40,10 +40,12 @@ public class Motorbike : MonoBehaviour
     public float bikeScale = 0.85f;
     [Tooltip("Koko muualla (parkkipaikka, kuja).")]
     public float streetScale = 1f;
+    [Tooltip("Kadun pysäköityjen (ei ajettavien) pyörien koko.")]
+    public float propScale = 0.7f;
     [Tooltip("Voiko pyörällä ajaa. Kadun pyörät ovat rekvisiittaa, ajettava on takakujan parkkipaikalla.")]
     public bool rideable = true;
     /// Valtatiellä pienempi koko, muualla isompi.
-    float Scale => Area.Current != null && Area.Current.areaName == "Valtatie" ? bikeScale : (rideable ? streetScale : bikeScale);
+    float Scale => Area.Current != null && Area.Current.areaName == "Valtatie" ? bikeScale : (rideable ? streetScale : propScale);
 
     [Header("Ajo")]
     public float maxSpeed = 13.75f;

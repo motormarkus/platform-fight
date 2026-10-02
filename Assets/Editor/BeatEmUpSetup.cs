@@ -2028,7 +2028,7 @@ public static class BeatEmUpSetup
         var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(AlleyPath);
         float wU = sprite.rect.width / BackgroundPPU;
 
-        foreach (var n in new[] { "Takakuja", "Alue: Takakuja", "Takakujan ovet", "Takakujan prätkä" })
+        foreach (var n in new[] { "Takakuja", "Alue: Takakuja", "Takakujan ovet", "Takakujan prätkä", "Takakujan vanha pyörä" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -2088,6 +2088,20 @@ public static class BeatEmUpSetup
             mb.parked.sortingOrder = Mathf.RoundToInt(-y * 100f);
             Undo.RegisterCreatedObjectUndo(go, "Prätkä");
             bikeInfo = $"prätkä parkkiruudussa (x = {go.transform.position.x:0.0})";
+            // vanha punainen pyörä viereen (rekvisiittaa)
+            var red = ImportProp(OldBikeRightPath) ?? ImportProp(OldBikePath);
+            if (red != null)
+            {
+                var rGo = new GameObject("Takakujan vanha pyörä");
+                rGo.transform.SetParent(go.transform.parent, false);
+                rGo.transform.position = new Vector3(go.transform.position.x - 6f, y, 0f);
+                var vis = new GameObject("Visual"); vis.transform.SetParent(rGo.transform, false);
+                vis.transform.localPosition = new Vector3(0f, streetArea.sidewalkHeight, 0f);
+                var rsr = vis.AddComponent<SpriteRenderer>();
+                rsr.sprite = red;
+                rsr.sortingOrder = Mathf.RoundToInt(-y * 100f);
+                Undo.RegisterCreatedObjectUndo(rGo, "Vanha pyörä");
+            }
         }
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Takakuja luotu ({wU:0.0} yksikköä). Katon oikeasta päästä E: alas kujalle.\n{bikeInfo}.\nKujan palotikkailta pääsee takaisin katolle.\n\nTallenna scene (Ctrl+S).");
