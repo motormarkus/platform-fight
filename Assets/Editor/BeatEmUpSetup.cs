@@ -38,6 +38,7 @@ public static class BeatEmUpSetup
             CreateClub();           // S-Clubin ovi ja sisätila
             AddDancers();
             CreateShop();
+            AddClubNpc();           // nainen baaritiskillä
             AddBikes();
             AddStreetExtension();   // liikerakennus ja pelihalli
             AddCrates();            // koko kadun matkalle
@@ -1790,6 +1791,49 @@ public static class BeatEmUpSetup
             "O tynnyrin vieressä nostaa (kannetaan vaakatasossa), lyönti/potku heittää. Heitetty tynnyri pyörii, vierii ja kaataa kaikki tieltään.\n" +
             "Lyönti tai potku maassa olevaan tynnyriin kaataa sen vierimään.\n" +
             "Pomo hakee tynnyrin, kun olet kaukana, ja paiskaa sen kovaa sinua kohti (hyppää yli tai väistä sivulle).\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- S-Clubin NPC ----------------
+    [MenuItem("Beat em up/33. NPC baaritiskille (S-Club)")]
+    static void AddClubNpc()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        if (club == null) { Info("Tee ensin kohta 10 (S-Clubin sisätila)."); return; }
+        string path = FindTexture("npc_nainen");
+        if (path == null) { Info("npc_nainen.png puuttuu."); return; }
+        SetupAndSlice(path);
+        Sprite[] sp = LoadSprites("npc_nainen")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        var old = GameObject.Find("NPC: nainen");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+
+        // tiskin vasempaan päähän asiakkaaksi, katse tiskin keskelle (oikealle)
+        float counterX = ClubX0 + BarCounterPx / ClubPPU;
+        var shop = GameObject.Find("Baaritiski");
+        if (shop != null) counterX = shop.transform.position.x;
+        float depth = club.maxDepthY - 0.15f;
+        var go = new GameObject("NPC: nainen");
+        go.transform.position = new Vector3(counterX - BarCounterHalfPx / ClubPPU * 0.6f, depth, 0f);
+        var vis = new GameObject("Visual");
+        vis.transform.SetParent(go.transform, false);
+        vis.transform.localPosition = new Vector3(0f, -0.1f, 0f);   // kuvassa 10 px tyhjää jalkojen alla
+        var sr = vis.AddComponent<SpriteRenderer>();
+        sr.sprite = sp.Length > 0 ? sp[0] : null;
+        sr.sortingOrder = Mathf.RoundToInt(-depth * 100f);
+        var npc = vis.AddComponent<NpcIdle>();
+        npc.sprites = sp;
+        npc.framesPerSet = 6;
+        npc.frameTime = 0.35f;
+        var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        sh.transform.SetParent(go.transform, false);
+        sh.sprite = PlayerController.CreateShadowSprite();
+        sh.color = new Color(0f, 0f, 0f, 0.35f);
+        sh.transform.localScale = new Vector3(1.4f, 0.42f, 1f);
+        sh.sortingOrder = sr.sortingOrder - 1;
+        Undo.RegisterCreatedObjectUndo(go, "NPC");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        Info($"NPC baaritiskillä ({sp.Length} kuvaa, {sp.Length / 6} idle-sarjaa).\nSiirrä tarvittaessa Scene-näkymässä.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
