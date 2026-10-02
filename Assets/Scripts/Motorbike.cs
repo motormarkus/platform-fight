@@ -32,7 +32,7 @@ public class Motorbike : MonoBehaviour
     public int runOverDamage = 25;
     public float runOverMinSpeed = 3f;
     [Tooltip("Pyörän puolipituus (yksikköä): tämän matkan sisällä keskeltä osuu.")]
-    public float halfLength = 3.0f;
+    public float halfLength = 2.6f;
     [Header("Käyttö")]
     public float useHalfWidth = 2.2f;
     public float useDepth = 0.8f;
@@ -135,7 +135,7 @@ public class Motorbike : MonoBehaviour
             pc.shadow.enabled = true;
             pc.shadow.sortingOrder = order - 1;
             pc.shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
-            pc.shadow.transform.localScale = new Vector3(4.2f, 0.55f, 1f);
+            pc.shadow.transform.localScale = new Vector3(3.6f, 0.5f, 1f);
         }
     }
 
