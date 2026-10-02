@@ -1865,7 +1865,7 @@ public static class BeatEmUpSetup
             c.visualScale = 1.2f;          // 20 % isompi
             c.throwDamage = 20;
             c.hitRadiusX = 0.95f;
-            c.moneyChance = 0f;
+            c.moneyChance = 0f; c.energyChance = 0f;
             c.body = vis;
             c.shadow = sh;
             vis.sprite = sprites.Length > 0 ? sprites[0] : null;

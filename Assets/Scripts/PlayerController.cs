@@ -76,6 +76,51 @@ public class PlayerController : MonoBehaviour
     [Header("Kestävyys")]
     public int maxHealth = 100;
     [HideInInspector] public int health;
+
+    [Header("Stamina")]
+    public float maxStamina = 100f;
+    [HideInInspector] public float stamina;
+    [Tooltip("Hyppy (myös saksipotkun hyppy) kuluttaa tämän verran.")]
+    public float jumpStamina = 12f;
+    [Tooltip("Erikoisliike (tuulimylly) kuluttaa tämän verran.")]
+    public float specialStamina = 30f;
+    [Tooltip("Juoksu kuluttaa sekunnissa.")]
+    public float runStaminaPerSecond = 14f;
+    [Tooltip("Palautuu sekunnissa (hitaasti), kun staminaa ei ole hetkeen käytetty.")]
+    public float staminaRegen = 5f;
+    public float staminaRegenDelay = 1f;
+    float staminaRest;
+    /// Milloin viimeksi yritettiin liikettä ilman staminaa (HUD vilkuttaa mittaria).
+    public float StaminaEmptyTime { get; private set; } = -10f;
+
+    /// Kuluttaa staminaa, jos sitä on tarpeeksi. Palauttaa, onnistuiko.
+    public bool UseStamina(float cost)
+    {
+        if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
+        stamina -= cost;
+        staminaRest = staminaRegenDelay;
+        return true;
+    }
+
+    /// Staminan lisäys (Sohvin tuotteet, energiajuoma). Palauttaa todellisen lisäyksen.
+    public int AddStamina(float amount)
+    {
+        float before = stamina;
+        stamina = Mathf.Min(maxStamina, stamina + amount);
+        return Mathf.RoundToInt(stamina - before);
+    }
+
+    void UpdateStamina(float dt)
+    {
+        if (running)
+        {
+            stamina = Mathf.Max(0f, stamina - runStaminaPerSecond * dt);
+            staminaRest = staminaRegenDelay;
+            return;
+        }
+        if (staminaRest > 0f) { staminaRest -= dt; return; }
+        stamina = Mathf.Min(maxStamina, stamina + staminaRegen * dt);
+    }
     [Tooltip("Elämiä pelin alussa. Kun energia loppuu, menee yksi elämä ja energia täyttyy.")]
     public int lives = 3;
     [Tooltip("Rahat (markat): vihollisista putoaa, klubin baarissa voi ostaa.")]
@@ -364,6 +409,7 @@ public class PlayerController : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;   // 2D-ääni
         health = maxHealth;
+        stamina = maxStamina;
         if (shadow != null && shadow.sprite == null)
             shadow.sprite = CreateShadowSprite();
     }
@@ -380,6 +426,7 @@ public class PlayerController : MonoBehaviour
             if (body != null) body.enabled = invulnTimer <= 0f || Mathf.FloorToInt(invulnTimer * 12f) % 2 == 0;
         }
         if (GameOver) { ApplyVisual(); return; }
+        UpdateStamina(dt);
 
         Vector2 move = ReadMove();
         // ylös → alas -liike saksipotkua varten
@@ -399,7 +446,7 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case State.Ground:
-                if (jumpPressed)
+                if (jumpPressed && UseStamina(jumpStamina))
                 {
                     // muista juoksu ja vauhti, jotta ne säilyvät hypyssä
                     jumpFromRun = running;
@@ -418,12 +465,12 @@ public class PlayerController : MonoBehaviour
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed)
                 {
-                    if (scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor) { StartScissorJump(); break; }
+                    if (scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { StartScissorJump(); break; }
                     ArmScissor();
                     StartKick(0);
                     break;
                 }
-                if (specialPressed && specialSprites != null && specialSprites.Length > 0)
+                if (specialPressed && specialSprites != null && specialSprites.Length > 0 && UseStamina(specialStamina))
                 {
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
                 }
@@ -838,7 +885,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             lives--;
-            if (lives > 0) { health = maxHealth; invulnTimer = respawnInvulnerable; }
+            if (lives > 0) { health = maxHealth; stamina = maxStamina; invulnTimer = respawnInvulnerable; }
             else GameOver = true;
         }
     }
@@ -1324,7 +1371,7 @@ public class PlayerController : MonoBehaviour
     void Walk(Vector2 move, float dt)
     {
         moving = move.sqrMagnitude > 0.01f;
-        running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f;
+        running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
         if (!moving) return;
         if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
         float sx = moveSpeedX * (running ? runSpeedMultiplier : 1f);

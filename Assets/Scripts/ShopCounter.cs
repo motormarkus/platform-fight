@@ -16,6 +16,8 @@ public class ShopCounter : MonoBehaviour
         public int price;
         [Tooltip("Energiaa takaisin. 999 = täyteen.")]
         public int heal;
+        [Tooltip("Staminaa takaisin. 999 = täyteen.")]
+        public int stamina;
         public string comment;
         [Tooltip("Ääni ostettaessa (Assets/Audio/sfx).")]
         public AudioClip sound;
@@ -30,12 +32,12 @@ public class ShopCounter : MonoBehaviour
     public string prompt = "Puhu Sohville";
     public Item[] items =
     {
-        new Item { name = "Sipsipussi",      price = 1,  heal = 10,  comment = "Rapsakka." },
-        new Item { name = "Grillimakkara",   price = 2,  heal = 20,  comment = "Sinapilla." },
-        new Item { name = "Lonkero",         price = 3,  heal = 30,  comment = "Kylmä ja kirpeä." },
-        new Item { name = "Makkaraperunat",  price = 5,  heal = 50,  comment = "Kunnon annos." },
-        new Item { name = "Tuoppi",          price = 6,  heal = 60,  comment = "Hanasta." },
-        new Item { name = "Kossupaukku",     price = 15, heal = 999, comment = "Täydet voimat!" },
+        new Item { name = "Sipsipussi",      price = 1,  heal = 10,  stamina = 10,  comment = "Rapsakka." },
+        new Item { name = "Grillimakkara",   price = 2,  heal = 20,  stamina = 15,  comment = "Sinapilla." },
+        new Item { name = "Lonkero",         price = 3,  heal = 30,  stamina = 30,  comment = "Kylmä ja kirpeä." },
+        new Item { name = "Makkaraperunat",  price = 5,  heal = 50,  stamina = 25,  comment = "Kunnon annos." },
+        new Item { name = "Tuoppi",          price = 6,  heal = 60,  stamina = 40,  comment = "Hanasta." },
+        new Item { name = "Kossupaukku",     price = 15, heal = 999, stamina = 999, comment = "Täydet voimat!" },
     };
 
     [Header("Tiskin kohta")]
@@ -102,12 +104,13 @@ public class ShopCounter : MonoBehaviour
 
     void Buy(Item it)
     {
-        if (pc.health >= pc.maxHealth) { Say(Loc.T("Energia on jo täynnä.")); return; }
+        if (pc.health >= pc.maxHealth && (it.stamina <= 0 || pc.stamina >= pc.maxStamina)) { Say(Loc.T("Energia on jo täynnä.")); return; }
         if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
         pc.money -= it.price;
         int got = pc.Heal(it.heal);
+        int st = pc.AddStamina(it.stamina);
         if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShot(it.sound, soundVolume); }
-        Say(Loc.F("{0}: +{1} energiaa. {2}", Loc.T(it.name), got, Loc.T(it.comment)));
+        Say(Loc.F("{0}: +{1} energiaa, +{3} staminaa. {2}", Loc.T(it.name), got, Loc.T(it.comment), st));
     }
 
     void Say(string s) { msg = s; msgTime = Time.unscaledTime; }
@@ -198,7 +201,7 @@ public class ShopCounter : MonoBehaviour
 
         y += 14 * u;
         small.normal.textColor = new Color(1f, 0.85f, 0.25f);
-        GUI.Label(new Rect(panel.x, y, pw, 40 * u), Loc.F("Rahaa: {0} mk      Energia: {1} / {2}", pc.money, pc.health, pc.maxHealth), small);
+        GUI.Label(new Rect(panel.x, y, pw, 40 * u), Loc.F("Rahaa: {0} mk      Energia: {1} / {2}      Stamina: {3} / {4}", pc.money, pc.health, pc.maxHealth, Mathf.RoundToInt(pc.stamina), Mathf.RoundToInt(pc.maxStamina)), small);
         small.normal.textColor = Color.white;
         GUI.Label(new Rect(panel.x, y + 42 * u, pw, 40 * u), msg, small);
         small.normal.textColor = new Color(0.7f, 0.7f, 0.75f);

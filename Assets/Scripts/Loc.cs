@@ -64,7 +64,9 @@ public static class Loc
         { "Energia on jo täynnä.", "You're already at full health." },
         { "Ei riitä markat!", "Not enough markka!" },
         { "{0}: +{1} energiaa. {2}", "{0}: +{1} health. {2}" },
+        { "{0}: +{1} energiaa, +{3} staminaa. {2}", "{0}: +{1} health, +{3} stamina. {2}" },
         { "Rahaa: {0} mk      Energia: {1} / {2}", "Money: {0} mk      Health: {1} / {2}" },
+        { "Rahaa: {0} mk      Energia: {1} / {2}      Stamina: {3} / {4}", "Money: {0} mk      Health: {1} / {2}      Stamina: {3} / {4}" },
         { "W/S valitse   ·   E osta   ·   Esc poistu", "W/S select   ·   E buy   ·   Esc leave" },
         { "TÄYSI", "FULL" },
 

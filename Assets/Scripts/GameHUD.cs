@@ -86,6 +86,10 @@ public class GameHUD : MonoBehaviour
         {
             GUI.Label(new Rect(x, y, w, h * 1.4f), Loc.T(playerName), label);
             Bar(new Rect(x, y + h * 1.4f, w, h), player.health / (float)Mathf.Max(1, player.maxHealth), new Color(1f, 0.85f, 0.1f));
+            // stamina sinisenä energian alla; vilkkuu, jos liikkeeseen ei riittänyt
+            bool empty = Time.time - player.StaminaEmptyTime < 0.5f && Mathf.FloorToInt((Time.time - player.StaminaEmptyTime) * 10f) % 2 == 0;
+            Bar(new Rect(x, y + h * 2.4f + 8 * s, w, h * 0.6f), player.stamina / Mathf.Max(1f, player.maxStamina),
+                empty ? new Color(1f, 1f, 1f) : new Color(0.2f, 0.55f, 1f), new Color(0.04f, 0.08f, 0.25f));
             // elämät ja rahat palkin oikealla puolella
             label.normal.textColor = Color.white;
             GUI.Label(new Rect(x + w + 24 * s, y + h * 1.25f, 200 * s, h * 1.4f), "x " + Mathf.Max(0, player.lives), label);
@@ -97,7 +101,7 @@ public class GameHUD : MonoBehaviour
         var e = Enemy.LastHit;
         if (e != null && Time.time - Enemy.LastHitTime < enemyBarTime)
         {
-            float ey = y + h * 3.2f;
+            float ey = y + h * 3.8f;
             GUI.Label(new Rect(x, ey, w, h * 1.4f), Loc.T(e.displayName).ToUpper(), label);
             Bar(new Rect(x, ey + h * 1.4f, w * 0.8f, h * 0.8f), e.Health / (float)Mathf.Max(1, e.maxHealth), new Color(0.9f, 0.2f, 0.15f));
         }
@@ -137,10 +141,12 @@ public class GameHUD : MonoBehaviour
         st.normal.textColor = old;
     }
 
-    void Bar(Rect r, float t, Color c)
+    void Bar(Rect r, float t, Color c) => Bar(r, t, c, new Color(0.25f, 0.05f, 0.05f));
+
+    void Bar(Rect r, float t, Color c, Color back)
     {
         GUI.color = Color.black; GUI.DrawTexture(new Rect(r.x - 3, r.y - 3, r.width + 6, r.height + 6), white);
-        GUI.color = new Color(0.25f, 0.05f, 0.05f); GUI.DrawTexture(r, white);
+        GUI.color = back; GUI.DrawTexture(r, white);
         GUI.color = c; GUI.DrawTexture(new Rect(r.x, r.y, r.width * Mathf.Clamp01(t), r.height), white);
         GUI.color = Color.white;
     }

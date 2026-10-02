@@ -42,6 +42,9 @@ public class Crate : MonoBehaviour
     public float burstTime = 0.35f;
     [Tooltip("Todennäköisyys, että laatikosta löytyy seteli.")]
     [Range(0f, 1f)] public float moneyChance = 0.5f;
+    [Tooltip("Todennäköisyys, että laatikosta löytyy energiajuoma (stamina).")]
+    [Range(0f, 1f)] public float energyChance = 0.3f;
+    public int energyStamina = 40;
 
     [Header("Spriten sijoitus")]
     [Tooltip("Kuvan koko (1 = alkuperäinen). Pohja pysyy maassa.")]
@@ -163,6 +166,7 @@ public class Crate : MonoBehaviour
         height = 0f;
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
         if (Random.value < moneyChance) Pickup.SpawnMoney(transform.position + new Vector3(0.3f, -0.05f, 0f), 1, false);
+        if (Random.value < energyChance) Pickup.SpawnEnergy(transform.position + new Vector3(-0.3f, -0.05f, 0f), energyStamina);
         if (burstSprite != null)
         {
             var go = new GameObject("Sirpaleet");
