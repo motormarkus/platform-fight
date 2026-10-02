@@ -85,7 +85,7 @@ public static class BeatEmUpSetup
         int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
-                  : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -2163,6 +2163,8 @@ public static class BeatEmUpSetup
             if (vl != null) { SetupAndSlice(vl); eb.flySprites = LoadSprites("vihu_lento").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
             string ve = FindTexture("vihu_pyora_tyhja");
             if (ve != null) { SetupAndSlice(ve); eb.emptyBike = LoadSprites("vihu_pyora_tyhja").FirstOrDefault(); }
+            string vk = FindTexture("vihu_pyora_kaatuu");
+            if (vk != null) { SetupAndSlice(vk); eb.crashSprites = LoadSprites("vihu_pyora_kaatuu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
             b.sprite = vs2.Length > 0 ? vs2[0] : null;
             tGo.SetActive(false);
             var spGo = new GameObject("Vihuprätkien lähettäjä");

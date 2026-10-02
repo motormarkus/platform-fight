@@ -20,6 +20,9 @@ public class EnemyBike : MonoBehaviour
     [Tooltip("Kuski lentää pyörältä (vihu_lento.png, 10 kuvaa) ja tyhjä pyörä (vihu_pyora_tyhja.png).")]
     public Sprite[] flySprites;
     public Sprite emptyBike;
+    [Tooltip("Tyhjän pyörän kaatuminen ja räjähdys (vihu_pyora_kaatuu.png, 10 kuvaa, ruutu 768x640).")]
+    public Sprite[] crashSprites;
+    public float crashFrameTime = 0.09f;
     public int yankDamage = 0;
 
     /// Voiko kuskin kiskaista pyörältä.
@@ -47,7 +50,7 @@ public class EnemyBike : MonoBehaviour
             fr.flip = false;
         }
     }
-    bool riderless;
+    bool riderless, exploded;
 
     enum S { Approach, Kick, Leave, Crash }
     S state = S.Approach;
@@ -116,9 +119,16 @@ public class EnemyBike : MonoBehaviour
                 if (body != null)
                 {
                     // tyhjä pyörä horjuu hetken ja kaatuu kyljelleen (taaksepäin), liukuu ja häipyy
-                    float tilt = riderless ? (t < 0.35f ? Mathf.Sin(t * 30f) * 6f : Mathf.Min(85f, (t - 0.35f) * 260f)) : Mathf.Min(90f, t * 300f);
+                    bool art = riderless && crashSprites != null && crashSprites.Length > 0;
+                    float tilt = art ? 0f : riderless ? (t < 0.35f ? Mathf.Sin(t * 30f) * 6f : Mathf.Min(85f, (t - 0.35f) * 260f)) : Mathf.Min(90f, t * 300f);
                     body.transform.localRotation = Quaternion.Euler(0f, 0f, tilt);
                     body.color = new Color(1f, 1f, 1f, Mathf.Clamp01(2.5f - t));
+                    if (art && !exploded && t >= crashFrameTime * (crashSprites.Length - 2))
+                    {
+                        exploded = true;   // räjähdys
+                        HitFx.OnHit(true);
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.35f);
+                    }
                 }
                 if (t > 2.5f) { Destroy(gameObject); return; }
                 break;
@@ -159,7 +169,9 @@ public class EnemyBike : MonoBehaviour
         if (body == null || sprites == null || sprites.Length == 0) return;
         anim += Time.deltaTime * (6f + speed * 1.2f);
         Sprite spr;
-        if (state == S.Crash && riderless && emptyBike != null) spr = emptyBike;
+        if (state == S.Crash && riderless && crashSprites != null && crashSprites.Length > 0)
+            spr = crashSprites[Mathf.Min((int)(t / crashFrameTime), crashSprites.Length - 1)];
+        else if (state == S.Crash && riderless && emptyBike != null) spr = emptyBike;
         else if (state == S.Kick) spr = sprites[Mathf.Min(rideFrames + (int)(t / kickFrameTime), sprites.Length - 1)];
         else spr = sprites[(rideFrames - 1) - (int)anim % rideFrames];   // takaperin: pyörät pyörivät ajosuuntaan
         body.sprite = spr;
