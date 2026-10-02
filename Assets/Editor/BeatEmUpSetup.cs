@@ -2026,7 +2026,7 @@ public static class BeatEmUpSetup
     // valtatie_tie.png (1526 × 1024, toistuu) ja valtatie_maisema.png (kaukana, liikkuu hitaasti, ei toistu).
     const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
     const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
-    const float HighwayX0 = 6000f, HighwayLength = 160f, HighwayPPU = 85f;
+    const float HighwayX0 = 6000f, HighwayLength = 260f, HighwayPPU = 85f;   // n. 12 ruutua: kaupungista saarelle
     const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
     const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
 
@@ -2098,7 +2098,7 @@ public static class BeatEmUpSetup
         var px = vGo.AddComponent<ParallaxLayer>();
         // maisema riittää koko matkalle: liukuu alusta loppuun tien ajon aikana (enintään 12 % tien vauhdista)
         float viewW = view.rect.width / HighwayPPU;
-        px.factor = Mathf.Clamp((viewW - 2f * halfW) / Mathf.Max(1f, HighwayLength - 2f * halfW), 0.01f, 0.12f);
+        px.factor = Mathf.Clamp((viewW - 2f * halfW) / Mathf.Max(1f, HighwayLength - 2f * halfW), 0.01f, 0.2f);
         px.startCamX = HighwayX0 + halfW;
         px.minX = HighwayX0;
         px.maxX = HighwayX0 + HighwayLength;
