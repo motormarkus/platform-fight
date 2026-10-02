@@ -82,10 +82,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") ? 768 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512
-                  : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+                  : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -1025,12 +1025,13 @@ public static class BeatEmUpSetup
 
         // ajettavat pyörät: nousu- ja ajokuvat sekä käynnistysääni
         Sprite[] ride = new Sprite[0], mount = new Sprite[0];
-        foreach (var n in new[] { "pratka_ajo", "pratka_nousu", "pratka_lyonti" })
+        foreach (var n in new[] { "pratka_ajo", "pratka_nousu", "pratka_lyonti", "pratka_kiskaisu" })
         {
             string tp = FindTexture(n);
             if (tp != null) SetupAndSlice(tp);
         }
         ride = LoadSprites("pratka_ajo").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var grabR = LoadSprites("pratka_kiskaisu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var punchR = LoadSprites("pratka_lyonti").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
@@ -1085,6 +1086,7 @@ public static class BeatEmUpSetup
                     mb.startSound = startClip;
                     mb.rearWheel = rearW; mb.frontWheel = frontW;
                     mb.punchSprites = punchR;
+                    mb.grabSprites = grabR;
                 }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
@@ -2157,6 +2159,10 @@ public static class BeatEmUpSetup
             sh.color = new Color(0f, 0f, 0f, 0.4f);
             var eb = tGo.AddComponent<EnemyBike>();
             eb.body = b; eb.shadow = sh; eb.sprites = vs2;
+            string vl = FindTexture("vihu_lento");
+            if (vl != null) { SetupAndSlice(vl); eb.flySprites = LoadSprites("vihu_lento").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+            string ve = FindTexture("vihu_pyora_tyhja");
+            if (ve != null) { SetupAndSlice(ve); eb.emptyBike = LoadSprites("vihu_pyora_tyhja").FirstOrDefault(); }
             b.sprite = vs2.Length > 0 ? vs2[0] : null;
             tGo.SetActive(false);
             var spGo = new GameObject("Vihuprätkien lähettäjä");

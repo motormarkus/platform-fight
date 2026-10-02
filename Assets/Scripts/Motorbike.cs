@@ -28,6 +28,11 @@ public class Motorbike : MonoBehaviour
     public int punchImpact = 3;
     public float punchFrameTime = 0.06f;
     public float punchReach = 3.6f;
+    [Tooltip("Kiskaisu (pratka_kiskaisu.png): 0–4 kurotus eteen/sivulle, 5–9 kurotus taakse.")]
+    public Sprite[] grabSprites;
+    public float grabFrameTime = 0.08f;
+    [Tooltip("Kuinka kaukaa vierellä ajavasta vihusta saa otteen (x ja syvyys).")]
+    public float grabRangeX = 2.4f, grabRangeY = 1.1f;
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
@@ -59,6 +64,7 @@ public class Motorbike : MonoBehaviour
     public bool FacingRight => facingRight;
     float wobble, wheelAngle, punchT = -1f;
     bool punchHit;
+    float grabT = -1f; bool grabBack, grabDone; EnemyBike grabTarget;
     SpriteRenderer rearR, frontR;
 
     void EnsureWheels()
@@ -110,6 +116,7 @@ public class Motorbike : MonoBehaviour
         PlayerController.SortByFrameNumber(rideSprites);
         PlayerController.SortByFrameNumber(mountSprites);
         PlayerController.SortByFrameNumber(punchSprites);
+        PlayerController.SortByFrameNumber(grabSprites);
         audioSrc = gameObject.AddComponent<AudioSource>();
         audioSrc.playOnAwake = false;
         audioSrc.spatialBlend = 0f;
@@ -237,6 +244,33 @@ public class Motorbike : MonoBehaviour
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
         animClock += dt * (rearWheel != null ? 12f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti
         UpdateWheels(true, dt);
+        // kiskaisu: kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
+        if (grabT < 0f && punchT < 0f && grabSprites != null && grabSprites.Length >= 10 && PlayerController.CatchInput())
+        {
+            grabTarget = null; float best = 99f;
+            foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
+            {
+                if (!eb.CanBeGrabbed) continue;
+                Vector3 q = eb.transform.position;
+                float dx = (q.x - p.x) * Dir, dy = Mathf.Abs(q.y - p.y);
+                if (Mathf.Abs(dx) <= grabRangeX && dy <= grabRangeY && Mathf.Abs(dx) + dy < best) { best = Mathf.Abs(dx) + dy; grabTarget = eb; }
+            }
+            grabBack = grabTarget != null && (grabTarget.transform.position.x - p.x) * Dir < -0.4f;
+            grabT = 0f; grabDone = false;
+        }
+        if (grabT >= 0f)
+        {
+            grabT += dt;
+            int f = (int)(grabT / grabFrameTime);
+            if (!grabDone && f >= 3)
+            {
+                grabDone = true;
+                if (grabTarget != null && grabTarget.CanBeGrabbed) grabTarget.YankOff(p.x, Dir);
+                else wobble = Mathf.Max(wobble, 0.25f);               // ohi: pyörä horjahtaa
+            }
+            if (f >= 5) grabT = -1f;
+            else { ShowRider(grabSprites[(grabBack ? 5 : 0) + f]); return; }
+        }
         // lyönti eteen (vain oikealle ajettaessa)
         if (punchT < 0f && facingRight && punchSprites != null && punchSprites.Length > 0 && PlayerController.PunchInput())
         { punchT = 0f; punchHit = false; }

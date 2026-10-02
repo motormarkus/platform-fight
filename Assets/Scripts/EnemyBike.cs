@@ -17,6 +17,37 @@ public class EnemyBike : MonoBehaviour
     public float depthSpeed = 1.6f;
     public int kicksBeforeLeaving = 3;
     public int crashMoney = 1;
+    [Tooltip("Kuski lentää pyörältä (vihu_lento.png, 10 kuvaa) ja tyhjä pyörä (vihu_pyora_tyhja.png).")]
+    public Sprite[] flySprites;
+    public Sprite emptyBike;
+    public int yankDamage = 0;
+
+    /// Voiko kuskin kiskaista pyörältä.
+    public bool CanBeGrabbed => state != S.Crash;
+
+    /// Pelaaja kiskaisee kuskin niskasta pyörän selästä: kuski lentää tielle, pyörä jatkaa tyhjänä ja kaatuu.
+    public void YankOff(float playerX, float playerDir)
+    {
+        if (state == S.Crash) return;
+        Vector3 me = transform.position;
+        state = S.Crash; t = 0f; vSpin = 0f; riderless = true;
+        HitFx.OnHit(true);
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.2f);
+        if (crashMoney > 0) Pickup.SpawnMoney(me, crashMoney, false);
+        if (flySprites != null && flySprites.Length > 0)
+        {
+            var go = new GameObject("Vihu lentää");
+            go.transform.position = new Vector3(me.x, me.y, 0f);
+            var fr = go.AddComponent<FlyingRider>();
+            fr.sprites = flySprites;
+            // kiskaisu taaksepäin pelaajan ohi: kuski jää jälkeen (hidastuu nopeasti)
+            fr.velocity = new Vector2(speed * 0.35f - playerDir * 3f, 0f);
+            fr.up = 7f;
+            fr.startHeight = 1.6f;
+            fr.flip = false;
+        }
+    }
+    bool riderless;
 
     enum S { Approach, Kick, Leave, Crash }
     S state = S.Approach;
@@ -84,7 +115,9 @@ public class EnemyBike : MonoBehaviour
                 vSpin -= 30f * dt; height = Mathf.Max(0f, height + vSpin * dt);
                 if (body != null)
                 {
-                    body.transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Min(90f, t * 300f));
+                    // tyhjä pyörä horjuu hetken ja kaatuu kyljelleen (taaksepäin), liukuu ja häipyy
+                    float tilt = riderless ? (t < 0.35f ? Mathf.Sin(t * 30f) * 6f : Mathf.Min(85f, (t - 0.35f) * 260f)) : Mathf.Min(90f, t * 300f);
+                    body.transform.localRotation = Quaternion.Euler(0f, 0f, tilt);
                     body.color = new Color(1f, 1f, 1f, Mathf.Clamp01(2.5f - t));
                 }
                 if (t > 2.5f) { Destroy(gameObject); return; }
@@ -110,7 +143,9 @@ public class EnemyBike : MonoBehaviour
     /// Pelaajan lyönti: vihu lentää pyörältä ja pyörä kaatuu.
     public void KnockOff(float attackerX)
     {
+        // lyönti: sama lento kuin kiskaisussa, mutta kuski lentää eteenpäin (iskun suuntaan)
         if (state == S.Crash) return;
+        if (flySprites != null && flySprites.Length > 0) { YankOff(attackerX, -1f); return; }
         Vector3 me = transform.position;
         state = S.Crash; t = 0f; vSpin = 8f;
         HitFx.OnHit(true);
@@ -124,7 +159,8 @@ public class EnemyBike : MonoBehaviour
         if (body == null || sprites == null || sprites.Length == 0) return;
         anim += Time.deltaTime * (6f + speed * 1.2f);
         Sprite spr;
-        if (state == S.Kick) spr = sprites[Mathf.Min(rideFrames + (int)(t / kickFrameTime), sprites.Length - 1)];
+        if (state == S.Crash && riderless && emptyBike != null) spr = emptyBike;
+        else if (state == S.Kick) spr = sprites[Mathf.Min(rideFrames + (int)(t / kickFrameTime), sprites.Length - 1)];
         else spr = sprites[(rideFrames - 1) - (int)anim % rideFrames];   // takaperin: pyörät pyörivät ajosuuntaan
         body.sprite = spr;
         body.transform.localPosition = new Vector3(0f, height - 0.1f, 0f);

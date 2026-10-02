@@ -1684,7 +1684,10 @@ public class PlayerController : MonoBehaviour
 #endif
     }
 
-    bool CatchPressed()
+    bool CatchPressed() => CatchInput();
+
+    /// Nappaus/nosto-nappi (O / ohjaimen R3), myös muiden skriptien käyttöön (esim. kiskaisu prätkän selästä).
+    public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.oKey.wasPressedThisFrame)
