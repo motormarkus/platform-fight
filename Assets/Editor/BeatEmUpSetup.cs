@@ -857,6 +857,29 @@ public static class BeatEmUpSetup
             $"Pyörähdyspotku: {sp.Length} kuvaa ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molempiin suuntiin ja kaataa.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/38. Erikoisliike: tuulimylly")]
+    static void UpdateWindmill()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        string path = FindTexture("tuulimylly");
+        if (path != null) SetupAndSlice(path);
+        Sprite[] sp = LoadSprites("tuulimylly")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length == 0) { Info("tuulimylly.png puuttuu."); return; }
+        Undo.RecordObject(pc, "Tuulimylly");
+        pc.specialSprites = sp;
+        pc.specialFrameTime = 0.06f;            // 14 kuvaa = 0.84 s, kaksi kierrosta
+        pc.specialHitFrom = 0.12f;              // kädet ojennettuina kuvasta 3 alkaen
+        pc.specialHitTo = 0.72f;
+        pc.specialHitEvery = 0.30f;             // osuu joka kierroksella (5 kuvaa)
+        pc.specialDamage = 10;                  // kaksi osumaa = 20
+        pc.specialReach = 2.6f;                 // kädet ylettyvät kauas molemmin puolin
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info($"Tuulimylly: {sp.Length} kuvaa, kaksi kierrosta ({sp.Length * 0.06f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molemmin puolin kummallakin kierroksella ja kaataa.\n\nTallenna scene (Ctrl+S).");
+    }
+
     // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
     const float BarCounterPx = 2155f, BarCounterHalfPx = 410f;
     const float CounterTopRow = 402f;   // tiskin yläreuna sisäkuvassa

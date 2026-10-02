@@ -161,6 +161,9 @@ public class PlayerController : MonoBehaviour
     public Sprite[] specialSprites;
     public float specialFrameTime = 0.055f;
     public int specialDamage = 16;
+    [Tooltip("Tuulimylly: osuu uudestaan tämän välein (s). 0 = vain kerran.")]
+    public float specialHitEvery = 0f;
+    int specialRound = -1;
     [Tooltip("Ulottuvuus molempiin suuntiin (yksikköä).")]
     public float specialReach = 2.4f;
     [Tooltip("Aikaikkuna, jolloin potkut osuvat (s liikkeen alusta): ensin taakse, sitten eteen.")]
@@ -644,6 +647,12 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case State.Special:
+                // tuulimylly: osumat nollataan joka kierroksella, joten jokainen kierros osuu uudestaan
+                if (specialHitEvery > 0f && stateTime >= specialHitFrom)
+                {
+                    int round = (int)((stateTime - specialHitFrom) / specialHitEvery);
+                    if (round != specialRound) { specialRound = round; specialHits.Clear(); specialCrates.Clear(); }
+                }
                 if (stateTime >= specialHitFrom && stateTime <= specialHitTo) AttackAround();
                 if (stateTime >= specialSprites.Length * specialFrameTime) Enter(State.Ground);
                 break;
