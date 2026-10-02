@@ -148,6 +148,15 @@ public class Enemy : MonoBehaviour
     [Tooltip("Töytäisyn kuvat (0–4) ja naurun kuvat (5,6,5,6,7): nauru kestää vähän töytäisyä pidempään.")]
     public float bellyPumpFrameTime = 0.08f, bellyLaughFrameTime = 0.13f;
 
+    [Header("Töminä (pomon taklausjuoksu)")]
+    public AudioClip[] stompSounds;
+    [Range(0f, 1f)] public float stompVolume = 0.85f;
+    [Tooltip("Askelväli taklauksen juoksussa (s).")]
+    public float stompInterval = 0.2f;
+    [Tooltip("Ruudun tärinä jokaisella askeleella.")]
+    public float stompShake = 0.07f;
+    float stompTimer;
+
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
     public float downTime = 1.0f;
@@ -251,6 +260,7 @@ public class Enemy : MonoBehaviour
         if (flashTimer > 0f) flashTimer -= dt;
 
         UpdateGround(dt);
+        Stomp(dt);
 
         switch (state)
         {
@@ -671,6 +681,19 @@ public class Enemy : MonoBehaviour
             Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
         }
         else moving = false;
+    }
+
+    /// Taklauksen juoksu (vauhdinotto ja liuku): tömisevät askeleet ja ruudun tärinä.
+    void Stomp(float dt)
+    {
+        bool charging = usingAlt && altLungeSpeed > 0f
+            && (state == State.Windup || (state == State.Punch && !punchLanded && stateTime < altLungeTime));
+        if (!charging || (stompShake <= 0f && !Has(stompSounds))) { stompTimer = 0f; return; }
+        stompTimer -= dt;
+        if (stompTimer > 0f) return;
+        stompTimer = stompInterval * Random.Range(0.9f, 1.1f);
+        if (Has(stompSounds)) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
+        if (stompShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);
     }
 
     void StartBelly(bool counter)

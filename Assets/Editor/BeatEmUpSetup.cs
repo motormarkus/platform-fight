@@ -1659,7 +1659,7 @@ public static class BeatEmUpSetup
         if (kovis != null)
         {
             // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
-            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti", "pomo_maha" })
+            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti", "pomo_maha", "pomo_kaatuu" })
                 SetupAndSlice(EnemyFolder + "/" + f + ".png");
             var idle = EnemySheet("pomo_idle", report);
             var run = EnemySheet("pomo_juoksu", report);
@@ -1667,6 +1667,7 @@ public static class BeatEmUpSetup
             var tackle = EnemySheet("pomo_taklaus", report);
             var slam = EnemySheet("pomo_lyonti", report);
             var belly = EnemySheet("pomo_maha", report);
+            var fall = EnemySheet("pomo_kaatuu", report);
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
@@ -1706,7 +1707,20 @@ public static class BeatEmUpSetup
             b.bellyDamage = 14;
             b.bellyKnockSpeed = 14f;
             b.bellyKnockUp = 5.5f;
-            b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none;   // omat kuvat myöhemmin
+            // kaatuminen (10 kuvaa): 1 osuma, 1–4 ilmassa/maahan, 5 makaa, 6–9 nousee
+            if (fall.Length >= 10)
+            {
+                b.hurtSprites = new[] { fall[1] };
+                b.knockdownSprites = new[] { fall[1], fall[2], fall[3], fall[4], fall[5] };
+                b.getUpSprites = new[] { fall[6], fall[7], fall[8], fall[9] };
+                b.getUpTime = 0.6f;
+            }
+            else { b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none; }
+            // taklauksen juoksu: töminä ja ruudun tärinä
+            b.stompSounds = LoadClips("Assets/Audio/sfx", "tomina");
+            b.stompVolume = 0.85f;
+            b.stompInterval = 0.2f;
+            b.stompShake = 0.07f;
             b.flipThrownSprites = none; b.headlockThrownSprites = none;
             b.grabSprites = grab;
             b.grabChance = 0.1f;
