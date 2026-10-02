@@ -84,11 +84,15 @@ public class PlayerController : MonoBehaviour
     public float jumpStamina = 12f;
     [Tooltip("Erikoisliike (tuulimylly) kuluttaa tämän verran.")]
     public float specialStamina = 30f;
+    [Tooltip("Pusku kuluttaa tämän verran.")]
+    public float pushStamina = 15f;
+    [Tooltip("Laatikon tai tynnyrin heitto kuluttaa tämän verran (heitto onnistuu aina, stamina voi mennä nollaan).")]
+    public float throwStamina = 15f;
     [Tooltip("Juoksu kuluttaa sekunnissa.")]
     public float runStaminaPerSecond = 14f;
     [Tooltip("Palautuu sekunnissa (hitaasti), kun staminaa ei ole hetkeen käytetty.")]
-    public float staminaRegen = 5f;
-    public float staminaRegenDelay = 1f;
+    public float staminaRegenPerSecond = 3f;
+    public float staminaRegenWait = 1.5f;
     float staminaRest;
     /// Milloin viimeksi yritettiin liikettä ilman staminaa (HUD vilkuttaa mittaria).
     public float StaminaEmptyTime { get; private set; } = -10f;
@@ -98,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
-        staminaRest = staminaRegenDelay;
+        staminaRest = staminaRegenWait;
         return true;
     }
 
@@ -115,11 +119,11 @@ public class PlayerController : MonoBehaviour
         if (running)
         {
             stamina = Mathf.Max(0f, stamina - runStaminaPerSecond * dt);
-            staminaRest = staminaRegenDelay;
+            staminaRest = staminaRegenWait;
             return;
         }
         if (staminaRest > 0f) { staminaRest -= dt; return; }
-        stamina = Mathf.Min(maxStamina, stamina + staminaRegen * dt);
+        stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * dt);
     }
     [Tooltip("Elämiä pelin alussa. Kun energia loppuu, menee yksi elämä ja energia täyttyy.")]
     public int lives = 3;
@@ -455,7 +459,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
                 if (blockHeld && HasBlock) { StartBlock(); break; }
-                if (pushPressed && HasPush) { StartPush(); break; }
+                if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
                 if (catchPressed)
                 {
                     Crate c = NearbyCrate();
@@ -622,6 +626,7 @@ public class PlayerController : MonoBehaviour
                 if (punchPressed || kickPressed || catchPressed || pushPressed)
                 {
                     crateReleased = false;
+                    stamina = Mathf.Max(0f, stamina - throwStamina); staminaRest = staminaRegenWait;
                     PlayGrunt();
                     Enter(State.CrateThrow);
                     break;
@@ -678,7 +683,7 @@ public class PlayerController : MonoBehaviour
                 if (!blockReleasing)
                 {
                     // suojasta suoraan puskuun (lyönti tai puskunappi)
-                    if ((pushPressed || punchPressed) && HasPush && blockStun <= 0f) { StartPush(); break; }
+                    if ((pushPressed || punchPressed) && HasPush && blockStun <= 0f && UseStamina(pushStamina)) { StartPush(); break; }
                     if (!blockHeld && stateTime >= blockRaiseTime && blockStun <= 0f)
                     {
                         blockReleasing = true;

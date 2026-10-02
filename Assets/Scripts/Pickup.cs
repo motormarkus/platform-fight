@@ -20,6 +20,7 @@ public class Pickup : MonoBehaviour
     float t, pop;
     bool isCoin;
     static Sprite note, stack, coin, drink, canFallback;
+    static AudioClip drinkSound;
     static bool loaded;
 
     public static void SpawnMoney(Vector3 pos, int value, bool rare)
@@ -62,6 +63,7 @@ public class Pickup : MonoBehaviour
             note = Resources.Load<Sprite>("Pickups/seteli");
             stack = Resources.Load<Sprite>("Pickups/setelitukku");
             drink = Resources.Load<Sprite>("Pickups/energiajuoma");
+            drinkSound = Resources.Load<AudioClip>("Pickups/energiajuoma_aani");
             loaded = true;
         }
         if (stamina > 0) { isCoin = false; sr.sprite = drink != null ? drink : CanSprite(); return; }
@@ -100,7 +102,7 @@ public class Pickup : MonoBehaviour
             if (stamina > 0)
             {
                 int got = pc.AddStamina(stamina);
-                HitFx.PlayPickup(false);
+                if (drinkSound != null) HitFx.PlayClip(drinkSound, 0.9f); else HitFx.PlayPickup(false);
                 GameHUD.Popup("+" + got + " STAMINA", me + Vector3.up * 1.2f, new Color(0.35f, 0.7f, 1f));
                 Destroy(gameObject);
                 return;

@@ -73,6 +73,15 @@ public class HitFx : MonoBehaviour
     }
 
     /// Rahan keräysääni. Tukku soi vähän matalammalta ja kovempaa.
+    /// Yksittäinen ääni (esim. energiajuoma).
+    public static void PlayClip(AudioClip clip, float volume)
+    {
+        var fx = Instance;
+        if (clip == null || fx == null || fx.source == null) return;
+        fx.source.pitch = 1f;
+        fx.source.PlayOneShot(clip, volume);
+    }
+
     public static void PlayPickup(bool rare)
     {
         var fx = Instance;
