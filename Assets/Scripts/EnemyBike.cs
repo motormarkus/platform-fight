@@ -13,7 +13,7 @@ public class EnemyBike : MonoBehaviour
     public float kickFrameTime = 0.06f;
     public int kickDamage = 12;
     [Tooltip("Ohitusnopeus pelaajaan nähden (yks/s).")]
-    public float overtakeSpeed = 4f;
+    public float overtakeSpeed = 8f;
     public float depthSpeed = 1.6f;
     public int kicksBeforeLeaving = 3;
     public int crashMoney = 1;
@@ -27,11 +27,14 @@ public class EnemyBike : MonoBehaviour
     [Tooltip("Tyhjän pyörän kaatuminen ja räjähdys (vihu_pyora_kaatuu.png, 10 kuvaa, ruutu 768x640).")]
     public Sprite[] crashSprites;
     public float crashFrameTime = 0.09f;
+    [Tooltip("Räjähtääkö kaatunut pyörä (kaatumiskuvien 2 viimeistä). Pois: pyörä liukuu kyljellään ja häipyy.")]
+    public bool explode = false;
+    int CrashFrames => Mathf.Max(1, crashSprites.Length - (explode ? 0 : 2));
     public int yankDamage = 0;
     [Tooltip("Pyörän ja kuskin koko (1 = kuvan alkuperäinen). Sporttipyörä kuskeineen on samankokoinen kuin heron prätkä.")]
-    public float visualScale = 0.68f;
+    public float visualScale = 0.61f;
     // etäisyydet (ohitus, potkun ulottuvuus) seuraavat kokoa
-    float Reach => 0.5f + 0.5f * visualScale / 0.68f;
+    float Reach => 0.5f + 0.5f * visualScale / 0.61f;
 
     /// Voiko kuskin kiskaista pyörältä.
     public bool CanBeGrabbed => state != S.Crash;
@@ -111,9 +114,9 @@ public class EnemyBike : MonoBehaviour
         {
             case S.Approach:
             {
-                // tavoite: vähän pelaajan edellä, samalla kaistalla
+                // tavoite: tulee lujaa takaa ohi ja asettuu vähän pelaajan eteen samalle kaistalle
                 float targetSpeed = ps + Mathf.Clamp((2.3f * Reach - ahead) * 1.5f, -3f, overtakeSpeed);
-                speed = Mathf.MoveTowards(speed, targetSpeed, 8f * dt);
+                speed = Mathf.MoveTowards(speed, targetSpeed, 12f * dt);
                 if (ahead > 0.5f) me.y = Mathf.MoveTowards(me.y, p.y, depthSpeed * dt);   // vasta ohitettuaan kaistalle
                 kickCooldown -= dt;
                 if (kickCooldown <= 0f && ahead > 1.4f * Reach && ahead < 3.1f * Reach && Mathf.Abs(me.y - p.y) < 0.35f)
@@ -152,7 +155,7 @@ public class EnemyBike : MonoBehaviour
                     float tilt = art ? 0f : riderless ? (t < 0.35f ? Mathf.Sin(t * 30f) * 6f : Mathf.Min(85f, (t - 0.35f) * 260f)) : Mathf.Min(90f, t * 300f);
                     body.transform.localRotation = Quaternion.Euler(0f, 0f, tilt);
                     body.color = new Color(1f, 1f, 1f, Mathf.Clamp01(2.5f - t));
-                    if (art && !exploded && t >= crashFrameTime * (crashSprites.Length - 2))
+                    if (art && explode && !exploded && t >= crashFrameTime * (crashSprites.Length - 2))
                     {
                         exploded = true;   // räjähdys
                         HitFx.OnHit(true);
@@ -200,7 +203,7 @@ public class EnemyBike : MonoBehaviour
         anim += Time.deltaTime * (6f + speed * 1.2f);
         Sprite spr;
         if (state == S.Crash && riderless && crashSprites != null && crashSprites.Length > 0)
-            spr = crashSprites[Mathf.Min((int)(t / crashFrameTime), crashSprites.Length - 1)];
+            spr = crashSprites[Mathf.Min((int)(t / crashFrameTime), CrashFrames - 1)];
         else if (state == S.Crash && riderless && emptyBike != null) spr = emptyBike;
         else if (state == S.Kick) spr = sprites[Mathf.Min(rideFrames + (int)(t / kickFrameTime), sprites.Length - 1)];
         else spr = sprites[(rideFrames - 1) - (int)anim % rideFrames];   // takaperin: pyörät pyörivät ajosuuntaan
