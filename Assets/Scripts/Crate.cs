@@ -44,6 +44,8 @@ public class Crate : MonoBehaviour
     [Range(0f, 1f)] public float moneyChance = 0.5f;
 
     [Header("Spriten sijoitus")]
+    [Tooltip("Kuvan koko (1 = alkuperäinen). Pohja pysyy maassa.")]
+    public float visualScale = 1f;
     [Tooltip("Ruudussa on 10 px tyhjää laatikon alla (200 px/yksikkö).")]
     public float footOffset = 0.05f;
 
@@ -295,7 +297,8 @@ public class Crate : MonoBehaviour
         }
         float shake = shakeTimer > 0f ? Mathf.Sin(shakeTimer * 120f) * 0.05f : 0f;
         shake += HitFx.ShakeOffset(shakeUntil, 0.05f);   // tärisee myös osumapysäytyksen aikana
-        body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
+        body.transform.localScale = new Vector3(visualScale, visualScale, 1f);
+        body.transform.localPosition = new Vector3(pivotFix.x * visualScale + shake, groundHeight + height - footOffset * visualScale + pivotFix.y * visualScale, 0f);
         // lennossa laatikko pyörii hieman
         float rot = state == State.Flying && thrown && !HasRoll ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
         body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
@@ -312,7 +315,7 @@ public class Crate : MonoBehaviour
             shadow.sortingOrder = order - 1;
             shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
             float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 3f));
-            shadow.transform.localScale = new Vector3(1.4f * s, 0.42f * s, 1f);
+            shadow.transform.localScale = new Vector3(1.4f * s * visualScale, 0.42f * s * visualScale, 1f);
             shadow.enabled = state != State.Breaking;
         }
 
@@ -320,8 +323,8 @@ public class Crate : MonoBehaviour
         {
             // sirpaleet lentävät ulospäin laatikon keskeltä ja häipyvät
             float k = Mathf.Clamp01(stateTime / burstTime);
-            burst.transform.localPosition = new Vector3(0f, groundHeight + 0.7f, 0f);
-            burst.transform.localScale = Vector3.one * Mathf.Lerp(0.4f, 1.2f, k);
+            burst.transform.localPosition = new Vector3(0f, groundHeight + 0.7f * visualScale, 0f);
+            burst.transform.localScale = Vector3.one * Mathf.Lerp(0.4f, 1.2f, k) * visualScale;
             burst.color = new Color(1f, 1f, 1f, 1f - k);
             burst.sortingOrder = order + 1;
             if (k >= 1f) { Destroy(burst.gameObject); burst = null; }

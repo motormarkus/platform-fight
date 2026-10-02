@@ -41,11 +41,11 @@ public static class BeatEmUpSetup
             AddClubNpc();           // nainen baaritiskillä
             AddBikes();
             AddStreetExtension();   // liikerakennus ja pelihalli
-            AddCrates();            // koko kadun matkalle
             AddKovisGroups();
             AddPunks();
             AddLippis();
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
+            AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
         }
@@ -1243,10 +1243,8 @@ public static class BeatEmUpSetup
         float y = (curb + wall) * 0.5f;
 
         // vältetään moottoripyörät ja ovet
-        var blocked = new List<float>();
-        var bikes = GameObject.Find("Moottoripyörät");
-        if (bikes != null) foreach (Transform b in bikes.transform) blocked.Add(b.position.x);
-        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None)) blocked.Add(d.transform.position.x);
+        var blocked = StreetObstacles(false);
+        const float crateHalf = 0.95f;     // laatikon puolileveys 20 % isompana
 
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
@@ -1258,8 +1256,8 @@ public static class BeatEmUpSetup
         {
             float cx = x;
             // siirretään vähän sivuun, jos kohdalla on pyörä tai ovi
-            for (int tries = 0; tries < 4 && blocked.Any(b => Mathf.Abs(b - cx) < 1.8f); tries++) cx += 1.5f;
-            if (blocked.Any(b => Mathf.Abs(b - cx) < 1.8f)) continue;
+            for (int tries = 0; tries < 6 && Blocked(blocked, cx, crateHalf); tries++) cx += 1.2f;
+            if (Blocked(blocked, cx, crateHalf)) continue;
 
             var go = new GameObject("Laatikko " + (++count));
             go.transform.SetParent(root.transform, false);
@@ -1271,6 +1269,8 @@ public static class BeatEmUpSetup
             var c = go.AddComponent<Crate>();
             c.sprites = sprites;
             c.burstSprite = burst;
+            c.visualScale = 1.2f;          // 20 % isompi
+            c.hitRadiusX = 1.05f;
             c.body = vis;
             c.shadow = sh;
             vis.sprite = sprites.Length > 0 ? sprites[0] : null;
@@ -1744,8 +1744,9 @@ public static class BeatEmUpSetup
             c.sprites = sprites;
             c.breakable = false;
             c.rollSprites = roll;
+            c.visualScale = 1.2f;          // 20 % isompi
             c.throwDamage = 20;
-            c.hitRadiusX = 0.8f;
+            c.hitRadiusX = 0.95f;
             c.moneyChance = 0f;
             c.body = vis;
             c.shadow = sh;
@@ -1756,11 +1757,8 @@ public static class BeatEmUpSetup
         var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
         float curb = streetArea != null ? streetArea.curbDepthY : pc.curbDepthY;
         float wall = streetArea != null ? streetArea.maxDepthY : pc.maxDepthY;
-        var blocked = new List<float>();
-        var bikes = GameObject.Find("Moottoripyörät");
-        if (bikes != null) foreach (Transform b in bikes.transform) blocked.Add(b.position.x);
-        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None)) blocked.Add(d.transform.position.x);
-        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsSortMode.None)) blocked.Add(c.transform.position.x);
+        var blocked = StreetObstacles(true);
+        const float barrelHalf = 0.65f;    // tynnyrin puolileveys 20 % isompana
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
         float right = street.transform.position.x + ssr.size.x * 0.5f;
@@ -1771,8 +1769,8 @@ public static class BeatEmUpSetup
         for (float x = left + 14f; x < right - 8f; x += 18f + (float)rnd.NextDouble() * 22f)
         {
             float bx = x;
-            for (int tries = 0; tries < 4 && blocked.Any(b => Mathf.Abs(b - bx) < 2f); tries++) bx += 1.6f;
-            if (blocked.Any(b => Mathf.Abs(b - bx) < 2f)) continue;
+            for (int tries = 0; tries < 6 && Blocked(blocked, bx, barrelHalf); tries++) bx += 1.2f;
+            if (Blocked(blocked, bx, barrelHalf)) continue;
             float k = (float)rnd.NextDouble();
             Make(new Vector3(bx, Mathf.Lerp(wall - 0.15f, curb + 0.2f, k), 0f));   // jalkakäytävällä
             streetCount++;
@@ -1852,6 +1850,30 @@ public static class BeatEmUpSetup
         if (attacks.Length > 0) { e.attackSounds = attacks; e.attackVolume = 0.72f; } // 20 % hiljempaa (ennen 0.9)
         Debug.Log($"{e.name}: punkkarin äänet {folder}: gasp {gasps.Length}, attack {attacks.Length}");
     }
+
+    /// Kadun esteet, joiden eteen rekvisiittaa ei laiteta: (keskikohta x, puolileveys).
+    /// Moottoripyörät kuvan leveyden mukaan, ovet ja palotikkaat oven leveyden mukaan, halutessa myös laatikot.
+    static List<Vector2> StreetObstacles(bool includeCrates)
+    {
+        var list = new List<Vector2>();
+        var bikes = GameObject.Find("Moottoripyörät");
+        if (bikes != null)
+            foreach (Transform b in bikes.transform)
+            {
+                var rs = b.GetComponentsInChildren<SpriteRenderer>();
+                float half = rs.Length > 0 ? rs.Max(r => r.bounds.extents.x) : 1.8f;
+                list.Add(new Vector2(b.position.x, half));
+            }
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None))
+            list.Add(new Vector2(d.transform.position.x, Mathf.Max(d.halfWidth, 1.2f)));
+        if (includeCrates)
+            foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsSortMode.None))
+                list.Add(new Vector2(c.transform.position.x, 1.0f * c.visualScale));
+        return list;
+    }
+
+    static bool Blocked(List<Vector2> obstacles, float x, float myHalf)
+        => obstacles.Any(o => Mathf.Abs(o.x - x) < o.y + myHalf + 0.3f);
 
     static AudioClip[] LoadClips(string folder, string filter)
     {
