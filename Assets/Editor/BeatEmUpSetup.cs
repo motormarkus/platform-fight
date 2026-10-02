@@ -989,6 +989,8 @@ public static class BeatEmUpSetup
     // ---------------- Rekvisiitta: moottoripyörät ----------------
     const string BikePath = "Assets/Sprites/Rekvisiitta/moottoripyora.png";             // keula vasemmalle
     const string BikeRightPath = "Assets/Sprites/Rekvisiitta/moottoripyora_oikea.png";  // keula oikealle (pakoputket oikealla puolella)
+    const string OldBikePath = "Assets/Sprites/Rekvisiitta/vanha_pyora.png";             // vanha punainen, rekvisiitta
+    const string OldBikeRightPath = "Assets/Sprites/Rekvisiitta/vanha_pyora_oikea.png";
     // Ovet kadun kuvasarjassa (pikseliä sarjan vasemmasta reunasta): baari 2260, S-Club 3769.
     // Pyörät oven molemmin puolin niin, ettei oviaukko peity. (x sarjan alusta, keula oikealle?)
     // Kuvia ei peilata, koska pakoputket olisivat silloin väärällä puolella.
@@ -1005,6 +1007,8 @@ public static class BeatEmUpSetup
         var street = GameObject.Find("Tausta");
         var sprite = ImportProp(BikePath);
         var spriteRight = ImportProp(BikeRightPath);
+        var oldBike = ImportProp(OldBikePath);
+        var oldBikeRight = ImportProp(OldBikeRightPath);
         if (pc == null || street == null || sprite == null)
         {
             Info( "Tarvitaan pelaaja, katutausta (kohta 4) ja kuva " + BikePath);
@@ -1071,10 +1075,17 @@ public static class BeatEmUpSetup
                 vis.transform.SetParent(go.transform, false);
                 vis.transform.localPosition = new Vector3(0f, kerb, 0f);   // jalkakäytävän pinnalla
                 var sr = vis.AddComponent<SpriteRenderer>();
+                sr.sortingOrder = Mathf.RoundToInt(-y * 100f);            // sama syvyysjärjestys kuin hahmoilla
+                // joka toinen kadun pyörä on vanha punainen (pelkkä rekvisiitta)
+                if (count % 2 == 0 && oldBike != null)
+                {
+                    sr.sprite = spot.flip && oldBikeRight != null ? oldBikeRight : oldBike;
+                    sr.flipX = spot.flip && oldBikeRight == null;
+                    continue;
+                }
                 // oikealle osoittava pyörä omasta kuvastaan; jos sitä ei ole, peilataan varalta
                 sr.sprite = spot.flip && spriteRight != null ? spriteRight : sprite;
                 sr.flipX = spot.flip && spriteRight == null;
-                sr.sortingOrder = Mathf.RoundToInt(-y * 100f);            // sama syvyysjärjestys kuin hahmoilla
                 if (ride.Length > 0)
                 {
                     var mb = go.AddComponent<Motorbike>();
@@ -1087,12 +1098,13 @@ public static class BeatEmUpSetup
                     mb.rearWheel = rearW; mb.frontWheel = frontW;
                     mb.punchSprites = punchR;
                     mb.grabSprites = grabR;
+                    mb.rideable = false;              // kadulla vain rekvisiittaa; ajettava on takakujan parkkipaikalla
                 }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         Info(
-            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n" +
+            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä (rekvisiittaa, joka toinen vanha punainen).\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n" +
             $"Ajettavat: ajokuvat {ride.Length}, nousukuvat {mount.Length}, käynnistysääni {(startClip != null ? "OK" : "puuttuu")}.\nPyörän vieressä E: nouse kyytiin.\n\nTallenna scene (Ctrl+S).");
     }
 
@@ -2070,6 +2082,7 @@ public static class BeatEmUpSetup
             float y = (streetArea.curbDepthY + streetArea.maxDepthY) * 0.5f;
             go.transform.position = new Vector3(AlleyX0 + AlleyBikePx / BackgroundPPU, y, 0f);
             var mb = go.GetComponent<Motorbike>();
+            mb.rideable = true;
             if (mb.parkedRight != null) { mb.parked.sprite = mb.parkedRight; mb.parked.flipX = false; }
             else mb.parked.flipX = true;
             mb.parked.sortingOrder = Mathf.RoundToInt(-y * 100f);
@@ -2084,7 +2097,7 @@ public static class BeatEmUpSetup
     // valtatie_tie.png (1526 × 1024, toistuu) ja valtatie_maisema.png (kaukana, liikkuu hitaasti, ei toistu).
     const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
     const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
-    const float HighwayX0 = 6000f, HighwayLength = 2000f, HighwayPPU = 85f;   // n. 3 min ajoa täydellä vauhdilla (11 yks/s): kaupungista saarelle
+    const float HighwayX0 = 6000f, HighwayLength = 2500f, HighwayPPU = 85f;   // n. 3 min ajoa täydellä vauhdilla (13.75 yks/s): kaupungista saarelle
     const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
     const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
 

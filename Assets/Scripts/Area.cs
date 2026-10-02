@@ -7,6 +7,8 @@ using UnityEngine;
 public class Area : MonoBehaviour
 {
     public string areaName = "Alue";
+    /// Alue, jolla pelaaja on (viimeksi asetettu).
+    public static Area Current;
 
     [Header("Kävelyalue (y = syvyys)")]
     public float minDepthY = -4.3f;
@@ -23,6 +25,7 @@ public class Area : MonoBehaviour
 
     public void Apply(PlayerController pc)
     {
+        Current = this;
         if (pc != null)
         {
             pc.minDepthY = minDepthY;

@@ -36,11 +36,17 @@ public class Motorbike : MonoBehaviour
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
-    [Tooltip("Pyörän ja ajokuvien koko (1 = kuvien oma).")]
+    [Tooltip("Pyörän ja ajokuvien koko valtatiellä (1 = kuvien oma).")]
     public float bikeScale = 0.85f;
+    [Tooltip("Koko muualla (parkkipaikka, kuja).")]
+    public float streetScale = 1f;
+    [Tooltip("Voiko pyörällä ajaa. Kadun pyörät ovat rekvisiittaa, ajettava on takakujan parkkipaikalla.")]
+    public bool rideable = true;
+    /// Valtatiellä pienempi koko, muualla isompi.
+    float Scale => Area.Current != null && Area.Current.areaName == "Valtatie" ? bikeScale : (rideable ? streetScale : bikeScale);
 
     [Header("Ajo")]
-    public float maxSpeed = 11f;
+    public float maxSpeed = 13.75f;
     public float acceleration = 9f;
     public float braking = 18f;
     public float depthSpeed = 2.6f;
@@ -132,7 +138,8 @@ public class Motorbike : MonoBehaviour
 
     void Update()
     {
-        if (parked != null) parked.transform.localScale = new Vector3(bikeScale, bikeScale, 1f);
+        if (parked != null) parked.transform.localScale = new Vector3(Scale, Scale, 1f);
+        if (!rideable) return;
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
         if (pc == null) return;
         if (riding) { Ride(Time.deltaTime); return; }
@@ -198,7 +205,7 @@ public class Motorbike : MonoBehaviour
     void ShowRider(Sprite s)
     {
         if (pc.body == null) return;
-        pc.body.transform.localScale = new Vector3(bikeScale, bikeScale, 1f);
+        pc.body.transform.localScale = new Vector3(Scale, Scale, 1f);
         pc.body.sprite = s;
         pc.body.flipX = !facingRight;
         pc.body.transform.localPosition = new Vector3(0f, groundHeight - 0.1f, 0f);   // ruudussa 10 px tyhjää alla
@@ -211,7 +218,7 @@ public class Motorbike : MonoBehaviour
             pc.shadow.enabled = true;
             pc.shadow.sortingOrder = order - 1;
             pc.shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
-            pc.shadow.transform.localScale = new Vector3(3.6f * bikeScale, 0.5f * bikeScale, 1f);
+            pc.shadow.transform.localScale = new Vector3(3.6f * Scale, 0.5f * Scale, 1f);
         }
     }
 
@@ -248,10 +255,10 @@ public class Motorbike : MonoBehaviour
         groundHeight = Mathf.MoveTowards(groundHeight, GroundAt(p.y), 3f * dt);   // reunakiven yli
 
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
-        animClock += dt * (rearWheel != null ? 12f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti
+        animClock += dt * (rearWheel != null ? 24f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti (24 fps)
         UpdateWheels(true, dt);
-        // kiskaisu: kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
-        if (grabT < 0f && punchT < 0f && grabSprites != null && grabSprites.Length >= 10 && PlayerController.CatchInput())
+        // kiskaisu (lyöntinappi): kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
+        if (grabT < 0f && punchT < 0f && grabSprites != null && grabSprites.Length >= 10 && (PlayerController.PunchInput() || PlayerController.CatchInput()))
         {
             grabTarget = null; float best = 99f;
             foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
@@ -272,14 +279,11 @@ public class Motorbike : MonoBehaviour
             {
                 grabDone = true;
                 if (grabTarget != null && grabTarget.CanBeGrabbed) grabTarget.YankOff(p.x, Dir);
-                else wobble = Mathf.Max(wobble, 0.25f);               // ohi: pyörä horjahtaa
             }
             if (f >= 5) grabT = -1f;
             else { ShowRider(grabSprites[(grabBack ? 5 : 0) + f]); return; }
         }
-        // lyönti eteen (vain oikealle ajettaessa)
-        if (punchT < 0f && facingRight && punchSprites != null && punchSprites.Length > 0 && PlayerController.PunchInput())
-        { punchT = 0f; punchHit = false; }
+        // lyönti eteen poistettu käytöstä: lyöntinappi tekee kiskaisun
         if (punchT >= 0f)
         {
             punchT += dt;

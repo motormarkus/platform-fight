@@ -13,7 +13,7 @@ public class EnemyBike : MonoBehaviour
     public float kickFrameTime = 0.06f;
     public int kickDamage = 12;
     [Tooltip("Ohitusnopeus pelaajaan nähden (yks/s).")]
-    public float overtakeSpeed = 8f;
+    public float overtakeSpeed = 15f;
     public float depthSpeed = 1.6f;
     public int kicksBeforeLeaving = 3;
     public int crashMoney = 1;
@@ -116,7 +116,7 @@ public class EnemyBike : MonoBehaviour
             {
                 // tavoite: tulee lujaa takaa ohi ja asettuu vähän pelaajan eteen samalle kaistalle
                 float targetSpeed = ps + Mathf.Clamp((2.3f * Reach - ahead) * 1.5f, -3f, overtakeSpeed);
-                speed = Mathf.MoveTowards(speed, targetSpeed, 12f * dt);
+                speed = Mathf.MoveTowards(speed, targetSpeed, 20f * dt);
                 if (ahead > 0.5f) me.y = Mathf.MoveTowards(me.y, p.y, depthSpeed * dt);   // vasta ohitettuaan kaistalle
                 kickCooldown -= dt;
                 if (kickCooldown <= 0f && ahead > 1.4f * Reach && ahead < 3.1f * Reach && Mathf.Abs(me.y - p.y) < 0.35f)
@@ -142,7 +142,7 @@ public class EnemyBike : MonoBehaviour
                 break;
             }
             case S.Leave:
-                speed = Mathf.MoveTowards(speed, ps + 9f, 6f * dt);
+                speed = Mathf.MoveTowards(speed, ps + 16f, 9f * dt);
                 if (ahead > 30f) { Destroy(gameObject); return; }
                 break;
             case S.Crash:
