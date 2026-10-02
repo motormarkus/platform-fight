@@ -2073,7 +2073,9 @@ public static class BeatEmUpSetup
         float viewCenterY = anchorY + (HighwayViewAnchorPx - view.rect.height * 0.5f) / HighwayPPU;
         vGo.transform.position = new Vector3(HighwayX0, viewCenterY, 0f);
         var px = vGo.AddComponent<ParallaxLayer>();
-        px.factor = 0.08f;
+        // maisema riittää koko matkalle: liukuu alusta loppuun tien ajon aikana (enintään 12 % tien vauhdista)
+        float viewW = view.rect.width / HighwayPPU;
+        px.factor = Mathf.Clamp((viewW - 2f * halfW) / Mathf.Max(1f, HighwayLength - 2f * halfW), 0.01f, 0.12f);
         px.startCamX = HighwayX0 + halfW;
         px.minX = HighwayX0;
         px.maxX = HighwayX0 + HighwayLength;
