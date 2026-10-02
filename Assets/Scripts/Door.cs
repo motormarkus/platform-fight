@@ -45,7 +45,7 @@ public class Door : MonoBehaviour
         if (pc == null || busy) { near = false; return; }
 
         Vector3 p = pc.transform.position;
-        near = Mathf.Abs(p.x - transform.position.x) <= halfWidth
+        near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
             && (here == null || p.y >= here.maxDepthY - maxDistanceFromWall)
             && pc.AirHeight <= 0.05f;
         if (near && Pressed()) StartCoroutine(Go());

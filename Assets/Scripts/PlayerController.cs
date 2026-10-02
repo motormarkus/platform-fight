@@ -783,6 +783,7 @@ public class PlayerController : MonoBehaviour
     /// Vihollinen yrittää tarttua. Onnistuu vain, kun pelaaja on maassa eikä kesken erikoisliikkeen.
     public bool BeginGrab(float enemyX)
     {
+        if (Riding) return false;
         if (GameOver || invulnTimer > 0f || height > 0.3f) return false;
         if (state == State.Hurt || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
             || state == State.Air || state == State.JumpSquat || state == State.CounterThrow) return false;
@@ -926,6 +927,7 @@ public class PlayerController : MonoBehaviour
     /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null)
     {
+        if (Riding) return false;
         if (state == State.Block) return TakeHit(damage, attackerX, attacker);
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
@@ -944,8 +946,15 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
+    /// Vapaana maassa (ei iskussa, kantamassa tai ilmassa): voi käyttää esineitä kuten moottoripyörää.
+    public bool IsFree => state == State.Ground && carried == null && height <= 0.05f && !GameOver;
+
+    /// Ajaa moottoripyörää (Motorbike ohjaa liikettä ja kuvaa; iskut eivät osu).
+    public bool Riding { get; set; }
+
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null)
     {
+        if (Riding) return false;
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
@@ -1566,7 +1575,10 @@ public class PlayerController : MonoBehaviour
 
     // ---------------- Syöte (näppäimistö + peliohjain) ----------------
 
-    Vector2 ReadMove()
+    Vector2 ReadMove() => ReadMoveInput();
+
+    /// Liikesyöte (näppäimistö + peliohjain), myös muiden skriptien käyttöön (esim. moottoripyörä).
+    public static Vector2 ReadMoveInput()
     {
         Vector2 v = Vector2.zero;
 #if ENABLE_INPUT_SYSTEM

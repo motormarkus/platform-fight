@@ -80,9 +80,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512 : BeatEmUpSetup.CellH;
+        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512
+                  : baseName0.StartsWith("pratka") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -997,6 +998,17 @@ public static class BeatEmUpSetup
         float kerb = streetArea != null ? streetArea.sidewalkHeight : pc.sidewalkHeight;
         float y = (curb + wall) * 0.5f;                       // keskellä jalkakäytävää
 
+        // ajettavat pyörät: nousu- ja ajokuvat sekä käynnistysääni
+        Sprite[] ride = new Sprite[0], mount = new Sprite[0];
+        foreach (var n in new[] { "pratka_ajo", "pratka_nousu" })
+        {
+            string tp = FindTexture(n);
+            if (tp != null) SetupAndSlice(tp);
+        }
+        ride = LoadSprites("pratka_ajo").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
+
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
         float setU = StreetSetPx / BackgroundPPU;
@@ -1016,11 +1028,22 @@ public static class BeatEmUpSetup
                 sr.sprite = spot.flip && spriteRight != null ? spriteRight : sprite;
                 sr.flipX = spot.flip && spriteRight == null;
                 sr.sortingOrder = Mathf.RoundToInt(-y * 100f);            // sama syvyysjärjestys kuin hahmoilla
+                if (ride.Length > 0)
+                {
+                    var mb = go.AddComponent<Motorbike>();
+                    mb.parked = sr;
+                    mb.parkedLeft = sprite;
+                    mb.parkedRight = spriteRight;
+                    mb.rideSprites = ride;
+                    mb.mountSprites = mount;
+                    mb.startSound = startClip;
+                }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         Info(
-            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n\nTallenna scene (Ctrl+S).");
+            $"{count} moottoripyörää jalkakäytävällä baarien ja S-Clubien edessä.\nPelaaja kulkee niiden edestä ja takaa syvyyden mukaan.\n" +
+            $"Ajettavat: ajokuvat {ride.Length}, nousukuvat {mount.Length}, käynnistysääni {(startClip != null ? "OK" : "puuttuu")}.\nPyörän vieressä E: nouse kyytiin.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/17. Päivitä sivupotku")]
