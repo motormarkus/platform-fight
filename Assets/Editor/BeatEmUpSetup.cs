@@ -947,11 +947,11 @@ public static class BeatEmUpSetup
             sohviInfo + "\n" + $"Baaritiski luotu S-Clubin oikealle puolelle ({soundCount}/{shop.items.Length} tuotteella ääni).\nMene tiskin eteen ja paina E: juomat ja snackit maksavat markkoja,\njoita putoaa kaatuneista vihollisista.\n\nValikoimaa ja hintoja voi muuttaa Baaritiski-objektista.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/15. Aseta rahapudotusten kuvat")]
+    [MenuItem("Beat em up/15. Aseta rahapudotusten ja energiajuoman kuvat")]
     static void SetupPickups()
     {
         var report = new List<string>();
-        foreach (var n in new[] { "seteli", "setelitukku" })
+        foreach (var n in new[] { "seteli", "setelitukku", "energiajuoma" })
         {
             string path = "Assets/Resources/Pickups/" + n + ".png";
             var ti = AssetImporter.GetAtPath(path) as TextureImporter;
