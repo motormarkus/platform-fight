@@ -1606,10 +1606,11 @@ public static class BeatEmUpSetup
             // Varalla kahden käden töytäisy heittokuvista.
             if (slam.Length >= 4) { b.punchSprites = slam; b.punchImpactFrame = 2; b.windupTime = 0.3f; b.punchKnockdown = true; b.punchShake = 0.18f; }
             else { b.punchSprites = grab.Length >= 8 ? new[] { grab[1], grab[0], grab[7], grab[1] } : none; b.punchImpactFrame = 1; }
-            // taklaus: juoksee matkan päästä pelaajaa kohti ja kaataa (0–1 vauhti, 2 osuma, 3–4 palautuminen)
+            // taklaus: juoksee matkan päästä pelaajaa kohti ja kaataa
             b.altAttackSprites = tackle;
             b.altChance = tackle.Length > 0 ? 0.5f : 0f;
-            b.altImpactFrame = 2;
+            // Viggle-videon taklaus (8 kuvaa): 0–1 vauhti, 2 lataus, 3 olkataklaus (liu'un ajan), 4–7 palautuminen
+            b.altImpactFrame = tackle.Length >= 8 ? 3 : 2;
             b.altDamage = 18;
             b.altReach = 1.6f;
             b.altExtraWindup = 0.15f;
