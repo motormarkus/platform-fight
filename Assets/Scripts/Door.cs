@@ -85,7 +85,8 @@ public class Door : MonoBehaviour
 
         Area dest = target;
         Vector3 pos = spawnPoint;
-        if (returnToLastDoor && LastUsed != null)
+        // paluu vain, jos edellinen ovi on alueella, johon tämä vie (muuten esim. kujalta noussut päätyisi katon kadun puoleisista tikkaista kujalle)
+        if (returnToLastDoor && LastUsed != null && LastUsed.here == target)
         {
             dest = LastUsed.here;
             pos = LastUsed.transform.position;
