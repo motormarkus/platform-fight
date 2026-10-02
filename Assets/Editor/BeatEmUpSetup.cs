@@ -93,7 +93,8 @@ public static class BeatEmUpSetup
         ti.spritePixelsPerUnit = ppu;
         ti.filterMode = FilterMode.Bilinear;
         ti.textureCompression = TextureImporterCompression.Uncompressed;
-        ti.maxTextureSize = 2048;
+        int big = Mathf.Max(w, h);
+        ti.maxTextureSize = big > 4096 ? 8192 : big > 2048 ? 4096 : 2048;   // isot sheetit (esim. videosta) täysikokoisina
         ti.mipmapEnabled = false;
         ti.alphaIsTransparency = true;
         ti.SaveAndReimport();
@@ -1823,12 +1824,10 @@ public static class BeatEmUpSetup
         var sr = vis.AddComponent<SpriteRenderer>();
         sr.sprite = sp.Length > 0 ? sp[0] : null;
         sr.sortingOrder = Mathf.RoundToInt(-depth * 100f);
-        var npc = vis.AddComponent<NpcIdle>();
+        // Viggle-videosta tehty idle (62 kuvaa, 12 fps): soitetaan silmukkana
+        var npc = vis.AddComponent<Dancer>();
         npc.sprites = sp;
-        // toistaiseksi paikallaan yhdessä asennossa: Geminin kuvat ovat keskenään eri kokoisia (animaatio "kasvaa")
-        npc.homeFrames = new[] { 6 };
-        npc.gestureChance = 0f;
-        npc.breathAmount = 0f;
+        npc.frameTime = 1f / 12f;
         var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
         sh.transform.SetParent(go.transform, false);
         sh.sprite = PlayerController.CreateShadowSprite();
@@ -1838,7 +1837,7 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(go, "NPC");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
-        Info($"NPC baaritiskillä ({sp.Length} kuvaa, {sp.Length / 6} idle-sarjaa).\nSiirrä tarvittaessa Scene-näkymässä.\n\nTallenna scene (Ctrl+S).");
+        Info($"NPC baaritiskillä ({sp.Length} kuvaa, idle-silmukka 12 kuvaa/s).\nSiirrä tarvittaessa Scene-näkymässä.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Punkkarin äänet: Assets/Audio/punkkari (nimi isoilla tai pienillä kirjaimilla): gasp* osumiin, attack* iskuihin.
