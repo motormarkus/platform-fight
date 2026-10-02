@@ -1033,6 +1033,26 @@ public static class BeatEmUpSetup
         ride = LoadSprites("pratka_ajo").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
+        // erilliset vanteet (pyörivät koodilla)
+        Sprite LoadWheel(string n)
+        {
+            string wp = FindTexture(n);
+            if (wp == null) return null;
+            var wti = AssetImporter.GetAtPath(wp) as TextureImporter;
+            wti.textureType = TextureImporterType.Sprite;
+            wti.spriteImportMode = SpriteImportMode.Single;
+            wti.spritePixelsPerUnit = 100;
+            wti.filterMode = FilterMode.Bilinear;
+            wti.textureCompression = TextureImporterCompression.Uncompressed;
+            wti.mipmapEnabled = false;
+            wti.alphaIsTransparency = true;
+            var wst = new TextureImporterSettings(); wti.ReadTextureSettings(wst);
+            wst.spriteAlignment = (int)SpriteAlignment.Center; wti.SetTextureSettings(wst);
+            wti.SaveAndReimport();
+            return AssetDatabase.LoadAssetAtPath<Sprite>(wp);
+        }
+        var rearW = LoadWheel("pratka_vanne_taka");
+        var frontW = LoadWheel("pratka_vanne_etu");
 
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
@@ -1062,6 +1082,7 @@ public static class BeatEmUpSetup
                     mb.rideSprites = ride;
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
+                    mb.rearWheel = rearW; mb.frontWheel = frontW;
                 }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);

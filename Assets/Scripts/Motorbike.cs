@@ -19,6 +19,10 @@ public class Motorbike : MonoBehaviour
     public Sprite[] rideSprites;
     [Tooltip("Nousukuvat (pratka_nousu.png), samassa ruudussa kuin ajokuvat.")]
     public Sprite[] mountSprites;
+    [Tooltip("Erilliset vanteet, jotka pyörivät koodilla (jos tyhjä, ajokuvissa on pyörät valmiina).")]
+    public Sprite rearWheel, frontWheel;
+    [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
+    public Vector2 rearWheelPos = new Vector2(-2.316f, 0.727f), frontWheelPos = new Vector2(2.191f, 0.866f);
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
@@ -48,7 +52,40 @@ public class Motorbike : MonoBehaviour
     public static Motorbike Current => active != null && active.riding ? active : null;
     public float Speed => speed;
     public bool FacingRight => facingRight;
-    float wobble;
+    float wobble, wheelAngle;
+    SpriteRenderer rearR, frontR;
+
+    void EnsureWheels()
+    {
+        if (rearWheel == null || pc == null || pc.body == null) return;
+        if (rearR == null)
+        {
+            rearR = new GameObject("Takavanne").AddComponent<SpriteRenderer>();
+            frontR = new GameObject("Etuvanne").AddComponent<SpriteRenderer>();
+            rearR.sprite = rearWheel; frontR.sprite = frontWheel;
+        }
+        rearR.transform.SetParent(pc.body.transform, false);
+        frontR.transform.SetParent(pc.body.transform, false);
+    }
+
+    void UpdateWheels(bool show, float dt)
+    {
+        if (rearR == null) return;
+        rearR.enabled = frontR.enabled = show;
+        if (!show) return;
+        // kehänopeus = ajonopeus: kulmanopeus = v / r (rad/s)
+        float r = rearWheel.rect.width / rearWheel.pixelsPerUnit * 0.5f;
+        wheelAngle -= speed / Mathf.Max(0.1f, r) * Mathf.Rad2Deg * dt;
+        float sx = facingRight ? 1f : -1f;
+        rearR.transform.localPosition = new Vector3(rearWheelPos.x * sx, rearWheelPos.y, 0f);
+        frontR.transform.localPosition = new Vector3(frontWheelPos.x * sx, frontWheelPos.y, 0f);
+        float ang = wheelAngle * sx;
+        rearR.transform.localRotation = Quaternion.Euler(0f, 0f, ang);
+        frontR.transform.localRotation = Quaternion.Euler(0f, 0f, ang * r / Mathf.Max(0.1f, frontWheel.rect.width / frontWheel.pixelsPerUnit * 0.5f));
+        rearR.flipX = frontR.flipX = !facingRight;
+        rearR.sortingOrder = frontR.sortingOrder = pc.body.sortingOrder - 1;   // rungon (haarukka, pakoputket) takana
+        rearR.color = frontR.color = pc.body.color;
+    }
 
     /// Vihun potku: vauhti putoaa, pyörä heiluu, pelaaja ottaa vahinkoa.
     public void Knock(int damage)
@@ -113,12 +150,14 @@ public class Motorbike : MonoBehaviour
         if (startSound != null) audioSrc.PlayOneShot(startSound, startVolume);
         if (parked != null) parked.enabled = false;
         speed = 0f; animClock = 0f;
+        EnsureWheels();
         riding = true; busy = false;
     }
 
     IEnumerator Dismount()
     {
         busy = true; riding = false;
+        UpdateWheels(false, 0f);
         Vector3 p = pc.transform.position;
         // pysäköity pyörä tähän, samaan suuntaan
         transform.position = new Vector3(p.x, p.y, 0f);
@@ -190,11 +229,14 @@ public class Motorbike : MonoBehaviour
 
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
         animClock += dt * (6f + speed * 1.4f);
+        UpdateWheels(true, dt);
         if (rideSprites != null && rideSprites.Length > 0)
         {
             // videon kuvat soitetaan takaperin: pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
             ShowRider(rideSprites[n - 1 - (int)animClock % n]);
+            if (n == 1 && pc.body != null)   // yksi kuva: moottorin tärinä ja pieni jousitus
+                pc.body.transform.localPosition += new Vector3(0f, Mathf.Sin(animClock * 2.3f) * 0.025f + Mathf.Sin(animClock * 9f) * 0.008f, 0f);
             if (wobble > 0f && pc.body != null)
             {
                 pc.body.transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Sin(wobble * 30f) * 6f);
