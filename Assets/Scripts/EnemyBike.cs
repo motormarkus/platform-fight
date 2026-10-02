@@ -28,6 +28,10 @@ public class EnemyBike : MonoBehaviour
     public Sprite[] crashSprites;
     public float crashFrameTime = 0.09f;
     public int yankDamage = 0;
+    [Tooltip("Pyörän ja kuskin koko (1 = kuvan alkuperäinen). Sporttipyörä kuskeineen on samankokoinen kuin heron prätkä.")]
+    public float visualScale = 0.68f;
+    // etäisyydet (ohitus, potkun ulottuvuus) seuraavat kokoa
+    float Reach => 0.5f + 0.5f * visualScale / 0.68f;
 
     /// Voiko kuskin kiskaista pyörältä.
     public bool CanBeGrabbed => state != S.Crash;
@@ -50,7 +54,8 @@ public class EnemyBike : MonoBehaviour
             // kiskaisu taaksepäin pelaajan ohi: kuski jää jälkeen (hidastuu nopeasti)
             fr.velocity = new Vector2(speed * 0.35f - playerDir * 3f, 0f);
             fr.up = 7f;
-            fr.startHeight = 1.6f;
+            fr.startHeight = 1.6f * visualScale;
+            fr.scale = visualScale;
             fr.flip = false;
         }
     }
@@ -106,12 +111,12 @@ public class EnemyBike : MonoBehaviour
         {
             case S.Approach:
             {
-                // tavoite: 2.6 yksikköä pelaajan edellä, samalla kaistalla
-                float targetSpeed = ps + Mathf.Clamp((2.6f - ahead) * 1.5f, -3f, overtakeSpeed);
+                // tavoite: vähän pelaajan edellä, samalla kaistalla
+                float targetSpeed = ps + Mathf.Clamp((2.3f * Reach - ahead) * 1.5f, -3f, overtakeSpeed);
                 speed = Mathf.MoveTowards(speed, targetSpeed, 8f * dt);
                 if (ahead > 0.5f) me.y = Mathf.MoveTowards(me.y, p.y, depthSpeed * dt);   // vasta ohitettuaan kaistalle
                 kickCooldown -= dt;
-                if (kickCooldown <= 0f && ahead > 1.6f && ahead < 3.6f && Mathf.Abs(me.y - p.y) < 0.35f)
+                if (kickCooldown <= 0f && ahead > 1.4f * Reach && ahead < 3.1f * Reach && Mathf.Abs(me.y - p.y) < 0.35f)
                 { state = S.Kick; t = 0f; hitDone = false; }
                 break;
             }
@@ -122,7 +127,7 @@ public class EnemyBike : MonoBehaviour
                 if (!hitDone && f >= kickImpact)
                 {
                     hitDone = true;
-                    if (mb != null && ahead > 0.8f && ahead < 4.2f && Mathf.Abs(me.y - p.y) < 0.45f) mb.Knock(kickDamage);
+                    if (mb != null && ahead > 0.6f && ahead < 3.6f * Reach && Mathf.Abs(me.y - p.y) < 0.45f) mb.Knock(kickDamage);
                 }
                 if (f >= sprites.Length - rideFrames)
                 {
@@ -159,11 +164,11 @@ public class EnemyBike : MonoBehaviour
         }
 
         // törmäys takaa: pelaaja ajaa kovempaa samalla kaistalla vihun perään
-        if (state != S.Crash && mb != null && ahead > 0f && ahead < 2.0f && Mathf.Abs(me.y - p.y) < 0.4f && ps > speed + 2f)
+        if (state != S.Crash && mb != null && ahead > 0f && ahead < 1.8f * Reach && Mathf.Abs(me.y - p.y) < 0.4f && ps > speed + 2f)
         {
             state = S.Crash; t = 0f; vSpin = 6f;
             HitFx.OnHit(true);
-            HitSpark.Spawn(me + new Vector3(-1f, 1.2f, 0f), true, Mathf.RoundToInt(-me.y * 100f) + 5);
+            HitSpark.Spawn(me + new Vector3(-1f, 1.2f, 0f) * visualScale, true, Mathf.RoundToInt(-me.y * 100f) + 5);
             if (crashMoney > 0) Pickup.SpawnMoney(me, crashMoney, false);
         }
 
@@ -185,7 +190,7 @@ public class EnemyBike : MonoBehaviour
         state = S.Crash; t = 0f; vSpin = 8f;
         HitFx.OnHit(true);
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.2f);
-        HitSpark.Spawn(me + new Vector3(0f, 1.8f, 0f), true, Mathf.RoundToInt(-me.y * 100f) + 5);
+        HitSpark.Spawn(me + new Vector3(0f, 1.8f, 0f) * visualScale, true, Mathf.RoundToInt(-me.y * 100f) + 5);
         if (crashMoney > 0) Pickup.SpawnMoney(me, crashMoney, false);
     }
 
@@ -200,13 +205,14 @@ public class EnemyBike : MonoBehaviour
         else if (state == S.Kick) spr = sprites[Mathf.Min(rideFrames + (int)(t / kickFrameTime), sprites.Length - 1)];
         else spr = sprites[(rideFrames - 1) - (int)anim % rideFrames];   // takaperin: pyörät pyörivät ajosuuntaan
         body.sprite = spr;
-        body.transform.localPosition = new Vector3(0f, height - 0.1f, 0f);
+        body.transform.localPosition = new Vector3(0f, height - 0.1f * visualScale, 0f);
+        body.transform.localScale = new Vector3(visualScale, visualScale, 1f);
         int order = Mathf.RoundToInt(-transform.position.y * 100f);
         body.sortingOrder = order;
         if (shadow != null)
         {
             shadow.sortingOrder = order - 1;
-            shadow.transform.localScale = new Vector3(3.6f, 0.5f, 1f);
+            shadow.transform.localScale = new Vector3(3.6f * visualScale, 0.5f * visualScale, 1f);
         }
     }
 }

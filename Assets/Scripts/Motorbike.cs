@@ -36,6 +36,9 @@ public class Motorbike : MonoBehaviour
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
+    [Tooltip("Pyörän ja ajokuvien koko (1 = kuvien oma).")]
+    public float bikeScale = 0.85f;
+
     [Header("Ajo")]
     public float maxSpeed = 11f;
     public float acceleration = 9f;
@@ -46,7 +49,7 @@ public class Motorbike : MonoBehaviour
     public int runOverDamage = 25;
     public float runOverMinSpeed = 3f;
     [Tooltip("Pyörän puolipituus (yksikköä): tämän matkan sisällä keskeltä osuu.")]
-    public float halfLength = 2.6f;
+    public float halfLength = 2.3f;
     [Header("Käyttö")]
     public float useHalfWidth = 2.2f;
     public float useDepth = 0.8f;
@@ -129,6 +132,7 @@ public class Motorbike : MonoBehaviour
 
     void Update()
     {
+        if (parked != null) parked.transform.localScale = new Vector3(bikeScale, bikeScale, 1f);
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
         if (pc == null) return;
         if (riding) { Ride(Time.deltaTime); return; }
@@ -185,6 +189,7 @@ public class Motorbike : MonoBehaviour
         if (mountSprites != null)
             for (int i = mountSprites.Length - 1; i >= 0; i--) { ShowRider(mountSprites[i]); yield return new WaitForSeconds(mountFrameTime * 0.8f); }
         pc.Riding = false;
+        if (pc.body != null) pc.body.transform.localScale = Vector3.one;
         pc.enabled = true;
         pc.TeleportTo(new Vector3(p.x - Dir * 1.4f, p.y, 0f));   // seisoo pyörän vieressä
         active = null; busy = false;
@@ -193,6 +198,7 @@ public class Motorbike : MonoBehaviour
     void ShowRider(Sprite s)
     {
         if (pc.body == null) return;
+        pc.body.transform.localScale = new Vector3(bikeScale, bikeScale, 1f);
         pc.body.sprite = s;
         pc.body.flipX = !facingRight;
         pc.body.transform.localPosition = new Vector3(0f, groundHeight - 0.1f, 0f);   // ruudussa 10 px tyhjää alla
@@ -205,7 +211,7 @@ public class Motorbike : MonoBehaviour
             pc.shadow.enabled = true;
             pc.shadow.sortingOrder = order - 1;
             pc.shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
-            pc.shadow.transform.localScale = new Vector3(3.6f, 0.5f, 1f);
+            pc.shadow.transform.localScale = new Vector3(3.6f * bikeScale, 0.5f * bikeScale, 1f);
         }
     }
 
