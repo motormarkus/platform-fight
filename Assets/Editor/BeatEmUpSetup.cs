@@ -2103,6 +2103,32 @@ public static class BeatEmUpSetup
              $"Maisema liikkuu {px.factor * 100:0} % tien vauhdista.\n\nTallenna scene (Ctrl+S).");
     }
 
+    // ---------------- Aloituskohta ----------------
+    [MenuItem("Beat em up/36. Aloita peli takakujan parkkipaikalta")]
+    static void StartAtAlley()
+    {
+        var alley = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Takakuja");
+        var bike = GameObject.Find("Takakujan prätkä");
+        if (alley == null || bike == null) { Info("Tee ensin kohta 34 (takakuja ja prätkä)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var gs = go.AddComponent<GameStart>();
+        gs.area = alley;
+        gs.position = new Vector2(bike.transform.position.x - 2.5f, bike.transform.position.y);   // pyörän vieressä
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt takakujan parkkipaikalta prätkän vierestä.\nTakaisin kadun alkuun: valikko 37 (tai poista objekti \"Aloituskohta\").\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/37. Aloita peli taas kadun alusta")]
+    static void StartAtStreet()
+    {
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) { Undo.DestroyObjectImmediate(old); EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene()); }
+        Info("Peli alkaa taas kadun alusta.\n\nTallenna scene (Ctrl+S).");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];
