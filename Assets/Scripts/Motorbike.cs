@@ -19,6 +19,20 @@ public class Motorbike : MonoBehaviour
     public Sprite[] rideSprites;
     [Tooltip("Nousukuvat (pratka_nousu.png), samassa ruudussa kuin ajokuvat.")]
     public Sprite[] mountSprites;
+    [Tooltip("Erilliset vanteet, jotka pyörivät koodilla (jos tyhjä, ajokuvissa on pyörät valmiina).")]
+    public Sprite rearWheel, frontWheel;
+    [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
+    public Vector2 rearWheelPos = new Vector2(-2.314f, 0.741f), frontWheelPos = new Vector2(2.165f, 0.86f);
+    [Tooltip("Lyönti ajon aikana (pratka_lyonti.png): eteen oikealle.")]
+    public Sprite[] punchSprites;
+    public int punchImpact = 3;
+    public float punchFrameTime = 0.06f;
+    public float punchReach = 3.6f;
+    [Tooltip("Kiskaisu (pratka_kiskaisu.png): 0–4 kurotus eteen/sivulle, 5–9 kurotus taakse.")]
+    public Sprite[] grabSprites;
+    public float grabFrameTime = 0.08f;
+    [Tooltip("Kuinka kaukaa vierellä ajavasta vihusta saa otteen (x ja syvyys).")]
+    public float grabRangeX = 2.4f, grabRangeY = 1.1f;
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
 
@@ -44,11 +58,65 @@ public class Motorbike : MonoBehaviour
     float speed, animClock, groundHeight;
     readonly Dictionary<Object, float> lastHit = new Dictionary<Object, float>();
     static Motorbike active;
+    /// Pyörä, jota pelaaja ajaa (null jos ei aja).
+    public static Motorbike Current => active != null && active.riding ? active : null;
+    public float Speed => speed;
+    public bool FacingRight => facingRight;
+    float wobble, wheelAngle, punchT = -1f;
+    bool punchHit;
+    float grabT = -1f; bool grabBack, grabDone; EnemyBike grabTarget;
+    SpriteRenderer rearR, frontR;
+
+    void EnsureWheels()
+    {
+        if (rearWheel == null || pc == null || pc.body == null) return;
+        if (rearR == null)
+        {
+            rearR = new GameObject("Takavanne").AddComponent<SpriteRenderer>();
+            frontR = new GameObject("Etuvanne").AddComponent<SpriteRenderer>();
+            rearR.sprite = rearWheel; frontR.sprite = frontWheel;
+        }
+        rearR.transform.SetParent(pc.body.transform, false);
+        frontR.transform.SetParent(pc.body.transform, false);
+    }
+
+    void UpdateWheels(bool show, float dt)
+    {
+        if (rearR == null) return;
+        rearR.enabled = frontR.enabled = show;
+        if (!show) return;
+        // kehänopeus = ajonopeus: kulmanopeus = v / r (rad/s)
+        float r = rearWheel.rect.width / rearWheel.pixelsPerUnit * 0.5f;
+        wheelAngle -= speed / Mathf.Max(0.1f, r) * Mathf.Rad2Deg * dt;
+        float sx = facingRight ? 1f : -1f;
+        rearR.transform.localPosition = new Vector3(rearWheelPos.x * sx, rearWheelPos.y, 0f);
+        frontR.transform.localPosition = new Vector3(frontWheelPos.x * sx, frontWheelPos.y, 0f);
+        float ang = wheelAngle * sx;
+        rearR.transform.localRotation = Quaternion.Euler(0f, 0f, ang);
+        frontR.transform.localRotation = Quaternion.Euler(0f, 0f, ang * r / Mathf.Max(0.1f, frontWheel.rect.width / frontWheel.pixelsPerUnit * 0.5f));
+        rearR.flipX = frontR.flipX = !facingRight;
+        rearR.sortingOrder = frontR.sortingOrder = pc.body.sortingOrder - 1;   // rungon (haarukka, pakoputket) takana
+        rearR.color = frontR.color = pc.body.color;
+    }
+
+    /// Vihun potku: vauhti putoaa, pyörä heiluu, pelaaja ottaa vahinkoa.
+    public void Knock(int damage)
+    {
+        if (!riding || wobble > 0f) return;
+        speed *= 0.25f;
+        wobble = 0.6f;
+        pc.HitWhileRiding(damage);
+        HitFx.OnHit(true);
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.25f);
+        HitSpark.Spawn(pc.transform.position + new Vector3(-Dir * 0.8f, 1.8f, 0f), true, Mathf.RoundToInt(-pc.transform.position.y * 100f) + 5);
+    }
 
     void Awake()
     {
         PlayerController.SortByFrameNumber(rideSprites);
         PlayerController.SortByFrameNumber(mountSprites);
+        PlayerController.SortByFrameNumber(punchSprites);
+        PlayerController.SortByFrameNumber(grabSprites);
         audioSrc = gameObject.AddComponent<AudioSource>();
         audioSrc.playOnAwake = false;
         audioSrc.spatialBlend = 0f;
@@ -96,12 +164,14 @@ public class Motorbike : MonoBehaviour
         if (startSound != null) audioSrc.PlayOneShot(startSound, startVolume);
         if (parked != null) parked.enabled = false;
         speed = 0f; animClock = 0f;
+        EnsureWheels();
         riding = true; busy = false;
     }
 
     IEnumerator Dismount()
     {
         busy = true; riding = false;
+        UpdateWheels(false, 0f);
         Vector3 p = pc.transform.position;
         // pysäköity pyörä tähän, samaan suuntaan
         transform.position = new Vector3(p.x, p.y, 0f);
@@ -145,6 +215,13 @@ public class Motorbike : MonoBehaviour
     {
         if (busy) return;
         Vector2 input = PlayerController.ReadMoveInput();
+        if (wobble > 0f)
+        {
+            // potkun jälkeen hetki hallitsematonta heilumista
+            wobble -= dt;
+            input.y += Mathf.Sin(wobble * 30f) * 0.8f;
+            input.x = Mathf.Min(input.x * Dir, 0.3f) * Dir;
+        }
         // suunnanvaihto vain lähes pysähdyksissä
         if (Mathf.Abs(speed) < 1f && Mathf.Abs(input.x) > 0.3f && Mathf.Sign(input.x) != Dir) { facingRight = input.x > 0f; speed = 0f; }
         float target = Mathf.Max(0f, input.x * Dir) * maxSpeed;            // eteenpäin kaasu, taaksepäin jarru
@@ -165,16 +242,85 @@ public class Motorbike : MonoBehaviour
         groundHeight = Mathf.MoveTowards(groundHeight, GroundAt(p.y), 3f * dt);   // reunakiven yli
 
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
-        animClock += dt * (6f + speed * 1.4f);
+        animClock += dt * (rearWheel != null ? 12f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti
+        UpdateWheels(true, dt);
+        // kiskaisu: kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
+        if (grabT < 0f && punchT < 0f && grabSprites != null && grabSprites.Length >= 10 && PlayerController.CatchInput())
+        {
+            grabTarget = null; float best = 99f;
+            foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
+            {
+                if (!eb.CanBeGrabbed) continue;
+                Vector3 q = eb.transform.position;
+                float dx = (q.x - p.x) * Dir, dy = Mathf.Abs(q.y - p.y);
+                if (Mathf.Abs(dx) <= grabRangeX && dy <= grabRangeY && Mathf.Abs(dx) + dy < best) { best = Mathf.Abs(dx) + dy; grabTarget = eb; }
+            }
+            grabBack = grabTarget != null && (grabTarget.transform.position.x - p.x) * Dir < -0.4f;
+            grabT = 0f; grabDone = false;
+        }
+        if (grabT >= 0f)
+        {
+            grabT += dt;
+            int f = (int)(grabT / grabFrameTime);
+            if (!grabDone && f >= 3)
+            {
+                grabDone = true;
+                if (grabTarget != null && grabTarget.CanBeGrabbed) grabTarget.YankOff(p.x, Dir);
+                else wobble = Mathf.Max(wobble, 0.25f);               // ohi: pyörä horjahtaa
+            }
+            if (f >= 5) grabT = -1f;
+            else { ShowRider(grabSprites[(grabBack ? 5 : 0) + f]); return; }
+        }
+        // lyönti eteen (vain oikealle ajettaessa)
+        if (punchT < 0f && facingRight && punchSprites != null && punchSprites.Length > 0 && PlayerController.PunchInput())
+        { punchT = 0f; punchHit = false; }
+        if (punchT >= 0f)
+        {
+            punchT += dt;
+            int f = (int)(punchT / punchFrameTime);
+            if (!punchHit && f >= punchImpact) { punchHit = true; PunchAhead(p); }
+            if (f >= punchSprites.Length) punchT = -1f;
+            else
+            {
+                ShowRider(punchSprites[f]);
+                if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
+                return;
+            }
+        }
         if (rideSprites != null && rideSprites.Length > 0)
         {
-            // videon kuvat soitetaan takaperin: pyörät pyörivät ajosuuntaan
+            // erilliset vanteet: kuvat eteenpäin (takin lepatus); muuten takaperin, jotta kuvien pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
-            ShowRider(rideSprites[n - 1 - (int)animClock % n]);
+            ShowRider(rideSprites[rearWheel != null ? (int)animClock % n : n - 1 - (int)animClock % n]);
+            if (n == 1 && pc.body != null)   // yksi kuva: moottorin tärinä ja pieni jousitus
+                pc.body.transform.localPosition += new Vector3(0f, Mathf.Sin(animClock * 2.3f) * 0.025f + Mathf.Sin(animClock * 9f) * 0.008f, 0f);
+            if (wobble > 0f && pc.body != null)
+            {
+                pc.body.transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Sin(wobble * 30f) * 6f);
+                pc.body.color = Mathf.FloorToInt(wobble * 14f) % 2 == 0 ? new Color(1f, 0.6f, 0.6f) : Color.white;
+            }
         }
 
         if (speed >= runOverMinSpeed) RunOver(p);
         if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
+    }
+
+    void PunchAhead(Vector3 me)
+    {
+        foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
+        {
+            Vector3 q = eb.transform.position;
+            float ahead = q.x - me.x;
+            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.5f) eb.KnockOff(me.x);
+        }
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 q = e.transform.position;
+            float ahead = q.x - me.x;
+            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.45f && e.TakeHit(15, me.x, true))
+                HitSpark.Spawn(new Vector3(q.x, q.y + 2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+        }
     }
 
     void RunOver(Vector3 me)

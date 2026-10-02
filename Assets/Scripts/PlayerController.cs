@@ -823,6 +823,15 @@ public class PlayerController : MonoBehaviour
         Enter(State.Thrown);
     }
 
+    /// Osuma ajon aikana (esim. vihun potku prätkän selästä): vahinko ja ääni, ei kaatumista.
+    public void HitWhileRiding(int damage)
+    {
+        if (GameOver || invulnTimer > 0f) return;
+        PlayClip(hurtSounds);
+        ApplyDamage(damage);
+        invulnTimer = Mathf.Max(invulnTimer, 0.8f);
+    }
+
     void ApplyDamage(int damage)
     {
         health = Mathf.Max(0, health - damage);
@@ -1622,7 +1631,10 @@ public class PlayerController : MonoBehaviour
 #endif
     }
 
-    bool PunchPressed()
+    bool PunchPressed() => PunchInput();
+
+    /// Lyöntinappi (J / ohjaimen neliö), myös muiden skriptien käyttöön (esim. prätkä).
+    public static bool PunchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
@@ -1672,7 +1684,10 @@ public class PlayerController : MonoBehaviour
 #endif
     }
 
-    bool CatchPressed()
+    bool CatchPressed() => CatchInput();
+
+    /// Nappaus/nosto-nappi (O / ohjaimen R3), myös muiden skriptien käyttöön (esim. kiskaisu prätkän selästä).
+    public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.oKey.wasPressedThisFrame)

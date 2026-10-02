@@ -82,10 +82,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") ? 768 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512
-                  : baseName0.StartsWith("pratka") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -1025,14 +1025,36 @@ public static class BeatEmUpSetup
 
         // ajettavat pyörät: nousu- ja ajokuvat sekä käynnistysääni
         Sprite[] ride = new Sprite[0], mount = new Sprite[0];
-        foreach (var n in new[] { "pratka_ajo", "pratka_nousu" })
+        foreach (var n in new[] { "pratka_ajo", "pratka_nousu", "pratka_lyonti", "pratka_kiskaisu" })
         {
             string tp = FindTexture(n);
             if (tp != null) SetupAndSlice(tp);
         }
         ride = LoadSprites("pratka_ajo").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var grabR = LoadSprites("pratka_kiskaisu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var punchR = LoadSprites("pratka_lyonti").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
+        // erilliset vanteet (pyörivät koodilla)
+        Sprite LoadWheel(string n)
+        {
+            string wp = FindTexture(n);
+            if (wp == null) return null;
+            var wti = AssetImporter.GetAtPath(wp) as TextureImporter;
+            wti.textureType = TextureImporterType.Sprite;
+            wti.spriteImportMode = SpriteImportMode.Single;
+            wti.spritePixelsPerUnit = 100;
+            wti.filterMode = FilterMode.Bilinear;
+            wti.textureCompression = TextureImporterCompression.Uncompressed;
+            wti.mipmapEnabled = false;
+            wti.alphaIsTransparency = true;
+            var wst = new TextureImporterSettings(); wti.ReadTextureSettings(wst);
+            wst.spriteAlignment = (int)SpriteAlignment.Center; wti.SetTextureSettings(wst);
+            wti.SaveAndReimport();
+            return AssetDatabase.LoadAssetAtPath<Sprite>(wp);
+        }
+        var rearW = LoadWheel("pratka_vanne_taka");
+        var frontW = LoadWheel("pratka_vanne_etu");
 
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
@@ -1062,6 +1084,9 @@ public static class BeatEmUpSetup
                     mb.rideSprites = ride;
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
+                    mb.rearWheel = rearW; mb.frontWheel = frontW;
+                    mb.punchSprites = punchR;
+                    mb.grabSprites = grabR;
                 }
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
@@ -2026,7 +2051,7 @@ public static class BeatEmUpSetup
     // valtatie_tie.png (1526 × 1024, toistuu) ja valtatie_maisema.png (kaukana, liikkuu hitaasti, ei toistu).
     const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
     const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
-    const float HighwayX0 = 6000f, HighwayLength = 260f, HighwayPPU = 85f;   // n. 12 ruutua: kaupungista saarelle
+    const float HighwayX0 = 6000f, HighwayLength = 2000f, HighwayPPU = 85f;   // n. 3 min ajoa täydellä vauhdilla (11 yks/s): kaupungista saarelle
     const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
     const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
 
@@ -2120,6 +2145,36 @@ public static class BeatEmUpSetup
         exit.spawnPoint = new Vector2(HighwayX0 + 3f, (area.minDepthY + area.maxDepthY) * 0.5f);
         exit.title = "Valtatie";
         Undo.RegisterCreatedObjectUndo(exit.gameObject, "Kujan loppu");
+
+        // vihuprätkät: malli (piilossa) ja lähettäjä
+        string vp = FindTexture("vihu_pratka");
+        if (vp != null)
+        {
+            SetupAndSlice(vp);
+            var vs2 = LoadSprites("vihu_pratka").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            var tGo = new GameObject("Vihuprätkä (malli)");
+            tGo.transform.SetParent(root.transform, false);
+            var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(tGo.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(tGo.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.4f);
+            var eb = tGo.AddComponent<EnemyBike>();
+            eb.body = b; eb.shadow = sh; eb.sprites = vs2;
+            eb.engineLoop = AssetDatabase.FindAssets("t:AudioClip sportbike", new[] { "Assets/Audio" })
+                .Select(AssetDatabase.GUIDToAssetPath).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(c => c != null);
+            Debug.Log("Vihuprätkän moottoriääni: " + (eb.engineLoop != null ? eb.engineLoop.name : "ei löytynyt (Assets/Audio/.../sportbike*)"));
+            string vl = FindTexture("vihu_lento");
+            if (vl != null) { SetupAndSlice(vl); eb.flySprites = LoadSprites("vihu_lento").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+            string ve = FindTexture("vihu_pyora_tyhja");
+            if (ve != null) { SetupAndSlice(ve); eb.emptyBike = LoadSprites("vihu_pyora_tyhja").FirstOrDefault(); }
+            string vk = FindTexture("vihu_pyora_kaatuu");
+            if (vk != null) { SetupAndSlice(vk); eb.crashSprites = LoadSprites("vihu_pyora_kaatuu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+            b.sprite = vs2.Length > 0 ? vs2[0] : null;
+            tGo.SetActive(false);
+            var spGo = new GameObject("Vihuprätkien lähettäjä");
+            spGo.transform.SetParent(root.transform, false);
+            var spn = spGo.AddComponent<EnemyBikeSpawner>();
+            spn.template = eb; spn.minX = HighwayX0; spn.maxX = HighwayX0 + HighwayLength;
+        }
 
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Valtatie luotu ({HighwayLength:0} yksikköä). Aja prätkällä kujan oikeaan reunaan: pimennys, otsikko ja valtatie.\n" +
