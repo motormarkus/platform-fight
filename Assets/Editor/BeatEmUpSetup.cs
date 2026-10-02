@@ -2159,6 +2159,9 @@ public static class BeatEmUpSetup
             sh.color = new Color(0f, 0f, 0f, 0.4f);
             var eb = tGo.AddComponent<EnemyBike>();
             eb.body = b; eb.shadow = sh; eb.sprites = vs2;
+            eb.engineLoop = AssetDatabase.FindAssets("t:AudioClip sportbike", new[] { "Assets/Audio" })
+                .Select(AssetDatabase.GUIDToAssetPath).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(c => c != null);
+            Debug.Log("Vihuprätkän moottoriääni: " + (eb.engineLoop != null ? eb.engineLoop.name : "ei löytynyt (Assets/Audio/.../sportbike*)"));
             string vl = FindTexture("vihu_lento");
             if (vl != null) { SetupAndSlice(vl); eb.flySprites = LoadSprites("vihu_lento").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
             string ve = FindTexture("vihu_pyora_tyhja");

@@ -17,6 +17,10 @@ public class EnemyBike : MonoBehaviour
     public float depthSpeed = 1.6f;
     public int kicksBeforeLeaving = 3;
     public int crashMoney = 1;
+    [Tooltip("Moottorin ääni (silmukka). Voimakkuus lähestyy pelaajaa kohti, sävel nousee vauhdin mukaan.")]
+    public AudioClip engineLoop;
+    [Range(0f, 1f)] public float engineVolume = 0.55f;
+    AudioSource engine;
     [Tooltip("Kuski lentää pyörältä (vihu_lento.png, 10 kuvaa) ja tyhjä pyörä (vihu_pyora_tyhja.png).")]
     public Sprite[] flySprites;
     public Sprite emptyBike;
@@ -66,6 +70,26 @@ public class EnemyBike : MonoBehaviour
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         var mb = Motorbike.Current;
         speed = (mb != null ? mb.Speed : 8f) + overtakeSpeed;
+        if (engineLoop != null)
+        {
+            engine = gameObject.AddComponent<AudioSource>();
+            engine.clip = engineLoop; engine.loop = true; engine.playOnAwake = false; engine.spatialBlend = 0f;
+            engine.volume = 0f;
+            engine.time = Random.Range(0f, engineLoop.length * 0.9f);   // eri kohdasta, ettei kaksi pyörää soi tahdissa
+            engine.Play();
+        }
+    }
+
+    void UpdateEngine(float ahead, float playerSpeed)
+    {
+        if (engine == null) return;
+        float near = Mathf.Clamp01(1f - Mathf.Abs(ahead) / 22f);       // kaukana hiljaa
+        float target = state == S.Crash ? 0f : engineVolume * (0.25f + 0.75f * near);
+        engine.volume = Mathf.MoveTowards(engine.volume, target, (state == S.Crash ? 1.5f : 1f) * Time.deltaTime);
+        // sävel: oma vauhti + doppler-tyyppinen ohitus (lähestyessä korkeampi)
+        float rel = speed - playerSpeed;
+        engine.pitch = Mathf.Clamp(0.85f + speed * 0.025f + (ahead < 0f ? rel : -rel) * 0.02f, 0.7f, 1.5f);
+        engine.panStereo = Mathf.Clamp(ahead / 14f, -0.8f, 0.8f);
     }
 
     void Update()
@@ -145,6 +169,7 @@ public class EnemyBike : MonoBehaviour
 
         me.x += speed * dt;
         transform.position = me;
+        UpdateEngine(ahead, ps);
         ApplyVisual();
         // kaukana takana (pelaaja karkasi): pois
         if (ahead < -30f) Destroy(gameObject);
