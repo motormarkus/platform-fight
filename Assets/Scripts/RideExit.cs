@@ -11,6 +11,8 @@ public class RideExit : MonoBehaviour
     public Vector2 spawnPoint;
     public string title = "Valtatie";
     public float fadeTime = 0.4f, titleTime = 1.6f;
+    [Tooltip("Kuinka leveä tunnistusalue on kohdan x oikealla puolella.")]
+    public float triggerWidth = 15f;
 
     PlayerController pc;
     bool busy;
@@ -20,7 +22,9 @@ public class RideExit : MonoBehaviour
     {
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
         if (pc == null || busy || !pc.Riding) return;
-        if (pc.transform.position.x >= transform.position.x) StartCoroutine(Go());
+        // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)
+        float x = pc.transform.position.x;
+        if (x >= transform.position.x && x <= transform.position.x + triggerWidth) StartCoroutine(Go());
     }
 
     IEnumerator Go()
