@@ -805,6 +805,7 @@ public static class BeatEmUpSetup
         t.altReach = 1.4f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.99f;
+        SetPunkSounds(t);                  // omat äänet kansiosta Audio/punkkari, jos ne on lisätty
         Undo.RegisterCreatedObjectUndo(go, "Punkkari");
 
         var positions = new List<Vector3>();
@@ -1677,6 +1678,7 @@ public static class BeatEmUpSetup
             }
             else if (n.StartsWith("Punkkari"))
             {
+                SetPunkSounds(e);
                 e.runSpeedMultiplier = 1.6f; e.flankChance = 0.35f; e.retreatChance = 0.3f; e.blockChance = 0f;
             }
             else if (n.StartsWith("Kovis"))
@@ -1821,7 +1823,11 @@ public static class BeatEmUpSetup
         sr.sprite = sp.Length > 0 ? sp[0] : null;
         sr.sortingOrder = Mathf.RoundToInt(-depth * 100f);
         var npc = vis.AddComponent<NpcIdle>();
-        npc.sprites = sp;   // perusasento: sarja 2 (katselee ympärilleen), eleet sarjoista 1 ja 3
+        npc.sprites = sp;
+        // toistaiseksi paikallaan yhdessä asennossa: Geminin kuvat ovat keskenään eri kokoisia (animaatio "kasvaa")
+        npc.homeFrames = new[] { 6 };
+        npc.gestureChance = 0f;
+        npc.breathAmount = 0f;
         var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
         sh.transform.SetParent(go.transform, false);
         sh.sprite = PlayerController.CreateShadowSprite();
@@ -1832,6 +1838,19 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(go.scene);
         Selection.activeGameObject = go;
         Info($"NPC baaritiskillä ({sp.Length} kuvaa, {sp.Length / 6} idle-sarjaa).\nSiirrä tarvittaessa Scene-näkymässä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    /// Punkkarin äänet: Assets/Audio/punkkari (nimi isoilla tai pienillä kirjaimilla): gasp* osumiin, attack* iskuihin.
+    static void SetPunkSounds(Enemy e)
+    {
+        string folder = AssetDatabase.GetSubFolders("Assets/Audio")
+            .FirstOrDefault(f => Path.GetFileName(f).ToLowerInvariant().StartsWith("punk"));
+        if (folder == null) return;
+        var gasps = LoadClips(folder, "gasp");
+        var attacks = LoadClips(folder, "attack");
+        if (gasps.Length > 0) e.hurtSounds = gasps;
+        if (attacks.Length > 0) e.attackSounds = attacks;
+        Debug.Log($"{e.name}: punkkarin äänet {folder}: gasp {gasps.Length}, attack {attacks.Length}");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
