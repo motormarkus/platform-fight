@@ -1821,7 +1821,11 @@ public static class BeatEmUpSetup
         sr.sprite = sp.Length > 0 ? sp[0] : null;
         sr.sortingOrder = Mathf.RoundToInt(-depth * 100f);
         var npc = vis.AddComponent<NpcIdle>();
-        npc.sprites = sp;   // perusasento: sarja 2 (katselee ympärilleen), eleet sarjoista 1 ja 3
+        npc.sprites = sp;
+        // toistaiseksi paikallaan yhdessä asennossa: Geminin kuvat ovat keskenään eri kokoisia (animaatio "kasvaa")
+        npc.homeFrames = new[] { 6 };
+        npc.gestureChance = 0f;
+        npc.breathAmount = 0f;
         var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>();
         sh.transform.SetParent(go.transform, false);
         sh.sprite = PlayerController.CreateShadowSprite();
