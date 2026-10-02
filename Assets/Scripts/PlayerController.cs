@@ -823,6 +823,15 @@ public class PlayerController : MonoBehaviour
         Enter(State.Thrown);
     }
 
+    /// Osuma ajon aikana (esim. vihun potku prätkän selästä): vahinko ja ääni, ei kaatumista.
+    public void HitWhileRiding(int damage)
+    {
+        if (GameOver || invulnTimer > 0f) return;
+        PlayClip(hurtSounds);
+        ApplyDamage(damage);
+        invulnTimer = Mathf.Max(invulnTimer, 0.8f);
+    }
+
     void ApplyDamage(int damage)
     {
         health = Mathf.Max(0, health - damage);

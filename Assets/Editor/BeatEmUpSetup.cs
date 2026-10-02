@@ -82,10 +82,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") ? 768 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") ? 512
-                  : baseName0.StartsWith("pratka") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+                  : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -2120,6 +2120,27 @@ public static class BeatEmUpSetup
         exit.spawnPoint = new Vector2(HighwayX0 + 3f, (area.minDepthY + area.maxDepthY) * 0.5f);
         exit.title = "Valtatie";
         Undo.RegisterCreatedObjectUndo(exit.gameObject, "Kujan loppu");
+
+        // vihuprätkät: malli (piilossa) ja lähettäjä
+        string vp = FindTexture("vihu_pratka");
+        if (vp != null)
+        {
+            SetupAndSlice(vp);
+            var vs2 = LoadSprites("vihu_pratka").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            var tGo = new GameObject("Vihuprätkä (malli)");
+            tGo.transform.SetParent(root.transform, false);
+            var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(tGo.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(tGo.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.4f);
+            var eb = tGo.AddComponent<EnemyBike>();
+            eb.body = b; eb.shadow = sh; eb.sprites = vs2;
+            b.sprite = vs2.Length > 0 ? vs2[0] : null;
+            tGo.SetActive(false);
+            var spGo = new GameObject("Vihuprätkien lähettäjä");
+            spGo.transform.SetParent(root.transform, false);
+            var spn = spGo.AddComponent<EnemyBikeSpawner>();
+            spn.template = eb; spn.minX = HighwayX0; spn.maxX = HighwayX0 + HighwayLength;
+        }
 
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Valtatie luotu ({HighwayLength:0} yksikköä). Aja prätkällä kujan oikeaan reunaan: pimennys, otsikko ja valtatie.\n" +

@@ -44,6 +44,23 @@ public class Motorbike : MonoBehaviour
     float speed, animClock, groundHeight;
     readonly Dictionary<Object, float> lastHit = new Dictionary<Object, float>();
     static Motorbike active;
+    /// Pyörä, jota pelaaja ajaa (null jos ei aja).
+    public static Motorbike Current => active != null && active.riding ? active : null;
+    public float Speed => speed;
+    public bool FacingRight => facingRight;
+    float wobble;
+
+    /// Vihun potku: vauhti putoaa, pyörä heiluu, pelaaja ottaa vahinkoa.
+    public void Knock(int damage)
+    {
+        if (!riding || wobble > 0f) return;
+        speed *= 0.25f;
+        wobble = 0.6f;
+        pc.HitWhileRiding(damage);
+        HitFx.OnHit(true);
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.25f);
+        HitSpark.Spawn(pc.transform.position + new Vector3(-Dir * 0.8f, 1.8f, 0f), true, Mathf.RoundToInt(-pc.transform.position.y * 100f) + 5);
+    }
 
     void Awake()
     {
@@ -145,6 +162,13 @@ public class Motorbike : MonoBehaviour
     {
         if (busy) return;
         Vector2 input = PlayerController.ReadMoveInput();
+        if (wobble > 0f)
+        {
+            // potkun jälkeen hetki hallitsematonta heilumista
+            wobble -= dt;
+            input.y += Mathf.Sin(wobble * 30f) * 0.8f;
+            input.x = Mathf.Min(input.x * Dir, 0.3f) * Dir;
+        }
         // suunnanvaihto vain lähes pysähdyksissä
         if (Mathf.Abs(speed) < 1f && Mathf.Abs(input.x) > 0.3f && Mathf.Sign(input.x) != Dir) { facingRight = input.x > 0f; speed = 0f; }
         float target = Mathf.Max(0f, input.x * Dir) * maxSpeed;            // eteenpäin kaasu, taaksepäin jarru
@@ -171,6 +195,11 @@ public class Motorbike : MonoBehaviour
             // videon kuvat soitetaan takaperin: pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
             ShowRider(rideSprites[n - 1 - (int)animClock % n]);
+            if (wobble > 0f && pc.body != null)
+            {
+                pc.body.transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Sin(wobble * 30f) * 6f);
+                pc.body.color = Mathf.FloorToInt(wobble * 14f) % 2 == 0 ? new Color(1f, 0.6f, 0.6f) : Color.white;
+            }
         }
 
         if (speed >= runOverMinSpeed) RunOver(p);
