@@ -52,6 +52,7 @@ public static class Loc
         { "Kiipeä katolle", "Climb to the roof" },
         { "Nouse pyörän selkään", "Get on the bike" },
         { "Laskeudu kujalle", "Climb down to the alley" },
+        { "Valtatie", "Highway" },
         { "Nouse pyörän selästä", "Get off the bike" },
         { "Laskeudu kadulle", "Climb down to the street" },
 

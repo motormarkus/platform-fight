@@ -49,6 +49,7 @@ public static class BeatEmUpSetup
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
             CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
+            CreateHighway();        // kujan lopusta prätkällä valtatielle
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -1996,6 +1997,108 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Takakuja luotu ({wU:0.0} yksikköä). Katon oikeasta päästä E: alas kujalle.\n{bikeInfo}.\nKujan palotikkailta pääsee takaisin katolle.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Valtatie ----------------
+    // valtatie_tie.png (1526 × 1024, toistuu) ja valtatie_maisema.png (kaukana, liikkuu hitaasti, ei toistu).
+    const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
+    const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
+    const float HighwayX0 = 6000f, HighwayLength = 160f, HighwayPPU = 85f;
+    const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
+    const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
+
+    static Sprite ImportBg(string path, float ppu)
+    {
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (ti == null) return null;
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        ti.wrapMode = TextureWrapMode.Repeat;
+        ti.alphaIsTransparency = true;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;          // tarvitaan toistuvaan (Tiled) piirtoon
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    }
+
+    [MenuItem("Beat em up/35. Valtatie (kujan lopusta prätkällä)")]
+    static void CreateHighway()
+    {
+        var cam = Camera.main;
+        var alleyBg = GameObject.Find("Takakuja");
+        var road = ImportBg(HighwayRoadPath, HighwayPPU);
+        var view = ImportBg(HighwayViewPath, HighwayPPU);
+        if (cam == null || alleyBg == null || road == null || view == null)
+        {
+            Info("Tarvitaan kamera, takakuja (kohta 34) ja kuvat " + HighwayRoadPath + " ja " + HighwayViewPath);
+            return;
+        }
+        foreach (var n in new[] { "Valtatie", "Alue: Valtatie", "Kujan loppu" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        float camY = cam.transform.position.y;
+        float halfW = cam.orthographicSize * 16f / 9f;
+        float roadH = road.rect.height / HighwayPPU;
+        float top = camY + roadH * 0.5f;
+
+        var root = new GameObject("Valtatie");
+        Undo.RegisterCreatedObjectUndo(root, "Valtatie");
+        // tie: toistuu koko matkan
+        var rGo = new GameObject("Tie");
+        rGo.transform.SetParent(root.transform, false);
+        var rs = rGo.AddComponent<SpriteRenderer>();
+        rs.sprite = road;
+        rs.drawMode = SpriteDrawMode.Tiled;
+        rs.size = new Vector2(HighwayLength, roadH);
+        rs.sortingOrder = -10000;
+        rGo.transform.position = new Vector3(HighwayX0 + HighwayLength * 0.5f, camY, 0f);
+        // maisema: kaukana kaiteen takana, liikkuu hitaasti
+        var vGo = new GameObject("Maisema");
+        vGo.transform.SetParent(root.transform, false);
+        var vs = vGo.AddComponent<SpriteRenderer>();
+        vs.sprite = view;
+        vs.sortingOrder = -10001;
+        float viewH = view.rect.height / HighwayPPU;
+        float anchorY = top - HighwayViewAtRoadPx / HighwayPPU;                 // tien kuvan rivi 330
+        float viewCenterY = anchorY + (HighwayViewAnchorPx - view.rect.height * 0.5f) / HighwayPPU;
+        vGo.transform.position = new Vector3(HighwayX0, viewCenterY, 0f);
+        var px = vGo.AddComponent<ParallaxLayer>();
+        px.factor = 0.08f;
+        px.startCamX = HighwayX0 + halfW;
+        px.minX = HighwayX0;
+        px.maxX = HighwayX0 + HighwayLength;
+
+        var area = new GameObject("Alue: Valtatie").AddComponent<Area>();
+        area.areaName = "Valtatie";
+        area.maxDepthY = top - HighwayRoadTopPx / HighwayPPU;
+        area.minDepthY = top - HighwayRoadBottomPx / HighwayPPU;
+        area.useSidewalk = false;
+        area.camMinX = HighwayX0 + halfW;
+        area.camMaxX = HighwayX0 + HighwayLength - halfW;
+        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        // kujan lopussa siirtymä (prätkällä oikeasta reunasta ulos)
+        float alleyRight = alleyBg.GetComponent<SpriteRenderer>().bounds.max.x;
+        var exit = new GameObject("Kujan loppu").AddComponent<RideExit>();
+        exit.transform.position = new Vector3(alleyRight - 4f, 0f, 0f);
+        exit.target = area;
+        exit.spawnPoint = new Vector2(HighwayX0 + 3f, (area.minDepthY + area.maxDepthY) * 0.5f);
+        exit.title = "Valtatie";
+        Undo.RegisterCreatedObjectUndo(exit.gameObject, "Kujan loppu");
+
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Valtatie luotu ({HighwayLength:0} yksikköä). Aja prätkällä kujan oikeaan reunaan: pimennys, otsikko ja valtatie.\n" +
+             $"Maisema liikkuu {px.factor * 100:0} % tien vauhdista.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)
