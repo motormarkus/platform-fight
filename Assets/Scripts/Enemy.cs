@@ -696,11 +696,12 @@ public class Enemy : MonoBehaviour
     {
         bool charging = usingAlt && altLungeSpeed > 0f
             && (state == State.Windup || (state == State.Punch && !punchLanded && stateTime < altLungeTime));
-        if (!charging || (stompShake <= 0f && !Has(stompSounds))) { stompTimer = 0f; return; }
+        bool hasStomp = stompSounds != null && stompSounds.Length > 0;
+        if (!charging || (stompShake <= 0f && !hasStomp)) { stompTimer = 0f; return; }
         stompTimer -= dt;
         if (stompTimer > 0f) return;
         stompTimer = stompInterval * Random.Range(0.9f, 1.1f);
-        if (Has(stompSounds)) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
+        if (hasStomp && audioSource != null) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
         if (stompShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);
     }
 
