@@ -17,6 +17,7 @@ public class GameHUD : MonoBehaviour
     public float enemyBarTime = 3f;
 
     Texture2D white;
+    float styleScale = -1f;
     GUIStyle label, popupStyle, bigStyle;
 
     // ---------------- Kelluvat tekstit ----------------
@@ -71,15 +72,17 @@ public class GameHUD : MonoBehaviour
     void OnGUI()
     {
         if (white == null) { white = new Texture2D(1, 1); white.SetPixel(0, 0, Color.white); white.Apply(); }
-        if (label == null)
+        // mittakaava 1920x1080-ruudun mukaan, mutta niin että kapeammallakin ruudulla (esim. editorin Game-ikkuna) kaikki mahtuu
+        float s = Mathf.Min(Screen.height / 1080f, Screen.width / 1920f);
+        if (label == null || !Mathf.Approximately(s, styleScale))
         {
-            label = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(Screen.height * 0.028f), fontStyle = FontStyle.Bold };
+            styleScale = s;
+            label = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(30 * s), fontStyle = FontStyle.Bold, clipping = TextClipping.Overflow };
             label.normal.textColor = Color.white;
-            popupStyle = new GUIStyle(label) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(Screen.height * 0.032f) };
-            bigStyle = new GUIStyle(label) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(Screen.height * 0.11f) };
+            popupStyle = new GUIStyle(label) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(35 * s) };
+            bigStyle = new GUIStyle(label) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(119 * s) };
         }
 
-        float s = Screen.height / 1080f;
         float x = 40 * s, y = 30 * s, w = 420 * s, h = 26 * s;
 
         if (player != null)
