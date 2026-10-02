@@ -1659,13 +1659,14 @@ public static class BeatEmUpSetup
         if (kovis != null)
         {
             // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
-            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti" })
+            foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti", "pomo_maha" })
                 SetupAndSlice(EnemyFolder + "/" + f + ".png");
             var idle = EnemySheet("pomo_idle", report);
             var run = EnemySheet("pomo_juoksu", report);
             var grab = EnemySheet("pomo_heitto", report);
             var tackle = EnemySheet("pomo_taklaus", report);
             var slam = EnemySheet("pomo_lyonti", report);
+            var belly = EnemySheet("pomo_maha", report);
             var go = Object.Instantiate(kovis.gameObject, enemies.transform);
             go.name = "Pomo";
             go.transform.position = new Vector3(RoofX0 + RoofBossX, Depth(0.5f), 0f);
@@ -1696,6 +1697,15 @@ public static class BeatEmUpSetup
             b.altKnockUp = 6f;
             b.chargeRange = 10f;
             b.chargeMinRange = 2.6f;
+            // vatsatöytäisy: lähellä osa hyökkäyksistä, ja kombon keskellä torjuu ja töytäisee pelaajan kauas
+            b.bellySprites = belly.Length >= 8 ? belly : none;
+            b.bellyChance = 0.4f;
+            b.bellyRange = 1.7f;
+            b.bellyCounterChance = 0.35f;
+            b.bellyCounterAfterHits = 2;
+            b.bellyDamage = 14;
+            b.bellyKnockSpeed = 14f;
+            b.bellyKnockUp = 5.5f;
             b.hurtSprites = none; b.knockdownSprites = none; b.getUpSprites = none;   // omat kuvat myöhemmin
             b.flipThrownSprites = none; b.headlockThrownSprites = none;
             b.grabSprites = grab;

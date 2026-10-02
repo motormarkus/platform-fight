@@ -133,6 +133,21 @@ public class Enemy : MonoBehaviour
     public float grabWhenCloseTime = 0f;
 
     [Header("Kestävyys")]
+    [Header("Vatsatöytäisy (pomo)")]
+    [Tooltip("8 kuvaa: 0–1 lataus, 2–3 maha eteen (3 = isku), 4 palautus, 5–6 nauru, 7 asento.")]
+    public Sprite[] bellySprites;
+    [Tooltip("Lähietäisyydellä osa hyökkäyksistä on vatsatöytäisyjä.")]
+    [Range(0f, 1f)] public float bellyChance = 0f;
+    public float bellyRange = 1.6f;
+    [Tooltip("Kombon keskellä: torjuu iskun ja vastaa töytäisyllä (todennäköisyys per isku, kun kombossa on jo bellyCounterAfterHits osumaa).")]
+    [Range(0f, 1f)] public float bellyCounterChance = 0f;
+    public int bellyCounterAfterHits = 2;
+    public int bellyDamage = 14;
+    [Tooltip("Pelaaja lentää kauas.")]
+    public float bellyKnockSpeed = 14f, bellyKnockUp = 5.5f;
+    [Tooltip("Töytäisyn kuvat (0–4) ja naurun kuvat (5,6,5,6,7): nauru kestää vähän töytäisyä pidempään.")]
+    public float bellyPumpFrameTime = 0.08f, bellyLaughFrameTime = 0.13f;
+
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
     public float downTime = 1.0f;
@@ -158,7 +173,7 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Block, BarrelLift, BarrelThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -182,6 +197,12 @@ public class Enemy : MonoBehaviour
     bool flanking;          // tämä hyökkäys tehdään pelaajan selän takaa
     float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
     int blocksInRow;
+    int comboHits; float lastHitTime;   // pelaajan kombo (vatsatöytäisyn vastaisku)
+    bool bellyHit;
+    static readonly int[] BellyPump = { 0, 1, 2, 3, 4 }, BellyLaugh = { 5, 6, 5, 6, 7 };
+    float BellyImpactTime => 3f * bellyPumpFrameTime;
+    float BellyPumpTime => BellyPump.Length * bellyPumpFrameTime;
+    float BellyTotalTime => BellyPumpTime + BellyLaugh.Length * bellyLaughFrameTime;
     /// Torjuiko vihu juuri saamansa iskun (pelaaja näyttää sinisen läiskän).
     public bool JustBlocked { get; private set; }
     int attackRank;   // 0 = lähin, 1 = toinen (vastakkaiselta puolelta), 2+ = odottaa vuoroaan
@@ -202,6 +223,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(grabSprites);
         PlayerController.SortByFrameNumber(hurtSprites);
         PlayerController.SortByFrameNumber(blockSprites);
+        PlayerController.SortByFrameNumber(bellySprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
         PlayerController.SortByFrameNumber(flipThrownSprites);
@@ -302,6 +324,21 @@ public class Enemy : MonoBehaviour
                 if (stateTime >= 0.6f)
                 {
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
+                    Enter(State.Idle);
+                }
+                break;
+
+            case State.Belly:
+                if (!bellyHit && stateTime >= BellyImpactTime)
+                {
+                    bellyHit = true;
+                    if (Random.value < attackSoundChance) PlayAttackSound();
+                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);
+                    TryBellyHit();
+                }
+                if (stateTime >= BellyTotalTime)
+                {
+                    cooldown = attackCooldown * Random.Range(0.8f, 1.2f);
                     Enter(State.Idle);
                 }
                 break;
@@ -617,6 +654,8 @@ public class Enemy : MonoBehaviour
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
             if (grabIntent) { Enter(State.GrabReach); return; }
+            if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
+            { StartBelly(false); return; }
             usingAlt = chargeRange <= 0f && Has(altAttackSprites) && Random.value < altChance;   // rynnäkkö vain kaukaa
             Enter(State.Windup);
             return;
@@ -632,6 +671,26 @@ public class Enemy : MonoBehaviour
             Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
         }
         else moving = false;
+    }
+
+    void StartBelly(bool counter)
+    {
+        moving = false;
+        bellyHit = false;
+        if (player != null) facingRight = player.transform.position.x > transform.position.x;
+        Enter(State.Belly);
+        if (counter) stateTime = bellyPumpFrameTime;   // vastaisku alkaa suoraan latauksesta
+    }
+
+    void TryBellyHit()
+    {
+        if (player == null) return;
+        Vector3 p = player.transform.position, me = transform.position;
+        float dx = p.x - me.x;
+        bool front = facingRight ? dx >= -0.3f : dx <= 0.3f;
+        if (!front || Mathf.Abs(dx) > bellyRange + 0.3f || Mathf.Abs(p.y - me.y) > depthTolerance) return;
+        if (player.AirHeight > 0.9f) return;
+        player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this);
     }
 
     bool TryHitPlayer()
@@ -657,6 +716,24 @@ public class Enemy : MonoBehaviour
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held) return false;   // heiton aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
+        // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
+        if (state == State.Belly && stateTime < BellyImpactTime)
+        {
+            JustBlocked = true;
+            shakeUntil = HitFx.ShakeUntil(false);
+            return true;
+        }
+        // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
+        if (Time.time - lastHitTime > 0.9f) comboHits = 0;
+        if (bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
+            && comboHits >= bellyCounterAfterHits && Random.value < bellyCounterChance)
+        {
+            comboHits = 0;
+            JustBlocked = true;
+            shakeUntil = HitFx.ShakeUntil(false);
+            StartBelly(true);
+            return true;
+        }
         // torjunta: vain edestä, kun ei olla itse kesken iskun; muutaman torjunnan jälkeen suoja murtuu
         bool facingAttacker = (attackerX > transform.position.x) == facingRight;
         bool guardState = state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake);
@@ -674,6 +751,7 @@ public class Enemy : MonoBehaviour
         blocksInRow = 0;
 
         awake = true;
+        comboHits++; lastHitTime = Time.time;
         health = Mathf.Max(0, health - damage);
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
@@ -919,6 +997,16 @@ public class Enemy : MonoBehaviour
 
             case State.BarrelThrow:
                 if (Has(grabSprites) && grabSprites.Length >= 8) return grabSprites[stateTime < 0.15f ? 4 : stateTime < 0.3f ? 5 : 7];
+                return IdleFrame();
+
+            case State.Belly:
+                if (Has(bellySprites) && bellySprites.Length >= 8)
+                {
+                    int i = stateTime < BellyPumpTime
+                        ? BellyPump[Mathf.Min((int)(stateTime / bellyPumpFrameTime), BellyPump.Length - 1)]
+                        : BellyLaugh[Mathf.Min((int)((stateTime - BellyPumpTime) / bellyLaughFrameTime), BellyLaugh.Length - 1)];
+                    return bellySprites[i];
+                }
                 return IdleFrame();
 
             case State.Block:
