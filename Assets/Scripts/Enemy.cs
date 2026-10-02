@@ -149,6 +149,11 @@ public class Enemy : MonoBehaviour
     [Header("Äänet")]
     public AudioClip[] hurtSounds;
     [Range(0f, 1f)] public float hurtVolume = 0.99f;
+    [Tooltip("Huudot iskun lähtiessä (esim. attack1–3).")]
+    public AudioClip[] attackSounds;
+    [Range(0f, 1f)] public float attackVolume = 0.9f;
+    [Tooltip("Kuinka usein isku saa huudon (0–1), ettei se toistu joka lyönnillä.")]
+    [Range(0f, 1f)] public float attackSoundChance = 0.6f;
 
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
@@ -243,6 +248,7 @@ public class Enemy : MonoBehaviour
                 {
                     punchLanded = false;
                     if (!usingAlt && punchShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan
+                    if (Random.value < attackSoundChance) PlayAttackSound();
                     Enter(State.Punch);
                 }
                 break;
@@ -767,6 +773,18 @@ public class Enemy : MonoBehaviour
         thrownByPlayer = true;
         artThrow = heldPose >= 0;
         Enter(State.Airborne);
+    }
+
+    int lastAttackSound = -1;
+    void PlayAttackSound()
+    {
+        if (attackSounds == null || attackSounds.Length == 0 || audioSource == null) return;
+        int i = Random.Range(0, attackSounds.Length);
+        if (attackSounds.Length > 1 && i == lastAttackSound) i = (i + 1) % attackSounds.Length;
+        lastAttackSound = i;
+        if (attackSounds[i] == null) return;
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.PlayOneShot(attackSounds[i], attackVolume);
     }
 
     void PlayHurtSound()
