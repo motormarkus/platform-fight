@@ -2026,7 +2026,7 @@ public static class BeatEmUpSetup
     // valtatie_tie.png (1526 × 1024, toistuu) ja valtatie_maisema.png (kaukana, liikkuu hitaasti, ei toistu).
     const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
     const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
-    const float HighwayX0 = 6000f, HighwayLength = 650f, HighwayPPU = 85f;   // n. 1 min ajoa täydellä vauhdilla: kaupungista saarelle
+    const float HighwayX0 = 6000f, HighwayLength = 2000f, HighwayPPU = 85f;   // n. 3 min ajoa täydellä vauhdilla (11 yks/s): kaupungista saarelle
     const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
     const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
 
