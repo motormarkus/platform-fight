@@ -1186,9 +1186,11 @@ public class PlayerController : MonoBehaviour
         counterReleased = false;
         monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
         heldArt = e.HasArtFor(monkeyFlip);
+        // vihu liukuu otekohtaan omasta paikastaan (ei hyppää), eikä otteessa ole osumapysäytystä
+        grabStartOffset = (e.transform.position.x - transform.position.x) * (facingRight ? 1f : -1f);
+        grabStartDepth = e.transform.position.y - transform.position.y;
         e.BeginHeldByPlayer(transform.position.x, monkeyFlip);
         PlayGrunt();
-        HitFx.OnHit(false);
         Enter(State.CounterThrow);
         UpdateCounterThrow();
     }
@@ -1231,7 +1233,12 @@ public class PlayerController : MonoBehaviour
             // pehmeä kaari avainkohtien läpi (ei kulmikkaita suoria pätkiä), kierto tasaisesti
             Vector3 v = CatmullRom(keys[Mathf.Max(i - 1, 0)], keys[i], keys[i + 1], keys[Mathf.Min(i + 2, keys.Length - 1)], k - i);
             v.z = Mathf.Lerp(keys[i].z, keys[i + 1].z, k - i);
+            // ensimmäisen välin aikana vihu liukuu omasta paikastaan otekohtaan
+            float blend = Mathf.Clamp01(k);
+            blend = blend * blend * (3f - 2f * blend);
+            v.x = Mathf.Lerp(grabStartOffset, v.x, blend);
             Vector3 me = transform.position;
+            me.y += grabStartDepth * (1f - blend);
             int[] poses = CurPoses;
             int pose = heldArt ? poses[Mathf.Min((int)k, poses.Length - 1)] : -1;
             heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.02f, 0f), v.y - 1.5f, dir * v.z, pose);
@@ -1267,6 +1274,8 @@ public class PlayerController : MonoBehaviour
             Enter(State.Ground);
         }
     }
+
+    float grabStartOffset, grabStartDepth;
 
     static Vector3 CatmullRom(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
     {
