@@ -70,7 +70,7 @@ public class TvSet : MonoBehaviour
             case S.Falling:
                 p.x += vx * dt; transform.position = p;
                 vy -= 30f * dt; height += vy * dt; rot += spin * dt;
-                if (HitEnemyInFlight()) { vx *= 0.3f; }
+                if (HitEnemyInFlight()) { vx *= 0.5f; }
                 if (height <= 0f) { height = 0f; rot = 0f; state = S.Breaking; t = 0f; Smash(); }
                 break;
             case S.Breaking:
@@ -79,20 +79,33 @@ public class TvSet : MonoBehaviour
         Apply();
     }
 
-    bool hitSomeone;
-    /// Lentävä telkkari kaataa vihun, johon osuu.
+    [Tooltip("Lentävän telkkarin osuma (pieni vahinko, ei kaada).")]
+    public int flyDamage = 10;
+    readonly System.Collections.Generic.HashSet<Object> flyHits = new System.Collections.Generic.HashSet<Object>();
+    /// Lentävä telkkari osuu matkalla vihuihin (pieni vahinko) ja pöytiin (pöytä nitkahtaa, pullot lentävät).
     bool HitEnemyInFlight()
     {
-        if (hitSomeone || Mathf.Abs(vx) < 3f || height > 2.6f) return false;
+        if (Mathf.Abs(vx) < 3f || height > 2.6f) return false;
         Vector3 me = transform.position;
+        bool any = false;
         foreach (var e in Enemy.All.ToArray())
         {
-            if (e == null || e.IsDead) continue;
+            if (e == null || e.IsDead || flyHits.Contains(e)) continue;
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.8f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
-            if (e.TakeHit(25, me.x - Mathf.Sign(vx), true)) { hitSomeone = true; HitFx.OnHit(true); return true; }
+            flyHits.Add(e);
+            if (e.TakeHit(flyDamage, me.x - Mathf.Sign(vx), false)) { HitFx.OnHit(false); any = true; }
         }
-        return false;
+        foreach (var c in Crate.All.ToArray())
+        {
+            if (c == null || c == table || !c.CanBeHit || flyHits.Contains(c) || height > 1.6f) continue;
+            Vector3 q = c.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 1f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
+            flyHits.Add(c);
+            c.TakeHit(flyDamage, me.x - Mathf.Sign(vx));
+            any = true;
+        }
+        return any;
     }
 
     void Smash()
