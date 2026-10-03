@@ -336,7 +336,7 @@ public class Enemy : MonoBehaviour
                     {
                         secondHitDone = true;
                         if (Random.value < attackSoundChance) PlayAttackSound();
-                        TryHitPlayer();
+                        TryHitPlayer(true);
                     }
                 }
                 if (stateTime >= CurrentRecover)
@@ -823,7 +823,7 @@ public class Enemy : MonoBehaviour
         player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this);
     }
 
-    bool TryHitPlayer()
+    bool TryHitPlayer(bool comboFollow = false)
     {
         if (player == null) return false;
         Vector3 p = player.transform.position, me = transform.position;
@@ -834,7 +834,7 @@ public class Enemy : MonoBehaviour
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this);
         if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
-        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this);
+        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
     }
 
     // ---------------- Osumat ----------------
