@@ -95,11 +95,11 @@ public static class BeatEmUpSetup
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
         int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
-                  : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : BeatEmUpSetup.CellW;
+                  : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
-                  : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+                  : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -1600,6 +1600,15 @@ public static class BeatEmUpSetup
             ti.SaveAndReimport();
         }
         var glass = LoadClips("Assets/Audio/sfx", "glass");
+        // telkkari takarivin keskimmäiselle pöydälle (jääkiekko pyörii)
+        Sprite[] tvSprites = new Sprite[0];
+        string tvp = FindTexture("telkkari");
+        if (tvp != null)
+        {
+            SetupAndSlice(tvp);
+            tvSprites = LoadSprites("telkkari").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        int tvTable = 3;
         if (table.Length < 7) { Info("poyta.png: kuvia " + table.Length + "/7 (kohta 1)."); return; }
         var old = GameObject.Find("Baaripöydät");
         if (old != null) Undo.DestroyObjectImmediate(old);
@@ -1632,7 +1641,17 @@ public static class BeatEmUpSetup
             vis.sprite = table[0];
             // pulloja ja laseja reilusti, eri merkkejä
             if (kinds.Count == 0) continue;
-            int n = 7 + rnd.Next(3);                 // 7–9 pulloa pöydällä (yhteensä yli 100)
+            int ti2 = System.Array.IndexOf(BarTables, v);
+            bool hasTv = ti2 == tvTable && tvSprites.Length >= 11;
+            if (hasTv)
+            {
+                var tvGo = new GameObject("Telkkari");
+                tvGo.transform.SetParent(root.transform, false);
+                tvGo.transform.position = go.transform.position;
+                var tv = tvGo.AddComponent<TvSet>();
+                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.24f; tv.breakSounds = glass;
+            }
+            int n = hasTv ? 0 : 7 + rnd.Next(3);     // 7–9 pulloa pöydällä (yhteensä yli 100); telkkaripöydällä vain laseja reunoilla
             int g = glasses.Count > 0 ? 2 + rnd.Next(2) : 0;   // 2–3 lasia pullojen sekaan
             int total = n + g;
             var isGlass = new bool[total];
@@ -1657,7 +1676,7 @@ public static class BeatEmUpSetup
                 }
                 b.breakSounds = glass;
                 b.table = c;
-                b.tableX = Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / total) + (float)(rnd.NextDouble() - 0.5) * 0.06f;
+                b.tableX = hasTv ? (i % 2 == 0 ? -1f : 1f) * (0.85f + 0.15f * (i / 2)) : Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / total) + (float)(rnd.NextDouble() - 0.5) * 0.06f;
                 b.tableTop = 1.24f;
                 bottles++;
             }
