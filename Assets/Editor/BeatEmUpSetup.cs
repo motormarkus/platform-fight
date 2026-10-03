@@ -1566,7 +1566,7 @@ public static class BeatEmUpSetup
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
         if (club == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10)."); return; }
-        foreach (var n in new[] { "portsari_idle", "portsari_kavely", "portsari_lyonnit", "portsari_potku", "portsari_osuma", "portsari_kaatuminen", "portsari_ylosnousu" })
+        foreach (var n in new[] { "portsari_idle", "portsari_kavely", "portsari_lyonnit", "portsari_potku", "portsari_osuma", "portsari_kaatuminen", "portsari_ylosnousu", "portsari_heitto" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1615,6 +1615,9 @@ public static class BeatEmUpSetup
         t.getUpSprites = EnemySheet("portsari_ylosnousu", report);        // 5 kuvaa: kyljeltä konttaus, polvi, asento
         t.getUpTime = 0.9f;
         t.bigBody = true;                  // pelaaja heittää kuperkeikalla kuten Koviksen
+        // kuperkeikka omilla kuvilla: 0–2 ote ja veto, 3–13 lento (pyörii, piirretty), 14–16 maahan ja makuu
+        t.flipThrownSprites = EnemySheet("portsari_heitto", report);
+        t.flipFlightFrames = 11; t.flipFlightFrameTime = 0.05f; t.flipLandFrameTime = 0.1f;
         t.fightsEveryone = true;           // lähimmän kimppuun: hero tai punkkarit
         t.wakeDistance = 100f;
         // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle

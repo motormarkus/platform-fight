@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool bigBody;
     [Tooltip("Oma kuvasarja pelaajan kuperkeikkaheittoon (vihu_kuperkeikka.png, 8 kuvaa): 0 ote, 1 veto, 2 nosto jaloille, 3 lento, 4–7 alastulo selälleen.")]
     public Sprite[] flipThrownSprites;
+    [Tooltip("Kuperkeikan lentokuvien määrä (kuvasta 3 alkaen). 1 = yksi lentokuva, jota kierretään (Kovis); useampi = kuvat piirretty valmiiksi pyörimään.")]
+    public int flipFlightFrames = 1;
+    public float flipFlightFrameTime = 0.05f, flipLandFrameTime = 0.08f;
     [Tooltip("Oma kuvasarja pelaajan niskalenkkiin (punk_niskalenkki.png, 8 kuvaa): 0 lyönti, 1 ote, 2 veto, 3 askel, 4 olan yli, 5 ylösalaisin, 6–7 alastulo selälleen.")]
     public Sprite[] headlockThrownSprites;
     [Tooltip("Niskalenkin lento ja alastulo (punk_niskalenkki_lento.png, 6 kuvaa): 0 ylösalaisin, 1 lento, 2 juuri ennen maata, 3 isku, 4 pomppu, 5 makaa.")]
@@ -1201,7 +1204,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int artSpinPose, artFlightPose, artLandFirst;
     float artSpinTarget, artSpinRate, artLandFrameTime;
 
-    public bool HasFlipArt => flipThrownSprites != null && flipThrownSprites.Length >= 8;
+    public bool HasFlipArt => flipThrownSprites != null && flipThrownSprites.Length >= 6 + Mathf.Max(1, flipFlightFrames);   // ote 3 + lento + alastulo ≥ 3
     public bool HasHeadlockArt => headlockThrownSprites != null && headlockThrownSprites.Length >= 8;
     /// Onko vastuksella omat kuvat tähän heittoon.
     public bool HasArtFor(bool monkeyFlip) => monkeyFlip ? HasFlipArt : HasHeadlockArt;
@@ -1221,7 +1224,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             // kuperkeikka: nosto (2) kiertyy puolikkaan, lento (3) suorana, alastulo 4–7
             artSet = flipThrownSprites;
             artSpinPose = 2; artFlightPose = 3; artSpinTarget = 180f; artSpinRate = 700f;
-            artLandFirst = 4; artLandFrameTime = 0.08f;
+            artLandFirst = 3 + Mathf.Max(1, flipFlightFrames); artLandFrameTime = flipLandFrameTime;
+            if (flipFlightFrames > 1) artSpinTarget = 0f;   // pyöriminen piirretty kuviin: ei kierretä
         }
         else if (!monkeyFlip && HasHeadlockArt)
         {
@@ -1455,7 +1459,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     return FlightSet[fi];
                 }
                 if (thrownByPlayer && artThrow)
-                    return artSet[artFlightPose >= 0 && stateTime >= ArtSpinTime ? artFlightPose : artSpinPose];
+                {
+                    if (artFlightPose < 0 || stateTime < ArtSpinTime) return artSet[artSpinPose];
+                    int nf = artSet == flipThrownSprites ? Mathf.Max(1, flipFlightFrames) : 1;
+                    int fi = Mathf.Min((int)((stateTime - ArtSpinTime) / Mathf.Max(0.01f, flipFlightFrameTime)), nf - 1);
+                    return artSet[Mathf.Min(artFlightPose + fi, artSet.Length - 1)];
+                }
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (Has(knockdownSprites))
                 {
