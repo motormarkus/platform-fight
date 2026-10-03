@@ -124,6 +124,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Kaikkien kimppuun (portsari)")]
     [Tooltip("Hyökkää lähimmän kimppuun: pelaaja tai muut vihut (ei omiaan). Lyödyt vihut lyövät takaisin.")]
     public bool fightsEveryone;
+    [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
+    public AudioClip[] tauntSounds;
+    public float tauntVolume = 1f;
+    [Tooltip("Tauko huutojen välillä (s, satunnainen väliltä).")]
+    public Vector2 tauntPause = new Vector2(4f, 9f);
+    static float nextTauntTime;
+    static int lastTaunt = -1;
     Enemy enemyTarget;          // toinen vihu, jota jahdataan (portsari tai kosto)
     float grudgeUntil, retargetTime;
 
@@ -804,9 +811,25 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     // ---------------- Tekoäly ----------------
 
+    /// Huuto välillä: vain yksi vihu kerrallaan, ja seuraava vasta edellisen loputtua ja tauon jälkeen.
+    void MaybeTaunt()
+    {
+        if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
+        if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
+        int i = Random.Range(0, tauntSounds.Length);
+        if (tauntSounds.Length > 1 && i == lastTaunt) i = (i + 1) % tauntSounds.Length;
+        var clip = tauntSounds[i];
+        if (clip == null) return;
+        lastTaunt = i;
+        audioSource.pitch = 1f;
+        audioSource.PlayOneShot(clip, tauntVolume);
+        nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
+    }
+
     void Chase(float dt)
     {
         if (player == null) { moving = false; return; }
+        MaybeTaunt();
         if (UpdateEnemyTarget()) { ChaseEnemy(dt); return; }   // portsari tai kosto: toisen vihun kimppuun
         Vector3 p = player.transform.position;
         Vector3 me = transform.position;

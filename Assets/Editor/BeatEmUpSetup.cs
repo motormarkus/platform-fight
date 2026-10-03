@@ -1618,6 +1618,10 @@ public static class BeatEmUpSetup
         // kuperkeikka omilla kuvilla: 0–2 ote ja veto, 3–13 lento (pyörii, piirretty), 14–16 maahan ja makuu
         t.flipThrownSprites = EnemySheet("portsari_heitto", report);
         t.flipFlightFrames = 11; t.flipFlightFrameTime = 0.05f; t.flipLandFrameTime = 0.1f;
+        // huudot: Audio/portsari (poke1, poke2), välillä, ei koskaan yhtä aikaa
+        string voice = AssetDatabase.GetSubFolders("Assets/Audio").FirstOrDefault(f => Path.GetFileName(f).ToLowerInvariant().StartsWith("portsari"));
+        t.tauntSounds = voice != null ? LoadClips(voice, "poke") : new AudioClip[0];
+        report.Add($"Huudot: {t.tauntSounds.Length} (Audio/portsari/poke*)");
         t.fightsEveryone = true;           // lähimmän kimppuun: hero tai punkkarit
         t.wakeDistance = 100f;
         // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
