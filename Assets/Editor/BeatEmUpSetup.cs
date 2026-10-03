@@ -46,6 +46,7 @@ public static class BeatEmUpSetup
             SetupBackground();      // talo, baari, S-Club kerran
             CreateClub();           // S-Clubin ovi ja sisätila
             AddDancers();
+            AddBand();
             CreateShop();
             AddClubNpc();           // nainen baaritiskillä
             AddBikes();
@@ -92,10 +93,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 768 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
-                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -707,6 +708,38 @@ public static class BeatEmUpSetup
     // Lavan kohta S-Clubin sisäkuvassa (pikseleinä): tanko x = 770, jalat lavan pinnalla rivillä ~ 525
     const float StageFeetRow = 527f;
     static readonly float[] DancerPx = { 655f, 890f };
+    // toinen lava (lisätty taustakuvaan looshin kohdalle): bändi lavan keskellä
+    const float BandStagePx = 1641f;
+
+    [MenuItem("Beat em up/40. S-Clubin toinen lava: bändi")]
+    static void AddBand()
+    {
+        var club = GameObject.Find("S-Club sisä");
+        string bp = FindTexture("bandi");
+        if (club == null || bp == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10) ja bandi.png."); return; }
+        SetupAndSlice(bp);
+        var sprites = LoadSprites("bandi")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sprites.Length == 0) { Info("bandi.png: ei kuvia (kohta 1)."); return; }
+        var old = GameObject.Find("Bändi");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var bgSr = club.GetComponent<SpriteRenderer>();
+        float ppu = bgSr.sprite.pixelsPerUnit;
+        float left = club.transform.position.x - bgSr.bounds.size.x * 0.5f;
+        float top = club.transform.position.y + bgSr.bounds.size.y * 0.5f;
+        var go = new GameObject("Bändi");
+        go.transform.position = new Vector3(left + BandStagePx / ppu, top - StageFeetRow / ppu, 0f);
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprites[0];
+        sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
+        sr.color = new Color(1f, 0.88f, 0.95f);        // lavan valo
+        var d = go.AddComponent<Dancer>();
+        d.sprites = sprites;
+        d.frameTime = 1f / 12f;                        // videon tahti (joka toinen kuva 24 fps:stä)
+        Undo.RegisterCreatedObjectUndo(go, "Bändi");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info($"Bändi toisella lavalla: {sprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).");
+    }
     const float DancerScale = 1.2f;   // tanssijat 20 % isompina
 
     [MenuItem("Beat em up/11. Lisää tanssijat lavalle")]
@@ -892,7 +925,7 @@ public static class BeatEmUpSetup
     }
 
     // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
-    const float BarCounterPx = 2155f, BarCounterHalfPx = 410f;
+    const float BarCounterPx = 2155f + 652f, BarCounterHalfPx = 410f;   // + toisen lavan lisäys taustakuvaan
     const float CounterTopRow = 402f;   // tiskin yläreuna sisäkuvassa
 
     [MenuItem("Beat em up/14. Luo baaritiski (kauppa) S-Clubiin")]
