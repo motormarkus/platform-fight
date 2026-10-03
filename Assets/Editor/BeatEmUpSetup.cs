@@ -1587,6 +1587,7 @@ public static class BeatEmUpSetup
         var t = go.AddComponent<Enemy>();
         t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
         t.displayName = "Portsari";
+        t.visualScale = 1.12f;             // kaikki sarjat tasattu samaan pään kokoon (pienemmiksi): takaisin isoksi
         t.idleSprites = idle;                                  // 8 kuvaa
         t.idleFrameTime = 0.16f;
         t.walkSprites = EnemySheet("portsari_kavely", report); // 12 kuvaa videosta, 1 s askelsykli
