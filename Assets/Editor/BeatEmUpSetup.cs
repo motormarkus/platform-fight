@@ -737,7 +737,7 @@ public static class BeatEmUpSetup
         sr.color = new Color(1f, 0.88f, 0.95f);        // lavan valo
         var d = go.AddComponent<Dancer>();
         d.sprites = sprites;
-        d.frameTime = 1f / 12f;                        // videon tahti (joka toinen kuva 24 fps:stä)
+        d.frameTime = 1f / 18f;                        // videon oma tahti (18 fps, toistetut ruudut poistettu)
         Undo.RegisterCreatedObjectUndo(go, "Bändi");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Bändi toisella lavalla: {sprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).");
