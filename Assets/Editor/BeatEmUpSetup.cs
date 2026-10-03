@@ -1550,7 +1550,8 @@ public static class BeatEmUpSetup
         t.idleSprites = ride;                 // seisoo laudalla ja keinuu
         t.idleFrameTime = 0.15f;
         // liikkuessa: potku vauhtia (6 kuvaa) ja liuku (ajokuvat), vuorotellen
-        t.walkSprites = push.Length > 0 ? push.Concat(ride.Take(4)).ToArray() : ride;
+        // yksi potku (jalka taakse, potku maahan, jalka takaisin) ja pitkä liuku ajokuvilla
+        t.walkSprites = push.Length >= 6 ? new[] { push[0], push[1], push[2], push[4], push[5] }.Concat(ride).ToArray() : ride;
         t.walkFrameTime = 0.09f;
         t.punchSprites = punch;
         t.punchImpactFrame = 3;               // käsi suorana kuvassa 4
