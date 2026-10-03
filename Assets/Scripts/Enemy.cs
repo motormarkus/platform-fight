@@ -814,6 +814,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Huuto välillä: vain yksi vihu kerrallaan, ja seuraava vasta edellisen loputtua ja tauon jälkeen.
     void MaybeTaunt()
     {
+        if (nextTauntTime > Time.time + 60f) nextTauntTime = 0f;   // uusi pelikerta editorissa (staattinen jäi edellisestä)
         if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
         if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
         int i = Random.Range(0, tauntSounds.Length);
