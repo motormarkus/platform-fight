@@ -1525,7 +1525,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
-        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit" })
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit", "skettari_kavely" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1586,7 +1586,9 @@ public static class BeatEmUpSetup
         t.looseBoardSprite = ImportProp("Assets/Sprites/Rekvisiitta/skettari_lauta.png");
         report.Add("Irtolauta: " + (t.looseBoardSprite != null ? "OK" : "puuttuu"));
         // noustua tappelee jalan (omat kävely- ja lyöntikuvat myöhemmin; siihen asti tappeluasento)
-        t.footMoveSpeedX = 2.8f; t.footMoveSpeedY = 1.6f;
+        t.footMoveSpeedX = 3.3f; t.footMoveSpeedY = 1.9f;   // nopea kuin Lippis
+        var footWalk = EnemySheet("skettari_kavely", report);   // 12 kuvaa Viggle-videosta, 24 fps
+        if (footWalk.Length > 0) { t.footWalkSprites = footWalk; t.footWalkFrameTime = 0.045f; }
         var footIdle = EnemySheet("skettari_idle", report);
         if (footIdle.Length > 0) t.footIdleSprites = footIdle;
         var jumpKick = EnemySheet("skettari_hyppypotku", report);   // 12 kuvaa, potku ojennettuna kuvassa 6

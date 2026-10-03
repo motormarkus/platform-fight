@@ -182,6 +182,7 @@ public class Enemy : MonoBehaviour
     public int footKickImpactFrame = 5;
     public float footKickLunge = 6f;
     public float footMoveSpeedX = 2.8f, footMoveSpeedY = 1.6f;
+    public float footWalkFrameTime = 0.05f;
     bool boardLost;
     float lastMoveX = 1f;
 
@@ -607,6 +608,8 @@ public class Enemy : MonoBehaviour
         Sprite[] stance = Has(getUpSprites) ? new[] { getUpSprites[getUpSprites.Length - 1] } : idleSprites;
         idleSprites = Has(footIdleSprites) ? footIdleSprites : stance;
         walkSprites = Has(footWalkSprites) ? footWalkSprites : idleSprites;
+        if (Has(footWalkSprites)) walkFrameTime = footWalkFrameTime;
+        idleFrameTime = 0.12f;
         punchSprites = Has(footPunchSprites) ? footPunchSprites : Has(footKickSprites) ? footKickSprites : idleSprites;
         punchImpactFrame = Has(footPunchSprites) ? footPunchImpactFrame : Has(footKickSprites) ? footKickImpactFrame : 0;
         if (Has(footPunchSprites))
