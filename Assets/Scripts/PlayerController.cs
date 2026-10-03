@@ -930,8 +930,12 @@ public class PlayerController : MonoBehaviour
 
     /// Tarkistaa, osuuko pelaajan isku viholliseen. Palauttaa true, jos osui ainakin yhteen.
     /// sparkHeight = osumaläiskän korkeus maasta (pää n. 2.8, vatsa 2.0, jalat 1.2).
+    /// Onko käynnissä oleva isku potku (telkkari lentää vain potkusta).
+    public static bool AttackIsKick { get; private set; }
+
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
+        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;

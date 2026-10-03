@@ -50,14 +50,16 @@ public class TvSet : MonoBehaviour
                 {
                     // isku pöytään: telkkari lentää iskun suuntaan kaarella ja pyörii; muuten tippuu kallistuen
                     float hitDir = table != null ? table.LastHitDir : 0f;
-                    if (hitDir != 0f)
+                    bool kicked = table != null && table.LastHitKick;
+                    if (hitDir != 0f && kicked)
                     {
                         vx = hitDir * Random.Range(5f, 7.5f); vy = Random.Range(4.5f, 6.5f);
                         spin = -hitDir * Random.Range(300f, 500f);
                     }
                     else
                     {
-                        float side = Random.value < 0.5f ? -1f : 1f;
+                        // lyönti tai muu: tippuu sivulle alas (iskun suuntaan, jos tiedossa)
+                        float side = hitDir != 0f ? hitDir : (Random.value < 0.5f ? -1f : 1f);
                         vx = side * Random.Range(0.8f, 1.8f); vy = Random.Range(1.5f, 3f);
                         spin = -side * Random.Range(120f, 220f);
                     }
