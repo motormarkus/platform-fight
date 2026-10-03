@@ -299,7 +299,7 @@ public static class BeatEmUpSetup
     }
 
     // Pelin taustamusiikki (tiedostonimi ilman päätettä kansiossa Assets/Audio/Musiikki)
-    const string MusicName = "Blade Anthem";
+    const string MusicName = "Turpaan vaan";
 
     [MenuItem("Beat em up/7. Aseta taustamusiikki")]
     static void SetupMusic()
