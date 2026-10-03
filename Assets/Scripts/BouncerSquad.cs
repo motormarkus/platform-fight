@@ -13,6 +13,8 @@ public class BouncerSquad : MonoBehaviour
     public float spawnInterval = 0.8f;
     [Tooltip("Viive ensimmäisestä iskusta ensimmäiseen portsariin (s).")]
     public float firstDelay = 1.2f;
+    [Tooltip("Joka toinen portsari tulee klubin oikeasta reunasta (muut ovelta): molemmista suunnista.")]
+    public bool bothSides = true;
 
     PlayerController pc;
     bool triggered;
@@ -51,6 +53,14 @@ public class BouncerSquad : MonoBehaviour
         var bnc = bouncers[next++];
         timer = spawnInterval;
         if (bnc == null) return;
+        if (bothSides && next % 2 == 0)
+        {
+            // oikea reuna: kävelee sisään ruudun ulkopuolelta (taustakuvan oikeasta päästä)
+            var cam = Camera.main;
+            float halfW = cam != null ? cam.orthographicSize * cam.aspect : 9f;
+            Vector3 q = bnc.transform.position;
+            bnc.transform.position = new Vector3(area.camMaxX + halfW - 0.8f, q.y, 0f);
+        }
         bnc.gameObject.SetActive(true);
         bnc.WakeUp();
     }

@@ -793,7 +793,7 @@ public static class BeatEmUpSetup
     // ---------------- Punkkari ----------------
     // Kadulla (x pelaajan aloituskohdasta, syvyys y) ja S-Clubin sisällä (x sisätilan vasemmasta reunasta, syvyys 0 = keskellä)
     static readonly Vector2[] PunkStreet = { new Vector2(20f, -2.8f), new Vector2(45f, -2.2f), new Vector2(85f, -3.0f), new Vector2(115f, -2.4f), new Vector2(150f, -3.1f) };
-    static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f), new Vector2(31f, -0.4f), new Vector2(36f, 0.4f) };
+    static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(16f, -0.2f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f), new Vector2(31f, -0.4f), new Vector2(36f, 0.4f) };
 
     static Sprite[] EnemySheet(string name, List<string> report)
     {
@@ -1559,7 +1559,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Portsari ----------------
-    const int BouncerCount = 5;   // tulevat ovesta, kun klubissa alkaa ensimmäinen tappelu
+    const int BouncerCount = 6;   // tulevat molemmista suunnista (ovelta ja oikeasta reunasta), kun klubissa alkaa ensimmäinen tappelu
 
     [MenuItem("Beat em up/43. Portsarit S-Clubiin")]
     static void AddBouncers()
@@ -1628,14 +1628,14 @@ public static class BeatEmUpSetup
         {
             var c = i == 0 ? go : Object.Instantiate(go, root.transform);
             if (i > 0) c.name = "Portsari_" + (i + 1);
-            float y = Mathf.Clamp(entry.y + ((i % 3) - 1) * 0.5f, club.minDepthY, club.maxDepthY);
+            float y = Mathf.Clamp(entry.y + (((i / 2) % 3) - 1) * 0.6f, club.minDepthY, club.maxDepthY);   // parit: ovi ja oikea reuna
             c.transform.position = new Vector3(entry.x - 0.4f * i, y, 0f);
             squad.bouncers[i] = c.GetComponent<Enemy>();
             c.SetActive(false);            // piilossa, kunnes tappelu alkaa
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        Info($"S-Clubiin {BouncerCount} portsaria: tulevat ovesta, kun klubissa alkaa ensimmäinen tappelu, ja käyvät lähimmän kimppuun (myös punkkareiden).\n\n" + string.Join("\n", report) +
+        Info($"S-Clubiin {BouncerCount} portsaria: tulevat molemmista suunnista (ovelta ja oikeasta reunasta), kun klubissa alkaa ensimmäinen tappelu, ja käyvät lähimmän kimppuun (myös punkkareiden).\n\n" + string.Join("\n", report) +
              "\n\nJab + suora ja kaatava potku. Osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
     }
 
