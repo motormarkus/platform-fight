@@ -55,6 +55,7 @@ public static class BeatEmUpSetup
             AddPunks();
             AddLippis();
             AddSkaters();
+            AddBouncers();          // portsarit S-Clubissa
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             AddBarProps();          // S-Clubin pöydät ja pullot (baaritappelu)
@@ -1557,6 +1558,73 @@ public static class BeatEmUpSetup
             "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).");
     }
 
+    // ---------------- Portsari ----------------
+    // S-Clubissa: x klubin vasemmasta reunasta, y syvyys keskeltä
+    static readonly Vector2[] BouncerClub = { new Vector2(6f, 0.2f), new Vector2(22f, -0.5f), new Vector2(34f, 0.3f) };
+
+    [MenuItem("Beat em up/43. Portsarit S-Clubiin")]
+    static void AddBouncers()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        if (club == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10)."); return; }
+        foreach (var n in new[] { "portsari_idle", "portsari_kavely", "portsari_lyonnit", "portsari_potku" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var report = new List<string>();
+        Sprite[] idle = EnemySheet("portsari_idle", report);
+        if (idle.Length == 0) { Info("portsari_idle.png puuttuu."); return; }
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+            if (e.gameObject.name.StartsWith("Portsari")) Undo.DestroyObjectImmediate(e.gameObject);
+
+        var go = new GameObject("Portsari");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Portsari";
+        t.idleSprites = idle;                                  // 8 kuvaa
+        t.idleFrameTime = 0.16f;
+        t.walkSprites = EnemySheet("portsari_kavely", report); // 12 kuvaa videosta, 1 s askelsykli
+        t.walkFrameTime = 0.083f;
+        t.punchSprites = EnemySheet("portsari_lyonnit", report);   // jab (0–4) ja heti perään takasuora (5–9)
+        t.punchImpactFrame = 3;            // jab ojennettuna
+        t.secondImpactFrame = 7;           // takasuora ojennettuna
+        t.windupTime = 0.25f;
+        t.punchRecoverTime = 0.55f;
+        t.punchDamage = 9;
+        t.altAttackSprites = EnemySheet("portsari_potku", report);  // etupotku (kuva 4 ojennettuna)
+        t.altImpactFrame = 3;
+        t.altDamage = 15;
+        t.altKnockdown = true;             // potku kaataa
+        t.altChance = 0.35f;
+        t.altReach = 2.5f;
+        t.attackRange = 2.0f;
+        t.moveSpeedX = 2.3f;               // iso ja hidas, mutta kestää
+        t.moveSpeedY = 1.4f;
+        t.maxHealth = 130;
+        t.attackCooldown = 1.3f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        t.hurtVolume = 0.99f;
+        Undo.RegisterCreatedObjectUndo(go, "Portsari");
+
+        float mid = (club.minDepthY + club.maxDepthY) * 0.5f;
+        for (int i = 0; i < BouncerClub.Length; i++)
+        {
+            var v = BouncerClub[i];
+            var c = i == 0 ? go : Object.Instantiate(go);
+            if (i > 0) { c.name = "Portsari_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Portsari"); }
+            c.transform.position = new Vector3(ClubX0 + v.x, Mathf.Clamp(mid + v.y, club.minDepthY, club.maxDepthY), 0f);
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        Info($"Portsareita S-Clubissa: {BouncerClub.Length}\n\n" + string.Join("\n", report) +
+             "\n\nJab + suora ja kaatava potku. Osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
+    }
+
     // ---------------- S-Clubin baaripöydät ja pullot ----------------
     // pöytien paikat: x klubin vasemmasta reunasta (yks), syvyys 0 = seinän vieressä, 1 = edessä
     // kaksi riviä lomittain: takarivi seinän puolella, eturivi edessä; keskelle jää tilaa tappelulle
@@ -2212,6 +2280,11 @@ public static class BeatEmUpSetup
             {
                 SetPunkSounds(e);
                 e.runSpeedMultiplier = 1.6f; e.flankChance = 0.35f; e.retreatChance = 0.3f; e.blockChance = 0f;
+            }
+            else if (n.StartsWith("Portsari"))
+            {
+                // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
+                e.runSpeedMultiplier = 1.1f; e.flankChance = 0.05f; e.retreatChance = 0f; e.blockChance = 0f;
             }
             else if (n.StartsWith("Kovis"))
             {
