@@ -35,6 +35,8 @@ public class TvSet : MonoBehaviour
         return true;
     }
     public float tableTop = 1.24f;
+    [Tooltip("Kuvan koko (1 = alkuperäinen).")]
+    public float scale = 1.3f;
     public AudioClip[] breakSounds;
 
     enum S { OnTable, Falling, Held, Thrown, Breaking }
@@ -237,10 +239,12 @@ public class TvSet : MonoBehaviour
         float g = state == S.Breaking || screenOff ? 1f : 0.93f + 0.07f * Mathf.PerlinNoise(Time.time * 6f, 0f);
         sr.color = new Color(g, g, g, 1f);
         var q = Quaternion.Euler(0f, 0f, rot);
-        Vector3 c = new Vector3(0f, 0.45f, 0f);
+        Vector3 c = new Vector3(0f, 0.45f * scale, 0f);
+        sr.transform.localScale = new Vector3(scale, scale, 1f);
         sr.transform.localRotation = q;
-        sr.transform.localPosition = new Vector3(0f, groundOffset + height - 0.04f, 0f) + c - q * c;
+        sr.transform.localPosition = new Vector3(0f, groundOffset + height - 0.04f * scale, 0f) + c - q * c;
         shadow.transform.localPosition = new Vector3(0f, groundOffset, 0f);
+        shadow.transform.localScale = new Vector3(1.1f * scale, 0.25f * scale, 1f);
         int order = state == S.OnTable && table != null ? table.SortOrder + 2
                   : state == S.Held ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;

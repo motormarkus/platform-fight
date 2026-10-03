@@ -1567,6 +1567,7 @@ public static class BeatEmUpSetup
     static readonly float[] TvTablesX = { 7f, 11f, 15f, 19f, 23f, 27f, 31f, 35f };
 
     const float TableScale = 1.3f;   // suorakaidepöytä 30 % isompi, pullot 5 % (Bottle.scale)
+    const float TvTableScale = 1.3f; // pyöreä telkkaripöytä 30 % isompi, telkkari myös (TvSet.scale)
 
     [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
     static void AddBarProps()
@@ -1647,14 +1648,15 @@ public static class BeatEmUpSetup
                 c.breakSprites = round.Skip(3).ToArray();          // kansi halkeaa, jalka sirpaloituu, romukasa
                 c.breakFrameTime = 0.07f;
                 c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
-                c.shadowWidth = 1.3f; c.hitRadiusX = 0.8f; c.debrisTime = 6f;
+                c.visualScale = TvTableScale;              // isompi pyöreä pöytä
+                c.shadowWidth = 1.3f; c.hitRadiusX = 0.8f * TvTableScale; c.debrisTime = 6f;
                 c.moneyChance = 0.2f; c.energyChance = 0.1f; c.throwDamage = 20;
                 vis.sprite = round[0];
                 var tvGo = new GameObject("Telkkari");
                 tvGo.transform.SetParent(root.transform, false);
                 tvGo.transform.position = go.transform.position;
                 var tv = tvGo.AddComponent<TvSet>();
-                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.12f; tv.breakSounds = glass;
+                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.16f * TvTableScale - 0.04f; tv.breakSounds = glass;
                 tvs++;
             }
         foreach (var v in BarTables)
