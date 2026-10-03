@@ -1554,20 +1554,22 @@ public static class BeatEmUpSetup
         t.walkFrameTime = 0.09f;
         t.punchSprites = punch;
         t.punchImpactFrame = 3;               // käsi suorana kuvassa 4
-        t.windupTime = 0.25f;
+        t.windupTime = 0.15f;
         // syöksylyönti: liukuu laudalla kauempaa lyönti edellä
         t.altAttackSprites = punch;
         t.altImpactFrame = 3;
         t.altChance = 0.5f;
         t.altDamage = 12;
         t.altReach = 2.2f;
-        t.altLungeSpeed = 11f;
-        t.altLungeTime = 0.4f;
+        t.altLungeSpeed = 12f;                // vauhti jatkuu lyönnissä
+        t.altLungeTime = 0.35f;
+        t.altExtraWindup = 0.05f;
         t.chargeRange = 7f;
         t.chargeMinRange = 2.6f;
-        t.moveSpeedX = 4.4f;                  // laudalla nopea
-        t.moveSpeedY = 2.0f;
-        t.runSpeedMultiplier = 1.4f;
+        t.moveSpeedX = 7.5f;                  // laudalla todella nopea: ajaa ruudun poikki edestakaisin
+        t.moveSpeedY = 2.2f;
+        t.runSpeedMultiplier = 1.3f;
+        t.skatePass = true; t.passOvershoot = 6.5f;
         t.flankChance = 0.4f;                 // kiertää usein selän taakse
         t.retreatChance = 0.45f;              // iske ja liu'u pois
         t.maxHealth = 55;

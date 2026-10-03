@@ -190,6 +190,11 @@ public class Enemy : MonoBehaviour
     public float footKickLunge = 6f;
     public float footMoveSpeedX = 2.8f, footMoveSpeedY = 1.6f;
     public float footWalkFrameTime = 0.05f;
+    [Tooltip("Laudalla: ajaa kovaa edestakaisin pelaajan ohi (kääntyy toisella puolella) ja lyö ohittaessaan.")]
+    public bool skatePass;
+    [Tooltip("Kuinka pitkälle pelaajan ohi ajetaan ennen kääntymistä (yksikköä).")]
+    public float passOvershoot = 6.5f;
+    int passDir;
     bool boardLost;
     float lastMoveX = 1f;
 
@@ -627,6 +632,7 @@ public class Enemy : MonoBehaviour
         }
         if (Has(footHurtSprites)) hurtSprites = footHurtSprites;
         chargeRange = 0f;                            // syöksylyönti vain laudalla
+        skatePass = false;
         if (Has(footKickSprites))
         {
             // hyppypotku: loikka eteen ja potku
@@ -725,6 +731,8 @@ public class Enemy : MonoBehaviour
             facingRight = p.x > me.x;
             if (CanGrabPlayer()) { moving = false; grabIntent = false; attackRolled = false; Enter(State.GrabReach); return; }
         }
+        if (skatePass && !boardLost && attackRank <= 1) { SkatePass(dt, p, me); return; }
+
         // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
         if (cooldown <= 0f && !attackRolled)
         {
@@ -812,6 +820,31 @@ public class Enemy : MonoBehaviour
         stompTimer = stompInterval * Random.Range(0.9f, 1.1f);
         if (hasStomp && audioSource != null) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
         if (stompShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);
+    }
+
+    /// Skettari laudalla: kova vauhti pelaajan ohi, käännös toisella puolella, lyönti ohituksessa.
+    void SkatePass(float dt, Vector3 p, Vector3 me)
+    {
+        if (passDir == 0) passDir = me.x < p.x ? 1 : -1;
+        facingRight = passDir > 0;
+        moving = true;
+        float spd = moveSpeedX * runSpeedMultiplier;
+        float dy = p.y - me.y;
+        Move(new Vector2(passDir * spd * dt, Mathf.Clamp(dy, -moveSpeedY * dt, moveSpeedY * dt)));
+        animClock += dt * (runSpeedMultiplier - 1f);
+        float moved = Mathf.Abs(transform.position.x - me.x);
+        float past = (me.x - p.x) * passDir;   // > 0: pelaajan ohi
+        // käännös: tarpeeksi pitkällä ohi tai ruudun reunassa (liike pysähtyi)
+        if (past >= passOvershoot || moved < spd * dt * 0.3f) passDir = -passDir;
+        // lyönti ohituksessa: pelaaja edessä lyöntietäisyydellä samalla syvyydellä
+        float ahead = -past;
+        if (cooldown <= 0f && retreatTimer <= 0f && !player.IsDown && ahead > 0.4f && ahead < attackRange + 0.8f && Mathf.Abs(dy) <= depthTolerance)
+        {
+            moving = false;
+            attackRolled = false;
+            usingAlt = Has(altAttackSprites);   // syöksylyönti: vauhti jatkuu iskussa
+            Enter(State.Windup);
+        }
     }
 
     void StartBelly(bool counter)
