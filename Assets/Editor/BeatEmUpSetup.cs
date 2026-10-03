@@ -1568,14 +1568,26 @@ public static class BeatEmUpSetup
         SetupAndSlice(tp);
         var table = LoadSprites("poyta").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var kinds = new List<Sprite[]>();
+        var kindNames = new List<string>();
         foreach (var n in new[] { "pullo_olut", "pullo_sininen", "pullo_likoori", "pullo_vodka" })
         {
             string bp = FindTexture(n);
             if (bp == null) continue;
             SetupAndSlice(bp);
             var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
-            if (sp.Length >= 7) kinds.Add(sp);
+            if (sp.Length >= 7) { kinds.Add(sp); kindNames.Add(n.Substring(6)); }
         }
+        // läiskät (Resources/Tahrat): yksittäisiä spritejä, keskikohta
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Tahrat" }))
+        {
+            var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            ti.SaveAndReimport();
+        }
+        var glass = LoadClips("Assets/Audio/sfx", "glass");
         if (table.Length < 7) { Info("poyta.png: kuvia " + table.Length + "/7 (kohta 1)."); return; }
         var old = GameObject.Find("Baaripöydät");
         if (old != null) Undo.DestroyObjectImmediate(old);
@@ -1615,7 +1627,10 @@ public static class BeatEmUpSetup
                 bGo.transform.SetParent(root.transform, false);
                 bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
-                b.sprites = kinds[rnd.Next(kinds.Count)];
+                int ki = rnd.Next(kinds.Count);
+                b.sprites = kinds[ki];
+                b.stainKind = kindNames[ki];
+                b.breakSounds = glass;
                 b.table = c;
                 b.tableX = Mathf.Lerp(-1.05f, 1.05f, (i + 0.5f) / n) + (float)(rnd.NextDouble() - 0.5) * 0.15f;
                 b.tableTop = 1.24f;
@@ -1623,7 +1638,7 @@ public static class BeatEmUpSetup
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"S-Clubiin {BarTables.Length} pöytää ja {bottles} pulloa ({kinds.Count} pullomerkkiä).\n" +
+        Info($"S-Clubiin {BarTables.Length} pöytää ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
              "Lyönti pöytään: nitkahtaa, pullot lentävät tai kaatuvat. Kolmas isku tai lentävä vihu hajottaa pöydän.\n" +
              "Ehjä pullo lattialla: kiinniottonappi poimii käteen, lyöntinappi heittää.\n\nTallenna scene (Ctrl+S).");
     }

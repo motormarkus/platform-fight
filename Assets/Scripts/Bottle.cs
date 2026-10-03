@@ -21,6 +21,11 @@ public class Bottle : MonoBehaviour
     public float frameTime = 0.06f;
     public int throwDamage = 18;
     public float throwSpeed = 15f;
+    [Tooltip("Läiskän laji (Resources/Tahrat/<laji>_*.png): olut, vodka, sininen, likoori.")]
+    public string stainKind = "olut";
+    [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
+    public AudioClip[] breakSounds;
+    static int lastSound = -1;
 
     enum S { OnTable, Wobble, Falling, Lying, Held, Thrown, Breaking }
     S state = S.OnTable;
@@ -221,7 +226,14 @@ public class Bottle : MonoBehaviour
     {
         state = S.Breaking; t = 0f; height = 0f; rot = 0f;
         HitFx.OnHit(false);
-        BarStain.SpawnAt(transform.position);
+        if (breakSounds != null && breakSounds.Length > 0)
+        {
+            int i = Random.Range(0, breakSounds.Length);
+            if (breakSounds.Length > 1 && i == lastSound) i = (i + 1 + Random.Range(0, breakSounds.Length - 1)) % breakSounds.Length;
+            lastSound = i;
+            HitFx.PlayClip(breakSounds[i], Random.Range(0.55f, 1f));
+        }
+        BarStain.SpawnAt(transform.position, stainKind);
     }
 
     void ApplyVisual()
