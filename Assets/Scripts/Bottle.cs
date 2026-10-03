@@ -91,8 +91,9 @@ public class Bottle : MonoBehaviour
         if (Held == null || p == null) return false;
         var b = Held; Held = null;
         float dir = p.FacingRight ? 1f : -1f;
-        b.transform.position = p.transform.position + new Vector3(dir * 0.6f, 0f, 0f);
-        b.vx = dir * b.throwSpeed; b.vy = 1.5f; b.height = 1.9f;
+        Vector3 fist = p.FistWorld;   // lähtee nyrkistä
+        b.transform.position = new Vector3(fist.x, p.transform.position.y, 0f);
+        b.vx = dir * b.throwSpeed; b.vy = 1.5f; b.height = Mathf.Clamp(fist.y - p.transform.position.y - 0.2f, 1.2f, 3.5f);
         b.spin = -dir * 900f; b.hitList.Clear();
         b.state = S.Thrown; b.t = 0f;
         return true;
@@ -154,10 +155,12 @@ public class Bottle : MonoBehaviour
 
             case S.Held:
                 if (pc == null) { DropHeld(); break; }
+                // nyrkin takana: kuva seuraa nyrkkiä joka framessa, pullon alaosa nyrkin sisässä, yläpää hieman taaksepäin
                 float dir = pc.FacingRight ? 1f : -1f;
-                transform.position = pc.transform.position + new Vector3(dir * 0.5f, -0.01f, 0f);
-                height = 1.75f + pc.AirHeight;
-                rot = -dir * 25f;
+                Vector3 fist = pc.FistWorld;
+                transform.position = new Vector3(fist.x, pc.transform.position.y - 0.01f, 0f);
+                height = fist.y - pc.transform.position.y - 0.2f * scale;
+                rot = dir * 10f;
                 break;
 
             case S.Thrown:
@@ -257,7 +260,7 @@ public class Bottle : MonoBehaviour
         sr.transform.localPosition = new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
-        else if (state == S.Held && pc != null) order = Mathf.RoundToInt(-pc.transform.position.y * 100f) + 2;
+        else if (state == S.Held && pc != null) order = pc.BodySortOrder - 1;   // heron (nyrkin) taakse
         else order = Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
         shadow.sortingOrder = order - 1;

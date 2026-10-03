@@ -933,6 +933,17 @@ public class PlayerController : MonoBehaviour
     public void AddMoney(int amount) { money += amount; }
     /// Kuinka korkealla pelaaja on hypyssä (vihollisen lyönti menee ali, jos korkealla).
     public float AirHeight => height;
+    /// Etummaisen nyrkin paikka maailmassa (pullo piirretään sen taakse).
+    public Vector3 FistWorld
+    {
+        get
+        {
+            if (body == null) return transform.position + new Vector3(facingRight ? 0.76f : -0.76f, 2.25f + height, 0f);
+            Vector2 f = HeroFist.For(body.sprite);
+            return body.transform.position + new Vector3(facingRight ? f.x : -f.x, f.y, 0f);
+        }
+    }
+    public int BodySortOrder => body != null ? body.sortingOrder : Mathf.RoundToInt(-transform.position.y * 100f);
 
     /// Tarkistaa, osuuko pelaajan isku viholliseen. Palauttaa true, jos osui ainakin yhteen.
     /// sparkHeight = osumaläiskän korkeus maasta (pää n. 2.8, vatsa 2.0, jalat 1.2).
