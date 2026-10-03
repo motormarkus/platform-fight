@@ -14,7 +14,55 @@ public class TvSet : MonoBehaviour
     public float tableTop = 1.24f;
     public AudioClip[] breakSounds;
 
-    enum S { OnTable, Falling, Breaking }
+    enum S { OnTable, Falling, Held, Thrown, Breaking }
+    /// Pelaajan kantama telkkari.
+    public static TvSet Held { get; private set; }
+    public static readonly System.Collections.Generic.List<TvSet> All = new System.Collections.Generic.List<TvSet>();
+    void OnEnable() { All.Add(this); }
+    void OnDisable() { All.Remove(this); if (Held == this) Held = null; }
+    [Tooltip("Heitetyn telkkarin osuma (kaataa).")]
+    public int throwDamage = 22;
+    int carriedOrder;
+
+    /// Kiinniottonappi telkkaripöydän vieressä: telkkari pään yli.
+    public static bool TryPickUp(PlayerController p)
+    {
+        if (Held != null || p == null) return false;
+        Vector3 me = p.transform.position;
+        float dir = p.FacingRight ? 1f : -1f;
+        foreach (var tv in All)
+        {
+            if (tv == null || tv.state != S.OnTable) continue;
+            Vector3 q = tv.transform.position;
+            float dx = (q.x - me.x) * dir;
+            if (dx < -0.4f || dx > 1.6f || Mathf.Abs(q.y - me.y) > 0.6f) continue;
+            tv.table = null; tv.state = S.Held; tv.t = 0f; tv.rot = 0f;
+            Held = tv;
+            return true;
+        }
+        return false;
+    }
+
+    public void SetCarried(Vector3 pos, float h, int order)
+    {
+        if (state != S.Held) return;
+        transform.position = pos; height = h; carriedOrder = order;
+    }
+
+    public static void ThrowHeld(float vx, float up)
+    {
+        if (Held == null) return;
+        var tv = Held; Held = null;
+        tv.vx = vx; tv.vy = up; tv.spin = -Mathf.Sign(vx) * 260f;
+        tv.flyHits.Clear(); tv.state = S.Thrown; tv.t = 0f;
+    }
+
+    public static void DropHeld()
+    {
+        if (Held == null) return;
+        var tv = Held; Held = null;
+        tv.vx = 0f; tv.vy = 0f; tv.spin = 90f; tv.flyHits.Clear(); tv.state = S.Falling; tv.t = 0f;
+    }
     S state = S.OnTable;
     SpriteRenderer sr, shadow;
     int seenDisturb;
@@ -75,6 +123,13 @@ public class TvSet : MonoBehaviour
                 if (HitEnemyInFlight()) { vx *= 0.5f; }
                 if (height <= 0f) { height = 0f; rot = 0f; state = S.Breaking; t = 0f; Smash(); }
                 break;
+            case S.Held:
+                break;
+            case S.Thrown:
+                p.x += vx * dt; transform.position = p;
+                vy -= 30f * dt; height += vy * dt; rot += spin * dt;
+                if (ThrownHit() || height <= 0f) { height = 0f; rot = 0f; state = S.Breaking; t = 0f; Smash(); }
+                break;
             case S.Breaking:
                 break;
         }
@@ -110,6 +165,29 @@ public class TvSet : MonoBehaviour
         return any;
     }
 
+    /// Heitetty telkkari: osuu vihuun (kaataa) tai pöytään ja hajoaa saman tien.
+    bool ThrownHit()
+    {
+        if (height > 2.8f) return false;
+        Vector3 me = transform.position;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 q = e.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 0.9f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
+            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), true)) return true;
+        }
+        foreach (var c in Crate.All.ToArray())
+        {
+            if (c == null || !c.CanBeHit || height > 1.6f) continue;
+            Vector3 q = c.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 1f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
+            c.TakeHit(throwDamage, me.x - Mathf.Sign(vx));
+            return true;
+        }
+        return false;
+    }
+
     void Smash()
     {
         HitFx.OnHit(true);
@@ -136,9 +214,10 @@ public class TvSet : MonoBehaviour
         Vector3 c = new Vector3(0f, 0.45f, 0f);
         sr.transform.localRotation = q;
         sr.transform.localPosition = new Vector3(0f, height - 0.04f, 0f) + c - q * c;
-        int order = state == S.OnTable && table != null ? table.SortOrder + 2 : Mathf.RoundToInt(-transform.position.y * 100f);
+        int order = state == S.OnTable && table != null ? table.SortOrder + 2
+                  : state == S.Held ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
         shadow.sortingOrder = order - 1;
-        shadow.enabled = state != S.OnTable;
+        shadow.enabled = state != S.OnTable && state != S.Held;
     }
 }

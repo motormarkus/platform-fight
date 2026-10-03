@@ -478,6 +478,7 @@ public class PlayerController : MonoBehaviour
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
                 if (catchPressed)
                 {
+                    if (TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = NearbyCrate();
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
                     if (Bottle.TryPickUp(this)) break;                       // ehjä pullo lattialla: käteen
@@ -640,7 +641,7 @@ public class PlayerController : MonoBehaviour
             }
 
             case State.Carry:
-                if (carried == null) { Enter(State.Ground); break; }
+                if (carried == null && TvSet.Held == null) { Enter(State.Ground); break; }
                 if (punchPressed || kickPressed || catchPressed || pushPressed)
                 {
                     crateReleased = false;
@@ -679,6 +680,11 @@ public class PlayerController : MonoBehaviour
                     {
                         carried.Throw(dir * crateThrowSpeed, crateThrowUp);
                         carried = null;
+                        crateReleased = true;
+                    }
+                    else if (stateTime >= release && TvSet.Held != null)
+                    {
+                        TvSet.ThrowHeld(dir * crateThrowSpeed, crateThrowUp);
                         crateReleased = true;
                     }
                 }
@@ -1190,8 +1196,13 @@ public class PlayerController : MonoBehaviour
     /// Pitää laatikkoa: dx vaakasuunnassa pelaajasta, korkeus pelaajan jaloista.
     void HoldCrate(float dx, float lift)
     {
-        if (carried == null) return;
         Vector3 me = transform.position;
+        if (carried == null)
+        {
+            // telkkari kannetaan samalla tavalla pään päällä
+            if (TvSet.Held != null) TvSet.Held.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - 0.25f, Mathf.RoundToInt(-me.y * 100f) + 1);
+            return;
+        }
         carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift,
                            Mathf.RoundToInt(-me.y * 100f) + 1);
     }
@@ -1199,6 +1210,7 @@ public class PlayerController : MonoBehaviour
     /// Laatikko putoaa käsistä (osuma, tarttuminen, ovi).
     void DropCrate()
     {
+        TvSet.DropHeld();
         if (carried != null) carried.Drop();
         carried = null;
     }
