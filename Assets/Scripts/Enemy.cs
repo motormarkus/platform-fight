@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public string displayName = "Kovis";
     [Tooltip("Iso vastus (Kovis): pelaajan vastaheitto on kuperkeikkaheitto, muille niskalenkki.")]
     public bool bigBody;
+    [Tooltip("Heitettynä (iso vihu) kaataa tieltään muut vihut: vahinko.")]
+    public int bowlDamage = 10;
     [Tooltip("Oma kuvasarja pelaajan kuperkeikkaheittoon (vihu_kuperkeikka.png, 8 kuvaa): 0 ote, 1 veto, 2 nosto jaloille, 3 lento, 4–7 alastulo selälleen.")]
     public Sprite[] flipThrownSprites;
     [Tooltip("Kuperkeikan lentokuvien määrä (kuvasta 3 alkaen). 1 = yksi lentokuva, jota kierretään (Kovis); useampi = kuvat piirretty valmiiksi pyörimään.")]
@@ -512,6 +514,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         Vector3 q = c.transform.position, me2 = transform.position;
                         if (Mathf.Abs(q.x - me2.x) < 1.2f && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
                     }
+                // iso heitetty vihu (Kovis, portsari) kaataa tieltään muut vihut
+                if (thrownByPlayer && bigBody) BowlOthers();
                 verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
                 if (thrownByPlayer && flightArt)
@@ -1123,6 +1127,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
         enemyTarget = a;
         grudgeUntil = Time.time + 5f;
         retargetTime = Time.time + 1.5f;
+    }
+
+    readonly HashSet<Enemy> bowled = new HashSet<Enemy>();
+
+    /// Heitetty iso vihu lentää muiden päälle: ne kaatuvat lentosuuntaan (pieni vahinko).
+    void BowlOthers()
+    {
+        if (stateTime < 0.05f) bowled.Clear();
+        Vector3 me = transform.position;
+        foreach (var e in All.ToArray())
+        {
+            if (e == this || e == null || e.IsDead || bowled.Contains(e) || TargetDown(e) || e.state == State.Airborne) continue;
+            Vector3 q = e.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 1.1f || Mathf.Abs(q.y - me.y) > 0.55f || height > 2.6f) continue;
+            bowled.Add(e);
+            float from = knockVel.x != 0f ? q.x - Mathf.Sign(knockVel.x) : me.x;   // kaatuu lentosuuntaan
+            if (e.TakeHit(bowlDamage, from, true))
+            {
+                HitFx.OnHit(true);
+                HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+            }
+        }
     }
 
     bool TryHitPlayer(bool comboFollow = false)
