@@ -118,6 +118,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool bottleThrown;
     bool HasBottleSprites => bottleSprites != null && bottleSprites.Length >= 13;
 
+    [Header("Kaikkien kimppuun (portsari)")]
+    [Tooltip("Hyökkää lähimmän kimppuun: pelaaja tai muut vihut (ei omiaan). Lyödyt vihut lyövät takaisin.")]
+    public bool fightsEveryone;
+    Enemy enemyTarget;          // toinen vihu, jota jahdataan (portsari tai kosto)
+    float grudgeUntil, retargetTime;
+
     [Header("Taktiikka")]
     [Tooltip("Kaukana pelaajasta liikutaan näin paljon nopeammin (juoksu).")]
     public float runSpeedMultiplier = 1.3f;
@@ -276,6 +282,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool IsDead => state == State.Dead;
 
     void OnEnable() { All.Add(this); }
+    /// Herää heti (portsarit tulevat ovesta tappelun alkaessa).
+    public void WakeUp() { awake = true; }
     void OnDisable() { All.Remove(this); }
 
     void Awake()
@@ -796,6 +804,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Chase(float dt)
     {
         if (player == null) { moving = false; return; }
+        if (UpdateEnemyTarget()) { ChaseEnemy(dt); return; }   // portsari tai kosto: toisen vihun kimppuun
         Vector3 p = player.transform.position;
         Vector3 me = transform.position;
         // pelaaja on toisella alueella (esim. sisällä klubissa): odotetaan paikallaan
@@ -1010,8 +1019,88 @@ public class Enemy : MonoBehaviour, IBottleHolder
         player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this);
     }
 
+    // ---------------- Vihut toisiaan vastaan ----------------
+
+    bool TargetDown(Enemy e) => e.state == State.Down || e.state == State.GetUp || e.state == State.Dead || e.state == State.Held;
+
+    /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
+    bool UpdateEnemyTarget()
+    {
+        if (enemyTarget != null && (!enemyTarget.isActiveAndEnabled || enemyTarget.IsDead || (!fightsEveryone && Time.time > grudgeUntil)))
+            enemyTarget = null;
+        if (fightsEveryone && Time.time >= retargetTime)
+        {
+            retargetTime = Time.time + 0.6f;
+            Vector3 me = transform.position;
+            Vector3 pp = player.transform.position;
+            float best = player.IsDown ? float.MaxValue : Mathf.Abs(pp.x - me.x) + Mathf.Abs(pp.y - me.y) * 2f;
+            Enemy pick = null;
+            foreach (var e in All)
+            {
+                if (e == this || e.fightsEveryone || e.IsDead || TargetDown(e)) continue;
+                Vector3 q = e.transform.position;
+                if (Mathf.Abs(q.x - me.x) > 12f) continue;
+                float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                if (d < best - 0.5f) { best = d; pick = e; }
+            }
+            if (Time.time > grudgeUntil || enemyTarget == null) enemyTarget = pick;
+        }
+        return enemyTarget != null;
+    }
+
+    void ChaseEnemy(float dt)
+    {
+        Vector3 t = enemyTarget.transform.position, me = transform.position;
+        float side = me.x >= t.x ? 1f : -1f;
+        Vector2 to = new Vector2(t.x + side * attackRange * 0.8f, t.y) - (Vector2)me;
+        facingRight = t.x > me.x;
+        bool inRange = Mathf.Abs(me.x - t.x) <= attackRange && Mathf.Abs(me.y - t.y) <= depthTolerance;
+        if (inRange && cooldown <= 0f && !TargetDown(enemyTarget))
+        {
+            moving = false;
+            attackRolled = false;
+            usingAlt = Has(altAttackSprites) && Random.value < altChance;
+            Enter(State.Windup);
+            return;
+        }
+        if (to.magnitude > 0.08f)
+        {
+            moving = true;
+            float run = to.magnitude > 3.5f ? runSpeedMultiplier : 1f;
+            if (run > 1f) animClock += dt * (run - 1f);
+            Vector2 dir = to.normalized;
+            Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
+        }
+        else moving = false;
+    }
+
+    bool TryHitEnemy(Enemy e)
+    {
+        Vector3 p = e.transform.position, me = transform.position;
+        float dx = p.x - me.x;
+        bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
+        if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
+        bool kd = usingAlt ? altKnockdown : punchKnockdown;
+        if (!e.TakeHit(usingAlt ? altDamage : punchDamage, me.x, kd)) return false;
+        e.GotHitBy(this);
+        HitFx.OnHit(kd);
+        HitSpark.Spawn(new Vector3(p.x, p.y + 2.3f, 0f), kd, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
+        return true;
+    }
+
+    /// Toinen vihu löi: kosto hetkeksi (portsari vaihtaa kohteen lyöjään).
+    void GotHitBy(Enemy a)
+    {
+        if (a == null || a == this) return;
+        if (fightsEveryone && a.fightsEveryone) return;
+        enemyTarget = a;
+        grudgeUntil = Time.time + 5f;
+        retargetTime = Time.time + 1.5f;
+    }
+
     bool TryHitPlayer(bool comboFollow = false)
     {
+        if (enemyTarget != null) return TryHitEnemy(enemyTarget);
         if (player == null) return false;
         Vector3 p = player.transform.position, me = transform.position;
         float dx = p.x - me.x;

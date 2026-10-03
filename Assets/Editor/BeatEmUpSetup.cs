@@ -1559,8 +1559,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Portsari ----------------
-    // S-Clubissa: x klubin vasemmasta reunasta, y syvyys keskeltä
-    static readonly Vector2[] BouncerClub = { new Vector2(6f, 0.2f), new Vector2(22f, -0.5f), new Vector2(34f, 0.3f) };
+    const int BouncerCount = 5;   // tulevat ovesta, kun klubissa alkaa ensimmäinen tappelu
 
     [MenuItem("Beat em up/43. Portsarit S-Clubiin")]
     static void AddBouncers()
@@ -1575,8 +1574,10 @@ public static class BeatEmUpSetup
         var report = new List<string>();
         Sprite[] idle = EnemySheet("portsari_idle", report);
         if (idle.Length == 0) { Info("portsari_idle.png puuttuu."); return; }
-        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
-            if (e.gameObject.name.StartsWith("Portsari")) Undo.DestroyObjectImmediate(e.gameObject);
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (e != null && e.gameObject.name.StartsWith("Portsari")) Undo.DestroyObjectImmediate(e.gameObject);
+        var oldSquad = Object.FindObjectsByType<BouncerSquad>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var sq in oldSquad) Undo.DestroyObjectImmediate(sq.gameObject);
 
         var go = new GameObject("Portsari");
         var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
@@ -1609,19 +1610,32 @@ public static class BeatEmUpSetup
         t.attackCooldown = 1.3f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.99f;
-        Undo.RegisterCreatedObjectUndo(go, "Portsari");
+        t.fightsEveryone = true;           // lähimmän kimppuun: hero tai punkkarit
+        t.wakeDistance = 100f;
+        // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
+        t.runSpeedMultiplier = 1.1f; t.flankChance = 0.05f; t.retreatChance = 0f; t.blockChance = 0f;
 
-        float mid = (club.minDepthY + club.maxDepthY) * 0.5f;
-        for (int i = 0; i < BouncerClub.Length; i++)
+        // portsarit tulevat klubin ovesta (sama kohta, johon pelaaja ilmestyy)
+        var door = Object.FindObjectsByType<Door>(FindObjectsSortMode.None).FirstOrDefault(d => d.target == club && !d.returnToLastDoor);
+        Vector2 entry = door != null ? door.spawnPoint : new Vector2(ClubX0 + 2f, (club.minDepthY + club.maxDepthY) * 0.5f);
+        var root = new GameObject("Portsarit");
+        Undo.RegisterCreatedObjectUndo(root, "Portsarit");
+        var squad = root.AddComponent<BouncerSquad>();
+        squad.area = club;
+        squad.bouncers = new Enemy[BouncerCount];
+        go.transform.SetParent(root.transform, false);
+        for (int i = 0; i < BouncerCount; i++)
         {
-            var v = BouncerClub[i];
-            var c = i == 0 ? go : Object.Instantiate(go);
-            if (i > 0) { c.name = "Portsari_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Portsari"); }
-            c.transform.position = new Vector3(ClubX0 + v.x, Mathf.Clamp(mid + v.y, club.minDepthY, club.maxDepthY), 0f);
+            var c = i == 0 ? go : Object.Instantiate(go, root.transform);
+            if (i > 0) c.name = "Portsari_" + (i + 1);
+            float y = Mathf.Clamp(entry.y + ((i % 3) - 1) * 0.5f, club.minDepthY, club.maxDepthY);
+            c.transform.position = new Vector3(entry.x - 0.4f * i, y, 0f);
+            squad.bouncers[i] = c.GetComponent<Enemy>();
+            c.SetActive(false);            // piilossa, kunnes tappelu alkaa
         }
-        EditorSceneManager.MarkSceneDirty(go.scene);
-        Selection.activeGameObject = go;
-        Info($"Portsareita S-Clubissa: {BouncerClub.Length}\n\n" + string.Join("\n", report) +
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Selection.activeGameObject = root;
+        Info($"S-Clubiin {BouncerCount} portsaria: tulevat ovesta, kun klubissa alkaa ensimmäinen tappelu, ja käyvät lähimmän kimppuun (myös punkkareiden).\n\n" + string.Join("\n", report) +
              "\n\nJab + suora ja kaatava potku. Osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
     }
 
@@ -2280,11 +2294,6 @@ public static class BeatEmUpSetup
             {
                 SetPunkSounds(e);
                 e.runSpeedMultiplier = 1.6f; e.flankChance = 0.35f; e.retreatChance = 0.3f; e.blockChance = 0f;
-            }
-            else if (n.StartsWith("Portsari"))
-            {
-                // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
-                e.runSpeedMultiplier = 1.1f; e.flankChance = 0.05f; e.retreatChance = 0f; e.blockChance = 0f;
             }
             else if (n.StartsWith("Kovis"))
             {
