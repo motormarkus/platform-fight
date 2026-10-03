@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("heitto.png: 8 kuvaa (0 kurotus, 1 ote, 2 veto, 3 kädet ristissä, 4 olan yli, 5 heitto, 6 jälkiliike, 7 asento).")]
     public Sprite[] counterThrowSprites;
     [Tooltip("Kuinka kauan kurotus nappaa kiinni (s). Painettava juuri ennen kuin lyönti osuu.")]
-    public float catchWindow = 0.3f;
+    public float catchWindowTime = 0.5f;
     [Tooltip("Ohi menneen kurotuksen palautus (s), jonka aikana olet altis.")]
     public float catchMissRecovery = 0.25f;
     [Tooltip("Aika per heittokuva.")]
@@ -671,7 +671,7 @@ public class PlayerController : MonoBehaviour
             }
 
             case State.Catch:
-                if (stateTime >= catchWindow + catchMissRecovery) Enter(State.Ground);   // ohi
+                if (stateTime >= catchWindowTime + catchMissRecovery) Enter(State.Ground);   // ohi
                 break;
 
             case State.CounterThrow:
@@ -1032,7 +1032,7 @@ public class PlayerController : MonoBehaviour
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
         // ajoitettu kurotus: napataan lyövästä kädestä kiinni ja heitetään
-        if (state == State.Catch && stateTime <= catchWindow && fromRight == facingRight
+        if (state == State.Catch && stateTime <= catchWindowTime && fromRight == facingRight
             && attacker != null && attacker.CanBeCaught)
         {
             StartCounterThrow(attacker);
@@ -1608,7 +1608,7 @@ public class PlayerController : MonoBehaviour
                 return Action(F_PUNCH);
 
             case State.Catch:
-                return counterThrowSprites[stateTime <= catchWindow ? 0 : 7 % counterThrowSprites.Length];
+                return counterThrowSprites[stateTime <= catchWindowTime ? 0 : 7 % counterThrowSprites.Length];
 
             case State.CounterThrow:
             {
