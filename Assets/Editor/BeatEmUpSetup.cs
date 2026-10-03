@@ -571,8 +571,8 @@ public static class BeatEmUpSetup
         // heitto: nopeampi tarttuminen ja nosto, heilautus kiihtyy ja pelaaja lentää kovempaa
         template.grabReachTime = 0.22f;    // ennen 0.3
         template.grabLiftTime = 0.55f;     // ennen 0.8
-        template.throwSpeed = 8.5f;        // ennen 5.5
-        template.throwUp = 5f;             // ennen 4
+        template.throwSpeed = 11f;         // korkea ja pitkä lento
+        template.throwUp = 10f;
         EditorUtility.SetDirty(template);
         Undo.RecordObject(template.transform, "Siirrä Kovis");
         template.transform.position = new Vector3(x0 + KovisSpawns[0].x, Mathf.Clamp(KovisSpawns[0].y, pc.minDepthY, pc.maxDepthY), 0f);
@@ -1296,10 +1296,10 @@ public static class BeatEmUpSetup
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         Undo.RecordObject(pc, "Hyppy ja heitto");
         pc.jumpVelocity = 12.5f;     // n. 2.6 yksikköä korkea hyppy (ennen 2.0)
-        pc.monkeyFlipSpeed = 13f;    // nopea, matala lento: n. 4.5 yksikköä, iskeytyy maahan
-        pc.monkeyFlipUp = 6f;
-        pc.counterThrowSpeed = 7f;   // niskalenkki: matala ja nopea
-        pc.counterThrowUp = 1.5f;
+        pc.monkeyFlipSpeed = 12f;    // korkea ja pitkä lento
+        pc.monkeyFlipUp = 10f;
+        pc.counterThrowSpeed = 9f;   // niskalenkki: korkea kaari
+        pc.counterThrowUp = 9f;
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         float h = pc.jumpVelocity * pc.jumpVelocity / (2f * pc.gravity);
@@ -1924,8 +1924,8 @@ public static class BeatEmUpSetup
             b.grabRange = 1.4f;
             b.grabWhenCloseTime = 1.0f;     // liian kauan vieressä -> nappaa ja viskaa ruudun poikki
             b.throwForward = true;
-            b.throwSpeed = 12f;
-            b.throwUp = 5f;
+            b.throwSpeed = 15f;             // pomo viskaa ruudun poikki korkealla kaarella
+            b.throwUp = 11f;
             b.throwDamage = 22;
             b.moveSpeedX = 3.4f;
             b.moveSpeedY = 1.9f;
@@ -1980,10 +1980,22 @@ public static class BeatEmUpSetup
             else if (n.StartsWith("Kovis"))
             {
                 e.runSpeedMultiplier = 1.15f; e.flankChance = 0.1f; e.retreatChance = 0f; e.blockChance = 0f;
+                e.throwSpeed = 11f; e.throwUp = 10f;   // viskaa heron korkealle ja kauas
             }
             else continue;
             EditorUtility.SetDirty(e);
             count++;
+        }
+        // heron heitot: korkeampi ja pidempi lento
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc != null)
+        {
+            Undo.RecordObject(pc, "Heittojen lento");
+            pc.counterThrowSpeed = 9f; pc.counterThrowUp = 9f;     // niskalenkki (ennen 7 / 1.5)
+            pc.monkeyFlipSpeed = 12f; pc.monkeyFlipUp = 10f;       // kuperkeikka (ennen 13 / 6)
+            pc.kneeFlySpeed = 8f; pc.kneeFlyUp = 8f;               // polvi (ennen 6 / 4.5)
+            pc.crateThrowSpeed = 11f; pc.crateThrowUp = 5f;        // laatikko/tynnyri (ennen 9 / 3)
+            EditorUtility.SetDirty(pc);
         }
         if (count > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         Info(

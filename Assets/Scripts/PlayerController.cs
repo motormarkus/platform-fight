@@ -261,9 +261,9 @@ public class PlayerController : MonoBehaviour
     public float counterThrowEndHold = 0.3f;
     public int counterThrowDamage = 20;
     [Tooltip("Lentonopeus selän taakse (yksikköä/s).")]
-    public float counterThrowSpeed = 7f;
+    public float counterThrowSpeed = 9f;
     [Tooltip("Niskalenkin lennon nousunopeus (pieni = matala ja nopea isku maahan).")]
-    public float counterThrowUp = 1.5f;
+    public float counterThrowUp = 9f;
     [Tooltip("Niskalenkissä hero liukuu heiton aikana näin paljon eteenpäin (yksikköä).")]
     public float counterThrowSlide = 0.8f;
 
@@ -275,9 +275,9 @@ public class PlayerController : MonoBehaviour
     public float monkeyFlipEndHold = 0.25f;
     public int monkeyFlipDamage = 26;
     [Tooltip("Lentonopeus pään yli taakse (yksikköä/s).")]
-    public float monkeyFlipSpeed = 13f;
+    public float monkeyFlipSpeed = 12f;
     [Tooltip("Lennon nousunopeus ylöspäin (suurempi = korkeampi ja pidempi kaari).")]
-    public float monkeyFlipUp = 6f;
+    public float monkeyFlipUp = 10f;
     Enemy heldEnemy;
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
@@ -288,7 +288,7 @@ public class PlayerController : MonoBehaviour
     public float kneeFrameTime = 0.09f;
     public int kneeDamage = 22;
     [Tooltip("Vihun etäisyys otteessa (yksikköä heron edessä) ja lentonopeus polven jälkeen.")]
-    public float kneeHoldOffset = 1.2f, kneeFlySpeed = 6f, kneeFlyUp = 4.5f;
+    public float kneeHoldOffset = 1.2f, kneeFlySpeed = 8f, kneeFlyUp = 8f;
     bool kneeMode, kneeHit;
     // vaiheet: heron kuva ja vihun otekuva; isku vaiheessa 3, irrotus vaiheessa 4
     static readonly int[] KneeHero = { 2, 3, 3, 4, 5, 6, 7, 9 };
@@ -311,8 +311,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Laatikon korkeus pään yllä (yksikköä maasta).")]
     public float carryHeight = 3.45f;
     public float crateThrowTime = 0.32f;
-    public float crateThrowSpeed = 9f;
-    public float crateThrowUp = 3f;
+    public float crateThrowSpeed = 11f;
+    public float crateThrowUp = 5f;
     Crate carried;
     bool crateReleased;
 
