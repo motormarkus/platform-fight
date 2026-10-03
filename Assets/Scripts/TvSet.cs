@@ -175,7 +175,7 @@ public class TvSet : MonoBehaviour
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.8f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
             flyHits.Add(e);
-            if (e.TakeHit(flyDamage, me.x - Mathf.Sign(vx), false)) { HitFx.OnHit(false); any = true; }
+            if (e.TakeHit(flyDamage, me.x - Mathf.Sign(vx), false)) any = true;
         }
         foreach (var c in Crate.All.ToArray())
         {
@@ -214,7 +214,7 @@ public class TvSet : MonoBehaviour
 
     void Smash()
     {
-        HitFx.OnHit(true);
+        HitFx.OnBreak(0.08f);
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.2f);
         int order = Mathf.RoundToInt(-transform.position.y * 100f) + 5;
         for (int i = 0; i < 3; i++)

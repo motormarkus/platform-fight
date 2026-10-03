@@ -49,6 +49,14 @@ public class HitFx : MonoBehaviour
     }
 
     /// Kutsutaan, kun isku osuu. heavy = kaatava isku (pidempi pysähdys, isompi tärähdys).
+    /// Esineen (pullo, lasi, telkkari) hajoaminen: tärähdys ilman osumapysäytystä, ettei peli nyi kun moni hajoaa peräkkäin.
+    public static void OnBreak(float shake = 0.05f)
+    {
+        var fx = Instance;
+        if (fx == null) return;
+        if (shake > 0f) CameraFollow.Shake(shake, 0.1f);
+    }
+
     public static void OnHit(bool heavy)
     {
         var fx = Instance;

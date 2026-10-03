@@ -227,7 +227,7 @@ public class Bottle : MonoBehaviour
     void Shatter()
     {
         state = S.Breaking; t = 0f; height = 0f; rot = 0f;
-        HitFx.OnHit(false);
+        HitFx.OnBreak(0f);   // vain lasiääni: ei osumapysäytystä (monta pulloa peräkkäin nyki)
         if (breakSounds != null && breakSounds.Length > 0)
         {
             int i = Random.Range(0, breakSounds.Length);

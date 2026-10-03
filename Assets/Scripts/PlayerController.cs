@@ -1882,8 +1882,11 @@ public class PlayerController : MonoBehaviour
         return u >= 0 && int.TryParse(s.name.Substring(u + 1), out int n) ? n : 0;
     }
 
+    static Sprite shadowSprite;
+    /// Pehmeä varjosoikio. Luodaan kerran ja jaetaan kaikille (ei uutta tekstuuria jokaiselle esineelle).
     public static Sprite CreateShadowSprite()
     {
+        if (shadowSprite != null) return shadowSprite;
         const int w = 64, h = 32;
         var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
         for (int y = 0; y < h; y++)
@@ -1895,6 +1898,7 @@ public class PlayerController : MonoBehaviour
                 tex.SetPixel(x, y, new Color(0f, 0f, 0f, a));
             }
         tex.Apply();
-        return Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), w);
+        shadowSprite = Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), w);
+        return shadowSprite;
     }
 }

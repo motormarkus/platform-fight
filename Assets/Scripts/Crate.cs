@@ -139,7 +139,7 @@ public class Crate : MonoBehaviour
     {
         if (!breakable || !CanBeHit) return;
         hits = hitsToBreak;
-        HitFx.OnHit(false);
+        HitFx.OnBreak(0.06f);
         Break();
     }
 
