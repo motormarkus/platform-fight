@@ -1924,7 +1924,7 @@ public static class BeatEmUpSetup
                 // nopea ja ovela: juoksee, kiertää selän taakse, iskee ja vetäytyy, torjuu
                 e.runSpeedMultiplier = 1.5f; e.flankChance = 0.5f; e.retreatChance = 0.4f;
                 e.blockChance = 0.35f; e.maxBlocksInRow = 2;
-                if (lippisBlock.Length > 0) e.blockSprites = lippisBlock;
+                if (lippisBlock.Length > 0) { e.blockSprites = lippisBlock; e.blockTime = 0.5f; }   // 10 kuvaa: kädet ylös, suoja, paluu
                 // potku: lähes kaksi kertaa nopeampi ja liukuu eteen
                 e.altTimeScale = 0.55f; e.altLungeSpeed = 7f; e.altLungeTime = 0.22f;
             }
