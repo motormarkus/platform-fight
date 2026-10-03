@@ -1613,6 +1613,13 @@ public static class BeatEmUpSetup
             SetupAndSlice(tvp);
             tvSprites = LoadSprites("telkkari").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         }
+        if (table.Length < 7) { Info("poyta.png: kuvia " + table.Length + "/7 (kohta 1)."); return; }
+        var old = GameObject.Find("Baaripöydät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Baaripöydät");
+        Undo.RegisterCreatedObjectUndo(root, "Baaripöydät");
+        var rnd = new System.Random(7);
+        int bottles = 0;
         // pyöreät telkkaripöydät
         Sprite[] round = new Sprite[0];
         string rp = FindTexture("poyta_tv");
