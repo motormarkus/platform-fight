@@ -6,7 +6,7 @@ using UnityEngine;
 /// Ottaa osumia, kaatuu, nousee ylös ja kuolee. Puuttuvat animaatiot korvataan
 /// väliaikaisesti idle-kuvalla (osuma = väläys ja tärinä, kaatuminen = kuvan kääntö).
 /// </summary>
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IBottleHolder
 {
     public static readonly List<Enemy> All = new List<Enemy>();
     /// Viimeksi osuman saanut vihollinen (energiapalkkia varten).
@@ -108,6 +108,15 @@ public class Enemy : MonoBehaviour
     public int barrelDamage = 20;
     [Tooltip("Kuinka usein (1/s) tynnyriä lähdetään hakemaan, kun pelaaja on kaukana.")]
     public float barrelRate = 0.35f;
+
+    [Header("Pullot (punkkari)")]
+    [Tooltip("punk_pullo.png: 13 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–12 paluu). Tyhjä = ei hae pulloja.")]
+    public Sprite[] bottleSprites;
+    [Tooltip("Kuinka usein (1/s) lähdetään hakemaan lattialla olevaa ehjää pulloa, kun pelaaja ei ole aivan vieressä.")]
+    public float bottleRate = 0.3f;
+    Bottle targetBottle, heldBottle;
+    bool bottleThrown;
+    bool HasBottleSprites => bottleSprites != null && bottleSprites.Length >= 13;
 
     [Header("Taktiikka")]
     [Tooltip("Kaukana pelaajasta liikutaan näin paljon nopeammin (juoksu).")]
@@ -229,7 +238,7 @@ public class Enemy : MonoBehaviour
     [Header("Spriten sijoitus")]
     public float footOffset = 0.08f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -393,6 +402,39 @@ public class Enemy : MonoBehaviour
                     if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
                 }
                 if (stateTime >= 0.6f)
+                {
+                    cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
+                    Enter(State.Idle);
+                }
+                break;
+
+            case State.BottlePick:
+                if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0)
+                {
+                    if (heldBottle == null) { Enter(State.Idle); break; }
+                    Enter(State.BottleThrow);
+                }
+                break;
+
+            case State.BottleThrow:
+                // tähtäys: kääntyy pelaajaan ja hakeutuu samalle syvyydelle vedon aikana
+                if (!bottleThrown && player != null)
+                {
+                    facingRight = player.transform.position.x > transform.position.x;
+                    float dy = player.transform.position.y - transform.position.y;
+                    Move(new Vector2(0f, Mathf.Clamp(dy, -moveSpeedY * dt, moveSpeedY * dt)));
+                }
+                if (!bottleThrown && stateTime >= ThrowPose.Start(ThrowPose.PunkThrowTimes, ThrowPose.ReleaseIndex))
+                {
+                    bottleThrown = true;
+                    if (heldBottle != null)
+                    {
+                        heldBottle.Throw(transform.position.y, facingRight ? 1f : -1f, true);
+                        heldBottle = null;
+                        if (Random.value < attackSoundChance) PlayAttackSound();
+                    }
+                }
+                if (ThrowPose.Index(ThrowPose.PunkThrowTimes, stateTime) < 0)
                 {
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
                     Enter(State.Idle);
@@ -608,6 +650,65 @@ public class Enemy : MonoBehaviour
         player.SetHeld(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z, pose);
     }
 
+    bool BottleRun(float dt, Vector3 p, Vector3 me)
+    {
+        if (targetBottle != null && !targetBottle.CanPickUp) targetBottle = null;
+        if (targetBottle == null && cooldown <= 0f && Mathf.Abs(p.x - me.x) > 2.2f && Random.value < bottleRate * dt)
+        {
+            float best = 5f;
+            foreach (var b in Bottle.All)
+            {
+                if (b == null || !b.CanPickUp) continue;
+                bool taken = false;
+                foreach (var e in All) if (e != this && e.targetBottle == b) { taken = true; break; }
+                if (taken) continue;
+                float d = Vector2.Distance(b.transform.position, me);
+                if (d < best) { best = d; targetBottle = b; }
+            }
+        }
+        if (targetBottle == null) return false;
+        if (Mathf.Abs(p.x - me.x) < 1.2f && Mathf.Abs(p.y - me.y) < depthTolerance) { targetBottle = null; return false; }   // pelaaja kimpussa: tappelee
+        Vector3 bp = targetBottle.transform.position;
+        float side = me.x <= bp.x ? -1f : 1f;
+        Vector2 spot = new Vector2(bp.x + side * 0.7f, bp.y + 0.01f);   // käsi ylettyy pulloon (kuvat 2–3)
+        Vector2 to = spot - (Vector2)me;
+        if (to.magnitude < 0.15f)
+        {
+            facingRight = bp.x > me.x;
+            if (targetBottle.TakeBy(this)) { heldBottle = targetBottle; moving = false; targetBottle = null; Enter(State.BottlePick); return true; }
+            targetBottle = null;
+            return false;
+        }
+        facingRight = to.x > 0f;
+        moving = true;
+        float stepX = Mathf.Min(Mathf.Abs(to.x), moveSpeedX * runSpeedMultiplier * dt);
+        float stepY = Mathf.Min(Mathf.Abs(to.y), moveSpeedY * runSpeedMultiplier * dt);
+        Move(new Vector2(Mathf.Sign(to.x) * stepX, Mathf.Sign(to.y) * stepY));
+        animClock += dt * (runSpeedMultiplier - 1f);
+        return true;
+    }
+
+    int BottleFrame()
+    {
+        bool pick = state == State.BottlePick;
+        float[] times = pick ? ThrowPose.PickTimes : ThrowPose.PunkThrowTimes;
+        int[] frames = pick ? ThrowPose.PunkPickFrames : ThrowPose.PunkThrowFrames;
+        int i = ThrowPose.Index(times, stateTime);
+        return frames[i < 0 ? frames.Length - 1 : i];
+    }
+
+    /// Pullo punkkarin käden takana (nosto- ja heittokuvat).
+    public bool BottleGrip(out Vector3 hand, out float rot, out int order)
+    {
+        float dir = facingRight ? 1f : -1f;
+        order = body != null ? body.sortingOrder - 1 : Mathf.RoundToInt(-transform.position.y * 100f) - 1;
+        if (body == null || (state != State.BottlePick && state != State.BottleThrow)
+            || !ThrowPose.Punk.TryGetValue(BottleFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
+        hand = body.transform.position + new Vector3(dir * g.hand.x, g.hand.y, 0f);
+        rot = dir * g.rot;
+        return true;
+    }
+
     void HoldBarrel(float forward, float lift)
     {
         if (heldBarrel == null) return;
@@ -681,6 +782,8 @@ public class Enemy : MonoBehaviour
         if (s == State.Airborne || s == State.Held) DropBoard();
         if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
+        if (s != State.BottlePick && s != State.BottleThrow && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
+        if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
         state = s;
@@ -752,6 +855,9 @@ public class Enemy : MonoBehaviour
                 return;
             }
         }
+
+        // pullo: lattialla ehjä pullo lähellä ja pelaaja ei aivan vieressä -> haetaan, nostetaan ja heitetään
+        if (HasBottleSprites && BottleRun(dt, p, me)) return;
 
         // liian kauan aivan vieressä: tarttuu heti (pomo)
         bool close = Mathf.Abs(p.x - me.x) <= grabRange + 0.3f && Mathf.Abs(p.y - me.y) <= depthTolerance;
@@ -1219,6 +1325,11 @@ public class Enemy : MonoBehaviour
                     int n = AtkSprites.Length - imp;
                     return AtkSprites[imp + Mathf.Min((int)(stateTime / CurrentRecover * n), n - 1)];
                 }
+                return IdleFrame();
+
+            case State.BottlePick:
+            case State.BottleThrow:
+                if (HasBottleSprites) return bottleSprites[BottleFrame()];
                 return IdleFrame();
 
             case State.BarrelLift:

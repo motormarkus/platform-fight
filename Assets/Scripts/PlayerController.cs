@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 /// Liikkuu kadun tasolla (x = vasen/oikea, y = syvyys), hyppää erillisellä korkeusakselilla
 /// ja soittaa ruutuanimaatioita leikatuista sprite sheeteistä.
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IBottleHolder
 {
     [Header("Spritet (raahaa kaikki leikatut spritet, järjestys korjataan automaattisesti)")]
     public Sprite[] idleSprites;     // idle.png: 6 kuvaa
@@ -282,6 +282,12 @@ public class PlayerController : MonoBehaviour
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
 
+    [Header("Pienen esineen nosto ja heitto (pullo)")]
+    [Tooltip("pullonosto.png: 12 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–11 paluu).")]
+    public Sprite[] smallItemSprites;
+    bool smallReleased;
+    bool HasSmallItem => smallItemSprites != null && smallItemSprites.Length >= 12;
+
     [Header("Polvi päähän (vastaliike vihuille, joilla on omat kuvat: Skettari)")]
     [Tooltip("polvi.png: 10 kuvaa (1 asento, 2 kurotus, 3 ote, 4 veto alas, 5 polvi, 6 irrotus, 7 askel, 8–10 asento).")]
     public Sprite[] kneeSprites;
@@ -389,7 +395,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow }
 
     int comboIndex;
     bool comboQueued;
@@ -410,6 +416,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(idleSprites);
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
+        SortByFrameNumber(smallItemSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
         SortByFrameNumber(thrownSprites);
@@ -481,10 +488,17 @@ public class PlayerController : MonoBehaviour
                     if (TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = NearbyCrate();
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
-                    if (Bottle.TryPickUp(this)) break;                       // ehjä pullo lattialla: käteen
+                    if (Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
-                if (punchPressed && Bottle.Held != null && Bottle.ThrowHeld(this)) { PlayGrunt(); if (punchCombo.Length > 0) StartComboHit(0); break; }   // pullon heitto
+                if (punchPressed && Bottle.Held != null)
+                {
+                    // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
+                    PlayGrunt();
+                    if (HasSmallItem) { smallReleased = false; Enter(State.SmallThrow); break; }
+                    if (Bottle.ThrowHeld(this) && punchCombo.Length > 0) StartComboHit(0);
+                    break;
+                }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed)
                 {
@@ -629,6 +643,19 @@ public class PlayerController : MonoBehaviour
                 if (stateTime >= PushTotalTime) Enter(State.Ground);
                 break;
             }
+
+            case State.SmallPick:
+                if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+
+            case State.SmallThrow:
+                if (!smallReleased && stateTime >= ThrowPose.Start(ThrowPose.ThrowTimes, ThrowPose.ReleaseIndex))
+                {
+                    smallReleased = true;
+                    Bottle.ThrowHeld(this);
+                }
+                if (ThrowPose.Index(ThrowPose.ThrowTimes, stateTime) < 0) Enter(State.Ground);
+                break;
 
             case State.Lift:
             {
@@ -944,6 +971,33 @@ public class PlayerController : MonoBehaviour
         }
     }
     public int BodySortOrder => body != null ? body.sortingOrder : Mathf.RoundToInt(-transform.position.y * 100f);
+
+    /// Nosto- tai heittosarjan kuva (pullonosto.png).
+    int SmallFrame()
+    {
+        bool pick = state == State.SmallPick;
+        float[] times = pick ? ThrowPose.PickTimes : ThrowPose.ThrowTimes;
+        int[] frames = pick ? ThrowPose.PickFrames : ThrowPose.ThrowFrames;
+        int i = ThrowPose.Index(times, stateTime);
+        return frames[i < 0 ? frames.Length - 1 : i];
+    }
+
+    /// Pullo käden takana: nosto- ja heittokuvissa kuvakohtainen käsi, muuten etummainen nyrkki.
+    public bool BottleGrip(out Vector3 hand, out float rot, out int order)
+    {
+        float dir = facingRight ? 1f : -1f;
+        order = BodySortOrder - 1;
+        if ((state == State.SmallPick || state == State.SmallThrow) && HasSmallItem && body != null)
+        {
+            if (!ThrowPose.Hero.TryGetValue(SmallFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
+            hand = body.transform.position + new Vector3(dir * g.hand.x, g.hand.y, 0f);
+            rot = dir * g.rot;
+            return true;
+        }
+        hand = FistWorld;
+        rot = dir * 10f;
+        return true;
+    }
 
     /// Tarkistaa, osuuko pelaajan isku viholliseen. Palauttaa true, jos osui ainakin yhteen.
     /// sparkHeight = osumaläiskän korkeus maasta (pää n. 2.8, vatsa 2.0, jalat 1.2).
@@ -1667,6 +1721,10 @@ public class PlayerController : MonoBehaviour
                 else i = pushImpactFrame + 1 + (int)((stateTime - hitTo) / pushFrameTime);
                 return pushSprites[Mathf.Clamp(i, 0, pushSprites.Length - 1)];
             }
+
+            case State.SmallPick:
+            case State.SmallThrow:
+                return smallItemSprites[SmallFrame()];
 
             case State.Lift:
                 if (HasCarrySprites) return carrySprites[stateTime < liftTime * 0.35f ? 0 : stateTime < liftTime * 0.7f ? 1 : 2];

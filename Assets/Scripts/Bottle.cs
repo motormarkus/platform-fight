@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Pullon pitelijä (hero tai punkkari): käden paikka maailmassa, kallistus ja piirtojärjestys.
+/// false = käsi ei vielä ylety (pullo jää lattialle).
+public interface IBottleHolder
+{
+    bool BottleGrip(out Vector3 hand, out float rot, out int order);
+}
+
 /// <summary>
 /// Pullo baaripöydällä. Kun pöytää lyödään, osa pulloista lentää, osa kaatuu ja tippuu lattialle, osa jää heilumaan.
 /// Lattialle osuessa osa hajoaa (kuvat 1–6), osa jää ehjänä kyljelleen. Ehjän pullon voi poimia käteen
@@ -35,9 +42,12 @@ public class Bottle : MonoBehaviour
     S state = S.OnTable;
     SpriteRenderer sr, shadow;
     PlayerController pc;
+    IBottleHolder holder;
+    bool enemyThrow;
     int seenDisturb;
     float t, height, vy, vx, rot, spin, wobbleT;
-    bool fastFall;
+    bool fastFall, gripped;
+    int heldOrder;
     readonly HashSet<Object> hitList = new HashSet<Object>();
 
     void OnEnable() { All.Add(this); }
@@ -79,7 +89,7 @@ public class Bottle : MonoBehaviour
             if (dx + dy < bd) { bd = dx + dy; best = b; }
         }
         if (best == null) return false;
-        best.state = S.Held; best.t = 0f;
+        best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false;
         Held = best;
         HitFx.PlayPickup(false);
         return true;
@@ -90,22 +100,52 @@ public class Bottle : MonoBehaviour
     {
         if (Held == null || p == null) return false;
         var b = Held; Held = null;
-        float dir = p.FacingRight ? 1f : -1f;
-        Vector3 fist = p.FistWorld;   // lähtee nyrkistä
-        b.transform.position = new Vector3(fist.x, p.transform.position.y, 0f);
-        b.vx = dir * b.throwSpeed; b.vy = 1.5f; b.height = Mathf.Clamp(fist.y - p.transform.position.y - 0.2f, 1.2f, 3.5f);
-        b.spin = -dir * 900f; b.hitList.Clear();
-        b.state = S.Thrown; b.t = 0f;
+        b.Throw(p.transform.position.y, p.FacingRight ? 1f : -1f, false);
         return true;
+    }
+
+    /// Ehjä lattialla oleva pullo (vihun haettavaksi).
+    public bool CanPickUp => state == S.Lying;
+
+    /// Vihu ottaa pullon (nostokuvat: pullo nousee käden mukana, kun käsi ylettyy).
+    public bool TakeBy(IBottleHolder h)
+    {
+        if (state != S.Lying) return false;
+        state = S.Held; t = 0f; holder = h; gripped = false;
+        return true;
+    }
+
+    /// Heitto pitelijän kädestä (enemy = osuu heroon, muuten vihuihin).
+    public void Throw(float groundY, float dir, bool enemy)
+    {
+        if (holder != null && holder.BottleGrip(out Vector3 hand, out _, out _))
+        {
+            transform.position = new Vector3(hand.x, groundY, 0f);
+            height = Mathf.Clamp(hand.y - groundY - 0.2f, 1.2f, 3.5f);
+        }
+        else height = 1.9f;
+        holder = null;
+        if (Held == this) Held = null;
+        enemyThrow = enemy;
+        vx = dir * throwSpeed; vy = 1.5f;
+        spin = -dir * 900f; hitList.Clear();
+        state = S.Thrown; t = 0f;
+    }
+
+    /// Pitelijä sai osuman: pullo putoaa.
+    public void Drop()
+    {
+        if (state != S.Held) return;
+        if (Held == this) Held = null;
+        holder = null;
+        vx = Random.Range(-1.5f, 1.5f); vy = 2f; spin = Random.Range(-500f, 500f);
+        fastFall = false; state = S.Falling; t = 0f;
     }
 
     /// Pelaaja saa osuman: pullo putoaa kädestä.
     public static void DropHeld()
     {
-        if (Held == null) return;
-        var b = Held; Held = null;
-        b.vx = Random.Range(-1.5f, 1.5f); b.vy = 2f; b.spin = Random.Range(-500f, 500f);
-        b.fastFall = false; b.state = S.Falling; b.t = 0f;
+        if (Held != null) Held.Drop();
     }
 
     // ---------------- päivitys ----------------
@@ -154,14 +194,18 @@ public class Bottle : MonoBehaviour
                 break;
 
             case S.Held:
-                if (pc == null) { DropHeld(); break; }
-                // nyrkin takana: kuva seuraa nyrkkiä joka framessa, pullon alaosa nyrkin sisässä, yläpää hieman taaksepäin
-                float dir = pc.FacingRight ? 1f : -1f;
-                Vector3 fist = pc.FistWorld;
-                transform.position = new Vector3(fist.x, pc.transform.position.y - 0.01f, 0f);
-                height = fist.y - pc.transform.position.y - 0.2f * scale;
-                rot = dir * 10f;
+            {
+                if (holder == null || (holder is Object o && o == null)) { holder = null; Drop(); break; }
+                // käden takana: kuva seuraa kättä joka framessa, kiertopiste (pullon keskiosa) kädessä
+                if (!holder.BottleGrip(out Vector3 hand, out float r, out heldOrder)) break;   // käsi ei vielä ylety: lattialla
+                Component c = holder as Component;
+                float gy = c != null ? c.transform.position.y : hand.y;
+                transform.position = new Vector3(hand.x, gy - 0.01f, 0f);
+                height = hand.y - gy - (pivotY - 0.04f) * scale;
+                rot = r;
+                gripped = true;
                 break;
+            }
 
             case S.Thrown:
                 p.x += vx * dt;
@@ -204,6 +248,21 @@ public class Bottle : MonoBehaviour
     bool HitInPath()
     {
         Vector3 me = transform.position;
+        if (enemyThrow)
+        {
+            // vihun heittämä: osuu vain heroon
+            if (pc == null || hitList.Contains(pc)) return false;
+            Vector3 q = pc.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.45f || height > 3.6f) return false;
+            hitList.Add(pc);
+            if (pc.TakeHit(throwDamage, me.x - Mathf.Sign(vx)))
+            {
+                HitFx.OnHit(true);
+                HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+                return true;
+            }
+            return false;
+        }
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead || hitList.Contains(e)) continue;
@@ -260,10 +319,10 @@ public class Bottle : MonoBehaviour
         sr.transform.localPosition = new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
-        else if (state == S.Held && pc != null) order = pc.BodySortOrder - 1;   // heron (nyrkin) taakse
+        else if (state == S.Held && gripped) order = heldOrder;   // pitelijän (käden) taakse
         else order = Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
         shadow.sortingOrder = order - 1;
-        shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && state != S.Held;
+        shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && (state != S.Held || !gripped);
     }
 }

@@ -842,6 +842,8 @@ public static class BeatEmUpSetup
         t.getUpSprites = EnemySheet("punk_ylosnousu", report);
         t.headlockThrownSprites = EnemySheet("punk_niskalenkki", report);   // pelaajan niskalenkki
         t.headlockFlightSprites = EnemySheet("punk_niskalenkki_lento", report);   // lento, isku maahan, pomppu, makuu
+        if (File.Exists(EnemyFolder + "/punk_pullo.png")) SetupAndSlice(EnemyFolder + "/punk_pullo.png");
+        t.bottleSprites = EnemySheet("punk_pullo", report);      // hakee lattialta ehjän pullon ja heittää
         t.idleFrameTime = 0.2f;
         t.walkFrameTime = 0.115f;          // videon oma tahti (12 kuvaa, 1.4 s sykli)
         t.moveSpeedX = 2.6f;               // Kovista nopeampi
@@ -1577,6 +1579,16 @@ public static class BeatEmUpSetup
         if (club == null || tp == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10) ja poyta.png."); return; }
         SetupAndSlice(tp);
         var table = LoadSprites("poyta").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        // heron pullon nosto ja heitto (pullonosto.png, 12 kuvaa)
+        string hp = FindTexture("pullonosto");
+        var heroPc = Object.FindFirstObjectByType<PlayerController>();
+        if (hp != null && heroPc != null)
+        {
+            SetupAndSlice(hp);
+            Undo.RecordObject(heroPc, "Pullon nosto");
+            heroPc.smallItemSprites = LoadSprites("pullonosto").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            EditorUtility.SetDirty(heroPc);
+        }
         var kinds = new List<Sprite[]>();
         var kindNames = new List<string>();
         foreach (var n in new[] { "pullo_olut", "pullo_sininen", "pullo_likoori", "pullo_vodka" })
