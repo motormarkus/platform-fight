@@ -171,6 +171,10 @@ public class Enemy : MonoBehaviour
     [Tooltip("Ilman lautaa (noustua): idle/tappeluasento, kävely, lyönti, osuma. Tyhjät korvataan tappeluasennolla.")]
     public Sprite[] footIdleSprites, footWalkSprites, footPunchSprites, footHurtSprites;
     public int footPunchImpactFrame = 3;
+    [Tooltip("Hyppypotku jalan (loikka eteen, osuma kuvassa footKickImpactFrame).")]
+    public Sprite[] footKickSprites;
+    public int footKickImpactFrame = 5;
+    public float footKickLunge = 6f;
     public float footMoveSpeedX = 2.8f, footMoveSpeedY = 1.6f;
     bool boardLost;
     float lastMoveX = 1f;
@@ -585,10 +589,19 @@ public class Enemy : MonoBehaviour
         Sprite[] stance = Has(getUpSprites) ? new[] { getUpSprites[getUpSprites.Length - 1] } : idleSprites;
         idleSprites = Has(footIdleSprites) ? footIdleSprites : stance;
         walkSprites = Has(footWalkSprites) ? footWalkSprites : idleSprites;
-        punchSprites = Has(footPunchSprites) ? footPunchSprites : idleSprites;
-        punchImpactFrame = Has(footPunchSprites) ? footPunchImpactFrame : 0;
+        punchSprites = Has(footPunchSprites) ? footPunchSprites : Has(footKickSprites) ? footKickSprites : idleSprites;
+        punchImpactFrame = Has(footPunchSprites) ? footPunchImpactFrame : Has(footKickSprites) ? footKickImpactFrame : 0;
         if (Has(footHurtSprites)) hurtSprites = footHurtSprites;
-        altChance = 0f; chargeRange = 0f;            // syöksylyönti vain laudalla
+        chargeRange = 0f;                            // syöksylyönti vain laudalla
+        if (Has(footKickSprites))
+        {
+            // hyppypotku: loikka eteen ja potku
+            altAttackSprites = footKickSprites; altImpactFrame = footKickImpactFrame;
+            altChance = Has(footPunchSprites) ? 0.5f : 1f;
+            altLungeSpeed = footKickLunge; altLungeTime = 0.3f; altReach = 2.4f;
+            altTimeScale = 1f; altExtraWindup = 0.1f;
+        }
+        else altChance = 0f;
         moveSpeedX = footMoveSpeedX; moveSpeedY = footMoveSpeedY;
     }
 

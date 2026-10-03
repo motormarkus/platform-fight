@@ -1525,7 +1525,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
-        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu" })
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1587,6 +1587,10 @@ public static class BeatEmUpSetup
         report.Add("Irtolauta: " + (t.looseBoardSprite != null ? "OK" : "puuttuu"));
         // noustua tappelee jalan (omat kävely- ja lyöntikuvat myöhemmin; siihen asti tappeluasento)
         t.footMoveSpeedX = 2.8f; t.footMoveSpeedY = 1.6f;
+        var footIdle = EnemySheet("skettari_idle", report);
+        if (footIdle.Length > 0) t.footIdleSprites = footIdle;
+        var jumpKick = EnemySheet("skettari_hyppypotku", report);   // 12 kuvaa, potku ojennettuna kuvassa 6
+        if (jumpKick.Length > 0) { t.footKickSprites = jumpKick; t.footKickImpactFrame = 5; t.footKickLunge = 6f; }
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.95f;
         Undo.RegisterCreatedObjectUndo(go, "Skettari");
