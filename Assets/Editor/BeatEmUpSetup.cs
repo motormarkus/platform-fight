@@ -1662,6 +1662,7 @@ public static class BeatEmUpSetup
                 c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
                 c.visualScale = TvTableScale;              // isompi pyöreä pöytä
                 c.shadowWidth = 1.3f; c.hitRadiusX = 0.8f * TvTableScale; c.debrisTime = 6f;
+                c.carryLower = 0.84f * TvTableScale;          // kannossa kansi käsissä, jalat eivät jää ilmaan
                 c.moneyChance = 0.2f; c.energyChance = 0.1f; c.throwDamage = 20;
                 vis.sprite = round[0];
                 var tvGo = new GameObject("Telkkari");
@@ -1690,6 +1691,7 @@ public static class BeatEmUpSetup
             c.footOffset = 0.04f;
             c.visualScale = TableScale;                 // isompi pöytä
             c.shadowWidth = 2.6f;
+            c.carryLower = 0.86f * TableScale;          // kannossa kansi käsissä (jalkojen pituus)
             c.hitRadiusX = 1.4f * TableScale;
             c.debrisTime = 6f;
             c.moneyChance = 0.3f; c.energyChance = 0.15f;

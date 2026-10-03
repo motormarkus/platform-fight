@@ -1278,8 +1278,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (TvSet.Held != null) TvSet.Held.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - 0.25f, Mathf.RoundToInt(-me.y * 100f) + 1);
             return;
         }
-        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift,
-                           Mathf.RoundToInt(-me.y * 100f) + 1);
+        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - carried.carryLower * Mathf.Clamp01(lift / carryHeight),
+                           Mathf.RoundToInt(-me.y * 100f) + (carried.carryLower > 0f ? -1 : 1));   // pöytä heron taakse: jalat pään takana, kädet kannen alla
     }
 
     /// Laatikko putoaa käsistä (osuma, tarttuminen, ovi).

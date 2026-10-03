@@ -20,6 +20,8 @@ public class Crate : MonoBehaviour
     public float breakFrameTime = 0.09f;
     [Tooltip("Varjon leveys (yksikköä).")]
     public float shadowWidth = 1.4f;
+    [Tooltip("Kannossa näin paljon alemmas (yks): pöytä kannetaan kannen alta, jalat ylöspäin ei jää ilmaan.")]
+    public float carryLower = 0f;
     /// Kasvaa aina, kun esinettä lyödään, nostetaan tai se hajoaa (pöydän pullot reagoivat).
     public int Disturb { get; private set; }
     public bool Intact => state == State.Idle;
