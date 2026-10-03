@@ -53,6 +53,7 @@ public static class BeatEmUpSetup
             AddKovisGroups();
             AddPunks();
             AddLippis();
+            AddSkaters();
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
@@ -1513,6 +1514,84 @@ public static class BeatEmUpSetup
         Info(
             $"Lippiksiä kadulla: {LippisStreet.Length}\n\n" + string.Join("\n", report) +
             "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Skettari ----------------
+    // Liikkuu rullalaudalla: potkii vauhtia ja liukuu, lyö laudalta ja syöksyy kauempaa lyönti edellä.
+    static readonly Vector2[] SkaterStreet = { new Vector2(38f, -2.9f), new Vector2(68f, -2.1f), new Vector2(98f, -3.3f), new Vector2(140f, -2.5f) };
+
+    [MenuItem("Beat em up/39. Lisää Skettarit (uusi vihollinen)")]
+    static void AddSkaters()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var report = new List<string>();
+        Sprite[] ride = EnemySheet("skettari_ajo", report);
+        if (ride.Length == 0) { Info( "skettari_ajo.png puuttuu."); return; }
+        Sprite[] push = EnemySheet("skettari_vauhti", report);
+        Sprite[] punch = EnemySheet("skettari_lyonti", report);
+
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+            if (e.gameObject.name.StartsWith("Skettari")) Undo.DestroyObjectImmediate(e.gameObject);
+
+        var go = new GameObject("Skettari");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = ride[0];
+        t.displayName = "Skettari";
+        t.idleSprites = ride;                 // seisoo laudalla ja keinuu
+        t.idleFrameTime = 0.15f;
+        // liikkuessa: potku vauhtia (6 kuvaa) ja liuku (ajokuvat), vuorotellen
+        t.walkSprites = push.Length > 0 ? push.Concat(ride.Take(4)).ToArray() : ride;
+        t.walkFrameTime = 0.09f;
+        t.punchSprites = punch;
+        t.punchImpactFrame = 3;               // käsi suorana kuvassa 4
+        t.windupTime = 0.25f;
+        // syöksylyönti: liukuu laudalla kauempaa lyönti edellä
+        t.altAttackSprites = punch;
+        t.altImpactFrame = 3;
+        t.altChance = 0.5f;
+        t.altDamage = 12;
+        t.altReach = 2.2f;
+        t.altLungeSpeed = 11f;
+        t.altLungeTime = 0.4f;
+        t.chargeRange = 7f;
+        t.chargeMinRange = 2.6f;
+        t.moveSpeedX = 4.4f;                  // laudalla nopea
+        t.moveSpeedY = 2.0f;
+        t.runSpeedMultiplier = 1.4f;
+        t.flankChance = 0.4f;                 // kiertää usein selän taakse
+        t.retreatChance = 0.45f;              // iske ja liu'u pois
+        t.maxHealth = 55;
+        t.punchDamage = 8;
+        t.attackCooldown = 1.1f;
+        var fall = EnemySheet("skettari_kaatuminen", report);
+        if (fall.Length > 0) t.knockdownSprites = fall;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        t.hurtVolume = 0.95f;
+        Undo.RegisterCreatedObjectUndo(go, "Skettari");
+
+        float x0 = pc.transform.position.x;
+        for (int i = 0; i < SkaterStreet.Length; i++)
+        {
+            var v = SkaterStreet[i];
+            var c = i == 0 ? go : Object.Instantiate(go);
+            if (i > 0) { c.name = "Skettari_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Skettari"); }
+            c.transform.position = new Vector3(x0 + v.x, Mathf.Clamp(v.y, pc.minDepthY, pc.maxDepthY), 0f);
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        Info(
+            $"Skettareita kadulla: {SkaterStreet.Length}\n\n" + string.Join("\n", report) +
+            "\n\nPotkii vauhtia, liukuu ja lyö laudalta; syöksyy kauempaa lyönti edellä.\nKaatumiskuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Kadun jatko ----------------

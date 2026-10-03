@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
     [Tooltip("Askelväli taklauksen juoksussa (s).")]
     public float stompInterval = 0.2f;
     [Tooltip("Ruudun tärinä jokaisella askeleella.")]
-    public float stompShake = 0.07f;
+    public float stompShake = 0f;
     float stompTimer;
 
     public int maxHealth = 60;
