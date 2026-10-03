@@ -1525,7 +1525,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
-        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku" })
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1591,6 +1591,13 @@ public static class BeatEmUpSetup
         if (footIdle.Length > 0) t.footIdleSprites = footIdle;
         var jumpKick = EnemySheet("skettari_hyppypotku", report);   // 12 kuvaa, potku ojennettuna kuvassa 6
         if (jumpKick.Length > 0) { t.footKickSprites = jumpKick; t.footKickImpactFrame = 5; t.footKickLunge = 6f; }
+        // jab–suora-kombo (12 kuvaa): jab osuu kuvassa 4, suora kuvassa 7; nopea veto
+        var combo = EnemySheet("skettari_lyonnit", report);
+        if (combo.Length > 0)
+        {
+            t.footPunchSprites = combo; t.footPunchImpactFrame = 3; t.footSecondImpactFrame = 6;
+            t.footWindupTime = 0.15f; t.footPunchRecoverTime = 0.65f;
+        }
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.95f;
         Undo.RegisterCreatedObjectUndo(go, "Skettari");

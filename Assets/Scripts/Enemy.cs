@@ -58,6 +58,9 @@ public class Enemy : MonoBehaviour
     public int punchDamage = 8;
     [Tooltip("Lyöntianimaatiossa kuva, jossa käsi on täysin ojennettu (0 = ensimmäinen).")]
     public int punchImpactFrame = 3;
+    [Tooltip("Kombon toinen osuma samassa lyöntisarjassa (esim. jab + suora). -1 = ei toista osumaa.")]
+    public int secondImpactFrame = -1;
+    bool secondHitDone;
 
     [Header("Toinen hyökkäys (esim. pusku) – vapaaehtoinen")]
     public Sprite[] altAttackSprites;
@@ -171,6 +174,9 @@ public class Enemy : MonoBehaviour
     [Tooltip("Ilman lautaa (noustua): idle/tappeluasento, kävely, lyönti, osuma. Tyhjät korvataan tappeluasennolla.")]
     public Sprite[] footIdleSprites, footWalkSprites, footPunchSprites, footHurtSprites;
     public int footPunchImpactFrame = 3;
+    [Tooltip("Jalan lyöntisarjan toinen osuma (jab + suora), -1 = ei.")]
+    public int footSecondImpactFrame = -1;
+    public float footWindupTime = 0.15f, footPunchRecoverTime = 0.6f;
     [Tooltip("Hyppypotku jalan (loikka eteen, osuma kuvassa footKickImpactFrame).")]
     public Sprite[] footKickSprites;
     public int footKickImpactFrame = 5;
@@ -321,6 +327,18 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Recover:
+                // kombon toinen isku (lyöntisarjan myöhempi kuva)
+                if (!usingAlt && secondImpactFrame > PunchImpact && !secondHitDone && Has(AtkSprites))
+                {
+                    int n = AtkSprites.Length - PunchImpact;
+                    int f = PunchImpact + (int)(stateTime / CurrentRecover * n);
+                    if (f >= secondImpactFrame)
+                    {
+                        secondHitDone = true;
+                        if (Random.value < attackSoundChance) PlayAttackSound();
+                        TryHitPlayer();
+                    }
+                }
                 if (stateTime >= CurrentRecover)
                 {
                     cooldown = attackCooldown * Random.Range(0.7f, 1.3f);
@@ -591,6 +609,11 @@ public class Enemy : MonoBehaviour
         walkSprites = Has(footWalkSprites) ? footWalkSprites : idleSprites;
         punchSprites = Has(footPunchSprites) ? footPunchSprites : Has(footKickSprites) ? footKickSprites : idleSprites;
         punchImpactFrame = Has(footPunchSprites) ? footPunchImpactFrame : Has(footKickSprites) ? footKickImpactFrame : 0;
+        if (Has(footPunchSprites))
+        {
+            secondImpactFrame = footSecondImpactFrame;    // jab ja heti perään suora
+            windupTime = footWindupTime; punchRecoverTime = footPunchRecoverTime;
+        }
         if (Has(footHurtSprites)) hurtSprites = footHurtSprites;
         chargeRange = 0f;                            // syöksylyönti vain laudalla
         if (Has(footKickSprites))
@@ -608,6 +631,7 @@ public class Enemy : MonoBehaviour
     void Enter(State s)
     {
         if (s == State.Airborne || s == State.Held) DropBoard();
+        if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
