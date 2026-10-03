@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Maahan pudonnut raha tai energiajuoma. Seteli (1 mk) on tavallinen, setelitukku (50 mk) harvinainen.
-/// Energiajuoma (laatikoista) palauttaa staminaa.
+/// Energiajuoma (laatikoista) palauttaa staminaa ja vähän terveyttä.
 /// Kuvat: Assets/Resources/Pickups/seteli.png, setelitukku.png ja energiajuoma.png (puuttuessa piirretään kolikko / tölkki).
 /// Kerätään kävelemällä päälle.
 /// </summary>
@@ -12,6 +12,8 @@ public class Pickup : MonoBehaviour
     public bool rare;
     [Tooltip("Energiajuoma: staminaa takaisin (0 = raha).")]
     public int stamina;
+    [Tooltip("Energiajuoma: myös terveyttä takaisin.")]
+    public int health = 20;
     [Tooltip("Kuinka läheltä raha kerätään (x ja syvyys).")]
     public float pickRadiusX = 0.8f, pickRadiusY = 0.45f;
 
@@ -102,8 +104,10 @@ public class Pickup : MonoBehaviour
             if (stamina > 0)
             {
                 int got = pc.AddStamina(stamina);
+                int hp = health > 0 ? pc.Heal(health) : 0;
                 if (drinkSound != null) HitFx.PlayClip(drinkSound, 0.9f); else HitFx.PlayPickup(false);
                 GameHUD.Popup("+" + got + " STAMINA", me + Vector3.up * 1.2f, new Color(0.35f, 0.7f, 1f));
+                if (hp > 0) GameHUD.Popup("+" + hp + " HP", me + Vector3.up * 1.7f, new Color(0.4f, 1f, 0.45f));
                 Destroy(gameObject);
                 return;
             }
