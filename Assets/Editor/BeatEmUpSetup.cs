@@ -1591,7 +1591,7 @@ public static class BeatEmUpSetup
         // taistelukuvissa hahmo on piirretty tanakammaksi kuin kävelyssä: koon voi hienosäätää pelin aikana Inspectorissa
         t.attackArtScale = 1f;
         t.knockArtScale = 1f;
-        t.walkArtScale = 0.95f;            // kävely (videosta) näytti isommalta kuin taistelukuvat
+        t.walkArtScale = 1f;
         t.idleSprites = idle;                                  // 8 kuvaa
         t.idleFrameTime = 0.16f;
         t.walkSprites = EnemySheet("portsari_kavely", report); // 12 kuvaa videosta, 1 s askelsykli
