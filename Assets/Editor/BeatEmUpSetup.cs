@@ -1556,8 +1556,10 @@ public static class BeatEmUpSetup
 
     // ---------------- S-Clubin baaripöydät ja pullot ----------------
     // pöytien paikat: x klubin vasemmasta reunasta (yks), syvyys 0 = seinän vieressä, 1 = edessä
-    static readonly Vector2[] BarTables = { new Vector2(6.5f, 0.35f), new Vector2(10f, 0.8f), new Vector2(13.5f, 0.3f), new Vector2(17f, 0.75f),
-                                            new Vector2(20.5f, 0.4f), new Vector2(24f, 0.85f), new Vector2(27.5f, 0.35f) };
+    // kaksi riviä lomittain: takarivi seinän puolella, eturivi edessä; keskelle jää tilaa tappelulle
+    static readonly Vector2[] BarTables = {
+        new Vector2(5f, 0.25f), new Vector2(9f, 0.25f), new Vector2(13f, 0.25f), new Vector2(17f, 0.25f), new Vector2(21f, 0.25f), new Vector2(25f, 0.25f), new Vector2(29f, 0.25f),
+        new Vector2(7f, 0.88f), new Vector2(11f, 0.88f), new Vector2(15f, 0.88f), new Vector2(19f, 0.88f), new Vector2(23f, 0.88f), new Vector2(27f, 0.88f) };
 
     [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
     static void AddBarProps()
@@ -1620,7 +1622,7 @@ public static class BeatEmUpSetup
             vis.sprite = table[0];
             // pulloja reilusti: 3–5 per pöytä, eri merkkejä
             if (kinds.Count == 0) continue;
-            int n = 3 + rnd.Next(3);
+            int n = 7 + rnd.Next(3);                 // 7–9 pulloa pöydällä (yhteensä yli 100)
             for (int i = 0; i < n; i++)
             {
                 var bGo = new GameObject("Pullo");
@@ -1632,7 +1634,7 @@ public static class BeatEmUpSetup
                 b.stainKind = kindNames[ki];
                 b.breakSounds = glass;
                 b.table = c;
-                b.tableX = Mathf.Lerp(-1.05f, 1.05f, (i + 0.5f) / n) + (float)(rnd.NextDouble() - 0.5) * 0.15f;
+                b.tableX = Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / n) + (float)(rnd.NextDouble() - 0.5) * 0.08f;
                 b.tableTop = 1.24f;
                 bottles++;
             }
