@@ -300,6 +300,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly int[] KneeHero = { 2, 3, 3, 4, 5, 6, 7, 9 };
     static readonly int[] KneeEnemy = { 1, 2, 3, 4 };
     bool HasKnee => kneeSprites != null && kneeSprites.Length >= 10;
+
+    [Header("Jab + polvi (lyönti, heti perään potku)")]
+    [Tooltip("Polvi-iskun kuvat polvi.png:stä: ote, polvi ylös (osuma), polvi, lasku, asento.")]
+    public int kneeStrikeDamage = 15;
+    public float kneeStrikeReach = 1.3f, kneeStrikeLunge = 0.3f;
+    public bool kneeStrikeKnockdown = false;
+    static readonly int[] KneeStrikeFrames = { 3, 4, 5, 6, 7 };
+    static readonly float[] KneeStrikeTimes = { 0.06f, 0.13f, 0.07f, 0.07f, 0.09f };
+    const int KneeStrikeImpact = 1;
+    bool kneeStrikeQueued;
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
     [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
@@ -395,7 +405,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike }
 
     int comboIndex;
     bool comboQueued;
@@ -592,9 +602,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
                 if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
+                // jab + potku: polvi-isku (ote ja polvi ylös)
+                if (kickPressed && comboIndex == 0 && HasKnee && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
 
                 // ketjussa isku katkaistaan heti osuman jälkeen, palautusta ei odoteta
                 float cancelAt = hit.ImpactTime + flurryCancelAfterImpact;
+                if (kneeStrikeQueued && stateTime >= cancelAt)
+                {
+                    attackHit = false;
+                    attackLunge = ChaseLunge(kneeStrikeLunge, kneeStrikeReach);
+                    PlayGrunt();
+                    Enter(State.KneeStrike);
+                    break;
+                }
                 if (flurryKickQueued && stateTime >= cancelAt)
                 {
                     flurry = true;
@@ -618,6 +638,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Recovery:
                 if (stateTime >= comboRecovery) Enter(State.Ground);
                 break;
+
+            case State.KneeStrike:
+            {
+                float impact = ThrowPose.Start(KneeStrikeTimes, KneeStrikeImpact);
+                Lunge(attackLunge, impact, dt);
+                if (!attackHit && stateTime >= impact && stateTime <= impact + KneeStrikeTimes[KneeStrikeImpact])
+                    attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown, 2.0f);   // polvi vatsaan / leukaan
+                if (ThrowPose.Index(KneeStrikeTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+            }
 
             case State.SideKick:
             {
@@ -848,7 +878,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         state = s;
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
-        if (s != State.Punch) flurryKickQueued = false;
+        if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; }
         if (s != State.JumpSquat) scissorJump = false;
         if (s != State.Ground) { moving = false; running = false; }
     }
@@ -1006,7 +1036,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special;
+        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -1506,6 +1536,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void StartComboHit(int index)
     {
         attackHit = false;
+        kneeStrikeQueued = false;
         PlayGrunt();
         comboIndex = index;
         comboQueued = false;
@@ -1725,6 +1756,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.SmallPick:
             case State.SmallThrow:
                 return smallItemSprites[SmallFrame()];
+
+            case State.KneeStrike:
+            {
+                int i = ThrowPose.Index(KneeStrikeTimes, stateTime);
+                return kneeSprites[KneeStrikeFrames[i < 0 ? KneeStrikeFrames.Length - 1 : i]];
+            }
 
             case State.Lift:
                 if (HasCarrySprites) return carrySprites[stateTime < liftTime * 0.35f ? 0 : stateTime < liftTime * 0.7f ? 1 : 2];
