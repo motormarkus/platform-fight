@@ -792,6 +792,7 @@ public static class BeatEmUpSetup
         t.knockdownSprites = EnemySheet("punk_kaatuminen", report);
         t.getUpSprites = EnemySheet("punk_ylosnousu", report);
         t.headlockThrownSprites = EnemySheet("punk_niskalenkki", report);   // pelaajan niskalenkki
+        t.headlockFlightSprites = EnemySheet("punk_niskalenkki_lento", report);   // lento, isku maahan, pomppu, makuu
         t.idleFrameTime = 0.2f;
         t.walkFrameTime = 0.115f;          // videon oma tahti (12 kuvaa, 1.4 s sykli)
         t.moveSpeedX = 2.6f;               // Kovista nopeampi
@@ -1225,12 +1226,13 @@ public static class BeatEmUpSetup
         var sheetReport = new List<string>();
         Sprite[] kovisFlip = EnemySheet("vihu_kuperkeikka", sheetReport);
         Sprite[] punkHeadlock = EnemySheet("punk_niskalenkki", sheetReport);
+        Sprite[] punkFlight = EnemySheet("punk_niskalenkki_lento", sheetReport);
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
         {
             Undo.RecordObject(e, "Iso vastus");
             e.bigBody = e.gameObject.name.StartsWith("Kovis");
             if (e.bigBody) e.flipThrownSprites = kovisFlip;   // Koviksen oma lento ja alastulo
-            else if (e.gameObject.name.StartsWith("Punkkari")) e.headlockThrownSprites = punkHeadlock;
+            else if (e.gameObject.name.StartsWith("Punkkari")) { e.headlockThrownSprites = punkHeadlock; e.headlockFlightSprites = punkFlight; }
             if (e.bigBody) big++; else small++;
             EditorUtility.SetDirty(e);
         }

@@ -264,6 +264,8 @@ public class PlayerController : MonoBehaviour
     public float counterThrowSpeed = 7f;
     [Tooltip("Niskalenkin lennon nousunopeus (pieni = matala ja nopea isku maahan).")]
     public float counterThrowUp = 1.5f;
+    [Tooltip("Niskalenkissä hero liukuu heiton aikana näin paljon eteenpäin (yksikköä).")]
+    public float counterThrowSlide = 0.8f;
 
     [Header("Kuperkeikkaheitto isoille vastuksille (Kovis): sama nappi, valitaan automaattisesti")]
     [Tooltip("kuperkeikka.png: 8 kuvaa (0 ote, 1 kyykky, 2 istahdus, 3 selälleen, 4 jalat vatsaan, 5 potku pään yli, 6–7 makaa). Lopuksi kip-up.")]
@@ -1226,7 +1228,9 @@ public class PlayerController : MonoBehaviour
         {
             float k = Mathf.Clamp(ThrowKeyAt(stateTime), 0f, keys.Length - 1);
             int i = Mathf.Min((int)k, keys.Length - 2);
-            Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], k - i);
+            // pehmeä kaari avainkohtien läpi (ei kulmikkaita suoria pätkiä), kierto tasaisesti
+            Vector3 v = CatmullRom(keys[Mathf.Max(i - 1, 0)], keys[i], keys[i + 1], keys[Mathf.Min(i + 2, keys.Length - 1)], k - i);
+            v.z = Mathf.Lerp(keys[i].z, keys[i + 1].z, k - i);
             Vector3 me = transform.position;
             int[] poses = CurPoses;
             int pose = heldArt ? poses[Mathf.Min((int)k, poses.Length - 1)] : -1;
@@ -1249,11 +1253,25 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
+        // niskalenkki: hero liukuu heiton voimasta eteenpäin (loivenee loppua kohti)
+        if (counterThrowSlide > 0f)
+        {
+            float slideTime = releaseAt + counterThrowEndHold * 0.5f;
+            float a0 = Mathf.Clamp01((stateTime - Time.deltaTime) / slideTime), a1 = Mathf.Clamp01(stateTime / slideTime);
+            float e0 = 1f - (1f - a0) * (1f - a0), e1 = 1f - (1f - a1) * (1f - a1);
+            MoveOnGround(new Vector2(dir * counterThrowSlide * (e1 - e0), 0f));
+        }
         if (stateTime >= releaseAt + counterThrowEndHold)
         {
             facingRight = !facingRight;   // heiton jälkeen katsotaan heittosuuntaan
             Enter(State.Ground);
         }
+    }
+
+    static Vector3 CatmullRom(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
+    {
+        float t2 = t * t, t3 = t2 * t;
+        return 0.5f * (2f * p1 + (p2 - p0) * t + (2f * p0 - 5f * p1 + 4f * p2 - p3) * t2 + (3f * p1 - p0 - 3f * p2 + p3) * t3);
     }
 
     void StartPush()

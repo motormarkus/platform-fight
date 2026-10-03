@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     public Sprite[] flipThrownSprites;
     [Tooltip("Oma kuvasarja pelaajan niskalenkkiin (punk_niskalenkki.png, 8 kuvaa): 0 lyönti, 1 ote, 2 veto, 3 askel, 4 olan yli, 5 ylösalaisin, 6–7 alastulo selälleen.")]
     public Sprite[] headlockThrownSprites;
+    [Tooltip("Niskalenkin lento ja alastulo (punk_niskalenkki_lento.png, 6 kuvaa): 0 ylösalaisin, 1 lento, 2 juuri ennen maata, 3 isku, 4 pomppu, 5 makaa.")]
+    public Sprite[] headlockFlightSprites;
 
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;
@@ -240,6 +242,7 @@ public class Enemy : MonoBehaviour
         PlayerController.SortByFrameNumber(getUpSprites);
         PlayerController.SortByFrameNumber(flipThrownSprites);
         PlayerController.SortByFrameNumber(headlockThrownSprites);
+        PlayerController.SortByFrameNumber(headlockFlightSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -387,7 +390,9 @@ public class Enemy : MonoBehaviour
                 Move(knockVel * dt);
                 verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
-                if (thrownByPlayer && artThrow)
+                if (thrownByPlayer && flightArt)
+                    spinRot = 0f;   // lentokuvat piirretty valmiiksi oikeaan asentoon
+                else if (thrownByPlayer && artThrow)
                 {
                     // omat kuvat: kiertokuva kiertyy eteenpäin (kuperkeikassa hetken, sitten suora lentokuva)
                     float dir = facingRight ? -1f : 1f;   // eteenpäin kaatuminen pelaajan yli
@@ -405,6 +410,22 @@ public class Enemy : MonoBehaviour
                 if (height <= 0f)
                 {
                     height = 0f;
+                    if (thrownByPlayer && flightArt)
+                    {
+                        // niskalenkin paiskaus: isku, pomppu ja makuu omilla kuvilla, kunnon tärähdys ja pöly
+                        slamLanded = true;
+                        flightArt = false; artThrow = false;
+                        spinRot = 0f;
+                        thrownByPlayer = false;
+                        PlayHurtSound();
+                        HitFx.OnHit(true);
+                        HitFx.PlayClip(SlamSound, 1f);
+                        DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
+                        knockVel *= 0.35f;   // liukuu vähän iskun jälkeen
+                        Enter(State.Down);
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.25f);
+                        break;
+                    }
                     if (thrownByPlayer)
                     {
                         flipLanded = artThrow;   // omat alastulokuvat
@@ -421,6 +442,11 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.Down:
+                if (slamLanded)
+                {
+                    Move(knockVel * dt);
+                    knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 9f * dt);
+                }
                 if (stateTime >= downTime)
                 {
                     if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
@@ -536,7 +562,7 @@ public class Enemy : MonoBehaviour
     {
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s == State.GrabThrow) thrown = false;
-        if (s != State.Down && s != State.Dead) flipLanded = false;
+        if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -813,6 +839,12 @@ public class Enemy : MonoBehaviour
     float shakeUntil;       // osuman tärinä (reaaliaikaa)
     bool artThrow;          // heitetään omilla kuvilla (artSet)
     bool flipLanded;        // maassa omilla alastulokuvilla
+    bool flightArt;         // niskalenkin lento omilla lentokuvilla (headlockFlightSprites)
+    bool slamLanded;        // paiskattu maahan: isku, pomppu ja makuu lentokuvista
+    public bool HasFlightArt => headlockFlightSprites != null && headlockFlightSprites.Length >= 6;
+    const float SlamImpactTime = 0.12f, SlamBounceTime = 0.26f;
+    static AudioClip slamSound; static bool slamLoaded;
+    static AudioClip SlamSound { get { if (!slamLoaded) { slamSound = Resources.Load<AudioClip>("Sfx/paiskaus"); slamLoaded = true; } return slamSound; } }
     int heldPose = -1;      // mikä omista kuvista näytetään otteessa (-1 = osumakuva + kierto)
     const float ArtSpinTime = 0.1f;
 
@@ -849,6 +881,7 @@ public class Enemy : MonoBehaviour
             artSpinPose = 5; artFlightPose = -1; artSpinTarget = 45f; artSpinRate = 300f;
             artLandFirst = 6; artLandFrameTime = 0.12f;
         }
+        flightArt = !monkeyFlip && HasFlightArt;
         facingRight = playerX > transform.position.x;   // kasvot pelaajaan päin
         knockVel = Vector2.zero;
         spinRot = 0f;
@@ -961,7 +994,10 @@ public class Enemy : MonoBehaviour
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
         float shake = HitFx.ShakeOffset(shakeUntil);
-        body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height - footOffset + pivotFix.y, 0f);
+        float bounce = 0f;
+        if (state == State.Down && slamLanded && stateTime >= SlamImpactTime && stateTime < SlamImpactTime + SlamBounceTime)
+            bounce = Mathf.Sin((stateTime - SlamImpactTime) / SlamBounceTime * Mathf.PI) * 0.3f;   // pomppu iskun jälkeen
+        body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height + bounce - footOffset + pivotFix.y, 0f);
         // kaatumisen väliaikainen korvike: käännetään kuvaa, kun oikeat kuvat puuttuvat
         body.transform.localRotation = Quaternion.Euler(0f, 0f, facingRight ? rot : -rot);
         if (state == State.Held || (state == State.Airborne && thrownByPlayer))
@@ -1050,6 +1086,12 @@ public class Enemy : MonoBehaviour
                 return FirstIdle();
 
             case State.Airborne:
+                if (thrownByPlayer && flightArt)
+                {
+                    // 0 ylösalaisin irrotessa, 1 lento, 2 juuri ennen maata
+                    int fi = stateTime < 0.1f ? 0 : height > 0.9f ? 1 : 2;
+                    return headlockFlightSprites[fi];
+                }
                 if (thrownByPlayer && artThrow)
                     return artSet[artFlightPose >= 0 && stateTime >= ArtSpinTime ? artFlightPose : artSpinPose];
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
@@ -1067,6 +1109,12 @@ public class Enemy : MonoBehaviour
 
             case State.Down:
             case State.Dead:
+                if (slamLanded && HasFlightArt)
+                {
+                    if (state == State.Down && stateTime < SlamImpactTime) return headlockFlightSprites[3];               // isku
+                    if (state == State.Down && stateTime < SlamImpactTime + SlamBounceTime) return headlockFlightSprites[4]; // pomppu
+                    return headlockFlightSprites[5];                                                                        // makaa
+                }
                 if (flipLanded && artSet != null)
                     return artSet[Mathf.Min(artLandFirst + (int)(stateTime / artLandFrameTime), artSet.Length - 1)];
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];
