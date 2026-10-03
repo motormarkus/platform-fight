@@ -7,6 +7,8 @@ using UnityEngine;
 public class Area : MonoBehaviour
 {
     public string areaName = "Alue";
+    [Tooltip("Alueen oma musiikki (tyhjä = kentän pääkappale).")]
+    public AudioClip music;
     /// Alue, jolla pelaaja on (viimeksi asetettu).
     public static Area Current;
 
@@ -26,6 +28,7 @@ public class Area : MonoBehaviour
     public void Apply(PlayerController pc)
     {
         Current = this;
+        MusicPlayer.SetAreaMusic(music);
         if (pc != null)
         {
             pc.minDepthY = minDepthY;

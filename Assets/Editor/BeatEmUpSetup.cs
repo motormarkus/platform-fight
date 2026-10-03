@@ -654,6 +654,7 @@ public static class BeatEmUpSetup
 
         var clubArea = new GameObject("Alue: S-Club").AddComponent<Area>();
         clubArea.areaName = "S-Club";
+        clubArea.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/S-Club.mp3");   // klubin oma musiikki
         float top = camY + hU * 0.5f;
         clubArea.maxDepthY = top - ClubFloorRow / ClubPPU;
         clubArea.minDepthY = pc.minDepthY;
