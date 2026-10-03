@@ -1579,6 +1579,16 @@ public static class BeatEmUpSetup
             var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
             if (sp.Length >= 7) { kinds.Add(sp); kindNames.Add(n.Substring(6)); }
         }
+        // lasit: (sheet, läiskä); tyhjät eivät jätä läiskää
+        var glasses = new List<(Sprite[] sp, string stain, bool tall)>();
+        foreach (var (n, st, tall) in new[] { ("pullo_lasi_tumbler", "-", false), ("pullo_lasi_viski", "likoori", false), ("pullo_lasi_olut", "olut", true), ("pullo_lasi_tuoppi", "-", true) })
+        {
+            string gp = FindTexture(n);
+            if (gp == null) continue;
+            SetupAndSlice(gp);
+            var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            if (sp.Length >= 5) glasses.Add((sp, st, tall));
+        }
         // läiskät (Resources/Tahrat): yksittäisiä spritejä, keskikohta
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Tahrat" }))
         {
@@ -1620,21 +1630,34 @@ public static class BeatEmUpSetup
             c.moneyChance = 0.3f; c.energyChance = 0.15f;
             c.throwDamage = 22;
             vis.sprite = table[0];
-            // pulloja reilusti: 3–5 per pöytä, eri merkkejä
+            // pulloja ja laseja reilusti, eri merkkejä
             if (kinds.Count == 0) continue;
             int n = 7 + rnd.Next(3);                 // 7–9 pulloa pöydällä (yhteensä yli 100)
-            for (int i = 0; i < n; i++)
+            int g = glasses.Count > 0 ? 2 + rnd.Next(2) : 0;   // 2–3 lasia pullojen sekaan
+            int total = n + g;
+            var isGlass = new bool[total];
+            for (int k = 0; k < g; k++) { int at; do at = rnd.Next(total); while (isGlass[at]); isGlass[at] = true; }
+            for (int i = 0; i < total; i++)
             {
                 var bGo = new GameObject("Pullo");
                 bGo.transform.SetParent(root.transform, false);
                 bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
-                int ki = rnd.Next(kinds.Count);
-                b.sprites = kinds[ki];
-                b.stainKind = kindNames[ki];
+                if (isGlass[i])
+                {
+                    var gl = glasses[rnd.Next(glasses.Count)];
+                    b.sprites = gl.sp; b.stainKind = gl.stain; b.pivotY = gl.tall ? 0.2f : 0.15f;
+                    bGo.name = "Lasi";
+                }
+                else
+                {
+                    int ki = rnd.Next(kinds.Count);
+                    b.sprites = kinds[ki];
+                    b.stainKind = kindNames[ki];
+                }
                 b.breakSounds = glass;
                 b.table = c;
-                b.tableX = Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / n) + (float)(rnd.NextDouble() - 0.5) * 0.08f;
+                b.tableX = Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / total) + (float)(rnd.NextDouble() - 0.5) * 0.06f;
                 b.tableTop = 1.24f;
                 bottles++;
             }

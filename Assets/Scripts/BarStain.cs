@@ -13,6 +13,7 @@ public class BarStain : MonoBehaviour
 
     public static void SpawnAt(Vector3 pos, string kind = null)
     {
+        if (kind == "-") return;                 // tyhjä lasi: ei läiskää
         if (!loaded) { sprites = Resources.LoadAll<Sprite>("Tahrat"); loaded = true; }
         if (sprites == null || sprites.Length == 0) return;
         var pool = string.IsNullOrEmpty(kind) ? sprites : System.Array.FindAll(sprites, s => s.name.StartsWith(kind));

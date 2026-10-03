@@ -23,6 +23,8 @@ public class Bottle : MonoBehaviour
     public float throwSpeed = 15f;
     [Tooltip("Läiskän laji (Resources/Tahrat/<laji>_*.png): olut, vodka, sininen, likoori.")]
     public string stainKind = "olut";
+    [Tooltip("Kiertopiste (keskikohdan korkeus, yks): pullo 0.3, lasi 0.17.")]
+    public float pivotY = 0.3f;
     [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
     public AudioClip[] breakSounds;
     static int lastSound = -1;
@@ -247,7 +249,7 @@ public class Bottle : MonoBehaviour
         else sr.sprite = sprites[0];
         // kierto pullon keskikohdan ympäri (kuva alareunan keskellä, pullo n. 0.58 yks korkea)
         var q = Quaternion.Euler(0f, 0f, state == S.Breaking ? 0f : rot);
-        Vector3 c = new Vector3(0f, 0.3f, 0f);
+        Vector3 c = new Vector3(0f, pivotY, 0f);
         sr.transform.localRotation = q;
         sr.transform.localPosition = new Vector3(0f, height - 0.04f, 0f) + c - q * c;
         int order;
