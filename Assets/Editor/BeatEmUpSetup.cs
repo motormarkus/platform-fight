@@ -58,6 +58,7 @@ public static class BeatEmUpSetup
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             AddBarProps();          // S-Clubin pöydät ja pullot (baaritappelu)
+            AddStreetTvs();         // muutama sammunut telkkari kadulla
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
             CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
@@ -1707,6 +1708,53 @@ public static class BeatEmUpSetup
         Info($"S-Clubiin {BarTables.Length} pöytää, {tvs} telkkaria ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
              "Lyönti pöytään: nitkahtaa, pullot lentävät tai kaatuvat. Kolmas isku tai lentävä vihu hajottaa pöydän.\n" +
              "Ehjä pullo lattialla: kiinniottonappi poimii käteen, lyöntinappi heittää.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Kadun telkkarit ----------------
+    static readonly float[] StreetTvX = { 0.14f, 0.37f, 0.61f, 0.86f };   // osuus kadun pituudesta
+
+    [MenuItem("Beat em up/42. Telkkareita kadulle (ruutu pimeänä)")]
+    static void AddStreetTvs()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var street = GameObject.Find("Tausta");
+        string tvp = FindTexture("telkkari");
+        if (pc == null || street == null || tvp == null) { Info("Tarvitaan pelaaja, katutausta ja telkkari.png."); return; }
+        SetupAndSlice(tvp);
+        var sprites = LoadSprites("telkkari").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        if (sprites.Length < 11) { Info("telkkari.png: kuvia " + sprites.Length + " (kohta 1)."); return; }
+        var old = GameObject.Find("Kadun telkkarit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Kadun telkkarit");
+        Undo.RegisterCreatedObjectUndo(root, "Kadun telkkarit");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        float curb = streetArea != null ? streetArea.curbDepthY : pc.curbDepthY;
+        float wall = streetArea != null ? streetArea.maxDepthY : pc.maxDepthY;
+        float y = (curb + wall) * 0.5f;
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float left = street.transform.position.x - ssr.size.x * 0.5f;
+        float right = street.transform.position.x + ssr.size.x * 0.5f;
+        var ext = GameObject.Find("Tausta jatko");
+        if (ext != null) right = Mathf.Max(right, ext.GetComponent<SpriteRenderer>().bounds.max.x);
+        float kerb = streetArea != null ? streetArea.sidewalkHeight : pc.sidewalkHeight;
+        var blocked = StreetObstacles(true);
+        var glass = LoadClips("Assets/Audio/sfx", "glass");
+        int count = 0;
+        foreach (float tx in StreetTvX)
+        {
+            float cx = Mathf.Lerp(left + 6f, right - 6f, tx);
+            for (int tries = 0; tries < 8 && Blocked(blocked, cx, 0.7f); tries++) cx += 1.2f;
+            if (Blocked(blocked, cx, 0.7f)) continue;
+            var go = new GameObject("Telkkari " + (++count));
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(cx, y - 0.1f, 0f);
+            var tv = go.AddComponent<TvSet>();
+            tv.sprites = sprites; tv.onGround = true; tv.screenOff = true; tv.tableTop = 0f;
+            tv.breakSounds = glass; tv.groundOffset = kerb;   // jalkakäytävällä
+            blocked.Add(new Vector2(cx, 0.7f));
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Kadulle {count} telkkaria (ruutu pimeänä). Potku lennättää, lyönti hajottaa, kiinniottonappi nostaa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Skettari ----------------

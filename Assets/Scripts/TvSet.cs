@@ -11,6 +11,29 @@ public class TvSet : MonoBehaviour
     public float showFrameTime = 0.35f;
     public float breakFrameTime = 0.08f;
     public Crate table;
+    [Tooltip("Maassa ilman pöytää (kadulla).")]
+    public bool onGround;
+    [Tooltip("Ruutu pimeänä (kadulla): näytetään hajoamissarjan ensimmäinen, ehjä kuva.")]
+    public bool screenOff;
+    [Tooltip("Maan korkeus kuvan alla (esim. jalkakäytävä).")]
+    public float groundOffset;
+    /// Voiko maassa olevaa telkkaria lyödä.
+    public bool CanBeHit => onGround && state == S.OnTable;
+
+    /// Pelaajan isku maassa olevaan telkkariin: potku lennättää kaarella, lyönti hajottaa paikalleen.
+    public bool TakeHit(float attackerX, bool kick)
+    {
+        if (!CanBeHit) return false;
+        float dir = transform.position.x >= attackerX ? 1f : -1f;
+        if (kick)
+        {
+            vx = dir * Random.Range(5f, 7.5f); vy = Random.Range(4.5f, 6.5f);
+            spin = -dir * Random.Range(300f, 500f);
+            flyHits.Clear(); state = S.Falling; t = 0f;
+        }
+        else { state = S.Breaking; t = 0f; Smash(); }
+        return true;
+    }
     public float tableTop = 1.24f;
     public AudioClip[] breakSounds;
 
@@ -36,7 +59,7 @@ public class TvSet : MonoBehaviour
             Vector3 q = tv.transform.position;
             float dx = (q.x - me.x) * dir;
             if (dx < -0.4f || dx > 1.6f || Mathf.Abs(q.y - me.y) > 0.6f) continue;
-            tv.table = null; tv.state = S.Held; tv.t = 0f; tv.rot = 0f;
+            tv.table = null; tv.onGround = false; tv.state = S.Held; tv.t = 0f; tv.rot = 0f;
             Held = tv;
             return true;
         }
@@ -94,6 +117,7 @@ public class TvSet : MonoBehaviour
         switch (state)
         {
             case S.OnTable:
+                if (table == null && onGround) { height = 0f; break; }
                 if (table == null || table.Disturb != seenDisturb)
                 {
                     // isku pöytään: telkkari lentää iskun suuntaan kaarella ja pyörii; muuten tippuu kallistuen
@@ -205,19 +229,22 @@ public class TvSet : MonoBehaviour
         int n = Mathf.Min(showFrames, sprites.Length);
         if (state == S.Breaking)
             sr.sprite = sprites[Mathf.Min(n + (int)(t / breakFrameTime), sprites.Length - 1)];
+        else if (screenOff)
+            sr.sprite = sprites[Mathf.Min(n, sprites.Length - 1)];
         else
             sr.sprite = sprites[(int)(Time.time / showFrameTime) % n];
         // kuvaputken värinä: kevyt kirkkauden vaihtelu ruudun pyöriessä
-        float g = state == S.Breaking ? 1f : 0.93f + 0.07f * Mathf.PerlinNoise(Time.time * 6f, 0f);
+        float g = state == S.Breaking || screenOff ? 1f : 0.93f + 0.07f * Mathf.PerlinNoise(Time.time * 6f, 0f);
         sr.color = new Color(g, g, g, 1f);
         var q = Quaternion.Euler(0f, 0f, rot);
         Vector3 c = new Vector3(0f, 0.45f, 0f);
         sr.transform.localRotation = q;
-        sr.transform.localPosition = new Vector3(0f, height - 0.04f, 0f) + c - q * c;
+        sr.transform.localPosition = new Vector3(0f, groundOffset + height - 0.04f, 0f) + c - q * c;
+        shadow.transform.localPosition = new Vector3(0f, groundOffset, 0f);
         int order = state == S.OnTable && table != null ? table.SortOrder + 2
                   : state == S.Held ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
         shadow.sortingOrder = order - 1;
-        shadow.enabled = state != S.OnTable && state != S.Held;
+        shadow.enabled = (state != S.OnTable || onGround) && state != S.Held;
     }
 }

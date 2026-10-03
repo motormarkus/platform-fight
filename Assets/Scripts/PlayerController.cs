@@ -974,6 +974,16 @@ public class PlayerController : MonoBehaviour
                 HitSpark.Spawn(new Vector3(p.x - side * 0.4f, p.y + 0.8f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
             }
         }
+        // kadun telkkarit (maassa): potku lennättää, lyönti hajottaa
+        foreach (var tv in TvSet.All.ToArray())
+        {
+            if (tv == null || !tv.CanBeHit) continue;
+            Vector3 p = tv.transform.position;
+            float dx = p.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
+            if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (tv.TakeHit(me.x, AttackIsKick)) any = true;
+        }
         if (any) HitFx.OnHit(heavy);
         return any;
     }
