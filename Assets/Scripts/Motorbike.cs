@@ -140,7 +140,9 @@ public class Motorbike : MonoBehaviour
 
     void Update()
     {
-        if (parked != null) parked.transform.localScale = new Vector3(Scale, Scale, 1f);
+        // pysäköity kuva (3D-render) samaan kokoon kuin kadun pyörät; ajokuvat käyttävät omaa kokoaan (Scale)
+        float ps = Mathf.Min(Scale, propScale);
+        if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
         if (!rideable) return;
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
         if (pc == null) return;
