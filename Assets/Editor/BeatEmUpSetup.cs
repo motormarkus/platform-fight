@@ -1968,6 +1968,14 @@ public static class BeatEmUpSetup
             var heroKnee = LoadSprites("polvi").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
             Undo.RecordObject(pc, "Polvi");
             pc.kneeSprites = heroKnee;
+            // jab + polvi -kombon oma polvi-isku (videosta)
+            string kip = FindTexture("polvi_isku");
+            if (kip != null)
+            {
+                SetupAndSlice(kip);
+                pc.kneeStrikeSprites = LoadSprites("polvi_isku").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                report.Add($"Heron polvi-isku: {pc.kneeStrikeSprites.Length} kuvaa");
+            }
             EditorUtility.SetDirty(pc);
             report.Add($"Heron polvi: {heroKnee.Length} kuvaa");
         }

@@ -306,9 +306,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int kneeStrikeDamage = 15;
     public float kneeStrikeReach = 1.3f, kneeStrikeLunge = 0.3f;
     public bool kneeStrikeKnockdown = false;
-    static readonly int[] KneeStrikeFrames = { 3, 4, 5, 6, 7 };
-    static readonly float[] KneeStrikeTimes = { 0.06f, 0.13f, 0.07f, 0.07f, 0.09f };
-    const int KneeStrikeImpact = 1;
+    [Tooltip("Oma polvi-isku (polvi_isku.png, 10 kuvaa videosta: 0 asento, 1–4 nousu, 5 polvi ylhäällä, 6–9 paluu). Tyhjä = polvi.png:n kuvat.")]
+    public Sprite[] kneeStrikeSprites;
+    static readonly int[] KneeStrikeFramesOld = { 3, 4, 5, 6, 7 };
+    static readonly float[] KneeStrikeTimesOld = { 0.06f, 0.13f, 0.07f, 0.07f, 0.09f };
+    static readonly int[] KneeStrikeFramesNew = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    static readonly float[] KneeStrikeTimesNew = { 0.035f, 0.035f, 0.035f, 0.035f, 0.14f, 0.05f, 0.05f, 0.05f, 0.06f };
+    bool HasKneeStrikeArt => kneeStrikeSprites != null && kneeStrikeSprites.Length >= 10;
+    int[] KneeStrikeFrames => HasKneeStrikeArt ? KneeStrikeFramesNew : KneeStrikeFramesOld;
+    float[] KneeStrikeTimes => HasKneeStrikeArt ? KneeStrikeTimesNew : KneeStrikeTimesOld;
+    int KneeStrikeImpact => HasKneeStrikeArt ? 4 : 1;
+    Sprite[] KneeStrikeSet => HasKneeStrikeArt ? kneeStrikeSprites : kneeSprites;
     bool kneeStrikeQueued;
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
@@ -427,6 +435,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
+        SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
         SortByFrameNumber(thrownSprites);
@@ -603,7 +612,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
                 if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
                 // jab + potku: polvi-isku (ote ja polvi ylös)
-                if (kickPressed && comboIndex == 0 && HasKnee && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
+                if (kickPressed && comboIndex == 0 && (HasKnee || HasKneeStrikeArt) && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
 
                 // ketjussa isku katkaistaan heti osuman jälkeen, palautusta ei odoteta
                 float cancelAt = hit.ImpactTime + flurryCancelAfterImpact;
@@ -1762,7 +1771,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.KneeStrike:
             {
                 int i = ThrowPose.Index(KneeStrikeTimes, stateTime);
-                return kneeSprites[KneeStrikeFrames[i < 0 ? KneeStrikeFrames.Length - 1 : i]];
+                return KneeStrikeSet[KneeStrikeFrames[i < 0 ? KneeStrikeFrames.Length - 1 : i]];
             }
 
             case State.Lift:
