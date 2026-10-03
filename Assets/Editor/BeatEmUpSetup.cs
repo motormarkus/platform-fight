@@ -1566,7 +1566,7 @@ public static class BeatEmUpSetup
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
         if (club == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10)."); return; }
-        foreach (var n in new[] { "portsari_idle", "portsari_kavely", "portsari_lyonnit", "portsari_potku" })
+        foreach (var n in new[] { "portsari_idle", "portsari_kavely", "portsari_lyonnit", "portsari_potku", "portsari_osuma", "portsari_kaatuminen", "portsari_ylosnousu" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1610,6 +1610,11 @@ public static class BeatEmUpSetup
         t.attackCooldown = 1.3f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.99f;
+        t.hurtSprites = EnemySheet("portsari_osuma", report);             // 3 kuvaa: isku leukaan, pää taakse
+        t.knockdownSprites = EnemySheet("portsari_kaatuminen", report);   // 7 kuvaa: horjuu, kaatuu selälleen (viimeinen makuu)
+        t.getUpSprites = EnemySheet("portsari_ylosnousu", report);        // 5 kuvaa: kyljeltä konttaus, polvi, asento
+        t.getUpTime = 0.9f;
+        t.bigBody = true;                  // pelaaja heittää kuperkeikalla kuten Koviksen
         t.fightsEveryone = true;           // lähimmän kimppuun: hero tai punkkarit
         t.wakeDistance = 100f;
         // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
@@ -1636,7 +1641,7 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         Info($"S-Clubiin {BouncerCount} portsaria: tulevat molemmista suunnista (ovelta ja oikeasta reunasta), kun klubissa alkaa ensimmäinen tappelu, ja käyvät lähimmän kimppuun (myös punkkareiden).\n\n" + string.Join("\n", report) +
-             "\n\nJab + suora ja kaatava potku. Osuma-, kaatumis- ja nousukuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
+             "\n\nJab + suora ja kaatava potku.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- S-Clubin baaripöydät ja pullot ----------------
