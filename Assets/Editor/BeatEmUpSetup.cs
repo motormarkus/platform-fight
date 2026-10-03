@@ -620,7 +620,7 @@ public static class BeatEmUpSetup
         ti.spritePixelsPerUnit = ClubPPU;
         ti.filterMode = FilterMode.Bilinear;
         ti.textureCompression = TextureImporterCompression.Uncompressed;
-        ti.maxTextureSize = 4096;
+        ti.maxTextureSize = 8192;   // klubi levennetty (4356 px)
         ti.mipmapEnabled = false;
         ti.SaveAndReimport();
         var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(ClubInteriorPath);
@@ -791,7 +791,7 @@ public static class BeatEmUpSetup
     // ---------------- Punkkari ----------------
     // Kadulla (x pelaajan aloituskohdasta, syvyys y) ja S-Clubin sisällä (x sisätilan vasemmasta reunasta, syvyys 0 = keskellä)
     static readonly Vector2[] PunkStreet = { new Vector2(20f, -2.8f), new Vector2(45f, -2.2f), new Vector2(85f, -3.0f), new Vector2(115f, -2.4f), new Vector2(150f, -3.1f) };
-    static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f) };
+    static readonly Vector2[] PunkClub = { new Vector2(13f, 0.3f), new Vector2(19f, -0.6f), new Vector2(25f, 0.5f), new Vector2(31f, -0.4f), new Vector2(36f, 0.4f) };
 
     static Sprite[] EnemySheet(string name, List<string> report)
     {
@@ -930,7 +930,7 @@ public static class BeatEmUpSetup
     }
 
     // Baaritiski S-Clubin sisäkuvassa (pikseleinä): n. 1710–2600, keskikohta 2155
-    const float BarCounterPx = 2155f + 652f, BarCounterHalfPx = 410f;   // + toisen lavan lisäys taustakuvaan
+    const float BarCounterPx = 2155f + 1740f, BarCounterHalfPx = 410f;   // + kahden lisätyn lavajakson leveys taustakuvaan
     const float CounterTopRow = 402f;   // tiskin yläreuna sisäkuvassa
 
     [MenuItem("Beat em up/14. Luo baaritiski (kauppa) S-Clubiin")]
@@ -1558,8 +1558,12 @@ public static class BeatEmUpSetup
     // pöytien paikat: x klubin vasemmasta reunasta (yks), syvyys 0 = seinän vieressä, 1 = edessä
     // kaksi riviä lomittain: takarivi seinän puolella, eturivi edessä; keskelle jää tilaa tappelulle
     static readonly Vector2[] BarTables = {
-        new Vector2(5f, 0.25f), new Vector2(9f, 0.25f), new Vector2(13f, 0.25f), new Vector2(17f, 0.25f), new Vector2(21f, 0.25f), new Vector2(25f, 0.25f), new Vector2(29f, 0.25f),
-        new Vector2(7f, 0.88f), new Vector2(11f, 0.88f), new Vector2(15f, 0.88f), new Vector2(19f, 0.88f), new Vector2(23f, 0.88f), new Vector2(27f, 0.88f) };
+        new Vector2(5f, 0.25f), new Vector2(9f, 0.25f), new Vector2(13f, 0.25f), new Vector2(17f, 0.25f), new Vector2(21f, 0.25f),
+        new Vector2(25f, 0.25f), new Vector2(29f, 0.25f), new Vector2(33f, 0.25f), new Vector2(37f, 0.25f),
+        new Vector2(7f, 0.88f), new Vector2(11f, 0.88f), new Vector2(15f, 0.88f), new Vector2(19f, 0.88f), new Vector2(23f, 0.88f),
+        new Vector2(27f, 0.88f), new Vector2(31f, 0.88f), new Vector2(35f, 0.88f) };
+    // telkkarit pyöreillä pöydillä seinän vieressä, takarivin pöytien välissä
+    static readonly float[] TvTablesX = { 7f, 11f, 15f, 19f, 23f, 27f, 31f, 35f };
 
     [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
     static void AddBarProps()
@@ -1608,14 +1612,41 @@ public static class BeatEmUpSetup
             SetupAndSlice(tvp);
             tvSprites = LoadSprites("telkkari").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         }
-        int tvTable = 3;
-        if (table.Length < 7) { Info("poyta.png: kuvia " + table.Length + "/7 (kohta 1)."); return; }
-        var old = GameObject.Find("Baaripöydät");
-        if (old != null) Undo.DestroyObjectImmediate(old);
-        var root = new GameObject("Baaripöydät");
-        Undo.RegisterCreatedObjectUndo(root, "Baaripöydät");
-        var rnd = new System.Random(7);
-        int bottles = 0;
+        // pyöreät telkkaripöydät
+        Sprite[] round = new Sprite[0];
+        string rp = FindTexture("poyta_tv");
+        if (rp != null)
+        {
+            SetupAndSlice(rp);
+            round = LoadSprites("poyta_tv").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        int tvs = 0;
+        if (round.Length >= 14 && tvSprites.Length >= 11)
+            foreach (float tx in TvTablesX)
+            {
+                float y = Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, 0.05f);
+                var go = new GameObject("Telkkaripöytä");
+                go.transform.SetParent(root.transform, false);
+                go.transform.position = new Vector3(ClubX0 + tx, y, 0f);
+                var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+                var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+                sh.color = new Color(0f, 0f, 0f, 0.35f);
+                var c = go.AddComponent<Crate>();
+                c.body = vis; c.shadow = sh;
+                c.sprites = new[] { round[0], round[1], round[2] };
+                c.breakSprites = round.Skip(3).ToArray();          // kansi halkeaa, jalka sirpaloituu, romukasa
+                c.breakFrameTime = 0.07f;
+                c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
+                c.shadowWidth = 1.3f; c.hitRadiusX = 0.8f; c.debrisTime = 6f;
+                c.moneyChance = 0.2f; c.energyChance = 0.1f; c.throwDamage = 20;
+                vis.sprite = round[0];
+                var tvGo = new GameObject("Telkkari");
+                tvGo.transform.SetParent(root.transform, false);
+                tvGo.transform.position = go.transform.position;
+                var tv = tvGo.AddComponent<TvSet>();
+                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.12f; tv.breakSounds = glass;
+                tvs++;
+            }
         foreach (var v in BarTables)
         {
             float y = Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y);
@@ -1641,17 +1672,8 @@ public static class BeatEmUpSetup
             vis.sprite = table[0];
             // pulloja ja laseja reilusti, eri merkkejä
             if (kinds.Count == 0) continue;
-            int ti2 = System.Array.IndexOf(BarTables, v);
-            bool hasTv = ti2 == tvTable && tvSprites.Length >= 11;
-            if (hasTv)
-            {
-                var tvGo = new GameObject("Telkkari");
-                tvGo.transform.SetParent(root.transform, false);
-                tvGo.transform.position = go.transform.position;
-                var tv = tvGo.AddComponent<TvSet>();
-                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.24f; tv.breakSounds = glass;
-            }
-            int n = hasTv ? 0 : 7 + rnd.Next(3);     // 7–9 pulloa pöydällä (yhteensä yli 100); telkkaripöydällä vain laseja reunoilla
+            bool hasTv = false;
+            int n = 7 + rnd.Next(3);                 // 7–9 pulloa pöydällä
             int g = glasses.Count > 0 ? 2 + rnd.Next(2) : 0;   // 2–3 lasia pullojen sekaan
             int total = n + g;
             var isGlass = new bool[total];
@@ -1682,7 +1704,7 @@ public static class BeatEmUpSetup
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"S-Clubiin {BarTables.Length} pöytää ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
+        Info($"S-Clubiin {BarTables.Length} pöytää, {tvs} telkkaria ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
              "Lyönti pöytään: nitkahtaa, pullot lentävät tai kaatuvat. Kolmas isku tai lentävä vihu hajottaa pöydän.\n" +
              "Ehjä pullo lattialla: kiinniottonappi poimii käteen, lyöntinappi heittää.\n\nTallenna scene (Ctrl+S).");
     }
