@@ -162,6 +162,19 @@ public class Enemy : MonoBehaviour
     public float stompShake = 0f;
     float stompTimer;
 
+    [Header("Rullalauta (Skettari)")]
+    [Tooltip("Irtolauta: kun laudalla liikkuva vihu kaatuu, lauta irtoaa ja jatkaa matkaa. Tyhjä = ei lautaa.")]
+    public Sprite looseBoardSprite;
+    [Tooltip("Kierähdys maassa kaatumisen jälkeen (viimeinen = makaa).")]
+    public Sprite[] landSprites;
+    public float landFrameTime = 0.08f;
+    [Tooltip("Ilman lautaa (noustua): idle/tappeluasento, kävely, lyönti, osuma. Tyhjät korvataan tappeluasennolla.")]
+    public Sprite[] footIdleSprites, footWalkSprites, footPunchSprites, footHurtSprites;
+    public int footPunchImpactFrame = 3;
+    public float footMoveSpeedX = 2.8f, footMoveSpeedY = 1.6f;
+    bool boardLost;
+    float lastMoveX = 1f;
+
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
     public float downTime = 1.0f;
@@ -455,7 +468,7 @@ public class Enemy : MonoBehaviour
                 break;
 
             case State.GetUp:
-                if (stateTime >= getUpTime) { cooldown = Mathf.Max(cooldown, 0.6f); Enter(State.Chase); }
+                if (stateTime >= getUpTime) { cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
                 break;
 
             case State.GrabReach:
@@ -558,8 +571,30 @@ public class Enemy : MonoBehaviour
         heldBarrel = null;
     }
 
+    /// Laudalta tippuminen: lauta jatkaa matkaa omaan suuntaansa ja jää maahan.
+    void DropBoard()
+    {
+        if (boardLost || looseBoardSprite == null) return;
+        boardLost = true;
+        LooseBoard.Spawn(looseBoardSprite, transform.position, lastMoveX * 6.5f, this);
+    }
+
+    /// Noustua jatketaan tappelua jalan (lauta jäi maahan).
+    void GoOnFoot()
+    {
+        Sprite[] stance = Has(getUpSprites) ? new[] { getUpSprites[getUpSprites.Length - 1] } : idleSprites;
+        idleSprites = Has(footIdleSprites) ? footIdleSprites : stance;
+        walkSprites = Has(footWalkSprites) ? footWalkSprites : idleSprites;
+        punchSprites = Has(footPunchSprites) ? footPunchSprites : idleSprites;
+        punchImpactFrame = Has(footPunchSprites) ? footPunchImpactFrame : 0;
+        if (Has(footHurtSprites)) hurtSprites = footHurtSprites;
+        altChance = 0f; chargeRange = 0f;            // syöksylyönti vain laudalla
+        moveSpeedX = footMoveSpeedX; moveSpeedY = footMoveSpeedY;
+    }
+
     void Enter(State s)
     {
+        if (s == State.Airborne || s == State.Held) DropBoard();
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
@@ -945,6 +980,7 @@ public class Enemy : MonoBehaviour
 
     void Move(Vector2 delta)
     {
+        if (Mathf.Abs(delta.x) > 0.0001f && (state == State.Chase || state == State.Punch)) lastMoveX = Mathf.Sign(delta.x);
         Vector3 p = transform.position;
         float minY = player != null ? player.minDepthY : -4.3f;
         float maxY = player != null ? player.maxDepthY : -0.8f;
@@ -1109,6 +1145,8 @@ public class Enemy : MonoBehaviour
 
             case State.Down:
             case State.Dead:
+                if (Has(landSprites) && !slamLanded && !flipLanded)
+                    return landSprites[Mathf.Min((int)((state == State.Down ? stateTime : 99f) / landFrameTime), landSprites.Length - 1)];
                 if (slamLanded && HasFlightArt)
                 {
                     if (state == State.Down && stateTime < SlamImpactTime) return headlockFlightSprites[3];               // isku

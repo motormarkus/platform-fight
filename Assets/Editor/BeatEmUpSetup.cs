@@ -1525,7 +1525,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
-        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen" })
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1573,8 +1573,20 @@ public static class BeatEmUpSetup
         t.maxHealth = 55;
         t.punchDamage = 8;
         t.attackCooldown = 1.1f;
+        // kaatuminen (11 kuvaa): 0 osuma, 1–4 ilmassa, 5–10 kierähdys maassa ja makaa; lauta irtoaa ja jatkaa matkaa
         var fall = EnemySheet("skettari_kaatuminen", report);
-        if (fall.Length > 0) t.knockdownSprites = fall;
+        if (fall.Length >= 11)
+        {
+            t.knockdownSprites = new[] { fall[0], fall[1], fall[2], fall[3], fall[4], fall[10] };
+            t.landSprites = fall.Skip(5).Take(6).ToArray();
+            t.footHurtSprites = new[] { fall[0] };      // ilman lautaa osumakuva
+        }
+        var getUp = EnemySheet("skettari_ylosnousu", report);   // 12 kuvaa: makaa -> tappeluasento
+        if (getUp.Length > 0) { t.getUpSprites = getUp; t.getUpTime = 1.0f; }
+        t.looseBoardSprite = ImportProp("Assets/Sprites/Rekvisiitta/skettari_lauta.png");
+        report.Add("Irtolauta: " + (t.looseBoardSprite != null ? "OK" : "puuttuu"));
+        // noustua tappelee jalan (omat kävely- ja lyöntikuvat myöhemmin; siihen asti tappeluasento)
+        t.footMoveSpeedX = 2.8f; t.footMoveSpeedY = 1.6f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.95f;
         Undo.RegisterCreatedObjectUndo(go, "Skettari");
@@ -1591,7 +1603,7 @@ public static class BeatEmUpSetup
         Selection.activeGameObject = go;
         Info(
             $"Skettareita kadulla: {SkaterStreet.Length}\n\n" + string.Join("\n", report) +
-            "\n\nPotkii vauhtia, liukuu ja lyö laudalta; syöksyy kauempaa lyönti edellä.\nKaatumiskuvat puuttuvat vielä (varaliike).\n\nTallenna scene (Ctrl+S).");
+            "\n\nPotkii vauhtia, liukuu ja lyö laudalta; syöksyy kauempaa lyönti edellä.\nKaatuessa lauta irtoaa ja jää maahan; noustuaan tappelee jalan.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Kadun jatko ----------------
