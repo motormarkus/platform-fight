@@ -84,6 +84,8 @@ public class Enemy : MonoBehaviour
     public float altLungeSpeed = 0f;
     [Tooltip("Kuinka kauan syöksy kestää (s). Hyökkäys on aktiivinen koko syöksyn ajan.")]
     public float altLungeTime = 0.25f;
+    [Tooltip("Toinen hyökkäys hypyllä (esim. hyppypotku): hypyn korkeus yksikköinä (0 = ei hyppyä).")]
+    public float altJumpHeight = 0f;
 
     [Tooltip("Tavallinen lyönti kaataa pelaajan (pomon isku ylhäältä).")]
     public bool punchKnockdown;
@@ -188,6 +190,7 @@ public class Enemy : MonoBehaviour
     public Sprite[] footKickSprites;
     public int footKickImpactFrame = 5;
     public float footKickLunge = 6f;
+    public float footKickJump = 1.3f;
     public float footMoveSpeedX = 2.8f, footMoveSpeedY = 1.6f;
     public float footWalkFrameTime = 0.05f;
     [Tooltip("Laudalla: ajaa kovaa edestakaisin pelaajan ohi (kääntyy toisella puolella) ja lyö ohittaessaan.")]
@@ -195,6 +198,9 @@ public class Enemy : MonoBehaviour
     [Tooltip("Kuinka pitkälle pelaajan ohi ajetaan ennen kääntymistä (yksikköä).")]
     public float passOvershoot = 6.5f;
     int passDir;
+    float lastTurnTime = -10f;
+    [Tooltip("Käännösten vähimmäisväli laudalla (s).")]
+    public float passTurnInterval = 2.5f;
     bool boardLost;
     float lastMoveX = 1f;
 
@@ -607,6 +613,21 @@ public class Enemy : MonoBehaviour
         heldBarrel = null;
     }
 
+    /// Hyppyhyökkäyksen nousu: kaari vedon loppupuolelta iskun yli palautuksen alkuun.
+    float AttackJumpLift()
+    {
+        if (!usingAlt || altJumpHeight <= 0f) return 0f;
+        float W = CurrentWindup, P = Mathf.Max(punchActiveTime, altLungeTime), R = CurrentRecover;
+        float e;
+        if (state == State.Windup) e = stateTime - 0.5f * W;
+        else if (state == State.Punch) e = 0.5f * W + stateTime;
+        else if (state == State.Recover) e = 0.5f * W + P + stateTime;
+        else return 0f;
+        float J = 0.5f * W + P + 0.6f * R;
+        if (e <= 0f || e >= J) return 0f;
+        return Mathf.Sin(e / J * Mathf.PI) * altJumpHeight;
+    }
+
     /// Laudalta tippuminen: lauta jatkaa matkaa omaan suuntaansa ja jää maahan.
     void DropBoard()
     {
@@ -640,6 +661,7 @@ public class Enemy : MonoBehaviour
             altChance = Has(footPunchSprites) ? 0.5f : 1f;
             altLungeSpeed = footKickLunge; altLungeTime = 0.3f; altReach = 2.4f;
             altTimeScale = 1f; altExtraWindup = 0.1f;
+            altJumpHeight = footKickJump;
         }
         else altChance = 0f;
         moveSpeedX = footMoveSpeedX; moveSpeedY = footMoveSpeedY;
@@ -731,7 +753,7 @@ public class Enemy : MonoBehaviour
             facingRight = p.x > me.x;
             if (CanGrabPlayer()) { moving = false; grabIntent = false; attackRolled = false; Enter(State.GrabReach); return; }
         }
-        if (skatePass && !boardLost && attackRank <= 1) { SkatePass(dt, p, me); return; }
+        if (skatePass && !boardLost) { SkatePass(dt, p, me); return; }   // laudalla aina ohiajossa (ei vaihtelua jahtiin -> ei välkettä)
 
         // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
         if (cooldown <= 0f && !attackRolled)
@@ -834,11 +856,17 @@ public class Enemy : MonoBehaviour
         animClock += dt * (runSpeedMultiplier - 1f);
         float moved = Mathf.Abs(transform.position.x - me.x);
         float past = (me.x - p.x) * passDir;   // > 0: pelaajan ohi
-        // käännös: tarpeeksi pitkällä ohi tai ruudun reunassa (liike pysähtyi)
-        if (past >= passOvershoot || moved < spd * dt * 0.3f) passDir = -passDir;
+        // käännös: vasta reilusti pelaajan ohi (tai ruudun reunassa ohi ajettua), ja enintään yksi käännös / passTurnInterval
+        bool farPast = past >= passOvershoot;
+        bool blocked = past > 1.5f && moved < spd * dt * 0.3f;
+        if ((farPast || blocked) && Time.time - lastTurnTime >= passTurnInterval)
+        {
+            passDir = -passDir;
+            lastTurnTime = Time.time;
+        }
         // lyönti ohituksessa: pelaaja edessä lyöntietäisyydellä samalla syvyydellä
         float ahead = -past;
-        if (cooldown <= 0f && retreatTimer <= 0f && !player.IsDown && ahead > 0.4f && ahead < attackRange + 0.8f && Mathf.Abs(dy) <= depthTolerance)
+        if (attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown && ahead > 0.4f && ahead < attackRange + 0.8f && Mathf.Abs(dy) <= depthTolerance)
         {
             moving = false;
             attackRolled = false;
@@ -1119,7 +1147,7 @@ public class Enemy : MonoBehaviour
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
         float shake = HitFx.ShakeOffset(shakeUntil);
-        float bounce = 0f;
+        float bounce = AttackJumpLift();
         if (state == State.Down && slamLanded && stateTime >= SlamImpactTime && stateTime < SlamImpactTime + SlamBounceTime)
             bounce = Mathf.Sin((stateTime - SlamImpactTime) / SlamBounceTime * Mathf.PI) * 0.3f;   // pomppu iskun jälkeen
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height + bounce - footOffset + pivotFix.y, 0f);

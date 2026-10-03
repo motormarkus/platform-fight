@@ -1586,7 +1586,8 @@ public static class BeatEmUpSetup
         t.idleFrameTime = 0.15f;
         // liikkuessa: potku vauhtia (6 kuvaa) ja liuku (ajokuvat), vuorotellen
         // yksi potku (jalka taakse, potku maahan, jalka takaisin) ja pitkä liuku ajokuvilla
-        t.walkSprites = push.Length >= 6 ? new[] { push[0], push[1], push[2], push[4], push[5] }.Concat(ride).ToArray() : ride;
+        // potku näkyy: jokainen potkukuva kahdesti (n. 0.7 s), sitten liuku
+        t.walkSprites = push.Length >= 6 ? new[] { push[0], push[1], push[1], push[2], push[2], push[4], push[4], push[5] }.Concat(ride).ToArray() : ride;
         t.walkFrameTime = 0.09f;
         t.punchSprites = punch;
         t.punchImpactFrame = 3;               // käsi suorana kuvassa 4
@@ -1608,7 +1609,7 @@ public static class BeatEmUpSetup
         t.skatePass = true; t.passOvershoot = 6.5f;
         t.flankChance = 0.4f;                 // kiertää usein selän taakse
         t.retreatChance = 0.45f;              // iske ja liu'u pois
-        t.maxHealth = 55;
+        t.maxHealth = 110;                    // kestävä
         t.punchDamage = 8;
         t.attackCooldown = 1.1f;
         // kaatuminen (11 kuvaa): 0 osuma, 1–4 ilmassa, 5–10 kierähdys maassa ja makaa; lauta irtoaa ja jatkaa matkaa
@@ -1647,7 +1648,12 @@ public static class BeatEmUpSetup
         var footIdle = EnemySheet("skettari_idle", report);
         if (footIdle.Length > 0) t.footIdleSprites = footIdle;
         var jumpKick = EnemySheet("skettari_hyppypotku", report);   // 12 kuvaa, potku ojennettuna kuvassa 6
-        if (jumpKick.Length > 0) { t.footKickSprites = jumpKick; t.footKickImpactFrame = 5; t.footKickLunge = 6f; }
+        // suora jalka näkyy pidempään: potkukuvat 6–7 kahdesti/kolmesti; hyppy koodilla (1.3 yks)
+        if (jumpKick.Length >= 12)
+        {
+            t.footKickSprites = new[] { 0, 1, 2, 3, 4, 5, 5, 6, 6, 6, 7, 8, 9, 10, 11 }.Select(i => jumpKick[i]).ToArray();
+            t.footKickImpactFrame = 5; t.footKickLunge = 6f; t.footKickJump = 1.3f;
+        }
         // jab–suora-kombo (12 kuvaa): jab osuu kuvassa 4, suora kuvassa 7; nopea veto
         var combo = EnemySheet("skettari_lyonnit", report);
         if (combo.Length > 0)
