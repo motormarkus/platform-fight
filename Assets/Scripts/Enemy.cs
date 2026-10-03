@@ -257,6 +257,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float footOffset = 0.08f;
     [Tooltip("Kuvan koko pelissä (1 = kuvat sellaisenaan). Portsari: sarjat tasattu samaan pään kokoon ja suurennettu tällä.")]
     public float visualScale = 1f;
+    [Tooltip("Lisäkerroin hyökkäys-, torjunta- ja osumakuville (jos ne on piirretty eri kokoon kuin kävely). Säädettävissä pelin aikana.")]
+    public float attackArtScale = 1f;
+    [Tooltip("Lisäkerroin kaatumis-, makuu-, nousu- ja heittokuville.")]
+    public float knockArtScale = 1f;
 
     enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
@@ -1390,6 +1394,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     // ---------------- Grafiikka ----------------
 
+    float StateArtScale()
+    {
+        switch (state)
+        {
+            case State.Windup: case State.Punch: case State.Recover: case State.Hurt: case State.Block: case State.Belly:
+                return attackArtScale;
+            case State.Airborne: case State.Down: case State.Dead: case State.GetUp: case State.Held:
+                return knockArtScale;
+            default: return 1f;
+        }
+    }
+
     void ApplyVisual()
     {
         if (body == null) return;
@@ -1410,8 +1426,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float bounce = AttackJumpLift();
         if (state == State.Down && slamLanded && stateTime >= SlamImpactTime && stateTime < SlamImpactTime + SlamBounceTime)
             bounce = Mathf.Sin((stateTime - SlamImpactTime) / SlamBounceTime * Mathf.PI) * 0.3f;   // pomppu iskun jälkeen
-        pivotFix *= visualScale;
-        body.transform.localScale = new Vector3(visualScale, visualScale, 1f);
+        float vs = visualScale * StateArtScale();
+        pivotFix *= vs;
+        body.transform.localScale = new Vector3(vs, vs, 1f);
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height + bounce - footOffset + pivotFix.y, 0f);
         // kaatumisen väliaikainen korvike: käännetään kuvaa, kun oikeat kuvat puuttuvat
         body.transform.localRotation = Quaternion.Euler(0f, 0f, facingRight ? rot : -rot);
