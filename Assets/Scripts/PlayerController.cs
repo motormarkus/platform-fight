@@ -163,6 +163,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool landedFromScissor;
     float lastUpTime = -10f, upDownTime = -10f, scissorArmTime = -10f;
     float prevMoveY;
+    float prevMoveX, lastTapTime = -9f, lastTapDir, dashArmedUntil = -9f, dashDir;
+    bool kneeDashHit;
+
+    [Header("Liukupolvi (kaksi kertaa eteenpäin + potku)")]
+    public float doubleTapWindow = 0.3f;
+    public float kneeDashSpeed = 11f, kneeDashSlideTime = 0.32f;
+    public int kneeDashDamage = 20;
+    public float kneeDashReach = 1.5f;
     bool scissorArmed;      // ylös-alas tehty ja ensimmäinen K painettu: toinen K laukaisee
     float scissorTime;
     bool scissorHit1, scissorHit2;
@@ -297,8 +305,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float kneeHoldOffset = 1.2f, kneeFlySpeed = 8f, kneeFlyUp = 8f;
     bool kneeMode, kneeHit;
     // vaiheet: heron kuva ja vihun otekuva; isku vaiheessa 3, irrotus vaiheessa 4
-    static readonly int[] KneeHero = { 2, 3, 3, 4, 5, 6, 7, 9 };
-    static readonly int[] KneeEnemy = { 1, 2, 3, 4 };
+    // kaksi polvea päähän: veto, polvi, veto uudestaan, polvi, irrotus
+    static readonly int[] KneeHero = { 2, 3, 3, 4, 3, 4, 5, 6, 7, 9 };
+    static readonly int[] KneeEnemy = { 1, 2, 3, 4, 3, 4 };
+    const int KneeHit1 = 3, KneeHit2 = 5, KneeRelease = 6;
+    bool kneeHit2;
     bool HasKnee => kneeSprites != null && kneeSprites.Length >= 10;
 
     [Header("Jab + polvi (lyönti, heti perään potku)")]
@@ -413,7 +424,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash }
 
     int comboIndex;
     bool comboQueued;
@@ -479,6 +490,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (move.y > 0.5f && prevMoveY <= 0.5f) lastUpTime = Time.time;
         if (move.y < -0.5f && prevMoveY >= -0.5f && Time.time - lastUpTime <= scissorInputWindow) upDownTime = Time.time;
         prevMoveY = move.y;
+        // kaksi kertaa eteenpäin (napautus) + potku = liukupolvi
+        if (Mathf.Abs(move.x) > 0.5f && Mathf.Abs(prevMoveX) <= 0.3f)
+        {
+            float tdir = Mathf.Sign(move.x);
+            if (tdir == lastTapDir && Time.time - lastTapTime <= doubleTapWindow) { dashArmedUntil = Time.time + 0.45f; dashDir = tdir; }
+            lastTapDir = tdir; lastTapTime = Time.time;
+        }
+        prevMoveX = move.x;
         bool jumpPressed = JumpPressed();
         bool punchPressed = PunchPressed();
         bool kickPressed = KickPressed();
@@ -519,6 +538,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     break;
                 }
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
+                if (kickPressed && Time.time <= dashArmedUntil && HasKneeStrikeArt && UseStamina(pushStamina))
+                {
+                    facingRight = dashDir > 0f;
+                    kneeDashHit = false; attackHit = false;
+                    PlayGrunt();
+                    Enter(State.KneeDash);
+                    dashArmedUntil = -9f;
+                    break;
+                }
                 if (kickPressed)
                 {
                     if (scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { StartScissorJump(); break; }
@@ -647,6 +675,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Recovery:
                 if (stateTime >= comboRecovery) Enter(State.Ground);
                 break;
+
+            case State.KneeDash:
+            {
+                // polvi nousee (kuvat 1–4), liuku polvi edellä (kuva 5), lasku (6–9)
+                float rise = 0.12f, slideEnd = rise + kneeDashSlideTime;
+                float dir = facingRight ? 1f : -1f;
+                if (stateTime >= rise * 0.5f && stateTime < slideEnd)
+                {
+                    float k = Mathf.Clamp01((stateTime - rise * 0.5f) / (slideEnd - rise * 0.5f));
+                    MoveOnGround(new Vector2(dir * kneeDashSpeed * (1f - k * k) * dt, 0f));
+                    if (!kneeDashHit) kneeDashHit = AttackEnemies(kneeDashReach, kneeDashDamage, true, 2.0f);
+                }
+                if (stateTime >= slideEnd + 0.24f) Enter(State.Ground);
+                break;
+            }
 
             case State.KneeStrike:
             {
@@ -1047,7 +1090,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike;
+        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -1337,7 +1380,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         counterReleased = false;
         monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
         kneeMode = !monkeyFlip && HasKnee && e.HasKneeArt;   // Skettari: polvi päähän
-        kneeHit = false;
+        kneeHit = false; kneeHit2 = false;
         heldArt = e.HasArtFor(monkeyFlip);
         // vihu liukuu otekohtaan omasta paikastaan (ei hyppää), eikä otteessa ole osumapysäytystä
         grabStartOffset = (e.transform.position.x - transform.position.x) * (facingRight ? 1f : -1f);
@@ -1384,18 +1427,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             float blend = Mathf.Clamp01(stateTime / kneeFrameTime);
             float off = Mathf.Lerp(grabStartOffset, kneeHoldOffset * (step >= 1 ? 0.85f : 1f), blend * blend * (3f - 2f * blend));
             heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * off, me.y - 0.02f + grabStartDepth * (1f - blend), 0f), 0f, 0f, KneeEnemy[Mathf.Min(step, KneeEnemy.Length - 1)]);
-            if (!kneeHit && step >= 3)
+            bool hitNow = (!kneeHit && step >= KneeHit1) || (kneeHit && !kneeHit2 && step >= KneeHit2);
+            if (hitNow)
             {
-                kneeHit = true;
+                if (step >= KneeHit2) kneeHit2 = true; else kneeHit = true;
                 HitFx.OnHit(true);
                 PlayGrunt();
                 if (CameraFollow.Instance != null) CameraFollow.Shake(0.15f, 0.18f);
                 HitSpark.Spawn(new Vector3(me.x + dir * kneeHoldOffset * 0.8f, me.y + 1.5f, 0f), true, Mathf.RoundToInt(-me.y * 100f) + 5);
             }
-            if (step >= 4)
+            if (step >= KneeRelease)
             {
                 counterReleased = true;
-                heldEnemy.ReleaseThrow(dir * kneeFlySpeed, kneeFlyUp, kneeDamage);   // lentää selälleen poispäin
+                heldEnemy.ReleaseThrow(dir * kneeFlySpeed, kneeFlyUp, kneeDamage + 8);   // kaksi polvea: lentää selälleen poispäin
                 heldEnemy = null;
             }
         }
@@ -1767,6 +1811,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.SmallPick:
             case State.SmallThrow:
                 return smallItemSprites[SmallFrame()];
+
+            case State.KneeDash:
+            {
+                float rise = 0.12f, slideEnd = rise + kneeDashSlideTime;
+                int f = stateTime < rise ? 1 + Mathf.Min(3, (int)(stateTime / (rise / 4f)))
+                      : stateTime < slideEnd ? 5
+                      : 6 + Mathf.Min(3, (int)((stateTime - slideEnd) / 0.06f));
+                return kneeStrikeSprites[Mathf.Min(f, kneeStrikeSprites.Length - 1)];
+            }
 
             case State.KneeStrike:
             {
