@@ -1722,6 +1722,9 @@ public static class BeatEmUpSetup
                     int ki = rnd.Next(kinds.Count);
                     b.sprites = kinds[ki];
                     b.stainKind = kindNames[ki];
+                    // eri kokoisia: vodka ja likööri isoja pulloja, olut pieni, lisäksi vaihtelua ja välillä iso pullo
+                    float ks = kindNames[ki] == "vodka" ? 1.4f : kindNames[ki] == "likoori" ? 1.25f : kindNames[ki] == "sininen" ? 1.12f : 1f;
+                    b.scale = 1.05f * ks * (0.94f + 0.12f * (float)rnd.NextDouble()) * (rnd.Next(5) == 0 ? 1.15f : 1f);
                 }
                 b.breakSounds = glass;
                 b.table = c;
