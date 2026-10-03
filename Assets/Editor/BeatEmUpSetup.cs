@@ -22,6 +22,14 @@ public static class BeatEmUpSetup
 
     static bool batch;   // koko kadun rakennus: ilmoitukset lokiin eikä ikkunoihin
 
+    /// Sceneä ei voi muokata pelin ollessa käynnissä: ilmoitus ja keskeytys.
+    static bool PlayModeBlocked()
+    {
+        if (!EditorApplication.isPlayingOrWillChangePlaymode) return false;
+        EditorUtility.DisplayDialog("Beat em up", "Peli on käynnissä. Pysäytä peli (Play-nappi) ja aja valikko uudelleen.", "OK");
+        return true;
+    }
+
     static void Info(string msg)
     {
         if (batch) Debug.Log("Beat em up: " + msg.Replace("\n", " "));
@@ -31,6 +39,7 @@ public static class BeatEmUpSetup
     [MenuItem("Beat em up/29. Rakenna koko katu uudestaan (tausta, ovet, rekvisiitta, viholliset)")]
     static void RebuildStreet()
     {
+        if (PlayModeBlocked()) return;
         batch = true;
         try
         {
