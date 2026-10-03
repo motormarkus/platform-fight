@@ -15,6 +15,16 @@ public class Crate : MonoBehaviour
     public Sprite[] sprites;
     [Tooltip("Sirpaleräjähdys (laatikko_sirpaleet.png), näytetään hajotessa.")]
     public Sprite burstSprite;
+    [Tooltip("Hajoamisen kuvasarja (esim. pöytä katkeaa ja kaatuu), toistetaan Breaking-tilassa. Tyhjä = sprites 3–4.")]
+    public Sprite[] breakSprites;
+    public float breakFrameTime = 0.09f;
+    [Tooltip("Varjon leveys (yksikköä).")]
+    public float shadowWidth = 1.4f;
+    /// Kasvaa aina, kun esinettä lyödään, nostetaan tai se hajoaa (pöydän pullot reagoivat).
+    public int Disturb { get; private set; }
+    public bool Intact => state == State.Idle;
+    public bool IsBroken => state == State.Breaking;
+    public int SortOrder => body != null ? body.sortingOrder : 0;
     public SpriteRenderer body;
     public SpriteRenderer shadow;
 
@@ -81,6 +91,7 @@ public class Crate : MonoBehaviour
     {
         PlayerController.SortByFrameNumber(sprites);
         PlayerController.SortByFrameNumber(rollSprites);
+        PlayerController.SortByFrameNumber(breakSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
     }
 
@@ -94,6 +105,7 @@ public class Crate : MonoBehaviour
     public bool TakeHit(int damage, float attackerX = float.NaN)
     {
         if (!CanBeHit) return false;
+        Disturb++;
         shakeTimer = 0.15f;
         shakeUntil = HitFx.ShakeUntil(false);
         if (!breakable)
@@ -116,8 +128,18 @@ public class Crate : MonoBehaviour
         return true;
     }
 
+    /// Lentävä vihu tai muu iso osuma: hajoaa heti.
+    public void Smash()
+    {
+        if (!breakable || !CanBeHit) return;
+        hits = hitsToBreak;
+        HitFx.OnHit(false);
+        Break();
+    }
+
     public void PickUp()
     {
+        Disturb++;
         if (HasRoll) { lying = true; rollDist = 0f; }   // tynnyriä kannetaan vaaka-asennossa
         state = State.Carried;
         stateTime = 0f;
@@ -161,6 +183,7 @@ public class Crate : MonoBehaviour
 
     void Break()
     {
+        Disturb++;
         state = State.Breaking;
         stateTime = 0f;
         height = 0f;
@@ -319,7 +342,7 @@ public class Crate : MonoBehaviour
             shadow.sortingOrder = order - 1;
             shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
             float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 3f));
-            shadow.transform.localScale = new Vector3(1.4f * s * visualScale, 0.42f * s * visualScale, 1f);
+            shadow.transform.localScale = new Vector3(shadowWidth * s * visualScale, 0.42f * s * visualScale * Mathf.Max(1f, shadowWidth / 2.2f), 1f);
             shadow.enabled = state != State.Breaking;
         }
 
@@ -340,6 +363,8 @@ public class Crate : MonoBehaviour
         if (HasRoll && lying)
             return rollSprites[state == State.Carried ? 0 : (int)(rollDist / 0.3f) % rollSprites.Length];
         if (sprites == null || sprites.Length == 0) return null;
+        if (state == State.Breaking && breakSprites != null && breakSprites.Length > 0)
+            return breakSprites[Mathf.Min((int)(stateTime / breakFrameTime), breakSprites.Length - 1)];
         if (state == State.Breaking)
             return sprites[Mathf.Min(stateTime < 0.12f ? 3 : 4, sprites.Length - 1)];
         return sprites[Mathf.Min(hits, Mathf.Min(2, sprites.Length - 1))];

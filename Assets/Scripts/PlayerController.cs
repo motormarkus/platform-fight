@@ -480,8 +480,10 @@ public class PlayerController : MonoBehaviour
                 {
                     Crate c = NearbyCrate();
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
+                    if (Bottle.TryPickUp(this)) break;                       // ehjä pullo lattialla: käteen
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
+                if (punchPressed && Bottle.Held != null && Bottle.ThrowHeld(this)) { PlayGrunt(); if (punchCombo.Length > 0) StartComboHit(0); break; }   // pullon heitto
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed)
                 {
@@ -1020,6 +1022,7 @@ public class PlayerController : MonoBehaviour
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
         DropCrate();
+        Bottle.DropHeld();
         facingRight = fromRight;
         heldRot = 0f;
         height = Mathf.Max(height, 0.05f);
@@ -1041,6 +1044,7 @@ public class PlayerController : MonoBehaviour
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
         if (Riding) return false;
+        if (state != State.Block) Bottle.DropHeld();
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
         else if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;

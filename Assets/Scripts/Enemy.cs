@@ -443,6 +443,14 @@ public class Enemy : MonoBehaviour
 
             case State.Airborne:
                 Move(knockVel * dt);
+                // lentävä vihu rikkoo pöydät (ja niiden pullot) tieltään
+                if (height < 1.8f && Mathf.Abs(knockVel.x) > 2f)
+                    foreach (var c in Crate.All.ToArray())
+                    {
+                        if (c == null || !c.breakable || !c.CanBeHit || c.breakSprites == null || c.breakSprites.Length == 0) continue;
+                        Vector3 q = c.transform.position, me2 = transform.position;
+                        if (Mathf.Abs(q.x - me2.x) < 1.2f && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
+                    }
                 verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
                 if (thrownByPlayer && flightArt)

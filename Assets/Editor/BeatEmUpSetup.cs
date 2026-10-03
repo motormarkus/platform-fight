@@ -57,6 +57,7 @@ public static class BeatEmUpSetup
             AddSkaters();
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
+            AddBarProps();          // S-Clubin pöydät ja pullot (baaritappelu)
             SetEnemyTactics();      // juoksu, kiertäminen, perääntyminen, torjunta
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
             CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
@@ -93,10 +94,12 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768 : BeatEmUpSetup.CellW;
+        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+                  : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
-                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
+                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
+                  : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
@@ -1549,6 +1552,80 @@ public static class BeatEmUpSetup
         Info(
             $"Lippiksiä kadulla: {LippisStreet.Length}\n\n" + string.Join("\n", report) +
             "\n\nLyö ja potkaisee. Puuttuvat kuvat korvataan varaliikkeillä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- S-Clubin baaripöydät ja pullot ----------------
+    // pöytien paikat: x klubin vasemmasta reunasta (yks), syvyys 0 = seinän vieressä, 1 = edessä
+    static readonly Vector2[] BarTables = { new Vector2(6.5f, 0.35f), new Vector2(10f, 0.8f), new Vector2(13.5f, 0.3f), new Vector2(17f, 0.75f),
+                                            new Vector2(20.5f, 0.4f), new Vector2(24f, 0.85f), new Vector2(27.5f, 0.35f) };
+
+    [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
+    static void AddBarProps()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        string tp = FindTexture("poyta");
+        if (club == null || tp == null) { Info("Tarvitaan S-Clubin sisätila (kohta 10) ja poyta.png."); return; }
+        SetupAndSlice(tp);
+        var table = LoadSprites("poyta").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var kinds = new List<Sprite[]>();
+        foreach (var n in new[] { "pullo_olut", "pullo_sininen", "pullo_likoori", "pullo_vodka" })
+        {
+            string bp = FindTexture(n);
+            if (bp == null) continue;
+            SetupAndSlice(bp);
+            var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            if (sp.Length >= 7) kinds.Add(sp);
+        }
+        if (table.Length < 7) { Info("poyta.png: kuvia " + table.Length + "/7 (kohta 1)."); return; }
+        var old = GameObject.Find("Baaripöydät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Baaripöydät");
+        Undo.RegisterCreatedObjectUndo(root, "Baaripöydät");
+        var rnd = new System.Random(7);
+        int bottles = 0;
+        foreach (var v in BarTables)
+        {
+            float y = Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y);
+            var go = new GameObject("Pöytä");
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(ClubX0 + v.x, y, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.35f);
+            var c = go.AddComponent<Crate>();
+            c.body = vis; c.shadow = sh;
+            c.sprites = new[] { table[0], table[1], table[2] };      // ehjä, nitkahtaa, halkeaa
+            c.breakSprites = new[] { table[3], table[4], table[5], table[6] };   // katkeaa, kaatuu, romu, romukasa
+            c.breakFrameTime = 0.1f;
+            c.hitsToBreak = 3;
+            c.breakable = true;
+            c.footOffset = 0.04f;
+            c.shadowWidth = 2.6f;
+            c.hitRadiusX = 1.4f;
+            c.debrisTime = 6f;
+            c.moneyChance = 0.3f; c.energyChance = 0.15f;
+            c.throwDamage = 22;
+            vis.sprite = table[0];
+            // pulloja reilusti: 3–5 per pöytä, eri merkkejä
+            if (kinds.Count == 0) continue;
+            int n = 3 + rnd.Next(3);
+            for (int i = 0; i < n; i++)
+            {
+                var bGo = new GameObject("Pullo");
+                bGo.transform.SetParent(root.transform, false);
+                bGo.transform.position = go.transform.position;
+                var b = bGo.AddComponent<Bottle>();
+                b.sprites = kinds[rnd.Next(kinds.Count)];
+                b.table = c;
+                b.tableX = Mathf.Lerp(-1.05f, 1.05f, (i + 0.5f) / n) + (float)(rnd.NextDouble() - 0.5) * 0.15f;
+                b.tableTop = 1.24f;
+                bottles++;
+            }
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"S-Clubiin {BarTables.Length} pöytää ja {bottles} pulloa ({kinds.Count} pullomerkkiä).\n" +
+             "Lyönti pöytään: nitkahtaa, pullot lentävät tai kaatuvat. Kolmas isku tai lentävä vihu hajottaa pöydän.\n" +
+             "Ehjä pullo lattialla: kiinniottonappi poimii käteen, lyöntinappi heittää.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Skettari ----------------
