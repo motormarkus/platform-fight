@@ -25,6 +25,8 @@ public class Bottle : MonoBehaviour
     public string stainKind = "olut";
     [Tooltip("Kiertopiste (keskikohdan korkeus, yks): pullo 0.3, lasi 0.17.")]
     public float pivotY = 0.3f;
+    [Tooltip("Kuvan koko (1 = alkuperäinen).")]
+    public float scale = 1.05f;
     [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
     public AudioClip[] breakSounds;
     static int lastSound = -1;
@@ -249,9 +251,10 @@ public class Bottle : MonoBehaviour
         else sr.sprite = sprites[0];
         // kierto pullon keskikohdan ympäri (kuva alareunan keskellä, pullo n. 0.58 yks korkea)
         var q = Quaternion.Euler(0f, 0f, state == S.Breaking ? 0f : rot);
-        Vector3 c = new Vector3(0f, pivotY, 0f);
+        Vector3 c = new Vector3(0f, pivotY * scale, 0f);
+        sr.transform.localScale = new Vector3(scale, scale, 1f);
         sr.transform.localRotation = q;
-        sr.transform.localPosition = new Vector3(0f, height - 0.04f, 0f) + c - q * c;
+        sr.transform.localPosition = new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
         else if (state == S.Held && pc != null) order = Mathf.RoundToInt(-pc.transform.position.y * 100f) + 2;

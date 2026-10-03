@@ -1566,6 +1566,8 @@ public static class BeatEmUpSetup
     // telkkarit pyöreillä pöydillä seinän vieressä, takarivin pöytien välissä
     static readonly float[] TvTablesX = { 7f, 11f, 15f, 19f, 23f, 27f, 31f, 35f };
 
+    const float TableScale = 1.3f;   // suorakaidepöytä 30 % isompi, pullot 5 % (Bottle.scale)
+
     [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
     static void AddBarProps()
     {
@@ -1672,8 +1674,9 @@ public static class BeatEmUpSetup
             c.hitsToBreak = 3;
             c.breakable = true;
             c.footOffset = 0.04f;
+            c.visualScale = TableScale;                 // isompi pöytä
             c.shadowWidth = 2.6f;
-            c.hitRadiusX = 1.4f;
+            c.hitRadiusX = 1.4f * TableScale;
             c.debrisTime = 6f;
             c.moneyChance = 0.3f; c.energyChance = 0.15f;
             c.throwDamage = 22;
@@ -1707,7 +1710,8 @@ public static class BeatEmUpSetup
                 b.breakSounds = glass;
                 b.table = c;
                 b.tableX = hasTv ? (i % 2 == 0 ? -1f : 1f) * (0.85f + 0.15f * (i / 2)) : Mathf.Lerp(-1.1f, 1.1f, (i + 0.5f) / total) + (float)(rnd.NextDouble() - 0.5) * 0.06f;
-                b.tableTop = 1.24f;
+                b.tableTop = 1.28f * TableScale - 0.04f;   // pöydän pinta isommassa pöydässä
+                b.tableX *= TableScale;
                 bottles++;
             }
         }
