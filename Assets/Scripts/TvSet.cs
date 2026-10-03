@@ -48,10 +48,19 @@ public class TvSet : MonoBehaviour
             case S.OnTable:
                 if (table == null || table.Disturb != seenDisturb)
                 {
-                    // tippuu pöydältä kallistuen
-                    float side = Random.value < 0.5f ? -1f : 1f;
-                    vx = side * Random.Range(0.8f, 1.8f); vy = Random.Range(1.5f, 3f);
-                    spin = -side * Random.Range(120f, 220f);
+                    // isku pöytään: telkkari lentää iskun suuntaan kaarella ja pyörii; muuten tippuu kallistuen
+                    float hitDir = table != null ? table.LastHitDir : 0f;
+                    if (hitDir != 0f)
+                    {
+                        vx = hitDir * Random.Range(5f, 7.5f); vy = Random.Range(4.5f, 6.5f);
+                        spin = -hitDir * Random.Range(300f, 500f);
+                    }
+                    else
+                    {
+                        float side = Random.value < 0.5f ? -1f : 1f;
+                        vx = side * Random.Range(0.8f, 1.8f); vy = Random.Range(1.5f, 3f);
+                        spin = -side * Random.Range(120f, 220f);
+                    }
                     table = null; state = S.Falling; t = 0f;
                     break;
                 }
@@ -61,12 +70,29 @@ public class TvSet : MonoBehaviour
             case S.Falling:
                 p.x += vx * dt; transform.position = p;
                 vy -= 30f * dt; height += vy * dt; rot += spin * dt;
+                if (HitEnemyInFlight()) { vx *= 0.3f; }
                 if (height <= 0f) { height = 0f; rot = 0f; state = S.Breaking; t = 0f; Smash(); }
                 break;
             case S.Breaking:
                 break;
         }
         Apply();
+    }
+
+    bool hitSomeone;
+    /// Lentävä telkkari kaataa vihun, johon osuu.
+    bool HitEnemyInFlight()
+    {
+        if (hitSomeone || Mathf.Abs(vx) < 3f || height > 2.6f) return false;
+        Vector3 me = transform.position;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead) continue;
+            Vector3 q = e.transform.position;
+            if (Mathf.Abs(q.x - me.x) > 0.8f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
+            if (e.TakeHit(25, me.x - Mathf.Sign(vx), true)) { hitSomeone = true; HitFx.OnHit(true); return true; }
+        }
+        return false;
     }
 
     void Smash()

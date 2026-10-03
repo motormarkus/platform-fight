@@ -25,6 +25,8 @@ public class Crate : MonoBehaviour
     public bool Intact => state == State.Idle;
     public bool IsBroken => state == State.Breaking;
     public int SortOrder => body != null ? body.sortingOrder : 0;
+    /// Viimeisimmän iskun suunta: +1 isku tuli vasemmalta (esine lentää oikealle), -1 oikealta, 0 = ei tiedossa.
+    public float LastHitDir { get; private set; }
     public SpriteRenderer body;
     public SpriteRenderer shadow;
 
@@ -106,6 +108,7 @@ public class Crate : MonoBehaviour
     {
         if (!CanBeHit) return false;
         Disturb++;
+        LastHitDir = float.IsNaN(attackerX) ? 0f : (transform.position.x >= attackerX ? 1f : -1f);
         shakeTimer = 0.15f;
         shakeUntil = HitFx.ShakeUntil(false);
         if (!breakable)
