@@ -261,6 +261,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float attackArtScale = 1f;
     [Tooltip("Lisäkerroin kaatumis-, makuu-, nousu- ja heittokuville.")]
     public float knockArtScale = 1f;
+    [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
+    public float walkArtScale = 1f;
 
     enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
@@ -1402,6 +1404,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return attackArtScale;
             case State.Airborne: case State.Down: case State.Dead: case State.GetUp: case State.Held:
                 return knockArtScale;
+            case State.Chase:
+                return moving && Has(walkSprites) ? walkArtScale : 1f;
             default: return 1f;
         }
     }
