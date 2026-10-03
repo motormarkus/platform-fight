@@ -11,7 +11,7 @@ public class MusicPlayer : MonoBehaviour
     public static MusicPlayer Instance { get; private set; }
 
     public AudioClip music;
-    [Range(0f, 1f)] public float volume = 0.6f;
+    [Range(0f, 1f)] public float volume = 1f;
     [Tooltip("Häivytys sisään alussa (sekuntia).")]
     public float fadeInTime = 1.5f;
     [Tooltip("Ristihäivytys alueen musiikkiin ja takaisin (sekuntia).")]

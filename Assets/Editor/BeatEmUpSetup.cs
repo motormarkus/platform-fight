@@ -334,10 +334,11 @@ public static class BeatEmUpSetup
         }
         Undo.RecordObject(mp, "Aseta musiikki");
         mp.music = clip;
+        mp.volume = 1f;
         EditorUtility.SetDirty(mp);
         EditorSceneManager.MarkSceneDirty(mp.gameObject.scene);
         Info(
-            $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 0.6 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).");
+            $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 1.0 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/3. Päivitä lyöntikombo")]
