@@ -281,6 +281,19 @@ public class PlayerController : MonoBehaviour
     Enemy heldEnemy;
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
+
+    [Header("Polvi päähän (vastaliike vihuille, joilla on omat kuvat: Skettari)")]
+    [Tooltip("polvi.png: 10 kuvaa (1 asento, 2 kurotus, 3 ote, 4 veto alas, 5 polvi, 6 irrotus, 7 askel, 8–10 asento).")]
+    public Sprite[] kneeSprites;
+    public float kneeFrameTime = 0.09f;
+    public int kneeDamage = 22;
+    [Tooltip("Vihun etäisyys otteessa (yksikköä heron edessä) ja lentonopeus polven jälkeen.")]
+    public float kneeHoldOffset = 1.2f, kneeFlySpeed = 6f, kneeFlyUp = 4.5f;
+    bool kneeMode, kneeHit;
+    // vaiheet: heron kuva ja vihun otekuva; isku vaiheessa 3, irrotus vaiheessa 4
+    static readonly int[] KneeHero = { 2, 3, 3, 4, 5, 6, 7, 9 };
+    static readonly int[] KneeEnemy = { 1, 2, 3, 4 };
+    bool HasKnee => kneeSprites != null && kneeSprites.Length >= 10;
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
     [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
@@ -404,6 +417,7 @@ public class PlayerController : MonoBehaviour
         SortByFrameNumber(pushSprites);
         SortByFrameNumber(blockSprites);
         SortByFrameNumber(counterThrowSprites);
+        SortByFrameNumber(kneeSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
         SortByFrameNumber(hiKickSprites);
@@ -1186,11 +1200,13 @@ public class PlayerController : MonoBehaviour
         heldEnemy = e;
         counterReleased = false;
         monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
+        kneeMode = !monkeyFlip && HasKnee && e.HasKneeArt;   // Skettari: polvi päähän
+        kneeHit = false;
         heldArt = e.HasArtFor(monkeyFlip);
         // vihu liukuu otekohtaan omasta paikastaan (ei hyppää), eikä otteessa ole osumapysäytystä
         grabStartOffset = (e.transform.position.x - transform.position.x) * (facingRight ? 1f : -1f);
         grabStartDepth = e.transform.position.y - transform.position.y;
-        e.BeginHeldByPlayer(transform.position.x, monkeyFlip);
+        e.BeginHeldByPlayer(transform.position.x, monkeyFlip, kneeMode);
         PlayGrunt();
         Enter(State.CounterThrow);
         UpdateCounterThrow();
@@ -1221,8 +1237,38 @@ public class PlayerController : MonoBehaviour
         return segs.Length + t / ft;   // irrotuksen jälkeen: loput kuvat tasaisesti
     }
 
+    void UpdateKnee()
+    {
+        int step = (int)(stateTime / Mathf.Max(kneeFrameTime, 0.01f));
+        float dir = facingRight ? 1f : -1f;
+        Vector3 me = transform.position;
+        if (!counterReleased && heldEnemy != null)
+        {
+            // vihu liukuu otekohtaan ja vedetään polvea vasten
+            float blend = Mathf.Clamp01(stateTime / kneeFrameTime);
+            float off = Mathf.Lerp(grabStartOffset, kneeHoldOffset * (step >= 1 ? 0.85f : 1f), blend * blend * (3f - 2f * blend));
+            heldEnemy.SetHeldByPlayer(new Vector3(me.x + dir * off, me.y - 0.02f + grabStartDepth * (1f - blend), 0f), 0f, 0f, KneeEnemy[Mathf.Min(step, KneeEnemy.Length - 1)]);
+            if (!kneeHit && step >= 3)
+            {
+                kneeHit = true;
+                HitFx.OnHit(true);
+                PlayGrunt();
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.15f, 0.18f);
+                HitSpark.Spawn(new Vector3(me.x + dir * kneeHoldOffset * 0.8f, me.y + 1.5f, 0f), true, Mathf.RoundToInt(-me.y * 100f) + 5);
+            }
+            if (step >= 4)
+            {
+                counterReleased = true;
+                heldEnemy.ReleaseThrow(dir * kneeFlySpeed, kneeFlyUp, kneeDamage);   // lentää selälleen poispäin
+                heldEnemy = null;
+            }
+        }
+        if (step >= KneeHero.Length) Enter(State.Ground);
+    }
+
     void UpdateCounterThrow()
     {
+        if (kneeMode) { UpdateKnee(); return; }
         float ft = CurThrowFrameTime;
         Vector3[] keys = CurKeys;
         float releaseAt = ThrowReleaseTime;
@@ -1613,6 +1659,8 @@ public class PlayerController : MonoBehaviour
 
             case State.CounterThrow:
             {
+                if (kneeMode)
+                    return kneeSprites[KneeHero[Mathf.Min((int)(stateTime / Mathf.Max(kneeFrameTime, 0.01f)), KneeHero.Length - 1)]];
                 int[] fr = CurFrames;
                 Sprite[] sp = CurThrowSprites;
                 int k = Mathf.Min((int)ThrowKeyAt(stateTime), fr.Length - 1);

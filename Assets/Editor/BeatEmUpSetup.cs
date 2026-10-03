@@ -1525,7 +1525,7 @@ public static class BeatEmUpSetup
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
-        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit", "skettari_kavely" })
+        foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit", "skettari_kavely", "skettari_polvi" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -1584,6 +1584,23 @@ public static class BeatEmUpSetup
         var getUp = EnemySheet("skettari_ylosnousu", report);   // 12 kuvaa: makaa -> tappeluasento
         if (getUp.Length > 0) { t.getUpSprites = getUp; t.getUpTime = 1.0f; }
         t.looseBoardSprite = ImportProp("Assets/Sprites/Rekvisiitta/skettari_lauta.png");
+        // vastaliike: hero ottaa kiinni ja vetää polvella päähän (skettari_polvi.png 10 kuvaa + vanhan kaatumisen loppu)
+        var knee = EnemySheet("skettari_polvi", report);
+        if (knee.Length >= 10 && fall.Length >= 11)
+        {
+            t.kneeHeldSprites = knee.Take(5).ToArray();
+            t.kneeFlightSprites = new[] { knee[5], knee[6], knee[7], knee[8], knee[9], fall[9], fall[10] };
+        }
+        string kp = FindTexture("polvi");
+        if (kp != null)
+        {
+            SetupAndSlice(kp);
+            var heroKnee = LoadSprites("polvi").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            Undo.RecordObject(pc, "Polvi");
+            pc.kneeSprites = heroKnee;
+            EditorUtility.SetDirty(pc);
+            report.Add($"Heron polvi: {heroKnee.Length} kuvaa");
+        }
         report.Add("Irtolauta: " + (t.looseBoardSprite != null ? "OK" : "puuttuu"));
         // noustua tappelee jalan (omat kävely- ja lyöntikuvat myöhemmin; siihen asti tappeluasento)
         t.footMoveSpeedX = 3.3f; t.footMoveSpeedY = 1.9f;   // nopea kuin Lippis
