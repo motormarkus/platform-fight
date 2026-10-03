@@ -47,6 +47,11 @@ public class Bottle : MonoBehaviour
     int seenDisturb;
     float t, height, vy, vx, rot, spin, wobbleT;
     bool fastFall, gripped;
+    // heron kädessä: nyrkki piirretään pullon päälle (kopio heron kuvasta maskattuna nyrkin kohdalle)
+    SpriteRenderer fistOverlay;
+    SpriteMask fistMask;
+    Vector3 handPos;
+    static Sprite circleSprite;
     int heldOrder;
     readonly HashSet<Object> hitList = new HashSet<Object>();
 
@@ -194,18 +199,8 @@ public class Bottle : MonoBehaviour
                 break;
 
             case S.Held:
-            {
-                if (holder == null || (holder is Object o && o == null)) { holder = null; Drop(); break; }
-                // käden takana: kuva seuraa kättä joka framessa, kiertopiste (pullon keskiosa) kädessä
-                if (!holder.BottleGrip(out Vector3 hand, out float r, out heldOrder)) break;   // käsi ei vielä ylety: lattialla
-                Component c = holder as Component;
-                float gy = c != null ? c.transform.position.y : hand.y;
-                transform.position = new Vector3(hand.x, gy - 0.01f, 0f);
-                height = hand.y - gy - (pivotY - 0.04f) * scale;
-                rot = r;
-                gripped = true;
+                HoldInHand();
                 break;
-            }
 
             case S.Thrown:
                 p.x += vx * dt;
@@ -302,6 +297,86 @@ public class Bottle : MonoBehaviour
         BarStain.SpawnAt(transform.position, stainKind);
     }
 
+    void HoldInHand()
+    {
+        if (holder == null || (holder is Object o && o == null)) { holder = null; Drop(); return; }
+        // kädessä: kuva seuraa kättä joka framessa, kiertopiste (pullon keskiosa) kädessä
+        if (!holder.BottleGrip(out Vector3 hand, out float r, out heldOrder)) return;   // käsi ei vielä ylety: lattialla
+        Component c = holder as Component;
+        float gy = c != null ? c.transform.position.y : hand.y;
+        transform.position = new Vector3(hand.x, gy - 0.01f, 0f);
+        height = hand.y - gy - (pivotY - 0.04f) * scale;
+        rot = r;
+        gripped = true;
+        handPos = hand;
+    }
+
+    // pitelijän kuva on jo päivitetty tässä vaiheessa: pullo ja nyrkki samaan kuvaan (ei viivettä)
+    void LateUpdate()
+    {
+        if (state != S.Held) return;
+        HoldInHand();
+        if (state == S.Held) ApplyVisual();
+    }
+
+    /// Nyrkki pullon päälle: heron nykyinen kuva uudestaan, näkyvissä vain nyrkin kohdalla (pullo näyttää olevan kädessä).
+    void UpdateFistOverlay(bool on, int bottleOrder)
+    {
+        var body = on ? ((PlayerController)holder).BodyRenderer : null;
+        if (body == null || !body.enabled || body.sprite == null)
+        {
+            if (fistOverlay != null) { fistOverlay.enabled = false; fistMask.enabled = false; }
+            return;
+        }
+        if (fistOverlay == null)
+        {
+            var o = new GameObject("Nyrkki");
+            fistOverlay = o.AddComponent<SpriteRenderer>();
+            fistOverlay.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            var m = new GameObject("NyrkkiMaski");
+            fistMask = m.AddComponent<SpriteMask>();
+            fistMask.sprite = CircleSprite();
+            fistMask.isCustomRangeActive = true;
+        }
+        fistOverlay.enabled = true; fistMask.enabled = true;
+        var bt = body.transform;
+        fistOverlay.transform.SetPositionAndRotation(bt.position, bt.rotation);
+        fistOverlay.transform.localScale = bt.lossyScale;
+        fistOverlay.sprite = body.sprite;
+        fistOverlay.flipX = body.flipX;
+        fistOverlay.color = body.color;
+        fistOverlay.sortingLayerID = body.sortingLayerID;
+        fistOverlay.sortingOrder = bottleOrder + 1;
+        fistMask.transform.position = handPos;
+        fistMask.transform.localScale = Vector3.one * 0.34f;   // nyrkin kokoinen ympyrä (halkaisija yks)
+        fistMask.frontSortingLayerID = fistMask.backSortingLayerID = body.sortingLayerID;
+        fistMask.frontSortingOrder = bottleOrder + 1;
+        fistMask.backSortingOrder = bottleOrder;
+    }
+
+    static Sprite CircleSprite()
+    {
+        if (circleSprite != null) return circleSprite;
+        const int n = 64;
+        var tex = new Texture2D(n, n, TextureFormat.RGBA32, false);
+        var px = new Color32[n * n];
+        for (int y = 0; y < n; y++)
+            for (int x = 0; x < n; x++)
+            {
+                float dx = (x + 0.5f) / n - 0.5f, dy = (y + 0.5f) / n - 0.5f;
+                px[y * n + x] = dx * dx + dy * dy <= 0.25f ? new Color32(255, 255, 255, 255) : new Color32(0, 0, 0, 0);
+            }
+        tex.SetPixels32(px); tex.Apply();
+        circleSprite = Sprite.Create(tex, new Rect(0, 0, n, n), new Vector2(0.5f, 0.5f), n);   // 1 yksikön halkaisija
+        return circleSprite;
+    }
+
+    void OnDestroy()
+    {
+        if (fistOverlay != null) Destroy(fistOverlay.gameObject);
+        if (fistMask != null) Destroy(fistMask.gameObject);
+    }
+
     void ApplyVisual()
     {
         if (sprites == null || sprites.Length == 0) return;
@@ -324,5 +399,6 @@ public class Bottle : MonoBehaviour
         sr.sortingOrder = order;
         shadow.sortingOrder = order - 1;
         shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && (state != S.Held || !gripped);
+        UpdateFistOverlay(state == S.Held && gripped && holder is PlayerController, order);
     }
 }

@@ -18,11 +18,11 @@ public static class ThrowPose
     /// ThrowFrames-indeksi, jonka alussa esine lähtee kädestä.
     public const int ReleaseIndex = 2;
 
-    // ennen kuvaa 2 esine on vielä lattialla
+    // ennen kuvaa 2 esine on vielä lattialla; hero pitää oikeassa (lähemmässä) kädessä
     public static readonly Dictionary<int, Grip> Hero = new Dictionary<int, Grip>
     {
-        { 2, new Grip(0.92f, 0.31f, 90f) }, { 3, new Grip(0.66f, 0.31f, 90f) }, { 4, new Grip(0.61f, 1.53f, 45f) },
-        { 5, new Grip(0.61f, 2.09f, 10f) }, { 6, new Grip(-1.17f, 2.91f, 30f) }, { 7, new Grip(-0.87f, 2.96f, 40f) },
+        { 2, new Grip(0.92f, 0.31f, 90f) }, { 3, new Grip(0.66f, 0.31f, 90f) }, { 4, new Grip(-0.34f, 1.02f, 40f) },
+        { 5, new Grip(-0.33f, 1.89f, 10f) }, { 6, new Grip(-1.17f, 2.91f, 30f) }, { 7, new Grip(-0.87f, 2.96f, 40f) },
         { 9, new Grip(1.99f, 2.35f, -60f) },
     };
     public static readonly Dictionary<int, Grip> Punk = new Dictionary<int, Grip>

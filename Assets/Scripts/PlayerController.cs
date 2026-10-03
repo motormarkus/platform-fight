@@ -1001,6 +1001,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
     public int BodySortOrder => body != null ? body.sortingOrder : Mathf.RoundToInt(-transform.position.y * 100f);
+    /// Heron kuva (pullon päälle piirrettävää nyrkkiä varten).
+    public SpriteRenderer BodyRenderer => body;
 
     /// Nosto- tai heittosarjan kuva (pullonosto.png).
     int SmallFrame()
@@ -1016,7 +1018,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool BottleGrip(out Vector3 hand, out float rot, out int order)
     {
         float dir = facingRight ? 1f : -1f;
-        order = BodySortOrder - 1;
+        order = BodySortOrder + 1;   // vartalon eteen; nyrkki piirretään pullon päälle (Bottle)
         if ((state == State.SmallPick || state == State.SmallThrow) && HasSmallItem && body != null)
         {
             if (!ThrowPose.Hero.TryGetValue(SmallFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
