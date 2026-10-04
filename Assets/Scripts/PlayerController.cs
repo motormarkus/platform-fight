@@ -313,6 +313,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] dropKickSprites;
     public int dropKickDamage = 24;
     public float dropKickReach = 2.0f, dropKickSpeed = 11f;
+    [Tooltip("Pudotuspotkun loikan korkeus (yksikköä).")]
+    public float dropKickHeight = 2.2f;
     bool dropKickHit, punchFromRun;
     float lastPunchPressTime = -9f, lastJumpPressTime = -9f;
     bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
@@ -740,7 +742,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (stateTime < airEnd)
                 {
                     float k = stateTime / airEnd;
-                    height = Mathf.Sin(k * Mathf.PI) * 1.1f;
+                    height = Mathf.Sin(k * Mathf.PI) * dropKickHeight;
                     MoveOnGround(new Vector2(dir * dropKickSpeed * (1f - 0.5f * k) * dt, 0f));
                 }
                 else
