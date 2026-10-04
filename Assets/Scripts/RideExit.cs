@@ -11,6 +11,10 @@ public class RideExit : MonoBehaviour
     public Vector2 spawnPoint;
     public string title = "Valtatie";
     public float fadeTime = 0.4f, titleTime = 1.6f;
+    [Tooltip("Pyörä jää parkkiin kohdealueen alkuun (pelaaja jatkaa jalan).")]
+    public bool parkBike;
+    [Tooltip("Pysäköintikohta kohdealueella (pyörä), jos parkBike.")]
+    public Vector2 parkPoint;
     [Tooltip("Kuinka leveä tunnistusalue on kohdan x oikealla puolella.")]
     public float triggerWidth = 15f;
 
@@ -41,7 +45,13 @@ public class RideExit : MonoBehaviour
         titleAlpha = 0f;
         if (target != null) target.Apply(pc);
         pc.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0f);
-        if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(spawnPoint.x);
+        var bike = Motorbike.Current;
+        if (parkBike && bike != null)
+        {
+            bike.ParkNow(new Vector3(parkPoint.x, parkPoint.y, 0f), true);   // pyörä parkkiin, pelaaja jalan vieressä
+            if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(parkPoint.x);
+        }
+        else if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(spawnPoint.x);
         Time.timeScale = 1f;
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;

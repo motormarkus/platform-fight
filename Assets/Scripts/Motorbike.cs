@@ -206,6 +206,31 @@ public class Motorbike : MonoBehaviour
         active = null; busy = false;
     }
 
+    /// Pysäköi heti ilman laskeutumisanimaatiota (esim. uuden alueen alussa pimennyksen aikana): pyörä kohtaan pos, pelaaja viereen.
+    public void ParkNow(Vector3 pos, bool faceRight)
+    {
+        StopAllCoroutines();
+        busy = false; riding = false; speed = 0f;
+        facingRight = faceRight;
+        UpdateWheels(false, 0f);
+        transform.position = new Vector3(pos.x, pos.y, 0f);
+        if (parked != null)
+        {
+            if (parkedRight != null) { parked.sprite = facingRight ? parkedRight : parkedLeft; parked.flipX = false; }
+            else parked.flipX = facingRight;
+            parked.sortingOrder = Mathf.RoundToInt(-pos.y * 100f);
+            parked.enabled = true;
+        }
+        if (pc != null)
+        {
+            pc.Riding = false;
+            if (pc.body != null) { pc.body.transform.localScale = Vector3.one; pc.body.transform.localRotation = Quaternion.identity; }
+            pc.enabled = true;
+            pc.TeleportTo(new Vector3(pos.x - Dir * 1.6f, pos.y - 0.25f, 0f));
+        }
+        if (active == this) active = null;
+    }
+
     void ShowRider(Sprite s)
     {
         if (pc.body == null) return;

@@ -2842,6 +2842,8 @@ public static class BeatEmUpSetup
         exit.target = area;
         exit.spawnPoint = new Vector2(UccoX0 + 4f, Mathf.Lerp(area.curbDepthY, area.minDepthY, 0.4f));
         exit.title = "Uccopulco";
+        exit.parkBike = true;                                   // pyörä jää parkkiin, peli jatkuu jalan
+        exit.parkPoint = new Vector2(UccoX0 + 6f, area.curbDepthY + 0.35f);   // jalkakäytävän reunaan
         Undo.RegisterCreatedObjectUndo(exit.gameObject, "Valtatien loppu");
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
