@@ -22,6 +22,9 @@ public class Crate : MonoBehaviour
     public float shadowWidth = 1.4f;
     [Tooltip("Kannossa näin paljon alemmas (yks): pöytä kannetaan kannen alta, jalat ylöspäin ei jää ilmaan.")]
     public float carryLower = 0f;
+    [Tooltip("Hajoamisäänet (puu1, puu2): soi vain kun esine hajoaa, ei osumista.")]
+    public AudioClip[] breakSounds;
+    static int lastBreakSound = -1;
     /// Kasvaa aina, kun esinettä lyödään, nostetaan tai se hajoaa (pöydän pullot reagoivat).
     public int Disturb { get; private set; }
     public bool Intact => state == State.Idle;
@@ -200,6 +203,13 @@ public class Crate : MonoBehaviour
     void Break()
     {
         Disturb++;
+        if (breakSounds != null && breakSounds.Length > 0)
+        {
+            int i = Random.Range(0, breakSounds.Length);
+            if (breakSounds.Length > 1 && i == lastBreakSound) i = (i + 1) % breakSounds.Length;
+            lastBreakSound = i;
+            HitFx.PlayClip(breakSounds[i], Random.Range(0.85f, 1f));
+        }
         state = State.Breaking;
         stateTime = 0f;
         height = 0f;

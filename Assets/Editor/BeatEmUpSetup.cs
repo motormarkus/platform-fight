@@ -68,6 +68,7 @@ public static class BeatEmUpSetup
             CreateLoippari();       // El Loippari -baarin sisätila
             AddSamoans();           // samoalaiset Uccopulcossa
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
+            ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -3161,6 +3162,27 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"El Loippariin {LoipTables.Length} pöytää: {plates} kala-annosta, {bottles} pulloa, {glassesN} lasia.\n" +
              "Lyönti pöytään: annos valuu lattialle. Potku, heitetty pöytä tai päälle lentävä vihu: annos räjähtää ja kala lentää.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
+    [MenuItem("Beat em up/49. Puun hajoamisäänet pöydille ja laatikoille")]
+    static void ApplyWoodBreakSounds()
+    {
+        var clips = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" })
+            .Select(AssetDatabase.GUIDToAssetPath)
+            .Where(p => Path.GetFileNameWithoutExtension(p).ToLowerInvariant().StartsWith("puu"))
+            .OrderBy(p => p).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(c => c != null).ToArray();
+        int n = 0;
+        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (!c.breakable) continue;
+            Undo.RecordObject(c, "Hajoamisäänet");
+            c.breakSounds = clips;
+            EditorUtility.SetDirty(c);
+            n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Hajoamisäänet ({clips.Length} kpl: puu*) {n} pöydälle ja laatikolle." + (clips.Length == 0 ? "\nLaita äänet kansioon Assets/Audio/sfx nimillä puu1, puu2." : "") + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]
