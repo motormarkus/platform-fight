@@ -68,6 +68,7 @@ public static class BeatEmUpSetup
             CreateLoippari();       // El Loippari -baarin sisätila
             AddSamoans();           // samoalaiset Uccopulcossa
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
+            AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3163,6 +3164,77 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"El Loippariin {LoipTables.Length} pöytää: {plates} kala-annosta, {bottles} pulloa, {glassesN} lasia.\n" +
              "Lyönti pöytään: annos valuu lattialle. Potku, heitetty pöytä tai päälle lentävä vihu: annos räjähtää ja kala lentää.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Uccopulcon ja El Loipparin rekvisiitta ----------------
+    static readonly float[] UccoCrateX = { 14f, 33f, 48f, 70f, 88f, 112f }, UccoBarrelX = { 20f, 41f, 58f, 79f, 95f, 116f };
+    static readonly float[] LoipCrateX = { 7f, 46f, 79f, 96f }, LoipBarrelX = { 9.5f, 49f, 82f };
+    const float LoipCounterPx = 865f, LoipCounterHalfPx = 225f, LoipCounterTopRow = 370f;
+
+    [MenuItem("Beat em up/50. Uccopulco: laatikot, tynnyrit ja Sohvi El Loipparin tiskille")]
+    static void AddUccoProps()
+    {
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        if (ucco == null || loip == null) { Info("Tee ensin kohdat 44 ja 45 (Uccopulco ja El Loippari)."); return; }
+        var crates = Object.FindObjectsByType<Crate>(FindObjectsSortMode.None);
+        var crateT = crates.FirstOrDefault(c => c.breakable && c.gameObject.name.StartsWith("Laatikko"));
+        var barrelT = crates.FirstOrDefault(c => !c.breakable && c.rollSprites != null && c.rollSprites.Length > 0);
+        foreach (var n in new[] { "Uccopulcon rekvisiitta", "El Loipparin Sohvi", "El Loipparin tiski" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var root = new GameObject("Uccopulcon rekvisiitta");
+        Undo.RegisterCreatedObjectUndo(root, "Uccopulcon rekvisiitta");
+        int nc = 0, nb = 0;
+        void Place(Crate t, float x, float y, string name)
+        {
+            if (t == null) return;
+            var go = Object.Instantiate(t.gameObject, root.transform);
+            go.name = name;
+            go.transform.position = new Vector3(x, y, 0f);
+        }
+        // kadulla jalkakäytävällä seinän vieressä
+        float sideY = Mathf.Lerp(ucco.maxDepthY, ucco.curbDepthY, 0.35f);
+        foreach (float x in UccoCrateX) Place(crateT, UccoX0 + x, sideY - 0.05f * (nc % 2), "Laatikko U" + (++nc));
+        foreach (float x in UccoBarrelX) Place(barrelT, UccoX0 + x, sideY + 0.05f, "Tynnyri U" + (++nb));
+        // El Loipparissa seinien vieressä
+        float wallY = loip.maxDepthY - 0.15f;
+        foreach (float x in LoipCrateX) Place(crateT, LoipX0 + x, wallY, "Laatikko L" + (++nc));
+        foreach (float x in LoipBarrelX) Place(barrelT, LoipX0 + x, wallY - 0.05f, "Tynnyri L" + (++nb));
+
+        // Sohvi El Loipparin tiskin taakse ja kauppa tiskin eteen (kopiot S-Clubin Sohvista ja baaritiskistä)
+        string sohviInfo = "Sohvi: tee ensin kohta 14 (S-Clubin baaritiski ja Sohvi)";
+        var sohvi = GameObject.Find("Sohvi");
+        var shop = GameObject.Find("Baaritiski");
+        var loipBg = GameObject.Find("El Loippari");
+        if (sohvi != null && shop != null && loipBg != null)
+        {
+            var bgSr = loipBg.GetComponent<SpriteRenderer>();
+            float ppu = bgSr.sprite.pixelsPerUnit;
+            float top = loipBg.transform.position.y + bgSr.bounds.size.y * 0.5f;
+            float cx = bgSr.bounds.min.x + LoipCounterPx / ppu;
+            var s2 = Object.Instantiate(sohvi);
+            s2.name = "El Loipparin Sohvi";
+            s2.transform.position = new Vector3(cx, top - LoipCounterTopRow / ppu, 0f);
+            Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
+            var sh2 = Object.Instantiate(shop);
+            sh2.name = "El Loipparin tiski";
+            sh2.transform.position = new Vector3(cx, loip.maxDepthY, 0f);
+            var counter = sh2.GetComponent<ShopCounter>();
+            if (counter != null)
+            {
+                counter.here = loip;
+                counter.halfWidth = LoipCounterHalfPx / ppu;
+                counter.title = "EL LOIPPARI";
+            }
+            Undo.RegisterCreatedObjectUndo(sh2, "Tiski");
+            sohviInfo = "Sohvi El Loipparin tiskin takana, kauppa tiskin edessä";
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Uccopulco ja El Loippari: {nc} laatikkoa, {nb} tynnyriä" + (crateT == null || barrelT == null ? " (mallilaatikko tai -tynnyri puuttui: tee kohdat 23 ja 32)" : "") +
+             $".\n{sohviInfo}.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
