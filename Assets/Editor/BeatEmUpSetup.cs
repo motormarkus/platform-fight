@@ -2802,10 +2802,11 @@ public static class BeatEmUpSetup
     const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
     const float UccoX0 = 9000f;
     // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
-    static float CamHalfH => Camera.main != null ? Camera.main.orthographicSize : 6f;
     static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
     /// Mittakaava vanhaan (kadun kuvien) mittakaavaan nähden: kaikki yksikköinä annetut x-paikat kerrotaan tällä.
-    static float BgK => 2f * CamHalfH / (1024f / BackgroundPPU);
+    const float BgK = 0.8f;
+    /// Kameran koko Uccopulcossa ja El Loipparissa: koko taustakuva mahtuu ruutuun (kamera hieman kauempana kuin kadulla).
+    static float UccoCamSize => 1024f / BackgroundPPU * BgK * 0.5f;
     // kuvan rivit: jalkakäytävän pinta seinän vieressä, reunakiven alareuna (ajotien taso), ajotien alareuna
     const float UccoWallPx = 506f, UccoCurbPx = 552f, UccoBottomPx = 860f, UccoKerbPx = 30f;
 
@@ -2828,7 +2829,7 @@ public static class BeatEmUpSetup
         // sama kuvakulma kuin kadun kuvissa: sama korkeus maailmassa (kadun kuva 1024 px / BackgroundPPU)
         // alkuperäinen korkeus (ei tuodun, mahdollisesti pienennetyn tekstuurin): sama korkeus maailmassa kuin kadun kuvissa
         ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
-        float ppu = srcH / (2f * CamHalfH);   // koko kuva ruudun korkuiseksi
+        float ppu = srcH / (2f * UccoCamSize);   // tausta 80 %, koko kuva ruudun korkuiseksi
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
@@ -2854,7 +2855,7 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(bg, "Uccopulco");
         float top = cy + hU * 0.5f;
 
-        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        float halfW = UccoCamSize * 16f / 9f;   // alueen oma kameran koko
         var area = new GameObject("Alue: Uccopulco").AddComponent<Area>();
         area.areaName = "Uccopulco";
         area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Uccopulco.mp3");
@@ -2862,7 +2863,8 @@ public static class BeatEmUpSetup
         area.sidewalkHeight = UccoKerbPx / ppu;
         area.curbDepthY = top - UccoCurbPx / ppu;
         area.maxDepthY = top - UccoWallPx / ppu - area.sidewalkHeight;   // jalat jalkakäytävällä seinän vieressä
-        area.minDepthY = Mathf.Max(top - UccoBottomPx / ppu, CamY - CamHalfH + 1.2f);   // jalat ja varjo pysyvät kuvassa
+        area.minDepthY = Mathf.Max(top - UccoBottomPx / ppu, CamY - UccoCamSize + 1.4f);   // jalat ja varjo pysyvät kuvassa
+        area.camSize = UccoCamSize;
         area.camMinX = UccoX0 + halfW;
         area.camMaxX = UccoX0 + wU - halfW;
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
@@ -2905,7 +2907,7 @@ public static class BeatEmUpSetup
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
         ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
-        float ppu = srcH / (2f * CamHalfH);   // sama mittakaava kuin Uccopulcon katu: koko kuva ruudun korkuiseksi (kyltit näkyvät)
+        float ppu = srcH / (2f * UccoCamSize);   // sama mittakaava kuin Uccopulcon katu: koko kuva ruudun korkuiseksi (kyltit näkyvät)
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
@@ -2931,13 +2933,14 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(bg, "El Loippari");
         float top = cy + hU * 0.5f;
 
-        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        float halfW = UccoCamSize * 16f / 9f;   // alueen oma kameran koko
         var area = new GameObject("Alue: El Loippari").AddComponent<Area>();
         area.areaName = "El Loippari";
         area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Uccopulco.mp3");   // toistaiseksi sama kuin kadulla
         area.useSidewalk = false;
         area.maxDepthY = top - LoipFloorPx / ppu;
         area.minDepthY = street.minDepthY;
+        area.camSize = UccoCamSize;
         area.camMinX = LoipX0 + halfW;
         area.camMaxX = LoipX0 + wU - halfW;
         // terassi (viimeinen kuva): kaiteen ja pylväiden juuret ovat lähempänä kuin seinä, ei kävellä kaiteen yli

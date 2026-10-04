@@ -14,10 +14,22 @@ public class CameraFollow : MonoBehaviour
     Vector3 basePos;
     float shakeAmp, shakeTime, shakeDuration;
 
+    float defaultSize = -1f;
+
     void Awake()
     {
         Instance = this;
         basePos = transform.position;
+        var cam = GetComponent<Camera>();
+        if (cam != null) defaultSize = cam.orthographicSize;
+    }
+
+    /// Kameran koko alueen mukaan (0 = oletus). Kameran korkeus pysyy, joten ruutu kasvaa ylös ja alas yhtä paljon.
+    public void SetSize(float size)
+    {
+        var cam = GetComponent<Camera>();
+        if (cam == null || defaultSize <= 0f) return;
+        cam.orthographicSize = size > 0f ? size : defaultSize;
     }
 
     /// Ruudun tärähdys (amp = voimakkuus yksiköinä, dur = kesto sekunteina).

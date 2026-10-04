@@ -39,6 +39,8 @@ public class Area : MonoBehaviour
     [Header("Kameran rajat (x)")]
     public float camMinX = -100f;
     public float camMaxX = 100f;
+    [Tooltip("Kameran koko tällä alueella (orthographic size). 0 = oletus (kadun koko).")]
+    public float camSize = 0f;
 
     public void Apply(PlayerController pc)
     {
@@ -57,6 +59,7 @@ public class Area : MonoBehaviour
         {
             cam.minX = camMinX;
             cam.maxX = camMaxX;
+            cam.SetSize(camSize);   // aluevaihto tapahtuu pimennyksessä: koko vaihtuu heti
         }
     }
 }
