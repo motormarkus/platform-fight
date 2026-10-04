@@ -320,7 +320,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
     // kuvat 2–7 ja ajat: kippura, potku, suorana (lento), alastulo, makuu
     static readonly int[] DropKickFrames = { 2, 3, 4, 5, 6, 7 };
-    static readonly float[] DropKickTimes = { 0.07f, 0.07f, 0.14f, 0.12f, 0.1f, 0.22f };
+    static readonly float[] DropKickTimes = { 0.07f, 0.1f, 0.22f, 0.18f, 0.1f, 0.22f };   // jalat suorana (kuvat 3–5) ~0.5 s
 
     [Header("Pienen esineen nosto ja heitto (pullo)")]
     [Tooltip("pullonosto.png: 12 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–11 paluu).")]
