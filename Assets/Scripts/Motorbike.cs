@@ -23,11 +23,6 @@ public class Motorbike : MonoBehaviour
     public Sprite rearWheel, frontWheel;
     [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
     public Vector2 rearWheelPos = new Vector2(-2.176f, 0.824f), frontWheelPos = new Vector2(2.133f, 0.837f);
-    [Tooltip("Lyönti ajon aikana (pratka_lyonti.png): eteen oikealle.")]
-    public Sprite[] punchSprites;
-    public int punchImpact = 3;
-    public float punchFrameTime = 0.06f;
-    public float punchReach = 3.6f;
     [Tooltip("Kiskaisu (pratka_kiskaisu.png): 0–4 kurotus eteen/sivulle, 5–9 kurotus taakse.")]
     public Sprite[] grabSprites;
     public float grabFrameTime = 0.08f;
@@ -73,8 +68,7 @@ public class Motorbike : MonoBehaviour
     public static Motorbike Current => active != null && active.riding ? active : null;
     public float Speed => speed;
     public bool FacingRight => facingRight;
-    float wobble, wheelAngle, punchT = -1f;
-    bool punchHit;
+    float wobble, wheelAngle;
     float grabT = -1f; bool grabBack, grabDone; EnemyBike grabTarget;
     SpriteRenderer rearR, frontR;
 
@@ -126,7 +120,6 @@ public class Motorbike : MonoBehaviour
     {
         PlayerController.SortByFrameNumber(rideSprites);
         PlayerController.SortByFrameNumber(mountSprites);
-        PlayerController.SortByFrameNumber(punchSprites);
         PlayerController.SortByFrameNumber(grabSprites);
         audioSrc = gameObject.AddComponent<AudioSource>();
         audioSrc.playOnAwake = false;
@@ -174,6 +167,8 @@ public class Motorbike : MonoBehaviour
         Vector3 me = transform.position;
         pc.transform.position = new Vector3(me.x, me.y, 0f);
         groundHeight = GroundAt(me.y);
+        bool bodyInFrames = mountSprites != null && mountSprites.Length > 0;
+        if (parked != null && bodyInFrames) parked.enabled = false;   // nousukuvissa on pyörän runko mukana
         if (mountSprites != null)
             foreach (var s in mountSprites) { ShowRider(s); yield return new WaitForSeconds(mountFrameTime); }
         if (startSound != null) audioSrc.PlayOneShot(startSound, startVolume);
@@ -195,10 +190,10 @@ public class Motorbike : MonoBehaviour
             if (parkedRight != null) { parked.sprite = facingRight ? parkedRight : parkedLeft; parked.flipX = false; }
             else parked.flipX = facingRight;
             parked.sortingOrder = Mathf.RoundToInt(-p.y * 100f);
-            parked.enabled = true;
         }
         if (mountSprites != null)
             for (int i = mountSprites.Length - 1; i >= 0; i--) { ShowRider(mountSprites[i]); yield return new WaitForSeconds(mountFrameTime * 0.8f); }
+        if (parked != null) parked.enabled = true;   // nousukuvissa oli runko mukana: pysäköity kuva vasta lopuksi
         pc.Riding = false;
         if (pc.body != null) pc.body.transform.localScale = Vector3.one;
         pc.enabled = true;
@@ -287,7 +282,7 @@ public class Motorbike : MonoBehaviour
         animClock += dt * (rearWheel != null ? 24f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti (24 fps)
         UpdateWheels(true, dt);
         // kiskaisu (lyöntinappi): kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
-        if (grabT < 0f && punchT < 0f && grabSprites != null && grabSprites.Length >= 10 && (PlayerController.PunchInput() || PlayerController.CatchInput()))
+        if (grabT < 0f && grabSprites != null && grabSprites.Length >= 10 && (PlayerController.PunchInput() || PlayerController.CatchInput()))
         {
             grabTarget = null; float best = 99f;
             foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
@@ -312,20 +307,6 @@ public class Motorbike : MonoBehaviour
             if (f >= 5) grabT = -1f;
             else { ShowRider(grabSprites[(grabBack ? 5 : 0) + f]); return; }
         }
-        // lyönti eteen poistettu käytöstä: lyöntinappi tekee kiskaisun
-        if (punchT >= 0f)
-        {
-            punchT += dt;
-            int f = (int)(punchT / punchFrameTime);
-            if (!punchHit && f >= punchImpact) { punchHit = true; PunchAhead(p); }
-            if (f >= punchSprites.Length) punchT = -1f;
-            else
-            {
-                ShowRider(punchSprites[f]);
-                if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
-                return;
-            }
-        }
         if (rideSprites != null && rideSprites.Length > 0)
         {
             // erilliset vanteet: kuvat eteenpäin (takin lepatus); muuten takaperin, jotta kuvien pyörät pyörivät ajosuuntaan
@@ -342,24 +323,6 @@ public class Motorbike : MonoBehaviour
 
         if (speed >= runOverMinSpeed) RunOver(p);
         if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
-    }
-
-    void PunchAhead(Vector3 me)
-    {
-        foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
-        {
-            Vector3 q = eb.transform.position;
-            float ahead = q.x - me.x;
-            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.5f) eb.KnockOff(me.x);
-        }
-        foreach (var e in Enemy.All.ToArray())
-        {
-            if (e == null || e.IsDead) continue;
-            Vector3 q = e.transform.position;
-            float ahead = q.x - me.x;
-            if (ahead > 0.5f && ahead < punchReach && Mathf.Abs(q.y - me.y) < 0.45f && e.TakeHit(15, me.x, true))
-                HitSpark.Spawn(new Vector3(q.x, q.y + 2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
-        }
     }
 
     void RunOver(Vector3 me)
