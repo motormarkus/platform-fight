@@ -2797,9 +2797,9 @@ public static class BeatEmUpSetup
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
         // sama kuvakulma kuin kadun kuvissa: sama korkeus maailmassa (kadun kuva 1024 px / BackgroundPPU)
-        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>(UccoPath);
-        float worldH = 1024f / BackgroundPPU;
-        float ppu = tex.height / worldH;
+        // alkuperäinen korkeus (ei tuodun, mahdollisesti pienennetyn tekstuurin): sama korkeus maailmassa kuin kadun kuvissa
+        ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+        float ppu = srcH / (1024f / BackgroundPPU);
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
@@ -2874,8 +2874,8 @@ public static class BeatEmUpSetup
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
-        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>(LoipPath);
-        float ppu = tex.height / (1024f / BackgroundPPU);   // sama kuvakulma ja mittakaava kuin Uccopulcon katu
+        ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+        float ppu = srcH / (1024f / BackgroundPPU);   // sama kuvakulma ja mittakaava kuin Uccopulcon katu
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
