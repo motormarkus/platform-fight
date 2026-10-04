@@ -3245,7 +3245,7 @@ public static class BeatEmUpSetup
         var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
         if (ucco == null || loip == null) { Info("Tee ensin kohdat 44 ja 45 (Uccopulco ja El Loippari)."); return; }
         var crates = Object.FindObjectsByType<Crate>(FindObjectsSortMode.None);
-        var crateT = crates.FirstOrDefault(c => c.breakable && c.gameObject.name.StartsWith("Laatikko"));
+        var crateT = crates.FirstOrDefault(c => c.breakable && c.stackedOn == null && c.gameObject.name.StartsWith("Laatikko"));
         var barrelT = crates.FirstOrDefault(c => !c.breakable && c.rollSprites != null && c.rollSprites.Length > 0);
         foreach (var n in new[] { "Uccopulcon rekvisiitta", "El Loipparin Sohvi", "El Loipparin tiski" })
         {
@@ -3255,20 +3255,37 @@ public static class BeatEmUpSetup
         var root = new GameObject("Uccopulcon rekvisiitta");
         Undo.RegisterCreatedObjectUndo(root, "Uccopulcon rekvisiitta");
         int nc = 0, nb = 0;
-        void Place(Crate t, float x, float y, string name)
+        Crate Place(Crate t, float x, float y, string name)
         {
-            if (t == null) return;
+            if (t == null) return null;
             var go = Object.Instantiate(t.gameObject, root.transform);
             go.name = name;
             go.transform.position = new Vector3(x, y, 0f);
+            var c = go.GetComponent<Crate>(); c.stackedOn = null;
+            return c;
+        }
+        // joka toisen laatikon päälle toinen (hieman edessä, jotta piirtyy päälle)
+        void Stack(Crate b, string name)
+        {
+            if (b == null) return;
+            var top = Place(crateT, b.transform.position.x + 0.08f, b.transform.position.y - 0.02f, name);
+            if (top != null) top.stackedOn = b;
         }
         // kadulla jalkakäytävällä seinän vieressä
         float sideY = Mathf.Lerp(ucco.maxDepthY, ucco.curbDepthY, 0.35f);
-        foreach (float x in UccoCrateX) Place(crateT, UccoX0 + x, sideY - 0.05f * (nc % 2), "Laatikko U" + (++nc));
+        for (int i = 0; i < UccoCrateX.Length; i++)
+        {
+            var b = Place(crateT, UccoX0 + UccoCrateX[i], sideY - 0.05f * (nc % 2), "Laatikko U" + (++nc));
+            if (i % 2 == 0) Stack(b, "Laatikko U" + (++nc) + " (päällä)");
+        }
         foreach (float x in UccoBarrelX) Place(barrelT, UccoX0 + x, sideY + 0.05f, "Tynnyri U" + (++nb));
         // El Loipparissa seinien vieressä
         float wallY = loip.maxDepthY - 0.15f;
-        foreach (float x in LoipCrateX) Place(crateT, LoipX0 + x, wallY, "Laatikko L" + (++nc));
+        for (int i = 0; i < LoipCrateX.Length; i++)
+        {
+            var b = Place(crateT, LoipX0 + LoipCrateX[i], wallY, "Laatikko L" + (++nc));
+            if (i % 3 == 1) Stack(b, "Laatikko L" + (++nc) + " (päällä)");
+        }
         foreach (float x in LoipBarrelX) Place(barrelT, LoipX0 + x, wallY - 0.05f, "Tynnyri L" + (++nb));
 
         // Sohvi El Loipparin tiskin taakse ja kauppa tiskin eteen (kopiot S-Clubin Sohvista ja baaritiskistä)
@@ -3306,6 +3323,8 @@ public static class BeatEmUpSetup
 
     // ---------------- El Loipparin tappelijat ----------------
     static readonly Vector2[] LoipLippis = { new Vector2(18f, 0.5f), new Vector2(38f, 0.7f), new Vector2(60f, 0.4f), new Vector2(88f, 0.6f) };
+    static readonly Vector2[] UccoLippis = { new Vector2(16f, 0.5f), new Vector2(45f, 0.3f), new Vector2(78f, 0.65f), new Vector2(108f, 0.4f) };
+    static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(116f, 0.6f) };
     static readonly Vector2[] LoipSamoa = { new Vector2(27f, 0.45f), new Vector2(50f, 0.6f), new Vector2(77f, 0.5f) };
 
     [MenuItem("Beat em up/51. El Loippariin Lippikset, samoalaiset ja portsarit")]
@@ -3343,6 +3362,34 @@ public static class BeatEmUpSetup
         }
         Place(lippisT, LoipLippis, "Lippis");
         Place(samoaT, LoipSamoa, "Samoalainen");
+
+        // Uccopulcon kadulle myös Lippikset ja Skettarit (samoalaisten väleihin)
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        var skettT = all.FirstOrDefault(e => e.gameObject.name == "Skettari");
+        foreach (var e in all)
+            if (e != null && e.gameObject.name.StartsWith("Ucco ")) Undo.DestroyObjectImmediate(e.gameObject);
+        var oldU = GameObject.Find("Uccopulcon tappelijat");
+        if (oldU != null) Undo.DestroyObjectImmediate(oldU);
+        if (ucco != null)
+        {
+            var uRoot = new GameObject("Uccopulcon tappelijat");
+            Undo.RegisterCreatedObjectUndo(uRoot, "Uccopulcon tappelijat");
+            void PlaceU(Enemy t, Vector2[] spots, string name)
+            {
+                if (t == null) { report.Add("Uccopulco " + name + ": malli puuttuu"); return; }
+                int n = 0;
+                foreach (var v in spots)
+                {
+                    var go = Object.Instantiate(t.gameObject, uRoot.transform);
+                    go.name = "Ucco " + name + " " + (++n);
+                    go.SetActive(true);
+                    go.transform.position = new Vector3(UccoX0 + v.x, Mathf.Lerp(ucco.maxDepthY, ucco.minDepthY, v.y), 0f);
+                }
+                report.Add($"Uccopulco {name}: {n}");
+            }
+            PlaceU(lippisT, UccoLippis, "Lippis");
+            PlaceU(skettT, UccoSkettari, "Skettari");
+        }
 
         // portsarit: kopio S-Clubin ryhmästä, tulevat Loipparin heiluriovista ja oikeasta reunasta ensimmäisestä iskusta
         var squad = Object.FindObjectsByType<BouncerSquad>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(q => q.gameObject.name == "Portsarit");
