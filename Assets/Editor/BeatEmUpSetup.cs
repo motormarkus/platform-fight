@@ -3413,6 +3413,7 @@ public static class BeatEmUpSetup
         if (pc == null || p == null) { Info("Tarvitaan pelaaja ja pudotuspotku.png."); return; }
         SetupAndSlice(p);
         Undo.RecordObject(pc, "Pudotuspotku");
+        pc.runStaminaPerSecond = 7f;           // juoksu kuluttaa puolet vähemmän (ennen 14)
         pc.dropKickSprites = LoadSprites("pudotuspotku").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);

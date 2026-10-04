@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Laatikon tai tynnyrin heitto kuluttaa tämän verran (heitto onnistuu aina, stamina voi mennä nollaan).")]
     public float throwStamina = 15f;
     [Tooltip("Juoksu kuluttaa sekunnissa.")]
-    public float runStaminaPerSecond = 14f;
+    public float runStaminaPerSecond = 7f;
     [Tooltip("Palautuu sekunnissa (hitaasti), kun staminaa ei ole hetkeen käytetty.")]
     public float staminaRegenPerSecond = 3f;
     public float staminaRegenWait = 1.5f;
