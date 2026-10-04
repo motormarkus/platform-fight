@@ -57,6 +57,13 @@ public class HitFx : MonoBehaviour
         if (shake > 0f) CameraFollow.Shake(shake, 0.1f);
     }
 
+    /// Vihut tappelevat keskenään: vain osumaääni, ei pysäytystä eikä tärähdystä (peli ei nyi baaritappelussa).
+    public static void OnHitQuiet()
+    {
+        var fx = Instance;
+        if (fx != null) fx.PlayImpact();
+    }
+
     public static void OnHit(bool heavy)
     {
         var fx = Instance;

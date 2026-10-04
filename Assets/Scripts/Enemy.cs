@@ -1131,7 +1131,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool kd = usingAlt ? altKnockdown : punchKnockdown;
         if (!e.TakeHit(usingAlt ? altDamage : punchDamage, me.x, kd)) return false;
         e.GotHitBy(this);
-        HitFx.OnHit(kd);
+        HitFx.OnHitQuiet();   // vihu vs. vihu: ei osumapysäytystä
         HitSpark.Spawn(new Vector3(p.x, p.y + 2.3f, 0f), kd, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
         return true;
     }

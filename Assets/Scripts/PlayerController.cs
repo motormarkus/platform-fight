@@ -301,6 +301,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] chairSmashSprites;
     [Tooltip("tuoli_heitto.png: 0–4 nosto pään yli, 5 irti, 6–9 paluu.")]
     public Sprite[] chairThrowSprites;
+    // tuolinheitto kiihtyy: nosto, hetken pito pään takana, nopea heitto (lähtö kuvan 6 alussa) ja jälkiliike
+    static readonly float[] ChairThrowTimes = { 0.09f, 0.08f, 0.08f, 0.14f, 0.035f, 0.05f, 0.06f, 0.07f, 0.07f, 0.07f };
     public float chairFrameTime = 0.07f;
     public int chairDamage = 26;
     public float chairReach = 2.4f;
@@ -860,13 +862,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.ChairThrow:
-                if (!chairResolved && stateTime >= 5 * chairFrameTime)
+                if (!chairResolved && stateTime >= ThrowPose.Start(ChairThrowTimes, 5))
                 {
                     chairResolved = true;
                     float dir = facingRight ? 1f : -1f;
                     Chair.ThrowHeld(transform.position + new Vector3(dir * 1.3f, -0.01f, 0f), 2.6f + height, dir);
                 }
-                if (stateTime >= chairThrowSprites.Length * chairFrameTime) Enter(State.Ground);
+                if (ThrowPose.Index(ChairThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
             case State.SmallThrow:
@@ -1990,7 +1992,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.ChairSmash:
                 return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.1f)), chairSmashSprites.Length - 1)];
             case State.ChairThrow:
-                return chairThrowSprites[Mathf.Min((int)(stateTime / chairFrameTime), chairThrowSprites.Length - 1)];
+            {
+                int f = ThrowPose.Index(ChairThrowTimes, stateTime);
+                return chairThrowSprites[f < 0 ? chairThrowSprites.Length - 1 : Mathf.Min(f, chairThrowSprites.Length - 1)];
+            }
 
             case State.KneeDash:
             {

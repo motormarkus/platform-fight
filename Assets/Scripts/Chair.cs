@@ -36,7 +36,7 @@ public class Chair : MonoBehaviour
         if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], 0.35f);
     }
     S state = S.Idle;
-    float height, vx, vy, rot, spin;
+    float height, vx, vy, rot, spin, trailT = -1f, trailNext;
     readonly HashSet<Enemy> hit = new HashSet<Enemy>();
     static Sprite[] pieces;
 
@@ -81,7 +81,7 @@ public class Chair : MonoBehaviour
         if (Held == null) return;
         var c = Held; Held = null;
         c.transform.position = new Vector3(from.x, from.y, 0f);
-        c.height = h; c.vx = dir * 13f; c.vy = 3.5f; c.spin = -dir * 620f; c.rot = 0f;
+        c.height = h; c.vx = dir * 18f; c.vy = 4.5f; c.spin = -dir * 760f; c.rot = 0f; c.trailT = 0f;
         c.hit.Clear();
         c.state = S.Thrown;
         c.Show(true);
@@ -110,7 +110,7 @@ public class Chair : MonoBehaviour
         if (state == S.Thrown || state == S.Falling)
         {
             Vector3 p = transform.position; p.x += vx * dt; transform.position = p;
-            vy -= 30f * dt; height += vy * dt; rot += spin * dt;
+            vy -= (state == S.Thrown ? 20f : 30f) * dt; height += vy * dt; rot += spin * dt;   // heitetty kantaa pitkälle
             if (state == S.Thrown && HitInPath()) { Shatter(); return; }
             if (height <= 0f)
             {
@@ -134,6 +134,21 @@ public class Chair : MonoBehaviour
             body.transform.localRotation = q;
             body.transform.localPosition = new Vector3(0f, height + lift, 0f) + c - q * c;
             body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f);
+        }
+        // heiton nopeusjälki: haalistuvat haamukuvat lennon alussa
+        if (state == S.Thrown && trailT >= 0f && body != null && body.sprite != null)
+        {
+            trailT += Time.deltaTime;
+            if (trailT < 0.35f && Time.time >= trailNext)
+            {
+                trailNext = Time.time + 0.025f;
+                var g = new GameObject("Tuolin jälki").AddComponent<SpriteRenderer>();
+                g.sprite = body.sprite; g.flipX = body.flipX;
+                g.transform.SetPositionAndRotation(body.transform.position, body.transform.rotation);
+                g.transform.localScale = body.transform.lossyScale;
+                g.sortingOrder = body.sortingOrder - 1;
+                g.gameObject.AddComponent<FadeOut>().Begin(0.14f, 0.55f);
+            }
         }
         if (shadow != null)
         {
@@ -190,5 +205,22 @@ public class Chair : MonoBehaviour
         for (int i = 0; i < n; i++)
             FoodDebris.Spawn(new[] { pieces[Random.Range(0, pieces.Length)] }, at + new Vector3(dir * Random.Range(0.4f, 1.2f), 0f, 0f), h, 1f,
                 dir * Random.Range(0.5f, 3.5f) + Random.Range(-1f, 1f), Random.Range(2f, 6f), Random.Range(-0.6f, 0.4f), Random.Range(-700f, 700f), false, 0f);
+    }
+}
+
+/// Haalistuva haamukuva (esim. heitetyn tuolin nopeusjälki).
+public class FadeOut : MonoBehaviour
+{
+    SpriteRenderer sr; float life, t, a0;
+    public void Begin(float duration, float alpha)
+    {
+        sr = GetComponent<SpriteRenderer>(); life = duration; a0 = alpha;
+        if (sr != null) sr.color = new Color(1f, 1f, 1f, alpha);
+    }
+    void Update()
+    {
+        t += Time.deltaTime;
+        if (sr != null) sr.color = new Color(1f, 1f, 1f, a0 * Mathf.Clamp01(1f - t / life));
+        if (t >= life) Destroy(gameObject);
     }
 }
