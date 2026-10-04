@@ -41,6 +41,8 @@ public class Area : MonoBehaviour
     public float camMaxX = 100f;
     [Tooltip("Kameran koko tällä alueella (orthographic size). 0 = oletus (kadun koko).")]
     public float camSize = 0f;
+    [Tooltip("Kuinka paljon kamera nousee, kun pelaaja kävelee seinän viereen (yksikköä). 0 = korkeus pysyy.")]
+    public float camRiseY = 0f;
 
     public void Apply(PlayerController pc)
     {
@@ -60,6 +62,7 @@ public class Area : MonoBehaviour
             cam.minX = camMinX;
             cam.maxX = camMaxX;
             cam.SetSize(camSize);   // aluevaihto tapahtuu pimennyksessä: koko vaihtuu heti
+            cam.SetVertical(camRiseY, minDepthY, maxDepthY);
         }
     }
 }

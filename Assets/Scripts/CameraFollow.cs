@@ -1,6 +1,6 @@
 using UnityEngine;
 
-/// <summary>Kamera seuraa pelaajaa sivusuunnassa pehmeästi. Korkeus pysyy paikallaan. Osaa myös tärähtää.</summary>
+/// <summary>Kamera seuraa pelaajaa sivusuunnassa pehmeästi. Korkeus pysyy paikallaan, ellei alue salli pystyseurantaa. Osaa myös tärähtää.</summary>
 public class CameraFollow : MonoBehaviour
 {
     public static CameraFollow Instance { get; private set; }
@@ -15,11 +15,26 @@ public class CameraFollow : MonoBehaviour
     float shakeAmp, shakeTime, shakeDuration;
 
     float defaultSize = -1f;
+    float baseY, riseY, depthMin, depthMax, yVel;
+
+    /// Pystyseuranta (alueittain): pelaajan ollessa seinän vieressä kamera on riseY ylempänä, edessä normaalikorkeudella.
+    public void SetVertical(float rise, float minDepth, float maxDepth)
+    {
+        riseY = rise; depthMin = minDepth; depthMax = maxDepth;
+        basePos.y = GoalY(); yVel = 0f;   // aluevaihto pimennyksessä: heti oikealle korkeudelle
+    }
+
+    float GoalY()
+    {
+        if (riseY <= 0f || target == null || depthMax <= depthMin) return baseY;
+        return baseY + riseY * Mathf.InverseLerp(depthMin, depthMax, target.position.y);
+    }
 
     void Awake()
     {
         Instance = this;
         basePos = transform.position;
+        baseY = basePos.y;
         var cam = GetComponent<Camera>();
         if (cam != null) defaultSize = cam.orthographicSize;
     }
@@ -48,7 +63,8 @@ public class CameraFollow : MonoBehaviour
     public void SnapTo(float x)
     {
         basePos.x = Mathf.Clamp(x, minX, maxX);
-        velocity = 0f;
+        basePos.y = GoalY();
+        velocity = 0f; yVel = 0f;
         transform.position = basePos;
     }
 
@@ -58,6 +74,7 @@ public class CameraFollow : MonoBehaviour
         {
             float goal = Mathf.Clamp(target.position.x, minX, maxX);
             basePos.x = Mathf.SmoothDamp(basePos.x, goal, ref velocity, smoothTime);
+            basePos.y = Mathf.SmoothDamp(basePos.y, GoalY(), ref yVel, 0.35f);
         }
 
         Vector3 offset = Vector3.zero;

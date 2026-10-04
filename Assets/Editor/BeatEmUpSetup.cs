@@ -2865,6 +2865,7 @@ public static class BeatEmUpSetup
         area.curbDepthY = top - UccoCurbPx / ppu;
         area.maxDepthY = top - UccoWallPx / ppu - area.sidewalkHeight;   // jalat jalkakäytävällä seinän vieressä
         area.minDepthY = Mathf.Max(top - UccoBottomPx / ppu, CamY - CamHalf + 1.2f);   // jalat ja varjo pysyvät kuvassa
+        area.camRiseY = Mathf.Min(2f, top - (CamY + CamHalf));   // kamera nousee seinän vieressä: rakennusten yläosa näkyviin
         area.camMinX = UccoX0 + halfW;
         area.camMaxX = UccoX0 + wU - halfW;
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
