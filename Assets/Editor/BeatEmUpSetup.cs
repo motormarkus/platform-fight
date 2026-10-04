@@ -2995,8 +2995,10 @@ public static class BeatEmUpSetup
         t.punchSprites = EnemySheet("samoa_lyonnit", report);
         t.punchImpactFrame = 4;
         t.secondImpactFrame = 6;
-        t.windupTime = 0.3f;
-        t.punchRecoverTime = 0.55f;
+        t.windupTime = 0.16f;              // nopeat kämmeniskut (ennen 0.3 / 0.55)
+        t.punchActiveTime = 0.08f;
+        t.punchRecoverTime = 0.3f;
+        t.attackCooldown = 1.0f;
         t.attackRange = 2.1f;
         // erikoisliike: taklaus kaukaa, ei voi torjua, lennättää reilusti taaksepäin
         t.altAttackSprites = EnemySheet("samoa_taklaus", report);   // 11 kuvaa: asento, kyyky, syöksy, sukellus, nousu
@@ -3027,7 +3029,6 @@ public static class BeatEmUpSetup
         t.maxHealth = 150;
         t.moveSpeedX = 1.9f; t.moveSpeedY = 1.2f;
         t.punchDamage = 12;
-        t.attackCooldown = 1.5f;
         t.runSpeedMultiplier = 1.1f; t.flankChance = 0.05f; t.retreatChance = 0f; t.blockChance = 0f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");   // Koviksen äänet toistaiseksi
         t.hurtVolume = 0.99f;
