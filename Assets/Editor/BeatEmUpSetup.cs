@@ -69,6 +69,7 @@ public static class BeatEmUpSetup
             AddSamoans();           // samoalaiset Uccopulcossa
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
             AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
+            AddLoipparFighters();   // Lippikset, samoalaiset ja portsarit El Loippariin
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3235,6 +3236,73 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Uccopulco ja El Loippari: {nc} laatikkoa, {nb} tynnyriä" + (crateT == null || barrelT == null ? " (mallilaatikko tai -tynnyri puuttui: tee kohdat 23 ja 32)" : "") +
              $".\n{sohviInfo}.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- El Loipparin tappelijat ----------------
+    static readonly Vector2[] LoipLippis = { new Vector2(18f, 0.5f), new Vector2(38f, 0.7f), new Vector2(60f, 0.4f), new Vector2(88f, 0.6f) };
+    static readonly Vector2[] LoipSamoa = { new Vector2(27f, 0.45f), new Vector2(50f, 0.6f), new Vector2(77f, 0.5f) };
+
+    [MenuItem("Beat em up/51. El Loippariin Lippikset, samoalaiset ja portsarit")]
+    static void AddLoipparFighters()
+    {
+        var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        var loipBg = GameObject.Find("El Loippari");
+        if (loip == null || loipBg == null) { Info("Tee ensin kohta 45 (El Loippari)."); return; }
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var e in all)
+            if (e != null && e.gameObject.name.StartsWith("Loippari ")) Undo.DestroyObjectImmediate(e.gameObject);
+        var oldSquad = GameObject.Find("El Loipparin portsarit");
+        if (oldSquad != null) Undo.DestroyObjectImmediate(oldSquad);
+        all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var lippisT = all.FirstOrDefault(e => e.gameObject.name == "Lippis");
+        var samoaT = all.FirstOrDefault(e => e.gameObject.name == "Samoalainen");
+        var oldRoot = GameObject.Find("El Loipparin tappelijat");
+        if (oldRoot != null) Undo.DestroyObjectImmediate(oldRoot);
+        var root = new GameObject("El Loipparin tappelijat");
+        Undo.RegisterCreatedObjectUndo(root, "El Loipparin tappelijat");
+        var report = new List<string>();
+        int Place(Enemy t, Vector2[] spots, string name)
+        {
+            if (t == null) { report.Add(name + ": malli puuttuu"); return 0; }
+            int n = 0;
+            foreach (var v in spots)
+            {
+                var go = Object.Instantiate(t.gameObject, root.transform);
+                go.name = "Loippari " + name + " " + (++n);
+                go.SetActive(true);
+                go.transform.position = new Vector3(LoipX0 + v.x, Mathf.Lerp(loip.maxDepthY, loip.minDepthY, v.y), 0f);
+            }
+            report.Add($"{name}: {n}");
+            return n;
+        }
+        Place(lippisT, LoipLippis, "Lippis");
+        Place(samoaT, LoipSamoa, "Samoalainen");
+
+        // portsarit: kopio S-Clubin ryhmästä, tulevat Loipparin heiluriovista ja oikeasta reunasta ensimmäisestä iskusta
+        var squad = Object.FindObjectsByType<BouncerSquad>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(q => q.gameObject.name == "Portsarit");
+        if (squad != null)
+        {
+            var sGo = Object.Instantiate(squad.gameObject);
+            sGo.name = "El Loipparin portsarit";
+            Undo.RegisterCreatedObjectUndo(sGo, "Portsarit");
+            var sq = sGo.GetComponent<BouncerSquad>();
+            sq.area = loip;
+            float ppu = loipBg.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+            float doorX = LoipX0 + LoipExitPx / ppu + 0.8f;
+            for (int i = 0; i < sq.bouncers.Length; i++)
+            {
+                var b = sq.bouncers[i];
+                if (b == null) continue;
+                b.gameObject.name = "Loippari Portsari " + (i + 1);
+                float y = Mathf.Lerp(loip.maxDepthY, loip.minDepthY, 0.3f + 0.2f * (i % 3));
+                b.transform.position = new Vector3(doorX - 0.4f * i, y, 0f);
+                b.gameObject.SetActive(false);
+            }
+            report.Add($"Portsarit: {sq.bouncers.Length} (tulevat ensimmäisestä iskusta)");
+        }
+        else report.Add("Portsarit: tee ensin kohta 43");
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("El Loippari:\n" + string.Join("\n", report) + "\n\nPortsarit käyvät lähimmän kimppuun: hero, Lippikset ja samoalaiset.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
