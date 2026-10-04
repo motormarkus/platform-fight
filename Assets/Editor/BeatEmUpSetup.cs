@@ -3090,6 +3090,7 @@ public static class BeatEmUpSetup
         foreach (var (n, st, tall) in new[] { ("pullo_lasi_tumbler", "-", false), ("pullo_lasi_viski", "likoori", false), ("pullo_lasi_olut", "olut", true), ("pullo_lasi_tuoppi", "-", true) })
         { var sp = Sheet7(n); if (sp != null && sp.Length >= 5) glasses.Add((sp, st, tall)); }
         var glass = LoadClips("Assets/Audio/sfx", "glass");
+        var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");   // lautasen hajoaminen
 
         var old = GameObject.Find("El Loipparin pöydät");
         if (old != null) Undo.DestroyObjectImmediate(old);
@@ -3125,7 +3126,7 @@ public static class BeatEmUpSetup
                 fGo.transform.SetParent(root.transform, false);
                 fGo.transform.position = go.transform.position;
                 var f = fGo.AddComponent<FishPlate>();
-                f.table = c; f.tableX = px * TableScale; f.tableTop = top + 0.04f; f.breakSounds = glass;
+                f.table = c; f.tableX = px * TableScale; f.tableTop = top + 0.04f; f.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
                 plates++;
             }
             var slots = new List<float>();
