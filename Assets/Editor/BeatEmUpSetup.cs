@@ -3156,11 +3156,11 @@ public static class BeatEmUpSetup
         var spots = LoipTableSpots();
         // lavan eteen ei takariviin (lava näkyy), tiskin eteen ei takariviin (kauppa)
         spots.RemoveAll(v => v.y < 0.3f && ((v.x > 38f && v.x < 62f) || (v.x > 12f && v.x < 22f)));
-        int ti = 0;
+        int tableNo = 0;
         foreach (var v in spots)
         {
-            ti++;
-            bool bottlesOnly = ti % 4 == 0;          // joka neljäs pöytä pelkkiä pulloja ja laseja
+            tableNo++;
+            bool bottlesOnly = tableNo % 4 == 0;          // joka neljäs pöytä pelkkiä pulloja ja laseja
             float y = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, v.y);
             var go = new GameObject("Pöytä");
             go.transform.SetParent(root.transform, false);
