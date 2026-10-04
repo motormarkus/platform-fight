@@ -22,7 +22,7 @@ public class Motorbike : MonoBehaviour
     [Tooltip("Erilliset vanteet, jotka pyörivät koodilla (jos tyhjä, ajokuvissa on pyörät valmiina).")]
     public Sprite rearWheel, frontWheel;
     [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
-    public Vector2 rearWheelPos = new Vector2(-2.314f, 0.741f), frontWheelPos = new Vector2(2.165f, 0.86f);
+    public Vector2 rearWheelPos = new Vector2(-2.176f, 0.824f), frontWheelPos = new Vector2(2.133f, 0.837f);
     [Tooltip("Lyönti ajon aikana (pratka_lyonti.png): eteen oikealle.")]
     public Sprite[] punchSprites;
     public int punchImpact = 3;

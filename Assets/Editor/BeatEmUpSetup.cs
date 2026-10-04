@@ -1159,6 +1159,7 @@ public static class BeatEmUpSetup
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
                     mb.rearWheel = rearW; mb.frontWheel = frontW;
+                    mb.rearWheelPos = new Vector2(-2.176f, 0.824f); mb.frontWheelPos = new Vector2(2.133f, 0.837f);   // uusi chopper (3D-malli) + kuski
                     mb.punchSprites = punchR;
                     mb.grabSprites = grabR;
                     mb.rideable = false;              // kadulla vain rekvisiittaa; ajettava on takakujan parkkipaikalla
