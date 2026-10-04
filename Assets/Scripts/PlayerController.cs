@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float chairFrameTime = 0.07f;
     public int chairDamage = 26;
     public float chairReach = 2.4f;
-    bool chairResolved, chairHitAny;
+    bool chairResolved;
     bool HasChair => chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
 
@@ -758,7 +758,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.ChairHold:
             {
                 if (Chair.Held == null) { Enter(State.Ground); break; }
-                if (punchPressed) { chairResolved = false; chairHitAny = false; PlayGrunt(); Enter(State.ChairSwing); break; }
+                if (punchPressed) { chairResolved = false; PlayGrunt(); Enter(State.ChairSwing); break; }
                 if (kickPressed || catchPressed) { chairResolved = false; PlayGrunt(); Enter(State.ChairThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
                 if (moving)
