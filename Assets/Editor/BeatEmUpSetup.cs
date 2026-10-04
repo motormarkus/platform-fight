@@ -3313,6 +3313,7 @@ public static class BeatEmUpSetup
             var s2 = Object.Instantiate(sohvi);
             s2.name = "El Loipparin Sohvi";
             s2.transform.position = new Vector3(cx, top - LoipCounterTopRow / ppu, 0f);
+            s2.transform.localScale = sohvi.transform.localScale * 0.85f;   // vähän pienempi kuin S-Clubissa
             Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
             var sh2 = Object.Instantiate(shop);
             sh2.name = "El Loipparin tiski";
