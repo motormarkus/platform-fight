@@ -66,6 +66,7 @@ public static class BeatEmUpSetup
             CreateHighway();        // kujan lopusta prätkällä valtatielle
             CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
             CreateLoippari();       // El Loippari -baarin sisätila
+            AddSamoans();           // samoalaiset Uccopulcossa
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -2956,6 +2957,63 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt takakujan parkkipaikalta prätkän vierestä.\nTakaisin kadun alkuun: valikko 37 (tai poista objekti \"Aloituskohta\").\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Samoalainen (Uccopulco) ----------------
+    static readonly Vector2[] SamoaUcco = { new Vector2(30f, 0.4f), new Vector2(62f, 0.15f), new Vector2(95f, 0.6f) };   // x kadun alusta, syvyys 0 = seinä … 1 = edessä
+
+    [MenuItem("Beat em up/47. Samoalaiset Uccopulcoon")]
+    static void AddSamoans()
+    {
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        if (ucco == null) { Info("Tee ensin kohta 44 (Uccopulco)."); return; }
+        foreach (var n in new[] { "samoa_idle", "samoa_osuma", "samoa_kaatuminen", "samoa_ylosnousu" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var report = new List<string>();
+        Sprite[] idle = EnemySheet("samoa_idle", report);
+        if (idle.Length == 0) { Info("samoa_idle.png puuttuu."); return; }
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (e != null && e.gameObject.name.StartsWith("Samoalainen")) Undo.DestroyObjectImmediate(e.gameObject);
+
+        var go = new GameObject("Samoalainen");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Samoalainen";
+        t.idleSprites = idle;
+        t.idleFrameTime = 0.18f;
+        t.walkSprites = idle;                 // kävely- ja hyökkäyskuvat tulevat myöhemmin
+        t.hurtSprites = EnemySheet("samoa_osuma", report);
+        t.knockdownSprites = EnemySheet("samoa_kaatuminen", report);   // 7 kuvaa: horjuu, kaatuu, kierähtää, tähdet, makaa
+        t.getUpSprites = EnemySheet("samoa_ylosnousu", report);        // 10 kuvaa
+        t.getUpTime = 1.0f;
+        t.bigBody = true;                     // iso: heitetään kuperkeikalla, kaataa muita lentäessään
+        t.maxHealth = 150;
+        t.moveSpeedX = 1.9f; t.moveSpeedY = 1.2f;
+        t.punchDamage = 12;
+        t.attackCooldown = 1.5f;
+        t.runSpeedMultiplier = 1.1f; t.flankChance = 0.05f; t.retreatChance = 0f; t.blockChance = 0f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");   // Koviksen äänet toistaiseksi
+        t.hurtVolume = 0.99f;
+        Undo.RegisterCreatedObjectUndo(go, "Samoalainen");
+
+        for (int i = 0; i < SamoaUcco.Length; i++)
+        {
+            var v = SamoaUcco[i];
+            var c = i == 0 ? go : Object.Instantiate(go);
+            if (i > 0) { c.name = "Samoalainen_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Samoalainen"); }
+            float y = Mathf.Lerp(ucco.maxDepthY, ucco.minDepthY, v.y);
+            c.transform.position = new Vector3(UccoX0 + v.x, y, 0f);
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info($"Samoalaisia Uccopulcossa: {SamoaUcco.Length}\n\n" + string.Join("\n", report) +
+             "\n\nKävely- ja hyökkäyskuvat puuttuvat vielä (käyttää idleä).\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]
