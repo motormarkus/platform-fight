@@ -2801,6 +2801,11 @@ public static class BeatEmUpSetup
     // ---------------- Uccopulco (valtatien jälkeen) ----------------
     const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
     const float UccoX0 = 9000f;
+    // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
+    static float CamHalfH => Camera.main != null ? Camera.main.orthographicSize : 6f;
+    static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
+    /// Mittakaava vanhaan (kadun kuvien) mittakaavaan nähden: kaikki yksikköinä annetut x-paikat kerrotaan tällä.
+    static float BgK => 2f * CamHalfH / (1024f / BackgroundPPU);
     // kuvan rivit: jalkakäytävän pinta seinän vieressä, reunakiven alareuna (ajotien taso), ajotien alareuna
     const float UccoWallPx = 506f, UccoCurbPx = 552f, UccoBottomPx = 860f, UccoKerbPx = 30f;
 
@@ -2823,7 +2828,7 @@ public static class BeatEmUpSetup
         // sama kuvakulma kuin kadun kuvissa: sama korkeus maailmassa (kadun kuva 1024 px / BackgroundPPU)
         // alkuperäinen korkeus (ei tuodun, mahdollisesti pienennetyn tekstuurin): sama korkeus maailmassa kuin kadun kuvissa
         ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
-        float ppu = srcH / (1024f / BackgroundPPU);
+        float ppu = srcH / (2f * CamHalfH);   // koko kuva ruudun korkuiseksi
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
@@ -2844,7 +2849,7 @@ public static class BeatEmUpSetup
         var sr = bg.AddComponent<SpriteRenderer>();
         sr.sprite = sprite;
         sr.sortingOrder = -10000;
-        float cy = street.transform.position.y;
+        float cy = CamY;
         bg.transform.position = new Vector3(UccoX0 + wU * 0.5f, cy, 0f);
         Undo.RegisterCreatedObjectUndo(bg, "Uccopulco");
         float top = cy + hU * 0.5f;
@@ -2857,7 +2862,7 @@ public static class BeatEmUpSetup
         area.sidewalkHeight = UccoKerbPx / ppu;
         area.curbDepthY = top - UccoCurbPx / ppu;
         area.maxDepthY = top - UccoWallPx / ppu - area.sidewalkHeight;   // jalat jalkakäytävällä seinän vieressä
-        area.minDepthY = top - UccoBottomPx / ppu;
+        area.minDepthY = Mathf.Max(top - UccoBottomPx / ppu, CamY - CamHalfH + 1.2f);   // jalat ja varjo pysyvät kuvassa
         area.camMinX = UccoX0 + halfW;
         area.camMaxX = UccoX0 + wU - halfW;
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
@@ -2900,7 +2905,7 @@ public static class BeatEmUpSetup
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
         ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
-        float ppu = srcH / (1024f / BackgroundPPU);   // sama kuvakulma ja mittakaava kuin Uccopulcon katu
+        float ppu = srcH / (2f * CamHalfH);   // sama mittakaava kuin Uccopulcon katu: koko kuva ruudun korkuiseksi (kyltit näkyvät)
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
@@ -2921,7 +2926,7 @@ public static class BeatEmUpSetup
         var sr = bg.AddComponent<SpriteRenderer>();
         sr.sprite = sprite;
         sr.sortingOrder = -10000;
-        float cy = streetBg.transform.position.y;
+        float cy = CamY;
         bg.transform.position = new Vector3(LoipX0 + wU * 0.5f, cy, 0f);
         Undo.RegisterCreatedObjectUndo(bg, "El Loippari");
         float top = cy + hU * 0.5f;
@@ -3065,7 +3070,7 @@ public static class BeatEmUpSetup
             var c = i == 0 ? go : Object.Instantiate(go);
             if (i > 0) { c.name = "Samoalainen_" + (i + 1); Undo.RegisterCreatedObjectUndo(c, "Samoalainen"); }
             float y = Mathf.Lerp(ucco.maxDepthY, ucco.minDepthY, v.y);
-            c.transform.position = new Vector3(UccoX0 + v.x, y, 0f);
+            c.transform.position = new Vector3(UccoX0 + v.x * BgK, y, 0f);
         }
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Samoalaisia Uccopulcossa: {SamoaUcco.Length}\n\n" + string.Join("\n", report) +
@@ -3077,10 +3082,12 @@ public static class BeatEmUpSetup
     // baari täyteen: takarivi seinän vieressä, eturivi edessä lomittain, keskelle muutama (tappelutilaa jää)
     static List<Vector2> LoipTableSpots()
     {
+        // x-paikat vanhassa mittakaavassa (kerrotaan BgK:lla sijoittaessa); väli pidetään maailmassa ennallaan
         var l = new List<Vector2>();
-        for (float x = 7f; x <= 95f; x += 5.5f) l.Add(new Vector2(x, 0.2f));
-        for (float x = 9.5f; x <= 95f; x += 5.5f) l.Add(new Vector2(x, 0.92f));
-        for (float x = 13f; x <= 95f; x += 11f) l.Add(new Vector2(x, 0.56f));   // keskirivi harvemmin: tappelutilaa jää
+        float k = BgK, end = 95f;
+        for (float x = 7f; x <= end; x += 5.5f / k) l.Add(new Vector2(x, 0.2f));
+        for (float x = 9.5f; x <= end; x += 5.5f / k) l.Add(new Vector2(x, 0.92f));
+        for (float x = 13f; x <= end; x += 11f / k) l.Add(new Vector2(x, 0.56f));   // keskirivi harvemmin: tappelutilaa jää
         return l;
     }
     // pyöreät telkkaripöydät seinän vieressä takarivin pöytien välissä (ei tiskin eteen eikä lavan eteen)
@@ -3140,7 +3147,7 @@ public static class BeatEmUpSetup
                 float ty = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, 0.04f);
                 var go = new GameObject("Telkkaripöytä");
                 go.transform.SetParent(root.transform, false);
-                go.transform.position = new Vector3(LoipX0 + tx, ty, 0f);
+                go.transform.position = new Vector3(LoipX0 + tx * BgK, ty, 0f);
                 var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
                 var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
                 sh.color = new Color(0f, 0f, 0f, 0.35f);
@@ -3163,6 +3170,7 @@ public static class BeatEmUpSetup
         var spots = LoipTableSpots();
         // lavan eteen ei takariviin (lava näkyy), tiskin eteen ei takariviin (kauppa)
         spots.RemoveAll(v => v.y < 0.3f && ((v.x > 38f && v.x < 62f) || (v.x > 12f && v.x < 22f)));
+        spots.RemoveAll(v => v.y < 0.3f && LoipTvX.Any(tx => Mathf.Abs(tx - v.x) * BgK < 2.4f));
         int tableNo = 0;
         foreach (var v in spots)
         {
@@ -3171,7 +3179,7 @@ public static class BeatEmUpSetup
             float y = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, v.y);
             var go = new GameObject("Pöytä");
             go.transform.SetParent(root.transform, false);
-            go.transform.position = new Vector3(LoipX0 + v.x, y, 0f);
+            go.transform.position = new Vector3(LoipX0 + v.x * BgK, y, 0f);
             var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
             var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
             sh.color = new Color(0f, 0f, 0f, 0.35f);
@@ -3275,18 +3283,18 @@ public static class BeatEmUpSetup
         float sideY = Mathf.Lerp(ucco.maxDepthY, ucco.curbDepthY, 0.35f);
         for (int i = 0; i < UccoCrateX.Length; i++)
         {
-            var b = Place(crateT, UccoX0 + UccoCrateX[i], sideY - 0.05f * (nc % 2), "Laatikko U" + (++nc));
+            var b = Place(crateT, UccoX0 + UccoCrateX[i] * BgK, sideY - 0.05f * (nc % 2), "Laatikko U" + (++nc));
             if (i % 2 == 0) Stack(b, "Laatikko U" + (++nc) + " (päällä)");
         }
-        foreach (float x in UccoBarrelX) Place(barrelT, UccoX0 + x, sideY + 0.05f, "Tynnyri U" + (++nb));
+        foreach (float x in UccoBarrelX) Place(barrelT, UccoX0 + x * BgK, sideY + 0.05f, "Tynnyri U" + (++nb));
         // El Loipparissa seinien vieressä
         float wallY = loip.maxDepthY - 0.15f;
         for (int i = 0; i < LoipCrateX.Length; i++)
         {
-            var b = Place(crateT, LoipX0 + LoipCrateX[i], wallY, "Laatikko L" + (++nc));
+            var b = Place(crateT, LoipX0 + LoipCrateX[i] * BgK, wallY, "Laatikko L" + (++nc));
             if (i % 3 == 1) Stack(b, "Laatikko L" + (++nc) + " (päällä)");
         }
-        foreach (float x in LoipBarrelX) Place(barrelT, LoipX0 + x, wallY - 0.05f, "Tynnyri L" + (++nb));
+        foreach (float x in LoipBarrelX) Place(barrelT, LoipX0 + x * BgK, wallY - 0.05f, "Tynnyri L" + (++nb));
 
         // Sohvi El Loipparin tiskin taakse ja kauppa tiskin eteen (kopiot S-Clubin Sohvista ja baaritiskistä)
         string sohviInfo = "Sohvi: tee ensin kohta 14 (S-Clubin baaritiski ja Sohvi)";
@@ -3355,7 +3363,7 @@ public static class BeatEmUpSetup
                 var go = Object.Instantiate(t.gameObject, root.transform);
                 go.name = "Loippari " + name + " " + (++n);
                 go.SetActive(true);
-                go.transform.position = new Vector3(LoipX0 + v.x, Mathf.Lerp(loip.maxDepthY, loip.minDepthY, v.y), 0f);
+                go.transform.position = new Vector3(LoipX0 + v.x * BgK, Mathf.Lerp(loip.maxDepthY, loip.minDepthY, v.y), 0f);
             }
             report.Add($"{name}: {n}");
             return n;
@@ -3383,7 +3391,7 @@ public static class BeatEmUpSetup
                     var go = Object.Instantiate(t.gameObject, uRoot.transform);
                     go.name = "Ucco " + name + " " + (++n);
                     go.SetActive(true);
-                    go.transform.position = new Vector3(UccoX0 + v.x, Mathf.Lerp(ucco.maxDepthY, ucco.minDepthY, v.y), 0f);
+                    go.transform.position = new Vector3(UccoX0 + v.x * BgK, Mathf.Lerp(ucco.maxDepthY, ucco.minDepthY, v.y), 0f);
                 }
                 report.Add($"Uccopulco {name}: {n}");
             }
@@ -3518,7 +3526,7 @@ public static class BeatEmUpSetup
             {
                 var go = new GameObject("Tuoli " + (++n));
                 go.transform.SetParent(root.transform, false);
-                go.transform.position = new Vector3(LoipX0 + v.x, Mathf.Lerp(area.maxDepthY, area.minDepthY, v.y), 0f);
+                go.transform.position = new Vector3(LoipX0 + v.x * BgK, Mathf.Lerp(area.maxDepthY, area.minDepthY, v.y), 0f);
                 var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(go.transform, false);
                 b.sprite = chairSprite;
                 b.flipX = n % 2 == 0;
