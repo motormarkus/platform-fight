@@ -2967,7 +2967,7 @@ public static class BeatEmUpSetup
     {
         var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
         if (ucco == null) { Info("Tee ensin kohta 44 (Uccopulco)."); return; }
-        foreach (var n in new[] { "samoa_idle", "samoa_osuma", "samoa_kaatuminen", "samoa_ylosnousu" })
+        foreach (var n in new[] { "samoa_idle", "samoa_osuma", "samoa_kaatuminen", "samoa_ylosnousu", "samoa_kavely", "samoa_lyonnit", "samoa_taklaus", "samoa_heitto" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -2988,7 +2988,37 @@ public static class BeatEmUpSetup
         t.displayName = "Samoalainen";
         t.idleSprites = idle;
         t.idleFrameTime = 0.18f;
-        t.walkSprites = idle;                 // kävely- ja hyökkäyskuvat tulevat myöhemmin
+        var walk = EnemySheet("samoa_kavely", report);       // 16 kuvaa videosta, 1.8 s askelsykli
+        t.walkSprites = walk.Length > 0 ? walk : idle;
+        t.walkFrameTime = 0.11f;
+        // lyöntikombo: kämmenisku (kuva 5) ja heti perään toinen (kuva 7)
+        t.punchSprites = EnemySheet("samoa_lyonnit", report);
+        t.punchImpactFrame = 4;
+        t.secondImpactFrame = 6;
+        t.windupTime = 0.3f;
+        t.punchRecoverTime = 0.55f;
+        t.attackRange = 2.1f;
+        // erikoisliike: taklaus kaukaa, ei voi torjua, lennättää reilusti taaksepäin
+        t.altAttackSprites = EnemySheet("samoa_taklaus", report);   // 11 kuvaa: asento, kyyky, syöksy, sukellus, nousu
+        t.altImpactFrame = 4;
+        t.altDamage = 22;
+        t.altReach = 1.8f;
+        t.altChance = 0.35f;
+        t.altExtraWindup = 0.2f;
+        t.altTimeScale = 1.2f;
+        t.altLungeSpeed = 13f;
+        t.altLungeTime = 0.5f;
+        t.altKnockdown = true;
+        t.altUnblockable = true;
+        t.altKnockSpeed = 13f;
+        t.altKnockUp = 7f;
+        t.chargeRange = 8f;
+        t.chargeMinRange = 2.8f;
+        t.stompSounds = LoadClips("Assets/Audio/sfx", "tomina");
+        t.stompVolume = 0.8f;
+        // heron heitto: kuperkeikka omilla kuvilla kuten portsarilla (0–2 ote, 3–8 lento, 9–11 maassa)
+        t.flipThrownSprites = EnemySheet("samoa_heitto", report);
+        t.flipFlightFrames = 6; t.flipFlightFrameTime = 0.07f; t.flipLandFrameTime = 0.1f;
         t.hurtSprites = EnemySheet("samoa_osuma", report);
         t.knockdownSprites = EnemySheet("samoa_kaatuminen", report);   // 7 kuvaa: horjuu, kaatuu, kierähtää, tähdet, makaa
         t.getUpSprites = EnemySheet("samoa_ylosnousu", report);        // 10 kuvaa
@@ -3013,7 +3043,7 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Samoalaisia Uccopulcossa: {SamoaUcco.Length}\n\n" + string.Join("\n", report) +
-             "\n\nKävely- ja hyökkäyskuvat puuttuvat vielä (käyttää idleä).\n\nTallenna scene (Ctrl+S).");
+             "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]

@@ -98,6 +98,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float punchShake = 0f;
     [Tooltip("Toinen hyökkäys kaataa pelaajan (taklaus): lento taaksepäin.")]
     public bool altKnockdown;
+    [Tooltip("Toista hyökkäystä ei voi torjua (esim. samoalaisen taklaus).")]
+    public bool altUnblockable;
     public float altKnockSpeed = 7f, altKnockUp = 6f;
     [Tooltip("Rynnäkkö: toinen hyökkäys aloitetaan jo näin kaukaa (x), ja syöksy kantaa pelaajaan asti. 0 = ei käytössä.")]
     public float chargeRange = 0f;
@@ -1169,7 +1171,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
-        if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this);
+        if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
         if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
     }

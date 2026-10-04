@@ -1182,14 +1182,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
     /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.
-    public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null)
+    public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
     {
         if (Riding) return false;
-        if (state == State.Block) return TakeHit(damage, attackerX, attacker);
+        if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
+        if (state == State.Block) Enter(State.Ground);   // torjumaton isku: suoja murtuu
         DropCrate();
         Bottle.DropHeld();
         facingRight = fromRight;
