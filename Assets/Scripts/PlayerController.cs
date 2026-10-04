@@ -290,6 +290,24 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool counterReleased;
     bool monkeyFlip;     // käynnissä oleva vastaheitto on kuperkeikka
 
+    [Header("Tuoli (kiinniotto: käteen, lyönti: lyö, potku: heitto)")]
+    [Tooltip("tuoli_nosto.png: 0–2 nosto, 3–9 lyönti joka menee ohi (palaa pitoon).")]
+    public Sprite[] chairPickSprites;
+    [Tooltip("tuoli_pito.png: pito (silmukka).")]
+    public Sprite[] chairHoldSprites;
+    [Tooltip("tuoli_kavely.png: kävely tuoli kädessä (vapaaehtoinen).")]
+    public Sprite[] chairWalkSprites;
+    [Tooltip("tuoli_lyonti.png: 0–1 pito, 2 yläkautta, 3 isku, 4–9 hajoaa ja paluu asentoon.")]
+    public Sprite[] chairSmashSprites;
+    [Tooltip("tuoli_heitto.png: 0–4 nosto pään yli, 5 irti, 6–9 paluu.")]
+    public Sprite[] chairThrowSprites;
+    public float chairFrameTime = 0.07f;
+    public int chairDamage = 26;
+    public float chairReach = 2.4f;
+    bool chairResolved, chairHitAny;
+    bool HasChair => chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
+                     && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
+
     [Header("Pienen esineen nosto ja heitto (pullo)")]
     [Tooltip("pullonosto.png: 12 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–11 paluu).")]
     public Sprite[] smallItemSprites;
@@ -424,7 +442,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow }
 
     int comboIndex;
     bool comboQueued;
@@ -446,6 +464,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
+        SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
+        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
@@ -526,6 +546,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = NearbyCrate();
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
+                    if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
@@ -728,6 +749,59 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.SmallPick:
                 if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+
+            case State.ChairPick:
+                if (stateTime >= 3 * chairFrameTime * 1.3f) Enter(State.ChairHold);
+                break;
+
+            case State.ChairHold:
+            {
+                if (Chair.Held == null) { Enter(State.Ground); break; }
+                if (punchPressed) { chairResolved = false; chairHitAny = false; PlayGrunt(); Enter(State.ChairSwing); break; }
+                if (kickPressed || catchPressed) { chairResolved = false; PlayGrunt(); Enter(State.ChairThrow); break; }
+                moving = move.sqrMagnitude > 0.01f;
+                if (moving)
+                {
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+                    MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * carrySpeedFactor * dt);
+                }
+                break;
+            }
+
+            case State.ChairSwing:
+            {
+                // heilautus: kuvat 3–9 (nosto-sarjasta); osumahetki kuvassa 6 -> osui: tuoli hajoaa (lyöntisarja kuvasta 4)
+                float impact = 3 * chairFrameTime;
+                Lunge(0.25f, impact, dt);
+                if (!chairResolved && stateTime >= impact)
+                {
+                    chairResolved = true;
+                    if (AttackEnemies(chairReach, chairDamage, true, 2.4f))
+                    {
+                        Chair.BreakHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, -0.02f, 0f), facingRight ? 1f : -1f);
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
+                        Enter(State.ChairSmash);
+                        stateTime = 4 * chairFrameTime;
+                        break;
+                    }
+                }
+                if (stateTime >= 7 * chairFrameTime) Enter(Chair.Held != null ? State.ChairHold : State.Ground);
+                break;
+            }
+
+            case State.ChairSmash:
+                if (stateTime >= chairSmashSprites.Length * chairFrameTime * 1.1f) Enter(State.Ground);
+                break;
+
+            case State.ChairThrow:
+                if (!chairResolved && stateTime >= 5 * chairFrameTime)
+                {
+                    chairResolved = true;
+                    float dir = facingRight ? 1f : -1f;
+                    Chair.ThrowHeld(transform.position + new Vector3(dir * 1.3f, -0.01f, 0f), 2.6f + height, dir);
+                }
+                if (stateTime >= chairThrowSprites.Length * chairFrameTime) Enter(State.Ground);
                 break;
 
             case State.SmallThrow:
@@ -1090,7 +1164,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash;
+        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -1193,6 +1267,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state == State.Block) Enter(State.Ground);   // torjumaton isku: suoja murtuu
         DropCrate();
         Bottle.DropHeld();
+        Chair.DropHeld(transform.position);
         facingRight = fromRight;
         heldRot = 0f;
         height = Mathf.Max(height, 0.05f);
@@ -1215,6 +1290,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (Riding) return false;
         if (state != State.Block) Bottle.DropHeld();
+        if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
         else if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
@@ -1812,6 +1888,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.SmallPick:
             case State.SmallThrow:
                 return smallItemSprites[SmallFrame()];
+
+            case State.ChairPick:
+                return chairPickSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.3f)), 2)];
+            case State.ChairHold:
+                if (moving && chairWalkSprites != null && chairWalkSprites.Length > 0)
+                    return chairWalkSprites[(int)(animClock / walkFrameTime) % chairWalkSprites.Length];
+                return chairHoldSprites[(int)(animClock / 0.16f) % chairHoldSprites.Length];
+            case State.ChairSwing:
+                return chairPickSprites[Mathf.Min(3 + (int)(stateTime / chairFrameTime), 9)];
+            case State.ChairSmash:
+                return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.1f)), chairSmashSprites.Length - 1)];
+            case State.ChairThrow:
+                return chairThrowSprites[Mathf.Min((int)(stateTime / chairFrameTime), chairThrowSprites.Length - 1)];
 
             case State.KneeDash:
             {

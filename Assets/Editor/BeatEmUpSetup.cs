@@ -71,6 +71,7 @@ public static class BeatEmUpSetup
             AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
             AddLoipparFighters();   // Lippikset, samoalaiset ja portsarit El Loippariin
             AddLoipparStage();      // mariachi-bändi ja tanssijat El Loipparin lavalle
+            AddChairs();            // tuolit El Loippariin (hero ottaa käteen, lyö ja heittää)
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -104,10 +105,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("tuoli_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3401,6 +3402,65 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("El Loipparin lavalla mariachi-bändi ja tanssijat molemmin puolin.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Tuolit ----------------
+    static readonly Vector2[] LoipChairs = { new Vector2(15f, 0.62f), new Vector2(29.5f, 0.35f), new Vector2(36f, 0.7f), new Vector2(57f, 0.68f),
+                                             new Vector2(67f, 0.4f), new Vector2(75f, 0.65f), new Vector2(86f, 0.45f), new Vector2(97f, 0.7f) };
+
+    [MenuItem("Beat em up/53. Tuolit El Loippariin (heron tuolikuvat)")]
+    static void AddChairs()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        if (pc == null || area == null) { Info("Tarvitaan pelaaja ja El Loippari (kohta 45)."); return; }
+        Sprite[] Sh(string n)
+        {
+            string p = FindTexture(n); if (p == null) return new Sprite[0];
+            SetupAndSlice(p);
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        Undo.RecordObject(pc, "Tuolikuvat");
+        pc.chairPickSprites = Sh("tuoli_nosto");
+        pc.chairHoldSprites = Sh("tuoli_pito");
+        pc.chairWalkSprites = Sh("tuoli_kavely");
+        pc.chairSmashSprites = Sh("tuoli_lyonti");
+        pc.chairThrowSprites = Sh("tuoli_heitto");
+        EditorUtility.SetDirty(pc);
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Tuoli" }))
+        {
+            var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            ti.SaveAndReimport();
+        }
+        var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
+        var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+            .Where(p => Path.GetFileNameWithoutExtension(p).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(c => c != null).ToArray();
+        var old = GameObject.Find("Tuolit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Tuolit");
+        Undo.RegisterCreatedObjectUndo(root, "Tuolit");
+        int n = 0;
+        if (chairSprite != null)
+            foreach (var v in LoipChairs)
+            {
+                var go = new GameObject("Tuoli " + (++n));
+                go.transform.SetParent(root.transform, false);
+                go.transform.position = new Vector3(LoipX0 + v.x, Mathf.Lerp(area.maxDepthY, area.minDepthY, v.y), 0f);
+                var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(go.transform, false);
+                b.sprite = chairSprite;
+                b.flipX = n % 2 == 0;
+                var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+                sh.color = new Color(0f, 0f, 0f, 0.3f);
+                var c = go.AddComponent<Chair>();
+                c.body = b; c.shadow = sh; c.breakSounds = wood;
+            }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"El Loippariin {n} tuolia. Heron tuolikuvat: nosto {pc.chairPickSprites.Length}, pito {pc.chairHoldSprites.Length}, kävely {pc.chairWalkSprites.Length}, lyönti {pc.chairSmashSprites.Length}, heitto {pc.chairThrowSprites.Length}.\n" +
+             "Kiinniotto: tuoli käteen. Lyönti: lyö (osuessa tuoli hajoaa). Potku: heitto.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
