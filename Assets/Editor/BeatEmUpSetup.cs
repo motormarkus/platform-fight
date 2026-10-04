@@ -65,6 +65,7 @@ public static class BeatEmUpSetup
             CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
             CreateHighway();        // kujan lopusta prätkällä valtatielle
             CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
+            CreateLoippari();       // El Loippari -baarin sisätila
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -2848,6 +2849,91 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Uccopulco luotu ({wU:0} yksikköä, kuva {ppu:0.0} px/yks).\nAja valtatien loppuun: pimennys, otsikko ja rantakatu.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- El Loippari (Uccopulcon baari) ----------------
+    const string LoipPath = "Assets/Sprites/Taustat/loippari_sisa.png";   // 3 kuvaa yhdistettynä: tiski, lava, terassi (4429 × 887)
+    const float LoipX0 = 12000f;
+    const float LoipFloorPx = 512f;          // seinän alareuna / lattian takaraja kuvassa
+    const float LoipStreetDoorPx = 4551f;    // El Loipparin ovet Uccopulcon katukuvassa
+    const float LoipExitPx = 130f;           // sisätilan vasemman reunan heiluriovet (ulos kadulle)
+
+    [MenuItem("Beat em up/45. El Loippari (Uccopulcon baari)")]
+    static void CreateLoippari()
+    {
+        var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        var streetBg = GameObject.Find("Uccopulco");
+        var ti = AssetImporter.GetAtPath(LoipPath) as TextureImporter;
+        if (street == null || streetBg == null || ti == null)
+        {
+            Info("Tarvitaan Uccopulco (kohta 44) ja kuva " + LoipPath);
+            return;
+        }
+        foreach (var n in new[] { "El Loippari", "Alue: El Loippari", "El Loipparin ovet" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>(LoipPath);
+        float ppu = tex.height / (1024f / BackgroundPPU);   // sama kuvakulma ja mittakaava kuin Uccopulcon katu
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(LoipPath);
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+
+        var bg = new GameObject("El Loippari");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        float cy = streetBg.transform.position.y;
+        bg.transform.position = new Vector3(LoipX0 + wU * 0.5f, cy, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "El Loippari");
+        float top = cy + hU * 0.5f;
+
+        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        var area = new GameObject("Alue: El Loippari").AddComponent<Area>();
+        area.areaName = "El Loippari";
+        area.useSidewalk = false;
+        area.maxDepthY = top - LoipFloorPx / ppu;
+        area.minDepthY = street.minDepthY;
+        area.camMinX = LoipX0 + halfW;
+        area.camMaxX = LoipX0 + wU - halfW;
+        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        var doors = new GameObject("El Loipparin ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        float streetLeft = streetBg.GetComponent<SpriteRenderer>().bounds.min.x;
+        float streetPpu = streetBg.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        float doorX = streetLeft + LoipStreetDoorPx / streetPpu;
+        var d = new GameObject("El Loipparin ovi").AddComponent<Door>();
+        d.transform.SetParent(doors.transform, false);
+        d.transform.position = new Vector3(doorX, street.maxDepthY - 0.25f, 0f);
+        d.prompt = "Mene El Loippariin";
+        d.here = street; d.target = area;
+        d.spawnPoint = new Vector2(LoipX0 + LoipExitPx / ppu + 2.5f, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f));
+        d.halfWidth = 1.6f; d.maxDistanceFromWall = 0.9f;
+        var exit = new GameObject("El Loipparin uloskäynti").AddComponent<Door>();
+        exit.transform.SetParent(doors.transform, false);
+        exit.transform.position = new Vector3(LoipX0 + LoipExitPx / ppu, area.maxDepthY, 0f);
+        exit.prompt = "Ulos kadulle";
+        exit.here = area; exit.target = street;
+        exit.returnToLastDoor = true;
+        exit.halfWidth = 2.2f; exit.maxDistanceFromWall = 100f;
+        exit.spawnPoint = new Vector2(doorX, street.maxDepthY - 0.25f);
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"El Loippari luotu ({wU:0} yksikköä: baaritiski, lava, terassi).\nOvi Uccopulcon kadulla x = {doorX:0.0}. Sisältä ulos vasemman reunan heiluriovista.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Aloituskohta ----------------
