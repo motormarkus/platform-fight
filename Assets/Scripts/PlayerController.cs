@@ -315,6 +315,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float dropKickReach = 2.0f, dropKickSpeed = 11f;
     [Tooltip("Pudotuspotkun loikan korkeus (yksikköä).")]
     public float dropKickHeight = 2.2f;
+    [Tooltip("Pudotuspotkun osuman lennätysvauhti (yksikköä/s).")]
+    public float dropKickLaunch = 11f;
     bool dropKickHit, punchFromRun;
     float lastPunchPressTime = -9f, lastJumpPressTime = -9f;
     bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
@@ -752,7 +754,25 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 float hitFrom = ThrowPose.Start(DropKickTimes, 1), hitTo = airEnd;
                 if (!dropKickHit && stateTime >= hitFrom && stateTime <= hitTo)
+                {
                     dropKickHit = AttackEnemies(dropKickReach, dropKickDamage, true, 1.8f);
+                    if (dropKickHit)
+                    {
+                        // osuma: vihu lentää kauas ja kaataa matkalla muut, iso kipinä ja tärähdys
+                        foreach (var e in lastHitEnemies)
+                        {
+                            if (e == null) continue;
+                            e.Launch(dir * dropKickLaunch, 8f);
+                            Vector3 q = e.transform.position;
+                            HitSpark.Spawn(new Vector3(q.x - dir * 0.2f, q.y + height + 1.4f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 6);
+                        }
+                        if (lastHitEnemies.Count > 0)
+                        {
+                            HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);   // tömähdys
+                            if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.22f);
+                        }
+                    }
+                }
                 if (ThrowPose.Index(DropKickTimes, stateTime) < 0) { height = 0f; kipUpAfterOwnThrow = true; Enter(State.KipUp); }
                 break;
             }
@@ -1216,12 +1236,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Onko käynnissä oleva isku potku (telkkari lentää vain potkusta).
     public static bool AttackIsKick { get; private set; }
 
+    readonly System.Collections.Generic.List<Enemy> lastHitEnemies = new System.Collections.Generic.List<Enemy>();
+
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
         AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
+        lastHitEnemies.Clear();
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead) continue;
@@ -1235,6 +1258,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // torjuttu isku: sinertävä pieni läiskä
                 HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown && !e.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
                 if (knockdown && !e.JustBlocked) heavy = true;   // torjuttu isku: kevyt pysäytys
+                if (!e.JustBlocked) lastHitEnemies.Add(e);
             }
         }
         foreach (var c in Crate.All.ToArray())

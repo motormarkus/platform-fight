@@ -525,7 +525,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         if (Mathf.Abs(q.x - me2.x) < 1.2f && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
                     }
                 // iso heitetty vihu (Kovis, portsari) kaataa tieltään muut vihut
-                if (thrownByPlayer && bigBody) BowlOthers();
+                if ((thrownByPlayer && bigBody) || launched) BowlOthers();
                 verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
                 if (thrownByPlayer && flightArt)
@@ -548,6 +548,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (height <= 0f)
                 {
                     height = 0f;
+                    if (launched)
+                    {
+                        launched = false;
+                        HitFx.OnHit(true);
+                        DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
+                        knockVel *= 0.3f;   // liukuu vähän
+                    }
                     if (thrownByPlayer && flightArt)
                     {
                         // niskalenkin paiskaus: isku, pomppu ja makuu omilla kuvilla, kunnon tärähdys ja pöly
@@ -1322,6 +1329,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
         spinRot = rot;
         heldPose = artSet != null ? pose : -1;
     }
+
+    /// Kova potku (pudotuspotku): osuman jälkeen lento kauas, matkalla kaataa muut vihut, alastulossa pöly ja tärähdys.
+    public void Launch(float vx, float up)
+    {
+        if (state != State.Airborne) return;
+        knockVel = new Vector2(vx, 0f);
+        verticalVel = up;
+        launched = true;
+    }
+    bool launched;
 
     /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
     public void ReleaseThrow(float vx, float up, int damage)
