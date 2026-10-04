@@ -1368,7 +1368,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float minY = player != null ? player.minDepthY : -4.3f;
         float maxY = player != null ? player.maxDepthY : -0.8f;
         p.x += delta.x;
-        p.y = Mathf.Clamp(p.y + delta.y, minY, maxY);
+        p.y = Mathf.Clamp(p.y + delta.y, minY, Area.MaxDepthAt(p.x, maxY));
         // pelaajan alueella pysytään taustakuvan sisällä (esim. taklaus ei liu'u katolta yli)
         var cf = CameraFollow.Instance; var cam = Camera.main;
         if (cf != null && cam != null)

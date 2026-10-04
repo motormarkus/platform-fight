@@ -2909,6 +2909,10 @@ public static class BeatEmUpSetup
         area.minDepthY = street.minDepthY;
         area.camMinX = LoipX0 + halfW;
         area.camMaxX = LoipX0 + wU - halfW;
+        // terassi (viimeinen kuva): kaiteen ja pylväiden juuret ovat lähempänä kuin seinä, ei kävellä kaiteen yli
+        float terraceX0 = srcW - 1774f;   // kolmannen kuvan alku yhdistetyssä kuvassa
+        System.Func<float, float, Vector2> pt = (lx, row) => new Vector2(LoipX0 + (terraceX0 + lx) / ppu, top - row / ppu);
+        area.depthLimits = new[] { pt(440f, LoipFloorPx), pt(620f, 548f), pt(1774f, 572f) };
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
 
         var doors = new GameObject("El Loipparin ovet");

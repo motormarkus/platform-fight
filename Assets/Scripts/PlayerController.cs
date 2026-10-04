@@ -1644,15 +1644,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         Vector3 p = transform.position;
         p.x += delta.x;
-        p.y = Mathf.Clamp(p.y + delta.y, minDepthY, maxDepthY);
-        // ei kävellä alueen taustakuvan ulkopuolelle (kameran rajat + puoli ruutua)
+        // ei kävellä alueen taustakuvan ulkopuolelle (kameran rajat + puoli ruutua, hahmo kokonaan ruudussa)
         var cf = CameraFollow.Instance;
         var cam = Camera.main;
         if (cf != null && cam != null)
         {
-            float halfW = cam.orthographicSize * cam.aspect - 0.6f;
+            float halfW = cam.orthographicSize * cam.aspect - 1.3f;
             p.x = Mathf.Clamp(p.x, cf.minX - halfW, cf.maxX + halfW);
         }
+        p.y = Mathf.Clamp(p.y + delta.y, minDepthY, Area.MaxDepthAt(p.x, maxDepthY));   // esim. terassin kaide
         transform.position = p;
     }
 
