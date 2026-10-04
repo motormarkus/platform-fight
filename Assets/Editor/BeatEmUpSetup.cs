@@ -1121,6 +1121,8 @@ public static class BeatEmUpSetup
         }
         var rearW = LoadWheel("pratka_vanne_taka");
         var frontW = LoadWheel("pratka_vanne_etu");
+        var rearT = LoadWheel("pratka_kumi_taka");
+        var frontT = LoadWheel("pratka_kumi_etu");
 
         var ssr = street.GetComponent<SpriteRenderer>();
         float left = street.transform.position.x - ssr.size.x * 0.5f;
@@ -1157,7 +1159,8 @@ public static class BeatEmUpSetup
                     mb.rideSprites = ride;
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
-                    mb.rearWheel = rearW; mb.frontWheel = frontW;
+                    mb.rearWheel = rearW; mb.frontWheel = frontW; mb.rearTyre = rearT; mb.frontTyre = frontT;
+                    mb.maxSpeed = 27.5f; mb.acceleration = 18f;   // kaksinkertainen huippunopeus
                     mb.rearWheelPos = new Vector2(-2.176f, 0.824f); mb.frontWheelPos = new Vector2(2.133f, 0.837f);   // uusi chopper (3D-malli) + kuski
                     mb.grabSprites = grabR;
                     mb.rideable = false;              // kadulla vain rekvisiittaa; ajettava on takakujan parkkipaikalla

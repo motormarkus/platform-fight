@@ -21,6 +21,8 @@ public class Motorbike : MonoBehaviour
     public Sprite[] mountSprites;
     [Tooltip("Erilliset vanteet, jotka pyörivät koodilla (jos tyhjä, ajokuvissa on pyörät valmiina).")]
     public Sprite rearWheel, frontWheel;
+    [Tooltip("Kumit vanteiden päällä: eivät pyöri, jotta valon heijastus pysyy paikallaan.")]
+    public Sprite rearTyre, frontTyre;
     [Tooltip("Vanteiden keskipisteet ajokuvan pivotista (yksikköä, keula oikealle).")]
     public Vector2 rearWheelPos = new Vector2(-2.176f, 0.824f), frontWheelPos = new Vector2(2.133f, 0.837f);
     [Tooltip("Kiskaisu (pratka_kiskaisu.png): 0–4 kurotus eteen/sivulle, 5–9 kurotus taakse.")]
@@ -43,8 +45,8 @@ public class Motorbike : MonoBehaviour
     float Scale => Area.Current != null && Area.Current.areaName == "Valtatie" ? bikeScale : (rideable ? streetScale : propScale);
 
     [Header("Ajo")]
-    public float maxSpeed = 13.75f;
-    public float acceleration = 9f;
+    public float maxSpeed = 27.5f;
+    public float acceleration = 18f;
     public float braking = 18f;
     public float depthSpeed = 2.6f;
     public float mountFrameTime = 0.11f;
@@ -72,7 +74,7 @@ public class Motorbike : MonoBehaviour
     public bool FacingRight => facingRight;
     float wobble, wheelAngle;
     float grabT = -1f; bool grabBack, grabDone; EnemyBike grabTarget;
-    SpriteRenderer rearR, frontR;
+    SpriteRenderer rearR, frontR, rearT, frontT;
 
     void EnsureWheels()
     {
@@ -82,15 +84,23 @@ public class Motorbike : MonoBehaviour
             rearR = new GameObject("Takavanne").AddComponent<SpriteRenderer>();
             frontR = new GameObject("Etuvanne").AddComponent<SpriteRenderer>();
             rearR.sprite = rearWheel; frontR.sprite = frontWheel;
+            if (rearTyre != null && frontTyre != null)
+            {
+                rearT = new GameObject("Takakumi").AddComponent<SpriteRenderer>();
+                frontT = new GameObject("Etukumi").AddComponent<SpriteRenderer>();
+                rearT.sprite = rearTyre; frontT.sprite = frontTyre;
+            }
         }
         rearR.transform.SetParent(pc.body.transform, false);
         frontR.transform.SetParent(pc.body.transform, false);
+        if (rearT != null) { rearT.transform.SetParent(pc.body.transform, false); frontT.transform.SetParent(pc.body.transform, false); }
     }
 
     void UpdateWheels(bool show, float dt)
     {
         if (rearR == null) return;
         rearR.enabled = frontR.enabled = show;
+        if (rearT != null) rearT.enabled = frontT.enabled = show;
         if (!show) return;
         // kehänopeus = ajonopeus: kulmanopeus = v / r (rad/s)
         float r = rearWheel.rect.width / rearWheel.pixelsPerUnit * 0.5f;
@@ -104,6 +114,14 @@ public class Motorbike : MonoBehaviour
         rearR.flipX = frontR.flipX = !facingRight;
         rearR.sortingOrder = frontR.sortingOrder = pc.body.sortingOrder - 1;   // rungon (haarukka, pakoputket) takana
         rearR.color = frontR.color = pc.body.color;
+        if (rearT != null)
+        {
+            rearT.transform.localPosition = rearR.transform.localPosition;
+            frontT.transform.localPosition = frontR.transform.localPosition;
+            rearT.flipX = frontT.flipX = !facingRight;
+            rearT.sortingOrder = frontT.sortingOrder = pc.body.sortingOrder - 1;
+            rearT.color = frontT.color = pc.body.color;
+        }
     }
 
     /// Vihun potku: vauhti putoaa, pyörä heiluu, pelaaja ottaa vahinkoa.
@@ -171,8 +189,9 @@ public class Motorbike : MonoBehaviour
         groundHeight = GroundAt(me.y);
         bool bodyInFrames = mountSprites != null && mountSprites.Length > 0;
         if (parked != null && bodyInFrames) parked.enabled = false;   // nousukuvissa on pyörän runko mukana
+        EnsureWheels();
         if (mountSprites != null)
-            foreach (var s in mountSprites) { ShowRider(s); yield return new WaitForSeconds(mountFrameTime); }
+            foreach (var s in mountSprites) { ShowRider(s); UpdateWheels(true, 0f); yield return new WaitForSeconds(mountFrameTime); }
         if (startSound != null) audioSrc.PlayOneShot(startSound, startVolume);
         if (parked != null) parked.enabled = false;
         speed = 0f; animClock = 0f;
@@ -183,7 +202,6 @@ public class Motorbike : MonoBehaviour
     IEnumerator Dismount()
     {
         busy = true; riding = false;
-        UpdateWheels(false, 0f);
         Vector3 p = pc.transform.position;
         // pysäköity pyörä tähän, samaan suuntaan
         transform.position = new Vector3(p.x, p.y, 0f);
@@ -194,7 +212,8 @@ public class Motorbike : MonoBehaviour
             parked.sortingOrder = Mathf.RoundToInt(-p.y * 100f);
         }
         if (mountSprites != null)
-            for (int i = mountSprites.Length - 1; i >= 0; i--) { ShowRider(mountSprites[i]); yield return new WaitForSeconds(mountFrameTime * 0.8f); }
+            for (int i = mountSprites.Length - 1; i >= 0; i--) { ShowRider(mountSprites[i]); UpdateWheels(true, 0f); yield return new WaitForSeconds(mountFrameTime * 0.8f); }
+        UpdateWheels(false, 0f);
         if (parked != null) parked.enabled = true;   // nousukuvissa oli runko mukana: pysäköity kuva vasta lopuksi
         pc.Riding = false;
         if (pc.body != null) pc.body.transform.localScale = Vector3.one;
@@ -315,8 +334,6 @@ public class Motorbike : MonoBehaviour
             // erilliset vanteet: kuvat eteenpäin (takin lepatus); muuten takaperin, jotta kuvien pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
             ShowRider(rideSprites[rearWheel != null ? (int)rideClock % n : n - 1 - (int)rideClock % n]);
-            if (rearWheel != null && pc.body != null)   // moottorin tärinä ja pieni jousitus
-                pc.body.transform.localPosition += new Vector3(0f, Mathf.Sin(animClock * 2.3f) * 0.025f + Mathf.Sin(animClock * 9f) * 0.008f, 0f);
             if (wobble > 0f && pc.body != null)
             {
                 pc.body.transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Sin(wobble * 30f) * 6f);
