@@ -32,6 +32,12 @@ public class Motorbike : MonoBehaviour
     public float grabRangeX = 2.4f, grabRangeY = 1.1f;
     public AudioClip startSound;
     [Range(0f, 1f)] public float startVolume = 0.9f;
+    [Tooltip("Käyntiääni, joka soi silmukkana käynnistysäänen loputtua.")]
+    public AudioClip engineLoop;
+    [Range(0f, 1f)] public float engineVolume = 0.3f;
+    [Tooltip("Kiihdytysääni (puskunappi).")]
+    public AudioClip boostSound;
+    [Range(0f, 1f)] public float boostVolume = 0.55f;
 
     [Tooltip("Pyörän ja ajokuvien koko valtatiellä (1 = kuvien oma).")]
     public float bikeScale = 0.85f;
@@ -52,6 +58,15 @@ public class Motorbike : MonoBehaviour
     public float mountFrameTime = 0.11f;
     [Tooltip("Ajon idle-sarjan tahti (takin lepatus, hiukset), kuvaa sekunnissa.")]
     public float rideFps = 8f;
+    [Header("Kiihdytys (puskunappi): keulii ja kiihtyy hetken huippunopeuden yli")]
+    public float boostTime = 2.5f;
+    [Tooltip("Lisänopeus huippunopeuden osuutena (0.4 = +40 %).")]
+    public float boostExtra = 0.4f;
+    public float boostAcceleration = 26f;
+    [Tooltip("Kuinka hitaasti ylinopeus laskee takaisin huippunopeuteen (yksikköä/s²).")]
+    public float boostFalloff = 2.5f;
+    [Tooltip("Keulimiskulma (astetta).")]
+    public float wheelieAngle = 9f;
     [Header("Yliajo")]
     public int runOverDamage = 25;
     public float runOverMinSpeed = 3f;
@@ -72,7 +87,9 @@ public class Motorbike : MonoBehaviour
     public static Motorbike Current => active != null && active.riding ? active : null;
     public float Speed => speed;
     public bool FacingRight => facingRight;
-    float wobble, wheelAngle;
+    float wobble, wheelAngle, boostT = -1f, wheelie;
+    AudioSource loopSrc;
+    float loopAt = -1f;
     float grabT = -1f; bool grabBack, grabDone; EnemyBike grabTarget;
     SpriteRenderer rearR, frontR, rearT, frontT;
 
@@ -144,6 +161,8 @@ public class Motorbike : MonoBehaviour
         audioSrc = gameObject.AddComponent<AudioSource>();
         audioSrc.playOnAwake = false;
         audioSrc.spatialBlend = 0f;
+        loopSrc = gameObject.AddComponent<AudioSource>();
+        loopSrc.playOnAwake = false; loopSrc.loop = true; loopSrc.spatialBlend = 0f;
         if (parked != null)
         {
             bool spriteRight = parkedRight != null && parked.sprite == parkedRight;
@@ -193,8 +212,9 @@ public class Motorbike : MonoBehaviour
         if (mountSprites != null)
             foreach (var s in mountSprites) { ShowRider(s); UpdateWheels(true, 0f); yield return new WaitForSeconds(mountFrameTime); }
         if (startSound != null) audioSrc.PlayOneShot(startSound, startVolume);
+        loopAt = Time.time + (startSound != null ? startSound.length : 0f);   // käyntiääni starttiäänen loputtua
         if (parked != null) parked.enabled = false;
-        speed = 0f; animClock = 0f;
+        speed = 0f; animClock = 0f; boostT = -1f; wheelie = 0f;
         EnsureWheels();
         riding = true; busy = false;
     }
@@ -202,6 +222,7 @@ public class Motorbike : MonoBehaviour
     IEnumerator Dismount()
     {
         busy = true; riding = false;
+        StopEngine();
         Vector3 p = pc.transform.position;
         // pysäköity pyörä tähän, samaan suuntaan
         transform.position = new Vector3(p.x, p.y, 0f);
@@ -227,6 +248,7 @@ public class Motorbike : MonoBehaviour
     {
         StopAllCoroutines();
         busy = false; riding = false; speed = 0f;
+        StopEngine();
         facingRight = faceRight;
         UpdateWheels(false, 0f);
         transform.position = new Vector3(pos.x, pos.y, 0f);
@@ -247,6 +269,15 @@ public class Motorbike : MonoBehaviour
         if (active == this) active = null;
     }
 
+    void StopEngine()
+    {
+        loopAt = -1f; boostT = -1f; wheelie = 0f;
+        if (loopSrc != null) loopSrc.Stop();
+        if (audioSrc != null) audioSrc.Stop();
+    }
+
+    void OnDisable() => StopEngine();
+
     void ShowRider(Sprite s)
     {
         if (pc.body == null) return;
@@ -255,6 +286,16 @@ public class Motorbike : MonoBehaviour
         pc.body.flipX = !facingRight;
         pc.body.transform.localPosition = new Vector3(0f, groundHeight - 0.1f, 0f);   // ruudussa 10 px tyhjää alla
         pc.body.transform.localRotation = Quaternion.identity;
+        if (riding && wheelie > 0.01f && rearWheel != null)
+        {
+            // keuliminen: runko kiertyy takarenkaan kosketuspisteen ympäri
+            float sx = facingRight ? 1f : -1f, a = wheelie * wheelieAngle * sx;
+            float r = rearWheel.rect.width / rearWheel.pixelsPerUnit * 0.5f;
+            if (rearTyre != null) r = rearTyre.rect.width / rearTyre.pixelsPerUnit * 0.5f;
+            Vector3 c = new Vector3(rearWheelPos.x * sx, rearWheelPos.y - r, 0f) * Scale;
+            pc.body.transform.localRotation = Quaternion.Euler(0f, 0f, a);
+            pc.body.transform.localPosition += c - Quaternion.Euler(0f, 0f, a) * c;
+        }
         pc.body.color = Color.white;
         int order = Mathf.RoundToInt(-pc.transform.position.y * 100f);
         pc.body.sortingOrder = order;
@@ -282,9 +323,31 @@ public class Motorbike : MonoBehaviour
         }
         // suunnanvaihto vain lähes pysähdyksissä
         if (Mathf.Abs(speed) < 1f && Mathf.Abs(input.x) > 0.3f && Mathf.Sign(input.x) != Dir) { facingRight = input.x > 0f; speed = 0f; }
+        // kiihdytys (puskunappi): keulii ja kiihtyy hetken huippunopeuden yli
+        if (boostT < 0f && grabT < 0f && PlayerController.PushInput())
+        {
+            boostT = 0f;
+            if (boostSound != null) audioSrc.PlayOneShot(boostSound, boostVolume);
+        }
+        bool boosting = boostT >= 0f && boostT < boostTime;
+        if (boostT >= 0f) { boostT += dt; if (boostT >= boostTime) boostT = -1f; }
+        // keulinta: nopeasti ylös, hetki ylhäällä, laskeutuu ennen kiihdytyksen loppua
+        float wTarget = boosting && boostT < boostTime * 0.45f ? 1f : 0f;
+        wheelie = Mathf.MoveTowards(wheelie, wTarget, (wTarget > wheelie ? 5f : 1.6f) * dt);
+
         float target = Mathf.Max(0f, input.x * Dir) * maxSpeed;            // eteenpäin kaasu, taaksepäin jarru
         float rate = target > speed ? acceleration : (input.x * Dir < -0.3f ? braking : acceleration * 0.6f);
+        if (boosting) { target = maxSpeed * (1f + boostExtra); rate = boostAcceleration; }
+        else if (speed > maxSpeed && input.x * Dir > -0.3f) rate = boostFalloff;   // ylinopeus laskee hitaasti
         speed = Mathf.MoveTowards(speed, target, rate * dt);
+
+        // käyntiääni: silmukka starttiäänen jälkeen, kierrokset nousevat vauhdin mukana
+        if (engineLoop != null && loopAt >= 0f && Time.time >= loopAt && !loopSrc.isPlaying)
+        {
+            loopSrc.clip = engineLoop; loopSrc.volume = engineVolume; loopSrc.Play();
+        }
+        if (loopSrc != null && loopSrc.isPlaying)
+            loopSrc.pitch = Mathf.Lerp(loopSrc.pitch, 0.9f + 0.35f * Mathf.Clamp01(speed / Mathf.Max(1f, maxSpeed * (1f + boostExtra))), 4f * dt);
 
         Vector3 p = pc.transform.position;
         p.x += Dir * speed * dt;

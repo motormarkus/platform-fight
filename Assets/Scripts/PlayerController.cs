@@ -2162,7 +2162,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 #endif
     }
 
-    bool PushPressed()
+    bool PushPressed() => PushInput();
+
+    /// Puskunappi (U / ohjaimen RT), myös muiden skriptien käyttöön (esim. prätkän kiihdytys).
+    public static bool PushInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.uKey.wasPressedThisFrame)

@@ -1101,6 +1101,8 @@ public static class BeatEmUpSetup
         var grabR = LoadSprites("pratka_kiskaisu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         mount = LoadSprites("pratka_nousu").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var startClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynnistys.mp3");
+        var engineClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kaynti.wav");
+        var boostClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_kiihdytys.mp3");
         // erilliset vanteet (pyörivät koodilla)
         Sprite LoadWheel(string n)
         {
@@ -1159,6 +1161,7 @@ public static class BeatEmUpSetup
                     mb.rideSprites = ride;
                     mb.mountSprites = mount;
                     mb.startSound = startClip;
+                    mb.engineLoop = engineClip; mb.boostSound = boostClip;
                     mb.rearWheel = rearW; mb.frontWheel = frontW; mb.rearTyre = rearT; mb.frontTyre = frontT;
                     mb.maxSpeed = 27.5f; mb.acceleration = 18f;   // kaksinkertainen huippunopeus
                     mb.rearWheelPos = new Vector2(-2.176f, 0.824f); mb.frontWheelPos = new Vector2(2.133f, 0.837f);   // uusi chopper (3D-malli) + kuski
