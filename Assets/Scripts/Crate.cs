@@ -22,6 +22,9 @@ public class Crate : MonoBehaviour
     public float shadowWidth = 1.4f;
     [Tooltip("Kannossa näin paljon alemmas (yks): pöytä kannetaan kannen alta, jalat ylöspäin ei jää ilmaan.")]
     public float carryLower = 0f;
+    [Tooltip("Heitettynä lentää vihujoukon läpi ja kaataa kaikki tieltään (pöydät); hajoaa vasta maahan osuessa.")]
+    public bool plowThrough;
+    int plowHits;
     [Tooltip("Toisen laatikon päällä (pino). Kun alempi lyödään, nostetaan tai hajoaa, tämä putoaa.")]
     public Crate stackedOn;
     [Tooltip("Pinossa: korkeus alemman laatikon päällä (yks).")]
@@ -188,6 +191,7 @@ public class Crate : MonoBehaviour
         enemyDamage = damage;
         alreadyHit.Clear();
         alreadyHitPlayer = false;
+        plowHits = 0;
         state = State.Flying;
         stateTime = 0f;
     }
@@ -263,7 +267,14 @@ public class Crate : MonoBehaviour
                 height += verticalVel * dt;
                 if (thrown && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath()))
                 {
-                    if (breakable) { LastViolent = true; Break(); break; }
+                    if (breakable && plowThrough)
+                    {
+                        // pöytä: jatkaa joukon läpi hidastuen, hajoaa neljännestä osumasta tai maahan
+                        plowHits++;
+                        vel.x *= 0.85f;
+                        if (plowHits >= 4) { LastViolent = true; Break(); break; }
+                    }
+                    else if (breakable) { LastViolent = true; Break(); break; }
                     vel.x *= 0.6f;   // tynnyri jatkaa hidastuen ja kaataa seuraavankin
                 }
                 if (height <= 0f)
