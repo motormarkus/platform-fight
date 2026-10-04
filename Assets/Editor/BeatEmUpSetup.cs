@@ -3071,9 +3071,9 @@ public static class BeatEmUpSetup
     static List<Vector2> LoipTableSpots()
     {
         var l = new List<Vector2>();
-        for (float x = 8f; x <= 94f; x += 7f) l.Add(new Vector2(x, 0.22f));
-        for (float x = 11.5f; x <= 94f; x += 7f) l.Add(new Vector2(x, 0.9f));
-        foreach (float x in new[] { 26f, 54f, 82f }) l.Add(new Vector2(x, 0.56f));
+        for (float x = 7f; x <= 95f; x += 5.5f) l.Add(new Vector2(x, 0.2f));
+        for (float x = 9.5f; x <= 95f; x += 5.5f) l.Add(new Vector2(x, 0.92f));
+        for (float x = 13f; x <= 95f; x += 11f) l.Add(new Vector2(x, 0.56f));   // keskirivi harvemmin: tappelutilaa jää
         return l;
     }
     // pyöreät telkkaripöydät seinän vieressä takarivin pöytien välissä (ei tiskin eteen eikä lavan eteen)
