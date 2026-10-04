@@ -48,6 +48,8 @@ public class Motorbike : MonoBehaviour
     public float braking = 18f;
     public float depthSpeed = 2.6f;
     public float mountFrameTime = 0.11f;
+    [Tooltip("Ajon idle-sarjan tahti (takin lepatus, hiukset), kuvaa sekunnissa.")]
+    public float rideFps = 8f;
     [Header("Yliajo")]
     public int runOverDamage = 25;
     public float runOverMinSpeed = 3f;
@@ -61,7 +63,7 @@ public class Motorbike : MonoBehaviour
     PlayerController pc;
     AudioSource audioSrc;
     bool near, busy, riding, facingRight;
-    float speed, animClock, groundHeight;
+    float speed, animClock, rideClock, groundHeight;
     readonly Dictionary<Object, float> lastHit = new Dictionary<Object, float>();
     static Motorbike active;
     /// Pyörä, jota pelaaja ajaa (null jos ei aja).
@@ -279,7 +281,8 @@ public class Motorbike : MonoBehaviour
         groundHeight = Mathf.MoveTowards(groundHeight, GroundAt(p.y), 3f * dt);   // reunakiven yli
 
         // moottori käy: kuvat pyörivät hitaasti paikallaan, vauhdissa nopeammin
-        animClock += dt * (rearWheel != null ? 24f : 6f + speed * 1.4f);   // erillisillä vanteilla videon oma tahti (24 fps)
+        animClock += dt * (rearWheel != null ? 24f : 6f + speed * 1.4f);   // moottorin tärinä
+        rideClock += dt * (rearWheel != null ? rideFps : 6f + speed * 1.4f);
         UpdateWheels(true, dt);
         // kiskaisu (lyöntinappi): kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
         if (grabT < 0f && grabSprites != null && grabSprites.Length >= 10 && (PlayerController.PunchInput() || PlayerController.CatchInput()))
@@ -311,8 +314,8 @@ public class Motorbike : MonoBehaviour
         {
             // erilliset vanteet: kuvat eteenpäin (takin lepatus); muuten takaperin, jotta kuvien pyörät pyörivät ajosuuntaan
             int n = rideSprites.Length;
-            ShowRider(rideSprites[rearWheel != null ? (int)animClock % n : n - 1 - (int)animClock % n]);
-            if (n == 1 && pc.body != null)   // yksi kuva: moottorin tärinä ja pieni jousitus
+            ShowRider(rideSprites[rearWheel != null ? (int)rideClock % n : n - 1 - (int)rideClock % n]);
+            if (rearWheel != null && pc.body != null)   // moottorin tärinä ja pieni jousitus
                 pc.body.transform.localPosition += new Vector3(0f, Mathf.Sin(animClock * 2.3f) * 0.025f + Mathf.Sin(animClock * 9f) * 0.008f, 0f);
             if (wobble > 0f && pc.body != null)
             {
