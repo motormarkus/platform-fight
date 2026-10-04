@@ -2954,6 +2954,22 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt takakujan parkkipaikalta prätkän vierestä.\nTakaisin kadun alkuun: valikko 37 (tai poista objekti \"Aloituskohta\").\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]
+    static void StartAtUccopulco()
+    {
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        if (ucco == null) { Info("Tee ensin kohta 44 (Uccopulco)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var gs = go.AddComponent<GameStart>();
+        gs.area = ucco;
+        gs.position = new Vector2(UccoX0 + 4f, Mathf.Lerp(ucco.curbDepthY, ucco.minDepthY, 0.3f));   // kadun alussa ajotiellä
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt Uccopulcon kadun alusta.\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/37. Aloita peli taas kadun alusta")]
     static void StartAtStreet()
     {
