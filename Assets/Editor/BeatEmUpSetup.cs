@@ -2990,7 +2990,7 @@ public static class BeatEmUpSetup
         t.idleFrameTime = 0.18f;
         var walk = EnemySheet("samoa_kavely", report);       // 16 kuvaa videosta, 1.8 s askelsykli
         t.walkSprites = walk.Length > 0 ? walk : idle;
-        t.walkFrameTime = 0.11f;
+        t.walkFrameTime = 0.085f;            // askeleet tahdissa nopeampaan kävelyyn (ennen 0.11)
         // lyöntikombo: kämmenisku (kuva 5) ja heti perään toinen (kuva 7)
         t.punchSprites = EnemySheet("samoa_lyonnit", report);
         t.punchImpactFrame = 4;
@@ -3027,7 +3027,7 @@ public static class BeatEmUpSetup
         t.getUpTime = 1.0f;
         t.bigBody = true;                     // iso: heitetään kuperkeikalla, kaataa muita lentäessään
         t.maxHealth = 150;
-        t.moveSpeedX = 1.9f; t.moveSpeedY = 1.2f;
+        t.moveSpeedX = 2.5f; t.moveSpeedY = 1.5f;   // ennen 1.9 / 1.2
         t.punchDamage = 12;
         t.runSpeedMultiplier = 1.1f; t.flankChance = 0.05f; t.retreatChance = 0f; t.blockChance = 0f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");   // Koviksen äänet toistaiseksi
