@@ -20,6 +20,9 @@ public class EnemyBike : MonoBehaviour
     [Tooltip("Moottorin ääni (silmukka). Voimakkuus lähestyy pelaajaa kohti, sävel nousee vauhdin mukaan.")]
     public AudioClip engineLoop;
     [Range(0f, 1f)] public float engineVolume = 0.55f;
+    [Tooltip("Jarrun vinkuna ja kolari, kun kuski kiskaistaan pyörältä.")]
+    public AudioClip yankSound;
+    [Range(0f, 1f)] public float yankVolume = 0.8f;
     AudioSource engine;
     [Tooltip("Kuski lentää pyörältä (vihu_lento.png, 10 kuvaa) ja tyhjä pyörä (vihu_pyora_tyhja.png).")]
     public Sprite[] flySprites;
@@ -46,6 +49,13 @@ public class EnemyBike : MonoBehaviour
         Vector3 me = transform.position;
         state = S.Crash; t = 0f; vSpin = 0f; riderless = true;
         HitFx.OnHit(true);
+        if (yankSound != null)
+        {
+            // oma lähde, jotta ääni soi loppuun vaikka pyörä poistuu
+            var snd = new GameObject("Kiskaisun ääni").AddComponent<AudioSource>();
+            snd.spatialBlend = 0f; snd.PlayOneShot(yankSound, yankVolume);
+            Destroy(snd.gameObject, yankSound.length + 0.1f);
+        }
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.2f);
         if (crashMoney > 0) Pickup.SpawnMoney(me, crashMoney, false);
         if (flySprites != null && flySprites.Length > 0)

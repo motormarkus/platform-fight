@@ -2774,6 +2774,7 @@ public static class BeatEmUpSetup
             var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(tGo.transform, false);
             sh.color = new Color(0f, 0f, 0f, 0.4f);
             var eb = tGo.AddComponent<EnemyBike>();
+            eb.yankSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_jarru_kolari.wav");
             eb.body = b; eb.shadow = sh; eb.sprites = vs2;
             eb.engineLoop = AssetDatabase.FindAssets("t:AudioClip sportbike", new[] { "Assets/Audio" })
                 .Select(AssetDatabase.GUIDToAssetPath).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(c => c != null);
