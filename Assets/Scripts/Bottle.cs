@@ -34,6 +34,8 @@ public class Bottle : MonoBehaviour
     public float pivotY = 0.3f;
     [Tooltip("Kuvan koko (1 = alkuperäinen).")]
     public float scale = 1.05f;
+    [Tooltip("Ruoka (kala): makaa lattialla vaakatasossa, ei hajoa, heitetty osuu kevyesti (ei kaada) ja putoaa lattialle.")]
+    public bool food;
     [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
     public AudioClip[] breakSounds;
     static int lastSound = -1;
@@ -74,7 +76,7 @@ public class Bottle : MonoBehaviour
     {
         pc = FindFirstObjectByType<PlayerController>();
         if (table != null) { seenDisturb = table.Disturb; height = tableTop; }
-        else { state = S.Lying; rot = 90f; }
+        else { state = S.Lying; rot = food ? 0f : 90f; }
     }
 
     // ---------------- pelaajan käsi ----------------
@@ -190,8 +192,8 @@ public class Bottle : MonoBehaviour
                 {
                     height = 0f;
                     float breakChance = fastFall ? 0.7f : 0.4f;
-                    if (Random.value < breakChance) Shatter();
-                    else { state = S.Lying; rot = Random.value < 0.5f ? 90f : -90f; t = 0f; }   // jää ehjänä kyljelleen
+                    if (!food && Random.value < breakChance) Shatter();
+                    else { state = S.Lying; rot = food ? Random.Range(-8f, 8f) : (Random.value < 0.5f ? 90f : -90f); t = 0f; }   // jää ehjänä kyljelleen
                 }
                 break;
 
@@ -207,7 +209,13 @@ public class Bottle : MonoBehaviour
                 transform.position = p;
                 vy -= 6f * dt; height = Mathf.Max(0f, height + vy * dt);
                 rot += spin * dt;
-                if (HitInPath() || height <= 0.05f || t > 1.0f) Shatter();
+                if (food)
+                {
+                    // kala: osuu ja kimpoaa, putoaa lattialle ehjänä
+                    if (HitInPath()) { vx = -vx * 0.15f; vy = 2.5f; spin *= 0.3f; fastFall = false; state = S.Falling; t = 0f; }
+                    else if (height <= 0.05f || t > 1.0f) { vy = 0f; vx *= 0.3f; fastFall = false; state = S.Falling; t = 0f; }
+                }
+                else if (HitInPath() || height <= 0.05f || t > 1.0f) Shatter();
                 break;
 
             case S.Breaking:
@@ -264,7 +272,7 @@ public class Bottle : MonoBehaviour
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
             hitList.Add(e);
-            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), true))
+            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food))
             {
                 HitFx.OnHit(true);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
@@ -391,7 +399,9 @@ public class Bottle : MonoBehaviour
         Vector3 c = new Vector3(0f, pivotY * scale, 0f);
         sr.transform.localScale = new Vector3(scale, scale, 1f);
         sr.transform.localRotation = q;
-        sr.transform.localPosition = new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
+        sr.transform.localPosition = food
+            ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * scale * 0.55f : 0.2f), 0f)   // kala (keskipiste): lattian päällä
+            : new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
         else if (state == S.Held && gripped) order = heldOrder;   // pitelijän (käden) taakse

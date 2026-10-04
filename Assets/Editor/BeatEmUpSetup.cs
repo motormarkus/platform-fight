@@ -1423,6 +1423,16 @@ public static class BeatEmUpSetup
             vis.sprite = sprites.Length > 0 ? sprites[0] : null;
             vis.transform.localPosition = new Vector3(0f, pc.sidewalkHeight - c.footOffset, 0f);
         }
+        // välillä kaksi laatikkoa päällekkäin
+        var bases = root.GetComponentsInChildren<Crate>().ToArray();
+        for (int i = 1; i < bases.Length; i += 3)
+        {
+            var top = Object.Instantiate(bases[i].gameObject, root.transform);
+            top.name = bases[i].gameObject.name + " (päällä)";
+            top.transform.position = bases[i].transform.position + new Vector3(0.08f, -0.02f, 0f);   // hieman edessä: piirretään päälle
+            top.GetComponent<Crate>().stackedOn = bases[i];
+            count++;
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         Info(
@@ -3056,9 +3066,17 @@ public static class BeatEmUpSetup
 
     // ---------------- El Loipparin pöydät ----------------
     // x sisätilan alusta (yks), syvyys 0 = seinä … 1 = edessä
-    static readonly Vector2[] LoipTables = {
-        new Vector2(12f, 0.3f), new Vector2(22f, 0.85f), new Vector2(31f, 0.3f), new Vector2(42f, 0.85f),
-        new Vector2(53f, 0.3f), new Vector2(64f, 0.85f), new Vector2(72f, 0.3f), new Vector2(84f, 0.75f), new Vector2(92f, 0.35f) };
+    // baari täyteen: takarivi seinän vieressä, eturivi edessä lomittain, keskelle muutama (tappelutilaa jää)
+    static List<Vector2> LoipTableSpots()
+    {
+        var l = new List<Vector2>();
+        for (float x = 8f; x <= 94f; x += 7f) l.Add(new Vector2(x, 0.22f));
+        for (float x = 11.5f; x <= 94f; x += 7f) l.Add(new Vector2(x, 0.9f));
+        foreach (float x in new[] { 26f, 54f, 82f }) l.Add(new Vector2(x, 0.56f));
+        return l;
+    }
+    // pyöreät telkkaripöydät seinän vieressä takarivin pöytien välissä (ei tiskin eteen eikä lavan eteen)
+    static readonly float[] LoipTvX = { 25f, 32f, 64.5f, 71.5f, 78.5f, 92f };
 
     [MenuItem("Beat em up/48. El Loipparin pöydät (kala-annokset, pullot, lasit)")]
     static void AddLoipparTables()
@@ -3096,16 +3114,52 @@ public static class BeatEmUpSetup
         { var sp = Sheet7(n); if (sp != null && sp.Length >= 5) glasses.Add((sp, st, tall)); }
         var glass = LoadClips("Assets/Audio/sfx", "glass");
         var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");   // lautasen hajoaminen
+        Sprite[] round = new Sprite[0], tvSprites = new Sprite[0];
+        string rp = FindTexture("poyta_tv"), tvp = FindTexture("telkkari");
+        if (rp != null) { SetupAndSlice(rp); round = LoadSprites("poyta_tv").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+        if (tvp != null) { SetupAndSlice(tvp); tvSprites = LoadSprites("telkkari").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
 
         var old = GameObject.Find("El Loipparin pöydät");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var root = new GameObject("El Loipparin pöydät");
         Undo.RegisterCreatedObjectUndo(root, "El Loipparin pöydät");
         var rnd = new System.Random(11);
-        int plates = 0, bottles = 0, glassesN = 0;
+        int plates = 0, bottles = 0, glassesN = 0, tvs = 0;
         float top = 1.28f * TableScale - 0.04f;
-        foreach (var v in LoipTables)
+        if (round.Length >= 14 && tvSprites.Length >= 11)
+            foreach (float tx in LoipTvX)
+            {
+                float ty = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, 0.04f);
+                var go = new GameObject("Telkkaripöytä");
+                go.transform.SetParent(root.transform, false);
+                go.transform.position = new Vector3(LoipX0 + tx, ty, 0f);
+                var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+                var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+                sh.color = new Color(0f, 0f, 0f, 0.35f);
+                var c = go.AddComponent<Crate>();
+                c.body = vis; c.shadow = sh;
+                c.sprites = new[] { round[0], round[1], round[2] };
+                c.breakSprites = round.Skip(3).ToArray();
+                c.breakFrameTime = 0.07f; c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
+                c.visualScale = TvTableScale; c.shadowWidth = 1.3f; c.hitRadiusX = 0.8f * TvTableScale; c.debrisTime = 6f;
+                c.carryLower = 0.84f * TvTableScale;
+                c.moneyChance = 0.2f; c.energyChance = 0.1f; c.throwDamage = 20;
+                vis.sprite = round[0];
+                var tvGo = new GameObject("Telkkari");
+                tvGo.transform.SetParent(root.transform, false);
+                tvGo.transform.position = go.transform.position;
+                var tv = tvGo.AddComponent<TvSet>();
+                tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.16f * TvTableScale - 0.04f; tv.breakSounds = glass;
+                tvs++;
+            }
+        var spots = LoipTableSpots();
+        // lavan eteen ei takariviin (lava näkyy), tiskin eteen ei takariviin (kauppa)
+        spots.RemoveAll(v => v.y < 0.3f && ((v.x > 38f && v.x < 62f) || (v.x > 12f && v.x < 22f)));
+        int ti = 0;
+        foreach (var v in spots)
         {
+            ti++;
+            bool bottlesOnly = ti % 4 == 0;          // joka neljäs pöytä pelkkiä pulloja ja laseja
             float y = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, v.y);
             var go = new GameObject("Pöytä");
             go.transform.SetParent(root.transform, false);
@@ -3122,9 +3176,9 @@ public static class BeatEmUpSetup
             c.hitRadiusX = 1.4f * TableScale; c.debrisTime = 6f;
             c.moneyChance = 0.3f; c.energyChance = 0.15f; c.throwDamage = 22;
             vis.sprite = table[0];
-            // 1–2 kala-annosta, väliin muutama pullo ja lasi (vähemmän kuin S-Clubissa)
-            int np = 1 + rnd.Next(2);
-            float[] plateX = np == 1 ? new[] { (float)(rnd.NextDouble() - 0.5) * 0.4f } : new[] { -0.62f, 0.62f };
+            // pullopöytä: 7–9 pulloa ja 2 lasia; muuten 1–2 kala-annosta ja 3–5 pulloa tai lasia väliin
+            int np = bottlesOnly ? 0 : (rnd.Next(3) == 0 ? 1 : 2);
+            float[] plateX = np == 0 ? new float[0] : np == 1 ? new[] { (float)(rnd.NextDouble() - 0.5) * 0.4f } : new[] { -0.62f, 0.62f };
             foreach (float px in plateX)
             {
                 var fGo = new GameObject("Kala-annos");
@@ -3135,9 +3189,10 @@ public static class BeatEmUpSetup
                 plates++;
             }
             var slots = new List<float>();
-            if (np == 1) slots.AddRange(new[] { -0.95f, -0.7f, 0.7f, 0.95f });
-            else slots.AddRange(new[] { -1.05f, 0f, 1.05f });
-            int items = 2 + rnd.Next(2);
+            if (np == 0) for (int k = 0; k < 11; k++) slots.Add(Mathf.Lerp(-1.1f, 1.1f, (k + 0.5f) / 11f));
+            else if (np == 1) slots.AddRange(new[] { -1.05f, -0.85f, -0.65f, 0.65f, 0.85f, 1.05f });
+            else slots.AddRange(new[] { -1.12f, -0.1f, 0.1f, 1.12f });
+            int items = np == 0 ? 9 + rnd.Next(3) : (np == 1 ? 4 + rnd.Next(2) : 3 + rnd.Next(2));
             for (int i = 0; i < items && slots.Count > 0; i++)
             {
                 int si = rnd.Next(slots.Count); float sx = slots[si]; slots.RemoveAt(si);
@@ -3145,7 +3200,7 @@ public static class BeatEmUpSetup
                 bGo.transform.SetParent(root.transform, false);
                 bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
-                bool isGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(2) == 0);
+                bool isGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(3) == 0);   // useammin pulloja
                 if (isGlass)
                 {
                     var gl = glasses[rnd.Next(glasses.Count)];
@@ -3166,7 +3221,7 @@ public static class BeatEmUpSetup
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"El Loippariin {LoipTables.Length} pöytää: {plates} kala-annosta, {bottles} pulloa, {glassesN} lasia.\n" +
+        Info($"El Loippariin {spots.Count} pöytää ja {tvs} telkkaripöytää: {plates} kala-annosta, {bottles} pulloa, {glassesN} lasia.\n" +
              "Lyönti pöytään: annos valuu lattialle. Potku, heitetty pöytä tai päälle lentävä vihu: annos räjähtää ja kala lentää.\n\nTallenna scene (Ctrl+S).");
     }
 

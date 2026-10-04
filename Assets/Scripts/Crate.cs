@@ -22,6 +22,10 @@ public class Crate : MonoBehaviour
     public float shadowWidth = 1.4f;
     [Tooltip("Kannossa näin paljon alemmas (yks): pöytä kannetaan kannen alta, jalat ylöspäin ei jää ilmaan.")]
     public float carryLower = 0f;
+    [Tooltip("Toisen laatikon päällä (pino). Kun alempi lyödään, nostetaan tai hajoaa, tämä putoaa.")]
+    public Crate stackedOn;
+    [Tooltip("Pinossa: korkeus alemman laatikon päällä (yks).")]
+    public float stackHeight = 1.5f;
     [Tooltip("Hajoamisäänet (puu1, puu2): soi vain kun esine hajoaa, ei osumista.")]
     public AudioClip[] breakSounds;
     static int lastBreakSound = -1;
@@ -231,6 +235,21 @@ public class Crate : MonoBehaviour
         stateTime += dt;
         if (shakeTimer > 0f) shakeTimer -= dt;
         groundHeight = Mathf.MoveTowards(groundHeight, TargetGround(), 6f * dt);   // kannettaessa sama kuin pelaajalla
+        if (stackedOn != null && state == State.Idle)
+        {
+            // pinossa: pysyy alemman päällä niin kauan kuin se on paikallaan ehjänä
+            if (stackedOn.state == State.Idle && stackedOn.height <= 0.01f && stackedOn.shakeTimer <= 0f)
+                height = stackHeight * stackedOn.visualScale / 1.2f;
+            else
+            {
+                stackedOn = null;
+                vel = new Vector2(Random.Range(-1.2f, 1.2f), 0f);
+                verticalVel = 1f;
+                thrown = false; thrownBy = null;
+                state = State.Flying;          // putoaa ehjänä alas
+                stateTime = 0f;
+            }
+        }
 
         switch (state)
         {

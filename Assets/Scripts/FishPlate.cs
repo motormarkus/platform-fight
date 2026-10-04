@@ -137,7 +137,7 @@ public class FishPlate : MonoBehaviour
         for (int i = 0; i < nf && fries.Length > 0; i++)
         {
             float a = violent ? Random.Range(-1f, 1f) : dir * Random.Range(0.2f, 1f);
-            FoodDebris.Spawn(new[] { fries[Random.Range(0, fries.Length)] }, p + new Vector3(Random.Range(-0.3f, 0.3f), 0f, 0f), h, s,
+            FoodDebris.Spawn(new[] { fries[Random.Range(0, fries.Length)] }, p + new Vector3(Random.Range(-0.3f, 0.3f), 0f, 0f), h, s * 0.6f,
                 violent ? a * Random.Range(2f, 6.5f) + dir * 1.5f : a * Random.Range(0.6f, 1.8f),
                 violent ? Random.Range(4f, 10f) : Random.Range(0.5f, 2.5f),
                 Random.Range(-0.8f, 0.5f) * (violent ? 1f : 0.4f),
@@ -224,8 +224,19 @@ public class FoodDebris : MonoBehaviour
             else
             {
                 landed = true;
-                if (isFish) { sr.sprite = frames[Random.value < 0.5f ? 0 : frames.Length - 1]; rot = Random.Range(-10f, 10f); }
                 camBoost = 0f;
+                if (isFish)
+                {
+                    // lattialle jäänyt kala: poimittava ja heitettävä kuten pullo (nyrkin takana), osuma 1
+                    var side = frames[Random.value < 0.5f ? 0 : frames.Length - 1];
+                    var go = new GameObject("Kala (maassa)");
+                    go.transform.position = transform.position;
+                    var b = go.AddComponent<Bottle>();
+                    b.sprites = new[] { side };
+                    b.food = true; b.throwDamage = 1; b.stainKind = "-"; b.scale = baseScale; b.pivotY = 0f; b.throwSpeed = 13f;
+                    Destroy(gameObject);
+                    return;
+                }
             }
         }
         Apply();
