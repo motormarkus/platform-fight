@@ -308,6 +308,18 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasChair => chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
 
+    [Header("Pudotuspotku (juoksusta lyönti + hyppy yhtä aikaa)")]
+    [Tooltip("pudotuspotku.png: 0–1 juoksu (ei käytetä, ponnistus hypystä), 2 kippura, 3 potku lähtee, 4–5 jalat suorana, 6 alastulo selälleen, 7 makaa -> kip-up.")]
+    public Sprite[] dropKickSprites;
+    public int dropKickDamage = 24;
+    public float dropKickReach = 2.0f, dropKickSpeed = 11f;
+    bool dropKickHit, punchFromRun;
+    float lastPunchPressTime = -9f, lastJumpPressTime = -9f;
+    bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
+    // kuvat 2–7 ja ajat: kippura, potku, suorana (lento), alastulo, makuu
+    static readonly int[] DropKickFrames = { 2, 3, 4, 5, 6, 7 };
+    static readonly float[] DropKickTimes = { 0.07f, 0.07f, 0.14f, 0.12f, 0.1f, 0.22f };
+
     [Header("Pienen esineen nosto ja heitto (pullo)")]
     [Tooltip("pullonosto.png: 12 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–11 paluu).")]
     public Sprite[] smallItemSprites;
@@ -442,7 +454,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow }
 
     int comboIndex;
     bool comboQueued;
@@ -464,6 +476,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
+        SortByFrameNumber(dropKickSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
         SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
@@ -520,6 +533,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         prevMoveX = move.x;
         bool jumpPressed = JumpPressed();
         bool punchPressed = PunchPressed();
+        if (punchPressed) lastPunchPressTime = Time.time;
+        if (jumpPressed) lastJumpPressTime = Time.time;
+        // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
+        bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = KickPressed();
         bool specialPressed = SpecialPressed();
         bool pushPressed = PushPressed();
@@ -531,6 +548,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
+                if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
                 {
                     // muista juoksu ja vauhti, jotta ne säilyvät hypyssä
@@ -583,6 +601,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.JumpSquat:
+                if (dropKickInput && jumpFromRun && !scissorJump) { StartDropKick(); break; }   // hyppy ensin, lyönti heti perään
                 MoveOnGround(squatVel * dt);   // vauhti ei katkea ponnistuksen ajaksi
                 if (stateTime >= jumpSquatTime)
                 {
@@ -644,6 +663,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Punch:
             {
+                if (dropKickInput && punchFromRun && comboIndex == 0 && stateTime < 0.15f) { StartDropKick(); break; }   // lyönti ensin, hyppy heti perään
                 ComboHit hit = punchCombo[comboIndex];
                 float total = hit.TotalTime;
 
@@ -709,6 +729,29 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (!kneeDashHit) kneeDashHit = AttackEnemies(kneeDashReach, kneeDashDamage, true, 2.0f);
                 }
                 if (stateTime >= slideEnd + 0.24f) Enter(State.Ground);
+                break;
+            }
+
+            case State.DropKick:
+            {
+                // loikka eteen jalat edellä, osuma jalkojen ollessa suorana, alastulo selälleen ja kip-up
+                float dir = facingRight ? 1f : -1f;
+                float airEnd = ThrowPose.Start(DropKickTimes, 4);
+                if (stateTime < airEnd)
+                {
+                    float k = stateTime / airEnd;
+                    height = Mathf.Sin(k * Mathf.PI) * 1.1f;
+                    MoveOnGround(new Vector2(dir * dropKickSpeed * (1f - 0.5f * k) * dt, 0f));
+                }
+                else
+                {
+                    height = 0f;
+                    MoveOnGround(new Vector2(dir * dropKickSpeed * 0.25f * Mathf.Max(0f, 1f - (stateTime - airEnd) * 4f) * dt, 0f));   // liukuu selällään
+                }
+                float hitFrom = ThrowPose.Start(DropKickTimes, 1), hitTo = airEnd;
+                if (!dropKickHit && stateTime >= hitFrom && stateTime <= hitTo)
+                    dropKickHit = AttackEnemies(dropKickReach, dropKickDamage, true, 1.8f);
+                if (ThrowPose.Index(DropKickTimes, stateTime) < 0) { height = 0f; kipUpAfterOwnThrow = true; Enter(State.KipUp); }
                 break;
             }
 
@@ -1130,6 +1173,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Heron kuva (pullon päälle piirrettävää nyrkkiä varten).
     public SpriteRenderer BodyRenderer => body;
 
+    void StartDropKick()
+    {
+        dropKickHit = false; attackHit = false;
+        if (Mathf.Abs(lastGroundVel.x) > 0.1f) facingRight = lastGroundVel.x > 0f;
+        lastPunchPressTime = lastJumpPressTime = -9f;
+        PlayGrunt();
+        Enter(State.DropKick);
+    }
+
     /// Nosto- tai heittosarjan kuva (pullonosto.png).
     int SmallFrame()
     {
@@ -1164,7 +1216,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing;
+        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -1678,6 +1730,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void StartComboHit(int index)
     {
+        punchFromRun = index == 0 && state == State.Ground && running;
         attackHit = false;
         kneeStrikeQueued = false;
         PlayGrunt();
@@ -1920,6 +1973,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                       : stateTime < slideEnd ? 5
                       : 6 + Mathf.Min(3, (int)((stateTime - slideEnd) / 0.06f));
                 return kneeStrikeSprites[Mathf.Min(f, kneeStrikeSprites.Length - 1)];
+            }
+
+            case State.DropKick:
+            {
+                int i = ThrowPose.Index(DropKickTimes, stateTime);
+                return dropKickSprites[DropKickFrames[i < 0 ? DropKickFrames.Length - 1 : i]];
             }
 
             case State.KneeStrike:

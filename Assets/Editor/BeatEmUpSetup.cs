@@ -72,6 +72,7 @@ public static class BeatEmUpSetup
             AddLoipparFighters();   // Lippikset, samoalaiset ja portsarit El Loippariin
             AddLoipparStage();      // mariachi-bändi ja tanssijat El Loipparin lavalle
             AddChairs();            // tuolit El Loippariin (hero ottaa käteen, lyö ja heittää)
+            SetupDropKick();        // heron pudotuspotku juoksusta
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3402,6 +3403,20 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("El Loipparin lavalla mariachi-bändi ja tanssijat molemmin puolin.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/54. Heron pudotuspotku (juoksusta lyönti + hyppy)")]
+    static void SetupDropKick()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        string p = FindTexture("pudotuspotku");
+        if (pc == null || p == null) { Info("Tarvitaan pelaaja ja pudotuspotku.png."); return; }
+        SetupAndSlice(p);
+        Undo.RecordObject(pc, "Pudotuspotku");
+        pc.dropKickSprites = LoadSprites("pudotuspotku").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info($"Pudotuspotku: {pc.dropKickSprites.Length} kuvaa. Juoksusta lyönti + hyppy yhtä aikaa: loikka jalat edellä, selälleen ja kip-up.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Tuolit ----------------
