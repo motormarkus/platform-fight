@@ -1207,6 +1207,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             if (tv.TakeHit(me.x, AttackIsKick)) any = true;
         }
+        // tuolit lattialla: lennähtävät vähän ja kaatuvat (kaatuneen voi nostaa)
+        if (state != State.ChairSwing)
+            foreach (var ch in Chair.All.ToArray())
+            {
+                if (ch == null || !ch.CanBeHit) continue;
+                Vector3 p = ch.transform.position;
+                float dx = p.x - me.x;
+                bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
+                if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+                ch.Knock(me.x, AttackIsKick);
+            }
         if (any) HitFx.OnHit(heavy);
         return any;
     }

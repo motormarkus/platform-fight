@@ -16,6 +16,25 @@ public class Chair : MonoBehaviour
     public int throwDamage = 20;
 
     enum S { Idle, Held, Thrown, Falling }
+    bool knocked;           // potkaistu tai lyöty: lentää vähän ja jää kyljelleen
+    float lieRot;           // kaatuneen tuolin kulma
+    /// Lattialla (pystyssä tai kaatuneena): iskut osuvat.
+    public bool CanBeHit => state == S.Idle;
+
+    /// Pelaajan isku: lennähtää iskun suuntaan ja kaatuu (potkusta kauemmas).
+    public void Knock(float attackerX, bool kick)
+    {
+        if (state != S.Idle) return;
+        float d = transform.position.x >= attackerX ? 1f : -1f;
+        vx = d * (kick ? Random.Range(3.5f, 5f) : Random.Range(1.8f, 2.8f));
+        vy = kick ? Random.Range(4f, 5.5f) : Random.Range(2.5f, 3.5f);
+        spin = -d * Random.Range(300f, 480f);
+        knocked = true;
+        lieRot = -d * 90f * (Random.value < 0.5f ? 1f : 1f);
+        state = S.Falling;
+        HitFx.OnBreak(0f);
+        if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], 0.35f);
+    }
     S state = S.Idle;
     float height, vx, vy, rot, spin;
     readonly HashSet<Enemy> hit = new HashSet<Enemy>();
@@ -40,7 +59,7 @@ public class Chair : MonoBehaviour
             if (dx + dy < bd) { bd = dx + dy; best = c; }
         }
         if (best == null) return false;
-        best.state = S.Held;
+        best.state = S.Held; best.rot = 0f;
         best.Show(false);
         Held = best;
         return true;
@@ -97,13 +116,23 @@ public class Chair : MonoBehaviour
             {
                 height = 0f;
                 if (state == S.Thrown) { Shatter(); return; }
-                state = S.Idle; rot = 0f;
+                if (knocked && vy < -4f)
+                {
+                    vy = -vy * 0.25f; vx *= 0.4f; spin *= 0.4f;   // pomppaa kerran
+                    return;
+                }
+                state = S.Idle; rot = knocked ? lieRot : 0f; knocked = false;
             }
         }
         if (body != null)
         {
-            body.transform.localPosition = new Vector3(0f, height, 0f);
-            body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
+            // kiertopiste tuolin keskellä (kuva alareunasta): kaatunut makaa lattialla
+            var q = Quaternion.Euler(0f, 0f, rot);
+            float half = body.sprite != null ? body.sprite.bounds.extents.y : 0.8f;
+            Vector3 c = new Vector3(0f, half, 0f);
+            float lift = Mathf.Abs(Mathf.Sin(rot * Mathf.Deg2Rad)) * (body.sprite != null ? body.sprite.bounds.extents.x - half : 0f);
+            body.transform.localRotation = q;
+            body.transform.localPosition = new Vector3(0f, height + lift, 0f) + c - q * c;
             body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f);
         }
         if (shadow != null)
