@@ -31,6 +31,12 @@ public class Crate : MonoBehaviour
     public float LastHitDir { get; private set; }
     /// Oliko viimeisin isku pelaajan potku.
     public bool LastHitKick { get; private set; }
+    /// Oliko viimeisin häiriö raju (potku, heitetty pöytä, päälle lentävä vihu): pöydän annokset lentävät kauas.
+    public bool LastViolent { get; private set; }
+    /// Kannetaan tai lentää (heitetty / pudotettu).
+    public bool Airborne => state == State.Carried || state == State.Flying;
+    /// Korkeus maasta (kannossa ja lennossa).
+    public float Height => height;
     public SpriteRenderer body;
     public SpriteRenderer shadow;
 
@@ -114,6 +120,7 @@ public class Crate : MonoBehaviour
         Disturb++;
         LastHitDir = float.IsNaN(attackerX) ? 0f : (transform.position.x >= attackerX ? 1f : -1f);
         LastHitKick = PlayerController.AttackIsKick;
+        LastViolent = LastHitKick;
         shakeTimer = 0.15f;
         shakeUntil = HitFx.ShakeUntil(false);
         if (!breakable)
@@ -141,6 +148,7 @@ public class Crate : MonoBehaviour
     {
         if (!breakable || !CanBeHit) return;
         hits = hitsToBreak;
+        LastViolent = true;
         HitFx.OnBreak(0.06f);
         Break();
     }
@@ -226,13 +234,13 @@ public class Crate : MonoBehaviour
                 height += verticalVel * dt;
                 if (thrown && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath()))
                 {
-                    if (breakable) { Break(); break; }
+                    if (breakable) { LastViolent = true; Break(); break; }
                     vel.x *= 0.6f;   // tynnyri jatkaa hidastuen ja kaataa seuraavankin
                 }
                 if (height <= 0f)
                 {
                     height = 0f;
-                    if (thrown && breakable) { HitFx.OnHit(false); Break(); }
+                    if (thrown && breakable) { HitFx.OnHit(false); LastViolent = true; Break(); }
                     else if (thrown && verticalVel < -5f)
                     {
                         // tynnyri pomppaa kerran ja vierii vähän

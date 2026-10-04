@@ -67,6 +67,7 @@ public static class BeatEmUpSetup
             CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
             CreateLoippari();       // El Loippari -baarin sisätila
             AddSamoans();           // samoalaiset Uccopulcossa
+            AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -3045,6 +3046,121 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Samoalaisia Uccopulcossa: {SamoaUcco.Length}\n\n" + string.Join("\n", report) +
              "\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- El Loipparin pöydät ----------------
+    // x sisätilan alusta (yks), syvyys 0 = seinä … 1 = edessä
+    static readonly Vector2[] LoipTables = {
+        new Vector2(12f, 0.3f), new Vector2(22f, 0.85f), new Vector2(31f, 0.3f), new Vector2(42f, 0.85f),
+        new Vector2(53f, 0.3f), new Vector2(64f, 0.85f), new Vector2(72f, 0.3f), new Vector2(84f, 0.75f), new Vector2(92f, 0.35f) };
+
+    [MenuItem("Beat em up/48. El Loipparin pöydät (kala-annokset, pullot, lasit)")]
+    static void AddLoipparTables()
+    {
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        string tp = FindTexture("poyta");
+        if (area == null || tp == null) { Info("Tarvitaan El Loippari (kohta 45) ja poyta.png."); return; }
+        // kala-annoksen kuvat (Resources/Kala): yksittäisiä spritejä, annos alareunasta, muut keskeltä
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Kala" }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)(Path.GetFileNameWithoutExtension(path) == "annos" ? SpriteAlignment.BottomCenter : SpriteAlignment.Center);
+            ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+        }
+        SetupAndSlice(tp);
+        var table = LoadSprites("poyta").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        Sprite[] Sheet7(string n)
+        {
+            string bp = FindTexture(n); if (bp == null) return null;
+            SetupAndSlice(bp);
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        var kinds = new List<(Sprite[] sp, string stain, float sc)>();
+        foreach (var (n, st, sc) in new[] { ("pullo_olut", "olut", 1f), ("pullo_sininen", "sininen", 1.12f), ("pullo_likoori", "likoori", 1.25f), ("pullo_vodka", "vodka", 1.4f) })
+        { var sp = Sheet7(n); if (sp != null && sp.Length >= 7) kinds.Add((sp, st, sc)); }
+        var glasses = new List<(Sprite[] sp, string stain, bool tall)>();
+        foreach (var (n, st, tall) in new[] { ("pullo_lasi_tumbler", "-", false), ("pullo_lasi_viski", "likoori", false), ("pullo_lasi_olut", "olut", true), ("pullo_lasi_tuoppi", "-", true) })
+        { var sp = Sheet7(n); if (sp != null && sp.Length >= 5) glasses.Add((sp, st, tall)); }
+        var glass = LoadClips("Assets/Audio/sfx", "glass");
+
+        var old = GameObject.Find("El Loipparin pöydät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("El Loipparin pöydät");
+        Undo.RegisterCreatedObjectUndo(root, "El Loipparin pöydät");
+        var rnd = new System.Random(11);
+        int plates = 0, bottles = 0, glassesN = 0;
+        float top = 1.28f * TableScale - 0.04f;
+        foreach (var v in LoipTables)
+        {
+            float y = Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, v.y);
+            var go = new GameObject("Pöytä");
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(LoipX0 + v.x, y, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.35f);
+            var c = go.AddComponent<Crate>();
+            c.body = vis; c.shadow = sh;
+            c.sprites = new[] { table[0], table[1], table[2] };
+            c.breakSprites = new[] { table[3], table[4], table[5], table[6] };
+            c.breakFrameTime = 0.1f; c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
+            c.visualScale = TableScale; c.shadowWidth = 2.6f; c.carryLower = 0.86f * TableScale;
+            c.hitRadiusX = 1.4f * TableScale; c.debrisTime = 6f;
+            c.moneyChance = 0.3f; c.energyChance = 0.15f; c.throwDamage = 22;
+            vis.sprite = table[0];
+            // 1–2 kala-annosta, väliin muutama pullo ja lasi (vähemmän kuin S-Clubissa)
+            int np = 1 + rnd.Next(2);
+            float[] plateX = np == 1 ? new[] { (float)(rnd.NextDouble() - 0.5) * 0.4f } : new[] { -0.62f, 0.62f };
+            foreach (float px in plateX)
+            {
+                var fGo = new GameObject("Kala-annos");
+                fGo.transform.SetParent(root.transform, false);
+                fGo.transform.position = go.transform.position;
+                var f = fGo.AddComponent<FishPlate>();
+                f.table = c; f.tableX = px * TableScale; f.tableTop = top + 0.04f; f.breakSounds = glass;
+                plates++;
+            }
+            var slots = new List<float>();
+            if (np == 1) slots.AddRange(new[] { -0.95f, -0.7f, 0.7f, 0.95f });
+            else slots.AddRange(new[] { -1.05f, 0f, 1.05f });
+            int items = 2 + rnd.Next(2);
+            for (int i = 0; i < items && slots.Count > 0; i++)
+            {
+                int si = rnd.Next(slots.Count); float sx = slots[si]; slots.RemoveAt(si);
+                var bGo = new GameObject("Pullo");
+                bGo.transform.SetParent(root.transform, false);
+                bGo.transform.position = go.transform.position;
+                var b = bGo.AddComponent<Bottle>();
+                bool isGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(2) == 0);
+                if (isGlass)
+                {
+                    var gl = glasses[rnd.Next(glasses.Count)];
+                    b.sprites = gl.sp; b.stainKind = gl.stain; b.pivotY = gl.tall ? 0.2f : 0.15f; bGo.name = "Lasi"; glassesN++;
+                }
+                else if (kinds.Count > 0)
+                {
+                    var k = kinds[rnd.Next(kinds.Count)];
+                    b.sprites = k.sp; b.stainKind = k.stain;
+                    b.scale = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble());
+                    bottles++;
+                }
+                else { Object.DestroyImmediate(bGo); continue; }
+                b.breakSounds = glass;
+                b.table = c;
+                b.tableX = (sx + (float)(rnd.NextDouble() - 0.5) * 0.08f) * TableScale;
+                b.tableTop = top;
+            }
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"El Loippariin {LoipTables.Length} pöytää: {plates} kala-annosta, {bottles} pulloa, {glassesN} lasia.\n" +
+             "Lyönti pöytään: annos valuu lattialle. Potku, heitetty pöytä tai päälle lentävä vihu: annos räjähtää ja kala lentää.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]
