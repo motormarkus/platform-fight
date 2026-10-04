@@ -70,6 +70,7 @@ public static class BeatEmUpSetup
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
             AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
             AddLoipparFighters();   // Lippikset, samoalaiset ja portsarit El Loippariin
+            AddLoipparStage();      // mariachi-bändi ja tanssijat El Loipparin lavalle
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -754,7 +755,7 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Bändi toisella lavalla: {sprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).");
     }
-    const float DancerScale = 1.2f;   // tanssijat 20 % isompina
+    const float DancerScale = 1.0f;   // tanssijat (ennen 1.2: liian isoja)
 
     [MenuItem("Beat em up/11. Lisää tanssijat lavalle")]
     static void AddDancers()
@@ -2833,6 +2834,7 @@ public static class BeatEmUpSetup
         float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
         var area = new GameObject("Alue: Uccopulco").AddComponent<Area>();
         area.areaName = "Uccopulco";
+        area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Uccopulco.mp3");
         area.useSidewalk = true;
         area.sidewalkHeight = UccoKerbPx / ppu;
         area.curbDepthY = top - UccoCurbPx / ppu;
@@ -2909,6 +2911,7 @@ public static class BeatEmUpSetup
         float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
         var area = new GameObject("Alue: El Loippari").AddComponent<Area>();
         area.areaName = "El Loippari";
+        area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Uccopulco.mp3");   // toistaiseksi sama kuin kadulla
         area.useSidewalk = false;
         area.maxDepthY = top - LoipFloorPx / ppu;
         area.minDepthY = street.minDepthY;
@@ -3303,6 +3306,46 @@ public static class BeatEmUpSetup
         else report.Add("Portsarit: tee ensin kohta 43");
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("El Loippari:\n" + string.Join("\n", report) + "\n\nPortsarit käyvät lähimmän kimppuun: hero, Lippikset ja samoalaiset.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- El Loipparin lava ----------------
+    const float LoipStagePx = 2334f, LoipStageHalfPx = 505f, LoipStageFeetRow = 445f;   // lava yhdistetyssä sisäkuvassa (keskikohta, puolileveys, jalkojen rivi)
+
+    [MenuItem("Beat em up/52. El Loipparin lava: mariachi-bändi ja tanssijat")]
+    static void AddLoipparStage()
+    {
+        var loipBg = GameObject.Find("El Loippari");
+        var band = GameObject.Find("Bändi");
+        var dancers = GameObject.Find("Tanssijat");
+        if (loipBg == null || band == null || dancers == null) { Info("Tarvitaan El Loippari (45), bändi (40) ja tanssijat (11)."); return; }
+        var old = GameObject.Find("El Loipparin lava");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("El Loipparin lava");
+        Undo.RegisterCreatedObjectUndo(root, "El Loipparin lava");
+        var bgSr = loipBg.GetComponent<SpriteRenderer>();
+        float ppu = bgSr.sprite.pixelsPerUnit;
+        float left = bgSr.bounds.min.x, top = bgSr.bounds.max.y;
+        float feetY = top - LoipStageFeetRow / ppu;
+        var b = Object.Instantiate(band, root.transform);
+        b.name = "Loipparin bändi";
+        b.transform.position = new Vector3(left + LoipStagePx / ppu, feetY, 0f);
+        var bsr = b.GetComponent<SpriteRenderer>(); if (bsr != null) bsr.color = new Color(1f, 0.95f, 0.88f);   // lämmin valo
+        // tanssijat lavan molemmin puolin bändiä
+        int i = 0;
+        foreach (Transform d in dancers.transform)
+        {
+            if (i >= 2) break;
+            var dGo = Object.Instantiate(d.gameObject, root.transform);
+            dGo.name = "Loipparin tanssija " + (i + 1);
+            float side = i == 0 ? -1f : 1f;
+            dGo.transform.position = new Vector3(left + (LoipStagePx + side * (LoipStageHalfPx - 110f)) / ppu, feetY, 0f);
+            dGo.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);
+            var dsr = dGo.GetComponent<SpriteRenderer>(); if (dsr != null) dsr.color = new Color(1f, 0.95f, 0.9f);
+            var dn = dGo.GetComponent<Dancer>(); if (dn != null) dn.flipX = side > 0f;   // katsovat bändiä kohti
+            i++;
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("El Loipparin lavalla mariachi-bändi ja tanssijat molemmin puolin.\n\nTallenna scene (Ctrl+S).");
     }
 
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
