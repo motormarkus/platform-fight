@@ -64,6 +64,7 @@ public static class BeatEmUpSetup
             AddBarrels();           // tynnyrit katolle ja satunnaisesti kadulle
             CreateBackAlley();      // katolta alas takakujalle, prätkä parkkiruudussa
             CreateHighway();        // kujan lopusta prätkällä valtatielle
+            CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -2770,6 +2771,81 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Valtatie luotu ({HighwayLength:0} yksikköä). Aja prätkällä kujan oikeaan reunaan: pimennys, otsikko ja valtatie.\n" +
              $"Maisema liikkuu {px.factor * 100:0} % tien vauhdista.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Uccopulco (valtatien jälkeen) ----------------
+    const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
+    const float UccoX0 = 9000f;
+    // kuvan rivit: jalkakäytävän pinta seinän vieressä, reunakiven alareuna (ajotien taso), ajotien alareuna
+    const float UccoWallPx = 506f, UccoCurbPx = 552f, UccoBottomPx = 860f, UccoKerbPx = 30f;
+
+    [MenuItem("Beat em up/44. Uccopulco (valtatien jälkeen)")]
+    static void CreateUccopulco()
+    {
+        var street = GameObject.Find("Tausta");
+        var highway = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Valtatie");
+        var ti = AssetImporter.GetAtPath(UccoPath) as TextureImporter;
+        if (street == null || highway == null || ti == null)
+        {
+            Info("Tarvitaan katu (kohta 29), valtatie (kohta 35) ja kuva " + UccoPath);
+            return;
+        }
+        foreach (var n in new[] { "Uccopulco", "Alue: Uccopulco", "Valtatien loppu" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        // sama kuvakulma kuin kadun kuvissa: sama korkeus maailmassa (kadun kuva 1024 px / BackgroundPPU)
+        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>(UccoPath);
+        float worldH = 1024f / BackgroundPPU;
+        float ppu = tex.height / worldH;
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(UccoPath);
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+
+        var bg = new GameObject("Uccopulco");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        float cy = street.transform.position.y;
+        bg.transform.position = new Vector3(UccoX0 + wU * 0.5f, cy, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Uccopulco");
+        float top = cy + hU * 0.5f;
+
+        float halfW = Camera.main != null ? Camera.main.orthographicSize * 16f / 9f : 10.7f;
+        var area = new GameObject("Alue: Uccopulco").AddComponent<Area>();
+        area.areaName = "Uccopulco";
+        area.useSidewalk = true;
+        area.sidewalkHeight = UccoKerbPx / ppu;
+        area.curbDepthY = top - UccoCurbPx / ppu;
+        area.maxDepthY = top - UccoWallPx / ppu - area.sidewalkHeight;   // jalat jalkakäytävällä seinän vieressä
+        area.minDepthY = top - UccoBottomPx / ppu;
+        area.camMinX = UccoX0 + halfW;
+        area.camMaxX = UccoX0 + wU - halfW;
+        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        // valtatien lopussa siirtymä prätkällä
+        var exit = new GameObject("Valtatien loppu").AddComponent<RideExit>();
+        exit.transform.position = new Vector3(highway.camMaxX + halfW - 6f, 0f, 0f);
+        exit.target = area;
+        exit.spawnPoint = new Vector2(UccoX0 + 4f, Mathf.Lerp(area.curbDepthY, area.minDepthY, 0.4f));
+        exit.title = "Uccopulco";
+        Undo.RegisterCreatedObjectUndo(exit.gameObject, "Valtatien loppu");
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Uccopulco luotu ({wU:0} yksikköä, kuva {ppu:0.0} px/yks).\nAja valtatien loppuun: pimennys, otsikko ja rantakatu.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Aloituskohta ----------------
