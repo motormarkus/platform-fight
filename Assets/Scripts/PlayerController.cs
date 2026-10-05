@@ -1821,6 +1821,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             float halfW = cam.orthographicSize * cam.aspect - 1.3f;
             p.x = Mathf.Clamp(p.x, cf.minX - halfW, cf.maxX + halfW);
             if (Area.Current != null && Area.Current.walkMaxX != 0f) p.x = Mathf.Min(p.x, Area.Current.walkMaxX);   // esim. laiturin reuna
+            if (Area.Current != null && Area.Current.walkMinX != 0f) p.x = Mathf.Max(p.x, Area.Current.walkMinX);   // esim. laivan keula
         }
         p.y = Mathf.Clamp(p.y + delta.y, minDepthY, Area.MaxDepthAt(p.x, maxDepthY));   // esim. terassin kaide
         transform.position = p;

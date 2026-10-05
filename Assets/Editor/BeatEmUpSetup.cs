@@ -66,6 +66,7 @@ public static class BeatEmUpSetup
             CreateHighway();        // kujan lopusta prätkällä valtatielle
             CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
             CreateLoippari();       // El Loippari -baarin sisätila
+            CreateShipDeck();       // risteilyaluksen kansi (sataman varaston ovesta), rullaava meri
             AddSamoans();           // samoalaiset Uccopulcossa
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
             AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
@@ -2979,6 +2980,124 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- El Loippari (Uccopulcon baari) ----------------
+    // ---------------- Risteilyaluksen kansi ----------------
+    const string ShipDeckPath = "Assets/Sprites/Taustat/laiva_kansi.png";          // 3 kuvaa koottuna, 4256 × 887, keula vasemmalla
+    const string ShipSeaFarPath = "Assets/Sprites/Taustat/laiva_meri_kauko.png";   // taivas, horisontti (rivi 291), kaukaiset saaret
+    const string ShipSeaNearPath = "Assets/Sprites/Taustat/laiva_meri_lahi.png";   // vaahtoava meri laivan vieressä
+    const float ShipX0 = 15000f;
+    const float ShipFloorPx = 540f;                  // kannen takareuna (kaiteen juuri)
+    const float ShipBowPx = 400f;                    // keulan runko: ei kävellä tätä vasemmalle
+    const float ShipWallTopXPx = 3870f, ShipWallBottomXPx = 4185f;   // viiston seinän juuri: takareunassa / alareunassa
+    const float ShipDoorXPx = 4070f;                 // hyttiosaston ovi viistossa seinässä
+    const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
+    const float UccoWarehouseDoorPx = 3860f;         // sataman varaston ovi satamakuvassa
+
+    [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
+    static void CreateShipDeck()
+    {
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        var harborGo = GameObject.Find("Uccopulco satama");
+        var ti = AssetImporter.GetAtPath(ShipDeckPath) as TextureImporter;
+        if (ucco == null || harborGo == null || ti == null) { Info("Tarvitaan Uccopulco satamineen (kohta 44) ja " + ShipDeckPath); return; }
+        foreach (var n in new[] { "Laivan kansi", "Alue: Laivan kansi", "Laivan ovet", "Laivan meri kaukana", "Laivan meri lähellä" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        // sama mittakaava kuin Uccopulcon katu (tausta 80 %), alareuna ruudun alareunaan
+        ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+        float ppu = srcH / (1024f / BackgroundPPU * UccoK);
+        Sprite Import(string path, float p, bool tiled)
+        {
+            var t = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (t == null) return null;
+            t.textureType = TextureImporterType.Sprite;
+            t.spriteImportMode = SpriteImportMode.Single;
+            t.spritePixelsPerUnit = p;
+            t.filterMode = FilterMode.Bilinear;
+            t.textureCompression = TextureImporterCompression.Uncompressed;
+            t.maxTextureSize = 8192;
+            t.mipmapEnabled = false;
+            t.alphaIsTransparency = true;
+            t.wrapMode = tiled ? TextureWrapMode.Repeat : TextureWrapMode.Clamp;
+            var st = new TextureImporterSettings(); t.ReadTextureSettings(st);
+            st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)SpriteAlignment.Center;
+            t.SetTextureSettings(st);
+            t.SaveAndReimport();
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        }
+        var deck = Import(ShipDeckPath, ppu, false);
+        float wU = deck.rect.width / ppu, hU = deck.rect.height / ppu;
+        float cy = CamY - CamHalf + hU * 0.5f;
+        float top = cy + hU * 0.5f;
+        var bg = new GameObject("Laivan kansi");
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = deck; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(ShipX0 + wU * 0.5f, cy, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Laivan kansi");
+        System.Func<float, float> X = px => ShipX0 + px / ppu;
+        System.Func<float, float> Y = row => top - row / ppu;
+
+        float halfW = CamHalf * 16f / 9f;
+        var area = new GameObject("Alue: Laivan kansi").AddComponent<Area>();
+        area.areaName = "Laivan kansi";
+        area.music = ucco.music;
+        area.useSidewalk = false;
+        area.maxDepthY = Y(ShipFloorPx) - 0.1f;
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = ShipX0 + halfW;
+        area.camMaxX = ShipX0 + wU - halfW;
+        area.camRiseY = Mathf.Min(2f, top - (CamY + CamHalf));
+        area.walkMinX = X(ShipBowPx);
+        area.walkMaxX = X(ShipWallBottomXPx) - 0.5f;
+        // viisto seinä: takaraja tulee eteenpäin seinän juurta pitkin
+        area.depthLimits = new[] { new Vector2(X(ShipWallTopXPx) - 0.4f, area.maxDepthY), new Vector2(X(ShipWallBottomXPx) - 0.4f, area.minDepthY) };
+        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        // rullaava meri: laiva kulkee vasemmalle, meri virtaa oikealle. Kaukainen hitaasti, lähellä nopeasti.
+        GameObject Layer(string name, string path, float scaleRows, float topRow, int order, float speed, float parallax)
+        {
+            // skaala: yksi kuvan pikseli = scaleRows kannen pikseliä
+            float p = ppu / scaleRows;
+            var spr = Import(path, p, true);
+            if (spr == null) return null;
+            var go = new GameObject(name);
+            var s = go.AddComponent<SpriteRenderer>(); s.sprite = spr; s.sortingOrder = order;
+            s.drawMode = SpriteDrawMode.Tiled;
+            float w = spr.rect.width / p, h = spr.rect.height / p;
+            s.size = new Vector2(Mathf.Ceil((2f * halfW) / w + 2f) * w, h);
+            go.transform.position = new Vector3(ShipX0 + wU * 0.5f, Y(topRow) - h * 0.5f, 0f);
+            var sl = go.AddComponent<ScrollingLayer>(); sl.autoSpeed = speed; sl.parallax = parallax; sl.area = area;
+            Undo.RegisterCreatedObjectUndo(go, name);
+            return go;
+        }
+        float farScale = 1.25f;                                  // horisontti (kuvan rivi 291) kannen riville ShipHorizonPx
+        Layer("Laivan meri kaukana", ShipSeaFarPath, farScale, ShipHorizonPx - 291f * farScale, -10100, 0.35f, 0.04f);
+        Layer("Laivan meri lähellä", ShipSeaNearPath, 0.55f, ShipHorizonPx + 45f, -10090, 4f, 0.5f);
+
+        // ovet: sataman varastosta kannelle ja kannelta takaisin
+        var doors = new GameObject("Laivan ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        float hppu = harborGo.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        float hLeft = harborGo.GetComponent<SpriteRenderer>().bounds.min.x;
+        var d = new GameObject("Varaston ovi laivaan").AddComponent<Door>();
+        d.transform.SetParent(doors.transform, false);
+        d.transform.position = new Vector3(hLeft + UccoWarehouseDoorPx / hppu, ucco.maxDepthY - 0.25f, 0f);
+        d.prompt = "Nouse laivaan";
+        d.here = ucco; d.target = area;
+        d.spawnPoint = new Vector2(X(900f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f));
+        d.halfWidth = 1.6f; d.maxDistanceFromWall = 0.9f;
+        var back = new GameObject("Laivasta satamaan").AddComponent<Door>();
+        back.transform.SetParent(doors.transform, false);
+        back.transform.position = new Vector3(X(700f), area.maxDepthY, 0f);
+        back.prompt = "Takaisin satamaan";
+        back.here = area; back.target = ucco;
+        back.returnToLastDoor = true;
+        back.spawnPoint = d.transform.position;
+        back.halfWidth = 1.4f; back.maxDistanceFromWall = 0.9f;
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Laivan kansi luotu ({wU:0} yksikköä). Sataman varaston ovesta (E) noustaan kannelle; meri rullaa.\nHyttiosaston ovi tulee myöhemmin.\n\nTallenna scene (Ctrl+S).");
+    }
+
     const string LoipPath = "Assets/Sprites/Taustat/loippari_sisa.png";   // 3 kuvaa yhdistettynä: tiski, lava, terassi (4429 × 887)
     const float LoipX0 = 12000f;
     const float LoipFloorPx = 512f;          // seinän alareuna / lattian takaraja kuvassa

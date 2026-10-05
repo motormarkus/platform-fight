@@ -41,6 +41,8 @@ public class Area : MonoBehaviour
     public float camMaxX = 100f;
     [Tooltip("Pelaaja ei kävele tätä oikeammalle (esim. laiturin reuna). 0 = ei rajaa.")]
     public float walkMaxX = 0f;
+    [Tooltip("Pelaaja ei kävele tätä vasemmalle (esim. laivan keula). 0 = ei rajaa.")]
+    public float walkMinX = 0f;
     [Tooltip("Kameran koko tällä alueella (orthographic size). 0 = oletus (kadun koko).")]
     public float camSize = 0f;
     [Tooltip("Kuinka paljon kamera nousee, kun pelaaja kävelee seinän viereen (yksikköä). 0 = korkeus pysyy.")]
