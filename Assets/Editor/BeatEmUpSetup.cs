@@ -110,7 +110,7 @@ public static class BeatEmUpSetup
         int CellW = baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("tuoli_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("tuoli_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3115,9 +3115,9 @@ public static class BeatEmUpSetup
                 {
                     var go = new GameObject("Bikininainen " + (++ti2));
                     go.transform.SetParent(tRoot.transform, false);
-                    float sc = 100f / ppu;                                  // ruudun pikseli = kannen pikseli
+                    float sc = 100f / ppu * 0.5f;                           // kuvat kaksinkertaisella tarkkuudella: 2 pikseliä = 1 kannen pikseli
                     go.transform.localScale = new Vector3(sc, sc, 1f);
-                    go.transform.position = new Vector3(X(spot.x), Y(spot.y) - 54f / ppu, 0f);   // istumapiste ruudun rivillä 330
+                    go.transform.position = new Vector3(X(spot.x), Y(spot.y) - 36f / ppu, 0f);   // istumapiste ruudun rivillä 440 (512 korkeassa ruudussa)
                     var r = go.AddComponent<SpriteRenderer>(); r.sprite = loop[0];
                     r.sortingOrder = Mathf.RoundToInt(-area.maxDepthY * 100f) + 50;
                     var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.flipX = spot.z > 0.5f; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
