@@ -23,6 +23,8 @@ public class Tourist : MonoBehaviour
     public float triggerDistance = 3.5f;
     [Tooltip("Mihin x:ään kävellään nousun jälkeen (0 = jää paikalleen).")]
     public float walkToX;
+    [Tooltip("Mille syvyydelle (y) kävellään, esim. kannen lattialle tuolirivin eteen (0 = sama kuin seistessä).")]
+    public float walkToY;
     public float walkSpeed = 1.4f;
     public float idleBeforeWalk = 1.2f;
 
@@ -51,6 +53,7 @@ public class Tourist : MonoBehaviour
     public float danceForward = 0.9f;
     [Tooltip("Romanttinen tunnelma tanssin aikana: punainen sykkivä hehku ruudun reunoilla ja sydämet.")]
     public Color glowColor = new Color(1f, 0.15f, 0.3f, 1f);
+    [Range(0f, 1f)] public float glowStrength = 0.4f;
     float mood;                 // 0 = ei tunnelmaa, 1 = täysi
     static Texture2D vignette;
     static Sprite heart;
@@ -112,12 +115,13 @@ public class Tourist : MonoBehaviour
             case S.Walk:
             {
                 Vector3 p = transform.position;
-                float dir = Mathf.Sign(walkToX - p.x);
-                sr.flipX = dir < 0f;                     // kuvat katsovat oikealle
-                p.x = Mathf.MoveTowards(p.x, walkToX, walkSpeed * dt);
+                Vector3 goal = new Vector3(walkToX, walkToY != 0f ? walkToY : p.y, p.z);
+                if (Mathf.Abs(goal.x - p.x) > 0.01f) sr.flipX = goal.x < p.x;   // kuvat katsovat oikealle
+                p = Vector3.MoveTowards(p, goal, walkSpeed * dt);        // tuolirivistä alas lattialle ja baarille
                 transform.position = p;
+                sr.sortingOrder = Mathf.RoundToInt(-p.y * 100f);
                 sr.sprite = Loop(walk, t, walkFrameTime);
-                if (Mathf.Abs(p.x - walkToX) < 0.01f) { state = S.Idle; t = 0f; }
+                if ((p - goal).sqrMagnitude < 0.0001f) { state = S.Idle; t = 0f; }
                 break;
             }
             case S.Idle:
@@ -329,9 +333,9 @@ public class Tourist : MonoBehaviour
             if (vignette == null) vignette = MakeVignette();
             float pulse = 0.75f + 0.25f * Mathf.Sin(Time.time * 2.6f);
             GUI.depth = -50;
-            GUI.color = new Color(glowColor.r, glowColor.g, glowColor.b, 0.85f * mood * pulse);
+            GUI.color = new Color(glowColor.r, glowColor.g, glowColor.b, glowStrength * mood * pulse);
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), vignette);
-            GUI.color = new Color(1f, 0.4f, 0.55f, 0.07f * mood);
+            GUI.color = new Color(1f, 0.4f, 0.55f, 0.04f * mood);
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
             GUI.color = Color.white;
         }

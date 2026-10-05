@@ -3166,6 +3166,7 @@ public static class BeatEmUpSetup
                         tu.standUp = aurora[0]; tu.idle = aurora[1]; tu.walk = aurora[2];
                         tu.standOffsetY = 16f * sc / 100f;      // varpaat 16 kuvan pikseliä istumaruudun alareunan alla
                         tu.walkToX = X(ShipAuroraBarPx);
+                        tu.walkToY = area.maxDepthY - 0.45f;              // kannen lattialle tuolirivin eteen (ei ilmassa)
                         // suudelma ja tanssi: E Auroran vieressä
                         if (kissA != null && kissB != null && kissA.Length >= 31 && kissB.Length >= 52)
                         {
