@@ -2831,7 +2831,7 @@ public static class BeatEmUpSetup
             Info("Tarvitaan katu (kohta 29), valtatie (kohta 35) ja kuva " + UccoPath);
             return;
         }
-        foreach (var n in new[] { "Uccopulco", "Alue: Uccopulco", "Valtatien loppu", "Uccopulco satama", "Uccopulco meri", "Uccopulco laiva" })
+        foreach (var n in new[] { "Uccopulco", "Alue: Uccopulco", "Valtatien loppu", "Uccopulco satama", "Uccopulco meri", "Uccopulco laiva", "Uccopulcon prätkä" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -2955,6 +2955,22 @@ public static class BeatEmUpSetup
         exit.parkBike = true;                                   // pyörä jää parkkiin, peli jatkuu jalan
         exit.parkPoint = new Vector2(UccoX0 + 6f, area.curbDepthY + 0.35f);   // jalkakäytävän reunaan
         Undo.RegisterCreatedObjectUndo(exit.gameObject, "Valtatien loppu");
+
+        // ajettava prätkä kadun alkuun (testaukseen: kentän läpi nopeasti), kopio takakujan pyörästä, nokka oikealle
+        var bikeT = Object.FindObjectsByType<Motorbike>(FindObjectsSortMode.None).FirstOrDefault(m => m.gameObject.name == "Takakujan prätkä");
+        if (bikeT != null)
+        {
+            var go = Object.Instantiate(bikeT.gameObject);
+            go.name = "Uccopulcon prätkä";
+            float by = area.curbDepthY + 0.35f;
+            go.transform.position = new Vector3(UccoX0 + 12f, by, 0f);
+            var mb = go.GetComponent<Motorbike>();
+            mb.rideable = true;
+            if (mb.parkedRight != null) { mb.parked.sprite = mb.parkedRight; mb.parked.flipX = false; }
+            else mb.parked.flipX = true;
+            mb.parked.sortingOrder = Mathf.RoundToInt(-by * 100f);
+            Undo.RegisterCreatedObjectUndo(go, "Prätkä");
+        }
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Uccopulco luotu ({wU:0} yksikköä, kuva {ppu:0.0} px/yks).\nAja valtatien loppuun: pimennys, otsikko ja rantakatu.\n\nTallenna scene (Ctrl+S).");
