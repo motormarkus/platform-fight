@@ -2800,6 +2800,12 @@ public static class BeatEmUpSetup
 
     // ---------------- Uccopulco (valtatien jälkeen) ----------------
     const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
+    const string UccoHarborPath = "Assets/Sprites/Taustat/uccopulco_satama.png";   // satamaosuus (3 kuvaa, kadun mittakaavaan, reunakivi samalla rivillä)
+    const string UccoSeaPath = "Assets/Sprites/Taustat/uccopulco_meri.png";
+    const string UccoShipPath = "Assets/Sprites/Taustat/uccopulco_laiva.png";
+    const float UccoHarborHorizonPx = 360f;   // meren horisontti satamakuvan rivillä (kaiteiden yläpuolella)
+    const float UccoSeaHorizonPx = 490f;      // horisontti merikuvassa
+    const float UccoShipQuayBottomPx = 605f, UccoShipQuayAtPx = 500f;   // laivakuvan laiturin alareuna -> satamakuvan rivi (jalkakäytävän takareuna)
     const float UccoX0 = 9000f;
     // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
     static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
@@ -2822,7 +2828,7 @@ public static class BeatEmUpSetup
             Info("Tarvitaan katu (kohta 29), valtatie (kohta 35) ja kuva " + UccoPath);
             return;
         }
-        foreach (var n in new[] { "Uccopulco", "Alue: Uccopulco", "Valtatien loppu" })
+        foreach (var n in new[] { "Uccopulco", "Alue: Uccopulco", "Valtatien loppu", "Uccopulco satama", "Uccopulco meri", "Uccopulco laiva" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -2869,6 +2875,66 @@ public static class BeatEmUpSetup
         area.camMinX = UccoX0 + halfW;
         area.camMaxX = UccoX0 + wU - halfW;
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        // satamaosuus kadun jatkeena: katu (läpinäkyvä taivas), takana risteilyalus ja meri parallaksina
+        Sprite ImportBg(string path, float bgPpu)
+        {
+            var bti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (bti == null) return null;
+            bti.textureType = TextureImporterType.Sprite;
+            bti.spriteImportMode = SpriteImportMode.Single;
+            bti.spritePixelsPerUnit = bgPpu;
+            bti.filterMode = FilterMode.Bilinear;
+            bti.textureCompression = TextureImporterCompression.Uncompressed;
+            bti.maxTextureSize = 8192;
+            bti.mipmapEnabled = false;
+            bti.alphaIsTransparency = true;
+            var bst = new TextureImporterSettings(); bti.ReadTextureSettings(bst);
+            bst.spriteMeshType = SpriteMeshType.FullRect; bst.spriteAlignment = (int)SpriteAlignment.Center;
+            bti.SetTextureSettings(bst);
+            bti.SaveAndReimport();
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        }
+        var harbor = ImportBg(UccoHarborPath, ppu);
+        if (harbor != null)
+        {
+            float wS = harbor.rect.width / ppu;
+            var hGo = new GameObject("Uccopulco satama");
+            var hSr = hGo.AddComponent<SpriteRenderer>(); hSr.sprite = harbor; hSr.sortingOrder = -10000;
+            hGo.transform.position = new Vector3(UccoX0 + wU + wS * 0.5f, cy, 0f);
+            Undo.RegisterCreatedObjectUndo(hGo, "Satama");
+            area.camMaxX = UccoX0 + wU + wS - halfW;
+            float sx = UccoX0 + wU;                                   // sataman alku
+            var camRef = new Vector2(sx + wS * 0.5f - halfW, CamY);  // kameran keskikohta sataman kohdalla
+            // meri: hidas (15 %), horisontti kaiteiden yläpuolelle
+            float seaScale = 1.15f;
+            var sea = ImportBg(UccoSeaPath, ppu / seaScale);
+            if (sea != null)
+            {
+                var sGo = new GameObject("Uccopulco meri");
+                var sSr = sGo.AddComponent<SpriteRenderer>(); sSr.sprite = sea; sSr.sortingOrder = -10100;
+                float seaH = sea.rect.height / (ppu / seaScale);
+                float horizonY = top - UccoHarborHorizonPx / ppu;
+                float seaTop = horizonY + UccoSeaHorizonPx * seaScale / ppu;
+                var pl = sGo.AddComponent<ParallaxLayer>();
+                pl.speed = 0.15f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x, seaTop - seaH * 0.5f);
+                sGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
+                Undo.RegisterCreatedObjectUndo(sGo, "Meri");
+            }
+            // risteilyalus laiturissa: vähän nopeampi (40 %), laiturin muuri kadun kaiteiden taakse
+            var ship = ImportBg(UccoShipPath, ppu);
+            if (ship != null)
+            {
+                var lGo = new GameObject("Uccopulco laiva");
+                var lSr = lGo.AddComponent<SpriteRenderer>(); lSr.sprite = ship; lSr.sortingOrder = -10050;
+                float shipH = ship.rect.height / ppu;
+                float shipTop = top - UccoShipQuayAtPx / ppu + UccoShipQuayBottomPx / ppu;
+                var pl = lGo.AddComponent<ParallaxLayer>();
+                pl.speed = 0.4f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x + 4f, shipTop - shipH * 0.5f);
+                lGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
+                Undo.RegisterCreatedObjectUndo(lGo, "Laiva");
+            }
+        }
 
         // valtatien lopussa siirtymä prätkällä
         var exit = new GameObject("Valtatien loppu").AddComponent<RideExit>();
@@ -2993,7 +3059,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Samoalainen (Uccopulco) ----------------
-    static readonly Vector2[] SamoaUcco = { new Vector2(30f, 0.4f), new Vector2(62f, 0.15f), new Vector2(95f, 0.6f) };   // x kadun alusta, syvyys 0 = seinä … 1 = edessä
+    static readonly Vector2[] SamoaUcco = { new Vector2(30f, 0.4f), new Vector2(62f, 0.15f), new Vector2(95f, 0.6f), new Vector2(158f, 0.5f), new Vector2(196f, 0.35f) };   // x kadun alusta (yli 121: satama), syvyys 0 = seinä … 1 = edessä
 
     [MenuItem("Beat em up/47. Samoalaiset Uccopulcoon")]
     static void AddSamoans()
@@ -3245,7 +3311,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Uccopulcon ja El Loipparin rekvisiitta ----------------
-    static readonly float[] UccoCrateX = { 14f, 33f, 48f, 70f, 88f, 112f }, UccoBarrelX = { 20f, 41f, 58f, 79f, 95f, 116f };
+    static readonly float[] UccoCrateX = { 14f, 33f, 48f, 70f, 88f, 112f, 132f, 152f, 176f, 197f }, UccoBarrelX = { 20f, 41f, 58f, 79f, 95f, 116f, 140f, 166f, 188f };
     static readonly float[] LoipCrateX = { 7f, 46f, 79f, 96f }, LoipBarrelX = { 9.5f, 49f, 82f };
     const float LoipCounterPx = 865f, LoipCounterHalfPx = 225f, LoipCounterTopRow = 370f;
 
@@ -3335,8 +3401,8 @@ public static class BeatEmUpSetup
 
     // ---------------- El Loipparin tappelijat ----------------
     static readonly Vector2[] LoipLippis = { new Vector2(18f, 0.5f), new Vector2(38f, 0.7f), new Vector2(60f, 0.4f), new Vector2(88f, 0.6f) };
-    static readonly Vector2[] UccoLippis = { new Vector2(16f, 0.5f), new Vector2(45f, 0.3f), new Vector2(78f, 0.65f), new Vector2(108f, 0.4f) };
-    static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(116f, 0.6f) };
+    static readonly Vector2[] UccoLippis = { new Vector2(16f, 0.5f), new Vector2(45f, 0.3f), new Vector2(78f, 0.65f), new Vector2(108f, 0.4f), new Vector2(136f, 0.6f), new Vector2(172f, 0.3f) };
+    static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(116f, 0.6f), new Vector2(146f, 0.45f), new Vector2(184f, 0.65f) };
     static readonly Vector2[] LoipSamoa = { new Vector2(27f, 0.45f), new Vector2(50f, 0.6f), new Vector2(77f, 0.5f) };
 
     [MenuItem("Beat em up/51. El Loippariin Lippikset, samoalaiset ja portsarit")]
