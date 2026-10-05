@@ -74,12 +74,15 @@ public class Tourist : MonoBehaviour
     S state = S.Sit;
     SpriteRenderer sr;
     float t, sitY;
+    int baseOrder;      // istuessa: tuolirivin piirtojärjestys; seisovana aina sen edessä (ei kävele toisten turistien takaa)
+    int StandOrder(float y) => Mathf.Max(baseOrder + 10, Mathf.RoundToInt(-y * 100f));
     PlayerController pc;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         sitY = transform.position.y;
+        baseOrder = sr.sortingOrder;
         t = sitStartFrame * sitFrameTime;
     }
 
@@ -98,7 +101,7 @@ public class Tourist : MonoBehaviour
                 {
                     state = S.StandUp; t = 0f;
                     Vector3 p = transform.position; p.y = sitY - standOffsetY; transform.position = p;
-                    sr.sortingOrder = Mathf.RoundToInt(-p.y * 100f);
+                    sr.sortingOrder = StandOrder(p.y);
                 }
                 break;
             case S.StandUp:
@@ -116,10 +119,12 @@ public class Tourist : MonoBehaviour
             {
                 Vector3 p = transform.position;
                 Vector3 goal = new Vector3(walkToX, walkToY != 0f ? walkToY : p.y, p.z);
-                if (Mathf.Abs(goal.x - p.x) > 0.01f) sr.flipX = goal.x < p.x;   // kuvat katsovat oikealle
-                p = Vector3.MoveTowards(p, goal, walkSpeed * dt);        // tuolirivistä alas lattialle ja baarille
+                // ensin syvyyssuunnassa (tuolirivistä lattialle tai lattialta baarille), sitten sivuttain
+                Vector3 step = Mathf.Abs(goal.y - p.y) > 0.02f ? new Vector3(p.x, goal.y, p.z) : goal;
+                if (Mathf.Abs(step.x - p.x) > 0.01f) sr.flipX = step.x < p.x;   // kuvat katsovat oikealle
+                p = Vector3.MoveTowards(p, step, walkSpeed * dt);
                 transform.position = p;
-                sr.sortingOrder = Mathf.RoundToInt(-p.y * 100f);
+                sr.sortingOrder = StandOrder(p.y);
                 sr.sprite = Loop(walk, t, walkFrameTime);
                 if ((p - goal).sqrMagnitude < 0.0001f) { state = S.Idle; t = 0f; }
                 break;
@@ -241,6 +246,7 @@ public class Tourist : MonoBehaviour
 
         transform.position = me; sr.flipX = true; t = 0f;
         if (idle != null && idle.Length > 0) sr.sprite = idle[0];
+        sr.sortingOrder = StandOrder(me.y);
         pc.TeleportTo(heroEnd);
         pc.Face(true);
         if (pc.body != null) pc.body.enabled = true;
@@ -248,6 +254,12 @@ public class Tourist : MonoBehaviour
         pc.enabled = true;
         pc.Scripted = false;
         kissing = false;
+        // tanssin jälkeen Aurora kävelee takaisin baarille
+        if (walk != null && walk.Length > 0 && (me0 - me).sqrMagnitude > 0.0001f)
+        {
+            walkToX = me0.x; walkToY = me0.y;
+            state = S.Walk; t = 0f;
+        }
     }
 
     /// Sydämiä nousee parin ympäriltä tanssin ajan.

@@ -2993,6 +2993,7 @@ public static class BeatEmUpSetup
     const float UccoWarehouseDoorPx = 3860f;
     static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 492f, 0f), new Vector3(3246f, 492f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
     const float ShipAuroraBarPx = 2290f;
+    static readonly Vector2 ShipSohviPx = new Vector2(2345f, 393f);   // Sohvi baaritiskin takana (tiskin yläreuna rivillä 393)
     const int DanceMirrorFrom = 48;          // tanssivideon kuva 180° kohdalla: sen peilikuva = alkuasento
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
 
@@ -3212,6 +3213,16 @@ public static class BeatEmUpSetup
                 }
             }
         }
+        }
+        // Sohvi laivan baaritiskin taakse (kopio S-Clubin Sohvista: kuvan alareuna = tiskin yläreuna)
+        var clubSohvi = GameObject.Find("Sohvi");
+        if (clubSohvi != null)
+        {
+            var s2 = Object.Instantiate(clubSohvi, tRoot.transform);
+            s2.name = "Laivan Sohvi";
+            s2.transform.position = new Vector3(X(ShipSohviPx.x), Y(ShipSohviPx.y), 0f);
+            s2.transform.localScale = clubSohvi.transform.localScale * 0.9f;
+            var ssr = s2.GetComponent<SpriteRenderer>(); if (ssr != null) ssr.sortingOrder = -9500;   // taustan edessä, hahmojen takana
         }
         night.tinted = new[] { sr }.Concat(tRoot.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(bg.scene);
