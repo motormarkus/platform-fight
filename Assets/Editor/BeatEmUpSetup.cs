@@ -2799,7 +2799,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Uccopulco (valtatien jälkeen) ----------------
-    const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5148 × 887 (oikean reunan puolikas talo rajattu pois)
+    const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
     const string UccoHarborPath = "Assets/Sprites/Taustat/uccopulco_satama.png";   // satamaosuus (3 kuvaa, kadun mittakaavaan, reunakivi samalla rivillä)
     const string UccoSeaPath = "Assets/Sprites/Taustat/uccopulco_meri.png";
     const string UccoShipPath = "Assets/Sprites/Taustat/uccopulco_laiva.png";
@@ -3311,7 +3311,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Uccopulcon ja El Loipparin rekvisiitta ----------------
-    static readonly float[] UccoCrateX = { 14f, 33f, 48f, 70f, 88f, 112f }, UccoBarrelX = { 20f, 41f, 58f, 79f, 95f, 109f };
+    static readonly float[] UccoCrateX = { 14f, 33f, 48f, 70f, 88f, 112f }, UccoBarrelX = { 20f, 41f, 58f, 79f, 95f, 116f };
     static readonly float[] LoipCrateX = { 7f, 46f, 79f, 96f }, LoipBarrelX = { 9.5f, 49f, 82f };
     const float LoipCounterPx = 865f, LoipCounterHalfPx = 225f, LoipCounterTopRow = 370f;
 
@@ -3402,7 +3402,7 @@ public static class BeatEmUpSetup
     // ---------------- El Loipparin tappelijat ----------------
     static readonly Vector2[] LoipLippis = { new Vector2(18f, 0.5f), new Vector2(38f, 0.7f), new Vector2(60f, 0.4f), new Vector2(88f, 0.6f) };
     static readonly Vector2[] UccoLippis = { new Vector2(16f, 0.5f), new Vector2(45f, 0.3f), new Vector2(78f, 0.65f), new Vector2(108f, 0.4f) };
-    static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(110f, 0.6f) };
+    static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(116f, 0.6f) };
     static readonly Vector2[] LoipSamoa = { new Vector2(27f, 0.45f), new Vector2(50f, 0.6f), new Vector2(77f, 0.5f) };
 
     [MenuItem("Beat em up/51. El Loippariin Lippikset, samoalaiset ja portsarit")]
