@@ -9,6 +9,8 @@ public class Dancer : MonoBehaviour
     [Tooltip("Mistä kuvasta silmukka alkaa (useampi tanssija eri tahdissa).")]
     public int startFrame;
     public bool flipX;
+    [Tooltip("Kuvat annetussa järjestyksessä (esim. toistettu sarja), ei lajitella numeron mukaan.")]
+    public bool keepOrder;
 
     SpriteRenderer sr;
     float clock;
@@ -16,7 +18,7 @@ public class Dancer : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        PlayerController.SortByFrameNumber(sprites);
+        if (!keepOrder) PlayerController.SortByFrameNumber(sprites);
         sr.flipX = flipX;
         clock = startFrame * frameTime;
     }

@@ -2990,7 +2990,8 @@ public static class BeatEmUpSetup
     const float ShipWallTopXPx = 3870f, ShipWallBottomXPx = 4185f;   // viiston seinän juuri: takareunassa / alareunassa
     const float ShipDoorXPx = 4070f;                 // hyttiosaston ovi viistossa seinässä
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
-    const float UccoWarehouseDoorPx = 3860f;         // sataman varaston ovi satamakuvassa
+    const float UccoWarehouseDoorPx = 3860f;
+    static readonly Vector2[] ShipBikiniSpots = { new Vector2(2938f, 482f), new Vector2(3246f, 482f) };   // aurinkotuolien istuinkohta kannen kuvassa         // sataman varaston ovi satamakuvassa
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
     static void CreateShipDeck()
@@ -2999,7 +3000,7 @@ public static class BeatEmUpSetup
         var harborGo = GameObject.Find("Uccopulco satama");
         var ti = AssetImporter.GetAtPath(ShipDeckPath) as TextureImporter;
         if (ucco == null || harborGo == null || ti == null) { Info("Tarvitaan Uccopulco satamineen (kohta 44) ja " + ShipDeckPath); return; }
-        foreach (var n in new[] { "Laivan kansi", "Alue: Laivan kansi", "Laivan ovet", "Laivan meri kaukana", "Laivan meri lähellä" })
+        foreach (var n in new[] { "Laivan kansi", "Alue: Laivan kansi", "Laivan ovet", "Laivan meri kaukana", "Laivan meri lähellä", "Laivan turistit" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -3094,6 +3095,33 @@ public static class BeatEmUpSetup
         back.returnToLastDoor = true;
         back.spawnPoint = d.transform.position;
         back.halfWidth = 1.4f; back.maxDistanceFromWall = 0.9f;
+        // bikininainen drinkin kanssa kahdella aurinkotuolilla (silmukka: katsoo, sulkee silmät, siemaisee)
+        string tp = FindTexture("turisti_bikini");
+        if (tp != null)
+        {
+            SetupAndSlice(tp);
+            var fr = LoadSprites("turisti_bikini").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            if (fr.Length >= 10)
+            {
+                int[] seq = { 0, 0, 1, 0, 0, 2, 2, 0, 0, 3, 4, 5, 5, 4, 3, 0, 6, 7, 8, 9, 0, 0 };
+                var loop = seq.Select(i => fr[i]).ToArray();
+                var tRoot = new GameObject("Laivan turistit");
+                tRoot.transform.SetParent(bg.transform.parent, false);
+                Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
+                int ti2 = 0;
+                foreach (var spot in ShipBikiniSpots)
+                {
+                    var go = new GameObject("Bikininainen " + (++ti2));
+                    go.transform.SetParent(tRoot.transform, false);
+                    float sc = 100f / ppu;                                  // ruudun pikseli = kannen pikseli
+                    go.transform.localScale = new Vector3(sc, sc, 1f);
+                    go.transform.position = new Vector3(X(spot.x), Y(spot.y) - 54f / ppu, 0f);   // istumapiste ruudun rivillä 330
+                    var r = go.AddComponent<SpriteRenderer>(); r.sprite = loop[0];
+                    r.sortingOrder = Mathf.RoundToInt(-area.maxDepthY * 100f) + 50;
+                    var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
+                }
+            }
+        }
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Laivan kansi luotu ({wU:0} yksikköä). Sataman varaston ovesta (E) noustaan kannelle; meri rullaa.\nHyttiosaston ovi tulee myöhemmin.\n\nTallenna scene (Ctrl+S).");
     }
