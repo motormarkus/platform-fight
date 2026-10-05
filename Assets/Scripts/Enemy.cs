@@ -128,6 +128,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Kaikkien kimppuun (portsari)")]
     [Tooltip("Hyökkää lähimmän kimppuun: pelaaja tai muut vihut (ei omiaan). Lyödyt vihut lyövät takaisin.")]
     public bool fightsEveryone;
+    [Tooltip("Liittolainen (esim. laivan seilori): taistelee vain muita vihuja vastaan, ei koskaan pelaajaa. Muut vihut hyökkäävät myös liittolaisten kimppuun.")]
+    public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
     public AudioClip[] tauntSounds;
     public float tauntVolume = 1f;
@@ -853,6 +855,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (player == null) { moving = false; return; }
         MaybeTaunt();
         if (UpdateEnemyTarget()) { ChaseEnemy(dt); return; }   // portsari tai kosto: toisen vihun kimppuun
+        if (ally)
+        {
+            // liittolainen ilman vihua: pysyttelee pelaajan lähellä
+            Vector3 pp = player.transform.position, mm = transform.position;
+            Vector2 toP = new Vector2(pp.x - mm.x, pp.y - mm.y);
+            if (Mathf.Abs(toP.x) > 3f || Mathf.Abs(toP.y) > 1f)
+            {
+                moving = true; facingRight = toP.x > 0f;
+                Vector2 dirP = toP.normalized;
+                Move(new Vector2(dirP.x * moveSpeedX, dirP.y * moveSpeedY) * dt);
+            }
+            else { moving = false; facingRight = pp.x > mm.x; }
+            return;
+        }
         Vector3 p = player.transform.position;
         Vector3 me = transform.position;
         // pelaaja on toisella alueella (esim. sisällä klubissa): odotetaan paikallaan
@@ -1074,8 +1090,43 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
     bool UpdateEnemyTarget()
     {
-        if (enemyTarget != null && (!enemyTarget.isActiveAndEnabled || enemyTarget.IsDead || (!fightsEveryone && Time.time > grudgeUntil)))
+        if (enemyTarget != null && (!enemyTarget.isActiveAndEnabled || enemyTarget.IsDead || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
             enemyTarget = null;
+        if (ally)
+        {
+            // liittolainen: lähin vihu (ei pelaaja, ei toinen liittolainen)
+            if (Time.time >= retargetTime || (enemyTarget != null && TargetDown(enemyTarget)))
+            {
+                retargetTime = Time.time + 0.6f;
+                Vector3 me = transform.position; float best = float.MaxValue; Enemy pick = null;
+                foreach (var e in All)
+                {
+                    if (e == this || e.ally || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                    Vector3 q = e.transform.position;
+                    if (Mathf.Abs(q.x - me.x) > 14f) continue;
+                    float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                    if (d < best) { best = d; pick = e; }
+                }
+                enemyTarget = pick;
+            }
+            return enemyTarget != null;
+        }
+        if (!fightsEveryone && Time.time >= retargetTime && (enemyTarget == null || Time.time > grudgeUntil))
+        {
+            // tavallinen vihu: lähellä oleva liittolainen (seilori) kelpaa kohteeksi, jos se on lähempänä kuin pelaaja
+            retargetTime = Time.time + 0.8f;
+            Vector3 me = transform.position;
+            float dp = player != null && !player.IsDown ? Mathf.Abs(player.transform.position.x - me.x) + Mathf.Abs(player.transform.position.y - me.y) * 2f : float.MaxValue;
+            Enemy pick = null; float best = dp - 0.5f;
+            foreach (var e in All)
+            {
+                if (!e.ally || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                Vector3 q = e.transform.position;
+                float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                if (d < best) { best = d; pick = e; }
+            }
+            if (pick != null) { enemyTarget = pick; grudgeUntil = Time.time + 2.5f; }
+        }
         if (fightsEveryone && Time.time >= retargetTime)
         {
             retargetTime = Time.time + 0.6f;
@@ -1141,6 +1192,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (a == null || a == this) return;
         if (fightsEveryone && a.fightsEveryone) return;
+        if (ally && a.ally) return;
         enemyTarget = a;
         grudgeUntil = Time.time + 5f;
         retargetTime = Time.time + 1.5f;
@@ -1171,7 +1223,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool TryHitPlayer(bool comboFollow = false)
     {
         if (enemyTarget != null) return TryHitEnemy(enemyTarget);
-        if (player == null) return false;
+        if (player == null || ally) return false;
         Vector3 p = player.transform.position, me = transform.position;
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;

@@ -67,6 +67,7 @@ public static class BeatEmUpSetup
             CreateUccopulco();      // valtatien lopusta Uccopulcon rantakadulle
             CreateLoippari();       // El Loippari -baarin sisätila
             CreateShipDeck();       // risteilyaluksen kansi (sataman varaston ovesta), rullaava meri
+            AddShipFight();         // laivan tappelu: rosvot (toistaiseksi Lippikset) ja seilorit hyttiovelta
             AddSamoans();           // samoalaiset Uccopulcossa
             AddLoipparTables();     // El Loipparin pöydät: kala-annokset, pullot ja lasit
             AddUccoProps();         // laatikot ja tynnyrit Uccopulcoon ja El Loippariin, Sohvi Loipparin tiskille
@@ -2980,6 +2981,92 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- El Loippari (Uccopulcon baari) ----------------
+    // ---------------- Laivan tappelu: seilorit ja rosvot ----------------
+    const int SailorCount = 4;
+    static readonly Vector2[] ShipPirateSpots = { new Vector2(3150f, 0.3f), new Vector2(3350f, 0.7f), new Vector2(3550f, 0.4f), new Vector2(3700f, 0.8f), new Vector2(3800f, 0.2f) };   // kannen kuvan x, syvyys 0 = kaide … 1 = edessä
+
+    [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot")]
+    static void AddShipFight()
+    {
+        var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
+        var deckBg = GameObject.Find("Laivan kansi");
+        if (deck == null || deckBg == null) { Info("Tee ensin kohta 55 (laivan kansi)."); return; }
+        foreach (var n in new[] { "seilori_idle", "seilori_kavely", "seilori_lyonti", "seilori_potku", "seilori_osuma" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        foreach (var n in new[] { "Laivan seilorit", "Laivan rosvot" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var report = new List<string>();
+        Sprite[] idle = EnemySheet("seilori_idle", report);
+        if (idle.Length == 0) { Info("seilori_idle.png puuttuu."); return; }
+        var bsr = deckBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
+        System.Func<float, float> X = px => left + px / ppu;
+
+        // seilori: liittolainen, taistelee vain rosvoja vastaan
+        var go = new GameObject("Seilori");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Seilori";
+        t.ally = true;
+        t.idleSprites = idle; t.idleFrameTime = 0.16f;
+        t.walkSprites = EnemySheet("seilori_kavely", report); t.walkFrameTime = 0.07f;   // 21 kuvaa videosta
+        t.punchSprites = EnemySheet("seilori_lyonti", report); t.punchImpactFrame = 3;  // suora ojennettuna
+        t.windupTime = 0.2f; t.punchRecoverTime = 0.4f; t.punchDamage = 10;
+        t.altAttackSprites = EnemySheet("seilori_potku", report); t.altImpactFrame = 5;  // potku ojennettuna
+        t.altDamage = 14; t.altKnockdown = true; t.altChance = 0.3f; t.altReach = 2.4f;
+        t.hurtSprites = EnemySheet("seilori_osuma", report);   // väistö / horjahdus
+        t.attackRange = 1.9f; t.moveSpeedX = 3f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 1.5f;
+        t.maxHealth = 80; t.attackCooldown = 0.9f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 0.8f;
+        t.wakeDistance = 100f; t.blockChance = 0.1f; t.retreatChance = 0f;
+        var hyttiovi = new Vector2(X(ShipDoorXPx) - 1f, deck.maxDepthY - 0.3f);
+        var root = new GameObject("Laivan seilorit");
+        Undo.RegisterCreatedObjectUndo(root, "Laivan seilorit");
+        var squad = root.AddComponent<BouncerSquad>();
+        squad.area = deck; squad.bothSides = false; squad.firstDelay = 1.0f; squad.spawnInterval = 0.7f;
+        squad.bouncers = new Enemy[SailorCount];
+        go.transform.SetParent(root.transform, false);
+        for (int i = 0; i < SailorCount; i++)
+        {
+            var c = i == 0 ? go : Object.Instantiate(go, root.transform);
+            if (i > 0) c.name = "Seilori_" + (i + 1);
+            float y = Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.15f + 0.2f * i);
+            c.transform.position = new Vector3(hyttiovi.x - 0.3f * i, y, 0f);
+            squad.bouncers[i] = c.GetComponent<Enemy>();
+            c.SetActive(false);            // tulevat hyttiovelta juosten, kun tappelu alkaa
+        }
+        report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
+
+        // rosvot: toistaiseksi Lippikset (vaihdetaan rosvon kuviin, kun ne valmistuvat)
+        var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Lippis");
+        if (lippisT != null)
+        {
+            var pr = new GameObject("Laivan rosvot");
+            Undo.RegisterCreatedObjectUndo(pr, "Laivan rosvot");
+            int n2 = 0;
+            foreach (var v in ShipPirateSpots)
+            {
+                var r = Object.Instantiate(lippisT.gameObject, pr.transform);
+                r.name = "Rosvo " + (++n2);
+                r.SetActive(true);
+                r.transform.position = new Vector3(X(v.x), Mathf.Lerp(deck.maxDepthY, deck.minDepthY, v.y), 0f);
+                var re = r.GetComponent<Enemy>(); re.displayName = "Rosvo"; re.wakeDistance = 7f;
+            }
+            report.Add($"Rosvot: {n2} (väliaikaisesti Lippis-hahmoina)");
+        }
+        else report.Add("Rosvot: Lippis-malli puuttuu");
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Laivan tappelu:\n" + string.Join("\n", report) + "\n\nSeilorit lyövät vain rosvoja, eivät heroa.\n\nTallenna scene (Ctrl+S).");
+    }
+
     // ---------------- Risteilyaluksen kansi ----------------
     const string ShipDeckPath = "Assets/Sprites/Taustat/laiva_kansi.png";          // 3 kuvaa koottuna, 4256 × 887, keula vasemmalla
     const string ShipSeaFarPath = "Assets/Sprites/Taustat/laiva_meri_kauko.png";   // taivas, horisontti (rivi 291), kaukaiset saaret
