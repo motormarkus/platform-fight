@@ -2991,7 +2991,8 @@ public static class BeatEmUpSetup
     const float ShipDoorXPx = 4070f;                 // hyttiosaston ovi viistossa seinässä
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
     const float UccoWarehouseDoorPx = 3860f;
-    static readonly Vector2[] ShipBikiniSpots = { new Vector2(2938f, 482f), new Vector2(3246f, 482f) };   // aurinkotuolien istuinkohta kannen kuvassa         // sataman varaston ovi satamakuvassa
+    static readonly Vector2[] ShipBikiniSpots = { new Vector2(2938f, 482f), new Vector2(3246f, 482f) };   // aurinkotuolien istuinkohta kannen kuvassa
+    static readonly Vector2[] ShipBikini2Spots = { new Vector2(1830f, 487f) };   // kannen ensimmäinen kansituoli         // sataman varaston ovi satamakuvassa
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
     static void CreateShipDeck()
@@ -3096,20 +3097,21 @@ public static class BeatEmUpSetup
         back.spawnPoint = d.transform.position;
         back.halfWidth = 1.4f; back.maxDistanceFromWall = 0.9f;
         // bikininainen drinkin kanssa kahdella aurinkotuolilla (silmukka: katsoo, sulkee silmät, siemaisee)
-        string tp = FindTexture("turisti_bikini");
+        var tRoot = new GameObject("Laivan turistit");
+        Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
+        int ti2 = 0;
+        foreach (var (tex, spots) in new[] { ("turisti_bikini", ShipBikiniSpots), ("turisti_bikini2", ShipBikini2Spots) })
+        {
+        string tp = FindTexture(tex);
         if (tp != null)
         {
             SetupAndSlice(tp);
-            var fr = LoadSprites("turisti_bikini").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            var fr = LoadSprites(tex).OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
             if (fr.Length >= 10)
             {
                 int[] seq = { 0, 0, 1, 0, 0, 2, 2, 0, 0, 3, 4, 5, 5, 4, 3, 0, 6, 7, 8, 9, 0, 0 };
                 var loop = seq.Select(i => fr[i]).ToArray();
-                var tRoot = new GameObject("Laivan turistit");
-                tRoot.transform.SetParent(bg.transform.parent, false);
-                Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
-                int ti2 = 0;
-                foreach (var spot in ShipBikiniSpots)
+                foreach (var spot in spots)
                 {
                     var go = new GameObject("Bikininainen " + (++ti2));
                     go.transform.SetParent(tRoot.transform, false);
@@ -3121,6 +3123,7 @@ public static class BeatEmUpSetup
                     var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
                 }
             }
+        }
         }
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Laivan kansi luotu ({wU:0} yksikköä). Sataman varaston ovesta (E) noustaan kannelle; meri rullaa.\nHyttiosaston ovi tulee myöhemmin.\n\nTallenna scene (Ctrl+S).");
