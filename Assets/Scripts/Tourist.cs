@@ -45,7 +45,7 @@ public class Tourist : MonoBehaviour
     public Frame[] danceSpin, danceHug, danceKiss;
     public AudioClip danceMusic;
     [Tooltip("Tanssin kesto (s): sen jälkeen musiikki häivytetään ja tanssi loppuu.")]
-    public float danceDuration = 150f;
+    public float danceDuration = 148f;   // kappale 2:33: häivytys loppuu ennen kappaleen loppua
     public float musicFadeOut = 4f;
     [Tooltip("Pariskunnan jalkojen keskikohta tanssiruudussa (peilikuvan kohdistus).")]
     public float danceCenterPx = 206.5f;

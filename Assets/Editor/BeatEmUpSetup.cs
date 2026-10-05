@@ -3199,6 +3199,7 @@ public static class BeatEmUpSetup
                             }
                             tu.danceMusic = AssetDatabase.FindAssets("t:AudioClip tanssi", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
                                 .Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(clip => clip != null);
+                            tu.danceDuration = tu.danceMusic != null ? Mathf.Max(20f, tu.danceMusic.length - tu.musicFadeOut - 1f) : 148f;   // tanssi kestää kappaleen verran
                         }
                         continue;
                     }
