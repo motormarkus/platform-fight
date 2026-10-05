@@ -2991,7 +2991,7 @@ public static class BeatEmUpSetup
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
         var deckBg = GameObject.Find("Laivan kansi");
         if (deck == null || deckBg == null) { Info("Tee ensin kohta 55 (laivan kansi)."); return; }
-        foreach (var n in new[] { "seilori_idle", "seilori_kavely", "seilori_lyonti", "seilori_potku", "seilori_osuma", "seilori_kaatuminen", "seilori_juoksu", "seilori_koukku", "seilori_heitto" })
+        foreach (var n in new[] { "seilori_idle", "seilori_kavely", "seilori_lyonti", "seilori_potku", "seilori_osuma", "seilori_kaatuminen", "seilori_juoksu", "seilori_koukku", "seilori_heitto", "seilori_ylosnousu" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3027,6 +3027,7 @@ public static class BeatEmUpSetup
         t.flipThrownSprites = EnemySheet("seilori_heitto", report);       // heitettynä: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu
         t.flipFlightFrames = 1; t.flipFlightFrameTime = 0.12f; t.flipLandFrameTime = 0.11f;
         t.knockdownSprites = EnemySheet("seilori_kaatuminen", report);   // 9 kuvaa: horjuu taakse, kaatuu selälleen, makuu
+        t.getUpSprites = EnemySheet("seilori_ylosnousu", report); t.getUpTime = 1.0f;   // kip-up: jalat ylös, ponnistus, kyykky, asento
         t.runSprites = EnemySheet("seilori_juoksu", report); t.runFrameTime = 0.066f;   // juoksu videosta (hyttiovelta tullessa)
         t.punch2Sprites = EnemySheet("seilori_koukku", report);           // yläkoukku: kyykky, isku ylös (kuva 6)
         t.punch2ImpactFrame = 5; t.punch2Damage = 18; t.punch2Knockdown = true; t.punch2Chance = 0.2f;
