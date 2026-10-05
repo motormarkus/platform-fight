@@ -2916,7 +2916,7 @@ public static class BeatEmUpSetup
                 float seaH = sea.rect.height / (ppu / seaScale);
                 float horizonY = top - UccoHarborHorizonPx / ppu;
                 float seaTop = horizonY + UccoSeaHorizonPx * seaScale / ppu;
-                var pl = sGo.AddComponent<ParallaxLayer>();
+                var pl = sGo.AddComponent<AnchoredParallax>();
                 pl.speed = 0.15f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x, seaTop - seaH * 0.5f);
                 sGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
                 Undo.RegisterCreatedObjectUndo(sGo, "Meri");
@@ -2929,7 +2929,7 @@ public static class BeatEmUpSetup
                 var lSr = lGo.AddComponent<SpriteRenderer>(); lSr.sprite = ship; lSr.sortingOrder = -10050;
                 float shipH = ship.rect.height / ppu;
                 float shipTop = top - UccoShipQuayAtPx / ppu + UccoShipQuayBottomPx / ppu;
-                var pl = lGo.AddComponent<ParallaxLayer>();
+                var pl = lGo.AddComponent<AnchoredParallax>();
                 pl.speed = 0.4f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x + 4f, shipTop - shipH * 0.5f);
                 lGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
                 Undo.RegisterCreatedObjectUndo(lGo, "Laiva");
