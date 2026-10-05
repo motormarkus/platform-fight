@@ -37,6 +37,7 @@ public static class Loc
     static readonly Dictionary<string, string> En = new Dictionary<string, string>
     {
         { "Suutele Auroraa", "Kiss Aurora" },
+        { "Lopeta tanssi", "Stop dancing" },
         // --- HUD ---
         { "PELAAJA", "PLAYER" },
         { "Enter = uusi peli", "Press Enter to play again" },

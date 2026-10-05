@@ -107,7 +107,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -2778,7 +2778,7 @@ public static class BeatEmUpSetup
             eb.yankSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/pratka_jarru_kolari.wav");
             eb.body = b; eb.shadow = sh; eb.sprites = vs2;
             eb.engineLoop = AssetDatabase.FindAssets("t:AudioClip sportbike", new[] { "Assets/Audio" })
-                .Select(AssetDatabase.GUIDToAssetPath).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(c => c != null);
+                .Select(AssetDatabase.GUIDToAssetPath).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(clip => clip != null);
             Debug.Log("Vihuprätkän moottoriääni: " + (eb.engineLoop != null ? eb.engineLoop.name : "ei löytynyt (Assets/Audio/.../sportbike*)"));
             string vl = FindTexture("vihu_lento");
             if (vl != null) { SetupAndSlice(vl); eb.flySprites = LoadSprites("vihu_lento").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
@@ -2992,7 +2992,8 @@ public static class BeatEmUpSetup
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
     const float UccoWarehouseDoorPx = 3860f;
     static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 492f, 0f), new Vector3(3246f, 492f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
-    const float ShipAuroraBarPx = 2290f;   // Aurora kävelee baarin vasempaan päähän
+    const float ShipAuroraBarPx = 2290f;
+    const int DanceMirrorFrom = 48;          // tanssivideon kuva 180° kohdalla: sen peilikuva = alkuasento
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
@@ -3124,6 +3125,8 @@ public static class BeatEmUpSetup
         }
         var kissA = KissSheet("turisti_kiss_a");
         var kissB = KissSheet("turisti_kiss_b");
+        var danceA = KissSheet("turisti_tanssi_a");   // tanssi suudellen (0°→270°)
+        var danceB = KissSheet("turisti_tanssi_b");   // tanssi halaten
         var tRoot = new GameObject("Laivan turistit");
         Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
         int ti2 = 0;
@@ -3159,23 +3162,43 @@ public static class BeatEmUpSetup
                         tu.standUp = aurora[0]; tu.idle = aurora[1]; tu.walk = aurora[2];
                         tu.standOffsetY = 16f * sc / 100f;      // varpaat 16 kuvan pikseliä istumaruudun alareunan alla
                         tu.walkToX = X(ShipAuroraBarPx);
-                        // suudelma: E Auroran vieressä (lähestyminen, halaus, suudelma, kaksi videota yhdistettynä)
+                        // suudelma ja tanssi: E Auroran vieressä
                         if (kissA != null && kissB != null && kissA.Length >= 31 && kissB.Length >= 52)
                         {
-                            var fr2 = new List<Sprite>(); var tm = new List<float>();
-                            void Add(Sprite sp, float d) { fr2.Add(sp); tm.Add(d); }
-                            Add(kissA[0], 0.4f); Add(kissA[1], 0.35f); Add(kissA[2], 0.35f);          // vastakkain, askel, kädet auki
-                            for (int q = 3; q <= 5; q++) Add(kissA[q], 0.25f);                         // halaus, poskelle, suudelma
-                            for (int q = 6; q <= 8; q++) Add(kissA[q], 0.15f);                         // varpaille, jalka nousee
-                            // molemmat videot alkavat samasta asennosta: video 1 edestakaisin, video 2 edestakaisin (pidempi suudelma)
-                            for (int q = 0; q < 52; q++) Add(kissB[q], 0.12f);                         // video 1
-                            for (int q = 50; q >= 0; q--) Add(kissB[q], 0.12f);                        // video 1 takaperin
-                            for (int q = 13; q <= 30; q++) Add(kissA[q], 0.12f);                       // video 2
-                            for (int q = 29; q >= 12; q--) Add(kissA[q], 0.12f);                       // video 2 takaperin (alkuasentoon)
-                            Add(kissA[10], 0.15f); Add(kissA[11], 0.25f);                              // jalka alas
-                            for (int q = 5; q >= 3; q--) Add(kissA[q], 0.25f);
-                            Add(kissA[2], 0.45f);                                                      // kädet auki, irti
-                            tu.kissFrames = fr2.ToArray(); tu.kissTimes = tm.ToArray();
+                            Tourist.Frame F(Sprite sp, float dur, bool dance = false, bool flip = false) => new Tourist.Frame { sprite = sp, time = dur, dance = dance, flip = flip };
+                            var intro = new List<Tourist.Frame> { F(kissA[0], 0.4f), F(kissA[1], 0.35f), F(kissA[2], 0.35f) };   // vastakkain, askel, kädet auki
+                            for (int q = 3; q <= 5; q++) intro.Add(F(kissA[q], 0.25f));                                         // halaus, poskelle, suudelma
+                            intro.Add(F(kissA[11], 0.3f));
+                            var outro = new List<Tourist.Frame> { F(kissA[11], 0.25f) };
+                            for (int q = 5; q >= 3; q--) outro.Add(F(kissA[q], 0.25f));
+                            outro.Add(F(kissA[2], 0.45f));                                                                       // kädet auki, irti
+                            // suudelmajakso: varpaille, jalka ylös, video 1 ja 2 edestakaisin, jalka alas
+                            var kiss = new List<Tourist.Frame>();
+                            for (int q = 6; q <= 8; q++) kiss.Add(F(kissA[q], 0.15f));
+                            for (int q = 0; q < 52; q++) kiss.Add(F(kissB[q], 0.12f));
+                            for (int q = 50; q >= 0; q--) kiss.Add(F(kissB[q], 0.12f));
+                            for (int q = 13; q <= 30; q++) kiss.Add(F(kissA[q], 0.12f));
+                            for (int q = 29; q >= 12; q--) kiss.Add(F(kissA[q], 0.12f));
+                            kiss.Add(F(kissA[10], 0.15f)); kiss.Add(F(kissA[11], 0.2f));
+                            tu.kissIntro = intro.ToArray(); tu.kissOutro = outro.ToArray(); tu.danceKiss = kiss.ToArray();
+                            if (danceA != null && danceA.Length >= 80)
+                            {
+                                // täysi kierros: video 0°→270°, sitten peilikuvat 270°→360° (peilikuva näyttää parin 180° käännettynä)
+                                var spin = new List<Tourist.Frame>();
+                                for (int q = 0; q < 80; q++) spin.Add(F(danceA[q], 0.1f, true));
+                                for (int q = 79; q >= DanceMirrorFrom; q--) spin.Add(F(danceA[q], 0.1f, true, true));
+                                tu.danceSpin = spin.ToArray();
+                            }
+                            if (danceB != null && danceB.Length >= 81)
+                            {
+                                // halaten keinuen: suudelma irtoaa, kierähdys ja takaisin
+                                var hug = new List<Tourist.Frame>();
+                                for (int q = 0; q < 81; q++) hug.Add(F(danceB[q], 0.1f, true));
+                                for (int q = 79; q >= 0; q--) hug.Add(F(danceB[q], 0.1f, true));
+                                tu.danceHug = hug.ToArray();
+                            }
+                            tu.danceMusic = AssetDatabase.FindAssets("t:AudioClip tanssi", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+                                .Select(AssetDatabase.LoadAssetAtPath<AudioClip>).FirstOrDefault(clip => clip != null);
                         }
                         continue;
                     }

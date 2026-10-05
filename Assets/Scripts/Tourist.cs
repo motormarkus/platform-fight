@@ -26,15 +26,34 @@ public class Tourist : MonoBehaviour
     public float walkSpeed = 1.4f;
     public float idleBeforeWalk = 1.2f;
 
-    [Header("Suudelma (E seisovan turistin vieressä)")]
-    [Tooltip("Pariskunnan kuvat (hero + turisti) toistojärjestyksessä ja kunkin kuvan kesto.")]
-    public Sprite[] kissFrames;
-    public float[] kissTimes;
+    [System.Serializable]
+    public struct Frame
+    {
+        public Sprite sprite;
+        public float time;
+        [Tooltip("true = tanssiruutu (384 leveä), false = suudelmaruutu (512 leveä)")]
+        public bool dance;
+        [Tooltip("Peilikuva (tanssin täysi kierros peilaamalla).")]
+        public bool flip;
+    }
+    [Header("Suudelma ja tanssi (E seisovan turistin vieressä)")]
+    [Tooltip("Lähestyminen, halaus ja suudelma ennen tanssia.")]
+    public Frame[] kissIntro;
+    [Tooltip("Irrottautuminen tanssin jälkeen.")]
+    public Frame[] kissOutro;
+    [Tooltip("Tanssin jaksot: kukin alkaa ja loppuu samaan suudelma-asentoon, joten niitä voi ketjuttaa satunnaisesti.")]
+    public Frame[] danceSpin, danceHug, danceKiss;
+    public AudioClip danceMusic;
+    [Tooltip("Pariskunnan jalkojen keskikohta tanssiruudussa (peilikuvan kohdistus).")]
+    public float danceCenterPx = 206.5f;
+    public float danceCellW = 384f;
     [Tooltip("Kuvapisteet (2x tarkkuus, pivot alakeskellä): turistin jalat seisovassa idlessä, pariskuvassa, heron aloitus- ja lopetuskohta.")]
     public Vector2 idleFeetPx = new Vector2(317f, 767f), kissFeetPx = new Vector2(336f, 495f);
     public float kissHeroStartPx = 113f, kissHeroEndPx = 104f;
     public float idleCellH = 768f, kissCellH = 512f;
     public string kissPrompt = "Suutele Auroraa";
+    public string stopPrompt = "Lopeta tanssi";
+    bool stopRequested, dancing;
     bool near, kissing;
     GUIStyle style;
 
@@ -95,7 +114,7 @@ public class Tourist : MonoBehaviour
                 if (kissing) break;
                 if (idle != null && idle.Length > 0) sr.sprite = Loop(idle, t, idleFrameTime);
                 near = false;
-                if (pc != null && kissFrames != null && kissFrames.Length > 0 && pc.enabled && pc.IsFree && !pc.Riding)
+                if (pc != null && kissIntro != null && kissIntro.Length > 0 && pc.enabled && pc.IsFree && !pc.Riding)
                 {
                     Vector3 q = pc.transform.position, me = transform.position;
                     near = Mathf.Abs(q.x - me.x) < 3.2f && Mathf.Abs(q.y - me.y) < 0.8f;
@@ -116,19 +135,17 @@ public class Tourist : MonoBehaviour
 #endif
     }
 
-    /// Hero kävelee viereen, sitten pariskunnan kuvat (halaus ja suudelma) turistin paikalla; lopuksi kumpikin omiin kuviinsa.
+    /// Hero kävelee viereen, halaus ja suudelma, sitten tanssi musiikin tahdissa, kunnes pelaaja lopettaa (E tai liike).
     IEnumerator Kiss()
     {
-        kissing = true; near = false;
+        kissing = true; near = false; stopRequested = false;
         float k = transform.localScale.x / 100f;           // kuvapikseli maailmassa (sprite 100 px/yks)
         Vector3 me = transform.position;
         sr.flipX = true;                                   // katsoo vasemmalle, hero tulee vasemmalta
-        // pariskuvan paikka: turistin jalat samaan kohtaan kuin seisovassa (peilatussa) idlessä
         float feetX = me.x - (idleFeetPx.x - 256f) * k, feetY = me.y + (idleCellH - idleFeetPx.y) * k;
         Vector3 cpos = new Vector3(feetX - (kissFeetPx.x - 256f) * k, feetY - (kissCellH - kissFeetPx.y) * k, me.z);
         Vector3 heroStart = new Vector3(cpos.x + (kissHeroStartPx - 256f) * k, me.y, 0f);
         Vector3 heroEnd = new Vector3(cpos.x + (kissHeroEndPx - 256f) * k, me.y, 0f);
-        // hero kävelee paikalle
         pc.Scripted = true;
         for (float tt = 0f; tt < 4f; tt += Time.deltaTime)
         {
@@ -142,12 +159,49 @@ public class Tourist : MonoBehaviour
         pc.enabled = false;
         if (pc.body != null) pc.body.enabled = false;
         if (pc.shadow != null) pc.shadow.enabled = false;
-        transform.position = cpos; sr.flipX = false;
-        for (int i = 0; i < kissFrames.Length; i++)
+
+        // kuva oikeaan kohtaan: suudelmaruudut 512 leveitä, tanssiruudut 384 (rajattu samasta), peilikuva keskikohdan ympäri
+        void Show(Frame f)
         {
-            sr.sprite = kissFrames[i];
-            yield return new WaitForSeconds(kissTimes != null && i < kissTimes.Length ? kissTimes[i] : 0.12f);
+            Vector3 p = cpos;
+            if (f.dance)
+            {
+                p.x += (danceCellW * 0.5f - 256f) * k;
+                if (f.flip) p.x += 2f * (danceCenterPx - danceCellW * 0.5f) * k;
+            }
+            transform.position = p;
+            sr.flipX = f.flip;
+            sr.sprite = f.sprite;
         }
+        foreach (var f in kissIntro) { Show(f); yield return new WaitForSeconds(f.time); }
+
+        // tanssi: jaksot satunnaisessa järjestyksessä, musiikki soi
+        AudioClip areaMusic = Area.Current != null ? Area.Current.music : null;
+        if (danceMusic != null) MusicPlayer.SetAreaMusic(danceMusic);
+        dancing = true;
+        var cycles = new System.Collections.Generic.List<Frame[]>();
+        if (danceSpin != null && danceSpin.Length > 0) { cycles.Add(danceSpin); cycles.Add(danceSpin); }
+        if (danceHug != null && danceHug.Length > 0) { cycles.Add(danceHug); cycles.Add(danceHug); }
+        if (danceKiss != null && danceKiss.Length > 0) cycles.Add(danceKiss);
+        Frame[] last = null;
+        while (!stopRequested && cycles.Count > 0)
+        {
+            var c = cycles[Random.Range(0, cycles.Count)];
+            if (c == last && cycles.Count > 1) c = cycles[Random.Range(0, cycles.Count)];
+            last = c;
+            int i = 0;
+            for (; i < c.Length && !stopRequested; i++)
+            {
+                Show(c[i]);
+                for (float tt = 0f; tt < c[i].time && !stopRequested; tt += Time.deltaTime) yield return null;
+            }
+            if (stopRequested)
+                for (i = Mathf.Min(i, c.Length - 1); i >= 0; i--) { Show(c[i]); yield return new WaitForSeconds(0.03f); }   // nopeasti takaisin suudelma-asentoon
+        }
+        dancing = false;
+        if (danceMusic != null) MusicPlayer.SetAreaMusic(areaMusic);
+        foreach (var f in kissOutro) { Show(f); yield return new WaitForSeconds(f.time); }
+
         transform.position = me; sr.flipX = true; t = 0f;
         if (idle != null && idle.Length > 0) sr.sprite = idle[0];
         pc.TeleportTo(heroEnd);
@@ -159,15 +213,22 @@ public class Tourist : MonoBehaviour
         kissing = false;
     }
 
+    void LateUpdate()
+    {
+        // tanssin lopetus: E tai mikä tahansa liike
+        if (dancing && !stopRequested && (UsePressed() || PlayerController.ReadMoveInput().sqrMagnitude > 0.25f)) stopRequested = true;
+    }
+
     void OnGUI()
     {
-        if (!near || kissing) return;
+        bool show = (near && !kissing) || (dancing && !stopRequested);
+        if (!show) return;
         if (style == null)
         {
             style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter };
             style.normal.textColor = Color.white;
         }
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;
-        GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), "[E]  " + Loc.T(kissPrompt), style);
+        GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), "[E]  " + Loc.T(dancing ? stopPrompt : kissPrompt), style);
     }
 }
