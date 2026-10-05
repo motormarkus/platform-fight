@@ -3106,6 +3106,10 @@ public static class BeatEmUpSetup
         if (tp != null)
         {
             SetupAndSlice(tp);
+            // pienennetään pelissä: mipmapit ja trilineaarinen suodatus (siisti pienennys kuten kuvankatselimessa)
+            var tti = (TextureImporter)AssetImporter.GetAtPath(tp);
+            tti.mipmapEnabled = true; tti.filterMode = FilterMode.Trilinear; tti.mipMapsPreserveCoverage = true; tti.alphaIsTransparency = true;
+            tti.SaveAndReimport();
             var fr = LoadSprites(tex).OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
             if (fr.Length >= 10)
             {
