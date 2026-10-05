@@ -3051,8 +3051,8 @@ public static class BeatEmUpSetup
         }
         report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
 
-        // rosvot: toistaiseksi Lippikset (vaihdetaan rosvon kuviin, kun ne valmistuvat)
-        var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Lippis");
+        // rosvot: toistaiseksi Kovikset (osaavat heittää), vaihdetaan rosvon kuviin, kun ne valmistuvat
+        var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Kovis");
         if (lippisT != null)
         {
             var pr = new GameObject("Laivan rosvot");
@@ -3066,9 +3066,9 @@ public static class BeatEmUpSetup
                 r.transform.position = new Vector3(X(v.x), Mathf.Lerp(deck.maxDepthY, deck.minDepthY, v.y), 0f);
                 var re = r.GetComponent<Enemy>(); re.displayName = "Rosvo"; re.wakeDistance = 7f;
             }
-            report.Add($"Rosvot: {n2} (väliaikaisesti Lippis-hahmoina)");
+            report.Add($"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
-        else report.Add("Rosvot: Lippis-malli puuttuu");
+        else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Laivan tappelu:\n" + string.Join("\n", report) + "\n\nSeilorit lyövät vain rosvoja, eivät heroa.\n\nTallenna scene (Ctrl+S).");
     }
