@@ -15,10 +15,23 @@ public class ScrollingLayer : MonoBehaviour
     [Tooltip("Laivan keinunta: meri liikkuu rauhallisesti ylös ja alas kanteen nähden (yksikköä, sekuntia).")]
     public float bobAmplitude = 0f;
     public float bobPeriod = 7f;
-    SpriteRenderer sr;
+    [Tooltip("Yökuva (kuunvalo), häivytetään päälle ShipNight.Mix mukaan.")]
+    public Sprite nightSprite;
+    SpriteRenderer sr, nightR;
     float t, baseY;
 
-    void Awake() { sr = GetComponent<SpriteRenderer>(); baseY = transform.position.y; }
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>(); baseY = transform.position.y;
+        if (nightSprite != null)
+        {
+            nightR = new GameObject("Yö").AddComponent<SpriteRenderer>();
+            nightR.transform.SetParent(transform, false);
+            nightR.sprite = nightSprite; nightR.drawMode = sr.drawMode; nightR.size = sr.size;
+            nightR.sortingOrder = sr.sortingOrder + 1;
+            nightR.color = new Color(1f, 1f, 1f, 0f);
+        }
+    }
 
     void LateUpdate()
     {
@@ -26,6 +39,7 @@ public class ScrollingLayer : MonoBehaviour
         if (cam == null || sr.sprite == null) return;
         bool show = area == null || Area.Current == area;
         sr.enabled = show;
+        if (nightR != null) { nightR.enabled = show && ShipNight.Mix > 0.001f; nightR.color = new Color(1f, 1f, 1f, ShipNight.Mix); }
         if (!show) return;
         t += Time.deltaTime * autoSpeed;
         float tileW = sr.sprite.bounds.size.x;

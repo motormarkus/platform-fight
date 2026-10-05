@@ -3058,7 +3058,7 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
 
         // rullaava meri: laiva kulkee vasemmalle, meri virtaa oikealle. Kaukainen hitaasti, lähellä nopeasti.
-        GameObject Layer(string name, string path, float scaleRows, float topRow, int order, float speed, float parallax)
+        GameObject Layer(string name, string path, float scaleRows, float topRow, int order, float speed, float parallax, string nightPath = null)
         {
             // skaala: yksi kuvan pikseli = scaleRows kannen pikseliä
             float p = ppu / scaleRows;
@@ -3072,12 +3072,15 @@ public static class BeatEmUpSetup
             go.transform.position = new Vector3(ShipX0 + wU * 0.5f, Y(topRow) - h * 0.5f, 0f);
             var sl = go.AddComponent<ScrollingLayer>(); sl.autoSpeed = speed; sl.parallax = parallax; sl.area = area;
             sl.bobAmplitude = order < -10095 ? 0.22f : 0.3f; sl.bobPeriod = 7f;   // laiva keinuu: meri liikkuu hitaasti ylös ja alas
+            if (nightPath != null && File.Exists(nightPath)) sl.nightSprite = Import(nightPath, p, true);   // kuunvalo
             Undo.RegisterCreatedObjectUndo(go, name);
             return go;
         }
         float farScale = 1.25f;                                  // horisontti (kuvan rivi 291) kannen riville ShipHorizonPx
-        Layer("Laivan meri kaukana", ShipSeaFarPath, farScale, ShipHorizonPx - 291f * farScale, -10100, 0.35f, 0.04f);
-        Layer("Laivan meri lähellä", ShipSeaNearPath, 0.55f, ShipHorizonPx + 45f, -10090, 4f, 0.5f);
+        Layer("Laivan meri kaukana", ShipSeaFarPath, farScale, ShipHorizonPx - 291f * farScale, -10100, 0.35f, 0.04f, "Assets/Sprites/Taustat/laiva_meri_kauko_yo.png");
+        Layer("Laivan meri lähellä", ShipSeaNearPath, 0.55f, ShipHorizonPx + 45f, -10090, 4f, 0.5f, "Assets/Sprites/Taustat/laiva_meri_lahi_yo.png");
+        // yö (tanssin ajaksi): kansi ja turistit sävytetään, meri vaihtuu kuunvaloon
+        var night = bg.AddComponent<ShipNight>();
 
         // ovet: sataman varastosta kannelle ja kannelta takaisin
         var doors = new GameObject("Laivan ovet");
@@ -3209,6 +3212,7 @@ public static class BeatEmUpSetup
             }
         }
         }
+        night.tinted = new[] { sr }.Concat(tRoot.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Laivan kansi luotu ({wU:0} yksikköä). Sataman varaston ovesta (E) noustaan kannelle; meri rullaa.\nHyttiosaston ovi tulee myöhemmin.\n\nTallenna scene (Ctrl+S).");
     }

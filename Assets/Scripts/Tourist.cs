@@ -207,6 +207,7 @@ public class Tourist : MonoBehaviour
         if (danceMusic != null) MusicPlayer.PlayOverride(danceMusic, 1.5f);
         dancing = true;
         StartCoroutine(Hearts());
+        ShipNight.SetNight(true, 10f);          // kuunvalo ja tähdet tanssin ajaksi
         float danceStart = Time.time;
         var cycles = new System.Collections.Generic.List<Frame[]>();
         if (danceSpin != null && danceSpin.Length > 0) cycles.Add(danceSpin);
@@ -231,6 +232,7 @@ public class Tourist : MonoBehaviour
         }
         dancing = false;
         if (danceMusic != null) MusicPlayer.StopOverride(musicFadeOut);
+        ShipNight.SetNight(false, 6f);
         foreach (var f in kissOutro) { Show(f); yield return new WaitForSeconds(f.time); }
 
         transform.position = me; sr.flipX = true; t = 0f;
