@@ -680,11 +680,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
             new Vector3(1.4f, 3.2f, 95f),
             throwForward ? new Vector3(1.6f, 2.4f, 60f) : new Vector3(-0.3f, 3.1f, 130f),
         };
+        bool art = grabbedEnemy.HasFlipArt;   // omat kuvat: ei kiertoa, kuvat hoitavat asennon
+        if (art)
+        {
+            keys[1] = new Vector3(0.9f, 0.3f, 0f); keys[2] = new Vector3(0.3f, 2.2f, 0f); keys[3] = new Vector3(0f, 2.4f, 0f);
+            keys[4] = throwForward ? new Vector3(1.3f, 2.0f, 0f) : new Vector3(-0.6f, 2.5f, 0f);
+        }
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
         Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
         float dir = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
-        grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z);
+        int pose = k < 1f ? 1 : 2;            // 1 = napattu, 2 = kierähdys
+        grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, art ? 0f : dir * v.z, pose);
     }
 
     bool CanGrabPlayer()
@@ -1203,7 +1210,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             moving = false; thrown = false;
             grabbedEnemy = enemyTarget;
-            grabbedEnemy.BeginHeldByPlayer(me.x);
+            grabbedEnemy.BeginHeldByPlayer(me.x, grabbedEnemy.HasFlipArt);   // omat lentokuvat, jos on
             Enter(State.GrabLift);
             return;
         }
