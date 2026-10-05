@@ -110,7 +110,7 @@ public static class BeatEmUpSetup
         int CellW = baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("tuoli_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -2992,6 +2992,7 @@ public static class BeatEmUpSetup
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
     const float UccoWarehouseDoorPx = 3860f;
     static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 492f, 0f), new Vector3(3246f, 492f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
+    const float ShipAuroraBarPx = 2290f;   // Aurora kävelee baarin vasempaan päähän
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
@@ -3097,6 +3098,20 @@ public static class BeatEmUpSetup
         back.spawnPoint = d.transform.position;
         back.halfWidth = 1.4f; back.maxDistanceFromWall = 0.9f;
         // bikininainen drinkin kanssa kahdella aurinkotuolilla (silmukka: katsoo, sulkee silmät, siemaisee)
+        // Auroran nousu, seisova idle ja kävely (ruudut 512 × 768)
+        Sprite[][] aurora = null;
+        {
+            var sets = new[] { "turisti_aurora_nousu", "turisti_aurora_idle", "turisti_aurora_kavely" }.Select(n =>
+            {
+                string p = FindTexture(n);
+                if (p == null) return null;
+                SetupAndSlice(p);
+                var t2 = (TextureImporter)AssetImporter.GetAtPath(p);
+                t2.mipmapEnabled = true; t2.filterMode = FilterMode.Trilinear; t2.mipMapsPreserveCoverage = true; t2.SaveAndReimport();
+                return LoadSprites(n).OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            }).ToArray();
+            if (sets.All(x => x != null && x.Length > 0)) aurora = sets;
+        }
         var tRoot = new GameObject("Laivan turistit");
         Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
         int ti2 = 0;
@@ -3124,6 +3139,16 @@ public static class BeatEmUpSetup
                     go.transform.position = new Vector3(X(spot.x), Y(spot.y) - 36f / ppu, 0f);   // istumapiste ruudun rivillä 440 (512 korkeassa ruudussa)
                     var r = go.AddComponent<SpriteRenderer>(); r.sprite = loop[0];
                     r.sortingOrder = Mathf.RoundToInt(-area.maxDepthY * 100f) + 50;
+                    if (tex == "turisti_bikini2" && spot.x < 2000f && aurora != null)
+                    {
+                        // Aurora: nousee tuolilta, kun pelaaja tulee lähelle, ja kävelee baarille
+                        var tu = go.AddComponent<Tourist>();
+                        tu.sitLoop = loop; tu.sitStartFrame = ti2 * 7;
+                        tu.standUp = aurora[0]; tu.idle = aurora[1]; tu.walk = aurora[2];
+                        tu.standOffsetY = 16f * sc / 100f;      // varpaat 16 kuvan pikseliä istumaruudun alareunan alla
+                        tu.walkToX = X(ShipAuroraBarPx);
+                        continue;
+                    }
                     var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.flipX = spot.z > 0.5f; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
                 }
             }
