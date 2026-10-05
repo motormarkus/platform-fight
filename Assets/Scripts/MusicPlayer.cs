@@ -20,6 +20,25 @@ public class MusicPlayer : MonoBehaviour
     AudioSource source, areaSource;
     float t, areaMix;          // 0 = pääkappale, 1 = alueen kappale
     AudioClip areaClip;
+    // erillinen kappale muun päälle (esim. tanssi): oma häivytys sisään ja ulos, kenttämusiikki jatkuu taustalla
+    AudioSource overSource;
+    float overMix, overTarget, overFade = 1f;
+
+    /// Soita kappale muun musiikin tilalle (häivytys fade sekunnissa).
+    public static void PlayOverride(AudioClip clip, float fade = 1.5f)
+    {
+        if (Instance == null || clip == null) return;
+        var m = Instance;
+        m.overSource.clip = clip; m.overSource.time = 0f; m.overSource.Play();
+        m.overTarget = 1f; m.overFade = Mathf.Max(0.01f, fade);
+    }
+
+    /// Häivytä erillinen kappale pois (fade sekunnissa), kenttämusiikki palaa.
+    public static void StopOverride(float fade = 3f)
+    {
+        if (Instance == null) return;
+        Instance.overTarget = 0f; Instance.overFade = Mathf.Max(0.01f, fade);
+    }
 
     /// Alueen oma musiikki (null = takaisin pääkappaleeseen).
     public static void SetAreaMusic(AudioClip clip)
@@ -41,6 +60,11 @@ public class MusicPlayer : MonoBehaviour
         areaSource.loop = true;
         areaSource.spatialBlend = 0f;
         areaSource.volume = 0f;
+        overSource = gameObject.AddComponent<AudioSource>();
+        overSource.playOnAwake = false;
+        overSource.loop = true;
+        overSource.spatialBlend = 0f;
+        overSource.volume = 0f;
     }
 
     void Start()
@@ -67,8 +91,12 @@ public class MusicPlayer : MonoBehaviour
         float master = fadeInTime > 0f ? Mathf.Clamp01(t / fadeInTime) * volume : volume;
         float target = areaClip != null ? 1f : 0f;
         areaMix = Mathf.MoveTowards(areaMix, target, dt / Mathf.Max(0.01f, crossfadeTime));
-        source.volume = master * (1f - areaMix);
-        areaSource.volume = master * areaMix;
+        overMix = Mathf.MoveTowards(overMix, overTarget, dt / overFade);
+        float rest = 1f - overMix;
+        source.volume = master * (1f - areaMix) * rest;
+        areaSource.volume = master * areaMix * rest;
+        overSource.volume = master * overMix;
+        if (overTarget <= 0f && overMix <= 0f && overSource.isPlaying) overSource.Stop();
         if (areaClip == null && areaMix <= 0f && areaSource.isPlaying) areaSource.Stop();
     }
 }

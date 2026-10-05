@@ -44,6 +44,9 @@ public class Tourist : MonoBehaviour
     [Tooltip("Tanssin jaksot: kukin alkaa ja loppuu samaan suudelma-asentoon, joten niitä voi ketjuttaa satunnaisesti.")]
     public Frame[] danceSpin, danceHug, danceKiss;
     public AudioClip danceMusic;
+    [Tooltip("Tanssin kesto (s): sen jälkeen musiikki häivytetään ja tanssi loppuu.")]
+    public float danceDuration = 150f;
+    public float musicFadeOut = 4f;
     [Tooltip("Pariskunnan jalkojen keskikohta tanssiruudussa (peilikuvan kohdistus).")]
     public float danceCenterPx = 206.5f;
     public float danceCellW = 384f;
@@ -175,31 +178,33 @@ public class Tourist : MonoBehaviour
         }
         foreach (var f in kissIntro) { Show(f); yield return new WaitForSeconds(f.time); }
 
-        // tanssi: jaksot satunnaisessa järjestyksessä, musiikki soi
-        AudioClip areaMusic = Area.Current != null ? Area.Current.music : null;
-        if (danceMusic != null) MusicPlayer.SetAreaMusic(danceMusic);
+        // tanssi: suudellen pyörivä kierros ja halaten keinuminen vuorotellen, kunnes aika loppuu tai pelaaja lopettaa
+        if (danceMusic != null) MusicPlayer.PlayOverride(danceMusic, 1.5f);
         dancing = true;
+        float danceStart = Time.time;
         var cycles = new System.Collections.Generic.List<Frame[]>();
-        if (danceSpin != null && danceSpin.Length > 0) { cycles.Add(danceSpin); cycles.Add(danceSpin); }
-        if (danceHug != null && danceHug.Length > 0) { cycles.Add(danceHug); cycles.Add(danceHug); }
-        if (danceKiss != null && danceKiss.Length > 0) cycles.Add(danceKiss);
-        Frame[] last = null;
-        while (!stopRequested && cycles.Count > 0)
+        if (danceSpin != null && danceSpin.Length > 0) cycles.Add(danceSpin);
+        if (danceHug != null && danceHug.Length > 0) cycles.Add(danceHug);
+        if (cycles.Count == 0 && danceKiss != null && danceKiss.Length > 0) cycles.Add(danceKiss);
+        int ci = 0;
+        bool TimeUp() => Time.time - danceStart >= danceDuration;
+        while (!stopRequested && !TimeUp() && cycles.Count > 0)
         {
-            var c = cycles[Random.Range(0, cycles.Count)];
-            if (c == last && cycles.Count > 1) c = cycles[Random.Range(0, cycles.Count)];
-            last = c;
+            var c = cycles[ci++ % cycles.Count];
             int i = 0;
-            for (; i < c.Length && !stopRequested; i++)
+            for (; i < c.Length && !stopRequested && !TimeUp(); i++)
             {
                 Show(c[i]);
                 for (float tt = 0f; tt < c[i].time && !stopRequested; tt += Time.deltaTime) yield return null;
             }
-            if (stopRequested)
-                for (i = Mathf.Min(i, c.Length - 1); i >= 0; i--) { Show(c[i]); yield return new WaitForSeconds(0.03f); }   // nopeasti takaisin suudelma-asentoon
+            if (i < c.Length)
+            {
+                if (danceMusic != null) MusicPlayer.StopOverride(musicFadeOut);
+                for (i = Mathf.Min(i, c.Length - 1); i >= 0; i--) { Show(c[i]); yield return new WaitForSeconds(stopRequested ? 0.03f : 0.05f); }   // takaisin suudelma-asentoon
+            }
         }
         dancing = false;
-        if (danceMusic != null) MusicPlayer.SetAreaMusic(areaMusic);
+        if (danceMusic != null) MusicPlayer.StopOverride(musicFadeOut);
         foreach (var f in kissOutro) { Show(f); yield return new WaitForSeconds(f.time); }
 
         transform.position = me; sr.flipX = true; t = 0f;
