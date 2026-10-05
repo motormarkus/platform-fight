@@ -2808,7 +2808,8 @@ public static class BeatEmUpSetup
     const float UccoShipQuayBottomPx = 724f, UccoShipQuayAtPx = 478f;   // laivakuvan laiturin yläreuna -> satamakuvan rivi (kaiteen aukon laiturinreuna)
     const float UccoShipScale = 0.7f, UccoShipOpeningPx = 3151f;          // laivan koko; kaiteen aukon keskikohta satamakuvassa
     const float UccoShipOffsetX = 4f;                                      // laivaa oikealle aukon keskeltä (yksikköä)
-    const float UccoShipStretchX = 1.35f;                                  // laiva pidemmäksi (Geminin kuva on liian lyhyt)
+    const float UccoShipStretchX = 1.35f;
+    const float UccoQuayEdgePx = 4772f;                                    // sataman lopun laiturin reuna (jalkakäytävän rivillä)                                  // laiva pidemmäksi (Geminin kuva on liian lyhyt)
     const float UccoX0 = 9000f;
     // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
     static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
@@ -2908,6 +2909,7 @@ public static class BeatEmUpSetup
             Undo.RegisterCreatedObjectUndo(hGo, "Satama");
             area.camMaxX = UccoX0 + wU + wS - halfW;
             float sx = UccoX0 + wU;                                   // sataman alku
+            area.walkMaxX = sx + UccoQuayEdgePx / ppu - 0.6f;         // laiturin reuna: ei kävellä veteen
             // risteilyalus laiturissa: vähän nopeampi (40 %), laiturin muuri kadun kaiteiden taakse
             float shipPpu = ppu / UccoShipScale;
             var ship = File.Exists(UccoShipPath) ? ImportBg(UccoShipPath, shipPpu) : null;

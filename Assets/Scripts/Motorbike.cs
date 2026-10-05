@@ -373,6 +373,8 @@ public class Motorbike : MonoBehaviour
             float lo = cf.minX - halfW, hi = cf.maxX + halfW;
             if (p.x < lo || p.x > hi) { p.x = Mathf.Clamp(p.x, lo, hi); speed = 0f; }
         }
+        if (Area.Current != null && Area.Current.walkMaxX != 0f && p.x > Area.Current.walkMaxX - halfLength * 0.6f)
+        { p.x = Area.Current.walkMaxX - halfLength * 0.6f; speed = 0f; }   // laiturin reuna
         pc.transform.position = p;
         groundHeight = Mathf.MoveTowards(groundHeight, GroundAt(p.y), 3f * dt);   // reunakiven yli
 
