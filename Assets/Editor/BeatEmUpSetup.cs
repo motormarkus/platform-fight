@@ -3071,6 +3071,7 @@ public static class BeatEmUpSetup
             s.size = new Vector2(Mathf.Ceil((2f * halfW) / w + 2f) * w, h);
             go.transform.position = new Vector3(ShipX0 + wU * 0.5f, Y(topRow) - h * 0.5f, 0f);
             var sl = go.AddComponent<ScrollingLayer>(); sl.autoSpeed = speed; sl.parallax = parallax; sl.area = area;
+            sl.bobAmplitude = order < -10095 ? 0.22f : 0.3f; sl.bobPeriod = 7f;   // laiva keinuu: meri liikkuu hitaasti ylös ja alas
             Undo.RegisterCreatedObjectUndo(go, name);
             return go;
         }
