@@ -2805,7 +2805,8 @@ public static class BeatEmUpSetup
     const string UccoShipPath = "Assets/Sprites/Taustat/uccopulco_laiva.png";
     const float UccoHarborHorizonPx = 360f;   // meren horisontti satamakuvan rivillä (kaiteiden yläpuolella)
     const float UccoSeaHorizonPx = 490f;      // horisontti merikuvassa
-    const float UccoShipQuayBottomPx = 605f, UccoShipQuayAtPx = 500f;   // laivakuvan laiturin alareuna -> satamakuvan rivi (jalkakäytävän takareuna)
+    const float UccoShipQuayBottomPx = 724f, UccoShipQuayAtPx = 478f;   // laivakuvan laiturin yläreuna -> satamakuvan rivi (kaiteen aukon laiturinreuna)
+    const float UccoShipScale = 0.55f, UccoShipOpeningPx = 3151f;          // laivan koko; kaiteen aukon keskikohta satamakuvassa
     const float UccoX0 = 9000f;
     // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
     static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
@@ -2908,7 +2909,7 @@ public static class BeatEmUpSetup
             var camRef = new Vector2(sx + wS * 0.5f - halfW, CamY);  // kameran keskikohta sataman kohdalla
             // meri: hidas (15 %), horisontti kaiteiden yläpuolelle
             float seaScale = 1.15f;
-            var sea = ImportBg(UccoSeaPath, ppu / seaScale);
+            var sea = File.Exists(UccoSeaPath) ? ImportBg(UccoSeaPath, ppu / seaScale) : null;
             if (sea != null)
             {
                 var sGo = new GameObject("Uccopulco meri");
@@ -2922,15 +2923,19 @@ public static class BeatEmUpSetup
                 Undo.RegisterCreatedObjectUndo(sGo, "Meri");
             }
             // risteilyalus laiturissa: vähän nopeampi (40 %), laiturin muuri kadun kaiteiden taakse
-            var ship = ImportBg(UccoShipPath, ppu);
+            float shipPpu = ppu / UccoShipScale;
+            var ship = File.Exists(UccoShipPath) ? ImportBg(UccoShipPath, shipPpu) : null;
             if (ship != null)
             {
                 var lGo = new GameObject("Uccopulco laiva");
                 var lSr = lGo.AddComponent<SpriteRenderer>(); lSr.sprite = ship; lSr.sortingOrder = -10050;
-                float shipH = ship.rect.height / ppu;
-                float shipTop = top - UccoShipQuayAtPx / ppu + UccoShipQuayBottomPx / ppu;
+                float shipH = ship.rect.height / shipPpu;
+                float shipTop = top - UccoShipQuayAtPx / ppu + UccoShipQuayBottomPx / shipPpu;
+                // laiva kaiteen aukon kohdalla, kun kamera on aukon keskellä
+                float openX = sx + UccoShipOpeningPx / ppu;
                 var pl = lGo.AddComponent<AnchoredParallax>();
-                pl.speed = 0.4f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x + 4f, shipTop - shipH * 0.5f);
+                pl.speed = 0.4f; pl.camRef = new Vector2(Mathf.Clamp(openX, area.camMinX, area.camMaxX), CamY);
+                pl.anchor = new Vector2(openX, shipTop - shipH * 0.5f);
                 lGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
                 Undo.RegisterCreatedObjectUndo(lGo, "Laiva");
             }
