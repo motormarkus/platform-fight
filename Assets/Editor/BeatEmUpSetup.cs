@@ -2807,6 +2807,7 @@ public static class BeatEmUpSetup
     const float UccoSeaHorizonPx = 490f;      // horisontti merikuvassa
     const float UccoShipQuayBottomPx = 724f, UccoShipQuayAtPx = 478f;   // laivakuvan laiturin yläreuna -> satamakuvan rivi (kaiteen aukon laiturinreuna)
     const float UccoShipScale = 0.55f, UccoShipOpeningPx = 3151f;          // laivan koko; kaiteen aukon keskikohta satamakuvassa
+    const float UccoShipStretchX = 1.35f;                                  // laiva pidemmäksi (Geminin kuva on liian lyhyt)
     const float UccoX0 = 9000f;
     // Uccopulcon ja El Loipparin kuvat mahtuvat koko korkeudeltaan kameran ruutuun (ylhäällä kyltit, alhaalla kävelyalue)
     static float CamY => Camera.main != null ? Camera.main.transform.position.y : 1.8f;
@@ -2937,6 +2938,7 @@ public static class BeatEmUpSetup
                 pl.speed = 0.4f; pl.camRef = new Vector2(Mathf.Clamp(openX, area.camMinX, area.camMaxX), CamY);
                 pl.anchor = new Vector2(openX, shipTop - shipH * 0.5f);
                 lGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
+                lGo.transform.localScale = new Vector3(UccoShipStretchX, 1f, 1f);
                 Undo.RegisterCreatedObjectUndo(lGo, "Laiva");
             }
         }
