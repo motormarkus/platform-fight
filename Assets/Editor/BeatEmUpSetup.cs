@@ -75,6 +75,7 @@ public static class BeatEmUpSetup
             AddLoipparStage();      // mariachi-bändi ja tanssijat El Loipparin lavalle
             AddChairs();            // tuolit El Loippariin (hero ottaa käteen, lyö ja heittää)
             SetupDropKick();        // heron pudotuspotku juoksusta
+            AddShipProps();         // laivan kannelle pöydät, kala-annokset, pullot, lasit ja tuolit (ei tanssipaikalle)
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -2981,6 +2982,75 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- El Loippari (Uccopulcon baari) ----------------
+    // ---------------- Laivan kannen pöydät ja tuolit ----------------
+    // kannen kuvan x (px), syvyys 0 = kaide … 1 = edessä; tanssipaikka (x 1950–2600) jätetään tyhjäksi
+    static readonly Vector2[] ShipTableSpots = {
+        new Vector2(800f, 0.45f), new Vector2(1150f, 0.8f), new Vector2(1500f, 0.5f),
+        new Vector2(2800f, 0.75f), new Vector2(3150f, 0.45f), new Vector2(3500f, 0.8f) };
+    static readonly Vector2[] ShipChairSpots = {
+        new Vector2(700f, 0.55f), new Vector2(920f, 0.5f), new Vector2(1280f, 0.85f), new Vector2(1640f, 0.6f),
+        new Vector2(2700f, 0.85f), new Vector2(3260f, 0.5f), new Vector2(3400f, 0.85f) };
+
+    [MenuItem("Beat em up/57. Laivan kannelle pöydät, kala-annokset, pullot ja tuolit")]
+    static void AddShipProps()
+    {
+        var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
+        var deckBg = GameObject.Find("Laivan kansi");
+        var loipTables = GameObject.Find("El Loipparin pöydät");
+        if (deck == null || deckBg == null || loipTables == null) { Info("Tarvitaan laivan kansi (55) ja El Loipparin pöydät (48)."); return; }
+        var old = GameObject.Find("Laivan pöydät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Laivan pöydät");
+        Undo.RegisterCreatedObjectUndo(root, "Laivan pöydät");
+        var bsr = deckBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
+        // mallit: El Loipparin suorakaidepöydät (kala-annoksineen, pulloineen ja laseineen)
+        var tables = loipTables.GetComponentsInChildren<Crate>().Where(c => c.gameObject.name == "Pöytä").ToArray();
+        var plates = loipTables.GetComponentsInChildren<FishPlate>();
+        var bottles = loipTables.GetComponentsInChildren<Bottle>();
+        int nt = 0, np = 0, nb = 0;
+        for (int i = 0; i < ShipTableSpots.Length && tables.Length > 0; i++)
+        {
+            var src = tables[(i * 3 + 1) % tables.Length];
+            var v = ShipTableSpots[i];
+            var pos = new Vector3(left + v.x / ppu, Mathf.Lerp(deck.maxDepthY - 0.3f, deck.minDepthY + 0.4f, v.y), 0f);
+            var t = Object.Instantiate(src.gameObject, root.transform);
+            t.name = "Pöytä"; t.transform.position = pos;
+            var tc = t.GetComponent<Crate>();
+            nt++;
+            foreach (var f in plates.Where(f => f.table == src))
+            {
+                var g = Object.Instantiate(f.gameObject, root.transform); g.transform.position = pos;
+                g.GetComponent<FishPlate>().table = tc; np++;
+            }
+            foreach (var b in bottles.Where(b => b.table == src))
+            {
+                var g = Object.Instantiate(b.gameObject, root.transform); g.transform.position = pos;
+                g.GetComponent<Bottle>().table = tc; nb++;
+            }
+        }
+        // tuolit: kopiot El Loipparin tuoleista
+        var chairs = GameObject.Find("Tuolit");
+        int nc = 0;
+        if (chairs != null)
+        {
+            var cs = chairs.GetComponentsInChildren<Chair>();
+            for (int i = 0; i < ShipChairSpots.Length && cs.Length > 0; i++)
+            {
+                var v = ShipChairSpots[i];
+                var g = Object.Instantiate(cs[i % cs.Length].gameObject, root.transform);
+                g.name = "Tuoli " + (++nc);
+                g.transform.position = new Vector3(left + v.x / ppu, Mathf.Lerp(deck.maxDepthY - 0.3f, deck.minDepthY + 0.4f, v.y), 0f);
+                var vis = g.GetComponentInChildren<SpriteRenderer>(); if (vis != null) vis.flipX = i % 2 == 1;
+            }
+        }
+        // yösävy myös näille
+        var night = deckBg.GetComponent<ShipNight>();
+        if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Laivan kannelle {nt} pöytää ({np} kala-annosta, {nb} pulloa ja lasia) ja {nc} tuolia.\nTanssipaikka baarin edessä on vapaana.\n\nTallenna scene (Ctrl+S).");
+    }
+
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------
     const int SailorCount = 4;
     static readonly Vector2[] ShipPirateSpots = { new Vector2(3150f, 0.3f), new Vector2(3350f, 0.7f), new Vector2(3550f, 0.4f), new Vector2(3700f, 0.8f), new Vector2(3800f, 0.2f) };   // kannen kuvan x, syvyys 0 = kaide … 1 = edessä
