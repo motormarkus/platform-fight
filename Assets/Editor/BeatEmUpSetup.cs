@@ -2991,8 +2991,8 @@ public static class BeatEmUpSetup
     const float ShipDoorXPx = 4070f;                 // hyttiosaston ovi viistossa seinässä
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
     const float UccoWarehouseDoorPx = 3860f;
-    static readonly Vector2[] ShipBikiniSpots = { new Vector2(2938f, 482f), new Vector2(3246f, 482f) };   // aurinkotuolien istuinkohta kannen kuvassa
-    static readonly Vector2[] ShipBikini2Spots = { new Vector2(1830f, 487f) };   // kannen ensimmäinen kansituoli         // sataman varaston ovi satamakuvassa
+    static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 482f, 0f), new Vector3(3246f, 482f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
+    static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f) };   // kannen ensimmäinen kansituoli         // sataman varaston ovi satamakuvassa
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
     static void CreateShipDeck()
@@ -3120,7 +3120,7 @@ public static class BeatEmUpSetup
                     go.transform.position = new Vector3(X(spot.x), Y(spot.y) - 54f / ppu, 0f);   // istumapiste ruudun rivillä 330
                     var r = go.AddComponent<SpriteRenderer>(); r.sprite = loop[0];
                     r.sortingOrder = Mathf.RoundToInt(-area.maxDepthY * 100f) + 50;
-                    var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
+                    var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.flipX = spot.z > 0.5f; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
                 }
             }
         }
