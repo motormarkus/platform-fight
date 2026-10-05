@@ -3018,12 +3018,12 @@ public static class BeatEmUpSetup
         t.ally = true;
         t.idleSprites = idle; t.idleFrameTime = 0.16f;
         t.walkSprites = EnemySheet("seilori_kavely", report); t.walkFrameTime = 0.07f;   // 21 kuvaa videosta
-        t.punchSprites = EnemySheet("seilori_lyonti", report);   // jab ja heti perään takakäden lyönti (kombo)
-        t.punchImpactFrame = 1; t.secondImpactFrame = 3;
-        t.windupTime = 0.18f; t.punchRecoverTime = 0.45f; t.punchDamage = 8;
+        t.punchSprites = EnemySheet("seilori_lyonti", report);   // kombo: jab (0–2) ja heti perään nopea pikkukoukku (3–8)
+        t.punchImpactFrame = 2; t.secondImpactFrame = 5;
+        t.windupTime = 0.15f; t.punchRecoverTime = 0.5f; t.punchDamage = 8;
         t.altAttackSprites = EnemySheet("seilori_potku", report); t.altImpactFrame = 5;  // potku ojennettuna
         t.altDamage = 14; t.altKnockdown = true; t.altChance = 0.3f; t.altReach = 2.4f;
-        t.hurtSprites = EnemySheet("seilori_osuma", report);   // väistö / horjahdus
+        t.hurtSprites = EnemySheet("seilori_osuma", report);   // osuma: horjahdus taakse (kaatumisen alusta)
         t.knockdownSprites = EnemySheet("seilori_kaatuminen", report);   // 9 kuvaa: horjuu taakse, kaatuu selälleen, makuu
         t.runSprites = EnemySheet("seilori_juoksu", report); t.runFrameTime = 0.066f;   // juoksu videosta (hyttiovelta tullessa)
         t.punch2Sprites = EnemySheet("seilori_koukku", report);           // yläkoukku: kyykky, isku ylös (kuva 6)
