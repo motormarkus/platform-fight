@@ -46,6 +46,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int punch2ImpactFrame = 5;
     public int punch2Damage = 14;
     public bool punch2Knockdown = true;
+    [Tooltip("Toisen lyönnin lennätys (ylös, sivulle): vahva yläkoukku nostaa vastustajan korkealle.")]
+    public float punch2LaunchUp = 0f, punch2LaunchX = 4f;
     [Range(0f, 1f)] public float punch2Chance = 0.3f;
     bool usingPunch2, running;
     public Sprite[] punchSprites;
@@ -1196,6 +1198,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         bool kd = usingAlt ? altKnockdown : usingPunch2 ? punch2Knockdown : punchKnockdown;
         if (!e.TakeHit(usingAlt ? altDamage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
         e.GotHitBy(this);
         HitFx.OnHitQuiet();   // vihu vs. vihu: ei osumapysäytystä
         HitSpark.Spawn(new Vector3(p.x, p.y + 2.3f, 0f), kd, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
@@ -1246,7 +1249,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
-        if (!usingAlt && usingPunch2 && punch2Knockdown) return player.TakeKnockdown(punch2Damage, me.x, 3.5f, 5f, this);
+        if (!usingAlt && usingPunch2 && punch2Knockdown) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
         if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
     }

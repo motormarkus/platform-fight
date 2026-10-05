@@ -3018,15 +3018,17 @@ public static class BeatEmUpSetup
         t.ally = true;
         t.idleSprites = idle; t.idleFrameTime = 0.16f;
         t.walkSprites = EnemySheet("seilori_kavely", report); t.walkFrameTime = 0.07f;   // 21 kuvaa videosta
-        t.punchSprites = EnemySheet("seilori_lyonti", report); t.punchImpactFrame = 3;  // suora ojennettuna
-        t.windupTime = 0.2f; t.punchRecoverTime = 0.4f; t.punchDamage = 10;
+        t.punchSprites = EnemySheet("seilori_lyonti", report);   // jab ja heti perään takakäden lyönti (kombo)
+        t.punchImpactFrame = 1; t.secondImpactFrame = 3;
+        t.windupTime = 0.18f; t.punchRecoverTime = 0.45f; t.punchDamage = 8;
         t.altAttackSprites = EnemySheet("seilori_potku", report); t.altImpactFrame = 5;  // potku ojennettuna
         t.altDamage = 14; t.altKnockdown = true; t.altChance = 0.3f; t.altReach = 2.4f;
         t.hurtSprites = EnemySheet("seilori_osuma", report);   // väistö / horjahdus
         t.knockdownSprites = EnemySheet("seilori_kaatuminen", report);   // 9 kuvaa: horjuu taakse, kaatuu selälleen, makuu
         t.runSprites = EnemySheet("seilori_juoksu", report); t.runFrameTime = 0.066f;   // juoksu videosta (hyttiovelta tullessa)
         t.punch2Sprites = EnemySheet("seilori_koukku", report);           // yläkoukku: kyykky, isku ylös (kuva 6)
-        t.punch2ImpactFrame = 5; t.punch2Damage = 16; t.punch2Knockdown = true; t.punch2Chance = 0.3f;
+        t.punch2ImpactFrame = 5; t.punch2Damage = 18; t.punch2Knockdown = true; t.punch2Chance = 0.2f;
+        t.punch2LaunchUp = 13f; t.punch2LaunchX = 3f;   // vahva yläkoukku lennättää korkealle
         t.attackRange = 1.9f; t.moveSpeedX = 3f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 1.5f;
         t.maxHealth = 80; t.attackCooldown = 0.9f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 0.8f;
