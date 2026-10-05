@@ -629,17 +629,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.GrabLift:
+                if (grabbedEnemy != null) { HoldEnemy(LiftEase * 3f); if (stateTime >= grabLiftTime) Enter(State.GrabThrow); break; }
                 HoldPlayer(LiftEase * 3f);        // avainasennot 0..3 (kuvat 1..4), nosto pehmeästi kiihtyen ja hidastuen
                 if (stateTime >= grabLiftTime) Enter(State.GrabThrow);
                 break;
 
             case State.GrabThrow:
-                if (stateTime < ThrowSwing) { float k = stateTime / ThrowSwing; HoldPlayer(3f + k * k); }   // heilautus kiihtyy loppua kohti
+                if (stateTime < ThrowSwing) { float k = stateTime / ThrowSwing; if (grabbedEnemy != null) HoldEnemy(3f + k * k); else HoldPlayer(3f + k * k); }   // heilautus kiihtyy loppua kohti
                 else if (!thrown)
                 {
                     thrown = true;
                     float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
-                    player.Throw(dir * throwSpeed, throwUp, throwDamage);
+                    if (grabbedEnemy != null) { grabbedEnemy.ReleaseThrow(dir * throwSpeed, throwUp, throwDamage); grabbedEnemy = null; HitFx.OnHitQuiet(); }
+                    else player.Throw(dir * throwSpeed, throwUp, throwDamage);
                 }
                 if (stateTime >= ThrowSwing + 0.15f + 0.3f)
                 {
@@ -664,6 +666,26 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Noston eteneminen 0..1: rauhallinen alku, vauhti keskellä, pieni pysähdys pään yllä ennen heilautusta.
     float LiftEase { get { float t = Mathf.Clamp01(stateTime / grabLiftTime); return t * t * (3f - 2f * t); } }
     bool thrown;
+    Enemy grabbedEnemy;     // heitettävä toinen vihu (esim. Kovis heittää seilorin)
+
+    /// Pidä toista vihua käsissä (sama liike kuin pelaajan heitossa, kierto keskikohdan ympäri).
+    void HoldEnemy(float k)
+    {
+        if (grabbedEnemy == null) return;
+        Vector3[] keys =
+        {
+            new Vector3(0.9f, 0.0f, 0f),
+            new Vector3(0.8f, 0.9f, 25f),
+            new Vector3(1.5f, 3.0f, 90f),
+            new Vector3(1.4f, 3.2f, 95f),
+            throwForward ? new Vector3(1.6f, 2.4f, 60f) : new Vector3(-0.3f, 3.1f, 130f),
+        };
+        int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
+        Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
+        float dir = facingRight ? 1f : -1f;
+        Vector3 me = transform.position;
+        grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z);
+    }
 
     bool CanGrabPlayer()
     {
@@ -840,6 +862,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.BottlePick && s != State.BottleThrow && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
+        if (s != State.GrabLift && s != State.GrabThrow && grabbedEnemy != null)
+        {
+            // heitto keskeytyi (esim. heittäjä sai osuman): napattu putoaa
+            grabbedEnemy.ReleaseThrow(0f, 2f, 0); grabbedEnemy = null;
+        }
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
         state = s;
         stateTime = 0f;
@@ -1169,6 +1196,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector2 to = new Vector2(t.x + side * attackRange * 0.8f, t.y) - (Vector2)me;
         facingRight = t.x > me.x;
         bool inRange = Mathf.Abs(me.x - t.x) <= attackRange && Mathf.Abs(me.y - t.y) <= depthTolerance;
+        // heittäjä (Kovis) voi napata liittolaisen (seilorin) ja heittää sen
+        if (inRange && cooldown <= 0f && !TargetDown(enemyTarget) && enemyTarget.ally && Has(grabSprites)
+            && Mathf.Abs(me.x - t.x) <= grabRange + 0.3f && enemyTarget.state != State.Held && enemyTarget.state != State.Airborne
+            && Random.value < grabChance)
+        {
+            moving = false; thrown = false;
+            grabbedEnemy = enemyTarget;
+            grabbedEnemy.BeginHeldByPlayer(me.x);
+            Enter(State.GrabLift);
+            return;
+        }
         if (inRange && cooldown <= 0f && !TargetDown(enemyTarget))
         {
             moving = false;
