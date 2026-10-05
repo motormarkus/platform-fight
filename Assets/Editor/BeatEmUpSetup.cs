@@ -2908,22 +2908,6 @@ public static class BeatEmUpSetup
             Undo.RegisterCreatedObjectUndo(hGo, "Satama");
             area.camMaxX = UccoX0 + wU + wS - halfW;
             float sx = UccoX0 + wU;                                   // sataman alku
-            var camRef = new Vector2(sx + wS * 0.5f - halfW, CamY);  // kameran keskikohta sataman kohdalla
-            // meri: hidas (15 %), horisontti kaiteiden yläpuolelle
-            float seaScale = 1.15f;
-            var sea = File.Exists(UccoSeaPath) ? ImportBg(UccoSeaPath, ppu / seaScale) : null;
-            if (sea != null)
-            {
-                var sGo = new GameObject("Uccopulco meri");
-                var sSr = sGo.AddComponent<SpriteRenderer>(); sSr.sprite = sea; sSr.sortingOrder = -10100;
-                float seaH = sea.rect.height / (ppu / seaScale);
-                float horizonY = top - UccoHarborHorizonPx / ppu;
-                float seaTop = horizonY + UccoSeaHorizonPx * seaScale / ppu;
-                var pl = sGo.AddComponent<AnchoredParallax>();
-                pl.speed = 0.15f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x, seaTop - seaH * 0.5f);
-                sGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
-                Undo.RegisterCreatedObjectUndo(sGo, "Meri");
-            }
             // risteilyalus laiturissa: vähän nopeampi (40 %), laiturin muuri kadun kaiteiden taakse
             float shipPpu = ppu / UccoShipScale;
             var ship = File.Exists(UccoShipPath) ? ImportBg(UccoShipPath, shipPpu) : null;
@@ -2941,6 +2925,24 @@ public static class BeatEmUpSetup
                 lGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
                 lGo.transform.localScale = new Vector3(UccoShipStretchX, 1f, 1f);
                 Undo.RegisterCreatedObjectUndo(lGo, "Laiva");
+            }
+        }
+        // meri koko Uccopulcon taakse (vanhan kadun taivas ja meri on leikattu pois): hidas (15 %), horisontti kaiteiden yläpuolelle
+        {
+            float seaScale = 1.15f;
+            var sea = File.Exists(UccoSeaPath) ? ImportBg(UccoSeaPath, ppu / seaScale) : null;
+            if (sea != null)
+            {
+                var sGo = new GameObject("Uccopulco meri");
+                var sSr = sGo.AddComponent<SpriteRenderer>(); sSr.sprite = sea; sSr.sortingOrder = -10100;
+                float seaH = sea.rect.height / (ppu / seaScale);
+                float horizonY = top - UccoHarborHorizonPx / ppu;
+                float seaTop = horizonY + UccoSeaHorizonPx * seaScale / ppu;
+                var camRef = new Vector2((area.camMinX + area.camMaxX) * 0.5f, CamY);   // kameran keskikohta koko kadulla
+                var pl = sGo.AddComponent<AnchoredParallax>();
+                pl.speed = 0.15f; pl.camRef = camRef; pl.anchor = new Vector2(camRef.x, seaTop - seaH * 0.5f);
+                sGo.transform.position = new Vector3(pl.anchor.x, pl.anchor.y, 0f);
+                Undo.RegisterCreatedObjectUndo(sGo, "Meri");
             }
         }
 
