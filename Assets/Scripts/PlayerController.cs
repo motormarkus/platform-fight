@@ -524,7 +524,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (GameOver) { ApplyVisual(); return; }
         UpdateStamina(dt);
 
-        Vector2 move = ReadMove();
+        Vector2 move = Scripted ? ScriptedMove : ReadMove();
         // ylös → alas -liike saksipotkua varten
         if (move.y > 0.5f && prevMoveY <= 0.5f) lastUpTime = Time.time;
         if (move.y < -0.5f && prevMoveY >= -0.5f && Time.time - lastUpTime <= scissorInputWindow) upDownTime = Time.time;
@@ -537,17 +537,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             lastTapDir = tdir; lastTapTime = Time.time;
         }
         prevMoveX = move.x;
-        bool jumpPressed = JumpPressed();
-        bool punchPressed = PunchPressed();
+        bool jumpPressed = !Scripted && JumpPressed();
+        bool punchPressed = !Scripted && PunchPressed();
         if (punchPressed) lastPunchPressTime = Time.time;
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
-        bool kickPressed = KickPressed();
-        bool specialPressed = SpecialPressed();
-        bool pushPressed = PushPressed();
-        bool blockHeld = BlockHeld();
-        bool catchPressed = CatchPressed();
+        bool kickPressed = !Scripted && KickPressed();
+        bool specialPressed = !Scripted && SpecialPressed();
+        bool pushPressed = !Scripted && PushPressed();
+        bool blockHeld = !Scripted && BlockHeld();
+        bool catchPressed = !Scripted && CatchPressed();
 
         UpdateGroundHeight(dt);
 
@@ -1304,6 +1304,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Katsooko pelaaja oikealle (viholliset kiertävät selän taakse).
     public bool FacingRight => facingRight;
+    /// Ohjattu liike (esim. kävely Auroran luo): napit eivät toimi, liike tulee ScriptedMove-arvosta.
+    public bool Scripted { get; set; }
+    public Vector2 ScriptedMove { get; set; }
+    public void Face(bool right) { facingRight = right; }
 
     /// Siirtää pelaajan heti uuteen paikkaan (ovet): maahan, perustilaan.
     public void TeleportTo(Vector3 pos)
@@ -2167,6 +2171,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool RunHeld()
     {
+        if (Scripted) return false;
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && (Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))
             || (Gamepad.current != null && Gamepad.current.rightShoulder.isPressed);

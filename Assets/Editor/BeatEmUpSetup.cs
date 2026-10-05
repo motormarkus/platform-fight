@@ -3112,6 +3112,18 @@ public static class BeatEmUpSetup
             }).ToArray();
             if (sets.All(x => x != null && x.Length > 0)) aurora = sets;
         }
+        // heron ja Auroran suudelma (ruudut 512 × 512)
+        Sprite[] KissSheet(string n)
+        {
+            string p = FindTexture(n);
+            if (p == null) return null;
+            SetupAndSlice(p);
+            var t2 = (TextureImporter)AssetImporter.GetAtPath(p);
+            t2.mipmapEnabled = true; t2.filterMode = FilterMode.Trilinear; t2.mipMapsPreserveCoverage = true; t2.SaveAndReimport();
+            return LoadSprites(n).OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        var kissA = KissSheet("turisti_kiss_a");
+        var kissB = KissSheet("turisti_kiss_b");
         var tRoot = new GameObject("Laivan turistit");
         Undo.RegisterCreatedObjectUndo(tRoot, "Turistit");
         int ti2 = 0;
@@ -3147,6 +3159,21 @@ public static class BeatEmUpSetup
                         tu.standUp = aurora[0]; tu.idle = aurora[1]; tu.walk = aurora[2];
                         tu.standOffsetY = 16f * sc / 100f;      // varpaat 16 kuvan pikseliä istumaruudun alareunan alla
                         tu.walkToX = X(ShipAuroraBarPx);
+                        // suudelma: E Auroran vieressä (lähestyminen, halaus, suudelma, kaksi videota yhdistettynä)
+                        if (kissA != null && kissB != null && kissA.Length >= 31 && kissB.Length >= 52)
+                        {
+                            var fr2 = new List<Sprite>(); var tm = new List<float>();
+                            void Add(Sprite sp, float d) { fr2.Add(sp); tm.Add(d); }
+                            Add(kissA[0], 0.4f); Add(kissA[1], 0.35f); Add(kissA[2], 0.35f);          // vastakkain, askel, kädet auki
+                            for (int q = 3; q <= 5; q++) Add(kissA[q], 0.25f);                         // halaus, poskelle, suudelma
+                            for (int q = 6; q <= 8; q++) Add(kissA[q], 0.15f);                         // varpaille, jalka nousee
+                            for (int q = 0; q < 52; q++) Add(kissB[q], 0.1f);                          // video 1
+                            for (int q = 30; q >= 12; q--) Add(kissA[q], 0.1f);                        // video 2 takaperin (palaa alkuasentoon)
+                            Add(kissA[10], 0.15f); Add(kissA[11], 0.25f);                              // jalka alas
+                            for (int q = 5; q >= 3; q--) Add(kissA[q], 0.25f);
+                            Add(kissA[2], 0.45f);                                                      // kädet auki, irti
+                            tu.kissFrames = fr2.ToArray(); tu.kissTimes = tm.ToArray();
+                        }
                         continue;
                     }
                     var dn = go.AddComponent<Dancer>(); dn.sprites = loop; dn.keepOrder = true; dn.flipX = spot.z > 0.5f; dn.frameTime = 0.22f; dn.startFrame = ti2 * 7;
