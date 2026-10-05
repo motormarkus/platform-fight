@@ -2991,7 +2991,7 @@ public static class BeatEmUpSetup
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
         var deckBg = GameObject.Find("Laivan kansi");
         if (deck == null || deckBg == null) { Info("Tee ensin kohta 55 (laivan kansi)."); return; }
-        foreach (var n in new[] { "seilori_idle", "seilori_kavely", "seilori_lyonti", "seilori_potku", "seilori_osuma" })
+        foreach (var n in new[] { "seilori_idle", "seilori_kavely", "seilori_lyonti", "seilori_potku", "seilori_osuma", "seilori_kaatuminen", "seilori_juoksu", "seilori_koukku" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3023,6 +3023,10 @@ public static class BeatEmUpSetup
         t.altAttackSprites = EnemySheet("seilori_potku", report); t.altImpactFrame = 5;  // potku ojennettuna
         t.altDamage = 14; t.altKnockdown = true; t.altChance = 0.3f; t.altReach = 2.4f;
         t.hurtSprites = EnemySheet("seilori_osuma", report);   // väistö / horjahdus
+        t.knockdownSprites = EnemySheet("seilori_kaatuminen", report);   // 9 kuvaa: horjuu taakse, kaatuu selälleen, makuu
+        t.runSprites = EnemySheet("seilori_juoksu", report); t.runFrameTime = 0.066f;   // juoksu videosta (hyttiovelta tullessa)
+        t.punch2Sprites = EnemySheet("seilori_koukku", report);           // yläkoukku: kyykky, isku ylös (kuva 6)
+        t.punch2ImpactFrame = 5; t.punch2Damage = 16; t.punch2Knockdown = true; t.punch2Chance = 0.3f;
         t.attackRange = 1.9f; t.moveSpeedX = 3f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 1.5f;
         t.maxHealth = 80; t.attackCooldown = 0.9f;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 0.8f;

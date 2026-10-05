@@ -38,6 +38,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;
     public Sprite[] walkSprites;
+    [Tooltip("Juoksukuvat (jos tyhjä, juostaan kävelykuvilla nopeammin).")]
+    public Sprite[] runSprites;
+    public float runFrameTime = 0.066f;
+    [Tooltip("Toinen lyöntisarja (esim. yläkoukku), valitaan satunnaisesti tavallisen lyönnin tilalle.")]
+    public Sprite[] punch2Sprites;
+    public int punch2ImpactFrame = 5;
+    public int punch2Damage = 14;
+    public bool punch2Knockdown = true;
+    [Range(0f, 1f)] public float punch2Chance = 0.3f;
+    bool usingPunch2, running;
     public Sprite[] punchSprites;
     public Sprite[] hurtSprites;
     public Sprite[] knockdownSprites;
@@ -315,6 +325,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         health = maxHealth;
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
+        PlayerController.SortByFrameNumber(runSprites);
+        PlayerController.SortByFrameNumber(punch2Sprites);
         PlayerController.SortByFrameNumber(punchSprites);
         PlayerController.SortByFrameNumber(altAttackSprites);
         PlayerController.SortByFrameNumber(grabSprites);
@@ -1012,6 +1024,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Vector2 dir = to.normalized;
             // kaukana juostaan (myös kierrettäessä selän taakse)
             float run = to.magnitude > 3.5f || crossing ? runSpeedMultiplier : 1f;
+            running = run > 1f;
             if (run > 1f) animClock += dt * (run - 1f);   // askeleet tihenevät
             Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
         }
@@ -1159,6 +1172,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = false;
             attackRolled = false;
             usingAlt = Has(altAttackSprites) && Random.value < altChance;
+            usingPunch2 = !usingAlt && Has(punch2Sprites) && Random.value < punch2Chance;
             Enter(State.Windup);
             return;
         }
@@ -1166,6 +1180,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             moving = true;
             float run = to.magnitude > 3.5f ? runSpeedMultiplier : 1f;
+            running = run > 1f;
             if (run > 1f) animClock += dt * (run - 1f);
             Vector2 dir = to.normalized;
             Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
@@ -1179,8 +1194,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = usingAlt ? altKnockdown : punchKnockdown;
-        if (!e.TakeHit(usingAlt ? altDamage : punchDamage, me.x, kd)) return false;
+        bool kd = usingAlt ? altKnockdown : usingPunch2 ? punch2Knockdown : punchKnockdown;
+        if (!e.TakeHit(usingAlt ? altDamage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
         e.GotHitBy(this);
         HitFx.OnHitQuiet();   // vihu vs. vihu: ei osumapysäytystä
         HitSpark.Spawn(new Vector3(p.x, p.y + 2.3f, 0f), kd, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
@@ -1231,6 +1246,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
+        if (!usingAlt && usingPunch2 && punch2Knockdown) return player.TakeKnockdown(punch2Damage, me.x, 3.5f, 5f, this);
         if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
     }
@@ -1535,6 +1551,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Chase:
+                if (moving && running && Has(runSprites)) return runSprites[(int)(Time.time / runFrameTime) % runSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();
 
@@ -1670,8 +1687,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
-    Sprite[] AtkSprites => usingAlt ? altAttackSprites : punchSprites;
-    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch2 ? punch2Sprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
     float CurrentWindup => usingAlt ? (windupTime + altExtraWindup) * altTimeScale : windupTime;
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : attackRange;
