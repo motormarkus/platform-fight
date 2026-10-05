@@ -2991,7 +2991,7 @@ public static class BeatEmUpSetup
     const float ShipDoorXPx = 4070f;                 // hyttiosaston ovi viistossa seinässä
     const float ShipHorizonPx = 330f;                // meren horisontti kannen kuvan rivillä
     const float UccoWarehouseDoorPx = 3860f;
-    static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 482f, 0f), new Vector3(3246f, 482f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
+    static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 492f, 0f), new Vector3(3246f, 492f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
 
     [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri")]
