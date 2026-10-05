@@ -3167,8 +3167,11 @@ public static class BeatEmUpSetup
                             Add(kissA[0], 0.4f); Add(kissA[1], 0.35f); Add(kissA[2], 0.35f);          // vastakkain, askel, kädet auki
                             for (int q = 3; q <= 5; q++) Add(kissA[q], 0.25f);                         // halaus, poskelle, suudelma
                             for (int q = 6; q <= 8; q++) Add(kissA[q], 0.15f);                         // varpaille, jalka nousee
-                            for (int q = 0; q < 52; q++) Add(kissB[q], 0.1f);                          // video 1
-                            for (int q = 30; q >= 12; q--) Add(kissA[q], 0.1f);                        // video 2 takaperin (palaa alkuasentoon)
+                            // molemmat videot alkavat samasta asennosta: video 1 edestakaisin, video 2 edestakaisin (pidempi suudelma)
+                            for (int q = 0; q < 52; q++) Add(kissB[q], 0.12f);                         // video 1
+                            for (int q = 50; q >= 0; q--) Add(kissB[q], 0.12f);                        // video 1 takaperin
+                            for (int q = 13; q <= 30; q++) Add(kissA[q], 0.12f);                       // video 2
+                            for (int q = 29; q >= 12; q--) Add(kissA[q], 0.12f);                       // video 2 takaperin (alkuasentoon)
                             Add(kissA[10], 0.15f); Add(kissA[11], 0.25f);                              // jalka alas
                             for (int q = 5; q >= 3; q--) Add(kissA[q], 0.25f);
                             Add(kissA[2], 0.45f);                                                      // kädet auki, irti
