@@ -47,6 +47,13 @@ public class Tourist : MonoBehaviour
     [Tooltip("Tanssin kesto (s): sen jälkeen musiikki häivytetään ja tanssi loppuu.")]
     public float danceDuration = 148f;   // kappale 2:33: häivytys loppuu ennen kappaleen loppua
     public float musicFadeOut = 4f;
+    [Tooltip("Kuinka paljon alemmas (kohti kameraa) pari siirtyy suudelmaa ja tanssia varten (yksikköä).")]
+    public float danceForward = 0.9f;
+    [Tooltip("Romanttinen tunnelma tanssin aikana: punainen sykkivä hehku ruudun reunoilla ja sydämet.")]
+    public Color glowColor = new Color(1f, 0.15f, 0.3f, 1f);
+    float mood;                 // 0 = ei tunnelmaa, 1 = täysi
+    static Texture2D vignette;
+    static Sprite heart;
     [Tooltip("Pariskunnan jalkojen keskikohta tanssiruudussa (peilikuvan kohdistus).")]
     public float danceCenterPx = 206.5f;
     public float danceCellW = 384f;
@@ -143,23 +150,41 @@ public class Tourist : MonoBehaviour
     {
         kissing = true; near = false; stopRequested = false;
         float k = transform.localScale.x / 100f;           // kuvapikseli maailmassa (sprite 100 px/yks)
-        Vector3 me = transform.position;
+        Vector3 me0 = transform.position;
+        // tanssipaikka vähän alempana (ei aurinkotuolien päällä), pelaajan kävelyalueen sisällä
+        float lowY = me0.y - danceForward;
+        if (pc != null) lowY = Mathf.Max(lowY, pc.minDepthY + 0.3f);
+        Vector3 me = new Vector3(me0.x, lowY, me0.z);
         sr.flipX = true;                                   // katsoo vasemmalle, hero tulee vasemmalta
         float feetX = me.x - (idleFeetPx.x - 256f) * k, feetY = me.y + (idleCellH - idleFeetPx.y) * k;
         Vector3 cpos = new Vector3(feetX - (kissFeetPx.x - 256f) * k, feetY - (kissCellH - kissFeetPx.y) * k, me.z);
         Vector3 heroStart = new Vector3(cpos.x + (kissHeroStartPx - 256f) * k, me.y, 0f);
         Vector3 heroEnd = new Vector3(cpos.x + (kissHeroEndPx - 256f) * k, me.y, 0f);
         pc.Scripted = true;
-        for (float tt = 0f; tt < 4f; tt += Time.deltaTime)
+        bool heroThere = false, auroraThere = false;
+        for (float tt = 0f; tt < 5f && !(heroThere && auroraThere); tt += Time.deltaTime)
         {
             Vector3 d = heroStart - pc.transform.position;
-            if (Mathf.Abs(d.x) < 0.12f && Mathf.Abs(d.y) < 0.08f) break;
-            pc.ScriptedMove = new Vector2(Mathf.Abs(d.x) < 0.12f ? 0f : Mathf.Sign(d.x), Mathf.Abs(d.y) < 0.08f ? 0f : Mathf.Clamp(d.y * 3f, -1f, 1f));
+            heroThere = Mathf.Abs(d.x) < 0.12f && Mathf.Abs(d.y) < 0.08f;
+            pc.ScriptedMove = heroThere ? Vector2.zero : new Vector2(Mathf.Abs(d.x) < 0.12f ? 0f : Mathf.Sign(d.x), Mathf.Abs(d.y) < 0.08f ? 0f : Mathf.Clamp(d.y * 3f, -1f, 1f));
+            // Aurora kävelee alas tanssipaikalle
+            Vector3 a = transform.position;
+            if (!auroraThere)
+            {
+                a = Vector3.MoveTowards(a, me, walkSpeed * Time.deltaTime);
+                transform.position = a;
+                sr.flipX = true;
+                if (walk != null && walk.Length > 0) sr.sprite = walk[(int)(tt / walkFrameTime) % walk.Length];
+                sr.sortingOrder = Mathf.RoundToInt(-a.y * 100f);
+                auroraThere = (a - me).sqrMagnitude < 0.0004f;
+                if (auroraThere && idle != null && idle.Length > 0) sr.sprite = idle[0];
+            }
             yield return null;
         }
         pc.ScriptedMove = Vector2.zero;
         yield return null;
         pc.enabled = false;
+        sr.sortingOrder = Mathf.RoundToInt(-me.y * 100f);
         if (pc.body != null) pc.body.enabled = false;
         if (pc.shadow != null) pc.shadow.enabled = false;
 
@@ -181,6 +206,7 @@ public class Tourist : MonoBehaviour
         // tanssi: suudellen pyörivä kierros ja halaten keinuminen vuorotellen, kunnes aika loppuu tai pelaaja lopettaa
         if (danceMusic != null) MusicPlayer.PlayOverride(danceMusic, 1.5f);
         dancing = true;
+        StartCoroutine(Hearts());
         float danceStart = Time.time;
         var cycles = new System.Collections.Generic.List<Frame[]>();
         if (danceSpin != null && danceSpin.Length > 0) cycles.Add(danceSpin);
@@ -218,14 +244,95 @@ public class Tourist : MonoBehaviour
         kissing = false;
     }
 
+    /// Sydämiä nousee parin ympäriltä tanssin ajan.
+    IEnumerator Hearts()
+    {
+        if (heart == null) heart = MakeHeart();
+        while (dancing)
+        {
+            var go = new GameObject("Sydän");
+            var r = go.AddComponent<SpriteRenderer>(); r.sprite = heart;
+            r.sortingOrder = sr.sortingOrder + 5;
+            float sc = Random.Range(0.25f, 0.5f);
+            go.transform.localScale = new Vector3(sc, sc, 1f);
+            Vector3 c = sr.bounds.center;
+            go.transform.position = new Vector3(c.x + Random.Range(-1.4f, 1.4f), sr.bounds.min.y + Random.Range(1.2f, 3.2f), 0f);
+            StartCoroutine(Float(go, r));
+            yield return new WaitForSeconds(Random.Range(0.35f, 0.8f));
+        }
+    }
+
+    IEnumerator Float(GameObject go, SpriteRenderer r)
+    {
+        float life = Random.Range(2.2f, 3.2f), sway = Random.Range(0f, 6f);
+        Vector3 p0 = go.transform.position;
+        Color col = Color.Lerp(new Color(1f, 0.25f, 0.4f), new Color(1f, 0.55f, 0.75f), Random.value);
+        for (float t2 = 0f; t2 < life; t2 += Time.deltaTime)
+        {
+            float k2 = t2 / life;
+            go.transform.position = p0 + new Vector3(Mathf.Sin(sway + t2 * 2.2f) * 0.25f, k2 * 2.2f, 0f);
+            col.a = Mathf.Clamp01(Mathf.Min(k2 * 5f, (1f - k2) * 2.5f));
+            r.color = col;
+            yield return null;
+        }
+        Destroy(go);
+    }
+
+    static Sprite MakeHeart()
+    {
+        const int N = 64;
+        var tex = new Texture2D(N, N, TextureFormat.RGBA32, false) { filterMode = FilterMode.Bilinear };
+        var px = new Color32[N * N];
+        for (int y = 0; y < N; y++)
+            for (int x = 0; x < N; x++)
+            {
+                float u = (x - N / 2f + 0.5f) / (N * 0.42f), v = (y - N / 2f + 0.5f) / (N * 0.42f) - 0.15f;
+                float f = Mathf.Pow(u * u + v * v - 1f, 3f) - u * u * v * v * v;   // sydänkäyrä
+                float a = Mathf.Clamp01(-f * 40f);
+                px[y * N + x] = new Color32(255, 255, 255, (byte)(a * 255f));
+            }
+        tex.SetPixels32(px); tex.Apply();
+        return Sprite.Create(tex, new Rect(0, 0, N, N), new Vector2(0.5f, 0.5f), N);
+    }
+
+    static Texture2D MakeVignette()
+    {
+        const int N = 128;
+        var tex = new Texture2D(N, N, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+        var px = new Color32[N * N];
+        for (int y = 0; y < N; y++)
+            for (int x = 0; x < N; x++)
+            {
+                float u = (x + 0.5f) / N * 2f - 1f, v = (y + 0.5f) / N * 2f - 1f;
+                float d = Mathf.Max(Mathf.Abs(u), Mathf.Abs(v)) * 0.6f + Mathf.Sqrt(u * u + v * v) * 0.4f;   // reunoilla ja kulmissa
+                float a = Mathf.Clamp01((d - 0.62f) / 0.4f);
+                px[y * N + x] = new Color32(255, 255, 255, (byte)(a * a * 255f));
+            }
+        tex.SetPixels32(px); tex.Apply();
+        return tex;
+    }
+
     void LateUpdate()
     {
+        mood = Mathf.MoveTowards(mood, dancing ? 1f : 0f, Time.deltaTime / 2f);
         // tanssin lopetus: E tai mikä tahansa liike
         if (dancing && !stopRequested && (UsePressed() || PlayerController.ReadMoveInput().sqrMagnitude > 0.25f)) stopRequested = true;
     }
 
     void OnGUI()
     {
+        if (mood > 0.001f)
+        {
+            // punainen sykkivä hehku ruudun reunoilla ja lämmin vaaleanpunainen sävy
+            if (vignette == null) vignette = MakeVignette();
+            float pulse = 0.75f + 0.25f * Mathf.Sin(Time.time * 2.6f);
+            GUI.depth = -50;
+            GUI.color = new Color(glowColor.r, glowColor.g, glowColor.b, 0.85f * mood * pulse);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), vignette);
+            GUI.color = new Color(1f, 0.4f, 0.55f, 0.07f * mood);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
+            GUI.color = Color.white;
+        }
         bool show = (near && !kissing) || (dancing && !stopRequested);
         if (!show) return;
         if (style == null)
