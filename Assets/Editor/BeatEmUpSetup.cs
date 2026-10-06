@@ -3324,9 +3324,23 @@ public static class BeatEmUpSetup
             ti.SetTextureSettings(st);
             ti.SaveAndReimport();
         }
-        Sprite[] champagne = new Sprite[0];
-        string cp = FindTexture("pullo_shamppanja");
-        if (cp != null) { SetupAndSlice(cp); champagne = LoadSprites("pullo_shamppanja").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+        Sprite[] Strip(string n)
+        {
+            string pth = FindTexture(n); if (pth == null) return new Sprite[0];
+            SetupAndSlice(pth);
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        var champagne = Strip("pullo_shamppanja");          // 0 ehjä, 1–4 posahdus ilmassa, 5 sirpaleet lattialla
+        var champEmpty = Strip("pullo_shamppanja_tyhja");   // 0 tyhjä (avattu), 1 sirpaleet
+        var champSpin = Strip("pullo_shamppanja_pyorii");   // lento: 6 kulmaa
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D shamppanja", new[] { "Assets/Resources/Tahrat" }))
+        {
+            var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100;
+            ti.alphaIsTransparency = true; ti.mipmapEnabled = false; ti.textureCompression = TextureImporterCompression.Uncompressed;
+            ti.SaveAndReimport();
+        }
         var glass = LoadClips("Assets/Audio/sfx", "glass");
         var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
         var old = GameObject.Find("Salin pöydät");
@@ -3365,13 +3379,19 @@ public static class BeatEmUpSetup
             var f = fGo.AddComponent<FishPlate>();
             f.spriteSet = "Hummeri"; f.scale = 0.72f;
             f.table = c; f.tableX = n % 2 == 0 ? 0.25f : -0.25f; f.tableTop = top; f.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
-            if (champagne.Length >= 7)
+            // täysi shamppanja (posahtaa) ja välillä tyhjä avattu pullo
+            for (int bi = 0; bi < (n % 2 == 0 ? 2 : 1); bi++)
             {
-                var bGo = new GameObject("Shamppanja");
+                bool empty = bi == 1 && champEmpty.Length >= 2;
+                var sp = empty ? champEmpty : champagne;
+                if (sp.Length < 2) continue;
+                var bGo = new GameObject(empty ? "Shamppanja (tyhjä)" : "Shamppanja");
                 bGo.transform.SetParent(root.transform, false); bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
-                b.sprites = champagne; b.stainKind = "olut"; b.scale = 1.0f; b.pivotY = 0.4f;
-                b.breakSounds = glass; b.table = c; b.tableX = n % 2 == 0 ? -0.55f : 0.55f; b.tableTop = top - 0.05f;
+                b.sprites = sp; b.keepDebris = true; b.frameTime = 0.06f;
+                b.stainKind = empty ? "-" : "shamppanja"; b.scale = 1.0f; b.pivotY = 0.4f;
+                if (empty && champSpin.Length >= 6) b.spinSprites = champSpin;
+                b.breakSounds = glass; b.table = c; b.tableX = (n % 2 == 0 ? -0.55f : 0.55f) + bi * 0.3f; b.tableTop = top - 0.05f;
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);

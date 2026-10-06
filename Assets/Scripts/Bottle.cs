@@ -38,6 +38,12 @@ public class Bottle : MonoBehaviour
     public bool food;
     [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
     public AudioClip[] breakSounds;
+    [Tooltip("Lennon kuvat eri kulmista (piirretty valo): kaula ylös, ylös-oikea, oikea, alas, vasen, ylös-vasen. Tyhjä = kuvaa käännetään.")]
+    public Sprite[] spinSprites;
+    static readonly float[] SpinAngles = { 0f, -35f, -90f, 180f, 90f, 30f };
+    [Tooltip("Särkymisen viimeinen kuva jää lattialle (esim. shamppanjapullon sirpaleet). Välikuvat = posahdus ilmassa (vain kun osuu ilmassa).")]
+    public bool keepDebris;
+    float burstH;
     static int lastSound = -1;
 
     enum S { OnTable, Wobble, Falling, Lying, Held, Thrown, Breaking }
@@ -219,7 +225,7 @@ public class Bottle : MonoBehaviour
                 break;
 
             case S.Breaking:
-                if (t > 1.6f) Destroy(gameObject);
+                if (!keepDebris && t > 1.6f) Destroy(gameObject);
                 break;
         }
         ApplyVisual();
@@ -293,7 +299,10 @@ public class Bottle : MonoBehaviour
 
     void Shatter()
     {
+        burstH = height;
         state = S.Breaking; t = 0f; height = 0f; rot = 0f;
+        // lattialle pudonnut (ei osumaa ilmassa): suoraan sirpaleisiin
+        if (keepDebris && (burstH < 0.4f || sprites.Length <= 2)) t = frameTime * Mathf.Max(0, sprites.Length - 2);
         HitFx.OnBreak(0f);   // vain lasiääni: ei osumapysäytystä (monta pulloa peräkkäin nyki)
         if (breakSounds != null && breakSounds.Length > 0)
         {
@@ -388,25 +397,38 @@ public class Bottle : MonoBehaviour
     void ApplyVisual()
     {
         if (sprites == null || sprites.Length == 0) return;
+        float drawRot = state == S.Breaking ? 0f : rot;
+        int bi = 0;
         if (state == S.Breaking)
         {
-            sr.sprite = sprites[Mathf.Min(1 + (int)(t / frameTime), sprites.Length - 1)];
-            sr.color = new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
+            bi = Mathf.Min(1 + (int)(t / frameTime), sprites.Length - 1);
+            sr.sprite = sprites[bi];
+            sr.color = keepDebris ? Color.white : new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
+        }
+        else if (spinSprites != null && spinSprites.Length >= 6 && !food && state != S.OnTable && state != S.Wobble && state != S.Held)
+        {
+            // lähin piirretty kulma, loppu käännetään
+            float a = Mathf.Repeat(rot + 180f, 360f) - 180f; int best = 0; float bd = 999f;
+            for (int i = 0; i < SpinAngles.Length; i++) { float d = Mathf.Abs(Mathf.DeltaAngle(a, SpinAngles[i])); if (d < bd) { bd = d; best = i; } }
+            sr.sprite = spinSprites[best];
+            drawRot = Mathf.DeltaAngle(SpinAngles[best], a);
         }
         else sr.sprite = sprites[0];
         // kierto pullon keskikohdan ympäri (kuva alareunan keskellä, pullo n. 0.58 yks korkea)
-        var q = Quaternion.Euler(0f, 0f, state == S.Breaking ? 0f : rot);
+        var q = Quaternion.Euler(0f, 0f, drawRot);
         Vector3 c = new Vector3(0f, pivotY * scale, 0f);
         sr.transform.localScale = new Vector3(scale, scale, 1f);
         sr.transform.localRotation = q;
         sr.transform.localPosition = food
             ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * scale * 0.55f : 0.2f), 0f)   // kala (keskipiste): lattian päällä
             : new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
+        if (state == S.Breaking && keepDebris && bi < sprites.Length - 1) sr.transform.localPosition += new Vector3(0f, burstH * 0.8f, 0f);   // posahdus ilmassa
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
         else if (state == S.Held && gripped) order = heldOrder;   // pitelijän (käden) taakse
         else order = Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
+        if (state == S.Breaking && keepDebris) { sr.sortingOrder = bi < sprites.Length - 1 ? Mathf.RoundToInt(-transform.position.y * 100f) + 5 : -7990; }
         shadow.sortingOrder = order - 1;
         shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && (state != S.Held || !gripped);
         UpdateFistOverlay(state == S.Held && gripped && holder is PlayerController, order);
