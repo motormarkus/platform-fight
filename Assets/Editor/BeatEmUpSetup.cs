@@ -3218,7 +3218,7 @@ public static class BeatEmUpSetup
         var doorGo = GameObject.Find("Käytävän hyttiovi");
         if (cor == null) { Info("Tee ensin kohta 60 (laivan sisätilat)."); return; }
         var report = new List<string>();
-        foreach (var n in new[] { "puliukko_idle", "puliukko_kavely", "puliukko_lyonti", "puliukko_lyonti2", "puliukko_kaatuminen" })
+        foreach (var n in new[] { "puliukko_idle", "puliukko_kavely", "puliukko_lyonti", "puliukko_lyonti2", "puliukko_kaatuminen", "puliukko_ylosnousu", "puliukko_heitetty", "puliukko_paapusku" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3250,6 +3250,16 @@ public static class BeatEmUpSetup
             e.hurtSprites = new[] { fall[1] };
             e.knockdownSprites = new[] { fall[1], fall[2], fall[3], fall[4], fall[7] };
             e.landSprites = new[] { fall[5], fall[6], fall[7] }; e.landFrameTime = 0.14f;
+        }
+        var getUp = EnemySheet("puliukko_ylosnousu", report);   // 10 kuvaa: makaa → istuu → polvelle → hoippuen pystyyn
+        if (getUp.Length >= 10) { e.getUpSprites = getUp; e.getUpTime = 1.6f; }
+        var thrown = EnemySheet("puliukko_heitetty", report);   // heron kuperkeikkaheitto: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu
+        if (thrown.Length >= 8) { e.bigBody = true; e.flipThrownSprites = thrown; e.flipFlightFrames = 1; e.flipFlightFrameTime = 0.12f; e.flipLandFrameTime = 0.11f; }
+        var butt = EnemySheet("puliukko_paapusku", report);     // erikoisliike: tarttuu, vetää, pääpusku (kuva 5)
+        if (butt.Length >= 8)
+        {
+            e.punch3Sprites = butt; e.punch3ImpactFrame = 5; e.punch3WindupTime = 0.75f; e.punch3RecoverTime = 0.5f;
+            e.punch3Damage = 18; e.punch3Knockdown = true; e.punch3Chance = 0.25f; e.punch3Reach = 2.1f;
         }
         e.moveSpeedX = 1.5f; e.moveSpeedY = 0.9f; e.runSpeedMultiplier = 1f;   // liikkuu hitaasti
         e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 70;
