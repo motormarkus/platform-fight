@@ -3302,7 +3302,9 @@ public static class BeatEmUpSetup
                 if (pirateHit.Length > 0) { re.attackSounds = pirateHit; re.attackSoundChance = 1f; }
                 // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
                 re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f;
-                re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun re.comboWindupScale = 0.55f; re.comboGap = 0.07f;
+                re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun
+                re.comboWindupScale = 0.9f; re.comboGap = 0.16f;   // iskujen välissä käsi palaa näkyvästi
+                re.punchActiveTime = 0.17f;   // isku näkyy ojennettuna hetken: kombon iskut erottuvat toisistaan
                 if (pSpin.Length >= 13)
                 {
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8
