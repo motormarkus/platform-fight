@@ -3063,7 +3063,7 @@ public static class BeatEmUpSetup
     const float CorridorFloorPx = 528f, CorridorTile = 1568f, CorridorDoorRoiX = 680f - 52f, CorridorDoorRoiBottom = 545f, CorridorDoorCenterPx = 811f - 52f;
     const float CabinFloorPx = 548f;
     // sali (laiva_sali.png 2584 × 941): baaritiski 0–690 (etureuna rivillä 472), seinän juuri 420, oikea seinä viistoon
-    const float SalonBarEndPx = 690f, SalonBarFrontPx = 474f, SalonWallPx = 420f, SalonCornerPx = 1860f, SalonRightBottomPx = 760f, SalonHorizonPx = 190f;
+    const float SalonBarEndPx = 690f, SalonBarFrontPx = 474f, SalonWallPx = 420f, SalonCornerPx = 1890f, SalonRightBottomPx = 812f, SalonHorizonPx = 190f;
 
     [MenuItem("Beat em up/60. Laivan sisätilat: käytävä, hytti ja sali")]
     static void CreateShipInterior()
@@ -3130,7 +3130,7 @@ public static class BeatEmUpSetup
         // salin takaraja: baaritiskin etureuna, seinän juuri ja viisto oikea seinä
         sal.area.depthLimits = new[] {
             new Vector2(SX(0f), SY(SalonBarFrontPx)), new Vector2(SX(SalonBarEndPx), SY(SalonBarFrontPx)),
-            new Vector2(SX(SalonBarEndPx + 40f), SY(SalonWallPx)), new Vector2(SX(SalonCornerPx), SY(SalonWallPx)),
+            new Vector2(SX(SalonBarEndPx + 40f), SY(SalonWallPx + 12f)), new Vector2(SX(SalonCornerPx), SY(SalonWallPx + 12f)),
             new Vector2(SX(2584f), SY(SalonRightBottomPx)) };
         sal.area.walkMaxX = SX(2584f) - 1.0f;
 
@@ -3364,11 +3364,13 @@ public static class BeatEmUpSetup
         foreach (var v in SalonTableSpots)
         {
             float x = left + v.x / ppu;
+            // takaraja pöydän koko leveydeltä (viisto seinä: oikea reuna on matalimmalla)
             float back = sal.maxDepthY;
             var dl = sal.depthLimits;
             if (dl != null && dl.Length > 1)
-                for (int i = 1; i < dl.Length; i++)
-                    if (x <= dl[i].x) { back = Mathf.Min(back, Mathf.Lerp(dl[i - 1].y, dl[i].y, Mathf.InverseLerp(dl[i - 1].x, dl[i].x, x))); break; }
+                foreach (float ex in new[] { x - 1.5f, x, x + 1.5f })
+                    for (int i = 1; i < dl.Length; i++)
+                        if (ex <= dl[i].x) { back = Mathf.Min(back, Mathf.Lerp(dl[i - 1].y, dl[i].y, Mathf.InverseLerp(dl[i - 1].x, dl[i].x, ex))); break; }
             float y = Mathf.Lerp(back - 0.3f, sal.minDepthY + 0.4f, v.y);   // 0 = takana, 1 = edessä
             var go = new GameObject("Salin pöytä " + (++n));
             go.transform.SetParent(root.transform, false);
