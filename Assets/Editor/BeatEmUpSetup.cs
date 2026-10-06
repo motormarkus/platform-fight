@@ -3163,6 +3163,7 @@ public static class BeatEmUpSetup
             var mGo = new GameObject("Salin kuunvalo");
             mGo.transform.SetParent(sal.bg.transform, false);
             var msr = mGo.AddComponent<SpriteRenderer>(); msr.sprite = moonSpr; msr.sortingOrder = -9990;
+            var sh = mGo.AddComponent<MoonlightShimmer>(); sh.baseAlpha = 0.5f; sh.variation = 0.3f;   // himmeämpi, vaihtelee hillitysti
         }
 
         // käytävän avautuva hyttiovi (videosta)
