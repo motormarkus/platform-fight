@@ -75,6 +75,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool holdGround;
     [Tooltip("Kombo menee loppuun: tavallinen (kaatamaton) isku ei katkaise sitä, vain kaatava.")]
     public bool comboArmor;
+    [Tooltip("Väliaikainen: kirjoittaa Consoleen kombojen alun, jatkon ja katkeamisen syyn.")]
+    public bool debugCombos;
+    void ComboLog(string msg) { if (debugCombos) Debug.Log($"[{name}] {msg} (t={Time.time:F2})", this); }
     bool ComboContinues => comboSeq != null && comboPos < comboSeq.Length - 1;
 
     [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]
@@ -451,7 +454,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 // kombo: seuraava isku heti perään
                 if (ComboContinues && stateTime >= comboGap)
                 {
-                    if (ComboTargetOk()) { comboPos++; SetAttack(comboSeq[comboPos]); Enter(State.Windup); break; }
+                    if (ComboTargetOk()) { comboPos++; SetAttack(comboSeq[comboPos]); ComboLog($"isku {comboPos + 1}/{comboSeq.Length}: {comboSeq[comboPos]}"); Enter(State.Windup); break; }
+                    ComboLog("kombo katkesi: kohde liian kaukana tai maassa");
                     comboSeq = null;
                 }
                 // kombon toinen isku (lyöntisarjan myöhempi kuva)
@@ -969,7 +973,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
         if (s != State.Down && s != State.Dead && s != State.Ringed && ringItem != null) DropRing(1.0f);   // esim. heitto renkaasta
         if (s != State.Down && s != State.Dead) ringFall = false;
-        if (s != State.Windup && s != State.Punch && s != State.Recover) comboSeq = null;   // osuma tms. katkaisee kombon
+        if (s != State.Windup && s != State.Punch && s != State.Recover && comboSeq != null)
+        {
+            if (ComboContinues) ComboLog("kombo katkesi: tila " + s);   // osuma tms. katkaisee kombon
+            comboSeq = null;
+        }
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -1355,7 +1363,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             comboSeq = combos[Random.Range(0, combos.Length)];
             if (string.IsNullOrEmpty(comboSeq)) comboSeq = null;
-            else { comboPos = 0; SetAttack(comboSeq[0]); return; }
+            else { comboPos = 0; SetAttack(comboSeq[0]); ComboLog("kombo " + comboSeq + " alkaa" + (enemyTarget != null ? " (kohde " + enemyTarget.name + ")" : " (kohde hero)")); return; }
         }
         usingPunch3 = false;
         usingPunch2 = !usingAlt && Has(punch2Sprites) && Random.value < punch2Chance;
