@@ -68,14 +68,16 @@ public class CameraFollow : MonoBehaviour
         transform.position = basePos;
     }
 
-    /// Rajat on laskettu 16:9-kuvasuhteelle; leveämmällä näytöllä rajoja kavennetaan, ettei kuvan reunan yli näy.
+    /// Rajat on laskettu 16:9-kuvasuhteelle ja oletuskoolle; leveämmällä tai suuremmalla ruudulla rajoja kavennetaan, ettei kuvan reunan yli näy.
     float ClampX(float x)
     {
         float lo = minX, hi = maxX;
         var c = GetComponent<Camera>();
-        if (c != null && c.aspect > 16f / 9f + 0.01f)
+        float designHalf = (defaultSize > 0f ? defaultSize : (c != null ? c.orthographicSize : 0f)) * 16f / 9f;
+        if (c != null && c.orthographicSize * c.aspect > designHalf + 0.01f)
         {
-            float extra = c.orthographicSize * (c.aspect - 16f / 9f);
+            // rajat on laskettu oletuskoolle ja 16:9-ruudulle: leveämpi tai suurempi ruutu kavennetaan, ettei kuvan päädyn taakse näy
+            float extra = c.orthographicSize * c.aspect - designHalf;
             lo += extra; hi -= extra;
             if (lo > hi) lo = hi = (minX + maxX) * 0.5f;
         }
@@ -98,6 +100,8 @@ public class CameraFollow : MonoBehaviour
             float k = Mathf.Clamp01(shakeTime / Mathf.Max(shakeDuration, 0.001f));
             offset = (Vector3)(Random.insideUnitCircle * shakeAmp * k);
         }
-        transform.position = basePos + offset;
+        Vector3 pos = basePos + offset;
+        if (target != null) pos.x = ClampX(pos.x);   // tärähdyskään ei vie kuvan päädyn yli
+        transform.position = pos;
     }
 }
