@@ -44,6 +44,7 @@ public class Bottle : MonoBehaviour
     [Tooltip("Särkymisen viimeinen kuva jää lattialle (esim. shamppanjapullon sirpaleet). Välikuvat = posahdus ilmassa (vain kun osuu ilmassa).")]
     public bool keepDebris;
     float burstH;
+    bool softLanding;   // pöytä nostettiin: valuu lattialle ehjänä
     static int lastSound = -1;
 
     enum S { OnTable, Wobble, Falling, Lying, Held, Thrown, Breaking }
@@ -177,6 +178,14 @@ public class Bottle : MonoBehaviour
                     bool gone = table == null || !table.Intact;   // pöytä hajosi tai nostettiin
                     if (table != null) seenDisturb = table.Disturb;
                     if (table != null && table.LastViolent && !(table.Airborne && !table.IsBroken)) { Launch(table.LastHitDir); break; }   // potku: kaikki lentää ilmaan
+                    if (table != null && table.carryUpsideDown && table.Airborne && !table.IsBroken)
+                    {
+                        // pöytä nostetaan ylösalaisin: pullo putoaa lattialle ehjänä
+                        float sd = Random.value < 0.5f ? -1f : 1f;
+                        vx = sd * Random.Range(0.4f, 1.2f); vy = Random.Range(0.5f, 1.5f); spin = -sd * Random.Range(150f, 300f);
+                        fastFall = false; softLanding = true; table = null; state = S.Falling; t = 0f;
+                        break;
+                    }
                     React(gone);
                     break;
                 }
@@ -199,8 +208,8 @@ public class Bottle : MonoBehaviour
                 {
                     height = 0f;
                     float breakChance = fastFall ? 0.7f : 0.4f;
-                    if (!food && Random.value < breakChance) Shatter();
-                    else { state = S.Lying; rot = food ? Random.Range(-8f, 8f) : (Random.value < 0.5f ? 90f : -90f); t = 0f; }   // jää ehjänä kyljelleen
+                    if (!food && !softLanding && Random.value < breakChance) Shatter();
+                    else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : (Random.value < 0.5f ? 90f : -90f); t = 0f; }   // jää ehjänä kyljelleen
                 }
                 break;
 

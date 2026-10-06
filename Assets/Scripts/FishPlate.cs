@@ -77,7 +77,8 @@ public class FishPlate : MonoBehaviour
                 if (table.Disturb != seenDisturb)
                 {
                     seenDisturb = table.Disturb;
-                    if (table.Airborne && !table.IsBroken) break;          // nostettiin: pysyy pöydällä
+                    if (table.Airborne && !table.IsBroken && !table.carryUpsideDown) break;          // nostettiin: pysyy pöydällä
+                    if (table.Airborne && !table.IsBroken) { Tip(Random.value < 0.5f ? -1f : 1f); break; }   // ylösalaisin nostettu: valuu lattialle
                     float d = table.LastHitDir != 0f ? table.LastHitDir : (Random.value < 0.5f ? -1f : 1f);
                     if (table.LastViolent) Explode(d);
                     else Tip(d);
