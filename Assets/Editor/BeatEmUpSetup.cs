@@ -3278,7 +3278,7 @@ public static class BeatEmUpSetup
             e.punch3Damage = 26; e.punch3Knockdown = true; e.punch3Chance = 0.2f; e.punch3Reach = 2.1f;
         }
         e.moveSpeedX = 1.5f; e.moveSpeedY = 0.9f; e.runSpeedMultiplier = 1f;   // liikkuu hitaasti
-        e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 180;   // portsaria (130) kestävämpi
+        e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 207;   // portsaria (130) kestävämpi, hauska seura: kestää paljon
         // kombo: läimäytys, takakäden läimäytys ja pääpusku perään; menee loppuun
         e.combos = new[] { "JPK" }; e.comboChance = 0.3f; e.comboArmor = true; e.comboWindupScale = 0.8f; e.comboGap = 0.12f;
         e.fightsEveryone = true;   // käy kaikkien kimppuun (rosvot, seilorit, hero)
@@ -3444,7 +3444,8 @@ public static class BeatEmUpSetup
                 vis.sprite = tableBreak[0]; vsc = sc * 316f / 304f;
             }
             c.visualScale = vsc;
-            c.carryUpsideDown = true; c.carryLower = 1.3f * K;   // kannetaan ylösalaisin pään päällä c.shadowWidth = 2.0f * K; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
+            c.carryUpsideDown = true; c.carryLower = 1.3f * K;   // kannetaan ylösalaisin pään päällä
+            c.shadowWidth = 2.0f * K; c.footOffset = 0.04f; c.plowThrough = true;   // heitettynä kaataa kaikki tieltään
             c.hitRadiusX = 1.0f * K; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
             bool fishTable = n > SalonTableSpots.Length - 2;
             if (fishTable)
@@ -3610,10 +3611,10 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Salin tappelu ----------------
-    static readonly int[] SalonPirateWaves = { 4, 4 }, SalonSailorWaves = { 3, 3 };
+    static readonly int[] SalonPirateWaves = { 5, 5 }, SalonSailorWaves = { 3, 3 };   // rosvoaalloissa 4 rosvoa + Kovis
     const float SalonFightTriggerPx = 900f;   // salin kuvan x: tästä eteenpäin tappelu alkaa
 
-    [MenuItem("Beat em up/64. Salin tappelu: 8 rosvoa (4 + 4) ja 6 seiloria (3 + 3)")]
+    [MenuItem("Beat em up/64. Salin tappelu: 8 rosvoa ja 2 Kovista (5 + 5), 6 seiloria (3 + 3)")]
     static void AddSalonFight()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -3665,10 +3666,29 @@ public static class BeatEmUpSetup
             }
             return sq;
         }
-        Squad("Salin rosvot", pirateT, SalonPirateWaves, new[] { 0.3f, 0.7f, 0.5f, 0.15f, 0.85f, 0.45f, 0.65f, 0.25f }, true);
+        var raid = Squad("Salin rosvot", pirateT, SalonPirateWaves, new[] { 0.3f, 0.7f, 0.5f, 0.15f, 0.85f, 0.45f, 0.65f, 0.25f }, true);
+        // pari Kovista rosvojen puolelle: kummankin aallon viimeiseksi
+        var kovisT = all.FirstOrDefault(e => e.gameObject.name == "Kovis");
+        int kovis = 0;
+        if (kovisT != null)
+        {
+            var list = raid.bouncers.ToList();
+            for (int k = 0; k < 2; k++)
+            {
+                var kv = Object.Instantiate(kovisT.gameObject, raid.transform);
+                kv.name = "Kovis (sali) " + (k + 1);
+                kv.transform.position = new Vector3(X(60f), Depth(X(60f), k == 0 ? 0.55f : 0.35f), 0f);
+                var ke = kv.GetComponent<Enemy>(); ke.wakeDistance = 7f;
+                kv.SetActive(false);
+                list.Insert(k == 0 ? 4 : 9, ke);
+                kovis++;
+            }
+            raid.bouncers = list.ToArray();
+        }
+        else raid.waves = new[] { 4, 4 };
         Squad("Salin seilorit", sailorT, SalonSailorWaves, new[] { 0.2f, 0.55f, 0.9f, 0.4f, 0.75f, 0.1f }, false);
         EditorSceneManager.MarkSceneDirty(salBg.scene);
-        Info("Salin tappelu: kun hero kävelee salin keskelle, 8 rosvoa tulee käytävän ovelta kahtena neljän aaltona ja 6 seiloria salin perältä kahtena kolmen aaltona.\nNaiset ja mies väistävät tappelua.\n\nTallenna scene (Ctrl+S).");
+        Info($"Salin tappelu: kun hero kävelee salin keskelle, 8 rosvoa (+ {kovis} Kovista) tulee käytävän ovelta kahtena aaltona ja 6 seiloria salin perältä kahtena kolmen aaltona.\nNaiset ja mies väistävät tappelua.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
