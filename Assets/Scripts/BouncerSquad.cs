@@ -22,6 +22,8 @@ public class BouncerSquad : MonoBehaviour
     public int waveNextAt = 1;
     [Tooltip("Tulevat ruudun vasemmasta reunasta (esim. laivan keulan puolelta), eivät omista paikoistaan.")]
     public bool fromLeftEdge;
+    [Tooltip("Tulevat taustakuvan oikeasta reunasta (esim. salin perältä).")]
+    public bool fromRightEdge;
     int waveIndex, waveLeft = -1;
     [Tooltip("Ovi, josta tullaan: avautuu ennen ensimmäistä ja sulkeutuu, kun aalto on tullut ulos.")]
     public AnimatedDoor door;
@@ -87,7 +89,7 @@ public class BouncerSquad : MonoBehaviour
         var bnc = bouncers[next++];
         timer = spawnInterval;
         if (bnc == null) return;
-        if (bothSides && next % 2 == 0)
+        if (fromRightEdge || (bothSides && next % 2 == 0))
         {
             // oikea reuna: kävelee sisään ruudun ulkopuolelta (taustakuvan oikeasta päästä)
             var cam = Camera.main;

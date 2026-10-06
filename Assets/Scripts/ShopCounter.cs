@@ -74,7 +74,7 @@ public class ShopCounter : MonoBehaviour
             Vector3 p = pc.transform.position;
             near = !pc.GameOver && pc.enabled
                 && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-                && (here == null || p.y >= here.maxDepthY - maxDistanceFromWall)
+                && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
                 && pc.AirHeight <= 0.05f;
             if (near && Pressed(Btn.Open)) Open();
             return;

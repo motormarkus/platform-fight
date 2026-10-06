@@ -82,6 +82,7 @@ public static class BeatEmUpSetup
             AddDrunk();             // puliukko tulee käytävän hyttiovesta
             AddSalonTables();       // salin pöydät: hummeriannokset ja shamppanjapullot
             AddSalonLadies();       // salin naiset ja Sohvi baaritiskin takana
+            AddSalonFight();        // salin tappelu: rosvot käytävän ovelta, seilorit salin perältä
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3308,6 +3309,17 @@ public static class BeatEmUpSetup
             d2.transform.position = new Vector3((e2.wanderMinX + e2.wanderMaxX) * 0.5f, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.55f), 0f);
             d2.SetActive(true);
             report.Add("Kannella tepasteleva puliukko (liittyy rosvojen tappeluun)");
+            // toinen kannen puliukko on heron puolella: lyö vain rosvoja (kuten seilorit), tepastelee baaritiskin luona
+            var d4 = Object.Instantiate(go, root.transform);
+            d4.name = "Puliukko (kansi, apuri)";
+            var e4 = d4.GetComponent<Enemy>();
+            e4.wakeDistance = -1f;
+            e4.joinsFightWhenSquadComes = true;
+            e4.fightsEveryone = false; e4.ally = true;
+            e4.wanderMinX = dleft + 1700f / dppu; e4.wanderMaxX = dleft + 2500f / dppu;
+            d4.transform.position = new Vector3(dleft + 2100f / dppu, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.4f), 0f);
+            d4.SetActive(true);
+            report.Add("Toinen kannen puliukko: heron apuri, lyö vain rosvoja");
         }
         // kolmas puliukko kävelee salissa juhlijoiden seassa (herää vasta, jos häneen osutaan)
         var salArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -3516,7 +3528,7 @@ public static class BeatEmUpSetup
             t2.mipmapEnabled = true; t2.filterMode = FilterMode.Trilinear; t2.mipMapsPreserveCoverage = true; t2.SaveAndReimport();
             return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         }
-        foreach (var n in new[] { "Salin naiset", "Salin Sohvi" })
+        foreach (var n in new[] { "Salin naiset", "Salin Sohvi", "Salin tiski" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -3538,6 +3550,19 @@ public static class BeatEmUpSetup
             Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
             sohviInfo = "Sohvi baaritiskin takana";
         }
+        // kauppa baaritiskin eteen (kopio S-Clubin tiskistä): tiski kuvan vasemmasta reunasta riville SalonBarEndPx
+        var clubShop = GameObject.Find("Baaritiski");
+        if (clubShop != null)
+        {
+            var sh = Object.Instantiate(clubShop);
+            sh.name = "Salin tiski";
+            sh.transform.position = new Vector3(X(SalonBarEndPx * 0.5f), Y(SalonBarFrontPx), 0f);
+            var counter = sh.GetComponent<ShopCounter>();
+            if (counter != null) { counter.here = sal; counter.halfWidth = SalonBarEndPx * 0.5f / ppu; counter.title = "SALONGIN BAARI"; }
+            Undo.RegisterCreatedObjectUndo(sh, "Tiski");
+            sohviInfo += ", kauppa tiskin edessä";
+        }
+        else sohviInfo += " (kauppa puuttuu: tee kohta 14)";
         var root = new GameObject("Salin naiset");
         Undo.RegisterCreatedObjectUndo(root, "Salin naiset");
         // mariachi-bändi lavalle (kopio)
@@ -3562,7 +3587,7 @@ public static class BeatEmUpSetup
             new Socialite.Spot { pos = new Vector2(X(1640f), Y(690f)) },
         };
         int made = 0;
-        void Lady(string name, string idleN, string walkN, bool facesRight, int start)
+        void Lady(string name, string idleN, string walkN, bool facesRight, bool walkFacesRight, int start)
         {
             var idle = Sh(idleN); var walk = Sh(walkN);
             if (idle.Length == 0 || walk.Length == 0) return;
@@ -3570,18 +3595,80 @@ public static class BeatEmUpSetup
             go.transform.SetParent(root.transform, false);
             var r = go.AddComponent<SpriteRenderer>(); r.sprite = idle[0];
             var so = go.AddComponent<Socialite>();
-            so.idle = idle; so.walk = walk; so.facesRight = facesRight;
+            so.idle = idle; so.walk = walk; so.facesRight = facesRight; so.walkFacesRight = walkFacesRight;
             so.spots = spots; so.sohvi = sohviPos; so.startSpot = start;
             so.waitRange = new Vector2(6f + made, 12f + made * 2f);   // eri tahdissa
             go.transform.position = spots[start].pos;
             made++;
         }
-        Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, 3);
-        Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, 4);
-        Lady("Nainen kultainen", "salinainen_kulta_idle", "salinainen_kulta_kavely", true, 1);
-        Lady("Mies puvussa", "salimies_idle", "salimies_kavely", true, 6);   // täytteeksi, sama logiikka
+        Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, true, 3);
+        Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, true, 4);
+        Lady("Nainen kultainen", "salinainen_kulta_idle", "salinainen_kulta_kavely", true, true, 1);
+        Lady("Mies puvussa", "salimies_idle", "salimies_kavely", true, false, 6);   // täytteeksi, sama logiikka
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Saliin {made} juhlijaa (3 naista ja mies) ja {sohviInfo}.\nNaiset kiertelevät satunnaisesti: keskustelevat keskenään ja käyvät tiskillä juttelemassa Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Salin tappelu ----------------
+    static readonly int[] SalonPirateWaves = { 4, 4 }, SalonSailorWaves = { 3, 3 };
+    const float SalonFightTriggerPx = 900f;   // salin kuvan x: tästä eteenpäin tappelu alkaa
+
+    [MenuItem("Beat em up/64. Salin tappelu: 8 rosvoa (4 + 4) ja 6 seiloria (3 + 3)")]
+    static void AddSalonFight()
+    {
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var salBg = GameObject.Find("Laivan sali");
+        if (sal == null || salBg == null) { Info("Tee ensin kohta 60 (laivan sisätilat)."); return; }
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var pirateT = all.FirstOrDefault(e => e.gameObject.name == "Rosvo 1");
+        var sailorT = all.FirstOrDefault(e => e.gameObject.name == "Seilori");
+        if (pirateT == null || sailorT == null) { Info("Tee ensin kohta 56 (laivan tappelu: rosvot ja seilorit)."); return; }
+        foreach (var n in new[] { "Salin rosvot", "Salin seilorit" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var bsr = salBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        float X(float px) => left + px / ppu;
+        float Y(float row) => top - row / ppu;
+        float Depth(float x, float k) => Mathf.Lerp(sal.MaxDepthAtX(x, sal.maxDepthY) - 0.2f, sal.minDepthY + 0.3f, k);
+
+        BouncerSquad Squad(string name, Enemy template, int[] waves, float[] depths, bool fromLeft)
+        {
+            var root = new GameObject(name);
+            Undo.RegisterCreatedObjectUndo(root, name);
+            var sq = root.AddComponent<BouncerSquad>();
+            sq.area = sal; sq.bothSides = false; sq.fromLeftEdge = fromLeft;
+            sq.triggerX = X(SalonFightTriggerPx);
+            sq.waves = waves; sq.waveNextAt = fromLeft ? 2 : 1;   // seuraava aalto, kun edellisestä on pystyssä enää 2 (seiloreilla 1)
+            sq.firstDelay = fromLeft ? 0.6f : 1.4f; sq.spawnInterval = 0.6f;
+            sq.bouncers = new Enemy[depths.Length];
+            for (int i = 0; i < depths.Length; i++)
+            {
+                var c = Object.Instantiate(template.gameObject, root.transform);
+                c.name = template.gameObject.name.Split(' ')[0] + " (sali) " + (i + 1);
+                float x;
+                if (fromLeft) x = X(60f);   // siirtyy ruudun vasemman reunan taakse ilmestyessään (käytävän ovelta)
+                else
+                {
+                    // salin perältä, viiston oikean seinän sisäpuolelta (ruudun ulkopuolella, kun tappelu alkaa)
+                    float y0 = Mathf.Lerp(Y(SalonRightBottomPx - 60f), sal.minDepthY + 0.3f, depths[i]);
+                    float wallPx = Mathf.Lerp(SalonCornerPx, 2584f, Mathf.InverseLerp(Y(SalonWallPx + 12f), Y(SalonRightBottomPx), y0));
+                    x = Mathf.Min(X(2540f), X(wallPx) - 0.8f);
+                    c.transform.position = new Vector3(x, y0, 0f);
+                }
+                if (fromLeft) c.transform.position = new Vector3(x, Depth(x, depths[i]), 0f);
+                var e = c.GetComponent<Enemy>(); e.wakeDistance = 7f;
+                c.SetActive(false);
+                sq.bouncers[i] = e;
+            }
+            return sq;
+        }
+        Squad("Salin rosvot", pirateT, SalonPirateWaves, new[] { 0.3f, 0.7f, 0.5f, 0.15f, 0.85f, 0.45f, 0.65f, 0.25f }, true);
+        Squad("Salin seilorit", sailorT, SalonSailorWaves, new[] { 0.2f, 0.55f, 0.9f, 0.4f, 0.75f, 0.1f }, false);
+        EditorSceneManager.MarkSceneDirty(salBg.scene);
+        Info("Salin tappelu: kun hero kävelee salin keskelle, 8 rosvoa tulee käytävän ovelta kahtena neljän aaltona ja 6 seiloria salin perältä kahtena kolmen aaltona.\nNaiset ja mies väistävät tappelua.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
@@ -3935,6 +4022,7 @@ public static class BeatEmUpSetup
     const float UccoWarehouseDoorPx = 3860f;
     static readonly Vector3[] ShipBikiniSpots = { new Vector3(2938f, 492f, 0f), new Vector3(3246f, 492f, 0f), new Vector3(2058f, 487f, 1f) };   // z = 1: peilikuva   // aurinkotuolien istuinkohta kannen kuvassa
     const float ShipAuroraBarPx = 2290f;
+    static readonly Vector2 ShipBarCounterPx = new Vector2(2428f, 200f);   // kannen baaritiski: keskikohta ja puolileveys (n. 2250–2605)
     static readonly Vector2 ShipSohviPx = new Vector2(2345f, 393f);   // Sohvi baaritiskin takana (tiskin yläreuna rivillä 393)
     const int DanceMirrorFrom = 48;          // tanssivideon kuva 180° kohdalla: sen peilikuva = alkuasento
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
@@ -4165,6 +4253,16 @@ public static class BeatEmUpSetup
             s2.transform.position = new Vector3(X(ShipSohviPx.x), Y(ShipSohviPx.y), 0f);
             s2.transform.localScale = clubSohvi.transform.localScale * 0.9f;
             var ssr = s2.GetComponent<SpriteRenderer>(); if (ssr != null) ssr.sortingOrder = -9500;   // taustan edessä, hahmojen takana
+        }
+        // kauppa laivan baaritiskin eteen (kopio S-Clubin tiskistä)
+        var clubShop = GameObject.Find("Baaritiski");
+        if (clubShop != null)
+        {
+            var sh = Object.Instantiate(clubShop, tRoot.transform);
+            sh.name = "Laivan tiski";
+            sh.transform.position = new Vector3(X(ShipBarCounterPx.x), area.maxDepthY, 0f);
+            var counter = sh.GetComponent<ShopCounter>();
+            if (counter != null) { counter.here = area; counter.halfWidth = ShipBarCounterPx.y / ppu; counter.title = "LAIVAN BAARI"; }
         }
         night.tinted = new[] { sr }.Concat(tRoot.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(bg.scene);

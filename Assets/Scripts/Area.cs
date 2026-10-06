@@ -28,8 +28,14 @@ public class Area : MonoBehaviour
     public static float MaxDepthAt(float x, float fallback)
     {
         var a = Current;
-        if (a == null || a.depthLimits == null || a.depthLimits.Length == 0) return fallback;
-        var d = a.depthLimits;
+        return a == null ? fallback : a.MaxDepthAtX(x, fallback);
+    }
+
+    /// Suurin sallittu syvyys kohdassa x tällä alueella.
+    public float MaxDepthAtX(float x, float fallback)
+    {
+        if (depthLimits == null || depthLimits.Length == 0) return fallback;
+        var d = depthLimits;
         if (x <= d[0].x) return Mathf.Min(fallback, d[0].y);
         for (int i = 1; i < d.Length; i++)
             if (x <= d[i].x) return Mathf.Min(fallback, Mathf.Lerp(d[i - 1].y, d[i].y, (x - d[i - 1].x) / Mathf.Max(0.001f, d[i].x - d[i - 1].x)));

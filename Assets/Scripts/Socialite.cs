@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Salin seurapiirinainen: valitsee satunnaisesti vapaan paikan (baaritiski Sohvin edessä tai keskustelupaikka salissa),
 /// kävelee sinne ja juttelee hetken. Baarissa katsoo Sohvia, muualla lähintä toista naista. Paikka on varattu, kun joku on siellä.
-/// Kuvat katsovat oletuksena suuntaan facesRight.
+/// Idle-kuvat katsovat suuntaan facesRight, kävelykuvat suuntaan walkFacesRight.
 /// </summary>
 public class Socialite : MonoBehaviour
 {
@@ -17,6 +17,8 @@ public class Socialite : MonoBehaviour
     public Sprite[] idle, walk;
     public float idleFrameTime = 0.12f, walkFrameTime = 0.085f, speed = 1.3f;
     public bool facesRight = true;
+    [Tooltip("Kävelykuvien suunta (voi olla eri kuin idlen).")]
+    public bool walkFacesRight = true;
     [Tooltip("Yhteiset paikat (kaikilla naisilla sama lista).")]
     public Spot[] spots;
     public Vector2 sohvi;
@@ -64,7 +66,7 @@ public class Socialite : MonoBehaviour
         }
         if (!walking)
         {
-            Face(LookTarget().x - p.x);
+            Face(LookTarget().x - p.x, facesRight);
             if (idle != null && idle.Length > 0) sr.sprite = idle[(int)(t / idleFrameTime) % idle.Length];
             waitLeft -= dt;
             if (waitLeft <= 0f) PickNext();
@@ -73,7 +75,7 @@ public class Socialite : MonoBehaviour
         {
             Vector2 goal = spots[cur].pos;
             Vector2 d = goal - (Vector2)p;
-            Face(d.x);
+            Face(d.x, walkFacesRight);
             float step = speed * (fleeing ? 1.7f : 1f) * dt;
             if (d.magnitude <= step) { transform.position = goal; walking = false; waitLeft = Random.Range(waitRange.x, waitRange.y); }
             else transform.position = (Vector2)p + d.normalized * step;
@@ -122,5 +124,10 @@ public class Socialite : MonoBehaviour
         return best != null && bd < 5f ? (Vector2)best.transform.position : sohvi;
     }
 
-    void Face(float dx) { if (Mathf.Abs(dx) > 0.05f) sr.flipX = (dx > 0f) != facesRight; }
+    float lastDx = 1f;
+    void Face(float dx, bool right)
+    {
+        if (Mathf.Abs(dx) > 0.05f) lastDx = dx;   // pystysuorassa liikkeessä pidetään viimeisin suunta
+        sr.flipX = (lastDx > 0f) != right;
+    }
 }
