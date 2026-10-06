@@ -79,6 +79,7 @@ public static class BeatEmUpSetup
             AddRingStands();        // pelastusrenkaat telineineen laivan kannelle
             SetupBigHook();         // heron iso koukku (alas, eteen + lyönti)
             CreateShipInterior();   // laivan sisätilat: käytävä, hytti ja sali
+            AddDrunk();             // puliukko tulee käytävän hyttiovesta
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3206,6 +3207,65 @@ public static class BeatEmUpSetup
                  new Vector2(CX(CorridorTile * 3f - 300f), corMid), 1.6f, 1.5f);
         EditorSceneManager.MarkSceneDirty(doors.scene);
         Info("Laivan sisätilat luotu:\n- Käytävä (3 jaksoa), kannen hyttiovesta (E, ei tappelun aikana)\n- Hytti: käytävän keskimmäisestä ovesta (ovi aukeaa)\n- Sali: käytävän oikeasta päästä; ikkunoista näkyy meri\n\nTallenna scene (Ctrl+S).");
+    }
+
+
+    // ---------------- Puliukko (laivan käytävä) ----------------
+    [MenuItem("Beat em up/61. Puliukko laivan käytävään (tulee hyttiovesta)")]
+    static void AddDrunk()
+    {
+        var cor = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan käytävä");
+        var doorGo = GameObject.Find("Käytävän hyttiovi");
+        if (cor == null) { Info("Tee ensin kohta 60 (laivan sisätilat)."); return; }
+        var report = new List<string>();
+        foreach (var n in new[] { "puliukko_idle", "puliukko_kavely", "puliukko_lyonti", "puliukko_lyonti2", "puliukko_kaatuminen" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var old = GameObject.Find("Puliukot");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var idle = EnemySheet("puliukko_idle", report);
+        if (idle.Length == 0) { Info("puliukko_idle.png puuttuu."); return; }
+        var root = new GameObject("Puliukot");
+        Undo.RegisterCreatedObjectUndo(root, "Puliukot");
+        var go = new GameObject("Puliukko");
+        go.transform.SetParent(root.transform, false);
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var e = go.AddComponent<Enemy>();
+        e.body = visual; e.shadow = shadow; visual.sprite = idle[0];
+        e.displayName = "Puliukko";
+        e.idleSprites = idle; e.idleFrameTime = 0.16f;
+        var walk = EnemySheet("puliukko_kavely", report);
+        e.walkSprites = walk.Length > 0 ? walk : idle; e.walkFrameTime = 0.12f;   // hidas, huojuva kävely
+        // läimäytys: veto korvan taakse, käsi ojennettuna (3–4), takakäsi takaisin (5) = toinen isku
+        var slap = EnemySheet("puliukko_lyonti", report);
+        if (slap.Length >= 8) { e.punchSprites = slap; e.punchImpactFrame = 3; e.secondImpactFrame = 5; e.windupTime = 0.3f; e.punchRecoverTime = 0.55f; e.punchDamage = 7; }
+        var slap2 = EnemySheet("puliukko_lyonti2", report);   // toisella kädellä, kaataa
+        if (slap2.Length >= 8) { e.altAttackSprites = slap2; e.altImpactFrame = 3; e.altDamage = 11; e.altKnockdown = true; e.altChance = 0.35f; e.altReach = 2.2f; }
+        var fall = EnemySheet("puliukko_kaatuminen", report);   // 0 asento, 1–3 horjuu, 4 ilmassa, 5 istuu, 6 jalat ilmassa, 7 makaa
+        if (fall.Length >= 8)
+        {
+            e.hurtSprites = new[] { fall[1] };
+            e.knockdownSprites = new[] { fall[1], fall[2], fall[3], fall[4], fall[7] };
+            e.landSprites = new[] { fall[5], fall[6], fall[7] }; e.landFrameTime = 0.14f;
+        }
+        e.moveSpeedX = 1.5f; e.moveSpeedY = 0.9f; e.runSpeedMultiplier = 1f;   // liikkuu hitaasti
+        e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 70;
+        e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+        e.wakeDistance = 100f; e.blockChance = 0f; e.retreatChance = 0f; e.flankChance = 0f;
+        float doorX = doorGo != null ? doorGo.transform.position.x : (cor.camMinX + cor.camMaxX) * 0.5f;
+        go.transform.position = new Vector3(doorX, cor.maxDepthY - 0.15f, 0f);
+        go.SetActive(false);
+        // tulee hyttiovesta, kun hero lähestyy
+        var squad = root.AddComponent<BouncerSquad>();
+        squad.area = cor; squad.bothSides = false; squad.firstDelay = 0.9f; squad.spawnInterval = 1f;
+        squad.bouncers = new[] { e };
+        squad.triggerX = doorX - 6f;
+        if (doorGo != null) squad.door = doorGo.GetComponent<AnimatedDoor>();
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Puliukko:\n" + string.Join("\n", report) + "\n\nTulee käytävän hyttiovesta, kun hero lähestyy.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
