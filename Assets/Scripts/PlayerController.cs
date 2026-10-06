@@ -1400,14 +1400,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         Vector3 me = transform.position;
         float dir = facingRight ? 1f : -1f;
+        // lähin vihu edessä; seilori (liittolainen) vain, jos vihuja ei ole edessä
         Enemy best = null; float bd = 99f;
         foreach (var e in Enemy.All)
         {
-            if (e == null || e.IsDead || e.ally) continue;
+            if (e == null || e.IsDead) continue;
             Vector3 p = e.transform.position;
             float dx = (p.x - me.x) * dir;
             if (dx < -0.3f || dx > ringSmashReach || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            if (Mathf.Abs(dx) < bd) { bd = Mathf.Abs(dx); best = e; }
+            float score = Mathf.Abs(dx) + (e.ally ? 10f : 0f);
+            if (score < bd) { bd = score; best = e; }
         }
         RingStand.SmashNear(me + new Vector3(dir * 1.6f, 0f, 0f), 1.0f, attackDepth);
         if (best != null)

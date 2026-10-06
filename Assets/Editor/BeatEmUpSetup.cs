@@ -3082,9 +3082,12 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         // skeittari renkaassa (muille vihuille rengas-iskun kaato)
         var ringed = Sh("rengas_skettari");
-        int nsk = 0;
+        var ringedSailor = Sh("rengas_seilori");
+        int nsk = 0, nse = 0;
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
+            bool sailor = e.idleSprites != null && e.idleSprites.Any(x => x != null && x.name.StartsWith("seilori"));
+            if (sailor && ringedSailor.Length >= 8) { Undo.RecordObject(e, "Renkaan kuvat"); e.ringedSprites = ringedSailor; EditorUtility.SetDirty(e); nse++; continue; }
             bool skater = e.looseBoardSprite != null || (e.footIdleSprites != null && e.footIdleSprites.Any(x => x != null && x.name.StartsWith("skettari")));
             if (!skater || ringed.Length < 8) continue;
             Undo.RecordObject(e, "Renkaan kuvat");
@@ -3142,7 +3145,7 @@ public static class BeatEmUpSetup
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Pelastusrenkaat: {nDeck} telinettä laivan kannelle, {nUcco} Uccopulcon satamaan.\nSkeittareita renkaan kuvilla: {nsk}.\n\n" +
+        Info($"Pelastusrenkaat: {nDeck} telinettä laivan kannelle, {nUcco} Uccopulcon satamaan.\nRenkaan kuvat: {nsk} skeittaria, {nse} seiloria.\n\n" +
              "Kiinniotto telineen vieressä: ota rengas. Lyönti: rengas vihun päähän. Potku/kiinniotto: heitto.\nLattialta rengas nostetaan kiinniottonapilla. Teline hajoaa iskuista.\n\nTallenna scene (Ctrl+S).");
     }
 

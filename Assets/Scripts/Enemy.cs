@@ -1324,7 +1324,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Pelaaja lyö renkaan vihun päähän: jää jumiin renkaaseen (vain jos vihulla on renkaan kuvat).
     public bool PutRing(Sprite[] ring, float attackerX)
     {
-        if (!HasRingArt || ally) return false;
+        if (!HasRingArt) return false;   // myös seilorit (liittolaiset): hero voi lyödä renkaan heidänkin päähänsä
         if (state == State.Down || state == State.GetUp || state == State.Dead || state == State.Ringed) return false;
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || state == State.Airborne) return false;
         DropBoard();
