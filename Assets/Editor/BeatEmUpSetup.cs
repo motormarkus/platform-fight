@@ -3442,7 +3442,7 @@ public static class BeatEmUpSetup
     // ---------------- Salin naiset ja Sohvi ----------------
     const float SalonCounterTopPx = 345f, SalonSohviPx = 330f;
 
-    [MenuItem("Beat em up/63. Salin naiset (keskustelevat, kävelevät Sohvin luo)")]
+    [MenuItem("Beat em up/63. Salin naiset (kolme, keskustelevat ja käyvät Sohvin luona)")]
     static void AddSalonLadies()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -3480,12 +3480,19 @@ public static class BeatEmUpSetup
         }
         var root = new GameObject("Salin naiset");
         Undo.RegisterCreatedObjectUndo(root, "Salin naiset");
-        // pysähdykset: lavan edessä keskenään, baaritiskillä Sohvin kanssa
-        float barY = Y(SalonBarFrontPx + 28f), stageY = Y(SalonWallPx + 70f);
-        Vector2 aStage = new Vector2(X(1480f), stageY), bStage = new Vector2(X(1640f), stageY - 0.1f);
-        Vector2 aBar = new Vector2(X(420f), barY), bBar = new Vector2(X(600f), barY - 0.1f);
+        // yhteiset paikat: kolme baaritiskillä Sohvin edessä, keskustelupaikat lavan edessä ja salin keskellä (pöytien välissä)
+        var spots = new[] {
+            new Socialite.Spot { pos = new Vector2(X(380f), Y(502f)), atBar = true },
+            new Socialite.Spot { pos = new Vector2(X(520f), Y(510f)), atBar = true },
+            new Socialite.Spot { pos = new Vector2(X(660f), Y(502f)), atBar = true },
+            new Socialite.Spot { pos = new Vector2(X(1460f), Y(500f)) },
+            new Socialite.Spot { pos = new Vector2(X(1620f), Y(506f)) },
+            new Socialite.Spot { pos = new Vector2(X(1540f), Y(570f)) },
+            new Socialite.Spot { pos = new Vector2(X(1480f), Y(700f)) },
+            new Socialite.Spot { pos = new Vector2(X(1640f), Y(690f)) },
+        };
         int made = 0;
-        void Lady(string name, string idleN, string walkN, bool facesRight, Vector2 st, Vector2 bar, Vector2 partnerSt, Vector2 partnerBar)
+        void Lady(string name, string idleN, string walkN, bool facesRight, int start)
         {
             var idle = Sh(idleN); var walk = Sh(walkN);
             if (idle.Length == 0 || walk.Length == 0) return;
@@ -3494,17 +3501,16 @@ public static class BeatEmUpSetup
             var r = go.AddComponent<SpriteRenderer>(); r.sprite = idle[0];
             var so = go.AddComponent<Socialite>();
             so.idle = idle; so.walk = walk; so.facesRight = facesRight;
-            so.stops = new[] {
-                new Socialite.Stop { pos = st, wait = 9f, lookAt = partnerSt },
-                new Socialite.Stop { pos = bar, wait = 8f, lookAt = sohviPos },
-            };
-            go.transform.position = st;
+            so.spots = spots; so.sohvi = sohviPos; so.startSpot = start;
+            so.waitRange = new Vector2(6f + made, 12f + made * 2f);   // eri tahdissa
+            go.transform.position = spots[start].pos;
             made++;
         }
-        Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, aStage, aBar, bStage, bBar);
-        Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, bStage, bBar, aStage, aBar);
+        Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, 3);
+        Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, 4);
+        Lady("Nainen kultainen", "salinainen_kulta_idle", "salinainen_kulta_kavely", true, 1);
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Saliin {made} naista ja {sohviInfo}.\nNaiset keskustelevat lavan edessä ja kävelevät sitten baaritiskille juttelemaan Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
+        Info($"Saliin {made} naista ja {sohviInfo}.\nNaiset kiertelevät satunnaisesti: keskustelevat keskenään ja käyvät tiskillä juttelemassa Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
