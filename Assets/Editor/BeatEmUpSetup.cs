@@ -3308,6 +3308,22 @@ public static class BeatEmUpSetup
             d2.SetActive(true);
             report.Add("Kannella tepasteleva puliukko (liittyy rosvojen tappeluun)");
         }
+        // kolmas puliukko kävelee salissa juhlijoiden seassa (herää vasta, jos häneen osutaan)
+        var salArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var salBg = GameObject.Find("Laivan sali");
+        if (salArea != null && salBg != null)
+        {
+            var ssr = salBg.GetComponent<SpriteRenderer>();
+            float sppu = ssr.sprite.pixelsPerUnit, sleft = ssr.bounds.min.x, stop = ssr.bounds.max.y;
+            var d3 = Object.Instantiate(go, root.transform);
+            d3.name = "Puliukko (sali)";
+            var e3 = d3.GetComponent<Enemy>();
+            e3.wakeDistance = -1f;
+            e3.wanderMinX = sleft + 800f / sppu; e3.wanderMaxX = sleft + 2100f / sppu;
+            d3.transform.position = new Vector3(sleft + 1150f / sppu, stop - 640f / sppu, 0f);
+            d3.SetActive(true);
+            report.Add("Salissa tepasteleva puliukko");
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Puliukko:\n" + string.Join("\n", report) + "\n\nTulee käytävän hyttiovesta, kun hero lähestyy.\n\nTallenna scene (Ctrl+S).");
     }
