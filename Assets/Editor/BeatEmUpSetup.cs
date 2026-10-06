@@ -3055,14 +3055,18 @@ public static class BeatEmUpSetup
     // ---------------- Pelastusrenkaat ----------------
     // kannen kuvan x (px), syvyys 0 = kaide … 1 = edessä
     static readonly Vector2[] RingStandSpots = { new Vector2(1000f, 0.15f), new Vector2(2950f, 0.15f) };
+    // Uccopulcon satamakuvan x (px), kaiteen vieressä (ei laivan aukon kohdalla)
+    static readonly float[] UccoRingStandPx = { 900f, 2250f };
 
-    [MenuItem("Beat em up/58. Pelastusrenkaat telineineen laivan kannelle")]
+    [MenuItem("Beat em up/58. Pelastusrenkaat: telineet laivalle ja satamaan, lyönti, heitto, skeittari renkaassa")]
     static void AddRingStands()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
         var deckBg = GameObject.Find("Laivan kansi");
-        if (pc == null || deck == null || deckBg == null) { Info("Tarvitaan pelaaja ja laivan kansi (55)."); return; }
+        var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
+        var harbour = GameObject.Find("Uccopulco satama");
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
         Sprite[] Sh(string n)
         {
             string p = FindTexture(n); if (p == null) return new Sprite[0];
@@ -3073,34 +3077,73 @@ public static class BeatEmUpSetup
         pc.ringTakeSprites = Sh("rengas_otto");
         pc.ringThrowSprites = Sh("rengas_heitto");
         pc.ringPickSprites = Sh("rengas_nosto");
+        pc.ringSmashSprites = Sh("rengas_lyonti");
+        pc.ringWalkSprites = Sh("rengas_kavely");
         EditorUtility.SetDirty(pc);
+        // skeittari renkaassa (muille vihuille rengas-iskun kaato)
+        var ringed = Sh("rengas_skettari");
+        int nsk = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            bool skater = e.looseBoardSprite != null || (e.footIdleSprites != null && e.footIdleSprites.Any(x => x != null && x.name.StartsWith("skettari")));
+            if (!skater || ringed.Length < 8) continue;
+            Undo.RecordObject(e, "Renkaan kuvat");
+            e.ringedSprites = ringed; EditorUtility.SetDirty(e); nsk++;
+        }
         var ring = Sh("rengas_kuvat");
+        var breakSprites = Sh("rengas_teline_hajoaa");
         var full = ImportProp("Assets/Sprites/Rekvisiitta/rengas_teline.png");
         var empty = ImportProp("Assets/Sprites/Rekvisiitta/rengas_teline_tyhja.png");
+        var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+            .Where(p => Path.GetFileNameWithoutExtension(p).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(c => c != null).ToArray();
         var old = GameObject.Find("Pelastusrenkaat");
         if (old != null) Undo.DestroyObjectImmediate(old);
         if (full == null || empty == null || ring.Length < 9) { Info("Renkaan kuvia puuttuu (rengas_teline, rengas_teline_tyhja, rengas_kuvat)."); return; }
         var root = new GameObject("Pelastusrenkaat");
         Undo.RegisterCreatedObjectUndo(root, "Pelastusrenkaat");
-        var bsr = deckBg.GetComponent<SpriteRenderer>();
-        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
         int n = 0;
-        foreach (var v in RingStandSpots)
+        RingStand Make(Vector3 pos, float lift)
         {
             var g = new GameObject("Rengasteline " + (++n));
             g.transform.SetParent(root.transform);
-            g.transform.position = new Vector3(left + v.x / ppu, Mathf.Lerp(deck.maxDepthY - 0.3f, deck.minDepthY + 0.4f, v.y), 0f);
+            g.transform.position = pos;
             var vis = new GameObject("Visual").AddComponent<SpriteRenderer>();
             vis.transform.SetParent(g.transform, false);
-            vis.transform.localPosition = new Vector3(0f, 0.11f, 0f);   // telineen jalat samalle tasolle kuin heron jalat
+            vis.transform.localPosition = new Vector3(0f, 0.11f + lift, 0f);   // telineen jalat samalle tasolle kuin heron jalat
             vis.sprite = full;
             var st = g.AddComponent<RingStand>();
             st.body = vis; st.withRing = full; st.empty = empty; st.ringSprites = ring;
+            st.breakSprites = breakSprites; st.breakSounds = wood;
+            return st;
         }
-        var night = deckBg.GetComponent<ShipNight>();
-        if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
+        int nDeck = 0, nUcco = 0;
+        if (deck != null && deckBg != null)
+        {
+            var bsr = deckBg.GetComponent<SpriteRenderer>();
+            float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
+            var made = new List<SpriteRenderer>();
+            foreach (var v in RingStandSpots)
+            {
+                var st = Make(new Vector3(left + v.x / ppu, Mathf.Lerp(deck.maxDepthY - 0.3f, deck.minDepthY + 0.4f, v.y), 0f), 0f);
+                made.Add(st.body); nDeck++;
+            }
+            var night = deckBg.GetComponent<ShipNight>();
+            if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Where(r => r != null).Concat(made).ToArray();
+        }
+        if (ucco != null && harbour != null)
+        {
+            var hsr = harbour.GetComponent<SpriteRenderer>();
+            float ppu = hsr.sprite.pixelsPerUnit, left = hsr.bounds.min.x;
+            foreach (float px in UccoRingStandPx)
+            {
+                // jalkakäytävällä kaiteen vieressä (jalkakäytävän korotus kuvaan)
+                Make(new Vector3(left + px / ppu, ucco.maxDepthY - 0.1f, 0f), ucco.useSidewalk ? ucco.sidewalkHeight : 0f);
+                nUcco++;
+            }
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Laivan kannelle {n} pelastusrengastelinettä.\nKiinniottonappi telineen vieressä: hero ottaa renkaan. Potku/lyönti/kiinniotto heittää sen.\nLattialta rengas nostetaan kiinniottonapilla.\n\nTallenna scene (Ctrl+S).");
+        Info($"Pelastusrenkaat: {nDeck} telinettä laivan kannelle, {nUcco} Uccopulcon satamaan.\nSkeittareita renkaan kuvilla: {nsk}.\n\n" +
+             "Kiinniotto telineen vieressä: ota rengas. Lyönti: rengas vihun päähän. Potku/kiinniotto: heitto.\nLattialta rengas nostetaan kiinniottonapilla. Teline hajoaa iskuista.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------

@@ -252,6 +252,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float downTime = 1.0f;
     public float getUpTime = 0.5f;
 
+    [Header("Pelastusrengas")]
+    [Tooltip("Renkaaseen joutuminen (8 kuvaa): 0 rengas pään yllä, 1–3 jumissa renkaassa, 4–7 kaatuu renkaan kanssa ja makaa.")]
+    public Sprite[] ringedSprites;
+    [Tooltip("Kauanko renkaassa ollaan jumissa, ellei kaadeta (s).")]
+    public float ringedTime = 3.5f;
+    public bool HasRingArt => ringedSprites != null && ringedSprites.Length >= 8;
+    bool ringFall;            // kaatui renkaan kanssa (makaa renkaassa)
+    int ringHits;
+    Sprite[] ringItem;        // pudotettavan renkaan kuvat
+
     [Header("Pudotus (kun kaatuu lopullisesti)")]
     [Tooltip("Tavallinen pudotus: yksi seteli.")]
     public int noteValue = 1;
@@ -280,7 +290,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -524,6 +534,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= hurtTime) Enter(State.Chase);
                 break;
 
+            case State.Ringed:
+                // jumissa renkaassa: ei hyökkää; ajan loputtua ravistaa renkaan pois
+                if (stateTime >= ringedTime) { DropRing(1.2f); if (boardLost) GoOnFoot(); cooldown = Mathf.Max(cooldown, 0.5f); Enter(State.Chase); }
+                break;
+
             case State.Held:
                 // pelaaja liikuttaa (SetHeldByPlayer); varmuuden vuoksi irti, jos heitto jää kesken
                 if (stateTime > 3f) ReleaseThrow(0f, 2f, 0);
@@ -540,6 +555,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         Vector3 q = c.transform.position, me2 = transform.position;
                         if (Mathf.Abs(q.x - me2.x) < 1.2f && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
                     }
+                if (height < 1.8f && Mathf.Abs(knockVel.x) > 2f) RingStand.SmashNear(transform.position);
                 // iso heitetty vihu (Kovis, portsari) kaataa tieltään muut vihut
                 if ((thrownByPlayer && bigBody) || launched) BowlOthers();
                 verticalVel -= (thrownByPlayer ? 48f : 30f) * dt;   // heitetty iskeytyy maahan nopeasti
@@ -608,8 +624,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     Move(knockVel * dt);
                     knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 9f * dt);
                 }
-                if (stateTime >= downTime)
+                if (stateTime >= downTime + (ringFall ? 0.6f : 0f))
                 {
+                    if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
                     else Enter(State.GetUp);
                 }
@@ -875,6 +892,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             grabbedEnemy.ReleaseThrow(0f, 2f, 0); grabbedEnemy = null;
         }
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
+        if (s != State.Down && s != State.Dead && s != State.Ringed && ringItem != null) DropRing(1.0f);   // esim. heitto renkaasta
+        if (s != State.Down && s != State.Dead) ringFall = false;
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -1302,8 +1321,54 @@ public class Enemy : MonoBehaviour, IBottleHolder
     // ---------------- Osumat ----------------
 
     /// Pelaajan isku osuu. attackerX = lyöjän sijainti (mistä suunnasta isku tulee).
+    /// Pelaaja lyö renkaan vihun päähän: jää jumiin renkaaseen (vain jos vihulla on renkaan kuvat).
+    public bool PutRing(Sprite[] ring, float attackerX)
+    {
+        if (!HasRingArt || ally) return false;
+        if (state == State.Down || state == State.GetUp || state == State.Dead || state == State.Ringed) return false;
+        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || state == State.Airborne) return false;
+        DropBoard();
+        awake = true;
+        ringItem = ring; ringHits = 0;
+        facingRight = attackerX > transform.position.x;
+        height = 0f; verticalVel = 0f;
+        flashTimer = 0.1f;
+        shakeUntil = HitFx.ShakeUntil(true);
+        PlayHurtSound();
+        Enter(State.Ringed);
+        return true;
+    }
+
+    /// Rengas irtoaa ja putoaa lattialle (voi nostaa uudelleen).
+    void DropRing(float h)
+    {
+        if (ringItem == null) return;
+        LifeRing.Create(ringItem, transform.position).DropFrom(transform.position + new Vector3(facingRight ? -0.4f : 0.4f, -0.05f, 0f), h);
+        ringItem = null;
+    }
+
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        if (state == State.Ringed)
+        {
+            // renkaassa ei voi torjua: iskut uppoavat, kolmas (tai kaatava) isku kaataa renkaan kanssa
+            awake = true;
+            health = Mathf.Max(0, health - damage);
+            LastHit = this; LastHitTime = Time.time;
+            JustBlocked = false;
+            flashTimer = 0.1f;
+            bool fall = knockdown || health <= 0 || ++ringHits >= 3;
+            shakeUntil = HitFx.ShakeUntil(fall);
+            PlayHurtSound();
+            if (fall)
+            {
+                facingRight = attackerX > transform.position.x;
+                ringFall = true;
+                knockVel = Vector2.zero;
+                Enter(State.Down);
+            }
+            return true;
+        }
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held) return false;   // heiton aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
@@ -1689,8 +1754,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
+            case State.Ringed:
+                if (stateTime < 0.12f) return ringedSprites[0];
+                { int[] loop = { 1, 2, 3, 2 }; return ringedSprites[loop[(int)((stateTime - 0.12f) / 0.16f) % loop.Length]]; }
+
             case State.Down:
             case State.Dead:
+                if (ringFall && HasRingArt)
+                    return ringedSprites[Mathf.Min(4 + (int)((state == State.Down ? stateTime : 99f) / 0.1f), 7)];
                 if (Has(landSprites) && !slamLanded && !flipLanded)
                     return landSprites[Mathf.Min((int)((state == State.Down ? stateTime : 99f) / landFrameTime), landSprites.Length - 1)];
                 if (slamLanded && HasFlightArt)

@@ -313,15 +313,24 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Pelastusrengas")]
     [Tooltip("rengas_otto.png: 6 kuvaa, otto telineestä (teline ja rengas piirretty kuviin).")]
     public Sprite[] ringTakeSprites;
-    [Tooltip("rengas_heitto.png: 0 pito, 1–3 nosto pään yli, 4 irti, 5–7 paluu.")]
+    [Tooltip("rengas_heitto.png: 0 pito, 1–3 heilautus taakse, 4 eteen, 5 irti, 6–7 paluu.")]
     public Sprite[] ringThrowSprites;
+    [Tooltip("rengas_lyonti.png: 0 pito, 1–3 nosto pään yli, 4 isku alas (rengas vihun päähän), 5–7 paluu.")]
+    public Sprite[] ringSmashSprites;
+    [Tooltip("rengas_kavely.png: kävely rengas kädessä (10 kuvaa).")]
+    public Sprite[] ringWalkSprites;
+    public float ringWalkFrameTime = 0.11f;
+    public int ringSmashDamage = 20;
+    public float ringSmashReach = 2.4f;
+    static readonly float[] RingSmashTimes = { 0.06f, 0.08f, 0.09f, 0.14f, 0.07f, 0.09f, 0.1f, 0.12f };
     [Tooltip("rengas_nosto.png: 0–3 nosto lattialta.")]
     public Sprite[] ringPickSprites;
     public float ringFrameTime = 0.1f;
-    static readonly float[] RingThrowTimes = { 0.08f, 0.09f, 0.1f, 0.12f, 0.06f, 0.08f, 0.08f, 0.1f };
+    static readonly float[] RingThrowTimes = { 0.06f, 0.08f, 0.09f, 0.13f, 0.05f, 0.07f, 0.09f, 0.1f };
     RingStand takingStand;
     LifeRing pickingRing;
     bool ringResolved;
+    bool HasRingSmash => ringSmashSprites != null && ringSmashSprites.Length >= 8;
     bool HasRing => ringTakeSprites != null && ringTakeSprites.Length >= 6 && ringThrowSprites != null && ringThrowSprites.Length >= 8 && ringPickSprites != null && ringPickSprites.Length >= 4;
 
     [Header("Pudotuspotku (juoksusta lyönti + hyppy yhtä aikaa)")]
@@ -474,7 +483,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash }
 
     int comboIndex;
     bool comboQueued;
@@ -497,7 +506,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
         SortByFrameNumber(dropKickSprites);
-        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites);
+        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
         SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
@@ -869,7 +878,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.RingHold:
             {
                 if (LifeRing.Held == null) { Enter(State.Ground); break; }
-                if (kickPressed || catchPressed || punchPressed) { ringResolved = false; PlayGrunt(); Enter(State.RingThrow); break; }   // lyönti renkaalla: kuvat tulossa
+                if (punchPressed && HasRingSmash) { ringResolved = false; PlayGrunt(); Enter(State.RingSmash); break; }   // rengas vihun päähän
+                if (kickPressed || catchPressed || punchPressed) { ringResolved = false; PlayGrunt(); Enter(State.RingThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
                 if (moving)
                 {
@@ -879,12 +889,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
             }
 
+            case State.RingSmash:
+                if (!ringResolved && stateTime >= ThrowPose.Start(RingSmashTimes, 4)) { ringResolved = true; RingSmashImpact(); }
+                if (ThrowPose.Index(RingSmashTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+
             case State.RingThrow:
-                if (!ringResolved && stateTime >= ThrowPose.Start(RingThrowTimes, 4))
+                if (!ringResolved && stateTime >= ThrowPose.Start(RingThrowTimes, 5))
                 {
                     ringResolved = true;
                     float dir = facingRight ? 1f : -1f;
-                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 1.2f, -0.01f, 0f), 1.6f + height, dir);
+                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 0.7f + height, dir);
                 }
                 if (ThrowPose.Index(RingThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
@@ -1344,6 +1359,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 HitSpark.Spawn(new Vector3(p.x - side * 0.4f, p.y + 0.8f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
             }
         }
+        // pelastusrenkaan telineet: pari iskua hajottaa (kaatava heti)
+        foreach (var st in RingStand.All.ToArray())
+        {
+            if (st == null || !st.CanBeHit) continue;
+            Vector3 p = st.transform.position;
+            float dx = p.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
+            if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (st.Hit(knockdown)) { any = true; HitSpark.Spawn(new Vector3(p.x - side * 0.3f, p.y + 2.0f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5); }
+        }
         // kadun telkkarit (maassa): potku lennättää, lyönti hajottaa
         foreach (var tv in TvSet.All.ToArray())
         {
@@ -1367,6 +1392,44 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
         if (any) HitFx.OnHit(heavy);
         return any;
+    }
+
+    /// Renkaalla lyönti osuu: rengas lyödään edessä olevan vihun päähän (jos vihulla on renkaan kuvat),
+    /// muuten isku kaataa ja rengas putoaa lattialle. Ohi mennessä rengas putoaa eteen.
+    void RingSmashImpact()
+    {
+        Vector3 me = transform.position;
+        float dir = facingRight ? 1f : -1f;
+        Enemy best = null; float bd = 99f;
+        foreach (var e in Enemy.All)
+        {
+            if (e == null || e.IsDead || e.ally) continue;
+            Vector3 p = e.transform.position;
+            float dx = (p.x - me.x) * dir;
+            if (dx < -0.3f || dx > ringSmashReach || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (Mathf.Abs(dx) < bd) { bd = Mathf.Abs(dx); best = e; }
+        }
+        RingStand.SmashNear(me + new Vector3(dir * 1.6f, 0f, 0f), 1.0f, attackDepth);
+        if (best != null)
+        {
+            Vector3 p = best.transform.position;
+            var held = LifeRing.Held;
+            if (held != null && best.HasRingArt && best.PutRing(held.sprites, me.x))
+            {
+                LifeRing.ConsumeHeld();
+                HitFx.OnHit(true);
+                HitSpark.Spawn(new Vector3(p.x, p.y + 2.6f, 0f), true, Mathf.RoundToInt(-p.y * 100f) + 5);
+                return;
+            }
+            if (best.TakeHit(ringSmashDamage, me.x, true))
+            {
+                HitFx.OnHit(true);
+                HitSpark.Spawn(new Vector3(p.x - dir * 0.35f, p.y + 2.6f, 0f), !best.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, best.JustBlocked);
+            }
+            LifeRing.DropHeld(new Vector3(p.x - dir * 0.6f, p.y - 0.05f, 0f));
+            return;
+        }
+        LifeRing.DropHeld(me + new Vector3(dir * 1.6f, -0.05f, 0f));
     }
 
     /// Katsooko pelaaja oikealle (viholliset kiertävät selän taakse).
@@ -2064,7 +2127,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.RingPick:
                 return ringPickSprites[Mathf.Min((int)(stateTime / (ringFrameTime * 1.2f)), 3)];
             case State.RingHold:
+                if (moving && ringWalkSprites != null && ringWalkSprites.Length > 0)
+                    return ringWalkSprites[(int)(animClock / ringWalkFrameTime) % ringWalkSprites.Length];
                 return ringThrowSprites[0];
+            case State.RingSmash:
+            {
+                int f = ThrowPose.Index(RingSmashTimes, stateTime);
+                return ringSmashSprites[f < 0 ? ringSmashSprites.Length - 1 : Mathf.Min(f, ringSmashSprites.Length - 1)];
+            }
             case State.RingThrow:
             {
                 int f = ThrowPose.Index(RingThrowTimes, stateTime);

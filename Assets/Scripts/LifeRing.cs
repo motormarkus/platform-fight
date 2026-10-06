@@ -76,6 +76,26 @@ public class LifeRing : MonoBehaviour
         r.Show(true);
     }
 
+    /// Rengas putoaa annetusta kohdasta ja korkeudesta lattialle (vihun päästä, telineestä).
+    public void DropFrom(Vector3 at, float h)
+    {
+        if (Held == this) Held = null;
+        transform.position = new Vector3(at.x, at.y, 0f);
+        height = h; vx = 0f; vy = 1.5f;
+        state = S.Falling;
+        Show(true);
+    }
+
+    /// Käsissä oleva rengas lyödään vihun päähän: rengas siirtyy vihulle (sen kuviin), tämä poistuu.
+    public static Sprite[] ConsumeHeld()
+    {
+        if (Held == null) return null;
+        var r = Held; Held = null;
+        var sp = r.sprites;
+        Destroy(r.gameObject);
+        return sp;
+    }
+
     void Show(bool on)
     {
         if (body != null) body.enabled = on;
@@ -91,6 +111,7 @@ public class LifeRing : MonoBehaviour
             Vector3 p = transform.position; p.x += vx * dt; transform.position = p;
             vy -= (state == S.Thrown ? 14f : 30f) * dt; height += vy * dt;
             if (state == S.Thrown && HitInPath()) { vx *= -0.25f; vy = 4f; state = S.Falling; }
+            if (state == S.Thrown && height < 3f) RingStand.SmashNear(transform.position, 0.8f, 0.5f);   // lentävä rengas hajottaa telineen
             if (height <= 0f)
             {
                 height = 0f;
