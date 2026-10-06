@@ -364,7 +364,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly float[] BigHookTimes = { 0.07f, 0.1f, 0.13f, 0.12f, 0.06f, 0.045f, 0.32f };
     bool HasBigHook => bigHookSprites != null && bigHookSprites.Length >= 7;
     float downInputTime = -9f, downFwdTime = -9f, downFwdDir;
-    bool bigHookHit;
+    bool bigHookHit, bigHookQueued;
     static readonly float[] DropKickTimes = { 0.07f, 0.1f, 0.22f, 0.18f, 0.1f, 0.22f };   // jalat suorana (kuvat 3–5) ~0.5 s
 
     [Header("Pienen esineen nosto ja heitto (pullo)")]
@@ -744,8 +744,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
                     attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown, hit.knockdown ? 2.9f : 2.4f);   // uppercut leukaan
 
+                // jab–takasuora–jab + (alas, eteen, lyönti): neljäs isku on iso koukku, nopeasti
+                if (bigHookInput && comboIndex >= 2) bigHookQueued = true;
+                if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
-                if (punchPressed && stateTime >= total * comboInputFrom) comboQueued = true;
+                if (punchPressed && !bigHookQueued && stateTime >= total * comboInputFrom) comboQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
                 if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
                 // jab + potku: polvi-isku (ote ja polvi ylös)
@@ -1317,13 +1320,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Heron kuva (pullon päälle piirrettävää nyrkkiä varten).
     public SpriteRenderer BodyRenderer => body;
 
-    void StartBigHook()
+    /// fromCombo: kombon jatkona lataus jää pois (alkaa syvästä kyykystä), joten koukku tulee nopeasti.
+    void StartBigHook(bool fromCombo = false)
     {
-        bigHookHit = false; attackHit = false;
+        bigHookHit = false; attackHit = false; bigHookQueued = false;
         facingRight = downFwdDir >= 0f;
         downFwdTime = -9f;
         PlayGrunt();
         Enter(State.BigHook);
+        if (fromCombo) stateTime = ThrowPose.Start(BigHookTimes, 3);
     }
 
     /// Kovis, samoalainen ja portsari kestävät koukun kaatuen; muut lentävät ilmaan.
@@ -1971,7 +1976,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         punchFromRun = index == 0 && state == State.Ground && running;
         attackHit = false;
-        kneeStrikeQueued = false;
+        kneeStrikeQueued = false; bigHookQueued = false;
         PlayGrunt();
         comboIndex = index;
         comboQueued = false;
