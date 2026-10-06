@@ -154,15 +154,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float scissorReach = 2.1f;
     [Tooltip("Painovoiman kerroin potkujen aikana: ukko leijuu hetken, jotta molemmat potkut ehtivät.")]
     [Range(0.1f, 1f)] public float scissorGravityScale = 0.5f;
-    [Tooltip("Ponnistuksen nopeus maasta (ylös, alas, K, K). 8 = n. 1.6 yksikön loikka; tavallinen hyppy on Jump Velocity.")]
+    [Tooltip("Ponnistuksen nopeus maasta (eteen-ylös + K). 8 = n. 1.6 yksikön loikka; tavallinen hyppy on Jump Velocity.")]
     public float scissorJumpVelocity = 8f;
-    [Tooltip("Maasta: ylös, alas, K, K. Aikaikkuna ylös→alas ja alas→potkut (s).")]
-    public float scissorInputWindow = 0.45f;
+    [Tooltip("Maasta: eteen-ylös (vino) + K. Aikaikkuna vinosta potkuun (s).")]
+    public float scissorInputWindow = 0.25f;
     bool scissor;           // saksipotku käynnissä ilmassa
-    bool scissorJump;       // ponnistus maasta saksipotkuun (ylös, alas, K, K)
+    bool scissorJump;       // ponnistus maasta saksipotkuun (eteen-ylös + K)
     bool landedFromScissor;
-    float lastUpTime = -10f, upDownTime = -10f, scissorArmTime = -10f;
-    float prevMoveY;
+    float upFwdTime = -10f, upFwdDir = 1f;
     float prevMoveX, lastTapTime = -9f, lastTapDir, dashArmedUntil = -9f, dashDir;
     bool kneeDashHit;
 
@@ -171,7 +170,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float kneeDashSpeed = 11f, kneeDashSlideTime = 0.32f;
     public int kneeDashDamage = 20;
     public float kneeDashReach = 1.5f;
-    bool scissorArmed;      // ylös-alas tehty ja ensimmäinen K painettu: toinen K laukaisee
     float scissorTime;
     bool scissorHit1, scissorHit2;
 
@@ -571,10 +569,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         UpdateStamina(dt);
 
         Vector2 move = Scripted ? ScriptedMove : ReadMove();
-        // ylös → alas -liike saksipotkua varten
-        if (move.y > 0.5f && prevMoveY <= 0.5f) lastUpTime = Time.time;
-        if (move.y < -0.5f && prevMoveY >= -0.5f && Time.time - lastUpTime <= scissorInputWindow) upDownTime = Time.time;
-        prevMoveY = move.y;
+        // eteen-ylös (vino) saksipotkua varten
+        if (move.y > 0.4f && Mathf.Abs(move.x) > 0.4f) { upFwdTime = Time.time; upFwdDir = Mathf.Sign(move.x); }
         // kaksi kertaa eteenpäin (napautus) + potku = liukupolvi
         if (Mathf.Abs(move.x) > 0.5f && Mathf.Abs(prevMoveX) <= 0.3f)
         {
@@ -660,8 +656,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (kickPressed)
                 {
-                    if (scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { StartScissorJump(); break; }
-                    ArmScissor();
+                    // eteen-ylös (vino) + potku = saksipotku
+                    if (Time.time - upFwdTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { facingRight = upFwdDir > 0f; StartScissorJump(); break; }
                     StartKick(0);
                     break;
                 }
@@ -1116,11 +1112,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Kick:   // matala potku, kombon ensimmäinen
-                if (kickPressed && scissorArmed && Time.time - scissorArmTime <= scissorInputWindow && HasScissor)
-                {
-                    StartScissorJump();   // ylös, alas, K, K: matala potku katkeaa saksipotkuksi
-                    break;
-                }
                 Lunge(attackLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
@@ -1919,15 +1910,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     /// Ylös-alas tehty juuri ennen potkua: seuraava K (pian) laukaisee saksipotkun.
-    void ArmScissor()
-    {
-        scissorArmed = Time.time - upDownTime <= scissorInputWindow;
-        scissorArmTime = Time.time;
-    }
-
     void StartScissorJump()
     {
-        scissorArmed = false;
         scissorJump = true;
         jumpFromRun = false;
         squatVel = Vector2.zero;
