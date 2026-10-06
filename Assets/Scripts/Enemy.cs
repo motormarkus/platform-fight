@@ -367,6 +367,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int Health => health;
     public bool IsDead => state == State.Dead;
 
+    /// Onko lähellä pystyssä olevia vihollisia (ei liittolaisia): esim. tanssia ei aloiteta tappelun keskellä.
+    public static bool HostileNear(Vector3 pos, float range)
+    {
+        foreach (var e in All)
+            if (e != null && e.isActiveAndEnabled && !e.ally && !e.IsDead && Mathf.Abs(e.transform.position.x - pos.x) < range) return true;
+        return false;
+    }
+
     void OnEnable() { All.Add(this); }
     /// Herää heti (portsarit tulevat ovesta tappelun alkaessa).
     public void WakeUp() { awake = true; }

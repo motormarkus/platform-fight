@@ -3167,7 +3167,8 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------
-    const int SailorCount = 4;
+    const int SailorCount = 7;                         // 4 heti, 3 lisää myöhemmin
+    static readonly int[] SailorWaves = { 4, 3 };
     // rosvot (8) hyökkäävät keulan puolelta aaltoina, kun hero tulee hyttiovelle; tässä vain syvyys (0 = kaide … 1 = edessä)
     static readonly float[] ShipPirateDepths = { 0.3f, 0.7f, 0.5f, 0.2f, 0.85f, 0.45f, 0.65f, 0.25f, 0.4f, 0.75f, 0.15f, 0.6f };
     static readonly int[] ShipPirateWaves = { 4, 5, 5 };   // 2. ja 3. aallossa mukana Kovis
@@ -3231,18 +3232,19 @@ public static class BeatEmUpSetup
         var squad = root.AddComponent<BouncerSquad>();
         squad.area = deck; squad.bothSides = false; squad.firstDelay = 1.0f; squad.spawnInterval = 0.7f;
         squad.triggerX = X(ShipFightTriggerPx);   // hero hyttiovella: seilorit juoksevat ovesta
+        squad.waves = SailorWaves; squad.waveNextAt = 1;   // lisää seiloreita, kun pystyssä on enää yksi
         squad.bouncers = new Enemy[SailorCount];
         go.transform.SetParent(root.transform, false);
         for (int i = 0; i < SailorCount; i++)
         {
             var c = i == 0 ? go : Object.Instantiate(go, root.transform);
             if (i > 0) c.name = "Seilori_" + (i + 1);
-            float y = Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.15f + 0.2f * i);
+            float y = Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.15f + 0.2f * (i % 4) + 0.1f * (i / 4));
             c.transform.position = new Vector3(hyttiovi.x - 0.3f * i, y, 0f);
             squad.bouncers[i] = c.GetComponent<Enemy>();
             c.SetActive(false);            // tulevat hyttiovelta juosten, kun tappelu alkaa
         }
-        report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
+        report.Add($"Seilorit: {SailorCount} (4 hyttiovelta tappelun alkaessa, 3 lisää kun pystyssä on enää yksi)");
 
         // rosvot: Kovis-pohja (osaa heittää), merirosvon omat kuvat niiltä osin kuin ne ovat valmiina
         foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi", "merirosvo_kaatuminen", "merirosvo_ylosnousu", "merirosvo_heitto", "merirosvo_heitetty", "merirosvo_kierrepotku", "merirosvo_kavely", "merirosvo_kavely_puhe", "merirosvo_suojaus" })

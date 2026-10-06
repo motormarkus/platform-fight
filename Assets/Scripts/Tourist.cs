@@ -136,7 +136,8 @@ public class Tourist : MonoBehaviour
                 if (pc != null && kissIntro != null && kissIntro.Length > 0 && pc.enabled && pc.IsFree && !pc.Riding)
                 {
                     Vector3 q = pc.transform.position, me = transform.position;
-                    near = Mathf.Abs(q.x - me.x) < 3.2f && Mathf.Abs(q.y - me.y) < 0.8f;
+                    near = Mathf.Abs(q.x - me.x) < 3.2f && Mathf.Abs(q.y - me.y) < 0.8f
+                           && !Enemy.HostileNear(me, 18f);   // ei tanssia tappelun tuoksinassa
                     if (near) sr.flipX = q.x < me.x;      // kääntyy heroa kohti
                     if (near && UsePressed()) StartCoroutine(Kiss());
                 }
