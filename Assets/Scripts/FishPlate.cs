@@ -15,9 +15,9 @@ public class FishPlate : MonoBehaviour
     [Tooltip("Kuvat kansiosta Resources/<spriteSet> (Kala = kala-annos, Hummeri = hummeriannos).")]
     public string spriteSet = "Kala";
 
-    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons; }
+    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2; }
     static readonly Dictionary<string, Set> sets = new Dictionary<string, Set>();
-    Sprite plate; Sprite[] burst, fish, fries, shards, lemons;
+    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2;
     enum S { OnTable, Tipping, Burst, Done }
     S state = S.OnTable;
     SpriteRenderer sr;
@@ -28,7 +28,7 @@ public class FishPlate : MonoBehaviour
     {
         string key = string.IsNullOrEmpty(spriteSet) ? "Kala" : spriteSet;
         if (!sets.TryGetValue(key, out var set)) { set = LoadSet(key); sets[key] = set; }
-        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons;
+        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2;
     }
 
     static Set LoadSet(string folder)
@@ -44,6 +44,7 @@ public class FishPlate : MonoBehaviour
         }
         foreach (var s in all) if (s.name == "annos") set.plate = s;
         set.burst = Pick("hajoaa_"); set.fish = Pick("kala_"); set.fries = Pick("ranska_"); set.shards = Pick("sirpale_"); set.lemons = Pick("sitruuna_");
+        set.veg1 = Pick("parsa_"); set.veg2 = Pick("peruna_");   // lentokuvat (pyörivät kuvasarjana)
         return set;
     }
     static int FrameNo(Sprite s) { int i = s.name.LastIndexOf('_'); return i >= 0 && int.TryParse(s.name.Substring(i + 1), out int n) ? n : 0; }
@@ -153,6 +154,21 @@ public class FishPlate : MonoBehaviour
                 Random.Range(-0.8f, 0.5f) * (violent ? 1f : 0.4f),
                 Random.Range(-900f, 900f) * (violent ? 1f : 0.3f), false, 0f);
         }
+        // lisukkeet omilla lentokuvillaan (hummeriannos: parsat ja lohkoperunat)
+        foreach (var veg in new[] { veg1, veg2 })
+        {
+            if (veg == null || veg.Length == 0) continue;
+            int nv = violent ? Random.Range(4, 7) : Random.Range(2, 4);
+            for (int i = 0; i < nv; i++)
+            {
+                float a = violent ? Random.Range(-1f, 1f) : dir * Random.Range(0.2f, 1f);
+                FoodDebris.Spawn(veg, p + new Vector3(Random.Range(-0.3f, 0.3f), 0f, 0f), h, s * 0.6f,
+                    violent ? a * Random.Range(2f, 6.5f) + dir * 1.5f : a * Random.Range(0.6f, 1.8f),
+                    violent ? Random.Range(4f, 10f) : Random.Range(0.5f, 2.5f),
+                    Random.Range(-0.8f, 0.5f) * (violent ? 1f : 0.4f),
+                    Random.Range(-900f, 900f) * (violent ? 1f : 0.3f), false, 0f);
+            }
+        }
         int ns = violent ? Random.Range(5, 8) : Random.Range(3, 6);
         for (int i = 0; i < ns && shards.Length > 0; i++)
             FoodDebris.Spawn(new[] { shards[Random.Range(0, shards.Length)] }, p, h, s,
@@ -188,7 +204,7 @@ public class FoodDebris : MonoBehaviour
         d.frames = frames; d.height = height; d.vx = vx; d.vy = vy; d.vDepth = vDepth; d.spin = spin;
         d.baseScale = scale; d.isFish = isFish; d.camBoost = camBoost; d.peak = Mathf.Max(0.5f, height + vy * vy / 60f);
         d.frameT = Random.Range(0f, 8f);
-        d.rot = isFish ? 0f : Random.Range(0f, 360f);
+        d.rot = isFish || frames.Length > 1 ? 0f : Random.Range(0f, 360f);
         d.sr.sprite = frames[0];
         d.sr.flipX = vx < 0f;
         live.Add(d);
@@ -211,6 +227,13 @@ public class FoodDebris : MonoBehaviour
         vy -= 30f * dt;
         height += vy * dt;
         rot += spin * dt;
+        if (!isFish && frames.Length > 1)
+        {
+            // piirretyt lentokuvat: kuvasarja pyörii (ei kuvan kääntöä)
+            frameT += dt * Mathf.Abs(spin) / 45f;
+            sr.sprite = frames[(int)frameT % frames.Length];
+            rot = 0f;
+        }
         if (isFish && frames.Length > 1)
         {
             // kala vääntelehtii lennossa: asennot vaihtuvat

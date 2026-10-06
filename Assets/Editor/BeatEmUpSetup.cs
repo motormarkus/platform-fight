@@ -3310,6 +3310,9 @@ public static class BeatEmUpSetup
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
         var salBg = GameObject.Find("Laivan sali");
         var tableSprite = ImportProp("Assets/Sprites/Rekvisiitta/sali_poyta.png");
+        Sprite[] tableBreak = new Sprite[0];
+        string tbp = FindTexture("poyta_sali");
+        if (tbp != null) { SetupAndSlice(tbp); tableBreak = LoadSprites("poyta_sali").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
         if (sal == null || salBg == null || tableSprite == null) { Info("Tarvitaan laivan sali (kohta 60) ja sali_poyta.png."); return; }
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Hummeri" }))
         {
@@ -3332,7 +3335,8 @@ public static class BeatEmUpSetup
         }
         var champagne = Strip("pullo_shamppanja");          // 0 ehjä, 1–4 posahdus ilmassa, 5 sirpaleet lattialla
         var champEmpty = Strip("pullo_shamppanja_tyhja");   // 0 tyhjä (avattu), 1–4 posahdus, 5 sirpaleet
-        var champSpin = Strip("pullo_shamppanja_pyorii");   // lento: 6 kulmaa
+        var champSpin = Strip("pullo_shamppanja_pyorii");   // lento: 6 kulmaa (avattu)
+        var champSpinFull = Strip("pullo_shamppanja_pyorii_taysi");   // lento: 6 kulmaa (avaamaton)
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D shamppanja", new[] { "Assets/Resources/Tahrat" }))
         {
             var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
@@ -3370,8 +3374,17 @@ public static class BeatEmUpSetup
             var c = go.AddComponent<Crate>();
             c.body = vis; c.shadow = sh; vis.sprite = tableSprite;
             c.sprites = new[] { tableSprite };
-            c.breakable = false;                // särkymiskuvat myöhemmin
-            c.visualScale = sc; c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
+            c.breakable = false;
+            float vsc = sc;
+            if (tableBreak.Length >= 8)
+            {
+                // 0 ehjä, 1–2 halkeilee, 3–7 kaatuu ja hajoaa
+                c.sprites = new[] { tableBreak[0], tableBreak[1], tableBreak[2] };
+                c.breakSprites = new[] { tableBreak[3], tableBreak[4], tableBreak[5], tableBreak[6], tableBreak[7] };
+                c.breakable = true; c.hitsToBreak = 3; c.breakFrameTime = 0.09f; c.debrisTime = 6f;
+                vis.sprite = tableBreak[0]; vsc = sc * 316f / 304f;
+            }
+            c.visualScale = vsc; c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
             c.hitRadiusX = 1.0f; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
             // hummeriannos ja shamppanjapullo pöydälle
             var fGo = new GameObject("Hummeriannos");
@@ -3391,6 +3404,7 @@ public static class BeatEmUpSetup
                 b.sprites = sp; b.keepDebris = true; b.frameTime = 0.06f;
                 b.stainKind = empty ? "-" : "shamppanja"; b.scale = 1.0f; b.pivotY = 0.4f;
                 if (empty && champSpin.Length >= 6) b.spinSprites = champSpin;
+                if (!empty && champSpinFull.Length >= 6) b.spinSprites = champSpinFull;
                 b.breakSounds = glass; b.table = c; b.tableX = (n % 2 == 0 ? -0.55f : 0.55f) + bi * 0.3f; b.tableTop = top - 0.05f;
             }
         }
