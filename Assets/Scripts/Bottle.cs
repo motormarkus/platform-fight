@@ -44,7 +44,9 @@ public class Bottle : MonoBehaviour
     [Tooltip("Särkymisen viimeinen kuva jää lattialle (esim. shamppanjapullon sirpaleet). Välikuvat = posahdus ilmassa (vain kun osuu ilmassa).")]
     public bool keepDebris;
     float burstH;
-    bool softLanding;   // pöytä nostettiin: valuu lattialle ehjänä
+    bool softLanding;
+    [Tooltip("Hajoaa aina osuessaan lattiaan (esim. ohut viinilasi).")]
+    public bool alwaysBreak;   // pöytä nostettiin: valuu lattialle ehjänä
     static int lastSound = -1;
 
     enum S { OnTable, Wobble, Falling, Lying, Held, Thrown, Breaking }
@@ -208,7 +210,7 @@ public class Bottle : MonoBehaviour
                 {
                     height = 0f;
                     float breakChance = fastFall ? 0.7f : 0.4f;
-                    if (!food && !softLanding && Random.value < breakChance) Shatter();
+                    if (!food && (alwaysBreak || (!softLanding && Random.value < breakChance))) Shatter();
                     else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : (Random.value < 0.5f ? 90f : -90f); t = 0f; }   // jää ehjänä kyljelleen
                 }
                 break;

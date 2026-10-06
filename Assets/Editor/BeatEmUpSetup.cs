@@ -3337,7 +3337,10 @@ public static class BeatEmUpSetup
         var champEmpty = Strip("pullo_shamppanja_tyhja");   // 0 tyhjä (avattu), 1–4 posahdus, 5 sirpaleet
         var champSpin = Strip("pullo_shamppanja_pyorii");   // lento: 6 kulmaa (avattu)
         var champSpinFull = Strip("pullo_shamppanja_pyorii_taysi");   // lento: 6 kulmaa (avaamaton)
-        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D shamppanja", new[] { "Assets/Resources/Tahrat" }))
+        var wineFull = Strip("pullo_lasi_shamppanja");         // 0 täysi lasi, 1 sirpaleet lattialla
+        var wineEmpty = Strip("pullo_lasi_shamppanja_tyhja");  // 0 tyhjä lasi, 1 sirpaleet
+        var wineSpin = Strip("pullo_lasi_shamppanja_pyorii");  // lento (tyhjä): 6 kulmaa
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Tahrat" }))
         {
             var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
             if (ti == null) continue;
@@ -3407,6 +3410,23 @@ public static class BeatEmUpSetup
                 if (empty && champSpin.Length >= 6) b.spinSprites = champSpin;
                 if (!empty && champSpinFull.Length >= 6) b.spinSprites = champSpinFull;
                 b.breakSounds = glass; b.table = c; b.tableX = (n % 2 == 0 ? -0.55f : 0.55f) + bi * 0.3f; b.tableTop = top - 0.05f;
+            }
+            // viinilasit: lähtevät pöydältä aina rikki (täysi kaatuu tyhjäksi lennossa)
+            if (wineFull.Length >= 2 && wineEmpty.Length >= 2)
+            {
+                float side = n % 2 == 0 ? 1f : -1f;   // annoksen puolelle, reunalle
+                var xs = n % 2 == 0 ? new[] { 0.85f * side } : new[] { 0.85f * side, -0.85f * side };
+                for (int gi = 0; gi < xs.Length; gi++)
+                {
+                    bool fullGlass = (n + gi) % 2 == 0;
+                    var gGo = new GameObject(fullGlass ? "Viinilasi (täysi)" : "Viinilasi");
+                    gGo.transform.SetParent(root.transform, false); gGo.transform.position = go.transform.position;
+                    var g = gGo.AddComponent<Bottle>();
+                    g.sprites = fullGlass ? wineFull : wineEmpty; g.keepDebris = true; g.alwaysBreak = true;
+                    if (wineSpin.Length >= 6) g.spinSprites = wineSpin;
+                    g.stainKind = fullGlass ? "lasiroiske" : "-"; g.scale = 1f; g.pivotY = 0.28f; g.throwDamage = 8;
+                    g.breakSounds = glass; g.table = c; g.tableX = xs[gi]; g.tableTop = top - 0.05f;
+                }
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
