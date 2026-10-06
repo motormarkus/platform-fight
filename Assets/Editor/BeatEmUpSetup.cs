@@ -3668,7 +3668,7 @@ public static class BeatEmUpSetup
         }
         var raid = Squad("Salin rosvot", pirateT, SalonPirateWaves, new[] { 0.3f, 0.7f, 0.5f, 0.15f, 0.85f, 0.45f, 0.65f, 0.25f }, true);
         // pari Kovista rosvojen puolelle: kummankin aallon viimeiseksi
-        var kovisT = all.FirstOrDefault(e => e.gameObject.name == "Kovis");
+        var kovisT = all.FirstOrDefault(e => e != null && e.gameObject.name == "Kovis");   // all-listassa voi olla juuri poistettuja (vanhat salin rosvot)
         int kovis = 0;
         if (kovisT != null)
         {
