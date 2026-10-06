@@ -3302,7 +3302,8 @@ public static class BeatEmUpSetup
 
     // ---------------- Laivan salin pöydät ----------------
     // salin kuvan x (px), syvyys 0 = takaraja … 1 = edessä; baarin ja lavan väliin ja eteen
-    static readonly Vector2[] SalonTableSpots = { new Vector2(900f, 0.3f), new Vector2(1300f, 0.7f), new Vector2(1700f, 0.25f), new Vector2(2150f, 0.65f) };
+    static readonly Vector2[] SalonTableSpots = { new Vector2(880f, 0.15f), new Vector2(1250f, 0.55f), new Vector2(1980f, 0.5f), new Vector2(2330f, 0.2f),
+                                                     new Vector2(1050f, 0.95f), new Vector2(1800f, 0.92f), new Vector2(2350f, 0.85f) };   // lavan eteen ei pöytää
 
     [MenuItem("Beat em up/62. Laivan salin pöydät (hummeri ja shamppanja)")]
     static void AddSalonTables()
@@ -3356,8 +3357,9 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Salin pöydät");
         var bsr = salBg.GetComponent<SpriteRenderer>();
         float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
-        const float sc = 0.64f;                 // pöytä n. 2 yks leveä, 1.56 korkea
-        float top = 1.22f;                      // pöydän pinta (annos ja pullo)
+        const float K = 1.5f;                   // pöydät ja tavarat 1,5 x (pöytä heron vyötärölle)
+        const float sc = 0.64f * K;             // pöytä n. 3 yks leveä
+        float top = 1.22f * K;                  // pöydän pinta (annos ja pullo)
         int n = 0;
         foreach (var v in SalonTableSpots)
         {
@@ -3367,7 +3369,7 @@ public static class BeatEmUpSetup
             if (dl != null && dl.Length > 1)
                 for (int i = 1; i < dl.Length; i++)
                     if (x <= dl[i].x) { back = Mathf.Min(back, Mathf.Lerp(dl[i - 1].y, dl[i].y, Mathf.InverseLerp(dl[i - 1].x, dl[i].x, x))); break; }
-            float y = Mathf.Lerp(back - 0.3f, sal.minDepthY + 0.4f, v.y);
+            float y = Mathf.Lerp(back - 0.3f, sal.minDepthY + 0.4f, v.y);   // 0 = takana, 1 = edessä
             var go = new GameObject("Salin pöytä " + (++n));
             go.transform.SetParent(root.transform, false);
             go.transform.position = new Vector3(x, y, 0f);
@@ -3388,14 +3390,14 @@ public static class BeatEmUpSetup
                 vis.sprite = tableBreak[0]; vsc = sc * 316f / 304f;
             }
             c.visualScale = vsc;
-            c.carryUpsideDown = true; c.carryLower = 1.3f;   // kannetaan ylösalaisin pään päällä c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
-            c.hitRadiusX = 1.0f; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
+            c.carryUpsideDown = true; c.carryLower = 1.3f * K;   // kannetaan ylösalaisin pään päällä c.shadowWidth = 2.0f * K; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
+            c.hitRadiusX = 1.0f * K; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
             // hummeriannos ja shamppanjapullo pöydälle
             var fGo = new GameObject("Hummeriannos");
             fGo.transform.SetParent(root.transform, false); fGo.transform.position = go.transform.position;
             var f = fGo.AddComponent<FishPlate>();
-            f.spriteSet = "Hummeri"; f.scale = 0.72f;
-            f.table = c; f.tableX = n % 2 == 0 ? 0.25f : -0.25f; f.tableTop = top; f.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
+            f.spriteSet = "Hummeri"; f.scale = 0.72f * K;
+            f.table = c; f.tableX = (n % 2 == 0 ? 0.25f : -0.25f) * K; f.tableTop = top; f.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
             // täysi shamppanja (posahtaa) ja välillä tyhjä avattu pullo
             for (int bi = 0; bi < (n % 2 == 0 ? 2 : 1); bi++)
             {
@@ -3406,10 +3408,10 @@ public static class BeatEmUpSetup
                 bGo.transform.SetParent(root.transform, false); bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
                 b.sprites = sp; b.keepDebris = true; b.frameTime = 0.06f;
-                b.stainKind = empty ? "-" : "shamppanja"; b.scale = 1.0f; b.pivotY = 0.4f;
+                b.stainKind = empty ? "-" : "shamppanja"; b.scale = 1.0f * K; b.pivotY = 0.4f;
                 if (empty && champSpin.Length >= 6) b.spinSprites = champSpin;
                 if (!empty && champSpinFull.Length >= 6) b.spinSprites = champSpinFull;
-                b.breakSounds = glass; b.table = c; b.tableX = (n % 2 == 0 ? -0.55f : 0.55f) + bi * 0.3f; b.tableTop = top - 0.05f;
+                b.breakSounds = glass; b.table = c; b.tableX = ((n % 2 == 0 ? -0.55f : 0.55f) + bi * 0.3f) * K; b.tableTop = top - 0.05f;
             }
             // viinilasit: lähtevät pöydältä aina rikki (täysi kaatuu tyhjäksi lennossa)
             if (wineFull.Length >= 2 && wineEmpty.Length >= 2)
@@ -3424,8 +3426,8 @@ public static class BeatEmUpSetup
                     var g = gGo.AddComponent<Bottle>();
                     g.sprites = fullGlass ? wineFull : wineEmpty; g.keepDebris = true; g.alwaysBreak = true;
                     if (wineSpin.Length >= 6) g.spinSprites = wineSpin;
-                    g.stainKind = fullGlass ? "lasiroiske" : "-"; g.scale = 1f; g.pivotY = 0.28f; g.throwDamage = 8;
-                    g.breakSounds = glass; g.table = c; g.tableX = xs[gi]; g.tableTop = top - 0.05f;
+                    g.stainKind = fullGlass ? "lasiroiske" : "-"; g.scale = 1f * K; g.pivotY = 0.28f; g.throwDamage = 8;
+                    g.breakSounds = glass; g.table = c; g.tableX = xs[gi] * K; g.tableTop = top - 0.05f;
                 }
             }
         }
