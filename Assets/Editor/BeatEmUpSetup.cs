@@ -3054,7 +3054,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Pelastusrenkaat ----------------
     // kannen kuvan x (px), syvyys 0 = kaide … 1 = edessä
-    static readonly Vector2[] RingStandSpots = { new Vector2(1000f, 0.15f), new Vector2(2950f, 0.15f) };
+    static readonly Vector2[] RingStandSpots = { new Vector2(650f, 0.15f), new Vector2(1450f, 0.15f) };   // keulan puolella, ei aurinkotuolien eteen
     // Uccopulcon satamakuvan x (px), kaiteen vieressä (ei laivan aukon kohdalla)
     static readonly float[] UccoRingStandPx = { 900f, 2250f };
 

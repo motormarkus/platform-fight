@@ -13,6 +13,10 @@ public class LifeRing : MonoBehaviour
     public Sprite[] sprites;          // rengas_kuvat: 0–7 pyörähdys, 8 lattialla
     public int throwDamage = 18;
     public float spinFrameTime = 0.045f;
+    [Tooltip("Renkaan koko lattialla ja lennossa.")]
+    public float scale = 1.25f;
+    // frisbeelento: vaakatasoiset kuvat (8, 10, 12) vuorotellen ja pieni vaappuminen
+    static readonly int[] FlatSpin = { 8, 10, 12, 10 };
     SpriteRenderer body, shadow;
     enum S { Held, Thrown, Falling, Floor }
     S state = S.Held;
@@ -60,7 +64,7 @@ public class LifeRing : MonoBehaviour
         if (Held == null) return;
         var r = Held; Held = null;
         r.transform.position = new Vector3(from.x, from.y, 0f);
-        r.height = h; r.vx = dir * 15f; r.vy = 3.2f; r.t = 0f;
+        r.height = h; r.vx = dir * 22f; r.vy = 0.6f; r.t = 0f;   // frisbee: lujaa ja matalalla, liitää
         r.hit.Clear();
         r.state = S.Thrown;
         r.Show(true);
@@ -109,7 +113,8 @@ public class LifeRing : MonoBehaviour
         if (state == S.Thrown || state == S.Falling)
         {
             Vector3 p = transform.position; p.x += vx * dt; transform.position = p;
-            vy -= (state == S.Thrown ? 14f : 30f) * dt; height += vy * dt;
+            vy -= (state == S.Thrown ? 4f : 30f) * dt; height += vy * dt;
+            if (state == S.Thrown) vx *= 1f - 0.35f * dt;   // ilmanvastus: hidastuu hieman
             if (state == S.Thrown && HitInPath()) { vx *= -0.25f; vy = 4f; state = S.Falling; }
             if (state == S.Thrown && height < 3f) RingStand.SmashNear(transform.position, 0.8f, 0.5f);   // lentävä rengas hajottaa telineen
             if (height <= 0f)
@@ -120,8 +125,18 @@ public class LifeRing : MonoBehaviour
             }
         }
         if (body == null || sprites == null || sprites.Length == 0) return;
-        int f = state == S.Floor ? Mathf.Min(8, sprites.Length - 1) : (int)(t / spinFrameTime) % Mathf.Min(8, sprites.Length);
+        int f;
+        float rot = 0f;
+        if (state == S.Floor) f = Mathf.Min(8, sprites.Length - 1);
+        else if (state == S.Thrown && sprites.Length > 12)
+        {
+            f = FlatSpin[(int)(t / 0.06f) % FlatSpin.Length];
+            rot = Mathf.Sin(t * 13f) * 7f;                       // vaappuu
+        }
+        else f = (int)(t / spinFrameTime) % Mathf.Min(8, sprites.Length);   // pudotessa pyörii
         body.sprite = sprites[f];
+        body.transform.localScale = new Vector3(scale, scale, 1f);
+        body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
         body.transform.localPosition = new Vector3(0f, height + (state == S.Floor ? 0.25f : 0.7f), 0f);
         body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f) + (state == S.Floor ? -20 : 0);
         if (shadow != null)

@@ -326,7 +326,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("rengas_nosto.png: 0–3 nosto lattialta.")]
     public Sprite[] ringPickSprites;
     public float ringFrameTime = 0.1f;
-    static readonly float[] RingThrowTimes = { 0.06f, 0.08f, 0.09f, 0.13f, 0.05f, 0.07f, 0.09f, 0.1f };
+    static readonly float[] RingThrowTimes = { 0.09f, 0.1f, 0.1f, 0.12f, 0.045f, 0.035f, 0.09f, 0.11f };   // kiihtyy: rauhallinen heilautus taakse, nopea veto eteen
     RingStand takingStand;
     LifeRing pickingRing;
     bool ringResolved;
@@ -899,7 +899,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 {
                     ringResolved = true;
                     float dir = facingRight ? 1f : -1f;
-                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 0.7f + height, dir);
+                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 0.45f + height, dir);
                 }
                 if (ThrowPose.Index(RingThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
