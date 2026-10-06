@@ -3079,6 +3079,7 @@ public static class BeatEmUpSetup
         pc.ringPickSprites = Sh("rengas_nosto");
         pc.ringSmashSprites = Sh("rengas_lyonti");
         pc.ringWalkSprites = Sh("rengas_kavely");
+        pc.ringIdleSprites = Sh("rengas_idle");
         EditorUtility.SetDirty(pc);
         // skeittari renkaassa (muille vihuille rengas-iskun kaato)
         var ringed = Sh("rengas_skettari");

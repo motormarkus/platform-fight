@@ -320,6 +320,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("rengas_kavely.png: kävely rengas kädessä (10 kuvaa).")]
     public Sprite[] ringWalkSprites;
     public float ringWalkFrameTime = 0.11f;
+    [Tooltip("rengas_idle.png: seisoo rengas kädessä (6 kuvaa, edestakaisin).")]
+    public Sprite[] ringIdleSprites;
+    public float ringIdleFrameTime = 0.14f;
     public int ringSmashDamage = 20;
     public float ringSmashReach = 2.4f;
     static readonly float[] RingSmashTimes = { 0.06f, 0.08f, 0.09f, 0.14f, 0.07f, 0.09f, 0.1f, 0.12f };
@@ -506,7 +509,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
         SortByFrameNumber(dropKickSprites);
-        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites);
+        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
         SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
@@ -2131,6 +2134,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.RingHold:
                 if (moving && ringWalkSprites != null && ringWalkSprites.Length > 0)
                     return ringWalkSprites[(int)(animClock / ringWalkFrameTime) % ringWalkSprites.Length];
+                if (ringIdleSprites != null && ringIdleSprites.Length > 1)
+                {
+                    int n = ringIdleSprites.Length, period = 2 * n - 2, i = (int)(animClock / ringIdleFrameTime) % period;
+                    return ringIdleSprites[i < n ? i : period - i];
+                }
                 return ringThrowSprites[0];
             case State.RingSmash:
             {
