@@ -3223,7 +3223,7 @@ public static class BeatEmUpSetup
         report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
 
         // rosvot: Kovis-pohja (osaa heittää), merirosvon omat kuvat niiltä osin kuin ne ovat valmiina
-        foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi", "merirosvo_kaatuminen", "merirosvo_ylosnousu", "merirosvo_heitto" })
+        foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi", "merirosvo_kaatuminen", "merirosvo_ylosnousu", "merirosvo_heitto", "merirosvo_heitetty" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3234,7 +3234,8 @@ public static class BeatEmUpSetup
         var pKnee = EnemySheet("merirosvo_polvi", report);
         var pFall = EnemySheet("merirosvo_kaatuminen", report);
         var pThrow = EnemySheet("merirosvo_heitto", report);     // 8 kuvaa: 0 tarttuu, 1–4 veto ja olalle, 5 heilautus, 6 irti, 7 palautus
-        var pUp = EnemySheet("merirosvo_ylosnousu", report);      // 6 kuvaa: makaa, punnerrus, konttaus, polvella, nousu; 4–5 peilattu   // 7 kuvaa: 0 tuskainen osuma, 1–4 lento ja pyörähdys mahalleen, 5–6 makaa
+        var pUp = EnemySheet("merirosvo_ylosnousu", report);
+        var pThrown = EnemySheet("merirosvo_heitetty", report);  // heron kuperkeikkaheitto: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu      // 6 kuvaa: makaa, punnerrus, konttaus, polvella, nousu; 4–5 peilattu   // 7 kuvaa: 0 tuskainen osuma, 1–4 lento ja pyörähdys mahalleen, 5–6 makaa
         var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Kovis");
         if (lippisT != null)
         {
@@ -3266,6 +3267,11 @@ public static class BeatEmUpSetup
                     re.getUpFacesBack = pUp.Length >= 6; re.getUpTime = 1.0f;
                 }
                 if (pThrow.Length >= 8) { re.grabSprites = pThrow; re.throwForward = true; }   // olan yli eteen (Kovis heittää selän taakse)
+                if (pThrown.Length >= 8)
+                {
+                    re.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
+                    re.flipThrownSprites = pThrown; re.flipFlightFrames = 1; re.flipFlightFrameTime = 0.12f; re.flipLandFrameTime = 0.11f;
+                }
                 if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 8; }
                 if (pCross.Length >= 5)
                 {
@@ -3279,7 +3285,7 @@ public static class BeatEmUpSetup
                     re.altChance = 0.3f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
                 }
             }
-            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} (merirosvon kuvat; kävely ja heitettynä vielä väliaikaiset)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
+            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} (merirosvon kuvat; kävely vielä väliaikainen)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
         else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
