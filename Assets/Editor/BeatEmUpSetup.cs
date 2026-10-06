@@ -3227,7 +3227,7 @@ public static class BeatEmUpSetup
         report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
 
         // rosvot: Kovis-pohja (osaa heittää), merirosvon omat kuvat niiltä osin kuin ne ovat valmiina
-        foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi", "merirosvo_kaatuminen", "merirosvo_ylosnousu", "merirosvo_heitto", "merirosvo_heitetty", "merirosvo_kierrepotku", "merirosvo_kavely", "merirosvo_kavely_puhe" })
+        foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi", "merirosvo_kaatuminen", "merirosvo_ylosnousu", "merirosvo_heitto", "merirosvo_heitetty", "merirosvo_kierrepotku", "merirosvo_kavely", "merirosvo_kavely_puhe", "merirosvo_suojaus" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3242,6 +3242,7 @@ public static class BeatEmUpSetup
         var pThrown = EnemySheet("merirosvo_heitetty", report);
         var pSpin = EnemySheet("merirosvo_kierrepotku", report);  // 13 kuvaa: yksi pyörähdys, potku kuvassa 8
         var pWalk = EnemySheet("merirosvo_kavely", report);
+        var pBlock = EnemySheet("merirosvo_suojaus", report);   // 6 kuvaa: 0 asento, 1–2 suoja ylös, 3 laskee, 4 suoja, 5 asento
         var pTalk = EnemySheet("merirosvo_kavely_puhe", report);  // sama vaihe kuin kävelyssä, suu liikkuu
         var pirateVoice = LoadClips("Assets/Audio/Merirosvo", "").Where(c => !c.name.Contains("gasp") && !c.name.Contains("hit")).ToArray();   // "tämä on ryöstö" -huudot (puhekävely niiden ajan)  // heron kuperkeikkaheitto: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu      // 6 kuvaa: makaa, punnerrus, konttaus, polvella, nousu; 4–5 peilattu   // 7 kuvaa: 0 tuskainen osuma, 1–4 lento ja pyörähdys mahalleen, 5–6 makaa
         var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Kovis");
@@ -3291,7 +3292,8 @@ public static class BeatEmUpSetup
                 if (pTalk.Length >= 10) { re.walkTalkSprites = pTalk; re.talkDuration = 1.6f; }
                 re.tauntSounds = pirateVoice; re.tauntVolume = 1f;   // ei Koviksen huutoja
                 // kovempia kuin Kovis: kestävämpiä, lyövät tiheämmin ja torjuvat välillä
-                re.maxHealth = 130; re.attackCooldown = 0.8f; re.blockChance = 0.25f; re.moveSpeedX = Mathf.Max(re.moveSpeedX, 3.2f);
+                re.maxHealth = 130; re.attackCooldown = 0.8f; re.blockChance = 0.25f;
+                if (pBlock.Length >= 6) re.blockSprites = new[] { pBlock[1], pBlock[2], pBlock[2], pBlock[4], pBlock[3] };   // suoja nousee, pitää, laskee re.moveSpeedX = Mathf.Max(re.moveSpeedX, 3.2f);
                 var pirateGasp = LoadClips("Assets/Audio/Merirosvo gasp", "merirosvogasp");   // osuma, kaatuminen, heitosta mätkähdys
                 if (pirateGasp.Length > 0) { re.hurtSounds = pirateGasp; re.hurtVolume = 0.95f; }
                 var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
@@ -3304,7 +3306,7 @@ public static class BeatEmUpSetup
                     re.punch3Sprites = new[] { 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }.Select(i => pSpin[i]).ToArray();
                     re.punch3ImpactFrame = 11; re.punch3WindupTime = 0.6f; re.punch3RecoverTime = 0.55f;
                     re.punch3Damage = 24; re.punch3Knockdown = true; re.punch3LaunchX = 6f; re.punch3LaunchUp = 8f;
-                    re.punch3Chance = 0.3f; re.punch3Reach = 2.5f;
+                    re.punch3Chance = 0.2f; re.punch3Reach = 2.5f;
                 }
                 if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 10; }
                 if (pCross.Length >= 5)

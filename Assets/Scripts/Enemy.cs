@@ -1308,14 +1308,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void RollPunch23()
     {
         comboSeq = null;
+        // kolmas isku (esim. kierrepotku) arvotaan ensin, ettei kombo vie sen vuoroa
+        if (!usingAlt && Has(punch3Sprites) && Random.value < punch3Chance) { usingPunch3 = true; usingPunch2 = false; return; }
         if (!usingAlt && combos != null && combos.Length > 0 && Random.value < comboChance)
         {
             comboSeq = combos[Random.Range(0, combos.Length)];
             if (string.IsNullOrEmpty(comboSeq)) comboSeq = null;
             else { comboPos = 0; SetAttack(comboSeq[0]); return; }
         }
-        usingPunch3 = !usingAlt && Has(punch3Sprites) && Random.value < punch3Chance;
-        usingPunch2 = !usingAlt && !usingPunch3 && Has(punch2Sprites) && Random.value < punch2Chance;
+        usingPunch3 = false;
+        usingPunch2 = !usingAlt && Has(punch2Sprites) && Random.value < punch2Chance;
     }
 
     void SetAttack(char c)
