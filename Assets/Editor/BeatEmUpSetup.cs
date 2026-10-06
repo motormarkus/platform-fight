@@ -3222,7 +3222,16 @@ public static class BeatEmUpSetup
         }
         report.Add($"Seilorit: {SailorCount} (tulevat hyttiovelta, kun tappelu alkaa)");
 
-        // rosvot: toistaiseksi Kovikset (osaavat heittää), vaihdetaan rosvon kuviin, kun ne valmistuvat
+        // rosvot: Kovis-pohja (osaa heittää), merirosvon omat kuvat niiltä osin kuin ne ovat valmiina
+        foreach (var n in new[] { "merirosvo_idle", "merirosvo_lyonti", "merirosvo_suora", "merirosvo_polvi" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var pIdle = EnemySheet("merirosvo_idle", report);
+        var pJab = EnemySheet("merirosvo_lyonti", report);
+        var pCross = EnemySheet("merirosvo_suora", report);
+        var pKnee = EnemySheet("merirosvo_polvi", report);
         var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Kovis");
         if (lippisT != null)
         {
@@ -3236,8 +3245,28 @@ public static class BeatEmUpSetup
                 r.SetActive(true);
                 r.transform.position = new Vector3(X(v.x), Mathf.Lerp(deck.maxDepthY, deck.minDepthY, v.y), 0f);
                 var re = r.GetComponent<Enemy>(); re.displayName = "Rosvo"; re.wakeDistance = 7f;
+                if (pIdle.Length > 0)
+                {
+                    re.visualScale = 1f; re.attackArtScale = 1f; re.walkArtScale = 1f;
+                    re.idleSprites = pIdle; re.idleFrameTime = 0.13f;
+                    re.walkSprites = pIdle; re.walkFrameTime = 0.1f;   // kävelykuvat tulossa: siihen asti tappeluasento
+                    re.hurtSprites = null;                            // osumakuvat tulossa: tappeluasento + välähdys
+                    re.body.sprite = pIdle[0];
+                }
+                if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 8; }
+                if (pCross.Length >= 5)
+                {
+                    // pitkä suora askeleella: kaataa
+                    re.punch2Sprites = pCross; re.punch2ImpactFrame = 2; re.punch2Damage = 14; re.punch2Knockdown = true; re.punch2Chance = 0.3f;
+                    re.punch2LaunchUp = 0f;
+                }
+                if (pKnee.Length >= 6)
+                {
+                    re.altAttackSprites = pKnee; re.altImpactFrame = 3; re.altDamage = 12; re.altKnockdown = false;
+                    re.altChance = 0.3f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
+                }
             }
-            report.Add($"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
+            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} (merirosvon kuvat; kaatuminen, nousu ja heitto vielä Koviksen)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
         else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
