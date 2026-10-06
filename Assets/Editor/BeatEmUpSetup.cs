@@ -3279,6 +3279,8 @@ public static class BeatEmUpSetup
                 if (pWalk.Length >= 10) { re.walkSprites = pWalk; re.walkFrameTime = 0.11f; re.walkArtScale = 1f; }
                 if (pTalk.Length >= 10) { re.walkTalkSprites = pTalk; re.talkDuration = 1.6f; }
                 re.tauntSounds = pirateVoice; re.tauntVolume = 1f;   // ei Koviksen huutoja
+                var pirateGasp = LoadClips("Assets/Audio/Merirosvo gasp", "merirosvogasp");   // osuma, kaatuminen, heitosta mätkähdys
+                if (pirateGasp.Length > 0) { re.hurtSounds = pirateGasp; re.hurtVolume = 0.95f; }
                 if (pSpin.Length >= 13)
                 {
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8
