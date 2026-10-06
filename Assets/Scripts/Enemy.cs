@@ -398,6 +398,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Move(new Vector2(Mathf.Sign(dx) * moveSpeedX * 0.6f, sway) * dt);
     }
 
+    /// Tappelua lähellä: hereillä oleva (ei kaatunut) hahmo annetun etäisyyden sisällä (sivulle; syvyys painotettu).
+    public static bool FightNear(Vector2 pos, float range)
+    {
+        foreach (var e in All)
+        {
+            if (e == null || !e.isActiveAndEnabled || e.IsDead || !e.awake) continue;
+            Vector3 q = e.transform.position;
+            if (Mathf.Abs(q.x - pos.x) < range && Mathf.Abs(q.y - pos.y) < range * 0.6f) return true;
+        }
+        return false;
+    }
+
     /// Onko lähellä pystyssä olevia vihollisia (ei liittolaisia): esim. tanssia ei aloiteta tappelun keskellä.
     public static bool HostileNear(Vector3 pos, float range)
     {

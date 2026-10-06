@@ -23,7 +23,10 @@ public class Socialite : MonoBehaviour
     public Vector2 waitRange = new Vector2(6f, 12f);
     public int startSpot;
     SpriteRenderer sr;
-    int cur = -1; float t, waitLeft; bool walking;
+    int cur = -1; float t, waitLeft; bool walking, fleeing;
+    [Tooltip("Etäisyys tappelusta, jonka sisällä nainen siirtyy pois (ja jonne hän ei mene).")]
+    public float fightAvoid = 5f;
+    float checkT;
 
     void OnEnable() { all.Add(this); }
     void OnDisable() { all.Remove(this); if (cur >= 0) taken.Remove(cur); }
@@ -49,6 +52,16 @@ public class Socialite : MonoBehaviour
         if (spots == null || spots.Length == 0 || sr == null || cur < 0) return;
         float dt = Time.deltaTime; t += dt;
         Vector3 p = transform.position;
+        // tappelu lähellä: pois rauhallisempaan paikkaan; matkalla ei kävellä kohti tappelua
+        checkT -= dt;
+        if (checkT <= 0f)
+        {
+            checkT = 0.3f;
+            bool danger = Enemy.FightNear(p, fightAvoid);
+            bool goalBad = walking && Enemy.FightNear(spots[cur].pos, fightAvoid);
+            if ((!walking && danger) || goalBad) { PickNext(true); }
+            else if (!danger && fleeing && !walking) fleeing = false;
+        }
         if (!walking)
         {
             Face(LookTarget().x - p.x);
@@ -61,19 +74,33 @@ public class Socialite : MonoBehaviour
             Vector2 goal = spots[cur].pos;
             Vector2 d = goal - (Vector2)p;
             Face(d.x);
-            float step = speed * dt;
+            float step = speed * (fleeing ? 1.7f : 1f) * dt;
             if (d.magnitude <= step) { transform.position = goal; walking = false; waitLeft = Random.Range(waitRange.x, waitRange.y); }
             else transform.position = (Vector2)p + d.normalized * step;
-            if (walk != null && walk.Length > 0) sr.sprite = walk[(int)(t / walkFrameTime) % walk.Length];
+            if (walk != null && walk.Length > 0) sr.sprite = walk[(int)(t / (walkFrameTime / (fleeing ? 1.5f : 1f))) % walk.Length];
         }
         sr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f);
     }
 
-    void PickNext()
+    void PickNext(bool flee = false)
     {
         var free = new List<int>();
-        for (int i = 0; i < spots.Length; i++) if (i != cur && !taken.Contains(i)) free.Add(i);
+        for (int i = 0; i < spots.Length; i++)
+            if (i != cur && !taken.Contains(i) && !Enemy.FightNear(spots[i].pos, fightAvoid + 1f)) free.Add(i);
         if (free.Count == 0) { waitLeft = 2f; return; }
+        if (flee)
+        {
+            // kauimmas tappelusta: paikka, jonka lähellä ei ole ketään hereillä olevaa
+            int far = free[0]; float fd = -1f;
+            foreach (int i in free)
+            {
+                float m = 99f;
+                foreach (var e in Enemy.All) if (e != null && e.isActiveAndEnabled && !e.IsDead) m = Mathf.Min(m, Vector2.Distance(e.transform.position, spots[i].pos));
+                if (m > fd) { fd = m; far = i; }
+            }
+            taken.Remove(cur); cur = far; taken.Add(cur); walking = true; fleeing = true;
+            return;
+        }
         // suositaan paikkaa toisen naisen vierestä (keskustelu)
         int pick = free[Random.Range(0, free.Count)];
         foreach (int i in free)
