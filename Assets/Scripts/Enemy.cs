@@ -49,7 +49,25 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Toisen lyönnin lennätys (ylös, sivulle): vahva yläkoukku nostaa vastustajan korkealle.")]
     public float punch2LaunchUp = 0f, punch2LaunchX = 4f;
     [Range(0f, 1f)] public float punch2Chance = 0.3f;
-    bool usingPunch2, running;
+    [Header("Kolmas isku (esim. merirosvon kierrepotku)")]
+    public Sprite[] punch3Sprites;
+    public int punch3ImpactFrame = 8;
+    public int punch3Damage = 20;
+    public bool punch3Knockdown = true;
+    public float punch3LaunchUp = 0f, punch3LaunchX = 5f;
+    [Range(0f, 1f)] public float punch3Chance = 0f;
+    [Tooltip("Vetoaika (iskua edeltävät kuvat), esim. pyörähdys ennen potkua.")]
+    public float punch3WindupTime = 0.5f;
+    public float punch3RecoverTime = 0.5f;
+    public float punch3Reach = 2.4f;
+    bool usingPunch2, usingPunch3, running;
+
+    [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]
+    [Tooltip("Kävely suu liikkuen: samassa vaiheessa kuin walkSprites, käytetään huudon ajan.")]
+    public Sprite[] walkTalkSprites;
+    [Tooltip("Ilman huutoääniä: kauanko puhekävely kestää kerrallaan (s).")]
+    public float talkDuration = 1.6f;
+    float talkUntil;
     public Sprite[] punchSprites;
     public Sprite[] hurtSprites;
     public Sprite[] knockdownSprites;
@@ -341,6 +359,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(runSprites);
         PlayerController.SortByFrameNumber(punch2Sprites);
+        PlayerController.SortByFrameNumber(walkTalkSprites);
         PlayerController.SortByFrameNumber(punchSprites);
         PlayerController.SortByFrameNumber(altAttackSprites);
         PlayerController.SortByFrameNumber(grabSprites);
@@ -907,6 +926,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void MaybeTaunt()
     {
         if (nextTauntTime > Time.time + 60f) nextTauntTime = 0f;   // uusi pelikerta editorissa (staattinen jäi edellisestä)
+        bool silent = (tauntSounds == null || tauntSounds.Length == 0) && Has(walkTalkSprites);
+        if (silent)
+        {
+            // ei ääntä vielä: suu liikkuu välillä kävellessä (yksi kerrallaan)
+            if (Time.time < nextTauntTime || !moving || Random.value > 0.25f * Time.deltaTime) return;
+            talkUntil = Time.time + talkDuration;
+            nextTauntTime = Time.time + talkDuration + Random.Range(tauntPause.x, tauntPause.y);
+            return;
+        }
         if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
         if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
         int i = Random.Range(0, tauntSounds.Length);
@@ -916,6 +944,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         lastTaunt = i;
         audioSource.pitch = 1f;
         audioSource.PlayOneShot(clip, tauntVolume);
+        talkUntil = Time.time + clip.length;
         nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
     }
 
@@ -1071,6 +1100,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
             usingAlt = chargeRange <= 0f && Has(altAttackSprites) && Random.value < altChance;   // rynnäkkö vain kaukaa
+            RollPunch23();
             Enter(State.Windup);
             return;
         }
@@ -1240,7 +1270,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = false;
             attackRolled = false;
             usingAlt = Has(altAttackSprites) && Random.value < altChance;
-            usingPunch2 = !usingAlt && Has(punch2Sprites) && Random.value < punch2Chance;
+            RollPunch23();
             Enter(State.Windup);
             return;
         }
@@ -1256,14 +1286,22 @@ public class Enemy : MonoBehaviour, IBottleHolder
         else moving = false;
     }
 
+    /// Toinen ja kolmas isku arvotaan, ellei vaihtoehtoista hyökkäystä valittu.
+    void RollPunch23()
+    {
+        usingPunch3 = !usingAlt && Has(punch3Sprites) && Random.value < punch3Chance;
+        usingPunch2 = !usingAlt && !usingPunch3 && Has(punch2Sprites) && Random.value < punch2Chance;
+    }
+
     bool TryHitEnemy(Enemy e)
     {
         Vector3 p = e.transform.position, me = transform.position;
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = usingAlt ? altKnockdown : usingPunch2 ? punch2Knockdown : punchKnockdown;
-        if (!e.TakeHit(usingAlt ? altDamage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        bool kd = usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown;
+        if (!e.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
         e.GotHitBy(this);
         HitFx.OnHitQuiet();   // vihu vs. vihu: ei osumapysäytystä
@@ -1315,6 +1353,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
+        if (!usingAlt && usingPunch3 && punch3Knockdown) return player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this);
+        if (!usingAlt && usingPunch3) return player.TakeHit(punch3Damage, me.x, this, comboFollow);
         if (!usingAlt && usingPunch2 && punch2Knockdown) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
         if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
@@ -1667,6 +1707,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             case State.Chase:
                 if (moving && running && Has(runSprites)) return runSprites[(int)(Time.time / runFrameTime) % runSprites.Length];
+                if (moving && Has(walkTalkSprites) && Time.time < talkUntil) return walkTalkSprites[(int)(animClock / walkFrameTime) % walkTalkSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();
 
@@ -1808,11 +1849,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
-    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch2 ? punch2Sprites : punchSprites;
-    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => usingAlt ? (windupTime + altExtraWindup) * altTimeScale : windupTime;
-    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : punchRecoverTime;
-    float CurrentReach => usingAlt ? altReach : attackRange;
+    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    float CurrentWindup => usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupTime : windupTime;
+    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
+    float CurrentReach => usingAlt ? altReach : usingPunch3 ? punch3Reach : attackRange;
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
 
