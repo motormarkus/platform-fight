@@ -73,6 +73,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     string comboSeq; int comboPos;
     [Tooltip("Vuoroaan odottava ei peräänny pelaajan tullessa kohti, ja lyö, jos pelaaja on vieressä.")]
     public bool holdGround;
+    [Tooltip("Kombo menee loppuun: tavallinen (kaatamaton) isku ei katkaise sitä, vain kaatava.")]
+    public bool comboArmor;
     bool ComboContinues => comboSeq != null && comboPos < comboSeq.Length - 1;
 
     [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]
@@ -1480,6 +1482,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
+        if (comboArmor && comboSeq != null && !knockdown && health > damage
+            && (state == State.Windup || state == State.Punch || state == State.Recover))
+        {
+            awake = true;
+            health -= damage;
+            LastHit = this; LastHitTime = Time.time;
+            JustBlocked = false;
+            flashTimer = 0.1f;
+            shakeUntil = HitFx.ShakeUntil(false);
+            PlayHurtSound();
+            return true;
+        }
         if (state == State.Ringed)
         {
             // renkaassa ei voi torjua: iskut uppoavat, kolmas (tai kaatava) isku kaataa renkaan kanssa

@@ -3295,13 +3295,14 @@ public static class BeatEmUpSetup
                 re.tauntSounds = pirateVoice; re.tauntVolume = 1f;   // ei Koviksen huutoja
                 // kovempia kuin Kovis: kestävämpiä, lyövät tiheämmin ja torjuvat välillä
                 re.maxHealth = 130; re.attackCooldown = 0.8f; re.blockChance = 0.25f;
-                if (pBlock.Length >= 6) re.blockSprites = new[] { pBlock[1], pBlock[2], pBlock[2], pBlock[4], pBlock[3] };   // suoja nousee, pitää, laskee re.moveSpeedX = Mathf.Max(re.moveSpeedX, 3.2f);
+                if (pBlock.Length >= 6) re.blockSprites = new[] { pBlock[1], pBlock[2], pBlock[2], pBlock[4], pBlock[3] };   // suoja nousee, pitää, laskee
+                re.moveSpeedX = Mathf.Max(re.moveSpeedX, 3.2f);
                 var pirateGasp = LoadClips("Assets/Audio/Merirosvo gasp", "merirosvogasp");   // osuma, kaatuminen, heitosta mätkähdys
                 if (pirateGasp.Length > 0) { re.hurtSounds = pirateGasp; re.hurtVolume = 0.95f; }
                 var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
                 if (pirateHit.Length > 0) { re.attackSounds = pirateHit; re.attackSoundChance = 1f; }
                 // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
-                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f;
+                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f; re.comboArmor = true;   // vasen–oikea–vasen menee loppuun
                 re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun
                 re.comboWindupScale = 0.9f; re.comboGap = 0.16f;   // iskujen välissä käsi palaa näkyvästi
                 re.punchActiveTime = 0.17f;   // isku näkyy ojennettuna hetken: kombon iskut erottuvat toisistaan
