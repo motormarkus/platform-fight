@@ -3300,7 +3300,7 @@ public static class BeatEmUpSetup
                     re.getUpSprites = pUp.Length >= 6 ? pUp : null;          // ilman kuvia: käännetty tappeluasento
                     re.getUpFacesBack = pUp.Length >= 6; re.getUpTime = 1.0f;
                 }
-                if (pThrow.Length >= 8) { re.grabSprites = pThrow; re.throwForward = true; }   // olan yli eteen (Kovis heittää selän taakse)
+                if (pThrow.Length >= 8) { re.grabSprites = pThrow; re.throwForward = false; re.throwTurnsAround = false; }   // olan yli selän taakse; kuvat päättyvät alkuasentoon
                 if (pThrown.Length >= 8)
                 {
                     re.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
@@ -3320,8 +3320,8 @@ public static class BeatEmUpSetup
                 // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
                 re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f; re.comboArmor = true; re.debugCombos = true;   // vasen–oikea–vasen menee loppuun (debug: Console)
                 re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun
-                re.comboWindupScale = 0.9f; re.comboGap = 0.16f;   // iskujen välissä käsi palaa näkyvästi
-                re.punchActiveTime = 0.17f;   // isku näkyy ojennettuna hetken: kombon iskut erottuvat toisistaan
+                re.comboWindupScale = 0.7f; re.comboGap = 0.1f;   // iskujen välissä käsi palaa näkyvästi
+                re.punchActiveTime = 0.13f;   // isku näkyy ojennettuna hetken: kombon iskut erottuvat toisistaan
                 if (pSpin.Length >= 13)
                 {
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8

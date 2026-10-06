@@ -220,6 +220,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int throwDamage = 18;
     [Tooltip("Heittää eteenpäin (ruudun poikki) eikä selän taakse.")]
     public bool throwForward;
+    [Tooltip("Selän taakse heitettäessä: kääntyykö heittäjä heittosuuntaan (Kovis) vai pysyykö alkuperäisessä suunnassa (kuvat päättyvät alkuasentoon).")]
+    public bool throwTurnsAround = true;
     [Tooltip("Heiton vauhti vaakaan ja ylös.")]
     public float throwSpeed = 5.5f, throwUp = 4f;
     [Tooltip("Jos pelaaja pysyy näin kauan (s) aivan vieressä, vihu tarttuu heti. 0 = ei käytössä.")]
@@ -715,7 +717,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 }
                 if (stateTime >= ThrowSwing + 0.15f + 0.3f)
                 {
-                    if (!throwForward) facingRight = !facingRight;       // Kovis on kääntynyt heittosuuntaan
+                    if (!throwForward && throwTurnsAround) facingRight = !facingRight;       // Kovis on kääntynyt heittosuuntaan
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
                     grabIntent = false;
                     Enter(State.Idle);
