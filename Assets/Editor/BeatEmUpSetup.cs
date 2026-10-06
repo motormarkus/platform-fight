@@ -3331,7 +3331,7 @@ public static class BeatEmUpSetup
             return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         }
         var champagne = Strip("pullo_shamppanja");          // 0 ehjä, 1–4 posahdus ilmassa, 5 sirpaleet lattialla
-        var champEmpty = Strip("pullo_shamppanja_tyhja");   // 0 tyhjä (avattu), 1 sirpaleet
+        var champEmpty = Strip("pullo_shamppanja_tyhja");   // 0 tyhjä (avattu), 1–4 posahdus, 5 sirpaleet
         var champSpin = Strip("pullo_shamppanja_pyorii");   // lento: 6 kulmaa
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D shamppanja", new[] { "Assets/Resources/Tahrat" }))
         {
