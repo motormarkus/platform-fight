@@ -108,6 +108,26 @@ public static class BeatEmUpSetup
     /// Asettaa tuontiasetukset ja leikkaa kuvan 512 × 384 ruutuihin (tyhjät ruudut ohitetaan).
     /// Säilyttää vanhojen palojen tunnisteet nimen perusteella, jotta viittaukset eivät katkea.
     /// Palauttaa palojen määrän, tai -1 jos kuva ei ole ruudukon kokoinen.
+    /// Alue uudelleenrakennuksessa: vanha komponentti säilyy (muiden kohtien viittaukset pysyvät), kentät oletusarvoihin.
+    static Area ReuseArea(string goName)
+    {
+        var go = GameObject.Find(goName);
+        var a = go != null ? go.GetComponent<Area>() : null;
+        if (a == null)
+        {
+            if (go != null) Undo.DestroyObjectImmediate(go);
+            a = new GameObject(goName).AddComponent<Area>();
+            Undo.RegisterCreatedObjectUndo(a.gameObject, "Alue");
+            return a;
+        }
+        Undo.RecordObject(a, "Alue");
+        var tmp = new GameObject("tmp").AddComponent<Area>();
+        EditorUtility.CopySerialized(tmp, a);
+        Object.DestroyImmediate(tmp.gameObject);
+        EditorUtility.SetDirty(a);
+        return a;
+    }
+
     static int SetupAndSlice(string path)
     {
         byte[] bytes = File.ReadAllBytes(path);
@@ -3073,7 +3093,7 @@ public static class BeatEmUpSetup
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
         var deckBg = GameObject.Find("Laivan kansi");
         if (deck == null || deckBg == null) { Info("Tee ensin kohta 55 (laivan kansi)."); return; }
-        foreach (var n in new[] { "Laivan käytävä", "Alue: Laivan käytävä", "Laivan hytti", "Alue: Laivan hytti", "Laivan sali", "Alue: Laivan sali",
+        foreach (var n in new[] { "Laivan käytävä", "Laivan hytti", "Laivan sali",
                                   "Laivan sisäovet", "Salin meri kaukana", "Salin meri lähellä", "Käytävän hyttiovi" })
         {
             var o = GameObject.Find(n);
@@ -3109,7 +3129,7 @@ public static class BeatEmUpSetup
             bg.transform.position = new Vector3(x0 + wU * 0.5f, cy, 0f);
             Undo.RegisterCreatedObjectUndo(bg, name);
             float top = cy + hU * 0.5f;
-            var area = new GameObject("Alue: " + name).AddComponent<Area>();
+            var area = ReuseArea("Alue: " + name);   // sama alue: salin tappelu, kauppa ja naiset viittaavat siihen
             area.areaName = name;
             area.music = deck.music;
             area.useSidewalk = false;
@@ -3117,7 +3137,6 @@ public static class BeatEmUpSetup
             area.minDepthY = CamY - CamHalf + 1.2f;
             area.camMinX = x0 + halfW;
             area.camMaxX = Mathf.Max(area.camMinX, x0 + wU - halfW);
-            Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
             return (bg, area, ppu, x0, top);
         }
         var cor = Room("Laivan käytävä", "Assets/Sprites/Taustat/laiva_kaytava.png", ShipCorridorX0, CorridorFloorPx);
@@ -4054,7 +4073,7 @@ public static class BeatEmUpSetup
         var harborGo = GameObject.Find("Uccopulco satama");
         var ti = AssetImporter.GetAtPath(ShipDeckPath) as TextureImporter;
         if (ucco == null || harborGo == null || ti == null) { Info("Tarvitaan Uccopulco satamineen (kohta 44) ja " + ShipDeckPath); return; }
-        foreach (var n in new[] { "Laivan kansi", "Alue: Laivan kansi", "Laivan ovet", "Laivan meri kaukana", "Laivan meri lähellä", "Laivan turistit" })
+        foreach (var n in new[] { "Laivan kansi", "Laivan ovet", "Laivan meri kaukana", "Laivan meri lähellä", "Laivan turistit" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -4093,7 +4112,7 @@ public static class BeatEmUpSetup
         System.Func<float, float> Y = row => top - row / ppu;
 
         float halfW = CamHalf * 16f / 9f;
-        var area = new GameObject("Alue: Laivan kansi").AddComponent<Area>();
+        var area = ReuseArea("Alue: Laivan kansi");   // sama alue: tappelu (56), renkaat ja pöydät viittaavat siihen
         area.areaName = "Laivan kansi";
         area.music = ucco.music;
         area.useSidewalk = false;
@@ -4106,7 +4125,6 @@ public static class BeatEmUpSetup
         area.walkMaxX = X(ShipWallBottomXPx) - 0.5f;
         // viisto seinä: takaraja tulee eteenpäin seinän juurta pitkin
         area.depthLimits = new[] { new Vector2(X(ShipWallTopXPx) - 0.4f, area.maxDepthY), new Vector2(X(ShipWallBottomXPx) - 0.4f, area.minDepthY) };
-        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
 
         // rullaava meri: laiva kulkee vasemmalle, meri virtaa oikealle. Kaukainen hitaasti, lähellä nopeasti.
         GameObject Layer(string name, string path, float scaleRows, float topRow, int order, float speed, float parallax, string nightPath = null)
