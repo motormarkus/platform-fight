@@ -3243,7 +3243,7 @@ public static class BeatEmUpSetup
         var slap = EnemySheet("puliukko_lyonti", report);
         if (slap.Length >= 8) { e.punchSprites = slap; e.punchImpactFrame = 3; e.secondImpactFrame = 5; e.windupTime = 0.3f; e.punchRecoverTime = 0.55f; e.punchDamage = 7; }
         var slap2 = EnemySheet("puliukko_lyonti2", report);   // toisella kädellä, kaataa
-        if (slap2.Length >= 8) { e.altAttackSprites = slap2; e.altImpactFrame = 3; e.altDamage = 11; e.altKnockdown = true; e.altChance = 0.35f; e.altReach = 2.2f; }
+        if (slap2.Length >= 8) { e.altAttackSprites = slap2; e.altImpactFrame = 3; e.altDamage = 11; e.altKnockdown = true; e.altKnockdownLightOnly = true; e.altChance = 0.35f; e.altReach = 2.2f; }   // takakäsi kaataa kevyet
         var fall = EnemySheet("puliukko_kaatuminen", report);   // 0 asento, 1–3 horjuu, 4 ilmassa, 5 istuu, 6 jalat ilmassa, 7 makaa
         if (fall.Length >= 8)
         {
@@ -3259,10 +3259,13 @@ public static class BeatEmUpSetup
         if (butt.Length >= 8)
         {
             e.punch3Sprites = butt; e.punch3ImpactFrame = 5; e.punch3WindupTime = 0.75f; e.punch3RecoverTime = 0.5f;
-            e.punch3Damage = 18; e.punch3Knockdown = true; e.punch3Chance = 0.25f; e.punch3Reach = 2.1f;
+            e.punch3Damage = 26; e.punch3Knockdown = true; e.punch3Chance = 0.2f; e.punch3Reach = 2.1f;
         }
         e.moveSpeedX = 1.5f; e.moveSpeedY = 0.9f; e.runSpeedMultiplier = 1f;   // liikkuu hitaasti
-        e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 70;
+        e.attackRange = 1.9f; e.attackCooldown = 1.5f; e.maxHealth = 180;   // portsaria (130) kestävämpi
+        // kombo: läimäytys, takakäden läimäytys ja pääpusku perään; menee loppuun
+        e.combos = new[] { "JPK" }; e.comboChance = 0.3f; e.comboArmor = true; e.comboWindupScale = 0.8f; e.comboGap = 0.12f;
+        e.fightsEveryone = true;   // käy kaikkien kimppuun (rosvot, seilorit, hero)
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
         e.wakeDistance = 100f; e.blockChance = 0f; e.retreatChance = 0f; e.flankChance = 0f;
         float doorX = doorGo != null ? doorGo.transform.position.x : (cor.camMinX + cor.camMaxX) * 0.5f;

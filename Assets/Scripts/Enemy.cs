@@ -148,6 +148,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool altKnockdown;
     [Tooltip("Toista hyökkäystä ei voi torjua (esim. samoalaisen taklaus).")]
     public bool altUnblockable;
+    [Tooltip("Vaihtoehtoinen isku kaataa vain kevyet vihut (ei isoja: Kovis, portsari, rosvo…); pelaajaan normaalisti.")]
+    public bool altKnockdownLightOnly;
     public float altKnockSpeed = 7f, altKnockUp = 6f;
     [Tooltip("Rynnäkkö: toinen hyökkäys aloitetaan jo näin kaukaa (x), ja syöksy kantaa pelaajaan asti. 0 = ei käytössä.")]
     public float chargeRange = 0f;
@@ -1411,7 +1413,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = !ComboContinues && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
+        bool kd = !ComboContinues && !(usingAlt && altKnockdownLightOnly && e.bigBody) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
         if (!e.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
