@@ -23,6 +23,10 @@ public class BouncerSquad : MonoBehaviour
     [Tooltip("Tulevat ruudun vasemmasta reunasta (esim. laivan keulan puolelta), eivät omista paikoistaan.")]
     public bool fromLeftEdge;
     int waveIndex, waveLeft = -1;
+    [Tooltip("Ovi, josta tullaan: avautuu ennen ensimmäistä ja sulkeutuu, kun aalto on tullut ulos.")]
+    public AnimatedDoor door;
+    public float doorCloseDelay = 1.6f;
+    float lastSpawnTime = -99f;
 
     PlayerController pc;
     bool triggered;
@@ -54,8 +58,10 @@ public class BouncerSquad : MonoBehaviour
             if (!fight) return;
             triggered = true;
             timer = firstDelay;
+            if (door != null) door.Open();
         }
-        if (next >= bouncers.Length) { enabled = false; return; }
+        if (door != null && door.IsOpen && Time.time > lastSpawnTime + doorCloseDelay && (next >= bouncers.Length || waveLeft == 0)) door.Close();
+        if (next >= bouncers.Length) { if (door == null || !door.IsOpen) enabled = false; return; }
         timer -= Time.deltaTime;
         if (timer > 0f) return;
         if (waves != null && waves.Length > 0)
@@ -70,6 +76,7 @@ public class BouncerSquad : MonoBehaviour
                 waveIndex++;
                 waveLeft = waves[Mathf.Min(waveIndex, waves.Length - 1)];
                 timer = firstDelay;
+                if (door != null) door.Open();
                 return;
             }
             waveLeft--;
@@ -95,6 +102,7 @@ public class BouncerSquad : MonoBehaviour
             bnc.transform.position = new Vector3(cx - halfW - 1f, q.y, 0f);
         }
         bnc.gameObject.SetActive(true);
+        lastSpawnTime = Time.time;
         bnc.WakeUp();
     }
 }

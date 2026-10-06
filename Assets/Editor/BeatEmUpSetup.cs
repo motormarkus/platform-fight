@@ -111,10 +111,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3175,6 +3175,32 @@ public static class BeatEmUpSetup
     const int ShipKovisCount = 2;
     const float ShipFightTriggerPx = 3550f;   // kannen kuvan x: tästä eteenpäin (hyttiovelle) tappelu alkaa
 
+    // hyttiovi: Geminin videosta kohdistettu avautumissarja kannen kuvan päälle (laiva_ovi.png, 12 kuvaa 372 × 600)
+    const float CabinDoorRoiX = 1240f, CabinDoorRoiBottom = 770f, CabinDoorCellW = 372f;   // viimeisen 1774 px ruudun koordinaatit
+    static AnimatedDoor AddShipCabinDoor(GameObject deckBg, Transform parent, List<string> report)
+    {
+        string p = FindTexture("laiva_ovi");
+        if (p == null || deckBg == null) { report.Add("Hyttiovi: laiva_ovi.png puuttuu (ei avautuvaa ovea)"); return null; }
+        SetupAndSlice(p);
+        var frames = LoadSprites("laiva_ovi").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        if (frames.Length < 2) return null;
+        var bsr = deckBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, W = bsr.sprite.rect.width;
+        float left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        var go = new GameObject("Hyttiovi");
+        go.transform.SetParent(parent, false);
+        // kuvat on tuotu 100 px/yks, kansi omalla tarkkuudellaan: skaalataan kannen kokoon; tukipiste alareunan keskellä
+        float k100 = frames[0].pixelsPerUnit / ppu;
+        go.transform.position = new Vector3(left + (W - 1774f + CabinDoorRoiX + CabinDoorCellW * 0.5f) / ppu, top - CabinDoorRoiBottom / ppu, 0f);
+        go.transform.localScale = new Vector3(k100, k100, 1f);
+        var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = -9990;   // taustan päällä, hahmojen alla
+        var d = go.AddComponent<AnimatedDoor>(); d.body = sr; d.frames = frames; d.frameTime = 0.055f;
+        var night = deckBg.GetComponent<ShipNight>();
+        if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Where(r => r != null).Concat(new[] { sr }).ToArray();
+        report.Add($"Hyttiovi: {frames.Length} kuvaa, aukeaa seilorien tullessa");
+        return d;
+    }
+
     [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot")]
     static void AddShipFight()
     {
@@ -3233,6 +3259,7 @@ public static class BeatEmUpSetup
         squad.area = deck; squad.bothSides = false; squad.firstDelay = 1.0f; squad.spawnInterval = 0.7f;
         squad.triggerX = X(ShipFightTriggerPx);   // hero hyttiovella: seilorit juoksevat ovesta
         squad.waves = SailorWaves; squad.waveNextAt = 1;   // lisää seiloreita, kun pystyssä on enää yksi
+        squad.door = AddShipCabinDoor(deckBg, root.transform, report);   // ovi aukeaa, seilorit juoksevat ulos
         squad.bouncers = new Enemy[SailorCount];
         go.transform.SetParent(root.transform, false);
         for (int i = 0; i < SailorCount; i++)
