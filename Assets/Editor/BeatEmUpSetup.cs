@@ -3277,6 +3277,23 @@ public static class BeatEmUpSetup
         squad.bouncers = new[] { e };
         squad.triggerX = doorX - 6f;
         if (doorGo != null) squad.door = doorGo.GetComponent<AnimatedDoor>();
+        // toinen puliukko tepastelee kannella ja liittyy tappeluun, kun rosvot hyökkäävät
+        var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
+        var deckBg = GameObject.Find("Laivan kansi");
+        if (deck != null && deckBg != null)
+        {
+            var dsr = deckBg.GetComponent<SpriteRenderer>();
+            float dppu = dsr.sprite.pixelsPerUnit, dleft = dsr.bounds.min.x;
+            var d2 = Object.Instantiate(go, root.transform);
+            d2.name = "Puliukko (kansi)";
+            var e2 = d2.GetComponent<Enemy>();
+            e2.wakeDistance = -1f;                         // ei herää lähestymisestä, vain tappelusta tai osumasta
+            e2.joinsFightWhenSquadComes = true;
+            e2.wanderMinX = dleft + 2650f / dppu; e2.wanderMaxX = dleft + 3400f / dppu;   // tanssipaikan oikealla puolella
+            d2.transform.position = new Vector3((e2.wanderMinX + e2.wanderMaxX) * 0.5f, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.55f), 0f);
+            d2.SetActive(true);
+            report.Add("Kannella tepasteleva puliukko (liittyy rosvojen tappeluun)");
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Puliukko:\n" + string.Join("\n", report) + "\n\nTulee käytävän hyttiovesta, kun hero lähestyy.\n\nTallenna scene (Ctrl+S).");
     }

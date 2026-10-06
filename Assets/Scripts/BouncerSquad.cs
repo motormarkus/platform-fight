@@ -59,6 +59,9 @@ public class BouncerSquad : MonoBehaviour
             triggered = true;
             timer = firstDelay;
             if (door != null) door.Open();
+            // alueella tepastelevat (esim. puliukko kannella) liittyvät tappeluun
+            foreach (var e in Enemy.All)
+                if (e != null && e.joinsFightWhenSquadComes && e.transform.position.x >= area.camMinX - 15f && e.transform.position.x <= area.camMaxX + 15f) e.WakeUp();
         }
         if (door != null && door.IsOpen && Time.time > lastSpawnTime + doorCloseDelay && (next >= bouncers.Length || waveLeft == 0)) door.Close();
         if (next >= bouncers.Length) { if (door == null || !door.IsOpen) enabled = false; return; }

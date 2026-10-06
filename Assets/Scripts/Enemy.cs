@@ -150,6 +150,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool altUnblockable;
     [Tooltip("Vaihtoehtoinen isku kaataa vain kevyet vihut (ei isoja: Kovis, portsari, rosvo…); pelaajaan normaalisti.")]
     public bool altKnockdownLightOnly;
+    [Header("Tepastelu ennen tappelua")]
+    [Tooltip("Hereillä vasta, kun tappelu alkaa (BouncerSquad herättää); siihen asti tepastelee välillä wanderMinX…wanderMaxX.")]
+    public bool joinsFightWhenSquadComes;
+    public float wanderMinX, wanderMaxX;
+    float wanderTarget, wanderPause;
     public float altKnockSpeed = 7f, altKnockUp = 6f;
     [Tooltip("Rynnäkkö: toinen hyökkäys aloitetaan jo näin kaukaa (x), ja syöksy kantaa pelaajaan asti. 0 = ei käytössä.")]
     public float chargeRange = 0f;
@@ -369,11 +374,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int Health => health;
     public bool IsDead => state == State.Dead;
 
+    void Wander(float dt)
+    {
+        if (wanderPause > 0f) { wanderPause -= dt; return; }
+        if (wanderTarget < wanderMinX || wanderTarget > wanderMaxX) wanderTarget = Random.Range(wanderMinX, wanderMaxX);
+        float dx = wanderTarget - transform.position.x;
+        if (Mathf.Abs(dx) < 0.1f)
+        {
+            wanderPause = Random.Range(1.5f, 4f);        // seisoskelee ja huojuu
+            wanderTarget = Random.Range(wanderMinX, wanderMaxX);
+            return;
+        }
+        moving = true;
+        facingRight = dx > 0f;
+        float sway = Mathf.Sin(Time.time * 1.7f + GetInstanceID()) * 0.25f;   // humalainen kulku: pientä sivuttaisheilahtelua
+        Move(new Vector2(Mathf.Sign(dx) * moveSpeedX * 0.6f, sway) * dt);
+    }
+
     /// Onko lähellä pystyssä olevia vihollisia (ei liittolaisia): esim. tanssia ei aloiteta tappelun keskellä.
     public static bool HostileNear(Vector3 pos, float range)
     {
         foreach (var e in All)
-            if (e != null && e.isActiveAndEnabled && !e.ally && !e.IsDead && Mathf.Abs(e.transform.position.x - pos.x) < range) return true;
+            if (e != null && e.isActiveAndEnabled && !e.ally && !e.IsDead && e.awake && Mathf.Abs(e.transform.position.x - pos.x) < range) return true;
         return false;
     }
 
@@ -431,6 +453,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             case State.Idle:
                 moving = false;
+                if (!awake && wanderMaxX > wanderMinX) Wander(dt);
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
                     awake = true;
                 if (awake && stateTime > 0.3f) Enter(State.Chase);
@@ -1833,6 +1856,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         switch (state)
         {
+            case State.Idle:
+                if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
+                return IdleFrame();
+
             case State.Chase:
                 if (moving && running && Has(runSprites)) return runSprites[(int)(Time.time / runFrameTime) % runSprites.Length];
                 if (moving && Has(walkTalkSprites) && Time.time < talkUntil) return walkTalkSprites[(int)(animClock / walkFrameTime) % walkTalkSprites.Length];
