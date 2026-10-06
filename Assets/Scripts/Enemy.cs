@@ -429,6 +429,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Windup:
+                // kombon jatkoisku: askel perään, jos kohde horjahti kauemmas
+                if (comboSeq != null && comboPos > 0)
+                {
+                    Vector3 tp = enemyTarget != null ? enemyTarget.transform.position : player != null ? player.transform.position : transform.position;
+                    float gap = Mathf.Abs(tp.x - transform.position.x) - attackRange * 0.75f;
+                    if (gap > 0f) Move(new Vector2((facingRight ? 1f : -1f) * Mathf.Min(gap, 6f * dt), 0f));
+                }
                 if (stateTime >= CurrentWindup)
                 {
                     punchLanded = false;
@@ -455,7 +462,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (ComboContinues && stateTime >= comboGap)
                 {
                     if (ComboTargetOk()) { comboPos++; SetAttack(comboSeq[comboPos]); ComboLog($"isku {comboPos + 1}/{comboSeq.Length}: {comboSeq[comboPos]}"); Enter(State.Windup); break; }
-                    ComboLog("kombo katkesi: kohde liian kaukana tai maassa");
+                    ComboLog(ComboBreakReason());
                     comboSeq = null;
                 }
                 // kombon toinen isku (lyöntisarjan myöhempi kuva)
@@ -1384,11 +1391,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             if (TargetDown(enemyTarget)) return false;
             Vector3 q = enemyTarget.transform.position;
-            return Mathf.Abs(q.x - me.x) <= attackRange + 1.5f && Mathf.Abs(q.y - me.y) <= depthTolerance + 0.2f;
+            return Mathf.Abs(q.x - me.x) <= attackRange + 3f;   // isku tai torjunta työntää kohdetta: kombo jatkuu silti
         }
         if (player == null || player.IsDown) return false;
         Vector3 p = player.transform.position;
-        return Mathf.Abs(p.x - me.x) <= attackRange + 1.5f && Mathf.Abs(p.y - me.y) <= depthTolerance + 0.2f;
+        return Mathf.Abs(p.x - me.x) <= attackRange + 3f;
+    }
+
+    string ComboBreakReason()
+    {
+        Vector3 me = transform.position;
+        if (enemyTarget != null)
+            return TargetDown(enemyTarget) ? "kombo katkesi: kohde maassa" : $"kombo katkesi: kohde liian kaukana ({Mathf.Abs(enemyTarget.transform.position.x - me.x):F1})";
+        if (player == null || player.IsDown) return "kombo katkesi: hero maassa";
+        return $"kombo katkesi: hero liian kaukana ({Mathf.Abs(player.transform.position.x - me.x):F1})";
     }
 
     bool TryHitEnemy(Enemy e)
