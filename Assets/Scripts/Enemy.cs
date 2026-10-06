@@ -251,6 +251,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float hurtTime = 0.35f;
     public float downTime = 1.0f;
     public float getUpTime = 0.5f;
+    [Tooltip("Nousukuvien lopussa hahmo katsoo taaksepäin (peilatut viimeiset kuvat): suunta käännetään noustua, ettei kuva hyppää.")]
+    public bool getUpFacesBack;
 
     [Header("Pelastusrengas")]
     [Tooltip("Renkaaseen joutuminen (8 kuvaa): 0 rengas pään yllä, 1–3 jumissa renkaassa, 4–7 kaatuu renkaan kanssa ja makaa.")]
@@ -633,7 +635,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.GetUp:
-                if (stateTime >= getUpTime) { cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
+                if (stateTime >= getUpTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
                 break;
 
             case State.GrabReach:
