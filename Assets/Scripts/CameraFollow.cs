@@ -62,17 +62,31 @@ public class CameraFollow : MonoBehaviour
     /// Siirtää kameran heti annettuun kohtaan (esim. oven jälkeen), ilman liukumista.
     public void SnapTo(float x)
     {
-        basePos.x = Mathf.Clamp(x, minX, maxX);
+        basePos.x = ClampX(x);
         basePos.y = GoalY();
         velocity = 0f; yVel = 0f;
         transform.position = basePos;
+    }
+
+    /// Rajat on laskettu 16:9-kuvasuhteelle; leveämmällä näytöllä rajoja kavennetaan, ettei kuvan reunan yli näy.
+    float ClampX(float x)
+    {
+        float lo = minX, hi = maxX;
+        var c = GetComponent<Camera>();
+        if (c != null && c.aspect > 16f / 9f + 0.01f)
+        {
+            float extra = c.orthographicSize * (c.aspect - 16f / 9f);
+            lo += extra; hi -= extra;
+            if (lo > hi) lo = hi = (minX + maxX) * 0.5f;
+        }
+        return Mathf.Clamp(x, lo, hi);
     }
 
     void LateUpdate()
     {
         if (target != null)
         {
-            float goal = Mathf.Clamp(target.position.x, minX, maxX);
+            float goal = ClampX(target.position.x);
             basePos.x = Mathf.SmoothDamp(basePos.x, goal, ref velocity, smoothTime);
             basePos.y = Mathf.SmoothDamp(basePos.y, GoalY(), ref yVel, 0.35f);
         }
