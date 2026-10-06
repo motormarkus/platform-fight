@@ -3152,8 +3152,8 @@ public static class BeatEmUpSetup
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------
     const int SailorCount = 4;
     // rosvot (8) hyökkäävät keulan puolelta aaltoina, kun hero tulee hyttiovelle; tässä vain syvyys (0 = kaide … 1 = edessä)
-    static readonly float[] ShipPirateDepths = { 0.3f, 0.7f, 0.5f, 0.2f, 0.85f, 0.45f, 0.65f, 0.25f };
-    static readonly int[] ShipPirateWaves = { 4, 4 };
+    static readonly float[] ShipPirateDepths = { 0.3f, 0.7f, 0.5f, 0.2f, 0.85f, 0.45f, 0.65f, 0.25f, 0.4f, 0.75f, 0.15f, 0.6f };
+    static readonly int[] ShipPirateWaves = { 4, 4, 4 };
     const float ShipFightTriggerPx = 3550f;   // kannen kuvan x: tästä eteenpäin (hyttiovelle) tappelu alkaa
 
     [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot")]
@@ -3290,6 +3290,8 @@ public static class BeatEmUpSetup
                 if (pWalk.Length >= 10) { re.walkSprites = pWalk; re.walkFrameTime = 0.11f; re.walkArtScale = 1f; }
                 if (pTalk.Length >= 10) { re.walkTalkSprites = pTalk; re.talkDuration = 1.6f; }
                 re.tauntSounds = pirateVoice; re.tauntVolume = 1f;   // ei Koviksen huutoja
+                // kovempia kuin Kovis: kestävämpiä, lyövät tiheämmin ja torjuvat välillä
+                re.maxHealth = 130; re.attackCooldown = 0.8f; re.blockChance = 0.25f; re.moveSpeedX = Mathf.Max(re.moveSpeedX, 3.2f);
                 var pirateGasp = LoadClips("Assets/Audio/Merirosvo gasp", "merirosvogasp");   // osuma, kaatuminen, heitosta mätkähdys
                 if (pirateGasp.Length > 0) { re.hurtSounds = pirateGasp; re.hurtVolume = 0.95f; }
                 var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
@@ -3301,23 +3303,23 @@ public static class BeatEmUpSetup
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8
                     re.punch3Sprites = new[] { 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }.Select(i => pSpin[i]).ToArray();
                     re.punch3ImpactFrame = 11; re.punch3WindupTime = 0.6f; re.punch3RecoverTime = 0.55f;
-                    re.punch3Damage = 20; re.punch3Knockdown = true; re.punch3LaunchX = 6f; re.punch3LaunchUp = 8f;
+                    re.punch3Damage = 24; re.punch3Knockdown = true; re.punch3LaunchX = 6f; re.punch3LaunchUp = 8f;
                     re.punch3Chance = 0.3f; re.punch3Reach = 2.5f;
                 }
-                if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 8; }
+                if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 10; }
                 if (pCross.Length >= 5)
                 {
                     // pitkä suora askeleella: kaataa
-                    re.punch2Sprites = pCross; re.punch2ImpactFrame = 2; re.punch2Damage = 14; re.punch2Knockdown = true; re.punch2Chance = 0.25f;
+                    re.punch2Sprites = pCross; re.punch2ImpactFrame = 2; re.punch2Damage = 16; re.punch2Knockdown = true; re.punch2Chance = 0.25f;
                     re.punch2LaunchUp = 0f;
                 }
                 if (pKnee.Length >= 6)
                 {
-                    re.altAttackSprites = pKnee; re.altImpactFrame = 3; re.altDamage = 12; re.altKnockdown = false;
+                    re.altAttackSprites = pKnee; re.altImpactFrame = 3; re.altDamage = 14; re.altKnockdown = false;
                     re.altChance = 0.12f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
                 }
             }
-            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} aaltoina 4 + 4 keulan puolelta (toinen aalto, kun 2 jäljellä), kun hero tulee hyttiovelle (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
+            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} aaltoina 4 + 4 + 4 keulan puolelta (seuraava aalto, kun 2 jäljellä), kun hero tulee hyttiovelle (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
         else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
