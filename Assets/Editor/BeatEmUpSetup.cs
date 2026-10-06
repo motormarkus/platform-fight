@@ -76,6 +76,7 @@ public static class BeatEmUpSetup
             AddChairs();            // tuolit El Loippariin (hero ottaa käteen, lyö ja heittää)
             SetupDropKick();        // heron pudotuspotku juoksusta
             AddShipProps();         // laivan kannelle pöydät, kala-annokset, pullot, lasit ja tuolit (ei tanssipaikalle)
+            AddRingStands();        // pelastusrenkaat telineineen laivan kannelle
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -109,10 +110,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3049,6 +3050,57 @@ public static class BeatEmUpSetup
         if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Laivan kannelle {nt} pöytää ({np} kala-annosta, {nb} pulloa ja lasia) ja {nc} tuolia.\nTanssipaikka baarin edessä on vapaana.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Pelastusrenkaat ----------------
+    // kannen kuvan x (px), syvyys 0 = kaide … 1 = edessä
+    static readonly Vector2[] RingStandSpots = { new Vector2(1000f, 0.15f), new Vector2(2950f, 0.15f) };
+
+    [MenuItem("Beat em up/58. Pelastusrenkaat telineineen laivan kannelle")]
+    static void AddRingStands()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
+        var deckBg = GameObject.Find("Laivan kansi");
+        if (pc == null || deck == null || deckBg == null) { Info("Tarvitaan pelaaja ja laivan kansi (55)."); return; }
+        Sprite[] Sh(string n)
+        {
+            string p = FindTexture(n); if (p == null) return new Sprite[0];
+            SetupAndSlice(p);
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        Undo.RecordObject(pc, "Renkaan kuvat");
+        pc.ringTakeSprites = Sh("rengas_otto");
+        pc.ringThrowSprites = Sh("rengas_heitto");
+        pc.ringPickSprites = Sh("rengas_nosto");
+        EditorUtility.SetDirty(pc);
+        var ring = Sh("rengas_kuvat");
+        var full = ImportProp("Assets/Sprites/Rekvisiitta/rengas_teline.png");
+        var empty = ImportProp("Assets/Sprites/Rekvisiitta/rengas_teline_tyhja.png");
+        var old = GameObject.Find("Pelastusrenkaat");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        if (full == null || empty == null || ring.Length < 9) { Info("Renkaan kuvia puuttuu (rengas_teline, rengas_teline_tyhja, rengas_kuvat)."); return; }
+        var root = new GameObject("Pelastusrenkaat");
+        Undo.RegisterCreatedObjectUndo(root, "Pelastusrenkaat");
+        var bsr = deckBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
+        int n = 0;
+        foreach (var v in RingStandSpots)
+        {
+            var g = new GameObject("Rengasteline " + (++n));
+            g.transform.SetParent(root.transform);
+            g.transform.position = new Vector3(left + v.x / ppu, Mathf.Lerp(deck.maxDepthY - 0.3f, deck.minDepthY + 0.4f, v.y), 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>();
+            vis.transform.SetParent(g.transform, false);
+            vis.transform.localPosition = new Vector3(0f, 0.11f, 0f);   // telineen jalat samalle tasolle kuin heron jalat
+            vis.sprite = full;
+            var st = g.AddComponent<RingStand>();
+            st.body = vis; st.withRing = full; st.empty = empty; st.ringSprites = ring;
+        }
+        var night = deckBg.GetComponent<ShipNight>();
+        if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Laivan kannelle {n} pelastusrengastelinettä.\nKiinniottonappi telineen vieressä: hero ottaa renkaan. Potku/lyönti/kiinniotto heittää sen.\nLattialta rengas nostetaan kiinniottonapilla.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------

@@ -310,6 +310,20 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasChair => chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
 
+    [Header("Pelastusrengas")]
+    [Tooltip("rengas_otto.png: 6 kuvaa, otto telineestä (teline ja rengas piirretty kuviin).")]
+    public Sprite[] ringTakeSprites;
+    [Tooltip("rengas_heitto.png: 0 pito, 1–3 nosto pään yli, 4 irti, 5–7 paluu.")]
+    public Sprite[] ringThrowSprites;
+    [Tooltip("rengas_nosto.png: 0–3 nosto lattialta.")]
+    public Sprite[] ringPickSprites;
+    public float ringFrameTime = 0.1f;
+    static readonly float[] RingThrowTimes = { 0.08f, 0.09f, 0.1f, 0.12f, 0.06f, 0.08f, 0.08f, 0.1f };
+    RingStand takingStand;
+    LifeRing pickingRing;
+    bool ringResolved;
+    bool HasRing => ringTakeSprites != null && ringTakeSprites.Length >= 6 && ringThrowSprites != null && ringThrowSprites.Length >= 8 && ringPickSprites != null && ringPickSprites.Length >= 4;
+
     [Header("Pudotuspotku (juoksusta lyönti + hyppy yhtä aikaa)")]
     [Tooltip("pudotuspotku.png: 0–1 juoksu (ei käytetä, ponnistus hypystä), 2 kippura, 3 potku lähtee, 4–5 jalat suorana, 6 alastulo selälleen, 7 makaa -> kip-up.")]
     public Sprite[] dropKickSprites;
@@ -460,7 +474,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow }
 
     int comboIndex;
     bool comboQueued;
@@ -483,6 +497,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
         SortByFrameNumber(dropKickSprites);
+        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
         SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
@@ -570,6 +585,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = NearbyCrate();
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
+                    if (HasRing && LifeRing.Held == null)
+                    {
+                        var stand = RingStand.Nearby(transform.position);
+                        if (stand != null)
+                        {
+                            // heron paikka telineen viereen (kuvissa teline on heron edessä)
+                            facingRight = stand.transform.position.x >= transform.position.x;
+                            float d = facingRight ? 1f : -1f;
+                            TeleportTo(new Vector3(stand.transform.position.x - d * stand.heroOffset, stand.transform.position.y, 0f));
+                            takingStand = stand; stand.BeginTake(transform.position);
+                            Enter(State.RingTake); break;
+                        }
+                        var fr = LifeRing.NearbyOnFloor(transform.position);
+                        if (fr != null) { facingRight = fr.transform.position.x >= transform.position.x; pickingRing = fr; Enter(State.RingPick); break; }
+                    }
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                     if (HasCounterThrow) { Enter(State.Catch); break; }
@@ -820,6 +850,43 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.ChairPick:
                 if (stateTime >= 3 * chairFrameTime * 1.3f) Enter(State.ChairHold);
+                break;
+
+            case State.RingTake:
+                if (stateTime >= ringTakeSprites.Length * ringFrameTime * 1.2f)
+                {
+                    if (takingStand != null) takingStand.EndTake();
+                    takingStand = null;
+                    Enter(LifeRing.Held != null ? State.RingHold : State.Ground);
+                }
+                break;
+
+            case State.RingPick:
+                if (pickingRing != null && stateTime >= 2 * ringFrameTime) { pickingRing.TakeBy(); pickingRing = null; }
+                if (stateTime >= 4 * ringFrameTime * 1.2f) Enter(LifeRing.Held != null ? State.RingHold : State.Ground);
+                break;
+
+            case State.RingHold:
+            {
+                if (LifeRing.Held == null) { Enter(State.Ground); break; }
+                if (kickPressed || catchPressed || punchPressed) { ringResolved = false; PlayGrunt(); Enter(State.RingThrow); break; }   // lyönti renkaalla: kuvat tulossa
+                moving = move.sqrMagnitude > 0.01f;
+                if (moving)
+                {
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+                    MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * carrySpeedFactor * dt);
+                }
+                break;
+            }
+
+            case State.RingThrow:
+                if (!ringResolved && stateTime >= ThrowPose.Start(RingThrowTimes, 4))
+                {
+                    ringResolved = true;
+                    float dir = facingRight ? 1f : -1f;
+                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 1.2f, -0.01f, 0f), 1.6f + height, dir);
+                }
+                if (ThrowPose.Index(RingThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
             case State.ChairHold:
@@ -1363,6 +1430,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         DropCrate();
         Bottle.DropHeld();
         Chair.DropHeld(transform.position);
+        LifeRing.DropHeld(transform.position);
         facingRight = fromRight;
         heldRot = 0f;
         height = Mathf.Max(height, 0.05f);
@@ -1386,6 +1454,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding) return false;
         if (state != State.Block) Bottle.DropHeld();
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
+        if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
+        if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
         else if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
@@ -1989,6 +2059,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.ChairPick:
                 return chairPickSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.3f)), 2)];
+            case State.RingTake:
+                return ringTakeSprites[Mathf.Min((int)(stateTime / (ringFrameTime * 1.2f)), ringTakeSprites.Length - 1)];
+            case State.RingPick:
+                return ringPickSprites[Mathf.Min((int)(stateTime / (ringFrameTime * 1.2f)), 3)];
+            case State.RingHold:
+                return ringThrowSprites[0];
+            case State.RingThrow:
+            {
+                int f = ThrowPose.Index(RingThrowTimes, stateTime);
+                return ringThrowSprites[f < 0 ? ringThrowSprites.Length - 1 : Mathf.Min(f, ringThrowSprites.Length - 1)];
+            }
             case State.ChairHold:
                 if (moving && chairWalkSprites != null && chairWalkSprites.Length > 0)
                     return chairWalkSprites[(int)(animClock / walkFrameTime) % chairWalkSprites.Length];
