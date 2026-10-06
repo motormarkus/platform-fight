@@ -51,7 +51,7 @@ public class Door : MonoBehaviour
 
         Vector3 p = pc.transform.position;
         near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-            && (here == null || p.y >= here.maxDepthY - maxDistanceFromWall)
+            && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // porrastettu takaraja (esim. kadun baari)
             && pc.AirHeight <= 0.05f
             && !(blockedDuringFight && Enemy.HostileNear(transform.position, 20f));
         if (near && Pressed()) StartCoroutine(Go());

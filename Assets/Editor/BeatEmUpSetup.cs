@@ -83,6 +83,7 @@ public static class BeatEmUpSetup
             AddSalonTables();       // salin pöydät: hummeriannokset ja shamppanjapullot
             AddSalonLadies();       // salin naiset ja Sohvi baaritiskin takana
             AddSalonFight();        // salin tappelu: rosvot käytävän ovelta, seilorit salin perältä
+            CreateStreetBar();      // kadun baari: BAR-ovesta sisään
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -669,7 +670,7 @@ public static class BeatEmUpSetup
         float wU = sprite.rect.width / ClubPPU, hU = sprite.rect.height / ClubPPU;
 
         // vanhat pois
-        foreach (var n in new[] { "S-Club sisä", "Alue: Katu", "Alue: S-Club", "Ovet" })
+        foreach (var n in new[] { "S-Club sisä", "Ovet" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -687,7 +688,7 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(bg, "S-Club");
 
         // alueet
-        var streetArea = new GameObject("Alue: Katu").AddComponent<Area>();
+        var streetArea = ReuseArea("Alue: Katu");   // sama alue: kadun baarin ja katon ovet viittaavat siihen
         streetArea.areaName = "Katu";
         streetArea.minDepthY = pc.minDepthY;
         streetArea.maxDepthY = pc.maxDepthY;
@@ -696,9 +697,8 @@ public static class BeatEmUpSetup
         streetArea.curbDepthY = pc.curbDepthY;
         streetArea.camMinX = follow.minX;
         streetArea.camMaxX = follow.maxX;
-        Undo.RegisterCreatedObjectUndo(streetArea.gameObject, "Alue");
 
-        var clubArea = new GameObject("Alue: S-Club").AddComponent<Area>();
+        var clubArea = ReuseArea("Alue: S-Club");
         clubArea.areaName = "S-Club";
         clubArea.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/S-Club.mp3");   // klubin oma musiikki
         float top = camY + hU * 0.5f;
@@ -707,7 +707,6 @@ public static class BeatEmUpSetup
         clubArea.useSidewalk = false;
         clubArea.camMinX = ClubX0 + halfW;
         clubArea.camMaxX = ClubX0 + wU - halfW;
-        Undo.RegisterCreatedObjectUndo(clubArea.gameObject, "Alue");
 
         // ovet: S-Clubin ovi jokaisessa kadun kuvasarjassa, ja paluuovi sisätilan vasemmassa reunassa
         var doors = new GameObject("Ovet");
@@ -3627,6 +3626,82 @@ public static class BeatEmUpSetup
         Lady("Mies puvussa", "salimies_idle", "salimies_kavely", true, false, 6);   // täytteeksi, sama logiikka
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Saliin {made} juhlijaa (3 naista ja mies) ja {sohviInfo}.\nNaiset kiertelevät satunnaisesti: keskustelevat keskenään ja käyvät tiskillä juttelemassa Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Kadun baari (BAR-ovi) ----------------
+    const string StreetBarPath = "Assets/Sprites/Taustat/baari_sisa.png";   // 3 kuvaa yhdistettynä: ovi ja tiski, sohvat ja tikkataulu, nurkka ja takaovi (3594 × 877)
+    const float StreetBarX0 = 40000f;
+    const float StreetBarDoorPx = 2263f;      // BAR-oven keskikohta kadun kuvasarjassa
+    const float StreetBarExitPx = 160f;       // sisäkuvan vasen ovi (ulos kadulle)
+    // takaraja sisäkuvassa (x px, rivi): oven ja tynnyrin edusta, tiskin etureuna, sohvat seinällä, viisto oikea seinä
+    static readonly Vector2[] StreetBarDepthPx = { new Vector2(0f, 612f), new Vector2(515f, 612f), new Vector2(530f, 640f), new Vector2(1712f, 640f),
+                                                   new Vector2(1730f, 500f), new Vector2(2990f, 490f), new Vector2(3594f, 690f) };
+
+    [MenuItem("Beat em up/65. Kadun baari (BAR-ovesta sisään)")]
+    static void CreateStreetBar()
+    {
+        var street = GameObject.Find("Tausta");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        var ti = AssetImporter.GetAtPath(StreetBarPath) as TextureImporter;
+        if (street == null || streetArea == null || ti == null) { Info("Tarvitaan katutausta ja katualue (kohdat 4 ja 10) sekä " + StreetBarPath); return; }
+        foreach (var n in new[] { "Kadun baari", "Kadun baarin ovet" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf);   // koko kuva ruudun korkuiseksi
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false; ti.SaveAndReimport();
+        var spr = AssetDatabase.LoadAssetAtPath<Sprite>(StreetBarPath);
+        float wU = w / ppu, hU = h / ppu, halfW = CamHalf * 16f / 9f;
+        var bg = new GameObject("Kadun baari");
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = spr; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(StreetBarX0 + wU * 0.5f, CamY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Kadun baari");
+        float top = CamY + hU * 0.5f;
+        float X(float px) => StreetBarX0 + px / ppu;
+        float Y(float row) => top - row / ppu;
+
+        var area = ReuseArea("Alue: Kadun baari");
+        area.areaName = "Kadun baari";
+        area.useSidewalk = false;
+        area.maxDepthY = StreetBarDepthPx.Max(v => Y(v.y));
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = StreetBarX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, StreetBarX0 + wU - halfW);
+        area.walkMinX = X(40f); area.walkMaxX = X(w - 60f);
+        area.depthLimits = StreetBarDepthPx.Select(v => new Vector2(X(v.x), Y(v.y))).ToArray();
+
+        // ovet: BAR-ovi jokaisessa kadun kuvasarjassa, ja paluuovi sisäkuvan vasemmassa ovessa
+        var doors = new GameObject("Kadun baarin ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float left = street.transform.position.x - ssr.size.x * 0.5f;
+        float setU = StreetSetPx / BackgroundPPU;
+        int count = Mathf.RoundToInt(ssr.size.x / setU);
+        Vector2 inside = new Vector2(X(StreetBarExitPx + 160f), Mathf.Lerp(Y(612f), area.minDepthY, 0.3f));
+        for (int i = 0; i < count; i++)
+        {
+            var d = new GameObject("BAR-ovi " + (i + 1)).AddComponent<Door>();
+            d.transform.SetParent(doors.transform, false);
+            d.transform.position = new Vector3(left + StreetBarDoorPx / BackgroundPPU + i * setU, streetArea.maxDepthY - 0.25f, 0f);
+            d.prompt = "Mene baariin";
+            d.here = streetArea; d.target = area; d.spawnPoint = inside;
+            d.halfWidth = 1.4f; d.maxDistanceFromWall = 0.9f;
+        }
+        var exit = new GameObject("Baarista kadulle").AddComponent<Door>();
+        exit.transform.SetParent(doors.transform, false);
+        exit.transform.position = new Vector3(X(StreetBarExitPx), Y(612f), 0f);
+        exit.prompt = "Ulos kadulle";
+        exit.here = area; exit.target = streetArea;
+        exit.returnToLastDoor = true;
+        exit.halfWidth = 1.6f; exit.maxDistanceFromWall = 1.2f;
+        exit.spawnPoint = new Vector2(left + StreetBarDoorPx / BackgroundPPU, streetArea.maxDepthY - 0.25f);
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, takaovi oikeassa nurkassa (ei vielä käytössä).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Salin tappelu ----------------
