@@ -350,6 +350,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
     // kuvat 2–7 ja ajat: kippura, potku, suorana (lento), alastulo, makuu
     static readonly int[] DropKickFrames = { 2, 3, 4, 5, 6, 7 };
+
+    [Header("Iso koukku (alas, eteen + lyönti)")]
+    [Tooltip("koukku_iso.png: 0 asento, 1–3 kyykky ja lataus (liukuu eteen), 4–5 nousu, 6 koukku ylös.")]
+    public Sprite[] bigHookSprites;
+    public int bigHookDamage = 26;
+    public float bigHookReach = 2.2f;
+    [Tooltip("Kevyet vastustajat lentävät korkealle (ylös, eteen).")]
+    public float bigHookLaunchUp = 17f, bigHookLaunchX = 2.5f;
+    [Tooltip("Liuku eteen latauksen aikana (yks/s), kiihtyy iskua kohti.")]
+    public float bigHookSlide = 3.0f;
+    // kiihtyy loppua kohti: rauhallinen lataus, nopea nousu; osuma kuvan 5 alussa, koukku jää hetkeksi ylös
+    static readonly float[] BigHookTimes = { 0.07f, 0.1f, 0.13f, 0.12f, 0.06f, 0.045f, 0.32f };
+    bool HasBigHook => bigHookSprites != null && bigHookSprites.Length >= 7;
+    float downInputTime = -9f, downFwdTime = -9f, downFwdDir;
+    bool bigHookHit;
     static readonly float[] DropKickTimes = { 0.07f, 0.1f, 0.22f, 0.18f, 0.1f, 0.22f };   // jalat suorana (kuvat 3–5) ~0.5 s
 
     [Header("Pienen esineen nosto ja heitto (pullo)")]
@@ -486,7 +501,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook }
 
     int comboIndex;
     bool comboQueued;
@@ -509,7 +524,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
         SortByFrameNumber(dropKickSprites);
-        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites);
+        SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites); SortByFrameNumber(bigHookSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
         SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
         SortByFrameNumber(kneeStrikeSprites);
@@ -564,11 +579,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             lastTapDir = tdir; lastTapTime = Time.time;
         }
         prevMoveX = move.x;
+        // alas, eteen + lyönti = iso koukku
+        if (move.y < -0.5f) downInputTime = Time.time;
+        if (Mathf.Abs(move.x) > 0.5f && Time.time - downInputTime <= 0.35f) { downFwdTime = Time.time; downFwdDir = Mathf.Sign(move.x); }
         bool jumpPressed = !Scripted && JumpPressed();
         bool punchPressed = !Scripted && PunchPressed();
         if (punchPressed) lastPunchPressTime = Time.time;
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
+        bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
         bool specialPressed = !Scripted && SpecialPressed();
@@ -581,6 +600,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
+                if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
                 {
@@ -777,6 +797,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (!kneeDashHit) kneeDashHit = AttackEnemies(kneeDashReach, kneeDashDamage, true, 2.0f);
                 }
                 if (stateTime >= slideEnd + 0.24f) Enter(State.Ground);
+                break;
+            }
+
+            case State.BigHook:
+            {
+                // lataa kyykyssä ja liukuu eteen kiihtyen, koukku ylös: kevyet lentävät korkealle, isot kaatuvat
+                float dir = facingRight ? 1f : -1f;
+                float impact = ThrowPose.Start(BigHookTimes, 5);
+                if (stateTime < impact)
+                {
+                    float k = stateTime / impact;
+                    MoveOnGround(new Vector2(dir * bigHookSlide * (0.3f + 1.4f * k * k) * dt, 0f));
+                }
+                if (!bigHookHit && stateTime >= impact) { bigHookHit = true; BigHookImpact(); }
+                if (ThrowPose.Index(BigHookTimes, stateTime) < 0) Enter(State.Ground);
                 break;
             }
 
@@ -1281,6 +1316,40 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int BodySortOrder => body != null ? body.sortingOrder : Mathf.RoundToInt(-transform.position.y * 100f);
     /// Heron kuva (pullon päälle piirrettävää nyrkkiä varten).
     public SpriteRenderer BodyRenderer => body;
+
+    void StartBigHook()
+    {
+        bigHookHit = false; attackHit = false;
+        facingRight = downFwdDir >= 0f;
+        downFwdTime = -9f;
+        PlayGrunt();
+        Enter(State.BigHook);
+    }
+
+    /// Kovis, samoalainen ja portsari kestävät koukun kaatuen; muut lentävät ilmaan.
+    static bool HeavyForHook(Enemy e)
+    {
+        string n = e.gameObject.name;
+        return n.Contains("Kovis") || n.Contains("Samoa") || n.Contains("Portsari");
+    }
+
+    void BigHookImpact()
+    {
+        float dir = facingRight ? 1f : -1f;
+        if (!AttackEnemies(bigHookReach, bigHookDamage, true, 3.0f)) return;
+        bool any = false;
+        foreach (var e in lastHitEnemies)
+        {
+            if (e == null) continue;
+            any = true;
+            if (!HeavyForHook(e)) e.Launch(dir * bigHookLaunchX, bigHookLaunchUp);   // lentää korkealle
+        }
+        if (any)
+        {
+            HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);
+            if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.25f);
+        }
+    }
 
     void StartDropKick()
     {
@@ -2173,6 +2242,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return kneeStrikeSprites[Mathf.Min(f, kneeStrikeSprites.Length - 1)];
             }
 
+            case State.BigHook:
+            {
+                int i = ThrowPose.Index(BigHookTimes, stateTime);
+                return bigHookSprites[i < 0 ? bigHookSprites.Length - 1 : Mathf.Min(i, bigHookSprites.Length - 1)];
+            }
             case State.DropKick:
             {
                 int i = ThrowPose.Index(DropKickTimes, stateTime);

@@ -77,6 +77,7 @@ public static class BeatEmUpSetup
             SetupDropKick();        // heron pudotuspotku juoksusta
             AddShipProps();         // laivan kannelle pöydät, kala-annokset, pullot, lasit ja tuolit (ei tanssipaikalle)
             AddRingStands();        // pelastusrenkaat telineineen laivan kannelle
+            SetupBigHook();         // heron iso koukku (alas, eteen + lyönti)
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -113,7 +114,7 @@ public static class BeatEmUpSetup
         int CellW = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3050,6 +3051,21 @@ public static class BeatEmUpSetup
         if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Laivan kannelle {nt} pöytää ({np} kala-annosta, {nb} pulloa ja lasia) ja {nc} tuolia.\nTanssipaikka baarin edessä on vapaana.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Heron iso koukku ----------------
+    [MenuItem("Beat em up/59. Heron iso koukku (alas, eteen + lyönti)")]
+    static void SetupBigHook()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        string p = FindTexture("koukku_iso");
+        if (pc == null || p == null) { Info("Tarvitaan pelaaja ja koukku_iso.png."); return; }
+        SetupAndSlice(p);
+        Undo.RecordObject(pc, "Iso koukku");
+        pc.bigHookSprites = LoadSprites("koukku_iso").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info($"Iso koukku: {pc.bigHookSprites.Length} kuvaa.\nAlas, eteen + lyönti. Kovis, samoalainen ja portsari kaatuvat, muut lentävät korkealle.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Pelastusrenkaat ----------------
