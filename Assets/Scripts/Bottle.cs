@@ -176,6 +176,7 @@ public class Bottle : MonoBehaviour
                 {
                     bool gone = table == null || !table.Intact;   // pöytä hajosi tai nostettiin
                     if (table != null) seenDisturb = table.Disturb;
+                    if (table != null && table.LastViolent && !(table.Airborne && !table.IsBroken)) { Launch(table.LastHitDir); break; }   // potku: kaikki lentää ilmaan
                     React(gone);
                     break;
                 }
@@ -232,6 +233,17 @@ public class Bottle : MonoBehaviour
     }
 
     /// Pöytää lyötiin: lentää, kaatuu ja tippuu tai jää heilumaan.
+    /// Potku pöytään (tai pöytä hajoaa rajusti): pullo lentää ilmaan potkun suuntaan.
+    void Launch(float dir)
+    {
+        float side = dir != 0f ? dir : (Random.value < 0.5f ? -1f : 1f);
+        t = 0f;
+        vx = side * Random.Range(2.5f, 6f) + Random.Range(-1f, 1f); vy = Random.Range(6f, 10f);
+        spin = -side * Random.Range(600f, 1200f); fastFall = true;
+        table = null;
+        state = S.Falling;
+    }
+
     void React(bool tableGone)
     {
         float r = Random.value;
