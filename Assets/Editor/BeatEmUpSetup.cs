@@ -78,6 +78,7 @@ public static class BeatEmUpSetup
             AddShipProps();         // laivan kannelle pöydät, kala-annokset, pullot, lasit ja tuolit (ei tanssipaikalle)
             AddRingStands();        // pelastusrenkaat telineineen laivan kannelle
             SetupBigHook();         // heron iso koukku (alas, eteen + lyönti)
+            CreateShipInterior();   // laivan sisätilat: käytävä, hytti ja sali
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -111,10 +112,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3051,6 +3052,160 @@ public static class BeatEmUpSetup
         if (night != null) night.tinted = (night.tinted ?? new SpriteRenderer[0]).Concat(root.GetComponentsInChildren<SpriteRenderer>()).ToArray();
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Laivan kannelle {nt} pöytää ({np} kala-annosta, {nb} pulloa ja lasia) ja {nc} tuolia.\nTanssipaikka baarin edessä on vapaana.\n\nTallenna scene (Ctrl+S).");
+    }
+
+
+    // ---------------- Laivan sisätilat ----------------
+    const float ShipCorridorX0 = 22000f, ShipCabinX0 = 30000f, ShipSalonX0 = 34000f;
+    // käytävä (laiva_kaytava.png, 3 jaksoa à 1568 px): seinän juuri rivillä 525; avautuva ovi toisen jakson keskellä
+    const float CorridorFloorPx = 528f, CorridorTile = 1568f, CorridorDoorRoiX = 680f - 52f, CorridorDoorRoiBottom = 545f, CorridorDoorCenterPx = 811f - 52f;
+    const float CabinFloorPx = 548f;
+    // sali (laiva_sali.png 2584 × 941): baaritiski 0–690 (etureuna rivillä 472), seinän juuri 420, oikea seinä viistoon
+    const float SalonBarEndPx = 690f, SalonBarFrontPx = 474f, SalonWallPx = 420f, SalonCornerPx = 1860f, SalonRightBottomPx = 760f, SalonHorizonPx = 190f;
+
+    [MenuItem("Beat em up/60. Laivan sisätilat: käytävä, hytti ja sali")]
+    static void CreateShipInterior()
+    {
+        var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
+        var deckBg = GameObject.Find("Laivan kansi");
+        if (deck == null || deckBg == null) { Info("Tee ensin kohta 55 (laivan kansi)."); return; }
+        foreach (var n in new[] { "Laivan käytävä", "Alue: Laivan käytävä", "Laivan hytti", "Alue: Laivan hytti", "Laivan sali", "Alue: Laivan sali",
+                                  "Laivan sisäovet", "Salin meri kaukana", "Salin meri lähellä", "Käytävän hyttiovi" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        float halfW = CamHalf * 16f / 9f;
+        float cy = CamY;
+        Sprite Import(string path, float ppu, bool tiled)
+        {
+            var t = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (t == null) return null;
+            t.textureType = TextureImporterType.Sprite; t.spriteImportMode = SpriteImportMode.Single;
+            t.spritePixelsPerUnit = ppu; t.filterMode = FilterMode.Bilinear;
+            t.textureCompression = TextureImporterCompression.Uncompressed; t.maxTextureSize = 8192;
+            t.mipmapEnabled = false; t.alphaIsTransparency = true;
+            t.wrapMode = tiled ? TextureWrapMode.Repeat : TextureWrapMode.Clamp;
+            var st = new TextureImporterSettings(); t.ReadTextureSettings(st);
+            st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)SpriteAlignment.Center;
+            t.SetTextureSettings(st); t.SaveAndReimport();
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        }
+        // koko kuva ruudun korkuiseksi (kuten El Loippari)
+        (GameObject bg, Area area, float ppu, float left, float top) Room(string name, string path, float x0, float floorPx)
+        {
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) return (null, null, 0f, 0f, 0f);
+            ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+            float ppu = h / (2f * CamHalf);
+            var spr = Import(path, ppu, false);
+            float wU = w / ppu, hU = h / ppu;
+            var bg = new GameObject(name);
+            var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = spr; sr.sortingOrder = -10000;
+            bg.transform.position = new Vector3(x0 + wU * 0.5f, cy, 0f);
+            Undo.RegisterCreatedObjectUndo(bg, name);
+            float top = cy + hU * 0.5f;
+            var area = new GameObject("Alue: " + name).AddComponent<Area>();
+            area.areaName = name;
+            area.music = deck.music;
+            area.useSidewalk = false;
+            area.maxDepthY = top - floorPx / ppu;
+            area.minDepthY = CamY - CamHalf + 1.2f;
+            area.camMinX = x0 + halfW;
+            area.camMaxX = Mathf.Max(area.camMinX, x0 + wU - halfW);
+            Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+            return (bg, area, ppu, x0, top);
+        }
+        var cor = Room("Laivan käytävä", "Assets/Sprites/Taustat/laiva_kaytava.png", ShipCorridorX0, CorridorFloorPx);
+        var cab = Room("Laivan hytti", "Assets/Sprites/Taustat/laiva_hytti.png", ShipCabinX0, CabinFloorPx);
+        var sal = Room("Laivan sali", "Assets/Sprites/Taustat/laiva_sali.png", ShipSalonX0, SalonWallPx);
+        if (cor.area == null || cab.area == null || sal.area == null) { Info("Sisätilojen kuvia puuttuu (laiva_kaytava, laiva_hytti, laiva_sali)."); return; }
+        float CX(float px) => cor.left + px / cor.ppu;
+        float SX(float px) => sal.left + px / sal.ppu;
+        float SY(float row) => sal.top - row / sal.ppu;
+        cor.area.walkMinX = CX(60f); cor.area.walkMaxX = CX(CorridorTile * 3f - 60f);
+        cab.area.walkMinX = cab.left + 1.2f;
+        // salin takaraja: baaritiskin etureuna, seinän juuri ja viisto oikea seinä
+        sal.area.depthLimits = new[] {
+            new Vector2(SX(0f), SY(SalonBarFrontPx)), new Vector2(SX(SalonBarEndPx), SY(SalonBarFrontPx)),
+            new Vector2(SX(SalonBarEndPx + 40f), SY(SalonWallPx)), new Vector2(SX(SalonCornerPx), SY(SalonWallPx)),
+            new Vector2(SX(2584f), SY(SalonRightBottomPx)) };
+        sal.area.walkMaxX = SX(2584f) - 1.0f;
+
+        // salin ikkunoista näkyy rullaava meri (samat kuvat kuin kannella)
+        void Sea(string name, string path, float scaleRows, float topRow, int order, float speed, float parallax)
+        {
+            float p = sal.ppu / scaleRows;
+            var spr = Import(path, p, true);
+            if (spr == null) return;
+            var go = new GameObject(name);
+            var s = go.AddComponent<SpriteRenderer>(); s.sprite = spr; s.sortingOrder = order; s.drawMode = SpriteDrawMode.Tiled;
+            float w = spr.rect.width / p, h = spr.rect.height / p;
+            s.size = new Vector2(Mathf.Ceil((2f * halfW) / w + 2f) * w, h);
+            go.transform.position = new Vector3(ShipSalonX0 + 10f, SY(topRow) - h * 0.5f, 0f);
+            var sl = go.AddComponent<ScrollingLayer>(); sl.autoSpeed = speed; sl.parallax = parallax; sl.area = sal.area;
+            sl.bobAmplitude = 0.15f; sl.bobPeriod = 7f;
+            Undo.RegisterCreatedObjectUndo(go, name);
+        }
+        Sea("Salin meri kaukana", ShipSeaFarPath, 0.6f, SalonHorizonPx - 291f * 0.6f, -10100, 0.35f, 0.04f);
+        Sea("Salin meri lähellä", ShipSeaNearPath, 0.35f, SalonHorizonPx + 30f, -10090, 3f, 0.4f);
+
+        // käytävän avautuva hyttiovi (videosta)
+        AnimatedDoor cabinAnim = null;
+        string op = FindTexture("laiva_kaytava_ovi");
+        if (op != null)
+        {
+            SetupAndSlice(op);
+            var fr = LoadSprites("laiva_kaytava_ovi").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            if (fr.Length >= 2)
+            {
+                var go = new GameObject("Käytävän hyttiovi");
+                float k100 = fr[0].pixelsPerUnit / cor.ppu;
+                go.transform.position = new Vector3(CX(CorridorTile + CorridorDoorRoiX + 165f), cor.top - CorridorDoorRoiBottom / cor.ppu, 0f);
+                go.transform.localScale = new Vector3(k100, k100, 1f);
+                var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = fr[0]; sr.sortingOrder = -9990;
+                cabinAnim = go.AddComponent<AnimatedDoor>(); cabinAnim.body = sr; cabinAnim.frames = fr; cabinAnim.frameTime = 0.06f;
+                Undo.RegisterCreatedObjectUndo(go, "Hyttiovi");
+            }
+        }
+
+        // ovet
+        var doors = new GameObject("Laivan sisäovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        Door MakeDoor(string name, string prompt, Area here, Area target, Vector3 pos, Vector2 spawn, float halfWidth = 1.4f, float wall = 0.9f)
+        {
+            var d = new GameObject(name).AddComponent<Door>();
+            d.transform.SetParent(doors.transform, false);
+            d.transform.position = pos; d.prompt = prompt; d.here = here; d.target = target; d.spawnPoint = spawn;
+            d.halfWidth = halfWidth; d.maxDistanceFromWall = wall;
+            return d;
+        }
+        // kannen hyttiovi: viistossa seinässä, joten seinän juuri on oven kohdalla lähempänä
+        var dbsr = deckBg.GetComponent<SpriteRenderer>();
+        float dppu = dbsr.sprite.pixelsPerUnit, dleft = dbsr.bounds.min.x;
+        float doorX = dleft + ShipDoorXPx / dppu;
+        float tWall = Mathf.InverseLerp(ShipWallTopXPx, ShipWallBottomXPx, ShipDoorXPx);
+        float wallYAtDoor = Mathf.Lerp(deck.maxDepthY, deck.minDepthY, tWall);
+        float corMid = Mathf.Lerp(cor.area.maxDepthY, cor.area.minDepthY, 0.3f);
+        var inDoor = MakeDoor("Kannelta käytävään", "Mene sisään", deck, cor.area, new Vector3(doorX - 0.6f, deck.maxDepthY, 0f),
+                              new Vector2(CX(420f), corMid), 1.8f, deck.maxDepthY - wallYAtDoor + 1.0f);
+        inDoor.blockedDuringFight = true;
+        var deckAnimGo = GameObject.Find("Hyttiovi");
+        if (deckAnimGo != null) inDoor.anim = deckAnimGo.GetComponent<AnimatedDoor>();
+        MakeDoor("Käytävästä kannelle", "Kannelle", cor.area, deck, new Vector3(CX(140f), cor.area.maxDepthY, 0f),
+                 new Vector2(doorX - 1.6f, wallYAtDoor - 0.4f), 1.6f, 1.2f);
+        float cabDoorX = CX(CorridorTile + CorridorDoorCenterPx);
+        var toCabin = MakeDoor("Käytävästä hyttiin", "Mene hyttiin", cor.area, cab.area, new Vector3(cabDoorX, cor.area.maxDepthY, 0f),
+                               new Vector2(cab.left + 4.5f, Mathf.Lerp(cab.area.maxDepthY, cab.area.minDepthY, 0.35f)), 1.3f, 1.0f);
+        toCabin.anim = cabinAnim;
+        MakeDoor("Hytistä käytävään", "Käytävään", cab.area, cor.area, new Vector3(cab.left + 1.6f, cab.area.maxDepthY, 0f),
+                 new Vector2(cabDoorX, cor.area.maxDepthY - 0.3f), 1.8f, 1.5f);
+        MakeDoor("Käytävästä saliin", "Saliin", cor.area, sal.area, new Vector3(CX(CorridorTile * 3f - 140f), cor.area.maxDepthY, 0f),
+                 new Vector2(SX(160f) + 1.5f, Mathf.Lerp(SY(SalonBarFrontPx), sal.area.minDepthY, 0.3f)), 1.6f, 1.2f);
+        MakeDoor("Salista käytävään", "Käytävään", sal.area, cor.area, new Vector3(SX(80f), SY(SalonBarFrontPx), 0f),
+                 new Vector2(CX(CorridorTile * 3f - 300f), corMid), 1.6f, 1.5f);
+        EditorSceneManager.MarkSceneDirty(doors.scene);
+        Info("Laivan sisätilat luotu:\n- Käytävä (3 jaksoa), kannen hyttiovesta (E, ei tappelun aikana)\n- Hytti: käytävän keskimmäisestä ovesta (ovi aukeaa)\n- Sali: käytävän oikeasta päästä; ikkunoista näkyy meri\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------

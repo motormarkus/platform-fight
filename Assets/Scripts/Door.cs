@@ -34,6 +34,11 @@ public class Door : MonoBehaviour
     [Tooltip("Palotikkaat: pelaaja kiipeää näin monta yksikköä ylös (negatiivinen = alas) ennen pimennystä. 0 = tavallinen ovi.")]
     public float climbHeight = 0f;
     public float climbTime = 0.8f;
+    [Tooltip("Avautuva ovi (taustan päällä): aukeaa ennen siirtymää ja sulkeutuu pimennyksessä.")]
+    public AnimatedDoor anim;
+    public float animWait = 0.7f;
+    [Tooltip("Ei käytettävissä, kun lähellä on pystyssä olevia vihollisia (esim. laivan tappelu).")]
+    public bool blockedDuringFight;
 
     PlayerController pc;
     bool near;
@@ -47,7 +52,8 @@ public class Door : MonoBehaviour
         Vector3 p = pc.transform.position;
         near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
             && (here == null || p.y >= here.maxDepthY - maxDistanceFromWall)
-            && pc.AirHeight <= 0.05f;
+            && pc.AirHeight <= 0.05f
+            && !(blockedDuringFight && Enemy.HostileNear(transform.position, 20f));
         if (near && Pressed()) StartCoroutine(Go());
     }
 
@@ -67,6 +73,11 @@ public class Door : MonoBehaviour
         near = false;
         pc.enabled = false;
 
+        if (anim != null)
+        {
+            anim.Open();
+            for (float t = 0f; t < animWait; t += Time.unscaledDeltaTime) yield return null;
+        }
         if (climbHeight != 0f)
         {
             // kiipeäminen: ukko siirtyy tikkaiden kohdalle ja nousee, ruutu pimenee loppumatkasta
@@ -93,6 +104,7 @@ public class Door : MonoBehaviour
         }
         else LastUsed = this;
 
+        if (anim != null) anim.Close();
         if (dest != null) dest.Apply(pc);
         pc.TeleportTo(new Vector3(pos.x, pos.y, 0f));
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(pos.x);
