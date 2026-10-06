@@ -716,8 +716,41 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
         }
 
+        Separate(dt);
         ApplyVisual();
     }
+
+    /// Hahmot levittäytyvät: jos toinen pystyssä oleva hahmo on liki päällekkäin, työnnetään hiljalleen erilleen
+    /// (soikea alue: leveyssuunnassa enemmän kuin syvyydessä).
+    const float SepX = 0.95f, SepY = 0.38f, SepSpeed = 3.2f;
+    void Separate(float dt)
+    {
+        if (!SeparatesNow(state)) return;
+        Vector3 me = transform.position;
+        Vector2 push = Vector2.zero;
+        foreach (var e in All)
+        {
+            if (e == this || e == null || !e.isActiveAndEnabled || !SeparatesNow(e.state)) continue;
+            Vector3 q = e.transform.position;
+            float nx = (me.x - q.x) / SepX, ny = (me.y - q.y) / SepY;
+            float d2 = nx * nx + ny * ny;
+            if (d2 >= 1f) continue;
+            float d = Mathf.Sqrt(d2);
+            if (d < 0.02f)
+            {
+                // täsmälleen päällekkäin: suunta tunnisteesta, ettei molemmat työnny samaan suuntaan
+                nx = GetInstanceID() > e.GetInstanceID() ? 1f : -1f; ny = nx * 0.4f; d = 0.02f;
+            }
+            float k = 1f - d;                                    // mitä lähempänä, sitä kovempi työntö
+            push += new Vector2(nx / d * SepX, ny / d * SepY) * k;
+        }
+        if (push.sqrMagnitude < 0.0001f) return;
+        if (push.magnitude > 1f) push.Normalize();
+        Move(push * SepSpeed * dt);
+    }
+
+    static bool SeparatesNow(State s) =>
+        s == State.Idle || s == State.Chase || s == State.Windup || s == State.Recover || s == State.Hurt || s == State.Block || s == State.Ringed;
 
     const float ThrowSwing = 0.13f;
     /// Noston eteneminen 0..1: rauhallinen alku, vauhti keskellä, pieni pysähdys pään yllä ennen heilautusta.
