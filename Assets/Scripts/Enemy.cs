@@ -374,6 +374,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int Health => health;
     public bool IsDead => state == State.Dead;
 
+    /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
+    public static bool IsHeavyweight(Enemy e)
+    {
+        string n = e.gameObject.name;
+        return n.Contains("Kovis") || n.Contains("Samoa") || n.Contains("Portsari") || n.Contains("Puliukko");
+    }
+
     void Wander(float dt)
     {
         if (wanderPause > 0f) { wanderPause -= dt; return; }
@@ -1436,7 +1443,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = !ComboContinues && !(usingAlt && altKnockdownLightOnly && e.bigBody) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
+        bool kd = !ComboContinues && !(usingAlt && altKnockdownLightOnly && IsHeavyweight(e)) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
         if (!e.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
