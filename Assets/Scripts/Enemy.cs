@@ -375,7 +375,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         PlayerController.SortByFrameNumber(altAttackSprites);
         PlayerController.SortByFrameNumber(grabSprites);
         PlayerController.SortByFrameNumber(hurtSprites);
-        PlayerController.SortByFrameNumber(blockSprites);
+        // blockSprites: järjestys asetetaan editorissa (voi sisältää toistoja)
         PlayerController.SortByFrameNumber(bellySprites);
         PlayerController.SortByFrameNumber(knockdownSprites);
         PlayerController.SortByFrameNumber(getUpSprites);
