@@ -62,6 +62,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float punch3Reach = 2.4f;
     bool usingPunch2, usingPunch3, running;
 
+    [Header("Kombot")]
+    [Tooltip("Iskusarjat peräkkäin: J = lyönti, S = toinen isku (suora), P = vaihtoehtoinen (polvi), K = kolmas (kierrepotku). Esim. \"JSJ\".")]
+    public string[] combos;
+    [Range(0f, 1f)] public float comboChance = 0f;
+    [Tooltip("Kombon seuraavien iskujen vetoaika suhteessa normaaliin.")]
+    public float comboWindupScale = 0.55f;
+    [Tooltip("Tauko iskujen välissä kombossa (s).")]
+    public float comboGap = 0.07f;
+    string comboSeq; int comboPos;
+    bool ComboContinues => comboSeq != null && comboPos < comboSeq.Length - 1;
+
     [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]
     [Tooltip("Kävely suu liikkuen: samassa vaiheessa kuin walkSprites, käytetään huudon ajan.")]
     public Sprite[] walkTalkSprites;
@@ -433,6 +444,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Recover:
+                // kombo: seuraava isku heti perään
+                if (ComboContinues && stateTime >= comboGap)
+                {
+                    if (ComboTargetOk()) { comboPos++; SetAttack(comboSeq[comboPos]); Enter(State.Windup); break; }
+                    comboSeq = null;
+                }
                 // kombon toinen isku (lyöntisarjan myöhempi kuva)
                 if (!usingAlt && secondImpactFrame > PunchImpact && !secondHitDone && Has(AtkSprites))
                 {
@@ -915,6 +932,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
         if (s != State.Down && s != State.Dead && s != State.Ringed && ringItem != null) DropRing(1.0f);   // esim. heitto renkaasta
         if (s != State.Down && s != State.Dead) ringFall = false;
+        if (s != State.Windup && s != State.Punch && s != State.Recover) comboSeq = null;   // osuma tms. katkaisee kombon
         state = s;
         stateTime = 0f;
         if (s != State.Chase) moving = false;
@@ -1289,8 +1307,37 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Toinen ja kolmas isku arvotaan, ellei vaihtoehtoista hyökkäystä valittu.
     void RollPunch23()
     {
+        comboSeq = null;
+        if (!usingAlt && combos != null && combos.Length > 0 && Random.value < comboChance)
+        {
+            comboSeq = combos[Random.Range(0, combos.Length)];
+            if (string.IsNullOrEmpty(comboSeq)) comboSeq = null;
+            else { comboPos = 0; SetAttack(comboSeq[0]); return; }
+        }
         usingPunch3 = !usingAlt && Has(punch3Sprites) && Random.value < punch3Chance;
         usingPunch2 = !usingAlt && !usingPunch3 && Has(punch2Sprites) && Random.value < punch2Chance;
+    }
+
+    void SetAttack(char c)
+    {
+        usingAlt = c == 'P' && Has(altAttackSprites);
+        usingPunch2 = c == 'S' && Has(punch2Sprites);
+        usingPunch3 = c == 'K' && Has(punch3Sprites);
+    }
+
+    /// Voiko kombo jatkua: kohde pystyssä ja yhä iskuetäisyydellä.
+    bool ComboTargetOk()
+    {
+        Vector3 me = transform.position;
+        if (enemyTarget != null)
+        {
+            if (TargetDown(enemyTarget)) return false;
+            Vector3 q = enemyTarget.transform.position;
+            return Mathf.Abs(q.x - me.x) <= attackRange + 0.8f && Mathf.Abs(q.y - me.y) <= depthTolerance;
+        }
+        if (player == null || player.IsDown) return false;
+        Vector3 p = player.transform.position;
+        return Mathf.Abs(p.x - me.x) <= attackRange + 0.8f && Mathf.Abs(p.y - me.y) <= depthTolerance;
     }
 
     bool TryHitEnemy(Enemy e)
@@ -1299,7 +1346,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown;
+        bool kd = !ComboContinues && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
         if (!e.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
@@ -1352,12 +1399,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
-        if (usingAlt && altKnockdown) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
-        if (!usingAlt && usingPunch3 && punch3Knockdown) return player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this);
+        bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
+        if (usingAlt && altKnockdown && !mid) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
+        if (!usingAlt && usingPunch3 && punch3Knockdown && !mid) return player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this);
         if (!usingAlt && usingPunch3) return player.TakeHit(punch3Damage, me.x, this, comboFollow);
-        if (!usingAlt && usingPunch2 && punch2Knockdown) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
-        if (!usingAlt && punchKnockdown) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
-        return player.TakeHit(usingAlt ? altDamage : punchDamage, me.x, this, comboFollow);
+        if (!usingAlt && usingPunch2 && punch2Knockdown && !mid) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
+        if (!usingAlt && !usingPunch2 && !usingPunch3 && punchKnockdown && !mid) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
+        return player.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, this, comboFollow || (comboSeq != null && comboPos > 0));
     }
 
     // ---------------- Osumat ----------------
@@ -1851,7 +1899,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
     Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupTime : windupTime;
+    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupTime : windupTime)
+                           * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f);
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : usingPunch3 ? punch3Reach : attackRange;
 

@@ -3239,7 +3239,7 @@ public static class BeatEmUpSetup
         var pSpin = EnemySheet("merirosvo_kierrepotku", report);  // 13 kuvaa: yksi pyörähdys, potku kuvassa 8
         var pWalk = EnemySheet("merirosvo_kavely", report);
         var pTalk = EnemySheet("merirosvo_kavely_puhe", report);  // sama vaihe kuin kävelyssä, suu liikkuu
-        var pirateVoice = LoadClips("Assets/Audio/Merirosvo", "");   // "tämä on ryöstö" -huudot (puhekävely niiden ajan)  // heron kuperkeikkaheitto: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu      // 6 kuvaa: makaa, punnerrus, konttaus, polvella, nousu; 4–5 peilattu   // 7 kuvaa: 0 tuskainen osuma, 1–4 lento ja pyörähdys mahalleen, 5–6 makaa
+        var pirateVoice = LoadClips("Assets/Audio/Merirosvo", "").Where(c => !c.name.Contains("gasp") && !c.name.Contains("hit")).ToArray();   // "tämä on ryöstö" -huudot (puhekävely niiden ajan)  // heron kuperkeikkaheitto: 0 asento, 1 napattu, 2 kierähdys, 3 lento, 4–7 alastulo ja makuu      // 6 kuvaa: makaa, punnerrus, konttaus, polvella, nousu; 4–5 peilattu   // 7 kuvaa: 0 tuskainen osuma, 1–4 lento ja pyörähdys mahalleen, 5–6 makaa
         var lippisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Kovis");
         if (lippisT != null)
         {
@@ -3281,25 +3281,29 @@ public static class BeatEmUpSetup
                 re.tauntSounds = pirateVoice; re.tauntVolume = 1f;   // ei Koviksen huutoja
                 var pirateGasp = LoadClips("Assets/Audio/Merirosvo gasp", "merirosvogasp");   // osuma, kaatuminen, heitosta mätkähdys
                 if (pirateGasp.Length > 0) { re.hurtSounds = pirateGasp; re.hurtVolume = 0.95f; }
+                var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
+                if (pirateHit.Length > 0) { re.attackSounds = pirateHit; re.attackSoundChance = 1f; }
+                // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
+                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.55f; re.comboWindupScale = 0.55f; re.comboGap = 0.07f;
                 if (pSpin.Length >= 13)
                 {
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8
                     re.punch3Sprites = new[] { 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }.Select(i => pSpin[i]).ToArray();
                     re.punch3ImpactFrame = 11; re.punch3WindupTime = 0.6f; re.punch3RecoverTime = 0.55f;
                     re.punch3Damage = 20; re.punch3Knockdown = true; re.punch3LaunchX = 6f; re.punch3LaunchUp = 8f;
-                    re.punch3Chance = 0.2f; re.punch3Reach = 2.5f;
+                    re.punch3Chance = 0.3f; re.punch3Reach = 2.5f;
                 }
                 if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 8; }
                 if (pCross.Length >= 5)
                 {
                     // pitkä suora askeleella: kaataa
-                    re.punch2Sprites = pCross; re.punch2ImpactFrame = 2; re.punch2Damage = 14; re.punch2Knockdown = true; re.punch2Chance = 0.3f;
+                    re.punch2Sprites = pCross; re.punch2ImpactFrame = 2; re.punch2Damage = 14; re.punch2Knockdown = true; re.punch2Chance = 0.25f;
                     re.punch2LaunchUp = 0f;
                 }
                 if (pKnee.Length >= 6)
                 {
                     re.altAttackSprites = pKnee; re.altImpactFrame = 3; re.altDamage = 12; re.altKnockdown = false;
-                    re.altChance = 0.3f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
+                    re.altChance = 0.12f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
                 }
             }
             report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
