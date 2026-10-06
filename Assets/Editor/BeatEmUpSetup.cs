@@ -3150,8 +3150,20 @@ public static class BeatEmUpSetup
             sl.bobAmplitude = 0.15f; sl.bobPeriod = 7f;
             Undo.RegisterCreatedObjectUndo(go, name);
         }
-        Sea("Salin meri kaukana", ShipSeaFarPath, 0.6f, SalonHorizonPx - 291f * 0.6f, -10100, 0.35f, 0.04f);
-        Sea("Salin meri lähellä", ShipSeaNearPath, 0.35f, SalonHorizonPx + 30f, -10090, 3f, 0.4f);
+        // yö: kuunvalossa välkehtivä meri (samat yökuvat kuin kannen tanssissa)
+        string farNight = File.Exists("Assets/Sprites/Taustat/laiva_meri_kauko_yo.png") ? "Assets/Sprites/Taustat/laiva_meri_kauko_yo.png" : ShipSeaFarPath;
+        string nearNight = File.Exists("Assets/Sprites/Taustat/laiva_meri_lahi_yo.png") ? "Assets/Sprites/Taustat/laiva_meri_lahi_yo.png" : ShipSeaNearPath;
+        Sea("Salin meri kaukana", farNight, 0.6f, SalonHorizonPx - 291f * 0.6f, -10100, 0.35f, 0.04f);
+        Sea("Salin meri lähellä", nearNight, 0.35f, SalonHorizonPx + 30f, -10090, 3f, 0.4f);
+        // sali hämärämmäksi ja ikkunoista lattialle lankeava kuunvalo (lattian päällä, hahmojen ja pöytien alla)
+        sal.bg.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.82f, 0.95f);
+        var moonSpr = Import("Assets/Sprites/Taustat/laiva_sali_kuunvalo.png", sal.ppu, false);
+        if (moonSpr != null)
+        {
+            var mGo = new GameObject("Salin kuunvalo");
+            mGo.transform.SetParent(sal.bg.transform, false);
+            var msr = mGo.AddComponent<SpriteRenderer>(); msr.sprite = moonSpr; msr.sortingOrder = -9990;
+        }
 
         // käytävän avautuva hyttiovi (videosta)
         AnimatedDoor cabinAnim = null;
@@ -3304,7 +3316,8 @@ public static class BeatEmUpSetup
     // ---------------- Laivan salin pöydät ----------------
     // salin kuvan x (px), syvyys 0 = takaraja … 1 = edessä; baarin ja lavan väliin ja eteen
     static readonly Vector2[] SalonTableSpots = { new Vector2(880f, 0.15f), new Vector2(1250f, 0.55f), new Vector2(2080f, 0.3f),
-                                                     new Vector2(1050f, 0.95f), new Vector2(1750f, 0.85f), new Vector2(2400f, 0.9f) };   // lavan eteen ei pöytää
+                                                     new Vector2(1050f, 0.95f), new Vector2(1750f, 0.85f), new Vector2(2400f, 0.9f),
+                                                     new Vector2(480f, 0.62f), new Vector2(1400f, 0.99f) };   // kaksi viimeistä: kala-annos ja olutta   // lavan eteen ei pöytää
 
     [MenuItem("Beat em up/62. Laivan salin pöydät (hummeri ja shamppanja)")]
     static void AddSalonTables()
@@ -3352,6 +3365,15 @@ public static class BeatEmUpSetup
         }
         var glass = LoadClips("Assets/Audio/sfx", "glass");
         var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
+        var beer = Strip("pullo_olut"); var pint = Strip("pullo_lasi_tuoppi");
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Kala" }))
+        {
+            var ti = AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) as TextureImporter;
+            if (ti == null || ti.textureType == TextureImporterType.Sprite) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100;
+            ti.alphaIsTransparency = true; ti.mipmapEnabled = false; ti.textureCompression = TextureImporterCompression.Uncompressed;
+            ti.SaveAndReimport();
+        }
         var old = GameObject.Find("Salin pöydät");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var root = new GameObject("Salin pöydät");
@@ -3395,6 +3417,27 @@ public static class BeatEmUpSetup
             c.visualScale = vsc;
             c.carryUpsideDown = true; c.carryLower = 1.3f * K;   // kannetaan ylösalaisin pään päällä c.shadowWidth = 2.0f * K; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
             c.hitRadiusX = 1.0f * K; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
+            bool fishTable = n > SalonTableSpots.Length - 2;
+            if (fishTable)
+            {
+                // kala-annos ja olutta (kuten El Loipparissa)
+                var kGo = new GameObject("Kala-annos");
+                kGo.transform.SetParent(root.transform, false); kGo.transform.position = go.transform.position;
+                var kf = kGo.AddComponent<FishPlate>();
+                kf.spriteSet = "Kala"; kf.scale = 0.72f * K; kf.table = c; kf.tableX = 0.2f * K; kf.tableTop = top; kf.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
+                var bx = new[] { -0.55f, -0.8f, 0.85f };
+                for (int bi = 0; bi < bx.Length; bi++)
+                {
+                    var sp = bi < 2 ? beer : pint;
+                    if (sp.Length < 5) continue;
+                    var bGo = new GameObject(bi < 2 ? "Olut" : "Tuoppi");
+                    bGo.transform.SetParent(root.transform, false); bGo.transform.position = go.transform.position;
+                    var b = bGo.AddComponent<Bottle>();
+                    b.sprites = sp; b.stainKind = bi < 2 ? "olut" : "-"; b.scale = 1.05f * K; b.pivotY = bi < 2 ? 0.3f : 0.2f;
+                    b.breakSounds = glass; b.table = c; b.tableX = bx[bi] * K; b.tableTop = top - 0.05f;
+                }
+                continue;
+            }
             // hummeriannos ja shamppanjapullo pöydälle
             var fGo = new GameObject("Hummeriannos");
             fGo.transform.SetParent(root.transform, false); fGo.transform.position = go.transform.position;
@@ -3480,6 +3523,16 @@ public static class BeatEmUpSetup
         }
         var root = new GameObject("Salin naiset");
         Undo.RegisterCreatedObjectUndo(root, "Salin naiset");
+        // mariachi-bändi lavalle (kopio)
+        var band = GameObject.Find("Bändi");
+        if (band != null)
+        {
+            var b = Object.Instantiate(band, root.transform);
+            b.name = "Salin bändi";
+            b.transform.position = new Vector3(X(1605f), Y(352f), 0f);
+            b.transform.localScale = band.transform.localScale * 0.72f;
+            var bsr2 = b.GetComponent<SpriteRenderer>(); if (bsr2 != null) { bsr2.color = new Color(0.95f, 0.9f, 0.88f); bsr2.sortingOrder = Mathf.RoundToInt(-Y(352f) * 100f); }
+        }
         // yhteiset paikat: kolme baaritiskillä Sohvin edessä, keskustelupaikat lavan edessä ja salin keskellä (pöytien välissä)
         var spots = new[] {
             new Socialite.Spot { pos = new Vector2(X(380f), Y(502f)), atBar = true },
