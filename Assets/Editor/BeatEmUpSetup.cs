@@ -3303,8 +3303,8 @@ public static class BeatEmUpSetup
 
     // ---------------- Laivan salin pöydät ----------------
     // salin kuvan x (px), syvyys 0 = takaraja … 1 = edessä; baarin ja lavan väliin ja eteen
-    static readonly Vector2[] SalonTableSpots = { new Vector2(880f, 0.15f), new Vector2(1250f, 0.55f), new Vector2(1980f, 0.5f), new Vector2(2330f, 0.2f),
-                                                     new Vector2(1050f, 0.95f), new Vector2(1800f, 0.92f), new Vector2(2350f, 0.85f) };   // lavan eteen ei pöytää
+    static readonly Vector2[] SalonTableSpots = { new Vector2(880f, 0.15f), new Vector2(1250f, 0.55f), new Vector2(2080f, 0.3f),
+                                                     new Vector2(1050f, 0.95f), new Vector2(1750f, 0.85f), new Vector2(2400f, 0.9f) };   // lavan eteen ei pöytää
 
     [MenuItem("Beat em up/62. Laivan salin pöydät (hummeri ja shamppanja)")]
     static void AddSalonTables()
