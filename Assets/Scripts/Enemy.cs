@@ -1383,20 +1383,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         usingPunch3 = c == 'K' && Has(punch3Sprites);
     }
 
-    /// Voiko kombo jatkua: kohde pystyssä ja yhä iskuetäisyydellä.
-    bool ComboTargetOk()
-    {
-        Vector3 me = transform.position;
-        if (enemyTarget != null)
-        {
-            if (TargetDown(enemyTarget)) return false;
-            Vector3 q = enemyTarget.transform.position;
-            return Mathf.Abs(q.x - me.x) <= attackRange + 3f;   // isku tai torjunta työntää kohdetta: kombo jatkuu silti
-        }
-        if (player == null || player.IsDown) return false;
-        Vector3 p = player.transform.position;
-        return Mathf.Abs(p.x - me.x) <= attackRange + 3f;
-    }
+    /// Kombo menee aina loppuun (vaikka varjonyrkkeilynä), ellei rosvo itse saa kaatavaa iskua.
+    bool ComboTargetOk() => true;
 
     string ComboBreakReason()
     {
