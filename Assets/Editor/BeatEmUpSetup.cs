@@ -3151,7 +3151,10 @@ public static class BeatEmUpSetup
 
     // ---------------- Laivan tappelu: seilorit ja rosvot ----------------
     const int SailorCount = 4;
-    static readonly Vector2[] ShipPirateSpots = { new Vector2(3150f, 0.3f), new Vector2(3350f, 0.7f), new Vector2(3550f, 0.4f), new Vector2(3700f, 0.8f), new Vector2(3800f, 0.2f) };   // kannen kuvan x, syvyys 0 = kaide … 1 = edessä
+    // rosvot (8) hyökkäävät keulan puolelta aaltoina, kun hero tulee hyttiovelle; tässä vain syvyys (0 = kaide … 1 = edessä)
+    static readonly float[] ShipPirateDepths = { 0.3f, 0.7f, 0.5f, 0.2f, 0.85f, 0.45f, 0.65f, 0.25f };
+    static readonly int[] ShipPirateWaves = { 4, 4 };
+    const float ShipFightTriggerPx = 3550f;   // kannen kuvan x: tästä eteenpäin (hyttiovelle) tappelu alkaa
 
     [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot")]
     static void AddShipFight()
@@ -3209,6 +3212,7 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Laivan seilorit");
         var squad = root.AddComponent<BouncerSquad>();
         squad.area = deck; squad.bothSides = false; squad.firstDelay = 1.0f; squad.spawnInterval = 0.7f;
+        squad.triggerX = X(ShipFightTriggerPx);   // hero hyttiovella: seilorit juoksevat ovesta
         squad.bouncers = new Enemy[SailorCount];
         go.transform.SetParent(root.transform, false);
         for (int i = 0; i < SailorCount; i++)
@@ -3246,12 +3250,19 @@ public static class BeatEmUpSetup
             var pr = new GameObject("Laivan rosvot");
             Undo.RegisterCreatedObjectUndo(pr, "Laivan rosvot");
             int n2 = 0;
-            foreach (var v in ShipPirateSpots)
+            var raid = pr.AddComponent<BouncerSquad>();
+            raid.area = deck; raid.bothSides = false; raid.fromLeftEdge = true;
+            raid.triggerX = X(ShipFightTriggerPx);
+            raid.waves = ShipPirateWaves; raid.waveNextAt = 2;   // kun rosvoja on pystyssä enää 2, tulee 4 lisää
+            raid.firstDelay = 0.4f; raid.spawnInterval = 0.6f;
+            raid.bouncers = new Enemy[ShipPirateDepths.Length];
+            foreach (var depth in ShipPirateDepths)
             {
                 var r = Object.Instantiate(lippisT.gameObject, pr.transform);
                 r.name = "Rosvo " + (++n2);
-                r.SetActive(true);
-                r.transform.position = new Vector3(X(v.x), Mathf.Lerp(deck.maxDepthY, deck.minDepthY, v.y), 0f);
+                r.transform.position = new Vector3(X(ShipFightTriggerPx) - 10f, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, depth), 0f);
+                raid.bouncers[n2 - 1] = r.GetComponent<Enemy>();
+                r.SetActive(false);   // hyökkäävät keulan puolelta, kun tappelu alkaa
                 var re = r.GetComponent<Enemy>(); re.displayName = "Rosvo"; re.wakeDistance = 7f;
                 if (pIdle.Length > 0)
                 {
@@ -3306,7 +3317,7 @@ public static class BeatEmUpSetup
                     re.altChance = 0.12f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
                 }
             }
-            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
+            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} aaltoina 4 + 4 keulan puolelta (toinen aalto, kun 2 jäljellä), kun hero tulee hyttiovelle (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
         else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
