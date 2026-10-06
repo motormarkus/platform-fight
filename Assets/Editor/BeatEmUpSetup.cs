@@ -81,6 +81,7 @@ public static class BeatEmUpSetup
             CreateShipInterior();   // laivan sisätilat: käytävä, hytti ja sali
             AddDrunk();             // puliukko tulee käytävän hyttiovesta
             AddSalonTables();       // salin pöydät: hummeriannokset ja shamppanjapullot
+            AddSalonLadies();       // salin naiset ja Sohvi baaritiskin takana
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3435,6 +3436,75 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Saliin {n} pöytää: hummeriannos ja shamppanjapullo kullakin.\nLyönti pöytään: annos valuu lattialle. Potku tai heitetty pöytä: lautanen hajoaa ja hummeri lentää.\nShamppanjapullon voi ottaa ja heittää.\n\nTallenna scene (Ctrl+S).");
+    }
+
+
+    // ---------------- Salin naiset ja Sohvi ----------------
+    const float SalonCounterTopPx = 345f, SalonSohviPx = 330f;
+
+    [MenuItem("Beat em up/63. Salin naiset (keskustelevat, kävelevät Sohvin luo)")]
+    static void AddSalonLadies()
+    {
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var salBg = GameObject.Find("Laivan sali");
+        if (sal == null || salBg == null) { Info("Tee ensin kohta 60 (laivan sisätilat)."); return; }
+        Sprite[] Sh(string n)
+        {
+            string pth = FindTexture(n); if (pth == null) return new Sprite[0];
+            SetupAndSlice(pth);
+            var t2 = (TextureImporter)AssetImporter.GetAtPath(pth);
+            t2.mipmapEnabled = true; t2.filterMode = FilterMode.Trilinear; t2.mipMapsPreserveCoverage = true; t2.SaveAndReimport();
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        foreach (var n in new[] { "Salin naiset", "Salin Sohvi" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var bsr = salBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        float X(float px) => left + px / ppu;
+        float Y(float row) => top - row / ppu;
+        // Sohvi baaritiskin taakse (kopio S-Clubin Sohvista)
+        string sohviInfo = "Sohvi puuttuu (kohta 14)";
+        var sohvi = GameObject.Find("Sohvi");
+        Vector2 sohviPos = new Vector2(X(SalonSohviPx), Y(SalonCounterTopPx));
+        if (sohvi != null)
+        {
+            var s2 = Object.Instantiate(sohvi);
+            s2.name = "Salin Sohvi";
+            s2.transform.position = new Vector3(sohviPos.x, sohviPos.y, 0f);
+            s2.transform.localScale = sohvi.transform.localScale * 0.85f;
+            Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
+            sohviInfo = "Sohvi baaritiskin takana";
+        }
+        var root = new GameObject("Salin naiset");
+        Undo.RegisterCreatedObjectUndo(root, "Salin naiset");
+        // pysähdykset: lavan edessä keskenään, baaritiskillä Sohvin kanssa
+        float barY = Y(SalonBarFrontPx + 28f), stageY = Y(SalonWallPx + 70f);
+        Vector2 aStage = new Vector2(X(1480f), stageY), bStage = new Vector2(X(1640f), stageY - 0.1f);
+        Vector2 aBar = new Vector2(X(420f), barY), bBar = new Vector2(X(600f), barY - 0.1f);
+        int made = 0;
+        void Lady(string name, string idleN, string walkN, bool facesRight, Vector2 st, Vector2 bar, Vector2 partnerSt, Vector2 partnerBar)
+        {
+            var idle = Sh(idleN); var walk = Sh(walkN);
+            if (idle.Length == 0 || walk.Length == 0) return;
+            var go = new GameObject(name);
+            go.transform.SetParent(root.transform, false);
+            var r = go.AddComponent<SpriteRenderer>(); r.sprite = idle[0];
+            var so = go.AddComponent<Socialite>();
+            so.idle = idle; so.walk = walk; so.facesRight = facesRight;
+            so.stops = new[] {
+                new Socialite.Stop { pos = st, wait = 9f, lookAt = partnerSt },
+                new Socialite.Stop { pos = bar, wait = 8f, lookAt = sohviPos },
+            };
+            go.transform.position = st;
+            made++;
+        }
+        Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, aStage, aBar, bStage, bBar);
+        Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, bStage, bBar, aStage, aBar);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Saliin {made} naista ja {sohviInfo}.\nNaiset keskustelevat lavan edessä ja kävelevät sitten baaritiskille juttelemaan Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
