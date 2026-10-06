@@ -22,6 +22,9 @@ public class Crate : MonoBehaviour
     public float shadowWidth = 1.4f;
     [Tooltip("Kannossa näin paljon alemmas (yks): pöytä kannetaan kannen alta, jalat ylöspäin ei jää ilmaan.")]
     public float carryLower = 0f;
+    [Tooltip("Kannetaan ylösalaisin (esim. salin pöytä): kääntyy nostossa, jalat ylöspäin.")]
+    public bool carryUpsideDown;
+    float flipAngle;
     [Tooltip("Heitettynä lentää vihujoukon läpi ja kaataa kaikki tieltään (pöydät); hajoaa vasta maahan osuessa.")]
     public bool plowThrough;
     int plowHits;
@@ -384,6 +387,19 @@ public class Crate : MonoBehaviour
         body.transform.localPosition = new Vector3(pivotFix.x * visualScale + shake, groundHeight + height - footOffset * visualScale + pivotFix.y * visualScale, 0f);
         // lennossa laatikko pyörii hieman
         float rot = state == State.Flying && thrown && !HasRoll ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
+        if (carryUpsideDown)
+        {
+            // nostossa kääntyy ylösalaisin (keskikohdan ympäri), lennossa pysyy ja pyörii, maassa taas pystyssä
+            float goal = state == State.Carried || (state == State.Flying && thrown) ? 180f : 0f;
+            flipAngle = state == State.Idle || state == State.Breaking ? 0f : Mathf.MoveTowards(flipAngle, goal, 720f * Time.deltaTime);
+            rot += flipAngle;
+            if (spr != null)
+            {
+                var q = Quaternion.Euler(0f, 0f, rot);
+                Vector3 c = new Vector3(0f, spr.bounds.extents.y * visualScale, 0f);
+                body.transform.localPosition += c - q * c;
+            }
+        }
         body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
 
         int order = state == State.Carried ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);

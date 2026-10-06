@@ -3384,7 +3384,8 @@ public static class BeatEmUpSetup
                 c.breakable = true; c.hitsToBreak = 3; c.breakFrameTime = 0.09f; c.debrisTime = 6f;
                 vis.sprite = tableBreak[0]; vsc = sc * 316f / 304f;
             }
-            c.visualScale = vsc; c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
+            c.visualScale = vsc;
+            c.carryUpsideDown = true; c.carryLower = 1.3f;   // kannetaan ylösalaisin pään päällä c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
             c.hitRadiusX = 1.0f; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
             // hummeriannos ja shamppanjapullo pöydälle
             var fGo = new GameObject("Hummeriannos");
