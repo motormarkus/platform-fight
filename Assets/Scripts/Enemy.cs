@@ -574,7 +574,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Ringed:
                 // jumissa renkaassa: ei hyökkää; ajan loputtua ravistaa renkaan pois
-                if (stateTime >= ringedTime) { DropRing(1.2f); if (boardLost) GoOnFoot(); cooldown = Mathf.Max(cooldown, 0.5f); Enter(State.Chase); }
+                if (stateTime >= ringedTime) { DropRing(2.0f); if (boardLost) GoOnFoot(); cooldown = Mathf.Max(cooldown, 0.5f); Enter(State.Chase); }
                 break;
 
             case State.Held:

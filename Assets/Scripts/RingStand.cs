@@ -100,7 +100,7 @@ public class RingStand : MonoBehaviour
         if (HasRing)
         {
             HasRing = false;
-            LifeRing.Create(ringSprites, transform.position).DropFrom(transform.position + new Vector3(0f, -0.05f, 0f), 1.4f);
+            LifeRing.Create(ringSprites, transform.position).DropFrom(transform.position + new Vector3(0f, -0.05f, 0f), 2.4f);
         }
         breakTime = 0f;
         if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], Random.Range(0.85f, 1f));

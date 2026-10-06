@@ -899,7 +899,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 {
                     ringResolved = true;
                     float dir = facingRight ? 1f : -1f;
-                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 0.45f + height, dir);
+                    LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 2.2f + height, dir);   // käden korkeudelta
                 }
                 if (ThrowPose.Index(RingThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
