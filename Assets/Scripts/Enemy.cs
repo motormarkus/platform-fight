@@ -71,6 +71,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Tauko iskujen välissä kombossa (s).")]
     public float comboGap = 0.07f;
     string comboSeq; int comboPos;
+    [Tooltip("Vuoroaan odottava ei peräänny pelaajan tullessa kohti, ja lyö, jos pelaaja on vieressä.")]
+    public bool holdGround;
     bool ComboContinues => comboSeq != null && comboPos < comboSeq.Length - 1;
 
     [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]
@@ -1093,6 +1095,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             target.y = Mathf.Clamp(p.y + arc * flankArcDepth, minY, maxY);
         }
         Vector2 to = target - (Vector2)me;
+        // vuoroaan odottava ei peräänny, kun pelaaja tulee kohti: pysyy paikallaan (pelaaja pääsee kimppuun)
+        if (holdGround && attackRank >= 2 && retreatTimer <= 0f && !crossing && Mathf.Sign(to.x) == Mathf.Sign(me.x - p.x)) to.x = 0f;
 
         facingRight = p.x > me.x;
 
@@ -1110,7 +1114,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
 
         bool inRange = Mathf.Abs(me.x - p.x) <= (grabIntent ? grabRange : attackRange) && Mathf.Abs(me.y - p.y) <= depthTolerance;
-        if (inRange && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown)
+        // vuoroaan odottavakin lyö, jos pelaaja on tullut viereen (holdGround)
+        bool myTurn = attackRank <= 1 || (holdGround && closeTimer > 0.35f);
+        if (inRange && myTurn && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown)
         {
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
@@ -1335,11 +1341,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             if (TargetDown(enemyTarget)) return false;
             Vector3 q = enemyTarget.transform.position;
-            return Mathf.Abs(q.x - me.x) <= attackRange + 0.8f && Mathf.Abs(q.y - me.y) <= depthTolerance;
+            return Mathf.Abs(q.x - me.x) <= attackRange + 1.5f && Mathf.Abs(q.y - me.y) <= depthTolerance + 0.2f;
         }
         if (player == null || player.IsDown) return false;
         Vector3 p = player.transform.position;
-        return Mathf.Abs(p.x - me.x) <= attackRange + 0.8f && Mathf.Abs(p.y - me.y) <= depthTolerance;
+        return Mathf.Abs(p.x - me.x) <= attackRange + 1.5f && Mathf.Abs(p.y - me.y) <= depthTolerance + 0.2f;
     }
 
     bool TryHitEnemy(Enemy e)

@@ -3301,14 +3301,15 @@ public static class BeatEmUpSetup
                 var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
                 if (pirateHit.Length > 0) { re.attackSounds = pirateHit; re.attackSoundChance = 1f; }
                 // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
-                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.55f; re.comboWindupScale = 0.55f; re.comboGap = 0.07f;
+                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f;
+                re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun re.comboWindupScale = 0.55f; re.comboGap = 0.07f;
                 if (pSpin.Length >= 13)
                 {
                     // kierrepotku: alku hitaasti (kuvat kahdesti), kiihtyy loppua kohti; potku kuvassa 8
                     re.punch3Sprites = new[] { 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }.Select(i => pSpin[i]).ToArray();
                     re.punch3ImpactFrame = 11; re.punch3WindupTime = 0.6f; re.punch3RecoverTime = 0.55f;
                     re.punch3Damage = 24; re.punch3Knockdown = true; re.punch3LaunchX = 6f; re.punch3LaunchUp = 8f;
-                    re.punch3Chance = 0.2f; re.punch3Reach = 2.5f;
+                    re.punch3Chance = 0.15f; re.punch3Reach = 2.5f;
                 }
                 if (pJab.Length >= 6) { re.punchSprites = pJab; re.punchImpactFrame = 3; re.secondImpactFrame = -1; re.windupTime = 0.12f; re.punchRecoverTime = 0.4f; re.punchDamage = 10; }
                 if (pCross.Length >= 5)
