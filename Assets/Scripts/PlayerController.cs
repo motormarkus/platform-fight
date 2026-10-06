@@ -606,7 +606,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                             facingRight = stand.transform.position.x >= transform.position.x;
                             float d = facingRight ? 1f : -1f;
                             TeleportTo(new Vector3(stand.transform.position.x - d * stand.heroOffset, stand.transform.position.y, 0f));
-                            takingStand = stand; stand.BeginTake(transform.position);
+                            takingStand = stand; stand.BeginTake(transform.position, facingRight);
                             Enter(State.RingTake); break;
                         }
                         var fr = LifeRing.NearbyOnFloor(transform.position);

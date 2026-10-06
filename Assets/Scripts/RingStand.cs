@@ -53,10 +53,11 @@ public class RingStand : MonoBehaviour
     }
 
     /// Otto alkaa: teline piiloon (heron kuvissa), rengas luodaan pelaajan käteen.
-    public LifeRing BeginTake(Vector3 heroPos)
+    public LifeRing BeginTake(Vector3 heroPos, bool heroFacesRight = true)
     {
         HasRing = false; taking = true;
-        if (body != null) body.enabled = false;
+        // heron kuvissa teline on piirretty heron eteen: vasemmalle katsoessa kuvat peilataan, joten teline peilataan myös
+        if (body != null) { body.enabled = false; body.flipX = !heroFacesRight; }
         var r = LifeRing.Create(ringSprites, heroPos);
         r.TakeBy();
         return r;
