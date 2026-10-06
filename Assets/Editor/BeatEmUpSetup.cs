@@ -3509,8 +3509,9 @@ public static class BeatEmUpSetup
         Lady("Nainen punainen", "salinainen_puna_idle", "salinainen_puna_kavely", true, 3);
         Lady("Nainen vihreä", "salinainen_vihrea_idle", "salinainen_vihrea_kavely", false, 4);
         Lady("Nainen kultainen", "salinainen_kulta_idle", "salinainen_kulta_kavely", true, 1);
+        Lady("Mies puvussa", "salimies_idle", "salimies_kavely", true, 6);   // täytteeksi, sama logiikka
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Saliin {made} naista ja {sohviInfo}.\nNaiset kiertelevät satunnaisesti: keskustelevat keskenään ja käyvät tiskillä juttelemassa Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
+        Info($"Saliin {made} juhlijaa (3 naista ja mies) ja {sohviInfo}.\nNaiset kiertelevät satunnaisesti: keskustelevat keskenään ja käyvät tiskillä juttelemassa Sohvin kanssa.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------
