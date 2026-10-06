@@ -3153,7 +3153,8 @@ public static class BeatEmUpSetup
     const int SailorCount = 4;
     // rosvot (8) hyökkäävät keulan puolelta aaltoina, kun hero tulee hyttiovelle; tässä vain syvyys (0 = kaide … 1 = edessä)
     static readonly float[] ShipPirateDepths = { 0.3f, 0.7f, 0.5f, 0.2f, 0.85f, 0.45f, 0.65f, 0.25f, 0.4f, 0.75f, 0.15f, 0.6f };
-    static readonly int[] ShipPirateWaves = { 4, 4, 4 };
+    static readonly int[] ShipPirateWaves = { 4, 5, 5 };   // 2. ja 3. aallossa mukana Kovis
+    const int ShipKovisCount = 2;
     const float ShipFightTriggerPx = 3550f;   // kannen kuvan x: tästä eteenpäin (hyttiovelle) tappelu alkaa
 
     [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot")]
@@ -3321,7 +3322,19 @@ public static class BeatEmUpSetup
                     re.altChance = 0.12f; re.altReach = 1.5f; re.altLungeSpeed = 0f; re.altUnblockable = false; re.altTimeScale = 1f;
                 }
             }
-            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} aaltoina 4 + 4 + 4 keulan puolelta (seuraava aalto, kun 2 jäljellä), kun hero tulee hyttiovelle (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
+            // pari Kovista rosvojen puolelle: 2. ja 3. aallon viimeisiksi
+            var list = raid.bouncers.ToList();
+            for (int k = 0; k < ShipKovisCount; k++)
+            {
+                var kv = Object.Instantiate(lippisT.gameObject, pr.transform);
+                kv.name = "Kovis (rosvo) " + (k + 1);
+                kv.transform.position = new Vector3(X(ShipFightTriggerPx) - 10f, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, k == 0 ? 0.55f : 0.35f), 0f);
+                var ke = kv.GetComponent<Enemy>(); ke.wakeDistance = 7f;
+                kv.SetActive(false);
+                list.Insert(Mathf.Min(list.Count, k == 0 ? 8 : 13), ke);
+            }
+            raid.bouncers = list.ToArray();
+            report.Add(pIdle.Length > 0 ? $"Rosvot: {n2} + {ShipKovisCount} Kovista aaltoina 4 + 5 + 5 keulan puolelta (seuraava aalto, kun 2 jäljellä), kun hero tulee hyttiovelle (merirosvon kuvat; huuto: {pirateVoice.Length} ääntä kansiossa Assets/Audio/Merirosvo)" : $"Rosvot: {n2} (väliaikaisesti Kovis-hahmoina)");
         }
         else report.Add("Rosvot: Kovis-malli puuttuu");
         EditorSceneManager.MarkSceneDirty(root.scene);
