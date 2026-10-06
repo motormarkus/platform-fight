@@ -80,6 +80,7 @@ public static class BeatEmUpSetup
             SetupBigHook();         // heron iso koukku (alas, eteen + lyönti)
             CreateShipInterior();   // laivan sisätilat: käytävä, hytti ja sali
             AddDrunk();             // puliukko tulee käytävän hyttiovesta
+            AddSalonTables();       // salin pöydät: hummeriannokset ja shamppanjapullot
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3296,6 +3297,85 @@ public static class BeatEmUpSetup
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Puliukko:\n" + string.Join("\n", report) + "\n\nTulee käytävän hyttiovesta, kun hero lähestyy.\n\nTallenna scene (Ctrl+S).");
+    }
+
+
+    // ---------------- Laivan salin pöydät ----------------
+    // salin kuvan x (px), syvyys 0 = takaraja … 1 = edessä; baarin ja lavan väliin ja eteen
+    static readonly Vector2[] SalonTableSpots = { new Vector2(900f, 0.3f), new Vector2(1300f, 0.7f), new Vector2(1700f, 0.25f), new Vector2(2150f, 0.65f) };
+
+    [MenuItem("Beat em up/62. Laivan salin pöydät (hummeri ja shamppanja)")]
+    static void AddSalonTables()
+    {
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var salBg = GameObject.Find("Laivan sali");
+        var tableSprite = ImportProp("Assets/Sprites/Rekvisiitta/sali_poyta.png");
+        if (sal == null || salBg == null || tableSprite == null) { Info("Tarvitaan laivan sali (kohta 60) ja sali_poyta.png."); return; }
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Hummeri" }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)(Path.GetFileNameWithoutExtension(path) == "annos" ? SpriteAlignment.BottomCenter : SpriteAlignment.Center);
+            ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+        }
+        Sprite[] champagne = new Sprite[0];
+        string cp = FindTexture("pullo_shamppanja");
+        if (cp != null) { SetupAndSlice(cp); champagne = LoadSprites("pullo_shamppanja").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+        var glass = LoadClips("Assets/Audio/sfx", "glass");
+        var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
+        var old = GameObject.Find("Salin pöydät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Salin pöydät");
+        Undo.RegisterCreatedObjectUndo(root, "Salin pöydät");
+        var bsr = salBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x;
+        const float sc = 0.64f;                 // pöytä n. 2 yks leveä, 1.56 korkea
+        float top = 1.22f;                      // pöydän pinta (annos ja pullo)
+        int n = 0;
+        foreach (var v in SalonTableSpots)
+        {
+            float x = left + v.x / ppu;
+            float back = sal.maxDepthY;
+            var dl = sal.depthLimits;
+            if (dl != null && dl.Length > 1)
+                for (int i = 1; i < dl.Length; i++)
+                    if (x <= dl[i].x) { back = Mathf.Min(back, Mathf.Lerp(dl[i - 1].y, dl[i].y, Mathf.InverseLerp(dl[i - 1].x, dl[i].x, x))); break; }
+            float y = Mathf.Lerp(back - 0.3f, sal.minDepthY + 0.4f, v.y);
+            var go = new GameObject("Salin pöytä " + (++n));
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(x, y, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.35f);
+            var c = go.AddComponent<Crate>();
+            c.body = vis; c.shadow = sh; vis.sprite = tableSprite;
+            c.sprites = new[] { tableSprite };
+            c.breakable = false;                // särkymiskuvat myöhemmin
+            c.visualScale = sc; c.shadowWidth = 2.0f; c.footOffset = 0.04f; c.carryLower = 0.8f; c.plowThrough = true;
+            c.hitRadiusX = 1.0f; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
+            // hummeriannos ja shamppanjapullo pöydälle
+            var fGo = new GameObject("Hummeriannos");
+            fGo.transform.SetParent(root.transform, false); fGo.transform.position = go.transform.position;
+            var f = fGo.AddComponent<FishPlate>();
+            f.spriteSet = "Hummeri"; f.scale = 0.72f;
+            f.table = c; f.tableX = n % 2 == 0 ? 0.25f : -0.25f; f.tableTop = top; f.breakSounds = plateSnd.Length > 0 ? plateSnd : glass;
+            if (champagne.Length >= 7)
+            {
+                var bGo = new GameObject("Shamppanja");
+                bGo.transform.SetParent(root.transform, false); bGo.transform.position = go.transform.position;
+                var b = bGo.AddComponent<Bottle>();
+                b.sprites = champagne; b.stainKind = "olut"; b.scale = 1.0f; b.pivotY = 0.4f;
+                b.breakSounds = glass; b.table = c; b.tableX = n % 2 == 0 ? -0.55f : 0.55f; b.tableTop = top - 0.05f;
+            }
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Saliin {n} pöytää: hummeriannos ja shamppanjapullo kullakin.\nLyönti pöytään: annos valuu lattialle. Potku tai heitetty pöytä: lautanen hajoaa ja hummeri lentää.\nShamppanjapullon voi ottaa ja heittää.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Heron iso koukku ----------------

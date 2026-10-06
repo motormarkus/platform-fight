@@ -12,20 +12,29 @@ public class FishPlate : MonoBehaviour
     public float tableX, tableTop = 1.6f;
     public float scale = 1f;
     public AudioClip[] breakSounds;
+    [Tooltip("Kuvat kansiosta Resources/<spriteSet> (Kala = kala-annos, Hummeri = hummeriannos).")]
+    public string spriteSet = "Kala";
 
-    static Sprite plate; static Sprite[] burst, fish, fries, shards, lemons;
-    static bool loaded;
+    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons; }
+    static readonly Dictionary<string, Set> sets = new Dictionary<string, Set>();
+    Sprite plate; Sprite[] burst, fish, fries, shards, lemons;
     enum S { OnTable, Tipping, Burst, Done }
     S state = S.OnTable;
     SpriteRenderer sr;
     int seenDisturb;
     float t, height, vx, vy, rot, spin, dir;
 
-    static void Load()
+    void Load()
     {
-        if (loaded) return;
-        loaded = true;
-        var all = Resources.LoadAll<Sprite>("Kala");
+        string key = string.IsNullOrEmpty(spriteSet) ? "Kala" : spriteSet;
+        if (!sets.TryGetValue(key, out var set)) { set = LoadSet(key); sets[key] = set; }
+        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons;
+    }
+
+    static Set LoadSet(string folder)
+    {
+        var set = new Set();
+        var all = Resources.LoadAll<Sprite>(folder);
         Sprite[] Pick(string p)
         {
             var l = new List<Sprite>();
@@ -33,8 +42,9 @@ public class FishPlate : MonoBehaviour
             l.Sort((a, b) => FrameNo(a).CompareTo(FrameNo(b)));
             return l.ToArray();
         }
-        foreach (var s in all) if (s.name == "annos") plate = s;
-        burst = Pick("hajoaa_"); fish = Pick("kala_"); fries = Pick("ranska_"); shards = Pick("sirpale_"); lemons = Pick("sitruuna_");
+        foreach (var s in all) if (s.name == "annos") set.plate = s;
+        set.burst = Pick("hajoaa_"); set.fish = Pick("kala_"); set.fries = Pick("ranska_"); set.shards = Pick("sirpale_"); set.lemons = Pick("sitruuna_");
+        return set;
     }
     static int FrameNo(Sprite s) { int i = s.name.LastIndexOf('_'); return i >= 0 && int.TryParse(s.name.Substring(i + 1), out int n) ? n : 0; }
 
