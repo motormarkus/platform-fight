@@ -3970,7 +3970,7 @@ public static class BeatEmUpSetup
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
-        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_hyppylyonti", "motoristi_juoksu", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta" })
+        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_hyppylyonti", "motoristi_juoksu", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta", "motoristi_heitetty" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4020,6 +4020,8 @@ public static class BeatEmUpSetup
         var up = EnemySheet("motoristi_ylosnousu", report);
         if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
         e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
+        var thrown = EnemySheet("motoristi_heitetty", report);   // 0 asento, 1 napattu, 2 kippaa, 3 ylösalaisin, 4–5 selällään, 6 pyörähtää, 7 mahallaan
+        if (thrown.Length >= 8) { e.flipThrownSprites = thrown; e.flipFlightFrames = 1; e.flipFlightFrameTime = 0.12f; e.flipLandFrameTime = 0.13f; }
         e.fightsEveryone = true;   // käy kaikkien kimppuun (puliukon tapaan)
         e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f;
         var block = EnemySheet("motoristi_torjunta", report);   // torjuu vasta, kun omat kuvat ovat olemassa
