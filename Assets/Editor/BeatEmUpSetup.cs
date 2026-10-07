@@ -45,6 +45,7 @@ public static class BeatEmUpSetup
         {
             SetupBackground();      // talo, baari, S-Club kerran
             CreateClub();           // S-Clubin ovi ja sisätila
+            AddBarDoor();           // baarin avautuva ovi (videosta, ääni mukana)
             AddDancers();
             AddBand();
             CreateShop();
@@ -83,7 +84,8 @@ public static class BeatEmUpSetup
             AddSalonTables();       // salin pöydät: hummeriannokset ja shamppanjapullot
             AddSalonLadies();       // salin naiset ja Sohvi baaritiskin takana
             AddSalonFight();        // salin tappelu: rosvot käytävän ovelta, seilorit salin perältä
-            CreateStreetBar();      // kadun baari: BAR-ovesta sisään
+            CreateStreetBar();      // kadun baari: BAR-ovesta sisään (ovi aukeaa)
+            CreateBarRoom();        // pokerihuone baarin takahuoneena (oikean nurkan teräsovesta)
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -137,10 +139,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3633,6 +3635,7 @@ public static class BeatEmUpSetup
     const float StreetBarX0 = 40000f;
     const float StreetBarDoorPx = 2263f;      // BAR-oven keskikohta kadun kuvasarjassa
     const float StreetBarExitPx = 160f;       // sisäkuvan vasen ovi (ulos kadulle)
+    static readonly Vector2 StreetBarBackDoorPx = new Vector2(3297f, 557f);   // oikean nurkan teräsovi (pokerihuoneeseen): keskikohta ja alareuna
     // takaraja sisäkuvassa (x px, rivi): oven ja tynnyrin edusta, tiskin etureuna, sohvat seinällä, viisto oikea seinä
     static readonly Vector2[] StreetBarDepthPx = { new Vector2(0f, 612f), new Vector2(515f, 612f), new Vector2(530f, 640f), new Vector2(1712f, 640f),
                                                    new Vector2(1730f, 500f), new Vector2(2990f, 490f), new Vector2(3594f, 690f) };
@@ -3683,6 +3686,8 @@ public static class BeatEmUpSetup
         float setU = StreetSetPx / BackgroundPPU;
         int count = Mathf.RoundToInt(ssr.size.x / setU);
         Vector2 inside = new Vector2(X(StreetBarExitPx + 160f), Mathf.Lerp(Y(612f), area.minDepthY, 0.3f));
+        var animGo = GameObject.Find("Baarin ovi");
+        var barDoorAnim = animGo != null ? animGo.GetComponent<AnimatedDoor>() : null;
         for (int i = 0; i < count; i++)
         {
             var d = new GameObject("BAR-ovi " + (i + 1)).AddComponent<Door>();
@@ -3691,6 +3696,7 @@ public static class BeatEmUpSetup
             d.prompt = "Mene baariin";
             d.here = streetArea; d.target = area; d.spawnPoint = inside;
             d.halfWidth = 1.4f; d.maxDistanceFromWall = 0.9f;
+            if (i == 0 && barDoorAnim != null) { d.anim = barDoorAnim; d.animWait = 3.2f; }   // ovi aukeaa videon äänen tahdissa (kohta 66)
         }
         var exit = new GameObject("Baarista kadulle").AddComponent<Door>();
         exit.transform.SetParent(doors.transform, false);
@@ -3701,7 +3707,7 @@ public static class BeatEmUpSetup
         exit.halfWidth = 1.6f; exit.maxDistanceFromWall = 1.2f;
         exit.spawnPoint = new Vector2(left + StreetBarDoorPx / BackgroundPPU, streetArea.maxDepthY - 0.25f);
         EditorSceneManager.MarkSceneDirty(bg.scene);
-        Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, takaovi oikeassa nurkassa (ei vielä käytössä).\n\nTallenna scene (Ctrl+S).");
+        Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään{(barDoorAnim != null ? ", ovi aukeaa" : " (avautuva ovi puuttuu: kohta 66)")}, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, oikean nurkan teräsovesta pokerihuoneeseen (kohta 67).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Salin tappelu ----------------
@@ -3906,6 +3912,151 @@ public static class BeatEmUpSetup
     static readonly int[] ShipPirateWaves = { 4, 5, 5 };   // 2. ja 3. aallossa mukana Kovis
     const int ShipKovisCount = 2;
     const float ShipFightTriggerPx = 3550f;   // kannen kuvan x: tästä eteenpäin (hyttiovelle) tappelu alkaa
+
+    // baarin ovi: videosta kohdistettu avautumissarja katu_sarja.png:n päälle (katu_bar_ovi.png, 59 kuvaa 360 × 600, 15 fps).
+    // Solun alareunan keskikohta katu_sarja.png:n pikseleissä (x vasemmalta, y ylhäältä). Ääni baarin_ovi.wav on kuvien tahdissa.
+    const float BarDoorCenterPx = 2260f, BarDoorBottomPx = 900f, BarDoorFps = 15f;
+    const string BarDoorSoundPath = "Assets/Audio/sfx/baarin_ovi.wav";
+
+    [MenuItem("Beat em up/66. Baarin avautuva ovi (kadulla)")]
+    static void AddBarDoor()
+    {
+        var street = GameObject.Find("Tausta");
+        string p = FindTexture("katu_bar_ovi");
+        if (street == null || p == null) { Info("Tarvitaan katutausta (kohta 4) ja kuva katu_bar_ovi.png"); return; }
+        var old = GameObject.Find("Baarin ovi");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        SetupAndSlice(p);
+        var frames = LoadSprites("katu_bar_ovi").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        if (frames.Length < 2) { Info("katu_bar_ovi.png: kuvia ei saatu leikattua (solu 360 × 600)."); return; }
+        var bsr = street.GetComponent<SpriteRenderer>();
+        float left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        var go = new GameObject("Baarin ovi");
+        // kuvat on tuotu 100 px/yks, katu 52 px/yks: skaalataan kadun kokoon; tukipiste alareunan keskellä
+        float k100 = frames[0].pixelsPerUnit / BackgroundPPU;
+        go.transform.position = new Vector3(left + BarDoorCenterPx / BackgroundPPU, top - BarDoorBottomPx / BackgroundPPU, 0f);
+        go.transform.localScale = new Vector3(k100, k100, 1f);
+        var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = -9990;   // taustan päällä, hahmojen alla
+        var d = go.AddComponent<AnimatedDoor>(); d.body = sr; d.frames = frames; d.frameTime = 1f / BarDoorFps; d.linear = true;
+        d.openSound = AssetDatabase.LoadAssetAtPath<AudioClip>(BarDoorSoundPath);
+        Undo.RegisterCreatedObjectUndo(go, "Baarin ovi");
+        Info($"Baarin ovi: {frames.Length} kuvaa ({(frames.Length - 1) / BarDoorFps:0.0} s), ääni {(d.openSound != null ? "baarin_ovi.wav" : "PUUTTUU")}.\n" +
+             "Testaus: Play-tilassa valitse 'Baarin ovi' → Inspectorin AnimatedDoor ⋮ → Avaa.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Baarin sisätila (pokerihuone) ----------------
+    // baari_pokeri.png (1536 × 1024) koko ruudun levyiseksi, kamera paikallaan. Pokerinpelaajien idle videosta:
+    // baari_poker_idle.png (33 kuvaa) ja baari_poker_idle2.png (36 kuvaa), 896 × 504, 12 fps, saumat ristihäivytetty,
+    // yhteinen maski; solun vasen yläkulma kuvassa (392, 232).
+    const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
+    const float BarRoomX0 = 50000f;
+    const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
+    const float BarRoomTableRow = 740f;      // pöydän, tuolien ja maton etureuna: tätä taemmas ei kävellä keskellä
+    const float BarRoomCabinetRow = 640f;    // oikean reunan lipaston juuri
+    const float BarRoomExitPx = 205f;        // teräsovi vasemmalla (ulos kadulle)
+    const string PokerAmbiencePath = "Assets/Audio/sfx/baari_pokeri_ambienssi.wav";   // toisen idle-videon ääni, saumaton silmukka
+    const float PokerCellX = 392f, PokerCellY = 232f, PokerCellW = 896f, PokerCellH = 504f, PokerFps = 12f;
+
+    [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)")]
+    static void CreateBarRoom()
+    {
+        var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
+        var barBg = GameObject.Find("Kadun baari");
+        var ti = AssetImporter.GetAtPath(BarRoomPath) as TextureImporter;
+        if (bar == null || barBg == null || ti == null) { Info("Tarvitaan kadun baari (kohta 65) ja kuva " + BarRoomPath); return; }
+        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        float halfW = CamHalf * 16f / 9f;
+        ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+        float ppu = srcW / (2f * halfW);   // kuva ruudun levyiseksi (yksi ruutu, ylä- ja alareunasta rajautuu vähän)
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 2048;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(BarRoomPath);
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+
+        var bg = new GameObject("Baarin sisä");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.sortingOrder = -10000;
+        float cy = CamY;
+        bg.transform.position = new Vector3(BarRoomX0 + wU * 0.5f, cy, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Baarin sisä");
+        float top = cy + hU * 0.5f;
+        System.Func<float, float, Vector2> pt = (px, row) => new Vector2(BarRoomX0 + px / ppu, top - row / ppu);
+
+        var area = ReuseArea("Alue: Baari");   // sama alue säilyy uudelleenrakennuksessa
+        area.areaName = "Baari";
+        area.useSidewalk = false;
+        area.maxDepthY = top - BarRoomWallRow / ppu;
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = area.camMaxX = BarRoomX0 + wU * 0.5f;
+        // pokeripöytä keskellä ja lipasto oikealla ovat lähempänä kuin seinä
+        area.depthLimits = new[] { pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow), pt(1350f, BarRoomCabinetRow) };
+
+        // pokerinpelaajat (idle-silmukka taustan päällä)
+        string pp = FindTexture("baari_poker_idle");
+        if (pp != null)
+        {
+            SetupAndSlice(pp);
+            var fr = LoadSprites("baari_poker_idle").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            if (fr.Length >= 2)
+            {
+                var pg = new GameObject("Baarin pokeri");
+                float k100 = fr[0].pixelsPerUnit / ppu;
+                Vector2 foot = pt(PokerCellX + PokerCellW * 0.5f, PokerCellY + PokerCellH);
+                pg.transform.position = new Vector3(foot.x, foot.y, 0f);
+                pg.transform.localScale = new Vector3(k100, k100, 1f);
+                var psr = pg.AddComponent<SpriteRenderer>(); psr.sprite = fr[0]; psr.sortingOrder = -9990;
+                var loop = pg.AddComponent<SpriteLoop>(); loop.frames = fr; loop.fps = PokerFps;
+                // toinen idle-video (vaihtuu ristihäivytyksellä) ja sen napsahdusäänet silmukkana
+                if (FindTexture("baari_poker_idle2") != null)
+                {
+                    SetupAndSlice(FindTexture("baari_poker_idle2"));
+                    loop.altFrames = LoadSprites("baari_poker_idle2").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                }
+                loop.ambience = AssetDatabase.LoadAssetAtPath<AudioClip>(PokerAmbiencePath);
+                Undo.RegisterCreatedObjectUndo(pg, "Pokeri");
+            }
+        }
+
+        // ovet: baarin oikean nurkan teräsovesta (E) pokerihuoneeseen, pokerihuoneen teräsovesta takaisin baariin
+        var doors = new GameObject("Baarin ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        var bsr = barBg.GetComponent<SpriteRenderer>();
+        float bppu = bsr.sprite.pixelsPerUnit, bleft = bsr.bounds.min.x, btop = bsr.bounds.max.y;
+        Vector2 barBack = new Vector2(bleft + StreetBarBackDoorPx.x / bppu, btop - StreetBarBackDoorPx.y / bppu);
+        var d = new GameObject("Pokerihuoneen ovi").AddComponent<Door>();
+        d.transform.SetParent(doors.transform, false);
+        d.transform.position = new Vector3(barBack.x, barBack.y, 0f);
+        d.prompt = "Mene pokerihuoneeseen";
+        d.here = bar; d.target = area;
+        d.spawnPoint = new Vector2(BarRoomX0 + (BarRoomExitPx + 120f) / ppu, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.45f));
+        d.halfWidth = 1.4f; d.maxDistanceFromWall = 1.4f;
+        var exit = new GameObject("Pokerihuoneesta baariin").AddComponent<Door>();
+        exit.transform.SetParent(doors.transform, false);
+        exit.transform.position = new Vector3(BarRoomX0 + BarRoomExitPx / ppu, area.maxDepthY, 0f);
+        exit.prompt = "Takaisin baariin";
+        exit.here = area; exit.target = bar;
+        exit.halfWidth = 1.8f; exit.maxDistanceFromWall = 1.2f;
+        exit.spawnPoint = new Vector2(barBack.x - 0.8f, btop - 650f / bppu);   // takaoven eteen, vähän vasemmalle (viisto seinä)
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Pokerihuone luotu (pokeri{(pp == null ? " PUUTTUU: baari_poker_idle.png" : "")}).\nBaarin oikean nurkan teräsovesta E: pokerihuoneeseen. Takaisin baariin vasemman reunan teräsovesta.\n\nTallenna scene (Ctrl+S).");
+    }
 
     // hyttiovi: Geminin videosta kohdistettu avautumissarja kannen kuvan päälle (laiva_ovi.png, 12 kuvaa 372 × 600)
     const float CabinDoorRoiX = 1240f, CabinDoorRoiBottom = 770f, CabinDoorCellW = 372f;   // viimeisen 1774 px ruudun koordinaatit
