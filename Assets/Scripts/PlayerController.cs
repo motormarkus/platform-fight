@@ -370,6 +370,49 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int bigHookImpactIdx = 5, bigHookComboIdx = 3;
     float bigHookAir;               // Ruby ponnahtaa ilmaan iskun jälkeen (korkeus yksikköä)
     float[] CurBigHookTimes => bigHookTimesOverride ?? BigHookTimes;
+
+    // ---------------- Heiluripotku (Ruby: alas, eteen + potku) ----------------
+    [HideInInspector] public Sprite[] pendulumSprites;
+    [Header("Heiluripotku (Ruby)")]
+    public int pendulumDamage = 18;
+    public float pendulumReach = 2.5f, pendulumLunge = 1.2f, pendulumAir = 1.1f;
+    bool pendulumHit, pendulumQueued;
+    // nopea ja kiihtyvä: 0–3 jalka taakse, 4 ohitus, 5 potku, 6–7 lentävä potku (osuma 5–7), 8 voltti, 9 vaaka, 10 alastulo, 11 asento
+    static readonly float[] PendulumTimes = { 0.07f, 0.06f, 0.055f, 0.045f, 0.035f, 0.035f, 0.04f, 0.05f, 0.06f, 0.06f, 0.08f, 0.1f };
+    bool HasPendulum => pendulumSprites != null && pendulumSprites.Length >= 12;
+
+    void StartPendulum()
+    {
+        pendulumHit = false; pendulumQueued = false; attackHit = false;
+        if (Time.time - downFwdTime <= 0.35f) facingRight = downFwdDir >= 0f;
+        downFwdTime = -9f;
+        PlayGrunt();
+        Enter(State.Pendulum);
+    }
+
+    void UpdatePendulum(float dt)
+    {
+        float dir = facingRight ? 1f : -1f;
+        float lungeFrom = ThrowPose.Start(PendulumTimes, 3), lungeTo = ThrowPose.Start(PendulumTimes, 8);
+        if (stateTime >= lungeFrom && stateTime < lungeTo)
+            MoveOnGround(new Vector2(dir * pendulumLunge / (lungeTo - lungeFrom) * dt, 0f));
+        // ilmassa kuvat 6–9: kaari, alastulo kuvassa 10
+        float airFrom = ThrowPose.Start(PendulumTimes, 6), airTo = ThrowPose.Start(PendulumTimes, 10);
+        height = stateTime > airFrom && stateTime < airTo ? Mathf.Sin(Mathf.Clamp01((stateTime - airFrom) / (airTo - airFrom)) * Mathf.PI) * pendulumAir : 0f;
+        // osuma potkun aikana (kuvat 5–7): lennättää kevyet korkealle, isot kaatuvat
+        if (!pendulumHit && stateTime >= ThrowPose.Start(PendulumTimes, 5) && stateTime <= ThrowPose.Start(PendulumTimes, 8))
+        {
+            if (AttackEnemies(pendulumReach, pendulumDamage, true, 2.6f))
+            {
+                pendulumHit = true;
+                foreach (var e in lastHitEnemies)
+                    if (e != null && !HeavyForHook(e)) e.Launch(dir * bigHookLaunchX, bigHookLaunchUp);
+                HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.22f);
+            }
+        }
+        if (ThrowPose.Index(PendulumTimes, stateTime) < 0) { height = 0f; Enter(State.Ground); }
+    }
     bool HasBigHook => bigHookSprites != null && bigHookSprites.Length >= 7;
     float downInputTime = -9f, downFwdTime = -9f, downFwdDir;
     bool bigHookHit, bigHookQueued;
@@ -550,6 +593,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] frontKick, backKick;
         [Tooltip("Voimalyönti (alas, eteen + lyönti): kyykky, nyrkit yhteen, kaksoisnyrkki ylös ja pieni hyppy (10 kuvaa).")]
         public Sprite[] power;
+        [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
+        public Sprite[] pendulum;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -856,6 +901,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         canCarry = smallItemSprites != null || carrySprites != null;
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
         dropKickSprites = null;
+        pendulumSprites = a.pendulum != null && a.pendulum.Length >= 12 ? a.pendulum : null;
         if (a.power != null && a.power.Length >= 10)
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
@@ -878,7 +924,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum }
 
     int comboIndex;
     bool comboQueued;
@@ -969,6 +1015,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
         // Rubyn rinnuksista-lyönnit: alas, eteen + lyönti (sama näppäily kuin Roccon isossa koukussa)
         // Rubyn rinnuksista-lyönnit: kaksi kertaa eteen + lyönti (alas, eteen + lyönti on voimalyönti)
+        bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;
         int pummelDir = HasPummel && punchPressed && Time.time <= dashArmedUntil ? (dashDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
@@ -1038,6 +1085,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     dashArmedUntil = -9f;
                     break;
                 }
+                if (pendulumInput && UseStamina(pushStamina)) { StartPendulum(); break; }   // Ruby: heiluripotku
                 // Ruby: eteen + K = etupotku, taakse + K = takapotku (myös heti kääntymisen jälkeen)
                 if (kickPressed && Mathf.Abs(move.x) > 0.5f && (frontKickSprites != null || backKickSprites != null))
                 {
@@ -1147,6 +1195,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (bigHookInput && comboIndex >= 2) bigHookQueued = true;
                 // Ruby: alas, eteen + lyönti kombon keskellä → tarttuu rinnuksista heti osuman jälkeen
                 if (pummelDir != 0 && comboIndex >= 1) pummelQueued = pummelDir;
+                // heiluripotku kombon keskellä (kuten voimalyönti): alas, eteen + potku
+                if (pendulumInput && comboIndex >= 2) pendulumQueued = true;
+                if (pendulumQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { if (UseStamina(pushStamina)) { StartPendulum(); break; } pendulumQueued = false; }
                 if (pummelQueued != 0 && stateTime >= hit.ImpactTime + flurryCancelAfterImpact)
                 {
                     int pd = pummelQueued; pummelQueued = 0;
@@ -1290,6 +1341,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 float hitFrom = sideKickImpactFrame * sideKickFrameTime;
                 float hitTo = hitFrom + sideKickImpactHold;
+                if (pendulumInput) pendulumQueued = true;
+                if (pendulumQueued && stateTime >= hitFrom + 0.06f) { if (UseStamina(pushStamina)) { StartPendulum(); break; } pendulumQueued = false; }
                 Lunge(attackLunge, hitFrom, dt);
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
                     attackHit = AttackEnemies(sideKickReach, sideKickDamage, false, 2.0f);
@@ -1498,6 +1551,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 UpdateCounterThrow();
                 break;
 
+            case State.Pendulum:
+                UpdatePendulum(dt);
+                break;
+
             case State.SoloKick:
             {
                 float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
@@ -1547,6 +1604,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Kick:   // matala potku, kombon ensimmäinen
+                if (pendulumInput) pendulumQueued = true;
+                if (pendulumQueued && stateTime >= 0.14f) { if (UseStamina(pushStamina)) { StartPendulum(); break; } pendulumQueued = false; }
                 Lunge(attackLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
@@ -1643,6 +1702,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
         if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; }
+        if (s != State.Punch && s != State.Kick && s != State.SideKick) pendulumQueued = false;
         if (s != State.JumpSquat) scissorJump = false;
         if (s != State.Ground) { moving = false; running = false; }
     }
@@ -1876,7 +1936,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.SoloKick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
+        AttackIsKick = state == State.Kick || state == State.SoloKick || state == State.Pendulum || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -2802,6 +2862,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Pummel:
                 return PummelSprite();
+            case State.Pendulum:
+            {
+                int pi = ThrowPose.Index(PendulumTimes, stateTime);
+                return pendulumSprites[pi < 0 ? pendulumSprites.Length - 1 : Mathf.Min(pi, pendulumSprites.Length - 1)];
+            }
             case State.SoloKick:
             {
                 float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
