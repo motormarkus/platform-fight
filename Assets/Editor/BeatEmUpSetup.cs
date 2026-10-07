@@ -3963,8 +3963,18 @@ public static class BeatEmUpSetup
         {
             Enemy e;
             if (who == "Prätkäjätkä") e = MakeBiker(root.transform);
-            else if (who == "Rokkimimmi") { e = MakeRocker(root.transform); if (e != null) e.huntsBrawlers = true; }   // porukkaa: ei lyö Koviksia ja Punkkareita
-            if (who == "Rokkimimmi" && e != null) { e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f); e.wakeDistance = -1f; e.joinsFightWhenSquadComes = false; e.gameObject.SetActive(true); members.Add(e); names.Add(who); continue; }
+            else if (who == "Rokkimimmi")
+            {
+                // porukkaa: ei lyö Koviksia ja Punkkareita; odottaa tiskillä ja tulee mukaan vasta tappelun alkaessa
+                e = MakeRocker(root.transform);
+                if (e == null) continue;
+                e.huntsBrawlers = true;
+                e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f);
+                e.wakeDistance = -1f; e.joinsFightWhenSquadComes = false;
+                e.gameObject.SetActive(true);
+                members.Add(e); names.Add(who);
+                continue;
+            }
             else
             {
                 var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
