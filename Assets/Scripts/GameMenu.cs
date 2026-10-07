@@ -297,10 +297,10 @@ public class GameMenu : MonoBehaviour
     static string HeroineName()
     {
         var pc = FindFirstObjectByType<PlayerController>();
-        return pc != null && pc.heroine != null && !string.IsNullOrEmpty(pc.heroine.name) ? pc.heroine.name : "Jasmi";
+        return pc != null && pc.heroine != null && !string.IsNullOrEmpty(pc.heroine.name) ? pc.heroine.name : "Ruby";
     }
 
-    /// Hahmonvalinta: Rocco vasemmalla, Jasmi oikealla (katsovat toisiaan), valittu korostettuna.
+    /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
     void DrawCharacters(float w, float h, float s, Color gold)
     {
         Shadowed(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle, gold);

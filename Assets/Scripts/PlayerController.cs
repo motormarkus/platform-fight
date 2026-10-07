@@ -507,13 +507,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    // ---------------- Toinen pelattava hahmo (Jasmi) ----------------
+    // ---------------- Toinen pelattava hahmo (Ruby) ----------------
 
-    /// Hahmon kuvasarjat. Täytä valikosta Beat em up → 70. Toinen pelattava hahmo (Jasmi).
+    /// Hahmon kuvasarjat. Täytä valikosta Beat em up → 70. Toinen pelattava hahmo (Ruby).
     [Serializable]
     public class CharacterArt
     {
-        public string name = "Jasmi";
+        public string name = "Ruby";
         public Sprite[] idle, walk, run;
         [Tooltip("Lyöntisarja: jab, takasuora, etukoukku, takakoukku (kaataa).")]
         public Sprite[] jab, cross, leadHook, rearHook;
@@ -534,9 +534,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Toinen pelattava hahmo")]
     public string characterName = "Rocco";
     public CharacterArt heroine = new CharacterArt();
-    /// 0 = Rocco, 1 = Jasmi (valittu alkuvalikossa).
+    /// 0 = Rocco, 1 = Ruby (valittu alkuvalikossa).
     public int AppliedCharacter { get; private set; }
-    /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Jasmin kuvat vaihdetaan tilalle).
+    /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Rubyn kuvat vaihdetaan tilalle).
     public Sprite[] HeroIdle { get; private set; }
     [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites;
     [HideInInspector] public Sprite hurtSprite;
@@ -549,7 +549,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var a = heroine;
         if (a == null || !a.IsComplete) return;
         AppliedCharacter = 1;
-        characterName = string.IsNullOrEmpty(a.name) ? "Jasmi" : a.name;
+        characterName = string.IsNullOrEmpty(a.name) ? "Ruby" : a.name;
         idleSprites = a.idle;
         actionSprites = new[] { a.idle[0] };   // varakuva: Roccon kuvat eivät näy koskaan
         walkSprites = a.walk; walkFrameTime = 0.1f;

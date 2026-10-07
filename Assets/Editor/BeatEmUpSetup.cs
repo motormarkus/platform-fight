@@ -89,7 +89,7 @@ public static class BeatEmUpSetup
             CreateBarRoom();        // pokerihuone baarin takahuoneena (oikean nurkan teräsovesta)
             AddStreetBarFurniture(); // kadun baariin pöydät, tuolit ja tappelijat
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
-            SetupHeroine();         // toinen pelattava hahmo (Jasmi), valitaan alkuvalikossa
+            SetupHeroine();         // toinen pelattava hahmo (Ruby), valitaan alkuvalikossa
         }
         finally { batch = false; }
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
@@ -392,7 +392,7 @@ public static class BeatEmUpSetup
             $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 1.0 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/70. Toinen pelattava hahmo (Jasmi)")]
+    [MenuItem("Beat em up/70. Toinen pelattava hahmo (Ruby)")]
     static void SetupHeroine()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -407,9 +407,9 @@ public static class BeatEmUpSetup
             return LoadSprites(file)
                 .OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         }
-        Undo.RecordObject(pc, "Jasmi");
+        Undo.RecordObject(pc, "Ruby");
         var a = pc.heroine ?? new PlayerController.CharacterArt();
-        a.name = "Jasmi";
+        a.name = "Ruby";
         a.idle = L("idle"); a.walk = L("kavely"); a.run = L("juoksu");
         a.jab = L("lyonti"); a.cross = L("suora"); a.leadHook = L("etukoukku"); a.rearHook = L("takakoukku");
         a.lowKick = L("matalapotku"); a.midKick = L("keskipotku"); a.highKick = L("korkeapotku");
@@ -421,12 +421,12 @@ public static class BeatEmUpSetup
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        if (batch) { Debug.Log($"Jasmi: {a.idle.Length} idle, {a.getup.Length} ylösnousu" + (missing.Count > 0 ? ", puuttuu: " + string.Join(", ", missing) : "")); return; }
-        Info("Jasmi lisätty toiseksi pelattavaksi hahmoksi.\n\n" +
-             "Alkuvalikko: Aloita peli → valitse hahmo (Rocco / Jasmi) → vaikeustaso.\n" +
+        if (batch) { Debug.Log($"Ruby: {a.idle.Length} idle, {a.getup.Length} ylösnousu" + (missing.Count > 0 ? ", puuttuu: " + string.Join(", ", missing) : "")); return; }
+        Info("Ruby lisätty toiseksi pelattavaksi hahmoksi.\n\n" +
+             "Alkuvalikko: Aloita peli → valitse hahmo (Rocco / Ruby) → vaikeustaso.\n" +
              "Lyönnit: jab, takasuora, etukoukku, takakoukku. Potkut: matala, keski, korkea.\n" +
              "Erikoisliike (L / LB): tornadopotku. Pusku (U / RT): kärrynpyörä. Vastaheitto (O): kuperkeikka.\n" +
-             "Jasmi ei nosta tuoleja, pöytiä, laatikoita eikä pulloja.\n" +
+             "Ruby ei nosta tuoleja, pöytiä, laatikoita eikä pulloja.\n" +
              (missing.Count > 0 ? "\nPuuttuu: " + string.Join(", ", missing) + "\n" : "") +
              "\nTallenna scene (Ctrl+S).");
     }
