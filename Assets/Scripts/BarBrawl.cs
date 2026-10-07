@@ -12,6 +12,8 @@ public class BarBrawl : MonoBehaviour
     public Sprite[] guardFightIdle;
     public float guardFightIdleFrameTime = 0.26f;
     public float guardDelay = 1.2f;
+    [Tooltip("Tappelun alettua ovesta tulevat (portsari vasemmalta).")]
+    public Latecomers latecomers;
 
     bool started;
     float guardT = -1f;
@@ -39,6 +41,7 @@ public class BarBrawl : MonoBehaviour
         started = true;
         foreach (var e in members) if (e != null && e.isActiveAndEnabled) e.WakeUp();
         if (guard != null) guardT = 0f;
+        if (latecomers != null) latecomers.Begin();
     }
 
     void GuardJoins()

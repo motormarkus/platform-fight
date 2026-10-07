@@ -3773,12 +3773,13 @@ public static class BeatEmUpSetup
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
     // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
-    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.3f), new Vector2(2450f, 0.6f), new Vector2(2880f, 0.28f), new Vector2(2180f, 0.95f),
+    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.8f), new Vector2(2450f, 1.05f), new Vector2(2900f, 0.75f), new Vector2(2200f, 1.45f),
                                                   // alaosa (lattia eturivissä, myös tiskin edessä)
-                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2760f, 1.25f), new Vector2(3330f, 1.05f) };
+                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2760f, 1.5f), new Vector2(3250f, 1.3f) };
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
         ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
-        ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)) };
+        ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)),
+        ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)) };
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -3916,6 +3917,23 @@ public static class BeatEmUpSetup
         var guardGo = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.name == "Portsari (baarin vahti)");
         var pf = Object.FindFirstObjectByType<PokerFight>();
         if (guardGo != null) { brawl.guard = guardGo; if (pf != null) { brawl.guardFightIdle = pf.guardFightIdle; brawl.guardFightIdleFrameTime = pf.guardFightIdleFrameTime; } }
+        // portsari tulee vasemmalta ulko-ovelta, kun tappelu alkaa
+        var bouncerT = all.FirstOrDefault(en => en != null && en.gameObject.name == "Portsari");
+        if (bouncerT != null)
+        {
+            var lgo = new GameObject("Baarin portsari (ovelta)");
+            lgo.transform.SetParent(root.transform, false);
+            var lc = lgo.AddComponent<Latecomers>();
+            var bgo = Object.Instantiate(bouncerT.gameObject, lgo.transform);
+            bgo.name = "Portsari (baari, ovelta)";
+            var be = bgo.GetComponent<Enemy>(); be.wakeDistance = 100f; be.joinsFightWhenSquadComes = false;
+            bgo.SetActive(false);
+            lc.enemies = new[] { be };
+            lc.entry = new Vector2(X(StreetBarExitPx + 140f), Depth(StreetBarExitPx + 140f, 0.35f));
+            lc.firstDelay = 1.5f;
+            brawl.latecomers = lc;
+            names.Add("portsari vasemmalta");
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Kadun baariin {StreetBarTables.Length} pöytää ({bottles} pulloa, {glassN} lasia) ja {chairs} tuolia.\nTappelijat: {string.Join(", ", names)}." +
              (guardGo != null ? "\nPortsari tulee ovelta mukaan, kun tappelu alkaa." : "\nPortsari puuttuu: aja kohta 67.") + "\n\nTallenna scene (Ctrl+S).");
@@ -4471,9 +4489,27 @@ public static class BeatEmUpSetup
                 ge.wakeDistance = -1f;              // ei herää ohi kävellessä, vasta tappelusta tai osumasta
                 ge.joinsFightWhenSquadComes = false; ge.wanderMinX = ge.wanderMaxX = 0f;
                 g.SetActive(true);
-                pf.guard = ge;
-                pf.guardEntry = exit.transform.position + new Vector3(1.2f, -0.6f, 0f);   // pokerihuoneen teräsoven edestä
-                names.Add("portsari ovesta");
+                pf.guard = null;   // baarin vartija jää baariin (liittyy baaritappeluun)
+            }
+            // kaksi portsaria tulee pokerihuoneen teräsovesta, kun tappelu alkaa
+            if (bouncerT != null)
+            {
+                var lgo = new GameObject("Pokerihuoneen portsarit");
+                lgo.transform.SetParent(froot.transform, false);
+                var lc = lgo.AddComponent<Latecomers>();
+                var list = new List<Enemy>();
+                for (int k = 0; k < 2; k++)
+                {
+                    var bgo = Object.Instantiate(bouncerT.gameObject, lgo.transform);
+                    bgo.name = "Portsari (pokerihuone) " + (k + 1);
+                    var be = bgo.GetComponent<Enemy>(); be.wakeDistance = 100f; be.joinsFightWhenSquadComes = false;
+                    bgo.SetActive(false); list.Add(be);
+                }
+                lc.enemies = list.ToArray();
+                lc.entry = (Vector2)exit.transform.position + new Vector2(1.2f, -0.6f);   // teräsoven edestä
+                lc.firstDelay = 2.0f; lc.interval = 1.2f;
+                pf.latecomers = lc;
+                names.Add("2 portsaria ovesta");
             }
             fightInfo = $"\nTappelu: loppuanimaation jälkeen musta häivytys, {chairs.Count} tuolia ja {string.Join(", ", names)}.";
         }

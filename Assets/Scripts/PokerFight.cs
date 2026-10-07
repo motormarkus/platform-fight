@@ -27,6 +27,8 @@ public class PokerFight : MonoBehaviour
     [Tooltip("Viive häivytyksen jälkeen ennen kuin portsari tulee ovesta (s).")]
     public float guardDelay = 2.5f;
     float guardT = -1f;
+    [Tooltip("Tappelun alettua ovesta tulevat (portsarit).")]
+    public Latecomers latecomers;
     public float holdAfterFinale = 0.6f, fadeOut = 0.35f, blackHold = 0.2f, fadeIn = 0.4f;
 
     int phase;
@@ -97,6 +99,7 @@ public class PokerFight : MonoBehaviour
             e.WakeUp();
         }
         if (guard != null) guardT = 0f;
+        if (latecomers != null) latecomers.Begin();
     }
 
     void OnGUI()
