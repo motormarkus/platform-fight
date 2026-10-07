@@ -523,6 +523,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] lowKick, midKick, highKick;
         [Tooltip("Hyppy voltilla (10 kuvaa: 0 asento, 1 kyykky, 2 ponnistus, 3–5 voltti, 6 lasku, 7–8 alastulo, 9 asento) ja potku ilmassa (3 kuvaa).")]
         public Sprite[] jump, jumpKick;
+        [Tooltip("Voltti ilmassa: kippura pyörii tasaisesti (välikuvat).")]
+        public Sprite[] flip;
         [Tooltip("Tornadopotku (erikoisliike, kuten tuulimylly).")]
         public Sprite[] special;
         [Tooltip("Kärrynpyörä (puskunappi): kaataa.")]
@@ -540,9 +542,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int AppliedCharacter { get; private set; }
     /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Rubyn kuvat vaihdetaan tilalle).
     public Sprite[] HeroIdle { get; private set; }
-    [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites;
+    [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites, flipSprites;
     [HideInInspector] public Sprite hurtSprite;
     int[] counterFramesOverride;
+    Vector3[] counterKeysOverride, counterKeysArtOverride;
+    float[] counterSegsOverride;
+    bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
     bool knockedDown;   // kaatava isku (ei heitto): omat kaatumiskuvat, jos on
 
@@ -566,7 +571,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         lowKickSprites = a.lowKick;
         sideKickSprites = a.midKick; sideKickFrameTime = 0.06f; sideKickImpactFrame = 2; sideKickImpactHold = 0.14f; sideKickArtOffset = 0f; sideKickReach = 2.3f;
         hiKickSprites = a.highKick; hiKickFrameTime = 0.055f; hiKickImpactFrame = 2; hiKickImpactHold = 0.14f; hiKickArtOffset = 0f;
-        jumpSprites = a.jump; jumpKickSprites = a.jumpKick;
+        jumpSprites = a.jump; jumpKickSprites = a.jumpKick; flipSprites = a.flip;
         if (a.special != null && a.special.Length > 0)
         {
             specialSprites = a.special;
@@ -582,8 +587,27 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (a.counterThrow != null && a.counterThrow.Length >= 10)
         {
             counterThrowSprites = a.counterThrow;
-            counterFramesOverride = new[] { 1, 2, 4, 5, 6, 7, 8, 9 };   // kuperkeikka, jalat pään ympärille, heitto; lopuksi nousu asentoon
-            counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.34f; counterThrowSlide = 0.6f;
+            // nousu käsille rauhallisesti, jalat vihun pään ympärille, veto alas kiihtyen: vihu lentää Rubyn yli selän taakse
+            counterFramesOverride = new[] { 1, 2, 4, 5, 6, 7, 8, 9 };   // kyykky, nousu, käsiseisonta (ote jaloilla), veto, heitto; makuu, kyykky, asento
+            counterSegsOverride = new[] { 2.2f, 2.6f, 1.4f, 0.7f };      // kaksi viimeistä väliä kiihtyvät (ease-in)
+            counterKeysOverride = new[]
+            {
+                new Vector3( 0.95f, 1.50f,   0f),   // ote, Ruby kyykyssä
+                new Vector3( 0.90f, 1.50f,   0f),   // Ruby nousee käsilleen
+                new Vector3( 0.80f, 1.65f,   5f),   // jalat pään ympärillä
+                new Vector3( 0.05f, 2.50f, 110f),   // veto alas: vihu kiepsahtaa yli
+                new Vector3(-1.00f, 1.40f, 200f),   // irti selän taakse
+            };
+            counterKeysArtOverride = new[]
+            {
+                new Vector3( 0.95f, 1.50f,  0f),
+                new Vector3( 0.90f, 1.50f,  0f),
+                new Vector3( 0.80f, 1.80f,  0f),
+                new Vector3( 0.00f, 3.00f,  5f),
+                new Vector3(-1.00f, 2.40f, 10f),
+            };
+            counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.45f; counterThrowSlide = 0.3f;
+            counterThrowTurns = false;   // Ruby nousee samaan suuntaan kuin aloitti
         }
         if (a.thrown != null && a.thrown.Length >= 8)
         {
@@ -1834,7 +1858,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool heldArt;        // vastus käyttää omia heittokuviaan
 
     int[] CurFrames => monkeyFlip ? FlipFrames : counterFramesOverride ?? CounterFrames;
-    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys) : (heldArt ? CounterKeysArt : CounterKeys);
+    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys)
+                       : heldArt ? counterKeysArtOverride ?? CounterKeysArt : counterKeysOverride ?? CounterKeys;
     int[] CurPoses => monkeyFlip ? FlipPosesArt : CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
     float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
@@ -1907,7 +1932,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     // Avainvälien kestot (× kuvan aika): nosto rauhallisesti, heitto lyhyt. Kaksi viimeistä väliä kiihtyvät (ease-in).
     static readonly float[] CounterSegs = { 1.3f, 1.3f, 1.0f, 0.55f };
     static readonly float[] FlipSegs = { 1.2f, 1.2f, 1.1f, 0.9f, 0.5f };
-    float[] CurSegs => monkeyFlip ? FlipSegs : CounterSegs;
+    float[] CurSegs => monkeyFlip ? FlipSegs : counterSegsOverride ?? CounterSegs;
     float ThrowReleaseTime { get { float s = 0f; foreach (var d in CurSegs) s += d; return s * CurThrowFrameTime; } }
 
     /// Heiton eteneminen avainasentoina (0 … avaimia-1) hetkellä t, irrotuksen jälkeen kuvat jatkuvat tasaisesti.
@@ -2010,7 +2035,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         if (stateTime >= releaseAt + counterThrowEndHold)
         {
-            facingRight = !facingRight;   // heiton jälkeen katsotaan heittosuuntaan
+            if (counterThrowTurns) facingRight = !facingRight;   // heiton jälkeen katsotaan heittosuuntaan
             Enter(State.Ground);
         }
     }
@@ -2273,6 +2298,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (t < 0.40f) return Action(F_JUMPKICK1 + 2);   // täysi potku
                     if (t < 0.50f) return Action(F_JUMPKICK1 + 3);
                     return Action(F_JUMPKICK1 + 4);
+                }
+                if (HasJumpArt && flipSprites != null && flipSprites.Length > 1)
+                {
+                    // voltti: ponnistus, kippura pyörii tasaisesti lennon aikana, lasku
+                    float prog = Mathf.Clamp01((jumpVelocity - verticalVel) / (2f * jumpVelocity));
+                    if (prog < 0.1f) return jumpSprites[2];
+                    if (prog > 0.85f) return jumpSprites[6];
+                    return flipSprites[Mathf.Min((int)((prog - 0.1f) / 0.75f * flipSprites.Length), flipSprites.Length - 1)];
                 }
                 if (HasJumpArt)   // voltti: ponnistus, kippura, ylösalaisin, kippura, lasku
                     return jumpSprites[verticalVel > 7f ? 2 : verticalVel > 2.5f ? 3 : verticalVel > -2.5f ? 4 : verticalVel > -7f ? 5 : 6];

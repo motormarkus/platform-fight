@@ -413,7 +413,7 @@ public static class BeatEmUpSetup
         a.idle = L("idle"); a.walk = L("kavely"); a.run = L("juoksu");
         a.jab = L("lyonti"); a.cross = L("suora"); a.leadHook = L("etukoukku"); a.rearHook = L("takakoukku");
         a.lowKick = L("matalapotku"); a.midKick = L("keskipotku"); a.highKick = L("korkeapotku");
-        a.jump = L("hyppy"); a.jumpKick = L("ilmapotku");
+        a.jump = L("hyppy"); a.jumpKick = L("ilmapotku"); a.flip = L("voltti");
         a.special = L("tornado"); a.cartwheel = L("karrynpyora");
         a.counterThrow = L("heitto"); a.block = L("suojaus");
         a.thrown = L("heitetty"); a.fall = L("kaatuminen"); a.getup = L("ylosnousu");
