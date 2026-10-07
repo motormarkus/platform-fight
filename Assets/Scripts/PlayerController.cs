@@ -161,7 +161,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool scissor;           // saksipotku käynnissä ilmassa
     bool scissorJump;       // ponnistus maasta saksipotkuun (eteen-ylös + K)
     bool landedFromScissor;
-    bool comboScissor, comboFinisherQueued;   // potkukombossa saksipotku ennen viimeistä kaatavaa potkua
+    bool comboScissor, comboFinisherQueued;   // kombossa saksipotku (eteen-ylös + K) ennen viimeistä kaatavaa potkua
+    bool comboScissorQueued;
+    /// Eteen-ylös + potku juuri painettu (saksipotkun liike).
+    bool ScissorMotion(bool kickPressed) => kickPressed && Time.time - upFwdTime <= scissorInputWindow && HasScissor;
     float upFwdTime = -10f, upFwdDir = 1f;
     float prevMoveX, lastTapTime = -9f, lastTapDir, dashArmedUntil = -9f, dashDir;
     bool kneeDashHit;
@@ -757,8 +760,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
                 if (punchPressed && !bigHookQueued && stateTime >= total * comboInputFrom) comboQueued = true;
+                // lyöntien jälkeen eteen-ylös + potku: saksipotku (kuten iso koukku alas-eteen + lyönti)
+                if (ScissorMotion(kickPressed) && comboIndex >= 1 && stateTime >= total * comboInputFrom) comboScissorQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
-                if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
+                else if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
                 // jab + potku: polvi-isku (ote ja polvi ylös)
                 if (kickPressed && comboIndex == 0 && (HasKnee || HasKneeStrikeArt) && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
 
@@ -772,6 +777,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     Enter(State.KneeStrike);
                     break;
                 }
+                if (comboScissorQueued && stateTime >= cancelAt) { comboScissorQueued = false; if (TryComboScissor()) break; }
                 if (flurryKickQueued && stateTime >= cancelAt)
                 {
                     flurry = true;
@@ -885,7 +891,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
                     attackHit = AttackEnemies(sideKickReach, sideKickDamage, false, 2.0f);
                 float sideTotal = hitTo + (sideKickSprites.Length - sideKickImpactFrame - 1) * sideKickFrameTime;
-                if (kickPressed && stateTime >= sideTotal * comboInputFrom) kickQueued = true;
+                if (ScissorMotion(kickPressed) && stateTime >= sideTotal * comboInputFrom) comboScissorQueued = true;
+                else if (kickPressed && stateTime >= sideTotal * comboInputFrom) kickQueued = true;
                 if (stateTime >= sideTotal) EndKick();
                 break;
             }
@@ -1123,8 +1130,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 Lunge(attackLunge, 0.1f, dt);
                 if (!attackHit && stateTime >= 0.07f && stateTime <= 0.2f)
                     attackHit = AttackEnemies(kickReach, kickDamage, false, 1.2f);
-                if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
-                if (flurry && kickQueued && stateTime >= 0.07f + flurryCancelAfterImpact) { EndKick(); break; }   // flurry: heti perään
+                if (ScissorMotion(kickPressed) && stateTime >= kickTime * comboInputFrom) comboScissorQueued = true;
+                else if (kickPressed && stateTime >= kickTime * comboInputFrom) kickQueued = true;
+                if (flurry && (kickQueued || comboScissorQueued) && stateTime >= 0.07f + flurryCancelAfterImpact) { EndKick(); break; }   // flurry: heti perään
                 if (stateTime >= kickTime) EndKick();
                 break;
 
@@ -1942,6 +1950,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (index == 2 && !HasHiKick) { Enter(State.Ground); return; }
         kickComboIndex = index;
         kickQueued = false;
+        if (index == 0 && !flurry) comboScissorQueued = false;   // uusi potkusarja
         attackHit = false;
         PlayGrunt();
         Enter(index == 0 ? State.Kick : index == 1 ? State.SideKick : State.HiKick);
@@ -1962,19 +1971,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Potku loppui: seuraava kombossa, jos K painettiin ajoissa, muuten perusasentoon (kombo alkaa alusta).
     void EndKick()
     {
+        if (comboScissorQueued) { comboScissorQueued = false; if (TryComboScissor()) return; }   // eteen-ylös + K kombossa: saksipotku
         if (flurry && kickQueued && kickComboIndex == 0 && HasHiKick)
         {
-            if (TryComboScissor()) return;   // lyöntien ja matalan potkun jälkeen saksipotku ennen viimeistä
             // flurry: korkea potku heti matalan perään, nostovaihe ohitetaan (alkaa osumakuvasta)
             StartKick(2);
             stateTime = hiKickImpactFrame * hiKickFrameTime;
             return;
         }
-        if (kickQueued && kickComboIndex < 2)
-        {
-            if (kickComboIndex + 1 == 2 && TryComboScissor()) return;   // matala, sivupotku, saksipotku, korkea
-            StartKick(kickComboIndex + 1);
-        }
+        if (kickQueued && kickComboIndex < 2) StartKick(kickComboIndex + 1);
         else Enter(State.Ground);
     }
 
@@ -1989,6 +1994,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void StartComboHit(int index)
     {
+        if (index == 0) comboScissorQueued = false;   // uusi lyöntisarja
         punchFromRun = index == 0 && state == State.Ground && running;
         attackHit = false;
         kneeStrikeQueued = false; bigHookQueued = false;
