@@ -536,6 +536,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] smallItem;
         [Tooltip("Ison esineen (laatikko, pöytä) nosto pään yli (6 kuvaa) ja heitto (6 kuvaa).")]
         public Sprite[] bigLift, bigThrow;
+        [Tooltip("Kävely iso esine pään yllä (10 kuvaa).")]
+        public Sprite[] bigCarry;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -648,7 +650,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // esineet: pullot ja lasit (pieni) sekä laatikot, tynnyrit ja pöydät (iso); tuolit ja renkaat eivät
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
-        carryWalkSprites = null; carryPoseSprite = null; carrySprites = null;
+        carryWalkSprites = a.bigCarry != null && a.bigCarry.Length > 0 ? a.bigCarry : null; carryPoseSprite = null; carrySprites = null;
         if (a.bigLift != null && a.bigLift.Length >= 6 && a.bigThrow != null && a.bigThrow.Length >= 6)
         {
             var L = a.bigLift; var T = a.bigThrow;

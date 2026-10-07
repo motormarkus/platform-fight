@@ -417,7 +417,7 @@ public static class BeatEmUpSetup
         a.special = L("tornado"); a.cartwheel = L("karrynpyora");
         a.counterThrow = L("heitto"); a.block = L("suojaus");
         a.thrown = L("heitetty"); a.fall = L("kaatuminen"); a.getup = L("ylosnousu");
-        a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto");
+        a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto");
         pc.heroine = a;
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
