@@ -4020,6 +4020,7 @@ public static class BeatEmUpSetup
         var up = EnemySheet("motoristi_ylosnousu", report);
         if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
         e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
+        e.fightsEveryone = true;   // käy kaikkien kimppuun (puliukon tapaan)
         e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f;
         var block = EnemySheet("motoristi_torjunta", report);   // torjuu vasta, kun omat kuvat ovat olemassa
         if (block.Length >= 2) { e.blockSprites = block; e.blockChance = 0.2f; } else e.blockChance = 0f;
@@ -4203,6 +4204,7 @@ public static class BeatEmUpSetup
                 Vector2 ep = pt(px.x, px.y);
                 ego.transform.position = new Vector3(ep.x, ep.y, 0f);
                 var e = ego.GetComponent<Enemy>(); e.wakeDistance = 100f; e.joinsFightWhenSquadComes = false;
+                if (!e.fightsEveryone) e.huntsBrawlers = true;   // Lippis ja Punkkari: prätkäjätkän ja puliukon kimppuun, eivät toistensa
                 ego.SetActive(false);
                 fighters.Add(e); names.Add(tName);
             }

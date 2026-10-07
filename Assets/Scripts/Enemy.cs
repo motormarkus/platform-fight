@@ -185,6 +185,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Kaikkien kimppuun (portsari)")]
     [Tooltip("Hyökkää lähimmän kimppuun: pelaaja tai muut vihut (ei omiaan). Lyödyt vihut lyövät takaisin.")]
     public bool fightsEveryone;
+    [Tooltip("Tavallinen vihu käy myös kaikkien kimppuun käyvien (fightsEveryone: puliukko, prätkäjätkä) kimppuun, ei omiensa.")]
+    public bool huntsBrawlers;
     [Tooltip("Liittolainen (esim. laivan seilori): taistelee vain muita vihuja vastaan, ei koskaan pelaajaa. Muut vihut hyökkäävät myös liittolaisten kimppuun.")]
     public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
@@ -1350,7 +1352,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enemy pick = null; float best = dp - 0.5f;
             foreach (var e in All)
             {
-                if (!e.ally || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                if (!(e.ally || (huntsBrawlers && e.fightsEveryone)) || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
                 Vector3 q = e.transform.position;
                 float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
                 if (d < best) { best = d; pick = e; }
@@ -1366,7 +1368,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enemy pick = null;
             foreach (var e in All)
             {
-                if (e == this || e.fightsEveryone || e.IsDead || TargetDown(e)) continue;
+                if (e == this || (e.fightsEveryone && e.displayName == displayName) || e.IsDead || TargetDown(e)) continue;   // samannimiset (puliukot) eivät tappele keskenään
                 Vector3 q = e.transform.position;
                 if (Mathf.Abs(q.x - me.x) > 12f) continue;
                 float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
@@ -1471,7 +1473,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void GotHitBy(Enemy a)
     {
         if (a == null || a == this) return;
-        if (fightsEveryone && a.fightsEveryone) return;
+        if (fightsEveryone && a.fightsEveryone && a.displayName == displayName) return;
         if (ally && a.ally) return;
         enemyTarget = a;
         grudgeUntil = Time.time + 5f;
