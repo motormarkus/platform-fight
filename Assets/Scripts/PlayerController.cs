@@ -561,6 +561,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [HideInInspector] public Sprite[] pummelSprites;
     [Header("Rinnuksista-lyönnit (Ruby: taakse, alas, eteen + lyönti)")]
     public int pummelDamage = 4, pummelFinalDamage = 8;
+    [Tooltip("Rinnuksista-lyöntien staminakulutus (oma arvonsa, ei sama kuin puskulla).")]
+    public float pummelStamina = 22f;
     public float pummelReach = 1.6f;
     Enemy pummelTarget;
     int pummelCount;
@@ -762,6 +764,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
         pummelSprites = a.pummel;
+        // Rubyn kestävyys: liikkeet kuluttavat vähemmän ja stamina palautuu nopeammin kuin Roccolla
+        jumpStamina *= 0.8f; specialStamina *= 0.8f; pushStamina *= 0.8f; throwStamina *= 0.8f;
+        runStaminaPerSecond *= 0.8f; staminaRegenPerSecond *= 1.3f; staminaRegenWait *= 0.8f;
         carryWalkSprites = a.bigCarry != null && a.bigCarry.Length > 0 ? a.bigCarry : null; carryPoseSprite = null; carrySprites = null;
         if (a.bigLift != null && a.bigLift.Length >= 6 && a.bigThrow != null && a.bigThrow.Length >= 6)
         {
@@ -893,7 +898,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pushStamina)) { StartPummel(pummelDir); break; }
+                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
