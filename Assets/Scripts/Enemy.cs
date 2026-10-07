@@ -1749,6 +1749,26 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool CanBeGrabbed => !ally && (state == State.Idle || state == State.Block || state == State.Chase || state == State.Windup
                                           || state == State.Punch || state == State.Recover || state == State.Hurt);
 
+    /// Otteesta irti tavallisena kaatavana iskuna (Rubyn viimeinen lyönti): kaatuu taaksepäin kuin kaatavasta lyönnistä, ei heittolentoa eikä pyörimistä.
+    public void ReleaseKnockdown(int damage, float attackerX)
+    {
+        if (state != State.Held) return;
+        artSet = null; artThrow = false; flightArt = false; thrownByPlayer = false; launched = false;
+        spinRot = 0f; heldPose = -1;
+        awake = true;
+        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage));
+        LastHit = this; LastHitTime = Time.time;
+        bool fromLeft = attackerX < transform.position.x;
+        facingRight = !fromLeft;
+        flashTimer = 0.1f;
+        shakeUntil = HitFx.ShakeUntil(true);
+        PlayHurtSound();
+        knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f);
+        verticalVel = 7f;
+        height = Mathf.Max(height, 0.05f);
+        Enter(State.Airborne);
+    }
+
     /// Isku pidettynä (Rubyn rinnuksista-lyönnit): vahinko ja välähdys, ei kaadu (pysyy kiinni).
     public void HitWhileHeld(int damage)
     {

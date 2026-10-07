@@ -657,8 +657,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
             else
             {
-                // viimeinen lyönti: irti, vihu lentää selälleen taaksepäin
-                pummelTarget.ReleaseThrow(d * 7f, 6f, pummelFinalDamage);
+                // viimeinen lyönti: irti, vihu kaatuu taaksepäin kuin tavallisesta kaatavasta lyönnistä
+                pummelTarget.ReleaseKnockdown(pummelFinalDamage, me.x);
                 pummelTarget = null;
                 HitFx.OnHit(true);
                 PlayGrunt();
@@ -1530,7 +1530,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // rinnuksista-lyönnit keskeytyivät (esim. ovi tai kuolema): vihu irti, ettei jää otteeseen
         if (state == State.Pummel && s != State.Pummel && pummelTarget != null)
         {
-            pummelTarget.ReleaseThrow((facingRight ? 1f : -1f) * 3f, 3f, 0);
+            pummelTarget.ReleaseKnockdown(0, transform.position.x);
             pummelTarget = null;
         }
         state = s;
