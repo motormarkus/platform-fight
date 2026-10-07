@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -833,6 +833,7 @@ public static class BeatEmUpSetup
 
     // S-Clubin tanssija tangon vasemmalla puolella (napatanssijat ovat El Loipparissa)
     const float ClubDancerPx = 690f;
+    const float ClubDancer2Px = 860f;   // toinen tanssija tangon oikealla puolella
 
     [MenuItem("Beat em up/11. Lisää tanssija S-Clubin lavalle")]
     static void AddDancers()
@@ -867,9 +868,33 @@ public static class BeatEmUpSetup
         var d = go.AddComponent<Dancer>();
         d.sprites = sprites;
         d.frameTime = 0.125f;                          // videon tahti (joka kolmas ruutu, 24 fps)
+        // toinen tanssija tangon oikealla puolella: kolme tanssia peräkkäin (kolmannessa spagaatti, leveämmät ruudut)
+        var second = new List<Sprite>();
+        foreach (var part in new[] { "klubitanssija_b1", "klubitanssija_b2", "klubitanssija_b3" })
+        {
+            string pp = FindTexture(part);
+            if (pp == null) continue;
+            SetupAndSlice(pp);
+            second.AddRange(LoadSprites(part).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int n) ? n : 0));
+        }
+        if (second.Count > 0)
+        {
+            var go2 = new GameObject("Tanssija 2");
+            go2.transform.SetParent(root.transform, false);
+            go2.transform.position = new Vector3(left + ClubDancer2Px / ppu, top - StageFeetRow / ppu, 0f);
+            go2.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);
+            var sr2 = go2.AddComponent<SpriteRenderer>();
+            sr2.sprite = second[0];
+            sr2.sortingOrder = -9000;
+            sr2.color = sr.color;
+            var d2 = go2.AddComponent<Dancer>();
+            d2.sprites = second.ToArray();
+            d2.keepOrder = true;                       // kolme sarjaa peräkkäin: ei lajitella numeron mukaan
+            d2.frameTime = 0.125f;
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        Info( $"S-Clubin lavalla tanssija ({sprites.Length} kuvaa, kaksi tanssia peräkkäin, silmukka).\nNapatanssijat ovat El Loipparissa (kohta 52).\n\nTallenna scene (Ctrl+S).");
+        Info( $"S-Clubin lavalla kaksi tanssijaa: {sprites.Length} + {second.Count} kuvaa, tanssit peräkkäin silmukkana.\nNapatanssijat ovat El Loipparissa (kohta 52).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Punkkari ----------------
