@@ -4220,6 +4220,26 @@ public static class BeatEmUpSetup
                 fighters.Add(biker); names.Add("Prätkäjätkä");
             }
             pf.fighters = fighters.ToArray();
+            // portsari vartioi baarissa teräsoven vieressä (vartioasento), tulee tappeluun ovesta
+            var bouncerT = all.FirstOrDefault(en => en != null && en.gameObject.name == "Portsari");
+            string vp = FindTexture("portsari_vahti");
+            if (bouncerT != null && vp != null)
+            {
+                SetupAndSlice(vp);
+                var guardIdle = LoadSprites("portsari_vahti").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                var g = Object.Instantiate(bouncerT.gameObject, froot.transform);
+                g.name = "Portsari (baarin vahti)";
+                g.transform.position = new Vector3(barBack.x - 1.4f, btop - 640f / bppu, 0f);
+                var ge = g.GetComponent<Enemy>();
+                pf.guardFightIdle = ge.idleSprites; pf.guardFightIdleFrameTime = ge.idleFrameTime;
+                if (guardIdle.Length > 0) { ge.idleSprites = guardIdle; ge.idleFrameTime = 0.16f; }
+                ge.wakeDistance = -1f;              // ei herää ohi kävellessä, vasta tappelusta tai osumasta
+                ge.joinsFightWhenSquadComes = false; ge.wanderMinX = ge.wanderMaxX = 0f;
+                g.SetActive(true);
+                pf.guard = ge;
+                pf.guardEntry = exit.transform.position + new Vector3(1.2f, -0.6f, 0f);   // pokerihuoneen teräsoven edestä
+                names.Add("portsari ovesta");
+            }
             fightInfo = $"\nTappelu: loppuanimaation jälkeen musta häivytys, {chairs.Count} tuolia ja {string.Join(", ", names)}.";
         }
         else fightInfo = "\nTappelu puuttuu: tarvitaan " + PokerFightBgPath + " ja pokerin idle-kuvat.";

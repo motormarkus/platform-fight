@@ -15,6 +15,15 @@ public class PokerFight : MonoBehaviour
     [Tooltip("Ilmestyvät tappelun alkaessa (pelin tuolit).")]
     public GameObject[] activate;
     public Enemy[] fighters;
+    [Header("Portsari (vartioi baarissa teräsoven edessä, tulee tappeluun)")]
+    public Enemy guard;
+    [Tooltip("Tappeluasento (vartioasennon tilalle, kun hän tulee tappeluun).")]
+    public Sprite[] guardFightIdle;
+    public float guardFightIdleFrameTime = 0.26f;
+    public Vector2 guardEntry;
+    [Tooltip("Viive häivytyksen jälkeen ennen kuin portsari tulee ovesta (s).")]
+    public float guardDelay = 2.5f;
+    float guardT = -1f;
     public float holdAfterFinale = 0.6f, fadeOut = 0.35f, blackHold = 0.2f, fadeIn = 0.4f;
 
     int phase;
@@ -53,6 +62,22 @@ public class PokerFight : MonoBehaviour
                 if (alpha <= 0f) phase = 5;
                 break;
         }
+        if (guardT >= 0f)
+        {
+            guardT += dt;
+            if (guardT >= guardDelay) { guardT = -1f; GuardComes(); }
+        }
+    }
+
+    /// Portsari kuulee metelin: siirtyy baarista teräsovesta pokerihuoneeseen ja käy kaikkien kimppuun.
+    void GuardComes()
+    {
+        if (guard == null || guard.IsDead) return;
+        if (guardFightIdle != null && guardFightIdle.Length > 0) { guard.idleSprites = guardFightIdle; guard.idleFrameTime = guardFightIdleFrameTime; }
+        guard.transform.position = new Vector3(guardEntry.x, guardEntry.y, 0f);
+        guard.fightsEveryone = true;
+        guard.gameObject.SetActive(true);
+        guard.WakeUp();
     }
 
     void Swap()
@@ -67,6 +92,7 @@ public class PokerFight : MonoBehaviour
             e.gameObject.SetActive(true);
             e.WakeUp();
         }
+        if (guard != null) guardT = 0f;
     }
 
     void OnGUI()
