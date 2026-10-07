@@ -3806,7 +3806,8 @@ public static class BeatEmUpSetup
         ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
         ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)),
-        ("Rokkimimmi", new Vector2(1250f, 0.02f)) };   // tiskillä (neutraali), liittyy kun tappelu alkaa
+        ("Rokkimimmi", new Vector2(1250f, 0.02f)),
+        ("Prätkäjätkä", new Vector2(1820f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -3977,7 +3978,7 @@ public static class BeatEmUpSetup
             br.counterSpot = new Vector2(X(1500f), Depth(1500f, 0.02f));
             br.exitSpot = new Vector2(X(StreetBarExitPx), Depth(StreetBarExitPx, 0.05f));
             br.brawl = brawl;
-            br.partner = members.FirstOrDefault(m => m != null && m.displayName == "Prätkäjätkä");
+            br.partner = members.LastOrDefault(m => m != null && m.displayName == "Prätkäjätkä");   // tiskin luona oleva
             var kgo = new GameObject("Suudelma"); kgo.transform.SetParent(root.transform, false);
             br.kissRenderer = kgo.AddComponent<SpriteRenderer>();
             ngo.transform.position = br.counterSpot;

@@ -21,6 +21,10 @@ public class BarRegular : MonoBehaviour
     public Vector2 kissOffset = new Vector2(-0.55f, 0f);
     public Vector2 counterTime = new Vector2(6f, 12f), smokeTime = new Vector2(6f, 10f), kissTime = new Vector2(7f, 11f);
     [Range(0f, 1f)] public float kissChance = 0.35f;
+    [Tooltip("Alussa suudellaan (kun pelaaja tulee sisään); suudelma kestää startKissTime sekuntia sen jälkeen, kun kuva näkyy ruudulla.")]
+    public bool startKissing = true;
+    public float startKissTime = 6f;
+    bool firstKiss, justKissed = true;   // suudelman jälkeen ensin tupakalle
     [Tooltip("Tappelun tunnistus: kun joku näistä herää tai saa osuman.")]
     public BarBrawl brawl;
 
@@ -42,6 +46,12 @@ public class BarRegular : MonoBehaviour
         transform.position = counterSpot;
         left = Random.Range(counterTime.x, counterTime.y);
         if (kissRenderer != null) kissRenderer.enabled = false;
+        if (startKissing && partner != null && kissRenderer != null && Has(kiss))
+        {
+            transform.position = (Vector2)partner.transform.position + new Vector2(-1.0f, -0.05f);
+            StartKiss(); Enter(S.Kiss); t = 10f * frameTime;   // suudelma käynnissä (alku ohitetaan)
+            left = startKissTime; firstKiss = true;
+        }
     }
 
     static bool Has(Sprite[] a) => a != null && a.Length > 0;
@@ -73,11 +83,12 @@ public class BarRegular : MonoBehaviour
                 left -= dt;
                 if (left <= 0f)
                 {
-                    if (partner != null && Has(kiss) && partner.isActiveAndEnabled && !partner.IsAwake && Random.value < kissChance) Enter(S.WalkToKiss);
+                    if (partner != null && Has(kiss) && partner.isActiveAndEnabled && !partner.IsAwake && Random.value < kissChance && !justKissed) Enter(S.WalkToKiss);
                     else Enter(S.TurnOut);
                 }
                 break;
             case S.TurnOut:
+                justKissed = false;
                 if (!Has(turn)) { Enter(S.Smoke); left = Random.Range(smokeTime.x, smokeTime.y); break; }
                 sr.sprite = turn[Mathf.Min((int)(t / frameTime), turn.Length - 1)];
                 if (t >= turn.Length * frameTime) { Enter(S.Smoke); left = Random.Range(smokeTime.x, smokeTime.y); }
@@ -108,11 +119,11 @@ public class BarRegular : MonoBehaviour
                     if (i < intro) kissRenderer.sprite = kiss[i];
                     else { int n = kiss.Length - intro, p = 2 * n - 2; int j = p > 0 ? (i - intro) % p : 0; kissRenderer.sprite = kiss[intro + (j < n ? j : p - j)]; }
                 }
-                left -= dt;
-                if (left <= 0f) { EndKiss(); Enter(S.WalkBack); }
+                if (!firstKiss || kissRenderer.isVisible) left -= dt;   // ensimmäinen suudelma kestää, kunnes pelaaja on nähnyt sen
+                if (left <= 0f) { firstKiss = false; EndKiss(); Enter(S.WalkBack); }
                 break;
             case S.WalkBack:
-                if (WalkTo(counterSpot, dt)) { Enter(S.Counter); left = Random.Range(counterTime.x, counterTime.y); }
+                if (WalkTo(counterSpot, dt)) { Enter(S.Counter); left = Random.Range(counterTime.x * 0.5f, counterTime.y * 0.5f); }   // tiskille, sitten tupakalle
                 break;
             case S.Leave:
                 if (WalkTo(exitSpot, dt, 1.4f)) { Enter(S.Gone); sr.enabled = false; }
