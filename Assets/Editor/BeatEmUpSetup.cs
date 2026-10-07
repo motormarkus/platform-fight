@@ -86,6 +86,7 @@ public static class BeatEmUpSetup
             AddSalonFight();        // salin tappelu: rosvot käytävän ovelta, seilorit salin perältä
             CreateStreetBar();      // kadun baari: BAR-ovesta sisään (ovi aukeaa)
             CreateBarRoom();        // pokerihuone baarin takahuoneena (oikean nurkan teräsovesta)
+            AddStreetBarFurniture(); // kadun baariin pöydät, tuolit ja tappelijat
             ApplyWoodBreakSounds(); // puu1/puu2 kaikille hajoaville pöydille ja laatikoille
         }
         finally { batch = false; }
@@ -3725,6 +3726,144 @@ public static class BeatEmUpSetup
         exit.spawnPoint = new Vector2(left + StreetBarDoorPx / BackgroundPPU, streetArea.maxDepthY - 0.25f);
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään{(barDoorAnim != null ? ", ovi aukeaa" : " (avautuva ovi puuttuu: kohta 66)")}, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, oikean nurkan teräsovesta pokerihuoneeseen (kohta 67).\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
+    // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
+    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.3f), new Vector2(2450f, 0.6f), new Vector2(2880f, 0.28f), new Vector2(2180f, 0.95f) };
+    static readonly (string who, Vector2 at)[] StreetBarFighters = {
+        ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
+        ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)) };
+
+    [MenuItem("Beat em up/68. Kadun baari: pöydät, tuolit ja tappelijat (2 Kovista, prätkäjätkä, 2 Punkkaria)")]
+    static void AddStreetBarFurniture()
+    {
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
+        var barBg = GameObject.Find("Kadun baari");
+        string tp = FindTexture("poyta");
+        if (area == null || barBg == null || tp == null) { Info("Tee ensin kohta 65 (kadun baari). Tarvitaan myös poyta.png."); return; }
+        var old = GameObject.Find("Kadun baarin kalusteet");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var bsr = barBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        float X(float px) => left + px / ppu;
+        float Depth(float px, float k) { float x = X(px); return Mathf.Lerp(area.MaxDepthAtX(x, area.maxDepthY) - 0.3f, top - 860f / ppu, k); }
+        Sprite[] Sheet(string n)
+        {
+            string bp = FindTexture(n); if (bp == null) return null;
+            SetupAndSlice(bp);
+            return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        }
+        SetupAndSlice(tp);
+        var table = Sheet("poyta");
+        var kinds = new List<(Sprite[] sp, string stain, float sc)>();
+        foreach (var (n, st, sc) in new[] { ("pullo_olut", "olut", 1f), ("pullo_sininen", "sininen", 1.12f), ("pullo_likoori", "likoori", 1.25f), ("pullo_vodka", "vodka", 1.4f) })
+        { var sp = Sheet(n); if (sp != null && sp.Length >= 7) kinds.Add((sp, st, sc)); }
+        var glasses = new List<(Sprite[] sp, string stain, bool tall)>();
+        foreach (var (n, st, tall) in new[] { ("pullo_lasi_tumbler", "-", false), ("pullo_lasi_viski", "likoori", false), ("pullo_lasi_olut", "olut", true), ("pullo_lasi_tuoppi", "-", true) })
+        { var sp = Sheet(n); if (sp != null && sp.Length >= 5) glasses.Add((sp, st, tall)); }
+        var glassSnd = LoadClips("Assets/Audio/sfx", "glass");
+        var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
+        var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+            .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+
+        var root = new GameObject("Kadun baarin kalusteet");
+        Undo.RegisterCreatedObjectUndo(root, "Kadun baarin kalusteet");
+        var rnd = new System.Random(23);
+        float tableTop = 1.28f * TableScale - 0.04f;
+        int bottles = 0, glassN = 0, chairs = 0;
+        foreach (var v in StreetBarTables)
+        {
+            var go = new GameObject("Pöytä");
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(X(v.x), Depth(v.x, v.y), 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.35f);
+            var c = go.AddComponent<Crate>();
+            c.body = vis; c.shadow = sh;
+            c.sprites = new[] { table[0], table[1], table[2] };
+            c.breakSprites = new[] { table[3], table[4], table[5], table[6] };
+            c.breakFrameTime = 0.1f; c.hitsToBreak = 3; c.breakable = true; c.footOffset = 0.04f;
+            c.visualScale = TableScale; c.shadowWidth = 2.6f; c.carryLower = 0.86f * TableScale; c.plowThrough = true;
+            c.hitRadiusX = 1.4f * TableScale; c.debrisTime = 6f;
+            c.moneyChance = 0.3f; c.energyChance = 0.15f; c.throwDamage = 22;
+            c.breakSounds = wood;
+            vis.sprite = table[0];
+            // pullopöytä: 6–8 pulloa ja lasia, ei annoksia
+            var slots = new List<float>();
+            for (int k = 0; k < 10; k++) slots.Add(Mathf.Lerp(-1.1f, 1.1f, (k + 0.5f) / 10f));
+            int items = 6 + rnd.Next(3);
+            for (int i = 0; i < items && slots.Count > 0; i++)
+            {
+                int si = rnd.Next(slots.Count); float sx = slots[si]; slots.RemoveAt(si);
+                var bGo = new GameObject("Pullo");
+                bGo.transform.SetParent(root.transform, false);
+                bGo.transform.position = go.transform.position;
+                var b = bGo.AddComponent<Bottle>();
+                if (glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(5) < 2))
+                {
+                    var gl = glasses[rnd.Next(glasses.Count)];
+                    b.sprites = gl.sp; b.stainKind = gl.stain; b.pivotY = gl.tall ? 0.2f : 0.15f; bGo.name = "Lasi"; glassN++;
+                }
+                else if (kinds.Count > 0)
+                {
+                    var k = kinds[rnd.Next(kinds.Count)];
+                    b.sprites = k.sp; b.stainKind = k.stain; b.scale = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble());
+                    bottles++;
+                }
+                else { Object.DestroyImmediate(bGo); continue; }
+                b.breakSounds = glassSnd; b.table = c;
+                b.tableX = (sx + (float)(rnd.NextDouble() - 0.5) * 0.08f) * TableScale; b.tableTop = tableTop;
+            }
+            // tuolit pöydän päihin, selkänoja ulospäin
+            if (chairSprite != null)
+                foreach (float side in new[] { -1f, 1f })
+                {
+                    var cgo = new GameObject("Tuoli");
+                    cgo.transform.SetParent(root.transform, false);
+                    cgo.transform.position = go.transform.position + new Vector3(side * 2.1f * TableScale, -0.05f, 0f);
+                    var cb = new GameObject("Visual").AddComponent<SpriteRenderer>(); cb.transform.SetParent(cgo.transform, false);
+                    cb.sprite = chairSprite; cb.flipX = side > 0f;
+                    var csh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); csh.transform.SetParent(cgo.transform, false);
+                    csh.color = new Color(0f, 0f, 0f, 0.3f);
+                    var ch = cgo.AddComponent<Chair>(); ch.body = cb; ch.shadow = csh; ch.breakSounds = wood;
+                    chairs++;
+                }
+        }
+
+        // tappelijat: Kovikset ja Punkkarit samaa porukkaa (eivät lyö toisiaan, käyvät prätkäjätkän kimppuun), prätkäjätkä kaikkia vastaan
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var members = new List<Enemy>();
+        var names = new List<string>();
+        foreach (var (who, at) in StreetBarFighters)
+        {
+            Enemy e;
+            if (who == "Prätkäjätkä") e = MakeBiker(root.transform);
+            else
+            {
+                var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
+                if (tmpl == null) continue;
+                var ego = Object.Instantiate(tmpl.gameObject, root.transform);
+                ego.name = who + " (baari)";
+                e = ego.GetComponent<Enemy>();
+                e.huntsBrawlers = true;
+            }
+            if (e == null) continue;
+            e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f);
+            e.wakeDistance = 6f; e.joinsFightWhenSquadComes = false;
+            e.gameObject.SetActive(true);
+            members.Add(e); names.Add(who);
+        }
+        var brawl = root.AddComponent<BarBrawl>();
+        brawl.members = members.ToArray();
+        // portsari vartioi teräsovella (kohta 67) ja tulee mukaan tappelun alkaessa
+        var guardGo = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.name == "Portsari (baarin vahti)");
+        var pf = Object.FindFirstObjectByType<PokerFight>();
+        if (guardGo != null) { brawl.guard = guardGo; if (pf != null) { brawl.guardFightIdle = pf.guardFightIdle; brawl.guardFightIdleFrameTime = pf.guardFightIdleFrameTime; } }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Kadun baariin {StreetBarTables.Length} pöytää ({bottles} pulloa, {glassN} lasia) ja {chairs} tuolia.\nTappelijat: {string.Join(", ", names)}." +
+             (guardGo != null ? "\nPortsari tulee ovelta mukaan, kun tappelu alkaa." : "\nPortsari puuttuu: aja kohta 67.") + "\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Salin tappelu ----------------

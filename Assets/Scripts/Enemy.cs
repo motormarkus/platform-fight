@@ -425,6 +425,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void OnEnable() { All.Add(this); }
     /// Herää heti (portsarit tulevat ovesta tappelun alkaessa).
     public void WakeUp() { awake = true; }
+    public bool IsAwake => awake;
     void OnDisable() { All.Remove(this); }
 
     void Awake()
