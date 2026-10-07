@@ -629,6 +629,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // windmill: ponnistus (0–7) ripeästi, pyörähdys (8–23) rauhallisemmin, nousu asentoon (24–35)
                 kipUpTimes = new float[36];
                 for (int i = 0; i < 36; i++) kipUpTimes[i] = i < 8 ? 0.045f : i < 24 ? 0.07f : 0.05f;
+                getupSweep = true;
             }
         }
         // esineet: pullot ja lasit (pieni) sekä laatikot, tynnyrit ja pöydät (iso); tuolit ja renkaat eivät
@@ -1339,6 +1340,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.KipUp:
+                if (getupSweep && kipUpTimes != null && !kipUpAfterOwnThrow)
+                {
+                    // jalat pyörivät kuvissa 8–23: osuu niiden aikana
+                    if (stateTime < ThrowPose.Start(kipUpTimes, 8)) getupHits.Clear();
+                    else if (stateTime <= ThrowPose.Start(kipUpTimes, 24)) GetupSweep();
+                }
                 if (stateTime >= (kipUpTimes != null ? ThrowPose.Total(kipUpTimes) : kipUpSprites.Length * kipUpFrameTime))
                 {
                     // heitetyksi joutumisen jälkeen hetki suojaa; oman heiton jälkeen ei (ei välkettä)
@@ -1409,6 +1416,31 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] kipUpSprites;
     public float kipUpFrameTime = 0.1f;
     float[] kipUpTimes;   // kuvakohtaiset ajat (Rubyn windmill), null = tasainen kipUpFrameTime
+    [Tooltip("Windmill-nousu tönäisee ympärillä olevat kumoon (vain kaaduttua, ei oman heiton jälkeen).")]
+    public int getupSweepDamage = 5;
+    public float getupSweepReach = 2.0f;
+    bool getupSweep;   // Ruby: nousun pyörähdys on hyökkäys
+    readonly System.Collections.Generic.HashSet<Enemy> getupHits = new System.Collections.Generic.HashSet<Enemy>();
+
+    /// Nousun pyörähdys: osuu kerran jokaiseen lähellä olevaan molemmin puolin, pieni vahinko ja kaato.
+    void GetupSweep()
+    {
+        Vector3 me = transform.position;
+        bool any = false;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead || e.ally || getupHits.Contains(e)) continue;
+            Vector3 p = e.transform.position;
+            if (Mathf.Abs(p.x - me.x) > getupSweepReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
+            getupHits.Add(e);
+            if (e.TakeHit(getupSweepDamage, me.x, true))
+            {
+                any = true;
+                HitSpark.Spawn(new Vector3(p.x - Mathf.Sign(p.x - me.x) * 0.3f, p.y + 1.0f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
+            }
+        }
+        if (any) HitFx.OnHit(false);
+    }
     float heldRot;          // kuvan kierto nostossa ja lennossa (astetta), jos omia kuvia ei ole
     int heldPose;           // mikä kuvista 0–3 näytetään nostossa
     int pendingDamage;
