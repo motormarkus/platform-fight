@@ -3748,7 +3748,7 @@ public static class BeatEmUpSetup
             s2.name = "Kadun baarin Sohvi";
             s2.transform.position = new Vector3(X(StreetBarSohviPx), Y(StreetBarCounterTopRow), 0f);
             s2.transform.localScale = clubSohvi.transform.localScale * 0.85f;
-            var ssr = s2.GetComponent<SpriteRenderer>(); if (ssr != null) ssr.sortingOrder = -9500;   // taustan edessä, hahmojen takana
+            var s2sr = s2.GetComponent<SpriteRenderer>(); if (s2sr != null) s2sr.sortingOrder = -9500;   // taustan edessä, hahmojen takana
             Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
         }
         if (clubShop != null)
