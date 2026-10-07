@@ -3970,7 +3970,7 @@ public static class BeatEmUpSetup
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
-        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_kaatuminen", "motoristi_ylosnousu" })
+        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3998,7 +3998,9 @@ public static class BeatEmUpSetup
         var up = EnemySheet("motoristi_ylosnousu", report);
         if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
         e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
-        e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f; e.blockChance = 0.2f;
+        e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f;
+        var block = EnemySheet("motoristi_torjunta", report);   // torjuu vasta, kun omat kuvat ovat olemassa
+        if (block.Length >= 2) { e.blockSprites = block; e.blockChance = 0.2f; } else e.blockChance = 0f;
         e.moveSpeedX = 2.8f; e.moveSpeedY = 1.4f;
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
         e.wakeDistance = 100f; e.retreatChance = 0f;
