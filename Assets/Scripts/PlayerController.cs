@@ -583,6 +583,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return 0;
     }
 
+    /// Onko edessä hereillä oleva vihollinen (ei liittolainen) annetun matkan sisällä.
+    bool FoeInFront(float range)
+    {
+        Vector3 me = transform.position; float d = facingRight ? 1f : -1f;
+        foreach (var e in Enemy.All)
+        {
+            if (e == null || e.IsDead || e.ally || !e.isActiveAndEnabled || !e.IsAwake) continue;
+            Vector3 p = e.transform.position; float dx = (p.x - me.x) * d;
+            if (dx > -0.3f && dx <= range && Mathf.Abs(p.y - me.y) <= attackDepth + 0.2f) return true;
+        }
+        return false;
+    }
+
     void StartPummel(int dir)
     {
         facingRight = dir > 0;
@@ -933,7 +946,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     }
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
-                    if (HasCounterThrow) { Enter(State.Catch); break; }
+                    if (HasCounterThrow && FoeInFront(2.4f)) { Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                 }
                 if (punchPressed && Bottle.Held != null)
                 {
