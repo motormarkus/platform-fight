@@ -4150,10 +4150,10 @@ public static class BeatEmUpSetup
     // baari_poker_idle.png (33 kuvaa) ja baari_poker_idle2.png (36 kuvaa), 896 × 504, 12 fps, saumat ristihäivytetty,
     // yhteinen maski; solun vasen yläkulma kuvassa (392, 232).
     const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
-    const float PokerRoomPPU = 110f;   // pokerihuoneen mittakaava: huone n. 14 yks leveä, videon hahmot n. 1.3 × hero (150 oli liian kapea)
+    const float PokerRoomPPU = 118f;   // pokerihuoneen mittakaava: laajennettu kuva n. 21.5 yks leveä, videon hahmot n. 1.3 × hero
+    // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
+    static readonly Vector2 PokerRoomOffset = new Vector2(470f, 62f);
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
-    const string PokerExtPath = "Assets/Sprites/Taustat/baari_pokeri_reuna.png", PokerFightExtPath = "Assets/Sprites/Taustat/baari_pokeri_tappelu_reuna.png";
-    static readonly Vector4 PokerExtCanvas = new Vector4(882f, 265f, 3300f, 1850f);   // kangas keskitetty kameraan; huoneen yläreuna ruudun yläreunassa
     const float BarRoomX0 = 50000f;
     const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
     const float BarRoomTableRow = 740f;      // pöydän, tuolien ja maton etureuna: tätä taemmas ei kävellä keskellä
@@ -4250,15 +4250,14 @@ public static class BeatEmUpSetup
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
-        float halfW = CamHalf * 16f / 9f;
         ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
-        float ppu = PokerRoomPPU;   // pelin mittakaavassa: videon hahmot ≈ heron kokoisia; kamera zoomaa ja seuraa pystysuunnassa
+        float ppu = PokerRoomPPU;   // laajennettu kuva täyttää ruudun leveyden; videon hahmot n. 1.3 × hero
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
         ti.spritePixelsPerUnit = ppu;
         ti.filterMode = FilterMode.Bilinear;
         ti.textureCompression = TextureImporterCompression.Uncompressed;
-        ti.maxTextureSize = 2048;
+        ti.maxTextureSize = 4096;
         ti.mipmapEnabled = false;
         var st = new TextureImporterSettings();
         ti.ReadTextureSettings(st);
@@ -4273,47 +4272,30 @@ public static class BeatEmUpSetup
         var sr = bg.AddComponent<SpriteRenderer>();
         sr.sprite = sprite;
         sr.sortingOrder = -10000;
-        // jatkettu kangas on keskitetty kameraan; huone sen yläosassa (lattiaa alas)
-        float extDy = (PokerExtCanvas.w * 0.5f - (PokerExtCanvas.y + srcH * 0.5f)) / ppu;
-        float cy = CamY + extDy;
-        bg.transform.position = new Vector3(BarRoomX0 + wU * 0.5f, cy, 0f);
+        // kuvan yläreuna ruudun yläreunassa (kamera takaseinän luona); lattiaa alas, kamera seuraa
+        float top = CamY + CamHalf;
+        bg.transform.position = new Vector3(BarRoomX0 + wU * 0.5f, top - hU * 0.5f, 0f);
         Undo.RegisterCreatedObjectUndo(bg, "Baarin sisä");
-        float top = cy + hU * 0.5f;
-        System.Func<float, float, Vector2> pt = (px, row) => new Vector2(BarRoomX0 + px / ppu, top - row / ppu);
-
-        // kuvan ympärille jatkettu lattia, seinä ja katto (tummuu reunoilla), huonekuvan takana
-        SpriteRenderer extSr = null; Sprite fightExt = null;
-        Sprite ImportExt(string path)
-        {
-            var et = AssetImporter.GetAtPath(path) as TextureImporter;
-            if (et == null) return null;
-            et.textureType = TextureImporterType.Sprite; et.spriteImportMode = SpriteImportMode.Single;
-            et.filterMode = FilterMode.Bilinear; et.textureCompression = TextureImporterCompression.Uncompressed;
-            et.maxTextureSize = 4096; et.mipmapEnabled = false;
-            et.SetTextureSettings(st); et.spritePixelsPerUnit = ppu; et.SaveAndReimport();
-            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
-        }
-        var extSprite = ImportExt(PokerExtPath);
-        fightExt = ImportExt(PokerFightExtPath);
-        if (extSprite != null)
-        {
-            var eg = new GameObject("Reuna");
-            eg.transform.SetParent(bg.transform, false);
-            eg.transform.localPosition = new Vector3(0f, -extDy, 0f);   // kankaan keskikohta kameran korkeudella
-            extSr = eg.AddComponent<SpriteRenderer>(); extSr.sprite = extSprite; extSr.sortingOrder = -10001;
-        }
+        // huoneen koordinaatit (alkuperäisen 1536 × 1024 -kuvan pikselit) laajennetun kuvan sisällä
+        System.Func<float, float, Vector2> pt = (px, row) => new Vector2(BarRoomX0 + (px + PokerRoomOffset.x) / ppu, top - (row + PokerRoomOffset.y) / ppu);
+        SpriteRenderer extSr = null; Sprite fightExt = null;   // laajennettu kuva korvaa erilliset reunakuvat
 
         var area = ReuseArea("Alue: Baari");   // sama alue säilyy uudelleenrakennuksessa
         area.areaName = "Baari";
         area.useSidewalk = false;
-        area.maxDepthY = top - BarRoomWallRow / ppu;
-        area.minDepthY = top - (srcH + 330f) / ppu;   // jatketulle lattialle asti
-        area.walkMinX = BarRoomX0 + 0.3f; area.walkMaxX = BarRoomX0 + wU - 0.3f;
-        // kamera paikallaan (koko huone ja sen ympäristö mahtuvat ruutuun), ei zoomia: hahmot samankokoisia kuin muualla
-        area.camSize = 0f; area.camRiseY = 0f; area.camOffsetY = 0f;
-        area.camMinX = area.camMaxX = BarRoomX0 + wU * 0.5f;
+        area.maxDepthY = top - (BarRoomWallRow + PokerRoomOffset.y) / ppu;
+        float bottom = top - hU;
+        area.minDepthY = bottom + 0.7f;
+        area.walkMinX = BarRoomX0 + 0.6f; area.walkMaxX = BarRoomX0 + wU - 0.6f;
+        // kamera: ei zoomia; takaseinän luona kuvan yläreuna ruudun yläreunassa, edessä kamera laskee kuvan alareunaan
+        float frontCam = bottom + CamHalf;
+        area.camSize = 0f; area.camOffsetY = frontCam - CamY; area.camRiseY = Mathf.Max(0.01f, CamY - frontCam);
+        float halfW = CamHalf * 16f / 9f;
+        area.camMinX = BarRoomX0 + Mathf.Min(halfW, wU * 0.5f); area.camMaxX = BarRoomX0 + Mathf.Max(wU - halfW, wU * 0.5f);
+        float leftPx = -PokerRoomOffset.x, rightPx = srcW - PokerRoomOffset.x;   // laajennetun kuvan reunat huoneen koordinaateissa
         // pokeripöytä keskellä ja lipasto oikealla ovat lähempänä kuin seinä
-        area.depthLimits = new[] { pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow), pt(1350f, BarRoomCabinetRow) };
+        area.depthLimits = new[] { pt(leftPx, BarRoomWallRow), pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow),
+                                   pt(1350f, BarRoomCabinetRow), pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow), pt(rightPx, BarRoomWallRow) };
 
         // tappelun tausta (tyhjä huone: pöytä nurin, kortit lattialla), sama rajaus kuin pokerihuoneen kuvassa
         Sprite fightSprite = null;
@@ -4322,7 +4304,7 @@ public static class BeatEmUpSetup
         {
             fti.textureType = TextureImporterType.Sprite; fti.spriteImportMode = SpriteImportMode.Single;
             fti.spritePixelsPerUnit = ppu; fti.filterMode = FilterMode.Bilinear;
-            fti.textureCompression = TextureImporterCompression.Uncompressed; fti.maxTextureSize = 2048; fti.mipmapEnabled = false;
+            fti.textureCompression = TextureImporterCompression.Uncompressed; fti.maxTextureSize = 4096; fti.mipmapEnabled = false;
             fti.SetTextureSettings(st); fti.spritePixelsPerUnit = ppu; fti.SaveAndReimport();
             fightSprite = AssetDatabase.LoadAssetAtPath<Sprite>(PokerFightBgPath);
         }
@@ -4404,7 +4386,8 @@ public static class BeatEmUpSetup
             var pf = froot.AddComponent<PokerFight>();
             pf.loop = pokerLoop; pf.background = sr; pf.fightBackground = fightSprite; pf.area = area;
             pf.extBackground = extSr; pf.fightExtBackground = fightExt;
-            pf.fightDepthLimits = new[] { pt(330f, BarRoomWallRow), pt(1290f, BarRoomWallRow), pt(1350f, BarRoomCabinetRow) };
+            pf.fightDepthLimits = new[] { pt(leftPx, BarRoomWallRow), pt(1290f, BarRoomWallRow), pt(1350f, BarRoomCabinetRow),
+                                          pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow), pt(rightPx, BarRoomWallRow) };
             // pelin tuolit (nosto, lyönti ja heitto kuten El Loipparissa)
             var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
             var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
