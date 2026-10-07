@@ -621,7 +621,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             thrownSprites = new[] { t[0], t[0], t[1], t[2], t[3], t[4], t[5], t[7] };
         }
         if (a.fall != null && a.fall.Length >= 8) { fallSprites = a.fall; hurtSprite = a.fall[1]; }
-        if (a.getup != null && a.getup.Length > 0) { kipUpSprites = a.getup; kipUpFrameTime = 0.045f; }
+        if (a.getup != null && a.getup.Length > 0)
+        {
+            kipUpSprites = a.getup; kipUpFrameTime = 0.045f;
+            if (a.getup.Length == 36)
+            {
+                // windmill: ponnistus (0–7) ripeästi, pyörähdys (8–23) rauhallisemmin, nousu asentoon (24–35)
+                kipUpTimes = new float[36];
+                for (int i = 0; i < 36; i++) kipUpTimes[i] = i < 8 ? 0.045f : i < 24 ? 0.07f : 0.05f;
+            }
+        }
         // esineet: pullot ja lasit (pieni) sekä laatikot, tynnyrit ja pöydät (iso); tuolit ja renkaat eivät
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
@@ -1330,7 +1339,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.KipUp:
-                if (stateTime >= kipUpSprites.Length * kipUpFrameTime)
+                if (stateTime >= (kipUpTimes != null ? ThrowPose.Total(kipUpTimes) : kipUpSprites.Length * kipUpFrameTime))
                 {
                     // heitetyksi joutumisen jälkeen hetki suojaa; oman heiton jälkeen ei (ei välkettä)
                     if (!kipUpAfterOwnThrow) invulnTimer = Mathf.Max(invulnTimer, 0.6f);
@@ -1399,6 +1408,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Kip-up-nousu maasta (6 kuvaa).")]
     public Sprite[] kipUpSprites;
     public float kipUpFrameTime = 0.1f;
+    float[] kipUpTimes;   // kuvakohtaiset ajat (Rubyn windmill), null = tasainen kipUpFrameTime
     float heldRot;          // kuvan kierto nostossa ja lennossa (astetta), jos omia kuvia ei ole
     int heldPose;           // mikä kuvista 0–3 näytetään nostossa
     int pendingDamage;
@@ -2362,6 +2372,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (HasThrowSprites) return thrownSprites[stateTime < 0.08f ? 5 : stateTime < 0.2f ? 6 : 7];
                 return Action(F_HURT);
             case State.KipUp:
+                if (kipUpTimes != null) { int ki = ThrowPose.Index(kipUpTimes, stateTime); return kipUpSprites[ki < 0 ? kipUpSprites.Length - 1 : Mathf.Min(ki, kipUpSprites.Length - 1)]; }
                 return kipUpSprites[Mathf.Min((int)(stateTime / kipUpFrameTime), kipUpSprites.Length - 1)];
             case State.Hurt:
                 if (hurtSprite != null) return hurtSprite;
