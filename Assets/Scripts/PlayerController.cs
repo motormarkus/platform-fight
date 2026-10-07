@@ -746,7 +746,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         idleSprites = a.idle;
         actionSprites = new[] { a.idle[0] };   // varakuva: Roccon kuvat eivät näy koskaan
         walkSprites = a.walk; walkFrameTime = 0.1f;
-        runSprites = a.run; runSpriteFrameTime = 0.06f;   // yksi siisti askel silmukkana (7 kuvaa)
+        runSprites = a.run; runSpriteFrameTime = 0.05f;   // täysi juoksusykli (14 kuvaa, n. 0,7 s)
         punchCombo = new[]
         {
             Hit("Jab",        a.jab,      3, 0.045f, 0.09f, 0.18f,  6, 1.6f, false),
