@@ -241,6 +241,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pushReach = 1.6f;
     [Tooltip("Kuinka paljon ukko syöksyy eteenpäin puskun aikana (yksikköä).")]
     public float pushLunge = 0.45f;
+    [Tooltip("Syöksyn kesto (s). 0 = osumahetkeen asti; kärrynpyörässä koko pyörähdyksen ajan.")]
+    public float pushLungeTime = 0f;
 
     [Header("Suojaus (pidä I / ohjaimen LT)")]
     [Tooltip("suojaus.png: 5 kuvaa (0 asento, 1 nosto, 2 suoja, 3 lasku, 4 asento).")]
@@ -568,12 +570,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (a.special != null && a.special.Length > 0)
         {
             specialSprites = a.special;
-            specialFrameTime = 1.1f / a.special.Length;
-            specialHitFrom = 0.12f; specialHitTo = 0.95f; specialHitEvery = 0.4f;
+            specialFrameTime = 0.055f;                       // 37 kuvaa = n. 2 s (nopeampi oli liian vauhdikas, ei saanut selvää)
+            float specialLen = specialFrameTime * a.special.Length;
+            specialHitFrom = 0.15f; specialHitTo = specialLen - 0.25f; specialHitEvery = 0.55f;
             specialDamage = 10; specialReach = 2.6f;
         }
-        pushSprites = a.cartwheel; pushFrameTime = 0.06f; pushImpactFrame = 4; pushImpactHold = 0.12f;
-        pushLunge = 1.4f; pushReach = 2.0f; pushDamage = 12;
+        // kärrynpyörä: kuvat on keskitetty, joten liike eteen tehdään koodissa koko pyörähdyksen ajan (kuvat 1–7)
+        pushSprites = a.cartwheel; pushFrameTime = 0.07f; pushImpactFrame = 4; pushImpactHold = 0.12f;
+        pushLunge = 2.4f; pushLungeTime = 7 * pushFrameTime + pushImpactHold; pushReach = 2.0f; pushDamage = 12;
         if (a.block != null && a.block.Length >= 4) blockSprites = new[] { a.block[0], a.block[1], a.block[3], a.block[2], a.block[0] };
         if (a.counterThrow != null && a.counterThrow.Length >= 10)
         {
@@ -1004,9 +1008,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Push:
             {
                 float impact = pushImpactFrame * pushFrameTime;
-                // syöksy eteenpäin osumahetkeen asti
-                if (stateTime <= impact && impact > 0f)
-                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / impact * dt, 0f));
+                // syöksy eteenpäin osumahetkeen asti (tai koko liikkeen ajan, jos pushLungeTime on asetettu)
+                float lungeT = pushLungeTime > 0f ? pushLungeTime : impact;
+                if (stateTime <= lungeT && lungeT > 0f)
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / lungeT * dt, 0f));
                 if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
                     attackHit = AttackEnemies(pushReach, pushDamage, true, 2.1f);
                 if (stateTime >= PushTotalTime) Enter(State.Ground);
