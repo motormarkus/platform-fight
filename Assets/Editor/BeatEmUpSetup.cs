@@ -3635,6 +3635,7 @@ public static class BeatEmUpSetup
     // ---------------- Kadun baari (BAR-ovi) ----------------
     const string StreetBarPath = "Assets/Sprites/Taustat/baari_sisa.png";   // 3 kuvaa yhdistettynä: ovi ja tiski, sohvat ja tikkataulu, nurkka ja takaovi (3594 × 877)
     const float StreetBarX0 = 40000f;
+    const float ChairScaleSmall = 0.72f;      // baarin ja pokerihuoneen tuolit (kuva on 75 % heron pituudesta: liian iso)
     const float StreetBarPPU = 105f;          // kuvapikseliä / yksikkö: tiski n. 70 % heron pituudesta (73 liian iso, 130 liian pieni)
     const string StreetBarExtPath = "Assets/Sprites/Taustat/baari_sisa_reuna.png";
     static readonly Vector2 StreetBarExtCanvas = new Vector2(150f, 1600f);   // baarin kuvan yläreuna kankaalla, kankaan korkeus (leveys sama kuin kuvalla)
@@ -3868,7 +3869,7 @@ public static class BeatEmUpSetup
                     cgo.transform.SetParent(root.transform, false);
                     cgo.transform.position = go.transform.position + new Vector3(side * 2.1f * TableScale, -0.05f, 0f);
                     var cb = new GameObject("Visual").AddComponent<SpriteRenderer>(); cb.transform.SetParent(cgo.transform, false);
-                    cb.sprite = chairSprite; cb.flipX = side > 0f;
+                    cb.sprite = chairSprite; cb.flipX = side > 0f; cb.transform.localScale = new Vector3(ChairScaleSmall, ChairScaleSmall, 1f);
                     var csh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); csh.transform.SetParent(cgo.transform, false);
                     csh.color = new Color(0f, 0f, 0f, 0.3f);
                     var ch = cgo.AddComponent<Chair>(); ch.body = cb; ch.shadow = csh; ch.breakSounds = wood;
@@ -4149,10 +4150,10 @@ public static class BeatEmUpSetup
     // baari_poker_idle.png (33 kuvaa) ja baari_poker_idle2.png (36 kuvaa), 896 × 504, 12 fps, saumat ristihäivytetty,
     // yhteinen maski; solun vasen yläkulma kuvassa (392, 232).
     const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
-    const float PokerRoomPPU = 150f;   // pelin mittakaava pokerihuoneessa (videon hahmot ≈ heron kokoisia)
+    const float PokerRoomPPU = 110f;   // pokerihuoneen mittakaava: huone n. 14 yks leveä, videon hahmot n. 1.3 × hero (150 oli liian kapea)
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
     const string PokerExtPath = "Assets/Sprites/Taustat/baari_pokeri_reuna.png", PokerFightExtPath = "Assets/Sprites/Taustat/baari_pokeri_tappelu_reuna.png";
-    static readonly Vector4 PokerExtCanvas = new Vector4(882f, 145f, 3300f, 1850f);   // kangas ruudun kokoinen, keskitetty kameraan
+    static readonly Vector4 PokerExtCanvas = new Vector4(882f, 265f, 3300f, 1850f);   // kangas keskitetty kameraan; huoneen yläreuna ruudun yläreunassa
     const float BarRoomX0 = 50000f;
     const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
     const float BarRoomTableRow = 740f;      // pöydän, tuolien ja maton etureuna: tätä taemmas ei kävellä keskellä
@@ -4418,6 +4419,7 @@ public static class BeatEmUpSetup
                     cgo.transform.position = new Vector3(cp.x, cp.y, 0f);
                     var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(cgo.transform, false);
                     b.sprite = chairSprite; b.flipX = PokerChairPx[i].x > 768f;   // selkänoja ulospäin
+                    b.transform.localScale = new Vector3(ChairScaleSmall, ChairScaleSmall, 1f);
                     var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(cgo.transform, false);
                     sh.color = new Color(0f, 0f, 0f, 0.3f);
                     var c = cgo.AddComponent<Chair>(); c.body = b; c.shadow = sh; c.breakSounds = wood;
