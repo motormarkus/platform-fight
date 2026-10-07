@@ -538,6 +538,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] bigLift, bigThrow;
         [Tooltip("Kävely iso esine pään yllä (10 kuvaa).")]
         public Sprite[] bigCarry;
+        [Tooltip("Erikoisliike (taakse, alas, eteen + lyönti): 0 kurotus, 1 ote rinnuksista, 2 veto, 3–4 lyönti, 5 viimeinen lyönti.")]
+        public Sprite[] pummel;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -556,6 +558,115 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int[] counterPosesOverride;
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
+    [HideInInspector] public Sprite[] pummelSprites;
+    [Header("Rinnuksista-lyönnit (Ruby: taakse, alas, eteen + lyönti)")]
+    public int pummelDamage = 4, pummelFinalDamage = 8;
+    public float pummelReach = 1.6f;
+    Enemy pummelTarget;
+    int pummelCount;
+    float pummelPhase, pummelJolt;
+    float motL = -9f, motR = -9f, motDown = -9f;   // liikesyöte: viimeksi vasen, oikea, alas
+    bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
+    const float PummelReachTime = 0.12f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
+    const int PummelHits = 5;
+
+    /// Taakse, alas, eteen + lyönti: palauttaa eteenpäin-suunnan (1 oikea, -1 vasen) tai 0.
+    int PummelMotion(bool punchPressed)
+    {
+        if (!punchPressed || !HasPummel) return 0;
+        float now = Time.time;
+        // eteen = oikealle: ensin vasen, sitten alas, sitten oikea
+        if (now - motR <= 0.3f && motL < motR && motR - motL <= 0.6f && motDown >= motL - 0.05f && motDown <= motR + 0.05f) return 1;
+        if (now - motL <= 0.3f && motR < motL && motL - motR <= 0.6f && motDown >= motR - 0.05f && motDown <= motL + 0.05f) return -1;
+        return 0;
+    }
+
+    void StartPummel(int dir)
+    {
+        facingRight = dir > 0;
+        motL = motR = motDown = -9f;
+        pummelTarget = null; pummelCount = 0; pummelJolt = 0f;
+        attackHit = false;
+        PlayGrunt();
+        Enter(State.Pummel);
+    }
+
+    void UpdatePummel(float dt)
+    {
+        float d = facingRight ? 1f : -1f;
+        Vector3 me = transform.position;
+        if (pummelTarget == null)
+        {
+            if (pummelCount > 0) return;   // viimeinen lyönti jo lähti: jälkiliike (lopetus Updatessa)
+            if (stateTime < PummelReachTime) return;
+            if (!attackHit)
+            {
+                attackHit = true;   // yksi tarttumisyritys
+                Enemy best = null; float bd = 99f;
+                foreach (var e in Enemy.All)
+                {
+                    if (e == null || e.IsDead || !e.isActiveAndEnabled || !e.CanBeGrabbed) continue;
+                    Vector3 p = e.transform.position; float dx = (p.x - me.x) * d;
+                    if (dx < 0.2f || dx > pummelReach || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+                    if (dx < bd) { bd = dx; best = e; }
+                }
+                if (best != null)
+                {
+                    pummelTarget = best;
+                    best.BeginHeldByPlayer(me.x);
+                    stateTime = PummelReachTime;   // ajastus alkaa otteesta
+                    return;
+                }
+            }
+            if (stateTime >= PummelReachTime + 0.25f) Enter(State.Ground);   // ohi: käsi palaa
+            return;
+        }
+        // vihu pysyy otteessa Rubyn edessä, nytkähtää taakse joka lyönnistä
+        pummelJolt = Mathf.MoveTowards(pummelJolt, 0f, 1.2f * dt);
+        pummelTarget.SetHeldByPlayer(new Vector3(me.x + d * (1.25f + pummelJolt), me.y - 0.02f, 0f), 0f, 0f);
+        float t = stateTime - PummelReachTime - PummelGripTime;
+        if (t < 0f) return;
+        int hit = (int)(t / PummelStep);
+        float inHit = t - hit * PummelStep;
+        if (hit < PummelHits && inHit >= PummelStep * 0.55f && pummelCount == hit)
+        {
+            pummelCount++;
+            Vector3 q = pummelTarget.transform.position;
+            HitSpark.Spawn(new Vector3(q.x - d * 0.25f, q.y + 2.5f, 0f), pummelCount == PummelHits, Mathf.RoundToInt(-q.y * 100f) + 5);
+            if (pummelCount < PummelHits)
+            {
+                pummelTarget.HitWhileHeld(pummelDamage);
+                pummelJolt = 0.12f;
+                HitFx.OnHit(false);
+                PlayGrunt();
+            }
+            else
+            {
+                // viimeinen lyönti: irti, vihu lentää selälleen taaksepäin
+                pummelTarget.ReleaseThrow(d * 7f, 6f, pummelFinalDamage);
+                pummelTarget = null;
+                HitFx.OnHit(true);
+                PlayGrunt();
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
+                stateTime = PummelReachTime + PummelGripTime + PummelHits * PummelStep;   // jälkiliike
+            }
+        }
+    }
+
+    Sprite PummelSprite()
+    {
+        var sp = pummelSprites;
+        if (stateTime < PummelReachTime) return sp[0];
+        float t = stateTime - PummelReachTime;
+        if (pummelTarget == null && pummelCount == 0) return sp[0];   // ohi
+        if (t < PummelGripTime) return sp[1];
+        t -= PummelGripTime;
+        int hit = (int)(t / PummelStep);
+        if (hit >= PummelHits) return sp[5];                          // viimeinen lyönti jää hetkeksi
+        float k = (t - hit * PummelStep) / PummelStep;
+        bool last = hit == PummelHits - 1;
+        return k < 0.3f ? sp[2] : k < 0.55f ? sp[3] : (last ? sp[5] : sp[4]);
+    }
     Sprite[] liftArt, heaveArt;   // isompi nosto- ja heittosarja (Ruby)
     System.Collections.Generic.Dictionary<int, ThrowPose.Grip> smallGrips;   // käden paikat pullonostossa (null = Rocco)
     bool knockedDown;   // kaatava isku (ei heitto): omat kaatumiskuvat, jos on
@@ -650,6 +761,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // esineet: pullot ja lasit (pieni) sekä laatikot, tynnyrit ja pöydät (iso); tuolit ja renkaat eivät
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
+        pummelSprites = a.pummel;
         carryWalkSprites = a.bigCarry != null && a.bigCarry.Length > 0 ? a.bigCarry : null; carryPoseSprite = null; carrySprites = null;
         if (a.bigLift != null && a.bigLift.Length >= 6 && a.bigThrow != null && a.bigThrow.Length >= 6)
         {
@@ -676,7 +788,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel }
 
     int comboIndex;
     bool comboQueued;
@@ -765,6 +877,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
         bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
+        if (move.x < -0.5f) motL = Time.time;
+        if (move.x > 0.5f) motR = Time.time;
+        if (move.y < -0.5f) motDown = Time.time;
+        int pummelDir = PummelMotion(punchPressed);
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
         bool specialPressed = !Scripted && SpecialPressed();
@@ -777,6 +893,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
+                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pushStamina)) { StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
@@ -1267,6 +1384,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 UpdateCounterThrow();
                 break;
 
+            case State.Pummel:
+                UpdatePummel(dt);
+                if (state == State.Pummel && pummelCount >= PummelHits && stateTime >= PummelReachTime + PummelGripTime + PummelHits * PummelStep + 0.22f) Enter(State.Ground);
+                break;
+
             case State.Block:
                 MoveOnGround(hurtVel * dt);   // torjutun iskun työntö
                 hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
@@ -1387,6 +1509,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        // rinnuksista-lyönnit keskeytyivät (esim. ovi tai kuolema): vihu irti, ettei jää otteeseen
+        if (state == State.Pummel && s != State.Pummel && pummelTarget != null)
+        {
+            pummelTarget.ReleaseThrow((facingRight ? 1f : -1f) * 3f, 3f, 0);
+            pummelTarget = null;
+        }
         state = s;
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
@@ -1417,7 +1545,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float shakeUntil;       // osuman tärinä (reaaliaikaa, näkyy osumapysäytyksen aikana)
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
+    public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.Pummel || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
                           || GameOver || invulnTimer > 0f;
 
     // ---------------- Heitto (vihollinen tarttuu kiinni) ----------------
@@ -1466,7 +1594,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding) return false;
         if (GameOver || invulnTimer > 0f || height > 0.3f) return false;
         if (state == State.Hurt || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
-            || state == State.Air || state == State.JumpSquat || state == State.CounterThrow) return false;
+            || state == State.Air || state == State.JumpSquat || state == State.CounterThrow || state == State.Pummel) return false;
         facingRight = enemyX > transform.position.x;    // kasvot tarttujaan päin
         DropCrate();
         Enter(State.Grabbed);
@@ -1787,7 +1915,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (Riding) return false;
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
-        if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;
+        if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
@@ -1825,7 +1953,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
         if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
-        else if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
+        else if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
@@ -2547,6 +2675,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     return hs[Mathf.Min((int)(stateTime / crateThrowTime * hs.Length), hs.Length - 1)];
                 }
                 return Action(F_PUNCH);
+
+            case State.Pummel:
+                return PummelSprite();
 
             case State.Catch:
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];

@@ -1745,6 +1745,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
     bool launched;
 
+    /// Voiko pelaaja tarttua rinnuksista (pystyssä, ei kantamassa mitään eikä jo kiinni).
+    public bool CanBeGrabbed => !ally && (state == State.Idle || state == State.Block || state == State.Chase || state == State.Windup
+                                          || state == State.Punch || state == State.Recover || state == State.Hurt);
+
+    /// Isku pidettynä (Rubyn rinnuksista-lyönnit): vahinko ja välähdys, ei kaadu (pysyy kiinni).
+    public void HitWhileHeld(int damage)
+    {
+        if (state != State.Held) return;
+        awake = true;
+        health = Mathf.Max(1, health - GameSettings.ScaleToEnemy(damage));
+        flashTimer = 0.1f;
+        LastHit = this; LastHitTime = Time.time;
+    }
+
     /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
     public void ReleaseThrow(float vx, float up, int damage)
     {
