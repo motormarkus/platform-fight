@@ -3959,6 +3959,10 @@ public static class BeatEmUpSetup
     // loppuanimaatio baari_poker_loppu.png: 61 kuvaa 854 × 506 (pienennetty kuvan alueesta x, y, leveys, korkeus), 12 fps, ääni videosta
     static readonly Vector4 PokerFinaleRect = new Vector4(52f, 0f, 1421f, 842f);
     const string PokerFinaleSoundPath = "Assets/Audio/sfx/baari_pokeri_loppu.wav";
+    // tappelu: tyhjä huone (sama rajaus), tuolit ja vastustajien jalat kuvan pikseleinä (x, rivi)
+    const string PokerFightBgPath = "Assets/Sprites/Taustat/baari_pokeri_tappelu.png";
+    static readonly Vector2[] PokerChairPx = { new Vector2(200f, 700f), new Vector2(470f, 590f), new Vector2(1100f, 590f), new Vector2(1380f, 730f) };
+    static readonly Vector2 PokerLippisPx = new Vector2(353f, 720f), PokerPuliukkoPx = new Vector2(613f, 613f), PokerPunkkariPx = new Vector2(1227f, 707f);
 
     [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)")]
     static void CreateBarRoom()
@@ -3967,7 +3971,7 @@ public static class BeatEmUpSetup
         var barBg = GameObject.Find("Kadun baari");
         var ti = AssetImporter.GetAtPath(BarRoomPath) as TextureImporter;
         if (bar == null || barBg == null || ti == null) { Info("Tarvitaan kadun baari (kohta 65) ja kuva " + BarRoomPath); return; }
-        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri", "Baarin pokeri loppu" })
+        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri", "Baarin pokeri loppu", "Pokerihuoneen tappelu" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -4010,6 +4014,19 @@ public static class BeatEmUpSetup
         // pokeripöytä keskellä ja lipasto oikealla ovat lähempänä kuin seinä
         area.depthLimits = new[] { pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow), pt(1350f, BarRoomCabinetRow) };
 
+        // tappelun tausta (tyhjä huone: pöytä nurin, kortit lattialla), sama rajaus kuin pokerihuoneen kuvassa
+        Sprite fightSprite = null;
+        var fti = AssetImporter.GetAtPath(PokerFightBgPath) as TextureImporter;
+        if (fti != null)
+        {
+            fti.textureType = TextureImporterType.Sprite; fti.spriteImportMode = SpriteImportMode.Single;
+            fti.spritePixelsPerUnit = ppu; fti.filterMode = FilterMode.Bilinear;
+            fti.textureCompression = TextureImporterCompression.Uncompressed; fti.maxTextureSize = 2048; fti.mipmapEnabled = false;
+            fti.SetTextureSettings(st); fti.spritePixelsPerUnit = ppu; fti.SaveAndReimport();
+            fightSprite = AssetDatabase.LoadAssetAtPath<Sprite>(PokerFightBgPath);
+        }
+        SpriteLoop pokerLoop = null;
+
         // pokerinpelaajat (idle-silmukka taustan päällä)
         string pp = FindTexture("baari_poker_idle");
         if (pp != null)
@@ -4024,7 +4041,7 @@ public static class BeatEmUpSetup
                 pg.transform.position = new Vector3(foot.x, foot.y, 0f);
                 pg.transform.localScale = new Vector3(k100, k100, 1f);
                 var psr = pg.AddComponent<SpriteRenderer>(); psr.sprite = fr[0]; psr.sortingOrder = -9990;
-                var loop = pg.AddComponent<SpriteLoop>(); loop.frames = fr; loop.fps = PokerFps;
+                var loop = pg.AddComponent<SpriteLoop>(); loop.frames = fr; loop.fps = PokerFps; pokerLoop = loop;
                 // toinen idle-video (vaihtuu ristihäivytyksellä) ja sen napsahdusäänet silmukkana
                 if (FindTexture("baari_poker_idle2") != null)
                 {
@@ -4075,9 +4092,60 @@ public static class BeatEmUpSetup
         exit.here = area; exit.target = bar;
         exit.halfWidth = 1.8f; exit.maxDistanceFromWall = 1.2f;
         exit.spawnPoint = new Vector2(barBack.x - 0.8f, btop - 650f / bppu);   // takaoven eteen, vähän vasemmalle (viisto seinä)
+        exit.blockedDuringFight = true;   // tappelusta ei karata
+
+        // tappelu: loppuanimaation jälkeen musta häivytys, tyhjä huone, pelin tuolit ja vastustajat
+        string fightInfo = "";
+        if (pokerLoop != null && fightSprite != null)
+        {
+            var froot = new GameObject("Pokerihuoneen tappelu");
+            Undo.RegisterCreatedObjectUndo(froot, "Pokeritappelu");
+            var pf = froot.AddComponent<PokerFight>();
+            pf.loop = pokerLoop; pf.background = sr; pf.fightBackground = fightSprite; pf.area = area;
+            pf.fightDepthLimits = new[] { pt(330f, BarRoomWallRow), pt(1290f, BarRoomWallRow), pt(1350f, BarRoomCabinetRow) };
+            // pelin tuolit (nosto, lyönti ja heitto kuten El Loipparissa)
+            var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
+            var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+                .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+            var chairs = new List<GameObject>();
+            if (chairSprite != null)
+                for (int i = 0; i < PokerChairPx.Length; i++)
+                {
+                    var cgo = new GameObject("Pokerituoli " + (i + 1));
+                    cgo.transform.SetParent(froot.transform, false);
+                    Vector2 cp = pt(PokerChairPx[i].x, PokerChairPx[i].y);
+                    cgo.transform.position = new Vector3(cp.x, cp.y, 0f);
+                    var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(cgo.transform, false);
+                    b.sprite = chairSprite; b.flipX = PokerChairPx[i].x > 768f;   // selkänoja ulospäin
+                    var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(cgo.transform, false);
+                    sh.color = new Color(0f, 0f, 0f, 0.3f);
+                    var c = cgo.AddComponent<Chair>(); c.body = b; c.shadow = sh; c.breakSounds = wood;
+                    chairs.Add(cgo);
+                }
+            pf.activate = chairs.ToArray();
+            // vastustajat samoille paikoille kuin loppuanimaatiossa (prätkäjätkä myöhemmin)
+            var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var fighters = new List<Enemy>();
+            var names = new List<string>();
+            foreach (var (tName, px) in new[] { ("Lippis", PokerLippisPx), ("Puliukko", PokerPuliukkoPx), ("Punkkari", PokerPunkkariPx) })
+            {
+                var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == tName);
+                if (tmpl == null) continue;
+                var ego = Object.Instantiate(tmpl.gameObject, froot.transform);
+                ego.name = tName + " (pokeri)";
+                Vector2 ep = pt(px.x, px.y);
+                ego.transform.position = new Vector3(ep.x, ep.y, 0f);
+                var e = ego.GetComponent<Enemy>(); e.wakeDistance = 100f; e.joinsFightWhenSquadComes = false;
+                ego.SetActive(false);
+                fighters.Add(e); names.Add(tName);
+            }
+            pf.fighters = fighters.ToArray();
+            fightInfo = $"\nTappelu: loppuanimaation jälkeen musta häivytys, {chairs.Count} tuolia ja {string.Join(", ", names)}.";
+        }
+        else fightInfo = "\nTappelu puuttuu: tarvitaan " + PokerFightBgPath + " ja pokerin idle-kuvat.";
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
-        Info($"Pokerihuone luotu (pokeri{(pp == null ? " PUUTTUU: baari_poker_idle.png" : "")}).\nBaarin oikean nurkan teräsovesta E: pokerihuoneeseen. Takaisin baariin vasemman reunan teräsovesta.\n\nTallenna scene (Ctrl+S).");
+        Info($"Pokerihuone luotu (pokeri{(pp == null ? " PUUTTUU: baari_poker_idle.png" : "")}).\nBaarin oikean nurkan teräsovesta E: pokerihuoneeseen. Takaisin baariin vasemman reunan teräsovesta." + fightInfo + "\n\nTallenna scene (Ctrl+S).");
     }
 
     // hyttiovi: Geminin videosta kohdistettu avautumissarja kannen kuvan päälle (laiva_ovi.png, 12 kuvaa 372 × 600)

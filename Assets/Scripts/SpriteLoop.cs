@@ -75,6 +75,18 @@ public class SpriteLoop : MonoBehaviour
     }
 
     bool HasFinale => finaleRenderer != null && finale != null && finale.Length > 0;
+    /// Loppuanimaatio on soitettu loppuun (viimeinen kuva näkyy).
+    public bool FinaleDone => finaleOn && ft * finaleFps >= finale.Length;
+
+    /// Piilottaa idlen, loppuanimaation ja pelimerkkien äänen (esim. tausta vaihtuu tappelukuvaan).
+    public void HideAll()
+    {
+        if (sr != null) sr.enabled = false;
+        if (fadeSr != null) fadeSr.enabled = false;
+        if (finaleRenderer != null) finaleRenderer.enabled = false;
+        if (src != null) src.Stop();
+        enabled = false;
+    }
 
     void Update()
     {
