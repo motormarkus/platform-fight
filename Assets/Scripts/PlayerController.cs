@@ -827,6 +827,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         smallGrips = ThrowPose.Ruby;
         pummelSprites = a.pummel;
         pummelBigSprites = a.pummelBig != null && a.pummelBig.Length >= 6 ? a.pummelBig : null;
+        pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
         backKickSprites = a.backKick != null && a.backKick.Length >= 5 ? a.backKick : null;
         // Rubyn kestävyys: liikkeet kuluttavat vähemmän ja stamina palautuu nopeammin kuin Roccolla
