@@ -559,29 +559,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
     [HideInInspector] public Sprite[] pummelSprites;
-    [Header("Rinnuksista-lyönnit (Ruby: taakse, alas, eteen + lyönti)")]
+    [Header("Rinnuksista-lyönnit (Ruby: alas, eteen + lyönti, myös kombon keskellä)")]
     public int pummelDamage = 4, pummelFinalDamage = 8;
     [Tooltip("Rinnuksista-lyöntien staminakulutus (oma arvonsa, ei sama kuin puskulla).")]
     public float pummelStamina = 22f;
     public float pummelReach = 1.6f;
     Enemy pummelTarget;
-    int pummelCount;
+    int pummelCount, pummelQueued;
     float pummelPhase, pummelJolt;
-    float motL = -9f, motR = -9f, motDown = -9f;   // liikesyöte: viimeksi vasen, oikea, alas
     bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
     const float PummelReachTime = 0.12f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
     const int PummelHits = 5;
-
-    /// Taakse, alas, eteen + lyönti: palauttaa eteenpäin-suunnan (1 oikea, -1 vasen) tai 0.
-    int PummelMotion(bool punchPressed)
-    {
-        if (!punchPressed || !HasPummel) return 0;
-        float now = Time.time;
-        // eteen = oikealle: ensin vasen, sitten alas, sitten oikea
-        if (now - motR <= 0.3f && motL < motR && motR - motL <= 0.6f && motDown >= motL - 0.05f && motDown <= motR + 0.05f) return 1;
-        if (now - motL <= 0.3f && motR < motL && motL - motR <= 0.6f && motDown >= motR - 0.05f && motDown <= motL + 0.05f) return -1;
-        return 0;
-    }
 
     /// Onko edessä hereillä oleva vihollinen (ei liittolainen) annetun matkan sisällä.
     bool FoeInFront(float range)
@@ -599,7 +587,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void StartPummel(int dir)
     {
         facingRight = dir > 0;
-        motL = motR = motDown = -9f;
         pummelTarget = null; pummelCount = 0; pummelJolt = 0f;
         attackHit = false;
         PlayGrunt();
@@ -895,10 +882,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
         bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
-        if (move.x < -0.5f) motL = Time.time;
-        if (move.x > 0.5f) motR = Time.time;
-        if (move.y < -0.5f) motDown = Time.time;
-        int pummelDir = PummelMotion(punchPressed);
+        // Rubyn rinnuksista-lyönnit: alas, eteen + lyönti (sama näppäily kuin Roccon isossa koukussa)
+        int pummelDir = HasPummel && punchPressed && Time.time - downFwdTime <= 0.3f ? (downFwdDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
         bool specialPressed = !Scripted && SpecialPressed();
@@ -911,7 +896,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { StartPummel(pummelDir); break; }
+                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { downFwdTime = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
@@ -1065,9 +1050,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
                 // jab–takasuora–jab + (alas, eteen, lyönti): neljäs isku on iso koukku, nopeasti
                 if (bigHookInput && comboIndex >= 2) bigHookQueued = true;
+                // Ruby: alas, eteen + lyönti kombon keskellä → tarttuu rinnuksista heti osuman jälkeen
+                if (pummelDir != 0 && comboIndex >= 1) pummelQueued = pummelDir;
+                if (pummelQueued != 0 && stateTime >= hit.ImpactTime + flurryCancelAfterImpact)
+                {
+                    int pd = pummelQueued; pummelQueued = 0;
+                    if (UseStamina(pummelStamina)) { downFwdTime = -9f; StartPummel(pd); break; }
+                }
                 if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
-                if (punchPressed && !bigHookQueued && stateTime >= total * comboInputFrom) comboQueued = true;
+                if (punchPressed && !bigHookQueued && pummelQueued == 0 && pummelDir == 0 && stateTime >= total * comboInputFrom) comboQueued = true;
                 // lyöntien jälkeen eteen-ylös + potku: saksipotku (kuten iso koukku alas-eteen + lyönti)
                 if (ScissorMotion(kickPressed) && comboIndex >= 1 && stateTime >= total * comboInputFrom) comboScissorQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun

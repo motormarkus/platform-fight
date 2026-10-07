@@ -426,7 +426,7 @@ public static class BeatEmUpSetup
         Info("Ruby lisätty toiseksi pelattavaksi hahmoksi.\n\n" +
              "Alkuvalikko: Aloita peli → valitse hahmo (Rocco / Ruby) → vaikeustaso.\n" +
              "Lyönnit: jab, takasuora, etukoukku, takakoukku. Potkut: matala, keski, korkea.\n" +
-             "Taakse, alas, eteen + lyönti: tarttuu rinnuksista ja lyö 5 kertaa.\n" +
+             "Alas, eteen + lyönti (myös kombon keskellä): tarttuu rinnuksista ja lyö 5 kertaa.\n" +
              "Erikoisliike (L / LB): tornadopotku. Pusku (U / RT): kärrynpyörä. Vastaheitto (O): kuperkeikka.\n" +
              "Ruby nostaa ja heittää pulloja, laseja, laatikoita, tynnyreitä ja pöytiä (ei tuoleja eikä renkaita).\n" +
              (missing.Count > 0 ? "\nPuuttuu: " + string.Join(", ", missing) + "\n" : "") +
