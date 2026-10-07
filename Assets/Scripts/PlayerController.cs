@@ -595,6 +595,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pummelTilt = 4f, pummelTiltBig = 6f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
+    bool quickReach;   // Ruby: nopea ojennus, kun mitään ei ole otettavissa
+    const float QuickReachTime = 0.2f;
     bool pummelHooks;   // iso vihu ilman omia kuvia: lyönnit koukkuina ylös naamaan
     bool pummelUp;      // iso vihu: oma sarja, lyönnit yläviistoon
     Sprite[] HookArt(int which) => punchCombo != null && punchCombo.Length >= 4 && punchCombo[2 + which].HasAnimation && punchCombo[2 + which].sprites.Length >= 4 ? punchCombo[2 + which].sprites : null;
@@ -997,7 +999,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     }
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
-                    if (HasCounterThrow && FoeInFront(2.4f)) { Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
+                    if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
+                    if (HasPummel) { quickReach = true; Enter(State.Catch); break; }   // Ruby: nopea ojennus tyhjään (ei pitkää pysähdystä)
                 }
                 if (punchPressed && Bottle.Held != null)
                 {
@@ -1461,6 +1464,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Catch:
+                if (quickReach) { if (stateTime >= QuickReachTime) Enter(State.Ground); break; }
                 if (stateTime >= catchWindowTime + catchMissRecovery) Enter(State.Ground);   // ohi
                 break;
 
@@ -2780,6 +2784,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Catch:
+                if (quickReach && HasPummel) return pummelSprites[stateTime < QuickReachTime * 0.6f ? 0 : 1];
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
 
             case State.CounterThrow:
