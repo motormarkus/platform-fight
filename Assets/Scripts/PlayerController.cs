@@ -532,6 +532,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         [Tooltip("Vastaheitto: kuperkeikka, jalat vihun pään ympärille, heitto selän taakse (10 kuvaa).")]
         public Sprite[] counterThrow;
         public Sprite[] block, thrown, fall, getup;
+        [Tooltip("Pienen esineen nosto ja heitto (12 kuvaa, sama rakenne kuin pullonosto.png).")]
+        public Sprite[] smallItem;
+        [Tooltip("Ison esineen (laatikko, pöytä) nosto pään yli (6 kuvaa) ja heitto (6 kuvaa).")]
+        public Sprite[] bigLift, bigThrow;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -549,6 +553,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float[] counterSegsOverride;
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
+    Sprite[] liftArt, heaveArt;   // isompi nosto- ja heittosarja (Ruby)
+    System.Collections.Generic.Dictionary<int, ThrowPose.Grip> smallGrips;   // käden paikat pullonostossa (null = Rocco)
     bool knockedDown;   // kaatava isku (ei heitto): omat kaatumiskuvat, jos on
 
     void ApplyHeroine()
@@ -560,7 +566,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         idleSprites = a.idle;
         actionSprites = new[] { a.idle[0] };   // varakuva: Roccon kuvat eivät näy koskaan
         walkSprites = a.walk; walkFrameTime = 0.1f;
-        runSprites = a.run; runSpriteFrameTime = 0.07f;
+        runSprites = a.run; runSpriteFrameTime = 0.06f;   // yksi siisti askel silmukkana (7 kuvaa)
         punchCombo = new[]
         {
             Hit("Jab",        a.jab,      3, 0.045f, 0.09f, 0.18f,  6, 1.6f, false),
@@ -616,11 +622,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         if (a.fall != null && a.fall.Length >= 8) { fallSprites = a.fall; hurtSprite = a.fall[1]; }
         if (a.getup != null && a.getup.Length > 0) { kipUpSprites = a.getup; kipUpFrameTime = 0.045f; }
-        // ei esineitä eikä Roccon omia erikoisliikkeitä
-        canCarry = false;
+        // esineet: pullot ja lasit (pieni) sekä laatikot, tynnyrit ja pöydät (iso); tuolit ja renkaat eivät
+        smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
+        smallGrips = ThrowPose.Ruby;
+        carryWalkSprites = null; carryPoseSprite = null; carrySprites = null;
+        if (a.bigLift != null && a.bigLift.Length >= 6 && a.bigThrow != null && a.bigThrow.Length >= 6)
+        {
+            var L = a.bigLift; var T = a.bigThrow;
+            liftArt = new[] { L[0], L[1], L[2], L[3], L[4], T[0] };     // kurotus, kyykky, nosto, rinnalle, pään yli, kantoasento
+            heaveArt = T;                                              // pään yllä, taakse, heitto, jälkiliike
+            carrySprites = new[] { L[1], L[3], T[0], T[2], T[4], T[5] };   // varalle (Roccon 6 kuvan rakenne)
+            carryHeight = 3.44f; liftTime = 0.45f; crateThrowTime = 0.4f;
+        }
+        canCarry = smallItemSprites != null || carrySprites != null;
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
-        bigHookSprites = null; dropKickSprites = null; smallItemSprites = null;
-        carrySprites = null; carryWalkSprites = null; carryPoseSprite = null;
+        bigHookSprites = null; dropKickSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
     }
@@ -1532,7 +1548,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         order = BodySortOrder + 1;   // vartalon eteen; nyrkki piirretään pullon päälle (Bottle)
         if ((state == State.SmallPick || state == State.SmallThrow) && HasSmallItem && body != null)
         {
-            if (!ThrowPose.Hero.TryGetValue(SmallFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
+            if (!(smallGrips ?? ThrowPose.Hero).TryGetValue(SmallFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
             hand = body.transform.position + new Vector3(dir * g.hand.x, g.hand.y, 0f);
             rot = dir * g.rot;
             return true;
@@ -2443,11 +2459,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Lift:
+                if (liftArt != null) return liftArt[Mathf.Min((int)(stateTime / liftTime * liftArt.Length), liftArt.Length - 1)];
                 if (HasCarrySprites) return carrySprites[stateTime < liftTime * 0.35f ? 0 : stateTime < liftTime * 0.7f ? 1 : 2];
                 if (carryPoseSprite != null && stateTime >= liftTime * 0.5f) return carryPoseSprite;
                 return Action(F_CROUCH);
 
             case State.Carry:
+                if (heaveArt != null && !(moving && HasCarryWalk)) return heaveArt[0];
                 if (moving && HasCarryWalk)
                     return carryWalkSprites[(int)(animClock / walkFrameTime) % carryWalkSprites.Length];
                 if (HasCarrySprites) return carrySprites[2];   // laatikko pään yllä
@@ -2457,6 +2475,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.CrateThrow:
+                if (heaveArt != null) return heaveArt[Mathf.Min((int)(stateTime / crateThrowTime * heaveArt.Length), heaveArt.Length - 1)];
                 if (HasCarrySprites)
                 {
                     float r = crateThrowTime * 0.45f;

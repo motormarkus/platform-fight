@@ -25,6 +25,13 @@ public static class ThrowPose
         { 5, new Grip(-0.33f, 1.89f, 10f) }, { 6, new Grip(-1.17f, 2.91f, 30f) }, { 7, new Grip(-0.87f, 2.96f, 40f) },
         { 9, new Grip(1.99f, 2.35f, -60f) },
     };
+    // Ruby (sankaritar_pullonosto.png, sama 12 kuvan rakenne): nostaa etukädellä, pitää ja heittää takakädellä
+    public static readonly Dictionary<int, Grip> Ruby = new Dictionary<int, Grip>
+    {
+        { 2, new Grip(-0.36f, 0.31f, 90f) }, { 3, new Grip(-0.18f, 0.77f, 70f) }, { 4, new Grip(-0.16f, 1.49f, 40f) },
+        { 5, new Grip(-0.26f, 1.90f, 10f) }, { 6, new Grip(-0.80f, 3.45f, 30f) }, { 7, new Grip(-1.08f, 3.07f, 40f) },
+        { 9, new Grip(1.02f, 3.07f, -60f) },
+    };
     public static readonly Dictionary<int, Grip> Punk = new Dictionary<int, Grip>
     {
         { 2, new Grip(0.77f, 0.36f, 90f) }, { 3, new Grip(0.66f, 0.31f, 90f) }, { 4, new Grip(0.71f, 1.84f, 45f) },
