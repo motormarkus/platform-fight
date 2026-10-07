@@ -1792,7 +1792,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             float halfW = cam.orthographicSize * cam.aspect - 0.5f;
             float lo = cf.minX - halfW, hi = cf.maxX + halfW;
-            if (p.x >= lo - 3f && p.x <= hi + 3f) p.x = Mathf.Clamp(p.x, lo, hi);
+            if (p.x >= lo - 3f && p.x <= hi + 3f)
+            {
+                p.x = Mathf.Clamp(p.x, lo, hi);
+                // alueen omat sivurajat (esim. pokerihuoneen seinät): leveälläkään ruudulla ei kävellä kuvan reunan yli
+                var ar = Area.Current;
+                if (ar != null && ar.walkMaxX != 0f) p.x = Mathf.Min(p.x, ar.walkMaxX);
+                if (ar != null && ar.walkMinX != 0f) p.x = Mathf.Max(p.x, ar.walkMinX);
+            }
         }
         transform.position = p;
     }

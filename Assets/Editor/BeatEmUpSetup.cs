@@ -3775,11 +3775,13 @@ public static class BeatEmUpSetup
     // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
     static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.8f), new Vector2(2450f, 1.05f), new Vector2(2900f, 0.75f), new Vector2(2200f, 1.45f),
                                                   // alaosa (lattia eturivissä, myös tiskin edessä)
-                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2760f, 1.5f), new Vector2(3250f, 1.3f) };
+                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2800f, 1.35f), new Vector2(3250f, 1.9f) };
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
         ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
         ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)),
-        ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)) };
+        ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
+        // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
+        ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)) };
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -4318,7 +4320,7 @@ public static class BeatEmUpSetup
         area.maxDepthY = top - (BarRoomWallRow + PokerRoomOffset.y) / ppu;
         float bottom = top - hU;
         area.minDepthY = bottom + 0.7f;
-        area.walkMinX = BarRoomX0 + 0.6f; area.walkMaxX = BarRoomX0 + wU - 0.6f;
+        area.walkMinX = BarRoomX0 + 1.4f; area.walkMaxX = BarRoomX0 + wU - 1.4f;   // kuvan reunoissa sivuseinien nurkat: hahmo kokonaan kuvan sisällä
         // kamera: ei zoomia; takaseinän luona kuvan yläreuna ruudun yläreunassa, edessä kamera laskee kuvan alareunaan
         float frontCam = bottom + CamHalf;
         area.camSize = 0f; area.camOffsetY = frontCam - CamY; area.camRiseY = Mathf.Max(0.01f, CamY - frontCam);
