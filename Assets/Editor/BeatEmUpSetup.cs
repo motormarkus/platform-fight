@@ -4164,8 +4164,9 @@ public static class BeatEmUpSetup
     // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
     static readonly Vector2 PokerRoomOffset = new Vector2(470f, 62f);
     // pullopöydät huoneen koordinaateissa (x, rivi): vasen ja oikea laajennus sekä lattia edessä
-    static readonly Vector2[] PokerTablePx = { new Vector2(-250f, 700f), new Vector2(-210f, 1180f), new Vector2(1820f, 760f), new Vector2(1790f, 1190f),
-                                               new Vector2(480f, 1290f), new Vector2(1130f, 1330f) };
+    // (tuolit n. 320 px pöydän keskeltä: pöydät sijoitettu niin, että tuolit mahtuvat kuvaan eivätkä mene päällekkäin)
+    static readonly Vector2[] PokerTablePx = { new Vector2(-60f, 780f), new Vector2(1680f, 790f), new Vector2(-60f, 1330f), new Vector2(1700f, 1250f),
+                                               new Vector2(620f, 1150f), new Vector2(1140f, 1420f) };
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
     const float BarRoomX0 = 50000f;
     const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
