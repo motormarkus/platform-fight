@@ -16,6 +16,8 @@ public class BarRegular : MonoBehaviour
     public Vector2 exitSpot;
     [Tooltip("Prätkäjätkä, jota suudellaan (piilotetaan suudelman ajaksi). Tyhjä = ei suudelmaa.")]
     public Enemy partner;
+    [Tooltip("Pysyy tiskillä tappelun ajan (tupakoi ja kääntyy välillä tiskille). Pois päältä = lähtee ovesta.")]
+    public bool stayDuringFight = true;
     public SpriteRenderer kissRenderer;
     [Tooltip("Suudelmakuvan paikka suhteessa prätkäjätkään (yksikköä).")]
     public Vector2 kissOffset = new Vector2(-0.55f, 0f);
@@ -74,7 +76,12 @@ public class BarRegular : MonoBehaviour
     void Update()
     {
         float dt = Time.deltaTime; t += dt;
-        if (st != S.Leave && st != S.Gone && FightOn()) { EndKiss(); Enter(S.Leave); }
+        if (FightOn())
+        {
+            // tappelu: suudelma jää kesken ja hän palaa tiskille polttamaan ja juttelemaan Sohville (ei lähde pois)
+            if (st == S.Kiss || st == S.WalkToKiss) { EndKiss(); Enter(S.WalkBack); }
+            else if (!stayDuringFight && st != S.Leave && st != S.Gone) { EndKiss(); Enter(S.Leave); }
+        }
         switch (st)
         {
             case S.Counter:
