@@ -3781,7 +3781,8 @@ public static class BeatEmUpSetup
         ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)),
         ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
-        ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)) };
+        ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)),
+        ("Rokkimimmi", new Vector2(2050f, 1.15f)) };
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -3898,6 +3899,7 @@ public static class BeatEmUpSetup
         {
             Enemy e;
             if (who == "Prätkäjätkä") e = MakeBiker(root.transform);
+            else if (who == "Rokkimimmi") { e = MakeRocker(root.transform); if (e != null) e.huntsBrawlers = true; }   // porukkaa: ei lyö Koviksia ja Punkkareita
             else
             {
                 var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
@@ -4269,6 +4271,62 @@ public static class BeatEmUpSetup
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Prätkäjätkä");
         Debug.Log("Prätkäjätkä: " + string.Join(", ", report));
+        return e;
+    }
+
+    /// Rokkimimmi (rokkari_*.png): neutraali idle ja kävely, etukäden ja takakäden lyönnit, etupotku ja korkea potku,
+    /// kombona koko sarja (etukäsi, takakäsi, etukäsi, etupotku, korkea potku). Taisteluidle, -kävely ja ylösnousu tulossa.
+    static Enemy MakeRocker(Transform parent)
+    {
+        var report = new List<string>();
+        foreach (var n in new[] { "rokkari_idle", "rokkari_kavely", "rokkari_lyonti", "rokkari_suora", "rokkari_potku", "rokkari_korkea", "rokkari_kaatuminen",
+                                  "rokkari_taisteluidle", "rokkari_taistelukavely", "rokkari_ylosnousu" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var idle = EnemySheet("rokkari_idle", report);
+        if (idle.Length == 0) return null;
+        var go = new GameObject("Rokkimimmi");
+        go.transform.SetParent(parent, false);
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var e = go.AddComponent<Enemy>();
+        e.body = visual; e.shadow = shadow; visual.sprite = idle[0];
+        e.displayName = "Rokkimimmi";
+        var fightIdle = EnemySheet("rokkari_taisteluidle", report);
+        e.idleSprites = fightIdle.Length > 0 ? fightIdle : idle; e.idleFrameTime = 0.14f;
+        var walk = EnemySheet("rokkari_taistelukavely", report);
+        if (walk.Length == 0) walk = EnemySheet("rokkari_kavely", report);
+        e.walkSprites = walk.Length > 0 ? walk : idle; e.walkFrameTime = 0.08f;
+        var jab = EnemySheet("rokkari_lyonti", report);      // 10 kuvaa: etukäsi, ojennettuna 4
+        if (jab.Length >= 8) { e.punchSprites = jab; e.punchImpactFrame = 4; e.secondImpactFrame = -1; e.windupTime = 0.12f; e.punchRecoverTime = 0.35f; e.punchDamage = 8; }
+        var cross = EnemySheet("rokkari_suora", report);     // 11 kuvaa: takakäsi, ojennettuna 5
+        if (cross.Length >= 8) { e.punch2Sprites = cross; e.punch2ImpactFrame = 5; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.3f; e.punch2LaunchUp = 0f; }
+        var kick = EnemySheet("rokkari_potku", report);      // 10 kuvaa: etupotku, ojennettuna 4
+        if (kick.Length >= 8) { e.altAttackSprites = kick; e.altImpactFrame = 4; e.altDamage = 12; e.altKnockdown = false; e.altChance = 0.25f; e.altReach = 2.3f; e.altLungeSpeed = 0f; }
+        var high = EnemySheet("rokkari_korkea", report);     // 13 kuvaa: korkea potku, ojennettuna 3 (kombon viimeinen, kaataa)
+        if (high.Length >= 8)
+        {
+            e.punch3Sprites = high; e.punch3ImpactFrame = 3; e.punch3WindupTime = 0.25f; e.punch3RecoverTime = 0.5f;
+            e.punch3Damage = 16; e.punch3Knockdown = true; e.punch3LaunchX = 5f; e.punch3LaunchUp = 5f; e.punch3Chance = 0.1f; e.punch3Reach = 2.4f;
+        }
+        // kombo: koko sarja (etukäsi, takakäsi, etukäsi, etupotku, korkea potku); menee loppuun
+        e.combos = new[] { "JSJPK" }; e.comboChance = 0.5f; e.comboArmor = true; e.comboWindupScale = 0.7f; e.comboGap = 0.08f;
+        var fall = EnemySheet("rokkari_kaatuminen", report); // 0 asento, 1 pää taakse, 2–4 horjuu, 5 kaatuu, 6–7 selällään
+        if (fall.Length >= 8)
+        {
+            e.hurtSprites = new[] { fall[1] };
+            e.knockdownSprites = new[] { fall[1], fall[2], fall[3], fall[5], fall[7] };
+            e.landSprites = new[] { fall[6], fall[7] }; e.landFrameTime = 0.12f;
+        }
+        var up = EnemySheet("rokkari_ylosnousu", report);
+        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.0f; }
+        e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 0.8f; e.blockChance = 0f;
+        e.moveSpeedX = 3.2f; e.moveSpeedY = 1.6f;   // nopea ja ketterä
+        e.wakeDistance = 8f; e.retreatChance = 0.1f;
+        Undo.RegisterCreatedObjectUndo(go, "Rokkimimmi");
+        Debug.Log("Rokkimimmi: " + string.Join(", ", report));
         return e;
     }
 
