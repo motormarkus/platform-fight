@@ -30,6 +30,7 @@ public class GameMenu : MonoBehaviour
         "#Grafiikka ja animaatiot\nTekoälyllä tuotettu, ohjannut ja valinnut {0}\n\n" +
         "#Ohjelmointi\nTekoälyllä tuotettu (Claude), ohjannut ja testannut {0}\n\n" +
         "#Musiikki ja äänet\n{0}\n\n" +
+        "#Moottoripyörä\nOstettu valmis grafiikka (lisensoitu)\n\n" +
         "#Vastuu kaikesta\n{0}\n\n\n" +
         "#Kiitos pelaamisesta!";
     [TextArea(8, 30)]
@@ -39,6 +40,7 @@ public class GameMenu : MonoBehaviour
         "#Graphics and animation\nAI-generated, directed and curated by {0}\n\n" +
         "#Programming\nAI-generated (Claude), directed and tested by {0}\n\n" +
         "#Music and sound\n{0}\n\n" +
+        "#Motorcycle\nPurchased asset (licensed)\n\n" +
         "#Responsible for everything\n{0}\n\n\n" +
         "#Thank you for playing!";
 
