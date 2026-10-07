@@ -582,9 +582,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (a.special != null && a.special.Length > 0)
         {
             specialSprites = a.special;
-            specialFrameTime = 0.055f;                       // 37 kuvaa = n. 2 s (nopeampi oli liian vauhdikas, ei saanut selvää)
-            float specialLen = specialFrameTime * a.special.Length;
-            specialHitFrom = 0.15f; specialHitTo = specialLen - 0.25f; specialHitEvery = 0.55f;
+            if (a.special.Length == 37)
+            {
+                // yksi pyörähdys: alku ja pyörähdys (0–10), suoraan loppuun (31–36; kuva 31 jatkaa kuvan 10 potkusta)
+                var t = new System.Collections.Generic.List<Sprite>();
+                for (int i = 0; i <= 10; i++) t.Add(a.special[i]);
+                for (int i = 31; i <= 36; i++) t.Add(a.special[i]);
+                specialSprites = t.ToArray();
+            }
+            specialFrameTime = 0.065f;                       // 17 kuvaa = n. 1,1 s, rauhallisempi kuvatahti
+            float specialLen = specialFrameTime * specialSprites.Length;
+            specialHitFrom = 0.12f; specialHitTo = specialLen - 0.3f; specialHitEvery = 0.4f;
             specialDamage = 10; specialReach = 2.6f;
         }
         // kärrynpyörä: kuvat on keskitetty, joten liike eteen tehdään koodissa koko pyörähdyksen ajan (kuvat 1–7)
