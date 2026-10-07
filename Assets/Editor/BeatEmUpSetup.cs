@@ -4280,7 +4280,7 @@ public static class BeatEmUpSetup
     {
         var report = new List<string>();
         foreach (var n in new[] { "rokkari_idle", "rokkari_kavely", "rokkari_lyonti", "rokkari_suora", "rokkari_potku", "rokkari_korkea", "rokkari_kaatuminen",
-                                  "rokkari_taisteluidle", "rokkari_taistelukavely", "rokkari_ylosnousu" })
+                                  "rokkari_taisteluidle", "rokkari_taistelukavely", "rokkari_ylosnousu", "rokkari_niskalenkki", "rokkari_niskalenkki_lento" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4321,7 +4321,11 @@ public static class BeatEmUpSetup
             e.landSprites = new[] { fall[6], fall[7] }; e.landFrameTime = 0.12f;
         }
         var up = EnemySheet("rokkari_ylosnousu", report);
-        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.0f; }
+        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.0f; }   // 8 kuvaa: selällään, kieräys, kontallaan, tappeluasento
+        // heron niskalenkki: ote, veto, lento vaakatasossa, pyörähdys ja alastulo selälleen
+        e.bigBody = false;
+        e.headlockThrownSprites = EnemySheet("rokkari_niskalenkki", report);
+        e.headlockFlightSprites = EnemySheet("rokkari_niskalenkki_lento", report);
         e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 0.8f; e.blockChance = 0f;
         e.moveSpeedX = 3.2f; e.moveSpeedY = 1.6f;   // nopea ja ketterä
         e.wakeDistance = 8f; e.retreatChance = 0.1f;
