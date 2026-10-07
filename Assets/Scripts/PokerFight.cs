@@ -9,6 +9,9 @@ public class PokerFight : MonoBehaviour
     public SpriteLoop loop;
     public SpriteRenderer background;
     public Sprite fightBackground;
+    [Tooltip("Huonekuvan ympärille jatkettu tausta ja sen tappeluversio.")]
+    public SpriteRenderer extBackground;
+    public Sprite fightExtBackground;
     public Area area;
     [Tooltip("Takaraja tappelun aikana (pöytä on nurin lattialla, sen yli voi kävellä).")]
     public Vector2[] fightDepthLimits;
@@ -83,6 +86,7 @@ public class PokerFight : MonoBehaviour
     void Swap()
     {
         if (background != null && fightBackground != null) background.sprite = fightBackground;
+        if (extBackground != null && fightExtBackground != null) extBackground.sprite = fightExtBackground;
         if (loop != null) loop.HideAll();
         if (area != null && fightDepthLimits != null && fightDepthLimits.Length > 0) area.depthLimits = fightDepthLimits;
         foreach (var g in activate) if (g != null) g.SetActive(true);

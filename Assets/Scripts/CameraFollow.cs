@@ -15,19 +15,19 @@ public class CameraFollow : MonoBehaviour
     float shakeAmp, shakeTime, shakeDuration;
 
     float defaultSize = -1f;
-    float baseY, riseY, depthMin, depthMax, yVel;
+    float baseY, riseY, depthMin, depthMax, yVel, offY;
 
     /// Pystyseuranta (alueittain): pelaajan ollessa seinän vieressä kamera on riseY ylempänä, edessä normaalikorkeudella.
-    public void SetVertical(float rise, float minDepth, float maxDepth)
+    public void SetVertical(float rise, float minDepth, float maxDepth, float offset = 0f)
     {
-        riseY = rise; depthMin = minDepth; depthMax = maxDepth;
+        riseY = rise; depthMin = minDepth; depthMax = maxDepth; offY = offset;
         basePos.y = GoalY(); yVel = 0f;   // aluevaihto pimennyksessä: heti oikealle korkeudelle
     }
 
     float GoalY()
     {
-        if (riseY <= 0f || target == null || depthMax <= depthMin) return baseY;
-        return baseY + riseY * Mathf.InverseLerp(depthMin, depthMax, target.position.y);
+        if (riseY <= 0f || target == null || depthMax <= depthMin) return baseY + offY;
+        return baseY + offY + riseY * Mathf.InverseLerp(depthMin, depthMax, target.position.y);
     }
 
     void Awake()
