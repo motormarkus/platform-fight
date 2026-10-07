@@ -551,6 +551,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int[] counterFramesOverride;
     Vector3[] counterKeysOverride, counterKeysArtOverride;
     float[] counterSegsOverride;
+    int[] counterPosesOverride;
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
     Sprite[] liftArt, heaveArt;   // isompi nosto- ja heittosarja (Ruby)
@@ -595,12 +596,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             counterThrowSprites = a.counterThrow;
             // nousu käsille rauhallisesti, jalat vihun pään ympärille, veto alas kiihtyen: vihu lentää Rubyn yli selän taakse
             counterFramesOverride = new[] { 1, 2, 4, 5, 6, 7, 8, 9 };   // kyykky, nousu, käsiseisonta (ote jaloilla), veto, heitto; makuu, kyykky, asento
-            counterSegsOverride = new[] { 2.2f, 2.6f, 1.4f, 0.7f };      // kaksi viimeistä väliä kiihtyvät (ease-in)
+            // välit: ote → nousu käsille → jalat niskaan → PITO (vihu paikallaan) → veto alas → irti; kaksi viimeistä kiihtyvät
+            counterSegsOverride = new[] { 2.2f, 2.6f, 2.6f, 1.5f, 0.7f };
             counterKeysOverride = new[]
             {
                 new Vector3( 0.95f, 1.50f,   0f),   // ote, Ruby kyykyssä
                 new Vector3( 0.90f, 1.50f,   0f),   // Ruby nousee käsilleen
-                new Vector3( 0.80f, 1.65f,   5f),   // jalat pään ympärillä
+                new Vector3( 0.80f, 1.60f,   3f),   // jalat niskassa
+                new Vector3( 0.80f, 1.60f,   3f),   // pito: vihu pysyy asennossa
                 new Vector3( 0.05f, 2.50f, 110f),   // veto alas: vihu kiepsahtaa yli
                 new Vector3(-1.00f, 1.40f, 200f),   // irti selän taakse
             };
@@ -608,10 +611,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 new Vector3( 0.95f, 1.50f,  0f),
                 new Vector3( 0.90f, 1.50f,  0f),
-                new Vector3( 0.80f, 1.80f,  0f),
+                new Vector3( 0.80f, 1.70f,  0f),
+                new Vector3( 0.80f, 1.70f,  0f),
                 new Vector3( 0.00f, 3.00f,  5f),
                 new Vector3(-1.00f, 2.40f, 10f),
             };
+            counterPosesOverride = new[] { 1, 2, 2, 2, 4, 5 };   // vihun omat kuvat: pidossa vielä otekuva
             counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.45f; counterThrowSlide = 0.3f;
             counterThrowTurns = false;   // Ruby nousee samaan suuntaan kuin aloitti
         }
@@ -1918,7 +1923,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int[] CurFrames => monkeyFlip ? FlipFrames : counterFramesOverride ?? CounterFrames;
     Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys)
                        : heldArt ? counterKeysArtOverride ?? CounterKeysArt : counterKeysOverride ?? CounterKeys;
-    int[] CurPoses => monkeyFlip ? FlipPosesArt : CounterPosesArt;
+    int[] CurPoses => monkeyFlip ? FlipPosesArt : counterPosesOverride ?? CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
     float CurThrowFrameTime => Mathf.Max(monkeyFlip ? monkeyFlipFrameTime : counterThrowFrameTime, 0.01f);
 
@@ -2054,7 +2059,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             float k = Mathf.Clamp(ThrowKeyAt(stateTime), 0f, keys.Length - 1);
             int i = Mathf.Min((int)k, keys.Length - 2);
             // pehmeä kaari avainkohtien läpi (ei kulmikkaita suoria pätkiä), kierto tasaisesti
-            Vector3 v = CatmullRom(keys[Mathf.Max(i - 1, 0)], keys[i], keys[i + 1], keys[Mathf.Min(i + 2, keys.Length - 1)], k - i);
+            // sama avain kahdesti = pito: ei liikettä (käyrä heiluisi muuten naapureiden suuntaan)
+            bool hold = keys[i] == keys[i + 1];
+            Vector3 v = hold ? keys[i] : CatmullRom(keys[Mathf.Max(i - 1, 0)], keys[i], keys[i + 1], keys[Mathf.Min(i + 2, keys.Length - 1)], k - i);
             v.z = Mathf.Lerp(keys[i].z, keys[i + 1].z, k - i);
             // ensimmäisen välin aikana vihu liukuu omasta paikastaan otekohtaan
             float blend = Mathf.Clamp01(k);
