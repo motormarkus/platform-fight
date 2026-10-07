@@ -417,7 +417,7 @@ public static class BeatEmUpSetup
         a.special = L("tornado"); a.cartwheel = L("karrynpyora");
         a.counterThrow = L("heitto"); a.block = L("suojaus");
         a.thrown = L("heitetty"); a.fall = L("kaatuminen"); a.getup = L("ylosnousu");
-        a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto"); a.pummel = L("rinnus");
+        a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto"); a.pummel = L("rinnus"); a.frontKick = L("etupotku"); a.backKick = L("takapotku");
         pc.heroine = a;
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
@@ -427,6 +427,7 @@ public static class BeatEmUpSetup
              "Alkuvalikko: Aloita peli → valitse hahmo (Rocco / Ruby) → vaikeustaso.\n" +
              "Lyönnit: jab, takasuora, etukoukku, takakoukku. Potkut: matala, keski, korkea.\n" +
              "Alas, eteen + lyönti (myös kombon keskellä): tarttuu rinnuksista ja lyö 5 kertaa.\n" +
+             "Eteen + potku: etupotku. Taakse + potku: takapotku (kaataa).\n" +
              "Erikoisliike (L / LB): tornadopotku. Pusku (U / RT): kärrynpyörä. Vastaheitto (O): kuperkeikka.\n" +
              "Ruby nostaa ja heittää pulloja, laseja, laatikoita, tynnyreitä ja pöytiä (ei tuoleja eikä renkaita).\n" +
              (missing.Count > 0 ? "\nPuuttuu: " + string.Join(", ", missing) + "\n" : "") +

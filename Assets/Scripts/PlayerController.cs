@@ -540,6 +540,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] bigCarry;
         [Tooltip("Erikoisliike (taakse, alas, eteen + lyönti): 0 kurotus, 1 ote rinnuksista, 2 veto, 3–4 lyönti, 5 viimeinen lyönti.")]
         public Sprite[] pummel;
+        [Tooltip("Eteen + potku: etupotku (8 kuvaa). Taakse + potku: takapotku (6 kuvaa), kaataa.")]
+        public Sprite[] frontKick, backKick;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -558,7 +560,28 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int[] counterPosesOverride;
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
     bool canCarry = true;
-    [HideInInspector] public Sprite[] pummelSprites;
+    [HideInInspector] public Sprite[] pummelSprites, frontKickSprites, backKickSprites;
+    [Header("Ruby: etupotku (eteen + K) ja takapotku (taakse + K, kaataa)")]
+    public int frontKickDamage = 10, backKickDamage = 14;
+    public float frontKickReach = 2.3f, backKickReach = 2.3f;
+    float lastTurnTime = -9f;
+    Sprite[] soloSet; int soloImpact; float soloFrameTime, soloHold, soloReach, soloLunge; int soloDamage; bool soloKnock;
+    float SoloTotal => soloFrameTime * (soloSet.Length - 1) + soloHold;
+
+    void StartSoloKick(bool back, int dir)
+    {
+        facingRight = dir > 0;
+        bool b = back && backKickSprites != null && backKickSprites.Length >= 5;
+        soloSet = b ? backKickSprites : frontKickSprites;
+        // takapotku: 0 asento, 1–2 kääntyy, 3 potku (osuma), 4–5 paluu; etupotku: 0–2 nosto, 3–4 potku (osuma 4), 5–7 paluu
+        soloImpact = b ? 3 : 4; soloFrameTime = b ? 0.07f : 0.055f; soloHold = b ? 0.16f : 0.13f;
+        soloDamage = b ? backKickDamage : frontKickDamage; soloReach = b ? backKickReach : frontKickReach;
+        soloKnock = b; soloLunge = b ? 0.25f : 0.35f;
+        attackHit = false;
+        attackLunge = ChaseLunge(soloLunge, soloReach);
+        PlayGrunt();
+        Enter(State.SoloKick);
+    }
     [Header("Rinnuksista-lyönnit (Ruby: alas, eteen + lyönti, myös kombon keskellä)")]
     public int pummelDamage = 4, pummelFinalDamage = 8;
     [Tooltip("Rinnuksista-lyöntien staminakulutus (oma arvonsa, ei sama kuin puskulla).")]
@@ -764,6 +787,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
         pummelSprites = a.pummel;
+        frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
+        backKickSprites = a.backKick != null && a.backKick.Length >= 5 ? a.backKick : null;
         // Rubyn kestävyys: liikkeet kuluttavat vähemmän ja stamina palautuu nopeammin kuin Roccolla
         jumpStamina *= 0.8f; specialStamina *= 0.8f; pushStamina *= 0.8f; throwStamina *= 0.8f;
         runStaminaPerSecond *= 0.8f; staminaRegenPerSecond *= 1.3f; staminaRegenWait *= 0.8f;
@@ -793,7 +818,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick }
 
     int comboIndex;
     bool comboQueued;
@@ -950,6 +975,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     Enter(State.KneeDash);
                     dashArmedUntil = -9f;
                     break;
+                }
+                // Ruby: eteen + K = etupotku, taakse + K = takapotku (myös heti kääntymisen jälkeen)
+                if (kickPressed && Mathf.Abs(move.x) > 0.5f && (frontKickSprites != null || backKickSprites != null))
+                {
+                    int kd = move.x > 0f ? 1 : -1;
+                    bool back = (kd > 0) != facingRight || Time.time - lastTurnTime <= 0.2f;
+                    if ((back && backKickSprites != null) || (!back && frontKickSprites != null)) { StartSoloKick(back, kd); break; }
                 }
                 if (kickPressed)
                 {
@@ -1394,6 +1426,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 UpdateCounterThrow();
                 break;
 
+            case State.SoloKick:
+            {
+                float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
+                Lunge(attackLunge, hitFrom, dt);
+                if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
+                    attackHit = AttackEnemies(soloReach, soloDamage, soloKnock, soloKnock ? 2.4f : 2.0f);
+                if (stateTime >= SoloTotal) Enter(State.Ground);
+                break;
+            }
+
             case State.Pummel:
                 UpdatePummel(dt);
                 if (state == State.Pummel && pummelCount >= PummelHits && stateTime >= PummelReachTime + PummelGripTime + PummelHits * PummelStep + 0.22f) Enter(State.Ground);
@@ -1762,7 +1804,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
+        AttackIsKick = state == State.Kick || state == State.SoloKick || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -2392,7 +2434,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         moving = move.sqrMagnitude > 0.01f;
         running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
         if (!moving) return;
-        if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+        if (Mathf.Abs(move.x) > 0.1f) { bool nf = move.x > 0; if (nf != facingRight) lastTurnTime = Time.time; facingRight = nf; }
         float sx = moveSpeedX * (running ? runSpeedMultiplier : 1f);
         float sy = moveSpeedY * (running ? runDepthMultiplier : 1f);
         lastGroundVel = new Vector2(move.x * sx, move.y * sy);
@@ -2688,6 +2730,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Pummel:
                 return PummelSprite();
+            case State.SoloKick:
+            {
+                float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
+                int i = stateTime < hitFrom ? (int)(stateTime / soloFrameTime) : stateTime < hitTo ? soloImpact : soloImpact + 1 + (int)((stateTime - hitTo) / soloFrameTime);
+                return soloSet[Mathf.Clamp(i, 0, soloSet.Length - 1)];
+            }
 
             case State.Catch:
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
