@@ -1113,7 +1113,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Enemy first = null; float firstD = float.MaxValue;
         foreach (var e in All)
         {
-            if (e == this || !e.awake || e.IsDead) continue;
+            // vain samaa pelaajaa jahtaavat lähellä olevat: muualla hereillä olevat ja toisia vihuja jahtaavat eivät työnnä jonoa kauemmas
+            if (e == this || !e.awake || e.IsDead || e.ally || !e.isActiveAndEnabled || e.enemyTarget != null) continue;
+            if (Mathf.Abs(e.transform.position.x - p.x) > 12f || e.state == State.Down || e.state == State.Airborne || e.state == State.GetUp) continue;
             float d = Mathf.Abs(e.transform.position.x - p.x);
             if (d < myD || (Mathf.Approximately(d, myD) && e.GetInstanceID() < GetInstanceID()))
             {
@@ -1189,7 +1191,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         else if (attackRank == 1 && first != null) side = first.transform.position.x >= p.x ? -1f : 1f;
         else if (attackRank >= 2)
         {
-            dist = 3.4f + (attackRank - 2) * 0.9f;
+            dist = Mathf.Min(3.4f + (attackRank - 2) * 0.9f, 5.2f);   // jono ei veny ruudun ulkopuolelle; lisää odottajia syvyyssuunnassa
             yOff = (attackRank % 2 == 0) ? 0.7f : -0.7f;
             yOff += Mathf.Sin(Time.time * 1.1f + GetInstanceID() * 0.37f) * 0.5f;   // vuoroaan odottavat liikehtivät
         }
@@ -1200,6 +1202,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             dist = 3.6f;
         }
         Vector2 target = new Vector2(p.x + side * dist, p.y + yOff);
+        // kohde aina näkyvän ruudun sisällä (kujan pää, katto): ei kävellä kuvan ulkopuolelle odottamaan
+        var camF = Camera.main;
+        if (camF != null)
+        {
+            float half = camF.orthographicSize * camF.aspect - 0.9f, cx = camF.transform.position.x;
+            target.x = Mathf.Clamp(target.x, cx - half, cx + half);
+        }
         // toiselle puolelle mennessä kaarretaan pelaajan ohi syvyyssuunnassa, ei kävellä läpi
         bool crossing = Mathf.Sign(me.x - p.x) != side && Mathf.Abs(me.x - p.x) < dist + 1.5f;
         if (crossing)
