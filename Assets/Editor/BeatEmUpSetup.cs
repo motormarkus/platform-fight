@@ -3772,7 +3772,9 @@ public static class BeatEmUpSetup
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
     // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
-    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.3f), new Vector2(2450f, 0.6f), new Vector2(2880f, 0.28f), new Vector2(2180f, 0.95f) };
+    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.3f), new Vector2(2450f, 0.6f), new Vector2(2880f, 0.28f), new Vector2(2180f, 0.95f),
+                                                  // alaosa (lattia eturivissä, myös tiskin edessä)
+                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2760f, 1.25f), new Vector2(3330f, 1.05f) };
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
         ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
         ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)) };
