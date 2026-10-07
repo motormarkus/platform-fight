@@ -4405,11 +4405,11 @@ public static class BeatEmUpSetup
         d.transform.position = new Vector3(barBack.x, barBack.y, 0f);
         d.prompt = "Mene pokerihuoneeseen";
         d.here = bar; d.target = area;
-        d.spawnPoint = new Vector2(BarRoomX0 + (BarRoomExitPx + 120f) / ppu, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.45f));
+        d.spawnPoint = new Vector2(pt(BarRoomExitPx + 120f, 0f).x, area.maxDepthY - 1.0f);   // teräsoven eteen (huoneen koordinaatit laajennetussa kuvassa)
         d.halfWidth = 1.4f; d.maxDistanceFromWall = 1.4f;
         var exit = new GameObject("Pokerihuoneesta baariin").AddComponent<Door>();
         exit.transform.SetParent(doors.transform, false);
-        exit.transform.position = new Vector3(BarRoomX0 + BarRoomExitPx / ppu, area.maxDepthY, 0f);
+        exit.transform.position = new Vector3(pt(BarRoomExitPx, 0f).x, area.maxDepthY, 0f);
         exit.prompt = "Takaisin baariin";
         exit.here = area; exit.target = bar;
         exit.halfWidth = 1.8f; exit.maxDistanceFromWall = 1.2f;
