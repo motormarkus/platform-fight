@@ -23,6 +23,13 @@ public static class GameSettings
     public static int ScaleToPlayer(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToPlayer));
     public static int ScaleToEnemy(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToEnemies));
 
+    /// Pelattava hahmo: 0 = Rocco, 1 = Jasmi.
+    public static int Character
+    {
+        get => PlayerPrefs.GetInt("hahmo", 0);
+        set { PlayerPrefs.SetInt("hahmo", value); PlayerPrefs.Save(); }
+    }
+
     public static float MasterVolume
     {
         get => PlayerPrefs.GetFloat("aanet", 1f);

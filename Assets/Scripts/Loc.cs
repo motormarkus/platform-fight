@@ -44,7 +44,7 @@ public static class Loc
         { "Kyllä, lopeta", "Yes, quit" }, { "Ei", "No" }, { "Lopetetaanko peli?", "Quit the game?" },
         { "Äänet", "Sound" }, { "Musiikki", "Music" }, { "Koko näyttö", "Fullscreen" }, { "Päällä", "On" }, { "Pois", "Off" },
         { "Resoluutio", "Resolution" }, { "Kieli", "Language" }, { "Vaikeustaso", "Difficulty" },
-        { "TAUKO", "PAUSED" }, { "ASETUKSET", "OPTIONS" }, { "Valitse vaikeustaso", "Choose difficulty" },
+        { "TAUKO", "PAUSED" }, { "ASETUKSET", "OPTIONS" }, { "Valitse vaikeustaso", "Choose difficulty" }, { "Valitse hahmo", "Choose your fighter" },
         { "Viholliset lyövät heikommin, iskusi tehoavat enemmän. 5 elämää.", "Enemies hit softer, your hits land harder. 5 lives." },
         { "Tasapainoinen haaste. 3 elämää.", "A balanced challenge. 3 lives." },
         { "Viholliset lyövät kovempaa ja kestävät enemmän. 2 elämää.", "Enemies hit harder and take more. 2 lives." },

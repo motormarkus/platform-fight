@@ -89,7 +89,7 @@ public class GameHUD : MonoBehaviour
 
         if (player != null)
         {
-            GUI.Label(new Rect(x, y, w, h * 1.4f), Loc.T(playerName), label);
+            GUI.Label(new Rect(x, y, w, h * 1.4f), string.IsNullOrEmpty(player.characterName) ? Loc.T(playerName) : player.characterName.ToUpper(), label);
             Bar(new Rect(x, y + h * 1.4f, w, h), player.health / (float)Mathf.Max(1, player.maxHealth), new Color(1f, 0.85f, 0.1f));
             // stamina sinisenä energian alla; vilkkuu, jos liikkeeseen ei riittänyt
             bool empty = Time.time - player.StaminaEmptyTime < 0.5f && Mathf.FloorToInt((Time.time - player.StaminaEmptyTime) * 10f) % 2 == 0;

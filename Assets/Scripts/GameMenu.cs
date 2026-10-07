@@ -18,6 +18,8 @@ public class GameMenu : MonoBehaviour
     int shopOpenFrame = -10;
     /// Uusi peli game overin jälkeen: aloitusvalikko ohitetaan kerran.
     public static bool SkipTitleOnce;
+    /// Hahmo vaihtui valinnassa: scene ladataan uudelleen ja jatketaan suoraan vaikeustason valintaan.
+    static bool difficultyOnce;
 
     public string gameTitle = "PLATFORM FIGHT";
     [Tooltip("Tekijän nimi tekijäluetteloon.")]
@@ -46,7 +48,7 @@ public class GameMenu : MonoBehaviour
         "#Responsible for everything\n{0}\n\n\n" +
         "#Thank you for playing!";
 
-    enum Page { None, Title, Difficulty, Pause, Options, Credits, ConfirmQuit }
+    enum Page { None, Title, Character, Difficulty, Pause, Options, Credits, ConfirmQuit }
     Page page = Page.None, back = Page.None;
     int sel;
     float creditsT;
@@ -58,6 +60,16 @@ public class GameMenu : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void Create()
     {
+        Ensure();
+        // myös uudelleenlatauksen jälkeen (alusta, päävalikkoon, hahmon vaihto)
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    static void OnSceneLoaded(Scene scene, LoadSceneMode mode) => Ensure();
+
+    static void Ensure()
+    {
         if (FindFirstObjectByType<GameMenu>() != null) return;
         new GameObject("Valikot").AddComponent<GameMenu>();
     }
@@ -65,6 +77,7 @@ public class GameMenu : MonoBehaviour
     void Start()
     {
         if (SkipTitleOnce) { SkipTitleOnce = false; return; }
+        if (difficultyOnce) { difficultyOnce = false; Open(Page.Difficulty); sel = (int)GameSettings.Difficulty; return; }
         Open(Page.Title);
     }
 
@@ -86,6 +99,7 @@ public class GameMenu : MonoBehaviour
         switch (page)
         {
             case Page.Title: return new[] { "Aloita peli", "Asetukset", "Tekijät", "Lopeta" };
+            case Page.Character: return new[] { "Rocco", HeroineName(), "Takaisin" };
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
             case Page.Pause: return new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
             case Page.Options:
@@ -123,11 +137,14 @@ public class GameMenu : MonoBehaviour
         if (dy != 0) sel = (sel + dy + items.Length) % items.Length;
         int dx = NavX();
         if (page == Page.Options && dx != 0) Adjust(sel, dx);
+        if (page == Page.Character && dx != 0 && sel < 2) sel = 1 - sel;
         if (ConfirmPressed()) Choose(sel);
         else if (BackPressed())
         {
             if (page == Page.Pause) Close();
             else if (page == Page.Title) { }
+            else if (page == Page.Character) { page = Page.Title; sel = 0; }
+            else if (page == Page.Difficulty) { page = Page.Character; sel = GameSettings.Character; }
             else { page = back == Page.None ? Page.Title : back; sel = 0; }
         }
     }
@@ -155,13 +172,23 @@ public class GameMenu : MonoBehaviour
         switch (page)
         {
             case Page.Title:
-                if (i == 0) { page = Page.Difficulty; sel = (int)GameSettings.Difficulty; }
+                if (i == 0) { page = Page.Character; sel = Mathf.Clamp(GameSettings.Character, 0, 1); }
                 else if (i == 1) { back = Page.Title; page = Page.Options; sel = 0; }
                 else if (i == 2) { back = Page.Title; page = Page.Credits; creditsT = 0f; }
                 else { back = Page.Title; page = Page.ConfirmQuit; sel = 1; }
                 break;
+            case Page.Character:
+            {
+                if (i == 2) { page = Page.Title; sel = 0; break; }
+                GameSettings.Character = i;
+                var cur = FindFirstObjectByType<PlayerController>();
+                // hahmo vaihtui: kuvat vaihdetaan pelaajan herätessä, joten scene ladataan uudelleen
+                if (cur != null && cur.AppliedCharacter != i) { difficultyOnce = true; Restart(); break; }
+                page = Page.Difficulty; sel = (int)GameSettings.Difficulty;
+                break;
+            }
             case Page.Difficulty:
-                if (i == 3) { page = Page.Title; sel = 0; break; }
+                if (i == 3) { page = Page.Character; sel = GameSettings.Character; break; }
                 GameSettings.Difficulty = (GameSettings.Level)i;
                 var pc = FindFirstObjectByType<PlayerController>();
                 if (pc != null) pc.lives = GameSettings.Lives;
@@ -240,6 +267,8 @@ public class GameMenu : MonoBehaviour
 
         if (page == Page.Credits) { DrawCredits(w, h, s, gold); return; }
 
+        if (page == Page.Character) { DrawCharacters(w, h, s, gold); return; }
+
         string head = page == Page.Title || page == Page.Difficulty ? gameTitle
                     : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T("ASETUKSET") : Loc.T("Lopetetaanko peli?");
         Shadowed(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle, gold);
@@ -263,6 +292,58 @@ public class GameMenu : MonoBehaviour
         }
         string help = page == Page.Options ? "Ylös / alas valitse   Vasen / oikea säädä   Enter / A muuta   Esc / B takaisin" : "Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin";
         Shadowed(new Rect(0, h - 70 * s, w, 50 * s), Loc.T(help), smallStyle, new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    static string HeroineName()
+    {
+        var pc = FindFirstObjectByType<PlayerController>();
+        return pc != null && pc.heroine != null && !string.IsNullOrEmpty(pc.heroine.name) ? pc.heroine.name : "Jasmi";
+    }
+
+    /// Hahmonvalinta: Rocco vasemmalla, Jasmi oikealla (katsovat toisiaan), valittu korostettuna.
+    void DrawCharacters(float w, float h, float s, Color gold)
+    {
+        Shadowed(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle, gold);
+        Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
+        var pc = FindFirstObjectByType<PlayerController>();
+        Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
+        string[] names = { "Rocco", HeroineName() };
+        float boxW = w * 0.3f, boxH = h * 0.44f, top = h * 0.29f;
+        for (int k = 0; k < 2; k++)
+        {
+            bool on = sel == k;
+            float cx = w * (k == 0 ? 0.32f : 0.68f);
+            var set = sets[k];
+            if (set != null && set.Length > 0)
+            {
+                Sprite sp = on ? set[(int)(Time.unscaledTime / 0.15f) % set.Length] : set[0];
+                DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f));
+            }
+            else Shadowed(new Rect(cx - boxW * 0.5f, top, boxW, boxH), "?", titleStyle, new Color(0.5f, 0.5f, 0.5f));
+            Shadowed(new Rect(cx - boxW * 0.5f, top + boxH + 6 * s, boxW, 66 * s), on ? ">  " + names[k].ToUpper() + "  <" : names[k].ToUpper(), itemStyle,
+                     on ? gold : new Color(0.75f, 0.75f, 0.75f));
+        }
+        bool backOn = sel == 2;
+        string b = Loc.T("Takaisin");
+        Shadowed(new Rect(0, top + boxH + 90 * s, w, 66 * s), backOn ? ">  " + b + "  <" : b, itemStyle, backOn ? gold : new Color(0.85f, 0.85f, 0.85f));
+        Shadowed(new Rect(0, h - 70 * s, w, 50 * s), Loc.T("Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin"), smallStyle, new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    /// Piirtää spriten laatikkoon jalat alareunassa, mittasuhteet säilyttäen (flip = peilikuva).
+    static void DrawSprite(Rect box, Sprite sp, bool flip, Color tint)
+    {
+        if (sp == null || sp.texture == null) return;
+        Texture2D tex = sp.texture;
+        Rect tr = sp.textureRect;
+        float k = Mathf.Min(box.width / tr.width, box.height / tr.height);
+        float dw = tr.width * k, dh = tr.height * k;
+        var r = new Rect(box.x + (box.width - dw) * 0.5f, box.y + box.height - dh, dw, dh);
+        var uv = new Rect(tr.x / tex.width, tr.y / tex.height, tr.width / tex.width, tr.height / tex.height);
+        if (flip) uv = new Rect(uv.xMax, uv.y, -uv.width, uv.height);
+        var old = GUI.color;
+        GUI.color = tint;
+        GUI.DrawTextureWithTexCoords(r, tex, uv);
+        GUI.color = old;
     }
 
     void DrawCredits(float w, float h, float s, Color gold)

@@ -507,6 +507,106 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
+    // ---------------- Toinen pelattava hahmo (Jasmi) ----------------
+
+    /// Hahmon kuvasarjat. Täytä valikosta Beat em up → 70. Toinen pelattava hahmo (Jasmi).
+    [Serializable]
+    public class CharacterArt
+    {
+        public string name = "Jasmi";
+        public Sprite[] idle, walk, run;
+        [Tooltip("Lyöntisarja: jab, takasuora, etukoukku, takakoukku (kaataa).")]
+        public Sprite[] jab, cross, leadHook, rearHook;
+        [Tooltip("Potkusarja takajalalla: matala, keski, korkea (kaataa).")]
+        public Sprite[] lowKick, midKick, highKick;
+        [Tooltip("Hyppy voltilla (10 kuvaa: 0 asento, 1 kyykky, 2 ponnistus, 3–5 voltti, 6 lasku, 7–8 alastulo, 9 asento) ja potku ilmassa (3 kuvaa).")]
+        public Sprite[] jump, jumpKick;
+        [Tooltip("Tornadopotku (erikoisliike, kuten tuulimylly).")]
+        public Sprite[] special;
+        [Tooltip("Kärrynpyörä (puskunappi): kaataa.")]
+        public Sprite[] cartwheel;
+        [Tooltip("Vastaheitto: kuperkeikka, jalat vihun pään ympärille, heitto selän taakse (10 kuvaa).")]
+        public Sprite[] counterThrow;
+        public Sprite[] block, thrown, fall, getup;
+        public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
+    }
+
+    [Header("Toinen pelattava hahmo")]
+    public string characterName = "Rocco";
+    public CharacterArt heroine = new CharacterArt();
+    /// 0 = Rocco, 1 = Jasmi (valittu alkuvalikossa).
+    public int AppliedCharacter { get; private set; }
+    /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Jasmin kuvat vaihdetaan tilalle).
+    public Sprite[] HeroIdle { get; private set; }
+    [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites;
+    [HideInInspector] public Sprite hurtSprite;
+    int[] counterFramesOverride;
+    bool canCarry = true;
+    bool knockedDown;   // kaatava isku (ei heitto): omat kaatumiskuvat, jos on
+
+    void ApplyHeroine()
+    {
+        var a = heroine;
+        if (a == null || !a.IsComplete) return;
+        AppliedCharacter = 1;
+        characterName = string.IsNullOrEmpty(a.name) ? "Jasmi" : a.name;
+        idleSprites = a.idle;
+        actionSprites = new[] { a.idle[0] };   // varakuva: Roccon kuvat eivät näy koskaan
+        walkSprites = a.walk; walkFrameTime = 0.1f;
+        runSprites = a.run; runSpriteFrameTime = 0.07f;
+        punchCombo = new[]
+        {
+            Hit("Jab",        a.jab,      3, 0.045f, 0.09f, 0.18f,  6, 1.6f, false),
+            Hit("Takasuora",  a.cross,    3, 0.05f,  0.11f, 0.26f,  8, 1.7f, false),
+            Hit("Etukoukku",  a.leadHook, 3, 0.05f,  0.11f, 0.22f,  8, 1.6f, false),
+            Hit("Takakoukku", a.rearHook, 3, 0.055f, 0.16f, 0.30f, 14, 1.7f, true),
+        };
+        lowKickSprites = a.lowKick;
+        sideKickSprites = a.midKick; sideKickFrameTime = 0.06f; sideKickImpactFrame = 2; sideKickImpactHold = 0.14f; sideKickArtOffset = 0f; sideKickReach = 2.3f;
+        hiKickSprites = a.highKick; hiKickFrameTime = 0.055f; hiKickImpactFrame = 2; hiKickImpactHold = 0.14f; hiKickArtOffset = 0f;
+        jumpSprites = a.jump; jumpKickSprites = a.jumpKick;
+        if (a.special != null && a.special.Length > 0)
+        {
+            specialSprites = a.special;
+            specialFrameTime = 1.1f / a.special.Length;
+            specialHitFrom = 0.12f; specialHitTo = 0.95f; specialHitEvery = 0.4f;
+            specialDamage = 10; specialReach = 2.6f;
+        }
+        pushSprites = a.cartwheel; pushFrameTime = 0.06f; pushImpactFrame = 4; pushImpactHold = 0.12f;
+        pushLunge = 1.4f; pushReach = 2.0f; pushDamage = 12;
+        if (a.block != null && a.block.Length >= 4) blockSprites = new[] { a.block[0], a.block[1], a.block[3], a.block[2], a.block[0] };
+        if (a.counterThrow != null && a.counterThrow.Length >= 10)
+        {
+            counterThrowSprites = a.counterThrow;
+            counterFramesOverride = new[] { 1, 2, 4, 5, 6, 7, 8, 9 };   // kuperkeikka, jalat pään ympärille, heitto; lopuksi nousu asentoon
+            counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.34f; counterThrowSlide = 0.6f;
+        }
+        if (a.thrown != null && a.thrown.Length >= 8)
+        {
+            var t = a.thrown;   // 0 kallistuu, 1–3 lento ylösalaisin, 4 isku maahan, 5 pomppu, 6–7 makaa
+            thrownSprites = new[] { t[0], t[0], t[1], t[2], t[3], t[4], t[5], t[7] };
+        }
+        if (a.fall != null && a.fall.Length >= 8) { fallSprites = a.fall; hurtSprite = a.fall[1]; }
+        if (a.getup != null && a.getup.Length > 0) { kipUpSprites = a.getup; kipUpFrameTime = 0.045f; }
+        // ei esineitä eikä Roccon omia erikoisliikkeitä
+        canCarry = false;
+        scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
+        bigHookSprites = null; dropKickSprites = null; smallItemSprites = null;
+        carrySprites = null; carryWalkSprites = null; carryPoseSprite = null;
+        chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
+        ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
+    }
+
+    static ComboHit Hit(string label, Sprite[] sp, int impact, float frameTime, float hold, float lunge, int damage, float reach, bool knockdown)
+    {
+        return new ComboHit
+        {
+            name = label, sprites = sp, frameTime = frameTime,
+            impactFrame = Mathf.Min(impact, Mathf.Max(0, (sp != null ? sp.Length : 1) - 1)), impactHold = hold,
+            windupTime = 0.05f, frame = 0, duration = 0.2f, lunge = lunge, damage = damage, reach = reach, knockdown = knockdown,
+        };
+    }
+
     enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook }
 
     int comboIndex;
@@ -527,6 +627,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         lives = GameSettings.Lives;   // vaikeustaso
         SortByFrameNumber(idleSprites);
+        HeroIdle = idleSprites;
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
         SortByFrameNumber(smallItemSprites);
@@ -548,6 +649,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(hiKickSprites);
         SortByFrameNumber(scissorSprites);
         SortByFrameNumber(carryWalkSprites);
+        if (GameSettings.Character == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -620,8 +722,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
                 if (catchPressed)
                 {
-                    if (TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
-                    Crate c = NearbyCrate();
+                    if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
+                    Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
                     if (HasRing && LifeRing.Held == null)
                     {
@@ -639,7 +741,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         if (fr != null) { facingRight = fr.transform.position.x >= transform.position.x; pickingRing = fr; Enter(State.RingPick); break; }
                     }
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
-                    if (Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
+                    if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                     if (HasCounterThrow) { Enter(State.Catch); break; }
                 }
                 if (punchPressed && Bottle.Held != null)
@@ -1288,6 +1390,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         verticalVel = up;
         pendingDamage = damage;
         Enter(State.Thrown);
+        knockedDown = false;
     }
 
     /// Osuma ajon aikana (esim. vihun potku prätkän selästä): vahinko ja ääni, ei kaatumista.
@@ -1601,6 +1704,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         HitFx.OnHit(true);
         HitSpark.Spawn(transform.position + new Vector3(fromRight ? 0.4f : -0.4f, 2.0f, 0f), true, Mathf.RoundToInt(-transform.position.y * 100f) + 5);
         Enter(State.Thrown);
+        knockedDown = true;
         return true;
     }
 
@@ -1724,7 +1828,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly int[] CounterPosesArt = { 1, 2, 3, 4, 5 };
     bool heldArt;        // vastus käyttää omia heittokuviaan
 
-    int[] CurFrames => monkeyFlip ? FlipFrames : CounterFrames;
+    int[] CurFrames => monkeyFlip ? FlipFrames : counterFramesOverride ?? CounterFrames;
     Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys) : (heldArt ? CounterKeysArt : CounterKeys);
     int[] CurPoses => monkeyFlip ? FlipPosesArt : CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
@@ -1940,6 +2044,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     bool HasScissor => scissorSprites != null && scissorSprites.Length >= 8;
+    bool HasJumpArt => jumpSprites != null && jumpSprites.Length >= 9;
+    bool HasFallArt => fallSprites != null && fallSprites.Length >= 8;
     float ScissorKick1Start => scissorFrameTime;
     float ScissorKick2Start => ScissorKick1Start + scissorKickHold + scissorFrameTime;
     float ScissorKick2End => ScissorKick2Start + scissorKickHold;
@@ -2138,6 +2244,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             case State.JumpSquat:
                 if (scissorJump && HasScissor) return scissorSprites[stateTime < jumpSquatTime * 0.5f ? 0 : 1];
+                if (HasJumpArt) return jumpSprites[1];
                 return Action(F_CROUCH);
 
             case State.Air:
@@ -2151,6 +2258,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (t < ScissorKick2End) return scissorSprites[5];
                     return scissorSprites[6];
                 }
+                if (jumpKick && jumpKickSprites != null && jumpKickSprites.Length >= 3)
+                    return jumpKickSprites[jumpKickTime < 0.08f ? 0 : jumpKickTime < 0.42f ? 1 : 2];
                 if (jumpKick)
                 {
                     float t = jumpKickTime;
@@ -2160,12 +2269,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (t < 0.50f) return Action(F_JUMPKICK1 + 3);
                     return Action(F_JUMPKICK1 + 4);
                 }
+                if (HasJumpArt)   // voltti: ponnistus, kippura, ylösalaisin, kippura, lasku
+                    return jumpSprites[verticalVel > 7f ? 2 : verticalVel > 2.5f ? 3 : verticalVel > -2.5f ? 4 : verticalVel > -7f ? 5 : 6];
                 if (verticalVel > 3f) return Action(F_JUMP_UP);
                 if (verticalVel > -3f) return Action(F_JUMP_TOP);
                 return Action(F_JUMP_DOWN);
 
             case State.Landing:
                 if (landedFromScissor && HasScissor && stateTime >= landingTime * 0.5f) return scissorSprites[7];
+                if (HasJumpArt) return jumpSprites[stateTime < landingTime * 0.5f ? 7 : 8];
                 return Action(stateTime < landingTime * 0.5f ? F_LAND1 : F_LAND2);
 
             case State.Punch:
@@ -2188,14 +2300,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (HasThrowSprites) return thrownSprites[Mathf.Clamp(heldPose, 0, 3)];
                 return Action(F_HURT);
             case State.Thrown:
+                if (knockedDown && HasFallArt) return fallSprites[verticalVel > 0f ? 3 : 4];
                 if (HasThrowSprites) return thrownSprites[4];
                 return Action(F_HURT);
             case State.Down:
+                if (knockedDown && HasFallArt) return fallSprites[stateTime < 0.08f ? 5 : stateTime < 0.2f ? 6 : 7];
                 if (HasThrowSprites) return thrownSprites[stateTime < 0.08f ? 5 : stateTime < 0.2f ? 6 : 7];
                 return Action(F_HURT);
             case State.KipUp:
                 return kipUpSprites[Mathf.Min((int)(stateTime / kipUpFrameTime), kipUpSprites.Length - 1)];
             case State.Hurt:
+                if (hurtSprite != null) return hurtSprite;
                 return Action(F_HURT);
 
             case State.SideKick:
@@ -2317,7 +2432,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return Action(F_PUNCH);
 
             case State.Catch:
-                return counterThrowSprites[stateTime <= catchWindowTime ? 0 : 7 % counterThrowSprites.Length];
+                return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
 
             case State.CounterThrow:
             {
@@ -2349,6 +2464,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return specialSprites[Mathf.Min((int)(stateTime / specialFrameTime), specialSprites.Length - 1)];
 
             case State.Kick:
+                if (lowKickSprites != null && lowKickSprites.Length >= 5)   // 1 nosto, 2 potku, 3 paluu, 4 asento
+                    return lowKickSprites[stateTime < 0.06f ? 1 : stateTime < 0.24f ? 2 : stateTime < 0.31f ? 3 : 4];
                 if (stateTime < 0.07f) return Action(F_KNEE);
                 if (stateTime < 0.30f) return Action(F_KICK);
                 return Action(F_KNEE);
