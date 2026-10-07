@@ -3780,26 +3780,18 @@ public static class BeatEmUpSetup
         ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
         ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)) };
 
-    [MenuItem("Beat em up/68. Kadun baari: pöydät, tuolit ja tappelijat (2 Kovista, prätkäjätkä, 2 Punkkaria)")]
-    static void AddStreetBarFurniture()
+    /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
+    static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
     {
-        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
-        var barBg = GameObject.Find("Kadun baari");
         string tp = FindTexture("poyta");
-        if (area == null || barBg == null || tp == null) { Info("Tee ensin kohta 65 (kadun baari). Tarvitaan myös poyta.png."); return; }
-        var old = GameObject.Find("Kadun baarin kalusteet");
-        if (old != null) Undo.DestroyObjectImmediate(old);
-        var bsr = barBg.GetComponent<SpriteRenderer>();
-        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x, top = bsr.bounds.max.y;
-        float X(float px) => left + px / ppu;
-        float Depth(float px, float k) { float x = X(px); return Mathf.Lerp(area.MaxDepthAtX(x, area.maxDepthY) - 0.3f, top - 860f / ppu, k); }
+        if (tp == null) return (0, 0, 0);
+        SetupAndSlice(tp);
         Sprite[] Sheet(string n)
         {
             string bp = FindTexture(n); if (bp == null) return null;
             SetupAndSlice(bp);
             return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         }
-        SetupAndSlice(tp);
         var table = Sheet("poyta");
         var kinds = new List<(Sprite[] sp, string stain, float sc)>();
         foreach (var (n, st, sc) in new[] { ("pullo_olut", "olut", 1f), ("pullo_sininen", "sininen", 1.12f), ("pullo_likoori", "likoori", 1.25f), ("pullo_vodka", "vodka", 1.4f) })
@@ -3812,16 +3804,14 @@ public static class BeatEmUpSetup
         var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
             .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
 
-        var root = new GameObject("Kadun baarin kalusteet");
-        Undo.RegisterCreatedObjectUndo(root, "Kadun baarin kalusteet");
-        var rnd = new System.Random(23);
+        var rnd = new System.Random(seed);
         float tableTop = 1.28f * TableScale - 0.04f;
         int bottles = 0, glassN = 0, chairs = 0;
-        foreach (var v in StreetBarTables)
+        foreach (var pos in positions)
         {
             var go = new GameObject("Pöytä");
-            go.transform.SetParent(root.transform, false);
-            go.transform.position = new Vector3(X(v.x), Depth(v.x, v.y), 0f);
+            go.transform.SetParent(root, false);
+            go.transform.position = pos;
             var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
             var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
             sh.color = new Color(0f, 0f, 0f, 0.35f);
@@ -3843,7 +3833,7 @@ public static class BeatEmUpSetup
             {
                 int si = rnd.Next(slots.Count); float sx = slots[si]; slots.RemoveAt(si);
                 var bGo = new GameObject("Pullo");
-                bGo.transform.SetParent(root.transform, false);
+                bGo.transform.SetParent(root, false);
                 bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
                 if (glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(5) < 2))
@@ -3866,7 +3856,7 @@ public static class BeatEmUpSetup
                 foreach (float side in new[] { -1f, 1f })
                 {
                     var cgo = new GameObject("Tuoli");
-                    cgo.transform.SetParent(root.transform, false);
+                    cgo.transform.SetParent(root, false);
                     cgo.transform.position = go.transform.position + new Vector3(side * 2.1f * TableScale, -0.05f, 0f);
                     var cb = new GameObject("Visual").AddComponent<SpriteRenderer>(); cb.transform.SetParent(cgo.transform, false);
                     cb.sprite = chairSprite; cb.flipX = side > 0f; cb.transform.localScale = new Vector3(ChairScaleSmall, ChairScaleSmall, 1f);
@@ -3876,6 +3866,26 @@ public static class BeatEmUpSetup
                     chairs++;
                 }
         }
+
+        return (bottles, glassN, chairs);
+    }
+
+    [MenuItem("Beat em up/68. Kadun baari: pöydät, tuolit ja tappelijat (2 Kovista, prätkäjätkä, 2 Punkkaria)")]
+    static void AddStreetBarFurniture()
+    {
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
+        var barBg = GameObject.Find("Kadun baari");
+        string tp = FindTexture("poyta");
+        if (area == null || barBg == null || tp == null) { Info("Tee ensin kohta 65 (kadun baari). Tarvitaan myös poyta.png."); return; }
+        var old = GameObject.Find("Kadun baarin kalusteet");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var bsr = barBg.GetComponent<SpriteRenderer>();
+        float ppu = bsr.sprite.pixelsPerUnit, left = bsr.bounds.min.x, top = bsr.bounds.max.y;
+        float X(float px) => left + px / ppu;
+        float Depth(float px, float k) { float x = X(px); return Mathf.Lerp(area.MaxDepthAtX(x, area.maxDepthY) - 0.3f, top - 860f / ppu, k); }
+        var root = new GameObject("Kadun baarin kalusteet");
+        Undo.RegisterCreatedObjectUndo(root, "Kadun baarin kalusteet");
+        var (bottles, glassN, chairs) = AddBottleTables(root.transform, StreetBarTables.Select(v => new Vector3(X(v.x), Depth(v.x, v.y), 0f)), 23);
 
         // tappelijat: Kovikset ja Punkkarit samaa porukkaa (eivät lyö toisiaan, käyvät prätkäjätkän kimppuun), prätkäjätkä kaikkia vastaan
         var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -4153,6 +4163,9 @@ public static class BeatEmUpSetup
     const float PokerRoomPPU = 118f;   // pokerihuoneen mittakaava: laajennettu kuva n. 21.5 yks leveä, videon hahmot n. 1.3 × hero
     // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
     static readonly Vector2 PokerRoomOffset = new Vector2(470f, 62f);
+    // pullopöydät huoneen koordinaateissa (x, rivi): vasen ja oikea laajennus sekä lattia edessä
+    static readonly Vector2[] PokerTablePx = { new Vector2(-250f, 700f), new Vector2(-210f, 1180f), new Vector2(1820f, 760f), new Vector2(1790f, 1190f),
+                                               new Vector2(480f, 1290f), new Vector2(1130f, 1330f) };
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
     const float BarRoomX0 = 50000f;
     const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
@@ -4245,7 +4258,7 @@ public static class BeatEmUpSetup
         var barBg = GameObject.Find("Kadun baari");
         var ti = AssetImporter.GetAtPath(BarRoomPath) as TextureImporter;
         if (bar == null || barBg == null || ti == null) { Info("Tarvitaan kadun baari (kohta 65) ja kuva " + BarRoomPath); return; }
-        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri", "Baarin pokeri loppu", "Pokerihuoneen tappelu" })
+        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri", "Baarin pokeri loppu", "Pokerihuoneen tappelu", "Pokerihuoneen pöydät" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -4354,6 +4367,11 @@ public static class BeatEmUpSetup
                 }
             }
         }
+
+        // pullopöydät tuoleineen laajennetuille sivuille ja eteen (alkuperäisen huoneen ulkopuolelle: animaatiot eivät peitä)
+        var tables = new GameObject("Pokerihuoneen pöydät");
+        Undo.RegisterCreatedObjectUndo(tables, "Pokerihuoneen pöydät");
+        var tableInfo = AddBottleTables(tables.transform, PokerTablePx.Select(v => { var q = pt(v.x, v.y); return new Vector3(q.x, q.y, 0f); }), 31);
 
         // ovet: baarin oikean nurkan teräsovesta (E) pokerihuoneeseen, pokerihuoneen teräsovesta takaisin baariin
         var doors = new GameObject("Baarin ovet");
