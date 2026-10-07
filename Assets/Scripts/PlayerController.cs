@@ -366,6 +366,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float bigHookSlide = 3.0f;
     // kiihtyy loppua kohti: rauhallinen lataus, nopea nousu; osuma kuvan 5 alussa, koukku jää hetkeksi ylös
     static readonly float[] BigHookTimes = { 0.07f, 0.1f, 0.13f, 0.12f, 0.06f, 0.045f, 0.32f };
+    float[] bigHookTimesOverride;   // Rubyn voimalyönti: omat ajat
+    int bigHookImpactIdx = 5, bigHookComboIdx = 3;
+    float bigHookAir;               // Ruby ponnahtaa ilmaan iskun jälkeen (korkeus yksikköä)
+    float[] CurBigHookTimes => bigHookTimesOverride ?? BigHookTimes;
     bool HasBigHook => bigHookSprites != null && bigHookSprites.Length >= 7;
     float downInputTime = -9f, downFwdTime = -9f, downFwdDir;
     bool bigHookHit, bigHookQueued;
@@ -544,6 +548,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] pummelBig;
         [Tooltip("Eteen + potku: etupotku (8 kuvaa). Taakse + potku: takapotku (6 kuvaa), kaataa.")]
         public Sprite[] frontKick, backKick;
+        [Tooltip("Voimalyönti (alas, eteen + lyönti): kyykky, nyrkit yhteen, kaksoisnyrkki ylös ja pieni hyppy (10 kuvaa).")]
+        public Sprite[] power;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -584,7 +590,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         PlayGrunt();
         Enter(State.SoloKick);
     }
-    [Header("Rinnuksista-lyönnit (Ruby: alas, eteen + lyönti, myös kombon keskellä)")]
+    [Header("Rinnuksista-lyönnit (Ruby: kaksi kertaa eteen + lyönti, myös kombon keskellä)")]
     public int pummelDamage = 4, pummelFinalDamage = 8;
     [Tooltip("Rinnuksista-lyöntien staminakulutus (oma arvonsa, ei sama kuin puskulla).")]
     public float pummelStamina = 22f;
@@ -849,7 +855,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         canCarry = smallItemSprites != null || carrySprites != null;
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
-        bigHookSprites = null; dropKickSprites = null;
+        dropKickSprites = null;
+        if (a.power != null && a.power.Length >= 10)
+        {
+            // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
+            bigHookSprites = a.power;
+            bigHookTimesOverride = new[] { 0.05f, 0.07f, 0.09f, 0.11f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };
+            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.6f;
+        }
+        else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
     }
@@ -954,7 +968,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
         bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
         // Rubyn rinnuksista-lyönnit: alas, eteen + lyönti (sama näppäily kuin Roccon isossa koukussa)
-        int pummelDir = HasPummel && punchPressed && Time.time - downFwdTime <= 0.3f ? (downFwdDir >= 0f ? 1 : -1) : 0;
+        // Rubyn rinnuksista-lyönnit: kaksi kertaa eteen + lyönti (alas, eteen + lyönti on voimalyönti)
+        int pummelDir = HasPummel && punchPressed && Time.time <= dashArmedUntil ? (dashDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
         bool specialPressed = !Scripted && SpecialPressed();
@@ -967,7 +982,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { downFwdTime = -9f; StartPummel(pummelDir); break; }
+                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
@@ -1135,7 +1150,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (pummelQueued != 0 && stateTime >= hit.ImpactTime + flurryCancelAfterImpact)
                 {
                     int pd = pummelQueued; pummelQueued = 0;
-                    if (UseStamina(pummelStamina)) { downFwdTime = -9f; StartPummel(pd); break; }
+                    if (UseStamina(pummelStamina)) { dashArmedUntil = -9f; StartPummel(pd); break; }
                 }
                 if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
@@ -1201,14 +1216,22 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 // lataa kyykyssä ja liukuu eteen kiihtyen, koukku ylös: kevyet lentävät korkealle, isot kaatuvat
                 float dir = facingRight ? 1f : -1f;
-                float impact = ThrowPose.Start(BigHookTimes, 5);
+                float[] bt = CurBigHookTimes;
+                float impact = ThrowPose.Start(bt, bigHookImpactIdx);
                 if (stateTime < impact)
                 {
                     float k = stateTime / impact;
                     MoveOnGround(new Vector2(dir * bigHookSlide * (0.3f + 1.4f * k * k) * dt, 0f));
                 }
                 if (!bigHookHit && stateTime >= impact) { bigHookHit = true; BigHookImpact(); }
-                if (ThrowPose.Index(BigHookTimes, stateTime) < 0) Enter(State.Ground);
+                if (bigHookAir > 0f)
+                {
+                    // iskun jälkeen pieni hyppy: ilmassa kuvat iskusta viimeistä edeltävään, alastulo viimeisessä
+                    float airEnd = ThrowPose.Start(bt, bt.Length - 1);
+                    float ka = Mathf.Clamp01((stateTime - impact) / Mathf.Max(airEnd - impact, 0.01f));
+                    height = stateTime > impact && stateTime < airEnd ? Mathf.Sin(ka * Mathf.PI) * bigHookAir : 0f;
+                }
+                if (ThrowPose.Index(bt, stateTime) < 0) { if (bigHookAir > 0f) height = 0f; Enter(State.Ground); }
                 break;
             }
 
@@ -1780,7 +1803,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         downFwdTime = -9f;
         PlayGrunt();
         Enter(State.BigHook);
-        if (fromCombo) stateTime = ThrowPose.Start(BigHookTimes, 3);
+        if (fromCombo) stateTime = ThrowPose.Start(CurBigHookTimes, bigHookComboIdx);
     }
 
     /// Kovis, samoalainen ja portsari kestävät koukun kaatuen; muut lentävät ilmaan.
@@ -2732,7 +2755,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.BigHook:
             {
-                int i = ThrowPose.Index(BigHookTimes, stateTime);
+                int i = ThrowPose.Index(CurBigHookTimes, stateTime);
                 return bigHookSprites[i < 0 ? bigHookSprites.Length - 1 : Mathf.Min(i, bigHookSprites.Length - 1)];
             }
             case State.DropKick:
