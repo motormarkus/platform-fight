@@ -4,6 +4,7 @@ using UnityEngine;
 /// Toistaa kuvasarjaa silmukkana (esim. videosta otettu idle-animaatio taustan päällä, kuten baarin pokerinpelaajat).
 /// Jos altFrames on annettu, sarjat vaihtuvat muutaman kierroksen välein ristihäivytyksellä.
 /// Ambienssiääni soi silmukkana vain, kun kuva näkyy ruudulla (sisätila on kaukana muusta kentästä).
+/// Loppuanimaatio (finale) alkaa, kun kuva on näkynyt finaleAfter sekuntia: idle häivytetään siihen, ja viimeinen kuva jää.
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteLoop : MonoBehaviour
@@ -16,6 +17,18 @@ public class SpriteLoop : MonoBehaviour
     public Vector2Int loopsPerSet = new Vector2Int(2, 4);
     [Tooltip("Sarjojen välisen ristihäivytyksen kesto (s).")]
     public float crossfade = 0.4f;
+
+    [Header("Loppuanimaatio (esim. pöytä kaatuu)")]
+    [Tooltip("Oma SpriteRenderer (eri solukoko ja paikka kuin idlellä). Tyhjä = ei loppua.")]
+    public SpriteRenderer finaleRenderer;
+    public Sprite[] finale;
+    public float finaleFps = 12f;
+    [Tooltip("Kuinka kauan idleä katsotaan ennen loppua (s, vain kun kuva näkyy ruudulla).")]
+    public float finaleAfter = 10f;
+    public AudioClip finaleSound;
+    [Range(0f, 1f)] public float finaleVolume = 1f;
+    float watched, ft;
+    bool finaleOn;
 
     [Header("Ääni")]
     public AudioClip ambience;
@@ -58,10 +71,19 @@ public class SpriteLoop : MonoBehaviour
     void Start()
     {
         if (src != null) src.Play();
+        if (finaleRenderer != null) finaleRenderer.enabled = false;
     }
+
+    bool HasFinale => finaleRenderer != null && finale != null && finale.Length > 0;
 
     void Update()
     {
+        if (finaleOn) { UpdateFinale(); return; }
+        if (HasFinale && sr.isVisible)
+        {
+            watched += Time.deltaTime;
+            if (watched >= finaleAfter) { StartFinale(); return; }
+        }
         if (cur == null || cur.Length == 0) return;
         float step = Time.deltaTime * fps;
         t += step;
@@ -98,5 +120,32 @@ public class SpriteLoop : MonoBehaviour
             src.volume = volume;
             src.mute = !sr.isVisible;
         }
+    }
+
+    void StartFinale()
+    {
+        finaleOn = true; ft = 0f;
+        finaleRenderer.enabled = true;
+        finaleRenderer.sortingOrder = sr.sortingOrder + 2;
+        finaleRenderer.sprite = finale[0];
+        finaleRenderer.color = new Color(1f, 1f, 1f, 0f);
+        if (finaleSound != null)
+        {
+            var a = gameObject.AddComponent<AudioSource>();
+            a.playOnAwake = false; a.spatialBlend = 0f;
+            a.PlayOneShot(finaleSound, finaleVolume);
+        }
+    }
+
+    void UpdateFinale()
+    {
+        ft += Time.deltaTime;
+        int i = Mathf.Min((int)(ft * finaleFps), finale.Length - 1);   // viimeinen kuva jää (pöytä nurin, tappeluasento)
+        finaleRenderer.sprite = finale[i];
+        // idle häivytetään loppuun lyhyesti; pelimerkkien ääni hiljenee
+        float a = crossfade > 0f ? Mathf.Clamp01(ft / crossfade) : 1f;
+        finaleRenderer.color = new Color(1f, 1f, 1f, a);
+        if (a >= 1f) { sr.enabled = false; if (fadeSr != null) fadeSr.enabled = false; }
+        if (src != null) src.volume = volume * (1f - Mathf.Clamp01(ft / 1.5f));
     }
 }

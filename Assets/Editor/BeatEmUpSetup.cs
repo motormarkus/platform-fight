@@ -139,10 +139,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -3956,6 +3956,9 @@ public static class BeatEmUpSetup
     const float BarRoomExitPx = 205f;        // teräsovi vasemmalla (ulos kadulle)
     const string PokerAmbiencePath = "Assets/Audio/sfx/baari_pokeri_ambienssi.wav";   // toisen idle-videon ääni, saumaton silmukka
     const float PokerCellX = 392f, PokerCellY = 232f, PokerCellW = 896f, PokerCellH = 504f, PokerFps = 12f;
+    // loppuanimaatio baari_poker_loppu.png: 61 kuvaa 854 × 506 (pienennetty kuvan alueesta x, y, leveys, korkeus), 12 fps, ääni videosta
+    static readonly Vector4 PokerFinaleRect = new Vector4(52f, 0f, 1421f, 842f);
+    const string PokerFinaleSoundPath = "Assets/Audio/sfx/baari_pokeri_loppu.wav";
 
     [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)")]
     static void CreateBarRoom()
@@ -3964,7 +3967,7 @@ public static class BeatEmUpSetup
         var barBg = GameObject.Find("Kadun baari");
         var ti = AssetImporter.GetAtPath(BarRoomPath) as TextureImporter;
         if (bar == null || barBg == null || ti == null) { Info("Tarvitaan kadun baari (kohta 65) ja kuva " + BarRoomPath); return; }
-        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri" })
+        foreach (var n in new[] { "Baarin sisä", "Baarin ovet", "Baarin pokeri", "Baarin pokeri loppu" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -4030,6 +4033,25 @@ public static class BeatEmUpSetup
                 }
                 loop.ambience = AssetDatabase.LoadAssetAtPath<AudioClip>(PokerAmbiencePath);
                 Undo.RegisterCreatedObjectUndo(pg, "Pokeri");
+                // loppuanimaatio: pelaajat nousevat, pöytä kaatuu ja kortit lentävät (alkaa n. 10 s idlen jälkeen)
+                string lp = FindTexture("baari_poker_loppu");
+                if (lp != null)
+                {
+                    SetupAndSlice(lp);
+                    var lf = LoadSprites("baari_poker_loppu").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                    if (lf.Length >= 2)
+                    {
+                        var fg = new GameObject("Baarin pokeri loppu");
+                        float kf = lf[0].pixelsPerUnit / ppu * (PokerFinaleRect.z / 854f);   // solu tallennettu pienennettynä
+                        Vector2 ffoot = pt(PokerFinaleRect.x + PokerFinaleRect.z * 0.5f, PokerFinaleRect.y + PokerFinaleRect.w);
+                        fg.transform.position = new Vector3(ffoot.x, ffoot.y, 0f);
+                        fg.transform.localScale = new Vector3(kf, kf, 1f);
+                        var fsr = fg.AddComponent<SpriteRenderer>(); fsr.sprite = lf[0]; fsr.sortingOrder = -9988; fsr.enabled = false;
+                        loop.finaleRenderer = fsr; loop.finale = lf; loop.finaleFps = 12f; loop.finaleAfter = 10f;
+                        loop.finaleSound = AssetDatabase.LoadAssetAtPath<AudioClip>(PokerFinaleSoundPath);
+                        Undo.RegisterCreatedObjectUndo(fg, "Pokerin loppu");
+                    }
+                }
             }
         }
 
