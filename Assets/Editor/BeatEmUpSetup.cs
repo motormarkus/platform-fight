@@ -3634,7 +3634,7 @@ public static class BeatEmUpSetup
     // ---------------- Kadun baari (BAR-ovi) ----------------
     const string StreetBarPath = "Assets/Sprites/Taustat/baari_sisa.png";   // 3 kuvaa yhdistettynä: ovi ja tiski, sohvat ja tikkataulu, nurkka ja takaovi (3594 × 877)
     const float StreetBarX0 = 40000f;
-    const float StreetBarPPU = 130f;          // kuvapikseliä / yksikkö (hero 3.3 yks ≈ 430 px: tiski n. 260 px)
+    const float StreetBarPPU = 105f;          // kuvapikseliä / yksikkö: tiski n. 70 % heron pituudesta (73 liian iso, 130 liian pieni)
     const string StreetBarExtPath = "Assets/Sprites/Taustat/baari_sisa_reuna.png";
     static readonly Vector2 StreetBarExtCanvas = new Vector2(150f, 1600f);   // baarin kuvan yläreuna kankaalla, kankaan korkeus (leveys sama kuin kuvalla)
     const float StreetBarDoorPx = 2263f;      // BAR-oven keskikohta kadun kuvasarjassa
@@ -3725,6 +3725,13 @@ public static class BeatEmUpSetup
         exit.halfWidth = 1.6f; exit.maxDistanceFromWall = 1.2f;
         exit.spawnPoint = new Vector2(left + StreetBarDoorPx / BackgroundPPU, streetArea.maxDepthY - 0.25f);
         EditorSceneManager.MarkSceneDirty(bg.scene);
+        // pokerihuoneen ovi ja portsari (67) sekä kalusteet ja tappelijat (68) baarin mittojen mukaan
+        if (!batch)
+        {
+            batch = true;
+            try { CreateBarRoom(); AddStreetBarFurniture(); }
+            finally { batch = false; }
+        }
         Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään{(barDoorAnim != null ? ", ovi aukeaa" : " (avautuva ovi puuttuu: kohta 66)")}, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, oikean nurkan teräsovesta pokerihuoneeseen (kohta 67).\n\nTallenna scene (Ctrl+S).");
     }
 
