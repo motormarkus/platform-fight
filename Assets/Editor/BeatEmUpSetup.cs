@@ -3994,7 +3994,13 @@ public static class BeatEmUpSetup
         var kick = EnemySheet("motoristi_potku", report);    // 11 kuvaa (solu 640 leveä): polvi ylös, potku ojennettuna (3–7)
         if (kick.Length >= 8) { e.altAttackSprites = kick; e.altImpactFrame = 3; e.altDamage = 18; e.altKnockdown = true; e.altChance = 0.25f; e.altReach = 2.4f; }
         var fall = EnemySheet("motoristi_kaatuminen", report);
-        if (fall.Length >= 3) { e.hurtSprites = new[] { fall[0] }; e.knockdownSprites = fall; }
+        if (fall.Length >= 8)
+        {
+            // 0 osuma, 1 pää taakse, 2–3 horjuu, 4–5 kaatuu eteen, 6–7 makaa mahallaan
+            e.hurtSprites = new[] { fall[1] };
+            e.knockdownSprites = new[] { fall[1], fall[2], fall[3], fall[4], fall[5], fall[7] };
+            e.landSprites = new[] { fall[6], fall[7] }; e.landFrameTime = 0.12f;
+        }
         var up = EnemySheet("motoristi_ylosnousu", report);
         if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
         e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
