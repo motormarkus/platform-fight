@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     [Header("Spritet (jos tyhjä, käytetään idleä)")]
     public Sprite[] idleSprites;
+    [Tooltip("Rauhallinen asento ennen tappelua (esim. rokkimimmi tiskillä). Tyhjä = idleSprites.")]
+    public Sprite[] calmIdleSprites;
     public Sprite[] walkSprites;
     [Tooltip("Juoksukuvat (jos tyhjä, juostaan kävelykuvilla nopeammin).")]
     public Sprite[] runSprites;
@@ -2048,11 +2050,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     Sprite IdleFrame()
     {
-        if (!Has(idleSprites)) return null;
-        int n = idleSprites.Length;
-        if (n == 1) return idleSprites[0];
+        var set = !awake && Has(calmIdleSprites) ? calmIdleSprites : idleSprites;   // ennen tappelua rauhallinen asento
+        if (!Has(set)) return null;
+        int n = set.Length;
+        if (n == 1) return set[0];
         int period = 2 * n - 2;
         int i = (int)(animClock / idleFrameTime) % period;
-        return idleSprites[i < n ? i : period - i];
+        return set[i < n ? i : period - i];
     }
 }

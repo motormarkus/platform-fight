@@ -3782,7 +3782,7 @@ public static class BeatEmUpSetup
         ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
         ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)),
-        ("Rokkimimmi", new Vector2(2050f, 1.15f)) };
+        ("Rokkimimmi", new Vector2(1250f, 0.02f)) };   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -3900,6 +3900,7 @@ public static class BeatEmUpSetup
             Enemy e;
             if (who == "Prätkäjätkä") e = MakeBiker(root.transform);
             else if (who == "Rokkimimmi") { e = MakeRocker(root.transform); if (e != null) e.huntsBrawlers = true; }   // porukkaa: ei lyö Koviksia ja Punkkareita
+            if (who == "Rokkimimmi" && e != null) { e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f); e.wakeDistance = -1f; e.joinsFightWhenSquadComes = false; e.gameObject.SetActive(true); members.Add(e); names.Add(who); continue; }
             else
             {
                 var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
@@ -4296,6 +4297,7 @@ public static class BeatEmUpSetup
         e.displayName = "Rokkimimmi";
         var fightIdle = EnemySheet("rokkari_taisteluidle", report);
         e.idleSprites = fightIdle.Length > 0 ? fightIdle : idle; e.idleFrameTime = 0.14f;
+        e.calmIdleSprites = idle;   // neutraali asento ennen tappelua
         var walk = EnemySheet("rokkari_taistelukavely", report);
         if (walk.Length == 0) walk = EnemySheet("rokkari_kavely", report);
         e.walkSprites = walk.Length > 0 ? walk : idle; e.walkFrameTime = 0.08f;
