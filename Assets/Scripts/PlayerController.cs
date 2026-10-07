@@ -782,15 +782,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             counterThrowSprites = a.counterThrow;
             // nousu käsille rauhallisesti, jalat vihun pään ympärille, veto alas kiihtyen: vihu lentää Rubyn yli selän taakse
-            counterFramesOverride = new[] { 1, 2, 4, 5, 6, 7, 8, 9 };   // kyykky, nousu, käsiseisonta (ote jaloilla), veto, heitto; makuu, kyykky, asento
-            // välit: ote → nousu käsille → jalat niskaan → PITO (vihu paikallaan) → veto alas → irti; kaksi viimeistä kiihtyvät
-            counterSegsOverride = new[] { 2.2f, 2.6f, 2.6f, 1.5f, 0.7f };
+            // kyykky → nousu käsille → käsiseisonta → jalat alas vihun pään ympärille (PITO: pää jalkojen välissä)
+            // → veto alas kiihtyen → irti; lopuksi makuu, kyykky ja asento
+            counterFramesOverride = new[] { 1, 2, 4, 5, 6, 6, 7, 8, 9 };
+            counterSegsOverride = new[] { 2.0f, 2.0f, 1.6f, 2.6f, 1.5f, 0.7f };   // kaksi viimeistä väliä kiihtyvät
             counterKeysOverride = new[]
             {
                 new Vector3( 0.95f, 1.50f,   0f),   // ote, Ruby kyykyssä
-                new Vector3( 0.90f, 1.50f,   0f),   // Ruby nousee käsilleen
-                new Vector3( 0.80f, 1.60f,   3f),   // jalat niskassa
-                new Vector3( 0.80f, 1.60f,   3f),   // pito: vihu pysyy asennossa
+                new Vector3( 0.90f, 1.50f,   0f),   // Ruby nousee käsilleen (jalat heilahtavat taakse)
+                new Vector3( 0.85f, 1.50f,   0f),   // käsiseisonta vihun edessä
+                new Vector3( 0.85f, 1.50f,   8f),   // jalat alas pään ympärille: pää Rubyn jalkojen välissä
+                new Vector3( 0.85f, 1.50f,   8f),   // pito
                 new Vector3( 0.05f, 2.50f, 110f),   // veto alas: vihu kiepsahtaa yli
                 new Vector3(-1.00f, 1.40f, 200f),   // irti selän taakse
             };
@@ -798,12 +800,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 new Vector3( 0.95f, 1.50f,  0f),
                 new Vector3( 0.90f, 1.50f,  0f),
-                new Vector3( 0.80f, 1.70f,  0f),
-                new Vector3( 0.80f, 1.70f,  0f),
+                new Vector3( 0.85f, 1.50f,  0f),
+                new Vector3( 0.85f, 1.50f,  0f),
+                new Vector3( 0.85f, 1.50f,  0f),
                 new Vector3( 0.00f, 3.00f,  5f),
                 new Vector3(-1.00f, 2.40f, 10f),
             };
-            counterPosesOverride = new[] { 1, 2, 2, 2, 4, 5 };   // vihun omat kuvat: pidossa vielä otekuva
+            counterPosesOverride = new[] { 1, 2, 2, 2, 2, 4, 5 };   // vihun omat kuvat: pidossa vielä otekuva
             counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.45f; counterThrowSlide = 0.3f;
             counterThrowTurns = false;   // Ruby nousee samaan suuntaan kuin aloitti
         }
