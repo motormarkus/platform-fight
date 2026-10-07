@@ -57,6 +57,7 @@ public static class BeatEmUpSetup
             AddLippis();
             AddSkaters();
             AddBouncers();          // portsarit S-Clubissa
+            AddClubBikers();        // S-Clubiin kaksi prätkäjätkää (ei skeittareita sisätiloihin)
             CreateRoof();           // palotikkaat kadun lopussa ja katto (viholliset ja pomo)
             AddCrates();            // koko kadun matkalle (ei ovien, palotikkaiden eikä pyörien eteen)
             AddBarProps();          // S-Clubin pöydät ja pullot (baaritappelu)
@@ -3733,6 +3734,40 @@ public static class BeatEmUpSetup
             finally { batch = false; }
         }
         Info($"Kadun baari luotu ({wU:0} yksikköä leveä): BAR-ovesta (E) sisään{(barDoorAnim != null ? ", ovi aukeaa" : " (avautuva ovi puuttuu: kohta 66)")}, vasemmasta ovesta ulos.\nTiski vasemmalla, sohvat ja tikkataulu keskellä, oikean nurkan teräsovesta pokerihuoneeseen (kohta 67).\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- S-Clubin prätkäjätkät ----------------
+    static readonly Vector2[] ClubBikers = { new Vector2(18f, 0.45f), new Vector2(34f, 0.7f) };   // x S-Clubin vasemmasta reunasta (yks), syvyys 0 = takana … 1 = edessä
+
+    [MenuItem("Beat em up/69. S-Clubiin kaksi prätkäjätkää (skeittarit pois sisältä)")]
+    static void AddClubBikers()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        if (club == null) { Info("Tee ensin kohta 10 (S-Club)."); return; }
+        var old = GameObject.Find("S-Clubin prätkäjätkät");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        // lauta ei sovi sisätiloihin: skeittarit pois klubin alueelta
+        float halfW = CamHalf * 16f / 9f, x0 = club.camMinX - halfW - 1f, x1 = club.camMaxX + halfW + 1f;
+        int removed = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || !e.gameObject.name.StartsWith("Skettari")) continue;
+            float x = e.transform.position.x;
+            if (x >= x0 && x <= x1) { Undo.DestroyObjectImmediate(e.gameObject); removed++; }
+        }
+        var root = new GameObject("S-Clubin prätkäjätkät");
+        Undo.RegisterCreatedObjectUndo(root, "S-Clubin prätkäjätkät");
+        int made = 0;
+        foreach (var v in ClubBikers)
+        {
+            var b = MakeBiker(root.transform);
+            if (b == null) break;
+            b.gameObject.name = "Prätkäjätkä (S-Club) " + (++made);
+            b.transform.position = new Vector3(ClubX0 + v.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y), 0f);
+            b.wakeDistance = 8f;
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"S-Clubiin {made} prätkäjätkää" + (removed > 0 ? $", {removed} skeittaria poistettu klubista" : "") + ".\nPrätkäjätkät tappelevat kaikkia vastaan.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
