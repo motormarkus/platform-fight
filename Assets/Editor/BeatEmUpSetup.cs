@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -797,7 +797,6 @@ public static class BeatEmUpSetup
     // ---------------- Tanssijat ----------------
     // Lavan kohta S-Clubin sisäkuvassa (pikseleinä): tanko x = 770, jalat lavan pinnalla rivillä ~ 525
     const float StageFeetRow = 527f;
-    static readonly float[] DancerPx = { 655f, 890f };
     // toinen lava (lisätty taustakuvaan looshin kohdalle): bändi lavan keskellä
     const float BandStagePx = 1641f;
 
@@ -832,15 +831,20 @@ public static class BeatEmUpSetup
     }
     const float DancerScale = 1.0f;   // tanssijat (ennen 1.2: liian isoja)
 
-    [MenuItem("Beat em up/11. Lisää tanssijat lavalle")]
+    // S-Clubin tanssija tangon vasemmalla puolella (napatanssijat ovat El Loipparissa)
+    const float ClubDancerPx = 690f;
+
+    [MenuItem("Beat em up/11. Lisää tanssija S-Clubin lavalle")]
     static void AddDancers()
     {
         var club = GameObject.Find("S-Club sisä");
-        var sprites = LoadSprites("tanssija")
+        string path = FindTexture("klubitanssija");
+        if (path != null) SetupAndSlice(path);
+        var sprites = LoadSprites("klubitanssija")
             .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
         if (club == null || sprites.Length == 0)
         {
-            Info( "Tarvitaan S-Clubin sisätila (kohta 10) ja leikattu tanssija.png (kohta 1).");
+            Info( "Tarvitaan S-Clubin sisätila (kohta 10) ja klubitanssija.png.");
             return;
         }
         var old = GameObject.Find("Tanssijat");
@@ -852,25 +856,20 @@ public static class BeatEmUpSetup
         float ppu = bgSr.sprite.pixelsPerUnit;
         float left = club.transform.position.x - bgSr.bounds.size.x * 0.5f;
         float top = club.transform.position.y + bgSr.bounds.size.y * 0.5f;
-        for (int i = 0; i < DancerPx.Length; i++)
-        {
-            var go = new GameObject("Tanssija " + (i + 1));
-            go.transform.SetParent(root.transform, false);
-            go.transform.position = new Vector3(left + DancerPx[i] / ppu, top - StageFeetRow / ppu, 0f);
-            go.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);   // jalat pysyvät paikallaan
-            var sr = go.AddComponent<SpriteRenderer>();
-            sr.sprite = sprites[0];
-            sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
-            sr.color = new Color(1f, 0.86f, 0.95f);        // lavan violetti valo
-            var d = go.AddComponent<Dancer>();
-            d.sprites = sprites;
-            d.frameTime = 0.124f;
-            d.startFrame = i * sprites.Length / 2;         // eri tahdissa
-            d.flipX = i == 1;                              // peilikuva toisella puolella tankoa
-        }
+        var go = new GameObject("Tanssija");
+        go.transform.SetParent(root.transform, false);
+        go.transform.position = new Vector3(left + ClubDancerPx / ppu, top - StageFeetRow / ppu, 0f);
+        go.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprites[0];
+        sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
+        sr.color = new Color(1f, 0.88f, 0.96f);        // lavan violetti valo
+        var d = go.AddComponent<Dancer>();
+        d.sprites = sprites;
+        d.frameTime = 0.125f;                          // videon tahti (joka kolmas ruutu, 24 fps)
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
-        Info( $"Kaksi tanssijaa lavalla ({sprites.Length} kuvaa, silmukka).\n\nTallenna scene (Ctrl+S).");
+        Info( $"S-Clubin lavalla tanssija ({sprites.Length} kuvaa, kaksi tanssia peräkkäin, silmukka).\nNapatanssijat ovat El Loipparissa (kohta 52).\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Punkkari ----------------
@@ -5698,8 +5697,9 @@ public static class BeatEmUpSetup
     {
         var loipBg = GameObject.Find("El Loippari");
         var band = GameObject.Find("Bändi");
-        var dancers = GameObject.Find("Tanssijat");
-        if (loipBg == null || band == null || dancers == null) { Info("Tarvitaan El Loippari (45), bändi (40) ja tanssijat (11)."); return; }
+        var bellySprites = LoadSprites("tanssija")
+            .OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (loipBg == null || band == null || bellySprites.Length == 0) { Info("Tarvitaan El Loippari (45), bändi (40) ja tanssija.png."); return; }
         var old = GameObject.Find("El Loipparin lava");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var root = new GameObject("El Loipparin lava");
@@ -5712,19 +5712,23 @@ public static class BeatEmUpSetup
         b.name = "Loipparin bändi";
         b.transform.position = new Vector3(left + LoipStagePx / ppu, feetY, 0f);
         var bsr = b.GetComponent<SpriteRenderer>(); if (bsr != null) bsr.color = new Color(1f, 0.95f, 0.88f);   // lämmin valo
-        // tanssijat lavan molemmin puolin bändiä
-        int i = 0;
-        foreach (Transform d in dancers.transform)
+        // napatanssijat (tanssija.png) lavan molemmin puolin bändiä
+        for (int i = 0; i < 2; i++)
         {
-            if (i >= 2) break;
-            var dGo = Object.Instantiate(d.gameObject, root.transform);
-            dGo.name = "Loipparin tanssija " + (i + 1);
+            var dGo = new GameObject("Loipparin tanssija " + (i + 1));
+            dGo.transform.SetParent(root.transform, false);
             float side = i == 0 ? -1f : 1f;
             dGo.transform.position = new Vector3(left + (LoipStagePx + side * (LoipStageHalfPx - 110f)) / ppu, feetY, 0f);
             dGo.transform.localScale = new Vector3(DancerScale, DancerScale, 1f);
-            var dsr = dGo.GetComponent<SpriteRenderer>(); if (dsr != null) dsr.color = new Color(1f, 0.95f, 0.9f);
-            var dn = dGo.GetComponent<Dancer>(); if (dn != null) dn.flipX = side > 0f;   // katsovat bändiä kohti
-            i++;
+            var dsr = dGo.AddComponent<SpriteRenderer>();
+            dsr.sprite = bellySprites[0];
+            dsr.sortingOrder = -9000;
+            dsr.color = new Color(1f, 0.95f, 0.9f);   // lämmin valo
+            var dn = dGo.AddComponent<Dancer>();
+            dn.sprites = bellySprites;
+            dn.frameTime = 0.124f;
+            dn.startFrame = i * bellySprites.Length / 2;   // eri tahdissa
+            dn.flipX = side > 0f;                          // katsovat bändiä kohti
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("El Loipparin lavalla mariachi-bändi ja tanssijat molemmin puolin.\n\nTallenna scene (Ctrl+S).");
