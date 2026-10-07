@@ -139,7 +139,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -3962,7 +3962,50 @@ public static class BeatEmUpSetup
     // tappelu: tyhjä huone (sama rajaus), tuolit ja vastustajien jalat kuvan pikseleinä (x, rivi)
     const string PokerFightBgPath = "Assets/Sprites/Taustat/baari_pokeri_tappelu.png";
     static readonly Vector2[] PokerChairPx = { new Vector2(200f, 700f), new Vector2(470f, 590f), new Vector2(1100f, 590f), new Vector2(1380f, 730f) };
+    static readonly Vector2 PokerBikerPx = new Vector2(980f, 600f);
     static readonly Vector2 PokerLippisPx = new Vector2(353f, 720f), PokerPuliukkoPx = new Vector2(613f, 613f), PokerPunkkariPx = new Vector2(1227f, 707f);
+
+    /// Prätkäjätkä (motoristi_*.png): tappeluasento, kävely, jab, pitkä suora ja korkea potku. Ilman omia osuma- ja kaatumiskuvia
+    /// käytetään varaliikkeitä (välähdys, kuvan kääntö). Palauttaa null, jos idle-kuvat puuttuvat.
+    static Enemy MakeBiker(Transform parent)
+    {
+        var report = new List<string>();
+        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_kaatuminen", "motoristi_ylosnousu" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var idle = EnemySheet("motoristi_idle", report);
+        if (idle.Length == 0) return null;
+        var go = new GameObject("Prätkäjätkä");
+        go.transform.SetParent(parent, false);
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var e = go.AddComponent<Enemy>();
+        e.body = visual; e.shadow = shadow; visual.sprite = idle[0];
+        e.displayName = "Prätkäjätkä";
+        e.idleSprites = idle; e.idleFrameTime = 0.12f;
+        var walk = EnemySheet("motoristi_kavely", report);
+        e.walkSprites = walk.Length > 0 ? walk : idle; e.walkFrameTime = 0.09f;
+        var jab = EnemySheet("motoristi_lyonti", report);   // 10 kuvaa: veto, käsi ojennettuna (5), palautus
+        if (jab.Length >= 8) { e.punchSprites = jab; e.punchImpactFrame = 5; e.secondImpactFrame = -1; e.windupTime = 0.18f; e.punchRecoverTime = 0.45f; e.punchDamage = 10; }
+        var cross = EnemySheet("motoristi_suora", report);   // 10 kuvaa: pitkä suora (ojennettuna 2–6), kaataa
+        if (cross.Length >= 8) { e.punch2Sprites = cross; e.punch2ImpactFrame = 2; e.punch2Damage = 16; e.punch2Knockdown = true; e.punch2Chance = 0.3f; e.punch2LaunchUp = 0f; }
+        var kick = EnemySheet("motoristi_potku", report);    // 11 kuvaa (solu 640 leveä): polvi ylös, potku ojennettuna (3–7)
+        if (kick.Length >= 8) { e.altAttackSprites = kick; e.altImpactFrame = 3; e.altDamage = 18; e.altKnockdown = true; e.altChance = 0.25f; e.altReach = 2.4f; }
+        var fall = EnemySheet("motoristi_kaatuminen", report);
+        if (fall.Length >= 3) { e.hurtSprites = new[] { fall[0] }; e.knockdownSprites = fall; }
+        var up = EnemySheet("motoristi_ylosnousu", report);
+        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
+        e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
+        e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f; e.blockChance = 0.2f;
+        e.moveSpeedX = 2.8f; e.moveSpeedY = 1.4f;
+        e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+        e.wakeDistance = 100f; e.retreatChance = 0f;
+        Undo.RegisterCreatedObjectUndo(go, "Prätkäjätkä");
+        Debug.Log("Prätkäjätkä: " + string.Join(", ", report));
+        return e;
+    }
 
     [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)")]
     static void CreateBarRoom()
@@ -4138,6 +4181,15 @@ public static class BeatEmUpSetup
                 var e = ego.GetComponent<Enemy>(); e.wakeDistance = 100f; e.joinsFightWhenSquadComes = false;
                 ego.SetActive(false);
                 fighters.Add(e); names.Add(tName);
+            }
+            // prätkäjätkä: oma hahmo videoista (kävely, lyönti, suora, potku; kaatumiskuvat tulossa)
+            var biker = MakeBiker(froot.transform);
+            if (biker != null)
+            {
+                Vector2 bp = pt(PokerBikerPx.x, PokerBikerPx.y);
+                biker.transform.position = new Vector3(bp.x, bp.y, 0f);
+                biker.gameObject.SetActive(false);
+                fighters.Add(biker); names.Add("Prätkäjätkä");
             }
             pf.fighters = fighters.ToArray();
             fightInfo = $"\nTappelu: loppuanimaation jälkeen musta häivytys, {chairs.Count} tuolia ja {string.Join(", ", names)}.";
