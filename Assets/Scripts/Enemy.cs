@@ -1555,6 +1555,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (comboArmor && comboSeq != null && !knockdown && health > damage
             && (state == State.Windup || state == State.Punch || state == State.Recover))

@@ -88,7 +88,7 @@ public class MusicPlayer : MonoBehaviour
         // ovien pimennys käyttää pysäytettyä aikaa, joten häivytys reaaliajassa
         float dt = Time.unscaledDeltaTime;
         if (t < fadeInTime) t += dt;
-        float master = fadeInTime > 0f ? Mathf.Clamp01(t / fadeInTime) * volume : volume;
+        float master = (fadeInTime > 0f ? Mathf.Clamp01(t / fadeInTime) * volume : volume) * GameSettings.MusicVolume;   // asetusten musiikin voimakkuus
         float target = areaClip != null ? 1f : 0f;
         areaMix = Mathf.MoveTowards(areaMix, target, dt / Mathf.Max(0.01f, crossfadeTime));
         overMix = Mathf.MoveTowards(overMix, overTarget, dt / overFade);

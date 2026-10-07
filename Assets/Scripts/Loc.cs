@@ -37,6 +37,20 @@ public static class Loc
     static readonly Dictionary<string, string> En = new Dictionary<string, string>
     {
         { "Suutele Auroraa", "Kiss Aurora" },
+        // --- Valikot ---
+        { "Aloita peli", "Start game" }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
+        { "Helppo", "Easy" }, { "Normaali", "Normal" }, { "Vaikea", "Hard" }, { "Takaisin", "Back" },
+        { "Jatka", "Resume" }, { "Aloita alusta", "Restart" }, { "Päävalikkoon", "Main menu" }, { "Lopeta peli", "Quit game" },
+        { "Kyllä, lopeta", "Yes, quit" }, { "Ei", "No" }, { "Lopetetaanko peli?", "Quit the game?" },
+        { "Äänet", "Sound" }, { "Musiikki", "Music" }, { "Koko näyttö", "Fullscreen" }, { "Päällä", "On" }, { "Pois", "Off" },
+        { "Resoluutio", "Resolution" }, { "Kieli", "Language" }, { "Vaikeustaso", "Difficulty" },
+        { "TAUKO", "PAUSED" }, { "ASETUKSET", "OPTIONS" }, { "Valitse vaikeustaso", "Choose difficulty" },
+        { "Viholliset lyövät heikommin, iskusi tehoavat enemmän. 5 elämää.", "Enemies hit softer, your hits land harder. 5 lives." },
+        { "Tasapainoinen haaste. 3 elämää.", "A balanced challenge. 3 lives." },
+        { "Viholliset lyövät kovempaa ja kestävät enemmän. 2 elämää.", "Enemies hit harder and take more. 2 lives." },
+        { "Ylös / alas valitse   Vasen / oikea säädä   Enter / A muuta   Esc / B takaisin", "Up / down select   Left / right adjust   Enter / A change   Esc / B back" },
+        { "Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin", "Up / down select   Enter / A confirm   Esc / B back" },
+        { "Enter / A / Esc takaisin", "Enter / A / Esc back" },
         { "Lopeta tanssi", "Stop dancing" },
         // --- HUD ---
         { "PELAAJA", "PLAYER" },

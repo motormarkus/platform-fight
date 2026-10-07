@@ -525,6 +525,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Awake()
     {
+        lives = GameSettings.Lives;   // vaikeustaso
         SortByFrameNumber(idleSprites);
         SortByFrameNumber(actionSprites);
         SortByFrameNumber(walkSprites);
@@ -570,6 +571,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (body != null) body.enabled = invulnTimer <= 0f || Mathf.FloorToInt(invulnTimer * 12f) % 2 == 0;
         }
         if (GameOver) { ApplyVisual(); return; }
+        if (GameMenu.IsOpen) { ApplyVisual(); return; }   // valikko auki: ei ohjausta
         UpdateStamina(dt);
 
         Vector2 move = Scripted ? ScriptedMove : ReadMove();
@@ -1581,6 +1583,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding) return false;
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow) return false;
+        damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
@@ -1610,6 +1613,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
         if (Riding) return false;
+        damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state != State.Block) Bottle.DropHeld();
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
