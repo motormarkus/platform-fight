@@ -589,6 +589,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pummelReach = 1.6f;
     [Tooltip("Kuinka pitkän matkan Ruby liukuu eteen tarttuessaan (kombossa vihu on työntynyt kauemmas).")]
     public float pummelSlide = 1.4f;
+    [Tooltip("Kuinka paljon vihu kallistuu otteessa Rubya kohti (astetta): tavalliset ja isot (Kovis ym.).")]
+    public float pummelTilt = 12f, pummelTiltBig = 22f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
     float pummelPhase, pummelJolt;
@@ -667,7 +669,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         // vihu pysyy otteessa Rubyn edessä, nytkähtää taakse joka lyönnistä
         pummelJolt = Mathf.MoveTowards(pummelJolt, 0f, 1.2f * dt);
-        pummelTarget.SetHeldByPlayer(new Vector3(me.x + d * (1.25f + pummelJolt), me.y - 0.02f, 0f), 0f, 0f);
+        // vihu vedetään rinnuksista kumaraan (yläruumis Rubya kohti), jotta lyönnit osuvat naamaan myös pitkiin; isot enemmän
+        float tiltK = Mathf.Clamp01((stateTime - PummelReachTime) / PummelGripTime);
+        float tilt = (pummelTarget.bigBody ? pummelTiltBig : pummelTilt) * tiltK * tiltK * (3f - 2f * tiltK) - pummelJolt * 40f;
+        pummelTarget.SetHeldByPlayer(new Vector3(me.x + d * (1.25f + pummelJolt), me.y - 0.02f, 0f), 0f, d * tilt);
         float t = stateTime - PummelReachTime - PummelGripTime;
         if (t < 0f) return;
         int hit = (int)(t / PummelStep);
@@ -676,7 +681,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             pummelCount++;
             Vector3 q = pummelTarget.transform.position;
-            HitSpark.Spawn(new Vector3(q.x - d * 0.25f, q.y + 2.5f, 0f), pummelCount == PummelHits, Mathf.RoundToInt(-q.y * 100f) + 5);
+            HitSpark.Spawn(new Vector3(q.x - d * 0.45f, q.y + 2.45f, 0f), pummelCount == PummelHits, Mathf.RoundToInt(-q.y * 100f) + 5);   // nyrkin korkeudella
             if (pummelCount < PummelHits)
             {
                 pummelTarget.HitWhileHeld(pummelDamage);
