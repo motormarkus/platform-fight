@@ -3846,7 +3846,7 @@ public static class BeatEmUpSetup
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
         ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)),
         ("Rokkimimmi", new Vector2(1250f, 0.02f)),
-        ("Prätkäjätkä", new Vector2(1820f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
+        ("Prätkäjätkä", new Vector2(720f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
@@ -3987,9 +3987,14 @@ public static class BeatEmUpSetup
             if (e == null) continue;
             e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f);
             e.wakeDistance = 6f; e.joinsFightWhenSquadComes = false;
+            // ennen tappelua: tepastelevat baarin perän suuntaan ja katsovat sinne (eivät tuijota ovelle tulevaa)
+            e.wanderMinX = X(at.x); e.wanderMaxX = X(Mathf.Min(at.x + 320f, 3450f)); e.idleFacing = 1;
             e.gameObject.SetActive(true);
             members.Add(e); names.Add(who);
         }
+        // oven lähellä vakioasiakkaan kanssa suuteleva prätkäjätkä: pysyy paikallaan eikä herää läheisyydestä (herää tappelun alkaessa)
+        var kisser = members.LastOrDefault(m => m != null && m.displayName == "Prätkäjätkä");
+        if (kisser != null) { kisser.wanderMinX = kisser.wanderMaxX = 0f; kisser.wakeDistance = -1f; kisser.idleFacing = -1; }
         var brawl = root.AddComponent<BarBrawl>();
         brawl.members = members.ToArray();
         // portsari vartioi teräsovella (kohta 67) ja tulee mukaan tappelun alkaessa

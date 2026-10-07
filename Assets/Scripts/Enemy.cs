@@ -156,6 +156,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Hereillä vasta, kun tappelu alkaa (BouncerSquad herättää); siihen asti tepastelee välillä wanderMinX…wanderMaxX.")]
     public bool joinsFightWhenSquadComes;
     public float wanderMinX, wanderMaxX;
+    [Tooltip("Ennen heräämistä katse: 1 = oikealle, -1 = vasemmalle, 0 = ei väliä (esim. baarin asiakkaat katsovat baarin perälle eivätkä ovelle).")]
+    public int idleFacing;
     float wanderTarget, wanderPause;
     public float altKnockSpeed = 7f, altKnockUp = 6f;
     [Tooltip("Rynnäkkö: toinen hyökkäys aloitetaan jo näin kaukaa (x), ja syöksy kantaa pelaajaan asti. 0 = ei käytössä.")]
@@ -395,6 +397,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(dx) < 0.1f)
         {
             wanderPause = Random.Range(1.5f, 4f);        // seisoskelee ja huojuu
+            if (idleFacing != 0) facingRight = idleFacing > 0;
             wanderTarget = Random.Range(wanderMinX, wanderMaxX);
             return;
         }
@@ -462,6 +465,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         player = FindFirstObjectByType<PlayerController>();
         groundHeight = TargetGround();
+        if (idleFacing != 0) facingRight = idleFacing > 0;
     }
 
     void Update()
