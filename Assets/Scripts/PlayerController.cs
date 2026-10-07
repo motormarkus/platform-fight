@@ -593,6 +593,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pummelTilt = 12f, pummelTiltBig = 22f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
+    bool pummelHooks;   // iso vihu: lyönnit koukkuina ylös naamaan (rinnuslyönnit osuisivat rintaan)
+    Sprite[] HookArt(int which) => punchCombo != null && punchCombo.Length >= 4 && punchCombo[2 + which].HasAnimation && punchCombo[2 + which].sprites.Length >= 4 ? punchCombo[2 + which].sprites : null;
     float pummelPhase, pummelJolt;
     bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
     const float PummelReachTime = 0.16f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
@@ -659,6 +661,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (best != null)
                 {
                     pummelTarget = best;
+                    pummelHooks = best.bigBody && HookArt(0) != null && HookArt(1) != null;
                     best.BeginHeldByPlayer(me.x);
                     stateTime = PummelReachTime;   // ajastus alkaa otteesta
                     return;
@@ -672,7 +675,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // vihu vedetään rinnuksista kumaraan (yläruumis Rubya kohti), jotta lyönnit osuvat naamaan myös pitkiin; isot enemmän
         float tiltK = Mathf.Clamp01((stateTime - PummelReachTime) / PummelGripTime);
         float tilt = (pummelTarget.bigBody ? pummelTiltBig : pummelTilt) * tiltK * tiltK * (3f - 2f * tiltK) - pummelJolt * 40f;
-        pummelTarget.SetHeldByPlayer(new Vector3(me.x + d * (1.25f + pummelJolt), me.y - 0.02f, 0f), 0f, d * tilt);
+        pummelTarget.SetHeldByPlayer(new Vector3(me.x + d * ((pummelHooks ? 1.1f : 1.25f) + pummelJolt), me.y - 0.02f, 0f), 0f, d * tilt);
         float t = stateTime - PummelReachTime - PummelGripTime;
         if (t < 0f) return;
         int hit = (int)(t / PummelStep);
@@ -681,7 +684,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             pummelCount++;
             Vector3 q = pummelTarget.transform.position;
-            HitSpark.Spawn(new Vector3(q.x - d * 0.45f, q.y + 2.45f, 0f), pummelCount == PummelHits, Mathf.RoundToInt(-q.y * 100f) + 5);   // nyrkin korkeudella
+            HitSpark.Spawn(new Vector3(q.x - d * 0.45f, q.y + (pummelHooks ? 3.1f : 2.45f), 0f), pummelCount == PummelHits, Mathf.RoundToInt(-q.y * 100f) + 5);   // nyrkin korkeudella
             if (pummelCount < PummelHits)
             {
                 pummelTarget.HitWhileHeld(pummelDamage);
@@ -711,6 +714,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (t < PummelGripTime) return sp[1];
         t -= PummelGripTime;
         int hit = (int)(t / PummelStep);
+        if (pummelHooks)
+        {
+            // iso vihu: etu- ja takakoukku vuorotellen ylös naamaan, viimeinen takakoukku jää hetkeksi
+            var hk = HookArt(hit >= PummelHits || hit % 2 == 1 ? 1 : 0);
+            if (hit >= PummelHits) return hk[3];
+            float kk = (t - hit * PummelStep) / PummelStep;
+            return kk < 0.3f ? hk[1] : kk < 0.55f ? hk[2] : hk[3];
+        }
         if (hit >= PummelHits) return sp[5];                          // viimeinen lyönti jää hetkeksi
         float k = (t - hit * PummelStep) / PummelStep;
         bool last = hit == PummelHits - 1;
