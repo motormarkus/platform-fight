@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool scissor;           // saksipotku käynnissä ilmassa
     bool scissorJump;       // ponnistus maasta saksipotkuun (eteen-ylös + K)
     bool landedFromScissor;
+    bool comboScissor, comboFinisherQueued;   // potkukombossa saksipotku ennen viimeistä kaatavaa potkua
     float upFwdTime = -10f, upFwdDir = 1f;
     float prevMoveX, lastTapTime = -9f, lastTapDir, dashArmedUntil = -9f, dashDir;
     bool kneeDashHit;
@@ -657,7 +658,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (kickPressed)
                 {
                     // eteen-ylös (vino) + potku = saksipotku
-                    if (Time.time - upFwdTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { facingRight = upFwdDir > 0f; StartScissorJump(); break; }
+                    if (Time.time - upFwdTime <= scissorInputWindow && HasScissor && UseStamina(jumpStamina)) { facingRight = upFwdDir > 0f; comboScissor = false; StartScissorJump(); break; }
                     StartKick(0);
                     break;
                 }
@@ -701,7 +702,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 height += verticalVel * dt;
                 if (!jumpKick && !scissor && kickPressed && HasScissor)
                 {
-                    scissor = true; scissorTime = 0f; scissorHit1 = scissorHit2 = false; PlayGrunt();
+                    scissor = true; scissorTime = 0f; scissorHit1 = scissorHit2 = false; PlayGrunt(); comboScissor = false;
                     if (verticalVel < 0f) verticalVel *= 0.3f;   // laskussa aloitettu: pieni pysähdys ilmassa
                 }
                 else if (!jumpKick && !scissor && (kickPressed || punchPressed)) { jumpKick = true; jumpKickTime = 0f; attackHit = false; PlayGrunt(); }
@@ -713,7 +714,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         scissorHit1 = AttackEnemies(scissorReach, scissorDamage1, false, 2.6f);
                     if (!scissorHit2 && scissorTime >= k2 && scissorTime <= k2 + scissorKickHold)
                     {
-                        if (AttackEnemies(scissorReach, scissorDamage2, true, 2.6f)) { scissorHit2 = true; PlayGrunt(); }
+                        if (AttackEnemies(scissorReach, scissorDamage2, !comboScissor, 2.6f)) { scissorHit2 = true; PlayGrunt(); }   // kombossa ei kaada: viimeinen potku kaataa
                     }
                 }
                 if (jumpKick)
@@ -722,11 +723,18 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (!attackHit && jumpKickTime >= 0.08f && jumpKickTime <= 0.45f)
                         attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true, 2.2f);
                 }
+                // kombon saksipotku: potku ilmassa (ensimmäisen potkun jälkeen) jonoon -> viimeinen korkea potku alastulon jälkeen
+                if (scissor && comboScissor && kickPressed && scissorTime >= ScissorKick1Start) comboFinisherQueued = true;
                 if (height <= 0f) { height = 0f; landedFromScissor = scissor; scissor = false; Enter(State.Landing); }
                 break;
 
             case State.Landing:
-                if (stateTime >= landingTime) Enter(State.Ground);
+                if (comboScissor && landedFromScissor && stateTime >= landingTime * 0.4f)
+                {
+                    comboScissor = false;
+                    if (comboFinisherQueued && HasHiKick) { comboFinisherQueued = false; StartKick(2); break; }
+                }
+                if (stateTime >= landingTime) { comboScissor = false; comboFinisherQueued = false; Enter(State.Ground); }
                 break;
 
             case State.Punch:
@@ -1956,13 +1964,27 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (flurry && kickQueued && kickComboIndex == 0 && HasHiKick)
         {
+            if (TryComboScissor()) return;   // lyöntien ja matalan potkun jälkeen saksipotku ennen viimeistä
             // flurry: korkea potku heti matalan perään, nostovaihe ohitetaan (alkaa osumakuvasta)
             StartKick(2);
             stateTime = hiKickImpactFrame * hiKickFrameTime;
             return;
         }
-        if (kickQueued && kickComboIndex < 2) StartKick(kickComboIndex + 1);
+        if (kickQueued && kickComboIndex < 2)
+        {
+            if (kickComboIndex + 1 == 2 && TryComboScissor()) return;   // matala, sivupotku, saksipotku, korkea
+            StartKick(kickComboIndex + 1);
+        }
         else Enter(State.Ground);
+    }
+
+    /// Potkukombon saksipotku viimeisen (kaatavan) potkun paikalle; viimeinen potku tulee alastulon jälkeen, jos K painetaan ilmassa.
+    bool TryComboScissor()
+    {
+        if (!HasScissor || !HasHiKick || !UseStamina(jumpStamina)) return false;
+        comboScissor = true; comboFinisherQueued = false;
+        StartScissorJump();
+        return true;
     }
 
     void StartComboHit(int index)
