@@ -3970,7 +3970,7 @@ public static class BeatEmUpSetup
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
-        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta" })
+        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_hyppylyonti", "motoristi_juoksu", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -3992,7 +3992,23 @@ public static class BeatEmUpSetup
         var cross = EnemySheet("motoristi_suora", report);   // 10 kuvaa: pitkä suora (ojennettuna 2–6), kaataa
         if (cross.Length >= 8) { e.punch2Sprites = cross; e.punch2ImpactFrame = 2; e.punch2Damage = 16; e.punch2Knockdown = true; e.punch2Chance = 0.3f; e.punch2LaunchUp = 0f; }
         var kick = EnemySheet("motoristi_potku", report);    // 11 kuvaa (solu 640 leveä): polvi ylös, potku ojennettuna (3–7)
-        if (kick.Length >= 8) { e.altAttackSprites = kick; e.altImpactFrame = 3; e.altDamage = 18; e.altKnockdown = true; e.altChance = 0.25f; e.altReach = 2.4f; }
+        if (kick.Length >= 8)
+        {
+            e.punch3Sprites = kick; e.punch3ImpactFrame = 3; e.punch3WindupTime = 0.3f; e.punch3RecoverTime = 0.5f;
+            e.punch3Damage = 18; e.punch3Knockdown = true; e.punch3LaunchX = 5f; e.punch3LaunchUp = 4f; e.punch3Chance = 0.2f; e.punch3Reach = 2.4f;
+        }
+        // erikoisliike: hyppylyönti kaukaa (kyykky ja ponnistus, lento nyrkki edellä, alastulo); joskus myös vierestä
+        var leap = EnemySheet("motoristi_hyppylyonti", report);   // 15 kuvaa: 0–7 kyykky ja ponnistus, 8 lento (isku), 9–14 alastulo
+        if (leap.Length >= 12)
+        {
+            e.altAttackSprites = leap; e.altImpactFrame = 8; e.altDamage = 22; e.altKnockdown = true; e.altReach = 2.3f;
+            e.altChance = 0.35f; e.altNearChance = 0.15f;
+            e.chargeRange = 8.5f; e.chargeMinRange = 3.5f;
+            e.altLungeSpeed = 13f; e.altLungeTime = 0.55f; e.altJumpHeight = 1.0f;
+            e.altExtraWindup = 0.37f; e.altTimeScale = 1f; e.altKnockSpeed = 9f; e.altKnockUp = 7f;
+        }
+        var run = EnemySheet("motoristi_juoksu", report);   // 10 kuvaa, kaukana juostaan
+        if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.07f; e.runSpeedMultiplier = 1.6f; }
         var fall = EnemySheet("motoristi_kaatuminen", report);
         if (fall.Length >= 8)
         {

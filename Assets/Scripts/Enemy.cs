@@ -160,6 +160,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float chargeRange = 0f;
     [Tooltip("Rynnäkkö aloitetaan aikaisintaan tältä etäisyydeltä (lähempänä lyö tavallisesti).")]
     public float chargeMinRange = 2.6f;
+    [Tooltip("Rynnäkkö (chargeRange > 0) voi laueta myös vierestä tällä todennäköisyydellä (esim. prätkäjätkän hyppylyönti).")]
+    [Range(0f, 1f)] public float altNearChance = 0f;
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
     public float altTimeScale = 1f;
 
@@ -1227,7 +1229,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (grabIntent) { Enter(State.GrabReach); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
-            usingAlt = chargeRange <= 0f && Has(altAttackSprites) && Random.value < altChance;   // rynnäkkö vain kaukaa
+            usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : altNearChance);   // rynnäkkö kaukaa, vierestä vain altNearChance
             RollPunch23();
             Enter(State.Windup);
             return;
