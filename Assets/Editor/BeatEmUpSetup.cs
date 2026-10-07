@@ -3970,7 +3970,7 @@ public static class BeatEmUpSetup
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
-        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_hyppylyonti", "motoristi_juoksu", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_torjunta", "motoristi_heitetty" })
+        foreach (var n in new[] { "motoristi_idle", "motoristi_kavely", "motoristi_lyonti", "motoristi_suora", "motoristi_potku", "motoristi_hyppylyonti", "motoristi_juoksu", "motoristi_kaatuminen", "motoristi_ylosnousu", "motoristi_heitetty" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4018,14 +4018,13 @@ public static class BeatEmUpSetup
             e.landSprites = new[] { fall[6], fall[7] }; e.landFrameTime = 0.12f;
         }
         var up = EnemySheet("motoristi_ylosnousu", report);
-        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.1f; }
+        if (up.Length >= 3) { e.getUpSprites = up; e.getUpTime = 1.2f; }   // 8 kuvaa: mahallaan → kontallaan → polvelta → tappeluasento
         e.bigBody = true;   // hero heittää kuperkeikalla (kuten Kovista)
         var thrown = EnemySheet("motoristi_heitetty", report);   // 0 asento, 1 napattu, 2 kippaa, 3 ylösalaisin, 4–5 selällään, 6 pyörähtää, 7 mahallaan
         if (thrown.Length >= 8) { e.flipThrownSprites = thrown; e.flipFlightFrames = 1; e.flipFlightFrameTime = 0.12f; e.flipLandFrameTime = 0.13f; }
         e.fightsEveryone = true;   // käy kaikkien kimppuun (puliukon tapaan)
         e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f;
-        var block = EnemySheet("motoristi_torjunta", report);   // torjuu vasta, kun omat kuvat ovat olemassa
-        if (block.Length >= 2) { e.blockSprites = block; e.blockChance = 0.2f; } else e.blockChance = 0f;
+        e.blockChance = 0f;   // prätkäjätkä ei torju: ottaa iskut vastaan ja lyö takaisin
         e.moveSpeedX = 2.8f; e.moveSpeedY = 1.4f;
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
         e.wakeDistance = 100f; e.retreatChance = 0f;
