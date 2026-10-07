@@ -592,7 +592,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Kuinka pitkän matkan Ruby liukuu eteen tarttuessaan (kombossa vihu on työntynyt kauemmas).")]
     public float pummelSlide = 1.4f;
     [Tooltip("Kuinka paljon vihu kallistuu otteessa Rubya kohti (astetta): tavalliset ja isot (Kovis ym.).")]
-    public float pummelTilt = 12f, pummelTiltBig = 22f;
+    public float pummelTilt = 4f, pummelTiltBig = 6f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
     bool pummelHooks;   // iso vihu ilman omia kuvia: lyönnit koukkuina ylös naamaan
@@ -1021,7 +1021,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 {
                     int kd = move.x > 0f ? 1 : -1;
                     bool back = (kd > 0) != facingRight || Time.time - lastTurnTime <= 0.2f;
-                    if ((back && backKickSprites != null) || (!back && frontKickSprites != null)) { StartSoloKick(back, kd); break; }
+                    // takapotku osuu eteen (alkuperäiseen katsomissuuntaan): Ruby kääntyy kuvissa ja potkaisee selkä edellä
+                    if ((back && backKickSprites != null) || (!back && frontKickSprites != null)) { StartSoloKick(back, back ? -kd : kd); break; }
                 }
                 if (kickPressed)
                 {
