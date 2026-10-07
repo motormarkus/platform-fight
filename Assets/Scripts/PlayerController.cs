@@ -587,11 +587,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Rinnuksista-lyöntien staminakulutus (oma arvonsa, ei sama kuin puskulla).")]
     public float pummelStamina = 22f;
     public float pummelReach = 1.6f;
+    [Tooltip("Kuinka pitkän matkan Ruby liukuu eteen tarttuessaan (kombossa vihu on työntynyt kauemmas).")]
+    public float pummelSlide = 1.4f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
     float pummelPhase, pummelJolt;
     bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
-    const float PummelReachTime = 0.12f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
+    const float PummelReachTime = 0.16f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
     const int PummelHits = 5;
 
     /// Onko edessä hereillä oleva vihollinen (ei liittolainen) annetun matkan sisällä.
@@ -623,7 +625,24 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (pummelTarget == null)
         {
             if (pummelCount > 0) return;   // viimeinen lyönti jo lähti: jälkiliike (lopetus Updatessa)
-            if (stateTime < PummelReachTime) return;
+            if (stateTime < PummelReachTime)
+            {
+                // kurotuksen aikana liu'utaan lähimmän kohti otekohtaan (kombossa vihu on työntynyt kauemmas)
+                Enemy near = null; float nd = 99f;
+                foreach (var e in Enemy.All)
+                {
+                    if (e == null || e.IsDead || !e.isActiveAndEnabled || !e.CanBeGrabbed) continue;
+                    Vector3 p = e.transform.position; float dx = (p.x - me.x) * d;
+                    if (dx < 0.2f || dx > pummelReach + pummelSlide || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+                    if (dx < nd) { nd = dx; near = e; }
+                }
+                if (near != null && nd > 1.25f)
+                {
+                    float left = Mathf.Max(PummelReachTime - stateTime, dt);
+                    MoveOnGround(new Vector2(d * Mathf.Min(nd - 1.25f, (nd - 1.25f) / left * dt), 0f));
+                }
+                return;
+            }
             if (!attackHit)
             {
                 attackHit = true;   // yksi tarttumisyritys
