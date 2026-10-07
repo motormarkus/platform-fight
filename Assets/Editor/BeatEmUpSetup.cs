@@ -3641,6 +3641,8 @@ public static class BeatEmUpSetup
     static readonly Vector2 StreetBarExtCanvas = new Vector2(150f, 1600f);   // baarin kuvan yläreuna kankaalla, kankaan korkeus (leveys sama kuin kuvalla)
     const float StreetBarDoorPx = 2263f;      // BAR-oven keskikohta kadun kuvasarjassa
     const float StreetBarExitPx = 160f;       // sisäkuvan vasen ovi (ulos kadulle)
+    const float StreetBarCounterTopRow = 388f, StreetBarSohviPx = 800f;   // tiskin yläreuna ja Sohvin paikka (hanojen vasemmalla)
+    static readonly Vector2 StreetBarCounterPx = new Vector2(1085f, 575f);  // tiskin keskikohta ja puolileveys (n. 510–1660)
     static readonly Vector2 StreetBarBackDoorPx = new Vector2(3297f, 557f);   // oikean nurkan teräsovi (pokerihuoneeseen): keskikohta ja alareuna
     // takaraja sisäkuvassa (x px, rivi): oven ja tynnyrin edusta, tiskin etureuna, sohvat seinällä, viisto oikea seinä
     static readonly Vector2[] StreetBarDepthPx = { new Vector2(0f, 612f), new Vector2(515f, 612f), new Vector2(530f, 640f), new Vector2(1712f, 640f),
@@ -3653,7 +3655,7 @@ public static class BeatEmUpSetup
         var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
         var ti = AssetImporter.GetAtPath(StreetBarPath) as TextureImporter;
         if (street == null || streetArea == null || ti == null) { Info("Tarvitaan katutausta ja katualue (kohdat 4 ja 10) sekä " + StreetBarPath); return; }
-        foreach (var n in new[] { "Kadun baari", "Kadun baarin ovet" })
+        foreach (var n in new[] { "Kadun baari", "Kadun baarin ovet", "Kadun baarin Sohvi", "Kadun baarin tiski" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -3697,6 +3699,28 @@ public static class BeatEmUpSetup
         area.camMaxX = Mathf.Max(area.camMinX, StreetBarX0 + wU - halfW);
         area.walkMinX = X(40f); area.walkMaxX = X(w - 60f);
         area.depthLimits = StreetBarDepthPx.Select(v => new Vector2(X(v.x), Y(v.y))).ToArray();
+
+        // Sohvi tiskin taakse ja kauppa tiskin eteen (kopiot S-Clubin Sohvista ja baaritiskistä); oma baarimikko myöhemmin
+        var clubSohvi = GameObject.Find("Sohvi");
+        var clubShop = GameObject.Find("Baaritiski");
+        if (clubSohvi != null)
+        {
+            var s2 = Object.Instantiate(clubSohvi);
+            s2.name = "Kadun baarin Sohvi";
+            s2.transform.position = new Vector3(X(StreetBarSohviPx), Y(StreetBarCounterTopRow), 0f);
+            s2.transform.localScale = clubSohvi.transform.localScale * 0.85f;
+            var ssr = s2.GetComponent<SpriteRenderer>(); if (ssr != null) ssr.sortingOrder = -9500;   // taustan edessä, hahmojen takana
+            Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
+        }
+        if (clubShop != null)
+        {
+            var sh2 = Object.Instantiate(clubShop);
+            sh2.name = "Kadun baarin tiski";
+            sh2.transform.position = new Vector3(X(StreetBarCounterPx.x), area.MaxDepthAtX(X(StreetBarCounterPx.x), area.maxDepthY), 0f);
+            var counter = sh2.GetComponent<ShopCounter>();
+            if (counter != null) { counter.here = area; counter.halfWidth = StreetBarCounterPx.y / ppu; counter.title = "BAARI"; }
+            Undo.RegisterCreatedObjectUndo(sh2, "Tiski");
+        }
 
         // ovet: BAR-ovi jokaisessa kadun kuvasarjassa, ja paluuovi sisäkuvan vasemmassa ovessa
         var doors = new GameObject("Kadun baarin ovet");
