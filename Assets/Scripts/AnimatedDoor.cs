@@ -10,10 +10,15 @@ public class AnimatedDoor : MonoBehaviour
     public Sprite[] frames;
     public float frameTime = 0.05f;
     public AudioClip openSound, closeSound;
+    [Tooltip("Avautuminen tasaisella tahdilla ilman pehmennystä (videosta otettu sarja, jonka ääni on kuvien tahdissa).")]
+    public bool linear;
     float pos;          // 0 = kiinni, 1 = auki
     int dir;            // 1 avautuu, -1 sulkeutuu
 
     public bool IsOpen => pos >= 1f && dir >= 0;
+
+    [ContextMenu("Avaa")] void TestOpen() { Open(); }     // testaus Play-tilassa: Inspector ⋮ → Avaa / Sulje
+    [ContextMenu("Sulje")] void TestClose() { Close(); }
 
     void Start() { Apply(); }
 
@@ -44,7 +49,7 @@ public class AnimatedDoor : MonoBehaviour
     void Apply()
     {
         if (body == null || frames == null || frames.Length == 0) return;
-        float k = dir >= 0 ? pos * pos * (3f - 2f * pos) : pos;
+        float k = dir >= 0 && !linear ? pos * pos * (3f - 2f * pos) : pos;
         body.sprite = frames[Mathf.Clamp(Mathf.RoundToInt(k * (frames.Length - 1)), 0, frames.Length - 1)];
     }
 }

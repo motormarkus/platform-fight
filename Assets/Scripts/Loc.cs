@@ -50,6 +50,7 @@ public static class Loc
         // --- Ovet ---
         { "Mene sisään", "Go inside" },
         { "Mene S-Clubiin", "Enter S-Club" },
+        { "Mene baariin", "Enter the bar" },
         { "Ulos kadulle", "Back to the street" },
         { "Kiipeä katolle", "Climb to the roof" },
         { "Nouse pyörän selkään", "Get on the bike" },
