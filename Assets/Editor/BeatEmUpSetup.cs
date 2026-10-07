@@ -141,7 +141,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baarinainen_suudelma") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("tanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("sankaritar_heitto") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -3962,6 +3962,26 @@ public static class BeatEmUpSetup
             lc.firstDelay = 1.5f;
             brawl.latecomers = lc;
             names.Add("portsari vasemmalta");
+        }
+        // vakioasiakas (ei tappele): tiskillä, tupakalla ja suutelemassa prätkäjätkää; poistuu tappelun alkaessa
+        Sprite[] NS(string n) { string p = FindTexture(n); if (p == null) return new Sprite[0]; SetupAndSlice(p); return LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray(); }
+        var nIdle = NS("baarinainen_tiski");
+        if (nIdle.Length > 0)
+        {
+            var ngo = new GameObject("Baarin vakioasiakas");
+            ngo.transform.SetParent(root.transform, false);
+            var nsr = ngo.AddComponent<SpriteRenderer>(); nsr.sprite = nIdle[0];
+            var br = ngo.AddComponent<BarRegular>();
+            br.counterIdle = nIdle; br.turn = NS("baarinainen_kaanto"); br.smoking = NS("baarinainen_tupakka");
+            br.walk = NS("baarinainen_kavely"); br.kiss = NS("baarinainen_suudelma");
+            br.counterSpot = new Vector2(X(1500f), Depth(1500f, 0.02f));
+            br.exitSpot = new Vector2(X(StreetBarExitPx), Depth(StreetBarExitPx, 0.05f));
+            br.brawl = brawl;
+            br.partner = members.FirstOrDefault(m => m != null && m.displayName == "Prätkäjätkä");
+            var kgo = new GameObject("Suudelma"); kgo.transform.SetParent(root.transform, false);
+            br.kissRenderer = kgo.AddComponent<SpriteRenderer>();
+            ngo.transform.position = br.counterSpot;
+            names.Add("vakioasiakas (ei tappele)");
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Kadun baariin {StreetBarTables.Length} pöytää ({bottles} pulloa, {glassN} lasia) ja {chairs} tuolia.\nTappelijat: {string.Join(", ", names)}." +

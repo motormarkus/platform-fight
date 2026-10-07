@@ -16,6 +16,7 @@ public class BarBrawl : MonoBehaviour
     public Latecomers latecomers;
 
     bool started;
+    public bool Started => started;
     float guardT = -1f;
 
     void Update()
