@@ -334,6 +334,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float[] CueSwingATimes = { 0.05f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
     float[] CueSwingBTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.06f, 0.08f, 0.08f, 0.1f };
     int cueAImpact = 4;
+    float cueAEndTime = -9f;   // huitaisu A päättyi (myöhäinen 2. painallus vielä paluuhuitaisuksi)
     bool HasCue => cueIdleSprites != null && cueIdleSprites.Length > 0 && HasSmallItem;
     bool HasCueSwing => cueSwingASprites != null && cueSwingASprites.Length >= CueSwingATimes.Length && cueSwingBSprites != null && cueSwingBSprites.Length >= CueSwingBTimes.Length;
     bool cueReleased, cueHitDone, cueSecondQueued;
@@ -1581,6 +1582,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.CueHold:
             {
                 if (Cue.Held == null) { Enter(State.Ground); break; }
+                if (punchPressed && HasCueSwing && Time.time - cueAEndTime <= 0.3f) { cueAEndTime = -9f; cueHitDone = false; PlayGrunt(); Enter(State.CueSwingB); break; }   // myöhäinen 2. painallus: paluuhuitaisu
                 if (punchPressed && HasCueSwing) { cueHitDone = false; cueSecondQueued = false; PlayGrunt(); Enter(State.CueSwingA); break; }   // huitaisu (2. painallus: takaisin)
                 if (releaseThrow || punchPressed || kickPressed) { throwQueued = false; cueReleased = false; PlayGrunt(); Enter(State.CueThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
@@ -1597,11 +1599,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 float impact = ThrowPose.Start(CueSwingATimes, cueAImpact);
                 Lunge(0.2f, impact, dt);
                 if (!cueHitDone && stateTime >= impact) CueStrike(cueDamage, false);
-                if (punchPressed && stateTime >= ThrowPose.Start(CueSwingATimes, Mathf.Max(0, cueAImpact - 2))) cueSecondQueued = true;
+                if (punchPressed && stateTime >= 0.08f) cueSecondQueued = true;   // 2. painallus milloin tahansa huitaisun aikana (Rubyn pitkä taakse veto)
                 if (ThrowPose.Index(CueSwingATimes, stateTime) < 0 || (cueSecondQueued && cueHitDone && stateTime >= ThrowPose.Start(CueSwingATimes, cueAImpact + 1) + 0.04f))
                 {
                     if (Cue.Held == null) { Enter(State.Ground); break; }
                     if (cueSecondQueued) { cueHitDone = false; PlayGrunt(); Enter(State.CueSwingB); break; }
+                    cueAEndTime = Time.time;
                     Enter(State.CueHold);
                 }
                 break;
