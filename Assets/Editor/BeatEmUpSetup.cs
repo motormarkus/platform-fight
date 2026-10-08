@@ -3938,19 +3938,19 @@ public static class BeatEmUpSetup
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
     // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
-    static readonly Vector2[] StreetBarTables = { new Vector2(2600f, 1.05f), new Vector2(2900f, 0.75f), new Vector2(2200f, 1.45f),
+    static readonly Vector2[] StreetBarTables = { new Vector2(2200f, 1.8f), new Vector2(3050f, 1.8f),
                                                   // alaosa (lattia eturivissä, myös tiskin edessä)
-                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2450f, 1.75f), new Vector2(1600f, 1.9f) };
-    // snookerpöydät (etujalkojen keskikohta): sohvien edessä ja oikealla edessä
-    static readonly Vector2[] StreetBarSnooker = { new Vector2(2050f, 0.95f), new Vector2(3050f, 1.9f) };
+                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(1300f, 2.15f) };
+    // snookerpöydät (etujalkojen keskikohta) takarivissä sohvien edessä: niiden taakse ei mahdu muuta, pullopöydät edessä
+    static readonly Vector2[] StreetBarSnooker = { new Vector2(2050f, 0.75f), new Vector2(2950f, 0.75f) };
     // kyltit baarin kuvan pikseleinä (keskikohta x, rivi; leveys px): Samperi's Snooker sohvien yläpuolelle, Poker night pokerihuoneen teräsoven yläpuolelle
     static readonly Vector3 StreetBarSnookerSign = new Vector3(1820f, 205f, 330f), StreetBarPokerSign = new Vector3(3300f, 110f, 150f);
     // kadulla (kadun kuvasarjan pikseleinä): Samperi's Snooker BAR-oven yläpuolelle parvekkeiden väliin, Poker night oven oikeaan ikkunaan
     static readonly Vector3 StreetSnookerSign = new Vector3(2263f, 193f, 260f), StreetPokerSign = new Vector3(2543f, 400f, 92f);
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
-        ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
-        ("Punkkari", new Vector2(1650f, 0.8f)), ("Punkkari", new Vector2(3060f, 0.6f)),
-        ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
+        ("Kovis", new Vector2(2080f, 0.15f)), ("Kovis", new Vector2(2500f, 1.1f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
+        ("Punkkari", new Vector2(1650f, 0.8f)), ("Punkkari", new Vector2(3350f, 0.6f)),
+        ("Lippis", new Vector2(2450f, 0.3f)), ("Lippis", new Vector2(1400f, 0.45f)), ("Kovis", new Vector2(3350f, 1.05f)), ("Punkkari", new Vector2(3400f, 1.3f)),
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
         ("Prätkäjätkä", new Vector2(3450f, 1.95f)), ("Puliukko", new Vector2(3420f, 1.55f)),
         ("Rokkimimmi", new Vector2(1250f, 0.02f)),
