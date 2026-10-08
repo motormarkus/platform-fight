@@ -321,6 +321,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] cueIdleSprites;
     [Tooltip("keppi_kavely.png: kävely keppi kädessä (10 kuvaa, videosta).")]
     public Sprite[] cueWalkSprites;
+    [Tooltip("keppi_heitto.png: heitto (6 kuvaa: nosto pään yli, tähtäys, veto, irti kuvassa 4, jälkiliike).")]
+    public Sprite[] cueThrowSprites;
+    static readonly float[] CueThrowTimes = { 0.07f, 0.09f, 0.12f, 0.06f, 0.05f, 0.14f };
+    bool HasCueThrowArt => cueThrowSprites != null && cueThrowSprites.Length >= CueThrowTimes.Length;
     [Tooltip("keppi_lyonti_a.png: huitaisu eteen (7 kuvaa, osuma kuvassa 4).")]
     public Sprite[] cueSwingASprites;
     [Tooltip("keppi_lyonti_b.png: paluuhuitaisu taakse (8 kuvaa, osuma kuvassa 1, kaataa), toisella lyöntinapin painalluksella.")]
@@ -1020,7 +1024,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
-        cueIdleSprites = cueWalkSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
+        cueIdleSprites = cueWalkSprites = cueThrowSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
                     && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
@@ -1072,7 +1076,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(dropKickSprites);
         SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites); SortByFrameNumber(bigHookSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
-        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites); SortByFrameNumber(cueWalkSprites); SortByFrameNumber(cueSwingASprites); SortByFrameNumber(cueSwingBSprites);
+        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites); SortByFrameNumber(cueWalkSprites); SortByFrameNumber(cueThrowSprites); SortByFrameNumber(cueSwingASprites); SortByFrameNumber(cueSwingBSprites);
         SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
@@ -1597,12 +1601,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.CueThrow:
-                if (!cueReleased && stateTime >= ThrowPose.Start(ThrowPose.ThrowTimes, ThrowPose.ReleaseIndex))
+                if (!cueReleased && stateTime >= (HasCueThrowArt ? ThrowPose.Start(CueThrowTimes, 4) : ThrowPose.Start(ThrowPose.ThrowTimes, ThrowPose.ReleaseIndex)))
                 {
                     cueReleased = true;
-                    Cue.ThrowHeld(transform.position, 2.0f + height, facingRight ? 1f : -1f);
+                    Cue.ThrowHeld(transform.position, (HasCueThrowArt ? 2.7f : 2.0f) + height, facingRight ? 1f : -1f);
                 }
-                if (ThrowPose.Index(ThrowPose.ThrowTimes, stateTime) < 0) Enter(State.Ground);
+                if (ThrowPose.Index(HasCueThrowArt ? CueThrowTimes : ThrowPose.ThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
             case State.ChairHold:
@@ -3047,7 +3051,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.SmallPick:
             case State.SmallThrow:
             case State.CuePick:
+                return smallItemSprites[SmallFrame()];
             case State.CueThrow:
+                if (HasCueThrowArt) { int ti = ThrowPose.Index(CueThrowTimes, stateTime); return cueThrowSprites[ti < 0 ? CueThrowTimes.Length - 1 : ti]; }
                 return smallItemSprites[SmallFrame()];
             case State.CueHold:
                 if (moving && cueWalkSprites != null && cueWalkSprites.Length > 0)
