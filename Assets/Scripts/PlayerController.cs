@@ -338,7 +338,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasCueSwing => cueSwingASprites != null && cueSwingASprites.Length >= CueSwingATimes.Length && cueSwingBSprites != null && cueSwingBSprites.Length >= CueSwingBTimes.Length;
     bool cueReleased, cueHitDone, cueSecondQueued;
 
-    /// Kepin isku: kuluttaa keppiä (3 osumaa, sitten katkeaa).
+    /// Kepin isku: kuluttaa keppiä (10 osumaa, sitten katkeaa).
     void CueStrike(int damage, bool knockdown)
     {
         cueHitDone = true;
@@ -1159,11 +1159,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pushPressed = !Scripted && PushPressed();
         bool blockHeld = !Scripted && BlockHeld();
         bool catchPressed = !Scripted && CatchPressed();
-        bool catchReleased = !Scripted && CatchReleased();
         bool picking = state == State.SmallPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
-        if (catchPressed) throwQueued = false;
-        if (catchReleased && picking) throwQueued = true;
-        bool releaseThrow = catchReleased || throwQueued;   // pidä pohjassa = kanna, päästä irti = heitä
+        if (catchPressed && picking) throwQueued = true;   // painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
+        bool releaseThrow = (catchPressed && !picking) || throwQueued;   // sama nappi: 1. painallus nostaa, 2. painallus heittää
 
         UpdateGroundHeight(dt);
 
@@ -1183,6 +1181,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (blockHeld && HasBlock) { StartBlock(); break; }
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
+                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
                 if (catchPressed)
                 {
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
@@ -1209,7 +1208,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel) { quickReach = true; Enter(State.Catch); break; }   // Ruby: nopea ojennus tyhjään (ei pitkää pysähdystä)
                 }
-                if (Bottle.Held != null && releaseThrow) { throwQueued = false; punchPressed = true; }   // pullo: irti = heitto
                 if (punchPressed && Bottle.Held != null)
                 {
                     // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
@@ -3359,19 +3357,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool CatchPressed() => CatchInput();
 
-    /// Kiinniottonappi päästettiin irti tässä ruudussa (esineen heitto).
-    static bool CatchReleased()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.oKey.wasReleasedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.leftTrigger.wasReleasedThisFrame);
-#else
-        return Input.GetKeyUp(KeyCode.O);
-#endif
-    }
-    bool throwQueued;   // nappi päästettiin jo noston aikana: heitto heti, kun esine on käsissä
+    bool throwQueued;   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
 
-    /// Nappaus/nosto-nappi (O / ohjaimen vasen liipaisin L2), myös muiden skriptien käyttöön. Esine pysyy kädessä niin kauan kuin nappi on pohjassa: irti = heitto.
+    /// Nappaus/nosto-nappi (O / ohjaimen vasen liipaisin L2), myös muiden skriptien käyttöön. 1. painallus nostaa esineen, 2. painallus heittää.
     public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM

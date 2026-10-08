@@ -4597,7 +4597,7 @@ public static class BeatEmUpSetup
     }
 
     /// Snookerpöytä (biljardipoyta.png): kiinteä este (hypyllä yli), 8 punaista + värit + valkoinen (poimittavia ja heitettäviä
-    /// kuten pullot) ja keppi verkalla (ase, kestää 3 lyöntiä). pos = etujalkojen keskikohta, width = leveys yksiköinä.
+    /// kuten pullot) ja keppi verkalla (ase, kestää 10 lyöntiä). pos = etujalkojen keskikohta, width = leveys yksiköinä.
     static GameObject AddSnookerTable(Transform parent, Vector2 pos, float width)
     {
         var poolSprite = ImportProp("Assets/Sprites/Rekvisiitta/biljardipoyta.png");
@@ -4665,7 +4665,7 @@ public static class BeatEmUpSetup
         if (cue != null)
         {
             var cueR = Put(cue, cloth(700f, 300f), width * 0.42f, -4f);
-            var cueC = cueR.gameObject.AddComponent<Cue>(); cueC.body = cueR;
+            var cueC = cueR.gameObject.AddComponent<Cue>(); cueC.body = cueR; cueC.durability = 10;
             cueC.breakSounds = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
                 .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
         }

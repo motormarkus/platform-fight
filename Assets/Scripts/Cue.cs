@@ -3,8 +3,8 @@ using UnityEngine;
 
 /// <summary>
 /// Biljardikeppi: lepää pöydällä (tai lattialla heiton jälkeen). Pelaaja ottaa sen kiinniottonapilla (kuvat heron omissa
-/// keppisarjoissa, oma kuva piilotetaan), heittää sen päästämällä napin irti: keppi lentää pyörien, kaataa ensimmäisen
-/// osuman ja katkeaa. Lyönnit (kestää 3 osumaa) tulevat, kun lyöntikuvat ovat valmiit.
+/// keppisarjoissa, oma kuva piilotetaan) ja heittää sen painamalla nappia uudelleen: keppi lentää pyörien, kaataa ensimmäisen
+/// osuman ja katkeaa. Lyönneillä kestää 10 osumaa.
 /// </summary>
 public class Cue : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class Cue : MonoBehaviour
     public SpriteRenderer body;
     public int throwDamage = 22;
     [Tooltip("Lyöntejä ennen katkeamista (lyöntikuvien kanssa).")]
-    public int durability = 3;
+    public int durability = 10;
     public AudioClip[] breakSounds;
 
     enum S { Rest, Held, Thrown, Lying, Gone }
