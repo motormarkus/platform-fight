@@ -372,6 +372,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float[] bigHookTimesOverride;   // Rubyn voimalyönti: omat ajat
     int bigHookImpactIdx = 5, bigHookComboIdx = 3;
     float bigHookAir;               // Ruby ponnahtaa ilmaan iskun jälkeen (korkeus yksikköä)
+    float bigHookAirDrift;          // Ruby: liike eteen ilmassa (yksikköä)
     float[] CurBigHookTimes => bigHookTimesOverride ?? BigHookTimes;
 
     // ---------------- Heiluripotku (Ruby: alas, eteen + potku) ----------------
@@ -962,8 +963,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
             bigHookSprites = a.power;
-            bigHookTimesOverride = new[] { 0.05f, 0.07f, 0.09f, 0.11f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };
-            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f;
+            bigHookTimesOverride = new[] { 0.05f, 0.08f, 0.12f, 0.2f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };   // kyykky (1–3) pidempään ennen ponnistusta
+            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f; bigHookAirDrift = 1.0f;
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
@@ -1336,9 +1337,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 float dir = facingRight ? 1f : -1f;
                 float[] bt = CurBigHookTimes;
                 float impact = ThrowPose.Start(bt, bigHookImpactIdx);
-                if (stateTime < impact)
+                // Ruby: kyykky paikallaan, liuku vasta ponnistuksesta (kuva 4); Rocco liukuu alusta
+                float slideFrom = bigHookAir > 0f ? ThrowPose.Start(bt, 4) : 0f;
+                if (stateTime >= slideFrom && stateTime < impact)
                 {
-                    float k = stateTime / impact;
+                    float k = (stateTime - slideFrom) / Mathf.Max(impact - slideFrom, 0.01f);
                     MoveOnGround(new Vector2(dir * bigHookSlide * (0.3f + 1.4f * k * k) * dt, 0f));
                 }
                 if (!bigHookHit && stateTime >= impact) { bigHookHit = true; BigHookImpact(); }
@@ -1348,6 +1351,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     float airEnd = ThrowPose.Start(bt, bt.Length - 1);
                     float ka = Mathf.Clamp01((stateTime - impact) / Mathf.Max(airEnd - impact, 0.01f));
                     height = stateTime > impact && stateTime < airEnd ? Mathf.Sin(ka * Mathf.PI) * bigHookAir : 0f;
+                    if (bigHookAirDrift > 0f && stateTime > impact && stateTime < airEnd)
+                        MoveOnGround(new Vector2(dir * bigHookAirDrift / Mathf.Max(airEnd - impact, 0.01f) * dt, 0f));
                 }
                 if (ThrowPose.Index(bt, stateTime) < 0) { if (bigHookAir > 0f) height = 0f; Enter(State.Ground); }
                 break;
