@@ -319,8 +319,28 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Biljardikeppi (kiinniotto: käteen, L2 irti: heitto)")]
     [Tooltip("keppi_idle.png: seisoo keppi kädessä (8 kuvaa). Nosto ja heitto pullon kuvista.")]
     public Sprite[] cueIdleSprites;
+    [Tooltip("keppi_lyonti_a.png: huitaisu eteen (7 kuvaa, osuma kuvassa 4).")]
+    public Sprite[] cueSwingASprites;
+    [Tooltip("keppi_lyonti_b.png: paluuhuitaisu taakse (8 kuvaa, osuma kuvassa 1, kaataa), toisella lyöntinapin painalluksella.")]
+    public Sprite[] cueSwingBSprites;
+    public int cueDamage = 16, cueDamage2 = 20;
+    public float cueReach = 3.0f;
+    static readonly float[] CueSwingATimes = { 0.05f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
+    static readonly float[] CueSwingBTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.06f, 0.08f, 0.08f, 0.1f };
     bool HasCue => cueIdleSprites != null && cueIdleSprites.Length > 0 && HasSmallItem;
-    bool cueReleased;
+    bool HasCueSwing => cueSwingASprites != null && cueSwingASprites.Length >= CueSwingATimes.Length && cueSwingBSprites != null && cueSwingBSprites.Length >= CueSwingBTimes.Length;
+    bool cueReleased, cueHitDone, cueSecondQueued;
+
+    /// Kepin isku: kuluttaa keppiä (3 osumaa, sitten katkeaa).
+    void CueStrike(int damage, bool knockdown)
+    {
+        cueHitDone = true;
+        if (AttackEnemies(cueReach, damage, knockdown, 2.0f))
+        {
+            if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
+            Cue.UseHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, 0f, 0f));
+        }
+    }
     bool rubyChair;                 // Ruby: omat tuolisarjat (heilautus 8 kuvaa, osuma kuvassa 5)
     // Rubyn tuolilyönti videosta (7 kuvaa, sivuttainen swing): 0 pito, 1–2 tuoli taakse vaakatasoon, 3–4 taakse viety, 5 osuma (tuoli edessä vaakatasossa), 6 jälkiliike
     static readonly float[] RubyChairSwingTimes = { 0.06f, 0.06f, 0.08f, 0.07f, 0.1f, 0.12f, 0.1f };
@@ -998,7 +1018,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
-        cueIdleSprites = null;   // Rubyn keppikuvat puuttuvat vielä
+        cueIdleSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
                     && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
@@ -1023,7 +1043,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB }
 
     int comboIndex;
     bool comboQueued;
@@ -1050,7 +1070,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(dropKickSprites);
         SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites); SortByFrameNumber(bigHookSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
-        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites);
+        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites); SortByFrameNumber(cueSwingASprites); SortByFrameNumber(cueSwingBSprites);
         SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
@@ -1543,7 +1563,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.CueHold:
             {
                 if (Cue.Held == null) { Enter(State.Ground); break; }
-                if (releaseThrow || punchPressed || kickPressed) { throwQueued = false; cueReleased = false; PlayGrunt(); Enter(State.CueThrow); break; }   // lyönnit kepillä, kun lyöntikuvat tulevat
+                if (punchPressed && HasCueSwing) { cueHitDone = false; cueSecondQueued = false; PlayGrunt(); Enter(State.CueSwingA); break; }   // huitaisu (2. painallus: takaisin)
+                if (releaseThrow || punchPressed || kickPressed) { throwQueued = false; cueReleased = false; PlayGrunt(); Enter(State.CueThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
                 if (moving)
                 {
@@ -1552,6 +1573,26 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 break;
             }
+
+            case State.CueSwingA:
+            {
+                float impact = ThrowPose.Start(CueSwingATimes, 4);
+                Lunge(0.2f, impact, dt);
+                if (!cueHitDone && stateTime >= impact) CueStrike(cueDamage, false);
+                if (punchPressed && stateTime >= ThrowPose.Start(CueSwingATimes, 2)) cueSecondQueued = true;
+                if (ThrowPose.Index(CueSwingATimes, stateTime) < 0 || (cueSecondQueued && cueHitDone && stateTime >= ThrowPose.Start(CueSwingATimes, 5) + 0.04f))
+                {
+                    if (Cue.Held == null) { Enter(State.Ground); break; }
+                    if (cueSecondQueued) { cueHitDone = false; PlayGrunt(); Enter(State.CueSwingB); break; }
+                    Enter(State.CueHold);
+                }
+                break;
+            }
+
+            case State.CueSwingB:
+                if (!cueHitDone && stateTime >= ThrowPose.Start(CueSwingBTimes, 1)) CueStrike(cueDamage2, true);
+                if (ThrowPose.Index(CueSwingBTimes, stateTime) < 0) Enter(Cue.Held != null ? State.CueHold : State.Ground);
+                break;
 
             case State.CueThrow:
                 if (!cueReleased && stateTime >= ThrowPose.Start(ThrowPose.ThrowTimes, ThrowPose.ReleaseIndex))
@@ -2172,7 +2213,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool AttackEnemies(float reach, int damage, bool knockdown, float sparkHeight = 2.2f)
     {
-        AttackIsKick = state == State.Kick || state == State.SoloKick || state == State.Pendulum || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.DropKick;
+        AttackIsKick = state == State.Kick || state == State.SoloKick || state == State.Pendulum || state == State.HiKick || state == State.SideKick || state == State.Air || state == State.Special || state == State.KneeStrike || state == State.KneeDash || state == State.ChairSwing || state == State.CueSwingA || state == State.CueSwingB || state == State.DropKick;
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
@@ -3008,6 +3049,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return smallItemSprites[SmallFrame()];
             case State.CueHold:
                 return cueIdleSprites[(int)(animClock / 0.12f) % cueIdleSprites.Length];
+            case State.CueSwingA:
+            {
+                int ci = ThrowPose.Index(CueSwingATimes, stateTime);
+                return cueSwingASprites[ci < 0 ? CueSwingATimes.Length - 1 : ci];
+            }
+            case State.CueSwingB:
+            {
+                int ci = ThrowPose.Index(CueSwingBTimes, stateTime);
+                return cueSwingBSprites[ci < 0 ? CueSwingBTimes.Length - 1 : ci];
+            }
 
             case State.ChairPick:
                 return chairPickSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.3f)), 2)];
