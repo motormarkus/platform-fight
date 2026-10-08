@@ -604,6 +604,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         [Tooltip("Juominen baarissa: nielaisut (satunnainen) ja perään aah.")]
         public AudioClip[] gulpSounds;
         public AudioClip aahSound;
+        [Tooltip("Maahan kaaduttua ennen nousua, joskus (ei joka kerta).")]
+        public AudioClip riseCurse;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -916,6 +918,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (a.hurtSounds != null && a.hurtSounds.Length > 0) hurtSounds = a.hurtSounds;          // Rubyn omat äänet
         if (a.attackGrunts != null && a.attackGrunts.Length > 0) attackGrunts = a.attackGrunts;
         specialGrunts = a.specialGrunts;
+        riseCurse = a.riseCurse;
         pummelBigSprites = a.pummelBig != null && a.pummelBig.Length >= 6 ? a.pummelBig : null;
         pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
@@ -1706,7 +1709,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (stateTime >= thrownDownTime)
                 {
                     heldRot = 0f;
-                    if (kipUpSprites != null && kipUpSprites.Length > 0) { kipUpAfterOwnThrow = false; Enter(State.KipUp); }   // ponnistaa jaloilleen
+                    if (kipUpSprites != null && kipUpSprites.Length > 0)
+                    {
+                        kipUpAfterOwnThrow = false;
+                        // Ruby kiroaa joskus ennen nousua
+                        if (riseCurse != null && UnityEngine.Random.value < riseCurseChance) PlayFrom(new[] { riseCurse });
+                        Enter(State.KipUp);   // ponnistaa jaloilleen
+                    }
                     else
                     {
                         invulnTimer = Mathf.Max(invulnTimer, 1.0f);   // hetki suojaa noustessa
@@ -1766,6 +1775,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     AudioSource audioSource;
     int lastGrunt = -1;
     AudioClip[] specialGrunts;   // Ruby: erikoisliikkeiden ja yksittäisten potkujen äänet
+    AudioClip riseCurse;         // Ruby: "perkele" ennen nousua
+    [Tooltip("Kuinka usein Ruby kiroaa noustessaan (0–1).")]
+    [Range(0f, 1f)] public float riseCurseChance = 0.35f;
 
     /// Erikoisliike: omat äänet, jos on (muuten tavallinen grunt).
     void PlayGruntSpecial()
