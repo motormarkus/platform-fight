@@ -92,7 +92,6 @@ public class Motorbike : MonoBehaviour
     public float Speed => speed;
     public float VisualScale => Scale;
     public bool FacingRight => facingRight;
-    public bool FacingRight => facingRight;
     float wobble, wheelAngle, boostT = -1f, wheelie;
     AudioSource loopSrc, startSrc;
     float loopAt = -1f;
