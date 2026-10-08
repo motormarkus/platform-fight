@@ -1816,15 +1816,16 @@ public static class BeatEmUpSetup
     static readonly Vector2[] BarTables = {
         new Vector2(5f, 0.25f), new Vector2(9f, 0.25f), new Vector2(13f, 0.25f), new Vector2(17f, 0.25f), new Vector2(21f, 0.25f),
         new Vector2(25f, 0.25f), new Vector2(29f, 0.25f), new Vector2(33f, 0.25f), new Vector2(37f, 0.25f),
-        new Vector2(7f, 0.88f), new Vector2(11f, 0.88f), new Vector2(15f, 0.88f), new Vector2(19f, 0.88f), new Vector2(23f, 0.88f),
-        new Vector2(27f, 0.88f), new Vector2(31f, 0.88f), new Vector2(35f, 0.88f) };
-    // telkkarit pyöreillä pöydillä seinän vieressä, takarivin pöytien välissä
-    static readonly float[] TvTablesX = { 7f, 11f, 15f, 19f, 23f, 27f, 31f, 35f };
+        new Vector2(7f, 0.88f), new Vector2(20f, 0.88f), new Vector2(33f, 0.88f) };
+    // eturivissä kaksi snookerpöytää pullopöytien välissä (x klubin vasemmasta reunasta, etujalkojen syvyys)
+    static readonly Vector2[] ClubSnooker = { new Vector2(13.5f, 0.88f), new Vector2(26.5f, 0.88f) };
+    // telkkarit pyöreillä pöydillä seinän vieressä vain lavojen välisissä sohvanurkkauksissa (ei strippareiden eikä bändin edessä)
+    static readonly float[] TvTablesX = { 15f, 23f, 35f };
 
     const float TableScale = 1.3f;   // suorakaidepöytä 30 % isompi, pullot 5 % (Bottle.scale)
     const float TvTableScale = 1.3f; // pyöreä telkkaripöytä 30 % isompi, telkkari myös (TvSet.scale)
 
-    [MenuItem("Beat em up/41. S-Clubin baaripöydät ja pullot")]
+    [MenuItem("Beat em up/41. S-Clubin baaripöydät, pullot ja snookerpöydät")]
     static void AddBarProps()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -1925,6 +1926,9 @@ public static class BeatEmUpSetup
                 tv.sprites = tvSprites; tv.table = c; tv.tableTop = 1.16f * TvTableScale - 0.04f; tv.breakSounds = glass;
                 tvs++;
             }
+        int snooker = 0;
+        foreach (var v in ClubSnooker)
+            if (AddSnookerTable(root.transform, new Vector2(ClubX0 + v.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y)), PokerPoolWidth) != null) snooker++;
         foreach (var v in BarTables)
         {
             float y = Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y);
@@ -1988,7 +1992,7 @@ public static class BeatEmUpSetup
             }
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"S-Clubiin {BarTables.Length} pöytää, {tvs} telkkaria ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
+        Info($"S-Clubiin {BarTables.Length} pöytää, {snooker} snookerpöytää, {tvs} telkkaria ja {bottles} pulloa ({kinds.Count} pullomerkkiä), lasiääniä {glass.Length}.\n" +
              "Lyönti pöytään: nitkahtaa, pullot lentävät tai kaatuvat. Kolmas isku tai lentävä vihu hajottaa pöydän.\n" +
              "Ehjä pullo lattialla: kiinniottonappi poimii käteen, lyöntinappi heittää.\n\nTallenna scene (Ctrl+S).");
     }
@@ -3904,8 +3908,10 @@ public static class BeatEmUpSetup
 
     // ---------------- S-Clubin prätkäjätkät ----------------
     static readonly Vector2[] ClubBikers = { new Vector2(18f, 0.45f), new Vector2(34f, 0.7f) };   // x S-Clubin vasemmasta reunasta (yks), syvyys 0 = takana … 1 = edessä
+    static readonly Vector2[] ClubRockers = { new Vector2(21.5f, 0.55f), new Vector2(38f, 0.5f) };   // rokkimimmit (samat koordinaatit)
+    static readonly Vector2 ClubDrunk = new Vector2(30f, 0.5f);   // puliukko
 
-    [MenuItem("Beat em up/69. S-Clubiin kaksi prätkäjätkää (skeittarit pois sisältä)")]
+    [MenuItem("Beat em up/69. S-Clubiin prätkäjätkät, rokkimimmit ja puliukko (skeittarit pois sisältä)")]
     static void AddClubBikers()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -3932,8 +3938,29 @@ public static class BeatEmUpSetup
             b.transform.position = new Vector3(ClubX0 + v.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y), 0f);
             b.wakeDistance = 8f;
         }
+        // puliukko (kaikkia vastaan) hoipertelee klubissa
+        var drunkT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.name == "Puliukko");
+        int drunks = 0;
+        if (drunkT != null)
+        {
+            var dgo = Object.Instantiate(drunkT.gameObject, root.transform);
+            dgo.name = "Puliukko (S-Club)"; drunks++;
+            dgo.transform.position = new Vector3(ClubX0 + ClubDrunk.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, ClubDrunk.y), 0f);
+            var de = dgo.GetComponent<Enemy>(); de.wakeDistance = 7f; de.joinsFightWhenSquadComes = false;
+            dgo.SetActive(true);
+        }
+        int rockers = 0;
+        foreach (var v in ClubRockers)
+        {
+            var r = MakeRocker(root.transform);
+            if (r == null) break;
+            r.gameObject.name = "Rokkimimmi (S-Club) " + (++rockers);
+            r.transform.position = new Vector3(ClubX0 + v.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y), 0f);
+            r.wakeDistance = 7f;
+            r.gameObject.SetActive(true);
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"S-Clubiin {made} prätkäjätkää" + (removed > 0 ? $", {removed} skeittaria poistettu klubista" : "") + ".\nPrätkäjätkät tappelevat kaikkia vastaan.\n\nTallenna scene (Ctrl+S).");
+        Info($"S-Clubiin {made} prätkäjätkää, {rockers} rokkimimmiä ja {drunks} puliukko" + (removed > 0 ? $", {removed} skeittaria poistettu klubista" : "") + ".\nPrätkäjätkät tappelevat kaikkia vastaan.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
@@ -3956,6 +3983,8 @@ public static class BeatEmUpSetup
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
         ("Prätkäjätkä", new Vector2(3450f, 1.95f)), ("Puliukko", new Vector2(3420f, 1.55f)),
         ("Rokkimimmi", new Vector2(1250f, 0.02f)),
+        // kaksi rokkimimmiä lisää tappelijoiksi (heräävät kuten muut)
+        ("Rokkimimmi tappelija", new Vector2(1000f, 1.65f)), ("Rokkimimmi tappelija", new Vector2(2600f, 1.45f)),
         ("Prätkäjätkä", new Vector2(720f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
@@ -4118,6 +4147,7 @@ public static class BeatEmUpSetup
         {
             Enemy e;
             if (who == "Prätkäjätkä") e = MakeBiker(root.transform);
+            else if (who == "Rokkimimmi tappelija") { e = MakeRocker(root.transform); if (e != null) e.huntsBrawlers = true; }
             else if (who == "Rokkimimmi")
             {
                 // porukkaa: ei lyö Koviksia ja Punkkareita; odottaa tiskillä ja tulee mukaan vasta tappelun alkaessa
@@ -4651,8 +4681,8 @@ public static class BeatEmUpSetup
             for (int row = 0; row < rowCount.Length; row++)
                 for (int j = 0; j < rowCount[row]; j++)
                 {
-                    float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.5f;
-                    AddBall(red, apex + new Vector3(row * BallSize * 0.87f, ly, 0f));
+                    float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.62f;   // pallot piirretään pöydällä 1,25 × (Bottle.ballTableScale)
+                    AddBall(red, apex + new Vector3(row * BallSize * 1.09f, ly, 0f));
                 }
         }
         foreach (var (bn, ix, dy) in new[] { ("pinkki", 1150f, 0f), ("musta", 1500f, 0f), ("sininen", 880f, 0f),
