@@ -4742,8 +4742,9 @@ public static class BeatEmUpSetup
                 SetupAndSlice(kip);
                 Undo.RecordObject(pcCue, "Keppi");
                 pcCue.cueIdleSprites = LoadSprites("keppi_idle").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
-                foreach (var kn in new[] { "keppi_lyonti_a", "keppi_lyonti_b" }) { string kp2 = FindTexture(kn); if (kp2 != null) SetupAndSlice(kp2); }
+                foreach (var kn in new[] { "keppi_lyonti_a", "keppi_lyonti_b", "keppi_kavely" }) { string kp2 = FindTexture(kn); if (kp2 != null) SetupAndSlice(kp2); }
                 pcCue.cueSwingASprites = LoadSprites("keppi_lyonti_a").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                pcCue.cueWalkSprites = LoadSprites("keppi_kavely").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
                 pcCue.cueSwingBSprites = LoadSprites("keppi_lyonti_b").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
                 EditorUtility.SetDirty(pcCue);
             }

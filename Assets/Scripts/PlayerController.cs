@@ -319,6 +319,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Biljardikeppi (kiinniotto: käteen, L2 irti: heitto)")]
     [Tooltip("keppi_idle.png: seisoo keppi kädessä (8 kuvaa). Nosto ja heitto pullon kuvista.")]
     public Sprite[] cueIdleSprites;
+    [Tooltip("keppi_kavely.png: kävely keppi kädessä (10 kuvaa, videosta).")]
+    public Sprite[] cueWalkSprites;
     [Tooltip("keppi_lyonti_a.png: huitaisu eteen (7 kuvaa, osuma kuvassa 4).")]
     public Sprite[] cueSwingASprites;
     [Tooltip("keppi_lyonti_b.png: paluuhuitaisu taakse (8 kuvaa, osuma kuvassa 1, kaataa), toisella lyöntinapin painalluksella.")]
@@ -1018,7 +1020,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
-        cueIdleSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
+        cueIdleSprites = cueWalkSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
                     && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
@@ -1070,7 +1072,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(dropKickSprites);
         SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites); SortByFrameNumber(bigHookSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
-        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites); SortByFrameNumber(cueSwingASprites); SortByFrameNumber(cueSwingBSprites);
+        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites); SortByFrameNumber(cueIdleSprites); SortByFrameNumber(cueWalkSprites); SortByFrameNumber(cueSwingASprites); SortByFrameNumber(cueSwingBSprites);
         SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
@@ -3048,6 +3050,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.CueThrow:
                 return smallItemSprites[SmallFrame()];
             case State.CueHold:
+                if (moving && cueWalkSprites != null && cueWalkSprites.Length > 0)
+                    return cueWalkSprites[(int)(animClock / 0.085f) % cueWalkSprites.Length];
                 return cueIdleSprites[(int)(animClock / 0.12f) % cueIdleSprites.Length];
             case State.CueSwingA:
             {
