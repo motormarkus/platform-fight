@@ -293,10 +293,10 @@ public static class BeatEmUpSetup
             pc.curbDepthY = WallBaseWorldY - (CurbBottomRow - WallBaseRow) / BackgroundPPU;
             // seinän juuri ajoradan tasossa = seinän juuri ruudulla miinus kynnyksen korkeus, pieni väli seinään
             pc.maxDepthY = WallBaseWorldY - curbHeight - 0.08f;
-            // alaraja: jalat ja varjo pysyvät kuvassa (1,2 yksikköä kameran alareunan yläpuolella)
+            // alaraja: jalat ja varjo pysyvät kuvassa (StreetBottomMargin kameran alareunan yläpuolella)
             var mainCam = Camera.main;
             if (mainCam != null)
-                pc.minDepthY = mainCam.transform.position.y - mainCam.orthographicSize + 1.2f;
+                pc.minDepthY = mainCam.transform.position.y - mainCam.orthographicSize + StreetBottomMargin;
             EditorUtility.SetDirty(pc);
         }
 
@@ -3946,7 +3946,9 @@ public static class BeatEmUpSetup
     // kyltit baarin kuvan pikseleinä (keskikohta x, rivi; leveys px): Samperi's Snooker sohvien yläpuolelle, Poker night pokerihuoneen teräsoven yläpuolelle
     static readonly Vector3 StreetBarSnookerSign = new Vector3(1820f, 205f, 330f), StreetBarPokerSign = new Vector3(3300f, 110f, 150f);
     // kadulla (kadun kuvasarjan pikseleinä): Samperi's Snooker BAR-oven yläpuolelle parvekkeiden väliin, Poker night oven oikeaan ikkunaan
-    static readonly Vector3 StreetSnookerSign = new Vector3(2263f, 193f, 260f), StreetPokerSign = new Vector3(2543f, 400f, 92f);
+    // (kamera näyttää kadusta vasta n. rivistä 190 alaspäin: kyltti oven päälle BAR-valon kohdalle, peittää lampun ja BAR-kyltin)
+    static readonly Vector3 StreetSnookerSign = new Vector3(2263f, 283f, 280f), StreetPokerSign = new Vector3(2543f, 400f, 92f);
+    const float StreetBottomMargin = 0.4f;   // kävelyalueen alaraja kameran alareunan yläpuolella (oli 1,2: hahmo ei päässyt ruudun alaosaan)
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
         ("Kovis", new Vector2(2080f, 0.15f)), ("Kovis", new Vector2(2500f, 1.1f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
         ("Punkkari", new Vector2(1650f, 0.8f)), ("Punkkari", new Vector2(3350f, 0.6f)),
@@ -4068,13 +4070,13 @@ public static class BeatEmUpSetup
         // kyltit: sisällä seinillä, kadulla oven yläpuolella ja ikkunassa (jokaisessa kadun kuvasarjassa, kuten BAR-ovi)
         var signSnooker = ImportPropCentered("Assets/Sprites/Rekvisiitta/kyltti_samperis_snooker.png");
         var signPoker = ImportPropCentered("Assets/Sprites/Rekvisiitta/kyltti_poker_night.png");
-        void Sign(Transform parent, Sprite sp, Vector2 at, float width, string signName)
+        void Sign(Transform parent, Sprite sp, Vector2 at, float width, string signName, int order = -9995)
         {
             if (sp == null) return;
             var sgo = new GameObject(signName); sgo.transform.SetParent(parent, false);
             sgo.transform.position = new Vector3(at.x, at.y, 0f);
             float sc = width / sp.bounds.size.x; sgo.transform.localScale = new Vector3(sc, sc, 1f);
-            var ssr0 = sgo.AddComponent<SpriteRenderer>(); ssr0.sprite = sp; ssr0.sortingOrder = -9995;   // taustan päällä, hahmojen takana
+            var ssr0 = sgo.AddComponent<SpriteRenderer>(); ssr0.sprite = sp; ssr0.sortingOrder = order;   // taustan päällä, hahmojen takana
         }
         float Row(float row) => top - row / ppu;
         Sign(root.transform, signSnooker, new Vector2(X(StreetBarSnookerSign.x), Row(StreetBarSnookerSign.y)), StreetBarSnookerSign.z / ppu, "Kyltti: Samperi's Snooker");
@@ -4093,10 +4095,19 @@ public static class BeatEmUpSetup
             for (int i = 0; i < sets; i++)
             {
                 float ox = sLeft + i * StreetSetPx / BackgroundPPU;
-                Sign(outRoot.transform, signSnooker, new Vector2(ox + StreetSnookerSign.x / BackgroundPPU, sTop - StreetSnookerSign.y / BackgroundPPU), StreetSnookerSign.z / BackgroundPPU, "Samperi's Snooker " + (i + 1));
+                Sign(outRoot.transform, signSnooker, new Vector2(ox + StreetSnookerSign.x / BackgroundPPU, sTop - StreetSnookerSign.y / BackgroundPPU), StreetSnookerSign.z / BackgroundPPU, "Samperi's Snooker " + (i + 1), -9985);   // avautuvan oven (BAR-kyltti) päällä
                 Sign(outRoot.transform, signPoker, new Vector2(ox + StreetPokerSign.x / BackgroundPPU, sTop - StreetPokerSign.y / BackgroundPPU), StreetPokerSign.z / BackgroundPPU, "Poker night (ikkuna) " + (i + 1));
                 outSigns++;
             }
+        }
+        // kadulla hahmo pääsee lähemmäs ruudun alareunaa
+        var pcs = Object.FindFirstObjectByType<PlayerController>();
+        var streetA = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        if (Camera.main != null)
+        {
+            float bottomY = Camera.main.transform.position.y - Camera.main.orthographicSize + StreetBottomMargin;
+            if (pcs != null) { Undo.RecordObject(pcs, "Kadun alaraja"); pcs.minDepthY = bottomY; EditorUtility.SetDirty(pcs); }
+            if (streetA != null) { Undo.RecordObject(streetA, "Kadun alaraja"); streetA.minDepthY = bottomY; EditorUtility.SetDirty(streetA); }
         }
 
         // tappelijat: Kovikset ja Punkkarit samaa porukkaa (eivät lyö toisiaan, käyvät prätkäjätkän kimppuun), prätkäjätkä kaikkia vastaan
