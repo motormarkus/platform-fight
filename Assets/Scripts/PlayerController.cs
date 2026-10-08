@@ -975,6 +975,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             chairPickSprites = a.chairPick;
             chairHoldSprites = new[] { a.chairPick[3], a.chairPick[4] };
             chairWalkSprites = a.chairWalk != null && a.chairWalk.Length > 0 ? a.chairWalk : null;
+            // seisonta tuoli kädessä: kävelyn kuva, jossa jalat vierekkäin (sama tuolin asento kuin kävellessä), kunnes oma idle tulee
+            if (chairWalkSprites != null && chairWalkSprites.Length >= 10) chairHoldSprites = new[] { chairWalkSprites[4] };
             chairSwingSprites = a.chairSwing; chairSmashSprites = a.chairSwingBare; chairThrowSprites = a.chairThrow;
         }
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
