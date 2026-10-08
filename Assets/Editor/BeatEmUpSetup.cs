@@ -4702,7 +4702,23 @@ public static class BeatEmUpSetup
                     }
             if (white != null) Put(white, cloth(480f, 260f), Ball);
             var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
-            if (cue != null) Put(cue, cloth(700f, 300f), PokerPoolWidth * 0.42f, -4f);
+            if (cue != null)
+            {
+                var cueR = Put(cue, cloth(700f, 300f), PokerPoolWidth * 0.42f, -4f);
+                var cueC = cueR.gameObject.AddComponent<Cue>(); cueC.body = cueR;
+                cueC.breakSounds = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+                    .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+            }
+            // Roccon keppikuvat (seisonta keppi kädessä)
+            var pcCue = Object.FindFirstObjectByType<PlayerController>();
+            string kip = FindTexture("keppi_idle");
+            if (pcCue != null && kip != null)
+            {
+                SetupAndSlice(kip);
+                Undo.RecordObject(pcCue, "Keppi");
+                pcCue.cueIdleSprites = LoadSprites("keppi_idle").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                EditorUtility.SetDirty(pcCue);
+            }
             ob.onTop = tops.ToArray();
         }
 
