@@ -311,7 +311,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int chairDamage = 26;
     public float chairReach = 2.4f;
     bool chairResolved;
-    bool HasChair => chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
+    bool rubyChair;                 // Ruby: omat tuolisarjat (heilautus 8 kuvaa, osuma kuvassa 5)
+    Sprite[] chairSwingSprites;
+    static readonly float[] RubyChairThrowTimes = { 0.07f, 0.07f, 0.08f, 0.09f, 0.13f, 0.05f, 0.04f, 0.2f };   // nosto, taakse, kyykky -> kiihtyvä veto, irti kuvassa 7
+    bool HasChair => rubyChair || chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
 
     [Header("Pelastusrengas")]
@@ -595,6 +598,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] power;
         [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
         public Sprite[] pendulum;
+        public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare;   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
         [Tooltip("Rubyn kipuäänet osumasta (rubygasp1–3).")]
         public AudioClip[] hurtSounds;
         [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
@@ -959,6 +963,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
+        rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
+                    && a.chairSwing != null && a.chairSwing.Length >= 8 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
+        if (rubyChair)
+        {
+            chairPickSprites = a.chairPick;
+            chairHoldSprites = new[] { a.chairPick[3], a.chairPick[4] };
+            chairSwingSprites = a.chairSwing; chairSmashSprites = a.chairSwingBare; chairThrowSprites = a.chairThrow;
+        }
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
     }
 
@@ -1485,7 +1497,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.ChairSwing:
             {
                 // heilautus: kuvat 3–9 (nosto-sarjasta); osumahetki kuvassa 6 -> osui: tuoli hajoaa (lyöntisarja kuvasta 4)
-                float impact = 3 * chairFrameTime;
+                float impact = (rubyChair ? 5 : 3) * chairFrameTime;
                 Lunge(0.25f, impact, dt);
                 if (!chairResolved && stateTime >= impact)
                 {
@@ -1495,26 +1507,26 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         Chair.BreakHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, -0.02f, 0f), facingRight ? 1f : -1f);
                         if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
                         Enter(State.ChairSmash);
-                        stateTime = 4 * chairFrameTime;
+                        stateTime = rubyChair ? 0f : 4 * chairFrameTime;
                         break;
                     }
                 }
-                if (stateTime >= 7 * chairFrameTime) Enter(Chair.Held != null ? State.ChairHold : State.Ground);
+                if (stateTime >= (rubyChair ? 8.5f : 7f) * chairFrameTime) Enter(Chair.Held != null ? State.ChairHold : State.Ground);
                 break;
             }
 
             case State.ChairSmash:
-                if (stateTime >= chairSmashSprites.Length * chairFrameTime * 1.1f) Enter(State.Ground);
+                if (stateTime >= chairSmashSprites.Length * chairFrameTime * (rubyChair ? 1.6f : 1.1f)) Enter(State.Ground);
                 break;
 
             case State.ChairThrow:
-                if (!chairResolved && stateTime >= ThrowPose.Start(ChairThrowTimes, 5))
+                if (!chairResolved && stateTime >= (rubyChair ? ThrowPose.Start(RubyChairThrowTimes, 7) : ThrowPose.Start(ChairThrowTimes, 5)))
                 {
                     chairResolved = true;
                     float dir = facingRight ? 1f : -1f;
                     Chair.ThrowHeld(transform.position + new Vector3(dir * 1.3f, -0.01f, 0f), 2.6f + height, dir);
                 }
-                if (ThrowPose.Index(ChairThrowTimes, stateTime) < 0) Enter(State.Ground);
+                if (ThrowPose.Index(rubyChair ? RubyChairThrowTimes : ChairThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
             case State.SmallThrow:
@@ -2888,12 +2900,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     return chairWalkSprites[(int)(animClock / walkFrameTime) % chairWalkSprites.Length];
                 return chairHoldSprites[(int)(animClock / 0.16f) % chairHoldSprites.Length];
             case State.ChairSwing:
+                if (rubyChair) return chairSwingSprites[Mathf.Min((int)(stateTime / chairFrameTime), chairSwingSprites.Length - 1)];
                 return chairPickSprites[Mathf.Min(3 + (int)(stateTime / chairFrameTime), 9)];
             case State.ChairSmash:
-                return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.1f)), chairSmashSprites.Length - 1)];
+                return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * (rubyChair ? 1.6f : 1.1f))), chairSmashSprites.Length - 1)];
             case State.ChairThrow:
             {
-                int f = ThrowPose.Index(ChairThrowTimes, stateTime);
+                int f = ThrowPose.Index(rubyChair ? RubyChairThrowTimes : ChairThrowTimes, stateTime);
                 return chairThrowSprites[f < 0 ? chairThrowSprites.Length - 1 : Mathf.Min(f, chairThrowSprites.Length - 1)];
             }
 
