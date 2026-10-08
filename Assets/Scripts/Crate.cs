@@ -335,7 +335,7 @@ public class Crate : MonoBehaviour
 
     bool HitEnemyInPath()
     {
-        if (height > (plowThrough ? 3.4f : 2.8f)) return false;   // lentää päiden yli (iso pöytä osuu korkeammaltakin: heitetään pään yläpuolelta)
+        if (height > 3.4f) return false;   // lentää päiden yli (heitetään pään yläpuolelta: osuu korkealtakin)
         Vector3 me = transform.position;
         bool any = false;
         foreach (var e in Enemy.All.ToArray())
@@ -354,7 +354,7 @@ public class Crate : MonoBehaviour
     /// Vihollisen (pomon) heittämä: kaataa pelaajan.
     bool HitPlayerInPath()
     {
-        if (player == null || height > 2.8f || alreadyHitPlayer) return false;
+        if (player == null || height > 3.4f || alreadyHitPlayer) return false;
         Vector3 me = transform.position, p = player.transform.position;
         if (Mathf.Abs(p.x - me.x) > hitRadiusX || Mathf.Abs(p.y - me.y) > hitRadiusY) return false;
         if (player.AirHeight > height + 1.2f) return false;   // hypyllä yli

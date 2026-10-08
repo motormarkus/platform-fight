@@ -168,7 +168,7 @@ public class TvSet : MonoBehaviour
     /// Lentävä telkkari osuu matkalla vihuihin (pieni vahinko) ja pöytiin (pöytä nitkahtaa, pullot lentävät).
     bool HitEnemyInFlight()
     {
-        if (Mathf.Abs(vx) < 3f || height > 2.6f) return false;
+        if (Mathf.Abs(vx) < 3f || height > 3.4f) return false;   // heitetään pään yläpuolelta: osuu korkealtakin
         Vector3 me = transform.position;
         bool any = false;
         foreach (var e in Enemy.All.ToArray())
