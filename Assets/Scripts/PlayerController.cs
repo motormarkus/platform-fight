@@ -618,20 +618,42 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int frontKickDamage = 10, backKickDamage = 14;
     public float frontKickReach = 2.3f, backKickReach = 2.3f;
     float lastTurnTime = -9f;
-    Sprite[] soloSet; int soloImpact; float soloFrameTime, soloHold, soloReach, soloLunge; int soloDamage; bool soloKnock;
-    float SoloTotal => soloFrameTime * (soloSet.Length - 1) + soloHold;
+    Sprite[] soloSet; float[] soloTimes; int soloImpact; float soloReach; int soloDamage; bool soloKnock;
+    int chainIdx = -1; bool chainQueued;
+
+    /// Rubyn potkusarjan isku: kuvat, kuvakohtaiset ajat (näkyvä lataus ennen potkua), osumakuva ja osuma.
+    class KickStep { public Sprite[] sp; public float[] t; public int impact; public int damage; public float reach, lunge; public bool knock; }
+    KickStep[] kickChain;   // Ruby: etupotku → matala → keski → korkea (kaataa)
+
+    static float[] Times(params float[] t) => t;
+
+    void StartKickChain(int idx, bool chained)
+    {
+        var k = kickChain[idx];
+        chainIdx = idx; chainQueued = false;
+        soloSet = k.sp; soloTimes = k.t; soloImpact = k.impact; soloDamage = k.damage; soloReach = k.reach; soloKnock = k.knock;
+        kickComboIndex = idx; kickQueued = false;
+        attackHit = false;
+        attackLunge = ChaseLunge(k.lunge, k.reach);
+        PlayGrunt();
+        Enter(State.SoloKick);
+        if (chained) stateTime = k.t[0];   // sarjan jatkona alkaa suoraan latauksesta (ei asentokuvaa välissä)
+    }
 
     void StartSoloKick(bool back, int dir)
     {
         facingRight = dir > 0;
         bool b = back && backKickSprites != null && backKickSprites.Length >= 5;
+        if (!b && kickChain != null) { StartKickChain(0, false); return; }   // eteen + potku = potkusarjan alku (etupotku)
+        chainIdx = -1; chainQueued = false;
         soloSet = b ? backKickSprites : frontKickSprites;
         // takapotku: 0 asento, 1–2 kääntyy, 3 potku (osuma), 4–5 paluu; etupotku: 0–2 nosto, 3–4 potku (osuma 4), 5–7 paluu
-        soloImpact = b ? 3 : 4; soloFrameTime = b ? 0.07f : 0.055f; soloHold = b ? 0.16f : 0.13f;
+        soloTimes = b ? Times(0.06f, 0.08f, 0.09f, 0.16f, 0.07f, 0.07f) : Times(0.04f, 0.05f, 0.08f, 0.05f, 0.13f, 0.06f, 0.05f, 0.05f);
+        soloImpact = b ? 3 : 4;
         soloDamage = b ? backKickDamage : frontKickDamage; soloReach = b ? backKickReach : frontKickReach;
-        soloKnock = b; soloLunge = b ? 0.25f : 0.35f;
+        soloKnock = b;
         attackHit = false;
-        attackLunge = ChaseLunge(soloLunge, soloReach);
+        attackLunge = ChaseLunge(b ? 0.25f : 0.35f, soloReach);
         PlayGrunt();
         Enter(State.SoloKick);
     }
@@ -886,6 +908,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
         backKickSprites = a.backKick != null && a.backKick.Length >= 5 ? a.backKick : null;
+        // potkusarja: etupotku → matala → keski → korkea (kaataa). Jokaisessa näkyvä lataus (polvi ylös) ennen potkua.
+        if (frontKickSprites != null && a.lowKick != null && a.lowKick.Length >= 5 && a.midKick != null && a.midKick.Length >= 5 && a.highKick != null && a.highKick.Length >= 5)
+        {
+            kickChain = new[]
+            {
+                new KickStep { sp = frontKickSprites, t = Times(0.04f, 0.05f, 0.08f, 0.05f, 0.13f, 0.06f, 0.05f, 0.05f), impact = 4, damage = 9,  reach = 2.2f, lunge = 0.3f },
+                new KickStep { sp = a.lowKick,  t = Times(0.04f, 0.09f, 0.12f, 0.06f, 0.05f), impact = 2, damage = 8,  reach = 1.9f, lunge = 0.2f },
+                new KickStep { sp = a.midKick,  t = Times(0.04f, 0.10f, 0.14f, 0.07f, 0.05f), impact = 2, damage = 10, reach = 2.3f, lunge = 0.25f },
+                new KickStep { sp = a.highKick, t = Times(0.04f, 0.12f, 0.16f, 0.08f, 0.07f), impact = 2, damage = 12, reach = 2.2f, lunge = 0.25f, knock = true },
+            };
+        }
         // Rubyn kestävyys: liikkeet kuluttavat vähemmän ja stamina palautuu nopeammin kuin Roccolla
         jumpStamina *= 0.8f; specialStamina *= 0.8f; pushStamina *= 0.8f; throwStamina *= 0.8f;
         runStaminaPerSecond *= 0.8f; staminaRegenPerSecond *= 1.3f; staminaRegenWait *= 0.8f;
@@ -1557,11 +1590,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.SoloKick:
             {
-                float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
+                float hitFrom = ThrowPose.Start(soloTimes, soloImpact), hitTo = hitFrom + soloTimes[soloImpact];
                 Lunge(attackLunge, hitFrom, dt);
                 if (!attackHit && stateTime >= hitFrom && stateTime <= hitTo)
                     attackHit = AttackEnemies(soloReach, soloDamage, soloKnock, soloKnock ? 2.4f : 2.0f);
-                if (stateTime >= SoloTotal) Enter(State.Ground);
+                if (chainIdx >= 0)
+                {
+                    // potkusarja: seuraava potku jonoon, alkaa heti osuman jälkeen latauksesta
+                    if (pendulumInput) pendulumQueued = true;
+                    if (pendulumQueued && stateTime >= hitFrom + 0.06f) { if (UseStamina(pushStamina)) { StartPendulum(); break; } pendulumQueued = false; }
+                    if (kickPressed && !pendulumInput && stateTime >= hitFrom * 0.5f) chainQueued = true;
+                    if (chainQueued && chainIdx + 1 < kickChain.Length && stateTime >= hitFrom + 0.07f) { StartKickChain(chainIdx + 1, true); break; }
+                }
+                if (ThrowPose.Index(soloTimes, stateTime) < 0) { chainIdx = -1; Enter(State.Ground); }
                 break;
             }
 
@@ -2473,6 +2514,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Potkukombon isku: 0 matala, 1 etupotku (sivupotku), 2 korkea (viimeinen, kaataa).
     void StartKick(int index)
     {
+        if (kickChain != null) { StartKickChain(flurry ? 1 : 0, flurry); return; }   // Ruby: oma potkusarja (lyönneistä jatkuu matalasta)
         if (index == 1 && !HasSideKick) index = 2;   // ei sivupotkun kuvia: suoraan korkeaan
         if (index == 2 && !HasHiKick) { Enter(State.Ground); return; }
         kickComboIndex = index;
@@ -2869,9 +2911,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
             case State.SoloKick:
             {
-                float hitFrom = soloImpact * soloFrameTime, hitTo = hitFrom + soloHold;
-                int i = stateTime < hitFrom ? (int)(stateTime / soloFrameTime) : stateTime < hitTo ? soloImpact : soloImpact + 1 + (int)((stateTime - hitTo) / soloFrameTime);
-                return soloSet[Mathf.Clamp(i, 0, soloSet.Length - 1)];
+                int i = ThrowPose.Index(soloTimes, stateTime);
+                return soloSet[i < 0 ? soloSet.Length - 1 : Mathf.Min(i, soloSet.Length - 1)];
             }
 
             case State.Catch:
