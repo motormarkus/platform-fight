@@ -641,7 +641,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         kickComboIndex = idx; kickQueued = false;
         attackHit = false;
         attackLunge = ChaseLunge(k.lunge, k.reach);
-        PlayGrunt();
+        if (chained) PlayGrunt(); else PlayGruntMixed();   // sarjan aloittava potku kuin yksittäinen, jatko-osat iskuäänillä
         Enter(State.SoloKick);
         if (chained) stateTime = k.t[0];   // sarjan jatkona alkaa suoraan latauksesta (ei asentokuvaa välissä)
     }
