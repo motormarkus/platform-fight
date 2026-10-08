@@ -4377,6 +4377,8 @@ public static class BeatEmUpSetup
     // (tappelu alkaa takana pokeripöydän luona: pöydät lähellä sitä, sivuilla ja vähän edessä)
     static readonly Vector2[] PokerTablePx = { new Vector2(-220f, 800f), new Vector2(1760f, 820f), new Vector2(240f, 1080f), new Vector2(1360f, 1090f) };
     // sivuseinien jalat (huoneen koordinaatit): vasen seinä kulmasta kuvan reunaan, samoin oikea
+    static readonly Vector2 PokerPoolPx = new Vector2(768f, 1560f);   // biljardipöydän etujalkojen keskikohta (huoneen koordinaatit)
+    const float PokerPoolWidth = 6.0f;                                  // yksikköä: selvästi pullopöytiä isompi (snooker)
     static readonly Vector2 PokerLeftWallEdge = new Vector2(-850f, 730f), PokerLeftWallCorner = new Vector2(-420f, 545f);
     static readonly Vector2 PokerRightWallCorner = new Vector2(2020f, 545f), PokerRightWallEdge = new Vector2(2451f, 780f);
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
@@ -4646,6 +4648,24 @@ public static class BeatEmUpSetup
         var tables = new GameObject("Pokerihuoneen pöydät");
         Undo.RegisterCreatedObjectUndo(tables, "Pokerihuoneen pöydät");
         var tableInfo = AddBottleTables(tables.transform, PokerTablePx.Select(v => { var q = pt(v.x, v.y); return new Vector3(q.x, q.y, 0f); }), 31);
+        // iso biljardipöytä (snooker) huoneen etuosaan: kiinteä este, hypyllä yli
+        var poolSprite = ImportProp("Assets/Sprites/Rekvisiitta/biljardipoyta.png");
+        if (poolSprite != null)
+        {
+            var pgo = new GameObject("Biljardipöytä");
+            pgo.transform.SetParent(tables.transform, false);
+            Vector2 pp0 = pt(PokerPoolPx.x, PokerPoolPx.y);
+            pgo.transform.position = new Vector3(pp0.x, pp0.y, 0f);
+            var psr0 = new GameObject("Visual").AddComponent<SpriteRenderer>(); psr0.transform.SetParent(pgo.transform, false);
+            psr0.sprite = poolSprite;
+            float pk = PokerPoolWidth / poolSprite.bounds.size.x;
+            psr0.transform.localScale = new Vector3(pk, pk, 1f);
+            var psh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); psh.transform.SetParent(pgo.transform, false);
+            psh.sprite = PlayerController.CreateShadowSprite(); psh.color = new Color(0f, 0f, 0f, 0.35f);
+            psh.transform.localPosition = new Vector3(0f, 0.37f, 0f); psh.transform.localScale = new Vector3(PokerPoolWidth * 1.05f, 0.9f, 1f);
+            psh.sortingOrder = -9000;
+            var ob = pgo.AddComponent<Obstacle>(); ob.body = psr0; ob.halfWidth = PokerPoolWidth * 0.48f; ob.depth = 0.75f;
+        }
 
         // ovet: baarin oikean nurkan teräsovesta (E) pokerihuoneeseen, pokerihuoneen teräsovesta takaisin baariin
         var doors = new GameObject("Baarin ovet");

@@ -2791,6 +2791,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (Area.Current != null && Area.Current.walkMinX != 0f) p.x = Mathf.Max(p.x, Area.Current.walkMinX);   // esim. laivan keula
         }
         p.y = Mathf.Clamp(p.y + delta.y, minDepthY, Area.MaxDepthAt(p.x, maxDepthY));   // esim. terassin kaide
+        if (height < 1.2f) p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym. (hypyllä yli)
         transform.position = p;
     }
 

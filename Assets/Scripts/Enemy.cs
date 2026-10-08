@@ -1851,6 +1851,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (ar != null && ar.walkMinX != 0f) p.x = Mathf.Max(p.x, ar.walkMinX);
             }
         }
+        if (height < 1.2f) p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym.
         transform.position = p;
     }
 
