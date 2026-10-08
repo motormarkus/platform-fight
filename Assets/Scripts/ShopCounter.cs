@@ -109,8 +109,30 @@ public class ShopCounter : MonoBehaviour
         pc.money -= it.price;
         int got = pc.Heal(it.heal);
         int st = pc.AddStamina(it.stamina);
-        if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShot(it.sound, soundVolume); }
+        if (IsDrink(it) && pc.AppliedCharacter == 1 && pc.heroine != null && pc.heroine.gulpSounds != null && pc.heroine.gulpSounds.Length > 0)
+        {
+            // Ruby juo: oma nielaisu, perään "aah"
+            var g = pc.heroine.gulpSounds[Random.Range(0, pc.heroine.gulpSounds.Length)];
+            audioSource.Stop();
+            if (g != null) audioSource.PlayOneShot(g, soundVolume);
+            if (pc.heroine.aahSound != null) StartCoroutine(PlayLater(pc.heroine.aahSound, g != null ? g.length : 0.3f));
+        }
+        else if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShot(it.sound, soundVolume); }
         Say(Loc.F("{0}: +{1} energiaa, +{3} staminaa. {2}", Loc.T(it.name), got, Loc.T(it.comment), st));
+    }
+
+    /// Juoma (Rubylla omat juomaäänet): lonkero, tuoppi, kossupaukku ja muut juomaäänelliset.
+    static bool IsDrink(Item it)
+    {
+        if (it.name == "Lonkero" || it.name == "Tuoppi" || it.name == "Kossupaukku") return true;
+        string sn = it.sound != null ? it.sound.name : "";
+        return sn.Contains("lonkero") || sn.Contains("kossu");
+    }
+
+    System.Collections.IEnumerator PlayLater(AudioClip c, float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);   // kauppa pysäyttää ajan: odotetaan oikeaa aikaa
+        if (audioSource != null && c != null) audioSource.PlayOneShot(c, soundVolume);
     }
 
     void Say(string s) { msg = s; msgTime = Time.unscaledTime; }

@@ -601,6 +601,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public AudioClip[] attackGrunts;
         [Tooltip("Rubyn erikoisliikkeiden ja yksittäisten potkujen äänet (rubyspecial*).")]
         public AudioClip[] specialGrunts;
+        [Tooltip("Juominen baarissa: nielaisut (satunnainen) ja perään aah.")]
+        public AudioClip[] gulpSounds;
+        public AudioClip aahSound;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 

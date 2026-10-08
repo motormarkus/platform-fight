@@ -421,6 +421,8 @@ public static class BeatEmUpSetup
         a.hurtSounds = LoadClips("Assets/Audio/Ruby", "rubygasp");
         a.attackGrunts = LoadClips("Assets/Audio/Ruby", "rubyhit");
         a.specialGrunts = LoadClips("Assets/Audio/Ruby", "rubyspecial");
+        a.gulpSounds = LoadClips("Assets/Audio/Ruby", "rubygulp");
+        var aah = LoadClips("Assets/Audio/Ruby", "rubyaah"); a.aahSound = aah.Length > 0 ? aah[0] : null;
         pc.heroine = a;
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
