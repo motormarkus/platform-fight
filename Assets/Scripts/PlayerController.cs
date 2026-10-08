@@ -344,6 +344,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (AttackEnemies(cueReach, damage, knockdown, 2.0f))
         {
             if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
+            HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/keppi_isku"), 1f);   // kepin läimäys
             Cue.UseHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, 0f, 0f));
         }
     }

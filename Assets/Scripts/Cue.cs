@@ -128,6 +128,7 @@ public class Cue : MonoBehaviour
                 if (e.TakeHit(throwDamage, transform.position.x - Mathf.Sign(vx), true))
                 {
                     HitFx.OnHit(true);
+                    HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/keppi_isku"), 1f);
                     HitSpark.Spawn(new Vector3(q.x, q.y + 1.6f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
                     Snap();
                     return;
