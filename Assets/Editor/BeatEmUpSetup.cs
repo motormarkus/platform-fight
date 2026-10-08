@@ -1330,6 +1330,20 @@ public static class BeatEmUpSetup
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
 
+    /// Kuten ImportProp, mutta pivot keskellä (pallot, keppi pöydän päällä).
+    static Sprite ImportPropCentered(string path)
+    {
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (ti == null) return null;
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = 100; ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
+        var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+        st.spriteAlignment = (int)SpriteAlignment.Center; ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    }
+
     [MenuItem("Beat em up/18. Päivitä heron heittokuvat")]
     static void UpdateHeroThrown()
     {
@@ -4665,6 +4679,31 @@ public static class BeatEmUpSetup
             psh.transform.localPosition = new Vector3(0f, 0.37f, 0f); psh.transform.localScale = new Vector3(PokerPoolWidth * 1.05f, 0.9f, 1f);
             psh.sortingOrder = -9000;
             var ob = pgo.AddComponent<Obstacle>(); ob.body = psr0; ob.halfWidth = PokerPoolWidth * 0.48f; ob.depth = 0.75f;
+            // pallot (snooker: 15 punaista kolmiossa + valkoinen) ja keppi pöydän verkalla
+            var tops = new List<SpriteRenderer>();
+            System.Func<float, float, Vector3> cloth = (ix, iy) => new Vector3((ix - poolSprite.rect.width * 0.5f) / poolSprite.pixelsPerUnit * pk, (poolSprite.rect.height - iy) / poolSprite.pixelsPerUnit * pk, 0f);
+            SpriteRenderer Put(Sprite sp, Vector3 lp, float size, float rot = 0f)
+            {
+                var r0 = new GameObject(sp.name).AddComponent<SpriteRenderer>(); r0.transform.SetParent(pgo.transform, false);
+                r0.sprite = sp; r0.transform.localPosition = lp; r0.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
+                float sc = size / sp.bounds.size.x; r0.transform.localScale = new Vector3(sc, sc, 1f);
+                tops.Add(r0); return r0;
+            }
+            var red = ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_punainen.png");
+            var white = ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_valkoinen.png");
+            const float Ball = 0.13f;
+            if (red != null)
+                for (int row = 0; row < 5; row++)
+                    for (int j = 0; j <= row; j++)
+                    {
+                        // kolmion kärki vasemmalle (kohti valkoista), rivit taaksepäin oikealle; syvyys kutistuu perspektiivissä
+                        float lx = 1.05f + row * Ball * 0.87f, ly = (j - row * 0.5f) * Ball * 0.5f;
+                        Put(red, cloth(1180f, 245f) + new Vector3(lx - 1.05f, ly, -0.001f * row), Ball);
+                    }
+            if (white != null) Put(white, cloth(480f, 260f), Ball);
+            var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
+            if (cue != null) Put(cue, cloth(700f, 300f), PokerPoolWidth * 0.42f, -4f);
+            ob.onTop = tops.ToArray();
         }
 
         // ovet: baarin oikean nurkan teräsovesta (E) pokerihuoneeseen, pokerihuoneen teräsovesta takaisin baariin

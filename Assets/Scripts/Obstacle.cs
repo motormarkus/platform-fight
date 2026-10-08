@@ -9,6 +9,8 @@ public class Obstacle : MonoBehaviour
 {
     public static readonly List<Obstacle> All = new List<Obstacle>();
     public SpriteRenderer body;
+    [Tooltip("Pöydän päällä olevat (pallot, keppi): piirretään pöydän päälle.")]
+    public SpriteRenderer[] onTop;
     [Tooltip("Jalanjäljen puolileveys (yks) ja syvyys etureunasta (transform = etureunan keskikohta).")]
     public float halfWidth = 2.9f, depth = 0.75f;
 
@@ -17,7 +19,9 @@ public class Obstacle : MonoBehaviour
 
     void LateUpdate()
     {
-        if (body != null) body.sortingOrder = Mathf.RoundToInt(-(transform.position.y + depth * 0.5f) * 100f);
+        if (body == null) return;
+        body.sortingOrder = Mathf.RoundToInt(-(transform.position.y + depth * 0.5f) * 100f);
+        if (onTop != null) for (int i = 0; i < onTop.Length; i++) if (onTop[i] != null) onTop[i].sortingOrder = body.sortingOrder + 1;
     }
 
     bool Inside(Vector3 p)
