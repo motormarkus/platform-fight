@@ -4369,13 +4369,16 @@ public static class BeatEmUpSetup
     // baari_poker_idle.png (33 kuvaa) ja baari_poker_idle2.png (36 kuvaa), 896 × 504, 12 fps, saumat ristihäivytetty,
     // yhteinen maski; solun vasen yläkulma kuvassa (392, 232).
     const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
-    const float PokerRoomPPU = 118f;   // pokerihuoneen mittakaava: laajennettu kuva n. 21.5 yks leveä, videon hahmot n. 1.3 × hero
+    const float PokerRoomPPU = 153.4f; // pokerihuoneen mittakaava: videon hahmot samankokoisia kuin hero (ennen 118 = 1.3 ×); kuva 3301 px = 21.5 yks
     // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
-    static readonly Vector2 PokerRoomOffset = new Vector2(470f, 62f);
+    static readonly Vector2 PokerRoomOffset = new Vector2(850f, 312f);   // uusi laajennus sivuseinineen (alkuperäinen huone liitetty takaisin)
     // pullopöydät huoneen koordinaateissa (x, rivi): vasen ja oikea laajennus sekä lattia edessä
     // (tuolit n. 320 px pöydän keskeltä: pöydät sijoitettu niin, että tuolit mahtuvat kuvaan eivätkä mene päällekkäin)
-    static readonly Vector2[] PokerTablePx = { new Vector2(-60f, 780f), new Vector2(1680f, 790f), new Vector2(-60f, 1330f), new Vector2(1700f, 1250f),
-                                               new Vector2(620f, 1150f), new Vector2(1140f, 1420f) };
+    // (tappelu alkaa takana pokeripöydän luona: pöydät lähellä sitä, sivuilla ja vähän edessä)
+    static readonly Vector2[] PokerTablePx = { new Vector2(-220f, 800f), new Vector2(1760f, 820f), new Vector2(240f, 1080f), new Vector2(1360f, 1090f) };
+    // sivuseinien jalat (huoneen koordinaatit): vasen seinä kulmasta kuvan reunaan, samoin oikea
+    static readonly Vector2 PokerLeftWallEdge = new Vector2(-850f, 730f), PokerLeftWallCorner = new Vector2(-420f, 545f);
+    static readonly Vector2 PokerRightWallCorner = new Vector2(2020f, 545f), PokerRightWallEdge = new Vector2(2451f, 780f);
     // jatkettu tausta (huone keskellä, lattiaa alas, reunat tummuvat): kankaan koko ja huoneen vasen yläkulma kankaalla
     const float BarRoomX0 = 50000f;
     const float BarRoomWallRow = 545f;       // seinän alareuna (ovi vasemmalla)
@@ -4576,10 +4579,10 @@ public static class BeatEmUpSetup
         area.camSize = 0f; area.camOffsetY = frontCam - CamY; area.camRiseY = Mathf.Max(0.01f, CamY - frontCam);
         float halfW = CamHalf * 16f / 9f;
         area.camMinX = BarRoomX0 + Mathf.Min(halfW, wU * 0.5f); area.camMaxX = BarRoomX0 + Mathf.Max(wU - halfW, wU * 0.5f);
-        float leftPx = -PokerRoomOffset.x, rightPx = srcW - PokerRoomOffset.x;   // laajennetun kuvan reunat huoneen koordinaateissa
         // pokeripöytä keskellä ja lipasto oikealla ovat lähempänä kuin seinä
-        area.depthLimits = new[] { pt(leftPx, BarRoomWallRow), pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow),
-                                   pt(1350f, BarRoomCabinetRow), pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow), pt(rightPx, BarRoomWallRow) };
+        area.depthLimits = new[] { pt(PokerLeftWallEdge.x, PokerLeftWallEdge.y), pt(PokerLeftWallCorner.x, PokerLeftWallCorner.y), pt(330f, BarRoomWallRow), pt(400f, BarRoomTableRow), pt(1290f, BarRoomTableRow),
+                                   pt(1350f, BarRoomCabinetRow), pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow),
+                                   pt(PokerRightWallCorner.x, PokerRightWallCorner.y), pt(PokerRightWallEdge.x, PokerRightWallEdge.y) };
 
         // tappelun tausta (tyhjä huone: pöytä nurin, kortit lattialla), sama rajaus kuin pokerihuoneen kuvassa
         Sprite fightSprite = null;
@@ -4675,8 +4678,9 @@ public static class BeatEmUpSetup
             var pf = froot.AddComponent<PokerFight>();
             pf.loop = pokerLoop; pf.background = sr; pf.fightBackground = fightSprite; pf.area = area;
             pf.extBackground = extSr; pf.fightExtBackground = fightExt;
-            pf.fightDepthLimits = new[] { pt(leftPx, BarRoomWallRow), pt(1290f, BarRoomWallRow), pt(1350f, BarRoomCabinetRow),
-                                          pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow), pt(rightPx, BarRoomWallRow) };
+            pf.fightDepthLimits = new[] { pt(PokerLeftWallEdge.x, PokerLeftWallEdge.y), pt(PokerLeftWallCorner.x, PokerLeftWallCorner.y), pt(1290f, BarRoomWallRow),
+                                          pt(1350f, BarRoomCabinetRow), pt(1560f, BarRoomCabinetRow), pt(1600f, BarRoomWallRow),
+                                          pt(PokerRightWallCorner.x, PokerRightWallCorner.y), pt(PokerRightWallEdge.x, PokerRightWallEdge.y) };
             // pelin tuolit (nosto, lyönti ja heitto kuten El Loipparissa)
             var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
             var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
