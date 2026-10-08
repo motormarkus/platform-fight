@@ -649,7 +649,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] pendulum;
         public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare, chairWalk;
         public Sprite[] bikeRide, bikeMount, bikeGrab;
-        public Sprite[] cueIdle, cueSwingA, cueSwingB, cueThrow;   // biljardikeppi: idle 6, huitaisu 11 (osuma 9), paluu 9 (osuma 1), heitto 6   // prätkä (sama runko kuin Roccolla): ajo 6, nousu 8, kiskaisu 10   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
+        public Sprite[] cueIdle, cueWalk, cueSwingA, cueSwingB, cueThrow;   // biljardikeppi: idle 6, huitaisu 11 (osuma 9), paluu 9 (osuma 1), heitto 6   // prätkä (sama runko kuin Roccolla): ajo 6, nousu 8, kiskaisu 10   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
         [Tooltip("Rubyn kipuäänet osumasta (rubygasp1–3).")]
         public AudioClip[] hurtSounds;
         [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
@@ -1028,7 +1028,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
         // biljardikeppi: Rubyn omat kuvat (kävelyä ei vielä: liukuu idle-kuvilla)
-        cueWalkSprites = null;
+        cueWalkSprites = a.cueWalk != null && a.cueWalk.Length > 0 ? a.cueWalk : null;
         bool rc = a.cueIdle != null && a.cueIdle.Length > 0;
         cueIdleSprites = rc ? a.cueIdle : null;
         cueSwingASprites = rc ? a.cueSwingA : null; cueSwingBSprites = rc ? a.cueSwingB : null; cueThrowSprites = rc ? a.cueThrow : null;

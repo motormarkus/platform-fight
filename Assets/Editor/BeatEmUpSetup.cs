@@ -424,7 +424,7 @@ public static class BeatEmUpSetup
         a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto"); a.pummel = L("rinnus"); a.pummelBig = L("rinnus_iso"); a.frontKick = L("etupotku"); a.backKick = L("takapotku"); a.power = L("voimalyonti"); a.pendulum = L("heiluripotku");
         a.chairPick = L("tuoli_nosto"); a.chairThrow = L("tuoli_heitto"); a.chairSwing = L("tuolilyonti"); a.chairSwingBare = L("tuolilyonti_tyhja"); a.chairWalk = L("tuoli_kavely");
         a.bikeRide = L("pratka_ajo"); a.bikeMount = L("pratka_nousu"); a.bikeGrab = L("pratka_kiskaisu");
-        a.cueIdle = L("keppi_idle"); a.cueSwingA = L("keppi_lyonti_a"); a.cueSwingB = L("keppi_lyonti_b"); a.cueThrow = L("keppi_heitto");
+        a.cueIdle = L("keppi_idle"); a.cueWalk = L("keppi_kavely"); a.cueSwingA = L("keppi_lyonti_a"); a.cueSwingB = L("keppi_lyonti_b"); a.cueThrow = L("keppi_heitto");
         a.hurtSounds = LoadClips("Assets/Audio/Ruby", "rubygasp");
         a.attackGrunts = LoadClips("Assets/Audio/Ruby", "rubyhit");
         a.specialGrunts = LoadClips("Assets/Audio/Ruby", "rubyspecial");
