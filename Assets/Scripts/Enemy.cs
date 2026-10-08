@@ -702,7 +702,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     if (launched)
                     {
                         launched = false;
-                        HitFx.OnHit(true);
+                        HitFx.OnLand();
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
                         knockVel *= 0.3f;   // liukuu vähän
                     }
@@ -714,12 +714,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         spinRot = 0f;
                         thrownByPlayer = false;
                         PlayHurtSound();
-                        HitFx.OnHit(true);
+                        HitFx.OnLand();
                         HitFx.PlayClip(SlamSound, 1f);
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
                         knockVel *= 0.35f;   // liukuu vähän iskun jälkeen
                         Enter(State.Down);
-                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.25f);
                         break;
                     }
                     if (thrownByPlayer)
@@ -729,11 +728,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         spinRot = 0f;
                         thrownByPlayer = false;
                         PlayHurtSound();
-                        HitFx.OnHit(true);
+                        HitFx.OnLand();
                         knockVel = Vector2.zero;
                     }
                     Enter(State.Down);
-                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
                 }
                 break;
 

@@ -35,7 +35,7 @@ public class FlyingRider : MonoBehaviour
         if (!landed)
         {
             vy -= 26f * dt; height += vy * dt;
-            if (height <= 0.6f * scale) { height = 0.6f * scale; landed = true; HitFx.OnHit(false); if (CameraFollow.Instance != null) CameraFollow.Shake(0.06f, 0.12f); }
+            if (height <= 0.6f * scale) { height = 0.6f * scale; landed = true; HitFx.OnLand(); }
         }
         int n = sprites.Length;
         int f = landed ? n - 1 : Mathf.Min((int)(t / frameTime), n - 2);

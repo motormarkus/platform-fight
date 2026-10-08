@@ -44,7 +44,23 @@ public class CameraFollow : MonoBehaviour
     {
         var cam = GetComponent<Camera>();
         if (cam == null || defaultSize <= 0f) return;
-        cam.orthographicSize = size > 0f ? size : defaultSize;
+        requestedSize = size > 0f ? size : defaultSize;
+        cam.orthographicSize = requestedSize;
+    }
+
+    float requestedSize = -1f;   // alueen pyytämä koko (leveällä ruudulla kapea alue zoomataan tätä pienemmäksi)
+
+    /// Leveä ruutu (esim. 21:9): jos alue on kapeampi kuin ruutu, kamera zoomaa sisään niin, ettei taustakuvan reunan yli näy.
+    /// Ruudun alareuna pysyy paikallaan (lattia ja hahmojen jalat kuvassa), yläosasta rajautuu.
+    float FitWidth(Camera c)
+    {
+        if (c == null || defaultSize <= 0f) return 0f;
+        if (requestedSize <= 0f) requestedSize = c.orthographicSize;
+        float designHalf = requestedSize * 16f / 9f;
+        float width = (maxX - minX) + 2f * designHalf;   // alueen leveys (rajat on laskettu 16:9-ruudulle): 16:9-ruudulla ei zoomia
+        float size = Mathf.Min(requestedSize, width / (2f * Mathf.Max(c.aspect, 0.1f)));
+        c.orthographicSize = size;
+        return requestedSize - size;   // näin paljon ruudun alareunaa nostetaan takaisin alas
     }
 
     /// Ruudun tärähdys (amp = voimakkuus yksiköinä, dur = kesto sekunteina).
@@ -100,7 +116,8 @@ public class CameraFollow : MonoBehaviour
             float k = Mathf.Clamp01(shakeTime / Mathf.Max(shakeDuration, 0.001f));
             offset = (Vector3)(Random.insideUnitCircle * shakeAmp * k);
         }
-        Vector3 pos = basePos + offset;
+        float zoomDrop = FitWidth(GetComponent<Camera>());
+        Vector3 pos = basePos + offset + new Vector3(0f, -zoomDrop, 0f);
         if (target != null) pos.x = ClampX(pos.x);   // tärähdyskään ei vie kuvan päädyn yli
         transform.position = pos;
     }

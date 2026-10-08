@@ -64,6 +64,15 @@ public class HitFx : MonoBehaviour
         if (fx != null) fx.PlayImpact();
     }
 
+    /// Vihu iskeytyy maahan (lento, heitto, paiskaus): ääni ja lyhyt pysäytys, ei kameran tärähdystä (häiritsi koko ruudulla).
+    public static void OnLand()
+    {
+        var fx = Instance;
+        if (fx == null) return;
+        fx.PlayImpact();
+        fx.Hitstop(fx.lightHitstop);
+    }
+
     public static void OnHit(bool heavy)
     {
         var fx = Instance;
