@@ -305,6 +305,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] chairSmashSprites;
     [Tooltip("tuoli_heitto.png: 0–4 nosto pään yli, 5 irti, 6–9 paluu.")]
     public Sprite[] chairThrowSprites;
+    [Tooltip("tuolilyonti.png (videosta, vapaaehtoinen): sivuttainen swing 11 kuvaa, osuma kuvassa 9. Käytetään tuoli_nosto 3–9:n sijaan.")]
+    public Sprite[] chairSwingSprites;
+    [Tooltip("tuolilyonti_tyhja.png: osuman jälkeen tyhjin käsin (tuoli hajosi).")]
+    public Sprite[] chairSwingBareSprites;
     // tuolinheitto kiihtyy: nosto, hetken pito pään takana, nopea heitto (lähtö kuvan 6 alussa) ja jälkiliike
     static readonly float[] ChairThrowTimes = { 0.09f, 0.08f, 0.08f, 0.14f, 0.035f, 0.05f, 0.06f, 0.07f, 0.07f, 0.07f };
     public float chairFrameTime = 0.07f;
@@ -312,10 +316,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float chairReach = 2.4f;
     bool chairResolved;
     bool rubyChair;                 // Ruby: omat tuolisarjat (heilautus 8 kuvaa, osuma kuvassa 5)
-    Sprite[] chairSwingSprites;
     // Rubyn tuolilyönti videosta (7 kuvaa, sivuttainen swing): 0 pito, 1–2 tuoli taakse vaakatasoon, 3–4 taakse viety, 5 osuma (tuoli edessä vaakatasossa), 6 jälkiliike
     static readonly float[] RubyChairSwingTimes = { 0.06f, 0.06f, 0.08f, 0.07f, 0.1f, 0.12f, 0.1f };
-    const int RubyChairSwingImpact = 5;
+    // Roccon tuolilyönti videosta (11 kuvaa): 0–1 pito, 2–4 tuoli taakse, 5–6 takana, 7 kääntyy, 8 tulossa, 9 osuma, 10 jälkiliike
+    static readonly float[] RoccoChairSwingTimes = { 0.05f, 0.05f, 0.05f, 0.06f, 0.08f, 0.07f, 0.06f, 0.04f, 0.04f, 0.12f, 0.1f };
+    bool VideoSwing => chairSwingSprites != null && chairSwingSprites.Length >= 6 && chairSwingBareSprites != null && chairSwingBareSprites.Length > 0;
+    float[] SwingTimes => rubyChair ? RubyChairSwingTimes : RoccoChairSwingTimes;
+    int SwingImpact => rubyChair ? 5 : 9;
     static readonly float[] RubyChairThrowTimes = { 0.07f, 0.07f, 0.08f, 0.09f, 0.13f, 0.05f, 0.04f, 0.2f };   // nosto, taakse, kyykky -> kiihtyvä veto, irti kuvassa 7
     bool HasChair => rubyChair || chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
@@ -975,7 +982,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f; bigHookAirDrift = 1.0f;
         }
         else bigHookSprites = null;
-        chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
+        chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
                     && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
@@ -985,7 +992,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             chairWalkSprites = a.chairWalk != null && a.chairWalk.Length > 0 ? a.chairWalk : null;
             // seisonta tuoli kädessä: kävelyn kuva, jossa jalat vierekkäin (sama tuolin asento kuin kävellessä), kunnes oma idle tulee
             if (chairWalkSprites != null && chairWalkSprites.Length >= 10) chairHoldSprites = new[] { chairWalkSprites[4] };
-            chairSwingSprites = a.chairSwing; chairSmashSprites = a.chairSwingBare; chairThrowSprites = a.chairThrow;
+            chairSwingSprites = a.chairSwing; chairSwingBareSprites = a.chairSwingBare; chairSmashSprites = a.chairSwingBare; chairThrowSprites = a.chairThrow;
         }
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
     }
@@ -1027,7 +1034,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(dropKickSprites);
         SortByFrameNumber(ringTakeSprites); SortByFrameNumber(ringThrowSprites); SortByFrameNumber(ringPickSprites); SortByFrameNumber(ringSmashSprites); SortByFrameNumber(ringWalkSprites); SortByFrameNumber(ringIdleSprites); SortByFrameNumber(bigHookSprites);
         SortByFrameNumber(chairPickSprites); SortByFrameNumber(chairHoldSprites); SortByFrameNumber(chairWalkSprites);
-        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites);
+        SortByFrameNumber(chairSmashSprites); SortByFrameNumber(chairThrowSprites); SortByFrameNumber(chairSwingSprites); SortByFrameNumber(chairSwingBareSprites);
         SortByFrameNumber(kneeStrikeSprites);
         SortByFrameNumber(runSprites);
         SortByFrameNumber(specialSprites);
@@ -1522,7 +1529,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.ChairSwing:
             {
                 // heilautus: kuvat 3–9 (nosto-sarjasta); osumahetki kuvassa 6 -> osui: tuoli hajoaa (lyöntisarja kuvasta 4)
-                float impact = rubyChair ? ThrowPose.Start(RubyChairSwingTimes, RubyChairSwingImpact) : 3 * chairFrameTime;
+                float impact = VideoSwing ? ThrowPose.Start(SwingTimes, SwingImpact) : 3 * chairFrameTime;
                 Lunge(0.25f, impact, dt);
                 if (!chairResolved && stateTime >= impact)
                 {
@@ -1532,16 +1539,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         Chair.BreakHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, -0.02f, 0f), facingRight ? 1f : -1f);
                         if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
                         Enter(State.ChairSmash);
-                        stateTime = rubyChair ? 0f : 4 * chairFrameTime;
+                        stateTime = VideoSwing ? 0f : 4 * chairFrameTime;
                         break;
                     }
                 }
-                if (rubyChair ? ThrowPose.Index(RubyChairSwingTimes, stateTime) < 0 : stateTime >= 7f * chairFrameTime) Enter(Chair.Held != null ? State.ChairHold : State.Ground);
+                if (VideoSwing ? ThrowPose.Index(SwingTimes, stateTime) < 0 : stateTime >= 7f * chairFrameTime) Enter(Chair.Held != null ? State.ChairHold : State.Ground);
                 break;
             }
 
             case State.ChairSmash:
-                if (stateTime >= chairSmashSprites.Length * chairFrameTime * (rubyChair ? 1.6f : 1.1f)) Enter(State.Ground);
+                if (stateTime >= (VideoSwing ? chairSwingBareSprites.Length * chairFrameTime * 1.6f : chairSmashSprites.Length * chairFrameTime * 1.1f)) Enter(State.Ground);
                 break;
 
             case State.ChairThrow:
@@ -2974,10 +2981,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     return chairWalkSprites[(int)(animClock / walkFrameTime) % chairWalkSprites.Length];
                 return chairHoldSprites[(int)(animClock / 0.16f) % chairHoldSprites.Length];
             case State.ChairSwing:
-                if (rubyChair) { int si = ThrowPose.Index(RubyChairSwingTimes, stateTime); return chairSwingSprites[si < 0 ? chairSwingSprites.Length - 1 : Mathf.Min(si, chairSwingSprites.Length - 1)]; }
+                if (VideoSwing) { int si = ThrowPose.Index(SwingTimes, stateTime); return chairSwingSprites[si < 0 ? chairSwingSprites.Length - 1 : Mathf.Min(si, chairSwingSprites.Length - 1)]; }
                 return chairPickSprites[Mathf.Min(3 + (int)(stateTime / chairFrameTime), 9)];
             case State.ChairSmash:
-                return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * (rubyChair ? 1.6f : 1.1f))), chairSmashSprites.Length - 1)];
+                if (VideoSwing) return chairSwingBareSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.6f)), chairSwingBareSprites.Length - 1)];
+                return chairSmashSprites[Mathf.Min((int)(stateTime / (chairFrameTime * 1.1f)), chairSmashSprites.Length - 1)];
             case State.ChairThrow:
             {
                 int f = ThrowPose.Index(rubyChair ? RubyChairThrowTimes : ChairThrowTimes, stateTime);
