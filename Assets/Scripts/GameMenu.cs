@@ -243,16 +243,44 @@ public class GameMenu : MonoBehaviour
         titleStyle = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(96 * s), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter };
         itemStyle = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(44 * s), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter };
         headStyle = new GUIStyle(itemStyle) { fontSize = Mathf.RoundToInt(36 * s) };
-        smallStyle = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(30 * s), alignment = TextAnchor.MiddleCenter };
+        smallStyle = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(32 * s), alignment = TextAnchor.MiddleCenter };
+        // teemafontit (Resources/Valikko): otsikot ja valinnat Luckiest Guy, alatekstit Bangers
+        if (menuFont == null) menuFont = Resources.Load<Font>("Valikko/LuckiestGuy");
+        if (smallFont == null) smallFont = Resources.Load<Font>("Valikko/Bangers");
+        if (menuFont != null) { titleStyle.font = itemStyle.font = headStyle.font = menuFont; titleStyle.fontStyle = itemStyle.fontStyle = headStyle.fontStyle = FontStyle.Normal; }
+        if (smallFont != null) smallStyle.font = smallFont;
     }
 
-    void Shadowed(Rect r, string text, GUIStyle st, Color c)
+    Font menuFont, smallFont;
+    static readonly Color Purple = new Color(0.49f, 0.23f, 0.84f), Lime = new Color(0.75f, 0.94f, 0.08f), Yellow = new Color(1f, 0.84f, 0.24f);
+
+    /// Teksti ääriviivalla (8 suuntaan) ja mustalla varjolla, logon tyyliin.
+    void Outlined(Rect r, string text, GUIStyle st, Color fill, Color line, float ow)
     {
         var old = GUI.color;
-        GUI.color = new Color(0f, 0f, 0f, 0.85f * c.a); GUI.Label(new Rect(r.x + 3, r.y + 3, r.width, r.height), text, st);
-        GUI.color = c; GUI.Label(r, text, st);
+        float sh = ow + 3f * styleScale;
+        GUI.color = new Color(0f, 0f, 0f, 0.85f * fill.a); GUI.Label(new Rect(r.x + sh, r.y + sh, r.width, r.height), text, st);
+        GUI.color = new Color(line.r, line.g, line.b, line.a * fill.a);
+        for (int i = 0; i < 8; i++)
+        {
+            float a = i * Mathf.PI * 0.25f;
+            GUI.Label(new Rect(r.x + Mathf.Cos(a) * ow, r.y + Mathf.Sin(a) * ow, r.width, r.height), text, st);
+        }
+        GUI.color = fill; GUI.Label(r, text, st);
         GUI.color = old;
     }
+
+    /// Valikon rivi: valittu keltainen mustalla reunalla, muut violetti vihreällä reunalla.
+    void Item(Rect r, string text, bool on)
+    {
+        if (on) Outlined(r, text, itemStyle, Yellow, Color.black, 3f * styleScale);
+        else Outlined(r, text, itemStyle, Purple, Lime, 2.5f * styleScale);
+    }
+
+    /// Pelin nimi (kunnes logo on päätetty): logon värit.
+    void Title(Rect r, string text, GUIStyle st) => Outlined(r, text, st, Purple, Lime, 3.5f * styleScale);
+
+    void Shadowed(Rect r, string text, GUIStyle st, Color c) => Outlined(r, text, st, c, Color.black, 2f * styleScale);
 
     void OnGUI()
     {
@@ -272,7 +300,7 @@ public class GameMenu : MonoBehaviour
 
         string head = page == Page.Title || page == Page.Difficulty ? gameTitle
                     : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T("ASETUKSET") : Loc.T("Lopetetaanko peli?");
-        Shadowed(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle, gold);
+        Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
         if (page == Page.Difficulty) Shadowed(new Rect(0, h * 0.27f, w, 60 * s), Loc.T("Valitse vaikeustaso"), headStyle, Color.white);
 
         var items = Items();
@@ -281,7 +309,7 @@ public class GameMenu : MonoBehaviour
         {
             bool on = i == sel;
             string t = page == Page.Options ? items[i] : Loc.T(items[i]);
-            Shadowed(new Rect(0, y0 + i * step, w, step), on ? ">  " + t + "  <" : t, itemStyle, on ? gold : new Color(0.85f, 0.85f, 0.85f));
+            Item(new Rect(0, y0 + i * step, w, step), t, on);
         }
         if (page == Page.Difficulty && sel < 3)
         {
@@ -315,14 +343,14 @@ public class GameMenu : MonoBehaviour
     /// Alkuvalikko taustakuvan päällä: nimi ja valinnat alaosassa, ettei hahmojen kasvot peity.
     void DrawTitle(float w, float h, float s, Color gold)
     {
-        Shadowed(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle, gold);
+        Title(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle);
         var items = Items();
         float y0 = h * 0.69f, step = 58 * s;
         for (int i = 0; i < items.Length; i++)
         {
             bool on = i == sel;
             string t = Loc.T(items[i]);
-            Shadowed(new Rect(0, y0 + i * step, w, step), on ? ">  " + t + "  <" : t, itemStyle, on ? gold : new Color(0.9f, 0.9f, 0.9f));
+            Item(new Rect(0, y0 + i * step, w, step), t, on);
         }
         Shadowed(new Rect(0, h - 52 * s, w, 44 * s), Loc.T("Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin"), smallStyle, new Color(1f, 1f, 1f, 0.6f));
     }
@@ -336,7 +364,7 @@ public class GameMenu : MonoBehaviour
     /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
     void DrawCharacters(float w, float h, float s, Color gold)
     {
-        Shadowed(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle, gold);
+        Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
         Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
         var pc = FindFirstObjectByType<PlayerController>();
         Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
@@ -353,12 +381,11 @@ public class GameMenu : MonoBehaviour
                 DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f));
             }
             else Shadowed(new Rect(cx - boxW * 0.5f, top, boxW, boxH), "?", titleStyle, new Color(0.5f, 0.5f, 0.5f));
-            Shadowed(new Rect(cx - boxW * 0.5f, top + boxH + 6 * s, boxW, 66 * s), on ? ">  " + names[k].ToUpper() + "  <" : names[k].ToUpper(), itemStyle,
-                     on ? gold : new Color(0.75f, 0.75f, 0.75f));
+            Item(new Rect(cx - boxW * 0.5f, top + boxH + 6 * s, boxW, 66 * s), names[k].ToUpper(), on);
         }
         bool backOn = sel == 2;
         string b = Loc.T("Takaisin");
-        Shadowed(new Rect(0, top + boxH + 90 * s, w, 66 * s), backOn ? ">  " + b + "  <" : b, itemStyle, backOn ? gold : new Color(0.85f, 0.85f, 0.85f));
+        Item(new Rect(0, top + boxH + 90 * s, w, 66 * s), b, backOn);
         Shadowed(new Rect(0, h - 70 * s, w, 50 * s), Loc.T("Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin"), smallStyle, new Color(1f, 1f, 1f, 0.7f));
     }
 
