@@ -105,18 +105,28 @@ public class HitFx : MonoBehaviour
         fx.source.PlayOneShot(fx.pickupSound, rare ? 1f : fx.pickupVolume);
     }
 
-    void Hitstop(float duration)
+    float stopUntil;
+
+    /// Erikoisliikkeen osuma: pidempi pysäytys (jatkaa käynnissä olevaa).
+    public static void Freeze(float duration)
     {
-        if (stopping || duration <= 0f) return;
-        StartCoroutine(HitstopRoutine(duration));
+        var fx = Instance;
+        if (fx != null) fx.Hitstop(duration);
     }
 
-    IEnumerator HitstopRoutine(float duration)
+    void Hitstop(float duration)
+    {
+        if (duration <= 0f) return;
+        stopUntil = Mathf.Max(stopUntil, Time.unscaledTime + duration);
+        if (!stopping) StartCoroutine(HitstopRoutine());
+    }
+
+    IEnumerator HitstopRoutine()
     {
         stopping = true;
         float old = Time.timeScale;
         Time.timeScale = 0.02f;
-        yield return new WaitForSecondsRealtime(duration);
+        while (Time.unscaledTime < stopUntil) yield return null;
         Time.timeScale = old <= 0.05f ? 1f : old;
         stopping = false;
     }

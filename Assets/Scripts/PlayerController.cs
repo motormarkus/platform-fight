@@ -404,12 +404,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // ilmassa kuvat 6–12: kaari, alastulo kuvassa 13
         float airFrom = ThrowPose.Start(PendulumTimes, 6), airTo = ThrowPose.Start(PendulumTimes, 13);
         height = stateTime > airFrom && stateTime < airTo ? Mathf.Sin(Mathf.Clamp01((stateTime - airFrom) / (airTo - airFrom)) * Mathf.PI) * pendulumAir : 0f;
+        if (fxStage == 0 && stateTime >= airFrom) { fxStage = 1; Dust(0.9f); }
+        if (fxStage == 1 && stateTime >= airTo) { fxStage = 2; Dust(1f); }
         // osuma potkun aikana (kuvat 5–7): lennättää kevyet korkealle, isot kaatuvat
         if (!pendulumHit && stateTime >= ThrowPose.Start(PendulumTimes, 5) && stateTime <= ThrowPose.Start(PendulumTimes, 9))
         {
             if (AttackEnemies(pendulumReach, pendulumDamage, true, 2.6f))
             {
                 pendulumHit = true;
+                HitFx.Freeze(0.1f);
                 foreach (var e in lastHitEnemies)
                     if (e != null && !HeavyForHook(e)) e.Launch(dir * bigHookLaunchX, bigHookLaunchUp);
                 HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);
@@ -1346,7 +1349,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     float k = (stateTime - slideFrom) / Mathf.Max(impact - slideFrom, 0.01f);
                     MoveOnGround(new Vector2(dir * bigHookSlide * (0.3f + 1.4f * k * k) * dt, 0f));
                 }
-                if (!bigHookHit && stateTime >= impact) { bigHookHit = true; BigHookImpact(); }
+                if (!bigHookHit && stateTime >= impact)
+                {
+                    bigHookHit = true; BigHookImpact();
+                    if (bigHookAir > 0f) Dust(1f);   // ponnistus
+                }
+                if (bigHookAir > 0f && fxStage == 0 && ThrowPose.Index(bt, stateTime) == 3) { fxStage = 1; Dust(0.7f); }   // syvä kyykky
+                if (bigHookAir > 0f && fxStage < 2 && stateTime >= ThrowPose.Start(bt, bt.Length - 1)) { fxStage = 2; Dust(1f); }   // alastulo
                 if (bigHookAir > 0f)
                 {
                     // iskun jälkeen pieni hyppy: ilmassa kuvat iskusta viimeistä edeltävään, alastulo viimeisessä
@@ -1776,10 +1785,39 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
 
         ApplyVisual();
+        UpdateSpecialFx();
+    }
+
+    // ---- erikoisliikkeiden efektit: haamukuvat, latauksen hehku, pöly ----
+    int fxStage;          // tilan sisäiset kertaefektit (pöly ym.), nollautuu tilan vaihtuessa
+    float fxTimer;
+    static readonly Color TrailTint = new Color(0.78f, 0.62f, 1f), ChargeTint = new Color(1f, 0.85f, 0.3f);
+
+    void Dust(float size)
+    {
+        int order = body != null ? body.sortingOrder - 1 : Mathf.RoundToInt(-transform.position.y * 100f);
+        DustPuff.Spawn(transform.position, order, size);
+    }
+
+    void UpdateSpecialFx()
+    {
+        if (body == null || Time.timeScale < 0.1f) return;
+        fxTimer -= Time.deltaTime;
+        // tuplanyrkin lataus (Ruby): kultainen hehku sykkii hahmon takana syvässä kyykyssä
+        if (state == State.BigHook && bigHookAir > 0f && ThrowPose.Index(CurBigHookTimes, stateTime) == 3)
+        {
+            if (fxTimer <= 0f) { fxTimer = 0.08f; Afterimage.Spawn(body, ChargeTint, 0.16f, 0.55f, 1.07f, -1); }
+            return;
+        }
+        // nopeat erikoisliikkeet: haalistuvat haamukuvat perään
+        bool trail = state == State.Pendulum || state == State.Special || state == State.DropKick
+                     || (state == State.BigHook && height > 0.05f);
+        if (trail && fxTimer <= 0f) { fxTimer = 0.04f; Afterimage.Spawn(body, TrailTint, 0.2f, 0.45f, 1f, -1); }
     }
 
     void Enter(State s)
     {
+        fxStage = 0;
         // rinnuksista-lyönnit keskeytyivät (esim. ovi tai kuolema): vihu irti, ettei jää otteeseen
         if (state == State.Pummel && s != State.Pummel && pummelTarget != null)
         {
@@ -2001,6 +2039,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         if (any)
         {
+            HitFx.Freeze(0.12f);   // erikoisliikkeen osuma: pidempi pysäytys
             HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);
             if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.25f);
         }
