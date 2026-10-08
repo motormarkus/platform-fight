@@ -54,7 +54,7 @@ public class GameMenu : MonoBehaviour
     float creditsT;
     float oldTimeScale = 1f;
     GUIStyle titleStyle, itemStyle, smallStyle, headStyle;
-    Texture2D white;
+    Texture2D white, titleArt, fadeDown;
     float styleScale = -1f;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -260,10 +260,11 @@ public class GameMenu : MonoBehaviour
         Styles();
         GUI.depth = -100;
         float w = Screen.width, h = Screen.height, s = styleScale;
+        var gold = new Color(1f, 0.82f, 0.25f);
+        if (page == Page.Title && DrawTitleArt(w, h)) { DrawTitle(w, h, s, gold); return; }
         GUI.color = new Color(0f, 0f, 0f, page == Page.Title || page == Page.Credits ? 0.75f : 0.6f);
         GUI.DrawTexture(new Rect(0, 0, w, h), white);
         GUI.color = Color.white;
-        var gold = new Color(1f, 0.82f, 0.25f);
 
         if (page == Page.Credits) { DrawCredits(w, h, s, gold); return; }
 
@@ -292,6 +293,38 @@ public class GameMenu : MonoBehaviour
         }
         string help = page == Page.Options ? "Ylös / alas valitse   Vasen / oikea säädä   Enter / A muuta   Esc / B takaisin" : "Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin";
         Shadowed(new Rect(0, h - 70 * s, w, 50 * s), Loc.T(help), smallStyle, new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    /// Alkuvalikon taustakuva (Resources/Valikko/alkuvalikko.png) koko ruudulle, alaosaan tumma liukuma tekstien taakse.
+    bool DrawTitleArt(float w, float h)
+    {
+        if (titleArt == null) titleArt = Resources.Load<Texture2D>("Valikko/alkuvalikko");
+        if (titleArt == null) return false;
+        if (fadeDown == null)
+        {
+            fadeDown = new Texture2D(1, 64) { wrapMode = TextureWrapMode.Clamp };
+            for (int y = 0; y < 64; y++) { float t = 1f - y / 63f; fadeDown.SetPixel(0, y, new Color(0f, 0f, 0f, Mathf.SmoothStep(0f, 0.88f, t))); }   // y=0 alhaalla
+            fadeDown.Apply();
+        }
+        GUI.color = Color.white;
+        GUI.DrawTexture(new Rect(0, 0, w, h), titleArt, ScaleMode.ScaleAndCrop);
+        GUI.DrawTexture(new Rect(0, h * 0.45f, w, h * 0.55f), fadeDown);
+        return true;
+    }
+
+    /// Alkuvalikko taustakuvan päällä: nimi ja valinnat alaosassa, ettei hahmojen kasvot peity.
+    void DrawTitle(float w, float h, float s, Color gold)
+    {
+        Shadowed(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle, gold);
+        var items = Items();
+        float y0 = h * 0.69f, step = 58 * s;
+        for (int i = 0; i < items.Length; i++)
+        {
+            bool on = i == sel;
+            string t = Loc.T(items[i]);
+            Shadowed(new Rect(0, y0 + i * step, w, step), on ? ">  " + t + "  <" : t, itemStyle, on ? gold : new Color(0.9f, 0.9f, 0.9f));
+        }
+        Shadowed(new Rect(0, h - 52 * s, w, 44 * s), Loc.T("Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin"), smallStyle, new Color(1f, 1f, 1f, 0.6f));
     }
 
     static string HeroineName()
