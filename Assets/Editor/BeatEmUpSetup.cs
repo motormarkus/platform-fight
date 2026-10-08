@@ -4689,18 +4689,29 @@ public static class BeatEmUpSetup
                 float sc = size / sp.bounds.size.x; r0.transform.localScale = new Vector3(sc, sc, 1f);
                 tops.Add(r0); return r0;
             }
-            var red = ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_punainen.png");
-            var white = ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_valkoinen.png");
-            const float Ball = 0.13f;
+            // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella
+            Sprite Ball(string ballName) => ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_" + ballName + ".png");
+            const float BallSize = 0.14f;
+            var red = Ball("punainen");
+            Vector3 apex = cloth(1180f, 245f);
             if (red != null)
-                for (int row = 0; row < 5; row++)
-                    for (int j = 0; j <= row; j++)
+            {
+                int[] rowCount = { 1, 2, 3, 2 };
+                for (int row = 0; row < rowCount.Length; row++)
+                    for (int j = 0; j < rowCount[row]; j++)
                     {
-                        // kolmion kärki vasemmalle (kohti valkoista), rivit taaksepäin oikealle; syvyys kutistuu perspektiivissä
-                        float lx = 1.05f + row * Ball * 0.87f, ly = (j - row * 0.5f) * Ball * 0.5f;
-                        Put(red, cloth(1180f, 245f) + new Vector3(lx - 1.05f, ly, -0.001f * row), Ball);
+                        // kärki vasemmalle (kohti pinkkiä), rivit oikealle; syvyys kutistuu perspektiivissä
+                        float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.5f;
+                        Put(red, apex + new Vector3(row * BallSize * 0.87f, ly, -0.001f * row), BallSize);
                     }
-            if (white != null) Put(white, cloth(480f, 260f), Ball);
+            }
+            float midY = cloth(800f, 245f).y;
+            foreach (var (bn, ix, dy) in new[] { ("pinkki", 1150f, 0f), ("musta", 1500f, 0f), ("sininen", 880f, 0f),
+                                                ("ruskea", 470f, 0f), ("keltainen", 470f, -0.18f), ("vihrea", 470f, 0.18f), ("valkoinen", 360f, 0.08f) })
+            {
+                var bs = Ball(bn);
+                if (bs != null) Put(bs, new Vector3(cloth(ix, 245f).x, midY + dy * 0.5f, 0f), BallSize);
+            }
             var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
             if (cue != null)
             {
