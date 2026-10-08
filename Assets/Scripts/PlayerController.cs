@@ -963,7 +963,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
             bigHookSprites = a.power;
-            bigHookTimesOverride = new[] { 0.05f, 0.08f, 0.12f, 0.2f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };   // kyykky (1–3) pidempään ennen ponnistusta
+            bigHookTimesOverride = new[] { 0.05f, 0.07f, 0.09f, 0.32f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };   // syvä kyykky (3) pysähtyy latautumaan, muu normaalivauhtia
             bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f; bigHookAirDrift = 1.0f;
         }
         else bigHookSprites = null;
