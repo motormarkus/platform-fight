@@ -25,6 +25,7 @@ public class Crate : MonoBehaviour
     [Tooltip("Kannetaan ylösalaisin (esim. salin pöytä): kääntyy nostossa, jalat ylöspäin.")]
     public bool carryUpsideDown;
     float flipAngle;
+    float spinSink;   // pyörivän kuvan alin kohta keskikohtaa alempana kuin pystyssä (osuu maahan aiemmin)
     [Tooltip("Heitettynä lentää vihujoukon läpi ja kaataa kaikki tieltään (pöydät); hajoaa vasta maahan osuessa.")]
     public bool plowThrough;
     int plowHits;
@@ -280,7 +281,7 @@ public class Crate : MonoBehaviour
                     else if (breakable) { LastViolent = true; Break(); break; }
                     vel.x *= 0.6f;   // tynnyri jatkaa hidastuen ja kaataa seuraavankin
                 }
-                if (height <= 0f)
+                if (height - spinSink <= 0f && verticalVel <= 0f)
                 {
                     height = 0f;
                     if (thrown && breakable) { HitFx.OnHit(false); LastViolent = true; Break(); }
@@ -400,7 +401,20 @@ public class Crate : MonoBehaviour
                 body.transform.localPosition += c - q * c;
             }
         }
+        else if (rot != 0f && spr != null)
+        {
+            // heitetty pöytä / laatikko pyörii keskikohtansa ympäri (ei jalkojen), ettei puolet painu maan alle
+            var q = Quaternion.Euler(0f, 0f, rot);
+            Vector3 c = new Vector3(0f, spr.bounds.extents.y * visualScale, 0f);
+            body.transform.localPosition += c - q * c;
+        }
         body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
+        spinSink = 0f;
+        if (spr != null && Mathf.Abs(Mathf.DeltaAngle(0f, rot)) > 0.5f)
+        {
+            float a = rot * Mathf.Deg2Rad, ex = spr.bounds.extents.x * visualScale, ey = spr.bounds.extents.y * visualScale;
+            spinSink = Mathf.Max(0f, Mathf.Abs(ex * Mathf.Sin(a)) + Mathf.Abs(ey * Mathf.Cos(a)) - ey);
+        }
 
         int order = state == State.Carried ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
         body.sortingOrder = order;
