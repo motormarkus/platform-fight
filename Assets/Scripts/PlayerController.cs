@@ -381,8 +381,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pendulumReach = 2.5f, pendulumLunge = 1.2f, pendulumAir = 1.1f;
     bool pendulumHit, pendulumQueued;
     // nopea ja kiihtyvä: 0–3 jalka taakse, 4 ohitus, 5 potku, 6–7 lentävä potku (osuma 5–7), 8 voltti, 9 vaaka, 10 alastulo, 11 asento
-    static readonly float[] PendulumTimes = { 0.07f, 0.06f, 0.055f, 0.045f, 0.035f, 0.035f, 0.04f, 0.05f, 0.06f, 0.06f, 0.08f, 0.1f };
-    bool HasPendulum => pendulumSprites != null && pendulumSprites.Length >= 12;
+    // 15 kuvaa: 0–7 potku, 8/10/12 voltin välikuvat, 9 ylösalaisin, 11 vaakana, 13 alastulo, 14 asento
+    static readonly float[] PendulumTimes = { 0.07f, 0.065f, 0.06f, 0.05f, 0.045f, 0.045f, 0.05f, 0.055f, 0.045f, 0.055f, 0.045f, 0.06f, 0.05f, 0.08f, 0.1f };
+    bool HasPendulum => pendulumSprites != null && pendulumSprites.Length >= 15;
 
     void StartPendulum()
     {
@@ -396,14 +397,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void UpdatePendulum(float dt)
     {
         float dir = facingRight ? 1f : -1f;
-        float lungeFrom = ThrowPose.Start(PendulumTimes, 3), lungeTo = ThrowPose.Start(PendulumTimes, 8);
+        float lungeFrom = ThrowPose.Start(PendulumTimes, 3), lungeTo = ThrowPose.Start(PendulumTimes, 9);
         if (stateTime >= lungeFrom && stateTime < lungeTo)
             MoveOnGround(new Vector2(dir * pendulumLunge / (lungeTo - lungeFrom) * dt, 0f));
-        // ilmassa kuvat 6–9: kaari, alastulo kuvassa 10
-        float airFrom = ThrowPose.Start(PendulumTimes, 6), airTo = ThrowPose.Start(PendulumTimes, 10);
+        // ilmassa kuvat 6–12: kaari, alastulo kuvassa 13
+        float airFrom = ThrowPose.Start(PendulumTimes, 6), airTo = ThrowPose.Start(PendulumTimes, 13);
         height = stateTime > airFrom && stateTime < airTo ? Mathf.Sin(Mathf.Clamp01((stateTime - airFrom) / (airTo - airFrom)) * Mathf.PI) * pendulumAir : 0f;
         // osuma potkun aikana (kuvat 5–7): lennättää kevyet korkealle, isot kaatuvat
-        if (!pendulumHit && stateTime >= ThrowPose.Start(PendulumTimes, 5) && stateTime <= ThrowPose.Start(PendulumTimes, 8))
+        if (!pendulumHit && stateTime >= ThrowPose.Start(PendulumTimes, 5) && stateTime <= ThrowPose.Start(PendulumTimes, 9))
         {
             if (AttackEnemies(pendulumReach, pendulumDamage, true, 2.6f))
             {
@@ -953,7 +954,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         canCarry = smallItemSprites != null || carrySprites != null;
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
         dropKickSprites = null;
-        pendulumSprites = a.pendulum != null && a.pendulum.Length >= 12 ? a.pendulum : null;
+        pendulumSprites = a.pendulum != null && a.pendulum.Length >= 15 ? a.pendulum : null;
         if (a.power != null && a.power.Length >= 10)
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
