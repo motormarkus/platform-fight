@@ -11,6 +11,9 @@
 
 # Omat varmuuskopiot (git pitää vanhat versiot itse tallessa)
 /ScriptBackups/
+# Unityn palautetut scenet kaatumisen jälkeen
+/[Aa]ssets/_Recovery/
+/[Aa]ssets/_Recovery.meta
 
 # IDE- ja käännöstiedostot
 .vs/
