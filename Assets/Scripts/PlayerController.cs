@@ -313,9 +313,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool chairResolved;
     bool rubyChair;                 // Ruby: omat tuolisarjat (heilautus 8 kuvaa, osuma kuvassa 5)
     Sprite[] chairSwingSprites;
-    // Rubyn tuolilyönti videosta (11 kuvaa): 0 pito, 1–4 nosto ja taakse, 5–8 heilautus pään yli, 9 osuma (tuoli edessä vaakatasossa), 10 jälkiliike
-    static readonly float[] RubyChairSwingTimes = { 0.06f, 0.06f, 0.06f, 0.07f, 0.09f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
-    const int RubyChairSwingImpact = 9;
+    // Rubyn tuolilyönti videosta (7 kuvaa, sivuttainen swing): 0 pito, 1–2 tuoli taakse vaakatasoon, 3–4 taakse viety, 5 osuma (tuoli edessä vaakatasossa), 6 jälkiliike
+    static readonly float[] RubyChairSwingTimes = { 0.06f, 0.06f, 0.08f, 0.07f, 0.1f, 0.12f, 0.1f };
+    const int RubyChairSwingImpact = 5;
     static readonly float[] RubyChairThrowTimes = { 0.07f, 0.07f, 0.08f, 0.09f, 0.13f, 0.05f, 0.04f, 0.2f };   // nosto, taakse, kyykky -> kiihtyvä veto, irti kuvassa 7
     bool HasChair => rubyChair || chairPickSprites != null && chairPickSprites.Length >= 10 && chairHoldSprites != null && chairHoldSprites.Length > 0
                      && chairSmashSprites != null && chairSmashSprites.Length >= 10 && chairThrowSprites != null && chairThrowSprites.Length >= 10;
@@ -977,7 +977,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
-                    && a.chairSwing != null && a.chairSwing.Length >= 8 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
+                    && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
         {
             chairPickSprites = a.chairPick;
