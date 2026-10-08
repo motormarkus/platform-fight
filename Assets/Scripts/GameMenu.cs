@@ -21,7 +21,7 @@ public class GameMenu : MonoBehaviour
     /// Hahmo vaihtui valinnassa: scene ladataan uudelleen ja jatketaan suoraan vaikeustason valintaan.
     static bool difficultyOnce;
 
-    public string gameTitle = "PLATFORM FIGHT";
+    public string gameTitle = "TOTAL FIST";
     [Tooltip("Tekijän nimi tekijäluetteloon.")]
     public string author = "Tekijä";
     [Tooltip("Tekijäluettelon rivit. {0} = tekijän nimi. Tyhjä rivi = väli, # alussa = otsikko.")]
@@ -54,7 +54,7 @@ public class GameMenu : MonoBehaviour
     float creditsT;
     float oldTimeScale = 1f;
     GUIStyle titleStyle, itemStyle, smallStyle, headStyle;
-    Texture2D white, titleArt, fadeDown;
+    Texture2D white, titleArt, fadeDown, logo;
     float styleScale = -1f;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -277,8 +277,19 @@ public class GameMenu : MonoBehaviour
         else Outlined(r, text, itemStyle, Purple, Lime, 2.5f * styleScale);
     }
 
-    /// Pelin nimi (kunnes logo on päätetty): logon värit.
+    /// Pelin nimi tekstinä (jos logokuvaa ei löydy): logon värit.
     void Title(Rect r, string text, GUIStyle st) => Outlined(r, text, st, Purple, Lime, 3.5f * styleScale);
+
+    /// Logo (Resources/Valikko/logo.png) keskitettynä; palauttaa piirretyn korkeuden (0 = ei logoa, piirretään nimi tekstinä).
+    float Logo(float w, float top, float width)
+    {
+        if (logo == null) logo = Resources.Load<Texture2D>("Valikko/logo");
+        if (logo == null) return 0f;
+        float lh = width * logo.height / logo.width;
+        GUI.color = Color.white;
+        GUI.DrawTexture(new Rect((w - width) * 0.5f, top, width, lh), logo, ScaleMode.ScaleToFit);
+        return lh;
+    }
 
     void Shadowed(Rect r, string text, GUIStyle st, Color c) => Outlined(r, text, st, c, Color.black, 2f * styleScale);
 
@@ -300,7 +311,8 @@ public class GameMenu : MonoBehaviour
 
         string head = page == Page.Title || page == Page.Difficulty ? gameTitle
                     : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T("ASETUKSET") : Loc.T("Lopetetaanko peli?");
-        Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
+        if (head != gameTitle || Logo(w, h * (page == Page.Difficulty ? 0.08f : 0.10f), w * 0.36f) <= 0f)
+            Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
         if (page == Page.Difficulty) Shadowed(new Rect(0, h * 0.27f, w, 60 * s), Loc.T("Valitse vaikeustaso"), headStyle, Color.white);
 
         var items = Items();
@@ -343,9 +355,10 @@ public class GameMenu : MonoBehaviour
     /// Alkuvalikko taustakuvan päällä: nimi ja valinnat alaosassa, ettei hahmojen kasvot peity.
     void DrawTitle(float w, float h, float s, Color gold)
     {
-        Title(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle);
+        float lh = Logo(w, h * 0.50f, w * 0.42f);
+        if (lh <= 0f) Title(new Rect(0, h * 0.56f, w, 130 * s), gameTitle, titleStyle);
         var items = Items();
-        float y0 = h * 0.69f, step = 58 * s;
+        float y0 = lh > 0f ? h * 0.50f + lh + 18f * s : h * 0.69f, step = 58 * s;
         for (int i = 0; i < items.Length; i++)
         {
             bool on = i == sel;
@@ -364,7 +377,7 @@ public class GameMenu : MonoBehaviour
     /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
     void DrawCharacters(float w, float h, float s, Color gold)
     {
-        Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
+        if (Logo(w, h * 0.05f, w * 0.30f) <= 0f) Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
         Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
         var pc = FindFirstObjectByType<PlayerController>();
         Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
