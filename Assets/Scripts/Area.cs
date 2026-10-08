@@ -24,6 +24,17 @@ public class Area : MonoBehaviour
     [Tooltip("Takaraja kohdittain (x maailmassa, suurin syvyys y), esim. terassin kaide. Tyhjä = maxDepthY kaikkialla. Välissä lineaarisesti.")]
     public Vector2[] depthLimits;
 
+    [Tooltip("Perspektiivi: hahmojen koko takaseinällä (maxDepthY) suhteessa eteen (minDepthY). 1 = ei perspektiiviä (esim. syvä pokerihuone 0.85).")]
+    [Range(0.5f, 1f)] public float backScale = 1f;
+
+    /// Hahmon kuvan kerroin syvyydessä y nykyisellä alueella (takana pienempi).
+    public static float DepthScale(float y)
+    {
+        var a = Current;
+        if (a == null || a.backScale >= 0.999f || a.maxDepthY <= a.minDepthY) return 1f;
+        return Mathf.Lerp(1f, a.backScale, Mathf.InverseLerp(a.minDepthY, a.maxDepthY, y));
+    }
+
     /// Suurin sallittu syvyys kohdassa x (nykyisellä alueella).
     public static float MaxDepthAt(float x, float fallback)
     {

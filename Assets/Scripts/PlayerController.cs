@@ -688,6 +688,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites, flipSprites;
     [HideInInspector] public Sprite hurtSprite;
     int[] counterFramesOverride;
+    Vector3 bodyBaseScale;   // kuvan oma mittakaava (perspektiivi kertoo tämän)
     Vector3[] counterKeysOverride, counterKeysArtOverride;
     float[] counterSegsOverride;
     int[] counterPosesOverride;
@@ -2940,7 +2941,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (state == State.HiKick) pivotFix.x += hiKickArtOffset;
             if (body.flipX) pivotFix.x = -pivotFix.x;
         }
-        body.transform.localPosition = new Vector3(pivotFix.x + HitFx.ShakeOffset(shakeUntil), groundHeight + height - footOffset + pivotFix.y, 0f);
+        // perspektiivi (syvä huone): takana pienempi
+        float ds = Area.DepthScale(transform.position.y);
+        if (bodyBaseScale.x == 0f) bodyBaseScale = body.transform.localScale;
+        body.transform.localScale = new Vector3(bodyBaseScale.x * ds, bodyBaseScale.y * ds, bodyBaseScale.z);
+        pivotFix *= ds;
+        body.transform.localPosition = new Vector3(pivotFix.x + HitFx.ShakeOffset(shakeUntil), groundHeight + height - footOffset * ds + pivotFix.y, 0f);
         bool held = state == State.Grabbed || state == State.Thrown || state == State.Down;
         body.transform.localRotation = Quaternion.Euler(0f, 0f, held && !HasThrowSprites ? heldRot : 0f);
         if (shadow != null) shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
@@ -2952,7 +2958,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (shadow != null)
         {
             shadow.sortingOrder = order - 1;
-            float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f));
+            float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f)) * ds;
             shadow.transform.localScale = new Vector3(1.5f * s, 0.45f * s, 1f);
         }
     }

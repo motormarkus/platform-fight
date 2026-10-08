@@ -4748,6 +4748,7 @@ public static class BeatEmUpSetup
         var area = ReuseArea("Alue: Baari");   // sama alue säilyy uudelleenrakennuksessa
         area.areaName = "Baari";
         area.useSidewalk = false;
+        area.backScale = 0.85f;   // syvä huone: hahmot takaseinällä 85 % (ovi ei jää liian pieneksi)
         area.maxDepthY = top - (BarRoomWallRow + PokerRoomOffset.y) / ppu;
         float bottom = top - hU;
         area.minDepthY = bottom + 0.7f;

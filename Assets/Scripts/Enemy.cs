@@ -1909,7 +1909,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float bounce = AttackJumpLift();
         if (state == State.Down && slamLanded && stateTime >= SlamImpactTime && stateTime < SlamImpactTime + SlamBounceTime)
             bounce = Mathf.Sin((stateTime - SlamImpactTime) / SlamBounceTime * Mathf.PI) * 0.3f;   // pomppu iskun jälkeen
-        float vs = visualScale * StateArtScale();
+        float ds = Area.DepthScale(transform.position.y);   // perspektiivi (syvä huone): takana pienempi
+        float vs = visualScale * StateArtScale() * ds;
         pivotFix *= vs;
         body.transform.localScale = new Vector3(vs, vs, 1f);
         body.transform.localPosition = new Vector3(pivotFix.x + shake, groundHeight + height + bounce - footOffset + pivotFix.y, 0f);
@@ -1932,7 +1933,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             shadow.sortingOrder = order - 1;
             shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
-            float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f));
+            float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f)) * ds;
             shadow.transform.localScale = new Vector3(1.6f * s, 0.48f * s, 1f);
             shadow.enabled = state != State.Dead || body.enabled;
         }
