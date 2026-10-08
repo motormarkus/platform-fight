@@ -3938,15 +3938,21 @@ public static class BeatEmUpSetup
 
     // ---------------- Kadun baarin pöydät, tuolit ja tappelijat ----------------
     // baarin kuvan pikseleinä: x ja syvyys 0 = takaraja … 1 = kuvan lattian alareuna
-    static readonly Vector2[] StreetBarTables = { new Vector2(1960f, 0.8f), new Vector2(2450f, 1.05f), new Vector2(2900f, 0.75f), new Vector2(2200f, 1.45f),
+    static readonly Vector2[] StreetBarTables = { new Vector2(2600f, 1.05f), new Vector2(2900f, 0.75f), new Vector2(2200f, 1.45f),
                                                   // alaosa (lattia eturivissä, myös tiskin edessä)
-                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2800f, 1.35f), new Vector2(3250f, 1.9f) };
+                                                  new Vector2(760f, 1.22f), new Vector2(1420f, 1.25f), new Vector2(2450f, 1.75f), new Vector2(1600f, 1.9f) };
+    // snookerpöydät (etujalkojen keskikohta): sohvien edessä ja oikealla edessä
+    static readonly Vector2[] StreetBarSnooker = { new Vector2(2050f, 0.95f), new Vector2(3050f, 1.9f) };
+    // kyltit baarin kuvan pikseleinä (keskikohta x, rivi; leveys px): Samperi's Snooker sohvien yläpuolelle, Poker night pokerihuoneen teräsoven yläpuolelle
+    static readonly Vector3 StreetBarSnookerSign = new Vector3(1820f, 205f, 330f), StreetBarPokerSign = new Vector3(3300f, 110f, 150f);
+    // kadulla (kadun kuvasarjan pikseleinä): Samperi's Snooker BAR-oven yläpuolelle parvekkeiden väliin, Poker night oven oikeaan ikkunaan
+    static readonly Vector3 StreetSnookerSign = new Vector3(2263f, 193f, 260f), StreetPokerSign = new Vector3(2543f, 400f, 92f);
     static readonly (string who, Vector2 at)[] StreetBarFighters = {
         ("Kovis", new Vector2(2080f, 0.62f)), ("Kovis", new Vector2(2700f, 0.8f)), ("Prätkäjätkä", new Vector2(2600f, 0.2f)),
-        ("Punkkari", new Vector2(1870f, 0.78f)), ("Punkkari", new Vector2(3060f, 0.6f)),
+        ("Punkkari", new Vector2(1650f, 0.8f)), ("Punkkari", new Vector2(3060f, 0.6f)),
         ("Lippis", new Vector2(2300f, 0.35f)), ("Lippis", new Vector2(1750f, 0.45f)), ("Kovis", new Vector2(3150f, 1.0f)), ("Punkkari", new Vector2(2620f, 1.25f)),
         // baarin perälle eteen: prätkäjätkä ja puliukko (molemmat kaikkia vastaan)
-        ("Prätkäjätkä", new Vector2(3000f, 1.65f)), ("Puliukko", new Vector2(3420f, 1.55f)),
+        ("Prätkäjätkä", new Vector2(3450f, 1.95f)), ("Puliukko", new Vector2(3420f, 1.55f)),
         ("Rokkimimmi", new Vector2(1250f, 0.02f)),
         ("Prätkäjätkä", new Vector2(720f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
@@ -4040,7 +4046,7 @@ public static class BeatEmUpSetup
         return (bottles, glassN, chairs);
     }
 
-    [MenuItem("Beat em up/68. Kadun baari: pöydät, tuolit ja tappelijat (2 Kovista, prätkäjätkä, 2 Punkkaria)")]
+    [MenuItem("Beat em up/68. Kadun baari: pöydät, snookerpöydät, kyltit ja tappelijat")]
     static void AddStreetBarFurniture()
     {
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
@@ -4056,6 +4062,42 @@ public static class BeatEmUpSetup
         var root = new GameObject("Kadun baarin kalusteet");
         Undo.RegisterCreatedObjectUndo(root, "Kadun baarin kalusteet");
         var (bottles, glassN, chairs) = AddBottleTables(root.transform, StreetBarTables.Select(v => new Vector3(X(v.x), Depth(v.x, v.y), 0f)), 23);
+        // snookerpöydät palloineen ja keppeineen (kuten pokerihuoneessa)
+        int snooker = 0;
+        foreach (var v in StreetBarSnooker) if (AddSnookerTable(root.transform, new Vector2(X(v.x), Depth(v.x, v.y)), PokerPoolWidth) != null) snooker++;
+        // kyltit: sisällä seinillä, kadulla oven yläpuolella ja ikkunassa (jokaisessa kadun kuvasarjassa, kuten BAR-ovi)
+        var signSnooker = ImportPropCentered("Assets/Sprites/Rekvisiitta/kyltti_samperis_snooker.png");
+        var signPoker = ImportPropCentered("Assets/Sprites/Rekvisiitta/kyltti_poker_night.png");
+        void Sign(Transform parent, Sprite sp, Vector2 at, float width, string signName)
+        {
+            if (sp == null) return;
+            var sgo = new GameObject(signName); sgo.transform.SetParent(parent, false);
+            sgo.transform.position = new Vector3(at.x, at.y, 0f);
+            float sc = width / sp.bounds.size.x; sgo.transform.localScale = new Vector3(sc, sc, 1f);
+            var ssr0 = sgo.AddComponent<SpriteRenderer>(); ssr0.sprite = sp; ssr0.sortingOrder = -9995;   // taustan päällä, hahmojen takana
+        }
+        float Row(float row) => top - row / ppu;
+        Sign(root.transform, signSnooker, new Vector2(X(StreetBarSnookerSign.x), Row(StreetBarSnookerSign.y)), StreetBarSnookerSign.z / ppu, "Kyltti: Samperi's Snooker");
+        Sign(root.transform, signPoker, new Vector2(X(StreetBarPokerSign.x), Row(StreetBarPokerSign.y)), StreetBarPokerSign.z / ppu, "Kyltti: Poker night");
+        var oldOut = GameObject.Find("Kadun baarin kyltit");
+        if (oldOut != null) Undo.DestroyObjectImmediate(oldOut);
+        var street = GameObject.Find("Tausta");
+        int outSigns = 0;
+        if (street != null)
+        {
+            var outRoot = new GameObject("Kadun baarin kyltit");
+            Undo.RegisterCreatedObjectUndo(outRoot, "Kadun baarin kyltit");
+            var ssr = street.GetComponent<SpriteRenderer>();
+            float sLeft = ssr.bounds.min.x, sTop = ssr.bounds.max.y;
+            int sets = Mathf.RoundToInt(ssr.size.x / (StreetSetPx / BackgroundPPU));
+            for (int i = 0; i < sets; i++)
+            {
+                float ox = sLeft + i * StreetSetPx / BackgroundPPU;
+                Sign(outRoot.transform, signSnooker, new Vector2(ox + StreetSnookerSign.x / BackgroundPPU, sTop - StreetSnookerSign.y / BackgroundPPU), StreetSnookerSign.z / BackgroundPPU, "Samperi's Snooker " + (i + 1));
+                Sign(outRoot.transform, signPoker, new Vector2(ox + StreetPokerSign.x / BackgroundPPU, sTop - StreetPokerSign.y / BackgroundPPU), StreetPokerSign.z / BackgroundPPU, "Poker night (ikkuna) " + (i + 1));
+                outSigns++;
+            }
+        }
 
         // tappelijat: Kovikset ja Punkkarit samaa porukkaa (eivät lyö toisiaan, käyvät prätkäjätkän kimppuun), prätkäjätkä kaikkia vastaan
         var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -4141,7 +4183,7 @@ public static class BeatEmUpSetup
             names.Add("vakioasiakas (ei tappele)");
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Kadun baariin {StreetBarTables.Length} pöytää ({bottles} pulloa, {glassN} lasia) ja {chairs} tuolia.\nTappelijat: {string.Join(", ", names)}." +
+        Info($"Kadun baariin {StreetBarTables.Length} pöytää ({bottles} pulloa, {glassN} lasia), {chairs} tuolia ja {snooker} snookerpöytää.\nKyltit: sisällä Samperi's Snooker ja Poker night, kadulla {outSigns} oven yläpuolelle ja ikkunaan.\nTappelijat: {string.Join(", ", names)}." +
              (guardGo != null ? "\nPortsari tulee ovelta mukaan, kun tappelu alkaa." : "\nPortsari puuttuu: aja kohta 67.") + "\n\nTallenna scene (Ctrl+S).");
     }
 
@@ -4393,6 +4435,7 @@ public static class BeatEmUpSetup
     static readonly Vector2[] PokerTablePx = { new Vector2(-220f, 800f), new Vector2(1760f, 820f), new Vector2(240f, 1080f), new Vector2(1360f, 1090f) };
     // sivuseinien jalat (huoneen koordinaatit): vasen seinä kulmasta kuvan reunaan, samoin oikea
     static readonly Vector2 PokerPoolPx = new Vector2(768f, 1560f);   // biljardipöydän etujalkojen keskikohta (huoneen koordinaatit)
+    static readonly Vector2[] PokerKovisPx = { new Vector2(250f, 1250f), new Vector2(1350f, 1300f) };   // kaksi Kovista etuosassa (huoneen koordinaatit)
     const float PokerPoolWidth = 6.0f;                                  // yksikköä: selvästi pullopöytiä isompi (snooker)
     static readonly Vector2 PokerLeftWallEdge = new Vector2(-850f, 730f), PokerLeftWallCorner = new Vector2(-420f, 545f);
     static readonly Vector2 PokerRightWallCorner = new Vector2(2020f, 545f), PokerRightWallEdge = new Vector2(2451f, 780f);
@@ -4542,6 +4585,83 @@ public static class BeatEmUpSetup
         return e;
     }
 
+    /// Snookerpöytä (biljardipoyta.png): kiinteä este (hypyllä yli), 8 punaista + värit + valkoinen (poimittavia ja heitettäviä
+    /// kuten pullot) ja keppi verkalla (ase, kestää 3 lyöntiä). pos = etujalkojen keskikohta, width = leveys yksiköinä.
+    static GameObject AddSnookerTable(Transform parent, Vector2 pos, float width)
+    {
+        var poolSprite = ImportProp("Assets/Sprites/Rekvisiitta/biljardipoyta.png");
+        if (poolSprite == null) return null;
+        var pgo = new GameObject("Biljardipöytä");
+        pgo.transform.SetParent(parent, false);
+        pgo.transform.position = new Vector3(pos.x, pos.y, 0f);
+        var psr0 = new GameObject("Visual").AddComponent<SpriteRenderer>(); psr0.transform.SetParent(pgo.transform, false);
+        psr0.sprite = poolSprite;
+        float pk = width / poolSprite.bounds.size.x;
+        psr0.transform.localScale = new Vector3(pk, pk, 1f);
+        var psh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); psh.transform.SetParent(pgo.transform, false);
+        psh.sprite = PlayerController.CreateShadowSprite(); psh.color = new Color(0f, 0f, 0f, 0.35f);
+        psh.transform.localPosition = new Vector3(0f, 0.37f, 0f); psh.transform.localScale = new Vector3(width * 1.05f, 0.9f, 1f);
+        psh.sortingOrder = -9000;
+        var ob = pgo.AddComponent<Obstacle>(); ob.body = psr0; ob.halfWidth = width * 0.48f; ob.depth = 0.75f;
+        // pallot (snooker: 15 punaista kolmiossa + valkoinen) ja keppi pöydän verkalla
+        var tops = new List<SpriteRenderer>();
+        System.Func<float, float, Vector3> cloth = (ix, iy) => new Vector3((ix - poolSprite.rect.width * 0.5f) / poolSprite.pixelsPerUnit * pk, (poolSprite.rect.height - iy) / poolSprite.pixelsPerUnit * pk, 0f);
+        SpriteRenderer Put(Sprite sp, Vector3 lp, float size, float rot = 0f)
+        {
+            var r0 = new GameObject(sp.name).AddComponent<SpriteRenderer>(); r0.transform.SetParent(pgo.transform, false);
+            r0.sprite = sp; r0.transform.localPosition = lp; r0.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
+            float sc = size / sp.bounds.size.x; r0.transform.localScale = new Vector3(sc, sc, 1f);
+            tops.Add(r0); return r0;
+        }
+        // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella.
+        // Pallot ovat poimittavia (L2, kuten pullo) ja heitettäviä: lentävät kauas, eivät hajoa.
+        Sprite Ball(string ballName) => ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_" + ballName + ".png");
+        const float BallSize = 0.16f;
+        float midLocalY = cloth(800f, 245f).y;
+        void AddBall(Sprite bs, Vector3 local)
+        {
+            // maan kohta (syvyys) pöydän sisällä, korkeus = pallon alareuna verkalla
+            float depthOff = 0.37f + (local.y - midLocalY);
+            var bgo = new GameObject("Snookerpallo " + bs.name);
+            bgo.transform.SetParent(pgo.transform, false);
+            var b = bgo.AddComponent<Bottle>();
+            b.sprites = new[] { bs };
+            b.ball = true; b.pivotY = 0f; b.scale = BallSize / bs.bounds.size.x;
+            b.throwDamage = 14; b.throwSpeed = 22f;
+            b.restOnRenderer = psr0; b.pickRangeX = 1.0f; b.pickRangeY = 1.1f;
+            bgo.transform.position = new Vector3(pgo.transform.position.x + local.x, pgo.transform.position.y + depthOff, 0f);
+            b.restHeight = pgo.transform.position.y + local.y - BallSize * 0.5f - bgo.transform.position.y;
+        }
+        var red = Ball("punainen");
+        Vector3 apex = cloth(1180f, 245f);
+        if (red != null)
+        {
+            int[] rowCount = { 1, 2, 3, 2 };
+            for (int row = 0; row < rowCount.Length; row++)
+                for (int j = 0; j < rowCount[row]; j++)
+                {
+                    float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.5f;
+                    AddBall(red, apex + new Vector3(row * BallSize * 0.87f, ly, 0f));
+                }
+        }
+        foreach (var (bn, ix, dy) in new[] { ("pinkki", 1150f, 0f), ("musta", 1500f, 0f), ("sininen", 880f, 0f),
+                                            ("ruskea", 470f, 0f), ("keltainen", 470f, -0.18f), ("vihrea", 470f, 0.18f), ("valkoinen", 360f, 0.08f) })
+        {
+            var bsp = Ball(bn);
+            if (bsp != null) AddBall(bsp, new Vector3(cloth(ix, 245f).x, midLocalY + dy * 0.5f, 0f));
+        }
+        var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
+        if (cue != null)
+        {
+            var cueR = Put(cue, cloth(700f, 300f), width * 0.42f, -4f);
+            var cueC = cueR.gameObject.AddComponent<Cue>(); cueC.body = cueR;
+            cueC.breakSounds = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+                .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+        }
+        ob.onTop = tops.ToArray();
+        return pgo;
+    }
+
     [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)")]
     static void CreateBarRoom()
     {
@@ -4664,77 +4784,21 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(tables, "Pokerihuoneen pöydät");
         var tableInfo = AddBottleTables(tables.transform, PokerTablePx.Select(v => { var q = pt(v.x, v.y); return new Vector3(q.x, q.y, 0f); }), 31);
         // iso biljardipöytä (snooker) huoneen etuosaan: kiinteä este, hypyllä yli
-        var poolSprite = ImportProp("Assets/Sprites/Rekvisiitta/biljardipoyta.png");
-        if (poolSprite != null)
+        // kaksi Kovista huoneen etuosassa: tappelua sillä aikaa, kun jätkät pelaavat korttia
+        var kovisT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.name == "Kovis");
+        int pokerKovis = 0;
+        if (kovisT != null)
+            foreach (var kp in PokerKovisPx)
+            {
+                var kgo = Object.Instantiate(kovisT.gameObject, tables.transform);
+                kgo.name = "Kovis (pokerihuone) " + (++pokerKovis);
+                Vector2 kq = pt(kp.x, kp.y);
+                kgo.transform.position = new Vector3(kq.x, kq.y, 0f);
+                var ke = kgo.GetComponent<Enemy>(); ke.wakeDistance = 7f; ke.joinsFightWhenSquadComes = false;
+                kgo.SetActive(true);
+            }
+        if (AddSnookerTable(tables.transform, pt(PokerPoolPx.x, PokerPoolPx.y), PokerPoolWidth) != null)
         {
-            var pgo = new GameObject("Biljardipöytä");
-            pgo.transform.SetParent(tables.transform, false);
-            Vector2 pp0 = pt(PokerPoolPx.x, PokerPoolPx.y);
-            pgo.transform.position = new Vector3(pp0.x, pp0.y, 0f);
-            var psr0 = new GameObject("Visual").AddComponent<SpriteRenderer>(); psr0.transform.SetParent(pgo.transform, false);
-            psr0.sprite = poolSprite;
-            float pk = PokerPoolWidth / poolSprite.bounds.size.x;
-            psr0.transform.localScale = new Vector3(pk, pk, 1f);
-            var psh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); psh.transform.SetParent(pgo.transform, false);
-            psh.sprite = PlayerController.CreateShadowSprite(); psh.color = new Color(0f, 0f, 0f, 0.35f);
-            psh.transform.localPosition = new Vector3(0f, 0.37f, 0f); psh.transform.localScale = new Vector3(PokerPoolWidth * 1.05f, 0.9f, 1f);
-            psh.sortingOrder = -9000;
-            var ob = pgo.AddComponent<Obstacle>(); ob.body = psr0; ob.halfWidth = PokerPoolWidth * 0.48f; ob.depth = 0.75f;
-            // pallot (snooker: 15 punaista kolmiossa + valkoinen) ja keppi pöydän verkalla
-            var tops = new List<SpriteRenderer>();
-            System.Func<float, float, Vector3> cloth = (ix, iy) => new Vector3((ix - poolSprite.rect.width * 0.5f) / poolSprite.pixelsPerUnit * pk, (poolSprite.rect.height - iy) / poolSprite.pixelsPerUnit * pk, 0f);
-            SpriteRenderer Put(Sprite sp, Vector3 lp, float size, float rot = 0f)
-            {
-                var r0 = new GameObject(sp.name).AddComponent<SpriteRenderer>(); r0.transform.SetParent(pgo.transform, false);
-                r0.sprite = sp; r0.transform.localPosition = lp; r0.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
-                float sc = size / sp.bounds.size.x; r0.transform.localScale = new Vector3(sc, sc, 1f);
-                tops.Add(r0); return r0;
-            }
-            // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella.
-            // Pallot ovat poimittavia (L2, kuten pullo) ja heitettäviä: lentävät kauas, eivät hajoa.
-            Sprite Ball(string ballName) => ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_" + ballName + ".png");
-            const float BallSize = 0.16f;
-            float midLocalY = cloth(800f, 245f).y;
-            void AddBall(Sprite bs, Vector3 local)
-            {
-                // maan kohta (syvyys) pöydän sisällä, korkeus = pallon alareuna verkalla
-                float depthOff = 0.37f + (local.y - midLocalY);
-                var bgo = new GameObject("Snookerpallo " + bs.name);
-                bgo.transform.SetParent(pgo.transform, false);
-                var b = bgo.AddComponent<Bottle>();
-                b.sprites = new[] { bs };
-                b.ball = true; b.pivotY = 0f; b.scale = BallSize / bs.bounds.size.x;
-                b.throwDamage = 14; b.throwSpeed = 22f;
-                b.restOnRenderer = psr0; b.pickRangeX = 1.0f; b.pickRangeY = 1.1f;
-                bgo.transform.position = new Vector3(pgo.transform.position.x + local.x, pgo.transform.position.y + depthOff, 0f);
-                b.restHeight = pgo.transform.position.y + local.y - BallSize * 0.5f - bgo.transform.position.y;
-            }
-            var red = Ball("punainen");
-            Vector3 apex = cloth(1180f, 245f);
-            if (red != null)
-            {
-                int[] rowCount = { 1, 2, 3, 2 };
-                for (int row = 0; row < rowCount.Length; row++)
-                    for (int j = 0; j < rowCount[row]; j++)
-                    {
-                        float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.5f;
-                        AddBall(red, apex + new Vector3(row * BallSize * 0.87f, ly, 0f));
-                    }
-            }
-            foreach (var (bn, ix, dy) in new[] { ("pinkki", 1150f, 0f), ("musta", 1500f, 0f), ("sininen", 880f, 0f),
-                                                ("ruskea", 470f, 0f), ("keltainen", 470f, -0.18f), ("vihrea", 470f, 0.18f), ("valkoinen", 360f, 0.08f) })
-            {
-                var bsp = Ball(bn);
-                if (bsp != null) AddBall(bsp, new Vector3(cloth(ix, 245f).x, midLocalY + dy * 0.5f, 0f));
-            }
-            var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
-            if (cue != null)
-            {
-                var cueR = Put(cue, cloth(700f, 300f), PokerPoolWidth * 0.42f, -4f);
-                var cueC = cueR.gameObject.AddComponent<Cue>(); cueC.body = cueR;
-                cueC.breakSounds = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
-                    .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
-            }
             // Roccon keppikuvat (seisonta keppi kädessä)
             var pcCue = Object.FindFirstObjectByType<PlayerController>();
             string kip = FindTexture("keppi_idle");
@@ -4750,7 +4814,6 @@ public static class BeatEmUpSetup
                 pcCue.cueSwingBSprites = LoadSprites("keppi_lyonti_b").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
                 EditorUtility.SetDirty(pcCue);
             }
-            ob.onTop = tops.ToArray();
         }
 
         // ovet: baarin oikean nurkan teräsovesta (E) pokerihuoneeseen, pokerihuoneen teräsovesta takaisin baariin
@@ -4878,7 +4941,7 @@ public static class BeatEmUpSetup
         else fightInfo = "\nTappelu puuttuu: tarvitaan " + PokerFightBgPath + " ja pokerin idle-kuvat.";
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
-        Info($"Pokerihuone luotu (pokeri{(pp == null ? " PUUTTUU: baari_poker_idle.png" : "")}).\nBaarin oikean nurkan teräsovesta E: pokerihuoneeseen. Takaisin baariin vasemman reunan teräsovesta." + fightInfo + "\n\nTallenna scene (Ctrl+S).");
+        Info($"Pokerihuone luotu (pokeri{(pp == null ? " PUUTTUU: baari_poker_idle.png" : "")}, {pokerKovis} Kovista etuosassa).\nBaarin oikean nurkan teräsovesta E: pokerihuoneeseen. Takaisin baariin vasemman reunan teräsovesta." + fightInfo + "\n\nTallenna scene (Ctrl+S).");
     }
 
     // hyttiovi: Geminin videosta kohdistettu avautumissarja kannen kuvan päälle (laiva_ovi.png, 12 kuvaa 372 × 600)
