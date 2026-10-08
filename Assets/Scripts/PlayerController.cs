@@ -386,7 +386,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         pendulumHit = false; pendulumQueued = false; attackHit = false;
         if (Time.time - downFwdTime <= 0.35f) facingRight = downFwdDir >= 0f;
         downFwdTime = -9f;
-        PlayGrunt();
+        PlayGruntSpecial();
         Enter(State.Pendulum);
     }
 
@@ -599,6 +599,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public AudioClip[] hurtSounds;
         [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
         public AudioClip[] attackGrunts;
+        [Tooltip("Rubyn erikoisliikkeiden ja yksittäisten potkujen äänet (rubyspecial*).")]
+        public AudioClip[] specialGrunts;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -658,7 +660,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         soloKnock = b;
         attackHit = false;
         attackLunge = ChaseLunge(b ? 0.25f : 0.35f, soloReach);
-        PlayGrunt();
+        PlayGruntMixed();
         Enter(State.SoloKick);
     }
     [Header("Rinnuksista-lyönnit (Ruby: kaksi kertaa eteen + lyönti, myös kombon keskellä)")]
@@ -700,7 +702,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         facingRight = dir > 0;
         pummelTarget = null; pummelCount = 0; pummelJolt = 0f;
         attackHit = false;
-        PlayGrunt();
+        PlayGruntSpecial();
         Enter(State.Pummel);
     }
 
@@ -910,6 +912,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         pummelSprites = a.pummel;
         if (a.hurtSounds != null && a.hurtSounds.Length > 0) hurtSounds = a.hurtSounds;          // Rubyn omat äänet
         if (a.attackGrunts != null && a.attackGrunts.Length > 0) attackGrunts = a.attackGrunts;
+        specialGrunts = a.specialGrunts;
         pummelBigSprites = a.pummelBig != null && a.pummelBig.Length >= 6 ? a.pummelBig : null;
         pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
@@ -1142,7 +1145,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0 && UseStamina(specialStamina))
                 {
-                    Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGrunt(); break;
+                    Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGruntSpecial(); break;
                 }
                 Walk(move, dt);
                 break;
@@ -1759,6 +1762,30 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     AudioSource audioSource;
     int lastGrunt = -1;
+    AudioClip[] specialGrunts;   // Ruby: erikoisliikkeiden ja yksittäisten potkujen äänet
+
+    /// Erikoisliike: omat äänet, jos on (muuten tavallinen grunt).
+    void PlayGruntSpecial()
+    {
+        if (specialGrunts == null || specialGrunts.Length == 0) { PlayGrunt(); return; }
+        PlayFrom(specialGrunts);
+    }
+
+    /// Yksittäinen potku: satunnaisesti erikois- tai iskuääni.
+    void PlayGruntMixed()
+    {
+        if (specialGrunts == null || specialGrunts.Length == 0 || UnityEngine.Random.value < 0.5f) { PlayGrunt(); return; }
+        PlayFrom(specialGrunts);
+    }
+
+    void PlayFrom(AudioClip[] set)
+    {
+        if (audioSource == null) return;
+        var c = set[UnityEngine.Random.Range(0, set.Length)];
+        if (c == null) return;
+        audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
+        audioSource.PlayOneShot(c, gruntVolume);
+    }
 
     /// Soittaa satunnaisen gruntin (ei samaa kahdesti peräkkäin) pienellä sävelkorkeuden vaihtelulla.
     void PlayGrunt()
@@ -1911,7 +1938,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bigHookHit = false; attackHit = false; bigHookQueued = false;
         facingRight = downFwdDir >= 0f;
         downFwdTime = -9f;
-        PlayGrunt();
+        PlayGruntSpecial();
         Enter(State.BigHook);
         if (fromCombo) stateTime = ThrowPose.Start(CurBigHookTimes, bigHookComboIdx);
     }
@@ -2488,7 +2515,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void StartPush()
     {
         attackHit = false;
-        PlayGrunt();
+        PlayGruntSpecial();
         Enter(State.Push);
     }
 

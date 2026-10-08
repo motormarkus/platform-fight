@@ -420,6 +420,7 @@ public static class BeatEmUpSetup
         a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto"); a.pummel = L("rinnus"); a.pummelBig = L("rinnus_iso"); a.frontKick = L("etupotku"); a.backKick = L("takapotku"); a.power = L("voimalyonti"); a.pendulum = L("heiluripotku");
         a.hurtSounds = LoadClips("Assets/Audio/Ruby", "rubygasp");
         a.attackGrunts = LoadClips("Assets/Audio/Ruby", "rubyhit");
+        a.specialGrunts = LoadClips("Assets/Audio/Ruby", "rubyspecial");
         pc.heroine = a;
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
