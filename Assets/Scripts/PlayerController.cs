@@ -707,6 +707,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void StartKickChain(int idx, bool chained)
     {
         var k = kickChain[idx];
+        if (k.sp == null || k.sp.Length == 0 || k.t == null || k.t.Length == 0) return;   // kuvat puuttuvat: ei potkua
         chainIdx = idx; chainQueued = false;
         soloSet = k.sp; soloTimes = k.t; soloImpact = k.impact; soloDamage = k.damage; soloReach = k.reach; soloKnock = k.knock;
         kickComboIndex = idx; kickQueued = false;
@@ -722,6 +723,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         facingRight = dir > 0;
         bool b = back && backKickSprites != null && backKickSprites.Length >= 5;
         if (!b && kickChain != null) { StartKickChain(0, false); return; }   // eteen + potku = potkusarjan alku (etupotku)
+        if (!b && (frontKickSprites == null || frontKickSprites.Length == 0)) return;   // ei etupotkun kuvia (esim. takapotkun kuvat vajaat)
         chainIdx = -1; chainQueued = false;
         soloSet = b ? backKickSprites : frontKickSprites;
         // takapotku: 0 asento, 1–2 kääntyy, 3 potku (osuma), 4–5 paluu; etupotku: 0–2 nosto, 3–4 potku (osuma 4), 5–7 paluu
@@ -3185,6 +3187,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
             case State.SoloKick:
             {
+                if (soloSet == null || soloSet.Length == 0) return Action(F_PUNCH);
                 int i = ThrowPose.Index(soloTimes, stateTime);
                 return soloSet[i < 0 ? soloSet.Length - 1 : Mathf.Min(i, soloSet.Length - 1)];
             }
