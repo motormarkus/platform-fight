@@ -1105,6 +1105,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pushPressed = !Scripted && PushPressed();
         bool blockHeld = !Scripted && BlockHeld();
         bool catchPressed = !Scripted && CatchPressed();
+        bool catchReleased = !Scripted && CatchReleased();
+        bool picking = state == State.SmallPick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
+        if (catchPressed) throwQueued = false;
+        if (catchReleased && picking) throwQueued = true;
+        bool releaseThrow = catchReleased || throwQueued;   // pidä pohjassa = kanna, päästä irti = heitä
 
         UpdateGroundHeight(dt);
 
@@ -1149,6 +1154,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel) { quickReach = true; Enter(State.Catch); break; }   // Ruby: nopea ojennus tyhjään (ei pitkää pysähdystä)
                 }
+                if (Bottle.Held != null && releaseThrow) { throwQueued = false; punchPressed = true; }   // pullo: irti = heitto
                 if (punchPressed && Bottle.Held != null)
                 {
                     // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
@@ -1487,7 +1493,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 if (LifeRing.Held == null) { Enter(State.Ground); break; }
                 if (punchPressed && HasRingSmash) { ringResolved = false; PlayGrunt(); Enter(State.RingSmash); break; }   // rengas vihun päähän
-                if (kickPressed || catchPressed || punchPressed) { ringResolved = false; PlayGrunt(); Enter(State.RingThrow); break; }
+                if (kickPressed || releaseThrow || punchPressed) { throwQueued = false; ringResolved = false; PlayGrunt(); Enter(State.RingThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
                 if (moving)
                 {
@@ -1516,7 +1522,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 if (Chair.Held == null) { Enter(State.Ground); break; }
                 if (punchPressed) { chairResolved = false; PlayGrunt(); Enter(State.ChairSwing); break; }
-                if (kickPressed || catchPressed) { chairResolved = false; PlayGrunt(); Enter(State.ChairThrow); break; }
+                if (kickPressed || releaseThrow) { throwQueued = false; chairResolved = false; PlayGrunt(); Enter(State.ChairThrow); break; }
                 moving = move.sqrMagnitude > 0.01f;
                 if (moving)
                 {
@@ -1582,8 +1588,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Carry:
                 if (carried == null && TvSet.Held == null) { Enter(State.Ground); break; }
-                if (punchPressed || kickPressed || catchPressed || pushPressed)
+                if (punchPressed || kickPressed || releaseThrow || pushPressed)
                 {
+                    throwQueued = false;
                     crateReleased = false;
                     stamina = Mathf.Max(0f, stamina - throwStamina); staminaRest = staminaRegenWait;
                     PlayGrunt();
@@ -3228,12 +3235,24 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool CatchPressed() => CatchInput();
 
-    /// Nappaus/nosto/heitto-nappi (O / ohjaimen vasen olkanappi, ennen erikoisliike), myös muiden skriptien käyttöön (esim. kiskaisu prätkän selästä).
+    /// Kiinniottonappi päästettiin irti tässä ruudussa (esineen heitto).
+    static bool CatchReleased()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.oKey.wasReleasedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.leftTrigger.wasReleasedThisFrame);
+#else
+        return Input.GetKeyUp(KeyCode.O);
+#endif
+    }
+    bool throwQueued;   // nappi päästettiin jo noston aikana: heitto heti, kun esine on käsissä
+
+    /// Nappaus/nosto-nappi (O / ohjaimen vasen liipaisin L2), myös muiden skriptien käyttöön. Esine pysyy kädessä niin kauan kuin nappi on pohjassa: irti = heitto.
     public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.oKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame);
+            || (Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame);
 #else
         return Input.GetKeyDown(KeyCode.O);
 #endif
@@ -3243,7 +3262,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.iKey.isPressed)
-            || (Gamepad.current != null && Gamepad.current.leftTrigger.isPressed);
+            || (Gamepad.current != null && Gamepad.current.leftShoulder.isPressed);   // suojaus / parry: L1
 #else
         return Input.GetKey(KeyCode.I);
 #endif
