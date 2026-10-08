@@ -1235,7 +1235,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     int kd = move.x > 0f ? 1 : -1;
                     bool back = (kd > 0) != facingRight || Time.time - lastTurnTime <= 0.2f;
                     // takapotku osuu eteen (alkuperäiseen katsomissuuntaan): Ruby kääntyy kuvissa ja potkaisee selkä edellä
-                    if ((back && backKickSprites != null) || (!back && frontKickSprites != null)) { StartSoloKick(back, back ? -kd : kd); break; }
+                    if ((back && backKickSprites != null && backKickSprites.Length >= 5) || (!back && frontKickSprites != null && frontKickSprites.Length > 0)) { StartSoloKick(back, back ? -kd : kd); break; }
                 }
                 if (kickPressed)
                 {
