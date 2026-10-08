@@ -204,9 +204,22 @@ public class Motorbike : MonoBehaviour
 
     float Dir => facingRight ? 1f : -1f;
 
+    Sprite[] roccoRide, roccoMount, roccoGrab;
+    /// Ruby: omat ajo-, nousu- ja kiskaisukuvat (sama pyörän runko), jos ne on asetettu.
+    void UseCharacterSprites()
+    {
+        if (roccoRide == null) { roccoRide = rideSprites; roccoMount = mountSprites; roccoGrab = grabSprites; }
+        var h = pc != null && GameSettings.Character == 1 ? pc.heroine : null;
+        bool ruby = h != null && h.bikeRide != null && h.bikeRide.Length > 0 && h.bikeMount != null && h.bikeMount.Length > 0;
+        rideSprites = ruby ? h.bikeRide : roccoRide;
+        mountSprites = ruby ? h.bikeMount : roccoMount;
+        grabSprites = ruby && h.bikeGrab != null && h.bikeGrab.Length >= 10 ? h.bikeGrab : roccoGrab;
+    }
+
     IEnumerator Mount()
     {
         busy = true; active = this; near = false;
+        UseCharacterSprites();
         pc.Riding = true;
         pc.enabled = false;
         Vector3 me = transform.position;
