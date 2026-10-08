@@ -375,12 +375,17 @@ public class GameMenu : MonoBehaviour
     }
 
     /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
+    int lastCharSel = -1; float charSelT;
+
     void DrawCharacters(float w, float h, float s, Color gold)
     {
         if (Logo(w, h * 0.05f, w * 0.30f) <= 0f) Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
         Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
         var pc = FindFirstObjectByType<PlayerController>();
         Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
+        var hr = pc != null ? pc.heroine : null;
+        Sprite[][] combos = { pc != null ? pc.HeroCombo : null, hr != null ? PlayerController.ComboFrames(hr.jab, hr.cross, hr.leadHook, hr.rearHook) : null };
+        if (sel != lastCharSel) { lastCharSel = sel; charSelT = Time.unscaledTime; }
         string[] names = { "Rocco", HeroineName() };
         float boxW = w * 0.3f, boxH = h * 0.44f, top = h * 0.29f;
         for (int k = 0; k < 2; k++)
@@ -391,7 +396,15 @@ public class GameMenu : MonoBehaviour
             if (set != null && set.Length > 0)
             {
                 Sprite sp = on ? set[(int)(Time.unscaledTime / 0.15f) % set.Length] : set[0];
-                DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f));
+                // valittu hahmo lyö kombon heti valittaessa ja sitten n. 4 s välein, välillä idle
+                var cb = combos[k];
+                if (on && cb != null && cb.Length > 0)
+                {
+                    float ct = (Time.unscaledTime - charSelT) % 4.5f;
+                    int ci = (int)(ct / 0.06f);
+                    if (ci < cb.Length) sp = cb[ci];
+                }
+                DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f), set[0]);
             }
             else Shadowed(new Rect(cx - boxW * 0.5f, top, boxW, boxH), "?", titleStyle, new Color(0.5f, 0.5f, 0.5f));
             Item(new Rect(cx - boxW * 0.5f, top + boxH + 6 * s, boxW, 66 * s), names[k].ToUpper(), on);
@@ -403,14 +416,19 @@ public class GameMenu : MonoBehaviour
     }
 
     /// Piirtää spriten laatikkoon jalat alareunassa, mittasuhteet säilyttäen (flip = peilikuva).
-    static void DrawSprite(Rect box, Sprite sp, bool flip, Color tint)
+    /// Piirtää spriten laatikkoon. Mittakaava tulee vertailukuvasta (ref, esim. idlen 1. kuva), jotta eri kokoiset
+    /// ruudut (kombon kuvat, poikkeava idle-ruutu) näkyvät samassa koossa; jalat (pivot) laatikon alareunan keskelle.
+    static void DrawSprite(Rect box, Sprite sp, bool flip, Color tint, Sprite reference = null)
     {
         if (sp == null || sp.texture == null) return;
         Texture2D tex = sp.texture;
         Rect tr = sp.textureRect;
-        float k = Mathf.Min(box.width / tr.width, box.height / tr.height);
-        float dw = tr.width * k, dh = tr.height * k;
-        var r = new Rect(box.x + (box.width - dw) * 0.5f, box.y + box.height - dh, dw, dh);
+        var rf = reference != null ? reference : sp;
+        float k = Mathf.Min(box.width / (rf.rect.width / rf.pixelsPerUnit), box.height / (rf.rect.height / rf.pixelsPerUnit));   // pikseliä / yksikkö
+        float dw = sp.rect.width / sp.pixelsPerUnit * k, dh = sp.rect.height / sp.pixelsPerUnit * k;
+        float px = sp.pivot.x / sp.rect.width;
+        if (flip) px = 1f - px;
+        var r = new Rect(box.center.x - dw * px, box.y + box.height - dh, dw, dh);
         var uv = new Rect(tr.x / tex.width, tr.y / tex.height, tr.width / tex.width, tr.height / tex.height);
         if (flip) uv = new Rect(uv.xMax, uv.y, -uv.width, uv.height);
         var old = GUI.color;

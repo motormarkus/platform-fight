@@ -638,6 +638,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float VoiceVolume => AppliedCharacter == 1 ? 0.9f : 1f;
     /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Rubyn kuvat vaihdetaan tilalle).
     public Sprite[] HeroIdle { get; private set; }
+    /// Roccon lyöntikombon kuvat peräkkäin (hahmonvalinnan esittely).
+    public Sprite[] HeroCombo { get; private set; }
+    /// Lyöntikombon kuvat yhdeksi sarjaksi (tyhjät ohitetaan).
+    public static Sprite[] ComboFrames(params Sprite[][] sets)
+    {
+        var l = new System.Collections.Generic.List<Sprite>();
+        foreach (var st in sets) if (st != null) foreach (var x in st) if (x != null) l.Add(x);
+        return l.ToArray();
+    }
     [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites, flipSprites;
     [HideInInspector] public Sprite hurtSprite;
     int[] counterFramesOverride;
@@ -1049,6 +1058,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(hiKickSprites);
         SortByFrameNumber(scissorSprites);
         SortByFrameNumber(carryWalkSprites);
+        if (punchCombo != null) HeroCombo = ComboFrames(System.Array.ConvertAll(punchCombo, c => c.HasAnimation ? c.sprites : null));
         if (GameSettings.Character == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
