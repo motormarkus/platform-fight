@@ -4437,7 +4437,7 @@ public static class BeatEmUpSetup
     // baari_poker_idle.png (33 kuvaa) ja baari_poker_idle2.png (36 kuvaa), 896 × 504, 12 fps, saumat ristihäivytetty,
     // yhteinen maski; solun vasen yläkulma kuvassa (392, 232).
     const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
-    const float PokerRoomPPU = 153.4f; // pokerihuoneen mittakaava: videon hahmot samankokoisia kuin hero (ennen 118 = 1.3 ×); kuva 3301 px = 21.5 yks
+    const float PokerRoomPPU = 139.5f; // pokerihuoneen mittakaava: huone ja videon hahmot 10 % isompia kuin 153.4:llä (ennen 118 = 1.3 × hero); kuva 3299 px = 23.6 yks
     // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
     static readonly Vector2 PokerRoomOffset = new Vector2(848f, 311f);   // uusi laajennus sivuseinineen (alkuperäinen huone liitetty takaisin)
     // pullopöydät huoneen koordinaateissa (x, rivi): vasen ja oikea laajennus sekä lattia edessä
