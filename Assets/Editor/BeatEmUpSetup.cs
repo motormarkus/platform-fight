@@ -418,7 +418,7 @@ public static class BeatEmUpSetup
         a.counterThrow = L("heitto"); a.block = L("suojaus");
         a.thrown = L("heitetty"); a.fall = L("kaatuminen"); a.getup = L("ylosnousu");
         a.smallItem = L("pullonosto"); a.bigLift = L("isonosto"); a.bigThrow = L("isoheitto"); a.bigCarry = L("isokanto"); a.pummel = L("rinnus"); a.pummelBig = L("rinnus_iso"); a.frontKick = L("etupotku"); a.backKick = L("takapotku"); a.power = L("voimalyonti"); a.pendulum = L("heiluripotku");
-        a.chairPick = L("tuoli_nosto"); a.chairThrow = L("tuoli_heitto"); a.chairSwing = L("tuoli_lyonti"); a.chairSwingBare = L("tuoli_lyonti_tyhja");
+        a.chairPick = L("tuoli_nosto"); a.chairThrow = L("tuoli_heitto"); a.chairSwing = L("tuoli_lyonti"); a.chairSwingBare = L("tuoli_lyonti_tyhja"); a.chairWalk = L("tuoli_kavely");
         a.hurtSounds = LoadClips("Assets/Audio/Ruby", "rubygasp");
         a.attackGrunts = LoadClips("Assets/Audio/Ruby", "rubyhit");
         a.specialGrunts = LoadClips("Assets/Audio/Ruby", "rubyspecial");

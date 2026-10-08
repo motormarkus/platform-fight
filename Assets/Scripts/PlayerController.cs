@@ -598,7 +598,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] power;
         [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
         public Sprite[] pendulum;
-        public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare;   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
+        public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare, chairWalk;   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
         [Tooltip("Rubyn kipuäänet osumasta (rubygasp1–3).")]
         public AudioClip[] hurtSounds;
         [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
@@ -969,6 +969,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             chairPickSprites = a.chairPick;
             chairHoldSprites = new[] { a.chairPick[3], a.chairPick[4] };
+            chairWalkSprites = a.chairWalk != null && a.chairWalk.Length > 0 ? a.chairWalk : null;
             chairSwingSprites = a.chairSwing; chairSmashSprites = a.chairSwingBare; chairThrowSprites = a.chairThrow;
         }
         ringTakeSprites = ringThrowSprites = ringSmashSprites = ringWalkSprites = ringIdleSprites = ringPickSprites = null;
