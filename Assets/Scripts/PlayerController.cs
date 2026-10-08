@@ -331,8 +331,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] cueSwingBSprites;
     public int cueDamage = 16, cueDamage2 = 20;
     public float cueReach = 3.0f;
-    static readonly float[] CueSwingATimes = { 0.05f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
-    static readonly float[] CueSwingBTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.06f, 0.08f, 0.08f, 0.1f };
+    float[] CueSwingATimes = { 0.05f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
+    float[] CueSwingBTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.06f, 0.08f, 0.08f, 0.1f };
+    int cueAImpact = 4;
     bool HasCue => cueIdleSprites != null && cueIdleSprites.Length > 0 && HasSmallItem;
     bool HasCueSwing => cueSwingASprites != null && cueSwingASprites.Length >= CueSwingATimes.Length && cueSwingBSprites != null && cueSwingBSprites.Length >= CueSwingBTimes.Length;
     bool cueReleased, cueHitDone, cueSecondQueued;
@@ -647,7 +648,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
         public Sprite[] pendulum;
         public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare, chairWalk;
-        public Sprite[] bikeRide, bikeMount, bikeGrab;   // prätkä (sama runko kuin Roccolla): ajo 6, nousu 8, kiskaisu 10   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
+        public Sprite[] bikeRide, bikeMount, bikeGrab;
+        public Sprite[] cueIdle, cueSwingA, cueSwingB, cueThrow;   // biljardikeppi: idle 6, huitaisu 11 (osuma 9), paluu 9 (osuma 1), heitto 6   // prätkä (sama runko kuin Roccolla): ajo 6, nousu 8, kiskaisu 10   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
         [Tooltip("Rubyn kipuäänet osumasta (rubygasp1–3).")]
         public AudioClip[] hurtSounds;
         [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
@@ -1025,7 +1027,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
-        cueIdleSprites = cueWalkSprites = cueThrowSprites = cueSwingASprites = cueSwingBSprites = null;   // Rubyn keppikuvat puuttuvat vielä
+        // biljardikeppi: Rubyn omat kuvat (kävelyä ei vielä: liukuu idle-kuvilla)
+        cueWalkSprites = null;
+        bool rc = a.cueIdle != null && a.cueIdle.Length > 0;
+        cueIdleSprites = rc ? a.cueIdle : null;
+        cueSwingASprites = rc ? a.cueSwingA : null; cueSwingBSprites = rc ? a.cueSwingB : null; cueThrowSprites = rc ? a.cueThrow : null;
+        CueSwingATimes = new[] { 0.05f, 0.05f, 0.05f, 0.05f, 0.08f, 0.04f, 0.035f, 0.035f, 0.04f, 0.12f, 0.1f }; cueAImpact = 9;   // taakse, pään yli, eteen
+        CueSwingBTimes = new[] { 0.04f, 0.04f, 0.04f, 0.05f, 0.07f, 0.06f, 0.05f, 0.05f, 0.08f };
         rubyChair = a.chairPick != null && a.chairPick.Length >= 5 && a.chairThrow != null && a.chairThrow.Length >= 8
                     && a.chairSwing != null && a.chairSwing.Length >= 6 && a.chairSwingBare != null && a.chairSwingBare.Length > 0;
         if (rubyChair)
@@ -1583,11 +1591,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.CueSwingA:
             {
-                float impact = ThrowPose.Start(CueSwingATimes, 4);
+                float impact = ThrowPose.Start(CueSwingATimes, cueAImpact);
                 Lunge(0.2f, impact, dt);
                 if (!cueHitDone && stateTime >= impact) CueStrike(cueDamage, false);
-                if (punchPressed && stateTime >= ThrowPose.Start(CueSwingATimes, 2)) cueSecondQueued = true;
-                if (ThrowPose.Index(CueSwingATimes, stateTime) < 0 || (cueSecondQueued && cueHitDone && stateTime >= ThrowPose.Start(CueSwingATimes, 5) + 0.04f))
+                if (punchPressed && stateTime >= ThrowPose.Start(CueSwingATimes, Mathf.Max(0, cueAImpact - 2))) cueSecondQueued = true;
+                if (ThrowPose.Index(CueSwingATimes, stateTime) < 0 || (cueSecondQueued && cueHitDone && stateTime >= ThrowPose.Start(CueSwingATimes, cueAImpact + 1) + 0.04f))
                 {
                     if (Cue.Held == null) { Enter(State.Ground); break; }
                     if (cueSecondQueued) { cueHitDone = false; PlayGrunt(); Enter(State.CueSwingB); break; }
