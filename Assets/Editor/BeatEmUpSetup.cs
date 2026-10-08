@@ -4371,7 +4371,7 @@ public static class BeatEmUpSetup
     const string BarRoomPath = "Assets/Sprites/Taustat/baari_pokeri.png";
     const float PokerRoomPPU = 153.4f; // pokerihuoneen mittakaava: videon hahmot samankokoisia kuin hero (ennen 118 = 1.3 ×); kuva 3301 px = 21.5 yks
     // alkuperäinen huone (1536 × 1024) laajennetun kuvan sisällä (ChatGPT-laajennus, alkuperäinen liitetty takaisin): vasen yläkulma
-    static readonly Vector2 PokerRoomOffset = new Vector2(850f, 312f);   // uusi laajennus sivuseinineen (alkuperäinen huone liitetty takaisin)
+    static readonly Vector2 PokerRoomOffset = new Vector2(848f, 311f);   // uusi laajennus sivuseinineen (alkuperäinen huone liitetty takaisin)
     // pullopöydät huoneen koordinaateissa (x, rivi): vasen ja oikea laajennus sekä lattia edessä
     // (tuolit n. 320 px pöydän keskeltä: pöydät sijoitettu niin, että tuolit mahtuvat kuvaan eivätkä mene päällekkäin)
     // (tappelu alkaa takana pokeripöydän luona: pöydät lähellä sitä, sivuilla ja vähän edessä)
