@@ -142,11 +142,11 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
-                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
+                  : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("skeittari_") || baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
         int ppu = baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
@@ -2901,11 +2901,56 @@ public static class BeatEmUpSetup
             spGo.transform.SetParent(root.transform, false);
             var spn = spGo.AddComponent<EnemyBikeSpawner>();
             spn.template = eb; spn.minX = HighwayX0; spn.maxX = HighwayX0 + HighwayLength;
+            AddSkaterHitch(spn);
         }
 
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info($"Valtatie luotu ({HighwayLength:0} yksikköä). Aja prätkällä kujan oikeaan reunaan: pimennys, otsikko ja valtatie.\n" +
              $"Maisema liikkuu {px.factor * 100:0} % tien vauhdista.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/71. Valtatie: skeittari roikkuu vihuprätkän perässä")]
+    static void AddSkaterHitchMenu()
+    {
+        var spn = Object.FindFirstObjectByType<EnemyBikeSpawner>(FindObjectsInactive.Include);
+        if (spn == null) { Info("Valtatietä (vihuprätkien lähettäjää) ei löytynyt. Tee ensin kohta 35."); return; }
+        string msg = AddSkaterHitch(spn);
+        EditorSceneManager.MarkSceneDirty(spn.gameObject.scene);
+        Info(msg + "\n\nTallenna scene (Ctrl+S).");
+    }
+
+    /// Skeittari vihuprätkän perässä: malli (piilossa) lähettäjän alle; lähettäjä liittää sen osaan prätkistä.
+    static string AddSkaterHitch(EnemyBikeSpawner spn)
+    {
+        var report = new List<string>();
+        Sprite[] Load(string n)
+        {
+            string tp = FindTexture(n);
+            if (tp == null) { report.Add(n + ".png: puuttuu"); return new Sprite[0]; }
+            SetupAndSlice(tp);
+            var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+            report.Add($"{n}.png: {sp.Length} kuvaa");
+            return sp;
+        }
+        var tow = Load("skeittari_roikkuu"); var reach = Load("skeittari_kurotus"); var hold = Load("skeittari_jarrutus");
+        var fall = EnemySheet("skettari_kaatuminen", report);
+        var old = spn.transform.Find("Skeittari (malli)");
+        if (old != null) Undo.DestroyObjectImmediate(old.gameObject);
+        var go = new GameObject("Skeittari (malli)");
+        go.transform.SetParent(spn.transform, false);
+        var b = new GameObject("Visual").AddComponent<SpriteRenderer>(); b.transform.SetParent(go.transform, false);
+        var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+        sh.color = new Color(0f, 0f, 0f, 0.4f);
+        var h = go.AddComponent<SkaterHitch>();
+        h.body = b; h.shadow = sh;
+        h.towSprites = tow; h.reachSprites = reach; h.holdSprites = hold; h.fallSprites = fall;
+        if (spn.template != null) h.visualScale = spn.template.visualScale;
+        b.sprite = tow.Length > 0 ? tow[0] : null;
+        go.SetActive(false);
+        Undo.RegisterCreatedObjectUndo(go, "Skeittari");
+        Undo.RecordObject(spn, "Skeittari");
+        spn.skaterTemplate = h;
+        return "Skeittari lisätty valtatielle (n. 40 % vihuprätkistä).\n" + string.Join("\n", report);
     }
 
     // ---------------- Uccopulco (valtatien jälkeen) ----------------

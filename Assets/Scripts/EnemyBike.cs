@@ -41,6 +41,7 @@ public class EnemyBike : MonoBehaviour
 
     /// Voiko kuskin kiskaista pyörältä.
     public bool CanBeGrabbed => state != S.Crash;
+    public float CurrentSpeed => speed;
 
     /// Pelaaja kiskaisee kuskin niskasta pyörän selästä: kuski lentää tielle, pyörä jatkaa tyhjänä ja kaatuu.
     public void YankOff(float playerX, float playerDir)

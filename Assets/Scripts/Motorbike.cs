@@ -90,6 +90,8 @@ public class Motorbike : MonoBehaviour
     /// Pyörä, jota pelaaja ajaa (null jos ei aja).
     public static Motorbike Current => active != null && active.riding ? active : null;
     public float Speed => speed;
+    public float VisualScale => Scale;
+    public bool FacingRight => facingRight;
     public bool FacingRight => facingRight;
     float wobble, wheelAngle, boostT = -1f, wheelie;
     AudioSource loopSrc, startSrc;
@@ -347,6 +349,7 @@ public class Motorbike : MonoBehaviour
         if (boostT < 0f && grabT < 0f && PlayerController.PushInput())
         {
             boostT = 0f;
+            if (SkaterHitch.Attached != null) SkaterHitch.Attached.ShakeOff(Dir);   // kiihdytys repäisee perässä roikkujan irti
             if (boostSound != null) audioSrc.PlayOneShot(boostSound, boostVolume);
         }
         bool boosting = boostT >= 0f && boostT < boostTime;
@@ -355,7 +358,7 @@ public class Motorbike : MonoBehaviour
         float wTarget = boosting && boostT < boostTime * 0.45f ? 1f : 0f;
         wheelie = Mathf.MoveTowards(wheelie, wTarget, (wTarget > wheelie ? 5f : 1.6f) * dt);
 
-        float target = Mathf.Max(0f, input.x * Dir) * maxSpeed;            // eteenpäin kaasu, taaksepäin jarru
+        float target = Mathf.Max(0f, input.x * Dir) * maxSpeed * SkaterHitch.Drag;   // eteenpäin kaasu, taaksepäin jarru (perässä jarruttava skeittari hidastaa)
         float rate = target > speed ? acceleration : (input.x * Dir < -0.3f ? braking : acceleration * 0.6f);
         if (boosting) { target = maxSpeed * (1f + boostExtra); rate = boostAcceleration; }
         else if (speed > maxSpeed && input.x * Dir > -0.3f) rate = boostFalloff;   // ylinopeus laskee hitaasti
@@ -407,6 +410,7 @@ public class Motorbike : MonoBehaviour
                 if (Mathf.Abs(dx) <= grabRangeX && dy <= grabRangeY && Mathf.Abs(dx) + dy < best) { best = Mathf.Abs(dx) + dy; grabTarget = eb; }
             }
             grabBack = grabTarget != null && (grabTarget.transform.position.x - p.x) * Dir < -0.4f;
+            if (SkaterHitch.Attached != null) { grabTarget = null; grabBack = true; }   // perässä roikkuva skeittari ensin
             grabT = 0f; grabDone = false;
         }
         if (grabT >= 0f)
@@ -417,6 +421,7 @@ public class Motorbike : MonoBehaviour
             {
                 grabDone = true;
                 if (grabTarget != null && grabTarget.CanBeGrabbed) grabTarget.YankOff(p.x, Dir);
+                else if (grabBack && SkaterHitch.Attached != null) SkaterHitch.Attached.ShakeOff(Dir);
             }
             if (f >= 5) grabT = -1f;
             else { ShowRider(grabSprites[(grabBack ? 5 : 0) + f]); return; }
