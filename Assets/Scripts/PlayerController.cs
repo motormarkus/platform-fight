@@ -908,15 +908,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
         backKickSprites = a.backKick != null && a.backKick.Length >= 5 ? a.backKick : null;
-        // potkusarja: etupotku → matala → keski → korkea (kaataa). Jokaisessa näkyvä lataus (polvi ylös) ennen potkua.
+        // potkusarja: etupotku → matala → keski → korkea (kaataa). Jokaisessa näkyvä lataus (polvi ylös) ennen potkua, ripeä tahti.
         if (frontKickSprites != null && a.lowKick != null && a.lowKick.Length >= 5 && a.midKick != null && a.midKick.Length >= 5 && a.highKick != null && a.highKick.Length >= 5)
         {
             kickChain = new[]
             {
-                new KickStep { sp = frontKickSprites, t = Times(0.04f, 0.05f, 0.08f, 0.05f, 0.13f, 0.06f, 0.05f, 0.05f), impact = 4, damage = 9,  reach = 2.2f, lunge = 0.3f },
-                new KickStep { sp = a.lowKick,  t = Times(0.04f, 0.09f, 0.12f, 0.06f, 0.05f), impact = 2, damage = 8,  reach = 1.9f, lunge = 0.2f },
-                new KickStep { sp = a.midKick,  t = Times(0.04f, 0.10f, 0.14f, 0.07f, 0.05f), impact = 2, damage = 10, reach = 2.3f, lunge = 0.25f },
-                new KickStep { sp = a.highKick, t = Times(0.04f, 0.12f, 0.16f, 0.08f, 0.07f), impact = 2, damage = 12, reach = 2.2f, lunge = 0.25f, knock = true },
+                new KickStep { sp = frontKickSprites, t = Times(0.032f, 0.04f, 0.064f, 0.04f, 0.104f, 0.048f, 0.04f, 0.04f), impact = 4, damage = 9,  reach = 2.2f, lunge = 0.3f },
+                new KickStep { sp = a.lowKick,  t = Times(0.032f, 0.072f, 0.096f, 0.048f, 0.04f), impact = 2, damage = 8,  reach = 1.9f, lunge = 0.2f },
+                new KickStep { sp = a.midKick,  t = Times(0.032f, 0.08f, 0.112f, 0.056f, 0.04f), impact = 2, damage = 10, reach = 2.3f, lunge = 0.25f },
+                new KickStep { sp = a.highKick, t = Times(0.032f, 0.096f, 0.128f, 0.064f, 0.056f), impact = 2, damage = 12, reach = 2.2f, lunge = 0.25f, knock = true },
             };
         }
         // Rubyn kestävyys: liikkeet kuluttavat vähemmän ja stamina palautuu nopeammin kuin Roccolla
