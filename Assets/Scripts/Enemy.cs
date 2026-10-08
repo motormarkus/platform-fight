@@ -183,6 +183,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Kuinka usein (1/s) lähdetään hakemaan lattialla olevaa ehjää pulloa, kun pelaaja ei ole aivan vieressä.")]
     public float bottleRate = 0.3f;
     Bottle targetBottle, heldBottle;
+    float bottleRunTime;
     bool bottleThrown;
     bool HasBottleSprites => bottleSprites != null && bottleSprites.Length >= 13;
 
@@ -917,14 +918,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 float d = Vector2.Distance(b.transform.position, me);
                 if (d < best) { best = d; targetBottle = b; }
             }
+            bottleRunTime = 0f;
         }
         if (targetBottle == null) return false;
+        bottleRunTime += dt;
+        if (bottleRunTime > 5f) { targetBottle = null; cooldown = 1f; return false; }   // ei pääse perille (esim. pöytä välissä): luovuttaa
         if (Mathf.Abs(p.x - me.x) < 1.2f && Mathf.Abs(p.y - me.y) < depthTolerance) { targetBottle = null; return false; }   // pelaaja kimpussa: tappelee
         Vector3 bp = targetBottle.transform.position;
         float side = me.x <= bp.x ? -1f : 1f;
         Vector2 spot = new Vector2(bp.x + side * 0.7f, bp.y + 0.01f);   // käsi ylettyy pulloon (kuvat 2–3)
         Vector2 to = spot - (Vector2)me;
-        if (to.magnitude < 0.15f)
+        // snookerpallo pöydällä: ylettyy pöydän reunalta kuten pelaaja
+        bool reach = to.magnitude < 0.15f || (targetBottle.restHeight > 0f && Mathf.Abs(bp.x - me.x) < targetBottle.pickRangeX && Mathf.Abs(bp.y - me.y) < targetBottle.pickRangeY);
+        if (reach)
         {
             facingRight = bp.x > me.x;
             if (targetBottle.TakeBy(this)) { heldBottle = targetBottle; moving = false; targetBottle = null; Enter(State.BottlePick); return true; }
