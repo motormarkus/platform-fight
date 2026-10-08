@@ -619,7 +619,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float frontKickReach = 2.3f, backKickReach = 2.3f;
     float lastTurnTime = -9f;
     Sprite[] soloSet; float[] soloTimes; int soloImpact; float soloReach; int soloDamage; bool soloKnock;
-    int chainIdx = -1; bool chainQueued;
+    int chainIdx = -1; bool chainQueued, backKickQueued;
 
     /// Rubyn potkusarjan isku: kuvat, kuvakohtaiset ajat (näkyvä lataus ennen potkua), osumakuva ja osuma.
     class KickStep { public Sprite[] sp; public float[] t; public int impact; public int damage; public float reach, lunge; public bool knock; }
@@ -1242,6 +1242,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // lyöntien jälkeen eteen-ylös + potku: saksipotku (kuten iso koukku alas-eteen + lyönti)
                 if (ScissorMotion(kickPressed) && comboIndex >= 1 && stateTime >= total * comboInputFrom) comboScissorQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
+                // Ruby: lyönti, lyönti, taakse + potku = jab, suora, takapotku (osuu eteen, kaataa)
+                else if (kickPressed && backKickSprites != null && comboIndex >= 1 && (facingRight ? move.x < -0.5f : move.x > 0.5f) && stateTime >= total * comboInputFrom) backKickQueued = true;
                 else if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
                 // jab + potku: polvi-isku (ote ja polvi ylös)
                 if (kickPressed && comboIndex == 0 && (HasKnee || HasKneeStrikeArt) && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
@@ -1257,6 +1259,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     break;
                 }
                 if (comboScissorQueued && stateTime >= cancelAt) { comboScissorQueued = false; if (TryComboScissor()) break; }
+                if (backKickQueued && stateTime >= cancelAt) { backKickQueued = false; StartSoloKick(true, facingRight ? 1 : -1); break; }
                 if (flurryKickQueued && stateTime >= cancelAt)
                 {
                     flurry = true;
@@ -1742,7 +1745,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         state = s;
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
-        if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; }
+        if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; backKickQueued = false; }
         if (s != State.Punch && s != State.Kick && s != State.SideKick) pendulumQueued = false;
         if (s != State.JumpSquat) scissorJump = false;
         if (s != State.Ground) { moving = false; running = false; }
