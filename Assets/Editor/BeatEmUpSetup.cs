@@ -4689,9 +4689,25 @@ public static class BeatEmUpSetup
                 float sc = size / sp.bounds.size.x; r0.transform.localScale = new Vector3(sc, sc, 1f);
                 tops.Add(r0); return r0;
             }
-            // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella
+            // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella.
+            // Pallot ovat poimittavia (L2, kuten pullo) ja heitettäviä: lentävät kauas, eivät hajoa.
             Sprite Ball(string ballName) => ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_" + ballName + ".png");
-            const float BallSize = 0.14f;
+            const float BallSize = 0.16f;
+            float midLocalY = cloth(800f, 245f).y;
+            void AddBall(Sprite bs, Vector3 local)
+            {
+                // maan kohta (syvyys) pöydän sisällä, korkeus = pallon alareuna verkalla
+                float depthOff = 0.37f + (local.y - midLocalY);
+                var bgo = new GameObject("Snookerpallo " + bs.name);
+                bgo.transform.SetParent(pgo.transform, false);
+                var b = bgo.AddComponent<Bottle>();
+                b.sprites = new[] { bs };
+                b.ball = true; b.pivotY = 0f; b.scale = BallSize / bs.bounds.size.x;
+                b.throwDamage = 14; b.throwSpeed = 22f;
+                b.restOnRenderer = psr0; b.pickRangeX = 1.0f; b.pickRangeY = 1.1f;
+                bgo.transform.position = new Vector3(pgo.transform.position.x + local.x, pgo.transform.position.y + depthOff, 0f);
+                b.restHeight = pgo.transform.position.y + local.y - BallSize * 0.5f - bgo.transform.position.y;
+            }
             var red = Ball("punainen");
             Vector3 apex = cloth(1180f, 245f);
             if (red != null)
@@ -4700,17 +4716,15 @@ public static class BeatEmUpSetup
                 for (int row = 0; row < rowCount.Length; row++)
                     for (int j = 0; j < rowCount[row]; j++)
                     {
-                        // kärki vasemmalle (kohti pinkkiä), rivit oikealle; syvyys kutistuu perspektiivissä
                         float ly = (j - (rowCount[row] - 1) * 0.5f) * BallSize * 0.5f;
-                        Put(red, apex + new Vector3(row * BallSize * 0.87f, ly, -0.001f * row), BallSize);
+                        AddBall(red, apex + new Vector3(row * BallSize * 0.87f, ly, 0f));
                     }
             }
-            float midY = cloth(800f, 245f).y;
             foreach (var (bn, ix, dy) in new[] { ("pinkki", 1150f, 0f), ("musta", 1500f, 0f), ("sininen", 880f, 0f),
                                                 ("ruskea", 470f, 0f), ("keltainen", 470f, -0.18f), ("vihrea", 470f, 0.18f), ("valkoinen", 360f, 0.08f) })
             {
-                var bs = Ball(bn);
-                if (bs != null) Put(bs, new Vector3(cloth(ix, 245f).x, midY + dy * 0.5f, 0f), BallSize);
+                var bsp = Ball(bn);
+                if (bsp != null) AddBall(bsp, new Vector3(cloth(ix, 245f).x, midLocalY + dy * 0.5f, 0f));
             }
             var cue = ImportPropCentered("Assets/Sprites/Rekvisiitta/biljardikeppi.png");
             if (cue != null)

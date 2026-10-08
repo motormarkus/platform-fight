@@ -36,6 +36,13 @@ public class Bottle : MonoBehaviour
     public float scale = 1.05f;
     [Tooltip("Ruoka (kala): makaa lattialla vaakatasossa, ei hajoa, heitetty osuu kevyesti (ei kaada) ja putoaa lattialle.")]
     public bool food;
+    [Tooltip("Biljardipallo: ei hajoa, heitto lentää kauas ja osuu kovaa (ei kaada), kimpoaa ja jää lattialle.")]
+    public bool ball;
+    [Tooltip("Lepää pöydällä (esim. biljardipöytä): korkeus maasta ja pöydän kuva (piirtojärjestys sen päälle).")]
+    public float restHeight;
+    public SpriteRenderer restOnRenderer;
+    [Tooltip("Poimintaetäisyys (x, syvyys).")]
+    public float pickRangeX = 1.1f, pickRangeY = 0.5f;
     [Tooltip("Lasin särkymisäänet (glass1–4), satunnainen järjestys ja voimakkuus.")]
     public AudioClip[] breakSounds;
     [Tooltip("Lennon kuvat eri kulmista (piirretty valo): kaula ylös, ylös-oikea, oikea, alas, vasen, ylös-vasen. Tyhjä = kuvaa käännetään.")]
@@ -85,7 +92,7 @@ public class Bottle : MonoBehaviour
     {
         pc = FindFirstObjectByType<PlayerController>();
         if (table != null) { seenDisturb = table.Disturb; height = tableTop; }
-        else { state = S.Lying; rot = food ? 0f : 90f; }
+        else { state = S.Lying; rot = food || ball ? 0f : 90f; height = restHeight; }
     }
 
     // ---------------- pelaajan käsi ----------------
@@ -101,7 +108,7 @@ public class Bottle : MonoBehaviour
             if (b == null || b.state != S.Lying) continue;
             Vector3 q = b.transform.position;
             float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
-            if (dx > 1.1f || dy > 0.5f) continue;
+            if (dx > b.pickRangeX || dy > b.pickRangeY) continue;
             if (dx + dy < bd) { bd = dx + dy; best = b; }
         }
         if (best == null) return false;
@@ -210,8 +217,8 @@ public class Bottle : MonoBehaviour
                 {
                     height = 0f;
                     float breakChance = fastFall ? 0.7f : 0.4f;
-                    if (!food && (alwaysBreak || (!softLanding && Random.value < breakChance))) Shatter();
-                    else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : (Random.value < 0.5f ? 90f : -90f); t = 0f; }   // jää ehjänä kyljelleen
+                    if (!food && !ball && (alwaysBreak || (!softLanding && Random.value < breakChance))) Shatter();
+                    else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : ball ? 0f : (Random.value < 0.5f ? 90f : -90f); t = 0f; restOnRenderer = null; }   // jää ehjänä kyljelleen
                 }
                 break;
 
@@ -227,11 +234,11 @@ public class Bottle : MonoBehaviour
                 transform.position = p;
                 vy -= 6f * dt; height = Mathf.Max(0f, height + vy * dt);
                 rot += spin * dt;
-                if (food)
+                if (food || ball)
                 {
-                    // kala: osuu ja kimpoaa, putoaa lattialle ehjänä
+                    // kala / pallo: osuu ja kimpoaa, putoaa lattialle ehjänä (pallo lentää pidemmälle)
                     if (HitInPath()) { vx = -vx * 0.15f; vy = 2.5f; spin *= 0.3f; fastFall = false; state = S.Falling; t = 0f; }
-                    else if (height <= 0.05f || t > 1.0f) { vy = 0f; vx *= 0.3f; fastFall = false; state = S.Falling; t = 0f; }
+                    else if (height <= 0.05f || t > (ball ? 1.7f : 1.0f)) { vy = 0f; vx *= 0.3f; fastFall = false; state = S.Falling; t = 0f; }
                 }
                 else if (HitInPath() || height <= 0.05f || t > 1.0f) Shatter();
                 break;
@@ -301,7 +308,7 @@ public class Bottle : MonoBehaviour
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
             hitList.Add(e);
-            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food))
+            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food && !ball))
             {
                 HitFx.OnHit(true);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
@@ -428,7 +435,7 @@ public class Bottle : MonoBehaviour
             sr.sprite = sprites[bi];
             sr.color = keepDebris ? Color.white : new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
         }
-        else if (spinSprites != null && spinSprites.Length >= 6 && !food && state != S.OnTable && state != S.Wobble && state != S.Held)
+        else if (spinSprites != null && spinSprites.Length >= 6 && !food && !ball && state != S.OnTable && state != S.Wobble && state != S.Held)
         {
             // lähin piirretty kulma, loppu käännetään
             float a = Mathf.Repeat(rot + 180f, 360f) - 180f; int best = 0; float bd = 999f;
@@ -442,18 +449,23 @@ public class Bottle : MonoBehaviour
         Vector3 c = new Vector3(0f, pivotY * scale, 0f);
         sr.transform.localScale = new Vector3(scale, scale, 1f);
         sr.transform.localRotation = q;
-        sr.transform.localPosition = food
+        if (ball) { drawRot = 0f; q = Quaternion.identity; }   // pallo: valo pysyy paikallaan
+        sr.transform.localRotation = q;
+        sr.transform.localPosition = ball
+            ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * scale : 0.08f), 0f)   // pallo (keskipiste)
+            : food
             ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * scale * 0.55f : 0.2f), 0f)   // kala (keskipiste): lattian päällä
             : new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
         if (state == S.Breaking && keepDebris && bi < sprites.Length - 1) sr.transform.localPosition += new Vector3(0f, burstH * 0.8f, 0f);   // posahdus ilmassa
         int order;
         if ((state == S.OnTable || state == S.Wobble) && table != null) order = table.SortOrder + 1;
         else if (state == S.Held && gripped) order = heldOrder;   // pitelijän (käden) taakse
+        else if (state == S.Lying && restOnRenderer != null) order = restOnRenderer.sortingOrder + 1;   // biljardipöydän päällä
         else order = Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = order;
         if (state == S.Breaking && keepDebris) { sr.sortingOrder = bi < sprites.Length - 1 ? Mathf.RoundToInt(-transform.position.y * 100f) + 5 : -7990; }
         shadow.sortingOrder = order - 1;
-        shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && (state != S.Held || !gripped);
+        shadow.enabled = state != S.OnTable && state != S.Wobble && state != S.Breaking && (state != S.Held || !gripped) && !(state == S.Lying && restOnRenderer != null);
         UpdateFistOverlay(state == S.Held && gripped && holder is PlayerController, order);
     }
 }
