@@ -532,6 +532,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float tableThrowRaise = 0.55f;
     [Tooltip("Pöydän heittonopeus × crateThrowSpeed.")]
     public float tableThrowFar = 1.6f;
+    [Tooltip("Pöydän heiton nousu × crateThrowUp (pieni: lähtee jo pään yläpuolelta, ei lennä vihujen yli).")]
+    public float tableThrowUp = 0.3f;
     Crate carried;
     bool crateReleased;
 
@@ -1142,14 +1144,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         prevMoveX = move.x;
         // alas, eteen + lyönti = iso koukku
-        if (move.y < -0.5f) downInputTime = Time.time;
-        if (Mathf.Abs(move.x) > 0.5f && Time.time - downInputTime <= 0.35f) { downFwdTime = Time.time; downFwdDir = Mathf.Sign(move.x); }
+        // alas pitää painaa suoraan (ei vinoon kävellessä), sitten eteen: muuten alaviistoon kävely + lyönti laukaisisi koukun
+        if (move.y < -0.5f && Mathf.Abs(move.x) < 0.35f) downInputTime = Time.time;
+        if (Mathf.Abs(move.x) > 0.5f && Time.time - downInputTime <= 0.3f) { downFwdTime = Time.time; downFwdDir = Mathf.Sign(move.x); downInputTime = -9f; }
         bool jumpPressed = !Scripted && JumpPressed();
         bool punchPressed = !Scripted && PunchPressed();
         if (punchPressed) lastPunchPressTime = Time.time;
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
-        bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
+        bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.25f;
         // Rubyn rinnuksista-lyönnit: kaksi kertaa eteen + lyönti (alas, eteen + lyönti on voimalyönti)
         int pummelDir = HasPummel && punchPressed && Time.time <= dashArmedUntil ? (dashDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
@@ -1729,7 +1732,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         HoldCrate(Mathf.Lerp(-0.25f, 0.6f, k) * dir, Mathf.Lerp(carryHeight + 0.1f, carryHeight - 0.4f, k));
                     if (stateTime >= release && carried != null)
                     {
-                        if (table) carried.Throw(dir * crateThrowSpeed * tableThrowFar, crateThrowUp * 1.15f);   // pöytä lentää kauemmas
+                        if (table) carried.Throw(dir * crateThrowSpeed * tableThrowFar, crateThrowUp * tableThrowUp);   // pöytä lentää kauemmas, matalalla kaarella (osuu lähelläkin oleviin)
                         else carried.Throw(dir * crateThrowSpeed, crateThrowUp);
                         carried = null;
                         crateReleased = true;

@@ -335,7 +335,7 @@ public class Crate : MonoBehaviour
 
     bool HitEnemyInPath()
     {
-        if (height > 2.8f) return false;   // lentää päiden yli
+        if (height > (plowThrough ? 3.4f : 2.8f)) return false;   // lentää päiden yli (iso pöytä osuu korkeammaltakin: heitetään pään yläpuolelta)
         Vector3 me = transform.position;
         bool any = false;
         foreach (var e in Enemy.All.ToArray())
