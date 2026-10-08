@@ -1845,15 +1845,28 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Erikoisliike: omat äänet, jos on (muuten tavallinen grunt).
     void PlayGruntSpecial()
     {
-        if (specialGrunts == null || specialGrunts.Length == 0) { PlayGrunt(); return; }
+        if (specialGrunts == null || specialGrunts.Length == 0) { PlayGruntRaw(); return; }
         PlayFrom(specialGrunts);
     }
 
     /// Yksittäinen potku: satunnaisesti erikois- tai iskuääni.
     void PlayGruntMixed()
     {
-        if (specialGrunts == null || specialGrunts.Length == 0 || UnityEngine.Random.value < 0.5f) { PlayGrunt(); return; }
+        if (ComboVoiceSkip()) return;
+        if (specialGrunts == null || specialGrunts.Length == 0 || UnityEngine.Random.value < 0.5f) { PlayGruntRaw(); return; }
         PlayFrom(specialGrunts);
+    }
+
+    // Ruby: kombossa ääni vain joka toisella iskulla (peräkkäiset iskut alle 0,8 s välein), ettei huutoa tule jatkuvasti
+    float lastComboGruntCall = -9f;
+    int comboGruntN;
+    bool ComboVoiceSkip()
+    {
+        if (AppliedCharacter != 1) return false;
+        float now = Time.time;
+        comboGruntN = now - lastComboGruntCall < 0.8f ? comboGruntN + 1 : 0;
+        lastComboGruntCall = now;
+        return comboGruntN % 2 == 1;
     }
 
     void PlayFrom(AudioClip[] set)
@@ -1867,6 +1880,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Soittaa satunnaisen gruntin (ei samaa kahdesti peräkkäin) pienellä sävelkorkeuden vaihtelulla.
     void PlayGrunt()
+    {
+        if (ComboVoiceSkip()) return;
+        PlayGruntRaw();
+    }
+
+    void PlayGruntRaw()
     {
         if (audioSource == null || attackGrunts == null || attackGrunts.Length == 0) return;
         int i = UnityEngine.Random.Range(0, attackGrunts.Length);
