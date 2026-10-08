@@ -624,6 +624,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public CharacterArt heroine = new CharacterArt();
     /// 0 = Rocco, 1 = Ruby (valittu alkuvalikossa).
     public int AppliedCharacter { get; private set; }
+    /// Hahmon äänten voimakkuuskerroin (Ruby 0.9).
+    public float VoiceVolume => AppliedCharacter == 1 ? 0.9f : 1f;
     /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Rubyn kuvat vaihdetaan tilalle).
     public Sprite[] HeroIdle { get; private set; }
     [HideInInspector] public Sprite[] lowKickSprites, jumpSprites, jumpKickSprites, fallSprites, flipSprites;
@@ -1860,7 +1862,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var c = set[UnityEngine.Random.Range(0, set.Length)];
         if (c == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
-        audioSource.PlayOneShot(c, gruntVolume);
+        audioSource.PlayOneShot(c, gruntVolume * VoiceVolume);
     }
 
     /// Soittaa satunnaisen gruntin (ei samaa kahdesti peräkkäin) pienellä sävelkorkeuden vaihtelulla.
@@ -1872,7 +1874,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         lastGrunt = i;
         if (attackGrunts[i] == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
-        audioSource.PlayOneShot(attackGrunts[i], gruntVolume);
+        audioSource.PlayOneShot(attackGrunts[i], gruntVolume * VoiceVolume);
     }
 
     // ---------------- Taistelu ----------------
@@ -2336,7 +2338,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var c = clips[UnityEngine.Random.Range(0, clips.Length)];
         if (c == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-0.05f, 0.05f);
-        audioSource.PlayOneShot(c, 0.9f);
+        audioSource.PlayOneShot(c, 0.9f * VoiceVolume);
     }
 
     bool HasPush => pushSprites != null && pushSprites.Length > 0;

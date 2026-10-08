@@ -114,7 +114,7 @@ public class ShopCounter : MonoBehaviour
             // Ruby juo: oma nielaisu, perään "aah"
             var g = pc.heroine.gulpSounds[Random.Range(0, pc.heroine.gulpSounds.Length)];
             audioSource.Stop();
-            if (g != null) audioSource.PlayOneShot(g, soundVolume);
+            if (g != null) audioSource.PlayOneShot(g, soundVolume * pc.VoiceVolume);
             if (pc.heroine.aahSound != null) StartCoroutine(PlayLater(pc.heroine.aahSound, g != null ? g.length : 0.3f));
         }
         else if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShot(it.sound, soundVolume); }
@@ -132,7 +132,7 @@ public class ShopCounter : MonoBehaviour
     System.Collections.IEnumerator PlayLater(AudioClip c, float delay)
     {
         yield return new WaitForSecondsRealtime(delay);   // kauppa pysäyttää ajan: odotetaan oikeaa aikaa
-        if (audioSource != null && c != null) audioSource.PlayOneShot(c, soundVolume);
+        if (audioSource != null && c != null) audioSource.PlayOneShot(c, soundVolume * (pc != null ? pc.VoiceVolume : 1f));
     }
 
     void Say(string s) { msg = s; msgTime = Time.unscaledTime; }
