@@ -1074,12 +1074,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (jumpPressed) lastJumpPressTime = Time.time;
         // pudotuspotku: juoksusta lyönti ja hyppy (lähes) yhtä aikaa
         bool bigHookInput = HasBigHook && punchPressed && Time.time - downFwdTime <= 0.3f;
-        // Rubyn rinnuksista-lyönnit: alas, eteen + lyönti (sama näppäily kuin Roccon isossa koukussa)
         // Rubyn rinnuksista-lyönnit: kaksi kertaa eteen + lyönti (alas, eteen + lyönti on voimalyönti)
-        bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;
         int pummelDir = HasPummel && punchPressed && Time.time <= dashArmedUntil ? (dashDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
+        bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;   // Ruby: alas, eteen + potku
         bool specialPressed = !Scripted && SpecialPressed();
         bool pushPressed = !Scripted && PushPressed();
         bool blockHeld = !Scripted && BlockHeld();
