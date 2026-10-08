@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool flurry;            // ketju käynnissä: lyönneistä potkuihin, korkea potku ilman nostoa
     bool flurryKickQueued;  // lyönnin aikana painettiin potkua
 
-    [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen LB), osuu joka suuntaan")]
+    [Header("Erikoisliike: pyörähdyspotku (L / ohjaimen R3), osuu joka suuntaan")]
     public Sprite[] specialSprites;
     public float specialFrameTime = 0.055f;
     public int specialDamage = 16;
@@ -3207,7 +3207,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame);
+            || (Gamepad.current != null && Gamepad.current.rightStickButton.wasPressedThisFrame);   // erikoisliike R3:een (L-olkanappi on nosto/heitto)
 #else
         return Input.GetKeyDown(KeyCode.L);
 #endif
@@ -3228,12 +3228,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool CatchPressed() => CatchInput();
 
-    /// Nappaus/nosto-nappi (O / ohjaimen R3), myös muiden skriptien käyttöön (esim. kiskaisu prätkän selästä).
+    /// Nappaus/nosto/heitto-nappi (O / ohjaimen vasen olkanappi, ennen erikoisliike), myös muiden skriptien käyttöön (esim. kiskaisu prätkän selästä).
     public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && Keyboard.current.oKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.rightStickButton.wasPressedThisFrame);
+            || (Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame);
 #else
         return Input.GetKeyDown(KeyCode.O);
 #endif
