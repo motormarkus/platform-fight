@@ -956,12 +956,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
         dropKickSprites = null;
         pendulumSprites = a.pendulum != null && a.pendulum.Length >= 15 ? a.pendulum : null;
+        pendulumAir = 1.6f;            // Ruby hyppää heiluripotkussa korkealle
+        bigHookLaunchUp = 19.5f;       // vihut lentävät voimalyönnistä ja heiluripotkusta vähän korkeammalle (Rocco 17)
         if (a.power != null && a.power.Length >= 10)
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
             bigHookSprites = a.power;
             bigHookTimesOverride = new[] { 0.05f, 0.07f, 0.09f, 0.11f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };
-            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.6f;
+            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f;
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = null;
