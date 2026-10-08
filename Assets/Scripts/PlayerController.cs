@@ -595,6 +595,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] power;
         [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
         public Sprite[] pendulum;
+        [Tooltip("Rubyn kipuäänet osumasta (rubygasp1–3).")]
+        public AudioClip[] hurtSounds;
+        [Tooltip("Rubyn iskuäänet (lyönnit ja potkut).")]
+        public AudioClip[] attackGrunts;
         public bool IsComplete => idle != null && idle.Length > 0 && walk != null && walk.Length > 0 && jab != null && jab.Length > 0;
     }
 
@@ -904,6 +908,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         smallItemSprites = a.smallItem != null && a.smallItem.Length >= 12 ? a.smallItem : null;
         smallGrips = ThrowPose.Ruby;
         pummelSprites = a.pummel;
+        if (a.hurtSounds != null && a.hurtSounds.Length > 0) hurtSounds = a.hurtSounds;          // Rubyn omat äänet
+        if (a.attackGrunts != null && a.attackGrunts.Length > 0) attackGrunts = a.attackGrunts;
         pummelBigSprites = a.pummelBig != null && a.pummelBig.Length >= 6 ? a.pummelBig : null;
         pummelTilt = 4f; pummelTiltBig = 6f;   // pieni kumara riittää, kun isoille on omat yläviistoon-lyönnit
         frontKickSprites = a.frontKick != null && a.frontKick.Length >= 6 ? a.frontKick : null;
