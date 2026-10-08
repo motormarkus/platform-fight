@@ -424,11 +424,14 @@ public class GameMenu : MonoBehaviour
         Texture2D tex = sp.texture;
         Rect tr = sp.textureRect;
         var rf = reference != null ? reference : sp;
-        float k = Mathf.Min(box.width / (rf.rect.width / rf.pixelsPerUnit), box.height / (rf.rect.height / rf.pixelsPerUnit));   // pikseliä / yksikkö
+        // mittakaava vertailukuvan jalkojen yläpuolisesta korkeudesta: hahmo n. 85 % laatikon korkeudesta (ruudun leveys ei venytä)
+        float k = box.height * 0.85f / Mathf.Max(1f, (rf.rect.height - rf.pivot.y) / rf.pixelsPerUnit);   // pikseliä / yksikkö
         float dw = sp.rect.width / sp.pixelsPerUnit * k, dh = sp.rect.height / sp.pixelsPerUnit * k;
         float px = sp.pivot.x / sp.rect.width;
         if (flip) px = 1f - px;
-        var r = new Rect(box.center.x - dw * px, box.y + box.height - dh, dw, dh);
+        // jalat (pivot) laatikon alareunaan: eri kokoiset ruudut (idle, kombo) eivät pompi
+        float topY = box.y + box.height - dh * (1f - sp.pivot.y / sp.rect.height);
+        var r = new Rect(box.center.x - dw * px, topY, dw, dh);
         var uv = new Rect(tr.x / tex.width, tr.y / tex.height, tr.width / tex.width, tr.height / tex.height);
         if (flip) uv = new Rect(uv.xMax, uv.y, -uv.width, uv.height);
         var old = GUI.color;
