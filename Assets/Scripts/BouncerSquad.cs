@@ -28,6 +28,9 @@ public class BouncerSquad : MonoBehaviour
     [Tooltip("Ovi, josta tullaan: avautuu ennen ensimmäistä ja sulkeutuu, kun aalto on tullut ulos.")]
     public AnimatedDoor door;
     public float doorCloseDelay = 1.6f;
+    [Tooltip("Apurit (esim. kolmas puliukko), jotka kävelevät ruudun oikeasta reunasta sisään, kun viimeinen aalto alkaa.")]
+    public Enemy[] lastWaveHelpers;
+    bool helpersSent;
     float lastSpawnTime = -99f;
 
     PlayerController pc;
@@ -38,6 +41,25 @@ public class BouncerSquad : MonoBehaviour
     void Start()
     {
         foreach (var b in bouncers) if (b != null) b.gameObject.SetActive(false);
+        if (lastWaveHelpers != null) foreach (var h in lastWaveHelpers) if (h != null) h.gameObject.SetActive(false);
+    }
+
+    /// Viimeinen aalto alkaa: apurit tulevat ruudun oikeasta reunasta.
+    void SendHelpers()
+    {
+        if (helpersSent || lastWaveHelpers == null) return;
+        helpersSent = true;
+        var cam = Camera.main;
+        float halfW = cam != null ? cam.orthographicSize * cam.aspect : 9f;
+        float cx = cam != null ? cam.transform.position.x : area.camMaxX;
+        foreach (var h in lastWaveHelpers)
+        {
+            if (h == null) continue;
+            Vector3 q = h.transform.position;
+            h.transform.position = new Vector3(cx + halfW + 1f, q.y, 0f);
+            h.gameObject.SetActive(true);
+            h.WakeUp();
+        }
     }
 
     void Update()
@@ -71,7 +93,7 @@ public class BouncerSquad : MonoBehaviour
         if (timer > 0f) return;
         if (waves != null && waves.Length > 0)
         {
-            if (waveLeft < 0) waveLeft = waves[Mathf.Min(waveIndex, waves.Length - 1)];
+            if (waveLeft < 0) { waveLeft = waves[Mathf.Min(waveIndex, waves.Length - 1)]; if (waves.Length == 1) SendHelpers(); }
             if (waveLeft == 0)
             {
                 // seuraava aalto vasta, kun edellisistä on pystyssä enää muutama
@@ -80,6 +102,7 @@ public class BouncerSquad : MonoBehaviour
                 if (up > waveNextAt) return;
                 waveIndex++;
                 waveLeft = waves[Mathf.Min(waveIndex, waves.Length - 1)];
+                if (waveIndex >= waves.Length - 1) SendHelpers();
                 timer = firstDelay;
                 if (door != null) door.Open();
                 return;

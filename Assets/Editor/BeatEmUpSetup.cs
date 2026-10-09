@@ -3969,6 +3969,33 @@ public static class BeatEmUpSetup
         e.punch3Reach = 2.6f;            // syöksyy eteen
     }
 
+    [MenuItem("Beat em up/75. Kolmas puliukko (apuri) kannen rosvojen viimeiseen aaltoon")]
+    static void AddLastWaveDrunk()
+    {
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == "Puliukko (kansi, apuri)");
+        var raidGo = GameObject.Find("Laivan rosvot");
+        var raid = raidGo != null ? raidGo.GetComponent<BouncerSquad>() : null;
+        if (tmpl == null || raid == null) { Info("Tee ensin kohdat 56 (laivan tappelu) ja 61 (puliukot)."); return; }
+        foreach (var old in all.Where(en => en != null && en.gameObject.name == "Puliukko (kansi, apuri 2)").ToList())
+            Undo.DestroyObjectImmediate(old.gameObject);
+        // apurin kopio puliukkojen alle (ei rosvojen alle: muuten se laskettaisiin rosvoksi)
+        var go = Object.Instantiate(tmpl.gameObject, tmpl.transform.parent);
+        go.name = "Puliukko (kansi, apuri 2)";
+        Undo.RegisterCreatedObjectUndo(go, go.name);
+        var e = go.GetComponent<Enemy>();
+        e.wakeDistance = -1f;
+        e.joinsFightWhenSquadComes = false;   // tulee vasta viimeisessä aallossa
+        e.ally = true; e.fightsEveryone = false;
+        var deck = raid.area;
+        if (deck != null) go.transform.position = new Vector3(tmpl.transform.position.x, Mathf.Lerp(deck.maxDepthY, deck.minDepthY, 0.7f), 0f);
+        go.SetActive(false);
+        raid.lastWaveHelpers = new[] { e };
+        EditorUtility.SetDirty(raid);
+        EditorSceneManager.MarkSceneDirty(raid.gameObject.scene);
+        Info("Kolmas puliukko (heron apuri) lisätty: kävelee ruudun oikeasta reunasta sisään, kun kannen rosvojen viimeinen aalto alkaa, ja lyö vain rosvoja.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/72. Koviksen uusi kävely ja haymaker kaikille Koviksille")]
     static void KovisNewWalk()
     {
