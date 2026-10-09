@@ -1775,8 +1775,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
     float spinRot;          // kierto (astetta, maailman z), kun pelaaja pitää tai heittää
     float spinCenter;       // kiertopisteen korkeus jaloista (yksikköä)
 
+    /// Pään keskikohta otekuvassa (pose 2) jaloista mitattuna, x kasvojen suuntaan; ilman omia kuvia osumakuvan pää.
+    /// Rubyn saksiheitto asettaa vihun niin, että tämä kohta osuu Rubyn jalkojen väliin.
+    public Vector2 HeldHeadPoint(bool art)
+    {
+        Vector2 p = new Vector2(0.1f, 2.75f);
+        if (art && HasHeadlockArt)
+        {
+            string n = headlockThrownSprites[0] != null ? headlockThrownSprites[0].name : "";
+            if (n.StartsWith("lippis")) p = new Vector2(1.10f, 2.40f);
+            else if (n.StartsWith("punk")) p = new Vector2(1.25f, 2.25f);
+            else if (n.StartsWith("rokkari2")) p = new Vector2(0.55f, 1.30f);
+            else if (n.StartsWith("rokkari")) p = new Vector2(0.60f, 2.75f);
+            else p = new Vector2(0.8f, 2.4f);
+        }
+        return p * visualScale * knockArtScale;
+    }
+
     /// Voiko pelaaja napata kiinni (vain kesken lyönnin, ei heiton tai kaatuneena).
     public bool CanBeCaught => state == State.Punch;
+    /// Voiko pelaaja tarttua suoraan läheltä (Ruby): pystyssä oleva vihu, ei kaatuneena, ilmassa tai jo otteessa.
+    public bool CanBeGrabbed => state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch
+                                || state == State.Recover || state == State.Hurt || state == State.Block;
     /// Kaatavasta iskusta saa kiinni vain haymakerissa (ei esim. taklauksesta).
     public bool KnockdownCatchable => usingPunch3 && punch3Heavy && !usingAlt;
 

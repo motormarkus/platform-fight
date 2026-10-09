@@ -709,6 +709,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int[] counterFramesOverride;
     Vector3 bodyBaseScale;   // kuvan oma mittakaava (perspektiivi kertoo tämän)
     Vector3[] counterKeysOverride, counterKeysArtOverride;
+    // Ruby: avaimille kohta (eteen, korkeus), johon vihun pää asetetaan (pää jalkojen väliin); vihu kallistuu tarvittaessa
+    Vector2[] counterHeadTargets;
+    Vector3[] headKeys;   // tämän heiton avaimet pään paikasta laskettuna (null = taulukon avaimet)
     float[] counterSegsOverride;
     int[] counterPosesOverride;
     bool counterThrowTurns = true;   // heiton jälkeen käännytään heittosuuntaan (Roccon kuvat päättyvät niin)
@@ -792,6 +795,22 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (dx > -0.3f && dx <= range && Mathf.Abs(p.y - me.y) <= attackDepth + 0.2f) return true;
         }
         return false;
+    }
+
+    const float GrabFirstRange = 1.4f;   // nyrkin etäisyys: tarttuminen ennen esineitä
+
+    /// Lähin edessä oleva vihu, johon voi tarttua suoraan (pystyssä, ei liittolainen).
+    Enemy GrabbableInFront(float range)
+    {
+        Vector3 me = transform.position; float d = facingRight ? 1f : -1f;
+        Enemy best = null; float bestDx = float.MaxValue;
+        foreach (var e in Enemy.All)
+        {
+            if (e == null || e.IsDead || e.ally || !e.isActiveAndEnabled || !e.IsAwake || !e.CanBeGrabbed) continue;
+            Vector3 p = e.transform.position; float dx = (p.x - me.x) * d;
+            if (dx > -0.3f && dx <= range && Mathf.Abs(p.y - me.y) <= attackDepth + 0.2f && dx < bestDx) { best = e; bestDx = dx; }
+        }
+        return best;
     }
 
     void StartPummel(int dir)
@@ -983,6 +1002,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 new Vector3(-1.00f, 2.40f, 10f),
             };
             counterPosesOverride = new[] { 1, 2, 2, 2, 2, 4, 5 };   // vihun omat kuvat: pidossa vielä otekuva
+            // pään paikka Rubyn kuvissa: käsiseisonnassa jalat laskeutuvat pään ympärille, pidossa pää reisien ja säärten välissä
+            counterHeadTargets = new[]
+            {
+                new Vector2(0.75f, 2.30f),   // kyykky: vihu vielä pystyssä edessä
+                new Vector2(0.55f, 2.25f),   // nousu käsille
+                new Vector2(0.35f, 2.20f),   // käsiseisonta: pää säärten edessä
+                new Vector2(0.22f, 2.10f),   // jalat pään ympärillä (kuva 5)
+                new Vector2(0.32f, 1.95f),   // veto alas alkaa (kuva 6)
+            };
             counterThrowFrameTime = 0.1f; counterThrowEndHold = 0.45f; counterThrowSlide = 0.3f;
             counterThrowTurns = false;   // Ruby nousee samaan suuntaan kuin aloitti
         }
@@ -1220,6 +1248,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (catchNow && Bottle.Held == null)
                 {
                     catchBufferUntil = 0f;
+                    // vihu nyrkin etäisyydellä: tarttuminen menee esineen poiminnan edelle
+                    if (HasCounterThrow && FoeInFront(GrabFirstRange))
+                    {
+                        Enemy grabFoe = HasPummel ? null : GrabbableInFront(GrabFirstRange);
+                        if (grabFoe != null) { StartCounterThrow(grabFoe); break; }   // Ruby: tarttuu suoraan (ei tarvitse odottaa lyöntiä)
+                        quickReach = false; Enter(State.Catch); break;    // Rocco: vastaheiton kurotus
+                    }
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
@@ -2628,7 +2663,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool heldArt;        // vastus käyttää omia heittokuviaan
 
     int[] CurFrames => monkeyFlip ? FlipFrames : counterFramesOverride ?? CounterFrames;
-    Vector3[] CurKeys => monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys)
+    Vector3[] CurKeys => headKeys != null ? headKeys : monkeyFlip ? (heldArt ? FlipKeysArt : FlipKeys)
                        : heldArt ? counterKeysArtOverride ?? CounterKeysArt : counterKeysOverride ?? CounterKeys;
     int[] CurPoses => monkeyFlip ? FlipPosesArt : counterPosesOverride ?? CounterPosesArt;
     Sprite[] CurThrowSprites => monkeyFlip ? monkeyFlipSprites : counterThrowSprites;
@@ -2690,6 +2725,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         kneeMode = !monkeyFlip && HasKnee && e.HasKneeArt;   // Skettari: polvi päähän
         kneeHit = false; kneeHit2 = false;
         heldArt = e.HasArtFor(monkeyFlip);
+        headKeys = !monkeyFlip && !kneeMode && counterHeadTargets != null ? HeadKeys(e) : null;
         // vihu liukuu otekohtaan omasta paikastaan (ei hyppää), eikä otteessa ole osumapysäytystä
         grabStartOffset = (e.transform.position.x - transform.position.x) * (facingRight ? 1f : -1f);
         grabStartDepth = e.transform.position.y - transform.position.y;
@@ -2697,6 +2733,34 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         PlayGrunt();
         Enter(State.CounterThrow);
         UpdateCounterThrow();
+    }
+
+    /// Laskee avaimet niin, että vihun pää osuu kohteeseen: kallistus valitaan niin, että jalat jäävät lähelle lattiaa.
+    /// Avain: x = vihun keskikohta eteen, y = korkeus + 1.5, z = kierto (vihu kiertyy pää edellä heroa kohti).
+    Vector3[] HeadKeys(Enemy e)
+    {
+        Vector3[] baseKeys = heldArt ? counterKeysArtOverride ?? CounterKeysArt : counterKeysOverride ?? CounterKeys;
+        var keys = (Vector3[])baseKeys.Clone();
+        Vector2 head = e.HeldHeadPoint(heldArt);
+        Vector2 r = new Vector2(-head.x, head.y - 1.5f);   // pää kiertopisteestä (vihu katsoo heroon päin)
+        for (int i = 0; i < counterHeadTargets.Length && i < keys.Length; i++)
+        {
+            Vector2 g = counterHeadTargets[i];
+            if (g.y <= 0f) continue;   // ei kohdetta: taulukon avain
+            float best = float.MaxValue; Vector3 key = keys[i];
+            for (int a = -35; a <= 75; a++)
+            {
+                float t = a * Mathf.Deg2Rad, c = Mathf.Cos(t), s = Mathf.Sin(t);
+                Vector2 rr = new Vector2(r.x * c - r.y * s, r.x * s + r.y * c);
+                float lift = g.y - 1.5f - rr.y;          // vihun korkeus (jalat ilman kiertoa)
+                float feet = lift + 1.5f - 1.5f * c;     // jalkojen korkeus kierron jälkeen
+                if (feet < -0.03f) continue;
+                float score = feet + 0.003f * Mathf.Abs(a);
+                if (score < best) { best = score; key = new Vector3(g.x - rr.x, g.y - rr.y, a); }
+            }
+            keys[i] = key;
+        }
+        return keys;
     }
 
     // Avainvälien kestot (× kuvan aika): nosto rauhallisesti, heitto lyhyt. Kaksi viimeistä väliä kiihtyvät (ease-in).
