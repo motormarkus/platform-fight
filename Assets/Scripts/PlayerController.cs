@@ -3432,6 +3432,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Catch:
                 if (quickReach && HasPummel) return pummelSprites[stateTime < QuickReachTime * 0.6f ? 0 : 1];
+                // Ruby: vastaheiton kuvasarjan 1. kuva on pelkkä asento, joten kurotus näytetään rinnuksista-kuvilla
+                if (AppliedCharacter == 1 && HasPummel) return pummelSprites[stateTime < 0.08f || stateTime > catchWindowTime ? 0 : 1];
                 if (quickReach) return counterThrowSprites[0];   // Rocco: kurotus tyhjään
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
 
