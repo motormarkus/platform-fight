@@ -255,6 +255,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float slapChance = 0.25f;
     public int slapCount = 10, slapDamage = 3, slapFinalDamage = 10;
     public float slapWindup = 1.0f, slapTime = 0.2f, slapStep = 0.16f, slapReach = 2.2f;
+    [Header("Esineen heitto (Horhe: kultaharkko taskusta, pään korkeudelta suoraan eteen)")]
+    [Tooltip("0 asento, 1 taskusta, 2 veto taakse, 3 heilautus, 4 irrotus (tyhjä käsi), 5–6 palautus")]
+    public Sprite[] barThrowSprites;
+    public Sprite barSprite;
+    [Range(0f, 1f)] public float barThrowChance = 0.5f;
+    public float barThrowMinRange = 3.2f, barThrowMaxRange = 11f, barThrowCooldown = 4f;
+    public int barDamage = 16;
+    static readonly float[] BarThrowTimes = { 0.12f, 0.22f, 0.3f, 0.08f, 0.22f, 0.14f, 0.16f };
+    float nextBarThrow;
+    bool barReleased;
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
     [Range(0f, 1f)] public float grabChance = 0.3f;
     [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
@@ -384,7 +394,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -860,6 +870,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 UpdateSlaps(dt);
                 break;
 
+            case State.BarThrow:
+            {
+                int f = BarFrame();
+                if (!barReleased && f >= 4)
+                {
+                    barReleased = true;
+                    float d = facingRight ? 1f : -1f;
+                    GoldBar.Spawn(barSprite, transform.position + new Vector3(d * 1.1f, -0.02f, 0f), 2.7f, d, this, barDamage);
+                    PlayClipFrom(punch3SwingSounds, punch3Volume);
+                }
+                if (f < 0) { cooldown = attackCooldown; Enter(State.Recover); }
+                break;
+            }
+
             case State.GrabReach:
                 if (stateTime >= grabReachTime)
                 {
@@ -1051,6 +1075,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float ph = (t - ClinchPull) % clinchHitTime / clinchHitTime;
         return ph < 0.15f ? 3 : ph < 0.4f ? 4 : ph < 0.6f ? 5 : 6;
     }
+
+    bool HasBarThrow => barThrowSprites != null && barThrowSprites.Length >= 7 && barSprite != null;
+    int BarFrame() => ThrowPose.Index(BarThrowTimes, stateTime);
 
     bool HasSlaps => slapSprites != null && slapSprites.Length >= 8;
     int slapsDone;
@@ -1306,6 +1333,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
+        if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
         if (s == State.Slaps)
         {
             slapsDone = 0;
@@ -1504,6 +1532,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
         float adx = Mathf.Abs(me.x - p.x);
+        // kultaharkon heitto matkan päästä samalla syvyydellä
+        if (HasBarThrow && cooldown <= 0f && Time.time >= nextBarThrow && !player.IsDown && adx >= barThrowMinRange && adx <= barThrowMaxRange
+            && Mathf.Abs(me.y - p.y) <= depthTolerance * 0.8f && Random.value < barThrowChance * dt * 2f)
+        {
+            moving = false; attackRolled = false;
+            facingRight = p.x > me.x;
+            Enter(State.BarThrow);
+            return;
+        }
         if (chargeRange > 0f && Has(altAttackSprites) && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown
             && !grabIntent && adx >= chargeMinRange && adx <= chargeRange && Mathf.Abs(me.y - p.y) <= (chargeToEdge ? 1.4f : depthTolerance * 0.8f)
             && Random.value < altChance * dt * 3f)
@@ -2448,6 +2485,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Slaps:
                 return slapSprites[SlapFrame()];
+
+            case State.BarThrow:
+            {
+                int f = BarFrame();
+                return barThrowSprites[f < 0 ? barThrowSprites.Length - 1 : Mathf.Min(f, barThrowSprites.Length - 1)];
+            }
 
             case State.GrabReach:
                 return Has(grabSprites) ? grabSprites[0] : IdleFrame();
