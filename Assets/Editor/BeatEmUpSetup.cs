@@ -4120,6 +4120,11 @@ public static class BeatEmUpSetup
         ("Rokkimimmi tappelija", new Vector2(1000f, 1.65f)), ("Rokkimimmi tappelija", new Vector2(2600f, 1.45f)),
         ("Prätkäjätkä", new Vector2(720f, 0.12f)) };   // tiskin lähellä: suutelee vakioasiakasta, kun hero tulee sisään   // tiskillä (neutraali), liittyy kun tappelu alkaa
 
+    // baarin perällä snookerpöytien takana (sohvien edessä) seisoskeleva porukka: ei tepastele, liittyy tappeluun
+    static readonly (string who, Vector2 at, int facing)[] StreetBarBackCrowd = {
+        ("Lippis", new Vector2(1880f, 0.05f), 1), ("Punkkari", new Vector2(2230f, 0.08f), -1), ("Rokkimimmi tappelija", new Vector2(2380f, 0.04f), -1),
+        ("Kovis", new Vector2(2780f, 0.06f), 1), ("Lippis", new Vector2(3120f, 0.05f), -1), ("Punkkari", new Vector2(2650f, 0.02f), 1) };
+
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
     static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed)
     {
@@ -4313,6 +4318,27 @@ public static class BeatEmUpSetup
         // oven lähellä vakioasiakkaan kanssa suuteleva prätkäjätkä: pysyy paikallaan eikä herää läheisyydestä (herää tappelun alkaessa)
         var kisser = members.LastOrDefault(m => m != null && m.displayName == "Prätkäjätkä");
         if (kisser != null) { kisser.wanderMinX = kisser.wanderMaxX = 0f; kisser.wakeDistance = -1f; kisser.idleFacing = -1; }
+        // perän porukka snookerpöytien takana
+        foreach (var (who, at, facing) in StreetBarBackCrowd)
+        {
+            Enemy e;
+            if (who == "Rokkimimmi tappelija") { e = MakeRocker(root.transform); if (e != null) e.huntsBrawlers = true; }
+            else
+            {
+                var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
+                if (tmpl == null) continue;
+                var ego = Object.Instantiate(tmpl.gameObject, root.transform);
+                ego.name = who + " (baarin perä)";
+                e = ego.GetComponent<Enemy>();
+                e.huntsBrawlers = true;
+            }
+            if (e == null) continue;
+            e.transform.position = new Vector3(X(at.x), Depth(at.x, at.y), 0f);
+            e.wakeDistance = 6f; e.joinsFightWhenSquadComes = false;
+            e.wanderMinX = e.wanderMaxX = 0f; e.idleFacing = facing;   // seisoo paikallaan juttelemassa
+            e.gameObject.SetActive(true);
+            members.Add(e); names.Add(who + " (perä)");
+        }
         var brawl = root.AddComponent<BarBrawl>();
         brawl.members = members.ToArray();
         // portsari vartioi teräsovella (kohta 67) ja tulee mukaan tappelun alkaessa
@@ -4632,6 +4658,40 @@ public static class BeatEmUpSetup
 
     /// Prätkäjätkä (motoristi_*.png): tappeluasento, kävely, jab, pitkä suora ja korkea potku. Ilman omia osuma- ja kaatumiskuvia
     /// käytetään varaliikkeitä (välähdys, kuvan kääntö). Palauttaa null, jos idle-kuvat puuttuvat.
+    /// Prätkäjätkän rynnäkkölyönti hyppylyöntikuvista (15 kuvaa).
+    static void SetBikerCharge(Enemy e, Sprite[] leap)
+    {
+        if (leap == null || leap.Length < 15) return;
+        // rynnäkkölyönti: ei pitkää kyykkyä eikä korkeaa loikkaa (näytti koomiselta), vaan kaksi juoksuaskelta,
+        // matala syöksy nyrkki edellä ja tasapainoinen alastulo (kuvat 3, 5–8 syöksy, 11–14 alastulo)
+        e.altAttackSprites = new[] { leap[3], leap[5], leap[6], leap[7], leap[8], leap[11], leap[12], leap[13], leap[14] };
+        e.altImpactFrame = 4; e.altDamage = 20; e.altKnockdown = true; e.altReach = 2.3f;
+        e.altChance = 0.3f; e.altNearChance = 0.1f;
+        e.chargeRange = 7.5f; e.chargeMinRange = 3.0f;
+        e.altLungeSpeed = 14f; e.altLungeTime = 0.38f; e.altJumpHeight = 0.3f;
+        e.altExtraWindup = 0.12f; e.altTimeScale = 0.85f; e.altKnockSpeed = 9f; e.altKnockUp = 6f;
+    }
+
+    [MenuItem("Beat em up/78. Prätkäjätkän uusi rynnäkkölyönti kaikille prätkäjätkille")]
+    static void UpdateBikerCharge()
+    {
+        var report = new List<string>();
+        string path = FindTexture("motoristi_hyppylyonti");
+        if (path != null) SetupAndSlice(path);
+        var leap = EnemySheet("motoristi_hyppylyonti", report);
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.displayName != "Prätkäjätkä") continue;
+            Undo.RecordObject(e, "Rynnäkkölyönti");
+            SetBikerCharge(e, leap);
+            EditorUtility.SetDirty(e);
+            n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Prätkäjätkän rynnäkkölyönti päivitetty {n} prätkäjätkälle: kaksi juoksuaskelta, matala syöksy nyrkki edellä, ei pitkää kyykkyä eikä korkeaa loikkaa.\n\nTallenna scene (Ctrl+S).");
+    }
+
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
@@ -4664,14 +4724,7 @@ public static class BeatEmUpSetup
         }
         // erikoisliike: hyppylyönti kaukaa (kyykky ja ponnistus, lento nyrkki edellä, alastulo); joskus myös vierestä
         var leap = EnemySheet("motoristi_hyppylyonti", report);   // 15 kuvaa: 0–7 kyykky ja ponnistus, 8 lento (isku), 9–14 alastulo
-        if (leap.Length >= 12)
-        {
-            e.altAttackSprites = leap; e.altImpactFrame = 8; e.altDamage = 22; e.altKnockdown = true; e.altReach = 2.3f;
-            e.altChance = 0.35f; e.altNearChance = 0.15f;
-            e.chargeRange = 8.5f; e.chargeMinRange = 3.5f;
-            e.altLungeSpeed = 13f; e.altLungeTime = 0.55f; e.altJumpHeight = 1.0f;
-            e.altExtraWindup = 0.37f; e.altTimeScale = 1f; e.altKnockSpeed = 9f; e.altKnockUp = 7f;
-        }
+        SetBikerCharge(e, leap);
         var run = EnemySheet("motoristi_juoksu", report);   // 10 kuvaa, kaukana juostaan
         if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.07f; e.runSpeedMultiplier = 1.6f; }
         var fall = EnemySheet("motoristi_kaatuminen", report);
