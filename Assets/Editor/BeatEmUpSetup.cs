@@ -4615,11 +4615,11 @@ public static class BeatEmUpSetup
     }
 
     /// Uusi rokkimimmi (rokkari2_*.png, 768 × 512): taisteluidle, lyöntisarja (etukäsi + takakäsi), sivupotku,
-    /// hyppypotku (syöksy kauempaa, kaataa) ja pyörähdyspotku (kaataa). Kävely, osumat, kaatuminen, ylösnousu ja
-    /// niskalenkki ovat vielä vanhoista kuvista, kunnes uudet tehdään.
+    /// hyppypotku (syöksy kauempaa, kaataa), pyörähdyspotku (kaataa), kävely ilman suojausta ja rento idle.
+    /// Osumat, kaatuminen, ylösnousu ja niskalenkki ovat vielä vanhoista kuvista, kunnes uudet tehdään.
     static bool ApplyRocker2(Enemy e, List<string> report)
     {
-        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys" })
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4627,8 +4627,9 @@ public static class BeatEmUpSetup
         var idle = EnemySheet("rokkari2_taisteluidle", report);
         if (idle.Length == 0) return false;
         e.idleSprites = idle; e.idleFrameTime = 0.16f;
-        e.calmIdleSprites = idle;
-        if (e.body != null) e.body.sprite = idle[0];
+        var calm = EnemySheet("rokkari2_idle", report);         // rento seisonta kädet alhaalla ennen tappelua
+        e.calmIdleSprites = calm.Length > 0 ? calm : idle;
+        if (e.body != null) e.body.sprite = e.calmIdleSprites[0];
         var punch = EnemySheet("rokkari2_lyonnit", report);     // 14 kuvaa: etukäsi ojennettuna 5, takakäsi 9
         if (punch.Length >= 12)
         {
@@ -4653,9 +4654,9 @@ public static class BeatEmUpSetup
         }
         // kombo: lyöntisarja, sivupotku, pyörähdyspotku (menee loppuun)
         e.combos = new[] { "JSK", "JK" }; e.comboChance = 0.4f; e.comboArmor = true; e.comboWindupScale = 0.7f; e.comboGap = 0.08f;
-        // kävelykuvat puuttuvat vielä: vanha kävely olisi eri asussa, joten liikkuessa näytetään idle
+        // kävely ilman suojausta (14 kuvaa, yksi askelsykli ~0,9 s)
         var walk2 = EnemySheet("rokkari2_kavely", report);
-        e.walkSprites = walk2.Length > 0 ? walk2 : idle; e.walkFrameTime = walk2.Length > 0 ? 0.08f : 0.16f;
+        e.walkSprites = walk2.Length > 0 ? walk2 : idle; e.walkFrameTime = walk2.Length > 0 ? 0.065f : 0.16f;
         return true;
     }
 
