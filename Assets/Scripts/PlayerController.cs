@@ -790,6 +790,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool pummelUp;      // iso vihu: oma sarja, lyönnit yläviistoon
     Sprite[] HookArt(int which) => punchCombo != null && punchCombo.Length >= 4 && punchCombo[2 + which].HasAnimation && punchCombo[2 + which].sprites.Length >= 4 ? punchCombo[2 + which].sprites : null;
     float pummelPhase, pummelJolt;
+    /// Rinnuksista kiinni: aina onnistuu, stamina kuluu sen mitä on (ennen tyhjä stamina esti otteen kokonaan).
+    bool PummelStamina() { stamina = Mathf.Max(0f, stamina - pummelStamina); staminaRest = staminaRegenWait; return true; }
     bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
     const float PummelReachTime = 0.16f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
     const int PummelHits = 5;
@@ -1207,7 +1209,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(move.x) > 0.5f && Mathf.Abs(prevMoveX) <= 0.3f)
         {
             float tdir = Mathf.Sign(move.x);
-            if (tdir == lastTapDir && Time.time - lastTapTime <= doubleTapWindow) { dashArmedUntil = Time.time + 0.45f; dashDir = tdir; }
+            if (tdir == lastTapDir && Time.time - lastTapTime <= doubleTapWindow) { dashArmedUntil = Time.time + 0.6f; dashDir = tdir; }
             lastTapDir = tdir; lastTapTime = Time.time;
         }
         prevMoveX = move.x;
@@ -1243,7 +1245,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (pummelDir != 0 && Bottle.Held == null && UseStamina(pummelStamina)) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
+                if (pummelDir != 0 && Bottle.Held == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
@@ -1265,7 +1267,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     // vihu nyrkin etäisyydellä: tarttuminen menee esineen poiminnan edelle
                     if (HasCounterThrow && FoeInFront(GrabFirstRange))
                     {
-                        Enemy grabFoe = HasPummel ? null : GrabbableInFront(GrabFirstRange);
+                        Enemy grabFoe = AppliedCharacter == 1 ? GrabbableInFront(GrabFirstRange) : null;
                         if (grabFoe != null) { StartCounterThrow(grabFoe); break; }   // Ruby: tarttuu suoraan (ei tarvitse odottaa lyöntiä)
                         quickReach = false; Enter(State.Catch); break;    // Rocco: vastaheiton kurotus
                     }
@@ -1427,7 +1429,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (pummelQueued != 0 && stateTime >= hit.ImpactTime + flurryCancelAfterImpact)
                 {
                     int pd = pummelQueued; pummelQueued = 0;
-                    if (UseStamina(pummelStamina)) { dashArmedUntil = -9f; StartPummel(pd); break; }
+                    if (PummelStamina()) { dashArmedUntil = -9f; StartPummel(pd); break; }
                 }
                 if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
