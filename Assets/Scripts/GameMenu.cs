@@ -433,7 +433,13 @@ public class GameMenu : MonoBehaviour
         if (flip) px = 1f - px;
         // jalat (pivot) laatikon alareunaan: eri kokoiset ruudut (idle, kombo) eivät pompi
         float topY = box.y + box.height - dh * (1f - sp.pivot.y / sp.rect.height);
-        var r = new Rect(box.center.x - dw * px, topY, dw, dh);
+        var full = new Rect(box.center.x - dw * px, topY, dw, dh);
+        // pakattu kuva (sprite atlas): textureRect on vain hahmon rajattu alue, sijainti ruudussa textureRectOffset.
+        // Piirretään rajattu alue omaan kohtaansa; koko ruudun kokoon venytettynä hahmo leveni n. kaksinkertaiseksi.
+        float sc = dw / sp.rect.width;
+        Vector2 off = sp.textureRectOffset;
+        float rx = flip ? full.xMax - (off.x + tr.width) * sc : full.x + off.x * sc;
+        var r = new Rect(rx, full.yMax - (off.y + tr.height) * sc, tr.width * sc, tr.height * sc);
         var uv = new Rect(tr.x / tex.width, tr.y / tex.height, tr.width / tex.width, tr.height / tex.height);
         if (flip) uv = new Rect(uv.xMax, uv.y, -uv.width, uv.height);
         var old = GUI.color;
