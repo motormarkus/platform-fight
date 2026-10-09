@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -1716,6 +1716,40 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Portsari ----------------
+
+    /// Portsarin heitto (portsari_heittaa.png, 8 kuvaa): tarttuu, vetää lähelle, kääntyy ja heittää olan yli selän taakse kauas.
+    /// Heittää kaikkia (heron ja vihut); isot hahmot lentävät lyhyemmälle.
+    static void SetBouncerThrow(Enemy e, List<string> report)
+    {
+        string path = FindTexture("portsari_heittaa");
+        if (path == null) return;
+        SetupAndSlice(path);
+        var g = EnemySheet("portsari_heittaa", report);
+        if (g.Length < 8) return;
+        e.grabSprites = g;                 // 0 kurotus, 1 ote, 2–3 veto, 4 pito, 5 olan yli, 6 heitto, 7 heiton jälkeen (katse heittosuuntaan)
+        e.grabChance = 0.3f; e.grabRange = 1.4f;
+        e.grabReachTime = 0.25f; e.grabLiftTime = 0.6f;
+        e.throwDamage = 16;
+        e.throwForward = false; e.throwTurnsAround = true;
+        e.throwSpeed = 10f; e.throwUp = 6f;          // lentää kauas
+        e.grabsAnyone = true; e.heavyThrowScale = 0.55f;
+    }
+
+    [MenuItem("Beat em up/74. Portsarin heitto kaikille portsareille")]
+    static void BouncerThrowAll()
+    {
+        var report = new List<string>();
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.displayName != "Portsari") continue;
+            Undo.RecordObject(e, "Portsarin heitto");
+            SetBouncerThrow(e, report);
+            EditorUtility.SetDirty(e); n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        Info($"Portsarin heitto: {n} portsaria.\n\n" + string.Join("\n", report.Distinct()) + "\n\nTallenna scene (Ctrl+S).");
+    }
     const int BouncerCount = 6;   // tulevat molemmista suunnista (ovelta ja oikeasta reunasta), kun klubissa alkaa ensimmäinen tappelu
 
     [MenuItem("Beat em up/43. Portsarit S-Clubiin")]
@@ -1788,6 +1822,7 @@ public static class BeatEmUpSetup
         t.wakeDistance = 100f;
         // järkälemäinen: ei juokse karkuun eikä kierrä, tulee suoraan päälle
         t.runSpeedMultiplier = 1.1f; t.flankChance = 0.05f; t.retreatChance = 0f; t.blockChance = 0f;
+        SetBouncerThrow(t, report);        // tarttuu ja heittää olan yli kauas (kaikkia)
 
         // portsarit tulevat klubin ovesta (sama kohta, johon pelaaja ilmestyy)
         var door = Object.FindObjectsByType<Door>(FindObjectsSortMode.None).FirstOrDefault(d => d.target == club && !d.returnToLastDoor);

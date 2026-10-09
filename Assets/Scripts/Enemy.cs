@@ -250,6 +250,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool throwForward;
     [Tooltip("Selän taakse heitettäessä: kääntyykö heittäjä heittosuuntaan (Kovis) vai pysyykö alkuperäisessä suunnassa (kuvat päättyvät alkuasentoon).")]
     public bool throwTurnsAround = true;
+    [Tooltip("Heittää kenet tahansa (portsari), ei vain liittolaisia. Isot hahmot lentävät lyhyemmälle (heavyThrowScale).")]
+    public bool grabsAnyone;
+    [Range(0.2f, 1f)] public float heavyThrowScale = 0.55f;
     [Tooltip("Heiton vauhti vaakaan ja ylös.")]
     public float throwSpeed = 5.5f, throwUp = 4f;
     [Tooltip("Jos pelaaja pysyy näin kauan (s) aivan vieressä, vihu tarttuu heti. 0 = ei käytössä.")]
@@ -810,7 +813,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     thrown = true;
                     float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
-                    if (grabbedEnemy != null) { grabbedEnemy.ReleaseThrow(dir * throwSpeed, throwUp, throwDamage); grabbedEnemy = null; HitFx.OnHitQuiet(); }
+                    if (grabbedEnemy != null)
+                    {
+                        // isot (Kovis, samoalainen, portsari, puliukko) lentävät lyhyemmälle
+                        float hw = IsHeavyweight(grabbedEnemy) || grabbedEnemy.bigBody ? heavyThrowScale : 1f;
+                        grabbedEnemy.ReleaseThrow(dir * throwSpeed * hw, throwUp * Mathf.Lerp(1f, hw, 0.6f), throwDamage);
+                        grabbedEnemy = null; HitFx.OnHitQuiet();
+                    }
                     else player.Throw(dir * throwSpeed, throwUp, throwDamage);
                 }
                 if (stateTime >= ThrowSwing + 0.15f + 0.3f)
@@ -1452,8 +1461,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         facingRight = t.x > me.x;
         bool inRange = Mathf.Abs(me.x - t.x) <= attackRange && Mathf.Abs(me.y - t.y) <= depthTolerance;
         // heittäjä (Kovis) voi napata liittolaisen (seilorin) ja heittää sen
-        if (inRange && cooldown <= 0f && !TargetDown(enemyTarget) && enemyTarget.ally && Has(grabSprites)
+        if (inRange && cooldown <= 0f && !TargetDown(enemyTarget) && (enemyTarget.ally || grabsAnyone) && Has(grabSprites)
             && Mathf.Abs(me.x - t.x) <= grabRange + 0.3f && enemyTarget.state != State.Held && enemyTarget.state != State.Airborne
+            && enemyTarget.state != State.GrabLift && enemyTarget.state != State.GrabThrow   // ei kesken toisen heittoa
             && Random.value < grabChance)
         {
             moving = false; thrown = false;
