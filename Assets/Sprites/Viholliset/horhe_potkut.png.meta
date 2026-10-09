@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 1b0f192831b97b149a4a76f2d3a7ab13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3467189650362264872
+    second: horhe_potkut_0
+  - first:
+      213: 8113440743543497288
+    second: horhe_potkut_1
+  - first:
+      213: 7765154361336389906
+    second: horhe_potkut_2
+  - first:
+      213: 1472402400086178138
+    second: horhe_potkut_3
+  - first:
+      213: 8200961368593022288
+    second: horhe_potkut_4
+  - first:
+      213: -3956997871258397376
+    second: horhe_potkut_5
+  - first:
+      213: -4731666546442926872
+    second: horhe_potkut_6
+  - first:
+      213: -6356620486372934348
+    second: horhe_potkut_7
+  - first:
+      213: 541852675296665182
+    second: horhe_potkut_8
+  - first:
+      213: 3567629736456995408
+    second: horhe_potkut_9
+  - first:
+      213: 7814782944540198650
+    second: horhe_potkut_10
+  - first:
+      213: 4069482367258742069
+    second: horhe_potkut_11
+  - first:
+      213: 5505823566900115738
+    second: horhe_potkut_12
+  - first:
+      213: 6764876885090300385
+    second: horhe_potkut_13
+  - first:
+      213: -5403363032283928218
+    second: horhe_potkut_14
+  - first:
+      213: -990280324285506408
+    second: horhe_potkut_15
+  - first:
+      213: -5355132496151203319
+    second: horhe_potkut_16
+  - first:
+      213: -5459110638558191614
+    second: horhe_potkut_17
+  - first:
+      213: 1494830651666597073
+    second: horhe_potkut_18
+  - first:
+      213: 330325568347049885
+    second: horhe_potkut_19
+  - first:
+      213: -7628573403037005086
+    second: horhe_potkut_20
+  - first:
+      213: 7266939296074900281
+    second: horhe_potkut_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: horhe_potkut_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82de0c6fd9eed1030800000000000000
+      internalID: 3467189650362264872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2240
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84267119e5bb89070800000000000000
+      internalID: 8113440743543497288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2240
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 211e78500ce53cb60800000000000000
+      internalID: 7765154361336389906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2240
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59b1978e260f6410800000000000000
+      internalID: 1472402400086178138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d30b70aeaafc170800000000000000
+      internalID: 8200961368593022288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0459aa2b66be519c0800000000000000
+      internalID: -3956997871258397376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1792
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e48baf685eb55eb0800000000000000
+      internalID: -4731666546442926872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1792
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d35c1b85fb8c7a0800000000000000
+      internalID: -6356620486372934348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e17a7232c058700800000000000000
+      internalID: 541852675296665182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1344
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052c3abd754c28130800000000000000
+      internalID: 3567629736456995408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1344
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af6891efeafa37c60800000000000000
+      internalID: 7814782944540198650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1344
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d4c28e6a4b97830800000000000000
+      internalID: 4069482367258742069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a193e0dec5d986c40800000000000000
+      internalID: 5505823566900115738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1fe056faba1ed50800000000000000
+      internalID: 6764876885090300385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 896
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6692d3c43f56305b0800000000000000
+      internalID: -5403363032283928218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 896
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c57e2ba41d142f0800000000000000
+      internalID: -990280324285506408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902b1c11e5fbea5b0800000000000000
+      internalID: -5355132496151203319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 448
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 200ee2f3cc75d34b0800000000000000
+      internalID: -5459110638558191614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 448
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d404f7ce84beb410800000000000000
+      internalID: 1494830651666597073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_19
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 448
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f0e81ba5d859400800000000000000
+      internalID: 330325568347049885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea8cf868ecd12690800000000000000
+      internalID: -7628573403037005086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horhe_potkut_21
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9332fd2b9ca59d460800000000000000
+      internalID: 7266939296074900281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae8a27192f72ca942bad20fbe80cbb57
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      horhe_potkut_0: 3467189650362264872
+      horhe_potkut_1: 8113440743543497288
+      horhe_potkut_10: 7814782944540198650
+      horhe_potkut_11: 4069482367258742069
+      horhe_potkut_12: 5505823566900115738
+      horhe_potkut_13: 6764876885090300385
+      horhe_potkut_14: -5403363032283928218
+      horhe_potkut_15: -990280324285506408
+      horhe_potkut_16: -5355132496151203319
+      horhe_potkut_17: -5459110638558191614
+      horhe_potkut_18: 1494830651666597073
+      horhe_potkut_19: 330325568347049885
+      horhe_potkut_2: 7765154361336389906
+      horhe_potkut_20: -7628573403037005086
+      horhe_potkut_21: 7266939296074900281
+      horhe_potkut_3: 1472402400086178138
+      horhe_potkut_4: 8200961368593022288
+      horhe_potkut_5: -3956997871258397376
+      horhe_potkut_6: -4731666546442926872
+      horhe_potkut_7: -6356620486372934348
+      horhe_potkut_8: 541852675296665182
+      horhe_potkut_9: 3567629736456995408
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
