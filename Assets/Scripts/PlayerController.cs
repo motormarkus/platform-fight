@@ -387,6 +387,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly float[] RingThrowTimes = { 0.09f, 0.1f, 0.1f, 0.12f, 0.045f, 0.035f, 0.09f, 0.11f };   // kiihtyy: rauhallinen heilautus taakse, nopea veto eteen
     RingStand takingStand;
     LifeRing pickingRing;
+    const float RingPickReach = 0.98f;   // nostokuvissa käsi (renkaan keskikohta) näin paljon heron edessä
     bool ringResolved;
     bool HasRingSmash => ringSmashSprites != null && ringSmashSprites.Length >= 8;
     bool HasRing => ringTakeSprites != null && ringTakeSprites.Length >= 6 && ringThrowSprites != null && ringThrowSprites.Length >= 8 && ringPickSprites != null && ringPickSprites.Length >= 4;
@@ -1662,7 +1663,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.RingPick:
-                if (pickingRing != null && stateTime >= 2 * ringFrameTime) { pickingRing.TakeBy(); pickingRing = null; }
+                // kumartuessa hero asettuu niin, että käsi osuu lattialla olevaan renkaaseen (kuvissa ei ole omaa lattiarengasta)
+                if (pickingRing != null && stateTime < 2.4f * ringFrameTime)
+                {
+                    float want = pickingRing.transform.position.x - (facingRight ? 1f : -1f) * RingPickReach;
+                    float dx = want - transform.position.x;
+                    MoveOnGround(new Vector2(Mathf.Clamp(dx, -4f * dt, 4f * dt), 0f));
+                }
+                // rengas käteen vasta, kun kuvassa on rengas kädessä (kuva 3)
+                if (pickingRing != null && stateTime >= 3 * ringFrameTime * 1.2f) { pickingRing.TakeBy(); pickingRing = null; }
                 if (stateTime >= 4 * ringFrameTime * 1.2f) Enter(LifeRing.Held != null ? State.RingHold : State.Ground);
                 break;
 
