@@ -1966,8 +1966,25 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 MoveOnGround(airVel * dt);
                 verticalVel -= gravity * 1.6f * dt;   // heitetty iskeytyy maahan nopeasti
                 height += verticalVel * dt;
-                // kierähtää lennossa vaaka-asentoon (pää lentosuuntaan)
-                heldRot = Mathf.MoveTowards(heldRot, airVel.x < 0f ? 90f : -90f, 360f * dt);
+                if (ceilingLaunch && verticalVel > 0f)
+                {
+                    // alakoukku: pää kattoon (ruudun yläreuna), tömähdys ja suoraan alas
+                    var cam = Camera.main;
+                    float ceil = cam != null ? cam.transform.position.y + cam.orthographicSize - 0.15f : transform.position.y + 7f;
+                    if (transform.position.y + height + HeadHeight >= ceil)
+                    {
+                        height = Mathf.Max(0f, ceil - HeadHeight - transform.position.y);
+                        verticalVel = -3f;
+                        ceilingLaunch = false;
+                        PlayClip(hurtSounds);
+                        HitFx.OnHit(true);
+                        HitSpark.Spawn(transform.position + new Vector3(0f, height + HeadHeight, 0f), true, Mathf.RoundToInt(-transform.position.y * 100f) + 5);
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.4f, 0.3f);
+                    }
+                }
+                if (verticalVel <= 0f) ceilingLaunch = false;
+                // kierähtää lennossa vaaka-asentoon (pää lentosuuntaan); kattoon lentäessä pysyy pystymmässä
+                heldRot = Mathf.MoveTowards(heldRot, airVel.x < 0f ? 90f : -90f, (ceilingLaunch ? 60f : 360f) * dt);
                 if (height <= 0f)
                 {
                     height = 0f;
@@ -2586,6 +2603,29 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         knockedDown = true;
         return true;
     }
+
+    /// Alakoukku (Horhe): lennättää suoraan ylös kattoon, josta putoaa selälleen. Torjuttavissa; ajoitetulla kurotuksella
+    /// nousevasta kädestä saa kiinni ja heitettyä.
+    public bool TakeUppercut(int damage, float attackerX, float up, Enemy attacker)
+    {
+        if (Riding) return false;
+        if (state == State.Catch && stateTime <= catchWindowTime && (attackerX > transform.position.x) == facingRight
+            && attacker != null && attacker.CanBeCaught && !GameOver)
+        {
+            StartCounterThrow(attacker);
+            return true;
+        }
+        if (!TakeKnockdown(damage, attackerX, 1.2f, up, attacker)) return false;
+        if (state != State.Thrown) return true;   // torjuttu
+        ceilingLaunch = true;
+        heldRot = 0f;
+        HitFx.Freeze(0.2f);
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.35f, 0.3f);
+        return true;
+    }
+    bool ceilingLaunch;
+    public bool IsAirborneThrown => state == State.Thrown;
+    const float HeadHeight = 3.3f;
 
     /// Vapaana maassa (ei iskussa, kantamassa tai ilmassa): voi käyttää esineitä kuten moottoripyörää.
     public bool IsFloored => state == State.Down || state == State.KipUp;

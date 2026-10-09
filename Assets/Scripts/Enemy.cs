@@ -56,6 +56,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Toisen lyönnin lennätys (ylös, sivulle): vahva yläkoukku nostaa vastustajan korkealle.")]
     public float punch2LaunchUp = 0f, punch2LaunchX = 4f;
     [Range(0f, 1f)] public float punch2Chance = 0.3f;
+    [Tooltip("Isku 2 on alakoukku: osuessaan lennättää pelaajan kattoon (Horhe). Torjuttavissa, vastaheitolla napattavissa.")]
+    public bool punch2Uppercut;
+    public float uppercutUp = 24f;
     [Header("Kolmas isku (esim. merirosvon kierrepotku)")]
     public Sprite[] punch3Sprites;
     public int punch3ImpactFrame = 8;
@@ -580,6 +583,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             attackCooldown = Mathf.Min(attackCooldown, 0.9f);
             blockChance = Mathf.Max(blockChance, 0.4f); maxBlocksInRow = Mathf.Max(maxBlocksInRow, 2); guardWhenHurt = true;   // torjuu, myös kesken kombon
             barThrowChance = Mathf.Max(barThrowChance, 0.6f);
+            punch2Uppercut = true; punch2Damage = Mathf.Max(punch2Damage, 16); punch2Chance = Mathf.Max(punch2Chance, 0.45f);
             hammerArt = true; punch3Unblockable = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
             // läpsykombo liukuu reilusti eteen (10 läpsyä ≈ 5 yksikköä)
             slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.6f);
@@ -2108,6 +2112,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return hit;
         }
         if (!usingAlt && usingPunch3) return player.TakeHit(punch3Damage, me.x, this, comboFollow);
+        if (!usingAlt && usingPunch2 && punch2Uppercut)
+        {
+            bool up = player.TakeUppercut(punch2Damage, me.x, uppercutUp, this);
+            if (up && player.IsAirborneThrown) nextHeroLaugh = 0f;   // nauru perään, kun hero rojahtaa lattiaan
+            return up;
+        }
         if (!usingAlt && usingPunch2 && punch2Knockdown && !mid) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
         if (!usingAlt && !usingPunch2 && !usingPunch3 && punchKnockdown && !mid) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
         return player.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, this, comboFollow || (comboSeq != null && comboPos > 0));
