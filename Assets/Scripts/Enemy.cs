@@ -1823,9 +1823,6 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     /// Voiko pelaaja napata kiinni (vain kesken lyönnin, ei heiton tai kaatuneena).
     public bool CanBeCaught => state == State.Punch;
-    /// Voiko pelaaja tarttua suoraan läheltä (Ruby): pystyssä oleva vihu, ei kaatuneena, ilmassa tai jo otteessa.
-    public bool CanBeGrabbed => state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch
-                                || state == State.Recover || state == State.Hurt || state == State.Block;
     /// Kaatavasta iskusta saa kiinni vain haymakerissa (ei esim. taklauksesta).
     public bool KnockdownCatchable => usingPunch3 && punch3Heavy && !usingAlt;
 
