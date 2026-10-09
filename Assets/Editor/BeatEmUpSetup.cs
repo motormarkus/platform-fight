@@ -607,6 +607,7 @@ public static class BeatEmUpSetup
         Undo.RecordObject(e, "Päivitä vihollinen");
         e.idleSprites = idle;
         e.walkSprites = Sheet("vihu_kavely");
+        e.walkFrameTime = 0.085f;                  // 12 kuvaa, askelsykli ~1 s
         e.punchSprites = Sheet("vihu_lyonti");
         e.hurtSprites = Sheet("vihu_osuma");
         e.knockdownSprites = Sheet("vihu_kaatuminen");
@@ -3910,6 +3911,29 @@ public static class BeatEmUpSetup
     static readonly Vector2[] ClubBikers = { new Vector2(18f, 0.45f), new Vector2(34f, 0.7f) };   // x S-Clubin vasemmasta reunasta (yks), syvyys 0 = takana … 1 = edessä
     static readonly Vector2[] ClubRockers = { new Vector2(21.5f, 0.55f), new Vector2(38f, 0.5f) };   // rokkimimmit (samat koordinaatit)
     static readonly Vector2 ClubDrunk = new Vector2(30f, 0.5f);   // puliukko
+
+    [MenuItem("Beat em up/72. Koviksen uusi kävely kaikille Koviksille")]
+    static void KovisNewWalk()
+    {
+        string path = FindTexture("vihu_kavely");
+        if (path == null) { Info("vihu_kavely.png puuttuu."); return; }
+        SetupAndSlice(path);
+        var report = new List<string>();
+        var walk = EnemySheet("vihu_kavely", report);
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            // kaikki Koviksen kopiot (katu, sali, baari, pokerihuone): tunnistetaan vanhoista kävelykuvista
+            if (e.walkSprites == null || e.walkSprites.Length == 0 || e.walkSprites[0] == null || e.walkSprites[0].texture == null) continue;
+            if (e.walkSprites[0].texture.name != "vihu_kavely") continue;
+            Undo.RecordObject(e, "Koviksen kävely");
+            e.walkSprites = walk;
+            e.walkFrameTime = 0.085f;   // 12 kuvaa, askelsykli ~1 s (sama tahti kuin ennen, nyt sulavampi)
+            EditorUtility.SetDirty(e); n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        Info($"Koviksen kävely päivitetty {n} Kovikselle ({walk.Length} kuvaa).\n\nTallenna scene (Ctrl+S).");
+    }
 
     [MenuItem("Beat em up/69. S-Clubiin prätkäjätkät, rokkimimmit ja puliukko (skeittarit pois sisältä)")]
     static void AddClubBikers()
