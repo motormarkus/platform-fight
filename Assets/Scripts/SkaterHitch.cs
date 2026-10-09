@@ -36,6 +36,7 @@ public class SkaterHitch : MonoBehaviour
     enum S { Tow, Glide, Reach, Hold, Fall }
     S state = S.Tow;
     float t, anim, speed, height, vy;
+    float seenTime;   // kauanko skeittari on näkynyt ruudulla kyydissä
     int frame;
     Vector2 hand;
     PlayerController pc;
@@ -88,8 +89,18 @@ public class SkaterHitch : MonoBehaviour
                 Vector3 grip = b + new Vector3((TowGrip.x - 384f) / 100f * bs, 0f, 0f);
                 speed = tower.CurrentSpeed;
                 me = new Vector3(grip.x - HandOffset(hand).x, b.y, 0f);
-                // irti, kun ohitus osuu pelaajan perään samalla kaistalla
-                if (mb != null && Mathf.Abs(me.y - p.y) < 0.6f && Mathf.Abs(grip.x - HeroGrip(mb).x) < 0.6f) { state = S.Glide; t = 0f; }
+                // näkyy ensin ruudulla kyydissä, sitten päästää irti hyvissä ajoin ja liukuu vauhdilla pelaajan prätkää kohti
+                // (vihuprätkä ja skeittari ovat kaksi eri hyökkääjää)
+                var cam = Camera.main;
+                if (cam != null && Mathf.Abs(me.x - cam.transform.position.x) < cam.orthographicSize * cam.aspect - 0.5f) seenTime += dt;
+                if (mb != null)
+                {
+                    float dd = mb.FacingRight ? 1f : -1f;
+                    float behind = (HeroGrip(mb).x - grip.x) * dd;   // > 0: skeittari pelaajan takana
+                    bool early = seenTime > 0.7f && behind > 0.5f && behind < 7f && speed > ps + 1.5f && Mathf.Abs(me.y - p.y) < 1.6f;
+                    bool late = Mathf.Abs(me.y - p.y) < 0.6f && Mathf.Abs(grip.x - HeroGrip(mb).x) < 0.6f;
+                    if (early || late) { state = S.Glide; t = 0f; }
+                }
                 break;
             }
             case S.Glide:
@@ -99,10 +110,12 @@ public class SkaterHitch : MonoBehaviour
                 Vector3 g = HeroGrip(mb);
                 float d = mb.FacingRight ? 1f : -1f;
                 float gap = (g.x - (me.x + HandOffset(hand).x * d)) * d;     // > 0: pelaaja edellä
-                speed = Mathf.MoveTowards(speed, ps + Mathf.Clamp(gap * 3f, -4f, 7f), 16f * dt);
+                // liukuu irrotuksen vauhdilla (ei omaa voimaa): hidastuu hiljalleen, tasaa pelaajan vauhtiin perillä
+                if (gap > 0.6f) speed = Mathf.Max(0f, speed - 1.2f * dt);   // rullaa vauhdilla, kitka hidastaa
+                else speed = Mathf.MoveTowards(speed, ps + Mathf.Clamp(gap * 3f, -4f, 2f), 16f * dt);
                 me.y = Mathf.MoveTowards(me.y, p.y - 0.12f, 1.4f * dt);      // vähän lähempänä katsojaa
                 if (Mathf.Abs(gap) < 0.35f && Mathf.Abs(me.y - (p.y - 0.12f)) < 0.15f) { state = S.Reach; t = 0f; }
-                if (gap > 9f || t > 7f) { state = S.Fall; StartFall(speed * 0.5f, 0f); }   // pelaaja karkasi
+                if (gap > 9f || t > 7f || (gap > 1.5f && speed < ps - 0.5f && t > 1.5f)) { state = S.Fall; StartFall(speed * 0.5f, 0f); }   // vauhti ei riittänyt, pelaaja karkasi
                 break;
             }
             case S.Reach:

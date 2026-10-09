@@ -380,22 +380,25 @@ public class GameMenu : MonoBehaviour
     // hahmonvalinta: samat kuvat kuin pelissä. Idle edestakaisin, valittu hahmo tekee kombonsa (pelin ajoituksin)
     // heti valittaessa ja sitten n. 4,5 s välein. Rocco: jab, takasuora, uppercut, iso koukku. Ruby: jab, suora, keski- ja korkea potku.
     const float MenuSeqEvery = 4.5f, MenuIdleFrameTime = 0.15f;
-    struct MenuFrame { public Sprite sp; public float t; }
+    struct MenuFrame { public Sprite sp; public float t; public bool grunt; }
     MenuFrame[][] menuSeqs;
+    AudioClip[][] menuGrunts;
+    readonly int[] lastSeqIndex = { -1, -1 };
+    AudioSource menuAudio;
 
     static void AddHit(System.Collections.Generic.List<MenuFrame> l, Sprite[] sp, int impact, float ft, float hold, bool last)
     {
         if (sp == null || sp.Length == 0) return;
         impact = Mathf.Clamp(impact, 0, sp.Length - 1);
         for (int i = 0; i < impact; i++) l.Add(new MenuFrame { sp = sp[i], t = ft });
-        l.Add(new MenuFrame { sp = sp[impact], t = ft + hold });
+        l.Add(new MenuFrame { sp = sp[impact], t = ft + hold, grunt = true });   // lyöntiääni osumakuvassa
         if (last) for (int i = impact + 1; i < sp.Length; i++) l.Add(new MenuFrame { sp = sp[i], t = ft * 1.3f });
     }
 
-    static void AddTimed(System.Collections.Generic.List<MenuFrame> l, Sprite[] sp, float[] t, int upTo)
+    static void AddTimed(System.Collections.Generic.List<MenuFrame> l, Sprite[] sp, float[] t, int upTo, int gruntAt = 2)
     {
         if (sp == null) return;
-        for (int i = 0; i < sp.Length && i <= upTo; i++) l.Add(new MenuFrame { sp = sp[i], t = t != null && i < t.Length ? t[i] : 0.06f });
+        for (int i = 0; i < sp.Length && i <= upTo; i++) l.Add(new MenuFrame { sp = sp[i], t = t != null && i < t.Length ? t[i] : 0.06f, grunt = i == gruntAt });
     }
 
     void BuildMenuSeqs(PlayerController pc)
@@ -411,7 +414,7 @@ public class GameMenu : MonoBehaviour
             var c = H(i);
             if (c != null) AddHit(r, c.sprites, c.impactFrame, c.frameTime, c.impactHold, i == 3 && !hasBig);
         }
-        if (hasBig) AddTimed(r, big, PlayerController.BigHookTimesRocco, 99);
+        if (hasBig) AddTimed(r, big, PlayerController.BigHookTimesRocco, 99, 4);   // iso koukku: ääni noustessa
         menuSeqs[0] = r.ToArray();
         var hr = pc.heroine;
         var b = new System.Collections.Generic.List<MenuFrame>();
@@ -423,15 +426,31 @@ public class GameMenu : MonoBehaviour
             AddTimed(b, hr.highKick, new[] { 0.032f, 0.096f, 0.128f, 0.064f, 0.12f }, 99); // korkea potku loppuun
         }
         menuSeqs[1] = b.ToArray();
+        menuGrunts = new[] { pc.HeroGrunts, hr != null ? hr.attackGrunts : null };
     }
 
-    /// Kombon kuva hetkellä t (null = kombo on ohi).
-    static Sprite SeqFrame(MenuFrame[] seq, float t)
+    /// Kombon kuvan indeksi hetkellä t (-1 = kombo ohi).
+    static int SeqIndex(MenuFrame[] seq, float t)
     {
-        if (seq == null) return null;
-        foreach (var f in seq) { if (t < f.t) return f.sp; t -= f.t; }
-        return null;
+        if (seq == null) return -1;
+        for (int i = 0; i < seq.Length; i++) { if (t < seq[i].t) return i; t -= seq[i].t; }
+        return -1;
     }
+
+    /// Lyöntiääni, kun kombo tulee osumakuvaan (vain valitulla hahmolla).
+    void MenuGrunt(int k, int idx)
+    {
+        if (idx == lastSeqIndex[k]) return;
+        lastSeqIndex[k] = idx;
+        if (idx < 0) return;
+        var f = menuSeqs[k][idx];
+        var clips = menuGrunts != null ? menuGrunts[k] : null;
+        if (!f.grunt || clips == null || clips.Length == 0) return;
+        if (menuAudio == null) { menuAudio = gameObject.AddComponent<AudioSource>(); menuAudio.playOnAwake = false; menuAudio.spatialBlend = 0f; menuAudio.ignoreListenerPause = true; }
+        var c = clips[Random.Range(0, clips.Length)];
+        if (c != null) { menuAudio.pitch = Random.Range(0.96f, 1.04f); menuAudio.PlayOneShot(c, 0.9f); }
+    }
+
 
     void DrawCharacters(float w, float h, float s, Color gold)
     {
@@ -455,9 +474,11 @@ public class GameMenu : MonoBehaviour
                 Sprite sp = set[n == 1 ? 0 : fi < n ? fi : period - fi];
                 if (on && menuSeqs != null)
                 {
-                    var cs = SeqFrame(menuSeqs[k], (Time.unscaledTime - charSelT) % MenuSeqEvery);
-                    if (cs != null) sp = cs;
+                    int si = SeqIndex(menuSeqs[k], (Time.unscaledTime - charSelT) % MenuSeqEvery);
+                    if (si >= 0) sp = menuSeqs[k][si].sp;
+                    MenuGrunt(k, si);
                 }
+                else lastSeqIndex[k] = -1;
                 DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f), set[0]);
             }
             else Shadowed(new Rect(cx - boxW * 0.5f, top, boxW, boxH), "?", titleStyle, new Color(0.5f, 0.5f, 0.5f));
