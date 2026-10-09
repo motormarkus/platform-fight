@@ -4617,10 +4617,10 @@ public static class BeatEmUpSetup
 
     /// Uusi rokkimimmi (rokkari2_*.png, 768 × 512): taisteluidle, lyöntisarja (etukäsi + takakäsi), sivupotku,
     /// hyppypotku (syöksy kauempaa, kaataa), pyörähdyspotku (kaataa), kävely ilman suojausta ja rento idle.
-    /// Osuma, kaatuminen ja ylösnousu omista kuvistaan; niskalenkki on vielä vanhoista kuvista.
+    /// Osuma, kaatuminen, ylösnousu (selältä ensin vatsalleen), torjunta ja heron niskalenkki omista kuvistaan.
     static bool ApplyRocker2(Enemy e, List<string> report)
     {
-        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely", "rokkari2_kaatuminen", "rokkari2_ylosnousu", "rokkari2_torjunta", "rokkari2_niskalenkki", "rokkari2_niskalenkki_lento" })
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely", "rokkari2_kaatuminen", "rokkari2_ylosnousu", "rokkari2_torjunta", "rokkari2_niskalenkki", "rokkari2_niskalenkki_lento", "rokkari2_kaanto" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4672,6 +4672,9 @@ public static class BeatEmUpSetup
         // ylösnousu vatsaltaan: punnerrus, kontallaan, polvelta tappeluasentoon; kuvissa katse vasemmalle -> kääntyy lopussa
         var up2 = EnemySheet("rokkari2_ylosnousu", report);
         if (up2.Length >= 8) { e.getUpSprites = up2; e.getUpTime = 1.0f; e.getUpFacesBack = true; }
+        // heiton jälkeen selällään: ensin kääntyy vatsalleen (4 kuvaa), sitten tavallinen ylösnousu
+        var roll2 = EnemySheet("rokkari2_kaanto", report);
+        if (roll2.Length >= 4) { e.getUpRollSprites = roll2; e.getUpRollTime = 0.45f; }
         // torjunta kuten lippiksellä (kun kuvat on tehty): kädet ylös, suoja, paluu; enintään 2 peräkkäin
         var block2 = EnemySheet("rokkari2_torjunta", report);
         if (block2.Length > 0) { e.blockSprites = block2; e.blockTime = 0.5f; e.blockChance = 0.3f; e.maxBlocksInRow = 2; }

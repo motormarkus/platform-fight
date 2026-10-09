@@ -319,6 +319,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float getUpTime = 0.5f;
     [Tooltip("Nousukuvien lopussa hahmo katsoo taaksepäin (peilatut viimeiset kuvat): suunta käännetään noustua, ettei kuva hyppää.")]
     public bool getUpFacesBack;
+    [Tooltip("Selältä vatsalleen kääntyminen ennen ylösnousua (heiton jälkeen selällään). Ylösnousukuvat alkavat vatsaltaan.")]
+    public Sprite[] getUpRollSprites;
+    public float getUpRollTime = 0.45f;
+    bool rollFirst;   // tämä ylösnousu alkaa kääntymisellä (laskeutui selälleen)
+    float RollTime => rollFirst ? getUpRollTime : 0f;
 
     [Header("Pelastusrengas")]
     [Tooltip("Renkaaseen joutuminen (8 kuvaa): 0 rengas pään yllä, 1–3 jumissa renkaassa, 4–7 kaatuu renkaan kanssa ja makaa.")]
@@ -772,12 +777,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
-                    else Enter(State.GetUp);
+                    else
+                    {
+                        rollFirst = Has(getUpRollSprites) && (slamLanded || flipLanded);   // heitosta selälleen: ensin vatsalleen
+                        Enter(State.GetUp);
+                    }
                 }
                 break;
 
             case State.GetUp:
-                if (stateTime >= getUpTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
+                if (stateTime >= getUpTime + RollTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
                 break;
 
             case State.GrabReach:
@@ -2143,7 +2152,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.GetUp:
-                if (Has(getUpSprites)) return getUpSprites[Mathf.Min((int)(stateTime / getUpTime * getUpSprites.Length), getUpSprites.Length - 1)];
+                if (rollFirst && stateTime < RollTime)
+                    return getUpRollSprites[Mathf.Min((int)(stateTime / getUpRollTime * getUpRollSprites.Length), getUpRollSprites.Length - 1)];
+                if (Has(getUpSprites)) return getUpSprites[Mathf.Min((int)((stateTime - RollTime) / getUpTime * getUpSprites.Length), getUpSprites.Length - 1)];
                 rot = Mathf.Lerp(90f, 0f, Mathf.Clamp01(stateTime / getUpTime));
                 return FirstIdle();
 
