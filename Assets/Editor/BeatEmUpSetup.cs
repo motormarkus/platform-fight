@@ -6104,6 +6104,44 @@ public static class BeatEmUpSetup
              "\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/80. El Loipparin alkuun snookerpöytä")]
+    static void AddLoipparSnooker()
+    {
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        var bg = GameObject.Find("El Loippari");
+        if (area == null || bg == null) { Info("Tee ensin kohta 45 (El Loippari)."); return; }
+        var old = GameObject.Find("El Loipparin snooker");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var sr = bg.GetComponent<SpriteRenderer>();
+        float ppu = sr.sprite.pixelsPerUnit;
+        // ovelta sisään tullessa ensimmäisenä, keskisyvyydellä
+        float x = LoipX0 + LoipExitPx / ppu + 7.5f;
+        float y = Mathf.Lerp(area.MaxDepthAtX(x, area.maxDepthY) - 0.3f, area.minDepthY + 0.4f, 0.5f);
+        // tieltä pois pöydät (pulloineen ja annoksineen) ja tuolit, jotka osuisivat snookerpöydän päälle
+        float half = PokerPoolWidth * 0.5f + 1.3f;
+        int removed = 0;
+        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsSortMode.None).ToList())
+        {
+            if (c == null || c.gameObject.name != "Pöytä") continue;
+            Vector3 q = c.transform.position;
+            if (Mathf.Abs(q.x - x) > half || Mathf.Abs(q.y - y) > 1.3f) continue;
+            foreach (var b in Object.FindObjectsByType<Bottle>(FindObjectsSortMode.None)) if (b != null && b.table == c) Undo.DestroyObjectImmediate(b.gameObject);
+            foreach (var f in Object.FindObjectsByType<FishPlate>(FindObjectsSortMode.None)) if (f != null && f.table == c) Undo.DestroyObjectImmediate(f.gameObject);
+            Undo.DestroyObjectImmediate(c.gameObject); removed++;
+        }
+        foreach (var ch in Object.FindObjectsByType<Chair>(FindObjectsSortMode.None).ToList())
+        {
+            if (ch == null) continue;
+            Vector3 q = ch.transform.position;
+            if (Mathf.Abs(q.x - x) <= half && Mathf.Abs(q.y - y) <= 1.3f) { Undo.DestroyObjectImmediate(ch.gameObject); removed++; }
+        }
+        var root = new GameObject("El Loipparin snooker");
+        Undo.RegisterCreatedObjectUndo(root, "El Loipparin snooker");
+        var t = AddSnookerTable(root.transform, new Vector2(x, y), PokerPoolWidth);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info(t != null ? $"El Loipparin alkuun snookerpöytä palloineen ja keppeineen (x = {x:0.0}). Tieltä poistettu {removed} pöytää/tuolia.\n\nTallenna scene (Ctrl+S)." : "biljardipoyta.png puuttuu.");
+    }
+
     // ---------------- El Loipparin pöydät ----------------
     // x sisätilan alusta (yks), syvyys 0 = seinä … 1 = edessä
     // baari täyteen: takarivi seinän vieressä, eturivi edessä lomittain, keskelle muutama (tappelutilaa jää)
