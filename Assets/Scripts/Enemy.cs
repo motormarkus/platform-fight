@@ -574,7 +574,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); tauntNoRepeat = false; }
             var gr = new System.Collections.Generic.List<AudioClip>();
             for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_gasp" + i); if (c != null) gr.Add(c); }
-            if (gr.Count > 0) hurtSounds = gr.ToArray();
+            if (gr.Count > 0) { hurtSounds = gr.ToArray(); hurtVolume = 1f; }
             fallVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_kaatuminen");
             getUpVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_ylosnousu");
             // välipomo: läpsykombo useammin, kestävämpi
