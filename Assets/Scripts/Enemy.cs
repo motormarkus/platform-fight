@@ -247,6 +247,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float clinchReach = 2.1f;        // käden mitta: pelaaja otteessa tämän verran edessä
     public float clinchReachTime = 0.34f, clinchHitTime = 0.42f;
     public float clinchLaunchX = 8f, clinchLaunchUp = 5f;
+    [Header("Läpsykombo (Horhe): sekunnin lataus, sitten nopeat läpsyt vuorokäsin eteenpäin astuen; vain suojaus auttaa")]
+    [Tooltip("0 takakäsi taakse, 1 takakäsi ylös, 2–3 takakäden läpsy; 4–5 etukäsi ylös, 6–7 etukäden läpsy")]
+    public Sprite[] slapSprites;
+    [Range(0f, 1f)] public float slapChance = 0.25f;
+    public int slapCount = 10, slapDamage = 3, slapFinalDamage = 10;
+    public float slapWindup = 1.0f, slapTime = 0.2f, slapStep = 0.16f, slapReach = 2.2f;
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
     [Range(0f, 1f)] public float grabChance = 0.3f;
     [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
@@ -376,7 +382,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -806,6 +812,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 UpdateClinch();
                 break;
 
+            case State.Slaps:
+                UpdateSlaps(dt);
+                break;
+
             case State.GrabReach:
                 if (stateTime >= grabReachTime)
                 {
@@ -986,6 +996,58 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (t < ClinchPull) return 2;
         float ph = (t - ClinchPull) % clinchHitTime / clinchHitTime;
         return ph < 0.15f ? 3 : ph < 0.4f ? 4 : ph < 0.6f ? 5 : 6;
+    }
+
+    bool HasSlaps => slapSprites != null && slapSprites.Length >= 8;
+    int slapsDone;
+
+    /// Läpsykombo: lataus (takakäsi taakse, tärisee), sitten slapCount läpsyä vuorokäsin, joka läpsyllä askel eteen.
+    /// Osuu torjumatta jäävään joka kerta (pelaaja jää osumatilaan), viimeinen kaataa. Suojaus torjuu kaikki.
+    void UpdateSlaps(float dt)
+    {
+        if (stateTime < slapWindup) return;
+        float t = stateTime - slapWindup;
+        int k = Mathf.FloorToInt(t / slapTime);
+        float ph = t / slapTime - k;
+        float dir = facingRight ? 1f : -1f;
+        if (k < slapCount)
+        {
+            // askel eteen läpsyn alkuosalla (pelaaja ei pääse pakoon, suojaavaa työnnetään)
+            if (ph < 0.5f) Move(new Vector2(dir * slapStep / (slapTime * 0.5f) * dt, 0f));
+            if (k >= slapsDone && ph >= 0.35f)
+            {
+                slapsDone = k + 1;
+                if (k % 2 == 0) PlayClipFrom(attackSounds, 0.7f);
+                if (player != null && SlapInReach())
+                {
+                    bool last = slapsDone >= slapCount;
+                    if (last) player.TakeKnockdown(slapFinalDamage, transform.position.x, 6f, 4f, this);
+                    else player.TakeHit(slapDamage, transform.position.x, this, true);
+                }
+            }
+        }
+        else if (t >= slapCount * slapTime + 0.4f)
+        {
+            cooldown = attackCooldown * Random.Range(1.1f, 1.5f);
+            Enter(State.Recover);
+        }
+    }
+
+    bool SlapInReach()
+    {
+        Vector3 p = player.transform.position, me = transform.position;
+        float dx = (p.x - me.x) * (facingRight ? 1f : -1f);
+        return dx > -0.3f && dx <= slapReach && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 1.2f;
+    }
+
+    int SlapFrame()
+    {
+        if (stateTime < slapWindup) return 0;   // takakäsi taakse: varoitus
+        float t = stateTime - slapWindup;
+        int k = Mathf.Min(Mathf.FloorToInt(t / slapTime), slapCount - 1);
+        float ph = Mathf.Clamp01(t / slapTime - k);
+        int b = k % 2 == 0 ? 0 : 4;                 // vuorotellen takakäsi ja etukäsi
+        return b + (ph < 0.35f ? 1 : ph < 0.6f ? 2 : 3);
     }
 
     bool CanClinch()
@@ -1190,6 +1252,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
+        if (s == State.Slaps)
+        {
+            slapsDone = 0;
+            shakeUntil = Time.unscaledTime + slapWindup * 0.85f;   // lataus: tärisee (varoitus, ehtii suojata)
+            PlayClipFrom(punch3WindupSounds, punch3Volume);
+        }
         if (s != State.GrabLift && s != State.GrabThrow && grabbedEnemy != null)
         {
             // heitto keskeytyi (esim. heittäjä sai osuman): napattu putoaa
@@ -1402,6 +1470,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
             if (grabIntent) { Enter(State.GrabReach); return; }
             if (HasClinch && Mathf.Abs(me.x - p.x) <= clinchReach + 0.2f && Random.value < clinchChance) { Enter(State.Clinch); return; }
+            if (HasSlaps && Random.value < slapChance) { facingRight = p.x > me.x; Enter(State.Slaps); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
             usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : altNearChance);   // rynnäkkö kaukaa, vierestä vain altNearChance
@@ -1801,7 +1870,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
-        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding)) return false;   // heiton ja otteen aikana ei keskeytetä
+        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps) return false;   // heiton, otteen ja läpsykombon aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
         // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
@@ -2304,6 +2373,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Clinch:
                 return clinchSprites[ClinchFrame()];
+
+            case State.Slaps:
+                return slapSprites[SlapFrame()];
 
             case State.GrabReach:
                 return Has(grabSprites) ? grabSprites[0] : IdleFrame();
