@@ -7,7 +7,7 @@ using UnityEngine;
 public class GoldBar : MonoBehaviour
 {
     public SpriteRenderer body, shadow;
-    public float speed = 17f, maxDistance = 16f;
+    public float speed = 23f, maxDistance = 16f;
     public int damage = 16, value = 50;
     float dir, height, vy, travelled, rot;
     bool flying = true, falling;

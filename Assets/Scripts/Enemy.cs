@@ -237,6 +237,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Montako iskua peräkkäin voi torjua; seuraava menee läpi.")]
     public int maxBlocksInRow = 2;
     public float blockTime = 0.35f;
+    [Tooltip("Voi torjua myös osuman saatuaan (kesken pelaajan kombon), esim. välipomo.")]
+    public bool guardWhenHurt;
 
     [Header("Heitto (vapaaehtoinen): tarttuu, nostaa pään yli ja heittää taakse")]
     [Tooltip("8 kuvaa: 0 kurotus, 1 ote, 2–4 nosto, 5–6 heitto, 7 asento heiton jälkeen (katsoo heittosuuntaan).")]
@@ -262,7 +264,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float barThrowChance = 0.5f;
     public float barThrowMinRange = 3.2f, barThrowMaxRange = 11f, barThrowCooldown = 4f;
     public int barDamage = 16;
-    static readonly float[] BarThrowTimes = { 0.12f, 0.22f, 0.3f, 0.08f, 0.22f, 0.14f, 0.16f };
+    static readonly float[] BarThrowTimes = { 0.06f, 0.09f, 0.13f, 0.05f, 0.2f, 0.1f, 0.12f };   // nopea: harkko lähtee n. 0,33 s
     float nextBarThrow;
     bool barReleased;
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
@@ -504,6 +506,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             slapChance = Mathf.Max(slapChance, 0.55f);
             maxHealth = Mathf.Max(maxHealth, 360); health = maxHealth;
             attackCooldown = Mathf.Min(attackCooldown, 0.9f);
+            blockChance = Mathf.Max(blockChance, 0.4f); maxBlocksInRow = Mathf.Max(maxBlocksInRow, 2); guardWhenHurt = true;   // torjuu, myös kesken kombon
+            barThrowChance = Mathf.Max(barThrowChance, 0.6f);
         }
         if (displayName == "Metsuri")
         {
@@ -2003,7 +2007,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // torjunta: vain edestä, kun ei olla itse kesken iskun; muutaman torjunnan jälkeen suoja murtuu
         bool facingAttacker = (attackerX > transform.position.x) == facingRight;
-        bool guardState = state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake);
+        bool guardState = state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake)
+                          || (guardWhenHurt && state == State.Hurt && stateTime > 0.12f);   // välipomo saa suojan ylös kesken pelaajan kombon
         if (blockChance > 0f && facingAttacker && guardState && blocksInRow < maxBlocksInRow
             && (state == State.Block || Random.value < blockChance))
         {
