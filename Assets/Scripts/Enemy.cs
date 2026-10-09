@@ -571,6 +571,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (hv != null) { if (slapWindupSounds == null || slapWindupSounds.Length == 0) slapWindupSounds = punch3WindupSounds; punch3WindupSounds = new[] { hv }; }
             heroDownLaugh = Resources.Load<AudioClip>("Sfx/horhe/horhe_nauru");
             helpShout = Resources.Load<AudioClip>("Sfx/horhe/horhe_avunhuuto");
+            // juoksu (horhe_juoksu, 14 kuvaa = kaksi askelta): selvästi kävelyä nopeampi, askel noin 2 yksikköä
+            if (runSprites != null && runSprites.Length >= 8) { runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 2.1f); runFrameTime = 0.055f; }
         }
         if (displayName == "Metsuri")
         {
