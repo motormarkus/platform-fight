@@ -265,6 +265,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] counterThrowSprites;
     [Tooltip("Kuinka kauan kurotus nappaa kiinni (s). Painettava juuri ennen kuin lyönti osuu.")]
     public float catchWindowTime = 0.5f;
+    [Tooltip("Haymakerin kiinniotto: kurotus enintään näin kauan ennen kuin käsi lähtee (tiukempi kuin tavallisissa lyönneissä).")]
+    public float haymakerCatchWindow = 0.22f;
     [Tooltip("Ohi menneen kurotuksen palautus (s), jonka aikana olet altis.")]
     public float catchMissRecovery = 0.25f;
     [Tooltip("Aika per heittokuva.")]
@@ -2397,6 +2399,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
     {
         if (Riding) return false;
+        // haymaker: ei voi torjua, mutta ajoitetulla kurotuksella lyövästä kädestä saa kiinni ja heitettyä
+        // (vain ojennuksessa: kurotus painettava juuri ennen kuin käsi lähtee, latauksen aikana painettu menee ohi)
+        if (state == State.Catch && stateTime <= haymakerCatchWindow && (attackerX > transform.position.x) == facingRight
+            && attacker != null && attacker.CanBeCaught && attacker.KnockdownCatchable && !GameOver)
+        {
+            StartCounterThrow(attacker);
+            return true;
+        }
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
         if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso

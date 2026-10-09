@@ -1724,6 +1724,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     /// Voiko pelaaja napata kiinni (vain kesken lyönnin, ei heiton tai kaatuneena).
     public bool CanBeCaught => state == State.Punch;
+    /// Kaatavasta iskusta saa kiinni vain haymakerissa (ei esim. taklauksesta).
+    public bool KnockdownCatchable => usingPunch3 && punch3Heavy && !usingAlt;
 
     /// Pelaaja nappaa lyövästä kädestä kiinni.
     public void BeginHeldByPlayer(float playerX, bool monkeyFlip = false, bool knee = false)
