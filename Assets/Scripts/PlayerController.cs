@@ -526,6 +526,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int kneeHeadbuttDamage = 24;
     public float kneeHeadbuttLaunchX = 7f, kneeHeadbuttLaunchUp = 5f;
     bool headbuttQueued, headbuttFinisher;
+    float lastPushPressAt = -9f, kneeEndedAt = -9f, finisherLunge;
+    const float HeadbuttEarly = 0.3f, HeadbuttLate = 0.25f;   // puskunappi saa tulla jo jabin aikana tai hetki polven jälkeen
+    public float kneeComboSlide = 0.35f;   // polven jälkeen pieni liuku eteen, jotta pusku yltää
     int kneeKickPresses;   // jab + polvi + potku, potku: saksipotku
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
@@ -1217,6 +1220,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;   // Ruby: alas, eteen + potku
         bool specialPressed = !Scripted && SpecialPressed();
         bool pushPressed = !Scripted && PushPressed();
+        if (pushPressed) lastPushPressAt = Time.time;
         bool blockHeld = !Scripted && BlockHeld();
         bool catchPressed = !Scripted && CatchPressed();
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
@@ -1243,6 +1247,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     break;
                 }
                 if (blockHeld && HasBlock) { StartBlock(); break; }
+                // jab–polvi–pusku: puskunappi heti polven loputtua -> silti viimeistely
+                if (pushPressed && HasPush && AppliedCharacter != 1 && Time.time - kneeEndedAt <= HeadbuttLate) { StartHeadbuttFinisher(); break; }
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
                 if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
                 if (catchNow && Bottle.Held == null)
@@ -1565,10 +1571,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 float impact = ThrowPose.Start(KneeStrikeTimes, KneeStrikeImpact);
                 Lunge(attackLunge, impact, dt);
+                // osuman jälkeen pieni liuku eteen (hidastuen): vihu pysyy puskun ulottuvilla
+                float kneeEnd = impact + KneeStrikeTimes[KneeStrikeImpact] + 0.12f;
+                if (kneeComboSlide > 0f && stateTime > impact && stateTime - dt < kneeEnd)
+                {
+                    float a0 = Mathf.Clamp01((stateTime - dt - impact) / (kneeEnd - impact)), a1 = Mathf.Clamp01((stateTime - impact) / (kneeEnd - impact));
+                    float e0 = 1f - (1f - a0) * (1f - a0), e1 = 1f - (1f - a1) * (1f - a1);
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * kneeComboSlide * (e1 - e0), 0f));
+                }
                 if (!attackHit && stateTime >= impact && stateTime <= impact + KneeStrikeTimes[KneeStrikeImpact])
+                {
                     attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown, 2.0f);   // polvi vatsaan / leukaan
-                // jab + polvi + pusku: puskunappi polven aikana -> heti polven jälkeen kova pääpusku (Rocco)
-                if (pushPressed && HasPush && AppliedCharacter != 1) headbuttQueued = true;
+                    if (attackHit) { HitFx.Freeze(0.07f); if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f); }   // selvä osuma kombon keskellä
+                }
+                // jab + polvi + pusku: puskunappi polven aikana (tai jo jabin lopussa) -> heti polven jälkeen kova pääpusku (Rocco)
+                if ((pushPressed || lastPushPressAt >= Time.time - stateTime - HeadbuttEarly) && HasPush && AppliedCharacter != 1) headbuttQueued = true;
                 // jab + polvi + kaksi potkua: saksipotku polven jälkeen
                 if (kickPressed && HasScissor) kneeKickPresses++;   // polven käynnistänyt potku oli vielä jabin aikana: ei lasketa
                 if (kneeKickPresses >= 2 && !headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact])
@@ -1576,11 +1593,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     kneeKickPresses = 0;
                     if (TryComboScissor()) break;
                 }
-                if (headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact] && UseStamina(pushStamina))
-                {
-                    StartPush(); headbuttFinisher = true; break;
-                }
-                if (ThrowPose.Index(KneeStrikeTimes, stateTime) < 0) Enter(State.Ground);
+                if (headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact]) { StartHeadbuttFinisher(); break; }   // kombossa ei vaadi staminaa
+                if (ThrowPose.Index(KneeStrikeTimes, stateTime) < 0) { kneeEndedAt = Time.time; Enter(State.Ground); }
                 break;
             }
 
@@ -1605,8 +1619,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 float impact = pushImpactFrame * pushFrameTime;
                 // syöksy eteenpäin osumahetkeen asti (tai koko liikkeen ajan, jos pushLungeTime on asetettu)
                 float lungeT = pushLungeTime > 0f ? pushLungeTime : impact;
+                float lungeD = headbuttFinisher ? finisherLunge : pushLunge;   // viimeistely: syöksy vihuun asti
                 if (stateTime <= lungeT && lungeT > 0f)
-                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / lungeT * dt, 0f));
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * lungeD / lungeT * dt, 0f));
                 if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
                 {
                     attackHit = AttackEnemies(pushReach, headbuttFinisher ? kneeHeadbuttDamage : pushDamage, true, 2.1f);
@@ -2882,6 +2897,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         float t2 = t * t, t3 = t2 * t;
         return 0.5f * (2f * p1 + (p2 - p0) * t + (2f * p0 - 5f * p1 + 4f * p2 - p3) * t2 + (3f * p1 - p0 - 3f * p2 + p3) * t3);
+    }
+
+    /// Jab–polvi–pusku -kombon viimeistely: kova pääpusku syöksyen vihuun.
+    void StartHeadbuttFinisher()
+    {
+        kneeEndedAt = -9f; lastPushPressAt = -9f;
+        finisherLunge = ChaseLunge(pushLunge, pushReach);
+        StartPush();
+        headbuttFinisher = true;
     }
 
     void StartPush()
