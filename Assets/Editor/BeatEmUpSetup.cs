@@ -3650,7 +3650,7 @@ public static class BeatEmUpSetup
                 vis.sprite = tableBreak[0]; vsc = sc * 316f / 304f;
             }
             c.visualScale = vsc;
-            c.carryUpsideDown = true; c.carryLower = 1.3f * K;   // kannetaan ylösalaisin pään päällä
+            c.carryUpsideDown = true; c.carryLower = SalonTableCarryLower;   // kannetaan ylösalaisin pään päällä (kansi käsien varassa)
             c.shadowWidth = 2.0f * K; c.footOffset = 0.04f; c.plowThrough = true;   // heitettynä kaataa kaikki tieltään
             c.hitRadiusX = 1.0f * K; c.throwDamage = 20; c.moneyChance = 0f; c.energyChance = 0f;
             bool fishTable = n > SalonTableSpots.Length - 2;
@@ -3994,6 +3994,25 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(raid);
         EditorSceneManager.MarkSceneDirty(raid.gameObject.scene);
         Info("Kolmas puliukko (heron apuri) lisätty: kävelee ruudun oikeasta reunasta sisään, kun kannen rosvojen viimeinen aalto alkaa, ja lyö vain rosvoja.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // salin pöytä ylösalaisin: kansi (kuvan alareuna käännettynä) käsien korkeudelle pään yläpuolelle (ennen 1,95: kansi rinnan kohdalla)
+    const float SalonTableCarryLower = 0.4f;
+
+    [MenuItem("Beat em up/76. Laivan salin pöydät: kanto pään yläpuolella")]
+    static void SalonTablesCarryHigher()
+    {
+        int n = 0;
+        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (c == null || !c.carryUpsideDown || !c.gameObject.name.StartsWith("Salin pöytä")) continue;
+            Undo.RecordObject(c, "Salin pöydät");
+            c.carryLower = SalonTableCarryLower;
+            EditorUtility.SetDirty(c);
+            n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info(n > 0 ? $"{n} salin pöytää: kannetaan nyt pään yläpuolella.\n\nTallenna scene (Ctrl+S)." : "Salin pöytiä ei löytynyt (tee ensin kohta 62).");
     }
 
     [MenuItem("Beat em up/72. Koviksen uusi kävely ja haymaker kaikille Koviksille")]

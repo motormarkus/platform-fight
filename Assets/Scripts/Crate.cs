@@ -387,10 +387,11 @@ public class Crate : MonoBehaviour
         body.transform.localScale = new Vector3(visualScale, visualScale, 1f);
         body.transform.localPosition = new Vector3(pivotFix.x * visualScale + shake, groundHeight + height - footOffset * visualScale + pivotFix.y * visualScale, 0f);
         // lennossa laatikko pyörii hieman
-        float rot = state == State.Flying && thrown && !HasRoll ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
+        // ylösalaisin kannettu leveä pöytä lentää kansi alaspäin pyörimättä (pyöriessä kulma osui lattiaan heti ja lento jäi lyhyeksi)
+        float rot = state == State.Flying && thrown && !HasRoll && !carryUpsideDown ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
         if (carryUpsideDown)
         {
-            // nostossa kääntyy ylösalaisin (keskikohdan ympäri), lennossa pysyy ja pyörii, maassa taas pystyssä
+            // nostossa kääntyy ylösalaisin (keskikohdan ympäri), lennossa pysyy ylösalaisin, maassa taas pystyssä
             float goal = state == State.Carried || (state == State.Flying && thrown) ? 180f : 0f;
             flipAngle = state == State.Idle || state == State.Breaking ? 0f : Mathf.MoveTowards(flipAngle, goal, 720f * Time.deltaTime);
             rot += flipAngle;
