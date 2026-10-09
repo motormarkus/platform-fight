@@ -26,6 +26,19 @@ public class Chair : MonoBehaviour
     {
         if (state != S.Idle) return;
         float d = transform.position.x >= attackerX ? 1f : -1f;
+        if (kick)
+        {
+            // potku: tuoli lähtee kunnon lentoon pyörien, osuu yhteen vihuun (ei kaada) ja hajoaa vihuun tai lattiaan
+            height = Mathf.Max(height, 0.6f);
+            vx = d * Random.Range(13f, 15f); vy = Random.Range(4.5f, 5.5f);
+            spin = -d * Random.Range(600f, 760f); rot = 0f; trailT = 0f;
+            kickFlight = true;
+            hit.Clear();
+            state = S.Thrown;
+            HitFx.OnBreak(0f);
+            if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], 0.35f);
+            return;
+        }
         vx = d * (kick ? Random.Range(3.5f, 5f) : Random.Range(1.8f, 2.8f));
         vy = kick ? Random.Range(4f, 5.5f) : Random.Range(2.5f, 3.5f);
         spin = -d * Random.Range(300f, 480f);
@@ -36,6 +49,7 @@ public class Chair : MonoBehaviour
         if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], 0.35f);
     }
     S state = S.Idle;
+    bool kickFlight;   // potkaistu: osuma ei kaada
     float height, vx, vy, rot, spin, trailT = -1f, trailNext;
     readonly HashSet<Enemy> hit = new HashSet<Enemy>();
     static Sprite[] pieces;
@@ -83,6 +97,7 @@ public class Chair : MonoBehaviour
         c.transform.position = new Vector3(from.x, from.y, 0f);
         c.height = h; c.vx = dir * 18f; c.vy = 4.5f; c.spin = -dir * 760f; c.rot = 0f; c.trailT = 0f;
         c.hit.Clear();
+        c.kickFlight = false;
         c.state = S.Thrown;
         c.Show(true);
     }
@@ -167,9 +182,9 @@ public class Chair : MonoBehaviour
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 1.0f || Mathf.Abs(q.y - me.y) > 0.5f || height > 3.2f) continue;
             hit.Add(e);
-            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), true))
+            if (e.TakeHit(kickFlight ? Mathf.RoundToInt(throwDamage * 0.6f) : throwDamage, me.x - Mathf.Sign(vx), !kickFlight))
             {
-                HitFx.OnHit(true);
+                HitFx.OnHit(!kickFlight);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
                 return true;
             }

@@ -4104,7 +4104,7 @@ public static class BeatEmUpSetup
     // snookerpöydät (etujalkojen keskikohta) takarivissä sohvien edessä: niiden taakse ei mahdu muuta, pullopöydät edessä
     static readonly Vector2[] StreetBarSnooker = { new Vector2(2050f, 0.75f), new Vector2(2950f, 0.75f) };
     // kyltit baarin kuvan pikseleinä (keskikohta x, rivi; leveys px): Samperi's Snooker sohvien yläpuolelle, Poker night pokerihuoneen teräsoven yläpuolelle
-    static readonly Vector3 StreetBarSnookerSign = new Vector3(1820f, 205f, 330f), StreetBarPokerSign = new Vector3(3300f, 110f, 150f);
+    static readonly Vector3 StreetBarSnookerSign = new Vector3(1820f, 60f, 330f), StreetBarPokerSign = new Vector3(3300f, 110f, 150f);
     // kadulla (kadun kuvasarjan pikseleinä): Samperi's Snooker BAR-oven yläpuolelle parvekkeiden väliin, Poker night oven oikeaan ikkunaan
     // (kamera näyttää kadusta vasta n. rivistä 190 alaspäin: kyltti oven päälle BAR-valon kohdalle, peittää lampun ja BAR-kyltin)
     static readonly Vector3 StreetSnookerSign = new Vector3(2263f, 283f, 280f), StreetPokerSign = new Vector3(2543f, 400f, 92f);
