@@ -4005,7 +4005,8 @@ public static class BeatEmUpSetup
             if (r == null) break;
             r.gameObject.name = "Rokkimimmi (S-Club) " + (++rockers);
             r.transform.position = new Vector3(ClubX0 + v.x, Mathf.Lerp(club.maxDepthY - 0.3f, club.minDepthY + 0.4f, v.y), 0f);
-            r.wakeDistance = 7f;
+            // ei käy päälle itsestään (ApplyRocker2): tepastelee neutraalisti, kunnes lähellä syttyy tappelu
+            r.wanderMinX = r.transform.position.x - 1.5f; r.wanderMaxX = r.transform.position.x + 1.5f;
             r.gameObject.SetActive(true);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
@@ -4619,7 +4620,7 @@ public static class BeatEmUpSetup
     /// Osumat, kaatuminen, ylösnousu ja niskalenkki ovat vielä vanhoista kuvista, kunnes uudet tehdään.
     static bool ApplyRocker2(Enemy e, List<string> report)
     {
-        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle" })
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4654,9 +4655,14 @@ public static class BeatEmUpSetup
         }
         // kombo: lyöntisarja, sivupotku, pyörähdyspotku (menee loppuun)
         e.combos = new[] { "JSK", "JK" }; e.comboChance = 0.4f; e.comboArmor = true; e.comboWindupScale = 0.7f; e.comboGap = 0.08f;
-        // kävely ilman suojausta (14 kuvaa, yksi askelsykli ~0,9 s)
+        // neutraali kävely ilman suojausta ennen tappelua (14 kuvaa); tappelussa suojattu kävely, jos tehty (rokkari2_taistelukavely)
         var walk2 = EnemySheet("rokkari2_kavely", report);
-        e.walkSprites = walk2.Length > 0 ? walk2 : idle; e.walkFrameTime = walk2.Length > 0 ? 0.065f : 0.16f;
+        var fightWalk = EnemySheet("rokkari2_taistelukavely", report);
+        e.calmWalkSprites = walk2; e.calmWalkFrameTime = 0.07f;
+        e.walkSprites = fightWalk.Length > 0 ? fightWalk : walk2.Length > 0 ? walk2 : idle;
+        e.walkFrameTime = fightWalk.Length > 0 || walk2.Length > 0 ? 0.065f : 0.16f;
+        // ei käy päälle itsestään: herää, kun lähellä syttyy tappelu tai kun häntä lyödään
+        e.wakeDistance = -1f; e.wakeOnFightRadius = 5f;
         return true;
     }
 
@@ -4671,6 +4677,9 @@ public static class BeatEmUpSetup
             Undo.RecordObject(e, "Uusi rokkimimmi");
             if (e.body != null) Undo.RecordObject(e.body, "Uusi rokkimimmi");
             if (!ApplyRocker2(e, report)) { Info("rokkari2_*.png puuttuu."); return; }
+            // S-Clubin rokkimimmit tepastelevat neutraalisti paikkansa lähellä (kadun baarin rokkimimmit odottavat tiskillä)
+            if (e.gameObject.name.Contains("S-Club") && e.wanderMaxX <= e.wanderMinX)
+            { e.wanderMinX = e.transform.position.x - 1.5f; e.wanderMaxX = e.transform.position.x + 1.5f; }
             EditorUtility.SetDirty(e); n++;
         }
         if (n > 0) EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());

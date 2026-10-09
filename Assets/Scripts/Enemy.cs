@@ -39,6 +39,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public Sprite[] idleSprites;
     [Tooltip("Rauhallinen asento ennen tappelua (esim. rokkimimmi tiskillä). Tyhjä = idleSprites.")]
     public Sprite[] calmIdleSprites;
+    [Tooltip("Neutraali kävely ennen tappelua (esim. rokkimimmi kädet alhaalla). Tyhjä = tavallinen kävely.")]
+    public Sprite[] calmWalkSprites;
+    public float calmWalkFrameTime = 0.08f;
+    [Tooltip("Ei käy päälle itsestään: herää, kun tämän säteen sisällä joku saa osuman (tappelu syntyy). 0 = ei käytössä.")]
+    public float wakeOnFightRadius = 0f;
     public Sprite[] walkSprites;
     [Tooltip("Juoksukuvat (jos tyhjä, juostaan kävelykuvilla nopeammin).")]
     public Sprite[] runSprites;
@@ -397,6 +402,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return n.Contains("Kovis") || n.Contains("Samoa") || n.Contains("Portsari") || n.Contains("Puliukko");
     }
 
+    /// Joku lähellä (vihu tai pelaaja) on juuri saanut osuman tai kaatuu: tappelu on syntynyt.
+    bool FightNearby()
+    {
+        Vector3 me = transform.position;
+        foreach (var e in All)
+        {
+            if (e == this || e == null || !e.isActiveAndEnabled) continue;
+            if (e.state != State.Hurt && e.state != State.Airborne && e.state != State.Down) continue;
+            if (Mathf.Abs(e.transform.position.x - me.x) <= wakeOnFightRadius && Mathf.Abs(e.transform.position.y - me.y) <= wakeOnFightRadius * 0.5f) return true;
+        }
+        return player != null && player.IsDown && Mathf.Abs(player.transform.position.x - me.x) <= wakeOnFightRadius;
+    }
+
     void Wander(float dt)
     {
         if (wanderPause > 0f) { wanderPause -= dt; return; }
@@ -494,6 +512,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (!awake && wanderMaxX > wanderMinX) Wander(dt);
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
                     awake = true;
+                if (!awake && wakeOnFightRadius > 0f && FightNearby()) awake = true;   // tappelu syntyi lähellä: mukaan
                 if (awake && stateTime > 0.3f) Enter(State.Chase);
                 break;
 
@@ -1986,6 +2005,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Idle:
+                if (moving && !awake && Has(calmWalkSprites)) return calmWalkSprites[(int)(animClock / calmWalkFrameTime) % calmWalkSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();
 
