@@ -809,21 +809,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return false;
     }
 
-    const float GrabFirstRange = 1.4f;   // nyrkin etäisyys: tarttuminen ennen esineitä
-
-    /// Lähin edessä oleva vihu, johon voi tarttua suoraan (pystyssä, ei liittolainen).
-    Enemy GrabbableInFront(float range)
-    {
-        Vector3 me = transform.position; float d = facingRight ? 1f : -1f;
-        Enemy best = null; float bestDx = float.MaxValue;
-        foreach (var e in Enemy.All)
-        {
-            if (e == null || e.IsDead || e.ally || !e.isActiveAndEnabled || !e.IsAwake || !e.CanBeGrabbed) continue;
-            Vector3 p = e.transform.position; float dx = (p.x - me.x) * d;
-            if (dx > -0.3f && dx <= range && Mathf.Abs(p.y - me.y) <= attackDepth + 0.2f && dx < bestDx) { best = e; bestDx = dx; }
-        }
-        return best;
-    }
 
     void StartPummel(int dir)
     {
@@ -1236,9 +1221,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
         if (catchPressed) catchBufferUntil = Time.time + 0.18f;
         bool catchNow = catchPressed || (Time.time <= catchBufferUntil && state == State.Ground);
+        // esineen poiminta omalla napilla (E / ympyrä); sama nappi myös heittää kädessä olevan esineen
+        bool pickPressed = !Scripted && PickInput();
+        if (pickPressed) pickBufferUntil = Time.time + 0.18f;
+        bool pickNow = pickPressed || (Time.time <= pickBufferUntil && state == State.Ground);
         bool picking = state == State.SmallPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
-        if (catchPressed && picking) throwQueued = true;   // painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
-        bool releaseThrow = (catchPressed && !picking) || throwQueued;   // sama nappi: 1. painallus nostaa, 2. painallus heittää
+        if ((catchPressed || pickPressed) && picking) throwQueued = true;   // painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
+        bool releaseThrow = ((catchPressed || pickPressed) && !picking) || throwQueued;   // 1. painallus nostaa, 2. painallus heittää
 
         UpdateGroundHeight(dt);
 
@@ -1260,15 +1249,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // jab–polvi–pusku: puskunappi heti polven loputtua -> silti viimeistely
                 if (pushPressed && HasPush && AppliedCharacter != 1 && Time.time - kneeEndedAt <= HeadbuttLate) { StartHeadbuttFinisher(); break; }
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
-                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
-                if (catchNow && Bottle.Held == null)
+                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; pickNow = false; pickBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
+                if (pickNow && Bottle.Held == null)
                 {
-                    catchBufferUntil = 0f;
-                    // vihu nyrkin etäisyydellä: tarttuminen menee esineen poiminnan edelle
-                    if (HasCounterThrow && FoeInFront(GrabFirstRange))
-                    {
-                        quickReach = false; Enter(State.Catch); break;    // vastaheiton kurotus (molemmat hahmot: heitto vain lyövästä vihusta)
-                    }
+                    pickBufferUntil = 0f;
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
@@ -1290,6 +1274,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasCue && Cue.TryPickUp(this)) { throwQueued = false; Enter(State.CuePick); break; }   // biljardikeppi
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
+                }
+                if (catchNow && Bottle.Held == null)
+                {
+                    catchBufferUntil = 0f;
                     if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
@@ -3598,9 +3586,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool CatchPressed() => CatchInput();
 
-    bool throwQueued;   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
+    bool throwQueued;
+    float pickBufferUntil;
 
-    /// Nappaus/nosto-nappi (O / ohjaimen vasen liipaisin L2), myös muiden skriptien käyttöön. 1. painallus nostaa esineen, 2. painallus heittää.
+    /// Esineen poiminta (E / ohjaimen ympyrä eli itänappi): pullot, pallot, keppi, tuoli, rengas, laatikot, pöydät ja telkkari.
+    public static bool PickInput()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+            || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.E);
+#endif
+    }   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
+
+    /// Nappausnappi (O / ohjaimen vasen liipaisin L2): vastaheiton kurotus; heittää myös kädessä olevan esineen.
     public static bool CatchInput()
     {
 #if ENABLE_INPUT_SYSTEM
