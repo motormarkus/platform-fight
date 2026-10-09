@@ -215,6 +215,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public AudioClip[] slapSounds;
     [Tooltip("Kaikki tavalliset iskut ovat läpsyjä (puliukko); muuten läimäys vain läpsykombossa.")]
     public bool punchesAreSlaps;
+    [HideInInspector] public bool hammerArt;   // Horhe: vasaran nosto näytetään selvästi
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
     public float tauntVolume = 1f;
@@ -532,6 +533,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             attackCooldown = Mathf.Min(attackCooldown, 0.9f);
             blockChance = Mathf.Max(blockChance, 0.4f); maxBlocksInRow = Mathf.Max(maxBlocksInRow, 2); guardWhenHurt = true;   // torjuu, myös kesken kombon
             barThrowChance = Mathf.Max(barThrowChance, 0.6f);
+            hammerArt = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
         }
         if (displayName == "Metsuri")
         {
@@ -2420,6 +2422,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.Windup:
+                if (hammerArt && usingPunch3 && !usingAlt && Has(punch3Sprites) && punch3Sprites.Length >= 6)
+                {
+                    // vasara: asento hetken, nosto, kädet pään yllä pidetään (selvä varoitus)
+                    float u = stateTime / Mathf.Max(0.01f, CurrentWindup);
+                    return punch3Sprites[u < 0.15f ? 0 : u < 0.4f ? 1 : 2];
+                }
                 if (Has(AtkSprites))
                 {
                     // veto taakse: kuvat ennen iskun liikettä (esim. 0 ja 1), jaettuna vetoajalle
@@ -2435,9 +2443,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     return walkSprites[(int)(animClock / 0.05f) % walkSprites.Length];
                 if (Has(AtkSprites))
                 {
-                    // lyhyt välikuva ja sitten täysin ojennettu käsi
+                    // lyhyt välikuva ja sitten täysin ojennettu käsi (vasarassa alastulo näkyy pidempään)
                     int imp = PunchImpact;
-                    return AtkSprites[stateTime < 0.04f && imp > 0 ? imp - 1 : imp];
+                    float mid = hammerArt && usingPunch3 ? 0.09f : 0.04f;
+                    return AtkSprites[stateTime < mid && imp > 0 ? imp - 1 : imp];
                 }
                 return IdleFrame();
 
