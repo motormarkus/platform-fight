@@ -69,6 +69,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float punch3Reach = 2.4f;
     [Tooltip("Raskas isku (Koviksen haymaker): iso pysäytys, tärähdys ja kipinä osuessa, ei voi torjua.")]
     public bool punch3Heavy;
+    [Tooltip("Iskua 3 ei voi torjua (Horhen tuplanyrkkivasara), mutta sitä ei myöskään voi napata vastaliikkeellä kuten haymakeria.")]
+    public bool punch3Unblockable;
     [Tooltip("Lataus-grunt (soi vedon alussa) ja huuto/puhallus (soi heilautuksessa). Tyhjä = tavallinen hyökkäysääni.")]
     public AudioClip[] punch3WindupSounds, punch3SwingSounds;
     [Range(0f, 1f)] public float punch3Volume = 1f;
@@ -578,7 +580,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             attackCooldown = Mathf.Min(attackCooldown, 0.9f);
             blockChance = Mathf.Max(blockChance, 0.4f); maxBlocksInRow = Mathf.Max(maxBlocksInRow, 2); guardWhenHurt = true;   // torjuu, myös kesken kombon
             barThrowChance = Mathf.Max(barThrowChance, 0.6f);
-            hammerArt = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
+            hammerArt = true; punch3Unblockable = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
             // läpsykombo liukuu reilusti eteen (10 läpsyä ≈ 5 yksikköä)
             slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.6f);
             // tuplanyrkkivasaran ääni; vanha latausmurahdus jää läpsykombolle
@@ -2095,8 +2097,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (usingAlt && altKnockdown && !mid) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
         if (!usingAlt && usingPunch3 && punch3Knockdown && !mid)
         {
-            bool hit = player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this, punch3Heavy);
-            if (hit && punch3Heavy)
+            bool hit = player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this, punch3Heavy || punch3Unblockable);
+            if (hit && (punch3Heavy || punch3Unblockable))
             {
                 // haymaker: iso kipinä nyrkin kohdalla, pitkä pysäytys ja kunnon tärähdys
                 HitSpark.Spawn(new Vector3(p.x - Mathf.Sign(dx) * 0.3f, p.y + 2.3f, 0f), true, Mathf.RoundToInt(-p.y * 100f) + 6);
