@@ -142,10 +142,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("vihu_haymaker") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("skeittari_") || baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -4614,6 +4614,68 @@ public static class BeatEmUpSetup
         return e;
     }
 
+    /// Uusi rokkimimmi (rokkari2_*.png, 768 × 512): taisteluidle, lyöntisarja (etukäsi + takakäsi), sivupotku,
+    /// hyppypotku (syöksy kauempaa, kaataa) ja pyörähdyspotku (kaataa). Kävely, osumat, kaatuminen, ylösnousu ja
+    /// niskalenkki ovat vielä vanhoista kuvista, kunnes uudet tehdään.
+    static bool ApplyRocker2(Enemy e, List<string> report)
+    {
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var idle = EnemySheet("rokkari2_taisteluidle", report);
+        if (idle.Length == 0) return false;
+        e.idleSprites = idle; e.idleFrameTime = 0.16f;
+        e.calmIdleSprites = idle;
+        if (e.body != null) e.body.sprite = idle[0];
+        var punch = EnemySheet("rokkari2_lyonnit", report);     // 14 kuvaa: etukäsi ojennettuna 5, takakäsi 9
+        if (punch.Length >= 12)
+        {
+            e.punchSprites = punch; e.punchImpactFrame = 5; e.secondImpactFrame = 9; e.secondImpactPunchOnly = true;
+            e.windupTime = 0.22f; e.punchRecoverTime = 0.55f; e.punchDamage = 7;
+        }
+        var side = EnemySheet("rokkari2_sivupotku", report);    // 14 kuvaa: ojennettuna 6
+        if (side.Length >= 10) { e.punch2Sprites = side; e.punch2ImpactFrame = 6; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.3f; e.punch2LaunchUp = 0f; }
+        var jump = EnemySheet("rokkari2_hyppypotku", report);   // 17 kuvaa: hyppy, polvi ylös, potku ojennettuna 9
+        if (jump.Length >= 12)
+        {
+            e.altAttackSprites = jump; e.altImpactFrame = 9; e.altDamage = 14; e.altKnockdown = true; e.altKnockSpeed = 6f; e.altKnockUp = 5f;
+            e.altChance = 0.25f; e.altExtraWindup = 0.3f; e.altReach = 2.4f; e.altLungeSpeed = 5f; e.altLungeTime = 0.25f;
+            e.chargeRange = 3.8f; e.chargeMinRange = 2.4f; e.altNearChance = 0.1f; e.altJumpHeight = 0f; e.altTimeScale = 1f;
+        }
+        var spin = EnemySheet("rokkari2_pyorahdys", report);    // 16 kuvaa: kääntyy selkä edellä, korkea potku ojennettuna 8
+        if (spin.Length >= 12)
+        {
+            e.punch3Sprites = spin; e.punch3ImpactFrame = 8; e.punch3WindupTime = 0.45f; e.punch3RecoverTime = 0.55f;
+            e.punch3Damage = 16; e.punch3Knockdown = true; e.punch3LaunchX = 6f; e.punch3LaunchUp = 5f; e.punch3Chance = 0.15f; e.punch3Reach = 2.5f;
+            e.punch3Heavy = false;
+        }
+        // kombo: lyöntisarja, sivupotku, pyörähdyspotku (menee loppuun)
+        e.combos = new[] { "JSK", "JK" }; e.comboChance = 0.4f; e.comboArmor = true; e.comboWindupScale = 0.7f; e.comboGap = 0.08f;
+        // kävelykuvat puuttuvat vielä: vanha kävely olisi eri asussa, joten liikkuessa näytetään idle
+        var walk2 = EnemySheet("rokkari2_kavely", report);
+        e.walkSprites = walk2.Length > 0 ? walk2 : idle; e.walkFrameTime = walk2.Length > 0 ? 0.08f : 0.16f;
+        return true;
+    }
+
+    [MenuItem("Beat em up/73. Uusi rokkimimmi kaikille rokkimimmeille")]
+    static void Rocker2All()
+    {
+        var report = new List<string>();
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.displayName != "Rokkimimmi") continue;
+            Undo.RecordObject(e, "Uusi rokkimimmi");
+            if (e.body != null) Undo.RecordObject(e.body, "Uusi rokkimimmi");
+            if (!ApplyRocker2(e, report)) { Info("rokkari2_*.png puuttuu."); return; }
+            EditorUtility.SetDirty(e); n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        Info($"Uusi rokkimimmi: {n} kpl päivitetty.\n\n" + string.Join("\n", report.Distinct()) + "\n\nTallenna scene (Ctrl+S).");
+    }
+
     /// Rokkimimmi (rokkari_*.png): neutraali idle ja kävely, etukäden ja takakäden lyönnit, etupotku ja korkea potku,
     /// kombona koko sarja (etukäsi, takakäsi, etukäsi, etupotku, korkea potku). Taisteluidle, -kävely ja ylösnousu tulossa.
     static Enemy MakeRocker(Transform parent)
@@ -4670,6 +4732,7 @@ public static class BeatEmUpSetup
         e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 0.8f; e.blockChance = 0f;
         e.moveSpeedX = 3.2f; e.moveSpeedY = 1.6f;   // nopea ja ketterä
         e.wakeDistance = 8f; e.retreatChance = 0.1f;
+        ApplyRocker2(e, report);   // uusi ulkoasu (farkkuliivi, cowboy-saappaat), jos kuvat on tehty
         Undo.RegisterCreatedObjectUndo(go, "Rokkimimmi");
         Debug.Log("Rokkimimmi: " + string.Join(", ", report));
         return e;

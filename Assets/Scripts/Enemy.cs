@@ -127,6 +127,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int punchImpactFrame = 3;
     [Tooltip("Kombon toinen osuma samassa lyöntisarjassa (esim. jab + suora). -1 = ei toista osumaa.")]
     public int secondImpactFrame = -1;
+    [Tooltip("Toinen osuma vain tavallisessa lyöntisarjassa (ei toisessa/kolmannessa iskussa, esim. potkuissa).")]
+    public bool secondImpactPunchOnly;
     bool secondHitDone;
 
     [Header("Toinen hyökkäys (esim. pusku) – vapaaehtoinen")]
@@ -538,7 +540,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     comboSeq = null;
                 }
                 // kombon toinen isku (lyöntisarjan myöhempi kuva)
-                if (!usingAlt && secondImpactFrame > PunchImpact && !secondHitDone && Has(AtkSprites))
+                if (!usingAlt && secondImpactFrame > PunchImpact && !secondHitDone && Has(AtkSprites) && !(secondImpactPunchOnly && (usingPunch2 || usingPunch3)))
                 {
                     int n = AtkSprites.Length - PunchImpact;
                     int f = PunchImpact + (int)(stateTime / CurrentRecover * n);
