@@ -210,6 +210,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
     public AudioClip[] tauntSounds;
+    [HideInInspector] public bool tauntNoRepeat = true;   // Horhe: repliikit täysin satunnaisesti
     [Tooltip("Avokämmenläimäys: soi, kun tämän vihun isku osuu tai torjutaan (puliukko, Horhen läpsyt).")]
     public AudioClip[] slapSounds;
     [Tooltip("Kaikki tavalliset iskut ovat läpsyjä (puliukko); muuten läimäys vain läpsykombossa.")]
@@ -519,9 +520,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
             var sp = new System.Collections.Generic.List<AudioClip>();
             for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_speak" + i); if (c != null) sp.Add(c); }
-            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); }
+            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); tauntNoRepeat = false; }
             var gr = new System.Collections.Generic.List<AudioClip>();
-            for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_grunt" + i); if (c != null) gr.Add(c); }
+            for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_gasp" + i); if (c != null) gr.Add(c); }
             if (gr.Count > 0) hurtSounds = gr.ToArray();
             fallVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_kaatuminen");
             getUpVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_ylosnousu");
@@ -1420,7 +1421,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
         if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
         int i = Random.Range(0, tauntSounds.Length);
-        if (tauntSounds.Length > 1 && i == lastTaunt) i = (i + 1) % tauntSounds.Length;
+        if (tauntSounds.Length > 1 && i == lastTaunt && tauntNoRepeat) i = (i + 1) % tauntSounds.Length;
         var clip = tauntSounds[i];
         if (clip == null) return;
         lastTaunt = i;
