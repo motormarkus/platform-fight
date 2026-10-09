@@ -4660,7 +4660,7 @@ public static class BeatEmUpSetup
         var fightWalk = EnemySheet("rokkari2_taistelukavely", report);
         e.calmWalkSprites = walk2; e.calmWalkFrameTime = 0.07f;
         e.walkSprites = fightWalk.Length > 0 ? fightWalk : walk2.Length > 0 ? walk2 : idle;
-        e.walkFrameTime = fightWalk.Length > 0 || walk2.Length > 0 ? 0.065f : 0.16f;
+        e.walkFrameTime = fightWalk.Length > 0 ? 0.075f : walk2.Length > 0 ? 0.065f : 0.16f;   // taistelukävely: 12 kuvaa, kaksi askelta (jalat vuorotellen) ~0,9 s
         // ei käy päälle itsestään: herää, kun lähellä syttyy tappelu tai kun häntä lyödään
         e.wakeDistance = -1f; e.wakeOnFightRadius = 5f;
         return true;
