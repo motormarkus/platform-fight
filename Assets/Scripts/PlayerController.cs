@@ -517,6 +517,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int kneeHeadbuttDamage = 24;
     public float kneeHeadbuttLaunchX = 7f, kneeHeadbuttLaunchUp = 5f;
     bool headbuttQueued, headbuttFinisher;
+    int kneeKickPresses;   // jab + polvi + potku, potku: saksipotku
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
     [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
@@ -1506,6 +1507,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown, 2.0f);   // polvi vatsaan / leukaan
                 // jab + polvi + pusku: puskunappi polven aikana -> heti polven jälkeen kova pääpusku (Rocco)
                 if (pushPressed && HasPush && AppliedCharacter != 1) headbuttQueued = true;
+                // jab + polvi + kaksi potkua: saksipotku polven jälkeen
+                if (kickPressed && HasScissor) kneeKickPresses++;   // polven käynnistänyt potku oli vielä jabin aikana: ei lasketa
+                if (kneeKickPresses >= 2 && !headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact])
+                {
+                    kneeKickPresses = 0;
+                    if (TryComboScissor()) break;
+                }
                 if (headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact] && UseStamina(pushStamina))
                 {
                     StartPush(); headbuttFinisher = true; break;
@@ -1982,7 +1990,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
         if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; backKickQueued = false; }
-        if (s != State.KneeStrike) headbuttQueued = false;
+        if (s != State.KneeStrike) { headbuttQueued = false; kneeKickPresses = 0; }
         if (s != State.Push) headbuttFinisher = false;
         if (s != State.Punch && s != State.Kick && s != State.SideKick) pendulumQueued = false;
         if (s != State.JumpSquat) scissorJump = false;
