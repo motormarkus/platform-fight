@@ -2220,6 +2220,33 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         knockedDown = false;
     }
 
+    /// Tarttuja päästää irti ilman heittoa (esim. ote keskeytyi): takaisin jaloilleen.
+    public void ReleaseGrab()
+    {
+        if (state != State.Grabbed) return;
+        height = 0f; heldRot = 0f;
+        Enter(State.Ground);
+    }
+
+    /// Isku otteessa (Horhen turpaanveto): vahinko, ääni ja kipinä, pelaaja pysyy otteessa.
+    public void HitWhileHeld(int damage)
+    {
+        if (state != State.Grabbed || GameOver) return;
+        PlayClip(hurtSounds);
+        HitFx.OnHit(false);
+        ApplyDamage(GameSettings.ScaleToPlayer(damage));
+        if (GameOver) ReleaseGrab();
+    }
+
+    /// Otteen viimeinen isku: irti ja lentää selälleen (torjumaton).
+    public void ReleaseFromClinch(float enemyX, int damage, float speed, float up)
+    {
+        if (state != State.Grabbed) return;
+        height = 0f; heldRot = 0f;
+        Enter(State.Ground);
+        TakeKnockdown(damage, enemyX, speed, up, null, true);
+    }
+
     /// Osuma ajon aikana (esim. vihun potku prätkän selästä): vahinko ja ääni, ei kaatumista.
     public void HitWhileRiding(int damage)
     {
@@ -3207,6 +3234,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Grabbed:
+                if (heldPose < 0) return hurtSprite != null ? hurtSprite : Action(F_HURT);   // rinnuksista kiinni pystyssä (Horhe)
                 if (HasThrowSprites) return thrownSprites[Mathf.Clamp(heldPose, 0, 3)];
                 return Action(F_HURT);
             case State.Thrown:

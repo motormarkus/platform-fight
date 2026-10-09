@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("horhe_ote") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -5785,6 +5785,132 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"El Loippari luotu ({wU:0} yksikköä: baaritiski, lava, terassi).\nOvi Uccopulcon kadulla x = {doorX:0.0}. Sisältä ulos vasemman reunan heiluriovista.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- El Loipparin yläkerta: välipomo Horhe ----------------
+    const string LoipUpPath = "Assets/Sprites/Taustat/loippari_ylakerta.png";   // toimisto: kassakaappi, pöytä, pokeripöytä, parvekkeen ovet (2171 × 724)
+    const float LoipUpX0 = 60000f;
+    const float LoipUpFloorPx = 412f;        // seinän alareuna / lattian takaraja kuvassa
+    const float LoipUpStairPx = 150f;        // portaiden yläpää (kaide vasemmassa reunassa)
+    const float LoipStairPx = 1740f;         // portaiden alapää El Loipparin kuvassa (lavan vasemmalla puolella)
+
+    [MenuItem("Beat em up/77. El Loipparin yläkerta ja välipomo Horhe")]
+    static void CreateLoipparUpstairs()
+    {
+        var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
+        var loipBg = GameObject.Find("El Loippari");
+        var ti = AssetImporter.GetAtPath(LoipUpPath) as TextureImporter;
+        if (loip == null || loipBg == null || ti == null) { Info("Tarvitaan El Loippari (kohta 45) ja kuva " + LoipUpPath); return; }
+        foreach (var n in new[] { "horhe_idle", "horhe_ote" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var report = new List<string>();
+        var idle = EnemySheet("horhe_idle", report);
+        var ote = EnemySheet("horhe_ote", report).Take(7).ToArray();
+        if (idle.Length == 0 || ote.Length < 7) { Info("horhe_idle.png (6 kuvaa) ja horhe_ote.png (7 kuvaa) tarvitaan.\n\n" + string.Join("\n", report)); return; }
+        foreach (var n in new[] { "Loipparin yläkerta", "Alue: Loipparin yläkerta", "Loipparin portaat", "Horhe" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+
+        // tausta: koko kuva ruudun korkuiseksi kuten El Loipparissa
+        ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+        float ppu = srcH / (2f * CamHalf);
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.maxTextureSize = 8192;
+        ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings();
+        ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect;
+        st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st);
+        ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(LoipUpPath);
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+        var bg = new GameObject("Loipparin yläkerta");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(LoipUpX0 + wU * 0.5f, CamY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Loipparin yläkerta");
+        float top = CamY + hU * 0.5f;
+        float halfW = CamHalf * 16f / 9f;
+        var area = new GameObject("Alue: Loipparin yläkerta").AddComponent<Area>();
+        area.areaName = "Loipparin yläkerta";
+        area.music = loip.music;
+        area.useSidewalk = false;
+        area.maxDepthY = top - LoipUpFloorPx / ppu;
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = LoipUpX0 + halfW;
+        area.camMaxX = LoipUpX0 + Mathf.Max(wU - halfW, halfW);
+        Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+        // portaat: alhaalta lavan vierestä ylös, ylhäältä kaiteen kohdalta alas
+        var stairs = new GameObject("Loipparin portaat");
+        Undo.RegisterCreatedObjectUndo(stairs, "Portaat");
+        var lsr = loipBg.GetComponent<SpriteRenderer>();
+        float loipLeft = lsr.bounds.min.x, loipPpu = lsr.sprite.pixelsPerUnit;
+        float stairX = loipLeft + LoipStairPx / loipPpu;
+        float upX = LoipUpX0 + LoipUpStairPx / ppu;
+        var up = new GameObject("Portaat ylös").AddComponent<Door>();
+        up.transform.SetParent(stairs.transform, false);
+        up.transform.position = new Vector3(stairX, loip.maxDepthY, 0f);
+        up.prompt = "Yläkertaan";
+        up.here = loip; up.target = area;
+        up.spawnPoint = new Vector2(upX + 1.8f, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f));
+        up.halfWidth = 1.2f; up.maxDistanceFromWall = 1.2f;
+        var down = new GameObject("Portaat alas").AddComponent<Door>();
+        down.transform.SetParent(stairs.transform, false);
+        down.transform.position = new Vector3(upX, area.maxDepthY, 0f);
+        down.prompt = "Alakertaan";
+        down.here = area; down.target = loip;
+        down.spawnPoint = new Vector2(stairX + 0.6f, Mathf.Lerp(loip.maxDepthY, loip.minDepthY, 0.25f));
+        down.halfWidth = 1.6f; down.maxDistanceFromWall = 1.2f;
+
+        // Horhe: valkoinen puku, kultaketjut; tarttuu rinnuksista ja hakkaa takakädellä
+        var go = new GameObject("Horhe");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
+        visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
+        shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.displayName = "Horhe";
+        t.visualScale = 1f; t.attackArtScale = 1f; t.knockArtScale = 1f; t.walkArtScale = 1f;
+        t.idleSprites = idle; t.idleFrameTime = 0.14f;
+        // kävely-, osuma-, kaatumis- ja ylösnousukuvat puuttuvat vielä: idle ja varaliikkeet (kuvan kierto)
+        t.punchSprites = new[] { ote[2], ote[0], ote[2] };            // suora etukädellä
+        t.punchImpactFrame = 1;
+        t.punch2Sprites = new[] { ote[4], ote[5], ote[6], ote[4] };  // takasuora
+        t.punch2ImpactFrame = 2; t.punch2Damage = 14; t.punch2Chance = 0.4f;
+        t.windupTime = 0.22f; t.punchRecoverTime = 0.45f;
+        t.punchDamage = 11;
+        t.attackRange = 2.1f;
+        t.clinchSprites = ote;                                        // erikoisliike: ote ja turpaanveto
+        t.clinchChance = 0.4f; t.clinchHits = 3; t.clinchDamage = 7; t.clinchFinalDamage = 14; t.clinchReach = 2.4f;
+        t.punch3SwingSounds = LoadClips("Assets/Audio/big thug", "haymaker_isku");   // iskun murahdus otteessa
+        t.moveSpeedX = 2.4f; t.moveSpeedY = 1.5f;
+        t.maxHealth = 260;
+        t.attackCooldown = 1.1f;
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        t.hurtVolume = 0.99f;
+        t.bigBody = true;                  // hero heittää kuperkeikalla kuten Koviksen
+        t.wakeDistance = 7f;
+        t.runSpeedMultiplier = 1.15f; t.flankChance = 0.1f; t.retreatChance = 0f; t.blockChance = 0f;
+        float hx = LoipUpX0 + 1250f / ppu;   // pokeripöydän ja kirjoituspöydän välissä
+        go.transform.position = new Vector3(hx, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f), 0f);
+        Undo.RegisterCreatedObjectUndo(go, "Horhe");
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"El Loipparin yläkerta luotu ({wU:0} yksikköä). Portaat lavan vasemmalta puolelta (x = {stairX:0.0}).\n" +
+             "Välipomo Horhe: suora, takasuora ja erikoisliike (rinnuksista kiinni ja kolme iskua takakädellä, viimeinen kaataa).\n" +
+             "Kävely-, osuma-, kaatumis- ja ylösnousukuvat puuttuvat vielä (varaliikkeet käytössä).\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Aloituskohta ----------------

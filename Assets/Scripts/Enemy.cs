@@ -239,6 +239,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Heitto (vapaaehtoinen): tarttuu, nostaa pään yli ja heittää taakse")]
     [Tooltip("8 kuvaa: 0 kurotus, 1 ote, 2–4 nosto, 5–6 heitto, 7 asento heiton jälkeen (katsoo heittosuuntaan).")]
     public Sprite[] grabSprites;
+    [Header("Ote ja turpaanveto (Horhe): kurotus, rinnuksista kiinni, iskuja takakädellä, viimeinen kaataa")]
+    [Tooltip("0 kurotus, 1 avoin käsi, 2 ote, 3 pito, 4 käsi taakse, 5 isku, 6 isku perillä")]
+    public Sprite[] clinchSprites;
+    [Range(0f, 1f)] public float clinchChance = 0.35f;
+    public int clinchHits = 3, clinchDamage = 7, clinchFinalDamage = 12;
+    public float clinchReach = 2.1f;        // käden mitta: pelaaja otteessa tämän verran edessä
+    public float clinchReachTime = 0.34f, clinchHitTime = 0.42f;
+    public float clinchLaunchX = 8f, clinchLaunchUp = 5f;
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
     [Range(0f, 1f)] public float grabChance = 0.3f;
     [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
@@ -368,7 +376,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -409,7 +417,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public static bool IsHeavyweight(Enemy e)
     {
         string n = e.gameObject.name;
-        return n.Contains("Kovis") || n.Contains("Samoa") || n.Contains("Portsari") || n.Contains("Puliukko");
+        return n.Contains("Kovis") || n.Contains("Samoa") || n.Contains("Portsari") || n.Contains("Puliukko") || n.Contains("Horhe");
     }
 
     /// Joku lähellä (vihu tai pelaaja) on juuri saanut osuman tai kaatuu: tappelu on syntynyt.
@@ -794,6 +802,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= getUpTime + RollTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
                 break;
 
+            case State.Clinch:
+                UpdateClinch();
+                break;
+
             case State.GrabReach:
                 if (stateTime >= grabReachTime)
                 {
@@ -910,6 +922,77 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector3 me = transform.position;
         int pose = k < (collarThrow ? 3f : 1f) ? 1 : 2;            // 1 = napattu, 2 = kierähdys (rinnuksista vasta viskatessa)
         grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, art ? 0f : dir * v.z, pose);
+    }
+
+    bool HasClinch => clinchSprites != null && clinchSprites.Length >= 7;
+    bool clinchHolding;
+    int clinchHitsDone;
+    const float ClinchPull = 0.22f;   // ote: pelaaja vedetään käden mitalle
+
+    /// Ote ja turpaanveto: kurotus (kuvat 0–1), ote (2), sitten iskusarjat (4 veto, 5 isku, 6 perillä), viimeinen kaataa.
+    void UpdateClinch()
+    {
+        float dir = facingRight ? 1f : -1f;
+        Vector3 me = transform.position;
+        if (!clinchHolding)
+        {
+            if (stateTime < clinchReachTime) return;
+            if (clinchHitsDone > 0) { if (stateTime >= clinchReachTime + 0.35f) { cooldown = attackCooldown * Random.Range(1.0f, 1.4f); Enter(State.Recover); } return; }   // viimeinen isku lähetti lentoon
+            facingRight = player.transform.position.x > me.x; dir = facingRight ? 1f : -1f;
+            if (CanClinch() && player.BeginGrab(me.x)) { clinchHolding = true; clinchFrom = player.transform.position; }
+            else { Enter(State.Recover); return; }   // ohi
+        }
+        float t = stateTime - clinchReachTime;
+        // pelaaja vedetään käden mitalle ja pidetään siinä; iskun hetkellä nytkähtää taaksepäin
+        float pull = Mathf.Clamp01(t / ClinchPull); pull = pull * pull * (3f - 2f * pull);
+        Vector3 hold = new Vector3(me.x + dir * clinchReach, me.y - 0.03f, 0f);
+        float jolt = ClinchJolt(t);
+        Vector3 pos = Vector3.Lerp(new Vector3(clinchFrom.x, me.y - 0.03f, 0f), hold, pull) + new Vector3(dir * jolt, 0f, 0f);
+        player.SetHeld(pos, 0f, dir * jolt * -25f, -1);
+        int cycle = Mathf.FloorToInt((t - ClinchPull) / clinchHitTime);
+        float ph = t - ClinchPull - cycle * clinchHitTime;
+        if (t >= ClinchPull && cycle >= clinchHitsDone && ph >= clinchHitTime * 0.4f)
+        {
+            clinchHitsDone++;
+            bool last = clinchHitsDone >= clinchHits;
+            Vector3 face = new Vector3(hold.x - dir * 0.1f, me.y + 2.6f, 0f);
+            HitSpark.Spawn(face, last, Mathf.RoundToInt(-me.y * 100f) + 6);
+            if (punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
+            if (last)
+            {
+                clinchHolding = false;
+                player.ReleaseFromClinch(me.x, clinchFinalDamage, clinchLaunchX, clinchLaunchUp);
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.22f);
+                stateTime = clinchReachTime;   // loppu: isku perillä hetki, sitten palautus
+            }
+            else player.HitWhileHeld(clinchDamage);
+        }
+    }
+    Vector3 clinchFrom;
+
+    float ClinchJolt(float t)
+    {
+        if (t < ClinchPull) return 0f;
+        float ph = (t - ClinchPull) % clinchHitTime - clinchHitTime * 0.4f;
+        return ph >= 0f && ph < 0.12f ? Mathf.Sin(ph / 0.12f * Mathf.PI) * 0.18f : 0f;
+    }
+
+    int ClinchFrame()
+    {
+        if (!clinchHolding && clinchHitsDone > 0) return 6;   // viimeinen isku perillä
+        if (stateTime < clinchReachTime) return stateTime < clinchReachTime * 0.5f ? 0 : 1;
+        if (!clinchHolding) return 1;
+        float t = stateTime - clinchReachTime;
+        if (t < ClinchPull) return 2;
+        float ph = (t - ClinchPull) % clinchHitTime / clinchHitTime;
+        return ph < 0.15f ? 3 : ph < 0.4f ? 4 : ph < 0.6f ? 5 : 6;
+    }
+
+    bool CanClinch()
+    {
+        if (player == null || player.IsDown) return false;
+        Vector3 p = player.transform.position, me = transform.position;
+        return Mathf.Abs(p.x - me.x) <= clinchReach + 0.4f && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 0.3f;
     }
 
     bool CanGrabPlayer()
@@ -1105,6 +1188,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.BottlePick && s != State.BottleThrow && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
+        if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
+        if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
         if (s != State.GrabLift && s != State.GrabThrow && grabbedEnemy != null)
         {
             // heitto keskeytyi (esim. heittäjä sai osuman): napattu putoaa
@@ -1316,6 +1401,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
             if (grabIntent) { Enter(State.GrabReach); return; }
+            if (HasClinch && Mathf.Abs(me.x - p.x) <= clinchReach + 0.2f && Random.value < clinchChance) { Enter(State.Clinch); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
             usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : altNearChance);   // rynnäkkö kaukaa, vierestä vain altNearChance
@@ -1715,7 +1801,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
-        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held) return false;   // heiton aikana ei keskeytetä
+        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding)) return false;   // heiton ja otteen aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
         // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
@@ -2215,6 +2301,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];
                 rot = 90f;
                 return FirstIdle();
+
+            case State.Clinch:
+                return clinchSprites[ClinchFrame()];
 
             case State.GrabReach:
                 return Has(grabSprites) ? grabSprites[0] : IdleFrame();
