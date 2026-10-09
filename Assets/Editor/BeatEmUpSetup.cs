@@ -6547,6 +6547,34 @@ public static class BeatEmUpSetup
              "Kiinniotto: tuoli käteen. Lyönti: lyö (osuessa tuoli hajoaa). Potku: heitto.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/79. Tuolit S-Clubiin (potkittavat ja lyötävät)")]
+    static void AddClubChairs()
+    {
+        var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
+        var tmpl = Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c != null && c.transform.parent != null && c.transform.parent.name == "Tuolit");
+        if (club == null || tmpl == null) { Info("Tarvitaan S-Club (kohta 10) ja El Loipparin tuolit (kohta 53)."); return; }
+        var old = GameObject.Find("S-Clubin tuolit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("S-Clubin tuolit");
+        Undo.RegisterCreatedObjectUndo(root, "S-Clubin tuolit");
+        float halfW = CamHalf * 16f / 9f;
+        float x0 = club.camMinX - halfW + 2.5f, x1 = club.camMaxX + halfW - 2.5f;
+        const int n = 8;
+        for (int i = 0; i < n; i++)
+        {
+            var go = Object.Instantiate(tmpl.gameObject, root.transform);
+            go.name = "Tuoli " + (i + 1);
+            float x = Mathf.Lerp(x0, x1, (i + 0.5f) / n) + ((i * 37) % 7 - 3) * 0.15f;
+            float k = i % 2 == 0 ? 0.3f : 0.7f;   // vuorotellen taka- ja etuosaan
+            go.transform.position = new Vector3(x, Mathf.Lerp(club.MaxDepthAtX(x, club.maxDepthY) - 0.2f, club.minDepthY + 0.3f, k), 0f);
+            var c = go.GetComponent<Chair>();
+            if (c.body != null) c.body.flipX = i % 2 == 0;
+            go.SetActive(true);
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"S-Clubiin {n} tuolia (kopio El Loipparin tuolista): kiinniotolla käteen, lyönti hajottaa, potku lennättää.\n\nTallenna scene (Ctrl+S).");
+    }
+
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
     [MenuItem("Beat em up/49. Puun hajoamisäänet pöydille ja laatikoille")]
     static void ApplyWoodBreakSounds()
