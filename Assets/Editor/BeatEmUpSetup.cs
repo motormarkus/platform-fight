@@ -1717,7 +1717,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Portsari ----------------
 
-    /// Portsarin heitto (portsari_heittaa.png, 8 kuvaa): tarttuu, vetää lähelle, kääntyy ja heittää olan yli selän taakse kauas.
+    /// Portsarin heitto (portsari_heittaa.png, 8 kuvaa): tarttuu rinnuksista, vetää lähelle, kääntyy ja viskaa olan yli selän taakse kauas.
     /// Heittää kaikkia (heron ja vihut); isot hahmot lentävät lyhyemmälle.
     static void SetBouncerThrow(Enemy e, List<string> report)
     {
@@ -1733,6 +1733,7 @@ public static class BeatEmUpSetup
         e.throwForward = false; e.throwTurnsAround = true;
         e.throwSpeed = 10f; e.throwUp = 6f;          // lentää kauas
         e.grabsAnyone = true; e.heavyThrowScale = 0.55f;
+        e.collarThrow = true;              // rinnuksista, ei nostoa pään yli: viskaa olan yli taakse
     }
 
     [MenuItem("Beat em up/74. Portsarin heitto kaikille portsareille")]

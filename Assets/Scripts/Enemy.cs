@@ -252,6 +252,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool throwTurnsAround = true;
     [Tooltip("Heittää kenet tahansa (portsari), ei vain liittolaisia. Isot hahmot lentävät lyhyemmälle (heavyThrowScale).")]
     public bool grabsAnyone;
+    [Tooltip("Rinnuksista heitto (portsari): ote rinnasta, veto lähelle ja viskaus olan yli taakse matalalta (ei nostoa pään yli).")]
+    public bool collarThrow;
     [Range(0.2f, 1f)] public float heavyThrowScale = 0.55f;
     [Tooltip("Heiton vauhti vaakaan ja ylös.")]
     public float throwSpeed = 5.5f, throwUp = 4f;
@@ -898,11 +900,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             keys[1] = new Vector3(0.9f, 0.3f, 0f); keys[2] = new Vector3(0.3f, 2.2f, 0f); keys[3] = new Vector3(0f, 2.4f, 0f);
             keys[4] = throwForward ? new Vector3(1.3f, 2.0f, 0f) : new Vector3(-0.6f, 2.5f, 0f);
         }
+        if (collarThrow)   // rinnuksista: matalalla, viskaus olan yli taakse
+            keys = art ? new[] { new Vector3(0.95f, 0f, 0f), new Vector3(0.8f, 0.05f, 0f), new Vector3(0.55f, 0.15f, 0f), new Vector3(0.35f, 0.4f, 0f), new Vector3(-0.7f, 1.3f, 0f) }
+                       : new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.75f, 0.05f, 5f), new Vector3(0.5f, 0.15f, 10f), new Vector3(0.3f, 0.5f, 30f), new Vector3(-0.6f, 1.4f, 110f) };
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
         Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
         float dir = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
-        int pose = k < 1f ? 1 : 2;            // 1 = napattu, 2 = kierähdys
+        int pose = k < (collarThrow ? 3f : 1f) ? 1 : 2;            // 1 = napattu, 2 = kierähdys (rinnuksista vasta viskatessa)
         grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, art ? 0f : dir * v.z, pose);
     }
 
@@ -937,9 +942,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
             new Vector3(-0.3f, 3.1f, 130f),
         };
         if (throwForward) { artKeys[4] = new Vector3(1.3f, 2.0f, 0f); rotKeys[4] = new Vector3(1.6f, 2.4f, 60f); }   // heitto eteen: pelaaja lähtee käsistä edestä
+        if (collarThrow)
+        {
+            // rinnuksista: jalat maassa vedon ajan, viimeisenä viskaus olan yli selän taakse
+            artKeys = new[] { new Vector3(0.95f, 0f, 0f), new Vector3(0.8f, 0.05f, 0f), new Vector3(0.55f, 0.15f, 0f), new Vector3(0.35f, 0.4f, 0f), new Vector3(-0.7f, 1.3f, 0f) };
+            rotKeys = new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.75f, 0.05f, 5f), new Vector3(0.5f, 0.15f, 10f), new Vector3(0.3f, 0.5f, 30f), new Vector3(-0.6f, 1.4f, 110f) };
+        }
         Vector3[] keys = art ? artKeys : rotKeys;
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
-        int pose = k < 0.5f ? 0 : k < 1f ? 1 : k < 2f ? 2 : 3;
+        int pose = collarThrow ? (k < 0.5f ? 0 : k < 3f ? 1 : 2) : k < 0.5f ? 0 : k < 1f ? 1 : k < 2f ? 2 : 3;
         Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
         float dir = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
