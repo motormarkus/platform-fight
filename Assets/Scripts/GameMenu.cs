@@ -395,7 +395,9 @@ public class GameMenu : MonoBehaviour
             var set = sets[k];
             if (set != null && set.Length > 0)
             {
-                Sprite sp = on ? set[(int)(Time.unscaledTime / 0.15f) % set.Length] : set[0];
+                // idle edestakaisin kuten pelissä (0→n→0): ympäri kiertäessä viimeisestä ensimmäiseen tuli nykäys
+                int n = set.Length, period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / 0.15f) % period;
+                Sprite sp = on ? set[n == 1 ? 0 : fi < n ? fi : period - fi] : set[0];
                 // valittu hahmo lyö kombon heti valittaessa ja sitten n. 4 s välein, välillä idle
                 var cb = combos[k];
                 if (on && cb != null && cb.Length > 0)
