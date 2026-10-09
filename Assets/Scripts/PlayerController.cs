@@ -512,6 +512,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int KneeStrikeImpact => HasKneeStrikeArt ? 4 : 1;
     Sprite[] KneeStrikeSet => HasKneeStrikeArt ? kneeStrikeSprites : kneeSprites;
     bool kneeStrikeQueued;
+    [Header("Jab + polvi + pääpusku (Rocco): puskunappi polven aikana")]
+    [Tooltip("Kombon viimeinen pääpusku: kova isku, pitkä pysäytys ja vihu lentää kauas.")]
+    public int kneeHeadbuttDamage = 24;
+    public float kneeHeadbuttLaunchX = 7f, kneeHeadbuttLaunchUp = 5f;
+    bool headbuttQueued, headbuttFinisher;
     bool kipUpAfterOwnThrow;   // kip-up kuperkeikan jälkeen: ei suoja-aikaa eikä välkettä
 
     [Header("Laatikon nosto ja heitto (O laatikon vieressä nostaa, lyönti/potku/O heittää)")]
@@ -1499,6 +1504,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 Lunge(attackLunge, impact, dt);
                 if (!attackHit && stateTime >= impact && stateTime <= impact + KneeStrikeTimes[KneeStrikeImpact])
                     attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown, 2.0f);   // polvi vatsaan / leukaan
+                // jab + polvi + pusku: puskunappi polven aikana -> heti polven jälkeen kova pääpusku (Rocco)
+                if (pushPressed && HasPush && AppliedCharacter != 1) headbuttQueued = true;
+                if (headbuttQueued && stateTime >= impact + KneeStrikeTimes[KneeStrikeImpact] && UseStamina(pushStamina))
+                {
+                    StartPush(); headbuttFinisher = true; break;
+                }
                 if (ThrowPose.Index(KneeStrikeTimes, stateTime) < 0) Enter(State.Ground);
                 break;
             }
@@ -1527,7 +1538,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (stateTime <= lungeT && lungeT > 0f)
                     MoveOnGround(new Vector2((facingRight ? 1f : -1f) * pushLunge / lungeT * dt, 0f));
                 if (!attackHit && stateTime >= impact && stateTime <= impact + pushImpactHold)
-                    attackHit = AttackEnemies(pushReach, pushDamage, true, 2.1f);
+                {
+                    attackHit = AttackEnemies(pushReach, headbuttFinisher ? kneeHeadbuttDamage : pushDamage, true, 2.1f);
+                    if (attackHit && headbuttFinisher)
+                    {
+                        // kombon viimeistely: kova osuma, vihu lentää kauas
+                        HitFx.Freeze(0.14f);
+                        CameraFollow.Shake(0.3f, 0.2f);
+                        float dir = facingRight ? 1f : -1f;
+                        foreach (var e in lastHitEnemies) if (e != null) e.Launch(dir * kneeHeadbuttLaunchX, kneeHeadbuttLaunchUp);
+                    }
+                }
                 if (stateTime >= PushTotalTime) Enter(State.Ground);
                 break;
             }
@@ -1961,6 +1982,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
         if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; backKickQueued = false; }
+        if (s != State.KneeStrike) headbuttQueued = false;
+        if (s != State.Push) headbuttFinisher = false;
         if (s != State.Punch && s != State.Kick && s != State.SideKick) pendulumQueued = false;
         if (s != State.JumpSquat) scissorJump = false;
         if (s != State.Ground) { moving = false; running = false; }

@@ -1946,6 +1946,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (ar != null && ar.walkMinX != 0f) p.x = Mathf.Max(p.x, ar.walkMinX);
             }
         }
+        // iso vihu lentää heitosta pöytään: pöytä hajoaa ja vihu menee läpi
+        if (state == State.Airborne && height < 2.5f && Mathf.Abs(knockVel.x) > 3f && (bigBody || IsHeavyweight(this)))
+        {
+            var ob = Obstacle.BreakableAt(p);
+            if (ob != null) ob.Smash();
+        }
         if (height < 1.2f) p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym.
         transform.position = p;
     }

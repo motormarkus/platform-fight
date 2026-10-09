@@ -39,10 +39,35 @@ public class Obstacle : MonoBehaviour
         int n = damageSprites.Length;
         int stage = health <= 0 ? n - 1 : Mathf.Clamp(Mathf.FloorToInt((1f - health / (float)maxHealth) * (n - 1)), 0, n - 2);
         if (body != null && damageSprites[stage] != null) body.sprite = damageSprites[stage];
+        // halkeama keskellä: keskimmäiset pallot valuvat lattialle, alue laajenee vaihe vaiheelta
+        if (stage >= 2) DropMiddle(stage >= n - 1 ? 1f : 0.15f + (stage - 2) * 0.2f);
         if (hitSounds != null && hitSounds.Length > 0) HitFx.PlayClip(hitSounds[Random.Range(0, hitSounds.Length)], 0.9f);
         CameraFollow.Shake(health <= 0 ? 0.25f : 0.06f, health <= 0 ? 0.25f : 0.1f);
         if (health <= 0) Break();
         return true;
+    }
+
+    /// Pallot, jotka ovat pöydän keskikohdan lähellä (osuus puolileveydestä), valahtavat lattialle.
+    void DropMiddle(float frac)
+    {
+        float cx = transform.position.x, lim = halfWidth * frac;
+        foreach (var b in GetComponentsInChildren<Bottle>())
+            if (b != null && Mathf.Abs(b.transform.position.x - cx) <= lim) b.FallOff();
+    }
+
+    /// Iso vihu lensi pöytään: hajoaa kerralla.
+    public void Smash()
+    {
+        if (!CanBeHit) return;
+        if (health < 0) health = maxHealth;
+        TakeHit(health);
+    }
+
+    /// Ehjä, hajotettava este kohdassa p (jalanjäljen sisällä).
+    public static Obstacle BreakableAt(Vector3 p)
+    {
+        for (int i = 0; i < All.Count; i++) { var o = All[i]; if (o != null && o.isActiveAndEnabled && o.CanBeHit && o.Inside(p)) return o; }
+        return null;
     }
 
     void Break()
