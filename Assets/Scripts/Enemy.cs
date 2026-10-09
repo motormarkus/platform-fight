@@ -486,6 +486,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Awake()
     {
         health = maxHealth;
+        if (displayName == "Metsuri") appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(runSprites);
@@ -518,8 +519,41 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (idleFacing != 0) facingRight = idleFacing > 0;
     }
 
+    [Tooltip("Pomo (Metsuri): ilmestyy vasta, kun muut lähistön vihut on voitettu, ja juoksee ruudun reunasta sisään.")]
+    public bool appearAfterOthers;
+    bool waitingToAppear;
+
+    /// Odottaa piilossa, kunnes muita vihuja ei ole enää pystyssä lähistöllä; sitten tulee ruudun oikeasta reunasta.
+    bool WaitToAppear()
+    {
+        if (!appearAfterOthers || awake) { waitingToAppear = false; return false; }
+        Vector3 me = transform.position;
+        bool others = false;
+        foreach (var e in All)
+            if (e != this && e != null && e.isActiveAndEnabled && !e.ally && !e.IsDead && Mathf.Abs(e.transform.position.x - me.x) < 60f) { others = true; break; }
+        var cam = Camera.main;
+        bool heroNear = player != null && Mathf.Abs(player.transform.position.x - me.x) < 60f;
+        if (others || !heroNear || cam == null)
+        {
+            waitingToAppear = true;
+            if (body != null) body.enabled = false;
+            if (shadow != null) shadow.enabled = false;
+            return true;
+        }
+        // kaikki muut kaatuneet: juoksee sisään ruudun oikeasta reunasta
+        waitingToAppear = false;
+        float halfW = cam.orthographicSize * cam.aspect;
+        transform.position = new Vector3(cam.transform.position.x + halfW + 1.2f, me.y, me.z);
+        if (body != null) body.enabled = true;
+        if (shadow != null) shadow.enabled = true;
+        awake = true;
+        facingRight = false;
+        return false;
+    }
+
     void Update()
     {
+        if (appearAfterOthers && !awake && WaitToAppear()) return;
         float dt = Time.deltaTime;
         stateTime += dt;
         animClock += dt;
@@ -1835,6 +1869,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        if (waitingToAppear) return false;   // piilossa odottava pomo
         damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (comboArmor && comboSeq != null && !knockdown && health > damage
@@ -2144,6 +2179,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (p.x >= lo - 3f && p.x <= hi + 3f)
             {
                 p.x = Mathf.Clamp(p.x, lo, hi);
+                // hereillä oleva vihu pysyy ruudulla (kamera voi olla lukittu ennen kuvan reunaa, esim. kadun pää ja katto);
+                // ruudun ulkopuolelta saa tulla sisään, mutta ei kauemmas
+                if (awake && state != State.Airborne && state != State.Held && state != State.Dead)
+                {
+                    float cx = cam.transform.position.x, sl = cx - halfW, sr = cx + halfW;
+                    float ox = transform.position.x;
+                    if (ox >= sl && ox <= sr) p.x = Mathf.Clamp(p.x, sl, sr);
+                    else if (ox < sl) p.x = Mathf.Max(p.x, ox);
+                    else p.x = Mathf.Min(p.x, ox);
+                }
                 // alueen omat sivurajat (esim. pokerihuoneen seinät): leveälläkään ruudulla ei kävellä kuvan reunan yli
                 var ar = Area.Current;
                 if (ar != null && ar.walkMaxX != 0f) p.x = Mathf.Min(p.x, ar.walkMaxX);

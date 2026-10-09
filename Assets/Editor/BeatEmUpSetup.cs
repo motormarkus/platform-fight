@@ -2402,6 +2402,7 @@ public static class BeatEmUpSetup
             go.transform.localScale = Vector3.one * 1.15f;   // 15 % Kovista isompi
             var b = go.GetComponent<Enemy>();
             b.displayName = "Metsuri";
+            b.appearAfterOthers = true;    // tulee vasta, kun katon muut vihut on voitettu
             b.bigBody = true;
             var none = new Sprite[0];
             if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; b.idleFrameTime = 0.16f; }   // 6 kuvaa, suu liikkuu (puhuu)
