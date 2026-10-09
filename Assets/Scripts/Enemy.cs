@@ -587,9 +587,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
             hammerArt = true; punch3Unblockable = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
             // läpsykombo liukuu reilusti eteen (10 läpsyä ≈ 5 yksikköä)
             slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.6f);
-            // tuplanyrkkivasaran ääni; vanha latausmurahdus jää läpsykombolle
+            // tuplanyrkkivasaran ääni myös läpsykombon lataukseen
             var hv = Resources.Load<AudioClip>("Sfx/horhe/horhe_vasara");
-            if (hv != null) { if (slapWindupSounds == null || slapWindupSounds.Length == 0) slapWindupSounds = punch3WindupSounds; punch3WindupSounds = new[] { hv }; }
+            if (hv != null) { slapWindupSounds = new[] { hv }; punch3WindupSounds = new[] { hv }; }
             heroDownLaugh = Resources.Load<AudioClip>("Sfx/horhe/horhe_nauru");
             helpShout = Resources.Load<AudioClip>("Sfx/horhe/horhe_avunhuuto");
             // juoksu (horhe_juoksu, 14 kuvaa = kaksi askelta): selvästi kävelyä nopeampi, askel noin 2 yksikköä
