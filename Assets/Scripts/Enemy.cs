@@ -516,8 +516,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (displayName == "Horhe")
         {
-            var speak = Resources.Load<AudioClip>("Sfx/horhe/horhe_speak1");
-            if (speak != null) { tauntSounds = new[] { speak }; tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); }
+            // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
+            var sp = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_speak" + i); if (c != null) sp.Add(c); }
+            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); }
+            var gr = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_grunt" + i); if (c != null) gr.Add(c); }
+            if (gr.Count > 0) hurtSounds = gr.ToArray();
             fallVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_kaatuminen");
             getUpVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_ylosnousu");
             // välipomo: läpsykombo useammin, kestävämpi
