@@ -1041,7 +1041,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
-        if (s == State.Windup && usingPunch3) PlayClipFrom(punch3WindupSounds, punch3Volume);   // haymakerin lataus
+        if (s == State.Windup && usingPunch3)
+        {
+            // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu
+            var c = PlayClipFrom(punch3WindupSounds, punch3Volume);
+            punch3WindupNow = c != null ? Mathf.Clamp(c.length - 0.05f, 0.7f, 1.4f) : punch3WindupTime;
+        }
         if (s == State.Airborne || s == State.Held) DropBoard();
         if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
@@ -1829,13 +1834,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     int lastAttackSound = -1;
-    void PlayClipFrom(AudioClip[] clips, float volume)
+    float punch3WindupNow = 0.9f;
+
+    AudioClip PlayClipFrom(AudioClip[] clips, float volume)
     {
-        if (clips == null || clips.Length == 0 || audioSource == null) return;
+        if (clips == null || clips.Length == 0 || audioSource == null) return null;
         var c = clips[Random.Range(0, clips.Length)];
-        if (c == null) return;
-        audioSource.pitch = Random.Range(0.96f, 1.04f);
+        if (c == null) return null;
+        audioSource.pitch = 1f;   // ei sävelkorkeuden vaihtelua: pituus pysyy (veto ajoitetaan äänen mukaan)
         audioSource.PlayOneShot(c, volume);
+        return c;
     }
 
     void PlayAttackSound()
@@ -2123,7 +2131,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
     Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupTime : windupTime)
+    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupNow : windupTime)
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f);
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : usingPunch3 ? punch3Reach : attackRange;
