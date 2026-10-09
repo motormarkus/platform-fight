@@ -377,39 +377,60 @@ public class GameMenu : MonoBehaviour
     /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
     int lastCharSel = -1; float charSelT;
 
-    // hahmonvalinnan omat kuvat videoista (Resources/Valikko): idle ja sarja, joka tehdään, kun valinta siirtyy hahmon kohdalle
-    static readonly string[] MenuArtNames = { "rocco", "ruby" };
-    static readonly int[] MenuIdleCount = { 10, 9 }, MenuSeqCount = { 23, 37 };
-    const int MenuCols = 5, MenuCellW = 704, MenuCellH = 448, MenuFeet = 440, MenuFigH = 380;
-    const float MenuFrameTime = 0.083f, MenuSeqEvery = 6f;
-    Texture2D[] menuIdle, menuSeq;
+    // hahmonvalinta: samat kuvat kuin pelissä. Idle edestakaisin, valittu hahmo tekee kombonsa (pelin ajoituksin)
+    // heti valittaessa ja sitten n. 4,5 s välein. Rocco: jab, takasuora, uppercut, iso koukku. Ruby: jab, suora, keski- ja korkea potku.
+    const float MenuSeqEvery = 4.5f, MenuIdleFrameTime = 0.15f;
+    struct MenuFrame { public Sprite sp; public float t; }
+    MenuFrame[][] menuSeqs;
 
-    bool LoadMenuArt()
+    static void AddHit(System.Collections.Generic.List<MenuFrame> l, Sprite[] sp, int impact, float ft, float hold, bool last)
     {
-        if (menuIdle == null)
-        {
-            menuIdle = new Texture2D[2]; menuSeq = new Texture2D[2];
-            for (int k = 0; k < 2; k++)
-            {
-                menuIdle[k] = Resources.Load<Texture2D>("Valikko/" + MenuArtNames[k] + "_idle");
-                menuSeq[k] = Resources.Load<Texture2D>("Valikko/" + MenuArtNames[k] + "_sarja");
-            }
-        }
-        return menuIdle[0] != null && menuIdle[1] != null;
+        if (sp == null || sp.Length == 0) return;
+        impact = Mathf.Clamp(impact, 0, sp.Length - 1);
+        for (int i = 0; i < impact; i++) l.Add(new MenuFrame { sp = sp[i], t = ft });
+        l.Add(new MenuFrame { sp = sp[impact], t = ft + hold });
+        if (last) for (int i = impact + 1; i < sp.Length; i++) l.Add(new MenuFrame { sp = sp[i], t = ft * 1.3f });
     }
 
-    /// Piirtää ruudun i ruudukosta laatikkoon: hahmon korkeus 85 % laatikosta, jalat alareunaan.
-    static void DrawMenuCell(Rect box, Texture2D tex, int i, Color tint)
+    static void AddTimed(System.Collections.Generic.List<MenuFrame> l, Sprite[] sp, float[] t, int upTo)
     {
-        if (tex == null) return;
-        float h = box.height * 0.85f * MenuCellH / MenuFigH, w = h * MenuCellW / MenuCellH;
-        float feetY = box.yMax, top = feetY - h * MenuFeet / MenuCellH;
-        var r = new Rect(box.center.x - w * 0.5f, top, w, h);
-        int col = i % MenuCols, row = i / MenuCols;
-        var uv = new Rect(col * MenuCellW / (float)tex.width, 1f - (row + 1) * MenuCellH / (float)tex.height, MenuCellW / (float)tex.width, MenuCellH / (float)tex.height);
-        var old = GUI.color; GUI.color = tint;
-        GUI.DrawTextureWithTexCoords(r, tex, uv);
-        GUI.color = old;
+        if (sp == null) return;
+        for (int i = 0; i < sp.Length && i <= upTo; i++) l.Add(new MenuFrame { sp = sp[i], t = t != null && i < t.Length ? t[i] : 0.06f });
+    }
+
+    void BuildMenuSeqs(PlayerController pc)
+    {
+        menuSeqs = new MenuFrame[2][];
+        var r = new System.Collections.Generic.List<MenuFrame>();
+        var hits = pc.HeroHits;
+        System.Func<int, PlayerController.ComboHit> H = i => hits != null && i < hits.Length && hits[i] != null && hits[i].HasAnimation ? hits[i] : null;
+        var big = pc.HeroBigHook;
+        bool hasBig = big != null && big.Length > 0;
+        foreach (int i in new[] { 0, 1, 3 })
+        {
+            var c = H(i);
+            if (c != null) AddHit(r, c.sprites, c.impactFrame, c.frameTime, c.impactHold, i == 3 && !hasBig);
+        }
+        if (hasBig) AddTimed(r, big, PlayerController.BigHookTimesRocco, 99);
+        menuSeqs[0] = r.ToArray();
+        var hr = pc.heroine;
+        var b = new System.Collections.Generic.List<MenuFrame>();
+        if (hr != null)
+        {
+            AddHit(b, hr.jab, 3, 0.045f, 0.09f, false);
+            AddHit(b, hr.cross, 3, 0.05f, 0.11f, false);
+            AddTimed(b, hr.midKick, new[] { 0.032f, 0.08f, 0.112f, 0.056f, 0.04f }, 2);   // keskipotku, katkeaa osuman jälkeen
+            AddTimed(b, hr.highKick, new[] { 0.032f, 0.096f, 0.128f, 0.064f, 0.12f }, 99); // korkea potku loppuun
+        }
+        menuSeqs[1] = b.ToArray();
+    }
+
+    /// Kombon kuva hetkellä t (null = kombo on ohi).
+    static Sprite SeqFrame(MenuFrame[] seq, float t)
+    {
+        if (seq == null) return null;
+        foreach (var f in seq) { if (t < f.t) return f.sp; t -= f.t; }
+        return null;
     }
 
     void DrawCharacters(float w, float h, float s, Color gold)
@@ -418,8 +439,7 @@ public class GameMenu : MonoBehaviour
         Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
         var pc = FindFirstObjectByType<PlayerController>();
         Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
-        var hr = pc != null ? pc.heroine : null;
-        Sprite[][] combos = { pc != null ? pc.HeroCombo : null, hr != null ? PlayerController.ComboFrames(hr.jab, hr.cross, hr.leadHook, hr.rearHook) : null };
+        if (pc != null && menuSeqs == null) BuildMenuSeqs(pc);
         if (sel != lastCharSel) { lastCharSel = sel; charSelT = Time.unscaledTime; }
         string[] names = { "Rocco", HeroineName() };
         float boxW = w * 0.3f, boxH = h * 0.44f, top = h * 0.29f;
@@ -428,32 +448,15 @@ public class GameMenu : MonoBehaviour
             bool on = sel == k;
             float cx = w * (k == 0 ? 0.32f : 0.68f);
             var set = sets[k];
-            if (LoadMenuArt())
+            if (set != null && set.Length > 0)
             {
-                // valittu: sarja heti valittaessa ja sitten n. 6 s välein, välillä idle; valitsematon: idle himmennettynä
-                var bx = new Rect(cx - boxW * 0.5f, top, boxW, boxH);
-                Color tint = on ? Color.white : new Color(0.35f, 0.35f, 0.35f);
-                float ct = (Time.unscaledTime - charSelT) % MenuSeqEvery;
-                int si = (int)(ct / MenuFrameTime);
-                if (on && menuSeq[k] != null && si < MenuSeqCount[k]) DrawMenuCell(bx, menuSeq[k], si, tint);
-                else
+                // idle edestakaisin kuten pelissä (0→n→0); valittu hahmo tekee kombonsa heti ja sitten välein
+                int n = set.Length, period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / MenuIdleFrameTime) % period;
+                Sprite sp = set[n == 1 ? 0 : fi < n ? fi : period - fi];
+                if (on && menuSeqs != null)
                 {
-                    int n = MenuIdleCount[k], period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / MenuFrameTime) % period;
-                    DrawMenuCell(bx, menuIdle[k], fi < n ? fi : period - fi, tint);   // edestakaisin (saumaton)
-                }
-            }
-            else if (set != null && set.Length > 0)
-            {
-                // idle edestakaisin kuten pelissä (0→n→0): ympäri kiertäessä viimeisestä ensimmäiseen tuli nykäys
-                int n = set.Length, period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / 0.15f) % period;
-                Sprite sp = on ? set[n == 1 ? 0 : fi < n ? fi : period - fi] : set[0];
-                // valittu hahmo lyö kombon heti valittaessa ja sitten n. 4 s välein, välillä idle
-                var cb = combos[k];
-                if (on && cb != null && cb.Length > 0)
-                {
-                    float ct = (Time.unscaledTime - charSelT) % 4.5f;
-                    int ci = (int)(ct / 0.06f);
-                    if (ci < cb.Length) sp = cb[ci];
+                    var cs = SeqFrame(menuSeqs[k], (Time.unscaledTime - charSelT) % MenuSeqEvery);
+                    if (cs != null) sp = cs;
                 }
                 DrawSprite(new Rect(cx - boxW * 0.5f, top, boxW, boxH), sp, k == 1, on ? Color.white : new Color(0.35f, 0.35f, 0.35f), set[0]);
             }

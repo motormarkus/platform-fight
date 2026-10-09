@@ -1770,6 +1770,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
         e.GotHitBy(this);
+        e.thrownByEnemy = true;   // kaatuessaan ei osumapysäytystä (maahan iskeytyminen pätki ruutua vihujen tapellessa)
         HitFx.OnHitQuiet();   // vihu vs. vihu: ei osumapysäytystä
         HitSpark.Spawn(new Vector3(p.x, p.y + 2.3f, 0f), kd, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
         return true;
@@ -1802,6 +1803,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             float from = knockVel.x != 0f ? q.x - Mathf.Sign(knockVel.x) : me.x;   // kaatuu lentosuuntaan
             if (e.TakeHit(bowlDamage, from, true))
             {
+                if (thrownByEnemy) e.thrownByEnemy = true;   // vihun heittämän kaatama: hiljainen alastulo
                 if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnHit(true);   // portsarin heitto: ei tärähdystä
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
             }
@@ -1870,6 +1872,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
         if (waitingToAppear) return false;   // piilossa odottava pomo
+        thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (comboArmor && comboSeq != null && !knockdown && health > damage

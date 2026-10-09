@@ -700,6 +700,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] HeroIdle { get; private set; }
     /// Roccon lyöntikombon kuvat peräkkäin (hahmonvalinnan esittely).
     public Sprite[] HeroCombo { get; private set; }
+    /// Roccon omat kombon iskut ja iso koukku (valikon hahmonvalintaa varten, ennen kuin Ruby vaihtaa ne).
+    public ComboHit[] HeroHits { get; private set; }
+    public Sprite[] HeroBigHook { get; private set; }
+    public static float[] BigHookTimesRocco => BigHookTimes;
     /// Lyöntikombon kuvat yhdeksi sarjaksi (tyhjät ohitetaan).
     public static Sprite[] ComboFrames(params Sprite[][] sets)
     {
@@ -1164,6 +1168,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(hiKickSprites);
         SortByFrameNumber(scissorSprites);
         SortByFrameNumber(carryWalkSprites);
+        HeroHits = punchCombo; HeroBigHook = bigHookSprites;
         if (punchCombo != null) HeroCombo = ComboFrames(System.Array.ConvertAll(punchCombo, c => c.HasAnimation ? c.sprites : null));
         if (GameSettings.Character == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
         groundHeight = TargetGroundHeight();
