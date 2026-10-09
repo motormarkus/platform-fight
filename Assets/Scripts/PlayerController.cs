@@ -697,7 +697,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// 0 = Rocco, 1 = Ruby (valittu alkuvalikossa).
     public int AppliedCharacter { get; private set; }
     /// Hahmon äänten voimakkuuskerroin (Ruby 0.9).
-    public float VoiceVolume => AppliedCharacter == 1 ? 0.9f : 1f;
+    public float VoiceVolume => AppliedCharacter == 1 ? 0.765f : 1f;
     /// Roccon idle-kuvat hahmonvalintaa varten (talteen ennen kuin Rubyn kuvat vaihdetaan tilalle).
     public Sprite[] HeroIdle { get; private set; }
     /// Roccon lyöntikombon kuvat peräkkäin (hahmonvalinnan esittely).
