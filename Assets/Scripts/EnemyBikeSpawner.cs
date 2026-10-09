@@ -26,7 +26,7 @@ public class EnemyBikeSpawner : MonoBehaviour
         if (x < minX || x > maxX - 40f) return;
         timer -= Time.deltaTime;
         if (timer > 0f) return;
-        float dn = Mathf.Max(1f, density);
+        float dn = Mathf.Max(1f, density * 0.7f);   // 30 % vähemmän kuin density sanoo (5 -> 3,5)
         timer = Random.Range(interval.x, interval.y) / dn;
         if (FindObjectsByType<EnemyBike>(FindObjectsSortMode.None).Length >= Mathf.RoundToInt(maxAlive * Mathf.Min(dn, 3f))) return;
         float halfW = cam.orthographicSize * cam.aspect;

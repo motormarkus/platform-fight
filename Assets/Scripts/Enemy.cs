@@ -498,6 +498,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Awake()
     {
         health = maxHealth;
+        if (displayName == "Horhe")
+        {
+            // välipomo: läpsykombo useammin, kestävämpi
+            slapChance = Mathf.Max(slapChance, 0.55f);
+            maxHealth = Mathf.Max(maxHealth, 360); health = maxHealth;
+            attackCooldown = Mathf.Min(attackCooldown, 0.9f);
+        }
         if (displayName == "Metsuri")
         {
             appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
@@ -1532,6 +1539,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
         float adx = Mathf.Abs(me.x - p.x);
+        // läpsykombo jo puolen ruudun päästä: astuu läpsiessään eteen (10 × askel), joten tavoittaa pelaajan
+        if (HasSlaps && cooldown <= 0f && !player.IsDown && adx <= 4.2f && Mathf.Abs(me.y - p.y) <= depthTolerance && attackRank <= 1
+            && Random.value < slapChance * dt * 2.5f)
+        {
+            moving = false; attackRolled = false; facingRight = p.x > me.x;
+            Enter(State.Slaps);
+            return;
+        }
         // kultaharkon heitto matkan päästä samalla syvyydellä
         if (HasBarThrow && cooldown <= 0f && Time.time >= nextBarThrow && !player.IsDown && adx >= barThrowMinRange && adx <= barThrowMaxRange
             && Mathf.Abs(me.y - p.y) <= depthTolerance * 0.8f && Random.value < barThrowChance * dt * 2f)
