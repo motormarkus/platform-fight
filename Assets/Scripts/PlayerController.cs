@@ -447,10 +447,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         float dir = facingRight ? 1f : -1f;
         float lungeFrom = ThrowPose.Start(PendulumTimes, 3), lungeTo = ThrowPose.Start(PendulumTimes, 9);
         if (stateTime >= lungeFrom && stateTime < lungeTo)
-            MoveOnGround(new Vector2(dir * pendulumLunge / (lungeTo - lungeFrom) * dt, 0f));
+        {
+            // kiihtyvä syöksy: hidas alku, nopea loppu (keskiarvo sama kuin tasaisessa)
+            float k = (stateTime - lungeFrom) / (lungeTo - lungeFrom);
+            MoveOnGround(new Vector2(dir * pendulumLunge / (lungeTo - lungeFrom) * (0.25f + 2.25f * k * k) * dt, 0f));
+        }
         // ilmassa kuvat 6–12: kaari, alastulo kuvassa 13
         float airFrom = ThrowPose.Start(PendulumTimes, 6), airTo = ThrowPose.Start(PendulumTimes, 13);
-        height = stateTime > airFrom && stateTime < airTo ? Mathf.Sin(Mathf.Clamp01((stateTime - airFrom) / (airTo - airFrom)) * Mathf.PI) * pendulumAir : 0f;
+        height = stateTime > airFrom && stateTime < airTo ? Mathf.Sin(Mathf.Pow(Mathf.Clamp01((stateTime - airFrom) / (airTo - airFrom)), 0.7f) * Mathf.PI) * pendulumAir : 0f;   // nopea ponnistus ylös
         if (fxStage == 0 && stateTime >= airFrom) { fxStage = 1; Dust(0.9f); }
         if (fxStage == 1 && stateTime >= airTo) { fxStage = 2; Dust(1f); }
         // osuma potkun aikana (kuvat 5–7): lennättää kevyet korkealle, isot kaatuvat
@@ -1031,14 +1035,18 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
         dropKickSprites = null;
         pendulumSprites = a.pendulum != null && a.pendulum.Length >= 15 ? a.pendulum : null;
-        pendulumAir = 1.6f;            // Ruby hyppää heiluripotkussa korkealle
+        pendulumAir = 2.4f;            // Ruby hyppää heiluripotkussa korkealle (oli 1,6)
+        pendulumLunge = 2.0f;          // ja syöksyy pidemmälle kiihtyen (oli 1,2)
         bigHookLaunchUp = 19.5f;       // vihut lentävät voimalyönnistä ja heiluripotkusta vähän korkeammalle (Rocco 17)
         if (a.power != null && a.power.Length >= 10)
         {
             // voimalyönti: 0 asento, 1–3 kyykky ja nyrkit ylös (latausta), 4 ponnistus, 5 isku, 6–8 ilmassa, 9 alastulo
             bigHookSprites = a.power;
             bigHookTimesOverride = new[] { 0.05f, 0.07f, 0.09f, 0.32f, 0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.14f };   // syvä kyykky (3) pysähtyy latautumaan, muu normaalivauhtia
-            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 0.9f; bigHookAirDrift = 1.0f;
+            bigHookImpactIdx = 5; bigHookComboIdx = 2; bigHookAir = 1.9f; bigHookAirDrift = 1.6f;   // korkeampi ja pidempi nousu (oli 0,9 / 1,0)
+            bigHookSlide = 5.5f; bigHookLaunchX = 4f;                                                     // räjähtävä liuku, vihut lentävät kauemmas
+            bigHookTimesOverride[4] = 0.08f;                                                              // ponnistus: näkyvä kiihdytys eteen
+            bigHookTimesOverride[6] = 0.07f; bigHookTimesOverride[7] = 0.09f; bigHookTimesOverride[8] = 0.1f;   // ilmassa vähän pidempään (korkeampi kaari)
         }
         else bigHookSprites = null;
         chairPickSprites = chairHoldSprites = chairWalkSprites = chairSmashSprites = chairThrowSprites = chairSwingSprites = chairSwingBareSprites = null;
@@ -1436,7 +1444,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (stateTime >= slideFrom && stateTime < impact)
                 {
                     float k = (stateTime - slideFrom) / Mathf.Max(impact - slideFrom, 0.01f);
-                    MoveOnGround(new Vector2(dir * bigHookSlide * (0.3f + 1.4f * k * k) * dt, 0f));
+                    // Ruby: lähtee hitaasti ja kiihtyy räjähtävästi iskuun (Rocco tasaisemmin)
+                    float acc = bigHookAir > 0f ? 0.1f + 2.6f * k * k * k : 0.3f + 1.4f * k * k;
+                    MoveOnGround(new Vector2(dir * bigHookSlide * acc * dt, 0f));
                 }
                 if (!bigHookHit && stateTime >= impact)
                 {
@@ -1450,9 +1460,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     // iskun jälkeen pieni hyppy: ilmassa kuvat iskusta viimeistä edeltävään, alastulo viimeisessä
                     float airEnd = ThrowPose.Start(bt, bt.Length - 1);
                     float ka = Mathf.Clamp01((stateTime - impact) / Mathf.Max(airEnd - impact, 0.01f));
-                    height = stateTime > impact && stateTime < airEnd ? Mathf.Sin(ka * Mathf.PI) * bigHookAir : 0f;
-                    if (bigHookAirDrift > 0f && stateTime > impact && stateTime < airEnd)
-                        MoveOnGround(new Vector2(dir * bigHookAirDrift / Mathf.Max(airEnd - impact, 0.01f) * dt, 0f));
+                    // nopea ponnistus ylös, hetki lakipisteessä, laskeutuminen (kaari painottuu alkuun)
+                    height = stateTime > impact && stateTime < airEnd ? Mathf.Sin(Mathf.Pow(ka, 0.65f) * Mathf.PI) * bigHookAir : 0f;
+                    if (bigHookAirDrift > 0f && stateTime > impact && stateTime < airEnd)   // räjähtävä lähtö: vauhti suurin ponnistuksessa, hidastuu lakea kohti
+                        MoveOnGround(new Vector2(dir * bigHookAirDrift / Mathf.Max(airEnd - impact, 0.01f) * 2f * (1f - ka) * dt, 0f));
                 }
                 if (ThrowPose.Index(bt, stateTime) < 0) { if (bigHookAir > 0f) height = 0f; Enter(State.Ground); }
                 break;
@@ -2222,9 +2233,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         if (any)
         {
-            HitFx.Freeze(0.12f);   // erikoisliikkeen osuma: pidempi pysäytys
+            bool ruby = bigHookAir > 0f;
+            HitFx.Freeze(ruby ? 0.17f : 0.12f);   // erikoisliikkeen osuma: pidempi pysäytys (Rubyn tuplalyönti vielä pidempi)
             HitFx.PlayClip(Resources.Load<AudioClip>("Sfx/paiskaus"), 1f);
-            if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.25f);
+            if (CameraFollow.Instance != null) CameraFollow.Shake(ruby ? 0.32f : 0.22f, ruby ? 0.3f : 0.25f);
         }
     }
 
