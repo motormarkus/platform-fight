@@ -753,7 +753,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float pummelTilt = 4f, pummelTiltBig = 6f;
     Enemy pummelTarget;
     int pummelCount, pummelQueued;
-    bool quickReach;   // Ruby: nopea ojennus, kun mitään ei ole otettavissa
+    bool quickReach;   // nopea ojennus, kun mitään ei ole otettavissa
+    float catchBufferUntil;   // nappauspainalluksen muisti (s)
     const float QuickReachTime = 0.2f;
     bool pummelHooks;   // iso vihu ilman omia kuvia: lyönnit koukkuina ylös naamaan
     bool pummelUp;      // iso vihu: oma sarja, lyönnit yläviistoon
@@ -1166,6 +1167,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pushPressed = !Scripted && PushPressed();
         bool blockHeld = !Scripted && BlockHeld();
         bool catchPressed = !Scripted && CatchPressed();
+        // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
+        if (catchPressed) catchBufferUntil = Time.time + 0.18f;
+        bool catchNow = catchPressed || (Time.time <= catchBufferUntil && state == State.Ground);
         bool picking = state == State.SmallPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
         if (catchPressed && picking) throwQueued = true;   // painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
         bool releaseThrow = (catchPressed && !picking) || throwQueued;   // sama nappi: 1. painallus nostaa, 2. painallus heittää
@@ -1188,9 +1192,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (blockHeld && HasBlock) { StartBlock(); break; }
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
-                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
-                if (catchPressed)
+                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
+                if (catchNow && Bottle.Held == null)
                 {
+                    catchBufferUntil = 0f;
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
@@ -1213,7 +1218,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                     if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
-                    if (HasPummel) { quickReach = true; Enter(State.Catch); break; }   // Ruby: nopea ojennus tyhjään (ei pitkää pysähdystä)
+                    if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
                 if (punchPressed && Bottle.Held != null)
                 {
@@ -3214,6 +3219,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Catch:
                 if (quickReach && HasPummel) return pummelSprites[stateTime < QuickReachTime * 0.6f ? 0 : 1];
+                if (quickReach) return counterThrowSprites[0];   // Rocco: kurotus tyhjään
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
 
             case State.CounterThrow:
