@@ -102,5 +102,8 @@ public static class Loc
         { "Hanasta.", "Straight from the tap." },
         { "Kossupaukku", "Kossu shot (Finnish vodka)" },
         { "Täydet voimat!", "Full power!" },
+        { "Rommi", "Rum" },
+        { "Merimieskänni!", "Sailor's bender!" },
+        { "MERIMIESKÄNNI", "SAILOR'S BENDER" },
     };
 }

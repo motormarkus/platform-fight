@@ -64,6 +64,14 @@ public class ShopCounter : MonoBehaviour
         audioSource.spatialBlend = 0f;
     }
 
+    void Start()
+    {
+        // Uccopulcossa (El Loipparin tiski) kossun tilalla rommi: merimieskänni
+        if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
+            foreach (var it in items)
+                if (it != null && it.name == "Kossupaukku") { it.name = "Rommi"; it.price = 12; it.heal = 50; it.stamina = 999; it.comment = "Merimieskänni!"; }
+    }
+
     void Update()
     {
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
@@ -104,11 +112,13 @@ public class ShopCounter : MonoBehaviour
 
     void Buy(Item it)
     {
-        if (pc.health >= pc.maxHealth && (it.stamina <= 0 || pc.stamina >= pc.maxStamina)) { Say(Loc.T("Energia on jo täynnä.")); return; }
+        bool rum = it.name == "Rommi";
+        if (!rum && pc.health >= pc.maxHealth && (it.stamina <= 0 || pc.stamina >= pc.maxStamina)) { Say(Loc.T("Energia on jo täynnä.")); return; }
         if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
         pc.money -= it.price;
         int got = pc.Heal(it.heal);
         int st = pc.AddStamina(it.stamina);
+        if (rum) pc.StartDrunk(pc.drunkDuration);
         if (IsDrink(it) && pc.AppliedCharacter == 1 && pc.heroine != null && pc.heroine.gulpSounds != null && pc.heroine.gulpSounds.Length > 0)
         {
             // Ruby juo: oma nielaisu, perään "aah"
@@ -124,7 +134,7 @@ public class ShopCounter : MonoBehaviour
     /// Juoma (Rubylla omat juomaäänet): lonkero, tuoppi, kossupaukku ja muut juomaäänelliset.
     static bool IsDrink(Item it)
     {
-        if (it.name == "Lonkero" || it.name == "Tuoppi" || it.name == "Kossupaukku") return true;
+        if (it.name == "Lonkero" || it.name == "Tuoppi" || it.name == "Kossupaukku" || it.name == "Rommi") return true;
         string sn = it.sound != null ? it.sound.name : "";
         return sn.Contains("lonkero") || sn.Contains("kossu");
     }

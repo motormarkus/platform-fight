@@ -2279,6 +2279,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void ApplyDamage(int damage)
     {
+        if (IsDrunk) damage = Mathf.CeilToInt(damage * drunkDamageTaken);
         health = Mathf.Max(0, health - damage);
         if (health <= 0)
         {
@@ -2404,6 +2405,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         Vector3 me = transform.position;
         bool any = false, heavy = false;
         lastHitEnemies.Clear();
+        bool drunkKnock = IsDrunk && !knockdown && UnityEngine.Random.value < drunkKnockChance;   // kännissä heilautus kaataa
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead) continue;
@@ -2411,8 +2413,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach : dx <= 0.3f && dx >= -reach;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            if (e.TakeHit(damage, me.x, knockdown))
+            bool kd = knockdown || drunkKnock;
+            if (e.TakeHit(damage, me.x, kd))
             {
+                // merimieskänni: kaatunut vihu lentää ruudun poikki ja kaataa matkalla muita
+                if (IsDrunk && kd && !e.JustBlocked) e.Launch(side * drunkLaunchX * UnityEngine.Random.Range(0.85f, 1.15f), drunkLaunchUp);
                 any = true;
                 // torjuttu isku: sinertävä pieni läiskä
                 HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown && !e.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
@@ -3107,8 +3112,34 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool jumpFromRun;
     Vector2 lastGroundVel, squatVel;
 
+    [Header("Merimieskänni (rommi)")]
+    public float drunkDuration = 25f;
+    [Tooltip("Kännissä kaatavat iskut lennättävät vihut ruudun poikki (kaatavat matkalla muitakin).")]
+    public float drunkLaunchX = 15f, drunkLaunchUp = 8f;
+    [Range(0f, 1f)] public float drunkKnockChance = 0.35f;   // tavallinen lyönti muuttuu kaatavaksi
+    [Range(0f, 1f)] public float drunkDamageTaken = 0.6f;    // humala turruttaa
+    float drunkUntil, drunkStart;
+    public bool IsDrunk => Time.time < drunkUntil && !GameOver;
+    public float DrunkLeft => Mathf.Max(0f, drunkUntil - Time.time);
+    public void StartDrunk(float seconds) { if (!IsDrunk) drunkStart = Time.time; drunkUntil = Time.time + seconds; }
+    /// Horjuminen: liike vaeltaa sivuille ja syvyyssuunnassa (voimakkaimmillaan alussa, laimenee loppua kohti).
+    Vector2 DrunkSway(Vector2 move)
+    {
+        if (!IsDrunk || move.sqrMagnitude < 0.01f) return move;
+        float t = Time.time - drunkStart, k = Mathf.Lerp(0.5f, 1f, Mathf.Clamp01(DrunkLeft / 8f));
+        var w = new Vector2(Mathf.Sin(t * 1.9f) * 0.45f + Mathf.Sin(t * 4.3f) * 0.15f, Mathf.Sin(t * 1.3f + 1f) * 0.55f) * k * move.magnitude;
+        return (move + w) * 0.92f;
+    }
+    float DrunkTilt()
+    {
+        if (!IsDrunk) return 0f;
+        float t = Time.time - drunkStart;
+        return (Mathf.Sin(t * 2.1f) * 5f + Mathf.Sin(t * 0.9f) * 3f) * (moving ? 1.4f : 1f);
+    }
+
     void Walk(Vector2 move, float dt)
     {
+        move = DrunkSway(move);
         moving = move.sqrMagnitude > 0.01f;
         running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
         if (!moving) return;
@@ -3197,7 +3228,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         pivotFix *= ds;
         body.transform.localPosition = new Vector3(pivotFix.x + HitFx.ShakeOffset(shakeUntil), groundHeight + height - footOffset * ds + pivotFix.y, 0f);
         bool held = state == State.Grabbed || state == State.Thrown || state == State.Down;
-        body.transform.localRotation = Quaternion.Euler(0f, 0f, held && !HasThrowSprites ? heldRot : 0f);
+        body.transform.localRotation = Quaternion.Euler(0f, 0f, held && !HasThrowSprites ? heldRot : held ? 0f : DrunkTilt());
         if (shadow != null) shadow.transform.localPosition = new Vector3(0f, groundHeight, 0f);
 
         // lähempänä kameraa (pienempi y) piirretään päälle
