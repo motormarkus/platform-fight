@@ -286,6 +286,21 @@ public class Enemy : MonoBehaviour, IBottleHolder
     static readonly float[] BarThrowTimes = { 0.06f, 0.09f, 0.13f, 0.05f, 0.2f, 0.1f, 0.12f };   // nopea: harkko lähtee n. 0,33 s
     float nextBarThrow;
     bool barReleased;
+    bool rushAfterBar; float rushUntil;   // harkon jälkeen juostaan lähelle ja aloitetaan läpsy- tai potkukombo
+
+    [Header("Potkukombo (Horhe): pyörähdyspotku ja perään takapotku")]
+    [Tooltip("22 kuvaa: 0–2 lataus, 3 ensimmäinen potku osuu, 4–13 pyörähdys, 14 toinen potku osuu, 15–21 palautus.")]
+    public Sprite[] kickComboSprites;
+    [Range(0f, 1f)] public float kickComboChance = 0.35f;
+    public int kickDamage1 = 14, kickDamage2 = 20;
+    public float kickReach = 3.9f, kickStartRange = 3.6f;
+    public AudioClip[] kickComboSounds;
+    static readonly float[] KickTimes = { 0.08f, 0.08f, 0.08f, 0.09f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f,
+                                          0.1f, 0.1f, 0.1f, 0.09f, 0.09f, 0.09f, 0.09f, 0.1f };
+    const int KickHit1 = 3, KickHit2 = 14;
+    int kicksDone; bool kickSoundPlayed;
+    bool HasKickCombo => kickComboSprites != null && kickComboSprites.Length >= 22;
+    int KickFrame() => ThrowPose.Index(KickTimes, stateTime);
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
     [Range(0f, 1f)] public float grabChance = 0.3f;
     [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
@@ -415,7 +430,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -572,6 +587,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             heroDownLaugh = Resources.Load<AudioClip>("Sfx/horhe/horhe_nauru");
             helpShout = Resources.Load<AudioClip>("Sfx/horhe/horhe_avunhuuto");
             // juoksu (horhe_juoksu, 14 kuvaa = kaksi askelta): selvästi kävelyä nopeampi, askel noin 2 yksikköä
+            if (hv != null) kickComboSounds = new[] { hv };   // potkuihin sama ääni kuin tuplanyrkkivasaraan
             if (runSprites != null && runSprites.Length >= 8) { runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 2.1f); runFrameTime = 0.055f; }
         }
         if (displayName == "Metsuri")
@@ -947,12 +963,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 UpdateSlaps(dt);
                 break;
 
+            case State.KickCombo:
+                UpdateKickCombo();
+                break;
+
             case State.BarThrow:
             {
                 int f = BarFrame();
                 if (!barReleased && f >= 4)
                 {
                     barReleased = true;
+                    if (HasSlaps || HasKickCombo) { rushAfterBar = true; rushUntil = Time.time + 4f; }
                     float d = facingRight ? 1f : -1f;
                     GoldBar.Spawn(barSprite, transform.position + new Vector3(d * 1.1f, -0.02f, 0f), 2.7f, d, this, barDamage);
                     PlayClipFrom(punch3SwingSounds, punch3Volume);
@@ -1198,6 +1219,37 @@ public class Enemy : MonoBehaviour, IBottleHolder
             cooldown = attackCooldown * Random.Range(1.1f, 1.5f);
             Enter(State.Recover);
         }
+    }
+
+    /// Potkukombo: lataus, pyörähdyspotku (osuma), pyörähdys, takapotku (kaataa). Torjuttavissa.
+    void UpdateKickCombo()
+    {
+        if (!kickSoundPlayed && stateTime >= 0.12f)
+        {
+            // ääni kahdella iskulla (n. 0,1 s ja 1,0 s alusta): ajoitettu potkuihin
+            kickSoundPlayed = true;
+            PlayClipFrom(kickComboSounds != null && kickComboSounds.Length > 0 ? kickComboSounds : punch3WindupSounds, punch3Volume);
+        }
+        int f = KickFrame();
+        if (f < 0) { cooldown = attackCooldown * Random.Range(1.0f, 1.4f); Enter(State.Recover); return; }
+        int hitIdx = kicksDone == 0 ? KickHit1 : kicksDone == 1 ? KickHit2 : 99;
+        if (f >= hitIdx)
+        {
+            kicksDone++;
+            if (player != null && KickInReach())
+            {
+                if (kicksDone == 1) player.TakeHit(kickDamage1, transform.position.x, this, true);
+                else player.TakeKnockdown(kickDamage2, transform.position.x, 7f, 4f, this);
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.14f);
+            }
+        }
+    }
+
+    bool KickInReach()
+    {
+        Vector3 p = player.transform.position, me = transform.position;
+        float dx = (p.x - me.x) * (facingRight ? 1f : -1f);
+        return dx > -0.2f && dx <= kickReach && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 1.4f;
     }
 
     /// Horhe: nauraa, kun hero kaatuu lähellä; kolmanneksen energialla huutaa portsarit apuun.
@@ -1467,6 +1519,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
+        if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
+        if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, 1f);
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
@@ -1668,6 +1722,21 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
         float adx = Mathf.Abs(me.x - p.x);
+        // harkon heiton jälkeen juostaan lähelle ja aloitetaan läpsy- tai potkukombo
+        if (rushAfterBar && (Time.time > rushUntil || player.IsDown)) rushAfterBar = false;
+        if (rushAfterBar && cooldown <= 0.6f && adx <= kickStartRange && Mathf.Abs(me.y - p.y) <= depthTolerance)
+        {
+            moving = false; attackRolled = false; facingRight = p.x > me.x;
+            Enter(HasKickCombo && (!HasSlaps || Random.value < 0.5f) ? State.KickCombo : State.Slaps);
+            return;
+        }
+        if (HasKickCombo && cooldown <= 0f && !player.IsDown && adx >= 1.6f && adx <= kickStartRange && Mathf.Abs(me.y - p.y) <= depthTolerance && attackRank <= 1
+            && Random.value < kickComboChance * dt * 2f)
+        {
+            moving = false; attackRolled = false; facingRight = p.x > me.x;
+            Enter(State.KickCombo);
+            return;
+        }
         // läpsykombo jo puolen ruudun päästä: astuu läpsiessään eteen (10 × askel), joten tavoittaa pelaajan
         if (HasSlaps && cooldown <= 0f && !player.IsDown && adx <= 4.2f && Mathf.Abs(me.y - p.y) <= depthTolerance && attackRank <= 1
             && Random.value < slapChance * dt * 2.5f)
@@ -1706,6 +1775,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (grabIntent) { Enter(State.GrabReach); return; }
             if (HasClinch && Mathf.Abs(me.x - p.x) <= clinchReach + 0.2f && Random.value < clinchChance) { Enter(State.Clinch); return; }
             if (HasSlaps && Random.value < slapChance) { facingRight = p.x > me.x; Enter(State.Slaps); return; }
+            if (HasKickCombo && Random.value < kickComboChance) { facingRight = p.x > me.x; Enter(State.KickCombo); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
             usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : altNearChance);   // rynnäkkö kaukaa, vierestä vain altNearChance
@@ -1719,7 +1789,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = true;
             Vector2 dir = to.normalized;
             // kaukana juostaan (myös kierrettäessä selän taakse)
-            float run = to.magnitude > 3.5f || crossing ? runSpeedMultiplier : 1f;
+            float run = to.magnitude > 3.5f || crossing || rushAfterBar ? runSpeedMultiplier : 1f;
             running = run > 1f;
             if (run > 1f) animClock += dt * (run - 1f);   // askeleet tihenevät
             Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
@@ -2637,6 +2707,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Slaps:
                 return slapSprites[SlapFrame()];
+
+            case State.KickCombo:
+            {
+                int f = KickFrame();
+                return kickComboSprites[f < 0 ? kickComboSprites.Length - 1 : f];
+            }
 
             case State.BarThrow:
             {
