@@ -401,9 +401,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float dropKickLaunch = 11f;
     bool dropKickHit, punchFromRun;
     float lastPunchPressTime = -9f, lastJumpPressTime = -9f;
-    bool HasDropKick => dropKickSprites != null && dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0;
+    bool HasDropKick => dropKickSprites != null && (dropKickLandsOnFeet ? dropKickSprites.Length >= 5 && HasJumpArt
+                                                                      : dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0);
     // kuvat 2–7 ja ajat: kippura, potku, suorana (lento), alastulo, makuu
     static readonly int[] DropKickFrames = { 2, 3, 4, 5, 6, 7 };
+    // Ruby: 0 polvet koukussa, 1 potku, 2 ojennus, 3 jalat suorana, 4 polvet koukistuvat, 5–6 alastulo hyppykuvilla (jaloilleen, ei kip-upia)
+    static readonly float[] DropKickTimesFeet = { 0.07f, 0.1f, 0.13f, 0.1f, 0.1f, 0.09f, 0.13f };
+    bool dropKickLandsOnFeet;
+    float[] CurDropKickTimes => dropKickLandsOnFeet ? DropKickTimesFeet : DropKickTimes;
 
     [Header("Iso koukku (alas, eteen + lyönti)")]
     [Tooltip("koukku_iso.png: 0 asento, 1–3 kyykky ja lataus (liukuu eteen), 4–5 nousu, 6 koukku ylös.")]
@@ -662,6 +667,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         public Sprite[] power;
         [Tooltip("Heiluripotku (alas, eteen + potku): jalka heilahtaa taakse, lentävä potku eteen, voltti ja alastulo (12 kuvaa).")]
         public Sprite[] pendulum;
+        [Tooltip("Kahden jalan potku juoksusta (5 kuvaa: polvet koukussa, potku, ojennus, jalat suorana, polvet koukistuvat); alastulo jaloilleen hyppykuvilla.")]
+        public Sprite[] dropKick;
         public Sprite[] chairPick, chairThrow, chairSwing, chairSwingBare, chairWalk;
         public Sprite[] bikeRide, bikeMount, bikeGrab;
         public Sprite[] cueIdle, cueWalk, cueSwingA, cueSwingB, cueThrow;   // biljardikeppi: idle 6, huitaisu 11 (osuma 9), paluu 9 (osuma 1), heitto 6   // prätkä (sama runko kuin Roccolla): ajo 6, nousu 8, kiskaisu 10   // tuoli: nosto (0–2 nosto, 3–4 pito, 5 askel), heitto 8, heilautus 8, osuman jälkeen tyhjin käsin 3
@@ -1033,7 +1040,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         canCarry = smallItemSprites != null || carrySprites != null;
         scissorSprites = null; kneeSprites = null; kneeStrikeSprites = null; monkeyFlipSprites = null;
-        dropKickSprites = null;
+        // kahden jalan potku juoksusta: Ruby putoaa jaloilleen (ei kip-upia)
+        dropKickSprites = a.dropKick != null && a.dropKick.Length >= 5 ? a.dropKick : null;
+        dropKickLandsOnFeet = dropKickSprites != null;
+        if (dropKickLandsOnFeet) { dropKickHeight = 2.6f; dropKickSpeed = 12f; dropKickDamage = 22; }
         pendulumSprites = a.pendulum != null && a.pendulum.Length >= 15 ? a.pendulum : null;
         pendulumAir = 2.4f;            // Ruby hyppää heiluripotkussa korkealle (oli 1,6)
         pendulumLunge = 2.0f;          // ja syöksyy pidemmälle kiihtyen (oli 1,2)
@@ -1473,7 +1483,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 // loikka eteen jalat edellä, osuma jalkojen ollessa suorana, alastulo selälleen ja kip-up
                 float dir = facingRight ? 1f : -1f;
-                float airEnd = ThrowPose.Start(DropKickTimes, 4);
+                float[] dkt = CurDropKickTimes;
+                float airEnd = ThrowPose.Start(dkt, dropKickLandsOnFeet ? 6 : 4);   // Ruby: ilmassa alastulokuvaan asti
                 if (stateTime < airEnd)
                 {
                     float k = stateTime / airEnd;
@@ -1483,9 +1494,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 else
                 {
                     height = 0f;
-                    MoveOnGround(new Vector2(dir * dropKickSpeed * 0.25f * Mathf.Max(0f, 1f - (stateTime - airEnd) * 4f) * dt, 0f));   // liukuu selällään
+                    if (!dropKickLandsOnFeet) MoveOnGround(new Vector2(dir * dropKickSpeed * 0.25f * Mathf.Max(0f, 1f - (stateTime - airEnd) * 4f) * dt, 0f));   // liukuu selällään
                 }
-                float hitFrom = ThrowPose.Start(DropKickTimes, 1), hitTo = airEnd;
+                float hitFrom = ThrowPose.Start(dkt, 1), hitTo = dropKickLandsOnFeet ? ThrowPose.Start(dkt, 4) : airEnd;
                 if (!dropKickHit && stateTime >= hitFrom && stateTime <= hitTo)
                 {
                     dropKickHit = AttackEnemies(dropKickReach, dropKickDamage, true, 1.8f);
@@ -1506,7 +1517,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         }
                     }
                 }
-                if (ThrowPose.Index(DropKickTimes, stateTime) < 0) { height = 0f; kipUpAfterOwnThrow = true; Enter(State.KipUp); }
+                if (ThrowPose.Index(dkt, stateTime) < 0)
+                {
+                    height = 0f;
+                    if (dropKickLandsOnFeet) { Dust(0.8f); Enter(State.Ground); }   // Ruby putoaa jaloilleen
+                    else { kipUpAfterOwnThrow = true; Enter(State.KipUp); }
+                }
                 break;
             }
 
@@ -3221,7 +3237,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
             case State.DropKick:
             {
-                int i = ThrowPose.Index(DropKickTimes, stateTime);
+                int i = ThrowPose.Index(CurDropKickTimes, stateTime);
+                if (dropKickLandsOnFeet)
+                {
+                    if (i < 0 || i >= 6) return jumpSprites[7];          // kyykkyalastulo
+                    return i == 5 ? jumpSprites[6] : dropKickSprites[i]; // laskeutuminen kädet sivuilla
+                }
                 return dropKickSprites[DropKickFrames[i < 0 ? DropKickFrames.Length - 1 : i]];
             }
 
