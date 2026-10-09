@@ -1404,6 +1404,29 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     // ---------------- Vihut toisiaan vastaan ----------------
 
+    /// Laivan rosvo (myös salin Kovikset): rosvojen ryhmässä tai nimeltään rosvo.
+    bool IsPirate
+    {
+        get
+        {
+            if (pirateChecked) return pirate;
+            pirateChecked = true;
+            pirate = !ally && (displayName == "Rosvo" || name.StartsWith("Rosvo")
+                     || (transform.parent != null && transform.parent.name.ToLowerInvariant().Contains("rosvot")));
+            return pirate;
+        }
+    }
+    bool pirate, pirateChecked;
+
+    /// Onko pystyssä olevia rosvoja lähellä: silloin seilorit ja puliukot käyvät vain niiden kimppuun eivätkä toistensa.
+    static bool PirateNear(Vector3 me, float range)
+    {
+        foreach (var e in All)
+            if (e != null && e.isActiveAndEnabled && !e.IsDead && e.awake && e.IsPirate && !e.TargetDown(e)
+                && Mathf.Abs(e.transform.position.x - me.x) <= range) return true;
+        return false;
+    }
+
     bool TargetDown(Enemy e) => e.state == State.Down || e.state == State.GetUp || e.state == State.Dead || e.state == State.Held;
 
     /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
@@ -1418,9 +1441,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
             {
                 retargetTime = Time.time + 0.6f;
                 Vector3 me = transform.position; float best = float.MaxValue; Enemy pick = null;
+                bool pirates = PirateNear(me, 14f);   // rosvoja paikalla: vain niitä vastaan (ei puliukkoja)
                 foreach (var e in All)
                 {
                     if (e == this || e.ally || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                    if (pirates && !e.IsPirate) continue;
                     Vector3 q = e.transform.position;
                     if (Mathf.Abs(q.x - me.x) > 14f) continue;
                     float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
@@ -1446,16 +1471,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
             }
             if (pick != null) { enemyTarget = pick; grudgeUntil = Time.time + 2.5f; }
         }
+        // puliukko: rosvojen kanssa samaan aikaan vain rosvoja vastaan (seilorit ja hero rauhaan); kosto seilorille unohtuu heti
+        bool piratesNear = fightsEveryone && PirateNear(transform.position, 12f);
+        if (piratesNear && enemyTarget != null && !enemyTarget.IsPirate) { enemyTarget = null; retargetTime = 0f; }
         if (fightsEveryone && Time.time >= retargetTime)
         {
             retargetTime = Time.time + 0.6f;
             Vector3 me = transform.position;
             Vector3 pp = player.transform.position;
-            float best = player.IsDown ? float.MaxValue : Mathf.Abs(pp.x - me.x) + Mathf.Abs(pp.y - me.y) * 2f;
+            float best = player.IsDown || piratesNear ? float.MaxValue : Mathf.Abs(pp.x - me.x) + Mathf.Abs(pp.y - me.y) * 2f;
             Enemy pick = null;
             foreach (var e in All)
             {
                 if (e == this || (e.fightsEveryone && e.displayName == displayName) || e.IsDead || TargetDown(e)) continue;   // samannimiset (puliukot) eivät tappele keskenään
+                if (piratesNear && !e.IsPirate) continue;
                 Vector3 q = e.transform.position;
                 if (Mathf.Abs(q.x - me.x) > 12f) continue;
                 float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
