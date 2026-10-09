@@ -4620,7 +4620,7 @@ public static class BeatEmUpSetup
     /// Osuma, kaatuminen ja ylösnousu omista kuvistaan; niskalenkki on vielä vanhoista kuvista.
     static bool ApplyRocker2(Enemy e, List<string> report)
     {
-        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely", "rokkari2_kaatuminen", "rokkari2_ylosnousu" })
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely", "rokkari2_kaatuminen", "rokkari2_ylosnousu", "rokkari2_torjunta", "rokkari2_niskalenkki", "rokkari2_niskalenkki_lento" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4672,6 +4672,14 @@ public static class BeatEmUpSetup
         // ylösnousu vatsaltaan: punnerrus, kontallaan, polvelta tappeluasentoon; kuvissa katse vasemmalle -> kääntyy lopussa
         var up2 = EnemySheet("rokkari2_ylosnousu", report);
         if (up2.Length >= 8) { e.getUpSprites = up2; e.getUpTime = 1.0f; e.getUpFacesBack = true; }
+        // torjunta kuten lippiksellä (kun kuvat on tehty): kädet ylös, suoja, paluu; enintään 2 peräkkäin
+        var block2 = EnemySheet("rokkari2_torjunta", report);
+        if (block2.Length > 0) { e.blockSprites = block2; e.blockTime = 0.5f; e.blockChance = 0.3f; e.maxBlocksInRow = 2; }
+        else e.blockChance = 0f;   // ilman kuvia ei torju (idle-kuva näyttäisi oudolta)
+        // heron niskalenkki: ote ja heitto (8) sekä lento ja alastulo (6); ilman uusia kuvia vanhat
+        var hl2 = EnemySheet("rokkari2_niskalenkki", report);
+        var hlf2 = EnemySheet("rokkari2_niskalenkki_lento", report);
+        if (hl2.Length >= 8 && hlf2.Length >= 6) { e.headlockThrownSprites = hl2; e.headlockFlightSprites = hlf2; }
         // ei käy päälle itsestään: herää, kun lähellä syttyy tappelu tai kun häntä lyödään
         e.wakeDistance = -1f; e.wakeOnFightRadius = 5f;
         return true;
