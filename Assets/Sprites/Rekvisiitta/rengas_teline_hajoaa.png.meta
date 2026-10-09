@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: f25506abd94f5964082ea33dbee86d78
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8275689844819386768
+    second: rengas_teline_hajoaa_0
+  - first:
+      213: -5927693990571851131
+    second: rengas_teline_hajoaa_1
+  - first:
+      213: 3459979430069962945
+    second: rengas_teline_hajoaa_2
+  - first:
+      213: -7362932330627429426
+    second: rengas_teline_hajoaa_3
+  - first:
+      213: -4714560877570170644
+    second: rengas_teline_hajoaa_4
+  - first:
+      213: -1023684575662173919
+    second: rengas_teline_hajoaa_5
+  - first:
+      213: -740783034717709744
+    second: rengas_teline_hajoaa_6
+  - first:
+      213: 7686393122139519403
+    second: rengas_teline_hajoaa_7
+  - first:
+      213: 855384872264558705
+    second: rengas_teline_hajoaa_8
+  - first:
+      213: -1902458831604813690
+    second: rengas_teline_hajoaa_9
+  - first:
+      213: 627972599123235043
+    second: rengas_teline_hajoaa_10
+  - first:
+      213: 2660709545655589099
+    second: rengas_teline_hajoaa_11
+  - first:
+      213: -8258515658535405874
+    second: rengas_teline_hajoaa_12
+  - first:
+      213: -4491588091304716660
+    second: rengas_teline_hajoaa_13
+  - first:
+      213: -4183593264771739146
+    second: rengas_teline_hajoaa_14
+  - first:
+      213: 6315479563317313268
+    second: rengas_teline_hajoaa_15
+  - first:
+      213: -1347540273416546741
+    second: rengas_teline_hajoaa_16
+  - first:
+      213: 2026743994519823308
+    second: rengas_teline_hajoaa_17
+  - first:
+      213: -963897064726946162
+    second: rengas_teline_hajoaa_18
+  - first:
+      213: 8844876277188283761
+    second: rengas_teline_hajoaa_19
+  - first:
+      213: 8228292608162013842
+    second: rengas_teline_hajoaa_20
+  - first:
+      213: 5461362246285118907
+    second: rengas_teline_hajoaa_21
+  - first:
+      213: -2692805320937520526
+    second: rengas_teline_hajoaa_22
+  - first:
+      213: 4863820520272522977
+    second: rengas_teline_hajoaa_23
+  - first:
+      213: 6162705786004253373
+    second: rengas_teline_hajoaa_24
+  - first:
+      213: -7942772061478400349
+    second: rengas_teline_hajoaa_25
+  - first:
+      213: -2424049176542259672
+    second: rengas_teline_hajoaa_26
+  - first:
+      213: 3664911083767372362
+    second: rengas_teline_hajoaa_27
+  - first:
+      213: 907045207347082992
+    second: rengas_teline_hajoaa_28
+  - first:
+      213: 8910888305212002062
+    second: rengas_teline_hajoaa_29
+  - first:
+      213: 6561838970709555213
+    second: rengas_teline_hajoaa_30
+  - first:
+      213: 1148475801125124337
+    second: rengas_teline_hajoaa_31
+  - first:
+      213: -280451573689638428
+    second: rengas_teline_hajoaa_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e9b30cee7d62d80800000000000000
+      internalID: -8275689844819386768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5824fbac8b99cbda0800000000000000
+      internalID: -5927693990571851131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c88a7bb5f0540030800000000000000
+      internalID: 3459979430069962945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb86b74e0c91d990800000000000000
+      internalID: -7362932330627429426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce0e9745cd3829eb0800000000000000
+      internalID: -4714560877570170644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rengas_teline_hajoaa_5
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1211c995d442bc1f0800000000000000
+      internalID: -1023684575662173919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b22a57c805dc62e439cb96ff559a7123
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rengas_teline_hajoaa_0: -8275689844819386768
+      rengas_teline_hajoaa_1: -5927693990571851131
+      rengas_teline_hajoaa_2: 3459979430069962945
+      rengas_teline_hajoaa_3: -7362932330627429426
+      rengas_teline_hajoaa_4: -4714560877570170644
+      rengas_teline_hajoaa_5: -1023684575662173919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

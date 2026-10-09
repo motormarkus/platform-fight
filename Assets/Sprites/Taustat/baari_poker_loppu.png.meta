@@ -1,0 +1,1570 @@
+fileFormatVersion: 2
+guid: daeceaa41a8b4944a994e534f8a79449
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3871477240963589756
+    second: baari_poker_loppu_0
+  - first:
+      213: -1687679219413153387
+    second: baari_poker_loppu_1
+  - first:
+      213: 2691031086003168096
+    second: baari_poker_loppu_2
+  - first:
+      213: 5299826816127919229
+    second: baari_poker_loppu_3
+  - first:
+      213: -2308610190656827026
+    second: baari_poker_loppu_4
+  - first:
+      213: 2431024995091173439
+    second: baari_poker_loppu_5
+  - first:
+      213: 8368980256327184147
+    second: baari_poker_loppu_6
+  - first:
+      213: 3730763525668915506
+    second: baari_poker_loppu_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: baari_poker_loppu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76e4a7e9004ab530800000000000000
+      internalID: 3871477240963589756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_1
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599021011b82498e0800000000000000
+      internalID: -1687679219413153387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_2
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063a0c8d386785520800000000000000
+      internalID: 2691031086003168096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_3
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d74e46ad864cc8940800000000000000
+      internalID: 5299826816127919229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_4
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e619d0d534b26ffd0800000000000000
+      internalID: -2308610190656827026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_5
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3051885a5cbcb120800000000000000
+      internalID: 2431024995091173439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_6
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fa3aec337942470800000000000000
+      internalID: 8368980256327184147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_7
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 3542
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239ca7009a556c330800000000000000
+      internalID: 3730763525668915506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d05f87d25f85f47a024551453da64a
+      internalID: 2083758193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_9
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841ab736140b0c64d9a5e12b1589f50d
+      internalID: 376877433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_10
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd3569d372b06146905d875e74866c7
+      internalID: 1572421635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_11
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355e0b41d04f84148bee9b7e04cf9368
+      internalID: 444248066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_12
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7da9f0da59f0124994a047cdbc2f797
+      internalID: 1951304421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_13
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e79b04b610431a499b8170fc83945d1
+      internalID: -1276327487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_14
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e60c6c0396aae942be944aacfd138f6
+      internalID: -414492764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_15
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 3036
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15f7c11398e2ed4e84196bad1a4a8c6
+      internalID: 639427639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b6e63af50699c46b1ccaf6bdaa54f2
+      internalID: 256199782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_17
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded5f806462492748bb46a61a3c98480
+      internalID: 1315373511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_18
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0da976cf62f51a4cb63b214e4254d21
+      internalID: -2046943036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_19
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b9df25e59ca124995788942392f5a4
+      internalID: -15827430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_20
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d903da530b4dcfb4e81309b7690807cc
+      internalID: -684657943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_21
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06a1309141e30b4abf562b77d0f933c
+      internalID: -1527273618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_22
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ebe03eebefe9641bf924a7ff80d99f
+      internalID: 372038230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_23
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 2530
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc21caabdd4b1c4882d5803cbe9de3e
+      internalID: -1361565563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43f0b08836930044b648ca3c7ca0912
+      internalID: 119108914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_25
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fc0f8b5ef466c41b1039f4c727b1c1
+      internalID: 749181783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_26
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894cfd979af653f41bcf92328e93ab8a
+      internalID: 1654051348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_27
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deb570d07e55ac489276118c2aad821
+      internalID: -380022372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_28
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582e2fa13aef01c47a2d570c769945f6
+      internalID: 1690293726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_29
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e8ba084c2e48b4a81314364a507b1f
+      internalID: -1571380128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_30
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffa3da78bbb9164d80ba79c35665e75
+      internalID: 1550574834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_31
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 2024
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a68d0c42c4d12b04ebb996472e2798dc
+      internalID: -576514006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ad22c6be3b5f543b68f24ebf077d50
+      internalID: -665198105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_33
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e657b034405a14d419b3418b4414d094
+      internalID: 420961659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_34
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941492a696d138748be63ba416243b94
+      internalID: -1596367771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_35
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20405cb99f42e78478386d57c801ce70
+      internalID: 762845708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_36
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa38884fbe5eb04a84bb4286adba857
+      internalID: -515613561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_37
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4274a3c799cfdd041bf94f34df25fc77
+      internalID: 78817797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_38
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea68f6c504660b140a53f46b056a716e
+      internalID: -121855370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_39
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 1518
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e83f0765afffc49a5ee817da914e00
+      internalID: 341856152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336c48a0fafcadc48a36a1cb5f979ca9
+      internalID: -1957137979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_41
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b53dc175b6495d41a5f2a57b11da4c3
+      internalID: -933740690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_42
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb94f594a12be24ab0c0020a3a1d13e
+      internalID: 909994730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_43
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09a70b71a92b8649ba7c6d4e5b50e4c
+      internalID: 206478590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_44
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecceaefd08fce8048b60d8878c860021
+      internalID: -3275066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_45
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294e2e75048ff7f458868cd2160de1e2
+      internalID: -1287731814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_46
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5f15c5608c89f46a85bdfe611ef751
+      internalID: 588393128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_47
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 1012
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b026d31ba415a44b8b5890f733eb512
+      internalID: -944271461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f7e1add4a1fea4bbd15227a9cda26a
+      internalID: 1204498372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_49
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f9afcb491914944a63882a216c1a84
+      internalID: 1542745825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_50
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4a60c1d1a14fd43ab416adccc2940e
+      internalID: 1456978564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_51
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea21c30b0c81df459a9055b96e3a08d
+      internalID: -256453085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_52
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde0d780048a72043a3efab8c60c3cad
+      internalID: 467341020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_53
+      rect:
+        serializedVersion: 2
+        x: 4270
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d69f66355995874aad49394e133110b
+      internalID: 354326552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_54
+      rect:
+        serializedVersion: 2
+        x: 5124
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703245f946be08142b5003aa45899607
+      internalID: 714589017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_55
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 506
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ae172b3675f0744b82ba4f56ebb815
+      internalID: -1876966760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ac02b4d3e53bf469dceea3c465daa7
+      internalID: -1896249987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_57
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 0
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04e8dc5e04fbd945ab3b5df15b22fda
+      internalID: -382847911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_58
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 0
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da92c82234ad5094a8a8b5f667b73f61
+      internalID: -707593442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_59
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 0
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9b77a805ed8f84ead35ceb40f890c5
+      internalID: 390470899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_loppu_60
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 0
+        width: 854
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba7764d8261d0a4ca660607aa1a02d8
+      internalID: -1154016199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bf997ec250b578a438e6d410c6f24a46
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      baari_poker_loppu_0: 3871477240963589756
+      baari_poker_loppu_1: -1687679219413153387
+      baari_poker_loppu_10: 1572421635
+      baari_poker_loppu_11: 444248066
+      baari_poker_loppu_12: 1951304421
+      baari_poker_loppu_13: -1276327487
+      baari_poker_loppu_14: -414492764
+      baari_poker_loppu_15: 639427639
+      baari_poker_loppu_16: 256199782
+      baari_poker_loppu_17: 1315373511
+      baari_poker_loppu_18: -2046943036
+      baari_poker_loppu_19: -15827430
+      baari_poker_loppu_2: 2691031086003168096
+      baari_poker_loppu_20: -684657943
+      baari_poker_loppu_21: -1527273618
+      baari_poker_loppu_22: 372038230
+      baari_poker_loppu_23: -1361565563
+      baari_poker_loppu_24: 119108914
+      baari_poker_loppu_25: 749181783
+      baari_poker_loppu_26: 1654051348
+      baari_poker_loppu_27: -380022372
+      baari_poker_loppu_28: 1690293726
+      baari_poker_loppu_29: -1571380128
+      baari_poker_loppu_3: 5299826816127919229
+      baari_poker_loppu_30: 1550574834
+      baari_poker_loppu_31: -576514006
+      baari_poker_loppu_32: -665198105
+      baari_poker_loppu_33: 420961659
+      baari_poker_loppu_34: -1596367771
+      baari_poker_loppu_35: 762845708
+      baari_poker_loppu_36: -515613561
+      baari_poker_loppu_37: 78817797
+      baari_poker_loppu_38: -121855370
+      baari_poker_loppu_39: 341856152
+      baari_poker_loppu_4: -2308610190656827026
+      baari_poker_loppu_40: -1957137979
+      baari_poker_loppu_41: -933740690
+      baari_poker_loppu_42: 909994730
+      baari_poker_loppu_43: 206478590
+      baari_poker_loppu_44: -3275066
+      baari_poker_loppu_45: -1287731814
+      baari_poker_loppu_46: 588393128
+      baari_poker_loppu_47: -944271461
+      baari_poker_loppu_48: 1204498372
+      baari_poker_loppu_49: 1542745825
+      baari_poker_loppu_5: 2431024995091173439
+      baari_poker_loppu_50: 1456978564
+      baari_poker_loppu_51: -256453085
+      baari_poker_loppu_52: 467341020
+      baari_poker_loppu_53: 354326552
+      baari_poker_loppu_54: 714589017
+      baari_poker_loppu_55: -1876966760
+      baari_poker_loppu_56: -1896249987
+      baari_poker_loppu_57: -382847911
+      baari_poker_loppu_58: -707593442
+      baari_poker_loppu_59: 390470899
+      baari_poker_loppu_6: 8368980256327184147
+      baari_poker_loppu_60: -1154016199
+      baari_poker_loppu_7: 3730763525668915506
+      baari_poker_loppu_8: 2083758193
+      baari_poker_loppu_9: 376877433
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

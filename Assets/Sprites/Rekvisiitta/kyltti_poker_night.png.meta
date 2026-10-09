@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 05fb59be4d895244184abf11bc958334
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3067865239859286797
+    second: kyltti_poker_night_0
+  - first:
+      213: -3613155221271722523
+    second: kyltti_poker_night_1
+  - first:
+      213: -4020938646633920300
+    second: kyltti_poker_night_2
+  - first:
+      213: 1545553172931712376
+    second: kyltti_poker_night_3
+  - first:
+      213: 2457613940935289707
+    second: kyltti_poker_night_4
+  - first:
+      213: 6403167603545497343
+    second: kyltti_poker_night_5
+  - first:
+      213: 400569622714769665
+    second: kyltti_poker_night_6
+  - first:
+      213: 4089590837753499986
+    second: kyltti_poker_night_7
+  - first:
+      213: 109830657905096763
+    second: kyltti_poker_night_8
+  - first:
+      213: -4699903280763414198
+    second: kyltti_poker_night_9
+  - first:
+      213: 3823686506724612438
+    second: kyltti_poker_night_10
+  - first:
+      213: 4325816513828856637
+    second: kyltti_poker_night_11
+  - first:
+      213: -3106004848741435466
+    second: kyltti_poker_night_12
+  - first:
+      213: -2357251704227702153
+    second: kyltti_poker_night_13
+  - first:
+      213: -4732967998733562246
+    second: kyltti_poker_night_14
+  - first:
+      213: 7529646605468803700
+    second: kyltti_poker_night_15
+  - first:
+      213: -8850599631382854955
+    second: kyltti_poker_night_16
+  - first:
+      213: -2752071889096698226
+    second: kyltti_poker_night_17
+  - first:
+      213: -1166739196239708445
+    second: kyltti_poker_night_18
+  - first:
+      213: -6228806537937844508
+    second: kyltti_poker_night_19
+  - first:
+      213: 3794681923770150875
+    second: kyltti_poker_night_20
+  - first:
+      213: -8808174224760376173
+    second: kyltti_poker_night_21
+  - first:
+      213: -4349911770895643614
+    second: kyltti_poker_night_22
+  - first:
+      213: 6109671028968754322
+    second: kyltti_poker_night_23
+  - first:
+      213: 2267403502785060872
+    second: kyltti_poker_night_24
+  - first:
+      213: -8567371216117427951
+    second: kyltti_poker_night_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kyltti_poker_night_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 10
+        width: 654
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03d4907e2f339a20800000000000000
+      internalID: 3067865239859286797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 524
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e540c5387e7bddc0800000000000000
+      internalID: -3613155221271722523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_2
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 518
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8cebfca91c238c0800000000000000
+      internalID: -4020938646633920300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 525
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875921e0c68e27510800000000000000
+      internalID: 1545553172931712376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 517
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6bee78bbd23b1220800000000000000
+      internalID: 2457613940935289707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_5
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 525
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe5e9e820f9cd850800000000000000
+      internalID: 6403167603545497343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_6
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 502
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101e9b513fb1f8500800000000000000
+      internalID: 400569622714769665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_7
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 520
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2515df8033521c830800000000000000
+      internalID: 4089590837753499986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_8
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 511
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3871e5c662368100800000000000000
+      internalID: 109830657905096763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 505
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4957670ed696ceb0800000000000000
+      internalID: -4699903280763414198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_10
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 506
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65956cd7e96701530800000000000000
+      internalID: 3823686506724612438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_11
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 495
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33a94e3333680c30800000000000000
+      internalID: 4325816513828856637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_12
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 501
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b73020eb0145e4d0800000000000000
+      internalID: -3106004848741435466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_13
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 495
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ad253701c594fd0800000000000000
+      internalID: -2357251704227702153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_14
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 496
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ec1367eae115eb0800000000000000
+      internalID: -4732967998733562246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_15
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 494
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472a133a1bdae7860800000000000000
+      internalID: 7529646605468803700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_16
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 438
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2c83a178a5c2580800000000000000
+      internalID: -8850599631382854955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_17
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 369
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e869d0ea23daec9d0800000000000000
+      internalID: -2752071889096698226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 344
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee7b96f1e8eecfe0800000000000000
+      internalID: -1166739196239708445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 181
+        width: 66
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e685939475de89a0800000000000000
+      internalID: -6228806537937844508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_20
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 227
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf6ae5ca1b69a430800000000000000
+      internalID: 3794681923770150875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_21
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 274
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 394f765d53413c580800000000000000
+      internalID: -8808174224760376173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_22
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 82
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c897b8a4202a3c0800000000000000
+      internalID: -4349911770895643614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_23
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 47
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c8d203e69e9c450800000000000000
+      internalID: 6109671028968754322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_24
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 17
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800eaf9f87f677f10800000000000000
+      internalID: 2267403502785060872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kyltti_poker_night_25
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 24
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1111a6455459a1980800000000000000
+      internalID: -8567371216117427951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kyltti_poker_night_0: 3067865239859286797
+      kyltti_poker_night_1: -3613155221271722523
+      kyltti_poker_night_10: 3823686506724612438
+      kyltti_poker_night_11: 4325816513828856637
+      kyltti_poker_night_12: -3106004848741435466
+      kyltti_poker_night_13: -2357251704227702153
+      kyltti_poker_night_14: -4732967998733562246
+      kyltti_poker_night_15: 7529646605468803700
+      kyltti_poker_night_16: -8850599631382854955
+      kyltti_poker_night_17: -2752071889096698226
+      kyltti_poker_night_18: -1166739196239708445
+      kyltti_poker_night_19: -6228806537937844508
+      kyltti_poker_night_2: -4020938646633920300
+      kyltti_poker_night_20: 3794681923770150875
+      kyltti_poker_night_21: -8808174224760376173
+      kyltti_poker_night_22: -4349911770895643614
+      kyltti_poker_night_23: 6109671028968754322
+      kyltti_poker_night_24: 2267403502785060872
+      kyltti_poker_night_25: -8567371216117427951
+      kyltti_poker_night_3: 1545553172931712376
+      kyltti_poker_night_4: 2457613940935289707
+      kyltti_poker_night_5: 6403167603545497343
+      kyltti_poker_night_6: 400569622714769665
+      kyltti_poker_night_7: 4089590837753499986
+      kyltti_poker_night_8: 109830657905096763
+      kyltti_poker_night_9: -4699903280763414198
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

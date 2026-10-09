@@ -1,0 +1,1001 @@
+fileFormatVersion: 2
+guid: 49cfb493dcfcaf545bce30f4423ffe1f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2003882253704201916
+    second: baari_poker_idle_0
+  - first:
+      213: 2192729193439851906
+    second: baari_poker_idle_1
+  - first:
+      213: -1696791476953372674
+    second: baari_poker_idle_2
+  - first:
+      213: 2103200740662465501
+    second: baari_poker_idle_3
+  - first:
+      213: 6773907406459128098
+    second: baari_poker_idle_4
+  - first:
+      213: 3708035811646346095
+    second: baari_poker_idle_5
+  - first:
+      213: -3877979835919507815
+    second: baari_poker_idle_6
+  - first:
+      213: 4610367050806531075
+    second: baari_poker_idle_7
+  - first:
+      213: -5788176420358843355
+    second: baari_poker_idle_8
+  - first:
+      213: 399598567512394347
+    second: baari_poker_idle_9
+  - first:
+      213: 5847904542659108160
+    second: baari_poker_idle_10
+  - first:
+      213: 2616610047120788358
+    second: baari_poker_idle_11
+  - first:
+      213: 3452520176840182759
+    second: baari_poker_idle_12
+  - first:
+      213: 5600608513995545104
+    second: baari_poker_idle_13
+  - first:
+      213: -3905622463619191662
+    second: baari_poker_idle_14
+  - first:
+      213: -5438285015112820068
+    second: baari_poker_idle_15
+  - first:
+      213: -300137614619578486
+    second: baari_poker_idle_16
+  - first:
+      213: -1681084305625145722
+    second: baari_poker_idle_17
+  - first:
+      213: 7770834388270227267
+    second: baari_poker_idle_18
+  - first:
+      213: 7078698697401709166
+    second: baari_poker_idle_19
+  - first:
+      213: 6112878336181710856
+    second: baari_poker_idle_20
+  - first:
+      213: -6125496669074534671
+    second: baari_poker_idle_21
+  - first:
+      213: 3523285216954518635
+    second: baari_poker_idle_22
+  - first:
+      213: -2632833136768767369
+    second: baari_poker_idle_23
+  - first:
+      213: -1343168063371859489
+    second: baari_poker_idle_24
+  - first:
+      213: -8786979920430489706
+    second: baari_poker_idle_25
+  - first:
+      213: -5139400280648698954
+    second: baari_poker_idle_26
+  - first:
+      213: -7431219410359745419
+    second: baari_poker_idle_27
+  - first:
+      213: -8274375753917766743
+    second: baari_poker_idle_28
+  - first:
+      213: -6811710304221918003
+    second: baari_poker_idle_29
+  - first:
+      213: -6361208865591390337
+    second: baari_poker_idle_30
+  - first:
+      213: -303934265292506004
+    second: baari_poker_idle_31
+  - first:
+      213: -8311432938405547010
+    second: baari_poker_idle_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: baari_poker_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3024
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb68fbfea483fcb10800000000000000
+      internalID: 2003882253704201916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3024
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2857c9775932e6e10800000000000000
+      internalID: 2192729193439851906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3024
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7a8464429c378e0800000000000000
+      internalID: -1696791476953372674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_3
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3024
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3568e2ee1103d10800000000000000
+      internalID: 2103200740662465501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_4
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3024
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229426f75e0c10e50800000000000000
+      internalID: 6773907406459128098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2520
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f639b97bce6957330800000000000000
+      internalID: 3708035811646346095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2520
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ed3e9b2e5ae2ac0800000000000000
+      internalID: -3877979835919507815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2520
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3041d7be7605bff30800000000000000
+      internalID: 4610367050806531075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_8
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2520
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524183776344cafa0800000000000000
+      internalID: -5788176420358843355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_9
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2520
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ac45da7c8ab8500800000000000000
+      internalID: 399598567512394347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2016
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04dd691b23ee72150800000000000000
+      internalID: 5847904542659108160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_11
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2016
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b4a5679f0105420800000000000000
+      internalID: 2616610047120788358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_12
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2016
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb8d600fc0d9ef20800000000000000
+      internalID: 3452520176840182759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_13
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2016
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a9bba25cb59bd40800000000000000
+      internalID: 5600608513995545104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2016
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c213def017cc9c0800000000000000
+      internalID: -3905622463619191662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1512
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9adede87945784b0800000000000000
+      internalID: -5438285015112820068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_16
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1512
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fedd00e62b5dbf0800000000000000
+      internalID: -300137614619578486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_17
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1512
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e9ab51bb69ba8e0800000000000000
+      internalID: -1681084305625145722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_18
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1512
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f9c3954bc87db60800000000000000
+      internalID: 7770834388270227267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_19
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1512
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6236a2f5f69c3260800000000000000
+      internalID: 7078698697401709166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1008
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800ba47957e45d450800000000000000
+      internalID: 6112878336181710856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_21
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1008
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe49f6db3dddfaa0800000000000000
+      internalID: -6125496669074534671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_22
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1008
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c85f6dc3935e030800000000000000
+      internalID: 3523285216954518635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_23
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1008
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a2502263c467bd0800000000000000
+      internalID: -2632833136768767369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_24
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1008
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9221543cb1c5de0800000000000000
+      internalID: -1343168063371859489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f104a51506e0680800000000000000
+      internalID: -8786979920430489706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_26
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 504
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b33469acae2da8b0800000000000000
+      internalID: -5139400280648698954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_27
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 504
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574058d81510fd890800000000000000
+      internalID: -7431219410359745419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_28
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 504
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a360a167138b2d80800000000000000
+      internalID: -8274375753917766743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_29
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 504
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc0cfb7191f771a0800000000000000
+      internalID: -6811710304221918003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f0c586d3278b7a0800000000000000
+      internalID: -6361208865591390337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_31
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6cbb22656538cbf0800000000000000
+      internalID: -303934265292506004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baari_poker_idle_32
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 896
+        height: 504
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef33bd347cbd7ac80800000000000000
+      internalID: -8311432938405547010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bbdbadc515404b94888c9b62c3d3b129
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      baari_poker_idle_0: 2003882253704201916
+      baari_poker_idle_1: 2192729193439851906
+      baari_poker_idle_10: 5847904542659108160
+      baari_poker_idle_11: 2616610047120788358
+      baari_poker_idle_12: 3452520176840182759
+      baari_poker_idle_13: 5600608513995545104
+      baari_poker_idle_14: -3905622463619191662
+      baari_poker_idle_15: -5438285015112820068
+      baari_poker_idle_16: -300137614619578486
+      baari_poker_idle_17: -1681084305625145722
+      baari_poker_idle_18: 7770834388270227267
+      baari_poker_idle_19: 7078698697401709166
+      baari_poker_idle_2: -1696791476953372674
+      baari_poker_idle_20: 6112878336181710856
+      baari_poker_idle_21: -6125496669074534671
+      baari_poker_idle_22: 3523285216954518635
+      baari_poker_idle_23: -2632833136768767369
+      baari_poker_idle_24: -1343168063371859489
+      baari_poker_idle_25: -8786979920430489706
+      baari_poker_idle_26: -5139400280648698954
+      baari_poker_idle_27: -7431219410359745419
+      baari_poker_idle_28: -8274375753917766743
+      baari_poker_idle_29: -6811710304221918003
+      baari_poker_idle_3: 2103200740662465501
+      baari_poker_idle_30: -6361208865591390337
+      baari_poker_idle_31: -303934265292506004
+      baari_poker_idle_32: -8311432938405547010
+      baari_poker_idle_4: 6773907406459128098
+      baari_poker_idle_5: 3708035811646346095
+      baari_poker_idle_6: -3877979835919507815
+      baari_poker_idle_7: 4610367050806531075
+      baari_poker_idle_8: -5788176420358843355
+      baari_poker_idle_9: 399598567512394347
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

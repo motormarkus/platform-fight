@@ -1,0 +1,1310 @@
+fileFormatVersion: 2
+guid: 5967588a566f19e4db28281479698cff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6210134075388198780
+    second: bandi_0
+  - first:
+      213: 3459003383071061173
+    second: bandi_1
+  - first:
+      213: 2081005159404914113
+    second: bandi_2
+  - first:
+      213: -7791113817044798107
+    second: bandi_3
+  - first:
+      213: -3868914643334148157
+    second: bandi_4
+  - first:
+      213: -2019191356673761434
+    second: bandi_5
+  - first:
+      213: 8630732339181349556
+    second: bandi_6
+  - first:
+      213: -2433947895446784995
+    second: bandi_7
+  - first:
+      213: 4142106848582551956
+    second: bandi_8
+  - first:
+      213: 1329653055380922044
+    second: bandi_9
+  - first:
+      213: 27853212672207178
+    second: bandi_10
+  - first:
+      213: -1076584875220952803
+    second: bandi_11
+  - first:
+      213: 3225980260675858056
+    second: bandi_12
+  - first:
+      213: -1455259463926555812
+    second: bandi_13
+  - first:
+      213: 2769473964932509905
+    second: bandi_14
+  - first:
+      213: 5664713121889207697
+    second: bandi_15
+  - first:
+      213: 9145090045493377982
+    second: bandi_16
+  - first:
+      213: -795924485241949107
+    second: bandi_17
+  - first:
+      213: -3834072234118008769
+    second: bandi_18
+  - first:
+      213: -7470111282307624947
+    second: bandi_19
+  - first:
+      213: -6663881987663430938
+    second: bandi_20
+  - first:
+      213: 8224301835093763841
+    second: bandi_21
+  - first:
+      213: 5727942731435348390
+    second: bandi_22
+  - first:
+      213: 159982049304353627
+    second: bandi_23
+  - first:
+      213: 3120692573891938242
+    second: bandi_24
+  - first:
+      213: -7250559519427166000
+    second: bandi_25
+  - first:
+      213: 7498335442629687435
+    second: bandi_26
+  - first:
+      213: -9077705001884907692
+    second: bandi_27
+  - first:
+      213: -8694223880371472710
+    second: bandi_28
+  - first:
+      213: -1803324261255231744
+    second: bandi_29
+  - first:
+      213: 1883428580653380924
+    second: bandi_30
+  - first:
+      213: 3771181135246864371
+    second: bandi_31
+  - first:
+      213: 4176927185479149318
+    second: bandi_32
+  - first:
+      213: 6073038401830567142
+    second: bandi_33
+  - first:
+      213: -8058592460508981389
+    second: bandi_34
+  - first:
+      213: -4085649962331382611
+    second: bandi_35
+  - first:
+      213: -8911016297836199456
+    second: bandi_36
+  - first:
+      213: -2774015694381970203
+    second: bandi_37
+  - first:
+      213: 5075832704841767482
+    second: bandi_38
+  - first:
+      213: -8980778379822735686
+    second: bandi_39
+  - first:
+      213: -4622001796972767198
+    second: bandi_40
+  - first:
+      213: -4864677835713343643
+    second: bandi_41
+  - first:
+      213: -5585008952802736921
+    second: bandi_42
+  - first:
+      213: -4099729519612464341
+    second: bandi_43
+  - first:
+      213: 2315896382349563389
+    second: bandi_44
+  - first:
+      213: 5242520353533568855
+    second: bandi_45
+  - first:
+      213: 7953070099811965659
+    second: bandi_46
+  - first:
+      213: -8125032192718581469
+    second: bandi_47
+  - first:
+      213: 8882342477898039042
+    second: bandi_48
+  - first:
+      213: -2464963931864724316
+    second: bandi_49
+  - first:
+      213: -378521452362096815
+    second: bandi_50
+  - first:
+      213: -4952254998381276654
+    second: bandi_51
+  - first:
+      213: -7531102725659812387
+    second: bandi_52
+  - first:
+      213: -7360627402258848631
+    second: bandi_53
+  - first:
+      213: 8977925011242758702
+    second: bandi_54
+  - first:
+      213: 4157028998317503338
+    second: bandi_55
+  - first:
+      213: 2980803253841792481
+    second: bandi_56
+  - first:
+      213: 2882750561246564849
+    second: bandi_57
+  - first:
+      213: -5474629049587004697
+    second: bandi_58
+  - first:
+      213: -3734191882842115202
+    second: bandi_59
+  - first:
+      213: 1383161304960663614
+    second: bandi_60
+  - first:
+      213: -8479270990370327190
+    second: bandi_61
+  - first:
+      213: 4998485382897970738
+    second: bandi_62
+  - first:
+      213: 9158578490990657233
+    second: bandi_63
+  - first:
+      213: 5436422428487370531
+    second: bandi_64
+  - first:
+      213: -7812267040949895609
+    second: bandi_65
+  - first:
+      213: -716398206721373333
+    second: bandi_66
+  - first:
+      213: 5400548913828502041
+    second: bandi_67
+  - first:
+      213: -7108621774675407475
+    second: bandi_68
+  - first:
+      213: 5779894476411921488
+    second: bandi_69
+  - first:
+      213: 4367793588416878314
+    second: bandi_70
+  - first:
+      213: 1652504515082353005
+    second: bandi_71
+  - first:
+      213: -4984219585835752483
+    second: bandi_72
+  - first:
+      213: -9159719874470054177
+    second: bandi_73
+  - first:
+      213: -4907727506855135944
+    second: bandi_74
+  - first:
+      213: 4236337781071836614
+    second: bandi_75
+  - first:
+      213: -2291447419391210341
+    second: bandi_76
+  - first:
+      213: -4520606176477857277
+    second: bandi_77
+  - first:
+      213: -2798529044070429904
+    second: bandi_78
+  - first:
+      213: 6967417938163014772
+    second: bandi_79
+  - first:
+      213: 4617790322798558613
+    second: bandi_80
+  - first:
+      213: -5425942313262871435
+    second: bandi_81
+  - first:
+      213: -4284978475859565808
+    second: bandi_82
+  - first:
+      213: -1681807675662288949
+    second: bandi_83
+  - first:
+      213: 6380820107475671434
+    second: bandi_84
+  - first:
+      213: 1978688108880452107
+    second: bandi_85
+  - first:
+      213: -6003539382995833816
+    second: bandi_86
+  - first:
+      213: -3167422571579699661
+    second: bandi_87
+  - first:
+      213: -8800426669035094843
+    second: bandi_88
+  - first:
+      213: -8930123709654932114
+    second: bandi_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bandi_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4032
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48000fc06fb21d9a0800000000000000
+      internalID: -6210134075388198780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 4032
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b433d41049d00030800000000000000
+      internalID: 3459003383071061173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4032
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5c516ba2731ec10800000000000000
+      internalID: 2081005159404914113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4032
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5653862334760e390800000000000000
+      internalID: -7791113817044798107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfc2c951aade4ac0800000000000000
+      internalID: -3868914643334148157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66fdbe3c8246af3e0800000000000000
+      internalID: -2019191356673761434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba616cb55586c770800000000000000
+      internalID: 8630732339181349556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d14b512e841e83ed0800000000000000
+      internalID: -2433947895446784995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499c973ab38bb7930800000000000000
+      internalID: 4142106848582551956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe1e78b860e37210800000000000000
+      internalID: 1329653055380922044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a492e2f6954f26000800000000000000
+      internalID: 27853212672207178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1995ed82c33f01f0800000000000000
+      internalID: -1076584875220952803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ea10284fbf4cc20800000000000000
+      internalID: 3225980260675858056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5bd1a45a31edcbe0800000000000000
+      internalID: -1455259463926555812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0be76d5e52f6620800000000000000
+      internalID: 2769473964932509905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19543b8429a1d9e40800000000000000
+      internalID: 5664713121889207697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebbf79091f2e9ee70800000000000000
+      internalID: 9145090045493377982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d443e1dc5ee44f4f0800000000000000
+      internalID: -795924485241949107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f30353aed93aacac0800000000000000
+      internalID: -3834072234118008769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d009a69fd55d45890800000000000000
+      internalID: -7470111282307624947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea723493a22583a0800000000000000
+      internalID: -6663881987663430938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1076b5ed1f6922270800000000000000
+      internalID: 8224301835093763841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a11cf8f09dbd7f40800000000000000
+      internalID: 5727942731435348390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab85c6d8adbd3b144bc0ef82e2205eac
+      internalID: -1455711710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30040c300029fe84a8a571c7ffdc4c43
+      internalID: 999353538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eed9312cadbbba4789fa4e3a3ba82d4
+      internalID: 1411114701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e44974e95159f47b9ca09ba2d670d5
+      internalID: -2062818521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_27
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc600e7104b7fa48b643abc257118c4
+      internalID: -123827711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecc5baf9ea916a4c972ae57c65b3895
+      internalID: 1902968987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4eb994656702343a3627c362bc86f6
+      internalID: -1866897864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793ddd64012b04e4690b268dea3bdc7a
+      internalID: -564440837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_31
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6064ba0c1297ab408c585624f2e0b79
+      internalID: -239664215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb1e7b45e7f23d4c8649e2b528c6dde
+      internalID: -1610842191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33bb76d82c14654dba8ab40f109a03a
+      internalID: -1185377412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_34
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa84f8fddc6c6049868b2fc373f6b5e
+      internalID: 999900056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_35
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efdf2328d134fc42b884db036a04563
+      internalID: 1052499726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be45f00b15a09e48879505a035338b3
+      internalID: 475454226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_37
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03f87706fbf0ad4da1bafb922c2533f
+      internalID: -2094969010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandi_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3c78912ed73cf44b73df7db35faa51
+      internalID: -1763951953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e1a5ebb59aa063c45938f9f400a85aba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bandi_0: -6210134075388198780
+      bandi_1: 3459003383071061173
+      bandi_10: 27853212672207178
+      bandi_11: -1076584875220952803
+      bandi_12: 3225980260675858056
+      bandi_13: -1455259463926555812
+      bandi_14: 2769473964932509905
+      bandi_15: 5664713121889207697
+      bandi_16: 9145090045493377982
+      bandi_17: -795924485241949107
+      bandi_18: -3834072234118008769
+      bandi_19: -7470111282307624947
+      bandi_2: 2081005159404914113
+      bandi_20: -6663881987663430938
+      bandi_21: 8224301835093763841
+      bandi_22: 5727942731435348390
+      bandi_23: -1455711710
+      bandi_24: 999353538
+      bandi_25: 1411114701
+      bandi_26: -2062818521
+      bandi_27: -123827711
+      bandi_28: 1902968987
+      bandi_29: -1866897864
+      bandi_3: -7791113817044798107
+      bandi_30: -564440837
+      bandi_31: -239664215
+      bandi_32: -1610842191
+      bandi_33: -1185377412
+      bandi_34: 999900056
+      bandi_35: 1052499726
+      bandi_36: 475454226
+      bandi_37: -2094969010
+      bandi_38: -1763951953
+      bandi_4: -3868914643334148157
+      bandi_5: -2019191356673761434
+      bandi_6: 8630732339181349556
+      bandi_7: -2433947895446784995
+      bandi_8: 4142106848582551956
+      bandi_9: 1329653055380922044
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

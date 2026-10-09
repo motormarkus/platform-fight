@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 95ee266864c3ead47978b1e5da65d3ad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6037515909111095969
+    second: poyta_sali_0
+  - first:
+      213: -3657075551593759450
+    second: poyta_sali_1
+  - first:
+      213: -5937378242380579
+    second: poyta_sali_2
+  - first:
+      213: 2741058256558605324
+    second: poyta_sali_3
+  - first:
+      213: 7802047422816425383
+    second: poyta_sali_4
+  - first:
+      213: -7594392405744063561
+    second: poyta_sali_5
+  - first:
+      213: 7103016313036328272
+    second: poyta_sali_6
+  - first:
+      213: -5082201717193044372
+    second: poyta_sali_7
+  - first:
+      213: -4258287301751134173
+    second: poyta_sali_8
+  - first:
+      213: 5210852282174579315
+    second: poyta_sali_9
+  - first:
+      213: -4534934046382516291
+    second: poyta_sali_10
+  - first:
+      213: -7580616359059026804
+    second: poyta_sali_11
+  - first:
+      213: 7515182679223782194
+    second: poyta_sali_12
+  - first:
+      213: 590825368590994299
+    second: poyta_sali_13
+  - first:
+      213: -850000323816708693
+    second: poyta_sali_14
+  - first:
+      213: 6913575307207726075
+    second: poyta_sali_15
+  - first:
+      213: 8116316515911663488
+    second: poyta_sali_16
+  - first:
+      213: -3213867040940806769
+    second: poyta_sali_17
+  - first:
+      213: -1383193538941083944
+    second: poyta_sali_18
+  - first:
+      213: 2281962684688906214
+    second: poyta_sali_19
+  - first:
+      213: -471289618196794463
+    second: poyta_sali_20
+  - first:
+      213: 5246395446898887613
+    second: poyta_sali_21
+  - first:
+      213: 7244807950619086667
+    second: poyta_sali_22
+  - first:
+      213: -2003706318022269477
+    second: poyta_sali_23
+  - first:
+      213: 4400347981839303584
+    second: poyta_sali_24
+  - first:
+      213: 7663420825305049715
+    second: poyta_sali_25
+  - first:
+      213: -8851886125674405410
+    second: poyta_sali_26
+  - first:
+      213: -5886786016239699034
+    second: poyta_sali_27
+  - first:
+      213: -8269520256151711322
+    second: poyta_sali_28
+  - first:
+      213: -3081641584026866029
+    second: poyta_sali_29
+  - first:
+      213: 5303791597193396192
+    second: poyta_sali_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: poyta_sali_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a226503bb099c350800000000000000
+      internalID: 6037515909111095969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62dfc7e69257f3dc0800000000000000
+      internalID: -3657075551593759450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc37f66cf7eaeff0800000000000000
+      internalID: -5937378242380579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_3
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04c3da26f13a0620800000000000000
+      internalID: 2741058256558605324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a599b54bc0764c60800000000000000
+      internalID: 7802047422816425383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_5
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb63b2085c4b9690800000000000000
+      internalID: -7594392405744063561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05dc55c04bbf29260800000000000000
+      internalID: 7103016313036328272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_sali_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e04d107746879b0800000000000000
+      internalID: -5082201717193044372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1af4b5ae612fb914aa2b20f8aa63ccf3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      poyta_sali_0: 6037515909111095969
+      poyta_sali_1: -3657075551593759450
+      poyta_sali_2: -5937378242380579
+      poyta_sali_3: 2741058256558605324
+      poyta_sali_4: 7802047422816425383
+      poyta_sali_5: -7594392405744063561
+      poyta_sali_6: 7103016313036328272
+      poyta_sali_7: -5082201717193044372
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

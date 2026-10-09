@@ -1,0 +1,1677 @@
+fileFormatVersion: 2
+guid: 963580b65a700ba47a19eaf27a0a1323
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4730093873151081391
+    second: katu_bar_ovi_0
+  - first:
+      213: 7713011732305899104
+    second: katu_bar_ovi_1
+  - first:
+      213: 5961852781288650029
+    second: katu_bar_ovi_2
+  - first:
+      213: 6318841281224307533
+    second: katu_bar_ovi_3
+  - first:
+      213: -7566922897294514366
+    second: katu_bar_ovi_4
+  - first:
+      213: 2741590211690308839
+    second: katu_bar_ovi_5
+  - first:
+      213: -5844198158262604649
+    second: katu_bar_ovi_6
+  - first:
+      213: -895599075667255978
+    second: katu_bar_ovi_7
+  - first:
+      213: 2921152399550484997
+    second: katu_bar_ovi_8
+  - first:
+      213: -436111337734000941
+    second: katu_bar_ovi_9
+  - first:
+      213: -8396050094977301056
+    second: katu_bar_ovi_10
+  - first:
+      213: 4240558621650048062
+    second: katu_bar_ovi_11
+  - first:
+      213: 3195674694076703391
+    second: katu_bar_ovi_12
+  - first:
+      213: -5522591807293245296
+    second: katu_bar_ovi_13
+  - first:
+      213: -3243452936485919546
+    second: katu_bar_ovi_14
+  - first:
+      213: -1598522330565351358
+    second: katu_bar_ovi_15
+  - first:
+      213: 3336973459782290636
+    second: katu_bar_ovi_16
+  - first:
+      213: 8728442510216675792
+    second: katu_bar_ovi_17
+  - first:
+      213: -127644155712760985
+    second: katu_bar_ovi_18
+  - first:
+      213: -4749305071183926313
+    second: katu_bar_ovi_19
+  - first:
+      213: 3000086537123341857
+    second: katu_bar_ovi_20
+  - first:
+      213: 3311917328089346933
+    second: katu_bar_ovi_21
+  - first:
+      213: -2408067165043298609
+    second: katu_bar_ovi_22
+  - first:
+      213: 8087562636656164828
+    second: katu_bar_ovi_23
+  - first:
+      213: -5287987630020606165
+    second: katu_bar_ovi_24
+  - first:
+      213: 2595862835305017904
+    second: katu_bar_ovi_25
+  - first:
+      213: 2570326709461472865
+    second: katu_bar_ovi_26
+  - first:
+      213: 1787919876987379299
+    second: katu_bar_ovi_27
+  - first:
+      213: -6299288938018174508
+    second: katu_bar_ovi_28
+  - first:
+      213: 3149855313334905296
+    second: katu_bar_ovi_29
+  - first:
+      213: 645971687989682427
+    second: katu_bar_ovi_30
+  - first:
+      213: 5008236538274227327
+    second: katu_bar_ovi_31
+  - first:
+      213: 296909651346512112
+    second: katu_bar_ovi_32
+  - first:
+      213: 5441638887619242445
+    second: katu_bar_ovi_33
+  - first:
+      213: 5746521117948688845
+    second: katu_bar_ovi_34
+  - first:
+      213: 3445623218503401
+    second: katu_bar_ovi_35
+  - first:
+      213: -4011968942753481670
+    second: katu_bar_ovi_36
+  - first:
+      213: 3409193568151518487
+    second: katu_bar_ovi_37
+  - first:
+      213: -2863350945965293785
+    second: katu_bar_ovi_38
+  - first:
+      213: -1802271254516246688
+    second: katu_bar_ovi_39
+  - first:
+      213: 9182836216141661697
+    second: katu_bar_ovi_40
+  - first:
+      213: -7361779668102490223
+    second: katu_bar_ovi_41
+  - first:
+      213: 6678753300820701890
+    second: katu_bar_ovi_42
+  - first:
+      213: 3542658766036151050
+    second: katu_bar_ovi_43
+  - first:
+      213: 5078229739317302800
+    second: katu_bar_ovi_44
+  - first:
+      213: 7588197696172146396
+    second: katu_bar_ovi_45
+  - first:
+      213: 8637689409377847296
+    second: katu_bar_ovi_46
+  - first:
+      213: -1948635922496940878
+    second: katu_bar_ovi_47
+  - first:
+      213: 1869497014250687611
+    second: katu_bar_ovi_48
+  - first:
+      213: 5532489481788416611
+    second: katu_bar_ovi_49
+  - first:
+      213: -5088841485055738718
+    second: katu_bar_ovi_50
+  - first:
+      213: 941438405271645285
+    second: katu_bar_ovi_51
+  - first:
+      213: 6282660142957252434
+    second: katu_bar_ovi_52
+  - first:
+      213: -686957074531748909
+    second: katu_bar_ovi_53
+  - first:
+      213: 3415112444430315031
+    second: katu_bar_ovi_54
+  - first:
+      213: -6375065807940555709
+    second: katu_bar_ovi_55
+  - first:
+      213: 6113666482732310680
+    second: katu_bar_ovi_56
+  - first:
+      213: -4403877779666056696
+    second: katu_bar_ovi_57
+  - first:
+      213: 7919768414552529371
+    second: katu_bar_ovi_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: katu_bar_ovi_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabfb67015ba4a140800000000000000
+      internalID: 4730093873151081391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e63842e4f1a0b60800000000000000
+      internalID: 7713011732305899104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2572ef6481ccb250800000000000000
+      internalID: 5961852781288650029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_3
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43f277aaa801b750800000000000000
+      internalID: 6318841281224307533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_4
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247adf757b3ecf690800000000000000
+      internalID: -7566922897294514366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_5
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e42d7f95c51c0620800000000000000
+      internalID: 2741590211690308839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_6
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ce3cb2dbc35eea0800000000000000
+      internalID: -5844198158262604649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_7
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 4200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d5fa1c2613293f0800000000000000
+      internalID: -895599075667255978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5029cf561a40a8820800000000000000
+      internalID: 2921152399550484997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3de28d78c0f92f9f0800000000000000
+      internalID: -436111337734000941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c54e7c3cec3b7b80800000000000000
+      internalID: -8396050094977301056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_11
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34dba4599d79da30800000000000000
+      internalID: 4240558621650048062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_12
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92a52ee331595c20800000000000000
+      internalID: 3195674694076703391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_13
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098bdced200db53b0800000000000000
+      internalID: -5522591807293245296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_14
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c42f032db0fcf2d0800000000000000
+      internalID: -3243452936485919546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_15
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 3600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2486f11e868e0d9e0800000000000000
+      internalID: -1598522330565351358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccca3f7eaf4f4e20800000000000000
+      internalID: 3336973459782290636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_17
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d142efb738a12970800000000000000
+      internalID: 8728442510216675792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_18
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763161111548a3ef0800000000000000
+      internalID: -127644155712760985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_19
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dbee1e5334171eb0800000000000000
+      internalID: -4749305071183926313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_20
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1262ba47fc272a920800000000000000
+      internalID: 3000086537123341857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_21
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573f93a334b46fd20800000000000000
+      internalID: 3311917328089346933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_22
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fceef400ca3d49ed0800000000000000
+      internalID: -2408067165043298609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_23
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 3000
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdfbc984e5bcc3070800000000000000
+      internalID: 8087562636656164828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2746f7744b4d96b0800000000000000
+      internalID: -5287987630020606165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_25
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0327ef7ce7b560420800000000000000
+      internalID: 2595862835305017904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_26
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166562a2682aba320800000000000000
+      internalID: 2570326709461472865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_27
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e51b2c7a7ffc810800000000000000
+      internalID: 1787919876987379299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_28
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d901eff51e6498a0800000000000000
+      internalID: -6299288938018174508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_29
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d9243508b886bb20800000000000000
+      internalID: 3149855313334905296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_30
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0a595e3d3f6f800800000000000000
+      internalID: 645971687989682427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_31
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 2400
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74a7f6c894d08540800000000000000
+      internalID: 5008236538274227327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8d4ea31c5de1400800000000000000
+      internalID: 296909651346512112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_33
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc92f7cbcb5948b40800000000000000
+      internalID: 5441638887619242445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_34
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9bc99a28ebfbf40800000000000000
+      internalID: 5746521117948688845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_35
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eef7fba6cd3c0000800000000000000
+      internalID: 3445623218503401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_36
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c774db08f9258c0800000000000000
+      internalID: -4011968942753481670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_37
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71db730dc73ef4f20800000000000000
+      internalID: 3409193568151518487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_38
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fb57e3c755348d0800000000000000
+      internalID: -2863350945965293785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_39
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1800
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06759a5c7db0df6e0800000000000000
+      internalID: -1802271254516246688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10647b5c2ecff6f70800000000000000
+      internalID: 9182836216141661697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_41
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 197de007564b5d990800000000000000
+      internalID: -7361779668102490223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_42
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2b2e5ddb2bfac50800000000000000
+      internalID: 6678753300820701890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_43
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b220eb06d0a2130800000000000000
+      internalID: 3542658766036151050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_44
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01615d3da0f797640800000000000000
+      internalID: 5078229739317302800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_45
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde37c5c991be4960800000000000000
+      internalID: 7588197696172146396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_46
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008ce1ed0cc3fd770800000000000000
+      internalID: 8637689409377847296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_47
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1200
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4110be3fd05f4e0800000000000000
+      internalID: -1948635922496940878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7cc01321a9c1f910800000000000000
+      internalID: 1869497014250687611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_49
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362659d0fd957cc40800000000000000
+      internalID: 5532489481788416611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_50
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac3bf491adc069b0800000000000000
+      internalID: -5088841485055738718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_51
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c602cdd39a01d00800000000000000
+      internalID: 941438405271645285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_52
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25fc871fc1e703750800000000000000
+      internalID: 6282660142957252434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_53
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3f79c2e207776f0800000000000000
+      internalID: -686957074531748909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_54
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ee8469caae46f20800000000000000
+      internalID: 3415112444430315031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_55
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 600
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ce6f99c673787a0800000000000000
+      internalID: -6375065807940555709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890a872464b18d450800000000000000
+      internalID: 6113666482732310680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_57
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ac4ccfd7842e2c0800000000000000
+      internalID: -4403877779666056696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katu_bar_ovi_58
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 360
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd913cc896ba8ed60800000000000000
+      internalID: 7919768414552529371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0a00e377911c03544a87814f44588253
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      katu_bar_ovi_0: 4730093873151081391
+      katu_bar_ovi_1: 7713011732305899104
+      katu_bar_ovi_10: -8396050094977301056
+      katu_bar_ovi_11: 4240558621650048062
+      katu_bar_ovi_12: 3195674694076703391
+      katu_bar_ovi_13: -5522591807293245296
+      katu_bar_ovi_14: -3243452936485919546
+      katu_bar_ovi_15: -1598522330565351358
+      katu_bar_ovi_16: 3336973459782290636
+      katu_bar_ovi_17: 8728442510216675792
+      katu_bar_ovi_18: -127644155712760985
+      katu_bar_ovi_19: -4749305071183926313
+      katu_bar_ovi_2: 5961852781288650029
+      katu_bar_ovi_20: 3000086537123341857
+      katu_bar_ovi_21: 3311917328089346933
+      katu_bar_ovi_22: -2408067165043298609
+      katu_bar_ovi_23: 8087562636656164828
+      katu_bar_ovi_24: -5287987630020606165
+      katu_bar_ovi_25: 2595862835305017904
+      katu_bar_ovi_26: 2570326709461472865
+      katu_bar_ovi_27: 1787919876987379299
+      katu_bar_ovi_28: -6299288938018174508
+      katu_bar_ovi_29: 3149855313334905296
+      katu_bar_ovi_3: 6318841281224307533
+      katu_bar_ovi_30: 645971687989682427
+      katu_bar_ovi_31: 5008236538274227327
+      katu_bar_ovi_32: 296909651346512112
+      katu_bar_ovi_33: 5441638887619242445
+      katu_bar_ovi_34: 5746521117948688845
+      katu_bar_ovi_35: 3445623218503401
+      katu_bar_ovi_36: -4011968942753481670
+      katu_bar_ovi_37: 3409193568151518487
+      katu_bar_ovi_38: -2863350945965293785
+      katu_bar_ovi_39: -1802271254516246688
+      katu_bar_ovi_4: -7566922897294514366
+      katu_bar_ovi_40: 9182836216141661697
+      katu_bar_ovi_41: -7361779668102490223
+      katu_bar_ovi_42: 6678753300820701890
+      katu_bar_ovi_43: 3542658766036151050
+      katu_bar_ovi_44: 5078229739317302800
+      katu_bar_ovi_45: 7588197696172146396
+      katu_bar_ovi_46: 8637689409377847296
+      katu_bar_ovi_47: -1948635922496940878
+      katu_bar_ovi_48: 1869497014250687611
+      katu_bar_ovi_49: 5532489481788416611
+      katu_bar_ovi_5: 2741590211690308839
+      katu_bar_ovi_50: -5088841485055738718
+      katu_bar_ovi_51: 941438405271645285
+      katu_bar_ovi_52: 6282660142957252434
+      katu_bar_ovi_53: -686957074531748909
+      katu_bar_ovi_54: 3415112444430315031
+      katu_bar_ovi_55: -6375065807940555709
+      katu_bar_ovi_56: 6113666482732310680
+      katu_bar_ovi_57: -4403877779666056696
+      katu_bar_ovi_58: 7919768414552529371
+      katu_bar_ovi_6: -5844198158262604649
+      katu_bar_ovi_7: -895599075667255978
+      katu_bar_ovi_8: 2921152399550484997
+      katu_bar_ovi_9: -436111337734000941
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

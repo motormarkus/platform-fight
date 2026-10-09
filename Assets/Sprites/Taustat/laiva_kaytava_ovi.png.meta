@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 67bb06fcb90d36b43a700ca16854673a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6370085190961381114
+    second: laiva_kaytava_ovi_0
+  - first:
+      213: -7672688904688594370
+    second: laiva_kaytava_ovi_1
+  - first:
+      213: -8015358505936683848
+    second: laiva_kaytava_ovi_2
+  - first:
+      213: -3743717812633431237
+    second: laiva_kaytava_ovi_3
+  - first:
+      213: 4715240021193478352
+    second: laiva_kaytava_ovi_4
+  - first:
+      213: -7477582724567996708
+    second: laiva_kaytava_ovi_5
+  - first:
+      213: 7154759316718754060
+    second: laiva_kaytava_ovi_6
+  - first:
+      213: -491745852634940578
+    second: laiva_kaytava_ovi_7
+  - first:
+      213: -7024223191082292007
+    second: laiva_kaytava_ovi_8
+  - first:
+      213: -6471697811984333330
+    second: laiva_kaytava_ovi_9
+  - first:
+      213: 2748356982788275306
+    second: laiva_kaytava_ovi_10
+  - first:
+      213: 2264754678058751653
+    second: laiva_kaytava_ovi_11
+  - first:
+      213: 289255460576108975
+    second: laiva_kaytava_ovi_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1335
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afeba342bb6176850800000000000000
+      internalID: 6370085190961381114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_1
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1335
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3294f3c712258590800000000000000
+      internalID: -7672688904688594370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_2
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1335
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bcfc32f7e9b3c090800000000000000
+      internalID: -8015358505936683848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_3
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 1335
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b339ea60c74ab0cc0800000000000000
+      internalID: -3743717812633431237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 890
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d051fd11d5ef6140800000000000000
+      internalID: 4715240021193478352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 890
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6e683412a4a3890800000000000000
+      internalID: -7477582724567996708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_6
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 890
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c091076e0bfca4360800000000000000
+      internalID: 7154759316718754060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_7
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 890
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b3ced90c7fc29f0800000000000000
+      internalID: -491745852634940578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 445
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dcaa704932f48e90800000000000000
+      internalID: -7024223191082292007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_9
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 445
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee54007e029ef26a0800000000000000
+      internalID: -6471697811984333330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 445
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c3f0b4d10242620800000000000000
+      internalID: 2748356982788275306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_11
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 445
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6981961660e6f10800000000000000
+      internalID: 2264754678058751653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laiva_kaytava_ovi_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 330
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa12bf01f44a30400800000000000000
+      internalID: 289255460576108975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c1d31bf8af6ba74458025b63a60f9aa4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      laiva_kaytava_ovi_0: 6370085190961381114
+      laiva_kaytava_ovi_1: -7672688904688594370
+      laiva_kaytava_ovi_10: 2748356982788275306
+      laiva_kaytava_ovi_11: 2264754678058751653
+      laiva_kaytava_ovi_12: 289255460576108975
+      laiva_kaytava_ovi_2: -8015358505936683848
+      laiva_kaytava_ovi_3: -3743717812633431237
+      laiva_kaytava_ovi_4: 4715240021193478352
+      laiva_kaytava_ovi_5: -7477582724567996708
+      laiva_kaytava_ovi_6: 7154759316718754060
+      laiva_kaytava_ovi_7: -491745852634940578
+      laiva_kaytava_ovi_8: -7024223191082292007
+      laiva_kaytava_ovi_9: -6471697811984333330
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

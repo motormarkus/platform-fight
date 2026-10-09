@@ -151,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 768
         width: 512
         height: 384
       alignment: 7
@@ -173,7 +173,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 384
+        y: 768
         width: 512
         height: 384
       alignment: 7
@@ -195,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 384
+        y: 768
         width: 512
         height: 384
       alignment: 7
@@ -217,7 +217,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 384
+        y: 768
         width: 512
         height: 384
       alignment: 7
@@ -239,7 +239,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 384
         width: 512
         height: 384
       alignment: 7
@@ -261,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 0
+        y: 384
         width: 512
         height: 384
       alignment: 7
@@ -283,7 +283,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
+        y: 384
         width: 512
         height: 384
       alignment: 7
@@ -305,7 +305,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 0
+        y: 384
         width: 512
         height: 384
       alignment: 7
@@ -318,6 +318,94 @@ TextureImporter:
       bones: []
       spriteID: 8a6d3976cdd2abe00800000000000000
       internalID: 1061211086852970152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vihu_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a638c6c42fb2da14ebd3246c0f9a737f
+      internalID: -1738071322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vihu_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb27397e8d85be94fa3fdf87fc0e63ec
+      internalID: 256733050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vihu_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704ab6e869a2af74bbe2f28a67bb21fa
+      internalID: -227275300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vihu_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24985318f513836498b867d66596a61f
+      internalID: 207814910
       vertices: []
       indices: 
       edges: []
@@ -338,12 +426,16 @@ TextureImporter:
     nameFileIdTable:
       vihu_kavely_0: -3036584792200144593
       vihu_kavely_1: -4490644186938764097
+      vihu_kavely_10: -227275300
+      vihu_kavely_11: 207814910
       vihu_kavely_2: 4874229733011779482
       vihu_kavely_3: -864882072806568301
       vihu_kavely_4: -6893628687025357814
       vihu_kavely_5: -6435909219020940794
       vihu_kavely_6: -3930475978595128609
       vihu_kavely_7: 1061211086852970152
+      vihu_kavely_8: -1738071322
+      vihu_kavely_9: 256733050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

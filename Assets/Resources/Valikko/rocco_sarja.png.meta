@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 562e44d3ac39ba042bab9e3ed68f1668
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1310422669789891790
+    second: rocco_sarja_0
+  - first:
+      213: -8904124445578449928
+    second: rocco_sarja_1
+  - first:
+      213: -8855041611235986499
+    second: rocco_sarja_2
+  - first:
+      213: -2161260205281944002
+    second: rocco_sarja_3
+  - first:
+      213: -7335992156936579890
+    second: rocco_sarja_4
+  - first:
+      213: -4110369156980517471
+    second: rocco_sarja_5
+  - first:
+      213: 2933631866995751094
+    second: rocco_sarja_6
+  - first:
+      213: 1160886323895732330
+    second: rocco_sarja_7
+  - first:
+      213: 3095916857651566325
+    second: rocco_sarja_8
+  - first:
+      213: 3251888153093225104
+    second: rocco_sarja_9
+  - first:
+      213: 1592649134673055550
+    second: rocco_sarja_10
+  - first:
+      213: 6257108458085783680
+    second: rocco_sarja_11
+  - first:
+      213: 5059276758679962941
+    second: rocco_sarja_12
+  - first:
+      213: 7982197275687951113
+    second: rocco_sarja_13
+  - first:
+      213: 1145626258544196139
+    second: rocco_sarja_14
+  - first:
+      213: 6316438199755517093
+    second: rocco_sarja_15
+  - first:
+      213: -4929471050079702757
+    second: rocco_sarja_16
+  - first:
+      213: -3417330680575853859
+    second: rocco_sarja_17
+  - first:
+      213: -6540827278730830985
+    second: rocco_sarja_18
+  - first:
+      213: -1374402880995275589
+    second: rocco_sarja_19
+  - first:
+      213: -2567766757438849519
+    second: rocco_sarja_20
+  - first:
+      213: -8940807208472912085
+    second: rocco_sarja_21
+  - first:
+      213: -4255009355077048645
+    second: rocco_sarja_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rocco_sarja_0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1795
+        width: 260
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc027aa97e8f2210800000000000000
+      internalID: 1310422669789891790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_1
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1795
+        width: 273
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fbac692ef13e6480800000000000000
+      internalID: -8904124445578449928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_2
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 1795
+        width: 329
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3f9f212929c1580800000000000000
+      internalID: -8855041611235986499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_3
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 1795
+        width: 380
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e5bfc4b49a102e0800000000000000
+      internalID: -2161260205281944002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_4
+      rect:
+        serializedVersion: 2
+        x: 3047
+        y: 1795
+        width: 378
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec45eb24002513a90800000000000000
+      internalID: -7335992156936579890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_5
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1347
+        width: 378
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a55476870905f6c0800000000000000
+      internalID: -4110369156980517471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_6
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 1347
+        width: 347
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b83c06d3aa56b820800000000000000
+      internalID: 2933631866995751094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_7
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 1347
+        width: 291
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a680a6006fb4c1010800000000000000
+      internalID: 1160886323895732330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_8
+      rect:
+        serializedVersion: 2
+        x: 2354
+        y: 1347
+        width: 377
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6177aaaf7e6fa20800000000000000
+      internalID: 3095916857651566325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_9
+      rect:
+        serializedVersion: 2
+        x: 3057
+        y: 1347
+        width: 364
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a3c66cb07012d20800000000000000
+      internalID: 3251888153093225104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 899
+        width: 289
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f450423f93a1610800000000000000
+      internalID: 1592649134673055550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_11
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 899
+        width: 364
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0889b45bdf6b5d650800000000000000
+      internalID: 6257108458085783680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_12
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 899
+        width: 369
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3542852869263640800000000000000
+      internalID: 5059276758679962941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_13
+      rect:
+        serializedVersion: 2
+        x: 2355
+        y: 899
+        width: 366
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b9878712676ce60800000000000000
+      internalID: 7982197275687951113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_14
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 899
+        width: 295
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2af2e9230516ef00800000000000000
+      internalID: 1145626258544196139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_15
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 451
+        width: 361
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aca226a31f78a750800000000000000
+      internalID: 6316438199755517093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_16
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 451
+        width: 379
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b117d698230079bb0800000000000000
+      internalID: -4929471050079702757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_17
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 451
+        width: 379
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda7b301ad33390d0800000000000000
+      internalID: -3417330680575853859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_18
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 451
+        width: 378
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b501aae305a35a0800000000000000
+      internalID: -6540827278730830985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_19
+      rect:
+        serializedVersion: 2
+        x: 3049
+        y: 451
+        width: 321
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbcc0049cd32dece0800000000000000
+      internalID: -1374402880995275589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_20
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 3
+        width: 250
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11efccc1db57d5cd0800000000000000
+      internalID: -2567766757438849519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_21
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 3
+        width: 259
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2f58bdd63fdbe380800000000000000
+      internalID: -8940807208472912085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_sarja_22
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 3
+        width: 260
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb62baa198b23f4c0800000000000000
+      internalID: -4255009355077048645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rocco_sarja_0: 1310422669789891790
+      rocco_sarja_1: -8904124445578449928
+      rocco_sarja_10: 1592649134673055550
+      rocco_sarja_11: 6257108458085783680
+      rocco_sarja_12: 5059276758679962941
+      rocco_sarja_13: 7982197275687951113
+      rocco_sarja_14: 1145626258544196139
+      rocco_sarja_15: 6316438199755517093
+      rocco_sarja_16: -4929471050079702757
+      rocco_sarja_17: -3417330680575853859
+      rocco_sarja_18: -6540827278730830985
+      rocco_sarja_19: -1374402880995275589
+      rocco_sarja_2: -8855041611235986499
+      rocco_sarja_20: -2567766757438849519
+      rocco_sarja_21: -8940807208472912085
+      rocco_sarja_22: -4255009355077048645
+      rocco_sarja_3: -2161260205281944002
+      rocco_sarja_4: -7335992156936579890
+      rocco_sarja_5: -4110369156980517471
+      rocco_sarja_6: 2933631866995751094
+      rocco_sarja_7: 1160886323895732330
+      rocco_sarja_8: 3095916857651566325
+      rocco_sarja_9: 3251888153093225104
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

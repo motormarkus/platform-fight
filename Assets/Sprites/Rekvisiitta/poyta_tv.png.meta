@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 1859bdb1d1c56d74e820613db556f905
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8053175961086757786
+    second: poyta_tv_0
+  - first:
+      213: 1376719719556008562
+    second: poyta_tv_1
+  - first:
+      213: 696910132630171087
+    second: poyta_tv_2
+  - first:
+      213: 3324341856424577189
+    second: poyta_tv_3
+  - first:
+      213: -5770271902050582869
+    second: poyta_tv_4
+  - first:
+      213: 2190814598998031648
+    second: poyta_tv_5
+  - first:
+      213: -4596629522279428721
+    second: poyta_tv_6
+  - first:
+      213: 6050197881435406726
+    second: poyta_tv_7
+  - first:
+      213: 6466897072879153049
+    second: poyta_tv_8
+  - first:
+      213: -7507979216438192379
+    second: poyta_tv_9
+  - first:
+      213: -8490831306203630499
+    second: poyta_tv_10
+  - first:
+      213: -2607799891032401054
+    second: poyta_tv_11
+  - first:
+      213: -6160226551190844443
+    second: poyta_tv_12
+  - first:
+      213: 2178895652064582183
+    second: poyta_tv_13
+  - first:
+      213: 1860249849855032728
+    second: poyta_tv_14
+  - first:
+      213: 9216539655926495456
+    second: poyta_tv_15
+  - first:
+      213: -9043556317203090173
+    second: poyta_tv_16
+  - first:
+      213: -1329914784198274423
+    second: poyta_tv_17
+  - first:
+      213: 8948962746781779384
+    second: poyta_tv_18
+  - first:
+      213: -3396990362172711463
+    second: poyta_tv_19
+  - first:
+      213: 2708242125630122426
+    second: poyta_tv_20
+  - first:
+      213: 6246065089063032453
+    second: poyta_tv_21
+  - first:
+      213: 634057806744999134
+    second: poyta_tv_22
+  - first:
+      213: 2269298778730586229
+    second: poyta_tv_23
+  - first:
+      213: 422379370669024071
+    second: poyta_tv_24
+  - first:
+      213: 7005457933733630078
+    second: poyta_tv_25
+  - first:
+      213: 5750460994792976651
+    second: poyta_tv_26
+  - first:
+      213: 1301966096413879484
+    second: poyta_tv_27
+  - first:
+      213: 3652814686860605331
+    second: poyta_tv_28
+  - first:
+      213: 8107393318838158007
+    second: poyta_tv_29
+  - first:
+      213: 5841241861735503835
+    second: poyta_tv_30
+  - first:
+      213: -7630323942025362743
+    second: poyta_tv_31
+  - first:
+      213: -2010039856367789142
+    second: poyta_tv_32
+  - first:
+      213: 1998113690378210578
+    second: poyta_tv_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: poyta_tv_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b8a4a7ed0a2cf60800000000000000
+      internalID: 8053175961086757786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 768
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a496f6a471b1310800000000000000
+      internalID: 1376719719556008562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcdaacfb21ceba900800000000000000
+      internalID: 696910132630171087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_3
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a846282e4f622e20800000000000000
+      internalID: 3324341856424577189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae7bdcf640ebefa0800000000000000
+      internalID: -5770271902050582869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_5
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d74063546576e10800000000000000
+      internalID: 2190814598998031648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d0670bdcd7530c0800000000000000
+      internalID: -4596629522279428721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 512
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68147c7faee96f350800000000000000
+      internalID: 6050197881435406726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99fa9fbef980fb950800000000000000
+      internalID: 6466897072879153049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_9
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5079f2f7eac4ec790800000000000000
+      internalID: -7507979216438192379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_10
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5477f1d9e18a2a80800000000000000
+      internalID: -8490831306203630499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_11
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 256
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b16b9d0db3fcbd0800000000000000
+      internalID: -2607799891032401054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb0758079a728aa0800000000000000
+      internalID: -6160226551190844443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poyta_tv_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 448
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ad3ff1d0efc3e10800000000000000
+      internalID: 2178895652064582183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 42c80dc0fb8cbb047a68f206b01997cf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      poyta_tv_0: 8053175961086757786
+      poyta_tv_1: 1376719719556008562
+      poyta_tv_10: -8490831306203630499
+      poyta_tv_11: -2607799891032401054
+      poyta_tv_12: -6160226551190844443
+      poyta_tv_13: 2178895652064582183
+      poyta_tv_2: 696910132630171087
+      poyta_tv_3: 3324341856424577189
+      poyta_tv_4: -5770271902050582869
+      poyta_tv_5: 2190814598998031648
+      poyta_tv_6: -4596629522279428721
+      poyta_tv_7: 6050197881435406726
+      poyta_tv_8: 6466897072879153049
+      poyta_tv_9: -7507979216438192379
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
