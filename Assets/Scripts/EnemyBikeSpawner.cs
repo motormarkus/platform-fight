@@ -10,6 +10,8 @@ public class EnemyBikeSpawner : MonoBehaviour
     [Tooltip("Skeittari roikkuu osan vihuprätkien perässä (malli, piilossa).")]
     public SkaterHitch skaterTemplate;
     [Range(0f, 1f)] public float skaterChance = 0.4f;
+    [Tooltip("Määrän kerroin: tiheämmin (väli / kerroin) ja useampi kerralla; skeittareita enemmän.")]
+    public float density = 5f;
     float timer = 4f;
 
     void Update()
@@ -24,14 +26,15 @@ public class EnemyBikeSpawner : MonoBehaviour
         if (x < minX || x > maxX - 40f) return;
         timer -= Time.deltaTime;
         if (timer > 0f) return;
-        timer = Random.Range(interval.x, interval.y);
-        if (FindObjectsByType<EnemyBike>(FindObjectsSortMode.None).Length >= maxAlive) return;
+        float dn = Mathf.Max(1f, density);
+        timer = Random.Range(interval.x, interval.y) / dn;
+        if (FindObjectsByType<EnemyBike>(FindObjectsSortMode.None).Length >= Mathf.RoundToInt(maxAlive * Mathf.Min(dn, 3f))) return;
         float halfW = cam.orthographicSize * cam.aspect;
         var go = Instantiate(template.gameObject);
         go.SetActive(true);
         float y = Random.Range(pc.minDepthY + 0.2f, pc.maxDepthY - 0.2f);
         go.transform.position = new Vector3(cam.transform.position.x - halfW - 3f, y, 0f);
-        if (skaterTemplate != null && SkaterHitch.Attached == null && Random.value < skaterChance)
+        if (skaterTemplate != null && Random.value < Mathf.Min(1f, skaterChance * Mathf.Min(dn, 2f)))
         {
             var sk = Instantiate(skaterTemplate.gameObject);
             var h = sk.GetComponent<SkaterHitch>();

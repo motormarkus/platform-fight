@@ -176,6 +176,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float chargeRange = 0f;
     [Tooltip("Rynnäkkö aloitetaan aikaisintaan tältä etäisyydeltä (lähempänä lyö tavallisesti).")]
     public float chargeMinRange = 2.6f;
+    [Tooltip("Rynnäkkö jatkuu ohi mentyään ruudun reunaan asti (Metsuri juoksee ruudun päästä päähän) ja hakeutuu pelaajan syvyydelle.")]
+    public bool chargeToEdge;
     [Tooltip("Rynnäkkö (chargeRange > 0) voi laueta myös vierestä tällä todennäköisyydellä (esim. prätkäjätkän hyppylyönti).")]
     [Range(0f, 1f)] public float altNearChance = 0f;
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
@@ -486,7 +488,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Awake()
     {
         health = maxHealth;
-        if (displayName == "Metsuri") appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
+        if (displayName == "Metsuri")
+        {
+            appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
+            // taklausjuoksu ruudun päästä päähän on pääliike: vähemmän kävelyä
+            chargeToEdge = true; chargeRange = 24f; chargeMinRange = 1.8f; altChance = Mathf.Max(altChance, 0.9f);
+        }
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(runSprites);
@@ -600,11 +607,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             {
                 bool lunging = usingAlt && altLungeSpeed > 0f;
                 // pusku: syöksy eteen, kunnes osuu tai aika loppuu
-                if (lunging && !punchLanded && stateTime < altLungeTime)
-                    Move(new Vector2((facingRight ? 1f : -1f) * altLungeSpeed * dt, 0f));
+                if (lunging && !punchLanded && (stateTime < altLungeTime || ChargeContinues()))
+                {
+                    float vy = chargeToEdge && player != null ? Mathf.Clamp(player.transform.position.y - transform.position.y, -1f, 1f) * 1.6f : 0f;   // hakeutuu pelaajan syvyydelle
+                    Move(new Vector2((facingRight ? 1f : -1f) * altLungeSpeed * dt, vy * dt));
+                }
                 if (!punchLanded) punchLanded = TryHitPlayer();
                 if (state != State.Punch) break;   // pelaaja nappasi kädestä kiinni
-                if (stateTime >= (lunging ? Mathf.Max(punchActiveTime, altLungeTime) : punchActiveTime)) Enter(State.Recover);
+                if (stateTime >= (lunging ? Mathf.Max(punchActiveTime, altLungeTime) : punchActiveTime) && !(lunging && !punchLanded && ChargeContinues())) Enter(State.Recover);
             }
                 break;
 
@@ -966,6 +976,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector3 me = transform.position;
         int pose = k < (collarThrow ? 3f : 1f) ? 1 : 2;            // 1 = napattu, 2 = kierähdys (rinnuksista vasta viskatessa)
         grabbedEnemy.SetHeldByPlayer(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, art ? 0f : dir * v.z, pose);
+    }
+
+    /// Ruudun reunaan asti jatkuva taklausjuoksu: jatkuu, kunnes reuna on lähellä (enintään 2,5 s).
+    bool ChargeContinues()
+    {
+        if (!chargeToEdge || stateTime > 2.5f) return false;
+        var cam = Camera.main;
+        if (cam == null) return false;
+        float halfW = cam.orthographicSize * cam.aspect, x = transform.position.x, cx = cam.transform.position.x;
+        return facingRight ? x < cx + halfW - 1.6f : x > cx - halfW + 1.6f;
     }
 
     bool HasClinch => clinchSprites != null && clinchSprites.Length >= 7;
@@ -1485,7 +1505,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
         float adx = Mathf.Abs(me.x - p.x);
         if (chargeRange > 0f && Has(altAttackSprites) && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown
-            && !grabIntent && adx >= chargeMinRange && adx <= chargeRange && Mathf.Abs(me.y - p.y) <= depthTolerance * 0.8f
+            && !grabIntent && adx >= chargeMinRange && adx <= chargeRange && Mathf.Abs(me.y - p.y) <= (chargeToEdge ? 1.4f : depthTolerance * 0.8f)
             && Random.value < altChance * dt * 3f)
         {
             moving = false;
@@ -2318,6 +2338,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.Punch:
+                // Metsurin taklausjuoksu: juoksee (juoksukuvat nopeasti), olkataklaus vasta pelaajan kohdalla
+                if (chargeToEdge && usingAlt && !punchLanded && Has(walkSprites) && player != null
+                    && Mathf.Abs(player.transform.position.x - transform.position.x) > 2.4f)
+                    return walkSprites[(int)(animClock / 0.05f) % walkSprites.Length];
                 if (Has(AtkSprites))
                 {
                     // lyhyt välikuva ja sitten täysin ojennettu käsi
