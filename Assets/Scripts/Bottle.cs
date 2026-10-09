@@ -158,6 +158,14 @@ public class Bottle : MonoBehaviour
     }
 
     /// Pitelijä sai osuman: pullo putoaa.
+    /// Biljardipöytä hajosi: pöydällä lepäävä pallo valahtaa lattialle.
+    public void FallOff()
+    {
+        if (state != S.Lying || restOnRenderer == null) return;
+        transform.SetParent(null, true);
+        state = S.Falling; vy = 1.5f; vx = Random.Range(-1.5f, 1.5f); spin = 0f; t = 0f; softLanding = true;
+    }
+
     public void Drop()
     {
         if (state != S.Held) return;

@@ -79,6 +79,19 @@ public class Cue : MonoBehaviour
     }
     bool dropped;
 
+    /// Biljardipöytä hajosi: pöydällä oleva keppi valahtaa lattialle.
+    public void FallOff()
+    {
+        if (state != S.Rest) return;
+        Vector3 foot = FootPos;
+        float h = transform.position.y - foot.y;
+        Detach();
+        transform.position = new Vector3(transform.position.x, foot.y, 0f);
+        groundY = foot.y; height = Mathf.Max(0.5f, h);
+        vx = Random.Range(-1f, 1f); vy = 1f; spin = Random.value < 0.5f ? 160f : -160f; t = 0f;
+        state = S.Thrown; dropped = true;
+    }
+
     /// Lyönti kepillä osui: kuluu, kolmannesta katkeaa (palauttaa true, jos katkesi).
     public static bool UseHeld(Vector3 at)
     {

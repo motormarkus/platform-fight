@@ -4824,6 +4824,15 @@ public static class BeatEmUpSetup
         psh.transform.localPosition = new Vector3(0f, 0.37f, 0f); psh.transform.localScale = new Vector3(width * 1.05f, 0.9f, 1f);
         psh.sortingOrder = -9000;
         var ob = pgo.AddComponent<Obstacle>(); ob.body = psr0; ob.halfWidth = width * 0.48f; ob.depth = 0.75f;
+        // hajoaa vähitellen potkuista ja lyönneistä (6 vaihetta, sama koko kuin ehjä kuva); pallot ja keppi valahtavat lattialle
+        var dmg = new List<Sprite> { poolSprite };
+        for (int k = 1; k <= 5; k++) { var ds = ImportProp($"Assets/Sprites/Rekvisiitta/biljardipoyta_vaurio{k}.png"); if (ds != null) dmg.Add(ds); }
+        if (dmg.Count == 6)
+        {
+            ob.damageSprites = dmg.ToArray(); ob.maxHealth = 160;
+            ob.hitSounds = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+                .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+        }
         // pallot (snooker: 15 punaista kolmiossa + valkoinen) ja keppi pöydän verkalla
         var tops = new List<SpriteRenderer>();
         System.Func<float, float, Vector3> cloth = (ix, iy) => new Vector3((ix - poolSprite.rect.width * 0.5f) / poolSprite.pixelsPerUnit * pk, (poolSprite.rect.height - iy) / poolSprite.pixelsPerUnit * pk, 0f);
@@ -4837,7 +4846,7 @@ public static class BeatEmUpSetup
         // snooker: 8 punaista kolmiossa (rivit 1-2-3-2), värit omilla paikoillaan, valkoinen aloitusalueella.
         // Pallot ovat poimittavia (L2, kuten pullo) ja heitettäviä: lentävät kauas, eivät hajoa.
         Sprite Ball(string ballName) => ImportPropCentered("Assets/Sprites/Rekvisiitta/snooker_" + ballName + ".png");
-        const float BallSize = 0.16f;
+        const float BallSize = 0.165f;   // kuva ääriviivoineen (pallo 96/116): pallo n. 15 % pienempi kuin ennen
         float midLocalY = cloth(800f, 245f).y;
         void AddBall(Sprite bs, Vector3 local)
         {
@@ -4848,6 +4857,7 @@ public static class BeatEmUpSetup
             var b = bgo.AddComponent<Bottle>();
             b.sprites = new[] { bs };
             b.ball = true; b.pivotY = 0f; b.scale = BallSize / bs.bounds.size.x;
+            b.ballTableScale = 1.2f; b.ballFlightScale = 1.75f;   // kädessä ja lennossa isompi (näkyy), mutta pienempi kuin ennen (2)
             b.throwDamage = 14; b.throwSpeed = 22f;
             b.restOnRenderer = psr0; b.pickRangeX = 1.0f; b.pickRangeY = 1.1f;
             bgo.transform.position = new Vector3(pgo.transform.position.x + local.x, pgo.transform.position.y + depthOff, 0f);
@@ -5034,6 +5044,7 @@ public static class BeatEmUpSetup
                 pcCue.cueWalkSprites = LoadSprites("keppi_kavely").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
                 pcCue.cueThrowSprites = LoadSprites("keppi_heitto").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
                 pcCue.cueSwingBSprites = LoadSprites("keppi_lyonti_b").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+                pcCue.cueReach = 3.6f;   // keppi osuu kauempaa
                 EditorUtility.SetDirty(pcCue);
             }
         }

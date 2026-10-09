@@ -332,7 +332,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("keppi_lyonti_b.png: paluuhuitaisu taakse (8 kuvaa, osuma kuvassa 1, kaataa), toisella lyöntinapin painalluksella.")]
     public Sprite[] cueSwingBSprites;
     public int cueDamage = 16, cueDamage2 = 20;
-    public float cueReach = 3.0f;
+    public float cueReach = 3.6f;   // keppi on pitkä: osuu kauempaa (oli 3,0)
     float[] CueSwingATimes = { 0.05f, 0.06f, 0.05f, 0.04f, 0.04f, 0.12f, 0.1f };
     float[] CueSwingBTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.06f, 0.08f, 0.08f, 0.1f };
     int cueAImpact = 4;
@@ -2276,6 +2276,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 heavy |= knockdown;
                 HitSpark.Spawn(new Vector3(p.x - side * 0.4f, p.y + 0.8f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5);
             }
+        }
+        // biljardipöytä: potkut ja lyönnit hajottavat vähitellen
+        foreach (var ob in Obstacle.All.ToArray())
+        {
+            if (ob == null || !ob.CanBeHit) continue;
+            Vector3 q = ob.NearestPoint(me);
+            float dx = q.x - me.x;
+            bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
+            if (!inFront || Mathf.Abs(q.y - me.y) > attackDepth + 0.3f) continue;
+            if (ob.TakeHit(damage)) { any = true; HitSpark.Spawn(new Vector3(q.x - side * 0.2f, q.y + 1.0f, 0f), false, Mathf.RoundToInt(-q.y * 100f) + 5); }
         }
         // pelastusrenkaan telineet: pari iskua hajottaa (kaatava heti)
         foreach (var st in RingStand.All.ToArray())
