@@ -9,6 +9,9 @@ public class Area : MonoBehaviour
     public string areaName = "Alue";
     [Tooltip("Alueen oma musiikki (tyhjä = kentän pääkappale).")]
     public AudioClip music;
+    [Tooltip("Alueen taustahäly silmukkana (tyhjä = Resources/Ambienssi/<alueen nimi>, esim. laivan_kansi.wav).")]
+    public AudioClip ambience;
+    [Range(0f, 2f)] public float ambienceVolume = 1f;
     /// Alue, jolla pelaaja on (viimeksi asetettu).
     public static Area Current;
 

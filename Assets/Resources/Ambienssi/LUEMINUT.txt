@@ -1,0 +1,19 @@
+Alueiden taustahäly (silmukka musiikin alla). Nimeä tiedosto alueen mukaan (.wav, .mp3 tai .ogg):
+
+katu            Katu
+takakuja        Takakuja
+kadun_baari     Kadun baari
+baari           Baari
+s_club          S-Club
+katto           Katto
+valtatie        Valtatie
+uccopulco       Uccopulco
+el_loippari     El Loippari
+loipparin_ylakerta  Loipparin yläkerta
+laivan_kansi    Laivan kansi
+laivan_sali     Laivan sali
+laivan_kaytava  Laivan käytävä
+laivan_hytti    Laivan hytti
+
+Puuttuva tiedosto = ei taustahälyä sillä alueella. Voimakkuus: asetusten musiikin säädin,
+lisäksi alueen Area-komponentissa ambienceVolume (0–2).
