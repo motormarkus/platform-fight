@@ -2588,6 +2588,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     /// Vapaana maassa (ei iskussa, kantamassa tai ilmassa): voi käyttää esineitä kuten moottoripyörää.
+    public bool IsFloored => state == State.Down || state == State.KipUp;
     public bool IsFree => state == State.Ground && carried == null && height <= 0.05f && !GameOver;
 
     /// Ajaa moottoripyörää (Motorbike ohjaa liikettä ja kuvaa; iskut eivät osu).

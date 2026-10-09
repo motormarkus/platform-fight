@@ -265,6 +265,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float slapChance = 0.25f;
     public int slapCount = 10, slapDamage = 3, slapFinalDamage = 10;
     public float slapWindup = 1.0f, slapTime = 0.2f, slapStep = 0.16f, slapReach = 2.2f;
+    [Tooltip("Läpsykombo liukuu tasaisesti eteenpäin koko sarjan ajan (Horhe: slapStep per läpsy).")]
+    public bool slapGlide;
+    [Tooltip("Läpsykombon latauksen ääni (tyhjä: punch3WindupSounds).")]
+    public AudioClip[] slapWindupSounds;
+    [Tooltip("Nauru, kun tämä vihu (tai kuka tahansa lähellä) kaataa heron.")]
+    public AudioClip heroDownLaugh;
+    [Tooltip("Avunhuuto, kun energiaa on jäljellä kolmannes: kutsuu kaksi portsaria.")]
+    public AudioClip helpShout;
+    public int helpBouncers = 2;
+    bool heroWasFloored, helpCalled;
+    float nextHeroLaugh;
     [Header("Esineen heitto (Horhe: kultaharkko taskusta, pään korkeudelta suoraan eteen)")]
     [Tooltip("0 asento, 1 taskusta, 2 veto taakse, 3 heilautus, 4 irrotus (tyhjä käsi), 5–6 palautus")]
     public Sprite[] barThrowSprites;
@@ -553,6 +564,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             blockChance = Mathf.Max(blockChance, 0.4f); maxBlocksInRow = Mathf.Max(maxBlocksInRow, 2); guardWhenHurt = true;   // torjuu, myös kesken kombon
             barThrowChance = Mathf.Max(barThrowChance, 0.6f);
             hammerArt = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
+            // läpsykombo liukuu reilusti eteen (10 läpsyä ≈ 5 yksikköä)
+            slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.6f);
+            // tuplanyrkkivasaran ääni; vanha latausmurahdus jää läpsykombolle
+            var hv = Resources.Load<AudioClip>("Sfx/horhe/horhe_vasara");
+            if (hv != null) { if (slapWindupSounds == null || slapWindupSounds.Length == 0) slapWindupSounds = punch3WindupSounds; punch3WindupSounds = new[] { hv }; }
+            heroDownLaugh = Resources.Load<AudioClip>("Sfx/horhe/horhe_nauru");
+            helpShout = Resources.Load<AudioClip>("Sfx/horhe/horhe_avunhuuto");
         }
         if (displayName == "Metsuri")
         {
@@ -635,6 +653,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         UpdateGround(dt);
         Stomp(dt);
+        BossVoices();
 
         switch (state)
         {
@@ -1157,7 +1176,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (k < slapCount)
         {
             // askel eteen läpsyn alkuosalla (pelaaja ei pääse pakoon, suojaavaa työnnetään)
-            if (ph < 0.5f) Move(new Vector2(dir * slapStep / (slapTime * 0.5f) * dt, 0f));
+            if (slapGlide) Move(new Vector2(dir * slapStep / slapTime * dt, 0f));   // liukuu koko ajan eteen
+            else if (ph < 0.5f) Move(new Vector2(dir * slapStep / (slapTime * 0.5f) * dt, 0f));
             if (k >= slapsDone && ph >= 0.35f)
             {
                 slapsDone = k + 1;
@@ -1175,6 +1195,54 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             cooldown = attackCooldown * Random.Range(1.1f, 1.5f);
             Enter(State.Recover);
+        }
+    }
+
+    /// Horhe: nauraa, kun hero kaatuu lähellä; kolmanneksen energialla huutaa portsarit apuun.
+    void BossVoices()
+    {
+        if (!awake || IsDead || player == null) return;
+        if (heroDownLaugh != null)
+        {
+            bool floored = player.IsFloored;
+            if (floored && !heroWasFloored && Time.time >= nextHeroLaugh && state != State.Airborne && state != State.Down
+                && Mathf.Abs(player.transform.position.x - transform.position.x) < 12f && audioSource != null)
+            {
+                nextHeroLaugh = Time.time + 6f;
+                audioSource.PlayOneShot(heroDownLaugh, 1f);
+            }
+            heroWasFloored = floored;
+        }
+        if (helpShout != null && !helpCalled && health > 0 && health <= maxHealth / 3)
+        {
+            helpCalled = true;
+            if (audioSource != null) audioSource.PlayOneShot(helpShout, 1f);
+            CallBouncers();
+        }
+    }
+
+    /// Kaksi portsaria tulee ruudun reunoilta Horhen avuksi (kopio kentän portsarista, käy vain heron kimppuun).
+    void CallBouncers()
+    {
+        Enemy tmpl = null;
+        foreach (var e in FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (e != null && e != this && e.displayName == "Portsari") { tmpl = e; if (!e.IsDead) break; }
+        if (tmpl == null) return;
+        var cam = Camera.main;
+        float half = cam != null ? cam.orthographicSize * cam.aspect : 9f;
+        float cx = cam != null ? cam.transform.position.x : transform.position.x;
+        for (int i = 0; i < helpBouncers; i++)
+        {
+            float side = i % 2 == 0 ? -1f : 1f;   // yksi kummaltakin reunalta
+            var p = new Vector3(cx + side * (half - 0.6f), transform.position.y + (i % 2 == 0 ? 0.4f : -0.4f), 0f);
+            var go = Instantiate(tmpl.gameObject, p, Quaternion.identity, transform.parent);
+            go.name = "Portsari (Horhen apu " + (i + 1) + ")";
+            var b = go.GetComponent<Enemy>();
+            b.fightsEveryone = false; b.huntsBrawlers = false; b.ally = false; b.isBoss = false;
+            b.appearAfterOthers = false; b.wanderMinX = b.wanderMaxX = 0f;
+            b.helpShout = null; b.heroDownLaugh = null;
+            go.SetActive(true);
+            b.WakeUp();
         }
     }
 
@@ -1404,7 +1472,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             slapsDone = 0;
             shakeUntil = Time.unscaledTime + slapWindup * 0.85f;   // lataus: tärisee (varoitus, ehtii suojata)
-            PlayClipFrom(punch3WindupSounds, punch3Volume);
+            PlayClipFrom(slapWindupSounds != null && slapWindupSounds.Length > 0 ? slapWindupSounds : punch3WindupSounds, punch3Volume);
         }
         if (s != State.GrabLift && s != State.GrabThrow && grabbedEnemy != null)
         {

@@ -6612,6 +6612,62 @@ public static class BeatEmUpSetup
              "Kiinniotto: tuoli käteen. Lyönti: lyö (osuessa tuoli hajoaa). Potku: heitto.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/81. Horhen konttoriin snookerpöydät, pöydät, tuolit ja pullot")]
+    static void AddLoipparUpstairsProps()
+    {
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Loipparin yläkerta");
+        var chairT = Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c != null && c.transform.parent != null && c.transform.parent.name == "Tuolit");
+        var loipTables = GameObject.Find("El Loipparin pöydät");
+        if (area == null || loipTables == null) { Info("Tarvitaan Loipparin yläkerta (kohta 77) ja El Loipparin pöydät (kohta 48)."); return; }
+        // mallipöytä: El Loipparin pullopöytä (ei kala-annoksia), pullot kopioidaan sen mukana
+        var bottles = Object.FindObjectsByType<Bottle>(FindObjectsSortMode.None);
+        var plates = Object.FindObjectsByType<FishPlate>(FindObjectsSortMode.None);
+        var tableT = loipTables.GetComponentsInChildren<Crate>(true)
+            .Where(c => c.gameObject.name == "Pöytä" && !plates.Any(f => f != null && f.table == c))
+            .OrderByDescending(c => bottles.Count(b => b != null && b.table == c)).FirstOrDefault();
+        if (tableT == null) { Info("El Loipparin pullopöytää ei löytynyt (kohta 48)."); return; }
+        var old = GameObject.Find("Horhen konttorin kalusteet");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Horhen konttorin kalusteet");
+        Undo.RegisterCreatedObjectUndo(root, "Horhen konttorin kalusteet");
+        float halfW = CamHalf * 16f / 9f;
+        float x0 = area.camMinX - halfW, x1 = area.camMaxX + halfW;
+        Vector3 At(float fx, float depth) { float x = Mathf.Lerp(x0, x1, fx); return new Vector3(x, Mathf.Lerp(area.maxDepthY - 0.3f, area.minDepthY + 0.4f, depth), 0f); }
+        // kaksi snookerpöytää: toinen taakse vasemmalle, toinen eteen oikealle (portaiden eteen ja Horhen ympärille jää tilaa)
+        int snookers = 0;
+        if (AddSnookerTable(root.transform, At(0.3f, 0.2f), PokerPoolWidth) != null) snookers++;
+        if (AddSnookerTable(root.transform, At(0.74f, 0.82f), PokerPoolWidth) != null) snookers++;
+        // pari tavallista pöytää pulloineen
+        int nb = 0;
+        foreach (var pos in new[] { At(0.52f, 0.88f), At(0.9f, 0.18f) })
+        {
+            var go = Object.Instantiate(tableT.gameObject, root.transform);
+            go.name = "Pöytä"; go.transform.position = pos; go.SetActive(true);
+            var c = go.GetComponent<Crate>();
+            foreach (var b in bottles)
+            {
+                if (b == null || b.table != tableT) continue;
+                var bGo = Object.Instantiate(b.gameObject, root.transform);
+                bGo.name = b.gameObject.name; bGo.transform.position = pos;
+                bGo.GetComponent<Bottle>().table = c;
+                nb++;
+            }
+        }
+        // tuolit pöytien ja snookerpöytien viereen
+        int nc = 0;
+        if (chairT != null)
+            foreach (var (pos, flip) in new[] { (At(0.45f, 0.9f), false), (At(0.59f, 0.86f), true), (At(0.84f, 0.2f), false), (At(0.17f, 0.45f), true) })
+            {
+                var go = Object.Instantiate(chairT.gameObject, root.transform);
+                go.name = "Tuoli " + (++nc); go.transform.position = pos;
+                var ch = go.GetComponent<Chair>();
+                if (ch.body != null) ch.body.flipX = flip;
+                go.SetActive(true);
+            }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Horhen konttoriin {snookers} snookerpöytää, 2 pöytää ({nb} pulloa/lasia) ja {nc} tuolia." + (chairT == null ? "\nTuolit puuttuvat: tee ensin kohta 53." : "") + "\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/79. Tuolit S-Clubiin (potkittavat ja lyötävät)")]
     static void AddClubChairs()
     {
