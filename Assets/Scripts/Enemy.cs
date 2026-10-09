@@ -541,7 +541,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= CurrentWindup)
                 {
                     punchLanded = false;
-                    if (!usingAlt && punchShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan
+                    if (!usingAlt && punchShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan (vain pelaajaa vastaan)
                     if (usingPunch3 && punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
                     else if (Random.value < attackSoundChance) PlayAttackSound();
                     Enter(State.Punch);
@@ -658,7 +658,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     bellyHit = true;
                     if (Random.value < attackSoundChance) PlayAttackSound();
-                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);
+                    if (enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);   // vain pelaajaa vastaan
                     TryBellyHit();
                 }
                 if (!bellyLaughed && stateTime >= BellyPumpTime)
@@ -739,7 +739,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     if (launched)
                     {
                         launched = false;
-                        HitFx.OnLand();
+                        if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
                         knockVel *= 0.3f;   // liukuu vähän
                     }
@@ -751,7 +751,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         spinRot = 0f;
                         thrownByPlayer = false;
                         PlayHurtSound();
-                        HitFx.OnLand();
+                        if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
                         HitFx.PlayClip(SlamSound, 1f);
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
                         knockVel *= 0.35f;   // liukuu vähän iskun jälkeen
@@ -765,7 +765,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         spinRot = 0f;
                         thrownByPlayer = false;
                         PlayHurtSound();
-                        HitFx.OnLand();
+                        if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
                         knockVel = Vector2.zero;
                     }
                     Enter(State.Down);
@@ -817,6 +817,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
                     if (grabbedEnemy != null)
                     {
+                        grabbedEnemy.thrownByEnemy = true;   // keinoja: ei kameran tärähdystä eikä pysäytystä
                         // isot (Kovis, samoalainen, portsari, puliukko) lentävät lyhyemmälle
                         float hw = IsHeavyweight(grabbedEnemy) || grabbedEnemy.bigBody ? heavyThrowScale : 1f;
                         grabbedEnemy.ReleaseThrow(dir * throwSpeed * hw, throwUp * Mathf.Lerp(1f, hw, 0.6f), throwDamage);
@@ -1091,6 +1092,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
         if (s == State.Windup && usingPunch3)
         {
             // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu
@@ -1346,7 +1348,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (stompTimer > 0f) return;
         stompTimer = stompInterval * Random.Range(0.9f, 1.1f);
         if (hasStomp && audioSource != null) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
-        if (stompShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);
+        if (stompShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);   // ei vihujen keskinäisessä tappelussa
     }
 
     /// Skettari laudalla: kova vauhti pelaajan ohi, käännös toisella puolella, lyönti ohituksessa.
@@ -1582,7 +1584,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             float from = knockVel.x != 0f ? q.x - Mathf.Sign(knockVel.x) : me.x;   // kaatuu lentosuuntaan
             if (e.TakeHit(bowlDamage, from, true))
             {
-                HitFx.OnHit(true);
+                if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnHit(true);   // portsarin heitto: ei tärähdystä
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
             }
         }
@@ -1836,6 +1838,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         launched = true;
     }
     bool launched;
+    [System.NonSerialized] public bool thrownByEnemy;   // toisen vihun heittämä (portsari): ei kameran tärähdystä
 
     /// Voiko pelaaja tarttua rinnuksista (pystyssä, ei kantamassa mitään eikä jo kiinni).
     public bool CanBeGrabbed => !ally && (state == State.Idle || state == State.Block || state == State.Chase || state == State.Windup
