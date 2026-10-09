@@ -406,10 +406,31 @@ public class Bottle : MonoBehaviour
         fistOverlay.sortingLayerID = body.sortingLayerID;
         fistOverlay.sortingOrder = bottleOrder + 1;
         fistMask.transform.position = handPos;
-        fistMask.transform.localScale = Vector3.one * 0.34f;   // nyrkin kokoinen ympyrä (halkaisija yks)
+        // nyrkin muotoinen maski (Resources/Nyrkki: vain iho ja ääriviiva), ettei paita tai takki peitä pulloa; muuten ympyrä
+        var shape = FistShape(body.sprite);
+        if (shape != null)
+        {
+            fistMask.sprite = shape;
+            Vector3 ls = bt.lossyScale;
+            fistMask.transform.localScale = new Vector3(body.flipX ? -Mathf.Abs(ls.x) : Mathf.Abs(ls.x), Mathf.Abs(ls.y), 1f);
+        }
+        else
+        {
+            fistMask.sprite = CircleSprite();
+            fistMask.transform.localScale = Vector3.one * 0.34f;   // nyrkin kokoinen ympyrä (halkaisija yks)
+        }
         fistMask.frontSortingLayerID = fistMask.backSortingLayerID = body.sortingLayerID;
         fistMask.frontSortingOrder = bottleOrder + 1;
         fistMask.backSortingOrder = bottleOrder;
+    }
+
+    static readonly System.Collections.Generic.Dictionary<string, Sprite> fistShapes = new System.Collections.Generic.Dictionary<string, Sprite>();
+    static Sprite FistShape(Sprite heroFrame)
+    {
+        if (heroFrame == null) return null;
+        string n = heroFrame.name;
+        if (!fistShapes.TryGetValue(n, out var sp)) { sp = Resources.Load<Sprite>("Nyrkki/" + n); fistShapes[n] = sp; }
+        return sp;
     }
 
     static Sprite CircleSprite()

@@ -29,6 +29,9 @@ public class Crate : MonoBehaviour
     [Tooltip("Heitettynä lentää vihujoukon läpi ja kaataa kaikki tieltään (pöydät); hajoaa vasta maahan osuessa.")]
     public bool plowThrough;
     int plowHits;
+    bool bounced;      // heitetty pöytä on jo kimmonnut kerran lattiasta
+    float bounceRot;   // kimmotessa pöytä pyörähtää kerran
+    bool TableFlight => thrown && breakable && plowThrough;   // pöytä: pyöriessä nostetaan kuvaa, ei osuta maahan kulmalla ennen aikojaan
     [Tooltip("Toisen laatikon päällä (pino). Kun alempi lyödään, nostetaan tai hajoaa, tämä putoaa.")]
     public Crate stackedOn;
     [Tooltip("Pinossa: korkeus alemman laatikon päällä (yks).")]
@@ -196,6 +199,7 @@ public class Crate : MonoBehaviour
         alreadyHit.Clear();
         alreadyHitPlayer = false;
         plowHits = 0;
+        bounced = false; bounceRot = 0f;
         state = State.Flying;
         stateTime = 0f;
     }
@@ -281,9 +285,23 @@ public class Crate : MonoBehaviour
                     else if (breakable) { LastViolent = true; Break(); break; }
                     vel.x *= 0.6f;   // tynnyri jatkaa hidastuen ja kaataa seuraavankin
                 }
-                if (height - spinSink <= 0f && verticalVel <= 0f)
+                if (bounced && bounceRot < 360f) bounceRot = Mathf.Min(360f, bounceRot + 1000f * dt);
+                if ((TableFlight ? height : height - spinSink) <= 0f && verticalVel <= 0f)
                 {
                     height = 0f;
+                    if (TableFlight && !bounced && Mathf.Abs(vel.x) > 3f)
+                    {
+                        // pöytä kimpoaa kerran lattiasta ja pyörähtää ympäri, hajoaa vasta toisella kerralla
+                        bounced = true; bounceRot = 0f;
+                        verticalVel = Mathf.Max(5.5f, -verticalVel * 0.5f);
+                        vel.x *= 0.85f;
+                        height = 0.01f;
+                        HitFx.OnHitQuiet();
+                        shakeTimer = 0.1f;
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.06f, 0.1f);
+                        DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.1f);
+                        break;
+                    }
                     if (thrown && breakable) { HitFx.OnHit(false); LastViolent = true; Break(); }
                     else if (thrown && verticalVel < -5f)
                     {
@@ -389,6 +407,7 @@ public class Crate : MonoBehaviour
         // lennossa laatikko pyörii hieman
         // ylösalaisin kannettu leveä pöytä lentää kansi alaspäin pyörimättä (pyöriessä kulma osui lattiaan heti ja lento jäi lyhyeksi)
         float rot = state == State.Flying && thrown && !HasRoll && !carryUpsideDown ? -Mathf.Sign(vel.x) * stateTime * (breakable ? 360f : 540f) : 0f;
+        if (state == State.Flying && bounced) rot += -Mathf.Sign(vel.x) * bounceRot;   // kimmotessa pyörähdys
         if (carryUpsideDown)
         {
             // nostossa kääntyy ylösalaisin (keskikohdan ympäri), lennossa pysyy ylösalaisin, maassa taas pystyssä
@@ -416,6 +435,7 @@ public class Crate : MonoBehaviour
             float a = rot * Mathf.Deg2Rad, ex = spr.bounds.extents.x * visualScale, ey = spr.bounds.extents.y * visualScale;
             spinSink = Mathf.Max(0f, Mathf.Abs(ex * Mathf.Sin(a)) + Mathf.Abs(ey * Mathf.Cos(a)) - ey);
         }
+        if (state == State.Flying && TableFlight) body.transform.localPosition += new Vector3(0f, spinSink, 0f);   // pyörivä pöytä ei uppoa lattiaan
 
         int order = state == State.Carried ? carriedOrder : Mathf.RoundToInt(-transform.position.y * 100f);
         body.sortingOrder = order;

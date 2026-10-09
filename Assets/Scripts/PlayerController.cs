@@ -354,9 +354,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
     bool rubyChair;                 // Ruby: omat tuolisarjat (heilautus 8 kuvaa, osuma kuvassa 5)
     // Rubyn tuolilyönti videosta (7 kuvaa, sivuttainen swing): 0 pito, 1–2 tuoli taakse vaakatasoon, 3–4 taakse viety, 5 osuma (tuoli edessä vaakatasossa), 6 jälkiliike
-    static readonly float[] RubyChairSwingTimes = { 0.06f, 0.06f, 0.08f, 0.07f, 0.1f, 0.12f, 0.1f };
+    // heilautus kiihtyy: veto taakse rauhallisesti, sitten kuvat nopeutuvat osumaa kohti
+    static readonly float[] RubyChairSwingTimes = { 0.055f, 0.05f, 0.055f, 0.04f, 0.028f, 0.12f, 0.1f };
     // Roccon tuolilyönti videosta (11 kuvaa): 0–1 pito, 2–4 tuoli taakse, 5–6 takana, 7 kääntyy, 8 tulossa, 9 osuma, 10 jälkiliike
-    static readonly float[] RoccoChairSwingTimes = { 0.05f, 0.05f, 0.05f, 0.06f, 0.08f, 0.07f, 0.06f, 0.04f, 0.04f, 0.12f, 0.1f };
+    static readonly float[] RoccoChairSwingTimes = { 0.05f, 0.045f, 0.045f, 0.05f, 0.055f, 0.045f, 0.033f, 0.024f, 0.018f, 0.12f, 0.1f };
     bool VideoSwing => chairSwingSprites != null && chairSwingSprites.Length >= 6 && chairSwingBareSprites != null && chairSwingBareSprites.Length > 0;
     float[] SwingTimes => rubyChair ? RubyChairSwingTimes : RoccoChairSwingTimes;
     int SwingImpact => rubyChair ? 5 : 9;
