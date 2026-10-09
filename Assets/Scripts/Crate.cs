@@ -31,7 +31,7 @@ public class Crate : MonoBehaviour
     int plowHits;
     bool bounced;      // heitetty pöytä on jo kimmonnut kerran lattiasta
     float bounceRot;   // kimmotessa pöytä pyörähtää kerran
-    bool TableFlight => thrown && breakable && plowThrough;   // pöytä: pyöriessä nostetaan kuvaa, ei osuta maahan kulmalla ennen aikojaan
+    bool TableFlight => thrown && breakable && plowThrough && carryUpsideDown;   // ylösalaisin kannettu salin pöytä: kimpoaa kerran (muut pöydät kuten ennen)
     [Tooltip("Toisen laatikon päällä (pino). Kun alempi lyödään, nostetaan tai hajoaa, tämä putoaa.")]
     public Crate stackedOn;
     [Tooltip("Pinossa: korkeus alemman laatikon päällä (yks).")]
@@ -200,6 +200,8 @@ public class Crate : MonoBehaviour
         alreadyHitPlayer = false;
         plowHits = 0;
         bounced = false; bounceRot = 0f;
+        // pään päältä heitetty pikkupöytä (telkkaripöytä ym.) lähtee vähän matalammalta, ettei lennä heti vihujen yli
+        if (carryLower > 0f && !carryUpsideDown && by == null) height = Mathf.Max(1.2f, height - 0.6f);
         state = State.Flying;
         stateTime = 0f;
     }
