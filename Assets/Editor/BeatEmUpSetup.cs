@@ -3922,7 +3922,11 @@ public static class BeatEmUpSetup
         e.punch3ImpactFrame = 11;        // 0–9 veto, 10 välikuva, 11 osuma, loput palautus
         e.punch3Damage = 22;
         e.punch3Knockdown = true;
-        e.punch3LaunchUp = 0f; e.punch3LaunchX = 5f;
+        e.punch3LaunchUp = 7f; e.punch3LaunchX = 9f;   // pelaaja lentää kauas
+        e.punch3Heavy = true;            // iso pysäytys, tärähdys ja kipinä, ei voi torjua
+        // omat äänet: Assets/Audio/big thug/haymaker_lataus*.wav (veto) ja haymaker_isku*.wav (heilautus)
+        e.punch3WindupSounds = LoadClips("Assets/Audio/big thug", "haymaker_lataus");
+        e.punch3SwingSounds = LoadClips("Assets/Audio/big thug", "haymaker_isku");
         e.punch3Chance = 0.3f;
         e.punch3WindupTime = 0.9f;       // selvä varoitus: pelaaja ehtii väistää
         e.punch3RecoverTime = 0.6f;

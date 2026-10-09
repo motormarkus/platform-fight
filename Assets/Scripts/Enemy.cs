@@ -62,6 +62,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float punch3WindupTime = 0.5f;
     public float punch3RecoverTime = 0.5f;
     public float punch3Reach = 2.4f;
+    [Tooltip("Raskas isku (Koviksen haymaker): iso pysäytys, tärähdys ja kipinä osuessa, ei voi torjua.")]
+    public bool punch3Heavy;
+    [Tooltip("Lataus-grunt (soi vedon alussa) ja huuto/puhallus (soi heilautuksessa). Tyhjä = tavallinen hyökkäysääni.")]
+    public AudioClip[] punch3WindupSounds, punch3SwingSounds;
+    [Range(0f, 1f)] public float punch3Volume = 1f;
     bool usingPunch2, usingPunch3, running;
 
     [Header("Kombot")]
@@ -506,7 +511,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     punchLanded = false;
                     if (!usingAlt && punchShake > 0f && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan
-                    if (Random.value < attackSoundChance) PlayAttackSound();
+                    if (usingPunch3 && punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
+                    else if (Random.value < attackSoundChance) PlayAttackSound();
                     Enter(State.Punch);
                 }
                 break;
@@ -1035,6 +1041,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        if (s == State.Windup && usingPunch3) PlayClipFrom(punch3WindupSounds, punch3Volume);   // haymakerin lataus
         if (s == State.Airborne || s == State.Held) DropBoard();
         if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
@@ -1537,7 +1544,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
         if (usingAlt && altKnockdown && !mid) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
-        if (!usingAlt && usingPunch3 && punch3Knockdown && !mid) return player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this);
+        if (!usingAlt && usingPunch3 && punch3Knockdown && !mid)
+        {
+            bool hit = player.TakeKnockdown(punch3Damage, me.x, punch3LaunchUp > 0f ? punch3LaunchX : 4.5f, punch3LaunchUp > 0f ? punch3LaunchUp : 6f, this, punch3Heavy);
+            if (hit && punch3Heavy)
+            {
+                // haymaker: iso kipinä nyrkin kohdalla, pitkä pysäytys ja kunnon tärähdys
+                HitSpark.Spawn(new Vector3(p.x - Mathf.Sign(dx) * 0.3f, p.y + 2.3f, 0f), true, Mathf.RoundToInt(-p.y * 100f) + 6);
+                HitFx.Freeze(0.28f);
+                CameraFollow.Shake(0.45f, 0.35f);
+            }
+            return hit;
+        }
         if (!usingAlt && usingPunch3) return player.TakeHit(punch3Damage, me.x, this, comboFollow);
         if (!usingAlt && usingPunch2 && punch2Knockdown && !mid) return player.TakeKnockdown(punch2Damage, me.x, punch2LaunchUp > 0f ? punch2LaunchX : 3.5f, punch2LaunchUp > 0f ? punch2LaunchUp : 5f, this);
         if (!usingAlt && !usingPunch2 && !usingPunch3 && punchKnockdown && !mid) return player.TakeKnockdown(punchDamage, me.x, 3.5f, 4.5f, this);
@@ -1811,6 +1829,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     int lastAttackSound = -1;
+    void PlayClipFrom(AudioClip[] clips, float volume)
+    {
+        if (clips == null || clips.Length == 0 || audioSource == null) return;
+        var c = clips[Random.Range(0, clips.Length)];
+        if (c == null) return;
+        audioSource.pitch = Random.Range(0.96f, 1.04f);
+        audioSource.PlayOneShot(c, volume);
+    }
+
     void PlayAttackSound()
     {
         if (attackSounds == null || attackSounds.Length == 0 || audioSource == null) return;
