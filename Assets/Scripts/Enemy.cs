@@ -210,6 +210,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
     public AudioClip[] tauntSounds;
+    [Tooltip("Avokämmenläimäys: soi, kun tämän vihun isku osuu tai torjutaan (puliukko, Horhen läpsyt).")]
+    public AudioClip[] slapSounds;
+    [Tooltip("Kaikki tavalliset iskut ovat läpsyjä (puliukko); muuten läimäys vain läpsykombossa.")]
+    public bool punchesAreSlaps;
+    [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
+    public AudioClip fallVoice, getUpVoice;
     public float tauntVolume = 1f;
     [Tooltip("Tauko huutojen välillä (s, satunnainen väliltä).")]
     public Vector2 tauntPause = new Vector2(4f, 9f);
@@ -500,8 +506,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Awake()
     {
         health = maxHealth;
+        if (displayName == "Horhe" || displayName == "Puliukko")
+        {
+            // avokämmenläimäykset (Resources/Sfx/horhe/slap1–3): puliukon kaikki iskut, Horhen läpsykombo
+            var sl = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 3; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/slap" + i); if (c != null) sl.Add(c); }
+            if (sl.Count > 0) slapSounds = sl.ToArray();
+            punchesAreSlaps = displayName == "Puliukko";
+        }
         if (displayName == "Horhe")
         {
+            var speak = Resources.Load<AudioClip>("Sfx/horhe/horhe_speak1");
+            if (speak != null) { tauntSounds = new[] { speak }; tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); }
+            fallVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_kaatuminen");
+            getUpVoice = Resources.Load<AudioClip>("Sfx/horhe/horhe_ylosnousu");
             // välipomo: läpsykombo useammin, kestävämpi
             slapChance = Mathf.Max(slapChance, 0.55f);
             maxHealth = Mathf.Max(maxHealth, 360); health = maxHealth;
@@ -633,7 +651,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     float vy = chargeToEdge && player != null ? Mathf.Clamp(player.transform.position.y - transform.position.y, -1f, 1f) * 1.6f : 0f;   // hakeutuu pelaajan syvyydelle
                     Move(new Vector2((facingRight ? 1f : -1f) * altLungeSpeed * dt, vy * dt));
                 }
-                if (!punchLanded) punchLanded = TryHitPlayer();
+                if (!punchLanded) { punchLanded = TryHitPlayer(); if (punchLanded && punchesAreSlaps) PlaySlap(); }
                 if (state != State.Punch) break;   // pelaaja nappasi kädestä kiinni
                 if (stateTime >= (lunging ? Mathf.Max(punchActiveTime, altLungeTime) : punchActiveTime) && !(lunging && !punchLanded && ChargeContinues())) Enter(State.Recover);
             }
@@ -656,7 +674,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     {
                         secondHitDone = true;
                         if (Random.value < attackSoundChance) PlayAttackSound();
-                        TryHitPlayer(true);
+                        if (TryHitPlayer(true) && punchesAreSlaps) PlaySlap();
                     }
                 }
                 if (stateTime >= CurrentRecover)
@@ -1087,6 +1105,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return ph < 0.15f ? 3 : ph < 0.4f ? 4 : ph < 0.6f ? 5 : 6;
     }
 
+    void PlaySlap()
+    {
+        if (slapSounds == null || slapSounds.Length == 0) return;
+        var c = slapSounds[Random.Range(0, slapSounds.Length)];
+        if (c != null) HitFx.PlayClip(c, Random.Range(0.85f, 1f));
+    }
+
     bool HasBarThrow => barThrowSprites != null && barThrowSprites.Length >= 7 && barSprite != null;
     int BarFrame() => ThrowPose.Index(BarThrowTimes, stateTime);
 
@@ -1112,6 +1137,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (k % 2 == 0) PlayClipFrom(attackSounds, 0.7f);
                 if (player != null && SlapInReach())
                 {
+                    PlaySlap();   // läimäys osuessa ja torjuttaessa
                     bool last = slapsDone >= slapCount;
                     if (last) player.TakeKnockdown(slapFinalDamage, transform.position.x, 6f, 4f, this);
                     else player.TakeHit(slapDamage, transform.position.x, this, true);
@@ -1345,6 +1371,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
+        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, 1f);
+        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
         if (s == State.Slaps)
         {
             slapsDone = 0;
