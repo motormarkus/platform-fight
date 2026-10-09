@@ -103,8 +103,18 @@ public class GameHUD : MonoBehaviour
             label.normal.textColor = Color.white;
         }
 
+        // pomon energiapalkki oikeaan yläkulmaan, samankokoinen kuin pelaajan
+        var boss = Enemy.ActiveBoss;
+        if (boss != null)
+        {
+            float bx = Screen.width - x - w;
+            var right = new GUIStyle(label) { alignment = TextAnchor.UpperRight };
+            GUI.Label(new Rect(bx, y, w, h * 1.4f), Loc.T(boss.displayName).ToUpper(), right);
+            Bar(new Rect(bx, y + h * 1.4f, w, h), boss.Health / (float)Mathf.Max(1, boss.maxHealth), new Color(0.9f, 0.2f, 0.15f));
+        }
+
         var e = Enemy.LastHit;
-        if (e != null && Time.time - Enemy.LastHitTime < enemyBarTime)
+        if (e != null && e != boss && Time.time - Enemy.LastHitTime < enemyBarTime)
         {
             float ey = y + h * 3.8f;
             GUI.Label(new Rect(x, ey, w, h * 1.4f), Loc.T(e.displayName).ToUpper(), label);

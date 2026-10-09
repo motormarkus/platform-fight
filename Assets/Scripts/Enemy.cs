@@ -439,6 +439,24 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int attackRank;   // 0 = lähin, 1 = toinen (vastakkaiselta puolelta), 2+ = odottaa vuoroaan
 
     public int Health => health;
+    /// Pomo (Horhe, Metsuri): oma energiapalkki ruudun oikeaan yläkulmaan.
+    [HideInInspector] public bool isBoss;
+    /// Taistelussa oleva pomo (hereillä, näkyvissä, ei kuollut), tai null.
+    public static Enemy ActiveBoss
+    {
+        get
+        {
+            var cam = Camera.main;
+            foreach (var e in All)
+            {
+                if (e == null || !e.isBoss || !e.isActiveAndEnabled || !e.awake || e.waitingToAppear) continue;
+                if (e.state == State.Dead && e.stateTime > 1f) continue;
+                if (cam != null && Mathf.Abs(e.transform.position.x - cam.transform.position.x) > cam.orthographicSize * cam.aspect + 4f) continue;
+                return e;
+            }
+            return null;
+        }
+    }
     public bool IsDead => state == State.Dead;
 
     /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
@@ -516,6 +534,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
+        if (displayName == "Horhe" || displayName == "Metsuri") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
