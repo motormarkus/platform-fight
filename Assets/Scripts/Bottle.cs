@@ -114,6 +114,7 @@ public class Bottle : MonoBehaviour
             if (dx + dy < bd) { bd = dx + dy; best = b; }
         }
         if (best == null) return false;
+        if (best.ball && best.restOnRenderer != null) Obstacle.RattleNear(best.transform.position);   // pallo pöydältä: muut kalisevat
         best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false;
         Held = best;
         HitFx.PlayPickup(false);

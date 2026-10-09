@@ -1955,7 +1955,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var ob = Obstacle.BreakableAt(p);
             if (ob != null) ob.Smash();
         }
-        if (height < 1.2f) p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym.
+        if (height < 1.2f)
+        {
+            // lentää tai horjahtaa pöytää vasten: pallot kalisevat
+            if (state == State.Airborne || state == State.Hurt) { var hitOb = Obstacle.BlockingAt(p); if (hitOb != null) hitOb.Rattle(); }
+            p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym.
+        }
         transform.position = p;
     }
 

@@ -36,6 +36,7 @@ public class Obstacle : MonoBehaviour
         if (!CanBeHit) return false;
         if (health < 0) health = maxHealth;
         health -= Mathf.Max(1, damage);
+        Rattle(1f);
         int n = damageSprites.Length;
         int stage = health <= 0 ? n - 1 : Mathf.Clamp(Mathf.FloorToInt((1f - health / (float)maxHealth) * (n - 1)), 0, n - 2);
         if (body != null && damageSprites[stage] != null) body.sprite = damageSprites[stage];
@@ -76,6 +77,46 @@ public class Obstacle : MonoBehaviour
         foreach (var b in GetComponentsInChildren<Bottle>()) if (b != null) b.FallOff();   // pallot lattialle
         foreach (var c in GetComponentsInChildren<Cue>()) if (c != null) c.FallOff();         // keppi lattialle
         DustPuff.Spawn(transform.position + new Vector3(0f, 0.3f, 0f), Mathf.RoundToInt(-transform.position.y * 100f) + 2, 2f);
+    }
+
+    // biljardipallojen kalina: pöytään osuu jotain tai pallot liikahtavat
+    static AudioClip rattleClip;
+    float nextRattle;
+    int isPool = -1;
+    bool IsPool
+    {
+        get
+        {
+            if (isPool < 0) isPool = GetComponentsInChildren<Bottle>(true).Length > 0 || name.Contains("Biljardi") ? 1 : 0;
+            return isPool == 1;
+        }
+    }
+
+    public void Rattle(float volume = 0.8f)
+    {
+        if (!IsPool || Time.time < nextRattle) return;
+        if (rattleClip == null) rattleClip = Resources.Load<AudioClip>("Sfx/pool_balls");
+        if (rattleClip == null) return;
+        nextRattle = Time.time + 0.35f;
+        HitFx.PlayClip(rattleClip, volume);
+    }
+
+    /// Ehjä este, jonka jalanjäljen sisällä p on (törmäyksen tunnistukseen).
+    public static Obstacle BlockingAt(Vector3 p)
+    {
+        for (int i = 0; i < All.Count; i++) { var o = All[i]; if (o != null && o.isActiveAndEnabled && o.Inside(p)) return o; }
+        return null;
+    }
+
+    /// Pallo nostettiin pöydältä: pöytä, jonka päällä se oli.
+    public static void RattleNear(Vector3 p)
+    {
+        for (int i = 0; i < All.Count; i++)
+        {
+            var o = All[i]; if (o == null || !o.isActiveAndEnabled) continue;
+            Vector3 q = o.NearestPoint(p);
+            if (Mathf.Abs(q.x - p.x) < 0.5f && Mathf.Abs(q.y - p.y) < 1.2f) { o.Rattle(0.6f); return; }
+        }
     }
 
     void OnEnable() { All.Add(this); }
