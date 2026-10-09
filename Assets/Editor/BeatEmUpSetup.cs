@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("vihu_haymaker") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -617,6 +617,8 @@ public static class BeatEmUpSetup
         e.hurtVolume = 0.99f;
         e.bigBody = true;                          // pelaaja heittää kuperkeikalla
         e.flipThrownSprites = Sheet("vihu_kuperkeikka");
+        { string hp = FindTexture("vihu_haymaker"); if (hp != null) SetupAndSlice(hp); }
+        SetKovisHaymaker(e, Sheet("vihu_haymaker"));
         report.Add($"Osumaäänet (gasp): {e.hurtSounds.Length} kpl");
         EditorUtility.SetDirty(e);
 
@@ -3912,14 +3914,32 @@ public static class BeatEmUpSetup
     static readonly Vector2[] ClubRockers = { new Vector2(21.5f, 0.55f), new Vector2(38f, 0.5f) };   // rokkimimmit (samat koordinaatit)
     static readonly Vector2 ClubDrunk = new Vector2(30f, 0.5f);   // puliukko
 
-    [MenuItem("Beat em up/72. Koviksen uusi kävely kaikille Koviksille")]
+    /// Koviksen haymaker (iso heilautus): kolmas isku, pitkä veto, kaataa.
+    static void SetKovisHaymaker(Enemy e, Sprite[] hay)
+    {
+        if (hay == null || hay.Length < 13) return;
+        e.punch3Sprites = hay;
+        e.punch3ImpactFrame = 11;        // 0–9 veto, 10 välikuva, 11 osuma, loput palautus
+        e.punch3Damage = 22;
+        e.punch3Knockdown = true;
+        e.punch3LaunchUp = 0f; e.punch3LaunchX = 5f;
+        e.punch3Chance = 0.3f;
+        e.punch3WindupTime = 0.9f;       // selvä varoitus: pelaaja ehtii väistää
+        e.punch3RecoverTime = 0.6f;
+        e.punch3Reach = 2.6f;            // syöksyy eteen
+    }
+
+    [MenuItem("Beat em up/72. Koviksen uusi kävely ja haymaker kaikille Koviksille")]
     static void KovisNewWalk()
     {
         string path = FindTexture("vihu_kavely");
         if (path == null) { Info("vihu_kavely.png puuttuu."); return; }
         SetupAndSlice(path);
+        string hp = FindTexture("vihu_haymaker");
+        if (hp != null) SetupAndSlice(hp);
         var report = new List<string>();
         var walk = EnemySheet("vihu_kavely", report);
+        var hay = EnemySheet("vihu_haymaker", report);
         int n = 0;
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
@@ -3929,10 +3949,11 @@ public static class BeatEmUpSetup
             Undo.RecordObject(e, "Koviksen kävely");
             e.walkSprites = walk;
             e.walkFrameTime = 0.085f;   // 12 kuvaa, askelsykli ~1 s (sama tahti kuin ennen, nyt sulavampi)
+            SetKovisHaymaker(e, hay);
             EditorUtility.SetDirty(e); n++;
         }
         if (n > 0) EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
-        Info($"Koviksen kävely päivitetty {n} Kovikselle ({walk.Length} kuvaa).\n\nTallenna scene (Ctrl+S).");
+        Info($"Koviksen kävely ja haymaker päivitetty {n} Kovikselle.\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/69. S-Clubiin prätkäjätkät, rokkimimmit ja puliukko (skeittarit pois sisältä)")]
