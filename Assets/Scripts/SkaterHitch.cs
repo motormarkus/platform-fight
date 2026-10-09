@@ -204,7 +204,12 @@ public class SkaterHitch : MonoBehaviour
         if (shadow != null)
         {
             shadow.sortingOrder = order - 2;
-            shadow.transform.localScale = new Vector3(2.2f * visualScale, 0.45f * visualScale, 1f);
+            // kaatuessa: varjo pienenee ilmassa ja haalistuu hahmon mukana (ei jää harmaaksi läiskäksi tielle)
+            float hs = Mathf.Lerp(1f, 0.6f, Mathf.Clamp01(height / 2f));
+            float fade = state == S.Fall ? Mathf.Clamp01(3f - t) : 1f;
+            shadow.transform.localScale = new Vector3(2.2f * visualScale * hs, 0.45f * visualScale * hs, 1f);
+            shadow.color = new Color(0f, 0f, 0f, 0.4f * fade);
+            shadow.enabled = body.enabled && fade > 0.02f;
         }
     }
 }
