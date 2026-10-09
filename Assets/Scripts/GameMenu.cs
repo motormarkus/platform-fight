@@ -377,6 +377,41 @@ public class GameMenu : MonoBehaviour
     /// Hahmonvalinta: Rocco vasemmalla, Ruby oikealla (katsovat toisiaan), valittu korostettuna.
     int lastCharSel = -1; float charSelT;
 
+    // hahmonvalinnan omat kuvat videoista (Resources/Valikko): idle ja sarja, joka tehdään, kun valinta siirtyy hahmon kohdalle
+    static readonly string[] MenuArtNames = { "rocco", "ruby" };
+    static readonly int[] MenuIdleCount = { 10, 9 }, MenuSeqCount = { 23, 37 };
+    const int MenuCols = 5, MenuCellW = 704, MenuCellH = 448, MenuFeet = 440, MenuFigH = 380;
+    const float MenuFrameTime = 0.083f, MenuSeqEvery = 6f;
+    Texture2D[] menuIdle, menuSeq;
+
+    bool LoadMenuArt()
+    {
+        if (menuIdle == null)
+        {
+            menuIdle = new Texture2D[2]; menuSeq = new Texture2D[2];
+            for (int k = 0; k < 2; k++)
+            {
+                menuIdle[k] = Resources.Load<Texture2D>("Valikko/" + MenuArtNames[k] + "_idle");
+                menuSeq[k] = Resources.Load<Texture2D>("Valikko/" + MenuArtNames[k] + "_sarja");
+            }
+        }
+        return menuIdle[0] != null && menuIdle[1] != null;
+    }
+
+    /// Piirtää ruudun i ruudukosta laatikkoon: hahmon korkeus 85 % laatikosta, jalat alareunaan.
+    static void DrawMenuCell(Rect box, Texture2D tex, int i, Color tint)
+    {
+        if (tex == null) return;
+        float h = box.height * 0.85f * MenuCellH / MenuFigH, w = h * MenuCellW / MenuCellH;
+        float feetY = box.yMax, top = feetY - h * MenuFeet / MenuCellH;
+        var r = new Rect(box.center.x - w * 0.5f, top, w, h);
+        int col = i % MenuCols, row = i / MenuCols;
+        var uv = new Rect(col * MenuCellW / (float)tex.width, 1f - (row + 1) * MenuCellH / (float)tex.height, MenuCellW / (float)tex.width, MenuCellH / (float)tex.height);
+        var old = GUI.color; GUI.color = tint;
+        GUI.DrawTextureWithTexCoords(r, tex, uv);
+        GUI.color = old;
+    }
+
     void DrawCharacters(float w, float h, float s, Color gold)
     {
         if (Logo(w, h * 0.05f, w * 0.30f) <= 0f) Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
@@ -393,7 +428,21 @@ public class GameMenu : MonoBehaviour
             bool on = sel == k;
             float cx = w * (k == 0 ? 0.32f : 0.68f);
             var set = sets[k];
-            if (set != null && set.Length > 0)
+            if (LoadMenuArt())
+            {
+                // valittu: sarja heti valittaessa ja sitten n. 6 s välein, välillä idle; valitsematon: idle himmennettynä
+                var bx = new Rect(cx - boxW * 0.5f, top, boxW, boxH);
+                Color tint = on ? Color.white : new Color(0.35f, 0.35f, 0.35f);
+                float ct = (Time.unscaledTime - charSelT) % MenuSeqEvery;
+                int si = (int)(ct / MenuFrameTime);
+                if (on && menuSeq[k] != null && si < MenuSeqCount[k]) DrawMenuCell(bx, menuSeq[k], si, tint);
+                else
+                {
+                    int n = MenuIdleCount[k], period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / MenuFrameTime) % period;
+                    DrawMenuCell(bx, menuIdle[k], fi < n ? fi : period - fi, tint);   // edestakaisin (saumaton)
+                }
+            }
+            else if (set != null && set.Length > 0)
             {
                 // idle edestakaisin kuten pelissä (0→n→0): ympäri kiertäessä viimeisestä ensimmäiseen tuli nykäys
                 int n = set.Length, period = Mathf.Max(1, 2 * n - 2), fi = (int)(Time.unscaledTime / 0.15f) % period;
