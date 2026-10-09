@@ -4617,10 +4617,10 @@ public static class BeatEmUpSetup
 
     /// Uusi rokkimimmi (rokkari2_*.png, 768 × 512): taisteluidle, lyöntisarja (etukäsi + takakäsi), sivupotku,
     /// hyppypotku (syöksy kauempaa, kaataa), pyörähdyspotku (kaataa), kävely ilman suojausta ja rento idle.
-    /// Osumat, kaatuminen, ylösnousu ja niskalenkki ovat vielä vanhoista kuvista, kunnes uudet tehdään.
+    /// Osuma, kaatuminen ja ylösnousu omista kuvistaan; niskalenkki on vielä vanhoista kuvista.
     static bool ApplyRocker2(Enemy e, List<string> report)
     {
-        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely" })
+        foreach (var n in new[] { "rokkari2_taisteluidle", "rokkari2_lyonnit", "rokkari2_sivupotku", "rokkari2_hyppypotku", "rokkari2_pyorahdys", "rokkari2_kavely", "rokkari2_idle", "rokkari2_taistelukavely", "rokkari2_kaatuminen", "rokkari2_ylosnousu" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4661,6 +4661,17 @@ public static class BeatEmUpSetup
         e.calmWalkSprites = walk2; e.calmWalkFrameTime = 0.07f;
         e.walkSprites = fightWalk.Length > 0 ? fightWalk : walk2.Length > 0 ? walk2 : idle;
         e.walkFrameTime = fightWalk.Length > 0 ? 0.075f : walk2.Length > 0 ? 0.065f : 0.16f;   // taistelukävely: 12 kuvaa, kaksi askelta (jalat vuorotellen) ~0,9 s
+        // kaatuminen: 0 asento, 1 pää taakse (osuma), 2 kaatuu taakse, 3 kiertyy ilmassa, 4 vatsallaan ilmassa, 5–6 alastulo, 7–8 makaa
+        var fall2 = EnemySheet("rokkari2_kaatuminen", report);
+        if (fall2.Length >= 9)
+        {
+            e.hurtSprites = new[] { fall2[1] };
+            e.knockdownSprites = new[] { fall2[1], fall2[2], fall2[3], fall2[4], fall2[8] };   // ilmassa 1–4, viimeinen makuu
+            e.landSprites = new[] { fall2[5], fall2[6], fall2[7] }; e.landFrameTime = 0.1f;
+        }
+        // ylösnousu vatsaltaan: punnerrus, kontallaan, polvelta tappeluasentoon; kuvissa katse vasemmalle -> kääntyy lopussa
+        var up2 = EnemySheet("rokkari2_ylosnousu", report);
+        if (up2.Length >= 8) { e.getUpSprites = up2; e.getUpTime = 1.0f; e.getUpFacesBack = true; }
         // ei käy päälle itsestään: herää, kun lähellä syttyy tappelu tai kun häntä lyödään
         e.wakeDistance = -1f; e.wakeOnFightRadius = 5f;
         return true;
