@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Tauko iskujen välissä kombossa (s).")]
     public float comboGap = 0.07f;
     string comboSeq; int comboPos;
-    [Tooltip("Vuoroaan odottava ei peräänny pelaajan tullessa kohti, ja lyö, jos pelaaja on vieressä.")]
+    [Tooltip("Vuoroaan odottava lyö nopeammin, kun pelaaja on vieressä (0,35 s; muuten 0,6 s). Perääntymättömyys on kaikilla.")]
     public bool holdGround;
     [Tooltip("Kombo menee loppuun: tavallinen (kaatamaton) isku ei katkaise sitä, vain kaatava.")]
     public bool comboArmor;
@@ -1204,6 +1204,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             // iske ja vetäydy: hetki kauempana ennen seuraavaa hyökkäystä
             retreatTimer -= dt;
             dist = 3.6f;
+            // pelaaja painaa perään (lähellä ja katsoo kohti): vetäytyminen loppuu, ei karata kesken tappelun
+            if (myD < attackRange + 0.9f && player.FacingRight == (me.x > p.x)) { retreatTimer = 0f; dist = attackRange * 0.8f; }
         }
         Vector2 target = new Vector2(p.x + side * dist, p.y + yOff);
         // kohde aina näkyvän ruudun sisällä (kujan pää, katto): ei kävellä kuvan ulkopuolelle odottamaan
@@ -1223,8 +1225,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
             target.y = Mathf.Clamp(p.y + arc * flankArcDepth, minY, maxY);
         }
         Vector2 to = target - (Vector2)me;
-        // vuoroaan odottava ei peräänny, kun pelaaja tulee kohti: pysyy paikallaan (pelaaja pääsee kimppuun)
-        if (holdGround && attackRank >= 2 && retreatTimer <= 0f && !crossing && Mathf.Sign(to.x) == Mathf.Sign(me.x - p.x)) to.x = 0f;
+        // vuoroaan odottava ei peräänny, kun pelaaja tulee kohti: pysyy paikallaan (pelaaja pääsee kimppuun). Kaikilla vihuilla:
+        // muuten järjestyksen vaihtuessa (pelaaja liikkuu) äsken lähin lähtee kävelemään poispäin.
+        if (attackRank >= 2 && retreatTimer <= 0f && !crossing && Mathf.Sign(to.x) == Mathf.Sign(me.x - p.x)) to.x = 0f;
 
         facingRight = p.x > me.x;
 
@@ -1243,7 +1246,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         bool inRange = Mathf.Abs(me.x - p.x) <= (grabIntent ? grabRange : attackRange) && Mathf.Abs(me.y - p.y) <= depthTolerance;
         // vuoroaan odottavakin lyö, jos pelaaja on tullut viereen (holdGround)
-        bool myTurn = attackRank <= 1 || (holdGround && closeTimer > 0.35f);
+        bool myTurn = attackRank <= 1 || closeTimer > (holdGround ? 0.35f : 0.6f);
         if (inRange && myTurn && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown)
         {
             moving = false;
