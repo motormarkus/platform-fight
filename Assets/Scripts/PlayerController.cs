@@ -1267,9 +1267,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     // vihu nyrkin etäisyydellä: tarttuminen menee esineen poiminnan edelle
                     if (HasCounterThrow && FoeInFront(GrabFirstRange))
                     {
-                        Enemy grabFoe = AppliedCharacter == 1 ? GrabbableInFront(GrabFirstRange) : null;
-                        if (grabFoe != null) { StartCounterThrow(grabFoe); break; }   // Ruby: tarttuu suoraan (ei tarvitse odottaa lyöntiä)
-                        quickReach = false; Enter(State.Catch); break;    // Rocco: vastaheiton kurotus
+                        quickReach = false; Enter(State.Catch); break;    // vastaheiton kurotus (molemmat hahmot: heitto vain lyövästä vihusta)
                     }
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     Crate c = canCarry ? NearbyCrate() : null;
