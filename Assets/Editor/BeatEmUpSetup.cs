@@ -3773,6 +3773,7 @@ public static class BeatEmUpSetup
         area.camMinX = ShipRoofX0 + halfW;
         area.camMaxX = Mathf.Max(area.camMinX, ShipRoofX0 + wU - halfW);
         area.walkMinX = RX(60f); area.walkMaxX = RX(w - 60f);
+        area.ambienceVolume = 0.6f;   // chinookin ääni (Resources/Ambienssi/laivan_katto.wav) soi katolla taustalla
         EditorUtility.SetDirty(area);
 
         // kuunvalotaivas takana: hidas rullaus ja keinunta kuten laivan muilla kaukaisilla meren kerroksilla
