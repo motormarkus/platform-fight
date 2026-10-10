@@ -3433,6 +3433,73 @@ public static class BeatEmUpSetup
     }
 
 
+    // salin vasen jatke (laiva_sali_portaat.png 793 × 941): portaat komentosillalle ja VAIN MIEHISTÖLLE -kyltti.
+    // Kuva liittyy salin vasempaan reunaan kohdassa 767 px (viimeiset 26 px häivyttyvät salin päälle).
+    const float SalonStairsJoinPx = 767f, SalonStairsDoorPx = 520f, SalonStairsFrontPx = 495f;
+    const string BridgeAreaName = "Komentosilta";
+
+    [MenuItem("Beat em up/83. Laivan saliin portaat komentosillalle (vasen jatke)")]
+    static void AddSalonStairs()
+    {
+        const string path = "Assets/Sprites/Taustat/laiva_sali_portaat.png";
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var salBg = GameObject.Find("Laivan sali");
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (sal == null || salBg == null || ti == null) { Info("Tarvitaan laivan sali (kohta 60) ja " + path); return; }
+        foreach (var n in new[] { "Salin portaat", "Salista komentosillalle" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var salSr = salBg.GetComponent<SpriteRenderer>();
+        float ppu = salSr.sprite.pixelsPerUnit;
+        float left0 = salSr.bounds.min.x, top = salSr.bounds.max.y;
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear; ti.alphaIsTransparency = true;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.maxTextureSize = 8192; ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)SpriteAlignment.TopLeft;
+        ti.SetTextureSettings(st); ti.SaveAndReimport();
+        var spr = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        float extLeft = left0 - SalonStairsJoinPx / ppu;
+        float EX(float px) => extLeft + px / ppu;
+        float SY(float row) => top - row / ppu;
+
+        // kuva salin vasemmalle puolelle; häivytetty reuna salin kuvan päälle, sama hämärä sävy
+        var go = new GameObject("Salin portaat");
+        var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = spr; sr.sortingOrder = -9999; sr.color = salSr.color;
+        go.transform.position = new Vector3(extLeft, top, 0f);
+        Undo.RegisterCreatedObjectUndo(go, "Salin portaat");
+
+        // kamera ja kävely ulottuvat jatkeeseen; takaraja portaiden ja kyltin edessä, liittyy baaritiskin etureunaan
+        Undo.RecordObject(sal, "Salin jatke");
+        float halfW = CamHalf * 16f / 9f;
+        sal.camMinX = extLeft + halfW;
+        sal.walkMinX = extLeft + 0.6f;
+        var lim = (sal.depthLimits ?? new Vector2[0]).Where(v => v.x >= left0 - 0.01f).ToList();
+        lim.Insert(0, new Vector2(EX(SalonStairsJoinPx - 10f), SY(SalonStairsFrontPx)));
+        lim.Insert(0, new Vector2(EX(0f), SY(SalonStairsFrontPx)));
+        sal.depthLimits = lim.ToArray();
+        EditorUtility.SetDirty(sal);
+
+        // portaat ylös: ovi komentosillalle, kun komentosilta on tehty
+        var bridge = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == BridgeAreaName);
+        string doorInfo = "Komentosiltaa ei vielä ole: portaiden ovi lisätään, kun ajat tämän uudelleen komentosillan jälkeen.";
+        if (bridge != null)
+        {
+            var d = new GameObject("Salista komentosillalle").AddComponent<Door>();
+            d.transform.position = new Vector3(EX(SalonStairsDoorPx), SY(SalonStairsFrontPx), 0f);
+            d.prompt = "Komentosillalle"; d.here = sal; d.target = bridge;
+            d.spawnPoint = new Vector2(bridge.camMinX - halfW + 2f, Mathf.Lerp(bridge.maxDepthY, bridge.minDepthY, 0.3f));
+            d.halfWidth = 1.5f; d.maxDistanceFromWall = 1.2f;
+            d.blockedDuringFight = true;
+            Undo.RegisterCreatedObjectUndo(d.gameObject, "Ovi");
+            doorInfo = "Portaista pääsee komentosillalle (ei tappelun aikana).";
+        }
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info($"Salin vasen jatke ja portaat lisätty ({spr.rect.width / ppu:0.0} yksikköä). Kamera ja kävely ulottuvat portaille asti.\n{doorInfo}\n\nTallenna scene (Ctrl+S).");
+    }
+
     // ---------------- Puliukko (laivan käytävä) ----------------
     [MenuItem("Beat em up/61. Puliukko laivan käytävään (tulee hyttiovesta)")]
     static void AddDrunk()
