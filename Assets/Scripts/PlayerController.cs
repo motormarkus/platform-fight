@@ -3138,7 +3138,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Pärinä (termospullo)")]
     public float boostDuration = 20f;
     [Tooltip("Heron liikkeiden ja animaatioiden nopeus.")]
-    public float boostHeroSpeed = 1.3f;
+    public float boostHeroSpeed = 1.43f;
     [Tooltip("Vihujen nopeus pärinän aikana.")]
     public float boostEnemySlow = 0.85f;
     public Color boostGlow = new Color(1f, 0.78f, 0.35f);
