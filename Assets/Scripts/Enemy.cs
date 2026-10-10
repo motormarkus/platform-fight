@@ -2277,7 +2277,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
         if (Time.time - lastHitTime > 0.9f) comboHits = 0;
-        if (bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
+        bool unblockable = player != null && player.Boosted;   // pärinä: heron iskuja ei voi torjua
+        if (!unblockable && bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
             && comboHits >= bellyCounterAfterHits && Random.value < bellyCounterChance)
         {
             comboHits = 0;
@@ -2290,7 +2291,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool facingAttacker = (attackerX > transform.position.x) == facingRight;
         bool guardState = state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake)
                           || (guardWhenHurt && state == State.Hurt && stateTime > 0.12f);   // välipomo saa suojan ylös kesken pelaajan kombon
-        if (blockChance > 0f && facingAttacker && guardState && blocksInRow < maxBlocksInRow
+        if (!unblockable && blockChance > 0f && facingAttacker && guardState && blocksInRow < maxBlocksInRow
             && (state == State.Block || Random.value < blockChance))
         {
             blocksInRow++;

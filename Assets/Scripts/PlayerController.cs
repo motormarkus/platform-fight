@@ -557,6 +557,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float tableThrowRaise = 0.55f;
     [Tooltip("Pöydän heittonopeus × crateThrowSpeed.")]
     public float tableThrowFar = 1.6f;
+    [Tooltip("Tavallisen (baarin) pöydän heittonopeus × crateThrowSpeed.")]
+    public float basicTableThrowFar = 2.2f;
+    [Tooltip("Ylösalaisin kannettava (salin) pöytä nousee näin paljon (yks) ylemmäs kantokorkeudella.")]
+    public float upsideDownTableLift = 0.7f;
     [Tooltip("Pöydän, laatikon ja telkkarin heiton nousu × crateThrowUp (pieni: lähtevät jo pään yläpuolelta, eivät lennä vihujen yli).")]
     public float tableThrowUp = 0.3f;
     Crate carried;
@@ -1872,7 +1876,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         HoldCrate(Mathf.Lerp(-0.25f, 0.6f, k) * dir, Mathf.Lerp(carryHeight + 0.1f, carryHeight - 0.4f, k));
                     if (stateTime >= release && carried != null)
                     {
-                        if (table) carried.Throw(dir * crateThrowSpeed * tableThrowFar, crateThrowUp * tableThrowUp);   // pöytä lentää kauemmas, matalalla kaarella (osuu lähelläkin oleviin)
+                        if (table) carried.Throw(dir * crateThrowSpeed * (carried.plowThrough && !carried.carryUpsideDown ? basicTableThrowFar : tableThrowFar), crateThrowUp * tableThrowUp);   // pöytä lentää kauemmas, matalalla kaarella (osuu lähelläkin oleviin)
                         else carried.Throw(dir * crateThrowSpeed, crateThrowUp * tableThrowUp);   // laatikko: sama matala kaari pään yläpuolelta
                         carried = null;
                         crateReleased = true;
@@ -2820,7 +2824,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (TvSet.Held != null) TvSet.Held.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - 0.25f, Mathf.RoundToInt(-me.y * 100f) + 1);
             return;
         }
-        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - carried.carryLower * Mathf.Clamp01(lift / carryHeight),
+        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - carried.carryLower * Mathf.Clamp01(lift / carryHeight)
+                           + (carried.carryUpsideDown ? upsideDownTableLift * Mathf.Clamp01(lift / carryHeight) : 0f),
                            Mathf.RoundToInt(-me.y * 100f) + (carried.carryLower > 0f ? -1 : 1));   // pöytä heron taakse: jalat pään takana, kädet kannen alla
     }
 
@@ -3138,7 +3143,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Pärinä (termospullo)")]
     public float boostDuration = 20f;
     [Tooltip("Heron liikkeiden ja animaatioiden nopeus.")]
-    public float boostHeroSpeed = 1.3f;
+    public float boostHeroSpeed = 1.43f;
     [Tooltip("Vihujen nopeus pärinän aikana.")]
     public float boostEnemySlow = 0.85f;
     public Color boostGlow = new Color(1f, 0.78f, 0.35f);
