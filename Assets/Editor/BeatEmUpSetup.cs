@@ -3707,6 +3707,13 @@ public static class BeatEmUpSetup
     const float RoofMoonPx = 900f, RoofSkyMoonSrcPx = 887f;      // kuu alkaa rotorien välistä (kuvan x), kuun x taivaskuvassa
     const float RoofSkySpeed = 0.35f;                            // sama kuin laivan muiden ruutujen kaukaisella merellä
     static readonly Color RoofTint = new Color(0.72f, 0.78f, 0.95f);   // kullanhohtoinen kansi kuunvaloon
+    // chinook: runko yhtenä kuvana (maassa, ei heilu) ja kaksi roottoria omina silmukkinaan (Kopteri/-kansio, videosta)
+    const string HeliDir = "Assets/Sprites/Rekvisiitta/Kopteri/";
+    const float HeliScale = 1.05f;                               // yksi videon pikseli = näin monta katon kuvan pikseliä
+    const float HeliLeftPx = 332f, HeliWheelPx = 485f;           // rungon nokka (x) ja pyörien alareuna (rivi) katon kuvassa
+    static readonly Vector2 HeliFrontRotorSrc = new Vector2(-286f, 216f), HeliRearRotorSrc = new Vector2(482f, 238f);   // roottorin vasen alakulma rungon vasemmasta alakulmasta (videon px)
+    const float HeliDoorSrcPx = 647f;                            // sivuovi rungon vasemmasta reunasta (videon px)
+    const float HeliRotorFps = 12f;                              // roottorien nopeus (pienempi = hitaampi)
     const float BridgeLadderXPx = 1160f, BridgeLadderFootPx = 520f;    // tikkaiden jalka komentosillan kuvassa (ruorin ja karttapöydän välissä)
 
     static Sprite ImportShipSprite(string path, float ppu, bool tiled, SpriteAlignment align)
@@ -3738,7 +3745,7 @@ public static class BeatEmUpSetup
         if (bridge == null || bridgeBg == null) { Info("Tee ensin komentosilta (kohta 84)."); return; }
         if (captainGo == null || captainGo.GetComponent<Enemy>() == null) { Info("Tee ensin kapteeni (kohta 85): tikkaat putoavat, kun hän kaatuu."); return; }
         if (roofTi == null || ladTi == null || AssetImporter.GetAtPath(skyPath) == null) { Info("Tarvitaan kuvat:\n" + roofPath + "\n" + skyPath + "\n" + ladderPath); return; }
-        foreach (var n in new[] { "Laivan katto (kuva)", "Katon taivas", "Katon tikkaat" })   // alue säilyy (ReuseArea)
+        foreach (var n in new[] { "Laivan katto (kuva)", "Katon taivas", "Katon tikkaat", "Kopteri", "Katon viholliset" })   // alue säilyy (ReuseArea)
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -3805,9 +3812,88 @@ public static class BeatEmUpSetup
         bl.boss = captainGo.GetComponent<Enemy>(); bl.ladder = vis; bl.door = door;
         bl.dropHeight = (BridgeLadderFootPx + 40f) / bppu;
 
+        // kopteri maassa: runko paikallaan, roottorit pyörivät vastakkain (takaroottori soitetaan takaperin)
+        string heliInfo;
+        float hp = ppu / HeliScale;   // videon pikseleitä yksikössä
+        var hullSpr = ImportShipSprite(HeliDir + "kopteri_runko.png", hp, false, SpriteAlignment.BottomLeft);
+        Sprite[] ImportRotor(string prefix)
+        {
+            var list = new List<Sprite>();
+            for (int i = 0; ; i++)
+            {
+                string fp = $"{HeliDir}{prefix}_{i:00}.png";
+                if (!File.Exists(fp)) break;
+                var fs = ImportShipSprite(fp, hp, false, SpriteAlignment.BottomLeft);
+                if (fs != null) list.Add(fs);
+            }
+            return list.ToArray();
+        }
+        var front = ImportRotor("kopteri_etu"); var rear = ImportRotor("kopteri_taka");
+        float heliY = RY(HeliWheelPx);
+        if (hullSpr != null && front.Length > 0 && rear.Length > 0)
+        {
+            var heli = new GameObject("Kopteri");
+            heli.transform.position = new Vector3(RX(HeliLeftPx), heliY, 0f);
+            Undo.RegisterCreatedObjectUndo(heli, "Kopteri");
+            int heliOrder = Mathf.RoundToInt(-heliY * 100f);   // hahmot pyörien edessä (takaraja rivillä RoofBackPx) piirtyvät päälle
+            var hullR = new GameObject("Runko").AddComponent<SpriteRenderer>();
+            hullR.transform.SetParent(heli.transform, false);
+            hullR.sprite = hullSpr; hullR.sortingOrder = heliOrder; hullR.color = RoofTint;
+            void Rotor(string name, Sprite[] frames, Vector2 src, bool reverse)
+            {
+                var r = new GameObject(name).AddComponent<SpriteRenderer>();
+                r.transform.SetParent(heli.transform, false);
+                r.transform.localPosition = new Vector3(src.x / hp, src.y / hp, 0f);
+                r.sprite = frames[0]; r.sortingOrder = heliOrder + 1; r.color = RoofTint;
+                var loop = r.gameObject.AddComponent<RotorLoop>();
+                loop.frames = frames; loop.fps = HeliRotorFps; loop.reverse = reverse;
+            }
+            Rotor("Etuoroottori", front, HeliFrontRotorSrc, false);
+            Rotor("Takaroottori", rear, HeliRearRotorSrc, true);
+            heliInfo = $"Kopteri maassa, roottorit pyörivät vastakkain ({front.Length} + {rear.Length} kuvaa).";
+        }
+        else heliInfo = "Kopterin kuvia ei löytynyt kansiosta " + HeliDir;
+
+        // viholliset: 3 rosvoa ja 2 koviksta, valppaina heti (kopteriin ei pääse ennen kuin ne on voitettu)
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var pirateTmpl = all.FirstOrDefault(e => e != null && e.displayName == "Rosvo");
+        var kovisTmpl = all.FirstOrDefault(e => e != null && e.gameObject.name == "Kovis");
+        var foes = new GameObject("Katon viholliset");
+        Undo.RegisterCreatedObjectUndo(foes, "Katon viholliset");
+        int foeCount = 0;
+        void Foe(Enemy tmpl, string label, float px, float depth01)
+        {
+            if (tmpl == null) return;
+            var c = Object.Instantiate(tmpl.gameObject, foes.transform);
+            c.name = label;
+            c.transform.position = new Vector3(RX(px), Mathf.Lerp(area.maxDepthY, area.minDepthY, depth01), 0f);
+            var e = c.GetComponent<Enemy>();
+            e.fightsEveryone = false; e.huntsBrawlers = false; e.ally = false; e.wanderMinX = e.wanderMaxX = 0f; e.wakeDistance = 40f;
+            c.SetActive(true);
+            foeCount++;
+        }
+        Foe(kovisTmpl, "Katto Kovis 1", 620f, 0.35f);
+        Foe(kovisTmpl, "Katto Kovis 2", 1560f, 0.5f);
+        Foe(pirateTmpl, "Katto Rosvo 1", 900f, 0.5f);
+        Foe(pirateTmpl, "Katto Rosvo 2", 1150f, 0.25f);
+        Foe(pirateTmpl, "Katto Rosvo 3", 1400f, 0.6f);
+        string foeInfo = foeCount == 5 ? "Katolla 3 rosvoa ja 2 koviksta."
+            : $"Vihollisia luotu {foeCount}/5: malli puuttuu (rosvo kohdasta 56, kovis kohdasta 7).";
+
+        // ovi kopteriin: näkyy vasta, kun viholliset on voitettu (blockedDuringFight). Sisäkuvaa ei vielä ole:
+        // E pimentää ruudun ja palauttaa pelaajan oven eteen. Vaihda target ja spawnPoint, kun sisäkuva on tehty.
+        var heliDoor = new GameObject("Ovi kopteriin").AddComponent<Door>();
+        heliDoor.transform.SetParent(foes.transform, false);
+        float doorX = RX(HeliLeftPx + HeliDoorSrcPx * HeliScale);
+        heliDoor.transform.position = new Vector3(doorX, heliY, 0f);
+        heliDoor.prompt = "Nouse kopteriin"; heliDoor.here = area; heliDoor.target = area;
+        heliDoor.spawnPoint = new Vector2(doorX, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.2f));
+        heliDoor.halfWidth = 1.6f; heliDoor.maxDistanceFromWall = 2.0f; heliDoor.blockedDuringFight = true;
+
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Laivan katto luotu ({wU:0.0} yksikköä, yksi ruutu) kuunvalotaivaalla.\n" +
-             "Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat: E kiipeää katolle.\n\nTallenna scene (Ctrl+S).");
+             "Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat: E kiipeää katolle.\n" +
+             heliInfo + "\n" + foeInfo + "\nKopterin ovi (E) aukeaa, kun viholliset on voitettu.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Puliukko (laivan käytävä) ----------------
