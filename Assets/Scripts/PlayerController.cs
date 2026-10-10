@@ -557,6 +557,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float tableThrowRaise = 0.55f;
     [Tooltip("Pöydän heittonopeus × crateThrowSpeed.")]
     public float tableThrowFar = 1.6f;
+    [Tooltip("Tavallisen (baarin) pöydän heittonopeus × crateThrowSpeed.")]
+    public float basicTableThrowFar = 2.2f;
     [Tooltip("Pöydän, laatikon ja telkkarin heiton nousu × crateThrowUp (pieni: lähtevät jo pään yläpuolelta, eivät lennä vihujen yli).")]
     public float tableThrowUp = 0.3f;
     Crate carried;
@@ -1872,7 +1874,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         HoldCrate(Mathf.Lerp(-0.25f, 0.6f, k) * dir, Mathf.Lerp(carryHeight + 0.1f, carryHeight - 0.4f, k));
                     if (stateTime >= release && carried != null)
                     {
-                        if (table) carried.Throw(dir * crateThrowSpeed * tableThrowFar, crateThrowUp * tableThrowUp);   // pöytä lentää kauemmas, matalalla kaarella (osuu lähelläkin oleviin)
+                        if (table) carried.Throw(dir * crateThrowSpeed * (carried.plowThrough && !carried.carryUpsideDown ? basicTableThrowFar : tableThrowFar), crateThrowUp * tableThrowUp);   // pöytä lentää kauemmas, matalalla kaarella (osuu lähelläkin oleviin)
                         else carried.Throw(dir * crateThrowSpeed, crateThrowUp * tableThrowUp);   // laatikko: sama matala kaari pään yläpuolelta
                         carried = null;
                         crateReleased = true;

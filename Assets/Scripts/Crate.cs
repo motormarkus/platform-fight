@@ -75,6 +75,9 @@ public class Crate : MonoBehaviour
     public int throwDamage = 16;
     [Tooltip("Kuinka läheltä lentävä laatikko osuu viholliseen (x ja syvyys).")]
     public float hitRadiusX = 0.9f, hitRadiusY = 0.5f;
+    [Tooltip("Tavallinen (läpi lentävä) pöytä osuu vihuun syvyyssuunnassa näin monta kertaa laajemmalta kuin laatikko.")]
+    public float tableDepthFactor = 1.6f;
+    float EnemyHitRadiusY => plowThrough && breakable && !carryUpsideDown ? hitRadiusY * tableDepthFactor : hitRadiusY;
     [Header("Hajoaminen")]
     [Tooltip("Kuinka kauan romukasa jää maahan ennen häivytystä (s).")]
     public float debrisTime = 1.5f;
@@ -365,7 +368,7 @@ public class Crate : MonoBehaviour
         {
             if (e == null || e.IsDead) continue;
             Vector3 p = e.transform.position;
-            if (Mathf.Abs(p.x - me.x) > hitRadiusX || Mathf.Abs(p.y - me.y) > hitRadiusY) continue;
+            if (Mathf.Abs(p.x - me.x) > hitRadiusX || Mathf.Abs(p.y - me.y) > EnemyHitRadiusY) continue;
             if (alreadyHit.Contains(e)) continue;
             // isku tulee lentosuunnasta: vihollinen kaatuu samaan suuntaan
             if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vel.x), true)) { any = true; alreadyHit.Add(e); }

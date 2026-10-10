@@ -180,7 +180,7 @@ public class Chair : MonoBehaviour
         {
             if (e == null || e.IsDead || hit.Contains(e)) continue;
             Vector3 q = e.transform.position;
-            if (Mathf.Abs(q.x - me.x) > 1.0f || Mathf.Abs(q.y - me.y) > 0.5f || height > 3.2f) continue;
+            if (Mathf.Abs(q.x - me.x) > 1.0f || Mathf.Abs(q.y - me.y) > 0.75f || height > 3.2f) continue;   // syvyyssuunnassa herkemmin vihuun
             hit.Add(e);
             if (e.TakeHit(kickFlight ? Mathf.RoundToInt(throwDamage * 0.6f) : throwDamage, me.x - Mathf.Sign(vx), !kickFlight))
             {
