@@ -40,7 +40,7 @@ public class ShopCounter : MonoBehaviour
         new Item { name = "Kossupaukku",     price = 15, heal = 999, stamina = 999, comment = "Täydet voimat!" },
     };
 
-    public const int BooniPrice = 50;
+    public const int BooniPrice = 75;
 
     [Header("Tiskin kohta")]
     public Area here;
