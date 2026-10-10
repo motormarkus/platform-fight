@@ -567,7 +567,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
