@@ -1163,6 +1163,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         HeroHits = punchCombo; HeroBigHook = bigHookSprites; HeroGrunts = attackGrunts;
         if (punchCombo != null) HeroCombo = ComboFrames(System.Array.ConvertAll(punchCombo, c => c.HasAnimation ? c.sprites : null));
         if (GameSettings.Character == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
+        // Roccon hyppy videosta (Resources/Hyppy/rocco_hyppy_00…08): 0 seisoo, 1 kyykky, 2–6 ilmassa nopeuden mukaan, 7–8 alastulo
+        if (AppliedCharacter == 0 && (jumpSprites == null || jumpSprites.Length < 9))
+        {
+            var l = new System.Collections.Generic.List<Sprite>();
+            for (int i = 0; i < 9; i++) { var sp = Resources.Load<Sprite>("Hyppy/rocco_hyppy_" + i.ToString("00")); if (sp == null) break; l.Add(sp); }
+            if (l.Count == 9) jumpSprites = l.ToArray();
+        }
         groundHeight = TargetGroundHeight();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
