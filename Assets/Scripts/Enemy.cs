@@ -489,6 +489,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
     }
     public bool IsDead => state == State.Dead;
+    /// Vihujen kellon kerroin (heron kahvivauhti hidastaa vihuja).
+    public static float TimeScale = 1f;
 
     /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
     public static bool IsHeavyweight(Enemy e)
@@ -669,7 +671,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Update()
     {
         if (appearAfterOthers && !awake && WaitToAppear()) return;
-        float dt = Time.deltaTime;
+        float dt = Time.deltaTime * TimeScale;
         stateTime += dt;
         animClock += dt;
         cooldown -= dt;

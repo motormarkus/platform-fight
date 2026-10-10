@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kuluttaa staminaa, jos sitä on tarpeeksi. Palauttaa, onnistuiko.
     public bool UseStamina(float cost)
     {
+        if (Boosted) return true;   // kahvivauhti: stamina ei kulu
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
         staminaRest = staminaRegenWait;
@@ -116,6 +117,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void UpdateStamina(float dt)
     {
+        if (running && Boosted) return;
         if (running)
         {
             stamina = Mathf.Max(0f, stamina - runStaminaPerSecond * dt);
@@ -791,7 +793,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     Sprite[] HookArt(int which) => punchCombo != null && punchCombo.Length >= 4 && punchCombo[2 + which].HasAnimation && punchCombo[2 + which].sprites.Length >= 4 ? punchCombo[2 + which].sprites : null;
     float pummelPhase, pummelJolt;
     /// Rinnuksista kiinni: aina onnistuu, stamina kuluu sen mitä on (ennen tyhjä stamina esti otteen kokonaan).
-    bool PummelStamina() { stamina = Mathf.Max(0f, stamina - pummelStamina); staminaRest = staminaRegenWait; return true; }
+    bool PummelStamina() { if (Boosted) return true; stamina = Mathf.Max(0f, stamina - pummelStamina); staminaRest = staminaRegenWait; return true; }
     bool HasPummel => pummelSprites != null && pummelSprites.Length >= 6;
     const float PummelReachTime = 0.16f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
     const int PummelHits = 5;
@@ -1116,7 +1118,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink }
 
     int comboIndex;
     bool comboQueued;
@@ -1174,7 +1176,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Update()
     {
-        float dt = Time.deltaTime;
+        float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // kahvivauhti: kaikki liikkeet nopeutuvat
+        heroDt = dt;
+        Enemy.TimeScale = Boosted ? boostEnemySlow : 1f;
         stateTime += dt;
         animClock += dt;
 
@@ -1997,6 +2001,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 break;
 
+            case State.Drink:
+                UpdateDrink();
+                break;
+
             case State.Down:
                 if (stateTime >= thrownDownTime)
                 {
@@ -2575,7 +2583,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
     {
-        if (Riding) return false;
+        if (Riding || state == State.Drink) return false;   // ryypyn aikana iskut eivät osu
         // haymaker: ei voi torjua, mutta ajoitetulla kurotuksella lyövästä kädestä saa kiinni ja heitettyä
         // (vain ojennuksessa: kurotus painettava juuri ennen kuin käsi lähtee, latauksen aikana painettu menee ohi)
         if (state == State.Catch && stateTime <= haymakerCatchWindow && (attackerX > transform.position.x) == facingRight
@@ -2641,7 +2649,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
-        if (Riding) return false;
+        if (Riding || state == State.Drink) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state != State.Block) Bottle.DropHeld();
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
@@ -2957,7 +2965,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (counterThrowSlide > 0f)
         {
             float slideTime = releaseAt + counterThrowEndHold * 0.5f;
-            float a0 = Mathf.Clamp01((stateTime - Time.deltaTime) / slideTime), a1 = Mathf.Clamp01(stateTime / slideTime);
+            float a0 = Mathf.Clamp01((stateTime - heroDt) / slideTime), a1 = Mathf.Clamp01(stateTime / slideTime);
             float e0 = 1f - (1f - a0) * (1f - a0), e1 = 1f - (1f - a1) * (1f - a1);
             MoveOnGround(new Vector2(dir * counterThrowSlide * (e1 - e0), 0f));
         }
@@ -3112,6 +3120,59 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool jumpFromRun;
     Vector2 lastGroundVel, squatVel;
 
+    [Header("Kahvivauhti (termospullo)")]
+    public float boostDuration = 20f;
+    [Tooltip("Heron liikkeiden ja animaatioiden nopeus.")]
+    public float boostHeroSpeed = 1.3f;
+    [Tooltip("Vihujen nopeus kahvivauhdin aikana.")]
+    public float boostEnemySlow = 0.85f;
+    public Color boostGlow = new Color(1f, 0.78f, 0.35f);
+    float boostUntil, heroDt;
+    public bool Boosted => Time.time < boostUntil && !GameOver;
+    public float BoostLeft => Mathf.Max(0f, boostUntil - Time.time);
+    Sprite[] drinkSprites; bool drinkLoaded; bool drinkSoundPlayed;
+    static readonly float[] DrinkTimes = { 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.13f, 0.13f, 0.13f, 0.13f, 0.13f, 0.05f, 0.05f, 0.05f, 0.05f, 0.08f };
+    /// Termospullon voi juoda, kun seisoo vapaana maassa (ei kanna mitään, ei jo juo).
+    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && !Riding;
+    Sprite[] DrinkSprites
+    {
+        get
+        {
+            if (!drinkLoaded)
+            {
+                drinkLoaded = true;
+                var l = new System.Collections.Generic.List<Sprite>();
+                for (int i = 0; i < DrinkTimes.Length; i++) { var s = Resources.Load<Sprite>("Termari/rocco_juo_" + i.ToString("00")); if (s == null) break; l.Add(s); }
+                drinkSprites = l.Count == DrinkTimes.Length ? l.ToArray() : null;
+            }
+            return AppliedCharacter == 1 ? null : drinkSprites;   // Ruby: ei omaa juontianimaatiota (juo äänellä)
+        }
+    }
+    /// Termospullo poimittu: Rocco ryyppää (iskut eivät osu juonnin aikana), sitten kahvivauhti päälle.
+    public void DrinkThermos()
+    {
+        if (DrinkSprites != null) { moving = false; running = false; drinkSoundPlayed = false; Enter(State.Drink); return; }
+        // Ruby: oma nielaisu
+        if (heroine != null && heroine.gulpSounds != null && heroine.gulpSounds.Length > 0) PlayFrom(heroine.gulpSounds);
+        StartBoost();
+    }
+    void StartBoost()
+    {
+        boostUntil = Time.time + boostDuration;
+        stamina = maxStamina;
+        GameHUD.Popup(Loc.T("KAHVIVAUHTI!"), transform.position + Vector3.up * 3.6f, boostGlow);
+    }
+    void UpdateDrink()
+    {
+        if (!drinkSoundPlayed && stateTime >= 0.3f)
+        {
+            drinkSoundPlayed = true;
+            var c = Resources.Load<AudioClip>("Pickups/energiajuoma_aani");
+            if (c != null) HitFx.PlayClip(c, 0.9f);
+        }
+        if (ThrowPose.Index(DrinkTimes, stateTime) < 0) { Enter(State.Ground); StartBoost(); }
+    }
+
     [Header("Merimieskänni (rommi)")]
     public float drunkDuration = 25f;
     [Tooltip("Kännissä kaatavat iskut lennättävät vihut ruudun poikki (kaatavat matkalla muitakin).")]
@@ -3208,6 +3269,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
         body.sprite = CurrentSprite();
         body.flipX = !facingRight;
+        // kahvivauhti: kullanoranssi hehku sykkii, viimeiset 4 s nopeammin (loppumassa)
+        if (Boosted)
+        {
+            float rate = BoostLeft < 4f ? 9f : 3.5f;
+            float k = 0.35f + 0.35f * (0.5f + 0.5f * Mathf.Sin(Time.time * rate));
+            body.color = Color.Lerp(Color.white, boostGlow, k);
+        }
+        else if (body.color != Color.white) body.color = Color.white;
         // Korjaa spriten kiinnityspisteen (pivot) vaikutus: jalat keskelle alas joka kuvassa,
         // leikattiinpa kuva millä pivot-asetuksella tahansa.
         Vector2 pivotFix = Vector2.zero;
@@ -3247,6 +3316,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         switch (state)
         {
+            case State.Drink:
+            {
+                var ds = DrinkSprites;
+                if (ds == null) return Action(F_STAND);
+                int f = ThrowPose.Index(DrinkTimes, stateTime);
+                return ds[f < 0 ? ds.Length - 1 : f];
+            }
+
             case State.JumpSquat:
                 if (scissorJump && HasScissor) return scissorSprites[stateTime < jumpSquatTime * 0.5f ? 0 : 1];
                 if (HasJumpArt) return jumpSprites[1];

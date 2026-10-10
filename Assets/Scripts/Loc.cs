@@ -105,5 +105,7 @@ public static class Loc
         { "Rommi", "Rum" },
         { "Merimieskänni!", "Sailor's bender!" },
         { "MERIMIESKÄNNI", "SAILOR'S BENDER" },
+        { "KAHVIVAUHTI!", "COFFEE RUSH!" },
+        { "KAHVIVAUHTI", "COFFEE RUSH" },
     };
 }

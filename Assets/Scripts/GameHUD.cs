@@ -100,12 +100,18 @@ public class GameHUD : MonoBehaviour
             GUI.Label(new Rect(x + w + 24 * s, y + h * 1.25f, 200 * s, h * 1.4f), "x " + Mathf.Max(0, player.lives), label);
             label.normal.textColor = new Color(1f, 0.85f, 0.25f);
             GUI.Label(new Rect(x + w + 110 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);
+            if (player.Boosted)
+            {
+                // kahvivauhti: kullanoranssi teksti ja jäljellä oleva aika (känniteksti sen alle)
+                label.normal.textColor = new Color(1f, 0.8f, 0.3f);
+                GUI.Label(new Rect(x, y + h * 3.4f + 12 * s, 600 * s, h * 1.4f), Loc.T("KAHVIVAUHTI") + "  " + Mathf.CeilToInt(player.BoostLeft), label);
+            }
             if (player.IsDrunk)
             {
                 // merimieskänni: teksti ja jäljellä oleva aika energiapalkkien alla, keinuu
                 label.normal.textColor = new Color(1f, 0.55f, 0.15f);
                 float sway = Mathf.Sin(Time.time * 2.3f) * 6f * s;
-                GUI.Label(new Rect(x + sway, y + h * 3.4f + 12 * s, 600 * s, h * 1.4f), Loc.T("MERIMIESKÄNNI") + "  " + Mathf.CeilToInt(player.DrunkLeft), label);
+                GUI.Label(new Rect(x + sway, y + h * (player.Boosted ? 4.8f : 3.4f) + 12 * s, 600 * s, h * 1.4f), Loc.T("MERIMIESKÄNNI") + "  " + Mathf.CeilToInt(player.DrunkLeft), label);
             }
             label.normal.textColor = Color.white;
         }
