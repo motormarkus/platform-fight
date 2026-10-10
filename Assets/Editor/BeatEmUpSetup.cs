@@ -3483,21 +3483,121 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(sal);
 
         // portaat ylös: ovi komentosillalle, kun komentosilta on tehty
-        var bridge = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == BridgeAreaName);
-        string doorInfo = "Komentosiltaa ei vielä ole: portaiden ovi lisätään, kun ajat tämän uudelleen komentosillan jälkeen.";
-        if (bridge != null)
-        {
-            var d = new GameObject("Salista komentosillalle").AddComponent<Door>();
-            d.transform.position = new Vector3(EX(SalonStairsDoorPx), SY(SalonStairsFrontPx), 0f);
-            d.prompt = "Komentosillalle"; d.here = sal; d.target = bridge;
-            d.spawnPoint = new Vector2(bridge.camMinX - halfW + 2f, Mathf.Lerp(bridge.maxDepthY, bridge.minDepthY, 0.3f));
-            d.halfWidth = 1.5f; d.maxDistanceFromWall = 1.2f;
-            d.blockedDuringFight = true;
-            Undo.RegisterCreatedObjectUndo(d.gameObject, "Ovi");
-            doorInfo = "Portaista pääsee komentosillalle (ei tappelun aikana).";
-        }
+        string doorInfo = SalonBridgeDoors() ? "Portaista pääsee komentosillalle (ei tappelun aikana)."
+            : "Komentosiltaa ei vielä ole: portaiden ovi lisätään, kun teet komentosillan (kohta 84).";
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info($"Salin vasen jatke ja portaat lisätty ({spr.rect.width / ppu:0.0} yksikköä). Kamera ja kävely ulottuvat portaille asti.\n{doorInfo}\n\nTallenna scene (Ctrl+S).");
+    }
+
+    /// Ovet salin portailta komentosillalle ja takaisin (kun molemmat on tehty). Palauttaa, onnistuiko.
+    static bool SalonBridgeDoors()
+    {
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var bridge = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == BridgeAreaName);
+        var stairs = GameObject.Find("Salin portaat");
+        var bridgeBg = GameObject.Find(BridgeAreaName);
+        if (sal == null || bridge == null || stairs == null || bridgeBg == null) return false;
+        foreach (var n in new[] { "Salista komentosillalle", "Komentosillalta saliin" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        var ssr = stairs.GetComponent<SpriteRenderer>(); var bsr = bridgeBg.GetComponent<SpriteRenderer>();
+        float sppu = ssr.sprite.pixelsPerUnit, bppu = bsr.sprite.pixelsPerUnit;
+        float extLeft = ssr.bounds.min.x, sTop = ssr.bounds.max.y, bLeft = bsr.bounds.min.x, bTop = bsr.bounds.max.y;
+        float stairX = extLeft + SalonStairsDoorPx / sppu, stairY = sTop - SalonStairsFrontPx / sppu;
+        float bDoorX = bLeft + BridgeDoorPx / bppu, bDoorY = bTop - BridgeWallPx / bppu;
+        var up = new GameObject("Salista komentosillalle").AddComponent<Door>();
+        up.transform.position = new Vector3(stairX, stairY, 0f);
+        up.prompt = "Komentosillalle"; up.here = sal; up.target = bridge;
+        up.spawnPoint = new Vector2(bDoorX + 1.6f, Mathf.Lerp(bridge.maxDepthY, bridge.minDepthY, 0.25f));
+        up.halfWidth = 1.5f; up.maxDistanceFromWall = 1.2f; up.blockedDuringFight = true;
+        Undo.RegisterCreatedObjectUndo(up.gameObject, "Ovi");
+        var down = new GameObject("Komentosillalta saliin").AddComponent<Door>();
+        down.transform.position = new Vector3(bDoorX, bDoorY, 0f);
+        down.prompt = "Saliin"; down.here = bridge; down.target = sal;
+        down.spawnPoint = new Vector2(stairX + 1.4f, stairY - 0.4f);
+        down.halfWidth = 1.4f; down.maxDistanceFromWall = 1.2f; down.blockedDuringFight = true;
+        Undo.RegisterCreatedObjectUndo(down.gameObject, "Ovi");
+        return true;
+    }
+
+    // komentosilta (laiva_komentosilta.png 2240 × 887, kahdesta kuvasta yhdistetty): ovi vasemmalla, ruori keskellä,
+    // karttapöytä oikealla ja oikea seinä viistoon. Ikkunat läpinäkyviä: takana rullaa yöllinen meri.
+    const float ShipBridgeX0 = 70000f, BridgeWallPx = 505f, BridgeDoorPx = 90f, BridgeHorizonPx = 180f;
+    static readonly Vector2[] BridgeBackLine = {   // (x px, rivi px): takaraja ruorin ja karttapöydän edessä, oikealla viisto seinä
+        new Vector2(0f, 505f), new Vector2(700f, 505f), new Vector2(725f, 535f), new Vector2(1000f, 535f), new Vector2(1020f, 505f),
+        new Vector2(1320f, 505f), new Vector2(1345f, 555f), new Vector2(1840f, 555f), new Vector2(1880f, 515f), new Vector2(1950f, 505f),
+        new Vector2(2240f, 690f) };
+
+    [MenuItem("Beat em up/84. Laivan komentosilta (salin portaista ylös)")]
+    static void CreateShipBridge()
+    {
+        const string path = "Assets/Sprites/Taustat/laiva_komentosilta.png";
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (sal == null || ti == null) { Info("Tarvitaan laivan sali (kohta 60) ja " + path); return; }
+        foreach (var n in new[] { BridgeAreaName, "Komentosillan meri kaukana", "Komentosillan meri lähellä" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf);
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear; ti.alphaIsTransparency = true;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.maxTextureSize = 8192; ti.mipmapEnabled = false;
+        var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)SpriteAlignment.Center;
+        ti.SetTextureSettings(st); ti.SaveAndReimport();
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        float wU = w / ppu, hU = h / ppu, halfW = CamHalf * 16f / 9f;
+        var bg = new GameObject(BridgeAreaName);
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = sprite; sr.sortingOrder = -10000;
+        sr.color = new Color(0.85f, 0.86f, 0.96f);   // yö: hieman hämärämpi kuten sali
+        bg.transform.position = new Vector3(ShipBridgeX0 + wU * 0.5f, CamY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, BridgeAreaName);
+        float top = CamY + hU * 0.5f;
+        float BX(float px) => ShipBridgeX0 + px / ppu;
+        float BY(float row) => top - row / ppu;
+
+        var area = ReuseArea("Alue: " + BridgeAreaName);
+        area.areaName = BridgeAreaName;
+        area.music = sal.music;
+        area.useSidewalk = false;
+        area.maxDepthY = BY(BridgeWallPx);
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = ShipBridgeX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, ShipBridgeX0 + wU - halfW);
+        area.walkMinX = BX(40f); area.walkMaxX = BX(w - 60f);
+        area.depthLimits = BridgeBackLine.Select(v => new Vector2(BX(v.x), BY(v.y))).ToArray();
+        EditorUtility.SetDirty(area);
+
+        // ikkunoista näkyy yöllinen meri (samat kuvat kuin salissa)
+        string far = File.Exists("Assets/Sprites/Taustat/laiva_meri_kauko_yo.png") ? "Assets/Sprites/Taustat/laiva_meri_kauko_yo.png" : ShipSeaFarPath;
+        string near = File.Exists("Assets/Sprites/Taustat/laiva_meri_lahi_yo.png") ? "Assets/Sprites/Taustat/laiva_meri_lahi_yo.png" : ShipSeaNearPath;
+        // samat merikuvat kuin salissa (tuotu salin mittakaavaan; komentosillan kuva on lähes samaa korkeutta)
+        void Sea(string name, string spath, float topRow, int order, float speed, float parallax)
+        {
+            var spr = AssetDatabase.LoadAssetAtPath<Sprite>(spath);
+            if (spr == null) return;
+            var go = new GameObject(name);
+            var s2 = go.AddComponent<SpriteRenderer>(); s2.sprite = spr; s2.sortingOrder = order; s2.drawMode = SpriteDrawMode.Tiled;
+            float sw = spr.rect.width / spr.pixelsPerUnit, sh = spr.rect.height / spr.pixelsPerUnit;
+            s2.size = new Vector2(Mathf.Ceil((2f * halfW) / sw + 2f) * sw, sh);
+            go.transform.position = new Vector3(ShipBridgeX0 + 10f, BY(topRow) - sh * 0.5f, 0f);
+            var sl = go.AddComponent<ScrollingLayer>(); sl.autoSpeed = speed; sl.parallax = parallax; sl.area = area;
+            sl.bobAmplitude = 0.15f; sl.bobPeriod = 7f;
+            Undo.RegisterCreatedObjectUndo(go, name);
+        }
+        Sea("Komentosillan meri kaukana", far, BridgeHorizonPx - 291f * 0.6f, -10100, 0.35f, 0.04f);
+        Sea("Komentosillan meri lähellä", near, BridgeHorizonPx + 30f, -10090, 3f, 0.4f);
+
+        bool doors = SalonBridgeDoors();
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Komentosilta luotu ({wU:0.0} yksikköä). Ikkunoista näkyy meri.\n" +
+             (doors ? "Salin portaista ylös ja ovesta takaisin saliin (ei tappelun aikana)." : "Tee ensin salin portaat (kohta 83), sitten tämä uudelleen.") +
+             "\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Puliukko (laivan käytävä) ----------------
