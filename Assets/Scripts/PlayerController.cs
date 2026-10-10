@@ -3138,7 +3138,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float boostUntil, heroDt;
     public bool Boosted => Time.time < boostUntil && !GameOver;
     public float BoostLeft => Mathf.Max(0f, boostUntil - Time.time);
-    Sprite[] drinkSprites; bool drinkLoaded; bool drinkSoundPlayed;
+    Sprite[] drinkSprites; int drinkLoadedFor = -1; bool drinkSoundPlayed;
     static readonly float[] DrinkTimes = { 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.13f, 0.13f, 0.13f, 0.13f, 0.13f, 0.05f, 0.05f, 0.05f, 0.05f, 0.08f };
     /// Termospullon voi juoda, kun seisoo vapaana maassa (ei kanna mitään, ei jo juo).
     public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && !Riding;
@@ -3146,14 +3146,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         get
         {
-            if (!drinkLoaded)
+            if (drinkLoadedFor != AppliedCharacter)
             {
-                drinkLoaded = true;
+                // Rocco: rocco_juo_00…15, Ruby: ruby_juo_00…15 (puuttuessa juodaan ilman animaatiota)
+                drinkLoadedFor = AppliedCharacter;
+                string pre = AppliedCharacter == 1 ? "Termari/ruby_juo_" : "Termari/rocco_juo_";
                 var l = new System.Collections.Generic.List<Sprite>();
-                for (int i = 0; i < DrinkTimes.Length; i++) { var s = Resources.Load<Sprite>("Termari/rocco_juo_" + i.ToString("00")); if (s == null) break; l.Add(s); }
+                for (int i = 0; i < DrinkTimes.Length; i++) { var s = Resources.Load<Sprite>(pre + i.ToString("00")); if (s == null) break; l.Add(s); }
                 drinkSprites = l.Count == DrinkTimes.Length ? l.ToArray() : null;
             }
-            return AppliedCharacter == 1 ? null : drinkSprites;   // Ruby: ei omaa juontianimaatiota (juo äänellä)
+            return drinkSprites;
         }
     }
     [Tooltip("Böönejä taskussa (enintään 1): juodaan taukovalikosta tai pitämällä poimintanappia (E / ympyrä) pohjassa.")]
@@ -3205,8 +3207,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (!drinkSoundPlayed && stateTime >= 0.3f)
         {
             drinkSoundPlayed = true;
-            var c = Resources.Load<AudioClip>("Pickups/energiajuoma_aani");
-            if (c != null) HitFx.PlayClip(c, 0.9f);
+            // Ruby: oma nielaisu; Rocco: juomaääni
+            if (AppliedCharacter == 1 && heroine != null && heroine.gulpSounds != null && heroine.gulpSounds.Length > 0) PlayFrom(heroine.gulpSounds);
+            else
+            {
+                var c = Resources.Load<AudioClip>("Pickups/energiajuoma_aani");
+                if (c != null) HitFx.PlayClip(c, 0.9f);
+            }
         }
         if (ThrowPose.Index(DrinkTimes, stateTime) < 0) { Enter(State.Ground); StartBoost(); }
     }
