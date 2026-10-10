@@ -35,8 +35,8 @@ public class ShopCounter : MonoBehaviour
         new Item { name = "Sipsipussi",      price = 3,  heal = 10,  stamina = 10,  comment = "Rapsakka." },
         new Item { name = "Grillimakkara",   price = 3,  heal = 20,  stamina = 15,  comment = "Sinapilla." },
         new Item { name = "Lonkero",         price = 6,  heal = 30,  stamina = 30,  comment = "Kylmä ja kirpeä." },
-        new Item { name = "Makkaraperunat",  price = 8,  heal = 50,  stamina = 25,  comment = "Kunnon annos." },
-        new Item { name = "Tuoppi",          price = 7,  heal = 60,  stamina = 40,  comment = "Hanasta." },
+        new Item { name = "Makkaraperunat",  price = 8,  heal = 60,  stamina = 25,  comment = "Kunnon annos." },
+        new Item { name = "Tuoppi",          price = 7,  heal = 40,  stamina = 40,  comment = "Hanasta." },
         new Item { name = "Kossupaukku",     price = 10, heal = 999, stamina = 999, comment = "Täydet voimat!" },
     };
 
@@ -76,7 +76,12 @@ public class ShopCounter : MonoBehaviour
     {
         if (items != null)
             foreach (var it in items)
+            {
                 if (it != null && Prices.TryGetValue(it.name, out int pr)) it.price = pr;
+                // makkaraperunat on ateria: enemmän energiaa kuin tuopista (tuoppi antaa staminaa)
+                if (it != null && it.name == "Makkaraperunat") it.heal = 60;
+                if (it != null && it.name == "Tuoppi") it.heal = 40;
+            }
         // Uccopulcossa (El Loipparin tiski) kossun tilalla rommi: merimieskänni
         if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
             foreach (var it in items)
