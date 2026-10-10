@@ -304,6 +304,64 @@ public class Enemy : MonoBehaviour, IBottleHolder
                                           0.1f, 0.1f, 0.1f, 0.09f, 0.09f, 0.09f, 0.09f, 0.1f };
     const int KickHit1 = 3, KickHit2 = 14;
     int kicksDone; bool kickSoundPlayed;
+    [Header("Liukutaklaus (kapteeni): juoksu, liuku jalat edellä, ylösnousu. Ei voi torjua, yli voi hypätä.")]
+    [Tooltip("6 kuvaa: 0 pudotus liukuun, 1–5 liuku.")]
+    public Sprite[] slideSprites;
+    [Tooltip("4 kuvaa: ylösnousu liu'un jälkeen.")]
+    public Sprite[] slideUpSprites;
+    [Range(0f, 1f)] public float slideChance = 0.5f;
+    public float slideMinRange = 4f, slideMaxRange = 12f, slideCooldown = 5f;
+    public float slideRunSpeed = 7f, slideSpeed = 10f, slideTime = 0.55f, slideStartDist = 3.4f, slideUpTime = 0.45f;
+    public int slideDamage = 18;
+    int slidePhase; float slideT, slideDir, nextSlide; bool slideHit;
+    bool HasSlide => slideSprites != null && slideSprites.Length >= 2 && slideUpSprites != null && slideUpSprites.Length >= 1;
+
+    void UpdateSlideTackle(float dt)
+    {
+        slideT += dt;
+        if (player == null) { Enter(State.Recover); return; }
+        Vector3 me = transform.position, p = player.transform.position;
+        if (slidePhase == 0)
+        {
+            // juoksu kohti: syvyys asettuu pelaajan kohdalle, liuku alkaa lähellä
+            facingRight = p.x > me.x;
+            float d = facingRight ? 1f : -1f;
+            float dy = Mathf.Clamp(p.y - me.y, -moveSpeedY * 1.5f * dt, moveSpeedY * 1.5f * dt);
+            Move(new Vector2(d * slideRunSpeed * dt, dy));
+            if (Mathf.Abs(p.x - me.x) <= slideStartDist || slideT > 1.8f) { slidePhase = 1; slideT = 0f; slideDir = d; slideHit = false; PlayAttackSound(); }
+            return;
+        }
+        if (slidePhase == 1)
+        {
+            // liuku: hidastuu loppua kohti; osuu maassa olevaan (hyppy yli väistää), ei voi torjua
+            Move(new Vector2(slideDir * slideSpeed * Mathf.Lerp(1f, 0.35f, slideT / slideTime) * dt, 0f));
+            if (!slideHit)
+            {
+                float dx = (p.x - transform.position.x) * slideDir;
+                if (dx > -0.4f && dx <= 2.4f && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight < 0.5f)
+                {
+                    slideHit = true;
+                    if (player.TakeKnockdown(slideDamage, transform.position.x, 6f, 5f, this, true) && CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.2f);
+                }
+            }
+            if (slideT >= slideTime) { slidePhase = 2; slideT = 0f; }
+            return;
+        }
+        if (slideT >= slideUpTime) { cooldown = attackCooldown * Random.Range(1f, 1.4f); Enter(State.Recover); }
+    }
+
+    Sprite SlideFrame()
+    {
+        if (slidePhase == 0) return Has(runSprites) ? runSprites[(int)(Time.time / runFrameTime) % runSprites.Length] : IdleFrame();
+        if (slidePhase == 1)
+        {
+            if (slideT < 0.08f) return slideSprites[0];
+            int n = slideSprites.Length - 1;
+            return slideSprites[1 + Mathf.Min((int)((slideT - 0.08f) / Mathf.Max(0.01f, slideTime - 0.08f) * n), n - 1)];
+        }
+        return slideUpSprites[Mathf.Min((int)(slideT / slideUpTime * slideUpSprites.Length), slideUpSprites.Length - 1)];
+    }
+
     bool HasKickCombo => kickComboSprites != null && kickComboSprites.Length >= 22;
     int KickFrame() => ThrowPose.Index(KickTimes, stateTime);
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
@@ -435,7 +493,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -973,6 +1031,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.KickCombo:
                 UpdateKickCombo();
+                break;
+
+            case State.SlideTackle:
+                UpdateSlideTackle(dt);
                 break;
 
             case State.BarThrow:
@@ -1527,6 +1589,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
+        if (s == State.SlideTackle) { slidePhase = 0; slideT = 0f; slideHit = false; nextSlide = Time.time + slideCooldown; rushAfterBar = false; }
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
@@ -1736,6 +1799,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             moving = false; attackRolled = false; facingRight = p.x > me.x;
             Enter(HasKickCombo && (!HasSlaps || Random.value < 0.5f) ? State.KickCombo : State.Slaps);
+            return;
+        }
+        // liukutaklaus matkan päästä: juoksee kohti ja liukuu jalat edellä
+        if (HasSlide && cooldown <= 0f && Time.time >= nextSlide && !player.IsDown && adx >= slideMinRange && adx <= slideMaxRange
+            && Mathf.Abs(me.y - p.y) <= depthTolerance * 1.5f && attackRank <= 1 && Random.value < slideChance * dt * 2f)
+        {
+            moving = false; attackRolled = false; facingRight = p.x > me.x;
+            Enter(State.SlideTackle);
             return;
         }
         if (HasKickCombo && cooldown <= 0f && !player.IsDown && adx >= 1.6f && adx <= kickStartRange && Mathf.Abs(me.y - p.y) <= depthTolerance && attackRank <= 1
@@ -2193,7 +2264,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
-        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps) return false;   // heiton, otteen ja läpsykombon aikana ei keskeytetä
+        if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps
+            || (state == State.SlideTackle && slidePhase == 1)) return false;   // heiton, otteen, läpsykombon ja liu'un aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
 
         // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
@@ -2721,6 +2793,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Slaps:
                 return slapSprites[SlapFrame()];
+
+            case State.SlideTackle:
+                return SlideFrame();
 
             case State.KickCombo:
             {
