@@ -559,6 +559,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float tableThrowFar = 1.6f;
     [Tooltip("Tavallisen (baarin) pöydän heittonopeus × crateThrowSpeed.")]
     public float basicTableThrowFar = 2.2f;
+    [Tooltip("Ylösalaisin kannettava (salin) pöytä nousee näin paljon (yks) ylemmäs kantokorkeudella.")]
+    public float upsideDownTableLift = 0.7f;
     [Tooltip("Pöydän, laatikon ja telkkarin heiton nousu × crateThrowUp (pieni: lähtevät jo pään yläpuolelta, eivät lennä vihujen yli).")]
     public float tableThrowUp = 0.3f;
     Crate carried;
@@ -2822,7 +2824,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (TvSet.Held != null) TvSet.Held.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - 0.25f, Mathf.RoundToInt(-me.y * 100f) + 1);
             return;
         }
-        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - carried.carryLower * Mathf.Clamp01(lift / carryHeight),
+        carried.SetCarried(new Vector3(me.x + dx, me.y - 0.01f, 0f), height + lift - carried.carryLower * Mathf.Clamp01(lift / carryHeight)
+                           + (carried.carryUpsideDown ? upsideDownTableLift * Mathf.Clamp01(lift / carryHeight) : 0f),
                            Mathf.RoundToInt(-me.y * 100f) + (carried.carryLower > 0f ? -1 : 1));   // pöytä heron taakse: jalat pään takana, kädet kannen alla
     }
 
