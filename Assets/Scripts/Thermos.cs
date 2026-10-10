@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Termospullo (Böönin kahvia): putoaa harvinaisena hajonneesta laatikosta tai pöydästä. Hero kävelee päälle,
-/// ryyppää (Rocco: juontianimaatio) ja saa kahvivauhdin: liikkeet nopeutuvat, vihut hidastuvat, stamina ei kulu.
+/// ryyppää (Rocco: juontianimaatio) ja saa pärinän: liikkeet nopeutuvat, vihut hidastuvat, stamina ei kulu.
 /// Kuva: Resources/Termari/termospullo.png.
 /// </summary>
 public class Thermos : MonoBehaviour

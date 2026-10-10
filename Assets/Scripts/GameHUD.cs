@@ -102,9 +102,9 @@ public class GameHUD : MonoBehaviour
             GUI.Label(new Rect(x + w + 110 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);
             if (player.Boosted)
             {
-                // kahvivauhti: kullanoranssi teksti ja jäljellä oleva aika (känniteksti sen alle)
+                // pärinä: kullanoranssi teksti ja jäljellä oleva aika (känniteksti sen alle)
                 label.normal.textColor = new Color(1f, 0.8f, 0.3f);
-                GUI.Label(new Rect(x, y + h * 3.4f + 12 * s, 600 * s, h * 1.4f), Loc.T("KAHVIVAUHTI") + "  " + Mathf.CeilToInt(player.BoostLeft), label);
+                GUI.Label(new Rect(x, y + h * 3.4f + 12 * s, 600 * s, h * 1.4f), Loc.T("PÄRINÄ") + "  " + Mathf.CeilToInt(player.BoostLeft), label);
             }
             if (player.IsDrunk)
             {

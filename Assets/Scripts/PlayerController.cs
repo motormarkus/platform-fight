@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kuluttaa staminaa, jos sitä on tarpeeksi. Palauttaa, onnistuiko.
     public bool UseStamina(float cost)
     {
-        if (Boosted) return true;   // kahvivauhti: stamina ei kulu
+        if (Boosted) return true;   // pärinä: stamina ei kulu
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
         staminaRest = staminaRegenWait;
@@ -1176,7 +1176,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Update()
     {
-        float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // kahvivauhti: kaikki liikkeet nopeutuvat
+        float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // pärinä: kaikki liikkeet nopeutuvat
         heroDt = dt;
         Enemy.TimeScale = Boosted ? boostEnemySlow : 1f;
         stateTime += dt;
@@ -3120,11 +3120,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool jumpFromRun;
     Vector2 lastGroundVel, squatVel;
 
-    [Header("Kahvivauhti (termospullo)")]
+    [Header("Pärinä (termospullo)")]
     public float boostDuration = 20f;
     [Tooltip("Heron liikkeiden ja animaatioiden nopeus.")]
     public float boostHeroSpeed = 1.3f;
-    [Tooltip("Vihujen nopeus kahvivauhdin aikana.")]
+    [Tooltip("Vihujen nopeus pärinän aikana.")]
     public float boostEnemySlow = 0.85f;
     public Color boostGlow = new Color(1f, 0.78f, 0.35f);
     float boostUntil, heroDt;
@@ -3148,7 +3148,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return AppliedCharacter == 1 ? null : drinkSprites;   // Ruby: ei omaa juontianimaatiota (juo äänellä)
         }
     }
-    /// Termospullo poimittu: Rocco ryyppää (iskut eivät osu juonnin aikana), sitten kahvivauhti päälle.
+    /// Termospullo poimittu: Rocco ryyppää (iskut eivät osu juonnin aikana), sitten pärinä päälle.
     public void DrinkThermos()
     {
         if (DrinkSprites != null) { moving = false; running = false; drinkSoundPlayed = false; Enter(State.Drink); return; }
@@ -3160,7 +3160,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         boostUntil = Time.time + boostDuration;
         stamina = maxStamina;
-        GameHUD.Popup(Loc.T("KAHVIVAUHTI!"), transform.position + Vector3.up * 3.6f, boostGlow);
+        GameHUD.Popup(Loc.T("PÄRINÄ!"), transform.position + Vector3.up * 3.6f, boostGlow);
     }
     void UpdateDrink()
     {
@@ -3269,7 +3269,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
         body.sprite = CurrentSprite();
         body.flipX = !facingRight;
-        // kahvivauhti: kullanoranssi hehku sykkii, viimeiset 4 s nopeammin (loppumassa)
+        // pärinä: kullanoranssi hehku sykkii, viimeiset 4 s nopeammin (loppumassa)
         if (Boosted)
         {
             float rate = BoostLeft < 4f ? 9f : 3.5f;

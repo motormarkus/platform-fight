@@ -83,7 +83,7 @@ public class Crate : MonoBehaviour
     [Range(0f, 1f)] public float moneyChance = 0.5f;
     [Tooltip("Todennäköisyys, että laatikosta löytyy energiajuoma (stamina).")]
     [Range(0f, 1f)] public float energyChance = 0.3f;
-    [Tooltip("Harvinainen termospullo (kahvivauhti).")]
+    [Tooltip("Harvinainen termospullo (pärinä).")]
     [Range(0f, 1f)] public float thermosChance = 0.06f;
     public int energyStamina = 40;
 
