@@ -43,11 +43,13 @@ public class Thermos : MonoBehaviour
         sr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f) + 1;
         if (pop > 0.3f) return;
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
-        if (pc == null || pc.GameOver || !pc.CanDrinkThermos) return;
+        if (pc == null || pc.GameOver || (pc.HasBooni && !pc.CanDrinkThermos)) return;
         Vector3 p = pc.transform.position, me = transform.position;
         if (Mathf.Abs(p.x - me.x) <= pickRadiusX && Mathf.Abs(p.y - me.y) <= pickRadiusY && pc.AirHeight < 0.5f)
         {
-            pc.DrinkThermos();
+            // tyhjä tasku: pullo talteen myöhemmäksi; muuten juodaan heti
+            if (!pc.StoreBooni()) pc.DrinkThermos();
+            else HitFx.PlayPickup(false);
             Destroy(gameObject);
         }
     }

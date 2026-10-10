@@ -40,6 +40,8 @@ public class ShopCounter : MonoBehaviour
         new Item { name = "Kossupaukku",     price = 15, heal = 999, stamina = 999, comment = "Täydet voimat!" },
     };
 
+    public const int BooniPrice = 50;
+
     [Header("Tiskin kohta")]
     public Area here;
     public float halfWidth = 4.5f;
@@ -70,6 +72,13 @@ public class ShopCounter : MonoBehaviour
         if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
             foreach (var it in items)
                 if (it != null && it.name == "Kossupaukku") { it.name = "Rommi"; it.price = 12; it.heal = 50; it.stamina = 999; it.comment = "Merimieskänni!"; }
+        // Bööni (termospullo) kaikille tiskeille: taskuun, juodaan tarvittaessa
+        if (items != null && System.Array.FindIndex(items, x => x != null && x.name == "Bööni") < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = "Bööni", price = BooniPrice, heal = 0, stamina = 0, comment = "Taskuun pahan päivän varalle." });
+            items = l.ToArray();
+        }
     }
 
     void Update()
@@ -112,6 +121,16 @@ public class ShopCounter : MonoBehaviour
 
     void Buy(Item it)
     {
+        if (it.name == "Bööni")
+        {
+            if (pc.HasBooni) { Say(Loc.T("Taskussa on jo Bööni.")); return; }
+            if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
+            pc.money -= it.price;
+            pc.StoreBooni();
+            HitFx.PlayPickup(false);
+            Say(Loc.T("Bööni taskuun. Juo: pidä E / ympyrä pohjassa tai taukovalikosta."));
+            return;
+        }
         bool rum = it.name == "Rommi";
         if (!rum && pc.health >= pc.maxHealth && (it.stamina <= 0 || pc.stamina >= pc.maxStamina)) { Say(Loc.T("Energia on jo täynnä.")); return; }
         if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }

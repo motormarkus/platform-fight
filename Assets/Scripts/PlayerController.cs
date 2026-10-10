@@ -1235,6 +1235,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
         UpdateGroundHeight(dt);
 
+        // poimintanappi pohjassa 0,45 s vapaana maassa: taskun Bööni juodaan
+        if (!Scripted && HasBooni && state == State.Ground && PickHeld())
+        {
+            pickHoldTime += Time.deltaTime;
+            if (pickHoldTime >= 0.45f) { pickHoldTime = 0f; UseBooni(); }
+        }
+        else pickHoldTime = 0f;
+
         switch (state)
         {
             case State.Ground:
@@ -3148,6 +3156,36 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return AppliedCharacter == 1 ? null : drinkSprites;   // Ruby: ei omaa juontianimaatiota (juo äänellä)
         }
     }
+    [Tooltip("Böönejä taskussa (enintään 1): juodaan taukovalikosta tai pitämällä poimintanappia (E / ympyrä) pohjassa.")]
+    public int booniPocket;
+    public bool HasBooni => booniPocket > 0;
+    float pickHoldTime;
+    /// Bööni taskuun (Sohvilta ostettu tai löydetty, kun tasku on tyhjä). False = tasku jo täynnä.
+    public bool StoreBooni()
+    {
+        if (HasBooni) return false;
+        booniPocket = 1;
+        GameHUD.Popup(Loc.T("BÖÖNI TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
+        return true;
+    }
+    /// Juo taskun Böönin (kun seisoo vapaana maassa).
+    public bool UseBooni()
+    {
+        if (!HasBooni || !CanDrinkThermos) return false;
+        booniPocket = 0;
+        DrinkThermos();
+        return true;
+    }
+    public static bool PickHeld()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && Keyboard.current.eKey.isPressed)
+            || (Gamepad.current != null && Gamepad.current.buttonEast.isPressed);
+#else
+        return Input.GetKey(KeyCode.E);
+#endif
+    }
+
     /// Termospullo poimittu: Rocco ryyppää (iskut eivät osu juonnin aikana), sitten pärinä päälle.
     public void DrinkThermos()
     {

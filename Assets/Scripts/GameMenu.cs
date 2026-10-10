@@ -101,7 +101,13 @@ public class GameMenu : MonoBehaviour
             case Page.Title: return new[] { "Aloita peli", "Asetukset", "Tekijät", "Lopeta" };
             case Page.Character: return new[] { "Rocco", HeroineName(), "Takaisin" };
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
-            case Page.Pause: return new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
+            case Page.Pause:
+            {
+                var pc0 = FindFirstObjectByType<PlayerController>();
+                return pc0 != null && pc0.HasBooni
+                    ? new[] { "Jatka", "Juo Bööni", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" }
+                    : new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
+            }
             case Page.Options:
                 return new[] {
                     Loc.T("Äänet") + "  <  " + Mathf.RoundToInt(GameSettings.MasterVolume * 10) + "  >",
@@ -195,12 +201,21 @@ public class GameMenu : MonoBehaviour
                 Close();
                 break;
             case Page.Pause:
-                if (i == 0) Close();
-                else if (i == 1) { back = Page.Pause; page = Page.Options; sel = 0; }
-                else if (i == 2) { SkipTitleOnce = true; Restart(); }
-                else if (i == 3) Restart();
+            {
+                string lbl = Items()[i];
+                if (lbl == "Jatka") Close();
+                else if (lbl == "Juo Bööni")
+                {
+                    Close();
+                    var pcb = FindFirstObjectByType<PlayerController>();
+                    if (pcb != null) pcb.UseBooni();
+                }
+                else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; sel = 0; }
+                else if (lbl == "Aloita alusta") { SkipTitleOnce = true; Restart(); }
+                else if (lbl == "Päävalikkoon") Restart();
                 else { back = Page.Pause; page = Page.ConfirmQuit; sel = 1; }
                 break;
+            }
             case Page.Options:
                 if (i == 0) GameSettings.MasterVolume = GameSettings.MasterVolume >= 0.99f ? 0f : GameSettings.MasterVolume + 0.1f;
                 else if (i == 1) GameSettings.MusicVolume = GameSettings.MusicVolume >= 0.99f ? 0f : GameSettings.MusicVolume + 0.1f;

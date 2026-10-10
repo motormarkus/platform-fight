@@ -70,6 +70,8 @@ public class GameHUD : MonoBehaviour
 #endif
     }
 
+    static Sprite booniIcon;
+
     void OnGUI()
     {
         if (white == null) { white = new Texture2D(1, 1); white.SetPixel(0, 0, Color.white); white.Apply(); }
@@ -100,6 +102,18 @@ public class GameHUD : MonoBehaviour
             GUI.Label(new Rect(x + w + 24 * s, y + h * 1.25f, 200 * s, h * 1.4f), "x " + Mathf.Max(0, player.lives), label);
             label.normal.textColor = new Color(1f, 0.85f, 0.25f);
             GUI.Label(new Rect(x + w + 110 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);
+            if (player.HasBooni)
+            {
+                // Bööni taskussa: pieni termospullo rahojen vieressä
+                if (booniIcon == null) booniIcon = Resources.Load<Sprite>("Termari/termospullo");
+                if (booniIcon != null)
+                {
+                    float ih = h * 1.9f, iw = ih * booniIcon.rect.width / booniIcon.rect.height;
+                    var tr = booniIcon.textureRect; var tx = booniIcon.texture;
+                    GUI.DrawTextureWithTexCoords(new Rect(x + w + 250 * s, y + h * 0.95f, iw, ih), tx,
+                        new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
+                }
+            }
             if (player.Boosted)
             {
                 // pärinä: kullanoranssi teksti ja jäljellä oleva aika (känniteksti sen alle)

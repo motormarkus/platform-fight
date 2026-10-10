@@ -106,6 +106,12 @@ public static class Loc
         { "Merimieskänni!", "Sailor's bender!" },
         { "MERIMIESKÄNNI", "SAILOR'S BENDER" },
         { "PÄRINÄ!", "BUZZ!" },
+        { "Bööni", "Bööni coffee" },
+        { "Juo Bööni", "Drink Bööni" },
+        { "BÖÖNI TASKUUN", "BÖÖNI IN POCKET" },
+        { "Taskuun pahan päivän varalle.", "For a rainy day." },
+        { "Taskussa on jo Bööni.", "You already have a Bööni." },
+        { "Bööni taskuun. Juo: pidä E / ympyrä pohjassa tai taukovalikosta.", "Bööni in pocket. Drink: hold E / circle, or from the pause menu." },
         { "PÄRINÄ", "BUZZ" },
     };
 }
