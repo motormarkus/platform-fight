@@ -2315,11 +2315,12 @@ public static class BeatEmUpSetup
         var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(RoofPath);
         float wU = sprite.rect.width / RoofPPU, hU = sprite.rect.height / RoofPPU;
 
-        foreach (var n in new[] { "Katto", "Alue: Katto", "Palotikkaat", "Katon viholliset" })
+        foreach (var n in new[] { "Katto", "Alue: Katto", "Palotikkaat" })
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
+        DestroyEnemyGroups("Katon viholliset", false);   // vain kadun katon ryhmä (laivan katon ryhmä x >= 50000 jää)
 
         float camY = cam.transform.position.y;
         float halfW = cam.orthographicSize * 16f / 9f;
@@ -2368,7 +2369,31 @@ public static class BeatEmUpSetup
         down.climbHeight = -1.5f;
         down.spawnPoint = new Vector2(ladderX, streetArea.maxDepthY - 0.25f);
 
-        // viholliset: kopiot kadun malleista
+        // viholliset ja pomo: kopiot kadun malleista
+        var report = BuildRoofEnemies(roof);
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info(
+            $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
+            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas vasemman reunan tikkailta.\n" +
+            (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
+            "\nKaton oikea puoli on kattokuvan 1 peilikuva, kunnes kuvat 2 ja 3 valmistuvat.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    /// Poistaa kaikki nimetyt juuriryhmät: ship = true vain laivan katon (x >= 50000), false vain muut (kadun katto).
+    static void DestroyEnemyGroups(string name, bool ship)
+    {
+        foreach (var t in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (t == null || t.name != name || t.parent != null) continue;
+            bool isShip = t.childCount > 0 && t.GetChild(0).position.x >= 50000f;
+            if (isShip == ship) Undo.DestroyObjectImmediate(t.gameObject);
+        }
+    }
+
+    /// Kadun katon viholliset ja pomo (Metsuri): kopiot kadun malleista. Ryhmän nimi "Katon viholliset".
+    static List<string> BuildRoofEnemies(Area roof)
+    {
         var enemies = new GameObject("Katon viholliset");
         Undo.RegisterCreatedObjectUndo(enemies, "Katon viholliset");
         var all = Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
@@ -2480,12 +2505,21 @@ public static class BeatEmUpSetup
             b.barrelDamage = 20;
         }
 
-        EditorSceneManager.MarkSceneDirty(bg.scene);
-        Info(
-            $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
-            $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas vasemman reunan tikkailta.\n" +
-            (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
-            "\nKaton oikea puoli on kattokuvan 1 peilikuva, kunnes kuvat 2 ja 3 valmistuvat.\n\nTallenna scene (Ctrl+S).");
+        return report;
+    }
+
+    [MenuItem("Beat em up/30b. Kadun katon viholliset ja Metsuri uudelleen (ei muuta kattoa)")]
+    static void RebuildRoofEnemiesOnly()
+    {
+        if (PlayModeBlocked()) return;
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katto");
+        if (roof == null) { Info("Kadun katon aluetta ei löytynyt: tee ensin kohta 30."); return; }
+        DestroyEnemyGroups("Katon viholliset", false);
+        var report = BuildRoofEnemies(roof);
+        EditorSceneManager.MarkSceneDirty(roof.gameObject.scene);
+        Info($"Kadun katon {RoofEnemies.Length} vihollista ja pomo (Metsuri) luotu uudelleen.\n" +
+             (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
+             "Aja sen jälkeen vielä kohta 31 (vihujen taktiikka), jotta vihut torjuvat ja kiertävät.\n\nTallenna scene (Ctrl+S).");
     }
 
     // ---------------- Vihujen taktiikka ----------------
@@ -3745,11 +3779,12 @@ public static class BeatEmUpSetup
         if (bridge == null || bridgeBg == null) { Info("Tee ensin komentosilta (kohta 84)."); return; }
         if (captainGo == null || captainGo.GetComponent<Enemy>() == null) { Info("Tee ensin kapteeni (kohta 85): tikkaat putoavat, kun hän kaatuu."); return; }
         if (roofTi == null || ladTi == null || AssetImporter.GetAtPath(skyPath) == null) { Info("Tarvitaan kuvat:\n" + roofPath + "\n" + skyPath + "\n" + ladderPath); return; }
-        foreach (var n in new[] { "Laivan katto (kuva)", "Katon taivas", "Katon tikkaat", "Kopteri", "Katon viholliset" })   // alue säilyy (ReuseArea)
+        foreach (var n in new[] { "Laivan katto (kuva)", "Laivan katon taivas", "Laivan katon tikkaat", "Kopteri", "Laivan katon viholliset", "Katon taivas", "Katon tikkaat" })   // alue säilyy (ReuseArea); kaksi viimeistä ovat vanhoja nimiä
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
         }
+        DestroyEnemyGroups("Katon viholliset", true);   // vanha nimi: vain laivan katon ryhmä (x >= 50000), kadun katon ryhmää ei kosketa
 
         // kuva: yksi ruutu, ei vieritä
         roofTi.GetSourceTextureWidthAndHeight(out int w, out int h);
@@ -3781,14 +3816,14 @@ public static class BeatEmUpSetup
         var skySpr = ImportShipSprite(skyPath, sp, true, SpriteAlignment.Center);
         float sw = skySpr.rect.width / sp, sh = skySpr.rect.height / sp;
         int tiles = Mathf.CeilToInt(2f * halfW / sw) + 2; if (tiles % 2 == 0) tiles++;   // pariton: yksi kuva on keskellä
-        var sky = new GameObject("Katon taivas");
+        var sky = new GameObject("Laivan katon taivas");
         var ssr = sky.AddComponent<SpriteRenderer>(); ssr.sprite = skySpr; ssr.sortingOrder = -10100; ssr.drawMode = SpriteDrawMode.Tiled;
         ssr.size = new Vector2(tiles * sw, sh);
         sky.transform.position = new Vector3(ShipRoofX0 + wU * 0.5f, RY(RoofHorizonPx - 291f * RoofSkyScale) - sh * 0.5f, 0f);
         var sl = sky.AddComponent<ScrollingLayer>();
         sl.autoSpeed = RoofSkySpeed; sl.parallax = 0f; sl.area = area; sl.bobAmplitude = 0.15f; sl.bobPeriod = 7f;
         sl.startPhase = (RoofMoonPx - w * 0.5f) / ppu - (RoofSkyMoonSrcPx - skySpr.rect.width * 0.5f) / sp;   // kuu alkaa kohdasta RoofMoonPx
-        Undo.RegisterCreatedObjectUndo(sky, "Katon taivas");
+        Undo.RegisterCreatedObjectUndo(sky, "Laivan katon taivas");
 
         // tikkaat komentosillalle: piilossa, kunnes kapteeni kaatuu
         var bsr = bridgeBg.GetComponent<SpriteRenderer>();
@@ -3797,9 +3832,9 @@ public static class BeatEmUpSetup
         ladTi.GetSourceTextureWidthAndHeight(out _, out int lh);
         float lp = lh / ((BridgeLadderFootPx + 60f) / bppu);   // katosta (rivi -60) lattiaan
         var ladSpr = ImportShipSprite(ladderPath, lp, false, SpriteAlignment.BottomCenter);
-        var root = new GameObject("Katon tikkaat");
+        var root = new GameObject("Laivan katon tikkaat");
         root.transform.position = new Vector3(lx, ly, 0f);
-        Undo.RegisterCreatedObjectUndo(root, "Katon tikkaat");
+        Undo.RegisterCreatedObjectUndo(root, "Laivan katon tikkaat");
         var vis = new GameObject("Tikkaat").AddComponent<SpriteRenderer>();
         vis.transform.SetParent(root.transform, false);
         vis.sprite = ladSpr; vis.sortingOrder = -9000; vis.color = bsr.color;   // hahmojen takana, myös kiivetessä
@@ -3859,8 +3894,8 @@ public static class BeatEmUpSetup
         var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         var pirateTmpl = all.FirstOrDefault(e => e != null && e.displayName == "Rosvo");
         var kovisTmpl = all.FirstOrDefault(e => e != null && e.gameObject.name == "Kovis");
-        var foes = new GameObject("Katon viholliset");
-        Undo.RegisterCreatedObjectUndo(foes, "Katon viholliset");
+        var foes = new GameObject("Laivan katon viholliset");
+        Undo.RegisterCreatedObjectUndo(foes, "Laivan katon viholliset");
         int foeCount = 0;
         void Foe(Enemy tmpl, string label, float px, float depth01)
         {
