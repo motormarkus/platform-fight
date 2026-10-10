@@ -462,6 +462,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -1486,6 +1498,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -2516,6 +2529,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -4371,6 +4396,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -5599,6 +5636,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -6285,6 +6334,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -6948,6 +7009,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -7210,6 +7272,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -7504,6 +7567,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -7680,6 +7755,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -8634,6 +8710,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -9013,6 +9101,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -9762,6 +9862,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -10372,6 +10473,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -10635,6 +10748,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -11341,6 +11455,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -12658,6 +12784,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -13748,6 +13886,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -14460,6 +14599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Katu
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -4.2
   maxDepthY: -0.8030769
   useSidewalk: 1
@@ -14751,6 +14892,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -15095,6 +15248,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -15381,6 +15535,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -15797,6 +15963,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -16516,6 +16694,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -17749,6 +17939,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -18701,6 +18903,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -19001,6 +19204,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -19572,6 +19787,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -19654,6 +19870,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -20407,6 +20624,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -20733,6 +20951,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -21230,6 +21449,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -21898,6 +22129,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -22319,6 +22551,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -22769,6 +23013,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -23181,6 +23437,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -23656,6 +23913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Laivan kansi
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 1.463004
   useSidewalk: 0
@@ -23966,6 +24225,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -24294,6 +24565,97 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.44, y: 2.49}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!1 &238633820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238633821}
+  - component: {fileID: 238633822}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238633821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238633820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370557323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &238633822
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238633820}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 5858235126274478601, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.48, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -24761,6 +25123,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -25014,6 +25377,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -25223,6 +25587,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -25844,6 +26209,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -26295,6 +26672,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -26454,6 +26843,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -26690,6 +27080,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -26967,6 +27358,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -27598,6 +28001,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -28155,6 +28570,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -28952,6 +29379,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -29324,6 +29763,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -30817,6 +31268,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -31667,6 +32130,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -33076,6 +33551,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -33864,6 +34340,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -34301,6 +34789,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -36267,6 +36767,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -36698,6 +37210,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -37051,6 +37564,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -37563,6 +38088,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -38003,6 +38529,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -38250,6 +38777,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -38717,6 +39245,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -39173,6 +39702,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -39672,6 +40213,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -40104,6 +40646,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -40742,6 +41285,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -41137,6 +41692,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -42256,6 +42812,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -42400,6 +42968,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -42713,6 +43282,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -43464,6 +44045,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -43843,6 +44436,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -44362,6 +44956,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -45000,6 +45606,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -45551,6 +46169,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -46518,6 +47148,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -46708,6 +47339,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -46790,6 +47422,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -46933,6 +47566,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -47224,6 +47858,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -47398,6 +48044,116 @@ MonoBehaviour:
   spinSprites: []
   keepDebris: 0
   alwaysBreak: 0
+--- !u!1 &476564056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476564059}
+  - component: {fileID: 476564058}
+  - component: {fileID: 476564057}
+  m_Layer: 0
+  m_Name: Komentosillan meri kaukana
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &476564057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476564056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e9334205f8c344a8bc298e099408b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
+  autoSpeed: 0.35
+  parallax: 0.04
+  area: {fileID: 695989476}
+  bobAmplitude: 0.15
+  bobPeriod: 7
+  nightSprite: {fileID: 0}
+--- !u!212 &476564058
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476564056}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10100
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 2ccbadd45ae8fc047b123436172134ca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 2
+  m_Size: {x: 56.314568, y: 5.409565}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &476564059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476564056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70010, y: 4.6221623, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476940669
 GameObject:
   m_ObjectHideFlags: 0
@@ -48582,6 +49338,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -49439,6 +50207,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -49900,6 +50680,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -50292,6 +51084,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -51350,6 +52154,97 @@ MonoBehaviour:
   spinSprites: []
   keepDebris: 0
   alwaysBreak: 0
+--- !u!1 &520932294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520932295}
+  - component: {fileID: 520932296}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520932295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520932294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1886210177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &520932296
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520932294}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &523295992
 GameObject:
   m_ObjectHideFlags: 0
@@ -51970,6 +52865,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -52596,6 +53503,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -55355,6 +56263,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -56408,6 +57328,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -56925,6 +57857,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -60718,6 +61662,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -61840,6 +62796,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: El Loippari
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 0.47328058
   useSidewalk: 0
@@ -62320,6 +63278,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -63027,10 +63997,18 @@ MonoBehaviour:
   displayName: Horhe
   bigBody: 1
   bowlDamage: 10
-  flipThrownSprites: []
-  flipFlightFrames: 1
-  flipFlightFrameTime: 0.05
-  flipLandFrameTime: 0.08
+  flipThrownSprites:
+  - {fileID: 2651574893993148083, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -4177542868851925173, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -1588340505685712334, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -1905750877367049635, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -6710844441140722766, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -8395012570455929091, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: -4354841860465489730, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  - {fileID: 4401703445431489922, guid: 13e8963dee7fb0a42b935f6dea399c93, type: 3}
+  flipFlightFrames: 2
+  flipFlightFrameTime: 0.2
+  flipLandFrameTime: 0.11
   headlockThrownSprites: []
   headlockFlightSprites: []
   kneeHeldSprites: []
@@ -63309,6 +64287,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -64284,6 +65274,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -64395,6 +65386,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Laivan hytti
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 0.41168955
   useSidewalk: 0
@@ -65013,6 +66006,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -65778,6 +66783,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -65954,6 +66971,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -66271,6 +67289,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -66290,6 +67309,79 @@ Transform:
   - {fileID: 1562157988}
   - {fileID: 1737102656}
   m_Father: {fileID: 2128628876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &695989475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 695989477}
+  - component: {fileID: 695989476}
+  m_Layer: 0
+  m_Name: 'Alue: Komentosilta'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &695989476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695989475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae8ace2e70c5c543a353864a927f5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Area
+  areaName: Komentosilta
+  music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
+  minDepthY: -3.4
+  maxDepthY: 0.56798184
+  useSidewalk: 0
+  sidewalkHeight: 0.42
+  curbDepthY: -1.2
+  depthLimits:
+  - {x: 70000, y: 0.56798184}
+  - {x: 70009.47, y: 0.56798184}
+  - {x: 70009.805, y: 0.16211934}
+  - {x: 70013.53, y: 0.16211934}
+  - {x: 70013.8, y: 0.56798184}
+  - {x: 70017.86, y: 0.56798184}
+  - {x: 70018.195, y: -0.10845563}
+  - {x: 70024.89, y: -0.10845563}
+  - {x: 70025.44, y: 0.43269435}
+  - {x: 70026.38, y: 0.56798184}
+  - {x: 70030.305, y: -1.9348367}
+  backScale: 1
+  camMinX: 70010.664
+  camMaxX: 70019.64
+  walkMaxX: 70029.49
+  walkMinX: 70000.54
+  camSize: 0
+  camRiseY: 0
+  camOffsetY: 0
+--- !u!4 &695989477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695989475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700257088
 GameObject:
@@ -66705,6 +67797,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -67122,6 +68215,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -67710,6 +68804,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -68360,6 +69455,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -69594,6 +70701,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -69850,6 +70969,97 @@ MonoBehaviour:
   spinSprites: []
   keepDebris: 0
   alwaysBreak: 0
+--- !u!1 &726967163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726967165}
+  - component: {fileID: 726967164}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &726967164
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726967163}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &726967165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726967163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1266839670}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &730514615
 Texture2D:
   m_ObjectHideFlags: 0
@@ -70162,6 +71372,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -71164,6 +72386,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -71323,6 +72546,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -72094,6 +73318,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -72454,6 +73690,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -73155,6 +74403,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -74128,6 +75388,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -74367,6 +75639,97 @@ MonoBehaviour:
   breakSounds:
   - {fileID: 8300000, guid: 5d46a2e4e6b0b9547833acf86350fb71, type: 3}
   spriteSet: Kala
+--- !u!1 &788886023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788886025}
+  - component: {fileID: 788886024}
+  m_Layer: 0
+  m_Name: Komentosilta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &788886024
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788886023}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10000
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 8f5b3f48eea2cc944be7c1f77141bab8, type: 3}
+  m_Color: {r: 0.85, g: 0.86, b: 0.96, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 30.304398, y: 12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &788886025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788886023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70015.15, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792014675
 GameObject:
   m_ObjectHideFlags: 0
@@ -74509,6 +75872,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -75459,6 +76823,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -76391,6 +77756,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -76763,6 +78129,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -77126,6 +78493,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -77473,6 +78852,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -78323,6 +79703,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -78988,6 +80380,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -79392,6 +80785,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -79683,6 +81077,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -80589,6 +81995,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -80838,6 +82245,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -81417,6 +82825,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -81879,6 +83299,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -82247,6 +83668,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -82639,6 +84061,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -83913,6 +85336,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 223801953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &934634549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 934634552}
+  - component: {fileID: 934634551}
+  - component: {fileID: 934634550}
+  m_Layer: 0
+  m_Name: "Komentosillan meri l\xE4hell\xE4"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &934634550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934634549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e9334205f8c344a8bc298e099408b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
+  autoSpeed: 3
+  parallax: 0.4
+  area: {fileID: 695989476}
+  bobAmplitude: 0.15
+  bobPeriod: 7
+  nightSprite: {fileID: 0}
+--- !u!212 &934634551
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934634549}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10090
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: f3aba057ff4abe540a963e0934a0748c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 2
+  m_Size: {x: 36.019127, y: 3.9589798}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &934634552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934634549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70010, y: 2.579473, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935001512
 GameObject:
   m_ObjectHideFlags: 0
@@ -84773,6 +86306,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -84847,6 +86381,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -85460,6 +86995,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -85808,6 +87355,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -86375,6 +87934,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -86765,6 +88336,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -87571,6 +89154,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -88398,6 +89993,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -88641,6 +90248,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -88706,6 +90314,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -89273,6 +90882,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -89448,6 +91058,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -90112,6 +91723,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -91461,6 +93084,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -92130,6 +93754,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -92335,6 +93971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Takakuja
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: -0.8030769
   useSidewalk: 1
@@ -92732,6 +94370,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -92816,6 +94455,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -93184,6 +94824,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -93786,6 +95438,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -94302,6 +95966,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -94879,6 +96555,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -95952,6 +97629,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -96272,6 +97950,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -96711,6 +98390,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -97144,6 +98835,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -97444,6 +99136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Valtatie
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -4.223529
   maxDepthY: 2.2470589
   useSidewalk: 0
@@ -97978,6 +99672,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -99092,6 +100787,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -100060,6 +101767,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -100420,6 +102128,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -101969,6 +103689,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -103107,6 +104839,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -103655,6 +105388,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -103967,6 +105701,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -104149,6 +105895,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -104491,6 +106238,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -105275,6 +107034,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -105424,6 +107184,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -105532,6 +107293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Katto
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 0.6705884
   useSidewalk: 0
@@ -105961,6 +107724,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -106503,6 +108267,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -106777,6 +108542,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -107339,6 +109116,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -107738,6 +109516,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -108079,6 +109869,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -108591,6 +110382,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -109495,6 +111298,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -109908,6 +111723,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -110256,6 +112072,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -110787,6 +112604,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -111332,6 +113161,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -112745,6 +114586,16 @@ MonoBehaviour:
   getupSweepReach: 2
   maxChaseLunge: 0.9
   chaseReachFactor: 0.7
+  boostDuration: 20
+  boostHeroSpeed: 1.3
+  boostEnemySlow: 0.85
+  boostGlow: {r: 1, g: 0.78, b: 0.35, a: 1}
+  booniPocket: 0
+  drunkDuration: 25
+  drunkLaunchX: 15
+  drunkLaunchUp: 8
+  drunkKnockChance: 0.35
+  drunkDamageTaken: 0.6
 --- !u!4 &1266612347
 Transform:
   m_ObjectHideFlags: 0
@@ -112760,6 +114611,418 @@ Transform:
   m_Children:
   - {fileID: 2030421911}
   - {fileID: 1104298171}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1266839668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266839670}
+  - component: {fileID: 1266839669}
+  m_Layer: 0
+  m_Name: Kapteeni
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266839669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266839668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114f8001dd73b9143a2f32c6052a607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  displayName: Kapteeni
+  bigBody: 1
+  bowlDamage: 10
+  flipThrownSprites:
+  - {fileID: 7612793059324944851, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: -6530396560224421312, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: 6455635094252099165, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: 4250782116326148603, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: 2612199489775709011, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: -4180952461773961490, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: 3054460903193983640, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  - {fileID: -6863859352432244933, guid: e51f6bcea708f7c41bd5a34c8326e2b8, type: 3}
+  flipFlightFrames: 2
+  flipFlightFrameTime: 0.2
+  flipLandFrameTime: 0.11
+  headlockThrownSprites: []
+  headlockFlightSprites: []
+  kneeHeldSprites: []
+  kneeFlightSprites: []
+  idleSprites:
+  - {fileID: -4313602054734619006, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  - {fileID: 3339579615526817160, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  - {fileID: 6505934014122250266, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  - {fileID: -3826942091690797608, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  - {fileID: 8580639219551204593, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  - {fileID: -3067333392580022965, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  calmIdleSprites: []
+  calmWalkSprites: []
+  calmWalkFrameTime: 0.08
+  wakeOnFightRadius: 0
+  walkSprites:
+  - {fileID: 1196646656806426511, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: 1714426350597013921, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: 3757090072203053202, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -3130171338498728456, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -6208782032860075076, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -5814280362705093906, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -9033651150473989191, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -6518645659643833266, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: 2445627260463571170, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -6503579531933700489, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -3557238566201328470, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: 966256837304004361, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: 1363298419296113686, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -5730476511705933734, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -6381709712373972155, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  - {fileID: -5608321719439758537, guid: b2fa77c5117889c48b7b938d1da37541, type: 3}
+  runSprites:
+  - {fileID: -807696766740248797, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 9068401312249599960, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -8956725078808147545, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 6899634226548380622, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 4372916718735324483, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 6772933178402675306, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 4121282954166345330, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 1852852215164548392, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -5411915876499312196, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -2628793145223588437, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 2246607165360465222, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -7493651722966831528, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -685582584205518919, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 3586975096204620069, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -7037631755687521619, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  runFrameTime: 0.05
+  punch2Sprites:
+  - {fileID: 318138164590350586, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -2535858230386954550, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -7818108301006084620, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -2596372558125532354, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -4135614576818200189, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  punch2ImpactFrame: 1
+  punch2Damage: 13
+  punch2Knockdown: 0
+  punch2LaunchUp: 0
+  punch2LaunchX: 4
+  punch2Chance: 0.35
+  punch2Uppercut: 0
+  uppercutUp: 24
+  punch3Sprites:
+  - {fileID: 4666342374516856565, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -7562567291885599029, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -817036001686947018, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -6902641032762604859, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 252995049595197193, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -3097131398276932890, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -2415677932781596541, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -4512549295456898180, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -7589640449825746974, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 6540152346303654295, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 1773574199108498174, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 8003836608852877105, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 7578502046107179088, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -4390501181631214883, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -7613180265716817189, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -2519562340277647106, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -5648485371643090507, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -87264561972554121, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 244312776365005905, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -2176673613218175301, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  punch3ImpactFrame: 12
+  punch3Damage: 22
+  punch3Knockdown: 1
+  punch3LaunchUp: 7
+  punch3LaunchX: 6
+  punch3Chance: 0
+  punch3WindupTime: 1.1
+  punch3RecoverTime: 0.6
+  punch3Reach: 3
+  punch3Heavy: 0
+  punch3Unblockable: 0
+  punch3WindupSounds: []
+  punch3SwingSounds: []
+  punch3Volume: 1
+  combos:
+  - JSPK
+  - JSPK
+  - JSK
+  - JJS
+  comboChance: 0.5
+  comboWindupScale: 0.55
+  comboGap: 0.07
+  holdGround: 0
+  comboArmor: 1
+  debugCombos: 0
+  walkTalkSprites: []
+  talkDuration: 1.6
+  punchSprites:
+  - {fileID: -3078671814879521995, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -5771147043959451218, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -6122593415905905537, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -569081091242549375, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  hurtSprites:
+  - {fileID: 4894312172684719054, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  knockdownSprites:
+  - {fileID: 4894312172684719054, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: -3093312565659668837, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: -4836635328841465200, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: 4370370562264681440, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: -6636282893408165253, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: 96332503893933897, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: 1792016334888704177, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  - {fileID: -3857622304262071694, guid: ac6104bdcd5cc7744a9c9cf4b339aa87, type: 3}
+  getUpSprites:
+  - {fileID: 4946355831603453422, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  - {fileID: 7138994121440973724, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  - {fileID: 4648374094610138045, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  - {fileID: -4330959881146991852, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  - {fileID: -3342851608872020961, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  - {fileID: 5123425135382855147, guid: b57f0f3dbfc18d646b12586b6abe811f, type: 3}
+  idleFrameTime: 0.13
+  walkFrameTime: 0.07
+  body: {fileID: 1874011887}
+  shadow: {fileID: 726967164}
+  wakeDistance: 9
+  moveSpeedX: 2.6
+  moveSpeedY: 1.6
+  attackRange: 2.2
+  depthTolerance: 0.35
+  attackCooldown: 0.9
+  windupTime: 0.2
+  punchActiveTime: 0.12
+  punchRecoverTime: 0.35
+  punchDamage: 9
+  punchImpactFrame: 2
+  secondImpactFrame: -1
+  secondImpactPunchOnly: 0
+  altAttackSprites:
+  - {fileID: 3909632409983731407, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -1487294561960431651, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 9414862770957241, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: 7494503296381615179, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  - {fileID: -575159057727820376, guid: 7075fae3f54213d46930cd4c7d9266de, type: 3}
+  altImpactFrame: 2
+  altDamage: 15
+  altChance: 0
+  altExtraWindup: 0.05
+  altReach: 2.9
+  altLungeSpeed: 0
+  altLungeTime: 0.25
+  altJumpHeight: 0
+  punchKnockdown: 0
+  punchShake: 0
+  altKnockdown: 1
+  altUnblockable: 0
+  altKnockdownLightOnly: 0
+  joinsFightWhenSquadComes: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  idleFacing: -1
+  altKnockSpeed: 6
+  altKnockUp: 4
+  chargeRange: 0
+  chargeMinRange: 2.6
+  chargeToEdge: 0
+  altNearChance: 0.3
+  altTimeScale: 1
+  throwsBarrels: 0
+  barrelThrowSpeed: 16
+  barrelThrowUp: 4
+  barrelDamage: 20
+  barrelRate: 0.35
+  bottleSprites: []
+  bottleRate: 0.3
+  fightsEveryone: 0
+  huntsBrawlers: 0
+  ally: 0
+  tauntSounds: []
+  tauntNoRepeat: 1
+  slapSounds: []
+  punchesAreSlaps: 0
+  hammerArt: 0
+  fallVoice: {fileID: 0}
+  getUpVoice: {fileID: 0}
+  tauntVolume: 1
+  tauntPause: {x: 4, y: 9}
+  runSpeedMultiplier: 1.3
+  flankChance: 0.15
+  flankArcDepth: 1.3
+  retreatChance: 0
+  retreatTime: 0.7
+  blockSprites: []
+  blockChance: 0.3
+  maxBlocksInRow: 2
+  blockTime: 0.35
+  guardWhenHurt: 0
+  grabSprites: []
+  clinchSprites: []
+  clinchChance: 0.35
+  clinchHits: 3
+  clinchDamage: 7
+  clinchFinalDamage: 12
+  clinchReach: 2.1
+  clinchReachTime: 0.34
+  clinchHitTime: 0.42
+  clinchLaunchX: 8
+  clinchLaunchUp: 5
+  slapSprites: []
+  slapChance: 0.25
+  slapCount: 10
+  slapDamage: 3
+  slapFinalDamage: 10
+  slapWindup: 1
+  slapTime: 0.2
+  slapStep: 0.16
+  slapReach: 2.2
+  slapGlide: 0
+  slapWindupSounds: []
+  heroDownLaugh: {fileID: 0}
+  helpShout: {fileID: 0}
+  helpBouncers: 2
+  barThrowSprites: []
+  barSprite: {fileID: 0}
+  barThrowChance: 0.5
+  barThrowMinRange: 3.2
+  barThrowMaxRange: 11
+  barThrowCooldown: 4
+  barDamage: 16
+  kickComboSprites: []
+  kickComboChance: 0.35
+  kickDamage1: 14
+  kickDamage2: 20
+  kickReach: 3.9
+  kickStartRange: 3.6
+  kickComboSounds: []
+  slideSprites:
+  - {fileID: 807980838791522385, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -430129980502029071, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -5806751462917981565, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 7178374503814154178, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 2046627907148935662, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 1521593176043713457, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  slideUpSprites:
+  - {fileID: -1474872834423394401, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 2210118402965726930, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: -3547352358016656180, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  - {fileID: 103031683551989695, guid: c48958612188ccd4ea00ba104b6ba322, type: 3}
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
+  grabChance: 0.3
+  grabRange: 1.3
+  grabReachTime: 0.3
+  grabLiftTime: 0.8
+  throwDamage: 18
+  throwForward: 0
+  throwTurnsAround: 1
+  grabsAnyone: 0
+  collarThrow: 0
+  heavyThrowScale: 0.55
+  throwSpeed: 5.5
+  throwUp: 4
+  grabWhenCloseTime: 0
+  bellySprites: []
+  bellyChance: 0
+  bellyRange: 1.6
+  bellyCounterChance: 0
+  bellyCounterAfterHits: 2
+  bellyDamage: 14
+  bellyKnockSpeed: 14
+  bellyKnockUp: 5.5
+  bellyPumpFrameTime: 0.08
+  bellyLaughFrameTime: 0.13
+  laughSound: {fileID: 0}
+  laughVolume: 1
+  stompSounds: []
+  stompVolume: 0.85
+  stompInterval: 0.2
+  stompShake: 0
+  looseBoardSprite: {fileID: 0}
+  landSprites: []
+  landFrameTime: 0.08
+  footIdleSprites: []
+  footWalkSprites: []
+  footPunchSprites: []
+  footHurtSprites: []
+  footPunchImpactFrame: 3
+  footSecondImpactFrame: -1
+  footWindupTime: 0.15
+  footPunchRecoverTime: 0.6
+  footKickSprites: []
+  footKickImpactFrame: 5
+  footKickLunge: 6
+  footKickJump: 1.3
+  footMoveSpeedX: 2.8
+  footMoveSpeedY: 1.6
+  footWalkFrameTime: 0.05
+  skatePass: 0
+  passOvershoot: 6.5
+  passTurnInterval: 2.5
+  maxHealth: 420
+  hurtTime: 0.35
+  downTime: 1
+  getUpTime: 1
+  getUpFacesBack: 0
+  getUpRollSprites: []
+  getUpRollTime: 0.45
+  ringedSprites: []
+  ringedTime: 3.5
+  noteValue: 1
+  stackValue: 50
+  stackChance: 0.04
+  hurtSounds:
+  - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
+  - {fileID: 8300000, guid: f3d4281daa1376745a9022074d029ca3, type: 3}
+  - {fileID: 8300000, guid: 38b0fdf0f7b61804b8062330cb7a04ef, type: 3}
+  - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
+  - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
+  - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  hurtVolume: 1
+  attackSounds: []
+  attackVolume: 0.9
+  attackSoundChance: 0.6
+  footOffset: 0.08
+  visualScale: 1
+  attackArtScale: 1
+  knockArtScale: 1
+  walkArtScale: 1
+  isBoss: 0
+  appearAfterOthers: 0
+--- !u!4 &1266839670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266839668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70015.555, y: -0.6224128, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1874011888}
+  - {fileID: 726967165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269113791
@@ -113048,6 +115311,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -113614,6 +115889,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -114640,6 +116916,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -114894,6 +117182,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -114928,6 +117217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Kadun baari
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.2380953
   maxDepthY: 2.9238093
   useSidewalk: 0
@@ -116552,6 +118843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: S-Club
   music: {fileID: 8300000, guid: 02244ec5ccc82164abbc087723f1448f, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: -0.39999962
   useSidewalk: 0
@@ -116946,6 +119239,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -117122,6 +119427,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -117396,6 +119702,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -117983,6 +120301,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -118859,6 +121178,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -119112,6 +121443,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -119746,6 +122078,413 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1370557322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370557323}
+  - component: {fileID: 1370557324}
+  m_Layer: 0
+  m_Name: Rosvo (komentosilta 1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370557323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370557322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70009.47, y: -1.8128074, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 238633821}
+  - {fileID: 1997726852}
+  m_Father: {fileID: 1957591765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1370557324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370557322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114f8001dd73b9143a2f32c6052a607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  displayName: Rosvo
+  bigBody: 1
+  bowlDamage: 10
+  flipThrownSprites:
+  - {fileID: 1939263974783267581, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2609353432966733023, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 1699401402937851253, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 3805761988716448138, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2800270448808489753, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2406065961263509570, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: -3889220326800768315, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: -5038685578293174515, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  flipFlightFrames: 1
+  flipFlightFrameTime: 0.12
+  flipLandFrameTime: 0.11
+  headlockThrownSprites: []
+  headlockFlightSprites: []
+  kneeHeldSprites: []
+  kneeFlightSprites: []
+  idleSprites:
+  - {fileID: 5858235126274478601, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: 3488158356899681203, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -7073892331238483339, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: 3476780692799805923, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -3434594210222581617, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -7755505858337347899, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  calmIdleSprites: []
+  calmWalkSprites: []
+  calmWalkFrameTime: 0.08
+  wakeOnFightRadius: 0
+  walkSprites:
+  - {fileID: 7405881545837128967, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8843716253944187576, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8990784250412631321, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -4075563765581052317, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 5594230701264774420, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 2982124602351178813, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8584584379149615830, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -2075402023974992381, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -6176745276549708087, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 3623390409221955680, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  runSprites: []
+  runFrameTime: 0.066
+  punch2Sprites:
+  - {fileID: 5086059214826843184, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 5006211207003284447, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 490220192028158793, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 960484111005197975, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 5233381774100693800, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  punch2ImpactFrame: 2
+  punch2Damage: 16
+  punch2Knockdown: 1
+  punch2LaunchUp: 0
+  punch2LaunchX: 4
+  punch2Chance: 0.25
+  punch2Uppercut: 0
+  uppercutUp: 24
+  punch3Sprites:
+  - {fileID: -3044255277174782529, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -3044255277174782529, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2984998293016728866, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2984998293016728866, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1830673732185202908, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1830673732185202908, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1427674949655019701, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -2614868226818970817, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2876643998167603929, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 4220002070546496326, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 3543268208617734854, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -7005315089151294800, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -5734315799587501174, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 8894594940553895555, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 9059844986083565536, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -6944155910212088852, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  punch3ImpactFrame: 11
+  punch3Damage: 24
+  punch3Knockdown: 1
+  punch3LaunchUp: 8
+  punch3LaunchX: 6
+  punch3Chance: 0.15
+  punch3WindupTime: 0.6
+  punch3RecoverTime: 0.55
+  punch3Reach: 2.5
+  punch3Heavy: 0
+  punch3Unblockable: 0
+  punch3WindupSounds: []
+  punch3SwingSounds: []
+  punch3Volume: 1
+  combos:
+  - JSJ
+  - JSP
+  comboChance: 0.7
+  comboWindupScale: 0.7
+  comboGap: 0.1
+  holdGround: 1
+  comboArmor: 1
+  debugCombos: 1
+  walkTalkSprites:
+  - {fileID: -6745955190575699684, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: -8827151538364004393, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: -5899716728994790490, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 2073010286392456187, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 471653629221862463, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 333139387597244546, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 1161573251323206556, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 1876983746949739795, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 8349278919147124369, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 282960466552460821, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  talkDuration: 1.6
+  punchSprites:
+  - {fileID: -5199053908877130645, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 7641574248000131475, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 4308643146734740855, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 1880704711438736710, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: -7283787439947016634, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: -5486873721081997372, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  hurtSprites:
+  - {fileID: 6959816155118569962, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  knockdownSprites:
+  - {fileID: 6959816155118569962, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 3841833079465975139, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 1561245954753189002, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 6696122723209874067, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: -8704174469370286455, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 5890807199093428787, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  getUpSprites:
+  - {fileID: 1396236028842320848, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 905156102324763648, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 6946320529487784015, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: -449064788259968691, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 8399835883279962262, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 8020465396907304242, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  idleFrameTime: 0.13
+  walkFrameTime: 0.11
+  body: {fileID: 238633822}
+  shadow: {fileID: 1997726853}
+  wakeDistance: 8
+  moveSpeedX: 3.2
+  moveSpeedY: 1.4
+  attackRange: 1.9
+  depthTolerance: 0.35
+  attackCooldown: 0.8
+  windupTime: 0.12
+  punchActiveTime: 0.13
+  punchRecoverTime: 0.4
+  punchDamage: 10
+  punchImpactFrame: 3
+  secondImpactFrame: -1
+  secondImpactPunchOnly: 0
+  altAttackSprites:
+  - {fileID: 244782260800602967, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -6157894680356085301, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: 5253881355902810257, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -7772308901151278220, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -1674557397375219120, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -754264398520880174, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  altImpactFrame: 3
+  altDamage: 14
+  altChance: 0.12
+  altExtraWindup: 0.15
+  altReach: 1.5
+  altLungeSpeed: 0
+  altLungeTime: 0.25
+  altJumpHeight: 0
+  punchKnockdown: 0
+  punchShake: 0
+  altKnockdown: 0
+  altUnblockable: 0
+  altKnockdownLightOnly: 0
+  joinsFightWhenSquadComes: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  idleFacing: 0
+  altKnockSpeed: 7
+  altKnockUp: 6
+  chargeRange: 0
+  chargeMinRange: 2.6
+  chargeToEdge: 0
+  altNearChance: 0
+  altTimeScale: 1
+  throwsBarrels: 0
+  barrelThrowSpeed: 16
+  barrelThrowUp: 4
+  barrelDamage: 20
+  barrelRate: 0.35
+  bottleSprites: []
+  bottleRate: 0.3
+  fightsEveryone: 0
+  huntsBrawlers: 0
+  ally: 0
+  tauntSounds:
+  - {fileID: 8300000, guid: fddc45020e0e1614aacf240379e2a7ee, type: 3}
+  - {fileID: 8300000, guid: db6a9a4784dfae74395f9f8c54024337, type: 3}
+  tauntNoRepeat: 1
+  slapSounds: []
+  punchesAreSlaps: 0
+  hammerArt: 0
+  fallVoice: {fileID: 0}
+  getUpVoice: {fileID: 0}
+  tauntVolume: 1
+  tauntPause: {x: 4, y: 9}
+  runSpeedMultiplier: 1.15
+  flankChance: 0.1
+  flankArcDepth: 1.3
+  retreatChance: 0
+  retreatTime: 0.7
+  blockSprites:
+  - {fileID: -2366844834736980955, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: 3134750319160637669, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: 3134750319160637669, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: -6881771061950279613, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: -401350652137022040, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  blockChance: 0.25
+  maxBlocksInRow: 2
+  blockTime: 0.35
+  guardWhenHurt: 0
+  grabSprites:
+  - {fileID: 3309489879898656315, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -2957193118206181650, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -9207571384413360375, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 9071998498337108162, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -537605867652327590, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 2818674139678721646, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -2613162824391197532, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 5880925275573640919, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  clinchSprites: []
+  clinchChance: 0.35
+  clinchHits: 3
+  clinchDamage: 7
+  clinchFinalDamage: 12
+  clinchReach: 2.1
+  clinchReachTime: 0.34
+  clinchHitTime: 0.42
+  clinchLaunchX: 8
+  clinchLaunchUp: 5
+  slapSprites: []
+  slapChance: 0.25
+  slapCount: 10
+  slapDamage: 3
+  slapFinalDamage: 10
+  slapWindup: 1
+  slapTime: 0.2
+  slapStep: 0.16
+  slapReach: 2.2
+  slapGlide: 0
+  slapWindupSounds: []
+  heroDownLaugh: {fileID: 0}
+  helpShout: {fileID: 0}
+  helpBouncers: 2
+  barThrowSprites: []
+  barSprite: {fileID: 0}
+  barThrowChance: 0.5
+  barThrowMinRange: 3.2
+  barThrowMaxRange: 11
+  barThrowCooldown: 4
+  barDamage: 16
+  kickComboSprites: []
+  kickComboChance: 0.35
+  kickDamage1: 14
+  kickDamage2: 20
+  kickReach: 3.9
+  kickStartRange: 3.6
+  kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
+  grabChance: 0.3
+  grabRange: 1.3
+  grabReachTime: 0.22
+  grabLiftTime: 0.55
+  throwDamage: 18
+  throwForward: 0
+  throwTurnsAround: 0
+  grabsAnyone: 0
+  collarThrow: 0
+  heavyThrowScale: 0.55
+  throwSpeed: 11
+  throwUp: 10
+  grabWhenCloseTime: 0
+  bellySprites: []
+  bellyChance: 0
+  bellyRange: 1.6
+  bellyCounterChance: 0
+  bellyCounterAfterHits: 2
+  bellyDamage: 14
+  bellyKnockSpeed: 14
+  bellyKnockUp: 5.5
+  bellyPumpFrameTime: 0.08
+  bellyLaughFrameTime: 0.13
+  laughSound: {fileID: 0}
+  laughVolume: 1
+  stompSounds: []
+  stompVolume: 0.85
+  stompInterval: 0.2
+  stompShake: 0.07
+  looseBoardSprite: {fileID: 0}
+  landSprites:
+  - {fileID: 8261866702026837714, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 5890807199093428787, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  landFrameTime: 0.12
+  footIdleSprites: []
+  footWalkSprites: []
+  footPunchSprites: []
+  footHurtSprites: []
+  footPunchImpactFrame: 3
+  footSecondImpactFrame: -1
+  footWindupTime: 0.15
+  footPunchRecoverTime: 0.6
+  footKickSprites: []
+  footKickImpactFrame: 5
+  footKickLunge: 6
+  footKickJump: 1.3
+  footMoveSpeedX: 2.8
+  footMoveSpeedY: 1.6
+  footWalkFrameTime: 0.05
+  skatePass: 0
+  passOvershoot: 6.5
+  passTurnInterval: 2.5
+  maxHealth: 130
+  hurtTime: 0.35
+  downTime: 1
+  getUpTime: 1
+  getUpFacesBack: 1
+  getUpRollSprites: []
+  getUpRollTime: 0.45
+  ringedSprites: []
+  ringedTime: 3.5
+  noteValue: 1
+  stackValue: 50
+  stackChance: 0.04
+  hurtSounds:
+  - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
+  - {fileID: 8300000, guid: b5dce38bb03d1774d8e6199fe76789ea, type: 3}
+  - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
+  - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
+  - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  hurtVolume: 0.95
+  attackSounds:
+  - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
+  - {fileID: 8300000, guid: 442c870a2bc85394a9ae2d3409129c03, type: 3}
+  - {fileID: 8300000, guid: c66521343ca87434eaf1af29dc93592c, type: 3}
+  - {fileID: 8300000, guid: 6fa45b279a5775b4ab7c35e6881d184a, type: 3}
+  - {fileID: 8300000, guid: 87a64084388174149babfa6c7e10f200, type: 3}
+  attackVolume: 0.9
+  attackSoundChance: 1
+  footOffset: 0.08
+  visualScale: 1
+  attackArtScale: 1
+  knockArtScale: 1
+  walkArtScale: 1
+  isBoss: 0
+  appearAfterOthers: 0
 --- !u!1 &1374677401
 GameObject:
   m_ObjectHideFlags: 0
@@ -120553,6 +123292,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -121105,6 +123856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Baari
   music: {fileID: 0}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -7.6634417
   maxDepthY: 1.2637994
   useSidewalk: 0
@@ -121718,6 +124471,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -121860,6 +124614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: "Loipparin yl\xE4kerta"
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 0.57127064
   useSidewalk: 0
@@ -122154,6 +124910,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -122734,6 +125502,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -123399,6 +126179,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -123550,6 +126331,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -124090,6 +126872,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -124248,6 +127031,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -125893,6 +128677,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -126720,6 +129516,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -127334,6 +130142,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -127528,6 +130348,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -128135,6 +130956,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -129084,6 +131917,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -130534,6 +133368,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -131675,6 +134521,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -132185,6 +135032,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -133250,6 +136109,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -133610,6 +136481,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -134541,6 +137424,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -134716,6 +137600,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -135279,6 +138164,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -135783,6 +138680,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -136134,6 +139032,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -136402,6 +139312,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -136753,6 +139664,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -137081,6 +140004,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -137393,6 +140317,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -137826,6 +140762,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -138266,6 +141203,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -138823,6 +141761,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -139197,6 +142147,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -140544,6 +143506,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.1
   grabRange: 1.4
   grabReachTime: 0.22
@@ -142071,6 +145045,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -142452,6 +145438,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -143083,6 +146081,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -143337,6 +146347,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -143856,6 +146867,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -145177,6 +148200,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -146429,6 +149453,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -147850,6 +150886,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -148230,6 +151278,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -148506,6 +151566,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1065261839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1684497935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1684497936}
+  - component: {fileID: 1684497937}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684497936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684497935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1886210177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1684497937
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684497935}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 5858235126274478601, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.48, y: 3.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1685196848
 GameObject:
   m_ObjectHideFlags: 0
@@ -149918,6 +153069,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -151246,6 +154409,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -151485,6 +154660,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -152435,6 +155611,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -152946,6 +156134,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -153276,6 +156476,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -153501,6 +156702,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -153743,6 +156945,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -153808,6 +157011,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -154170,6 +157374,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.2
   energyChance: 0.1
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -154254,6 +157459,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -154963,6 +158169,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -155326,6 +158544,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -156285,6 +159515,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -156832,6 +160063,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -158044,6 +161287,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -158434,6 +161689,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -158810,6 +162077,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -160083,6 +163362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: "Laivan k\xE4yt\xE4v\xE4"
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 0.6667374
   useSidewalk: 0
@@ -160797,6 +164078,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -160962,6 +164255,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -162673,6 +165967,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -162807,6 +166113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Laivan sali
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 2.0439956
   useSidewalk: 0
@@ -164043,6 +167351,97 @@ MonoBehaviour:
   breakSounds:
   - {fileID: 8300000, guid: 5d46a2e4e6b0b9547833acf86350fb71, type: 3}
   spriteSet: Kala
+--- !u!1 &1874011886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874011888}
+  - component: {fileID: 1874011887}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1874011887
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874011886}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -4313602054734619006, guid: 40280c2352b098f429a9d624d20b82d7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 3.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1874011888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874011886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1266839670}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1875010332
 GameObject:
   m_ObjectHideFlags: 0
@@ -164309,6 +167708,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -165235,6 +168646,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -165340,6 +168763,413 @@ Transform:
   - {fileID: 144608477}
   m_Father: {fileID: 1627037414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1886210176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886210177}
+  - component: {fileID: 1886210178}
+  m_Layer: 0
+  m_Name: Rosvo (komentosilta 2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886210177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886210176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70021.65, y: -1.21761, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1684497936}
+  - {fileID: 520932295}
+  m_Father: {fileID: 1957591765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886210178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886210176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114f8001dd73b9143a2f32c6052a607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  displayName: Rosvo
+  bigBody: 1
+  bowlDamage: 10
+  flipThrownSprites:
+  - {fileID: 1939263974783267581, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2609353432966733023, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 1699401402937851253, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 3805761988716448138, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2800270448808489753, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: 2406065961263509570, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: -3889220326800768315, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  - {fileID: -5038685578293174515, guid: 2835ce5c3fe85e44f81f026b3cc97a99, type: 3}
+  flipFlightFrames: 1
+  flipFlightFrameTime: 0.12
+  flipLandFrameTime: 0.11
+  headlockThrownSprites: []
+  headlockFlightSprites: []
+  kneeHeldSprites: []
+  kneeFlightSprites: []
+  idleSprites:
+  - {fileID: 5858235126274478601, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: 3488158356899681203, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -7073892331238483339, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: 3476780692799805923, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -3434594210222581617, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  - {fileID: -7755505858337347899, guid: 78dc8785ad07b0c4a99d589a5b6f85e2, type: 3}
+  calmIdleSprites: []
+  calmWalkSprites: []
+  calmWalkFrameTime: 0.08
+  wakeOnFightRadius: 0
+  walkSprites:
+  - {fileID: 7405881545837128967, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8843716253944187576, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8990784250412631321, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -4075563765581052317, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 5594230701264774420, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 2982124602351178813, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -8584584379149615830, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -2075402023974992381, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: -6176745276549708087, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  - {fileID: 3623390409221955680, guid: 3216ad22f0461b343a0fe84cfcac8be4, type: 3}
+  runSprites: []
+  runFrameTime: 0.066
+  punch2Sprites:
+  - {fileID: 5086059214826843184, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 5006211207003284447, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 490220192028158793, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 960484111005197975, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  - {fileID: 5233381774100693800, guid: 0fedbe0d1e67e8140bd4423ceb026813, type: 3}
+  punch2ImpactFrame: 2
+  punch2Damage: 16
+  punch2Knockdown: 1
+  punch2LaunchUp: 0
+  punch2LaunchX: 4
+  punch2Chance: 0.25
+  punch2Uppercut: 0
+  uppercutUp: 24
+  punch3Sprites:
+  - {fileID: -3044255277174782529, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -3044255277174782529, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2984998293016728866, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2984998293016728866, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1830673732185202908, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1830673732185202908, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -1427674949655019701, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -2614868226818970817, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 2876643998167603929, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 4220002070546496326, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 3543268208617734854, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -7005315089151294800, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -5734315799587501174, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 8894594940553895555, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: 9059844986083565536, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  - {fileID: -6944155910212088852, guid: 57faee897f5492942919dc94bddeb014, type: 3}
+  punch3ImpactFrame: 11
+  punch3Damage: 24
+  punch3Knockdown: 1
+  punch3LaunchUp: 8
+  punch3LaunchX: 6
+  punch3Chance: 0.15
+  punch3WindupTime: 0.6
+  punch3RecoverTime: 0.55
+  punch3Reach: 2.5
+  punch3Heavy: 0
+  punch3Unblockable: 0
+  punch3WindupSounds: []
+  punch3SwingSounds: []
+  punch3Volume: 1
+  combos:
+  - JSJ
+  - JSP
+  comboChance: 0.7
+  comboWindupScale: 0.7
+  comboGap: 0.1
+  holdGround: 1
+  comboArmor: 1
+  debugCombos: 1
+  walkTalkSprites:
+  - {fileID: -6745955190575699684, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: -8827151538364004393, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: -5899716728994790490, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 2073010286392456187, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 471653629221862463, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 333139387597244546, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 1161573251323206556, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 1876983746949739795, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 8349278919147124369, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  - {fileID: 282960466552460821, guid: 6c252f9ae1a692948832f81be758f53e, type: 3}
+  talkDuration: 1.6
+  punchSprites:
+  - {fileID: -5199053908877130645, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 7641574248000131475, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 4308643146734740855, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: 1880704711438736710, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: -7283787439947016634, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  - {fileID: -5486873721081997372, guid: 765030534c948e94fa49ab3dae899e9f, type: 3}
+  hurtSprites:
+  - {fileID: 6959816155118569962, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  knockdownSprites:
+  - {fileID: 6959816155118569962, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 3841833079465975139, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 1561245954753189002, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 6696122723209874067, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: -8704174469370286455, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 5890807199093428787, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  getUpSprites:
+  - {fileID: 1396236028842320848, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 905156102324763648, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 6946320529487784015, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: -449064788259968691, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 8399835883279962262, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  - {fileID: 8020465396907304242, guid: 6887057cf22fac349afb4d65423d731b, type: 3}
+  idleFrameTime: 0.13
+  walkFrameTime: 0.11
+  body: {fileID: 1684497937}
+  shadow: {fileID: 520932296}
+  wakeDistance: 8
+  moveSpeedX: 3.2
+  moveSpeedY: 1.4
+  attackRange: 1.9
+  depthTolerance: 0.35
+  attackCooldown: 0.8
+  windupTime: 0.12
+  punchActiveTime: 0.13
+  punchRecoverTime: 0.4
+  punchDamage: 10
+  punchImpactFrame: 3
+  secondImpactFrame: -1
+  secondImpactPunchOnly: 0
+  altAttackSprites:
+  - {fileID: 244782260800602967, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -6157894680356085301, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: 5253881355902810257, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -7772308901151278220, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -1674557397375219120, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  - {fileID: -754264398520880174, guid: 1dd8796cd5c169d458b38d7f9903cc9b, type: 3}
+  altImpactFrame: 3
+  altDamage: 14
+  altChance: 0.12
+  altExtraWindup: 0.15
+  altReach: 1.5
+  altLungeSpeed: 0
+  altLungeTime: 0.25
+  altJumpHeight: 0
+  punchKnockdown: 0
+  punchShake: 0
+  altKnockdown: 0
+  altUnblockable: 0
+  altKnockdownLightOnly: 0
+  joinsFightWhenSquadComes: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  idleFacing: 0
+  altKnockSpeed: 7
+  altKnockUp: 6
+  chargeRange: 0
+  chargeMinRange: 2.6
+  chargeToEdge: 0
+  altNearChance: 0
+  altTimeScale: 1
+  throwsBarrels: 0
+  barrelThrowSpeed: 16
+  barrelThrowUp: 4
+  barrelDamage: 20
+  barrelRate: 0.35
+  bottleSprites: []
+  bottleRate: 0.3
+  fightsEveryone: 0
+  huntsBrawlers: 0
+  ally: 0
+  tauntSounds:
+  - {fileID: 8300000, guid: fddc45020e0e1614aacf240379e2a7ee, type: 3}
+  - {fileID: 8300000, guid: db6a9a4784dfae74395f9f8c54024337, type: 3}
+  tauntNoRepeat: 1
+  slapSounds: []
+  punchesAreSlaps: 0
+  hammerArt: 0
+  fallVoice: {fileID: 0}
+  getUpVoice: {fileID: 0}
+  tauntVolume: 1
+  tauntPause: {x: 4, y: 9}
+  runSpeedMultiplier: 1.15
+  flankChance: 0.1
+  flankArcDepth: 1.3
+  retreatChance: 0
+  retreatTime: 0.7
+  blockSprites:
+  - {fileID: -2366844834736980955, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: 3134750319160637669, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: 3134750319160637669, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: -6881771061950279613, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  - {fileID: -401350652137022040, guid: f1b009e28ba87ff44b069e5a63264187, type: 3}
+  blockChance: 0.25
+  maxBlocksInRow: 2
+  blockTime: 0.35
+  guardWhenHurt: 0
+  grabSprites:
+  - {fileID: 3309489879898656315, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -2957193118206181650, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -9207571384413360375, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 9071998498337108162, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -537605867652327590, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 2818674139678721646, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: -2613162824391197532, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  - {fileID: 5880925275573640919, guid: d050747d79d0aa24b81904011e72e153, type: 3}
+  clinchSprites: []
+  clinchChance: 0.35
+  clinchHits: 3
+  clinchDamage: 7
+  clinchFinalDamage: 12
+  clinchReach: 2.1
+  clinchReachTime: 0.34
+  clinchHitTime: 0.42
+  clinchLaunchX: 8
+  clinchLaunchUp: 5
+  slapSprites: []
+  slapChance: 0.25
+  slapCount: 10
+  slapDamage: 3
+  slapFinalDamage: 10
+  slapWindup: 1
+  slapTime: 0.2
+  slapStep: 0.16
+  slapReach: 2.2
+  slapGlide: 0
+  slapWindupSounds: []
+  heroDownLaugh: {fileID: 0}
+  helpShout: {fileID: 0}
+  helpBouncers: 2
+  barThrowSprites: []
+  barSprite: {fileID: 0}
+  barThrowChance: 0.5
+  barThrowMinRange: 3.2
+  barThrowMaxRange: 11
+  barThrowCooldown: 4
+  barDamage: 16
+  kickComboSprites: []
+  kickComboChance: 0.35
+  kickDamage1: 14
+  kickDamage2: 20
+  kickReach: 3.9
+  kickStartRange: 3.6
+  kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
+  grabChance: 0.3
+  grabRange: 1.3
+  grabReachTime: 0.22
+  grabLiftTime: 0.55
+  throwDamage: 18
+  throwForward: 0
+  throwTurnsAround: 0
+  grabsAnyone: 0
+  collarThrow: 0
+  heavyThrowScale: 0.55
+  throwSpeed: 11
+  throwUp: 10
+  grabWhenCloseTime: 0
+  bellySprites: []
+  bellyChance: 0
+  bellyRange: 1.6
+  bellyCounterChance: 0
+  bellyCounterAfterHits: 2
+  bellyDamage: 14
+  bellyKnockSpeed: 14
+  bellyKnockUp: 5.5
+  bellyPumpFrameTime: 0.08
+  bellyLaughFrameTime: 0.13
+  laughSound: {fileID: 0}
+  laughVolume: 1
+  stompSounds: []
+  stompVolume: 0.85
+  stompInterval: 0.2
+  stompShake: 0.07
+  looseBoardSprite: {fileID: 0}
+  landSprites:
+  - {fileID: 8261866702026837714, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  - {fileID: 5890807199093428787, guid: f87e3771dc4b5094b95200da4907e63f, type: 3}
+  landFrameTime: 0.12
+  footIdleSprites: []
+  footWalkSprites: []
+  footPunchSprites: []
+  footHurtSprites: []
+  footPunchImpactFrame: 3
+  footSecondImpactFrame: -1
+  footWindupTime: 0.15
+  footPunchRecoverTime: 0.6
+  footKickSprites: []
+  footKickImpactFrame: 5
+  footKickLunge: 6
+  footKickJump: 1.3
+  footMoveSpeedX: 2.8
+  footMoveSpeedY: 1.6
+  footWalkFrameTime: 0.05
+  skatePass: 0
+  passOvershoot: 6.5
+  passTurnInterval: 2.5
+  maxHealth: 130
+  hurtTime: 0.35
+  downTime: 1
+  getUpTime: 1
+  getUpFacesBack: 1
+  getUpRollSprites: []
+  getUpRollTime: 0.45
+  ringedSprites: []
+  ringedTime: 3.5
+  noteValue: 1
+  stackValue: 50
+  stackChance: 0.04
+  hurtSounds:
+  - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
+  - {fileID: 8300000, guid: b5dce38bb03d1774d8e6199fe76789ea, type: 3}
+  - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
+  - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
+  - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  hurtVolume: 0.95
+  attackSounds:
+  - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
+  - {fileID: 8300000, guid: 442c870a2bc85394a9ae2d3409129c03, type: 3}
+  - {fileID: 8300000, guid: c66521343ca87434eaf1af29dc93592c, type: 3}
+  - {fileID: 8300000, guid: 6fa45b279a5775b4ab7c35e6881d184a, type: 3}
+  - {fileID: 8300000, guid: 87a64084388174149babfa6c7e10f200, type: 3}
+  attackVolume: 0.9
+  attackSoundChance: 1
+  footOffset: 0.08
+  visualScale: 1
+  attackArtScale: 1
+  knockArtScale: 1
+  walkArtScale: 1
+  isBoss: 0
+  appearAfterOthers: 0
 --- !u!1 &1887212857
 GameObject:
   m_ObjectHideFlags: 0
@@ -165672,6 +169502,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -166150,6 +169992,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -166340,6 +170183,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -166499,6 +170343,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -167363,6 +171208,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -169184,6 +173030,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -169718,6 +173576,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -170167,9 +174037,43 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
+--- !u!1 &1957591764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957591765}
+  m_Layer: 0
+  m_Name: Komentosillan rosvot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957591765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957591764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1370557323}
+  - {fileID: 1886210177}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959031065
 GameObject:
   m_ObjectHideFlags: 0
@@ -170800,6 +174704,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -171241,6 +175157,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -172217,6 +176145,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -172459,6 +176399,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -173060,6 +177001,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -173553,6 +177506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Area
   areaName: Uccopulco
   music: {fileID: 8300000, guid: 4e6a8e97195496b41bf42dcbc2821266, type: 3}
+  ambience: {fileID: 0}
+  ambienceVolume: 1
   minDepthY: -3.4
   maxDepthY: 1.6340473
   useSidewalk: 1
@@ -173628,6 +177583,97 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1997726851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997726852}
+  - component: {fileID: 1997726853}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1997726852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997726851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370557323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1997726853
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997726851}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1997895244
 GameObject:
   m_ObjectHideFlags: 0
@@ -174863,6 +178909,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -175371,6 +179418,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -176208,6 +180267,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -177229,6 +181289,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -177780,6 +181852,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -177957,6 +182041,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -178022,6 +182107,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -178412,6 +182498,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -179106,6 +183204,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.5
   energyChance: 0.3
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -179711,6 +183810,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -180091,6 +184202,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -180848,6 +184971,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -181580,6 +185715,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 0.9978947
   footOffset: 0.04
@@ -182458,6 +186594,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.22
@@ -182830,6 +186978,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -184611,6 +188771,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -185054,6 +189226,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -186009,6 +190193,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -186249,6 +190434,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0.3
   energyChance: 0.15
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.3
   footOffset: 0.04
@@ -186620,6 +190806,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -187451,6 +191649,7 @@ MonoBehaviour:
   burstTime: 0.35
   moneyChance: 0
   energyChance: 0
+  thermosChance: 0.06
   energyStamina: 40
   visualScale: 1.2
   footOffset: 0.05
@@ -187895,6 +192094,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.4
   grabReachTime: 0.25
@@ -188596,6 +192807,18 @@ MonoBehaviour:
   kickReach: 3.9
   kickStartRange: 3.6
   kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
   grabChance: 0.3
   grabRange: 1.3
   grabReachTime: 0.3
@@ -190053,3 +194276,9 @@ SceneRoots:
   - {fileID: 667373730}
   - {fileID: 1452170148}
   - {fileID: 1532499743}
+  - {fileID: 788886025}
+  - {fileID: 695989477}
+  - {fileID: 476564059}
+  - {fileID: 934634552}
+  - {fileID: 1266839670}
+  - {fileID: 1957591765}
