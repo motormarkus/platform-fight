@@ -32,12 +32,12 @@ public class ShopCounter : MonoBehaviour
     public string prompt = "Puhu Sohville";
     public Item[] items =
     {
-        new Item { name = "Sipsipussi",      price = 1,  heal = 10,  stamina = 10,  comment = "Rapsakka." },
-        new Item { name = "Grillimakkara",   price = 2,  heal = 20,  stamina = 15,  comment = "Sinapilla." },
-        new Item { name = "Lonkero",         price = 3,  heal = 30,  stamina = 30,  comment = "Kylmä ja kirpeä." },
-        new Item { name = "Makkaraperunat",  price = 5,  heal = 50,  stamina = 25,  comment = "Kunnon annos." },
-        new Item { name = "Tuoppi",          price = 6,  heal = 60,  stamina = 40,  comment = "Hanasta." },
-        new Item { name = "Kossupaukku",     price = 15, heal = 999, stamina = 999, comment = "Täydet voimat!" },
+        new Item { name = "Sipsipussi",      price = 3,  heal = 10,  stamina = 10,  comment = "Rapsakka." },
+        new Item { name = "Grillimakkara",   price = 3,  heal = 20,  stamina = 15,  comment = "Sinapilla." },
+        new Item { name = "Lonkero",         price = 6,  heal = 30,  stamina = 30,  comment = "Kylmä ja kirpeä." },
+        new Item { name = "Makkaraperunat",  price = 8,  heal = 50,  stamina = 25,  comment = "Kunnon annos." },
+        new Item { name = "Tuoppi",          price = 7,  heal = 60,  stamina = 40,  comment = "Hanasta." },
+        new Item { name = "Kossupaukku",     price = 10, heal = 999, stamina = 999, comment = "Täydet voimat!" },
     };
 
     public const int BooniPrice = 75;
@@ -66,8 +66,17 @@ public class ShopCounter : MonoBehaviour
         audioSource.spatialBlend = 0f;
     }
 
+    /// Baarin hinnat (markkoina): asetetaan myös sceneen tallennetuille tiskeille.
+    static readonly System.Collections.Generic.Dictionary<string, int> Prices = new System.Collections.Generic.Dictionary<string, int>
+    {
+        { "Sipsipussi", 3 }, { "Grillimakkara", 3 }, { "Lonkero", 6 }, { "Makkaraperunat", 8 }, { "Tuoppi", 7 }, { "Kossupaukku", 10 },
+    };
+
     void Start()
     {
+        if (items != null)
+            foreach (var it in items)
+                if (it != null && Prices.TryGetValue(it.name, out int pr)) it.price = pr;
         // Uccopulcossa (El Loipparin tiski) kossun tilalla rommi: merimieskänni
         if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
             foreach (var it in items)
