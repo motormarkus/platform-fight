@@ -3697,6 +3697,119 @@ public static class BeatEmUpSetup
              string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
+    // ---------------- Laivan katto (kapteenin jälkeen) ----------------
+    // laiva_katto.png (1672 × 941, yksi ruutu, ei vieritä): chinook-kopteri laivan katolla. Taivas on läpinäkyvä:
+    // takana rullaa kuunvalotaivas (laiva_katto_taivas.png = kauko-yökuvan yläosa), vain horisontti näkyy kaiteen raoista.
+    // Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat (laiva_tikkaat.png), joista pääsee tänne.
+    const string RoofAreaName = "Laivan katto";
+    const float ShipRoofX0 = 74000f, RoofBackPx = 540f;
+    const float RoofHorizonPx = 450f, RoofSkyScale = 1.6f;       // horisontti (taivaskuvan rivi 291) kaiteen raon korkeudelle
+    const float RoofMoonPx = 900f, RoofSkyMoonSrcPx = 887f;      // kuu alkaa rotorien välistä (kuvan x), kuun x taivaskuvassa
+    const float RoofSkySpeed = 0.35f;                            // sama kuin laivan muiden ruutujen kaukaisella merellä
+    static readonly Color RoofTint = new Color(0.72f, 0.78f, 0.95f);   // kullanhohtoinen kansi kuunvaloon
+    const float BridgeLadderXPx = 1160f, BridgeLadderFootPx = 520f;    // tikkaiden jalka komentosillan kuvassa (ruorin ja karttapöydän välissä)
+
+    static Sprite ImportShipSprite(string path, float ppu, bool tiled, SpriteAlignment align)
+    {
+        var t = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (t == null) return null;
+        t.textureType = TextureImporterType.Sprite; t.spriteImportMode = SpriteImportMode.Single;
+        t.spritePixelsPerUnit = ppu; t.filterMode = FilterMode.Bilinear; t.alphaIsTransparency = true;
+        t.textureCompression = TextureImporterCompression.Uncompressed; t.maxTextureSize = 8192; t.mipmapEnabled = false;
+        t.wrapMode = tiled ? TextureWrapMode.Repeat : TextureWrapMode.Clamp;
+        var st = new TextureImporterSettings(); t.ReadTextureSettings(st);
+        st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)align;
+        t.SetTextureSettings(st); t.SaveAndReimport();
+        return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    }
+
+    [MenuItem("Beat em up/87. Laivan katto: chinook, kuunvalotaivas ja tikkaat komentosillalta (kapteenin jälkeen)")]
+    static void CreateShipRoof()
+    {
+        if (PlayModeBlocked()) return;
+        const string roofPath = "Assets/Sprites/Taustat/laiva_katto.png";
+        const string skyPath = "Assets/Sprites/Taustat/laiva_katto_taivas.png";
+        const string ladderPath = "Assets/Sprites/Rekvisiitta/laiva_tikkaat.png";
+        var bridge = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == BridgeAreaName);
+        var bridgeBg = GameObject.Find(BridgeAreaName);
+        var captainGo = GameObject.Find("Kapteeni");
+        var roofTi = AssetImporter.GetAtPath(roofPath) as TextureImporter;
+        var ladTi = AssetImporter.GetAtPath(ladderPath) as TextureImporter;
+        if (bridge == null || bridgeBg == null) { Info("Tee ensin komentosilta (kohta 84)."); return; }
+        if (captainGo == null || captainGo.GetComponent<Enemy>() == null) { Info("Tee ensin kapteeni (kohta 85): tikkaat putoavat, kun hän kaatuu."); return; }
+        if (roofTi == null || ladTi == null || AssetImporter.GetAtPath(skyPath) == null) { Info("Tarvitaan kuvat:\n" + roofPath + "\n" + skyPath + "\n" + ladderPath); return; }
+        foreach (var n in new[] { "Laivan katto (kuva)", "Katon taivas", "Katon tikkaat" })   // alue säilyy (ReuseArea)
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+
+        // kuva: yksi ruutu, ei vieritä
+        roofTi.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf);
+        var roofSpr = ImportShipSprite(roofPath, ppu, false, SpriteAlignment.Center);
+        float wU = w / ppu, hU = h / ppu, halfW = CamHalf * 16f / 9f;
+        var bg = new GameObject("Laivan katto (kuva)");
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = roofSpr; sr.sortingOrder = -10000; sr.color = RoofTint;
+        bg.transform.position = new Vector3(ShipRoofX0 + wU * 0.5f, CamY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Laivan katto");
+        float top = CamY + hU * 0.5f;
+        float RX(float px) => ShipRoofX0 + px / ppu;
+        float RY(float row) => top - row / ppu;
+
+        var area = ReuseArea("Alue: " + RoofAreaName);
+        area.areaName = RoofAreaName;
+        area.music = bridge.music;
+        area.useSidewalk = false;
+        area.maxDepthY = RY(RoofBackPx);
+        area.minDepthY = CamY - CamHalf + 1.2f;
+        area.camMinX = ShipRoofX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, ShipRoofX0 + wU - halfW);
+        area.walkMinX = RX(60f); area.walkMaxX = RX(w - 60f);
+        EditorUtility.SetDirty(area);
+
+        // kuunvalotaivas takana: hidas rullaus ja keinunta kuten laivan muilla kaukaisilla meren kerroksilla
+        float sp = ppu / RoofSkyScale;
+        var skySpr = ImportShipSprite(skyPath, sp, true, SpriteAlignment.Center);
+        float sw = skySpr.rect.width / sp, sh = skySpr.rect.height / sp;
+        int tiles = Mathf.CeilToInt(2f * halfW / sw) + 2; if (tiles % 2 == 0) tiles++;   // pariton: yksi kuva on keskellä
+        var sky = new GameObject("Katon taivas");
+        var ssr = sky.AddComponent<SpriteRenderer>(); ssr.sprite = skySpr; ssr.sortingOrder = -10100; ssr.drawMode = SpriteDrawMode.Tiled;
+        ssr.size = new Vector2(tiles * sw, sh);
+        sky.transform.position = new Vector3(ShipRoofX0 + wU * 0.5f, RY(RoofHorizonPx - 291f * RoofSkyScale) - sh * 0.5f, 0f);
+        var sl = sky.AddComponent<ScrollingLayer>();
+        sl.autoSpeed = RoofSkySpeed; sl.parallax = 0f; sl.area = area; sl.bobAmplitude = 0.15f; sl.bobPeriod = 7f;
+        sl.startPhase = (RoofMoonPx - w * 0.5f) / ppu - (RoofSkyMoonSrcPx - skySpr.rect.width * 0.5f) / sp;   // kuu alkaa kohdasta RoofMoonPx
+        Undo.RegisterCreatedObjectUndo(sky, "Katon taivas");
+
+        // tikkaat komentosillalle: piilossa, kunnes kapteeni kaatuu
+        var bsr = bridgeBg.GetComponent<SpriteRenderer>();
+        float bppu = bsr.sprite.pixelsPerUnit;
+        float lx = bsr.bounds.min.x + BridgeLadderXPx / bppu, ly = bsr.bounds.max.y - BridgeLadderFootPx / bppu;
+        ladTi.GetSourceTextureWidthAndHeight(out _, out int lh);
+        float lp = lh / ((BridgeLadderFootPx + 60f) / bppu);   // katosta (rivi -60) lattiaan
+        var ladSpr = ImportShipSprite(ladderPath, lp, false, SpriteAlignment.BottomCenter);
+        var root = new GameObject("Katon tikkaat");
+        root.transform.position = new Vector3(lx, ly, 0f);
+        Undo.RegisterCreatedObjectUndo(root, "Katon tikkaat");
+        var vis = new GameObject("Tikkaat").AddComponent<SpriteRenderer>();
+        vis.transform.SetParent(root.transform, false);
+        vis.sprite = ladSpr; vis.sortingOrder = -9000; vis.color = bsr.color;   // hahmojen takana, myös kiivetessä
+        var door = new GameObject("Ovi katolle").AddComponent<Door>();
+        door.transform.SetParent(root.transform, false);
+        door.prompt = "Kiipeä katolle"; door.here = bridge; door.target = area;
+        door.spawnPoint = new Vector2(RX(330f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.45f));
+        door.halfWidth = 1.3f; door.maxDistanceFromWall = 1.6f; door.blockedDuringFight = false;
+        door.climbHeight = (BridgeLadderFootPx - 120f) / bppu; door.climbTime = 1.4f;
+        var bl = root.AddComponent<BossLadder>();
+        bl.boss = captainGo.GetComponent<Enemy>(); bl.ladder = vis; bl.door = door;
+        bl.dropHeight = (BridgeLadderFootPx + 40f) / bppu;
+
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info($"Laivan katto luotu ({wU:0.0} yksikköä, yksi ruutu) kuunvalotaivaalla.\n" +
+             "Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat: E kiipeää katolle.\n\nTallenna scene (Ctrl+S).");
+    }
+
     // ---------------- Puliukko (laivan käytävä) ----------------
     [MenuItem("Beat em up/61. Puliukko laivan käytävään (tulee hyttiovesta)")]
     static void AddDrunk()

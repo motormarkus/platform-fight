@@ -17,12 +17,14 @@ public class ScrollingLayer : MonoBehaviour
     public float bobPeriod = 7f;
     [Tooltip("Yökuva (kuunvalo), häivytetään päälle ShipNight.Mix mukaan.")]
     public Sprite nightSprite;
+    [Tooltip("Rullauksen alkukohta (yksikköä): kuvan voi aloittaa halutusta kohdasta, esim. kuu näkyviin.")]
+    public float startPhase;
     SpriteRenderer sr, nightR;
     float t, baseY;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>(); baseY = transform.position.y;
+        sr = GetComponent<SpriteRenderer>(); baseY = transform.position.y; t = startPhase;
         if (nightSprite != null)
         {
             nightR = new GameObject("Yö").AddComponent<SpriteRenderer>();
