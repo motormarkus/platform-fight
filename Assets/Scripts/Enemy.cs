@@ -169,6 +169,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool altUnblockable;
     [Tooltip("Vaihtoehtoinen isku kaataa vain kevyet vihut (ei isoja: Kovis, portsari, rosvo…); pelaajaan normaalisti.")]
     public bool altKnockdownLightOnly;
+    [Header("Tappelu muita vastaan (peltihalli: motoristit, rokkimimmit, puliukko)")]
+    [Tooltip("Valitsee kohteekseen lähimmän toisen ryhmän tappelijan (ruudulla), kunnes hero tulee aivan viereen.")]
+    public bool brawlsWithOthers;
+    [Tooltip("Ryhmä: saman ryhmän tappelijat eivät lyö toisiaan. Tyhjä = lyö kaikkia (puliukko).")]
+    public string brawlGroup = "";
+    [Tooltip("Hero ohittaa muiden kohteet, kun hän on tätä lähempänä (etäisyys x + 2 × y).")]
+    public float brawlHeroPriority = 2.5f;
+
     [Header("Tepastelu ennen tappelua")]
     [Tooltip("Hereillä vasta, kun tappelu alkaa (BouncerSquad herättää); siihen asti tepastelee välillä wanderMinX…wanderMaxX.")]
     public bool joinsFightWhenSquadComes;
@@ -2138,6 +2146,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (enemyTarget != null && (!VisibleFighter(enemyTarget) || TargetDown(enemyTarget) || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
             enemyTarget = null;
+        if (brawlsWithOthers && !ally)
+        {
+            if (Time.time >= retargetTime || enemyTarget == null)
+            {
+                retargetTime = Time.time + 0.6f;
+                Vector3 me = transform.position;
+                float heroD = player != null && !player.IsDown ? Mathf.Abs(player.transform.position.x - me.x) + Mathf.Abs(player.transform.position.y - me.y) * 2f : float.MaxValue;
+                Enemy pick = null; float best = float.MaxValue;
+                foreach (var e in All)
+                {
+                    if (e == this || e.ally || !VisibleFighter(e) || TargetDown(e)) continue;
+                    if (brawlGroup.Length > 0 && e.brawlGroup == brawlGroup) continue;   // oma ryhmä ei lyö toisiaan
+                    Vector3 q = e.transform.position;
+                    if (Mathf.Abs(q.x - me.x) > 14f) continue;
+                    float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                    if (d < best) { best = d; pick = e; }
+                }
+                enemyTarget = pick != null && heroD > brawlHeroPriority ? pick : null;
+                if (enemyTarget != null) grudgeUntil = Time.time + 1.5f;
+            }
+            return enemyTarget != null;
+        }
         if (ally)
         {
             // liittolainen: lähin vihu (ei pelaaja, ei toinen liittolainen)

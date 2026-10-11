@@ -4392,6 +4392,7 @@ public static class BeatEmUpSetup
             try { CreateDesertRoad(); }
             finally { batch = wasBatch; }
         }
+        SetupHallBrawl();
         Info("Peltihalli lisätty: E-sisäänkäynti Aavikon vasemmalla, ikkunaparallax, 3 motorista, 3 rokkimimmiä, 2 baaripöytää pulloineen ja snookerpöytä. Tallenna scene (Ctrl+S).");
     }
 
@@ -6044,6 +6045,51 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         Info("Ruoskan kiinniotto: Rocco ja Ruby nappaavat Rustyn ruoskasta (kurotus eli vastaheitto-nappi juuri ennen kuin ruoska iskee) ja nykäisee kumoon. Tallenna scene (Ctrl+S).");
+    }
+
+    /// Peltihalli: motoristit ja rokkimimmit tappelevat keskenään, ja baaritiskin puliukko mätkii kaikkia heron tullessa.
+    static string SetupHallBrawl()
+    {
+        int bikers = 0, rockers = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null) continue;
+            string n = e.gameObject.name;
+            if (n.StartsWith("Peltihallin motoristi")) { Undo.RecordObject(e, "Peltihallin tappelu"); e.brawlsWithOthers = true; e.brawlGroup = "motoristi"; EditorUtility.SetDirty(e); bikers++; }
+            else if (n.StartsWith("Peltihallin rokkimimmi")) { Undo.RecordObject(e, "Peltihallin tappelu"); e.brawlsWithOthers = true; e.brawlGroup = "rokkimimmi"; EditorUtility.SetDirty(e); rockers++; }
+        }
+        string drunkInfo = "puliukkoa ei lisätty (tee ensin kohta 61)";
+        var hall = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Peltihalli");
+        var shop = GameObject.Find("Peltihallin baaritiski");
+        var template = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(en => en != null && en.gameObject.name == "Puliukko");
+        if (hall != null && shop != null && template != null)
+        {
+            var old = GameObject.Find("Peltihallin puliukko");
+            if (old != null) Undo.DestroyObjectImmediate(old);
+            var clone = Object.Instantiate(template.gameObject, shop.transform.parent);
+            clone.name = "Peltihallin puliukko";
+            Undo.RegisterCreatedObjectUndo(clone, "Peltihallin puliukko");
+            float x = shop.transform.position.x;
+            clone.transform.position = new Vector3(x + 1.4f, hall.maxDepthY - 0.5f, 0f);
+            var de = clone.GetComponent<Enemy>();
+            de.joinsFightWhenSquadComes = false;
+            de.wakeDistance = 22f;                       // herää, kun hero tulee paikalle
+            de.wanderMinX = x - 2.2f; de.wanderMaxX = x + 2.2f;   // tepastelee tiskin luona
+            de.brawlsWithOthers = true; de.brawlGroup = "";       // mätkii kaikkia
+            clone.SetActive(true);
+            drunkInfo = "puliukko lisätty baaritiskille";
+        }
+        else if (hall == null || shop == null) drunkInfo = "puliukkoa ei lisätty (peltihalli tai baaritiski puuttuu)";
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        return $"{bikers} motoristia ja {rockers} rokkimimmiä tappelevat keskenään; {drunkInfo}.";
+    }
+
+    [MenuItem("Beat em up/101. Peltihalli: tappelu (motoristit, rokkimimmit ja tiskin puliukko)")]
+    static void AddHallBrawl()
+    {
+        if (PlayModeBlocked()) return;
+        Info(SetupHallBrawl() + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/99. Aavikkokatu: Rustyt (6 kpl)")]
