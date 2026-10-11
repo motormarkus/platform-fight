@@ -5981,7 +5981,7 @@ public static class BeatEmUpSetup
         {
             e.altAttackSprites = whip; e.altImpactFrame = 6; e.altDamage = 14; e.altKnockdown = true; e.altReach = 7f;
             e.altChance = 0.4f; e.altNearChance = 0.15f; e.chargeRange = 7f; e.chargeMinRange = 2.5f;
-            e.altLungeSpeed = 0f; e.altExtraWindup = 0.1f; e.altKnockSpeed = 6f; e.altKnockUp = 6f;
+            e.altLungeSpeed = 0f; e.altExtraWindup = 0.34f; e.altKnockSpeed = 6f; e.altKnockUp = 6f;   // ruoskan veto 0,5 s (jabin lyhyt veto ei saa nopeuttaa sitä)
             // hero voi napata ruoskasta kiinni (kurotus ajoissa): nykäisy 6 kuvaa, solu 2048 leveä; sen jälkeen ei ruoskaa
             var yank = EnemySheet("rusty_nykaisy", report);
             if (yank.Length >= 6) { e.whipAttack = true; e.yankSprites = yank; }
