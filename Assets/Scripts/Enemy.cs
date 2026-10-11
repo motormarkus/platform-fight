@@ -2277,7 +2277,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
         if (Time.time - lastHitTime > 0.9f) comboHits = 0;
-        bool unblockable = player != null && player.Boosted;   // pärinä: heron iskuja ei voi torjua
+        bool unblockable = player != null && player.Boosted && !isBoss;   // pärinä: heron iskuja ei voi torjua (pomot torjuvat silti)
         if (!unblockable && bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
             && comboHits >= bellyCounterAfterHits && Random.value < bellyCounterChance)
         {
