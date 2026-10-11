@@ -6009,9 +6009,17 @@ public static class BeatEmUpSetup
         if (sp.Length < 6) { Info($"ruoskan_kiinniotto.png: {sp.Length}/6 kuvaa."); return; }
         Undo.RecordObject(pc, "Ruoskan kiinniotto");
         pc.whipCatchSprites = sp;
+        string rpath = FindTexture("sankaritar_ruoskan_kiinniotto");
+        if (rpath != null)
+        {
+            SetupAndSlice(rpath);
+            var rsp = LoadSprites("sankaritar_ruoskan_kiinniotto")
+                .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+            if (rsp.Length >= 6) pc.rubyWhipCatchSprites = rsp;
+        }
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
-        Info("Ruoskan kiinniotto: Rocco nappaa Rustyn ruoskasta (kurotus eli vastaheitto-nappi juuri ennen kuin ruoska iskee) ja nykäisee kumoon. Tallenna scene (Ctrl+S).");
+        Info("Ruoskan kiinniotto: Rocco ja Ruby nappaavat Rustyn ruoskasta (kurotus eli vastaheitto-nappi juuri ennen kuin ruoska iskee) ja nykäisee kumoon. Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Lisää Rusty (idle ja kävely) pelaajan viereen")]
@@ -6024,7 +6032,7 @@ public static class BeatEmUpSetup
         Vector3 at = pc != null ? pc.transform.position + new Vector3(4f, 0f, 0f) : Vector3.zero;
         rusty.transform.position = at;
         rusty.gameObject.SetActive(true);
-        if (pc != null && (pc.whipCatchSprites == null || pc.whipCatchSprites.Length < 6)) AssignWhipCatch();
+        if (pc != null && (pc.whipCatchSprites == null || pc.whipCatchSprites.Length < 6 || pc.rubyWhipCatchSprites == null || pc.rubyWhipCatchSprites.Length < 6)) AssignWhipCatch();
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         Info("Rusty lisätty pelaajan viereen: idle, kävely ja kevyt (uppercut lennättää korkealle). Tallenna scene (Ctrl+S).");
     }

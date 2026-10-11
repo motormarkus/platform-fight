@@ -1180,6 +1180,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(blockSprites);
         SortByFrameNumber(counterThrowSprites);
         SortByFrameNumber(whipCatchSprites);
+        SortByFrameNumber(rubyWhipCatchSprites);
         SortByFrameNumber(kneeSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
@@ -2770,9 +2771,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Ruoskan kiinniotto (Rocco): ajoitettu kurotus nappaa Rustyn ruoskasta ja nykäisee kumoon")]
     [Tooltip("ruoskan_kiinniotto.png: 0 kurotus, 1 nyrkki ojossa, 2 ote, 3–5 veto.")]
     public Sprite[] whipCatchSprites;
+    [Tooltip("sankaritar_ruoskan_kiinniotto.png: Rubyn kuvat samassa järjestyksessä.")]
+    public Sprite[] rubyWhipCatchSprites;
+    Sprite[] WhipArt => AppliedCharacter == 1 ? rubyWhipCatchSprites : whipCatchSprites;
     static readonly float[] WhipCatchTimes = { 0.06f, 0.07f, 0.09f, 0.12f, 0.12f, 0.5f };
     const float WhipCatchTotal = 1.0f;
-    bool HasWhipArt => AppliedCharacter == 0 && whipCatchSprites != null && whipCatchSprites.Length >= 6;
+    bool HasWhipArt => WhipArt != null && WhipArt.Length >= 6;
 
     /// Ruoskaa heiluttava vihu iskee: jos hero on kurottanut (Catch) sen suuntaan ajoissa, ruoskasta napataan kiinni.
     public bool TryCatchWhip(Enemy attacker)
@@ -3741,7 +3745,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
 
             case State.WhipCatch:
-                if (HasWhipArt) return whipCatchSprites[WhipCatchFrame()];
+                if (HasWhipArt) return WhipArt[WhipCatchFrame()];
                 if (AppliedCharacter == 1 && HasPummel) return pummelSprites[1];
                 return HasCounterThrow ? counterThrowSprites[0] : Action(F_PUNCH);
 
