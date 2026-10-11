@@ -616,9 +616,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
             float side = yankFrom.x >= hp.x ? 1f : -1f;
             yankTo = new Vector2(hp.x + side * yankStopGap, Mathf.Lerp(yankFrom.y, hp.y, 0.8f));
         }
-        float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.12f));
-        float e = 1f - (1f - u) * (1f - u);
-        Vector2 pos = Vector2.Lerp(yankFrom, yankTo, e);
+        // ensin hidas liuku eteen (ruoska vetää), sitten lento
+        const float slideFrac = 0.3f;
+        Vector2 pos;
+        if (t < YankStumble)
+        {
+            float k = t / YankStumble;
+            pos = Vector2.Lerp(yankFrom, yankTo, slideFrac * k * k);   // lähtee liikkeelle hitaasti ja kiihtyy
+        }
+        else
+        {
+            float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.12f));
+            float e = 1f - (1f - u) * (1f - u);
+            pos = Vector2.Lerp(Vector2.Lerp(yankFrom, yankTo, slideFrac), yankTo, e);
+        }
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
         float fu = Mathf.Clamp01((t - YankStumble) / YankFly);
         height = t < YankStumble ? 0f : YankHeight * Mathf.Sin(fu * Mathf.PI);
@@ -2947,6 +2958,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     int wind = Mathf.Clamp(PunchImpact - 1, 1, AtkSprites.Length);
                     return AtkSprites[Mathf.Min((int)(stateTime / CurrentWindup * wind), wind - 1)];
                 }
+                rot = 10f * Mathf.Clamp01(stateTime / Mathf.Max(0.01f, CurrentWindup));   // ei iskukuvia: nojaa taakse vetäessä
                 return IdleFrame();
 
             case State.Punch:
@@ -2961,6 +2973,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     float mid = hammerArt && usingPunch3 ? 0.09f : 0.04f;
                     return AtkSprites[stateTime < mid && imp > 0 ? imp - 1 : imp];
                 }
+                rot = -16f;   // ei iskukuvia: nojaa eteen iskussa
                 return IdleFrame();
 
             case State.Recover:
@@ -2971,6 +2984,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     int n = AtkSprites.Length - imp;
                     return AtkSprites[imp + Mathf.Min((int)(stateTime / CurrentRecover * n), n - 1)];
                 }
+                rot = -16f * (1f - Mathf.Clamp01(stateTime / Mathf.Max(0.01f, CurrentRecover)));   // palaa pystyyn
                 return IdleFrame();
 
             case State.BottlePick:
