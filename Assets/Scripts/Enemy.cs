@@ -231,6 +231,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [HideInInspector] public bool hammerArt;   // Horhe: vasaran nosto näytetään selvästi
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
+    [Range(0f, 1f)] public float fallVoiceVolume = 1f, altWindupVolume = 1f;
     public float tauntVolume = 1f;
     [Tooltip("Satunnainen huuto vain, kun hero on tätä kauempana (0 = aina). Ei puhu heron naamalle.")]
     public float tauntMinDistance = 0f;
@@ -582,7 +583,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("rusty_nykaisy.png: 0 horjahdus, 1–3 lento heroa kohti, 4–5 liuku vatsallaan (viimeinen jää makuuksi).")]
     public Sprite[] yankSprites;
     public float yankStopGap = 1.5f;
-    const float YankStumble = 0.2f, YankFly = 0.3f, YankTotal = 0.8f, YankHeight = 1.1f;   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
+    const float YankStumble = 1.0f, YankFly = 0.35f, YankTotal = 1.65f, YankHeight = 1.1f;   // sekunnin viive nykäisyn jälkeen, sitten ilmalento heroa kohti   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
     Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
 
     /// Ruoska on juuri iskemässä (lataus tai isku): hero voi valmistautua kurotukseen jo kaukaa.
@@ -598,6 +599,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         yankFrom = me;
         yankTo = new Vector2(hp.x + side * yankStopGap, Mathf.Lerp(me.y, hp.y, 0.8f));
         yankDust = false; yankLanded = false;
+        shakeUntil = Time.unscaledTime + 0.25f;   // nykäisy: Rusty hytkähtää
         // ei enää ruoskaa: lähitaisteluun
         altAttackSprites = null; chargeRange = 0f; altChance = 0f; altNearChance = 0f;
         awake = true;
@@ -1688,7 +1690,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Enter(State s)
     {
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
-        if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, 1f);
+        if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, altWindupVolume);
         if (s == State.Windup && usingPunch3)
         {
             // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu
@@ -1707,7 +1709,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
-        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, 1f);
+        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, 1f); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
         if (s == State.Slaps)

@@ -6141,12 +6141,13 @@ public static class BeatEmUpSetup
     /// Prätkäjätkän äänet (Assets/Audio/motoristi): gasp = osuma, hit = lyönti, fall = kaatuminen, lataus = hyppylyönnin veto, speak = puhe.
     static void ApplyBikerAudio(Enemy e)
     {
-        e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f;
+        const float db3 = 0.708f;   // motoristin äänet 3 dB hiljaisemmiksi
+        e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f * db3;
         if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f; }
-        e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
-        e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault();
-        e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus");
-        e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = 1f; e.tauntNoRepeat = true;
+        e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f * db3; e.attackSoundChance = 0.8f;
+        e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault(); e.fallVoiceVolume = db3;
+        e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus"); e.altWindupVolume = db3;
+        e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = db3; e.tauntNoRepeat = true;
         e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.5f;
     }
 
