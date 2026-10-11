@@ -481,6 +481,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Äänet")]
     [Tooltip("Toisen hyökkäyksen (esim. ruoska) isku: ääni soi iskun alkaessa; tyhjä = tavallinen huuto.")]
     public AudioClip[] altSwingSounds;
+    [Tooltip("Toisen hyökkäyksen (esim. hyppylyönti) latausääni: soi veto alkaessa.")]
+    public AudioClip[] altWindupSounds;
     [Tooltip("Ääni, kun vihu kaatuu eikä nouse enää.")]
     public AudioClip deathVoice;
     [Tooltip("Ääni, kun vihu lennätetään korkealle (uppercut, potku, tuplanyrkki): korvaa tavallisen kaatumisäänen.")]
@@ -1678,6 +1680,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Enter(State s)
     {
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
+        if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, 1f);
         if (s == State.Windup && usingPunch3)
         {
             // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu

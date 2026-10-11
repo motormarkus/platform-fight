@@ -6092,6 +6092,34 @@ public static class BeatEmUpSetup
         Info("Rusty lisätty pelaajan viereen: idle, kävely ja kevyt (uppercut lennättää korkealle). Tallenna scene (Ctrl+S).");
     }
 
+    /// Prätkäjätkän äänet (Assets/Audio/motoristi): gasp = osuma, fall = kaatuminen, lataus = hyppylyönnin veto, speak = puhe.
+    static void ApplyBikerAudio(Enemy e)
+    {
+        e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f;
+        if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f; }
+        e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault();
+        e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus");
+        e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = 1f; e.tauntNoRepeat = true;
+        e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.5f;
+    }
+
+    [MenuItem("Beat em up/100. Prätkäjätkien äänet ja nopeampi juoksu (kaikille sceneen)")]
+    static void UpdateBikerAudio()
+    {
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.displayName != "Prätkäjätkä") continue;
+            Undo.RecordObject(e, "Prätkäjätkän äänet");
+            ApplyBikerAudio(e);
+            if (e.runSprites != null && e.runSprites.Length >= 8) { e.runFrameTime = 0.055f; e.runSpeedMultiplier = 2.3f; }
+            EditorUtility.SetDirty(e);
+            n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Äänet ja nopeampi juoksu (2,3-kertainen vauhti) päivitetty {n} prätkäjätkälle.\n\nTallenna scene (Ctrl+S).");
+    }
+
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
@@ -6126,7 +6154,7 @@ public static class BeatEmUpSetup
         var leap = EnemySheet("motoristi_hyppylyonti", report);   // 15 kuvaa: 0–7 kyykky ja ponnistus, 8 lento (isku), 9–14 alastulo
         SetBikerCharge(e, leap);
         var run = EnemySheet("motoristi_juoksu", report);   // 10 kuvaa, kaukana juostaan
-        if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.07f; e.runSpeedMultiplier = 1.6f; }
+        if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.055f; e.runSpeedMultiplier = 2.3f; }
         var fall = EnemySheet("motoristi_kaatuminen", report);
         if (fall.Length >= 8)
         {
@@ -6144,7 +6172,7 @@ public static class BeatEmUpSetup
         e.maxHealth = 160; e.attackRange = 1.9f; e.attackCooldown = 0.9f;
         e.blockChance = 0f;   // prätkäjätkä ei torju: ottaa iskut vastaan ja lyö takaisin
         e.moveSpeedX = 2.8f; e.moveSpeedY = 1.4f;
-        e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+        ApplyBikerAudio(e);
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Prätkäjätkä");
         Debug.Log("Prätkäjätkä: " + string.Join(", ", report));
