@@ -5952,6 +5952,54 @@ public static class BeatEmUpSetup
         Info($"Prätkäjätkän rynnäkkölyönti päivitetty {n} prätkäjätkälle: kaksi juoksuaskelta, matala syöksy nyrkki edellä, ei pitkää kyykkyä eikä korkeaa loikkaa.\n\nTallenna scene (Ctrl+S).");
     }
 
+    /// Rusty (rusty_idle.png 16 kuvaa, rusty_kavely.png 12 kuvaa): kevyt maalaiskundi. Ilman omia isku- ja kaatumiskuvia
+    /// käytetään varaliikkeitä. Kevyt: heron uppercut ja koukut lennättävät korkealle.
+    static Enemy MakeRusty(Transform parent)
+    {
+        var report = new List<string>();
+        foreach (var n in new[] { "rusty_idle", "rusty_kavely" })
+        {
+            string path = FindTexture(n);
+            if (path != null) SetupAndSlice(path);
+        }
+        var idle = EnemySheet("rusty_idle", report);
+        if (idle.Length == 0) return null;
+        var go = new GameObject("Rusty");
+        go.transform.SetParent(parent, false);
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var e = go.AddComponent<Enemy>();
+        e.body = visual; e.shadow = shadow; visual.sprite = idle[0];
+        e.displayName = "Rusty";
+        e.idleSprites = idle; e.idleFrameTime = 0.07f;
+        var walk = EnemySheet("rusty_kavely", report);
+        e.walkSprites = walk.Length > 0 ? walk : idle; e.walkFrameTime = 0.075f;
+        e.lightweight = true;
+        e.fightsEveryone = true;
+        e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 1.0f;
+        e.blockChance = 0f;
+        e.moveSpeedX = 3.0f; e.moveSpeedY = 1.5f;
+        e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+        e.wakeDistance = 100f; e.retreatChance = 0f;
+        Undo.RegisterCreatedObjectUndo(go, "Rusty");
+        Debug.Log("Rusty: " + string.Join(", ", report));
+        return e;
+    }
+
+    [MenuItem("Beat em up/95. Lisää Rusty (idle ja kävely) pelaajan viereen")]
+    static void AddRusty()
+    {
+        if (PlayModeBlocked()) return;
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        var rusty = MakeRusty(null);
+        if (rusty == null) { Info("Tarvitaan Sprites/Viholliset/rusty_idle.png ja rusty_kavely.png."); return; }
+        Vector3 at = pc != null ? pc.transform.position + new Vector3(4f, 0f, 0f) : Vector3.zero;
+        rusty.transform.position = at;
+        rusty.gameObject.SetActive(true);
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info("Rusty lisätty pelaajan viereen: idle, kävely ja kevyt (uppercut lennättää korkealle). Tallenna scene (Ctrl+S).");
+    }
+
     static Enemy MakeBiker(Transform parent)
     {
         var report = new List<string>();
