@@ -1,13 +1,13 @@
 using UnityEditor;
 using UnityEngine;
 
-/// Termospullo, juontikuvat (Resources/Termari) ja Roccon hyppy (Resources/Hyppy): sprite, 100 px/yks, kiinnityspiste alhaalla keskellä.
+/// Termospullo, juontikuvat (Resources/Termari) ja Roccon hyppy (Resources/Hyppy) ja moottoripyöräparin ajo/lyönti (Resources/AjoPari): sprite, 100 px/yks, kiinnityspiste alhaalla keskellä.
 public class TermariImport : AssetPostprocessor
 {
     void OnPreprocessTexture()
     {
         string p = assetPath.Replace('\\', '/');
-        if (!p.Contains("/Resources/Termari/") && !p.Contains("/Resources/Hyppy/")) return;
+        if (!p.Contains("/Resources/Termari/") && !p.Contains("/Resources/Hyppy/") && !p.Contains("/Resources/AjoPari/")) return;
         var ti = (TextureImporter)assetImporter;
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;
