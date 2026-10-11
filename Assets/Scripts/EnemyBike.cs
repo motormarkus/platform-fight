@@ -40,11 +40,11 @@ public class EnemyBike : MonoBehaviour
     float Reach => 0.5f + 0.5f * visualScale / 0.61f;
 
     /// Voiko kuskin kiskaista pyörältä.
-    public bool CanBeGrabbed => state != S.Crash;
+    public virtual bool CanBeGrabbed => state != S.Crash;
     public float CurrentSpeed => speed;
 
     /// Pelaaja kiskaisee kuskin niskasta pyörän selästä: kuski lentää tielle, pyörä jatkaa tyhjänä ja kaatuu.
-    public void YankOff(float playerX, float playerDir)
+    public virtual void YankOff(float playerX, float playerDir)
     {
         if (state == S.Crash) return;
         Vector3 me = transform.position;
@@ -195,7 +195,7 @@ public class EnemyBike : MonoBehaviour
     }
 
     /// Pelaajan lyönti: vihu lentää pyörältä ja pyörä kaatuu.
-    public void KnockOff(float attackerX)
+    public virtual void KnockOff(float attackerX)
     {
         // lyönti: sama lento kuin kiskaisussa, mutta kuski lentää eteenpäin (iskun suuntaan)
         if (state == S.Crash) return;

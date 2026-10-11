@@ -7,7 +7,7 @@ public class TermariImport : AssetPostprocessor
     void OnPreprocessTexture()
     {
         string p = assetPath.Replace('\\', '/');
-        if (!p.Contains("/Resources/Termari/") && !p.Contains("/Resources/Hyppy/")) return;
+        if (!p.Contains("/Resources/Termari/") && !p.Contains("/Resources/Hyppy/") && !p.Contains("/Resources/AjoPari/")) return;
         var ti = (TextureImporter)assetImporter;
         ti.textureType = TextureImporterType.Sprite;
         ti.spriteImportMode = SpriteImportMode.Single;

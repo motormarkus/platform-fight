@@ -4450,8 +4450,68 @@ public static class BeatEmUpSetup
         exit.exitToLeft = false; exit.turnBikeRight = true; exit.parkBike = false;
         exit.title = "Aavikkotie"; exit.titleTime = 0f; exit.fadeTime = 0.4f; exit.enabled = true;
         EditorUtility.SetDirty(area); EditorUtility.SetDirty(exit);
+        BuildDesertPairs(false);
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Aavikkotie lisätty: Aavikon oikealta reunalta musta häivytys vain prätkällä, sama musiikki ja tuuli, nopeasti vierivät parallaxit. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/94. Aavikkotie: motoristi ja rokkimimmi heron pyoralla")]
+    static void AddDesertPairs()
+    {
+        if (PlayModeBlocked()) return;
+        BuildDesertPairs(true);
+    }
+
+    static void BuildDesertPairs(bool report)
+    {
+        var road = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkotie");
+        var heroBike = Object.FindObjectsByType<Motorbike>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.rideable && b.parkedRight != null);
+        var frames = Resources.LoadAll<Sprite>("AjoPari");
+        var idle = PariRider.Frames(frames, "ajo_idle_");
+        var punch = PariRider.Frames(frames, "lyonti_");
+        if (road == null || heroBike == null || idle.Length != 63 || punch.Length != 31)
+        { if (report) Info("Tarvitaan Aavikkotie (93), heron pyörä ja AjoPari-kuvat (63 ajoa, 31 lyöntiä)."); return; }
+        var old = GameObject.Find("Aavikkotien ajoparit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Aavikkotien ajoparit");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikon ajopari");
+        var model = new GameObject("Ajopari (malli)"); model.transform.SetParent(root.transform, false);
+        var pair = model.AddComponent<PariRider>(); pair.area = road;
+        pair.idleSprites = idle; pair.punchSprites = punch; pair.fps = 15f;
+        pair.riderScale = 0.72f; pair.motorcycleScale = 0.576f;
+        pair.riderOffset = new Vector2(-1.296f, 0.576f);
+        pair.rearRim = Resources.Load<Sprite>("AjoPariBike/rear_wheel");
+        pair.frontRim = Resources.Load<Sprite>("AjoPariBike/front_wheel");
+        pair.chassisSprite = Resources.Load<Sprite>("AjoPariBike/chassis");
+        pair.body = new GameObject("Motoristi ja rokkimimmi").AddComponent<SpriteRenderer>();
+        pair.body.transform.SetParent(model.transform, false); pair.body.sprite = idle[0];
+        pair.motorcycle = new GameObject("Heron pyörä (tumma)").AddComponent<SpriteRenderer>();
+        pair.motorcycle.transform.SetParent(model.transform, false); pair.motorcycle.sprite = heroBike.parkedRight;
+        pair.shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); pair.shadow.transform.SetParent(model.transform, false);
+        pair.shadow.color = new Color(0f, 0f, 0f, 0.3f);
+        pair.engineLoop = heroBike.engineLoop; pair.engineVolume = 0.2f;
+        pair.overtakeSpeed = 10f; pair.depthSpeed = 1.2f;
+        var enemyModel = Object.FindObjectsByType<EnemyBike>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.GetType() == typeof(EnemyBike));
+        if (enemyModel != null) pair.yankSound = enemyModel.yankSound;
+        model.SetActive(false);
+        var spawner = root.AddComponent<EnemyBikeSpawner>(); spawner.template = pair;
+        spawner.minX = road.walkMinX; spawner.maxX = road.walkMaxX;
+        spawner.interval = new Vector2(12f, 18f); spawner.maxAlive = 1; spawner.density = 1f;
+        spawner.skaterTemplate = null; spawner.skaterChance = 0f;
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        if (report) Info("Ajopari lisätty Aavikkotielle: heron tumma pyörä, 15 fps ja rokkimimmin lyönti. Heron riutaisu väläyttää pyörän punaiseksi ja hidastaa sen. Tallenna scene (Ctrl+S).");
+    }
+
+    public static void BuildDesertPairBatch()
+    {
+        batch = true;
+        EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
+        BuildDesertPairs(true);
+        if (GameObject.Find("Aavikkotien ajoparit") == null) throw new System.InvalidOperationException("Ajoparin rakentaminen epäonnistui.");
+        EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        AssetDatabase.SaveAssets();
     }
 
     public static void BuildDesertBatch()
