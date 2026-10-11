@@ -552,6 +552,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Vihujen kellon kerroin (heron pärinä hidastaa vihuja).
     public static float TimeScale = 1f;
 
+    [Tooltip("Kevyt hahmo (Rusty): heron uppercut ja kaikki lennättävät iskut singoavat korkealle.")]
+    public bool lightweight;
+    public float lightLaunchMul = 1.6f, lightUppercutUp = 12f, lightUppercutX = 1.5f;
+
     /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
     public static bool IsHeavyweight(Enemy e)
     {
@@ -2501,6 +2505,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void Launch(float vx, float up)
     {
         if (state != State.Airborne) return;
+        if (lightweight) up *= lightLaunchMul;
         knockVel = new Vector2(vx, 0f);
         verticalVel = up;
         launched = true;

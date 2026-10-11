@@ -1434,7 +1434,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
                 // osumahetki: tarkistetaan lyhyen aikaikkunan ajan, osuuko isku
                 if (!attackHit && stateTime >= hit.ImpactTime && stateTime <= hit.ImpactTime + 0.08f)
+                {
                     attackHit = AttackEnemies(hit.reach, hit.damage, hit.knockdown, hit.knockdown ? 2.9f : 2.4f);   // uppercut leukaan
+                    if (attackHit && hit.name == "Uppercut")
+                        foreach (var e in lastHitEnemies)
+                            if (e != null && e.lightweight && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * e.lightUppercutX, e.lightUppercutUp / e.lightLaunchMul);   // kevyt vihu lentää korkealle
+                }
 
                 // jab–takasuora–jab + (alas, eteen, lyönti): neljäs isku on iso koukku, nopeasti
                 if (bigHookInput && comboIndex >= 2) bigHookQueued = true;
