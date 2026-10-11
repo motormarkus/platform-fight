@@ -4173,6 +4173,296 @@ public static class BeatEmUpSetup
         Info("Kopterin sisätila ja ohjaamo luotu: 6 puulaatikkoa, ensin 3 rosvoa + 2 kovista, ohjaamossa 2 rosvoa + 1 kovis.\nOhjaamon toisesta ovesta E vie Aavikkoon, kun molemmat aallot on voitettu.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/90. Aavikko: Chinookin ulkopuoli ja parallaxit")]
+    static void CreateDesert()
+    {
+        if (PlayModeBlocked()) return;
+        const string dir = "Assets/Sprites/Taustat/";
+        string[] files = { "aavikko_panorama.png", "aavikko_parallax_ylempi.png", "aavikko_parallax_alempi.png" };
+        if (files.Any(f => AssetImporter.GetAtPath(dir + f) == null))
+        { Info("Aavikon panoraama tai parallax-kuvat puuttuvat."); return; }
+        var sprites = files.Select(f => {
+            var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(dir + f);
+            return ImportShipSprite(dir + f, texture.height / (CamHalf * 2f), false, SpriteAlignment.Center);
+        }).ToArray();
+        var area = EnsureDesertArea();
+        Undo.RecordObject(area, "Aavikon rajat");
+        foreach (var name in new[] { "Aavikon väliaikainen taivas", "Aavikon väliaikainen hiekka", "Aavikon maisemat" })
+        {
+            var old = GameObject.Find(name);
+            if (old != null) Undo.DestroyObjectImmediate(old);
+        }
+        const float left = 78000f;
+        const float foregroundDrop = 0.9f, sandDrop = 0.9f;
+        float cameraSize = CamHalf * (16f / 15f);
+        float width = sprites[0].bounds.size.x, halfScreen = cameraSize * 16f / 9f;
+        area.minDepthY = CamY - CamHalf + 0.6f;
+        // Kävely päättyy asfaltin takareunaan, rakennusten ja kopterin eteen.
+        area.maxDepthY = CamY + CamHalf - 0.63f * CamHalf * 2f - foregroundDrop;
+        area.useSidewalk = false;
+        area.camMinX = left + halfScreen;
+        area.camMaxX = left + width - halfScreen;
+        area.walkMinX = left + 0.8f; area.walkMaxX = left + width - 0.8f;
+        area.camSize = cameraSize; area.camRiseY = 0f; area.camOffsetY = 0f;
+        area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Aavikko.mp3");
+        area.ambience = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Resources/Ambienssi/aavikko.wav");
+        area.ambienceVolume = 1.6f;
+        const string tumbleweedPath = "Assets/Sprites/Rekvisiitta/aavikko_risupallo.png";
+        if (AssetImporter.GetAtPath(tumbleweedPath) != null)
+        {
+            var tumbleweeds = area.GetComponent<DesertTumbleweeds>();
+            if (tumbleweeds == null) tumbleweeds = Undo.AddComponent<DesertTumbleweeds>(area.gameObject);
+            Undo.RecordObject(tumbleweeds, "Aavikon risupallot");
+            tumbleweeds.area = area;
+            tumbleweeds.sprite = ImportShipSprite(tumbleweedPath, 256f, false, SpriteAlignment.Center);
+            tumbleweeds.rollSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/tumbleweed.wav");
+            tumbleweeds.rollVolume = 0.08f;
+            tumbleweeds.count = 4;
+            tumbleweeds.minSpeed = 2.4f; tumbleweeds.maxSpeed = 3.8f;
+            tumbleweeds.kickUpSpeed = 8f;
+            EditorUtility.SetDirty(tumbleweeds);
+        }
+        var root = new GameObject("Aavikon maisemat");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikon maisemat");
+        {
+            var go = new GameObject("Aavikko (yhtenainen panoraama)");
+            go.transform.SetParent(root.transform);
+            go.transform.position = new Vector3(left + width * 0.5f, CamY - foregroundDrop, 0f);
+            var renderer = go.AddComponent<SpriteRenderer>();
+            renderer.sprite = sprites[0]; renderer.sortingOrder = -10000;
+        }
+        for (int i = 1; i < 3; i++)
+        {
+            var go = new GameObject(i == 1 ? "Aavikon taivas ja vuoret" : "Aavikon kaukainen hiekka");
+            go.transform.SetParent(root.transform);
+            // Hiekkakerros peitti vuoret: sen horisontti jää vuorten alapuolelle.
+            go.transform.position = new Vector3(left + width * 0.5f, CamY - (i == 2 ? sandDrop : 0f), 0f);
+            go.transform.localScale = new Vector3(width / sprites[i].bounds.size.x, i == 1 ? 1.15f : 1f, 1f);
+            var renderer = go.AddComponent<SpriteRenderer>();
+            renderer.sprite = sprites[i]; renderer.sortingOrder = i == 1 ? -10200 : -10100;
+            var parallax = go.AddComponent<ParallaxLayer>();
+            parallax.factor = i == 1 ? 0.08f : 0.25f;
+            parallax.startCamX = area.camMinX;
+            parallax.minX = left; parallax.maxX = left + width;
+        }
+        var exit = GameObject.Find("Kopterista Aavikkoon")?.GetComponent<Door>();
+        if (exit != null)
+        {
+            Undo.RecordObject(exit, "Aavikon sisääntulo");
+            exit.target = area;
+            // Pelaaja ilmestyy ensimmäisen kuvan avoimen lastausrampin eteen.
+            exit.spawnPoint = new Vector2(left + width * 0.38f, CamY + CamHalf - 0.69f * CamHalf * 2f - foregroundDrop);
+            EditorUtility.SetDirty(exit);
+        }
+        EditorUtility.SetDirty(area);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Aavikko korjattu: yhtenäinen panoraama ja kaksi parallax-kerrosta. Chinookin ovi vie lastausrampin eteen. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/91. Peltihalli: ikkunaparallax, tappelijat ja baaripoydat")]
+    static void CreateMetalHall()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/peltihalli_panorama.png";
+        var desert = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
+        if (desert == null || AssetImporter.GetAtPath(path) == null)
+        { Info("Tee ensin Aavikko (90). Tarvitaan peltihalli_panorama.png."); return; }
+        var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        var bgSprite = ImportShipSprite(path, texture.height / 12f, false, SpriteAlignment.Center);
+        const float left = 80000f, centerY = 1.4f;
+        float width = bgSprite.bounds.size.x, centerX = left + width * 0.5f;
+        var hall = ReuseArea("Alue: Peltihalli");
+        Undo.RecordObject(hall, "Peltihalli");
+        hall.areaName = "Peltihalli"; hall.useSidewalk = false;
+        hall.minDepthY = -4f; hall.maxDepthY = centerY + 6f - 637f / (941f / 12f);
+        hall.camMinX = left + 6f * 16f / 9f;
+        hall.camMaxX = left + width - 6f * 16f / 9f; hall.camSize = 6f;
+        hall.camOffsetY = 0f; hall.camRiseY = 0f;
+        hall.walkMinX = left + 0.8f; hall.walkMaxX = left + width - 0.8f;
+        hall.depthLimits = new Vector2[0]; hall.backScale = 1f;
+        hall.music = desert.music; hall.ambience = desert.ambience; hall.ambienceVolume = 0.25f;
+        foreach (var name in new[] { "Peltihallin sisalto", "Aavikolta peltihalliin" })
+        { var old = GameObject.Find(name); if (old != null) Undo.DestroyObjectImmediate(old); }
+        var root = new GameObject("Peltihallin sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Peltihalli");
+        var bg = new GameObject("Peltihallin tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.transform.position = new Vector3(centerX, centerY, 0f);
+        bg.sprite = bgSprite; bg.sortingOrder = -10000;
+        bg.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/Sprites/Taustat/peltihalli_ikkunat.mat");
+        Vector2 arrival = new Vector2(left + width - 2.2f, -1.5f);
+        for (int i = 0; i < 2; i++)
+        {
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Taustat/" +
+                (i == 0 ? "aavikko_parallax_ylempi.png" : "aavikko_parallax_alempi.png"));
+            if (sprite == null) continue;
+            var view = new GameObject(i == 0 ? "Peltihallin ikkunavuoret" : "Peltihallin ikkunahiekka").AddComponent<SpriteRenderer>();
+            view.transform.SetParent(root.transform, false);
+            view.sprite = sprite; view.sortingOrder = i == 0 ? -10200 : -10100;
+            view.transform.localScale = new Vector3(2f, 1f, 1f);
+            var parallax = view.gameObject.AddComponent<InteriorWindowParallax>();
+            parallax.area = hall; parallax.anchor = new Vector2(centerX, i == 0 ? 4.1f : 3f);
+            parallax.cameraReference = new Vector2(hall.camMaxX, centerY); parallax.factor = i == 0 ? 0.06f : 0.15f;
+            view.transform.position = parallax.anchor;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            var biker = MakeBiker(root.transform);
+            if (biker != null)
+            {
+                biker.name = "Peltihallin motoristi " + (i + 1);
+                biker.transform.position = new Vector3(left + width * (0.78f - i * 0.25f), -1.25f, 0f);
+                biker.wakeDistance = 100f; biker.gameObject.SetActive(true);
+            }
+            var rocker = MakeRocker(root.transform);
+            if (rocker != null)
+            {
+                rocker.name = "Peltihallin rokkimimmi " + (i + 1);
+                rocker.transform.position = new Vector3(left + width * (0.68f - i * 0.25f), -2.25f, 0f);
+                rocker.wakeDistance = 100f; rocker.wanderMinX = rocker.wanderMaxX = 0f;
+                rocker.gameObject.SetActive(true);
+            }
+        }
+        AddBottleTables(root.transform, new[] { new Vector3(left + width * 0.2f, -3.25f, 0f),
+            new Vector3(left + width * 0.64f, -3.25f, 0f) }, 91);
+        AddSnookerTable(root.transform, new Vector2(left + width * 0.42f, -3.8f), PokerPoolWidth);
+        var sohviModel = GameObject.Find("Sohvi");
+        Vector2 counter = new Vector2(left + width * 0.24f, centerY + 6f - 0.46f * 12f);
+        if (sohviModel != null)
+        {
+            var sohvi = Object.Instantiate(sohviModel, root.transform);
+            sohvi.name = "Peltihallin Sohvi";
+            sohvi.transform.position = counter;
+            sohvi.transform.localScale = sohviModel.transform.localScale * 0.85f;
+        }
+        var shopModel = GameObject.Find("Baaritiski");
+        if (shopModel != null)
+        {
+            var shop = Object.Instantiate(shopModel, root.transform);
+            shop.name = "Peltihallin baaritiski";
+            shop.transform.position = new Vector3(counter.x, hall.maxDepthY, 0f);
+            var service = shop.GetComponent<ShopCounter>();
+            service.here = hall; service.title = "PELTIHALLIN BAARI";
+            service.halfWidth = 3.3f; service.maxDistanceFromWall = 1.1f;
+        }
+        var bikeModel = Object.FindObjectsByType<Motorbike>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.name == "Takakujan prätkä");
+        if (bikeModel != null)
+        {
+            var bike = Object.Instantiate(bikeModel.gameObject, root.transform);
+            bike.name = "Peltihallin ajettava prätkä";
+            bike.transform.position = new Vector3(left + 3.2f, -2.4f, 0f);
+            var riding = bike.GetComponent<Motorbike>(); riding.rideable = true;
+            if (riding.parkedRight != null) { riding.parked.sprite = riding.parkedRight; riding.parked.flipX = false; }
+            else riding.parked.flipX = true;
+            riding.parked.sortingOrder = 240;
+            var rideExit = new GameObject("Peltihallista ajo Aavikolle").AddComponent<RideExit>();
+            rideExit.transform.SetParent(root.transform, false);
+            rideExit.transform.position = new Vector3(hall.walkMaxX - 1.7f, -2.4f, 0f);
+            rideExit.here = hall; rideExit.target = desert; rideExit.exitToLeft = false;
+            rideExit.turnBikeRight = true; rideExit.spawnPoint = new Vector2(desert.walkMinX + 3.7f, -2.4f);
+            rideExit.title = "Aavikko"; rideExit.triggerWidth = 4f; rideExit.titleTime = 0.7f;
+        }
+        if (GameObject.Find("Aavikolta tulevalle tielle") == null)
+        {
+            var futureRoad = new GameObject("Aavikolta tulevalle tielle").AddComponent<RideExit>();
+            futureRoad.transform.position = new Vector3(desert.walkMaxX - 1.7f, -2.4f, 0f);
+            futureRoad.here = desert; futureRoad.title = "Valtatie";
+            // Kohde kytketään, kun käyttäjän tuleva tie on valmis.
+            futureRoad.enabled = false;
+            Undo.RegisterCreatedObjectUndo(futureRoad.gameObject, "Tulevan tien liitoskohta");
+        }
+        var enter = new GameObject("Aavikolta peltihalliin").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(enter.gameObject, "Peltihallin ovi");
+        enter.here = desert; enter.target = hall; enter.spawnPoint = arrival;
+        enter.faceLeftOnArrival = true;
+        enter.prompt = "Mene peltihalliin"; enter.halfWidth = 1.4f; enter.maxDistanceFromWall = 1.1f;
+        enter.transform.position = new Vector3(desert.walkMinX + 1.4f, desert.maxDepthY, 0f);
+        var back = new GameObject("Peltihallista Aavikkoon").AddComponent<Door>();
+        back.transform.SetParent(root.transform, false);
+        back.transform.position = new Vector3(arrival.x, hall.maxDepthY, 0f);
+        back.here = hall; back.target = desert; back.returnToLastDoor = true;
+        back.prompt = "Palaa Aavikkoon"; back.halfWidth = 1.4f; back.maxDistanceFromWall = 1.1f;
+        back.spawnPoint = new Vector2(enter.transform.position.x, desert.maxDepthY - 0.3f);
+        EditorUtility.SetDirty(hall); EditorSceneManager.MarkSceneDirty(root.scene);
+        if (AssetImporter.GetAtPath("Assets/Sprites/Taustat/aavikkotie.png") != null)
+        {
+            bool wasBatch = batch;
+            batch = true;
+            try { CreateDesertRoad(); }
+            finally { batch = wasBatch; }
+        }
+        Info("Peltihalli lisätty: E-sisäänkäynti Aavikon vasemmalla, ikkunaparallax, 3 motorista, 3 rokkimimmiä, 2 baaripöytää pulloineen ja snookerpöytä. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/93. Aavikkotie ja ajosiirtyma Aavikon oikealta reunalta")]
+    static void CreateDesertRoad()
+    {
+        if (PlayModeBlocked()) return;
+        var desert = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
+        const string path = "Assets/Sprites/Taustat/aavikkotie.png";
+        if (desert == null || AssetImporter.GetAtPath(path) == null)
+        { Info("Tarvitaan Aavikko (90) ja aavikkotie.png."); return; }
+        var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        var road = ImportShipSprite(path, texture.height / 12f, true, SpriteAlignment.Center);
+        const float left = 82000f, centerY = 1.4f;
+        float length = road.bounds.size.x * 24f, halfScreen = 6f * 16f / 9f;
+        var area = ReuseArea("Alue: Aavikkotie");
+        Undo.RecordObject(area, "Aavikkotie");
+        area.areaName = "Aavikkotie"; area.useSidewalk = false;
+        area.minDepthY = -3.6f; area.maxDepthY = 1.8f;
+        area.camMinX = left + halfScreen; area.camMaxX = left + length - halfScreen;
+        area.walkMinX = left + 0.8f; area.walkMaxX = left + length - 0.8f;
+        area.camSize = 6f; area.camRiseY = 0f; area.camOffsetY = 0f;
+        area.depthLimits = new Vector2[0]; area.backScale = 1f;
+        area.music = desert.music; area.ambience = desert.ambience; area.ambienceVolume = desert.ambienceVolume;
+        var old = GameObject.Find("Aavikkotien taustat");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Aavikkotien taustat");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkotie");
+        var asphalt = new GameObject("Aavikkotie (toistuva)").AddComponent<SpriteRenderer>();
+        asphalt.transform.SetParent(root.transform, false);
+        asphalt.transform.position = new Vector3(left + length * 0.5f, centerY, 0f);
+        asphalt.sprite = road; asphalt.sortingOrder = -10000;
+        asphalt.drawMode = SpriteDrawMode.Tiled; asphalt.size = new Vector2(length, road.bounds.size.y);
+        for (int i = 0; i < 2; i++)
+        {
+            string backgroundPath = "Assets/Sprites/Taustat/" + (i == 0 ? "aavikko_parallax_ylempi.png" : "aavikko_parallax_alempi.png");
+            var sprite = ImportShipSprite(backgroundPath, 941f / 12f, true, SpriteAlignment.Center);
+            if (sprite == null) continue;
+            var view = new GameObject(i == 0 ? "Aavikkotien taivas ja vuoret" : "Aavikkotien hiekka").AddComponent<SpriteRenderer>();
+            view.transform.SetParent(root.transform, false);
+            view.transform.position = new Vector3(area.camMinX, i == 0 ? 5.1f : 3.7f, 0f);
+            view.sprite = sprite; view.sortingOrder = i == 0 ? -10200 : -10100;
+            view.drawMode = SpriteDrawMode.Tiled;
+            view.size = new Vector2(sprite.bounds.size.x * 3f, sprite.bounds.size.y);
+            view.transform.localScale = new Vector3(36f / sprite.bounds.size.x, i == 0 ? 1.15f : 1f, 1f);
+            var moving = view.gameObject.AddComponent<ScrollingLayer>();
+            moving.area = area; moving.autoSpeed = 0f; moving.parallax = i == 0 ? 0.28f : 0.65f;
+        }
+        var exitGo = GameObject.Find("Aavikolta tulevalle tielle");
+        if (exitGo == null) { exitGo = new GameObject("Aavikolta tulevalle tielle"); Undo.RegisterCreatedObjectUndo(exitGo, "Ajosiirtymä"); }
+        var exit = exitGo.GetComponent<RideExit>();
+        if (exit == null) exit = Undo.AddComponent<RideExit>(exitGo);
+        Undo.RecordObject(exit, "Ajosiirtymä");
+        exit.transform.position = new Vector3(desert.walkMaxX - 1.7f, -2.4f, 0f);
+        exit.here = desert; exit.target = area; exit.spawnPoint = new Vector2(left + 6f, -2.4f);
+        exit.exitToLeft = false; exit.turnBikeRight = true; exit.parkBike = false;
+        exit.title = "Aavikkotie"; exit.titleTime = 0f; exit.fadeTime = 0.4f; exit.enabled = true;
+        EditorUtility.SetDirty(area); EditorUtility.SetDirty(exit);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Aavikkotie lisätty: Aavikon oikealta reunalta musta häivytys vain prätkällä, sama musiikki ja tuuli, nopeasti vierivät parallaxit. Tallenna scene (Ctrl+S).");
+    }
+
+    public static void BuildDesertBatch()
+    {
+        batch = true;
+        EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
+        CreateDesert();
+        EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        AssetDatabase.SaveAssets();
+    }
+
     static Area EnsureDesertArea()
     {
         var existing = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
@@ -7628,6 +7918,25 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt laivan katolta.\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/92. Aloita peli Aavikolta")]
+    static void StartAtDesert()
+    {
+        if (PlayModeBlocked()) return;
+        var desert = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
+        if (desert == null) { Info("Tee ensin Aavikko (90)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var start = go.AddComponent<GameStart>();
+        start.area = desert;
+        var door = GameObject.Find("Kopterista Aavikkoon")?.GetComponent<Door>();
+        start.position = door != null && door.target == desert ? door.spawnPoint
+            : new Vector2(desert.walkMinX + 12f, Mathf.Lerp(desert.maxDepthY, desert.minDepthY, 0.45f));
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt Aavikolta Chinookin rampin edestä. Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

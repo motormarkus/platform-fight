@@ -8,6 +8,11 @@ using UnityEngine;
 public class RideExit : MonoBehaviour
 {
     public Area target;
+    public Area here;
+    [Tooltip("Poistutaan kynnyksen vasemmalle puolelle (Peltihalli).")]
+    public bool exitToLeft;
+    [Tooltip("Ajoreitti jatkuu kohdealueella oikealle; pyörä käännetään pimennyksessä.")]
+    public bool turnBikeRight;
     public Vector2 spawnPoint;
     public string title = "Valtatie";
     public float fadeTime = 0.4f, titleTime = 1.6f;
@@ -25,15 +30,33 @@ public class RideExit : MonoBehaviour
     void Update()
     {
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
-        if (pc == null || busy || !pc.Riding) return;
+        if (pc == null || busy || !pc.Riding || Motorbike.Current == null || target == null || (here != null && Area.Current != here)) return;
         // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)
         float x = pc.transform.position.x;
-        if (x >= transform.position.x && x <= transform.position.x + triggerWidth) StartCoroutine(Go());
+        float threshold = transform.position.x;
+        if (CameraFollow.Instance != null && Camera.main != null)
+        {
+            // Pyörän keskikohta pysähtyy puolen pyörän mitan ennen kuvan reunaa.
+            // Poistumiskynnys on aina tämän liikerajan saavutettavalla puolella.
+            float halfView = Camera.main.orthographicSize * Camera.main.aspect;
+            float bikeLeftLimit = CameraFollow.Instance.minX - halfView + Motorbike.Current.halfLength;
+            float bikeRightLimit = CameraFollow.Instance.maxX + halfView - Motorbike.Current.halfLength;
+            if (Area.Current != null && Area.Current.walkMaxX != 0f)
+                bikeRightLimit = Mathf.Min(bikeRightLimit, Area.Current.walkMaxX - Motorbike.Current.halfLength * 0.6f);
+            threshold = exitToLeft ? Mathf.Max(threshold, bikeLeftLimit + 0.25f)
+                : Mathf.Min(threshold, bikeRightLimit - 0.25f);
+        }
+        bool crossed = exitToLeft ? x <= threshold && x >= threshold - triggerWidth
+            : x >= threshold && x <= threshold + triggerWidth;
+        if (crossed) StartCoroutine(Go());
     }
 
     IEnumerator Go()
     {
+        var bike = Motorbike.Current;
+        if (bike == null) yield break;
         busy = true;
+        bike.SetTravelLock(true);                 // pyörän selästä ei voi nousta kesken ajosiirtymän
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
         fade = 1f;
         Time.timeScale = 0f;                       // ajo pysähtyy pimennyksen ajaksi
@@ -45,7 +68,8 @@ public class RideExit : MonoBehaviour
         titleAlpha = 0f;
         if (target != null) target.Apply(pc);
         pc.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0f);
-        var bike = Motorbike.Current;
+        if (!parkBike && turnBikeRight && bike != null)
+            bike.ContinueRide(new Vector3(spawnPoint.x, spawnPoint.y, 0f), true);
         if (parkBike && bike != null)
         {
             bike.ParkNow(new Vector3(parkPoint.x, parkPoint.y, 0f), true);   // pyörä parkkiin, pelaaja jalan vieressä
@@ -55,6 +79,7 @@ public class RideExit : MonoBehaviour
         Time.timeScale = 1f;
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
+        if (bike != null) bike.SetTravelLock(false);
         busy = false;
     }
 

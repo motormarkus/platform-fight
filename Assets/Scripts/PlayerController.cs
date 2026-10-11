@@ -1140,6 +1140,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool facingRight = true;
     bool moving;
     float animClock;
+    float rubyWalkClock;
+    // Kaksi kuuden kuvan askelta: jalan palautuksen loppukuvia ei pidetä yhtä pitkään kuin tukivaihetta.
+    static readonly float[] RubyWalkTimes = { 0.09f, 0.085f, 0.08f, 0.08f, 0.075f, 0.07f,
+        0.09f, 0.085f, 0.08f, 0.08f, 0.075f, 0.07f };
+    const float RubyWalkCycle = 0.96f;
 
     void Awake()
     {
@@ -2434,6 +2439,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         float side = facingRight ? 1f : -1f;
         Vector3 me = transform.position;
         bool any = false, heavy = false;
+        if (AttackIsKick && state != State.ChairSwing && state != State.CueSwingA && state != State.CueSwingB)
+            any = DesertTumbleweeds.TryKick(me, side, reach, attackDepth);
         lastHitEnemies.Clear();
         bool drunkKnock = IsDrunk && !knockdown && UnityEngine.Random.value < drunkKnockChance;   // kännissä heilautus kaataa
         foreach (var e in Enemy.All.ToArray())
@@ -3285,10 +3292,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
         if (!moving) return;
         if (Mathf.Abs(move.x) > 0.1f) { bool nf = move.x > 0; if (nf != facingRight) lastTurnTime = Time.time; facingRight = nf; }
-        float sx = moveSpeedX * (running ? runSpeedMultiplier : 1f);
-        float sy = moveSpeedY * (running ? runDepthMultiplier : 1f);
+        // Ruby etenee hieman pidemmälle samalla askelsyklillä, jotta jalat eivät polje paikallaan.
+        float walkPace = AppliedCharacter == 1 && !running ? 1.12f : 1f;
+        float sx = moveSpeedX * (running ? runSpeedMultiplier : walkPace);
+        float sy = moveSpeedY * (running ? runDepthMultiplier : walkPace);
         lastGroundVel = new Vector2(move.x * sx, move.y * sy);
+        Vector3 beforeMove = transform.position;
         MoveOnGround(lastGroundVel * dt);
+        if (AppliedCharacter == 1 && !running)
+        {
+            float requestedDistance = lastGroundVel.magnitude * dt;
+            float travelled = Vector2.Distance(beforeMove, transform.position);
+            moving = travelled > 0.0001f;
+            if (moving && requestedDistance > 0f)
+                rubyWalkClock = Mathf.Repeat(rubyWalkClock + dt * Mathf.Clamp01(travelled / requestedDistance), RubyWalkCycle);
+        }
     }
 
     void MoveOnGround(Vector2 delta)
@@ -3692,11 +3710,24 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (running && runSprites != null && runSprites.Length > 0)
                     return runSprites[(int)(animClock / runSpriteFrameTime) % runSprites.Length];
                 if (moving && walkSprites != null && walkSprites.Length > 0)
-                    return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
+                    return AppliedCharacter == 1 ? RubyWalkFrame() : walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 if (moving && useRunFramesWhenMoving)
                     return Action(F_RUN1 + (int)(animClock / runFrameTime) % 3);
                 return IdleFrame();
         }
+    }
+
+    Sprite RubyWalkFrame()
+    {
+        if (walkSprites.Length != RubyWalkTimes.Length)
+            return walkSprites[(int)(rubyWalkClock / Mathf.Max(0.01f, walkFrameTime)) % walkSprites.Length];
+        float t = rubyWalkClock;
+        for (int i = 0; i < RubyWalkTimes.Length; i++)
+        {
+            if (t < RubyWalkTimes[i]) return walkSprites[i];
+            t -= RubyWalkTimes[i];
+        }
+        return walkSprites[0];
     }
 
     Sprite IdleFrame()

@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Ei käy päälle itsestään: herää, kun tämän säteen sisällä joku saa osuman (tappelu syntyy). 0 = ei käytössä.")]
     public float wakeOnFightRadius = 0f;
     public Sprite[] walkSprites;
-    [Tooltip("Juoksukuvat (jos tyhjä, juostaan kävelykuvilla nopeammin).")]
+    [Tooltip("Juoksukuvat. Jos puuttuvat, hahmo liikkuu vain kävelynopeudella.")]
     public Sprite[] runSprites;
     public float runFrameTime = 0.066f;
     [Tooltip("Toinen lyöntisarja (esim. yläkoukku), valitaan satunnaisesti tavallisen lyönnin tilalle.")]
@@ -743,6 +743,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Update()
     {
         if (appearAfterOthers && !awake && WaitToAppear()) return;
+        Vector3 frameStart = transform.position;
+        running = false;
         float dt = Time.deltaTime * TimeScale;
         stateTime += dt;
         animClock += dt;
@@ -769,13 +771,6 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Windup:
-                // kombon jatkoisku: askel perään, jos kohde horjahti kauemmas
-                if (comboSeq != null && comboPos > 0)
-                {
-                    Vector3 tp = enemyTarget != null ? enemyTarget.transform.position : player != null ? player.transform.position : transform.position;
-                    float gap = Mathf.Abs(tp.x - transform.position.x) - attackRange * 0.75f;
-                    if (gap > 0f) Move(new Vector2((facingRight ? 1f : -1f) * Mathf.Min(gap, 6f * dt), 0f));
-                }
                 if (stateTime >= CurrentWindup)
                 {
                     punchLanded = false;
@@ -836,8 +831,6 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (player != null)
                 {
                     facingRight = player.transform.position.x > transform.position.x;
-                    float dy = player.transform.position.y - transform.position.y;
-                    Move(new Vector2(0f, Mathf.Clamp(dy, -moveSpeedY * dt, moveSpeedY * dt)));
                 }
                 HoldBarrel(Mathf.Lerp(0.9f, 0.1f, k), Mathf.Lerp(0.3f, 3.5f, k));
                 if (stateTime >= 0.7f) Enter(State.BarrelThrow);
@@ -874,8 +867,6 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (!bottleThrown && player != null)
                 {
                     facingRight = player.transform.position.x > transform.position.x;
-                    float dy = player.transform.position.y - transform.position.y;
-                    Move(new Vector2(0f, Mathf.Clamp(dy, -moveSpeedY * dt, moveSpeedY * dt)));
                 }
                 if (!bottleThrown && stateTime >= ThrowPose.Start(ThrowPose.PunkThrowTimes, ThrowPose.ReleaseIndex))
                 {
@@ -1114,6 +1105,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
 
         Separate(dt);
+        if (state == State.Idle || state == State.Chase)
+        {
+            Vector3 travelled = transform.position - frameStart;
+            moving = travelled.sqrMagnitude > 0.000001f;
+            walkDirectionX = travelled.x;
+            if (!moving) running = false;
+        }
         ApplyVisual();
     }
 
@@ -1122,7 +1120,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     const float SepX = 0.95f, SepY = 0.38f, SepSpeed = 3.2f;
     void Separate(float dt)
     {
-        if (!SeparatesNow(state)) return;
+        // Paikallaan oleva isku-, torjunta- tai odotuskuva ei saa liukua erilleen.
+        if (state != State.Chase && state != State.Idle) return;
         Vector3 me = transform.position;
         Vector2 push = Vector2.zero;
         foreach (var e in All)
@@ -1143,7 +1142,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (push.sqrMagnitude < 0.0001f) return;
         if (push.magnitude > 1f) push.Normalize();
-        Move(push * SepSpeed * dt);
+        Vector2 separationStep = push * SepSpeed * dt;
+        float pace = running ? Mathf.Max(1f, runSpeedMultiplier) : 1f;
+        separationStep.x = Mathf.Clamp(separationStep.x, -moveSpeedX * pace * dt, moveSpeedX * pace * dt);
+        separationStep.y = Mathf.Clamp(separationStep.y, -moveSpeedY * pace * dt, moveSpeedY * pace * dt);
+        Move(separationStep);
     }
 
     static bool SeparatesNow(State s) =>
@@ -1491,10 +1494,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         facingRight = to.x > 0f;
         moving = true;
-        float stepX = Mathf.Min(Mathf.Abs(to.x), moveSpeedX * runSpeedMultiplier * dt);
-        float stepY = Mathf.Min(Mathf.Abs(to.y), moveSpeedY * runSpeedMultiplier * dt);
+        float run = LocomotionMultiplier(true);
+        float stepX = Mathf.Min(Mathf.Abs(to.x), moveSpeedX * run * dt);
+        float stepY = Mathf.Min(Mathf.Abs(to.y), moveSpeedY * run * dt);
         Move(new Vector2(Mathf.Sign(to.x) * stepX, Mathf.Sign(to.y) * stepY));
-        animClock += dt * (runSpeedMultiplier - 1f);
         return true;
     }
 
@@ -1561,7 +1564,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         Sprite[] stance = Has(getUpSprites) ? new[] { getUpSprites[getUpSprites.Length - 1] } : idleSprites;
         idleSprites = Has(footIdleSprites) ? footIdleSprites : stance;
-        walkSprites = Has(footWalkSprites) ? footWalkSprites : idleSprites;
+        walkSprites = footWalkSprites;
+        runSprites = null;   // laudalla käytetty liike ei ole jalan juoksuanimaatio
         if (Has(footWalkSprites)) walkFrameTime = footWalkFrameTime;
         idleFrameTime = 0.12f;
         punchSprites = Has(footPunchSprites) ? footPunchSprites : Has(footKickSprites) ? footKickSprites : idleSprites;
@@ -1683,6 +1687,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         Vector3 p = player.transform.position;
         Vector3 me = transform.position;
+        bool otherFighterVisible = OtherFighterVisible();
+        if (!otherFighterVisible) { retreatTimer = 0f; flanking = false; }
         // pelaaja on toisella alueella (esim. sisällä klubissa): odotetaan paikallaan
         if (Mathf.Abs(p.x - me.x) > 30f) { moving = false; return; }
 
@@ -1693,7 +1699,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         foreach (var e in All)
         {
             // vain samaa pelaajaa jahtaavat lähellä olevat: muualla hereillä olevat ja toisia vihuja jahtaavat eivät työnnä jonoa kauemmas
-            if (e == this || !e.awake || e.IsDead || e.ally || !e.isActiveAndEnabled || e.enemyTarget != null) continue;
+            if (e == this || !VisibleFighter(e) || e.ally || e.enemyTarget != null) continue;
             if (Mathf.Abs(e.transform.position.x - p.x) > 12f || e.state == State.Down || e.state == State.Airborne || e.state == State.GetUp) continue;
             float d = Mathf.Abs(e.transform.position.x - p.x);
             if (d < myD || (Mathf.Approximately(d, myD) && e.GetInstanceID() < GetInstanceID()))
@@ -1736,10 +1742,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     return;
                 }
                 moving = true;
-                float stepX = Mathf.Min(Mathf.Abs(tb.x), moveSpeedX * runSpeedMultiplier * dt);
-                float stepY = Mathf.Min(Mathf.Abs(tb.y), moveSpeedY * runSpeedMultiplier * dt);
+                float run = LocomotionMultiplier(true);
+                float stepX = Mathf.Min(Mathf.Abs(tb.x), moveSpeedX * run * dt);
+                float stepY = Mathf.Min(Mathf.Abs(tb.y), moveSpeedY * run * dt);
                 Move(new Vector2(Mathf.Sign(tb.x) * stepX, Mathf.Sign(tb.y) * stepY));
-                animClock += dt * (runSpeedMultiplier - 1f);
                 return;
             }
         }
@@ -1762,7 +1768,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (cooldown <= 0f && !attackRolled)
         {
             grabIntent = Has(grabSprites) && Random.value < grabChance;
-            flanking = Random.value < flankChance;
+            flanking = otherFighterVisible && Random.value < flankChance;
             attackRolled = true;
         }
         float dist = grabIntent ? grabRange * 0.6f : attackRange * 0.8f;   // heittoa varten mennään aivan viereen
@@ -1888,9 +1894,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = true;
             Vector2 dir = to.normalized;
             // kaukana juostaan (myös kierrettäessä selän taakse)
-            float run = to.magnitude > 3.5f || crossing || rushAfterBar ? runSpeedMultiplier : 1f;
-            running = run > 1f;
-            if (run > 1f) animClock += dt * (run - 1f);   // askeleet tihenevät
+            float run = LocomotionMultiplier(to.magnitude > 3.5f || crossing || rushAfterBar);
             Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
             step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x));
             step.y = Mathf.Sign(to.y) * Mathf.Min(Mathf.Abs(to.y), Mathf.Abs(step.y));
@@ -2022,10 +2026,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool pirate, pirateChecked;
 
     /// Onko pystyssä olevia rosvoja lähellä: silloin seilorit ja puliukot käyvät vain niiden kimppuun eivätkä toistensa.
-    static bool PirateNear(Vector3 me, float range)
+    bool PirateNear(Vector3 me, float range)
     {
         foreach (var e in All)
-            if (e != null && e.isActiveAndEnabled && !e.IsDead && e.awake && e.IsPirate && !e.TargetDown(e)
+            if (VisibleFighter(e) && e.IsPirate && !e.TargetDown(e)
                 && Mathf.Abs(e.transform.position.x - me.x) <= range) return true;
         return false;
     }
@@ -2035,7 +2039,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
     bool UpdateEnemyTarget()
     {
-        if (enemyTarget != null && (!enemyTarget.isActiveAndEnabled || enemyTarget.IsDead || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
+        if (enemyTarget != null && (!VisibleFighter(enemyTarget) || TargetDown(enemyTarget) || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
             enemyTarget = null;
         if (ally)
         {
@@ -2047,7 +2051,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 bool pirates = PirateNear(me, 14f);   // rosvoja paikalla: vain niitä vastaan (ei puliukkoja)
                 foreach (var e in All)
                 {
-                    if (e == this || e.ally || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                    if (e == this || e.ally || !VisibleFighter(e) || TargetDown(e)) continue;
                     if (pirates && !e.IsPirate) continue;
                     Vector3 q = e.transform.position;
                     if (Mathf.Abs(q.x - me.x) > 14f) continue;
@@ -2067,7 +2071,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enemy pick = null; float best = dp - 0.5f;
             foreach (var e in All)
             {
-                if (!(e.ally || (huntsBrawlers && e.fightsEveryone)) || e.IsDead || TargetDown(e) || !e.isActiveAndEnabled) continue;
+                if (!(e.ally || (huntsBrawlers && e.fightsEveryone)) || !VisibleFighter(e) || TargetDown(e)) continue;
                 Vector3 q = e.transform.position;
                 float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
                 if (d < best) { best = d; pick = e; }
@@ -2086,7 +2090,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enemy pick = null;
             foreach (var e in All)
             {
-                if (e == this || (e.fightsEveryone && e.displayName == displayName) || e.IsDead || TargetDown(e)) continue;   // samannimiset (puliukot) eivät tappele keskenään
+                if (e == this || (e.fightsEveryone && e.displayName == displayName) || !VisibleFighter(e) || TargetDown(e)) continue;   // samannimiset (puliukot) eivät tappele keskenään
                 if (piratesNear && !e.IsPirate) continue;
                 Vector3 q = e.transform.position;
                 if (Mathf.Abs(q.x - me.x) > 12f) continue;
@@ -2130,9 +2134,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (to.magnitude > 0.08f)
         {
             moving = true;
-            float run = to.magnitude > 3.5f ? runSpeedMultiplier : 1f;
-            running = run > 1f;
-            if (run > 1f) animClock += dt * (run - 1f);
+            float run = LocomotionMultiplier(to.magnitude > 3.5f);
             Vector2 dir = to.normalized;
             Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
             step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x));
@@ -2592,8 +2594,59 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     // ---------------- Liike ja maa ----------------
 
+    static bool HasLocomotion(Sprite[] sprites)
+    {
+        if (sprites == null) return false;
+        Sprite first = null;
+        foreach (var sprite in sprites)
+        {
+            if (sprite == null) continue;
+            if (first == null) first = sprite;
+            else if (sprite != first) return true;
+        }
+        return false;
+    }
+
+    float LocomotionMultiplier(bool wantsRun)
+    {
+        running = wantsRun && HasLocomotion(runSprites);
+        return running ? Mathf.Max(1f, runSpeedMultiplier) : 1f;
+    }
+
+    bool VisibleFighter(Enemy e)
+    {
+        if (e == null || !e.isActiveAndEnabled || e.IsDead || !e.awake) return false;
+        if (Mathf.Abs(e.transform.position.x - transform.position.x) > 30f) return false;
+        var cam = Camera.main;
+        if (cam == null) return false;
+        Vector3 viewport = cam.WorldToViewportPoint(e.transform.position + Vector3.up);
+        return viewport.z > 0f && viewport.x >= 0f && viewport.x <= 1f && viewport.y >= 0f && viewport.y <= 1f;
+    }
+
+    bool OtherFighterVisible()
+    {
+        foreach (var e in All)
+            if (e != this && VisibleFighter(e) && !TargetDown(e)) return true;
+        return false;
+    }
+
     void Move(Vector2 delta)
     {
+        bool locomotion = state == State.Idle || state == State.Chase;
+        bool skating = skatePass && !boardLost;
+        if (locomotion && !skating)
+        {
+            bool canWalk = HasLocomotion(walkSprites) || (!awake && HasLocomotion(calmWalkSprites));
+            if (!canWalk && !(running && HasLocomotion(runSprites))) { moving = false; return; }
+            if (awake && !ally && enemyTarget == null && player != null && !OtherFighterVisible())
+            {
+                // Yksin pelaajaa vastaan ei peräännytä, haeta tavaraa takaa tai työnnytä poispäin.
+                Vector3 toPlayer = player.transform.position - transform.position;
+                delta.x = toPlayer.x >= 0f ? Mathf.Clamp(delta.x, 0f, toPlayer.x) : Mathf.Clamp(delta.x, toPlayer.x, 0f);
+                delta.y = toPlayer.y >= 0f ? Mathf.Clamp(delta.y, 0f, toPlayer.y) : Mathf.Clamp(delta.y, toPlayer.y, 0f);
+                retreatTimer = 0f;
+            }
+        }
         if (Mathf.Abs(delta.x) > 0.0001f && (state == State.Chase || state == State.Punch)) lastMoveX = Mathf.Sign(delta.x);
         Vector3 p = transform.position;
         float minY = player != null ? player.minDepthY : -4.3f;
@@ -2682,7 +2735,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float rot = 0f;
         body.sprite = CurrentSprite(ref rot);
         // Kiertäessä kävelykuva katsoo liikkeeseen, isku edelleen kohteeseen.
-        bool walkFacing = state == State.Chase && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
+        bool walkFacing = (state == State.Chase || state == State.Idle) && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
         body.flipX = walkFacing ? walkDirectionX < 0f : !facingRight;
 
         Vector2 pivotFix = Vector2.zero;
@@ -2733,6 +2786,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Idle:
+                if (moving && running && HasLocomotion(runSprites)) return runSprites[(int)(animClock / Mathf.Max(0.01f, runFrameTime)) % runSprites.Length];
                 if (moving && !awake && Has(calmWalkSprites)) return calmWalkSprites[(int)(animClock / calmWalkFrameTime) % calmWalkSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
                 return IdleFrame();

@@ -52,7 +52,8 @@ public class Motorbike : MonoBehaviour
     [Tooltip("Voiko pyörällä ajaa. Kadun pyörät ovat rekvisiittaa, ajettava on takakujan parkkipaikalla.")]
     public bool rideable = true;
     /// Valtatiellä pienempi koko, muualla isompi.
-    float Scale => Area.Current != null && Area.Current.areaName == "Valtatie" ? bikeScale : (rideable ? streetScale : propScale);
+    float Scale => Area.Current != null && (Area.Current.areaName == "Valtatie" || Area.Current.areaName == "Aavikkotie")
+        ? bikeScale : (rideable ? streetScale : propScale);
 
     [Header("Ajo")]
     public float maxSpeed = 27.5f;
@@ -84,6 +85,8 @@ public class Motorbike : MonoBehaviour
     PlayerController pc;
     AudioSource audioSrc;
     bool near, busy, riding, facingRight;
+    bool travelLocked;
+    public void SetTravelLock(bool value) { travelLocked = value; }
     float speed, animClock, rideClock, groundHeight;
     readonly Dictionary<Object, float> lastHit = new Dictionary<Object, float>();
     static Motorbike active;
@@ -179,6 +182,7 @@ public class Motorbike : MonoBehaviour
 
     void Update()
     {
+        if (travelLocked) return;
         // pysäköity kuva (3D-render) samaan kokoon kuin kadun pyörät; ajokuvat käyttävät omaa kokoaan (Scale)
         float ps = Mathf.Min(Scale, propScale);
         if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
@@ -264,6 +268,20 @@ public class Motorbike : MonoBehaviour
     }
 
     /// Pysäköi heti ilman laskeutumisanimaatiota (esim. uuden alueen alussa pimennyksen aikana): pyörä kohtaan pos, pelaaja viereen.
+    /// Jatkaa ajoa aluevaihdon jälkeen. Moottori jää käyntiin ja pelaaja pyörän selkään.
+    public void ContinueRide(Vector3 pos, bool faceRight)
+    {
+        if (!riding || pc == null) return;
+        facingRight = faceRight;
+        speed = Mathf.Min(Mathf.Abs(speed), maxSpeed);   // suunta tulee Dir-kertoimesta
+        boostT = -1f; wheelie = 0f;
+        transform.position = pos;
+        pc.transform.position = pos;
+        pc.Face(faceRight);
+        groundHeight = GroundAt(pos.y);
+        if (rideSprites != null && rideSprites.Length > 0) ShowRider(rideSprites[0]);
+    }
+
     public void ParkNow(Vector3 pos, bool faceRight)
     {
         StopAllCoroutines();

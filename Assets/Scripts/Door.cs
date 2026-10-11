@@ -23,6 +23,8 @@ public class Door : MonoBehaviour
     public Vector2 spawnPoint;
     [Tooltip("Palaa sen oven eteen, josta tultiin sisään (spawnPoint ohitetaan).")]
     public bool returnToLastDoor;
+    [Tooltip("Sisääntulossa hahmo katsoo vasemmalle (esim. Peltihalli pelataan oikealta vasemmalle).")]
+    public bool faceLeftOnArrival;
 
     [Header("Oven kohta")]
     public float halfWidth = 1.2f;
@@ -109,6 +111,7 @@ public class Door : MonoBehaviour
         if (anim != null) anim.Close();
         if (dest != null) dest.Apply(pc);
         pc.TeleportTo(new Vector3(pos.x, pos.y, 0f));
+        if (faceLeftOnArrival) pc.Face(false);
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(pos.x);
 
         yield return new WaitForSecondsRealtime(0.1f);
