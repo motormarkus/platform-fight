@@ -186,7 +186,7 @@ public class Motorbike : MonoBehaviour
         // pysäköity kuva (3D-render) samaan kokoon kuin kadun pyörät; ajokuvat käyttävät omaa kokoaan (Scale)
         float ps = Mathf.Min(Scale, propScale);
         if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
-        if (!rideable) return;
+        if (!rideable || (parkedNoRideArea != null && Area.Current == parkedNoRideArea)) { near = false; return; }
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
         if (pc == null) return;
         if (riding) { Ride(Time.deltaTime); return; }
@@ -280,6 +280,21 @@ public class Motorbike : MonoBehaviour
         pc.Face(faceRight);
         groundHeight = GroundAt(pos.y);
         if (rideSprites != null && rideSprites.Length > 0) ShowRider(rideSprites[0]);
+    }
+
+    public Area parkedNoRideArea;
+
+    public void ResumeTravel(Vector3 pos, bool faceRight)
+    {
+        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) return;
+        UseCharacterSprites();
+        active = this; riding = true; busy = false;
+        pc.Riding = true; pc.enabled = false;
+        if (parked != null) parked.enabled = false;
+        speed = 0f; animClock = 0f; loopAt = Time.time;
+        EnsureWheels();
+        ContinueRide(pos, faceRight);
     }
 
     public void ParkNow(Vector3 pos, bool faceRight)

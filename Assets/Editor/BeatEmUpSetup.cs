@@ -4504,6 +4504,152 @@ public static class BeatEmUpSetup
         if (report) Info("Ajopari lisätty Aavikkotielle: heron tumma pyörä, 15 fps ja rokkimimmin lyönti. Heron riutaisu väläyttää pyörän punaiseksi ja hidastaa sen. Tallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
+    public static void CreateDesertStreet()
+    {
+        if (PlayModeBlocked()) return;
+        const string dir = "Assets/Sprites/Taustat/";
+        var road = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkotie");
+        string[] files = { "aavikkokatu1.png", "aavikkokatu2.png", "aavikkokatu3.png",
+            "aavikkokadujatke1.png", "aavikkokadujatke2.png", "aavikkokadujatke3.png" };
+        if (road == null || files.Any(f => AssetImporter.GetAtPath(dir + f) == null))
+            throw new System.InvalidOperationException("Tarvitaan Aavikkotie (93), kolme aavikkokatukuvaa ja kolme jatkokuvaa.");
+        // Reunoissa on sama rakennus kahdesti: kohdista yhteiset osat limittäin.
+        float ppu = AssetDatabase.LoadAssetAtPath<Texture2D>(dir + files[0]).height / 12f;
+        var sprites = files.Select(f => ImportShipSprite(dir + f, ppu, false, SpriteAlignment.Center)).ToArray();
+        var backgrounds = new[] { "aavikko_parallax_ylempi.png", "aavikko_parallax_alempi.png" }
+            .Select(f => AssetDatabase.LoadAssetAtPath<Sprite>(dir + f)).ToArray();
+        if (backgrounds.Any(s => s == null))
+            throw new System.InvalidOperationException("Aavikon parallax-spritet puuttuvat.");
+        const float left = 86000f;
+        float[] startPixels = { 0f, 1497f, 2917f, 4386f, 5896.992f, 7586.48064f };
+        float[] imageScales = { 1f, 1f, 1f, 1.008f, 1.157184f, 1.085438592f };
+        float[] curbRows = { 560f, 560f, 588f, 607f, 591f, 640f };
+        // Kohdista jokaisen kuvan reunakiveys samaan 560 px linjaan myös mittakaavan muuttuessa.
+        float[] risePixels = curbRows.Select((row, i) =>
+            (row - 443.5f) * imageScales[i] - (560f - 443.5f)).ToArray();
+        // Rajaa nostettujen kuvien alapuoliset aukot pois näkymästä.
+        const float bottomCropPixels = 60f;
+        float cameraSize = 6f - bottomCropPixels * 0.5f / ppu;
+        float width = startPixels[5] / ppu + sprites[5].bounds.size.x * imageScales[5], halfScreen = cameraSize * 16f / 9f;
+        var area = ReuseArea("Alue: Aavikkokatu");
+        area.areaName = "Aavikkokatu";
+        area.minDepthY = CamY - 6f + bottomCropPixels / ppu + 0.6f;
+        // Kolmas kuva nostetaan samaan reunakiveyksen korkeuteen.
+        area.useSidewalk = true;
+        area.sidewalkHeight = 28f / ppu;
+        area.curbDepthY = CamY + 6f - 560f / ppu;
+        area.maxDepthY = CamY + 6f - 510f / ppu - area.sidewalkHeight;
+        area.depthLimits = new Vector2[0];
+        area.camMinX = left + halfScreen; area.camMaxX = left + width - halfScreen;
+        area.walkMinX = left + 0.8f; area.walkMaxX = left + width - 0.8f;
+        area.camSize = cameraSize; area.camRiseY = 0f; area.camOffsetY = bottomCropPixels * 0.5f / ppu; area.backScale = 1f;
+        area.music = road.music; area.ambience = road.ambience; area.ambienceVolume = road.ambienceVolume;
+        var old = GameObject.Find("Aavikkokadun taustat");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Aavikkokadun taustat");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkokatu");
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            var view = new GameObject("Aavikkokatu " + (i + 1)).AddComponent<SpriteRenderer>();
+            view.transform.SetParent(root.transform, false);
+            view.transform.position = new Vector3(left + startPixels[i] / ppu + sprites[i].bounds.size.x * imageScales[i] * 0.5f,
+                CamY + risePixels[i] / ppu, 0f);
+            view.transform.localScale = Vector3.one * imageScales[i];
+            view.sprite = sprites[i]; view.sortingOrder = -10000 + i;
+        }
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+            var view = new GameObject(i == 0 ? "Aavikkokadun taivas ja vuoret" : "Aavikkokadun kaukainen hiekka").AddComponent<SpriteRenderer>();
+            view.transform.SetParent(root.transform, false);
+            view.transform.position = new Vector3(left + width * 0.5f, CamY - (i == 1 ? 0.9f : 0f), 0f);
+            view.sprite = backgrounds[i]; view.sortingOrder = i == 0 ? -10200 : -10100;
+            view.transform.localScale = new Vector3(width / backgrounds[i].bounds.size.x,
+                12f / backgrounds[i].bounds.size.y * (i == 0 ? 1.15f : 1f), 1f);
+            var parallax = view.gameObject.AddComponent<ParallaxLayer>();
+            parallax.factor = i == 0 ? 0.08f : 0.25f; parallax.startCamX = area.camMinX;
+            parallax.minX = left; parallax.maxX = left + width;
+        }
+        var exitGo = GameObject.Find("Aavikkotieltä Aavikkokadulle");
+        if (exitGo == null) { exitGo = new GameObject("Aavikkotieltä Aavikkokadulle"); Undo.RegisterCreatedObjectUndo(exitGo, "Aavikkokadun ajosiirtymä"); }
+        var exit = exitGo.GetComponent<RideExit>();
+        if (exit == null) exit = Undo.AddComponent<RideExit>(exitGo);
+        Undo.RecordObject(exit, "Aavikkokadun ajosiirtymä");
+        exit.transform.position = new Vector3(road.walkMaxX - 1.7f, -2.4f, 0f);
+        exit.here = road; exit.target = area;
+        exit.spawnPoint = new Vector2(left + 6f, Mathf.Lerp(area.minDepthY, area.maxDepthY, 0.45f));
+        exit.exitToLeft = false; exit.turnBikeRight = true; exit.parkBike = false;
+        exit.title = "Aavikkokatu"; exit.titleTime = 0f; exit.fadeTime = 0.4f;
+        exit.parkBike = true; exit.preventParkedRide = true;
+        exit.parkPoint = new Vector2(left + 6f, area.maxDepthY + 0.1f);
+        var weeds = area.GetComponent<DesertTumbleweeds>();
+        if (weeds == null) weeds = Undo.AddComponent<DesertTumbleweeds>(area.gameObject);
+        weeds.area = area;
+        weeds.sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Rekvisiitta/aavikko_risupallo.png");
+        weeds.rollSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/tumbleweed.wav");
+        weeds.count = 6; weeds.minSpeed = 1.5f; weeds.maxSpeed = 4.8f;
+        void ReturnExit(string name, Area here, Area target, Vector2 spawn, bool onFoot)
+        {
+            var go = GameObject.Find(name);
+            if (go == null) { go = new GameObject(name); Undo.RegisterCreatedObjectUndo(go, name); }
+            var back = go.GetComponent<RideExit>();
+            if (back == null) back = Undo.AddComponent<RideExit>(go);
+            Undo.RecordObject(back, name);
+            back.here = here; back.target = target; back.spawnPoint = spawn;
+            back.transform.position = new Vector3(here.walkMinX + 1.2f, spawn.y, 0f);
+            back.exitToLeft = true; back.turnBikeLeft = true; back.turnBikeRight = false;
+            back.returnOnFoot = onFoot; back.titleTime = 0f; back.title = target.areaName;
+            EditorUtility.SetDirty(back);
+        }
+        ReturnExit("Aavikkokadulta takaisin tielle", area, road, new Vector2(road.walkMaxX - 6f, -2.4f), true);
+        var desert = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
+        if (desert != null)
+            ReturnExit("Aavikkotieltä takaisin Aavikolle", road, desert, new Vector2(desert.walkMaxX - 6f, -2.4f), false);
+        EditorUtility.SetDirty(weeds);
+        var tires = area.GetComponent<DesertTires>();
+        if (tires == null) tires = Undo.AddComponent<DesertTires>(area.gameObject);
+        Undo.RecordObject(tires, "Aavikkokadun autonrenkaat");
+        tires.area = area; tires.count = 5;
+        tires.floorSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Rekvisiitta/autonrengas_maassa.png");
+        tires.rollingSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Rekvisiitta/autonrengas_pyorii.png");
+        tires.airSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Rekvisiitta/autonrengas_lento.png");
+        EditorUtility.SetDirty(tires);
+        var crateModel = GameObject.Find("Kopterin puulaatikko 1")?.GetComponent<Crate>();
+        if (crateModel != null)
+        {
+            foreach (var existing in Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                if (existing.name.StartsWith("Aavikkokadun puulaatikko ")) Undo.DestroyObjectImmediate(existing.gameObject);
+            var oldCrates = GameObject.Find("Aavikkokadun puulaatikot");
+            if (oldCrates != null) Undo.DestroyObjectImmediate(oldCrates);
+            var crates = new GameObject("Aavikkokadun puulaatikot");
+            Undo.RegisterCreatedObjectUndo(crates, "Aavikkokadun puulaatikot");
+            var spots = new[] { new Vector2(1100f, 0.2f), new Vector2(1750f, 0.65f),
+                new Vector2(2400f, 0.35f), new Vector2(3150f, 0.75f),
+                new Vector2(3700f, 0.25f), new Vector2(4250f, 0.55f) };
+            for (int i = 0; i < spots.Length; i++)
+            {
+                var clone = Object.Instantiate(crateModel.gameObject, crates.transform);
+                clone.name = "Aavikkokadun puulaatikko " + (i + 1);
+                clone.transform.position = new Vector3(left + spots[i].x / ppu,
+                    Mathf.Lerp(area.maxDepthY - 0.03f, area.curbDepthY + 0.04f, spots[i].y), 0f);
+                clone.SetActive(true);
+            }
+        }
+        EditorUtility.SetDirty(area); EditorUtility.SetDirty(exit);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Aavikkokatu lisätty: kuusi kohdistettua kuvaa, samat aavikon parallaxit ja ajosiirtymä Aavikkotien lopusta. Tallenna scene (Ctrl+S).");
+    }
+
+    public static void BuildDesertStreetBatch()
+    {
+        batch = true;
+        EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
+        CreateDesertStreet();
+        if (GameObject.Find("Aavikkokatu 6") == null) throw new System.InvalidOperationException("Aavikkokadun rakentaminen epäonnistui.");
+        EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        AssetDatabase.SaveAssets();
+    }
+
     public static void BuildDesertPairBatch()
     {
         batch = true;

@@ -15,10 +15,10 @@ public struct TumbleweedFlight
         Height = remaining = verticalSpeed = gravity = 0f;
     }
 
-    public bool Kick(float launchSpeed, float upSpeed, float acceleration)
+    public bool Kick(float launchSpeed, float upSpeed, float acceleration, float direction)
     {
         if (Airborne) return false;
-        VelocityX = (VelocityX <= 0f ? 1f : -1f) * Math.Abs(launchSpeed);
+        VelocityX = (direction < 0f ? -1f : 1f) * Math.Abs(launchSpeed);
         verticalSpeed = Math.Max(0.1f, upSpeed);
         gravity = Math.Max(0.1f, acceleration);
         remaining = 2f * verticalSpeed / gravity;

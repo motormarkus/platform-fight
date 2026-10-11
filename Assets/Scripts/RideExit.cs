@@ -13,6 +13,11 @@ public class RideExit : MonoBehaviour
     public bool exitToLeft;
     [Tooltip("Ajoreitti jatkuu kohdealueella oikealle; pyörä käännetään pimennyksessä.")]
     public bool turnBikeRight;
+    public bool turnBikeLeft;
+    public bool returnOnFoot;
+    public bool preventParkedRide;
+    static Motorbike parkedTravelBike;
+    static Area parkedTravelArea;
     public Vector2 spawnPoint;
     public string title = "Valtatie";
     public float fadeTime = 0.4f, titleTime = 1.6f;
@@ -30,11 +35,12 @@ public class RideExit : MonoBehaviour
     void Update()
     {
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
-        if (pc == null || busy || !pc.Riding || Motorbike.Current == null || target == null || (here != null && Area.Current != here)) return;
+        bool walkingReturn = pc != null && returnOnFoot && !pc.Riding && parkedTravelBike != null && Area.Current == parkedTravelArea;
+        if (pc == null || busy || (!walkingReturn && (!pc.Riding || Motorbike.Current == null)) || target == null || (here != null && Area.Current != here)) return;
         // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)
         float x = pc.transform.position.x;
         float threshold = transform.position.x;
-        if (CameraFollow.Instance != null && Camera.main != null)
+        if (!walkingReturn && CameraFollow.Instance != null && Camera.main != null)
         {
             // Pyörän keskikohta pysähtyy puolen pyörän mitan ennen kuvan reunaa.
             // Poistumiskynnys on aina tämän liikerajan saavutettavalla puolella.
@@ -53,7 +59,7 @@ public class RideExit : MonoBehaviour
 
     IEnumerator Go()
     {
-        var bike = Motorbike.Current;
+        var bike = returnOnFoot ? parkedTravelBike : Motorbike.Current;
         if (bike == null) yield break;
         busy = true;
         bike.SetTravelLock(true);                 // pyörän selästä ei voi nousta kesken ajosiirtymän
@@ -68,11 +74,24 @@ public class RideExit : MonoBehaviour
         titleAlpha = 0f;
         if (target != null) target.Apply(pc);
         pc.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0f);
+        if (returnOnFoot)
+        {
+            bike.ResumeTravel(new Vector3(spawnPoint.x, spawnPoint.y, 0f), !turnBikeLeft);
+            bike.parkedNoRideArea = null;
+            parkedTravelBike = null; parkedTravelArea = null;
+        }
         if (!parkBike && turnBikeRight && bike != null)
             bike.ContinueRide(new Vector3(spawnPoint.x, spawnPoint.y, 0f), true);
+        if (!parkBike && turnBikeLeft && bike != null)
+            bike.ContinueRide(new Vector3(spawnPoint.x, spawnPoint.y, 0f), false);
         if (parkBike && bike != null)
         {
             bike.ParkNow(new Vector3(parkPoint.x, parkPoint.y, 0f), true);   // pyörä parkkiin, pelaaja jalan vieressä
+            if (preventParkedRide)
+            {
+                bike.parkedNoRideArea = target;
+                parkedTravelBike = bike; parkedTravelArea = target;
+            }
             if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(parkPoint.x);
         }
         else if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(spawnPoint.x);

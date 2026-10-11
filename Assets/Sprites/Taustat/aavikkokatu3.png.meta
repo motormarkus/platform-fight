@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: b7746b2cf498b804195c0655dcef3603
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7023999797873853727
+    second: aavikkokatu3_0
+  - first:
+      213: -2723947724566576959
+    second: aavikkokatu3_1
+  - first:
+      213: 7837890406518483270
+    second: aavikkokatu3_2
+  - first:
+      213: 7582767238412389854
+    second: aavikkokatu3_3
+  - first:
+      213: 4855335793729771585
+    second: aavikkokatu3_4
+  - first:
+      213: -3626417121584681588
+    second: aavikkokatu3_5
+  - first:
+      213: -964627011300743298
+    second: aavikkokatu3_6
+  - first:
+      213: -5297694357364152081
+    second: aavikkokatu3_7
+  - first:
+      213: 6592293831831897572
+    second: aavikkokatu3_8
+  - first:
+      213: 3028176068871288198
+    second: aavikkokatu3_9
+  - first:
+      213: -4175604969080461134
+    second: aavikkokatu3_10
+  - first:
+      213: 4289934746523721175
+    second: aavikkokatu3_11
+  - first:
+      213: -8207951086952570469
+    second: aavikkokatu3_12
+  - first:
+      213: -2281625329959938735
+    second: aavikkokatu3_13
+  - first:
+      213: -4536006536876093028
+    second: aavikkokatu3_14
+  - first:
+      213: -6576999502726011704
+    second: aavikkokatu3_15
+  - first:
+      213: -3976814689687355256
+    second: aavikkokatu3_16
+  - first:
+      213: 8396170721662956480
+    second: aavikkokatu3_17
+  - first:
+      213: 5958062615133417847
+    second: aavikkokatu3_18
+  - first:
+      213: -642332928316483689
+    second: aavikkokatu3_19
+  - first:
+      213: 1870165494389011215
+    second: aavikkokatu3_20
+  - first:
+      213: 85169561990653137
+    second: aavikkokatu3_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 73.916664
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: aavikkokatu3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 838
+        width: 82
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15cfa6f9924a7160800000000000000
+      internalID: 7023999797873853727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 852
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0c9720af7923ad0800000000000000
+      internalID: -2723947724566576959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 862
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649e9fc3cc7c5cc60800000000000000
+      internalID: 7837890406518483270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 848
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd4a0cc0a66b3960800000000000000
+      internalID: 7582767238412389854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_4
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 878
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14890820e2e916340800000000000000
+      internalID: 4855335793729771585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_5
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 862
+        width: 60
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dec8c67d06cadc0800000000000000
+      internalID: -3626417121584681588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_6
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 862
+        width: 52
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e772ca218d4fc92f0800000000000000
+      internalID: -964627011300743298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_7
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 875
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8e7b4ec0fca76b0800000000000000
+      internalID: -5297694357364152081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_8
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 870
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5c65500588c7b50800000000000000
+      internalID: 6592293831831897572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_9
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 868
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6857966371e360a20800000000000000
+      internalID: 3028176068871288198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_10
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 876
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b86a9767654d06c0800000000000000
+      internalID: -4175604969080461134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1774
+        height: 864
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ddd6244ce8e88b30800000000000000
+      internalID: 4289934746523721175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_12
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 854
+        width: 67
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91296859ff771e80800000000000000
+      internalID: -8207951086952570469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_13
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 848
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1555439d9d90650e0800000000000000
+      internalID: -2281625329959938735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_14
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 861
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9196a6661edc01c0800000000000000
+      internalID: -4536006536876093028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_15
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 803
+        width: 19
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c468187ccdc9b4a0800000000000000
+      internalID: -6576999502726011704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_16
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 856
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88041ab1c148fc8c0800000000000000
+      internalID: -3976814689687355256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 829
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3714a59c0358470800000000000000
+      internalID: 8396170721662956480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_18
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 773
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771ff8c916a4fa250800000000000000
+      internalID: 5958062615133417847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_19
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 779
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797d82cda99f517f0800000000000000
+      internalID: -642332928316483689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_20
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 775
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03ff3ccb9924f910800000000000000
+      internalID: 1870165494389011215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokatu3_21
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 778
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4e020f3459e2100800000000000000
+      internalID: 85169561990653137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      aavikkokatu3_0: 7023999797873853727
+      aavikkokatu3_1: -2723947724566576959
+      aavikkokatu3_10: -4175604969080461134
+      aavikkokatu3_11: 4289934746523721175
+      aavikkokatu3_12: -8207951086952570469
+      aavikkokatu3_13: -2281625329959938735
+      aavikkokatu3_14: -4536006536876093028
+      aavikkokatu3_15: -6576999502726011704
+      aavikkokatu3_16: -3976814689687355256
+      aavikkokatu3_17: 8396170721662956480
+      aavikkokatu3_18: 5958062615133417847
+      aavikkokatu3_19: -642332928316483689
+      aavikkokatu3_2: 7837890406518483270
+      aavikkokatu3_20: 1870165494389011215
+      aavikkokatu3_21: 85169561990653137
+      aavikkokatu3_3: 7582767238412389854
+      aavikkokatu3_4: 4855335793729771585
+      aavikkokatu3_5: -3626417121584681588
+      aavikkokatu3_6: -964627011300743298
+      aavikkokatu3_7: -5297694357364152081
+      aavikkokatu3_8: 6592293831831897572
+      aavikkokatu3_9: 3028176068871288198
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

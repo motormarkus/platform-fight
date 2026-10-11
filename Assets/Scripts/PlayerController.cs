@@ -391,6 +391,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     LifeRing pickingRing;
     const float RingPickReach = 0.98f;   // nostokuvissa käsi (renkaan keskikohta) näin paljon heron edessä
     bool ringResolved;
+    bool tireArtActive;
+    System.Collections.Generic.Dictionary<string, Sprite> tireArt;
+
+    Sprite TireVariant(Sprite original)
+    {
+        if (original == null) return original;
+        if (tireArt == null)
+        {
+            tireArt = new System.Collections.Generic.Dictionary<string, Sprite>();
+            foreach (var sprite in Resources.LoadAll<Sprite>("AutonrengasHero")) tireArt[sprite.name] = sprite;
+        }
+        return tireArt.TryGetValue(original.name, out var variant) ? variant : original;
+    }
     bool HasRingSmash => ringSmashSprites != null && ringSmashSprites.Length >= 8;
     bool HasRing => ringTakeSprites != null && ringTakeSprites.Length >= 6 && ringThrowSprites != null && ringThrowSprites.Length >= 8 && ringPickSprites != null && ringPickSprites.Length >= 4;
 
@@ -2440,7 +2453,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         Vector3 me = transform.position;
         bool any = false, heavy = false;
         if (AttackIsKick && state != State.ChairSwing && state != State.CueSwingA && state != State.CueSwingB)
+        {
             any = DesertTumbleweeds.TryKick(me, side, reach, attackDepth);
+            any |= LifeRing.KickTires(me, side, reach, attackDepth);
+        }
         lastHitEnemies.Clear();
         bool drunkKnock = IsDrunk && !knockdown && UnityEngine.Random.value < drunkKnockChance;   // kännissä heilautus kaataa
         foreach (var e in Enemy.All.ToArray())
@@ -2543,7 +2559,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             Vector3 p = best.transform.position;
             var held = LifeRing.Held;
-            if (held != null && best.HasRingArt && best.PutRing(held.sprites, me.x))
+            if (held != null && !held.tire && best.HasRingArt && best.PutRing(held.sprites, me.x))
             {
                 LifeRing.ConsumeHeld();
                 HitFx.OnHit(true);
@@ -2558,7 +2574,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             LifeRing.DropHeld(new Vector3(p.x - dir * 0.6f, p.y - 0.05f, 0f));
             return;
         }
-        LifeRing.DropHeld(me + new Vector3(dir * 1.6f, -0.05f, 0f));
+        LifeRing.DropHeldUpright(me + new Vector3(dir * 1.6f, -0.05f, 0f));
     }
 
     /// Katsooko pelaaja oikealle (viholliset kiertävät selän taakse).
@@ -3365,7 +3381,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (body == null) return;
 
-        body.sprite = CurrentSprite();
+        if (state == State.RingPick && pickingRing != null) tireArtActive = pickingRing.tire;
+        if (LifeRing.Held != null) tireArtActive = LifeRing.Held.tire;
+        // Säilytä autonrengasversio myös heiton/lyönnin loppukuvissa, kun Held on jo tyhjennetty.
+        bool ringAnimation = state == State.RingPick || state == State.RingHold || state == State.RingThrow || state == State.RingSmash;
+        var frame = CurrentSprite();
+        body.sprite = tireArtActive && ringAnimation ? TireVariant(frame) : frame;
         body.flipX = !facingRight;
         // pärinä: kullanoranssi hehku sykkii, viimeiset 4 s nopeammin (loppumassa)
         if (Boosted)

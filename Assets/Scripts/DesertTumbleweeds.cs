@@ -11,7 +11,7 @@ public class DesertTumbleweeds : MonoBehaviour
     public float minDiameter = 0.65f, maxDiameter = 1.35f;
     public float minSpeed = 2.4f, maxSpeed = 3.8f;
     public float kickSpeed = 13f, kickUpSpeed = 8f, kickGravity = 11f;
-    static DesertTumbleweeds instance;
+    static readonly System.Collections.Generic.List<DesertTumbleweeds> instances = new System.Collections.Generic.List<DesertTumbleweeds>();
 
     class Ball
     {
@@ -26,21 +26,26 @@ public class DesertTumbleweeds : MonoBehaviour
     Ball[] balls;
     bool entered;
 
-    void Awake() { instance = this; }
+    void Awake() { instances.Add(this); }
 
     public static bool TryKick(Vector3 playerPosition, float direction, float reach, float depthRange)
     {
-        var owner = instance;
+        var owner = instances.Find(w => w != null && w.area == Area.Current && w.isActiveAndEnabled);
         if (owner == null || !owner.isActiveAndEnabled || Area.Current != owner.area || owner.balls == null) return false;
-        // Viimeinen pallo on suurin; muut jäävät tuulen mukana vieriviksi koristeiksi.
-        var ball = owner.balls[owner.balls.Length - 1];
-        if (!ball.rolling || !ball.ground.gameObject.activeInHierarchy || ball.motion.Airborne) return false;
-        Vector3 p = ball.ground.position;
-        float dx = (p.x - playerPosition.x) * direction;
-        if (dx < -0.3f || dx > reach + ball.radius || Mathf.Abs(p.y - playerPosition.y) > depthRange + 0.2f) return false;
-        if (!ball.motion.Kick(owner.kickSpeed, owner.kickUpSpeed, owner.kickGravity)) return false;
-        HitSpark.Spawn(new Vector3(p.x, p.y + ball.radius, 0f), false, ball.art.sortingOrder + 1);
-        return true;
+        bool kicked = false;
+        // Kaksi suurinta ovat potkittavia riippumatta niiden arvotusta syvyydestä.
+        for (int i = Mathf.Max(0, owner.balls.Length - 2); i < owner.balls.Length; i++)
+        {
+            var ball = owner.balls[i];
+            if (!ball.rolling || !ball.ground.gameObject.activeInHierarchy || ball.motion.Airborne) continue;
+            Vector3 p = ball.ground.position;
+            float dx = (p.x - playerPosition.x) * direction;
+            if (dx < -0.3f || dx > reach + ball.radius || Mathf.Abs(p.y - playerPosition.y) > depthRange + 0.2f) continue;
+            if (!ball.motion.Kick(owner.kickSpeed, owner.kickUpSpeed, owner.kickGravity, direction)) continue;
+            HitSpark.Spawn(new Vector3(p.x, p.y + ball.radius, 0f), false, ball.art.sortingOrder + 1);
+            kicked = true;
+        }
+        return kicked;
     }
 
     void Start()
@@ -97,7 +102,7 @@ public class DesertTumbleweeds : MonoBehaviour
             {
                 var ball = balls[i];
                 ball.rolling = false;
-                ball.delay = i * 2.2f;
+                ball.delay = Random.Range(0.5f, 9f);
             }
         }
         foreach (var ball in balls)
@@ -108,6 +113,10 @@ public class DesertTumbleweeds : MonoBehaviour
                 if (ball.delay > 0f) continue;
                 Vector3 start = ball.ground.position;
                 start.x = right + ball.radius + 0.3f;
+                ball.depth = Random.value;
+                start.y = Mathf.Lerp(area.maxDepthY - 0.25f, area.minDepthY + 0.3f, ball.depth);
+                ball.speed = Random.Range(minSpeed, maxSpeed);
+                ball.phase = Random.Range(0f, Mathf.PI * 2f);
                 ball.ground.position = start;
                 ball.rolling = true;
                 ball.motion = new TumbleweedFlight(ball.speed);
@@ -138,7 +147,6 @@ public class DesertTumbleweeds : MonoBehaviour
             {
                 ball.rolling = false;
                 ball.delay = Random.Range(3f, 8f);
-                ball.speed = Mathf.Lerp(maxSpeed, minSpeed, ball.depth);
                 ball.audio.Stop();
                 ball.ground.gameObject.SetActive(false);
             }
@@ -151,5 +159,5 @@ public class DesertTumbleweeds : MonoBehaviour
         foreach (var ball in balls) if (ball.audio != null) ball.audio.Stop();
     }
 
-    void OnDestroy() { if (instance == this) instance = null; }
+    void OnDestroy() { instances.Remove(this); }
 }

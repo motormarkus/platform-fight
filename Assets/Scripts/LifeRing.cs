@@ -15,6 +15,11 @@ public class LifeRing : MonoBehaviour
     public float spinFrameTime = 0.045f;
     [Tooltip("Renkaan koko lattialla ja lennossa.")]
     public float scale = 1.25f;
+    public bool tire;
+    public Sprite tireFloor, tireRolling, tireAir;
+    public Area tireArea;
+    bool upright;
+    float rollAngle;
     // frisbeelento: vaakatasoiset kuvat (8, 10, 12) vuorotellen ja pieni vaappuminen
     static readonly int[] FlatSpin = { 8, 10, 12, 10 };
     SpriteRenderer body, shadow;
@@ -42,6 +47,32 @@ public class LifeRing : MonoBehaviour
         return r;
     }
 
+    public static LifeRing CreateTire(Sprite floor, Sprite rolling, Sprite air, Area area, Vector3 pos)
+    {
+        var r = Create(new[] { air }, pos);
+        r.name = "Autonrengas"; r.tire = true; r.scale = 1f;
+        r.tireFloor = floor; r.tireRolling = rolling; r.tireAir = air; r.tireArea = area;
+        r.state = S.Floor; r.upright = Random.value < 0.3f;
+        r.Show(true);
+        return r;
+    }
+
+    public static bool KickTires(Vector3 from, float direction, float reach, float depthRange)
+    {
+        bool any = false;
+        foreach (var r in All)
+        {
+            if (r == null || !r.tire || !r.upright || r.state != S.Floor || r.tireArea != Area.Current) continue;
+            Vector3 p = r.transform.position;
+            float dx = (p.x - from.x) * direction;
+            if (dx < -0.3f || dx > reach + 0.7f || Mathf.Abs(p.y - from.y) > depthRange) continue;
+            r.vx = direction * 11f; r.vy = 1.8f; r.height = 0.05f;
+            r.bounces = 0; r.hit.Clear(); r.state = S.Thrown;
+            any = true;
+        }
+        return any;
+    }
+
     void OnEnable() { All.Add(this); }
     void OnDisable() { All.Remove(this); if (Held == this) Held = null; }
 
@@ -55,6 +86,7 @@ public class LifeRing : MonoBehaviour
         foreach (var r in All)
         {
             if (r == null || (r.state != S.Floor && r.state != S.Settle)) continue;
+            if (r.tire && r.tireArea != Area.Current) continue;
             Vector3 q = r.transform.position;
             float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
             if (dx > 1.8f || dy > 0.55f) continue;
@@ -85,6 +117,23 @@ public class LifeRing : MonoBehaviour
         r.Show(true);
     }
 
+    /// Ohi mennyt autonrenkaalla lyönti jättää renkaan pystyyn seuraavaa potkua varten.
+    public static void DropHeldUpright(Vector3 at)
+    {
+        if (Held == null) return;
+        if (!Held.tire) { DropHeld(at); return; }
+        var r = Held; Held = null;
+        if (r.tireArea != null)
+        {
+            at.x = Mathf.Clamp(at.x, r.tireArea.walkMinX + 0.7f, r.tireArea.walkMaxX - 0.7f);
+            at.y = Mathf.Clamp(at.y, r.tireArea.minDepthY, r.tireArea.MaxDepthAtX(at.x, r.tireArea.maxDepthY));
+        }
+        r.transform.position = new Vector3(at.x, at.y, 0f);
+        r.height = r.vx = r.vy = 0f;
+        r.bounces = 0; r.rollAngle = 0f; r.upright = true;
+        r.state = S.Floor; r.hit.Clear(); r.Show(true);
+    }
+
     /// Rengas putoaa annetusta kohdasta ja korkeudesta lattialle (vihun päästä, telineestä).
     public void DropFrom(Vector3 at, float h)
     {
@@ -113,6 +162,7 @@ public class LifeRing : MonoBehaviour
 
     void Update()
     {
+        if (tire) { UpdateTire(); return; }
         float dt = Time.deltaTime;
         t += dt;
         if (state == S.Thrown || state == S.Falling)
@@ -195,5 +245,60 @@ public class LifeRing : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void UpdateTire()
+    {
+        if (state == S.Held) return; // Kanto ja heitto käyttävät herojen olemassa olevia rengasanimaatioita.
+        bool visible = tireArea == null || Area.Current == tireArea;
+        Show(visible);
+        if (!visible || body == null) return;
+        float dt = Time.deltaTime;
+        if (state == S.Thrown || state == S.Falling)
+        {
+            float dx = vx * dt;
+            Vector3 p = transform.position; p.x += dx;
+            if (tireArea != null)
+            {
+                float clamped = Mathf.Clamp(p.x, tireArea.walkMinX + 0.7f, tireArea.walkMaxX - 0.7f);
+                if (clamped != p.x) { p.x = clamped; vx *= -0.45f; }
+            }
+            transform.position = p;
+            rollAngle -= dx / 0.7f * Mathf.Rad2Deg;
+            float previousVy = vy;
+            vy -= 14f * dt; height += (previousVy + vy) * 0.5f * dt;
+            vx = Mathf.MoveTowards(vx, 0f, 1.4f * dt);
+            if (Mathf.Abs(vx) > 1f && HitInPath()) vx *= -0.4f;
+            if (height <= 0f)
+            {
+                height = 0f;
+                if (bounces < 3 && Mathf.Abs(vy) > 2.3f)
+                {
+                    vy = Mathf.Abs(vy) * 0.5f; vx *= 0.8f; bounces++; state = S.Falling;
+                }
+                else { upright = Random.value < 0.4f; state = S.Settle; vy = 0f; }
+            }
+        }
+        else if (state == S.Settle)
+        {
+            Vector3 p = transform.position;
+            float dx = vx * dt; p.x += dx;
+            if (tireArea != null) p.x = Mathf.Clamp(p.x, tireArea.walkMinX + 0.7f, tireArea.walkMaxX - 0.7f);
+            transform.position = p; rollAngle -= dx / 0.7f * Mathf.Rad2Deg;
+            if (Mathf.Abs(vx) > 1f && HitInPath()) vx *= -0.4f;
+            vx = Mathf.MoveTowards(vx, 0f, 4f * dt);
+            if (Mathf.Abs(vx) < 0.05f) { vx = 0f; state = S.Floor; }
+        }
+        bool flying = state == S.Thrown || state == S.Falling;
+        body.sprite = flying ? tireAir : upright ? tireRolling : tireFloor;
+        body.transform.localScale = Vector3.one;
+        body.transform.localRotation = Quaternion.Euler(0f, 0f, flying || upright ? rollAngle : 0f);
+        float ground = tireArea != null && tireArea.useSidewalk && transform.position.y > tireArea.curbDepthY ? tireArea.sidewalkHeight : 0f;
+        float centre = flying ? 0.75f : upright ? 0.7f : 0.275f;
+        body.transform.localPosition = new Vector3(0f, ground + height + centre, 0f);
+        body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f) + (!flying && !upright ? -20 : 0);
+        shadow.transform.localPosition = new Vector3(0f, ground, 0f);
+        shadow.transform.localScale = new Vector3(1.3f, 0.25f, 1f);
+        shadow.sortingOrder = body.sortingOrder - 1;
     }
 }
