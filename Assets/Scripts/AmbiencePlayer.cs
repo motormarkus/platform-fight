@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Alueen taustahäly (lokit ja aallot kannella, puheensorina baarissa…) silmukkana musiikin alla.
@@ -18,6 +19,16 @@ public class AmbiencePlayer : MonoBehaviour
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void Create()
+    {
+        // Hahmon valinta ja uusi peli lataavat scenen uudelleen.
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        Ensure();
+    }
+
+    static void OnSceneLoaded(Scene scene, LoadSceneMode mode) => Ensure();
+
+    static void Ensure()
     {
         if (FindFirstObjectByType<AmbiencePlayer>() != null) return;
         new GameObject("Ambienssi").AddComponent<AmbiencePlayer>();
@@ -71,7 +82,7 @@ public class AmbiencePlayer : MonoBehaviour
             }
         }
         float dt = Time.unscaledDeltaTime / Mathf.Max(0.01f, crossfadeTime);
-        float target = volume * (shownArea != null ? shownArea.ambienceVolume : 1f) * GameSettings.MusicVolume;
+        float target = volume * (shownArea != null ? shownArea.ambienceVolume : 1f);   // taustahäly kuuluu äänien, ei musiikin voimakkuuteen
         a.volume = Mathf.MoveTowards(a.volume, a.clip != null ? target : 0f, dt);
         b.volume = Mathf.MoveTowards(b.volume, 0f, dt);
         if (b.volume <= 0f && b.isPlaying) b.Stop();

@@ -645,6 +645,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Serializable]
     public class CharacterArt
     {
+        [Tooltip("Böönin juontikuvat järjestyksessä (16 kuvaa).") ]
+        public Sprite[] drink;
         public string name = "Ruby";
         public Sprite[] idle, walk, run;
         [Tooltip("Lyöntisarja: jab, takasuora, etukoukku, takakoukku (kaataa).")]
@@ -940,6 +942,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var a = heroine;
         if (a == null || !a.IsComplete) return;
         AppliedCharacter = 1;
+        drinkLoadedFor = -1; drinkSprites = null;
         characterName = string.IsNullOrEmpty(a.name) ? "Ruby" : a.name;
         idleSprites = a.idle;
         actionSprites = new[] { a.idle[0] };   // varakuva: Roccon kuvat eivät näy koskaan
@@ -3142,6 +3145,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     [Header("Pärinä (termospullo)")]
     public float boostDuration = 20f;
+    [Tooltip("Roccon Böönin juontikuvat (16 kuvaa).") ]
+    public Sprite[] booniDrinkSprites;
     [Tooltip("Heron liikkeiden ja animaatioiden nopeus.")]
     public float boostHeroSpeed = 1.43f;
     [Tooltip("Vihujen nopeus pärinän aikana.")]
@@ -3158,13 +3163,31 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         get
         {
-            if (drinkLoadedFor != AppliedCharacter)
+            var assigned = AppliedCharacter == 1 ? heroine?.drink : booniDrinkSprites;
+            if (assigned != null && assigned.Length == DrinkTimes.Length)
             {
-                // Rocco: rocco_juo_00…15, Ruby: ruby_juo_00…15 (puuttuessa juodaan ilman animaatiota)
+                bool complete = true;
+                foreach (var frame in assigned) if (frame == null) { complete = false; break; }
+                if (complete) return assigned;
+            }
+            if (drinkLoadedFor != AppliedCharacter || drinkSprites == null)
+            {
+                // Vanhojen scenejen kuvat haetaan edelleen Resources-kansiosta.
                 drinkLoadedFor = AppliedCharacter;
                 string pre = AppliedCharacter == 1 ? "Termari/ruby_juo_" : "Termari/rocco_juo_";
                 var l = new System.Collections.Generic.List<Sprite>();
-                for (int i = 0; i < DrinkTimes.Length; i++) { var s = Resources.Load<Sprite>(pre + i.ToString("00")); if (s == null) break; l.Add(s); }
+                for (int i = 0; i < DrinkTimes.Length; i++)
+                {
+                    string path = pre + i.ToString("00");
+                    var frame = Resources.Load<Sprite>(path);
+                    if (frame == null)
+                    {
+                        var sprites = Resources.LoadAll<Sprite>(path);
+                        if (sprites.Length == 1) frame = sprites[0];
+                    }
+                    if (frame == null) break;
+                    l.Add(frame);
+                }
                 drinkSprites = l.Count == DrinkTimes.Length ? l.ToArray() : null;
             }
             return drinkSprites;
@@ -3200,12 +3223,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 #endif
     }
 
-    /// Termospullo poimittu: Rocco ryyppää (iskut eivät osu juonnin aikana), sitten pärinä päälle.
+    /// Molemmat hahmot juovat omilla kuvillaan, sitten sama pärinä päälle.
     public void DrinkThermos()
     {
         if (DrinkSprites != null) { moving = false; running = false; drinkSoundPlayed = false; Enter(State.Drink); return; }
         // Ruby: oma nielaisu
-        if (heroine != null && heroine.gulpSounds != null && heroine.gulpSounds.Length > 0) PlayFrom(heroine.gulpSounds);
+        if (AppliedCharacter == 1 && heroine != null && heroine.gulpSounds != null && heroine.gulpSounds.Length > 0) PlayFrom(heroine.gulpSounds);
         StartBoost();
     }
     void StartBoost()

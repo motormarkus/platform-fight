@@ -432,6 +432,7 @@ public static class BeatEmUpSetup
         var aah = LoadClips("Assets/Audio/Ruby", "rubyaah"); a.aahSound = aah.Length > 0 ? aah[0] : null;
         var curse = LoadClips("Assets/Audio/Ruby", "rubyfallrise"); a.riseCurse = curse.Length > 0 ? curse[0] : null;
         pc.heroine = a;
+        AssignBooniArt(pc);
         pc.characterName = "Rocco";
         EditorUtility.SetDirty(pc);
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
@@ -3681,9 +3682,9 @@ public static class BeatEmUpSetup
         var slide = EnemySheet("kapteeni_liuku", report);
         if (slide.Length >= 25)
         {
-            t.runSprites = slide.Take(15).ToArray(); t.runFrameTime = 0.05f;
+            t.runSprites = slide.Take(15).ToArray(); t.runFrameTime = 0.05f / 1.5f;
             t.slideSprites = slide.Skip(15).Take(6).ToArray(); t.slideUpSprites = slide.Skip(21).Take(4).ToArray();
-            t.slideChance = 0.5f; t.slideDamage = 18;
+            t.slideChance = 0.7f; t.slideDamage = 18; t.slideRunSpeed = 10.5f; t.slideCooldown = 3.5f;
         }
         // J: jab, S: suora, P: sivupotku, K: kombon lopetus (vain kombossa)
         t.punchSprites = R(0, 4); t.punchImpactFrame = 2; t.punchDamage = 9;
@@ -3695,12 +3696,12 @@ public static class BeatEmUpSetup
         t.combos = new[] { "JSPK", "JSPK", "JSK", "JJS" }; t.comboChance = 0.5f; t.comboArmor = true;
         t.windupTime = 0.2f; t.punchRecoverTime = 0.35f; t.attackRange = 2.2f;
         t.moveSpeedX = 2.6f; t.moveSpeedY = 1.6f;
-        t.maxHealth = 420; t.attackCooldown = 0.9f;
+        t.maxHealth = 420; t.attackCooldown = 0.6f;
         t.blockChance = 0.3f; t.maxBlocksInRow = 2;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 1f;
         t.bigBody = true; t.wakeDistance = 9f;
         SetBossThrown(t, EnemySheet("kapteeni_heitetty", report));
-        t.runSpeedMultiplier = 1.3f; t.flankChance = 0.15f; t.retreatChance = 0f;
+        t.runSpeedMultiplier = 1.95f; t.flankChance = 0.15f; t.retreatChance = 0f;
         // ruorin luona selkä oveen päin (katsoo vasemmalle: hero tulee ovesta)
         go.transform.position = new Vector3(BX(1150f), Mathf.Lerp(bridge.maxDepthY, bridge.minDepthY, 0.3f), 0f);
         t.idleFacing = -1;
@@ -3731,19 +3732,67 @@ public static class BeatEmUpSetup
              string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/85b. Kapteenin juoksu ja hyökkäykset nopeammiksi")]
+    static void TuneShipCaptain()
+    {
+        if (PlayModeBlocked()) return;
+        var captain = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(e => e.displayName == "Kapteeni");
+        if (captain == null) { Info("Tee ensin kapteeni (kohta 85)."); return; }
+        Undo.RecordObject(captain, "Kapteenin tahti");
+        captain.runSpeedMultiplier = 1.95f; captain.runFrameTime = 0.05f / 1.5f;
+        captain.attackCooldown = 0.6f; captain.slideRunSpeed = 10.5f;
+        captain.slideChance = 0.7f; captain.slideCooldown = 3.5f;
+        EditorUtility.SetDirty(captain);
+        EditorSceneManager.MarkSceneDirty(captain.gameObject.scene);
+        Info("Kapteenin juoksu 50 % nopeammaksi ja hyökkäykset useammiksi.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/91. Böönin juontikuvat molemmille hahmoille")]
+    static void SetupBooniArt()
+    {
+        if (PlayModeBlocked()) return;
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        if (!AssignBooniArt(pc)) { Info("Resources/Termari-kansiosta tarvitaan rocco_juo_00…15 ja ruby_juo_00…15."); return; }
+        Info("Molempien hahmojen Böönin juontikuvat asetettu. Juonnin jälkeen sama hehku ja nopeutus.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    static bool AssignBooniArt(PlayerController pc)
+    {
+        foreach (var prefix in new[] { "rocco", "ruby" })
+            for (int i = 0; i < 16; i++)
+                if (!File.Exists($"Assets/Resources/Termari/{prefix}_juo_{i:00}.png")) return false;
+        Sprite[] Frames(string prefix)
+        {
+            var frames = new Sprite[16];
+            for (int i = 0; i < frames.Length; i++)
+                frames[i] = ImportShipSprite($"Assets/Resources/Termari/{prefix}_juo_{i:00}.png", 100f, false, SpriteAlignment.BottomCenter);
+            return frames;
+        }
+        Undo.RecordObject(pc, "Böönin juontikuvat");
+        pc.booniDrinkSprites = Frames("rocco");
+        if (pc.heroine == null) pc.heroine = new PlayerController.CharacterArt();
+        pc.heroine.drink = Frames("ruby");
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        return true;
+    }
+
     // ---------------- Laivan katto (kapteenin jälkeen) ----------------
     // laiva_katto.png (1672 × 941, yksi ruutu, ei vieritä): chinook-kopteri laivan katolla. Taivas on läpinäkyvä:
     // takana rullaa kuunvalotaivas (laiva_katto_taivas.png = kauko-yökuvan yläosa), vain horisontti näkyy kaiteen raoista.
     // Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat (laiva_tikkaat.png), joista pääsee tänne.
     const string RoofAreaName = "Laivan katto";
     const float ShipRoofX0 = 74000f, RoofBackPx = 540f;
+    const float RoofImageScale = 1.1f;                         // katon kuva vielä 10 % suuremmaksi
     const float RoofHorizonPx = 450f, RoofSkyScale = 1.6f;       // horisontti (taivaskuvan rivi 291) kaiteen raon korkeudelle
     const float RoofMoonPx = 900f, RoofSkyMoonSrcPx = 887f;      // kuu alkaa rotorien välistä (kuvan x), kuun x taivaskuvassa
     const float RoofSkySpeed = 0.35f;                            // sama kuin laivan muiden ruutujen kaukaisella merellä
     static readonly Color RoofTint = new Color(0.72f, 0.78f, 0.95f);   // kullanhohtoinen kansi kuunvaloon
     // chinook: runko yhtenä kuvana (maassa, ei heilu) ja kaksi roottoria omina silmukkinaan (Kopteri/-kansio, videosta)
     const string HeliDir = "Assets/Sprites/Rekvisiitta/Kopteri/";
-    const float HeliScale = 1.05f;                               // yksi videon pikseli = näin monta katon kuvan pikseliä
+    const float HeliScale = 1.05f * 1.15f;                               // kopteri 15 % suuremmaksi
     const float HeliLeftPx = 332f, HeliWheelPx = 485f;           // rungon nokka (x) ja pyörien alareuna (rivi) katon kuvassa
     static readonly Vector2 HeliFrontRotorSrc = new Vector2(-286f, 216f), HeliRearRotorSrc = new Vector2(482f, 238f);   // roottorin vasen alakulma rungon vasemmasta alakulmasta (videon px)
     const float HeliDoorSrcPx = 647f;                            // sivuovi rungon vasemmasta reunasta (videon px)
@@ -3779,7 +3828,7 @@ public static class BeatEmUpSetup
         if (bridge == null || bridgeBg == null) { Info("Tee ensin komentosilta (kohta 84)."); return; }
         if (captainGo == null || captainGo.GetComponent<Enemy>() == null) { Info("Tee ensin kapteeni (kohta 85): tikkaat putoavat, kun hän kaatuu."); return; }
         if (roofTi == null || ladTi == null || AssetImporter.GetAtPath(skyPath) == null) { Info("Tarvitaan kuvat:\n" + roofPath + "\n" + skyPath + "\n" + ladderPath); return; }
-        foreach (var n in new[] { "Laivan katto (kuva)", "Laivan katon taivas", "Laivan katon tikkaat", "Kopteri", "Laivan katon viholliset", "Katon taivas", "Katon tikkaat" })   // alue säilyy (ReuseArea); kaksi viimeistä ovat vanhoja nimiä
+        foreach (var n in new[] { "Laivan katto (kuva)", "Laivan katon taivas", "Laivan katon tikkaat", "Laivan katon paluuovi", "Kopteri", "Laivan katon viholliset", "Katon taivas", "Katon tikkaat" })   // alue säilyy (ReuseArea); kaksi viimeistä ovat vanhoja nimiä
         {
             var o = GameObject.Find(n);
             if (o != null) Undo.DestroyObjectImmediate(o);
@@ -3788,7 +3837,7 @@ public static class BeatEmUpSetup
 
         // kuva: yksi ruutu, ei vieritä
         roofTi.GetSourceTextureWidthAndHeight(out int w, out int h);
-        float ppu = h / (2f * CamHalf);
+        float ppu = h / (2f * CamHalf * RoofImageScale);
         var roofSpr = ImportShipSprite(roofPath, ppu, false, SpriteAlignment.Center);
         float wU = w / ppu, hU = h / ppu, halfW = CamHalf * 16f / 9f;
         var bg = new GameObject("Laivan katto (kuva)");
@@ -3808,6 +3857,7 @@ public static class BeatEmUpSetup
         area.camMinX = ShipRoofX0 + halfW;
         area.camMaxX = Mathf.Max(area.camMinX, ShipRoofX0 + wU - halfW);
         area.walkMinX = RX(60f); area.walkMaxX = RX(w - 60f);
+        area.ambience = Resources.Load<AudioClip>("Ambienssi/laivan_katto");
         area.ambienceVolume = 0.6f;   // chinookin ääni (Resources/Ambienssi/laivan_katto.wav) soi katolla taustalla
         EditorUtility.SetDirty(area);
 
@@ -3916,20 +3966,235 @@ public static class BeatEmUpSetup
         string foeInfo = foeCount == 5 ? "Katolla 3 rosvoa ja 2 koviksta."
             : $"Vihollisia luotu {foeCount}/5: malli puuttuu (rosvo kohdasta 56, kovis kohdasta 7).";
 
-        // ovi kopteriin: näkyy vasta, kun viholliset on voitettu (blockedDuringFight). Sisäkuvaa ei vielä ole:
-        // E pimentää ruudun ja palauttaa pelaajan oven eteen. Vaihda target ja spawnPoint, kun sisäkuva on tehty.
+        // kopterin ovi avautuu kattotaistelun jälkeen
         var heliDoor = new GameObject("Ovi kopteriin").AddComponent<Door>();
         heliDoor.transform.SetParent(foes.transform, false);
         float doorX = RX(HeliLeftPx + HeliDoorSrcPx * HeliScale);
         heliDoor.transform.position = new Vector3(doorX, heliY, 0f);
-        heliDoor.prompt = "Nouse kopteriin"; heliDoor.here = area; heliDoor.target = area;
-        heliDoor.spawnPoint = new Vector2(doorX, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.2f));
-        heliDoor.halfWidth = 1.6f; heliDoor.maxDistanceFromWall = 2.0f; heliDoor.blockedDuringFight = true;
+        heliDoor.prompt = "Nouse kopteriin"; heliDoor.here = area;
+        heliDoor.target = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == HeliAreaName);
+        heliDoor.enabled = heliDoor.target != null;
+        heliDoor.spawnPoint = HeliSpawnPoint();
+        heliDoor.halfWidth = 1.6f; heliDoor.maxDistanceFromWall = 2.0f; heliDoor.blockedDuringFight = true; heliDoor.fightBlockRange = wU + 2f;
+
+        var back = new GameObject("Laivan katon paluuovi").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(back.gameObject, "Laivan katon paluuovi");
+        back.transform.position = new Vector3(RX(110f), area.maxDepthY, 0f);
+        back.prompt = "Palaa komentosillalle"; back.here = area; back.target = bridge;
+        back.spawnPoint = new Vector2(lx, Mathf.Clamp(ly, bridge.minDepthY, bridge.maxDepthY));
+        back.halfWidth = 1.5f; back.maxDistanceFromWall = 3f; back.blockedDuringFight = true; back.fightBlockRange = wU + 2f;
+        back.climbHeight = -2f;
+        var exit = GameObject.Find("Kopterin paluuovi");
+        var exitDoor = exit != null ? exit.GetComponent<Door>() : null;
+        if (exitDoor != null)
+        {
+            Undo.RecordObject(exitDoor, "Kopterin paluuovi");
+            exitDoor.spawnPoint = new Vector2(doorX, area.maxDepthY - 0.5f);
+            EditorUtility.SetDirty(exitDoor);
+        }
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info($"Laivan katto luotu ({wU:0.0} yksikköä, yksi ruutu) kuunvalotaivaalla.\n" +
              "Kun kapteeni kaatuu, komentosillan kattoon putoavat tikkaat: E kiipeää katolle.\n" +
-             heliInfo + "\n" + foeInfo + "\nKopterin ovi (E) aukeaa, kun viholliset on voitettu.\n\nTallenna scene (Ctrl+S).");
+             heliInfo + "\n" + foeInfo + "\nKopterin ovi (E) aukeaa, kun viholliset on voitettu.\nTee kopterin sisätila kohdasta 89.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Kopterin rahtitila ----------------
+    const string HeliAreaName = "Kopterin rahtitila";
+    const float HeliInteriorX0 = 76000f;
+    static Vector2 HeliSpawnPoint() => new Vector2(HeliInteriorX0 + 3f, CamY - 2f);
+
+    [MenuItem("Beat em up/89. Kopterin sisätila, ohjaamo ja kaksi aaltoa")]
+    static void CreateHeliInterior()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/kopteri_sisatilat.png";
+        const string skyPath = "Assets/Sprites/Taustat/kopteri_sisataivas.png";
+        const string extensionPath = "Assets/Sprites/Taustat/kopteri_sisatilat_jatko.png";
+        const string cockpitPath = "Assets/Sprites/Taustat/kopteri_ohjaamo.png";
+        const float overlapPx = 64f, cockpitOverlapPx = 432f, cockpitScaleX = 1f;
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == RoofAreaName);
+        var entry = GameObject.Find("Ovi kopteriin")?.GetComponent<Door>();
+        var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+        var shader = Shader.Find("Beat em up/Kopterin ikkunat");
+        if (roof == null || entry == null) { Info("Tee ensin laivan katto (kohta 87)."); return; }
+        if (ti == null || AssetImporter.GetAtPath(skyPath) == null || AssetImporter.GetAtPath(extensionPath) == null || AssetImporter.GetAtPath(cockpitPath) == null || shader == null) { Info("Kopterin sisäkuva, taivas tai ikkunashader puuttuu."); return; }
+        var models = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var pirate = models.FirstOrDefault(e => e.displayName == "Rosvo" && !e.name.StartsWith("Kopterin "));
+        var tough = models.FirstOrDefault(e => e.name == "Kovis");
+        var crateSprites = LoadSprites("laatikko");
+        if (pirate == null || tough == null || crateSprites.Length == 0)
+        { Info("Tarvitaan Rosvo (kohta 56), Kovis (kohta 7) ja puulaatikon kuvat (kohta 23)."); return; }
+        foreach (var name in new[] { "Kopterin rahtitila (kuva)", "Kopterin rahtitila (jatko)", "Kopterin ohjaamo (kuva)", "Kopterin kuunvalotaivas", "Kopterin paluuovi", "Kopterin puulaatikot", "Kopterin taistelu", "Kopterista Aavikkoon" })
+        {
+            var old = GameObject.Find(name);
+            if (old != null) Undo.DestroyObjectImmediate(old);
+        }
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf), panelWidth = w / ppu, halfW = CamHalf * 16f / 9f;
+        var extensionTi = (TextureImporter)AssetImporter.GetAtPath(extensionPath);
+        extensionTi.GetSourceTextureWidthAndHeight(out int ew, out int eh);
+        var cockpitTi = (TextureImporter)AssetImporter.GetAtPath(cockpitPath);
+        cockpitTi.GetSourceTextureWidthAndHeight(out int cw, out int ch);
+        float cockpitStartPx = w - overlapPx + ew - cockpitOverlapPx;
+        float width = (cockpitStartPx + cw * cockpitScaleX) / ppu;
+        float HX(float px) => HeliInteriorX0 + px / ppu;
+        var sprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        var area = ReuseArea("Alue: " + HeliAreaName);
+        area.areaName = HeliAreaName; area.music = roof.music; area.useSidewalk = false;
+        area.minDepthY = CamY - CamHalf + 0.6f;
+        area.maxDepthY = CamY + CamHalf - 590f / ppu;
+        area.camMinX = HeliInteriorX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, HeliInteriorX0 + width - halfW);
+        area.walkMinX = HeliInteriorX0 + 0.8f; area.walkMaxX = HeliInteriorX0 + width - 0.8f;
+        area.ambience = roof.ambience != null ? roof.ambience : Resources.Load<AudioClip>("Ambienssi/laivan_katto");
+        area.ambienceVolume = 0.35f;
+        EditorUtility.SetDirty(area);
+        var bg = new GameObject("Kopterin rahtitila (kuva)");
+        Undo.RegisterCreatedObjectUndo(bg, "Kopterin rahtitila");
+        bg.transform.position = new Vector3(HeliInteriorX0 + panelWidth * 0.5f, CamY, 0f);
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = sprite; sr.sortingOrder = -10000;
+        Material WindowMaterial(string materialPath, int panel, int imageWidth, int imageHeight)
+        {
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+            if (mat == null) { mat = new Material(shader); AssetDatabase.CreateAsset(mat, materialPath); }
+            else Undo.RecordObject(mat, "Kopterin ikkunat");
+            mat.shader = shader;
+            mat.SetFloat("_Continuation", panel);
+            mat.SetVector("_ImageSize", new Vector4(imageWidth, imageHeight, 0f, 0f));
+            mat.SetFloat("_FloorRow", panel == 2 ? 730f : panel == 1 ? 634f : 590f);
+            mat.SetVector("_SeamTint", panel == 2 ? new Vector4(0.9f, 0.9f, 0.9f, 1f) : Vector4.one);
+            mat.SetFloat("_SeamWallWidth", panel == 2 ? 40f : overlapPx);
+            mat.SetFloat("_SeamStart", panel == 2 ? 85f : 0f);
+            mat.SetFloat("_SeamWidth", panel == 2 ? 95f : panel == 1 ? overlapPx : 0f);
+            EditorUtility.SetDirty(mat);
+            return mat;
+        }
+        sr.sharedMaterial = WindowMaterial("Assets/Sprites/Taustat/kopteri_ikkunat.mat", 0, w, h);
+        var extensionSprite = ImportShipSprite(extensionPath, ppu, false, SpriteAlignment.Center);
+        var extension = new GameObject("Kopterin rahtitila (jatko)");
+        Undo.RegisterCreatedObjectUndo(extension, "Kopterin rahtitilan jatko");
+        extension.transform.position = new Vector3(HeliInteriorX0 + (w - overlapPx + ew * 0.5f) / ppu, CamY, 0f);
+        extension.transform.localScale = new Vector3(1f, (float)h / eh, 1f);
+        var extensionR = extension.AddComponent<SpriteRenderer>();
+        extensionR.sprite = extensionSprite; extensionR.sortingOrder = sr.sortingOrder + 1;
+        extensionR.sharedMaterial = WindowMaterial("Assets/Sprites/Taustat/kopteri_jatko_ikkunat.mat", 1, ew, eh);
+        var cockpitSprite = ImportShipSprite(cockpitPath, ppu, false, SpriteAlignment.Center);
+        var cockpit = new GameObject("Kopterin ohjaamo (kuva)");
+        Undo.RegisterCreatedObjectUndo(cockpit, "Kopterin ohjaamo");
+        cockpit.transform.position = new Vector3(HX(cockpitStartPx + cw * cockpitScaleX * 0.5f), CamY, 0f);
+        cockpit.transform.localScale = new Vector3(cockpitScaleX, (float)h / ch, 1f);
+        var cockpitR = cockpit.AddComponent<SpriteRenderer>();
+        cockpitR.sprite = cockpitSprite; cockpitR.sortingOrder = sr.sortingOrder + 2;
+        cockpitR.sharedMaterial = WindowMaterial("Assets/Sprites/Taustat/kopteri_ohjaamo_ikkunat.mat", 2, cw, ch);
+        var skySprite = ImportShipSprite(skyPath, ppu / RoofSkyScale, true, SpriteAlignment.Center);
+        var sky = new GameObject("Kopterin kuunvalotaivas");
+        Undo.RegisterCreatedObjectUndo(sky, "Kopterin kuunvalotaivas");
+        sky.transform.position = new Vector3(bg.transform.position.x, CamY + CamHalf - 305f / ppu, 0f);
+        var skyR = sky.AddComponent<SpriteRenderer>(); skyR.sprite = skySprite; skyR.sortingOrder = -10100;
+        skyR.drawMode = SpriteDrawMode.Tiled;
+        skyR.size = new Vector2(skySprite.bounds.size.x * 3f, skySprite.bounds.size.y);
+        var scroll = sky.AddComponent<ScrollingLayer>(); scroll.area = area; scroll.parallax = 0.08f;
+        scroll.autoSpeed = RoofSkySpeed; scroll.bobAmplitude = 0.08f;
+        Undo.RecordObject(entry, "Ovi kopteriin");
+        entry.target = area; entry.spawnPoint = HeliSpawnPoint(); entry.enabled = true;
+        entry.fightBlockRange = roof.walkMaxX - roof.walkMinX + 2f;
+        EditorUtility.SetDirty(entry);
+        var back = new GameObject("Kopterin paluuovi").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(back.gameObject, "Kopterin paluuovi");
+        back.transform.position = new Vector3(HeliInteriorX0 + 1.7f, area.maxDepthY, 0f);
+        back.here = area; back.target = roof; back.prompt = "Palaa katolle";
+        back.spawnPoint = new Vector2(entry.transform.position.x, roof.maxDepthY - 0.5f);
+        back.halfWidth = 1.5f; back.maxDistanceFromWall = 2f;
+        back.blockedDuringFight = true; back.fightBlockRange = width + 2f;
+        var crates = new GameObject("Kopterin puulaatikot");
+        Undo.RegisterCreatedObjectUndo(crates, "Kopterin puulaatikot");
+        var burst = AssetDatabase.LoadAssetAtPath<Sprite>(CrateBurstPath);
+        var woodSounds = LoadClips("Assets/Audio/sfx", "puu");
+        int crateCount = 0;
+        foreach (var spot in new[] { new Vector2(450f, 0.25f), new Vector2(1050f, 0.7f), new Vector2(1800f, 0.3f),
+            new Vector2(2240f, 0.75f), new Vector2(2600f, 0.25f), new Vector2(cockpitStartPx + 1080f * cockpitScaleX, 0.7f) })
+        {
+            var crateGo = new GameObject("Kopterin puulaatikko " + (++crateCount));
+            crateGo.transform.SetParent(crates.transform, false);
+            crateGo.transform.position = new Vector3(HX(spot.x), Mathf.Lerp(area.maxDepthY, area.minDepthY, spot.y), 0f);
+            var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(crateGo.transform, false);
+            var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(crateGo.transform, false);
+            var crate = crateGo.AddComponent<Crate>();
+            crate.sprites = crateSprites; crate.burstSprite = burst; crate.body = visual; crate.shadow = shadow;
+            crate.visualScale = 1.2f; crate.hitRadiusX = 1.05f; crate.breakSounds = woodSounds;
+            visual.sprite = crateSprites[0]; visual.transform.localPosition = Vector3.down * crate.footOffset;
+        }
+        var fightRoot = new GameObject("Kopterin taistelu");
+        Undo.RegisterCreatedObjectUndo(fightRoot, "Kopterin taistelu");
+        var fight = fightRoot.AddComponent<HelicopterFight>();
+        fight.area = area;
+        GameObject Group(string name)
+        {
+            var group = new GameObject(name); group.transform.SetParent(fightRoot.transform, false); return group;
+        }
+        fight.cargoGroup = Group("Kopterin ensimmäinen aalto");
+        fight.cockpitGroup = Group("Kopterin toinen aalto");
+        Enemy Foe(Enemy model, GameObject group, string name, float px, float depth)
+        {
+            var clone = Object.Instantiate(model.gameObject, group.transform); clone.name = name;
+            clone.transform.position = new Vector3(HX(px), Mathf.Lerp(area.maxDepthY, area.minDepthY, depth), 0f);
+            var enemy = clone.GetComponent<Enemy>();
+            enemy.fightsEveryone = false; enemy.huntsBrawlers = false; enemy.ally = false;
+            enemy.appearAfterOthers = false; enemy.joinsFightWhenSquadComes = false;
+            enemy.wanderMinX = enemy.wanderMaxX = 0f; enemy.wakeDistance = -1f;
+            clone.SetActive(true);
+            return enemy;
+        }
+        fight.cargoEnemies = new[] {
+            Foe(pirate, fight.cargoGroup, "Kopterin rosvo 1", 600f, 0.45f),
+            Foe(pirate, fight.cargoGroup, "Kopterin rosvo 2", 950f, 0.2f),
+            Foe(pirate, fight.cargoGroup, "Kopterin rosvo 3", 1350f, 0.65f),
+            Foe(tough, fight.cargoGroup, "Kopterin kovis 1", 800f, 0.7f),
+            Foe(tough, fight.cargoGroup, "Kopterin kovis 2", 1450f, 0.35f) };
+        fight.cockpitEnemies = new[] {
+            Foe(pirate, fight.cockpitGroup, "Kopterin ohjaamon rosvo 1", cockpitStartPx + 650f * cockpitScaleX, 0.3f),
+            Foe(pirate, fight.cockpitGroup, "Kopterin ohjaamon rosvo 2", cockpitStartPx + 1050f * cockpitScaleX, 0.65f),
+            Foe(tough, fight.cockpitGroup, "Kopterin ohjaamon kovis", cockpitStartPx + 1390f * cockpitScaleX, 0.4f) };
+        fight.cargoRightX = HX(w) - 1f;
+        fight.cockpitTriggerX = HX(cockpitStartPx + 300f * cockpitScaleX);
+        fight.cockpitLeftX = HX(cockpitStartPx + 200f * cockpitScaleX);
+        fight.cargoGroup.SetActive(false); fight.cockpitGroup.SetActive(false);
+        var desert = EnsureDesertArea();
+        var exit = new GameObject("Kopterista Aavikkoon").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(exit.gameObject, "Kopterista Aavikkoon");
+        exit.transform.position = new Vector3(HX(cockpitStartPx + 680f * cockpitScaleX), area.maxDepthY, 0f);
+        exit.here = area; exit.target = desert; exit.prompt = "Siirry Aavikkoon";
+        exit.spawnPoint = new Vector2(desert.walkMinX != 0f ? desert.walkMinX + 2f : desert.camMinX, Mathf.Lerp(desert.maxDepthY, desert.minDepthY, 0.45f));
+        exit.halfWidth = 1.5f; exit.maxDistanceFromWall = 2f;
+        exit.blockedDuringFight = true; exit.fightBlockRange = width + 2f; exit.enabled = false;
+        fight.exitDoor = exit;
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Info("Kopterin sisätila ja ohjaamo luotu: 6 puulaatikkoa, ensin 3 rosvoa + 2 kovista, ohjaamossa 2 rosvoa + 1 kovis.\nOhjaamon toisesta ovesta E vie Aavikkoon, kun molemmat aallot on voitettu.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    static Area EnsureDesertArea()
+    {
+        var existing = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
+        if (existing != null) return existing;
+        const float left = 78000f;
+        float halfW = CamHalf * 16f / 9f;
+        var area = ReuseArea("Alue: Aavikko");
+        area.areaName = "Aavikko"; area.useSidewalk = false;
+        area.minDepthY = CamY - CamHalf + 0.6f; area.maxDepthY = CamY - 1.2f;
+        area.camMinX = area.camMaxX = left + halfW;
+        area.walkMinX = left + 0.8f; area.walkMaxX = left + halfW * 2f - 0.8f;
+        // Väliaikainen tausta, kunnes Aavikon varsinainen kuva lisätään.
+        var sprite = GetWhiteBlockSprite();
+        MakeBlock("Aavikon väliaikainen taivas", sprite, new Vector3(left + halfW, CamY, 0f),
+            new Vector3(halfW * 2f, CamHalf * 2f, 1f), new Color(0.65f, 0.78f, 0.9f), -10100);
+        float bottom = CamY - CamHalf, groundHeight = area.maxDepthY - bottom;
+        MakeBlock("Aavikon väliaikainen hiekka", sprite, new Vector3(left + halfW, bottom + groundHeight * 0.5f, 0f),
+            new Vector3(halfW * 2f, groundHeight, 1f), new Color(0.72f, 0.56f, 0.32f), -10000);
+        Undo.RegisterCreatedObjectUndo(GameObject.Find("Aavikon väliaikainen taivas"), "Aavikko");
+        Undo.RegisterCreatedObjectUndo(GameObject.Find("Aavikon väliaikainen hiekka"), "Aavikko");
+        EditorUtility.SetDirty(area);
+        return area;
     }
 
     // ---------------- Puliukko (laivan käytävä) ----------------
@@ -7343,6 +7608,26 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt laivan salista (käytävän oven kohdalta).\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/90. Aloita peli laivan katolta")]
+    static void StartAtShipRoof()
+    {
+        if (PlayModeBlocked()) return;
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == RoofAreaName);
+        if (roof == null) { Info("Tee ensin laivan katto (kohta 87)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var gs = go.AddComponent<GameStart>();
+        gs.area = roof;
+        // Sama kohta kuin komentosillan tikkaista katolle tultaessa.
+        var door = GameObject.Find("Ovi katolle")?.GetComponent<Door>();
+        gs.position = door != null && door.target == roof ? door.spawnPoint
+            : new Vector2(roof.walkMinX + 3f, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.45f));
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt laivan katolta.\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
     }
 
     static AudioClip[] LoadClips(string folder, string filter)

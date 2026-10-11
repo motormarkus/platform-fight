@@ -442,6 +442,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float passTurnInterval = 2.5f;
     bool boardLost;
     float lastMoveX = 1f;
+    float walkDirectionX;
 
     public int maxHealth = 60;
     public float hurtTime = 0.35f;
@@ -516,6 +517,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     float closeTimer;       // kauanko pelaaja on ollut aivan vieressä
     bool flanking;          // tämä hyökkäys tehdään pelaajan selän takaa
     float retreatTimer;     // perääntyy hetken hyökkäyksen jälkeen
+    bool turningFromEdge, edgeApproach;
     int blocksInRow;
     int comboHits; float lastHitTime;   // pelaajan kombo (vatsatöytäisyn vastaisku)
     bool bellyHit, bellyLaughed;
@@ -1629,7 +1631,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         state = s;
         stateTime = 0f;
-        if (s != State.Chase) moving = false;
+        if (s != State.Chase) { moving = false; edgeApproach = false; }
     }
 
     // ---------------- Tekoäly ----------------
@@ -1700,6 +1702,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (d < firstD) { firstD = d; first = e; }
             }
         }
+        if (displayName == "Kapteeni") attackRank = 0;   // pomo ei jää rosvojen jonoon
         float side = me.x >= p.x ? 1f : -1f;
 
         // tynnyri: pelaajan ollessa kaukana haetaan lähin tynnyri ja heitetään se
@@ -1768,9 +1771,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         else if (attackRank == 1 && first != null) side = first.transform.position.x >= p.x ? -1f : 1f;
         else if (attackRank >= 2)
         {
-            dist = Mathf.Min(3.4f + (attackRank - 2) * 0.9f, 5.2f);   // jono ei veny ruudun ulkopuolelle; lisää odottajia syvyyssuunnassa
-            yOff = (attackRank % 2 == 0) ? 0.7f : -0.7f;
-            yOff += Mathf.Sin(Time.time * 1.1f + GetInstanceID() * 0.37f) * 0.5f;   // vuoroaan odottavat liikehtivät
+            if (displayName == "Rosvo")
+            {
+                // Rosvot tulevat lähelle myös muiden tapellessa, eivät jää laitaan.
+                dist = attackRange * 0.8f;
+                yOff = (GetInstanceID() % 3) * 0.2f;
+            }
+            else
+            {
+                dist = Mathf.Min(3.4f + (attackRank - 2) * 0.9f, 5.2f);
+                yOff = (attackRank % 2 == 0) ? 0.7f : -0.7f;
+                yOff += Mathf.Sin(Time.time * 1.1f + GetInstanceID() * 0.37f) * 0.5f;
+            }
         }
         if (retreatTimer > 0f)
         {
@@ -1781,13 +1793,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (myD < attackRange + 0.9f && player.FacingRight == (me.x > p.x)) { retreatTimer = 0f; dist = attackRange * 0.8f; }
         }
         Vector2 target = new Vector2(p.x + side * dist, p.y + yOff);
-        // kohde aina näkyvän ruudun sisällä (kujan pää, katto): ei kävellä kuvan ulkopuolelle odottamaan
-        var camF = Camera.main;
-        if (camF != null)
-        {
-            float half = camF.orthographicSize * camF.aspect - 0.9f, cx = camF.transform.position.x;
-            target.x = Mathf.Clamp(target.x, cx - half, cx + half);
-        }
+        target = ClampChaseTarget(target, me, p);
+        side = target.x >= p.x ? 1f : -1f;
         // toiselle puolelle mennessä kaarretaan pelaajan ohi syvyyssuunnassa, ei kävellä läpi
         bool crossing = Mathf.Sign(me.x - p.x) != side && Mathf.Abs(me.x - p.x) < dist + 1.5f;
         if (crossing)
@@ -1795,14 +1802,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             float minY = player.minDepthY, maxY = player.maxDepthY;
             float arc = me.y >= p.y ? 1f : -1f;
             if (p.y + arc * flankArcDepth > maxY || p.y + arc * flankArcDepth < minY) arc = -arc;
-            target.y = Mathf.Clamp(p.y + arc * flankArcDepth, minY, maxY);
+            target.y = Mathf.Clamp(p.y + arc * flankArcDepth, minY + 0.1f, Area.MaxDepthAt(target.x, maxY) - 0.1f);
         }
         Vector2 to = target - (Vector2)me;
         // vuoroaan odottava ei peräänny, kun pelaaja tulee kohti: pysyy paikallaan (pelaaja pääsee kimppuun). Kaikilla vihuilla:
         // muuten järjestyksen vaihtuessa (pelaaja liikkuu) äsken lähin lähtee kävelemään poispäin.
-        if (attackRank >= 2 && retreatTimer <= 0f && !crossing && Mathf.Sign(to.x) == Mathf.Sign(me.x - p.x)) to.x = 0f;
+        if (attackRank >= 2 && retreatTimer <= 0f && !crossing && !turningFromEdge && Mathf.Sign(to.x) == Mathf.Sign(me.x - p.x)) to.x = 0f;
 
-        facingRight = p.x > me.x;
+        facingRight = turningFromEdge ? target.x > me.x : p.x > me.x;
 
         // rynnäkkö (taklaus): samalla syvyydellä matkan päässä -> syöksy pelaajaa kohti
         float adx = Mathf.Abs(me.x - p.x);
@@ -1884,9 +1891,53 @@ public class Enemy : MonoBehaviour, IBottleHolder
             float run = to.magnitude > 3.5f || crossing || rushAfterBar ? runSpeedMultiplier : 1f;
             running = run > 1f;
             if (run > 1f) animClock += dt * (run - 1f);   // askeleet tihenevät
-            Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
+            Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
+            step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x));
+            step.y = Mathf.Sign(to.y) * Mathf.Min(Mathf.Abs(to.y), Mathf.Abs(step.y));
+            Move(step);
         }
         else moving = false;
+    }
+
+    Vector2 ClampChaseTarget(Vector2 target, Vector3 me, Vector3 opponent)
+    {
+        turningFromEdge = false;
+        if (player != null && Mathf.Abs(player.transform.position.x - me.x) > 30f) return target;
+        float lo = float.NegativeInfinity, hi = float.PositiveInfinity;
+        var cam = Camera.main;
+        if (cam != null)
+        {
+            float half = Mathf.Max(0.1f, cam.orthographicSize * cam.aspect - 0.9f);
+            lo = cam.transform.position.x - half;
+            hi = cam.transform.position.x + half;
+        }
+        var area = Area.Current;
+        if (area != null)
+        {
+            if (area.walkMinX != 0f) lo = Mathf.Max(lo, area.walkMinX + 0.25f);
+            if (area.walkMaxX != 0f) hi = Mathf.Min(hi, area.walkMaxX - 0.25f);
+        }
+        if (lo <= hi)
+        {
+            // Reunasta palataan kohteeseen koko lähestymisen ajan, ei vain yhden askeleen.
+            if (me.x <= lo + 0.7f || me.x >= hi - 0.7f || target.x < lo || target.x > hi)
+                edgeApproach = true;
+            if (edgeApproach)
+            {
+                float side = me.x >= opponent.x ? 1f : -1f;
+                target = new Vector2(opponent.x + side * attackRange * 0.65f, opponent.y);
+                retreatTimer = 0f; flanking = false;
+                turningFromEdge = true;
+            }
+            target.x = Mathf.Clamp(target.x, lo, hi);
+        }
+        if (player != null)
+        {
+            float minY = player.minDepthY + 0.1f;
+            float maxY = Area.MaxDepthAt(target.x, player.maxDepthY) - 0.1f;
+            target.y = Mathf.Clamp(target.y, minY, Mathf.Max(minY, maxY));
+        }
+        return target;
     }
 
     /// Taklauksen juoksu (vauhdinotto ja liuku): tömisevät askeleet ja ruudun tärinä.
@@ -1917,7 +1968,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float past = (me.x - p.x) * passDir;   // > 0: pelaajan ohi
         // käännös: vasta reilusti pelaajan ohi (tai ruudun reunassa ohi ajettua), ja enintään yksi käännös / passTurnInterval
         bool farPast = past >= passOvershoot;
-        bool blocked = past > 1.5f && moved < spd * dt * 0.3f;
+        bool blocked = moved < spd * dt * 0.3f;
         if ((farPast || blocked) && Time.time - lastTurnTime >= passTurnInterval)
         {
             passDir = -passDir;
@@ -2051,8 +2102,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         Vector3 t = enemyTarget.transform.position, me = transform.position;
         float side = me.x >= t.x ? 1f : -1f;
-        Vector2 to = new Vector2(t.x + side * attackRange * 0.8f, t.y) - (Vector2)me;
-        facingRight = t.x > me.x;
+        Vector2 target = ClampChaseTarget(new Vector2(t.x + side * attackRange * 0.8f, t.y), me, t);
+        Vector2 to = target - (Vector2)me;
+        facingRight = turningFromEdge ? target.x > me.x : t.x > me.x;
         bool inRange = Mathf.Abs(me.x - t.x) <= attackRange && Mathf.Abs(me.y - t.y) <= depthTolerance;
         // heittäjä (Kovis) voi napata liittolaisen (seilorin) ja heittää sen
         if (inRange && cooldown <= 0f && !TargetDown(enemyTarget) && (enemyTarget.ally || grabsAnyone) && Has(grabSprites)
@@ -2082,7 +2134,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
             running = run > 1f;
             if (run > 1f) animClock += dt * (run - 1f);
             Vector2 dir = to.normalized;
-            Move(new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt);
+            Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
+            step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x));
+            step.y = Mathf.Sign(to.y) * Mathf.Min(Mathf.Abs(to.y), Mathf.Abs(step.y));
+            Move(step);
         }
         else moving = false;
     }
@@ -2582,6 +2637,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (state == State.Airborne || state == State.Hurt) { var hitOb = Obstacle.BlockingAt(p); if (hitOb != null) hitOb.Rattle(); }
             p = Obstacle.Resolve(transform.position, p);   // biljardipöytä ym.
         }
+        if (state == State.Chase)
+        {
+            walkDirectionX = p.x - transform.position.x;
+            if (((Vector2)(p - transform.position)).sqrMagnitude < 0.000001f)
+            { moving = false; running = false; }
+        }
         transform.position = p;
     }
 
@@ -2620,7 +2681,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (body == null) return;
         float rot = 0f;
         body.sprite = CurrentSprite(ref rot);
-        body.flipX = !facingRight;
+        // Kiertäessä kävelykuva katsoo liikkeeseen, isku edelleen kohteeseen.
+        bool walkFacing = state == State.Chase && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
+        body.flipX = walkFacing ? walkDirectionX < 0f : !facingRight;
 
         Vector2 pivotFix = Vector2.zero;
         Sprite spr = body.sprite;

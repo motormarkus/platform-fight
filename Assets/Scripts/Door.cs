@@ -39,6 +39,8 @@ public class Door : MonoBehaviour
     public float animWait = 0.7f;
     [Tooltip("Ei käytettävissä, kun lähellä on pystyssä olevia vihollisia (esim. laivan tappelu).")]
     public bool blockedDuringFight;
+    [Tooltip("Taistelulukon tarkistusetäisyys (yksikköä).") ]
+    public float fightBlockRange = 20f;
 
     PlayerController pc;
     bool near;
@@ -53,7 +55,7 @@ public class Door : MonoBehaviour
         near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
             && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // porrastettu takaraja (esim. kadun baari)
             && pc.AirHeight <= 0.05f
-            && !(blockedDuringFight && Enemy.HostileNear(transform.position, 20f));
+            && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
         if (near && Pressed()) StartCoroutine(Go());
     }
 
