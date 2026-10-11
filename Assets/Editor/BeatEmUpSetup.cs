@@ -5996,9 +5996,9 @@ public static class BeatEmUpSetup
         // 7 kuvaa: 0 makaa, 1 nousee istumaan, 2 konttaa, 3 polvillaan hattu maassa, 4 hattu kädessä, 5 laittaa hatun, 6 tappeluasento
         var rise = EnemySheet("rusty_ylosnousu", report);
         if (rise.Length >= 7) { e.getUpSprites = rise; e.getUpTime = 1.3f; }
-        // heitto (7 kuvaa, viimeinen kahdesti): 0 asento, 1 napattu kumaraan, 2 kippaa, 3 ylösalaisin lento, 4 alastulo selälleen, 5–6 makaa
+        // heitto (9 kuvaa): 0 asento, 1 napattu kumaraan, 2 kippaa (otteessa 0–2), 3–5 lento (kippaa, pää alas, selälleen), 6–8 makaa
         var thrown = EnemySheet("rusty_heitetty", report);
-        if (thrown.Length >= 7) { e.flipThrownSprites = thrown; e.flipFlightFrames = 1; e.flipFlightFrameTime = 0.12f; e.flipLandFrameTime = 0.13f; }
+        if (thrown.Length >= 9) { e.flipThrownSprites = thrown; e.flipFlightFrames = 3; e.flipFlightFrameTime = 0.15f; e.flipLandFrameTime = 0.13f; }
         e.lightweight = true;
         e.fightsEveryone = true;
         e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 1.0f;

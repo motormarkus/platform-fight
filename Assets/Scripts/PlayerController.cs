@@ -1929,6 +1929,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.WhipCatch:
+                // vetäessä hero liukuu hieman taaksepäin (Rusty lähtee perässä)
+                if (stateTime >= WhipCatchSlideFrom && stateTime <= WhipCatchSlideTo)
+                    MoveOnGround(new Vector2((facingRight ? -1f : 1f) * WhipCatchSlide * dt, 0f));
                 if (stateTime >= WhipCatchTotal) Enter(State.Ground);
                 break;
 
@@ -2775,7 +2778,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public Sprite[] rubyWhipCatchSprites;
     Sprite[] WhipArt => AppliedCharacter == 1 ? rubyWhipCatchSprites : whipCatchSprites;
     static readonly float[] WhipCatchTimes = { 0.05f, 0.05f, 0.05f, 0.07f, 0.07f, 0.3f };
-    const float WhipCatchTotal = 0.4f;   // lyhyt: ehtii lyödä vihua, kun se lentää päin
+    const float WhipCatchTotal = 0.45f, WhipCatchSlideFrom = 0.1f, WhipCatchSlideTo = 0.3f, WhipCatchSlide = 3f;   // lyhyt: ehtii lyödä vihua, kun se lentää päin
     bool HasWhipArt => WhipArt != null && WhipArt.Length >= 6;
 
     /// Ruoskaa heiluttava vihu iskee: jos hero on kurottanut (Catch) sen suuntaan ajoissa, ruoskasta napataan kiinni.

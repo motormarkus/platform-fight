@@ -572,7 +572,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("rusty_nykaisy.png: 0 horjahdus, 1–3 lento heroa kohti, 4–5 liuku vatsallaan (viimeinen jää makuuksi).")]
     public Sprite[] yankSprites;
     public float yankStopGap = 1.5f;
-    const float YankStumble = 0.12f, YankFly = 0.22f, YankTotal = 0.6f;   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
+    const float YankStumble = 0.2f, YankFly = 0.3f, YankTotal = 0.8f, YankHeight = 1.1f;   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
     Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
 
     /// Ruoska on juuri iskemässä (lataus tai isku): hero voi valmistautua kurotukseen jo kaukaa.
@@ -597,12 +597,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void UpdateYank(float dt)
     {
         float t = stateTime;
+        if (player != null)
+        {
+            // hero liukuu vetäessä taaksepäin: Rusty tulee perässä heron nykyiseen paikkaan
+            Vector3 hp = player.transform.position;
+            float side = yankFrom.x >= hp.x ? 1f : -1f;
+            yankTo = new Vector2(hp.x + side * yankStopGap, Mathf.Lerp(yankFrom.y, hp.y, 0.8f));
+        }
         float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.12f));
         float e = 1f - (1f - u) * (1f - u);
         Vector2 pos = Vector2.Lerp(yankFrom, yankTo, e);
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
         float fu = Mathf.Clamp01((t - YankStumble) / YankFly);
-        height = t < YankStumble ? 0f : 0.55f * Mathf.Sin(fu * Mathf.PI);
+        height = t < YankStumble ? 0f : YankHeight * Mathf.Sin(fu * Mathf.PI);
         if (!yankDust && t >= YankStumble + YankFly)
         {
             yankDust = true;
