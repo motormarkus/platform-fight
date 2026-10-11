@@ -6092,11 +6092,12 @@ public static class BeatEmUpSetup
         Info("Rusty lisätty pelaajan viereen: idle, kävely ja kevyt (uppercut lennättää korkealle). Tallenna scene (Ctrl+S).");
     }
 
-    /// Prätkäjätkän äänet (Assets/Audio/motoristi): gasp = osuma, fall = kaatuminen, lataus = hyppylyönnin veto, speak = puhe.
+    /// Prätkäjätkän äänet (Assets/Audio/motoristi): gasp = osuma, hit = lyönti, fall = kaatuminen, lataus = hyppylyönnin veto, speak = puhe.
     static void ApplyBikerAudio(Enemy e)
     {
         e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f;
         if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f; }
+        e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
         e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault();
         e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus");
         e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = 1f; e.tauntNoRepeat = true;
