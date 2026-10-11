@@ -475,6 +475,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float stackChance = 0.04f;
 
     [Header("Äänet")]
+    [Tooltip("Toisen hyökkäyksen (esim. ruoska) isku: ääni soi iskun alkaessa; tyhjä = tavallinen huuto.")]
+    public AudioClip[] altSwingSounds;
+    [Tooltip("Ääni, kun vihu kaatuu eikä nouse enää.")]
+    public AudioClip deathVoice;
     public AudioClip[] hurtSounds;
     [Range(0f, 1f)] public float hurtVolume = 0.99f;
     [Tooltip("Huudot iskun lähtiessä (esim. attack1–3).")]
@@ -835,6 +839,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     punchLanded = false;
                     if (!usingAlt && punchShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan (vain pelaajaa vastaan)
                     if (usingPunch3 && punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
+                    else if (usingAlt && altSwingSounds != null && altSwingSounds.Length > 0) PlayClipFrom(altSwingSounds, 1f);
                     else if (Random.value < attackSoundChance) PlayAttackSound();
                     Enter(State.Punch);
                 }
@@ -1676,6 +1681,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, 1f);
+        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, 1f); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
         if (s == State.Slaps)
         {

@@ -6004,7 +6004,13 @@ public static class BeatEmUpSetup
         e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 1.0f;
         e.blockChance = 0f;
         e.moveSpeedX = 3.0f; e.moveSpeedY = 1.5f;
-        e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+        // Rustyn äänet (Assets/Audio/rusty): gasp = osuma, hit = Rustyn isku, fall = kaatuminen/lento, defeated = ei nouse, whip = ruoska
+        e.hurtSounds = LoadClips("Assets/Audio/rusty", "gasp"); e.hurtVolume = 0.9f;
+        if (e.hurtSounds.Length == 0) e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
+        e.attackSounds = LoadClips("Assets/Audio/rusty", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
+        e.altSwingSounds = LoadClips("Assets/Audio/rusty", "whip");
+        e.fallVoice = LoadClips("Assets/Audio/rusty", "fall").FirstOrDefault();
+        e.deathVoice = LoadClips("Assets/Audio/rusty", "defeated").FirstOrDefault();
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Rusty");
         Debug.Log("Rusty: " + string.Join(", ", report));
