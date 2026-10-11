@@ -7325,6 +7325,26 @@ public static class BeatEmUpSetup
         Info("Peli alkaa taas kadun alusta.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/88. Aloita peli laivan salista (tanssisalista)")]
+    static void StartAtShipSalon()
+    {
+        var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
+        if (sal == null) { Info("Tee ensin laivan sisätilat (kohta 60)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var gs = go.AddComponent<GameStart>();
+        gs.area = sal;
+        // sama kohta kuin käytävän ovesta saliin tultaessa
+        var door = GameObject.Find("Käytävästä saliin");
+        var d = door != null ? door.GetComponent<Door>() : null;
+        gs.position = d != null ? d.spawnPoint
+            : new Vector2((sal.camMinX + sal.camMaxX) * 0.5f, Mathf.Lerp(sal.maxDepthY, sal.minDepthY, 0.4f));
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt laivan salista (käytävän oven kohdalta).\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
+    }
+
     static AudioClip[] LoadClips(string folder, string filter)
     {
         if (!AssetDatabase.IsValidFolder(folder)) return new AudioClip[0];
