@@ -562,7 +562,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("rusty_nykaisy.png: 0 horjahdus, 1–3 lento heroa kohti, 4–5 liuku vatsallaan (viimeinen jää makuuksi).")]
     public Sprite[] yankSprites;
     public float yankStopGap = 1.5f;
-    const float YankStumble = 0.34f, YankFly = 0.42f, YankTotal = 1.1f;
+    const float YankStumble = 0.12f, YankFly = 0.22f, YankTotal = 0.6f;   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
     Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
 
     /// Ruoska on juuri iskemässä (lataus tai isku): hero voi valmistautua kurotukseen jo kaukaa.
@@ -587,7 +587,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void UpdateYank(float dt)
     {
         float t = stateTime;
-        float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.3f));
+        float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.12f));
         float e = 1f - (1f - u) * (1f - u);
         Vector2 pos = Vector2.Lerp(yankFrom, yankTo, e);
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
@@ -608,7 +608,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float t = stateTime;
         if (t < YankStumble) return yankSprites[0];
         if (t < YankStumble + YankFly) return yankSprites[Mathf.Min(1 + (int)((t - YankStumble) / YankFly * 3f), 3)];
-        return yankSprites[t < YankStumble + YankFly + 0.22f ? 4 : 5];
+        return yankSprites[t < YankStumble + YankFly + 0.1f ? 4 : 5];
     }
 
     /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
@@ -2402,7 +2402,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps
             || (state == State.SlideTackle && slidePhase == 1)) return false;   // heiton, otteen, läpsykombon ja liu'un aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
-        if (state == State.Yanked) return false;   // nykäisyn aikana ei osu
+        if (state == State.Yanked)
+        {
+            if (stateTime < YankStumble) return false;   // ennen kuin lento alkaa
+            knockdown = true;   // lennossa olevan voi läimäistä takaisin: kaatuu iskusta
+        }
 
         // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
         if (state == State.Belly && stateTime < BellyImpactTime)

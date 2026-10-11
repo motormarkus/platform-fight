@@ -2774,8 +2774,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("sankaritar_ruoskan_kiinniotto.png: Rubyn kuvat samassa järjestyksessä.")]
     public Sprite[] rubyWhipCatchSprites;
     Sprite[] WhipArt => AppliedCharacter == 1 ? rubyWhipCatchSprites : whipCatchSprites;
-    static readonly float[] WhipCatchTimes = { 0.06f, 0.07f, 0.09f, 0.12f, 0.12f, 0.5f };
-    const float WhipCatchTotal = 1.0f;
+    static readonly float[] WhipCatchTimes = { 0.05f, 0.05f, 0.05f, 0.07f, 0.07f, 0.3f };
+    const float WhipCatchTotal = 0.4f;   // lyhyt: ehtii lyödä vihua, kun se lentää päin
     bool HasWhipArt => WhipArt != null && WhipArt.Length >= 6;
 
     /// Ruoskaa heiluttava vihu iskee: jos hero on kurottanut (Catch) sen suuntaan ajoissa, ruoskasta napataan kiinni.
