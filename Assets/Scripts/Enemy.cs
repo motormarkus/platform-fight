@@ -692,6 +692,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         player = FindFirstObjectByType<PlayerController>();
         groundHeight = TargetGround();
         if (idleFacing != 0) facingRight = idleFacing > 0;
+        CacheBouncerTemplate();
+    }
+
+    /// Piilotettu alkuperäinen portsari Horhen avunhuutoa varten: kuolleet vihut tuhotaan, joten jos kaikki kentän portsarit on voitettu,
+    /// kopioitavaa ei muuten löytyisi eikä apu tulisi.
+    static GameObject bouncerTemplate;
+    void CacheBouncerTemplate()
+    {
+        if (bouncerTemplate != null || displayName != "Portsari" || name.Contains("Horhen apu") || name.Contains("(malli)")) return;
+        bouncerTemplate = Instantiate(gameObject, transform.parent);
+        bouncerTemplate.name = "Portsari (malli)";
+        bouncerTemplate.SetActive(false);
     }
 
     [Tooltip("Pomo (Metsuri): ilmestyy vasta, kun muut lähistön vihut on voitettu, ja juoksee ruudun reunasta sisään.")]
@@ -1348,9 +1360,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Kaksi portsaria tulee ruudun reunoilta Horhen avuksi (kopio kentän portsarista, käy vain heron kimppuun).
     void CallBouncers()
     {
-        Enemy tmpl = null;
-        foreach (var e in FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-            if (e != null && e != this && e.displayName == "Portsari") { tmpl = e; if (!e.IsDead) break; }
+        Enemy tmpl = bouncerTemplate != null ? bouncerTemplate.GetComponent<Enemy>() : null;
+        if (tmpl == null)
+            foreach (var e in FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                if (e != null && e != this && e.displayName == "Portsari") { tmpl = e; if (!e.IsDead) break; }
         if (tmpl == null) return;
         var cam = Camera.main;
         float half = cam != null ? cam.orthographicSize * cam.aspect : 9f;
@@ -2277,7 +2290,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
         if (Time.time - lastHitTime > 0.9f) comboHits = 0;
-        bool unblockable = player != null && player.Boosted;   // pärinä: heron iskuja ei voi torjua
+        bool unblockable = player != null && player.Boosted && !isBoss;   // pärinä: heron iskuja ei voi torjua (pomot torjuvat silti)
         if (!unblockable && bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
             && comboHits >= bellyCounterAfterHits && Random.value < bellyCounterChance)
         {
