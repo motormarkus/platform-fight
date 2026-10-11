@@ -231,7 +231,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [HideInInspector] public bool hammerArt;   // Horhe: vasaran nosto näytetään selvästi
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
-    [Range(0f, 1f)] public float fallVoiceVolume = 1f, altWindupVolume = 1f;
+    [Range(0f, 1f)] public float fallVoiceVolume = 1f, altWindupVolume = 1f, altSwingVolume = 1f, deathVoiceVolume = 1f, launchVoiceVolume = 1f;
     public float tauntVolume = 1f;
     [Tooltip("Satunnainen huuto vain, kun hero on tätä kauempana (0 = aina). Ei puhu heron naamalle.")]
     public float tauntMinDistance = 0f;
@@ -867,7 +867,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     punchLanded = false;
                     if (!usingAlt && punchShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan (vain pelaajaa vastaan)
                     if (usingPunch3 && punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
-                    else if (usingAlt && altSwingSounds != null && altSwingSounds.Length > 0) PlayClipFrom(altSwingSounds, 1f);
+                    else if (usingAlt && altSwingSounds != null && altSwingSounds.Length > 0) PlayClipFrom(altSwingSounds, altSwingVolume);
                     else if (Random.value < attackSoundChance) PlayAttackSound();
                     Enter(State.Punch);
                 }
@@ -1710,7 +1710,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
-        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, 1f); }
+        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
         if (s == State.Slaps)
         {
@@ -2636,7 +2636,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void Launch(float vx, float up)
     {
         if (state != State.Airborne) return;
-        if (launchVoice != null && audioSource != null) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, 1f); }
+        if (launchVoice != null && audioSource != null) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, launchVoiceVolume); }
         if (lightweight) up *= lightLaunchMul;
         knockVel = new Vector2(vx, 0f);
         verticalVel = up;
