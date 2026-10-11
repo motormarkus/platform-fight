@@ -33,8 +33,8 @@ public class PariRider : EnemyBike
     AudioSource motor;
     SpriteRenderer rearRimRenderer, frontRimRenderer;
     float rearAngle, frontAngle;
-    float speed, idleClock, punchClock, cooldown = 2f, fleeTime, flashTime;
-    bool hitDone;
+    float pariSpeed, idleClock, punchClock, cooldown = 2f, fleeTime, flashTime;
+    bool pariHitDone;
     float direction = 1f;
     public override bool CanBeGrabbed => mode == Mode.Chase || mode == Mode.Punch;
 
@@ -54,7 +54,7 @@ public class PariRider : EnemyBike
         if (chassisSprite != null) motorcycle.sprite = chassisSprite;
         rearRimRenderer = MakeRim("Takavanne", rearRim, rearRimScale);
         frontRimRenderer = MakeRim("Etuvanne", frontRim, frontRimScale);
-        speed = Motorbike.Current != null ? Motorbike.Current.Speed + overtakeSpeed : overtakeSpeed;
+        pariSpeed = Motorbike.Current != null ? Motorbike.Current.Speed + overtakeSpeed : overtakeSpeed;
         if (engineLoop != null)
         {
             motor = gameObject.AddComponent<AudioSource>();
@@ -80,7 +80,7 @@ public class PariRider : EnemyBike
         if (mode == Mode.Slowed)
         {
             // Riutaisu katkaisee takaa-ajon: pyörä hidastuu eikä kiihdytä takaisin heron perään.
-            speed = Mathf.MoveTowards(speed, 0f, Mathf.Max(0f, yankBraking) * dt);
+            pariSpeed = Mathf.MoveTowards(pariSpeed, 0f, Mathf.Max(0f, yankBraking) * dt);
             var cam = Camera.main;
             if (cam != null)
             {
@@ -92,40 +92,40 @@ public class PariRider : EnemyBike
         else if (mode == Mode.Flee)
         {
             fleeTime += dt;
-            speed = Mathf.MoveTowards(speed, heroSpeed + 16f, 18f * dt);
+            pariSpeed = Mathf.MoveTowards(pariSpeed, heroSpeed + 16f, 18f * dt);
             if (fleeTime > 5f || ahead > 30f) { Destroy(gameObject); return; }
         }
         else
         {
             float catchup = Mathf.Clamp((followGap - ahead) * 2f, -4f, overtakeSpeed);
-            speed = Mathf.MoveTowards(speed, Mathf.Max(0f, heroSpeed + catchup), 20f * dt);
+            pariSpeed = Mathf.MoveTowards(pariSpeed, Mathf.Max(0f, heroSpeed + catchup), 20f * dt);
             me.y = Mathf.MoveTowards(me.y, Mathf.Clamp(p.y + 0.25f, player.minDepthY, player.maxDepthY), depthSpeed * dt);
             cooldown -= dt;
             bool inRange = Mathf.Abs(ahead) <= punchReach && Mathf.Abs(me.y - p.y) <= punchDepth;
             if (mode == Mode.Chase && cooldown <= 0f && inRange)
-            { mode = Mode.Punch; punchClock = 0f; hitDone = false; }
+            { mode = Mode.Punch; punchClock = 0f; pariHitDone = false; }
             if (mode == Mode.Punch)
             {
                 punchClock += dt;
                 int frame = (int)(punchClock * Mathf.Max(1f, fps));
-                if (!hitDone && frame >= Mathf.Clamp(punchImpact, 0, punchSprites.Length - 1))
+                if (!pariHitDone && frame >= Mathf.Clamp(punchImpact, 0, punchSprites.Length - 1))
                 {
-                    hitDone = true;
+                    pariHitDone = true;
                     if (heroBike != null && inRange) heroBike.Knock(punchDamage);
                 }
                 if (frame >= punchSprites.Length)
                 { mode = Mode.Chase; cooldown = UnityEngine.Random.Range(punchDelay.x, punchDelay.y); }
             }
         }
-        me.x += direction * speed * dt;
-        rearAngle = RollAngle(rearAngle, speed, direction, RimRadius(rearRim, rearRimScale), dt);
-        frontAngle = RollAngle(frontAngle, speed, direction, RimRadius(frontRim, frontRimScale), dt);
+        me.x += direction * pariSpeed * dt;
+        rearAngle = RollAngle(rearAngle, pariSpeed, direction, RimRadius(rearRim, rearRimScale), dt);
+        frontAngle = RollAngle(frontAngle, pariSpeed, direction, RimRadius(frontRim, frontRimScale), dt);
         transform.position = me;
         if (ahead < -40f) { Destroy(gameObject); return; }
         if (motor != null)
         {
             motor.volume = engineVolume * Mathf.Clamp01(1f - Mathf.Abs(ahead) / 22f);
-            motor.pitch = Mathf.Clamp(0.85f + speed * 0.02f, 0.8f, 1.5f);
+            motor.pitch = Mathf.Clamp(0.85f + pariSpeed * 0.02f, 0.8f, 1.5f);
             motor.panStereo = Mathf.Clamp((me.x - p.x) / 14f, -0.8f, 0.8f);
         }
         ApplyArt();
@@ -134,10 +134,10 @@ public class PariRider : EnemyBike
     public override void YankOff(float playerX, float playerDir)
     {
         if (!CanBeGrabbed) return;
-        mode = Mode.Slowed; hitDone = true;
+        mode = Mode.Slowed; pariHitDone = true;
         var heroBike = Motorbike.Current;
-        float beforeHit = heroBike != null ? Mathf.Min(speed, heroBike.Speed) : speed;
-        speed = Mathf.Max(0f, beforeHit) * Mathf.Clamp01(yankSpeedMultiplier);
+        float beforeHit = heroBike != null ? Mathf.Min(pariSpeed, heroBike.Speed) : pariSpeed;
+        pariSpeed = Mathf.Max(0f, beforeHit) * Mathf.Clamp01(yankSpeedMultiplier);
         flashTime = Mathf.Max(0f, yankFlashTime);
         direction = playerDir >= 0f ? 1f : -1f;
         HitFx.OnHit(true);
