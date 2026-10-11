@@ -583,6 +583,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("rusty_nykaisy.png: 0 horjahdus, 1–3 lento heroa kohti, 4–5 liuku vatsallaan (viimeinen jää makuuksi).")]
     public Sprite[] yankSprites;
     public float yankStopGap = 1.5f;
+    [Tooltip("Ruoskan menetyksen jälkeen toinen hyökkäys (esim. korkea potku) korvaa ruoskan.")]
+    public Sprite[] afterWhipSprites;
+    public int afterWhipImpact = 3;
+    public int afterWhipDamage = 16;
+    public float afterWhipReach = 2.5f, afterWhipChance = 0.3f;
     const float YankStumble = 1.0f, YankFly = 0.35f, YankTotal = 1.65f, YankHeight = 1.1f;   // sekunnin viive nykäisyn jälkeen, sitten ilmalento heroa kohti   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
     Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
 
@@ -601,7 +606,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
         yankDust = false; yankLanded = false;
         shakeUntil = Time.unscaledTime + 0.25f;   // nykäisy: Rusty hytkähtää
         // ei enää ruoskaa: lähitaisteluun
-        altAttackSprites = null; chargeRange = 0f; altChance = 0f; altNearChance = 0f;
+        whipAttack = false;
+        chargeRange = 0f; altNearChance = 0f; altSwingSounds = null;
+        if (Has(afterWhipSprites))
+        {
+            altAttackSprites = afterWhipSprites; altImpactFrame = afterWhipImpact; altDamage = afterWhipDamage;
+            altKnockdown = true; altReach = afterWhipReach; altChance = afterWhipChance;
+            altLungeSpeed = 0f; altExtraWindup = 0.1f; altKnockSpeed = 6f; altKnockUp = 6f;
+        }
+        else { altAttackSprites = null; altChance = 0f; }
         awake = true;
         Enter(State.Yanked);
     }
