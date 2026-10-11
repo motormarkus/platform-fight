@@ -6010,6 +6010,9 @@ public static class BeatEmUpSetup
         e.attackSounds = LoadClips("Assets/Audio/rusty", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
         e.altSwingSounds = LoadClips("Assets/Audio/rusty", "whip");
         e.fallVoice = LoadClips("Assets/Audio/rusty", "fall").FirstOrDefault();
+        // speak: joskus ruudulle tullessa ja satunnaisesti, kun hero ei ole aivan vieressä
+        e.tauntSounds = LoadClips("Assets/Audio/rusty", "speak"); e.tauntVolume = 1f; e.tauntNoRepeat = true;
+        e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.6f;
         e.deathVoice = LoadClips("Assets/Audio/rusty", "defeated").FirstOrDefault();
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Rusty");

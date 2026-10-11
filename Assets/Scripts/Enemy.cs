@@ -224,6 +224,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
     public float tauntVolume = 1f;
+    [Tooltip("Satunnainen huuto vain, kun hero on tätä kauempana (0 = aina). Ei puhu heron naamalle.")]
+    public float tauntMinDistance = 0f;
+    [Tooltip("Todennäköisyys huutaa kerran herätessä eli ruudulle tullessa, ennen tappelua (0–1).")]
+    [Range(0f, 1f)] public float tauntOnWakeChance = 0f;
     [Tooltip("Tauko huutojen välillä (s, satunnainen väliltä).")]
     public Vector2 tauntPause = new Vector2(4f, 9f);
     static float nextTauntTime;
@@ -824,7 +828,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 moving = false;
                 if (!awake && wanderMaxX > wanderMinX) Wander(dt);
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
+                {
                     awake = true;
+                    if (tauntOnWakeChance > 0f && Random.value < tauntOnWakeChance) SayTaunt();   // sanoo jotain ruudulle tullessa
+                }
                 if (!awake && wakeOnFightRadius > 0f && FightNearby()) awake = true;   // tappelu syntyi lähellä: mukaan
                 if (awake && stateTime > 0.3f) Enter(State.Chase);
                 break;
@@ -1725,6 +1732,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
         if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
+        if (tauntMinDistance > 0f && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) < tauntMinDistance) return;
+        SayTaunt();
+    }
+
+    /// Soittaa yhden huudon (vain yksi vihu kerrallaan, tauko seuraavaan).
+    void SayTaunt()
+    {
+        if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
         int i = Random.Range(0, tauntSounds.Length);
         if (tauntSounds.Length > 1 && i == lastTaunt && tauntNoRepeat) i = (i + 1) % tauntSounds.Length;
         var clip = tauntSounds[i];
