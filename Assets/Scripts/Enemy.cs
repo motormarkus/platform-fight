@@ -483,6 +483,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public AudioClip[] altSwingSounds;
     [Tooltip("Ääni, kun vihu kaatuu eikä nouse enää.")]
     public AudioClip deathVoice;
+    [Tooltip("Ääni, kun vihu lennätetään korkealle (uppercut, potku, tuplanyrkki): korvaa tavallisen kaatumisäänen.")]
+    public AudioClip launchVoice;
     public AudioClip[] hurtSounds;
     [Range(0f, 1f)] public float hurtVolume = 0.99f;
     [Tooltip("Huudot iskun lähtiessä (esim. attack1–3).")]
@@ -2592,6 +2594,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void Launch(float vx, float up)
     {
         if (state != State.Airborne) return;
+        if (launchVoice != null && audioSource != null) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, 1f); }
         if (lightweight) up *= lightLaunchMul;
         knockVel = new Vector2(vx, 0f);
         verticalVel = up;

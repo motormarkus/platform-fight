@@ -6004,12 +6004,13 @@ public static class BeatEmUpSetup
         e.maxHealth = 90; e.attackRange = 1.8f; e.attackCooldown = 1.0f;
         e.blockChance = 0f;
         e.moveSpeedX = 3.0f; e.moveSpeedY = 1.5f;
-        // Rustyn äänet (Assets/Audio/rusty): gasp = osuma, hit = Rustyn isku, fall = kaatuminen/lento, defeated = ei nouse, whip = ruoska
+        // Rustyn äänet (Assets/Audio/rusty): gasp = osuma, rusty_hit = Rustyn isku, fall = kaatuminen, launch = lento korkealle, defeated = ei nouse, whip = ruoska
         e.hurtSounds = LoadClips("Assets/Audio/rusty", "gasp"); e.hurtVolume = 0.9f;
         if (e.hurtSounds.Length == 0) e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
-        e.attackSounds = LoadClips("Assets/Audio/rusty", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
+        e.attackSounds = LoadClips("Assets/Audio/rusty", "rusty_hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
         e.altSwingSounds = LoadClips("Assets/Audio/rusty", "whip");
         e.fallVoice = LoadClips("Assets/Audio/rusty", "fall").FirstOrDefault();
+        e.launchVoice = LoadClips("Assets/Audio/rusty", "launch").FirstOrDefault();
         // speak: joskus ruudulle tullessa ja satunnaisesti, kun hero ei ole aivan vieressä
         e.tauntSounds = LoadClips("Assets/Audio/rusty", "speak"); e.tauntVolume = 1f; e.tauntNoRepeat = true;
         e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.6f;
