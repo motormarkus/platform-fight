@@ -494,7 +494,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -555,6 +555,61 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Kevyt hahmo (Rusty): heron uppercut ja kaikki lennättävät iskut singoavat korkealle.")]
     public bool lightweight;
     public float lightLaunchMul = 1.6f, lightUppercutUp = 12f, lightUppercutX = 1.5f;
+
+    [Header("Ruoska (Rusty): hero voi napata ruoskasta kiinni ja nykäistä vihun kumoon")]
+    [Tooltip("Toinen hyökkäys on ruoska: ajoitettu kurotus (vastaheitto) nappaa ruoskasta. Nykäisyn jälkeen vihu ei käytä ruoskaa vaan tulee lähitaisteluun.")]
+    public bool whipAttack;
+    [Tooltip("rusty_nykaisy.png: 0 horjahdus, 1–3 lento heroa kohti, 4–5 liuku vatsallaan (viimeinen jää makuuksi).")]
+    public Sprite[] yankSprites;
+    public float yankStopGap = 1.5f;
+    const float YankStumble = 0.34f, YankFly = 0.42f, YankTotal = 1.1f;
+    Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
+
+    /// Ruoska on juuri iskemässä (lataus tai isku): hero voi valmistautua kurotukseen jo kaukaa.
+    public bool IsWhipping => whipAttack && usingAlt && (state == State.Windup || state == State.Punch) && Has(altAttackSprites);
+    public bool WhipLost => whipAttack && !Has(altAttackSprites);
+
+    /// Hero nappasi ruoskasta: nykäisy heron eteen, kumoon, ja ruoska on menetetty.
+    void StartYank()
+    {
+        Vector3 me = transform.position, hp = player.transform.position;
+        float side = me.x >= hp.x ? 1f : -1f;
+        facingRight = hp.x > me.x;
+        yankFrom = me;
+        yankTo = new Vector2(hp.x + side * yankStopGap, Mathf.Lerp(me.y, hp.y, 0.8f));
+        yankDust = false; yankLanded = false;
+        // ei enää ruoskaa: lähitaisteluun
+        altAttackSprites = null; chargeRange = 0f; altChance = 0f; altNearChance = 0f;
+        awake = true;
+        Enter(State.Yanked);
+    }
+
+    void UpdateYank(float dt)
+    {
+        float t = stateTime;
+        float u = Mathf.Clamp01((t - YankStumble) / (YankFly + 0.3f));
+        float e = 1f - (1f - u) * (1f - u);
+        Vector2 pos = Vector2.Lerp(yankFrom, yankTo, e);
+        transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+        float fu = Mathf.Clamp01((t - YankStumble) / YankFly);
+        height = t < YankStumble ? 0f : 0.55f * Mathf.Sin(fu * Mathf.PI);
+        if (!yankDust && t >= YankStumble + YankFly)
+        {
+            yankDust = true;
+            HitFx.OnLand();
+            DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
+            PlayHurtSound();
+        }
+        if (t >= YankTotal) { yankLanded = true; height = 0f; Enter(State.Down); }
+    }
+
+    Sprite YankFrame()
+    {
+        float t = stateTime;
+        if (t < YankStumble) return yankSprites[0];
+        if (t < YankStumble + YankFly) return yankSprites[Mathf.Min(1 + (int)((t - YankStumble) / YankFly * 3f), 3)];
+        return yankSprites[t < YankStumble + YankFly + 0.22f ? 4 : 5];
+    }
 
     /// Raskaat (eivät kaadu kevyestä iskusta): Kovis, samoalainen, portsari ja puliukko.
     public static bool IsHeavyweight(Enemy e)
@@ -929,6 +984,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Ringed:
                 // jumissa renkaassa: ei hyökkää; ajan loputtua ravistaa renkaan pois
                 if (stateTime >= ringedTime) { DropRing(2.0f); if (boardLost) GoOnFoot(); cooldown = Mathf.Max(cooldown, 0.5f); Enter(State.Chase); }
+                break;
+
+            case State.Yanked:
+                UpdateYank(dt);
                 break;
 
             case State.Held:
@@ -1604,7 +1663,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var c = PlayClipFrom(punch3WindupSounds, punch3Volume);
             punch3WindupNow = c != null ? Mathf.Clamp(c.length - 0.05f, 0.7f, 1.4f) : punch3WindupTime;
         }
-        if (s == State.Airborne || s == State.Held) DropBoard();
+        if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s != State.BottlePick && s != State.BottleThrow && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
@@ -1630,6 +1689,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             grabbedEnemy.ReleaseThrow(0f, 2f, 0); grabbedEnemy = null;
         }
         if (s != State.Down && s != State.Dead) { flipLanded = false; slamLanded = false; }
+        if (s != State.Down && s != State.Dead && s != State.Yanked) yankLanded = false;
         if (s != State.Down && s != State.Dead && s != State.Ringed && ringItem != null) DropRing(1.0f);   // esim. heitto renkaasta
         if (s != State.Down && s != State.Dead) ringFall = false;
         if (s != State.Windup && s != State.Punch && s != State.Recover && comboSeq != null)
@@ -2245,6 +2305,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
+        if (usingAlt && whipAttack && Has(yankSprites) && player.TryCatchWhip(this)) { StartYank(); return true; }
         if (usingAlt && altKnockdown && !mid) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
         if (!usingAlt && usingPunch3 && punch3Knockdown && !mid)
         {
@@ -2341,6 +2402,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps
             || (state == State.SlideTackle && slidePhase == 1)) return false;   // heiton, otteen, läpsykombon ja liu'un aikana ei keskeytetä
         if (state == State.Airborne && height > 0.1f && !knockdown) return false;
+        if (state == State.Yanked) return false;   // nykäisyn aikana ei osu
 
         // vatsatöytäisy: iskuun asti maha ottaa iskut vastaan (torjunta); naurun aikana saa osua
         if (state == State.Belly && stateTime < BellyImpactTime)
@@ -2726,7 +2788,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             case State.Windup: case State.Punch: case State.Recover: case State.Hurt: case State.Block: case State.Belly:
                 return attackArtScale;
-            case State.Airborne: case State.Down: case State.Dead: case State.GetUp: case State.Held:
+            case State.Airborne: case State.Down: case State.Dead: case State.GetUp: case State.Held: case State.Yanked:
                 return knockArtScale;
             case State.Chase:
                 return moving && Has(walkSprites) ? walkArtScale : 1f;
@@ -2895,6 +2957,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 rot = Mathf.Lerp(20f, 80f, Mathf.Clamp01(stateTime / 0.35f));
                 return FirstIdle();
 
+            case State.Yanked:
+                return YankFrame();
+
             case State.Held:
                 if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
@@ -2918,6 +2983,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     // pidempi sarja: loput kuvat (kierähdys) tasaisesti, viimeinen jää
                     return fs[Mathf.Min(5 + (int)((stateTime - SlamImpactTime - SlamBounceTime) / 0.1f), fs.Length - 1)];
                 }
+                if (yankLanded && Has(yankSprites)) return yankSprites[yankSprites.Length - 1];
                 if (flipLanded && artSet != null)
                     return artSet[Mathf.Min(artLandFirst + (int)(stateTime / artLandFrameTime), artSet.Length - 1)];
                 if (Has(knockdownSprites)) return knockdownSprites[knockdownSprites.Length - 1];

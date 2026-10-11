@@ -1138,7 +1138,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch }
 
     int comboIndex;
     bool comboQueued;
@@ -1179,6 +1179,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(pushSprites);
         SortByFrameNumber(blockSprites);
         SortByFrameNumber(counterThrowSprites);
+        SortByFrameNumber(whipCatchSprites);
         SortByFrameNumber(kneeSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
@@ -1322,7 +1323,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (catchNow && Bottle.Held == null)
                 {
                     catchBufferUntil = 0f;
-                    if (HasCounterThrow && FoeInFront(2.4f)) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
+                    if (HasCounterThrow && (FoeInFront(2.4f) || WhipIncoming())) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
                 if (punchPressed && Bottle.Held != null)
@@ -1926,6 +1927,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 UpdateCounterThrow();
                 break;
 
+            case State.WhipCatch:
+                if (stateTime >= WhipCatchTotal) Enter(State.Ground);
+                break;
+
             case State.Pendulum:
                 UpdatePendulum(dt);
                 break;
@@ -2216,7 +2221,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float shakeUntil;       // osuman tärinä (reaaliaikaa, näkyy osumapysäytyksen aikana)
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.Pummel || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
+    public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.WhipCatch || state == State.Pummel || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
                           || GameOver || invulnTimer > 0f;
 
     // ---------------- Heitto (vihollinen tarttuu kiinni) ----------------
@@ -2643,7 +2648,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
-        if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel) return false;
+        if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
@@ -2707,7 +2712,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
         if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
-        else if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
+        else if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
@@ -2761,6 +2766,45 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool HasCarryWalk => carryWalkSprites != null && carryWalkSprites.Length > 0;
     bool HasCarrySprites => carrySprites != null && carrySprites.Length >= 6;
+    // ---------------- Ruoskasta kiinni (Rusty) ----------------
+    [Header("Ruoskan kiinniotto (Rocco): ajoitettu kurotus nappaa Rustyn ruoskasta ja nykäisee kumoon")]
+    [Tooltip("ruoskan_kiinniotto.png: 0 kurotus, 1 nyrkki ojossa, 2 ote, 3–5 veto.")]
+    public Sprite[] whipCatchSprites;
+    static readonly float[] WhipCatchTimes = { 0.06f, 0.07f, 0.09f, 0.12f, 0.12f, 0.5f };
+    const float WhipCatchTotal = 1.0f;
+    bool HasWhipArt => AppliedCharacter == 0 && whipCatchSprites != null && whipCatchSprites.Length >= 6;
+
+    /// Ruoskaa heiluttava vihu iskee: jos hero on kurottanut (Catch) sen suuntaan ajoissa, ruoskasta napataan kiinni.
+    public bool TryCatchWhip(Enemy attacker)
+    {
+        if (Riding || GameOver || state != State.Catch || stateTime > catchWindowTime) return false;
+        if ((attacker.transform.position.x > transform.position.x) != facingRight) return false;
+        Enter(State.WhipCatch);
+        PlayGrunt();
+        HitFx.OnHit(false);
+        return true;
+    }
+
+    /// Joku ruoskii heroa kohti (edessä): kurotus tehdään täysimittaisena jo kaukaa.
+    bool WhipIncoming()
+    {
+        Vector3 me = transform.position; float d = facingRight ? 1f : -1f;
+        foreach (var e in Enemy.All)
+        {
+            if (e == null || e.IsDead || !e.isActiveAndEnabled || !e.IsWhipping) continue;
+            Vector3 p = e.transform.position;
+            if ((p.x - me.x) * d > 0f && Mathf.Abs(p.y - me.y) <= attackDepth + 0.4f) return true;
+        }
+        return false;
+    }
+
+    int WhipCatchFrame()
+    {
+        float t = stateTime;
+        for (int i = 0; i < WhipCatchTimes.Length - 1; i++) { if (t < WhipCatchTimes[i]) return i; t -= WhipCatchTimes[i]; }
+        return WhipCatchTimes.Length - 1;
+    }
+
     bool HasCounterThrow => counterThrowSprites != null && counterThrowSprites.Length >= 7;
     bool HasMonkeyFlip => monkeyFlipSprites != null && monkeyFlipSprites.Length >= 8;
 
@@ -3695,6 +3739,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (AppliedCharacter == 1 && HasPummel) return pummelSprites[stateTime < 0.08f || stateTime > catchWindowTime ? 0 : 1];
                 if (quickReach) return counterThrowSprites[0];   // Rocco: kurotus tyhjään
                 return counterThrowSprites[stateTime <= catchWindowTime ? 0 : counterThrowSprites.Length - 1];
+
+            case State.WhipCatch:
+                if (HasWhipArt) return whipCatchSprites[WhipCatchFrame()];
+                if (AppliedCharacter == 1 && HasPummel) return pummelSprites[1];
+                return HasCounterThrow ? counterThrowSprites[0] : Action(F_PUNCH);
 
             case State.CounterThrow:
             {
