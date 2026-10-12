@@ -5131,7 +5131,8 @@ Tallenna scene (Ctrl+S).");
         // pöydän heitto: 0 kurkotus, 1 nosto, 2 pään yli, 3 veto taakse, 4 heitto, 5 jatko. Samat kuvat kevyen vihun nostoon ja heittoon:
         // grabSprites (8): 0 kurkotus, 1-4 nosto, 5-6 heitto, 7 paluu. Pienempiä esineitä ei heitetä, heroa ei napata.
         t.grabSprites = new[] { tbl[0], tbl[1], tbl[2], tbl[2], tbl[3], tbl[4], tbl[4], tbl[5] };
-        t.throwsTables = true; t.tableRange = 7f; t.barrelThrowSpeed = 15f; t.barrelThrowUp = 3.5f; t.barrelDamage = 24; t.barrelRate = 0.5f;
+        t.throwsTables = true; t.tableRange = 7f; t.barrelThrowSpeed = 24.2f; t.barrelThrowUp = 1.5f;   // sama lentomatka kuin heron baaripöydän heitolla (11 x 2,2; nousu 5 x 0,3)
+        t.throwSpeed = 24.2f; t.throwUp = 4f;   // heitetty vihu lentää yhtä kauas (~12 yks) t.barrelDamage = 24; t.barrelRate = 0.5f;
         t.grabsHero = false; t.grabsAnyone = true; t.grabsLightOnly = true; t.grabChance = 0.25f;
         t.windupTime = 0.2f; t.punchRecoverTime = 0.35f; t.attackRange = 2.4f;
         t.moveSpeedX = 2.7f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 2f;
