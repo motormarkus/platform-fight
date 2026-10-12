@@ -4859,7 +4859,7 @@ public static class BeatEmUpSetup
         Undo.RecordObject(bar, "Aavikkobaari");
         bar.areaName = "Aavikkobaari"; bar.useSidewalk = false;
         bar.minDepthY = -4f; bar.maxDepthY = DepthAt(540f);
-        const float camSize = 6f;
+        const float camSize = 7.2f;   // loitonnettu: tiski ja lava mahtuvat ruutuun, alle jatkuu peilattu lattia (aavikkobaari_lattia.png)
         bar.camMinX = left + camSize * 16f / 9f; bar.camMaxX = left + width - camSize * 16f / 9f; bar.camSize = camSize;
         bar.camOffsetY = (centerY + 6f - camSize) - CamY; bar.camRiseY = 0f;
         bar.walkMinX = left + 0.8f; bar.walkMaxX = left + width - 0.8f;
@@ -4881,6 +4881,15 @@ public static class BeatEmUpSetup
         bg.transform.SetParent(root.transform, false);
         bg.transform.position = new Vector3(centerX, centerY, 0f);
         bg.sprite = bgSprite; bg.sortingOrder = -10000;
+        const string barFloorPath = "Assets/Sprites/Taustat/aavikkobaari_lattia.png";
+        if (AssetImporter.GetAtPath(barFloorPath) != null)
+        {
+            var floorSprite = ImportShipSprite(barFloorPath, ppu, false, SpriteAlignment.Center);
+            var floorExt = new GameObject("Aavikkobaarin lattian jatko").AddComponent<SpriteRenderer>();
+            floorExt.transform.SetParent(root.transform, false);
+            floorExt.transform.position = new Vector3(centerX, centerY - 6f - floorSprite.bounds.size.y * 0.5f, 0f);
+            floorExt.sprite = floorSprite; floorExt.sortingOrder = -10000;
+        }
         // Sisään: pariovi Aavikkokadun viimeisessä kuvassa (jatkokuva 6, ovi kuvan x 990).
         float streetDoorX = 86000f + (11629.3f + 990f * 1.0095f) / (887f / 12f);
         var enter = new GameObject("Aavikkokadulta baariin").AddComponent<Door>();
