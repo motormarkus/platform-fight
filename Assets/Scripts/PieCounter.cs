@@ -39,22 +39,31 @@ public class PieCounter : MonoBehaviour
             for (int i = 0; i < n; i++) SpawnOne();
             return;
         }
+        if (PieWar.Active)
+        {
+            floorTimer += Time.deltaTime;
+            if (floorTimer >= 1f) { floorTimer = 0f; SpawnFloor(); }   // sodassa lattialle uusi piirakka heron lähelle joka sekunti
+        }
         timer += Time.deltaTime;
         if (timer < (PieWar.Active ? Mathf.Min(interval, 1.5f) : interval)) return;   // piirakkasodassa nopeammin
         timer = 0f;
-        if (PieWar.Active && Random.value < 0.5f && SpawnFloor()) return;   // piirakkasodassa osa piirakoista ilmestyy lattialle
         SpawnOne();
     }
 
     readonly List<Bottle> floorMade = new List<Bottle>();
+    float floorTimer;
+    PlayerController hero;
 
     bool SpawnFloor()
     {
         floorMade.RemoveAll(b => b == null || (born.TryGetValue(b, out float t0) && Time.time - t0 > 0.5f && !b.CanPickUp));
-        if (floorMade.Count >= 5) return false;
-        float px = Random.Range(area.walkMinX + 1.5f, area.walkMaxX - 1.5f);
+        if (floorMade.Count >= 10) return false;
+        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        float cx = hero != null ? hero.transform.position.x : (area.walkMinX + area.walkMaxX) * 0.5f;
+        float cy = hero != null ? hero.transform.position.y : area.minDepthY + 1.5f;
+        float px = Mathf.Clamp(cx + Random.Range(-5f, 5f), area.walkMinX + 1.5f, area.walkMaxX - 1.5f);
         float top = Mathf.Min(area.MaxDepthAtX(px, area.maxDepthY) - 1.0f, area.maxDepthY - 1.0f);
-        float py = Random.Range(area.minDepthY + 0.6f, Mathf.Max(area.minDepthY + 0.7f, top));
+        float py = Mathf.Clamp(cy + Random.Range(-0.8f, 0.8f), area.minDepthY + 0.5f, Mathf.Max(area.minDepthY + 0.6f, top));
         var go = Instantiate(template.gameObject, new Vector3(px, py, 0f), Quaternion.identity, transform);
         go.name = "Lattian piirakka";
         go.SetActive(true);
