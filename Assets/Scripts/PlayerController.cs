@@ -2724,7 +2724,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding || state == State.Drink) return false;
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
-        if (state != State.Block) Bottle.DropHeld();
+        if (state != State.Block && !(PieWar.Active && Bottle.Held != null && Bottle.Held.pie)) Bottle.DropHeld();   // piirakkasodassa osuma ei pudota piirakkaa kädestä
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
         if (state != State.Block && Cue.Held != null) Cue.DropHeld(transform.position);
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
