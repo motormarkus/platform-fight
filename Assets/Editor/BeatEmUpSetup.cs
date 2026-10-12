@@ -8723,13 +8723,20 @@ public static class BeatEmUpSetup
     }
 
     /// Yksi dinerin pöytäryhmä: pöytä, olutpullot, tuolit, aamiaisannos ja kermapiirakka.
-    static Crate BuildDinerTableSet(Transform parent, Vector3 pos, int seed)
+    static Crate BuildDinerTableSet(Transform parent, Vector3 pos, int seed, int pies = 1)
     {
         AddBottleTables(parent, new[] { pos }, seed, true);
         var table = parent.GetComponentsInChildren<Crate>(true).LastOrDefault(c => c.gameObject.name == "Pöytä");
         if (table == null) return null;
         var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
         float top = 1.28f * TableScale - 0.04f;
+        if (pies > 1)
+        {
+            // piirakkapöytä: vain piirakoita (3 kpl vierekkäin)
+            float[] px = pies == 2 ? new[] { -0.8f, 0.8f } : new[] { -1.25f, 0f, 1.25f };
+            foreach (float x in px) MakePie(parent, table, x * TableScale / 1.3f, top);
+            return table;
+        }
         MakePie(parent, table, 0.62f * TableScale, top);
         var pGo = new GameObject("Aamiaisannos");
         pGo.transform.SetParent(parent, false);
@@ -8760,8 +8767,13 @@ public static class BeatEmUpSetup
         group.SetActive(false);
         var rs = holder.AddComponent<DinerTableRespawn>();
         rs.area = diner; rs.template = group; rs.templateOrigin = origin;
+        // lisäpöytä snookerpöydän taakse (oikea pääty): vain piirakoita
+        Vector3 snookerTable = new Vector3(left + 3780f / ppu, -2.1f, 0f);
+        var snookerSet = new GameObject("Snookerin piirakkapöytä");
+        snookerSet.transform.SetParent(holder.transform, false);
+        BuildDinerTableSet(snookerSet.transform, snookerTable, 88, 3);
         rs.spots = new[] { new Vector3(left + 520f / ppu, -3.1f, 0f), new Vector3(left + 1150f / ppu, -2.5f, 0f),
-                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f) };
+                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f), snookerTable };
         EditorSceneManager.MarkSceneDirty(holder.scene);
         Info("Dinerin pöydät uusiutuvat: kun pöytä on rikki tai heitetty kauas, samaan paikkaan tulee 6 sekunnin päästä uusi pöytä annoksineen, piirakkoineen, oluineen ja tuoleineen (enintään 10 pöytää kerrallaan).\n\nTallenna scene (Ctrl+S).");
     }
@@ -8779,8 +8791,8 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Dinerin vihut");
         const float left = 90000f; float ppu = 941f / 12f;
         // paikat kuvapikseleinä (x) ja syvyys (y): pöytien väleissä lattialla
-        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f) };
-        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null };
+        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f), new Vector2(3000f, -3.7f) };
+        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null, MakeRocker(root.transform) };
         if (puliTemplate != null)
         {
             var clone = Object.Instantiate(puliTemplate.gameObject, root.transform);
@@ -8796,6 +8808,7 @@ public static class BeatEmUpSetup
             e.transform.position = new Vector3(left + spots[i].x / ppu, spots[i].y, 0f);
             e.wakeDistance = 12f;
             e.joinsFightWhenSquadComes = false;
+            if (i == 4) { e.pieOnly = true; e.gameObject.name = "Dinerin piirakkarokkimimmi"; }   // heittelee piirakoita aina, myös ilman sotaa
             e.gameObject.SetActive(true);
             n++;
         }

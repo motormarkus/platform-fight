@@ -139,6 +139,8 @@ public class PieWar : MonoBehaviour
             foes.Add(e); hits[e] = 0; home[e] = rosterHome[i];
             e.WarWake();
         }
+        var respawner = FindFirstObjectByType<DinerTableRespawn>();
+        if (respawner != null) respawner.RespawnMissingNow();   // raivattu paikka: pöydät takaisin ehjinä
         heroHits = 0;
         Active = true;
         if (counter == null) counter = FindFirstObjectByType<PieCounter>();

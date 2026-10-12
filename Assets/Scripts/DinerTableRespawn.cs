@@ -53,6 +53,21 @@ public class DinerTableRespawn : MonoBehaviour
         }
     }
 
+    /// Piirakkasodan alkaessa: kaikki rikki menneet tai pois heitetyt pöydät ilmestyvät heti ehjinä paikoilleen.
+    public void RespawnMissingNow()
+    {
+        if (template == null || spots == null) return;
+        if (!initialized) Init();
+        for (int i = 0; i < spots.Length; i++)
+        {
+            var c = tables[i];
+            bool lost = c == null || c.IsBroken || (!c.Airborne && Vector2.Distance(c.transform.position, spots[i]) > movedDistance);
+            if (!lost) continue;
+            if (c != null && c.IsBroken) Destroy(c.gameObject);   // rikkinäinen jäänne pois
+            Respawn(i);
+        }
+    }
+
     void Respawn(int i)
     {
         var g = Instantiate(template, spots[i] - templateOrigin, Quaternion.identity, transform);

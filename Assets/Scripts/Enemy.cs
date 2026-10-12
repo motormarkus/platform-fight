@@ -953,7 +953,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Chase:
-                if (PieWar.Active) PieWarChase(dt); else Chase(dt);
+                if (PieWar.Active || pieOnly) PieWarChase(dt); else Chase(dt);
                 break;
 
             case State.Windup:
@@ -1706,6 +1706,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Piirakka kädessä: kävelee pelaajaa kohti tavallisilla kävelykuvilla (piirakka piirretään käden paikkaan) ja heittää, kun on kohdalla.
+    [Tooltip("Heittelee vain piirakoita heroon (hakee piirakoita ja heittää) myös silloin, kun piirakkasotaa ei ole käynnissä.")]
+    public bool pieOnly;
     Enemy warFoe;   // piirakkasodassa joskus toinen vihu on heron sijasta maalina
 
     /// Piirakkasota: puolet heitoista menee toiselle vihulle, puolet heroon.
