@@ -4822,13 +4822,24 @@ public static class BeatEmUpSetup
         enter.transform.position = new Vector3(doorX, street.maxDepthY, 0f);
         var back = new GameObject("Dinerista kadulle").AddComponent<Door>();
         back.transform.SetParent(root.transform, false);
-        back.transform.position = new Vector3(left + (1362f + 836f) / ppu, diner.minDepthY, 0f);   // uloskäynti keskellä alhaalla
+        // uloskäynti: STAFF ONLY -ovi kuvan oikeassa osassa (ei vahingossa ulos); oven päälle EXIT-kyltti
+        const float exitPx = 3285f;
+        float exitX = left + exitPx / ppu;
+        back.transform.position = new Vector3(exitX, diner.MaxDepthAtX(exitX, diner.maxDepthY), 0f);
         back.here = diner; back.target = street; back.returnToLastDoor = true;
-        back.atFront = true;
-        back.prompt = "Mene ulos"; back.halfWidth = 2.6f; back.maxDistanceFromWall = 0.7f;
+        back.prompt = "Mene ulos (EXIT)"; back.halfWidth = 1.5f; back.maxDistanceFromWall = 1.1f;
+        const string exitSignPath = "Assets/Sprites/Taustat/diner_exit.png";
+        if (AssetImporter.GetAtPath(exitSignPath) != null)
+        {
+            var sign = new GameObject("Dinerin EXIT-kyltti").AddComponent<SpriteRenderer>();
+            sign.transform.SetParent(root.transform, false);
+            sign.sprite = ImportShipSprite(exitSignPath, ppu, false, SpriteAlignment.Center);
+            sign.transform.position = new Vector3(exitX, centerY + 6f - 128f / ppu, 0f);   // oven yläpuolelle
+            sign.sortingOrder = -9990;
+        }
         back.spawnPoint = new Vector2(doorX, street.maxDepthY - 0.3f);
         EditorUtility.SetDirty(diner); EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee E:llä ruudun alareunasta keskeltä. Tallenna scene (Ctrl+S).");
+        Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee STAFF-oven kohdalta (EXIT-kyltti) E:llä. Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
