@@ -4932,8 +4932,29 @@ Aja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
         int snooker = 0;
         foreach (float px in new[] { 600f, 1800f })
             if (AddSnookerTable(root.transform, new Vector2(left + px / ppu, -3.5f), PokerPoolWidth) != null) snooker++;
+        // lisätuolit: yksi kunkin pöydän eteen sekä seinien ja lavan sivujen viereen (tanssitila jää tyhjäksi)
+        var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
+        var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
+            .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
+        var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), t.y - 0.8f, 0f))
+            .Concat(new[] { 150f, 1000f, 1450f, 2100f, 2350f, 2850f, 3900f }.Select((px, i) => new Vector3(left + px / ppu, -3.8f + (i % 3) * 0.3f, 0f)))
+            .Append(new Vector3(left + 4040f / ppu, -1.4f, 0f)).ToArray();
+        int extraChairs = 0;
+        if (chairSprite != null)
+            for (int i = 0; i < extra.Length; i++)
+            {
+                var cgo = new GameObject("Tuoli");
+                cgo.transform.SetParent(root.transform, false);
+                cgo.transform.position = extra[i];
+                var cb = new GameObject("Visual").AddComponent<SpriteRenderer>(); cb.transform.SetParent(cgo.transform, false);
+                cb.sprite = chairSprite; cb.flipX = i % 2 == 1; cb.transform.localScale = new Vector3(ChairScaleSmall, ChairScaleSmall, 1f);
+                var csh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); csh.transform.SetParent(cgo.transform, false);
+                csh.color = new Color(0f, 0f, 0f, 0.3f);
+                var ch = cgo.AddComponent<Chair>(); ch.body = cb; ch.shadow = csh; ch.breakSounds = wood;
+                extraChairs++;
+            }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.
+        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.
 
 Tallenna scene (Ctrl+S).");
     }
