@@ -4728,8 +4728,8 @@ public static class BeatEmUpSetup
             tmpl.name = "Piirakkamalli";
             tmpl.gameObject.SetActive(false);
             var pc = root.AddComponent<PieCounter>();
-            pc.area = diner; pc.template = tmpl; pc.y = diner.maxDepthY - 0.05f; pc.interval = 6f; pc.initial = 4;
-            pc.xs = new[] { 1480f, 1700f, 2000f, 2300f, 2600f, 3100f }.Select(px => left + px / ppu).ToArray();
+            pc.area = diner; pc.template = tmpl; pc.y = diner.maxDepthY - 0.05f; pc.interval = 3f; pc.initial = 6;
+            pc.xs = new[] { 1480f, 1640f, 1800f, 1960f, 2120f, 2280f, 2440f, 2600f, 2760f, 3000f, 3140f, 3280f }.Select(px => left + px / ppu).ToArray();
             counterInfo = "tiskille ilmestyy piirakoita (6 paikkaa)";
         }
         var sohvi = GameObject.Find("Sohvi");
@@ -8743,6 +8743,14 @@ public static class BeatEmUpSetup
         war.area = diner; war.maxHits = 10;
         war.linsey = Object.FindFirstObjectByType<DinerLinsey>();
         war.counter = Object.FindFirstObjectByType<PieCounter>();
+        if (war.counter != null)
+        {
+            // tiskille enemmän ja tiheämmin piirakoita (12 paikkaa, uusi 3 s välein)
+            Undo.RecordObject(war.counter, "Piirakkatiski");
+            war.counter.xs = new[] { 1480f, 1640f, 1800f, 1960f, 2120f, 2280f, 2440f, 2600f, 2760f, 3000f, 3140f, 3280f }.Select(px => left + px / ppu).ToArray();
+            war.counter.interval = 3f; war.counter.initial = 6;
+            EditorUtility.SetDirty(war.counter);
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Dineriin " + n + " vihua (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
              + "\nPiirakkasota: mene Linseyn luo ja paina E. Aja sen jälkeen 105, niin vihut saavat piirakkakuvat.\n\nTallenna scene (Ctrl+S).");

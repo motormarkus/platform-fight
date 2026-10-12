@@ -77,7 +77,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         {
             case S.Idle:
                 Show(idle, idleFrameTime);
-                wait -= dt;
+                wait -= dt * (PieWar.Active ? 4f : 1f);   // piirakkasodassa nopeammin liikkeelle
                 if (wait <= 0f && !TryStartPie()) PickGoal();
                 break;
 

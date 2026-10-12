@@ -1329,6 +1329,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasCounterThrow && (FoeInFront(2.4f) || WhipIncoming())) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
+                if (punchPressed && Bottle.Held != null && PieWar.Active && Bottle.Held.pie && !UseStamina(PieThrowStamina)) break;   // piirakkasodassa heitto vie staminaa
                 if (punchPressed && Bottle.Held != null)
                 {
                     // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
@@ -2803,6 +2804,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Heitetty piirakka osuu. 0 = ei osunut, 1 = osui ja piirakka-animaatio alkoi (piirakka häviää), 2 = osui ilman animaatiota (torjuttu).
     public void WarHeal() { health = maxHealth; }
+    public const float PieThrowStamina = 12f;   // piirakan heitto piirakkasodassa
 
     public int PieHit(int damage, float attackerX, Enemy attacker = null)
     {

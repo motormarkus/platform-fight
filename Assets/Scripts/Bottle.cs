@@ -130,7 +130,7 @@ public class Bottle : MonoBehaviour
         return true;
     }
 
-    /// Piirakka pöydältä suoraan käteen (ennen kuin pöytä nostetaan): lähin pöydällä oleva piirakka.
+    /// Piirakka suoraan käteen ennen kuin lähin pöytä nostetaan: lähin pöydällä, tiskillä tai lattialla oleva piirakka.
     public static bool TryPickUpFromTable(PlayerController p)
     {
         if (Held != null || p == null) return false;
@@ -138,7 +138,9 @@ public class Bottle : MonoBehaviour
         Bottle best = null; float bd = 99f;
         foreach (var b in All)
         {
-            if (b == null || !b.pie || b.table == null || (b.state != S.OnTable && b.state != S.Wobble)) continue;
+            if (b == null || !b.pie) continue;
+            bool onTable = b.table != null && (b.state == S.OnTable || b.state == S.Wobble);
+            if (!onTable && b.state != S.Lying) continue;
             Vector3 q = b.transform.position;
             float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
             if (dx > 1.8f || dy > 0.8f) continue;

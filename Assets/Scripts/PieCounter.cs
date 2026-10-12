@@ -40,7 +40,7 @@ public class PieCounter : MonoBehaviour
             return;
         }
         timer += Time.deltaTime;
-        if (timer < (PieWar.Active ? Mathf.Min(interval, 2.5f) : interval)) return;   // piirakkasodassa nopeammin
+        if (timer < (PieWar.Active ? Mathf.Min(interval, 1.5f) : interval)) return;   // piirakkasodassa nopeammin
         timer = 0f;
         SpawnOne();
     }
