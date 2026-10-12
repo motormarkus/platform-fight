@@ -17,6 +17,7 @@ public class RekkamiesVoice : MonoBehaviour
     public float partnerRange = 3.5f;
     float speakT = 6f, danceT = 4f, shaniceT = 10f;
     PlayerController hero;
+    float busyUntil;   // milloin edellinen repliikki loppuu
 
     void Update()
     {
@@ -24,6 +25,7 @@ public class RekkamiesVoice : MonoBehaviour
         if (area != null && Area.Current != area) return;
         if (hero == null) hero = FindFirstObjectByType<PlayerController>();
         if (hero == null) return;
+        if (Time.time < busyUntil) return;   // edellinen repliikki on vielä kesken: ei aloiteta uutta
         float dt = Time.deltaTime;
         Vector3 me = transform.position;
         bool fighting = brawl != null && brawl.Started;
@@ -60,6 +62,8 @@ public class RekkamiesVoice : MonoBehaviour
     {
         if (clips == null || clips.Length == 0) return;
         var c = clips[Random.Range(0, clips.Length)];
-        if (c != null) HitFx.PlayClip(c, volume);
+        if (c == null) return;
+        HitFx.PlayClip(c, volume);
+        busyUntil = Time.time + c.length + 0.3f;
     }
 }
