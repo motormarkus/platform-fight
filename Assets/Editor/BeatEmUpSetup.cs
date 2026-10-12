@@ -6021,16 +6021,16 @@ public static class BeatEmUpSetup
         e.moveSpeedX = 3.0f; e.moveSpeedY = 1.5f;
         // Rustyn äänet (Assets/Audio/rusty): gasp = osuma, rusty_hit = Rustyn isku, fall = kaatuminen, launch = lento korkealle, defeated = ei nouse, whip = ruoska
         const float db3 = 0.708f;   // Rustyn äänet 3 dB hiljaisemmiksi (heron äänien rinnalla)
-        e.hurtSounds = LoadClips("Assets/Audio/rusty", "gasp"); e.hurtVolume = 0.9f * db3;
+        e.hurtSounds = LoadClips("Assets/Audio/rusty", "gasp"); e.hurtVolume = 0.9f;   // osuma/kaatumisäänet on tasattu heron tasolle (-23 dB) tiedostoissa
         if (e.hurtSounds.Length == 0) e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
-        e.attackSounds = LoadClips("Assets/Audio/rusty", "rusty_hit"); e.attackVolume = 0.9f * db3; e.attackSoundChance = 0.8f;
+        e.attackSounds = LoadClips("Assets/Audio/rusty", "rusty_hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
         e.altSwingSounds = LoadClips("Assets/Audio/rusty", "whip"); e.altSwingVolume = db3;
-        e.fallVoice = LoadClips("Assets/Audio/rusty", "fall").FirstOrDefault(); e.fallVoiceVolume = db3;
-        e.launchVoice = LoadClips("Assets/Audio/rusty", "launch").FirstOrDefault(); e.launchVoiceVolume = db3;
+        e.fallVoice = LoadClips("Assets/Audio/rusty", "fall").FirstOrDefault(); e.fallVoiceVolume = 1f;
+        e.launchVoice = LoadClips("Assets/Audio/rusty", "launch").FirstOrDefault(); e.launchVoiceVolume = 1f;
         // speak: joskus ruudulle tullessa ja satunnaisesti, kun hero ei ole aivan vieressä
         e.tauntSounds = LoadClips("Assets/Audio/rusty", "speak"); e.tauntVolume = db3; e.tauntNoRepeat = true;
         e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.6f;
-        e.deathVoice = LoadClips("Assets/Audio/rusty", "defeated").FirstOrDefault(); e.deathVoiceVolume = db3;
+        e.deathVoice = LoadClips("Assets/Audio/rusty", "defeated").FirstOrDefault(); e.deathVoiceVolume = 1f;
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Rusty");
         Debug.Log("Rusty: " + string.Join(", ", report));
@@ -6157,10 +6157,10 @@ public static class BeatEmUpSetup
     static void ApplyBikerAudio(Enemy e)
     {
         const float db3 = 0.708f;   // motoristin äänet 3 dB hiljaisemmiksi
-        e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f * db3;
+        e.hurtSounds = LoadClips("Assets/Audio/motoristi", "gasp"); e.hurtVolume = 0.9f;   // osuma/kaatumisäänet on tasattu heron tasolle (-23 dB) tiedostoissa
         if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f; }
-        e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f * db3; e.attackSoundChance = 0.8f;
-        e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault(); e.fallVoiceVolume = db3;
+        e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
+        e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault(); e.fallVoiceVolume = 1f;
         e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus"); e.altWindupVolume = db3;
         e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = db3; e.tauntNoRepeat = true;
         e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.5f;
