@@ -13,6 +13,8 @@ public class DesertTumbleweeds : MonoBehaviour
     public float kickSpeed = 13f, kickUpSpeed = 8f, kickGravity = 11f;
     [Tooltip("Potkaistu risupallo osuu vihuun lennon aikana: vain vähän vahinkoa (vihu horjahtaa, ei kaadu).")]
     public int kickDamage = 5;
+    [Tooltip("Kimpoamisen vauhti vihuun osuttua (0 = ei kimpoa, 1 = sama vauhti takaisin).")]
+    [Range(0f, 1f)] public float bounceKeep = 0.55f;
     static readonly System.Collections.Generic.List<DesertTumbleweeds> instances = new System.Collections.Generic.List<DesertTumbleweeds>();
 
     class Ball
@@ -170,7 +172,12 @@ public class DesertTumbleweeds : MonoBehaviour
             if (Mathf.Abs(q.x - p.x) > ball.radius + 0.7f || Mathf.Abs(q.y - p.y) > 0.6f) continue;
             ball.hits.Add(e);
             if (e.TakeHit(kickDamage, p.x, false))
+            {
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), false, Mathf.RoundToInt(-q.y * 100f) + 5);
+                HitFx.OnHitQuiet();   // osumaääni (ei kameran tärinää eikä pysäytystä)
+                ball.motion.Bounce(bounceKeep, 3f);   // kimpoaa vihun naamasta takaisin
+                break;   // yksi osuma per törmäys
+            }
         }
     }
 

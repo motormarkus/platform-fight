@@ -26,6 +26,16 @@ public struct TumbleweedFlight
         return true;
     }
 
+    /// <summary>Törmäys (esim. vihun naamaan): lento jatkuu vastakkaiseen suuntaan vaimennettuna ja pienellä pomppauksella.</summary>
+    public bool Bounce(float keep, float minUp)
+    {
+        if (!Airborne) return false;
+        VelocityX = -VelocityX * keep;
+        verticalSpeed = Math.Max(verticalSpeed, minUp);
+        remaining = (verticalSpeed + (float)Math.Sqrt(verticalSpeed * verticalSpeed + 2f * gravity * Height)) / gravity;
+        return true;
+    }
+
     /// <returns>Vaakasuunnassa kuljettu matka tällä päivityksellä.</returns>
     public float Step(float dt)
     {
