@@ -4781,8 +4781,10 @@ public static class BeatEmUpSetup
         Undo.RecordObject(diner, "Diner");
         diner.areaName = "Diner"; diner.useSidewalk = false;
         diner.minDepthY = -4f; diner.maxDepthY = DepthAt(640f);
-        diner.camMinX = left + 6f * 16f / 9f; diner.camMaxX = left + width - 6f * 16f / 9f; diner.camSize = 6f;
-        diner.camOffsetY = 0f; diner.camRiseY = 0f;
+        // kamera loitonnettu (7,2: kuva on 6:n korkuinen): yläreuna pysyy kuvan yläreunassa, alle jatkuu peilattu lattia (diner_lattia.png)
+        const float dinerCamSize = 7.2f;
+        diner.camMinX = left + dinerCamSize * 16f / 9f; diner.camMaxX = left + width - dinerCamSize * 16f / 9f; diner.camSize = dinerCamSize;
+        diner.camOffsetY = (centerY + 6f - dinerCamSize) - CamY; diner.camRiseY = 0f;
         diner.walkMinX = left + 0.8f; diner.walkMaxX = left + width - 0.8f;
         // Takaraja: boksit vasemmalla, tiski keskellä, korotettu boksialue oikealla (kuvapikselit panoraamassa).
         diner.depthLimits = new[] {
@@ -4799,6 +4801,15 @@ public static class BeatEmUpSetup
         bg.transform.SetParent(root.transform, false);
         bg.transform.position = new Vector3(centerX, centerY, 0f);
         bg.sprite = bgSprite; bg.sortingOrder = -10000;
+        const string floorPath = "Assets/Sprites/Taustat/diner_lattia.png";
+        if (AssetImporter.GetAtPath(floorPath) != null)
+        {
+            var floorSprite = ImportShipSprite(floorPath, ppu, false, SpriteAlignment.Center);
+            var floorExt = new GameObject("Dinerin lattian jatko").AddComponent<SpriteRenderer>();
+            floorExt.transform.SetParent(root.transform, false);
+            floorExt.transform.position = new Vector3(centerX, centerY - 6f - floorSprite.bounds.size.y * 0.5f, 0f);
+            floorExt.sprite = floorSprite; floorExt.sortingOrder = -10000;
+        }
         // Keskimmäinen kuva (tiski) alkaa pikselistä 1362 ja on 1672 leveä: sisääntulo sen keskelle.
         Vector2 arrival = new Vector2(left + (1362f + 836f) / ppu, -2.4f);
         const float doorPx = 897f;   // pariovi aavikkokadujatke2-kuvassa

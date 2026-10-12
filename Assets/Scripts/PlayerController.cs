@@ -1301,6 +1301,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 {
                     pickBufferUntil = 0f;
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
+                    if (canCarry && Bottle.TryPickUpFromTable(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // piirakka pöydältä suoraan käteen
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
                     if (HasRing && LifeRing.Held == null)

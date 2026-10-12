@@ -100,6 +100,7 @@ public class Bottle : MonoBehaviour
 
     void Start()
     {
+        if (pie) { pickRangeX = Mathf.Max(pickRangeX, 1.6f); pickRangeY = Mathf.Max(pickRangeY, 0.9f); }   // piirakka poimitaan helposti (tiskiltä ja pöydältä)
         pc = FindFirstObjectByType<PlayerController>();
         if (table != null) { seenDisturb = table.Disturb; height = tableTop; }
         else { state = S.Lying; rot = food || ball || pie ? 0f : 90f; height = restHeight; }
@@ -124,6 +125,27 @@ public class Bottle : MonoBehaviour
         if (best == null) return false;
         if (best.ball && best.restOnRenderer != null) Obstacle.RattleNear(best.transform.position);   // pallo pöydältä: muut kalisevat
         best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false;
+        Held = best;
+        HitFx.PlayPickup(false);
+        return true;
+    }
+
+    /// Piirakka pöydältä suoraan käteen (ennen kuin pöytä nostetaan): lähin pöydällä oleva piirakka.
+    public static bool TryPickUpFromTable(PlayerController p)
+    {
+        if (Held != null || p == null) return false;
+        Vector3 me = p.transform.position;
+        Bottle best = null; float bd = 99f;
+        foreach (var b in All)
+        {
+            if (b == null || !b.pie || b.table == null || (b.state != S.OnTable && b.state != S.Wobble)) continue;
+            Vector3 q = b.transform.position;
+            float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
+            if (dx > 1.8f || dy > 0.8f) continue;
+            if (dx + dy < bd) { bd = dx + dy; best = b; }
+        }
+        if (best == null) return false;
+        best.table = null; best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false; best.rot = 0f;
         Held = best;
         HitFx.PlayPickup(false);
         return true;
