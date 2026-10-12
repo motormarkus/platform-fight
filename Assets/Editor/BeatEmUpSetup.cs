@@ -4564,6 +4564,7 @@ public static class BeatEmUpSetup
     static readonly (string prefix, string sheet, Vector3[] grips)[] PieThrowData = {
         ("puliukko_", "puliukko_heitto", new[] { Vector3.zero, new Vector3(0.32f, 1.93f, 0f), new Vector3(-0.72f, 3.39f, 0f), new Vector3(0.97f, 2.84f, 0f), Vector3.zero }),
         ("rokkari2_", "rokkari2_heitto", new[] { Vector3.zero, new Vector3(0.36f, 2.72f, 0f), new Vector3(-0.82f, 3.40f, 0f), new Vector3(1.69f, 2.73f, 0f), Vector3.zero }),
+        ("motoristi_", "motoristi_heitto", new[] { Vector3.zero, new Vector3(0.69f, 1.88f, 0f), new Vector3(-0.53f, 2.87f, 0f), new Vector3(1.88f, 2.84f, 0f), Vector3.zero }),
         ("rusty_", "rusty_heitto", new[] { Vector3.zero, new Vector3(0.49f, 2.30f, 0f), new Vector3(-0.62f, 3.24f, 0f), new Vector3(1.38f, 2.68f, 0f), Vector3.zero }),
     };
 
@@ -4617,7 +4618,7 @@ public static class BeatEmUpSetup
     static void AssignPieHits()
     {
         var report = new List<string>();
-        foreach (var n in new[] { "rusty_piirakka", "rokkari2_piirakka", "motoristi_piirakka", "puliukko_piirakka", "rocco_piirakka", "puliukko_heitto", "rokkari2_heitto", "rusty_heitto" })
+        foreach (var n in new[] { "rusty_piirakka", "rokkari2_piirakka", "motoristi_piirakka", "puliukko_piirakka", "rocco_piirakka", "puliukko_heitto", "rokkari2_heitto", "rusty_heitto", "motoristi_heitto" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
