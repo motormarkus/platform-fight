@@ -4720,7 +4720,7 @@ public static class BeatEmUpSetup
         var dinerBg = GameObject.Find("Dinerin tausta");
         var bgSr = dinerBg != null ? dinerBg.GetComponent<SpriteRenderer>() : null;
         float counterTop = 1.4f + 6f - 405f / ppu;    // tiskin pinnan rivi (px 405) maailman y:ssä
-        float counterHeight = diner.maxDepthY - counterTop;
+        float counterHeight = counterTop - diner.maxDepthY;   // tiskin pinnan korkeus lattiarajasta ylöspäin (positiivinen)
         var tmpl = MakePie(root.transform, null, 0f, 0f, new Vector3(left, diner.maxDepthY, 0f), counterHeight, bgSr);
         string counterInfo = "";
         if (tmpl != null)

@@ -100,6 +100,7 @@ public class Bottle : MonoBehaviour
 
     void Start()
     {
+        if (pie && restHeight < 0f) restHeight = -restHeight;   // vanhoissa tiskin piirakoissa korkeus oli tallentunut miinusmerkkisenä: ne jäivät lattian alapuolelle
         if (pie) { pickRangeX = Mathf.Max(pickRangeX, 1.6f); pickRangeY = Mathf.Max(pickRangeY, 0.9f); }   // piirakka poimitaan helposti (tiskiltä ja pöydältä)
         pc = FindFirstObjectByType<PlayerController>();
         if (table != null) { seenDisturb = table.Disturb; height = tableTop; }
