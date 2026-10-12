@@ -153,13 +153,22 @@ public class Bottle : MonoBehaviour
         {
             // apu virheen jäljitykseen: piirakka aivan lähellä, mutta ei poimittavissa (näkyy consolessa, enintään kerran sekunnissa)
             if (Time.unscaledTime - lastPickLog > 1f)
+            {
+                var sb = new System.Text.StringBuilder();
+                int n = 0;
                 foreach (var b in All)
                 {
                     if (b == null || !b.pie) continue;
                     Vector3 q = b.transform.position;
-                    if (Mathf.Abs(q.x - me.x) < 2.5f && Mathf.Abs(q.y - me.y) < 1.5f)
-                    { lastPickLog = Time.unscaledTime; Debug.Log("Piirakka lähellä mutta ei poimittavissa: tila=" + b.state + " korkeus=" + b.height + " dx=" + Mathf.Abs(q.x - me.x) + " dy=" + Mathf.Abs(q.y - me.y) + " pöytä=" + (b.table != null)); break; }
+                    float ddx = Mathf.Abs(q.x - me.x), ddy = Mathf.Abs(q.y - me.y);
+                    if (ddx > 3.5f || ddy > 2f || n >= 6) continue;
+                    n++;
+                    sb.Append(" | ").Append(b.name).Append(" tila=").Append(b.state).Append(" kuva=").Append(b.sr != null && b.sr.sprite != null ? b.sr.sprite.name : "-")
+                      .Append(" korkeus=").Append(b.height.ToString("0.00")).Append(" dx=").Append(ddx.ToString("0.00")).Append(" dy=").Append(ddy.ToString("0.00"))
+                      .Append(" pöytä=").Append(b.table != null).Append(" pitäjä=").Append(b.holder != null);
                 }
+                if (n > 0) { lastPickLog = Time.unscaledTime; Debug.Log("Piirakat lähellä, ei poimittavaa:" + sb); }
+            }
             return false;
         }
         best.table = null; best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false; best.rot = 0f;
@@ -304,6 +313,7 @@ public class Bottle : MonoBehaviour
 
             case S.Breaking:
                 if (!keepDebris && t > 1.6f) Destroy(gameObject);
+                if (pie && keepDebris && t > 23f) Destroy(gameObject);   // piirakan läsähtänyt kasa häipyy 20 s jälkeen (ei kerry lattialle)
                 break;
         }
         if (pie)
@@ -592,7 +602,7 @@ public class Bottle : MonoBehaviour
         {
             bi = Mathf.Min(1 + (int)(t / frameTime), sprites.Length - 1);
             sr.sprite = sprites[bi];
-            sr.color = keepDebris ? Color.white : new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
+            sr.color = keepDebris ? (pie && t > 20f ? new Color(1f, 1f, 1f, Mathf.Clamp01(1f - (t - 20f) / 3f)) : Color.white) : new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
         }
         else if (pie && state == S.Thrown && flightSprites != null && flightSprites.Length >= 3)
         {
