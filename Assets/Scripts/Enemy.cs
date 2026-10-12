@@ -213,6 +213,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Heittää myös pöytiä (Rekkamies): hakee lähimmän ehjän pöydän ja heittää sen samoilla nosto- ja heittokuvilla (grabSprites). Pienempiä esineitä ei heitetä.")]
     public bool throwsTables;
     public float tableRange = 7f;
+    [Tooltip("Kävely nostettu (pöytä tai vihu) pään yllä (Rekkamies): kantaa heroa kohti ja heittää vasta lähempää. Tyhjä = heittää heti noston jälkeen.")]
+    public Sprite[] carryWalkSprites;
+    public float carryWalkFrameTime = 0.0417f, carryWalkSpeedMul = 0.85f, carryThrowRange = 6f, carryWalkMaxTime = 4f;
     [Tooltip("Voi napata ja heittää heron (Kovis). Pois = heittää vain vihuja (Rekkamies).")]
     public bool grabsHero = true;
     [Tooltip("Heittää vain kevyitä vihuja (ei isoja: Kovis, samoalainen, portsari, puliukko, pomot).")]
@@ -533,7 +536,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked, PieHit, CarryPie }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, CarryWalk, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked, PieHit, CarryPie }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -1038,9 +1041,25 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     facingRight = player.transform.position.x > transform.position.x;
                 }
                 HoldBarrel(Mathf.Lerp(0.9f, 0.1f, k), Mathf.Lerp(0.3f, 3.5f, k));
-                if (stateTime >= 0.7f) Enter(State.BarrelThrow);
+                if (stateTime >= 0.7f) Enter(CanCarryWalk() ? State.CarryWalk : State.BarrelThrow);
             }
                 break;
+
+            case State.CarryWalk:
+            {
+                // kantaa nostettua (pöytä tai vihu) pään yllä heroa kohti ja heittää, kun hero on heittoetäisyydellä
+                if (player == null || (heldBarrel == null && grabbedEnemy == null)) { Enter(State.Idle); break; }
+                Vector3 pp = player.transform.position;
+                facingRight = pp.x > transform.position.x;
+                float cdx = pp.x - transform.position.x, cdy = pp.y - transform.position.y;
+                float spd = carryWalkSpeedMul * LocomotionMultiplier(false);
+                Move(new Vector2(Mathf.Abs(cdx) > carryThrowRange * 0.8f ? Mathf.Sign(cdx) * moveSpeedX * spd * dt : 0f,
+                                 Mathf.Abs(cdy) > 0.15f ? Mathf.Sign(cdy) * Mathf.Min(Mathf.Abs(cdy), moveSpeedY * spd * dt) : 0f));
+                if (heldBarrel != null) HoldBarrel(0.1f, 3.5f); else HoldEnemy(3f);
+                if ((Mathf.Abs(cdx) <= carryThrowRange && Mathf.Abs(cdy) <= depthTolerance * 1.2f) || stateTime >= carryWalkMaxTime)
+                    Enter(heldBarrel != null ? State.BarrelThrow : State.GrabThrow);
+                break;
+            }
 
             case State.BarrelThrow:
                 if (stateTime < 0.15f) HoldBarrel(-0.3f, 3.6f);                 // veto taakse
@@ -1288,7 +1307,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.GrabLift:
-                if (grabbedEnemy != null) { HoldEnemy(LiftEase * 3f); if (stateTime >= grabLiftTime) Enter(State.GrabThrow); break; }
+                if (grabbedEnemy != null) { HoldEnemy(LiftEase * 3f); if (stateTime >= grabLiftTime) Enter(CanCarryWalk() ? State.CarryWalk : State.GrabThrow); break; }
                 HoldPlayer(LiftEase * 3f);        // avainasennot 0..3 (kuvat 1..4), nosto pehmeästi kiihtyen ja hidastuen
                 if (stateTime >= grabLiftTime) Enter(State.GrabThrow);
                 break;
@@ -1800,6 +1819,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return true;
     }
 
+    /// Nostettu pöytä tai vihu kannetaan heroa kohti, jos kantokuvat on ja hero on kaukana.
+    bool CanCarryWalk()
+    {
+        return Has(carryWalkSprites) && player != null && !player.IsDown
+            && Mathf.Abs(player.transform.position.x - transform.position.x) > carryThrowRange + 0.5f;
+    }
+
     void HoldBarrel(float forward, float lift)
     {
         if (heldBarrel == null) return;
@@ -1881,7 +1907,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) secondHitDone = false;
-        if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
+        if (s != State.BarrelLift && s != State.BarrelThrow && s != State.CarryWalk) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s != State.BottlePick && s != State.BottleThrow && s != State.CarryPie && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
@@ -1900,7 +1926,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             shakeUntil = Time.unscaledTime + slapWindup * 0.85f;   // lataus: tärisee (varoitus, ehtii suojata)
             PlayClipFrom(slapWindupSounds != null && slapWindupSounds.Length > 0 ? slapWindupSounds : punch3WindupSounds, punch3Volume);
         }
-        if (s != State.GrabLift && s != State.GrabThrow && grabbedEnemy != null)
+        if (s != State.GrabLift && s != State.GrabThrow && s != State.CarryWalk && grabbedEnemy != null)
         {
             // heitto keskeytyi (esim. heittäjä sai osuman): napattu putoaa
             grabbedEnemy.ReleaseThrow(0f, 2f, 0); grabbedEnemy = null;
@@ -3192,6 +3218,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.BarrelLift:
                 if (Has(grabSprites) && grabSprites.Length >= 8) return grabSprites[stateTime < 0.2f ? 1 : stateTime < 0.45f ? 2 : 3];
+                return IdleFrame();
+
+            case State.CarryWalk:
+                if (Has(carryWalkSprites)) return carryWalkSprites[(int)(stateTime / carryWalkFrameTime) % carryWalkSprites.Length];
                 return IdleFrame();
 
             case State.BarrelThrow:
