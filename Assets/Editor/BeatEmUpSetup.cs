@@ -4511,8 +4511,9 @@ public static class BeatEmUpSetup
         if (PlayModeBlocked()) return;
         const string dir = "Assets/Sprites/Taustat/";
         var road = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkotie");
-        string[] files = { "aavikkokatu1.png", "aavikkokatu2.png", "aavikkokatu3.png",
-            "aavikkokadujatke1.png", "aavikkokadujatke2.png", "aavikkokadujatke3.png" };
+        // Kuvat 2–6: vasen reuna häivytetty (_pehmea), jolloin limitys sulautuu eikä liitos näy.
+        string[] files = { "aavikkokatu1.png", "aavikkokatu2_pehmea.png", "aavikkokatu3_pehmea.png",
+            "aavikkokadujatke1_pehmea.png", "aavikkokadujatke2_pehmea.png", "aavikkokadujatke3_pehmea.png" };
         if (road == null || files.Any(f => AssetImporter.GetAtPath(dir + f) == null))
             throw new System.InvalidOperationException("Tarvitaan Aavikkotie (93), kolme aavikkokatukuvaa ja kolme jatkokuvaa.");
         // Reunoissa on sama rakennus kahdesti: kohdista yhteiset osat limittäin.

@@ -11,6 +11,8 @@ public class DesertTumbleweeds : MonoBehaviour
     public float minDiameter = 0.65f, maxDiameter = 1.35f;
     public float minSpeed = 2.4f, maxSpeed = 3.8f;
     public float kickSpeed = 13f, kickUpSpeed = 8f, kickGravity = 11f;
+    [Tooltip("Potkaistu risupallo osuu vihuun lennon aikana: vain vähän vahinkoa (vihu horjahtaa, ei kaadu).")]
+    public int kickDamage = 5;
     static readonly System.Collections.Generic.List<DesertTumbleweeds> instances = new System.Collections.Generic.List<DesertTumbleweeds>();
 
     class Ball
@@ -21,6 +23,7 @@ public class DesertTumbleweeds : MonoBehaviour
         public float radius, speed, depth, phase, angle, delay;
         public bool rolling;
         public TumbleweedFlight motion;
+        public System.Collections.Generic.HashSet<Enemy> hits;   // lennon aikana jo osuneet vihut (kukin vain kerran)
     }
 
     Ball[] balls;
@@ -42,6 +45,7 @@ public class DesertTumbleweeds : MonoBehaviour
             float dx = (p.x - playerPosition.x) * direction;
             if (dx < -0.3f || dx > reach + ball.radius || Mathf.Abs(p.y - playerPosition.y) > depthRange + 0.2f) continue;
             if (!ball.motion.Kick(owner.kickSpeed, owner.kickUpSpeed, owner.kickGravity, direction)) continue;
+            ball.hits = new System.Collections.Generic.HashSet<Enemy>();
             HitSpark.Spawn(new Vector3(p.x, p.y + ball.radius, 0f), false, ball.art.sortingOrder + 1);
             kicked = true;
         }
@@ -128,6 +132,7 @@ public class DesertTumbleweeds : MonoBehaviour
                 }
             }
             float travelled = ball.motion.Step(Time.deltaTime);
+            if (ball.hits != null) { if (ball.motion.Airborne) HitEnemies(ball); else ball.hits = null; }
             ball.ground.position += Vector3.right * travelled;
             // Vasemmalle vierivä pallo pyörii vastapäivään; pienempi pyörii nopeammin.
             ball.angle = Mathf.Repeat(ball.angle - travelled / ball.radius * Mathf.Rad2Deg, 360f);
@@ -150,6 +155,22 @@ public class DesertTumbleweeds : MonoBehaviour
                 ball.audio.Stop();
                 ball.ground.gameObject.SetActive(false);
             }
+        }
+    }
+
+    /// Potkaistu pallo lentää vihuihin: pieni vahinko kullekin kerran lennon aikana.
+    void HitEnemies(Ball ball)
+    {
+        if (ball.motion.Height > 2.6f) return;   // yli päiden
+        Vector3 p = ball.ground.position;
+        foreach (var e in new System.Collections.Generic.List<Enemy>(Enemy.All))
+        {
+            if (e == null || e.IsDead || e.ally || !e.isActiveAndEnabled || ball.hits.Contains(e)) continue;
+            Vector3 q = e.transform.position;
+            if (Mathf.Abs(q.x - p.x) > ball.radius + 0.7f || Mathf.Abs(q.y - p.y) > 0.6f) continue;
+            ball.hits.Add(e);
+            if (e.TakeHit(kickDamage, p.x, false))
+                HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), false, Mathf.RoundToInt(-q.y * 100f) + 5);
         }
     }
 
