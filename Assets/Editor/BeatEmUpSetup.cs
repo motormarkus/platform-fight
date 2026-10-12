@@ -4842,6 +4842,18 @@ public static class BeatEmUpSetup
         Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee STAFF-oven kohdalta (EXIT-kyltti) E:llä. Tallenna scene (Ctrl+S).");
     }
 
+    // Aavikkobaarin uusi panoraama (3733 x 1031, kolme Codexin kuvaa): 71,7 px/yksikkö; vanhojen (4102 px) kuvakoordinaattien muunnos uuteen
+    const float BarPpu = 71.7f, BarTopY = 7.4f;
+    static readonly float[,] BarAnchors = { { 0f, 0f }, { 805f, 731f }, { 1395f, 1270f }, { 2510f, 2312f }, { 2665f, 2440f }, { 2850f, 2590f }, { 3350f, 3015f }, { 3900f, 3440f }, { 4102f, 3733f } };
+    static float BarPx(float oldPx)
+    {
+        for (int i = 1; i < BarAnchors.GetLength(0); i++)
+            if (oldPx <= BarAnchors[i, 0] || i == BarAnchors.GetLength(0) - 1)
+                return Mathf.Lerp(BarAnchors[i - 1, 1], BarAnchors[i, 1], (oldPx - BarAnchors[i - 1, 0]) / (BarAnchors[i, 0] - BarAnchors[i - 1, 0]));
+        return oldPx;
+    }
+    static float BarWx(float oldPx) => BarPx(oldPx) / BarPpu;   // x-etäisyys panoraaman vasemmasta reunasta (yksikköä)
+
     [MenuItem("Beat em up/110. Aavikkobaari: sisätila (3 kuvaa), ovi kadulta ja portaat yläkertaan")]
     static void CreateDesertBar()
     {
@@ -4850,26 +4862,26 @@ public static class BeatEmUpSetup
         var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
         if (street == null || AssetImporter.GetAtPath(path) == null)
         { Info("Tee ensin Aavikkokatu (95). Tarvitaan aavikkobaari_sisa.png (Sprites/Taustat)."); return; }
-        float ppu = 941f / 12f;
+        float ppu = BarPpu;
         var bgSprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
         const float left = 91000f, centerY = 1.4f;
         float width = bgSprite.bounds.size.x, centerX = left + width * 0.5f;
-        float DepthAt(float py) => centerY + 6f - py / ppu;
+        float DepthAt(float py) => BarTopY - py / ppu;
         var bar = ReuseArea("Alue: Aavikkobaari");
         Undo.RecordObject(bar, "Aavikkobaari");
         bar.areaName = "Aavikkobaari"; bar.useSidewalk = false;
-        bar.minDepthY = -6.2f; bar.maxDepthY = DepthAt(540f);   // kävelyalue ulottuu peilatulle lattialle asti
+        bar.minDepthY = DepthAt(1000f); bar.maxDepthY = DepthAt(548f);
         const float camSize = 7.2f;   // loitonnettu: tiski ja lava mahtuvat ruutuun, alle jatkuu peilattu lattia (aavikkobaari_lattia.png)
         bar.camMinX = left + camSize * 16f / 9f; bar.camMaxX = left + width - camSize * 16f / 9f; bar.camSize = camSize;
         bar.camOffsetY = (centerY + 6f - camSize) - CamY; bar.camRiseY = 0f;
         bar.walkMinX = left + 0.8f; bar.walkMaxX = left + width - 0.8f;
         // Takaraja kuvapikseleinä: seinä, tiski (edempänä), portaiden juuri, lava ja oikean seinän vinous.
         bar.depthLimits = new[] {
-            new Vector2(left + 0f, DepthAt(540f)), new Vector2(left + 1385f / ppu, DepthAt(540f)),
-            new Vector2(left + 1395f / ppu, DepthAt(660f)), new Vector2(left + 2510f / ppu, DepthAt(660f)),
-            new Vector2(left + 2520f / ppu, DepthAt(605f)), new Vector2(left + 2820f / ppu, DepthAt(605f)),
-            new Vector2(left + 2830f / ppu, DepthAt(540f)), new Vector2(left + 3830f / ppu, DepthAt(540f)),
-            new Vector2(left + width, DepthAt(720f)) };
+            new Vector2(left + 0f, DepthAt(625f)), new Vector2(left + 75f / ppu, DepthAt(548f)),
+            new Vector2(left + 1260f / ppu, DepthAt(548f)), new Vector2(left + 1272f / ppu, DepthAt(598f)),
+            new Vector2(left + 2310f / ppu, DepthAt(598f)), new Vector2(left + 2322f / ppu, DepthAt(560f)),
+            new Vector2(left + 2575f / ppu, DepthAt(560f)), new Vector2(left + 2587f / ppu, DepthAt(472f)),
+            new Vector2(left + 3440f / ppu, DepthAt(472f)), new Vector2(left + width, DepthAt(690f)) };
         bar.backScale = 1f;
         var barMusic = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Aavikkobaari.mp3");   // bändin blues
         bar.music = barMusic != null ? barMusic : street.music; bar.ambience = street.ambience; bar.ambienceVolume = barMusic != null ? 0.08f : 0.2f;
@@ -4879,22 +4891,13 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Aavikkobaari");
         var bg = new GameObject("Aavikkobaarin tausta").AddComponent<SpriteRenderer>();
         bg.transform.SetParent(root.transform, false);
-        bg.transform.position = new Vector3(centerX, centerY, 0f);
+        bg.transform.position = new Vector3(centerX, BarTopY - bgSprite.bounds.size.y * 0.5f, 0f);
         bg.sprite = bgSprite; bg.sortingOrder = -10000;
-        const string barFloorPath = "Assets/Sprites/Taustat/aavikkobaari_lattia.png";
-        if (AssetImporter.GetAtPath(barFloorPath) != null)
-        {
-            var floorSprite = ImportShipSprite(barFloorPath, ppu, false, SpriteAlignment.Center);
-            var floorExt = new GameObject("Aavikkobaarin lattian jatko").AddComponent<SpriteRenderer>();
-            floorExt.transform.SetParent(root.transform, false);
-            floorExt.transform.position = new Vector3(centerX, centerY - 6f - floorSprite.bounds.size.y * 0.5f, 0f);
-            floorExt.sprite = floorSprite; floorExt.sortingOrder = -10000;
-        }
         // Sisään: pariovi Aavikkokadun viimeisessä kuvassa (jatkokuva 6, ovi kuvan x 990).
         float streetDoorX = 86000f + (11629.3f + 990f * 1.0095f) / (887f / 12f);
         var enter = new GameObject("Aavikkokadulta baariin").AddComponent<Door>();
         Undo.RegisterCreatedObjectUndo(enter.gameObject, "Baarin ovi");
-        float doorX = left + 805f / ppu;   // sisäpuolen pariovi ensimmäisessä kuvassa
+        float doorX = left + 731f / ppu;   // sisäpuolen pariovi ensimmäisessä kuvassa
         enter.here = street; enter.target = bar; enter.spawnPoint = new Vector2(doorX, -1.2f);
         enter.prompt = "Mene baariin"; enter.halfWidth = 1.4f; enter.maxDistanceFromWall = 1.1f;
         enter.transform.position = new Vector3(streetDoorX, street.maxDepthY, 0f);
@@ -4905,7 +4908,7 @@ public static class BeatEmUpSetup
         back.prompt = "Mene ulos"; back.halfWidth = 1.5f; back.maxDistanceFromWall = 1.1f;
         back.spawnPoint = new Vector2(streetDoorX, street.maxDepthY - 0.3f);
         // Portaat yläkertaan: ovi portaiden juurella (takaraja on siinä portaiden alareunassa).
-        float stairsX = left + 2665f / ppu;
+        float stairsX = left + 2440f / ppu;
         var upstairs = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaarin yläkerta");
         string stairInfo;
         if (upstairs != null)
@@ -4933,20 +4936,20 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin kalusteet");
         const float left = 91000f; float ppu = 941f / 12f;
         // kuvapikselit panoraamassa → x; syvyys y. Lavan edusta (x 2850-3900) jätetään tanssitilaksi, ovi (x 805) ja portaat (x 2665) vapaiksi.
-        var tables = new[] { new Vector3(left + 300f / ppu, -0.9f, 0f), new Vector3(left + 1100f / ppu, -1.8f, 0f),
-            new Vector3(left + 2300f / ppu, -1.9f, 0f), new Vector3(left + 2620f / ppu, -3.3f, 0f),
-            new Vector3(left + 4000f / ppu, -2.6f, 0f),
-            new Vector3(left + 1000f / ppu, -3.2f, 0f), new Vector3(left + 1700f / ppu, -2.4f, 0f),
+        var tables = new[] { new Vector3(left + BarWx(300f), -0.9f, 0f), new Vector3(left + BarWx(1100f), -1.8f, 0f),
+            new Vector3(left + BarWx(2300f), -1.9f, 0f), new Vector3(left + BarWx(2620f), -3.3f, 0f),
+            new Vector3(left + BarWx(4000f), -2.6f, 0f),
+            new Vector3(left + BarWx(1000f), -3.2f, 0f), new Vector3(left + BarWx(1700f), -2.4f, 0f),
             // pari pöytää lavan eteen: reunoille, keskelle jää tanssilattia (Elaine ja Rekkamies tanssivat x 3250-3450)
-            new Vector3(left + 3000f / ppu, -0.9f, 0f), new Vector3(left + 3750f / ppu, -1.0f, 0f),
-            new Vector3(left + 2950f / ppu, -3.6f, 0f), new Vector3(left + 3700f / ppu, -3.6f, 0f),
+            new Vector3(left + BarWx(3000f), -0.9f, 0f), new Vector3(left + BarWx(3750f), -1.0f, 0f),
+            new Vector3(left + BarWx(2950f), -3.6f, 0f), new Vector3(left + BarWx(3700f), -3.6f, 0f),
             // alas peilatulle lattialle lisää pöytiä (kamera loitonnettu)
-            new Vector3(left + 450f / ppu, -5.5f, 0f), new Vector3(left + 1250f / ppu, -5.7f, 0f), new Vector3(left + 2000f / ppu, -5.4f, 0f),
-            new Vector3(left + 2800f / ppu, -5.6f, 0f), new Vector3(left + 3550f / ppu, -5.4f, 0f), new Vector3(left + 3950f / ppu, -4.9f, 0f) };
+            new Vector3(left + BarWx(450f), -5.5f, 0f), new Vector3(left + BarWx(1250f), -5.7f, 0f), new Vector3(left + BarWx(2000f), -5.4f, 0f),
+            new Vector3(left + BarWx(2800f), -5.6f, 0f), new Vector3(left + BarWx(3550f), -5.4f, 0f), new Vector3(left + BarWx(3950f), -4.9f, 0f) };
         var info = AddBottleTables(root.transform, tables, 57);
         int snooker = 0;
         foreach (float px in new[] { 600f, 1800f })
-            if (AddSnookerTable(root.transform, new Vector2(left + px / ppu, -3.5f), PokerPoolWidth) != null) snooker++;
+            if (AddSnookerTable(root.transform, new Vector2(left + BarWx(px), -3.5f), PokerPoolWidth) != null) snooker++;
         // pekoniannokset (Resources/Aamiainen) joillekin pöydille sinne tänne
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Aamiainen" }))
         {
@@ -4983,8 +4986,8 @@ public static class BeatEmUpSetup
         var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
             .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
         var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), Mathf.Max(t.y - 0.8f, -6.4f), 0f))
-            .Concat(new[] { 150f, 1000f, 1450f, 2100f, 2350f, 2850f, 3900f }.Select((px, i) => new Vector3(left + px / ppu, -3.8f + (i % 3) * 0.3f, 0f)))
-            .Append(new Vector3(left + 4040f / ppu, -1.4f, 0f)).ToArray();
+            .Concat(new[] { 150f, 1000f, 1450f, 2100f, 2350f, 2850f, 3900f }.Select((px, i) => new Vector3(left + BarWx(px), -3.8f + (i % 3) * 0.3f, 0f)))
+            .Append(new Vector3(left + BarWx(4040f), -1.4f, 0f)).ToArray();
         int extraChairs = 0;
         if (chairSprite != null)
             for (int i = 0; i < extra.Length; i++)
@@ -5030,12 +5033,12 @@ public static class BeatEmUpSetup
         var e = go.AddComponent<BarElaine>();
         e.area = bar; e.body = visual; e.shadow = shadow;
         e.idle = sets["elaine_idle"]; e.walk = sets["elaine_kavely"]; e.toCounter = sets["elaine_tiskille"]; e.atCounter = sets["elaine_tiskilla"]; e.dance = sets["elaine_tanssi"];
-        e.laneMinX = left + 300f / ppu; e.laneMaxX = left + 4000f / ppu;
-        e.counterXs = new[] { 1700f, 2000f, 2300f }.Select(px => left + px / ppu).ToArray();
+        e.laneMinX = left + BarWx(300f); e.laneMaxX = left + BarWx(4000f);
+        e.counterXs = new[] { 1700f, 2000f, 2300f }.Select(px => left + BarWx(px)).ToArray();
         // tanssilattia lavan edessä (x 2900-3800 px)
-        e.danceX = new Vector2(left + 3000f / ppu, left + 3700f / ppu);
+        e.danceX = new Vector2(left + BarWx(3000f), left + BarWx(3700f));
         e.danceY = new Vector2(-3.0f, -1.2f);
-        go.transform.position = new Vector3(left + 1000f / ppu, -2.2f, 0f);
+        go.transform.position = new Vector3(left + BarWx(1000f), -2.2f, 0f);
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Elaine baariin: " + e.idle.Length + " idle-, " + e.walk.Length + " kävely-, " + e.toCounter.Length + " tiskille-, " + e.atCounter.Length + " tiskillä- ja " + e.dance.Length + " tanssikuvaa. Hän seisoskelee, kävelee, nojaa välillä tiskiin ja tanssii lavan edessä. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
@@ -5055,7 +5058,7 @@ public static class BeatEmUpSetup
         const float left = 91000f, centerY = 1.4f; float ppu = 941f / 12f;
         var go = new GameObject("Aavikkobaarin bändi");
         // lavan keskelle (kuvapikseli x 3350), jalat lavan pinnalla (rivi 405)
-        go.transform.position = new Vector3(left + 3350f / ppu, centerY + 6f - 405f / ppu, 0f);
+        go.transform.position = new Vector3(left + BarWx(3350f), BarTopY - 375f / BarPpu, 0f);
         var sr = go.AddComponent<SpriteRenderer>();
         sr.sprite = sprites[0];
         sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
@@ -5097,12 +5100,12 @@ public static class BeatEmUpSetup
         e.idleFrameTime = 0.083f; e.walkFrameTime = 0.0417f; e.talkFrameTime = 0.125f; e.danceFrameTime = 0.146f;
         e.dancePingPong = true;
         e.counterChance = 0f; e.danceChance = 0.3f; e.talkChance = 0.35f;
-        e.laneMinX = left + 300f / ppu; e.laneMaxX = left + 4000f / ppu;
-        e.danceX = new Vector2(left + 3000f / ppu, left + 3700f / ppu);
+        e.laneMinX = left + BarWx(300f); e.laneMaxX = left + BarWx(4000f);
+        e.danceX = new Vector2(left + BarWx(3000f), left + BarWx(3700f));
         e.danceY = new Vector2(-3.0f, -1.2f);
         var elaine = GameObject.Find("Elaine");
         if (elaine != null) e.partner = elaine.GetComponent<BarElaine>();
-        go.transform.position = new Vector3(left + 1500f / ppu, -2.6f, 0f);
+        go.transform.position = new Vector3(left + BarWx(1500f), -2.6f, 0f);
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Shanice baariin: " + e.idle.Length + " idle-, " + e.walk.Length + " kävely-, " + e.talk.Length + " puhe- ja " + e.dance.Length + " tanssikuvaa. Hän kävelee, käy juttelemassa Elainen vieressä (" + (e.partner != null ? "Elaine löytyi" : "EI Elainea: aja 112 ja sitten tämä uudelleen") + "), seisoskelee kuuntelemassa ja tanssii lavan edessä. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
@@ -5216,7 +5219,7 @@ public static class BeatEmUpSetup
         var root = new GameObject("Aavikkobaarin tappelu");
         Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin tappelu");
         const float left = 91000f, centerY = 1.4f; float ppu = 941f / 12f;
-        float X(float px) => left + px / ppu;
+        float X(float px) => left + BarWx(px);
         var members = new List<Enemy>();
         var names = new List<string>();
         // väki odottaa rauhallisena (ei heräämistä läheisyydestä): herää, kun joku saa osuman tai 2 min on kulunut
@@ -5268,7 +5271,7 @@ public static class BeatEmUpSetup
         else names.Add("(rekkamies puuttuu: aja 115 ja sitten tämä uudelleen)");
         // Sohvi tiskin taakse ja kauppa tiskin eteen (kuten dinerissä)
         string shopInfo = "Sohvi puuttuu";
-        float counterX = X(1965f), counterTop = centerY + 6f - 385f / ppu;
+        float counterX = X(1965f), counterTop = BarTopY - 425f / BarPpu;
         var sohvi = GameObject.Find("Sohvi");
         if (sohvi != null)
         {
