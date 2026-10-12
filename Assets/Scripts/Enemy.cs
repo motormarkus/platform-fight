@@ -79,6 +79,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float punch3Volume = 1f;
     bool usingPunch2, usingPunch3, running;
 
+    [Header("Alakoukku (Rekkamies, kombon kirjain U): lennättää osuneen ruudun yläreunaan, kevyet (lightweight) yli ruudun")]
+    public Sprite[] uppercutSprites;
+    public int uppercutImpactFrame = 3;
+    public int uppercutDamage = 22;
+    [Tooltip("Todennäköisyys, että tavallisen iskun tilalle tulee alakoukku (kombojen ulkopuolella).")]
+    [Range(0f, 1f)] public float uppercutChance = 0f;
+    public float uppercutReach = 2.4f, uppercutWindupTime = 0.5f, uppercutRecoverTime = 0.5f;
+    [Tooltip("Heron lentonopeus ylös (24 = kattoon, kuten Horhe) ja muiden vihujen (21 = ruudun yläreunaan; kevyillä x1,6).")]
+    public float uppercutHeroUp = 24f, uppercutLaunchUp = 21f, uppercutLaunchX = 1.5f;
+    bool usingUppercut;
+
     [Header("Kombot")]
     [Tooltip("Iskusarjat peräkkäin: J = lyönti, S = toinen isku (suora), P = vaihtoehtoinen (polvi), K = kolmas (kierrepotku). Esim. \"JSJ\".")]
     public string[] combos;
@@ -2441,6 +2452,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void RollPunch23()
     {
         comboSeq = null;
+        usingUppercut = false;
+        if (!usingAlt && Has(uppercutSprites) && Random.value < uppercutChance) { usingUppercut = true; usingPunch2 = false; usingPunch3 = false; return; }
         // kolmas isku (esim. kierrepotku) arvotaan ensin, ettei kombo vie sen vuoroa
         if (!usingAlt && Has(punch3Sprites) && Random.value < punch3Chance) { usingPunch3 = true; usingPunch2 = false; return; }
         if (!usingAlt && combos != null && combos.Length > 0 && Random.value < comboChance)
@@ -2458,6 +2471,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         usingAlt = c == 'P' && Has(altAttackSprites);
         usingPunch2 = c == 'S' && Has(punch2Sprites);
         usingPunch3 = c == 'K' && Has(punch3Sprites);
+        usingUppercut = c == 'U' && Has(uppercutSprites);
     }
 
     /// Kombo menee aina loppuun (vaikka varjonyrkkeilynä), ellei rosvo itse saa kaatavaa iskua.
@@ -2478,8 +2492,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
-        bool kd = !ComboContinues && !(usingAlt && altKnockdownLightOnly && IsHeavyweight(e)) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown);
-        if (!e.TakeHit(usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        bool upper = usingUppercut && !usingAlt;
+        bool kd = upper || (!ComboContinues && !(usingAlt && altKnockdownLightOnly && IsHeavyweight(e)) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown));
+        if (!e.TakeHit(upper ? uppercutDamage : usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        if (upper && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * uppercutLaunchX, uppercutLaunchUp);   // alakoukku: ruudun yläreunaan
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
         e.GotHitBy(this);
@@ -2534,6 +2550,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
+        if (usingUppercut && !usingAlt)
+        {
+            bool upHit = player.TakeUppercut(uppercutDamage, me.x, uppercutHeroUp, this);
+            if (upHit && player.IsAirborneThrown) nextHeroLaugh = 0f;
+            return upHit;
+        }
         if (usingAlt && whipAttack && Has(yankSprites) && player.TryCatchWhip(this)) { StartYank(); return true; }
         if (usingAlt && altKnockdown && !mid) return player.TakeKnockdown(altDamage, me.x, altKnockSpeed, altKnockUp, this, altUnblockable);
         if (!usingAlt && usingPunch3 && punch3Knockdown && !mid)
@@ -3302,12 +3324,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
-    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
-    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingPunch3 ? punch3WindupNow : windupTime)
+    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingUppercut ? uppercutWindupTime : usingPunch3 ? punch3WindupNow : windupTime)
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f);
-    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
-    float CurrentReach => usingAlt ? altReach : usingPunch3 ? punch3Reach : attackRange;
+    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
+    float CurrentReach => usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
 
