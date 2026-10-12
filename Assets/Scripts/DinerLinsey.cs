@@ -174,6 +174,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
     bool TryStartPie()
     {
         if (!throwsPies || !HasPieArt) return false;
+        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
         Vector3 me = transform.position;
         Enemy foe = null; float fd = pieRange;
         foreach (var e in Enemy.All)
@@ -188,6 +189,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         {
             if (b == null || !b.pie || !b.CanPickUp) continue;
             float d = Vector2.Distance(b.transform.position, me);
+            if (PieWar.Active && hero != null && Vector2.Distance(b.transform.position, hero.transform.position) < d * 0.7f) continue;   // hero on lähempänä: jää hänelle
             if (d < bd) { bd = d; best = b; }
         }
         if (best == null) return false;

@@ -2812,6 +2812,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         PieWar.PieDamage = false;
         if (!hit) return 0;
         PieWar.OnHeroHit();
+        if (PieWar.Active) invulnTimer = Mathf.Max(invulnTimer, 0.45f);   // sodassa ei jatkuvaa pyörittelyä: ehtii poimia piirakan
         if (state != State.Hurt) return 2;
         Enter(State.PieHit);
         return 1;

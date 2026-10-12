@@ -130,6 +130,8 @@ public class Bottle : MonoBehaviour
         return true;
     }
 
+    static float lastPickLog;
+
     /// Piirakka suoraan käteen ennen kuin lähin pöytä nostetaan: lähin pöydällä, tiskillä tai lattialla oleva piirakka.
     public static bool TryPickUpFromTable(PlayerController p)
     {
@@ -140,13 +142,26 @@ public class Bottle : MonoBehaviour
         {
             if (b == null || !b.pie) continue;
             bool onTable = b.table != null && (b.state == S.OnTable || b.state == S.Wobble);
-            if (!onTable && b.state != S.Lying) continue;
+            bool landing = b.state == S.Falling && b.height < 0.4f;   // juuri putoamassa lattialle
+            if (!onTable && b.state != S.Lying && !landing) continue;
             Vector3 q = b.transform.position;
             float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
-            if (dx > 1.8f || dy > 0.8f) continue;
+            if (dx > 2.0f || dy > 1.0f) continue;
             if (dx + dy < bd) { bd = dx + dy; best = b; }
         }
-        if (best == null) return false;
+        if (best == null)
+        {
+            // apu virheen jäljitykseen: piirakka aivan lähellä, mutta ei poimittavissa (näkyy consolessa, enintään kerran sekunnissa)
+            if (Time.unscaledTime - lastPickLog > 1f)
+                foreach (var b in All)
+                {
+                    if (b == null || !b.pie) continue;
+                    Vector3 q = b.transform.position;
+                    if (Mathf.Abs(q.x - me.x) < 2.5f && Mathf.Abs(q.y - me.y) < 1.5f)
+                    { lastPickLog = Time.unscaledTime; Debug.Log("Piirakka lähellä mutta ei poimittavissa: tila=" + b.state + " korkeus=" + b.height + " dx=" + Mathf.Abs(q.x - me.x) + " dy=" + Mathf.Abs(q.y - me.y) + " pöytä=" + (b.table != null)); break; }
+                }
+            return false;
+        }
         best.table = null; best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false; best.rot = 0f;
         Held = best;
         HitFx.PlayPickup(false);

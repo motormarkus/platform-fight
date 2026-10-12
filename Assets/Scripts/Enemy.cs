@@ -1669,6 +1669,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             foreach (var b in Bottle.All)
             {
                 if (b == null || !b.CanPickUp || (war && !b.pie)) continue;
+                if (war && Vector2.Distance(b.transform.position, p) < Vector2.Distance(b.transform.position, me) * 0.7f) continue;   // sodassa hero ehtii ensin piirakalle, jonka vieressä hän on
                 bool taken = false;
                 foreach (var e in All) if (e != this && e.targetBottle == b) { taken = true; break; }
                 if (taken) continue;
