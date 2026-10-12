@@ -5067,6 +5067,7 @@ public static class BeatEmUpSetup
     [MenuItem("Beat em up/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)")]
     static void CreateTrucker()
     {
+        AssetDatabase.Refresh();   // kuvat siirrettiin Viholliset-kansioon: päivitä tietokanta, ettei vanha polku jää voimaan
         foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut", "rekkamies_alakoukku", "rekkamies_heitetty", "rekkamies_kavely", "rekkamies_poyta", "rekkamies_kanto" })
         {
             string path = FindTexture(n);
