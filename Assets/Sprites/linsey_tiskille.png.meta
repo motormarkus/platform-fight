@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: b1b8e693c1a40144f861d6c587e0a69a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -55726827180527797
+    second: linsey_tiskille_0
+  - first:
+      213: 8826200236754350475
+    second: linsey_tiskille_1
+  - first:
+      213: 5402069626072014803
+    second: linsey_tiskille_2
+  - first:
+      213: 8816005567787327239
+    second: linsey_tiskille_3
+  - first:
+      213: -8965010525104166933
+    second: linsey_tiskille_4
+  - first:
+      213: -1585516460283899650
+    second: linsey_tiskille_5
+  - first:
+      213: -8743366734164441613
+    second: linsey_tiskille_6
+  - first:
+      213: -3728888700624117343
+    second: linsey_tiskille_7
+  - first:
+      213: 7744028006099278415
+    second: linsey_tiskille_8
+  - first:
+      213: -1710809160134803345
+    second: linsey_tiskille_9
+  - first:
+      213: 3180927140989879763
+    second: linsey_tiskille_10
+  - first:
+      213: 1472720837390188334
+    second: linsey_tiskille_11
+  - first:
+      213: 3689420485453115436
+    second: linsey_tiskille_12
+  - first:
+      213: 4920267034848561088
+    second: linsey_tiskille_13
+  - first:
+      213: 598586112829214285
+    second: linsey_tiskille_14
+  - first:
+      213: -8562489714699639737
+    second: linsey_tiskille_15
+  - first:
+      213: -1890050511496996102
+    second: linsey_tiskille_16
+  - first:
+      213: 7706468396278689270
+    second: linsey_tiskille_17
+  - first:
+      213: 562467730684297646
+    second: linsey_tiskille_18
+  - first:
+      213: -1183195714300485723
+    second: linsey_tiskille_19
+  - first:
+      213: -1990752508958391912
+    second: linsey_tiskille_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: linsey_tiskille_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4fe175feb40a3ff0800000000000000
+      internalID: -55726827180527797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8136342a56fc7a70800000000000000
+      internalID: 8826200236754350475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df13f914b108fa40800000000000000
+      internalID: 5402069626072014803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f54ddca5eb85a70800000000000000
+      internalID: 8816005567787327239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be727831d62e59380800000000000000
+      internalID: -8965010525104166933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef05e370e2d1ff9e0800000000000000
+      internalID: -1585516460283899650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f54925974259a680800000000000000
+      internalID: -8743366734164441613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1e458bb73504cc0800000000000000
+      internalID: -3728888700624117343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a59322170587b60800000000000000
+      internalID: 7744028006099278415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f604ea3122cf148e0800000000000000
+      internalID: -1710809160134803345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5c917a16ce42c20800000000000000
+      internalID: 3180927140989879763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_11
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f35fd7cc7207410800000000000000
+      internalID: 1472720837390188334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c207b765264733330800000000000000
+      internalID: 3689420485453115436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7863caccc484440800000000000000
+      internalID: 4920267034848561088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ecaaee5ea9e4800800000000000000
+      internalID: 598586112829214285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 744646278fceb2980800000000000000
+      internalID: -8562489714699639737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa1daed21135c5e0800000000000000
+      internalID: -1890050511496996102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd27f00d20e2fa60800000000000000
+      internalID: 7706468396278689270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1ce05cb694ec700800000000000000
+      internalID: 562467730684297646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5afda5544c1749fe0800000000000000
+      internalID: -1183195714300485723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_tiskille_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89141dbf32d6f54e0800000000000000
+      internalID: -1990752508958391912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 16f280c8af65bca428ca85aa66f5ab0c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      linsey_tiskille_0: -55726827180527797
+      linsey_tiskille_1: 8826200236754350475
+      linsey_tiskille_10: 3180927140989879763
+      linsey_tiskille_11: 1472720837390188334
+      linsey_tiskille_12: 3689420485453115436
+      linsey_tiskille_13: 4920267034848561088
+      linsey_tiskille_14: 598586112829214285
+      linsey_tiskille_15: -8562489714699639737
+      linsey_tiskille_16: -1890050511496996102
+      linsey_tiskille_17: 7706468396278689270
+      linsey_tiskille_18: 562467730684297646
+      linsey_tiskille_19: -1183195714300485723
+      linsey_tiskille_2: 5402069626072014803
+      linsey_tiskille_20: -1990752508958391912
+      linsey_tiskille_3: 8816005567787327239
+      linsey_tiskille_4: -8965010525104166933
+      linsey_tiskille_5: -1585516460283899650
+      linsey_tiskille_6: -8743366734164441613
+      linsey_tiskille_7: -3728888700624117343
+      linsey_tiskille_8: 7744028006099278415
+      linsey_tiskille_9: -1710809160134803345
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

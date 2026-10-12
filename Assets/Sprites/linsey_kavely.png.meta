@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: e22b7098038a54c479069b42631f6e2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7672950866122748260
+    second: linsey_kavely_0
+  - first:
+      213: 5533427425388165043
+    second: linsey_kavely_1
+  - first:
+      213: -1409617508598164385
+    second: linsey_kavely_2
+  - first:
+      213: 3783434215923352036
+    second: linsey_kavely_3
+  - first:
+      213: -2333250627661987999
+    second: linsey_kavely_4
+  - first:
+      213: 8592023303721995354
+    second: linsey_kavely_5
+  - first:
+      213: -8190974471716419345
+    second: linsey_kavely_6
+  - first:
+      213: -9043088037499185578
+    second: linsey_kavely_7
+  - first:
+      213: 7547605892839829073
+    second: linsey_kavely_8
+  - first:
+      213: -8306602300234523413
+    second: linsey_kavely_9
+  - first:
+      213: -1876434898282354373
+    second: linsey_kavely_10
+  - first:
+      213: -531139378263149839
+    second: linsey_kavely_11
+  - first:
+      213: 8432832485463078750
+    second: linsey_kavely_12
+  - first:
+      213: 8212771118839448740
+    second: linsey_kavely_13
+  - first:
+      213: 6728413544704850054
+    second: linsey_kavely_14
+  - first:
+      213: 8014420387174037611
+    second: linsey_kavely_15
+  - first:
+      213: 1280182244419506778
+    second: linsey_kavely_16
+  - first:
+      213: -7584402811927114705
+    second: linsey_kavely_17
+  - first:
+      213: -5501835444498962711
+    second: linsey_kavely_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: linsey_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461b542e82ccb7a60800000000000000
+      internalID: 7672950866122748260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b77aa01deeaacc40800000000000000
+      internalID: 5533427425388165043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54d5da2858007ce0800000000000000
+      internalID: -1409617508598164385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e18b27bf55718430800000000000000
+      internalID: 3783434215923352036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16fff3e8ae0ae9fd0800000000000000
+      internalID: -2333250627661987999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1152
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c4a381caffc3770800000000000000
+      internalID: 8592023303721995354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8cc099d10d35e80800000000000000
+      internalID: -8190974471716419345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 656d64c975f708280800000000000000
+      internalID: -9043088037499185578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15eec53129b7eb860800000000000000
+      internalID: 7547605892839829073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec141cd73509bc80800000000000000
+      internalID: -8306602300234523413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39ebbbd66095f5e0800000000000000
+      internalID: -1876434898282354373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 768
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f23760bc8301a8f0800000000000000
+      internalID: -531139378263149839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57b66a6770770570800000000000000
+      internalID: 8432832485463078750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a44308c1df99f170800000000000000
+      internalID: 8212771118839448740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6883f026870206d50800000000000000
+      internalID: 6728413544704850054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68382241e0f83f60800000000000000
+      internalID: 8014420387174037611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a521366f7fe14c110800000000000000
+      internalID: 1280182244419506778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 384
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c4c9193d9ceb690800000000000000
+      internalID: -7584402811927114705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linsey_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e66cfd20dd85a3b0800000000000000
+      internalID: -5501835444498962711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0211d22f774b2e648b0ba773d873e52d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      linsey_kavely_0: 7672950866122748260
+      linsey_kavely_1: 5533427425388165043
+      linsey_kavely_10: -1876434898282354373
+      linsey_kavely_11: -531139378263149839
+      linsey_kavely_12: 8432832485463078750
+      linsey_kavely_13: 8212771118839448740
+      linsey_kavely_14: 6728413544704850054
+      linsey_kavely_15: 8014420387174037611
+      linsey_kavely_16: 1280182244419506778
+      linsey_kavely_17: -7584402811927114705
+      linsey_kavely_18: -5501835444498962711
+      linsey_kavely_2: -1409617508598164385
+      linsey_kavely_3: 3783434215923352036
+      linsey_kavely_4: -2333250627661987999
+      linsey_kavely_5: 8592023303721995354
+      linsey_kavely_6: -8190974471716419345
+      linsey_kavely_7: -9043088037499185578
+      linsey_kavely_8: 7547605892839829073
+      linsey_kavely_9: -8306602300234523413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
