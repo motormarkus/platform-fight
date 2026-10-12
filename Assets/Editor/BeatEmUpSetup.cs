@@ -4996,6 +4996,33 @@ Tallenna scene (Ctrl+S).");
         Info("Elaine baariin: " + e.idle.Length + " idle-, " + e.walk.Length + " kävely-, " + e.toCounter.Length + " tiskille-, " + e.atCounter.Length + " tiskillä- ja " + e.dance.Length + " tanssikuvaa. Hän seisoskelee, kävelee, nojaa välillä tiskiin ja tanssii lavan edessä. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/113. Aavikkobaari: bändi soittaa lavalla (silmukka)")]
+    static void AddDesertBarBand()
+    {
+        var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        string bp = FindTexture("bandi_aavikkobaari");
+        if (bar == null || bp == null) { Info("Tee ensin Aavikkobaari (110). Tarvitaan bandi_aavikkobaari.png (Sprites)."); return; }
+        SetupAndSlice(bp);
+        var sprites = LoadSprites("bandi_aavikkobaari")
+            .OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sprites.Length == 0) { Info("bandi_aavikkobaari.png: ei kuvia."); return; }
+        var old = GameObject.Find("Aavikkobaarin bändi");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        const float left = 91000f, centerY = 1.4f; float ppu = 941f / 12f;
+        var go = new GameObject("Aavikkobaarin bändi");
+        // lavan keskelle (kuvapikseli x 3350), jalat lavan pinnalla (rivi 405)
+        go.transform.position = new Vector3(left + 3350f / ppu, centerY + 6f - 405f / ppu, 0f);
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprites[0];
+        sr.sortingOrder = -9000;                       // taustan edessä, pelaajien takana
+        var d = go.AddComponent<Dancer>();
+        d.sprites = sprites;
+        d.frameTime = 0.077f;                          // videon oma tahti (74 ruutua 24 fps, 40 kuvaa)
+        Undo.RegisterCreatedObjectUndo(go, "Bändi");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info($"Bändi soittaa lavalla: {sprites.Length} kuvaa silmukkana.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
     public static void CreateDesertStreet()
     {
