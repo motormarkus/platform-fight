@@ -4914,6 +4914,30 @@ public static class BeatEmUpSetup
 Aja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/111. Aavikkobaari: pöydät, tuolit, pullot ja kaksi snookerpöytää (tanssitila lavan edessä)")]
+    static void AddDesertBarFurniture()
+    {
+        var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        if (bar == null) { Info("Tee ensin Aavikkobaari (110)."); return; }
+        var old = GameObject.Find("Aavikkobaarin kalusteet");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Aavikkobaarin kalusteet");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin kalusteet");
+        const float left = 91000f; float ppu = 941f / 12f;
+        // kuvapikselit panoraamassa → x; syvyys y. Lavan edusta (x 2850-3900) jätetään tanssitilaksi, ovi (x 805) ja portaat (x 2665) vapaiksi.
+        var tables = new[] { new Vector3(left + 300f / ppu, -0.9f, 0f), new Vector3(left + 1100f / ppu, -1.8f, 0f),
+            new Vector3(left + 2300f / ppu, -1.9f, 0f), new Vector3(left + 2620f / ppu, -3.3f, 0f),
+            new Vector3(left + 4000f / ppu, -2.6f, 0f) };
+        var info = AddBottleTables(root.transform, tables, 57);
+        int snooker = 0;
+        foreach (float px in new[] { 600f, 1800f })
+            if (AddSnookerTable(root.transform, new Vector2(left + px / ppu, -3.5f), PokerPoolWidth) != null) snooker++;
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.
+
+Tallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
     public static void CreateDesertStreet()
     {
