@@ -1703,10 +1703,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
             order = body.sortingOrder + 1;
             int fi = state == State.CarryPie ? 1 : PieFrameIndex();
             if (fi == 0 || fi > 3) { hand = Vector3.zero; rot = 0f; return false; }   // kurkottaa: piirakka vielä lattialla
-            Vector3 g = pieGrips[fi];
+            Vector3 pg = pieGrips[fi];
             float bob = state == State.CarryPie ? Mathf.Sin(animClock * 10f) * 0.04f : 0f;
-            hand = body.transform.position + new Vector3(dir * g.x * visualScale, g.y * visualScale + bob, 0f);
-            rot = dir * g.z;
+            hand = body.transform.position + new Vector3(dir * pg.x * visualScale, pg.y * visualScale + bob, 0f);
+            rot = dir * pg.z;
             return true;
         }
         if (body != null && state == State.CarryPie)
