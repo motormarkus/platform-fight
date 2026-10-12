@@ -289,6 +289,13 @@ public class Crate : MonoBehaviour
             {
                 Vector3 p = transform.position;
                 p.x += vel.x * dt;
+                // alueen sivurajat (esim. baarin seinät): lentävä pöytä ei mene kuvan reunan yli
+                var fa = Area.Current;
+                if (fa != null && fa.walkMaxX != 0f && p.x >= fa.walkMinX - 8f && p.x <= fa.walkMaxX + 8f)
+                {
+                    float cx = Mathf.Clamp(p.x, fa.walkMinX, fa.walkMaxX);
+                    if (!Mathf.Approximately(cx, p.x)) { p.x = cx; vel.x *= -0.25f; }
+                }
                 transform.position = p;
                 if (thrown) rollDist += Mathf.Abs(vel.x) * dt;   // pyörii lennossa
                 verticalVel -= 30f * dt;

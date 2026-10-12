@@ -3048,6 +3048,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (ar != null && ar.walkMinX != 0f) p.x = Mathf.Max(p.x, ar.walkMinX);
             }
         }
+        // lentävä (heitetty tai lennätetty) vihu ei mene alueen sivurajojen yli, vaikka kameran rajat eivät sitä estäisi
+        if (state == State.Airborne)
+        {
+            var ar2 = Area.Current;
+            if (ar2 != null && ar2.walkMaxX != 0f && transform.position.x >= ar2.walkMinX - 8f && transform.position.x <= ar2.walkMaxX + 8f)
+            {
+                float cx = Mathf.Clamp(p.x, ar2.walkMinX, ar2.walkMaxX);
+                if (!Mathf.Approximately(cx, p.x)) { p.x = cx; knockVel.x *= -0.2f; }
+            }
+        }
         // iso vihu lentää heitosta pöytään: pöytä hajoaa ja vihu menee läpi
         if (state == State.Airborne && height < 2.5f && Mathf.Abs(knockVel.x) > 3f && (bigBody || IsHeavyweight(this)))
         {
