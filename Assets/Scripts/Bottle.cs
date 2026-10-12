@@ -36,6 +36,12 @@ public class Bottle : MonoBehaviour
     public float scale = 1.05f;
     [Tooltip("Ruoka (kala): makaa lattialla vaakatasossa, ei hajoa, heitetty osuu kevyesti (ei kaada) ja putoaa lattialle.")]
     public bool food;
+    [Tooltip("Kermapiirakka: heitettynä kääntyy ilmassa kerma edellä, läsähtää osuessaan (kuvat: 0 ehjä, 1–n läiskähdys, viimeinen jää lattialle) eikä kaada.")]
+    public bool pie;
+    [Tooltip("Piirakan lento: litteänä, kallellaan, kerma edellä (oikealle lentäessä kerma oikealla).")]
+    public Sprite[] flightSprites;
+    [Tooltip("Piirakan pyöriminen ilmassa (potkaistu tai pudonnut pöydältä): 4 asentoa.")]
+    public Sprite[] tumbleSprites;
     [Tooltip("Biljardipallo: ei hajoa, heitto lentää kauas ja osuu kovaa (ei kaada), kimpoaa ja jää lattialle.")]
     public bool ball;
     [Tooltip("Pallon koko × scale: pöydällä ja muualla (kädessä, lennossa, lattialla).")]
@@ -67,6 +73,8 @@ public class Bottle : MonoBehaviour
     int seenDisturb;
     float t, height, vy, vx, rot, spin, wobbleT;
     bool fastFall, gripped;
+    public Object thrownBy;   // heittäjä (ei osu itseensä)
+    bool pieVanish;   // piirakka osui viholliseen, jolla on oma piirakka-animaatio: piirakka häviää
     // heron kädessä: nyrkki piirretään pullon päälle (kopio heron kuvasta maskattuna nyrkin kohdalle)
     SpriteRenderer fistOverlay;
     SpriteMask fistMask;
@@ -94,7 +102,7 @@ public class Bottle : MonoBehaviour
     {
         pc = FindFirstObjectByType<PlayerController>();
         if (table != null) { seenDisturb = table.Disturb; height = tableTop; }
-        else { state = S.Lying; rot = food || ball ? 0f : 90f; height = restHeight; }
+        else { state = S.Lying; rot = food || ball || pie ? 0f : 90f; height = restHeight; }
     }
 
     // ---------------- pelaajan käsi ----------------
@@ -150,11 +158,12 @@ public class Bottle : MonoBehaviour
             height = Mathf.Clamp(hand.y - groundY - 0.2f, 1.2f, 3.5f);
         }
         else height = 1.9f;
+        thrownBy = holder as Object;
         holder = null;
         if (Held == this) Held = null;
         enemyThrow = enemy;
         vx = dir * throwSpeed; vy = 1.5f;
-        spin = -dir * 900f; hitList.Clear();
+        spin = pie ? 0f : -dir * 900f; rot = pie ? 0f : rot; hitList.Clear();
         state = S.Thrown; t = 0f;
     }
 
@@ -229,7 +238,7 @@ public class Bottle : MonoBehaviour
                     height = 0f;
                     float breakChance = fastFall ? 0.7f : 0.4f;
                     if (!food && !ball && (alwaysBreak || (!softLanding && Random.value < breakChance))) Shatter();
-                    else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : ball ? 0f : (Random.value < 0.5f ? 90f : -90f); t = 0f; restOnRenderer = null; }   // jää ehjänä kyljelleen
+                    else { softLanding = false; state = S.Lying; rot = food ? Random.Range(-8f, 8f) : pie ? Random.Range(-5f, 5f) : ball ? 0f : (Random.value < 0.5f ? 90f : -90f); t = 0f; restOnRenderer = null; }   // jää ehjänä kyljelleen
                 }
                 break;
 
@@ -298,6 +307,15 @@ public class Bottle : MonoBehaviour
     bool HitInPath()
     {
         Vector3 me = transform.position;
+        if (pie)
+            foreach (var lin in DinerLinsey.All.ToArray())
+            {
+                if (lin == null || lin == thrownBy || hitList.Contains(lin)) continue;
+                Vector3 lq = lin.transform.position;
+                if (Mathf.Abs(lq.x - me.x) > 0.8f || Mathf.Abs(lq.y - me.y) > 0.5f) continue;
+                hitList.Add(lin);
+                if (lin.PieHit(me.x - Mathf.Sign(vx))) { HitFx.OnHit(false); pieVanish = true; return true; }
+            }
         if (enemyThrow)
         {
             // vihun heittämä: osuu vain heroon
@@ -305,6 +323,15 @@ public class Bottle : MonoBehaviour
             Vector3 q = pc.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.45f || height > 3.6f) return false;
             hitList.Add(pc);
+            if (pie && pc.HasPieArt)
+            {
+                // heron oma piirakka-animaatio (läsähtää naamaan): heitetty piirakka häviää osumahetkellä
+                int pr = pc.PieHit(throwDamage, me.x - Mathf.Sign(vx));
+                if (pr == 0) return false;
+                HitFx.OnHit(true);
+                pieVanish = pr == 1;
+                return true;
+            }
             if (pc.TakeHit(throwDamage, me.x - Mathf.Sign(vx)))
             {
                 HitFx.OnHit(true);
@@ -319,7 +346,17 @@ public class Bottle : MonoBehaviour
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
             hitList.Add(e);
-            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food && !ball))
+            if (pie && e.HasPieArt)
+            {
+                // vihun oma piirakka-animaatio (läsähtää naamaan): heitetty piirakka häviää osumahetkellä
+                int pr = e.PieHit(throwDamage, me.x - Mathf.Sign(vx));
+                if (pr == 0) continue;
+                HitFx.OnHit(true);
+                HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+                pieVanish = pr == 1;
+                return true;
+            }
+            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food && !ball && !pie))
             {
                 HitFx.OnHit(true);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
@@ -340,6 +377,13 @@ public class Bottle : MonoBehaviour
 
     void Shatter()
     {
+        if (pieVanish)
+        {
+            // vihun oma piirakka-animaatio hoitaa kuvan: tässä vain osumaääni
+            if (breakSounds != null && breakSounds.Length > 0) HitFx.PlayClip(breakSounds[Random.Range(0, breakSounds.Length)], Random.Range(0.8f, 1f));
+            Destroy(gameObject);
+            return;
+        }
         burstH = height;
         state = S.Breaking; t = 0f; height = 0f; rot = 0f;
         // lattialle pudonnut (ei osumaa ilmassa): suoraan sirpaleisiin
@@ -467,6 +511,17 @@ public class Bottle : MonoBehaviour
             sr.sprite = sprites[bi];
             sr.color = keepDebris ? Color.white : new Color(1f, 1f, 1f, Mathf.Clamp01((1.6f - t) / 0.5f));
         }
+        else if (pie && state == S.Thrown && flightSprites != null && flightSprites.Length >= 3)
+        {
+            // litteänä käsistä, kallistuu ja jatkaa kerma edellä
+            sr.sprite = flightSprites[t < 0.07f ? 0 : t < 0.16f ? 1 : 2];
+            drawRot = 0f;
+        }
+        else if (pie && state == S.Falling && tumbleSprites != null && tumbleSprites.Length >= 4)
+        {
+            sr.sprite = tumbleSprites[(int)(Time.time * 12f) % tumbleSprites.Length];
+            drawRot = 0f;
+        }
         else if (spinSprites != null && spinSprites.Length >= 6 && !food && !ball && state != S.OnTable && state != S.Wobble && state != S.Held)
         {
             // lähin piirretty kulma, loppu käännetään
@@ -476,6 +531,7 @@ public class Bottle : MonoBehaviour
             drawRot = Mathf.DeltaAngle(SpinAngles[best], a);
         }
         else sr.sprite = sprites[0];
+        sr.flipX = pie && state == S.Thrown && vx < 0f;   // kerma edellä myös vasemmalle
         // kierto pullon keskikohdan ympäri (kuva alareunan keskellä, pullo n. 0.58 yks korkea)
         var q = Quaternion.Euler(0f, 0f, drawRot);
         Vector3 c = new Vector3(0f, pivotY * scale, 0f);

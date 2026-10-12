@@ -14,10 +14,12 @@ public class FishPlate : MonoBehaviour
     public AudioClip[] breakSounds;
     [Tooltip("Kuvat kansiosta Resources/<spriteSet> (Kala = kala-annos, Hummeri = hummeriannos).")]
     public string spriteSet = "Kala";
+    [Tooltip("Ranskalaisten ja lisukkeiden määrän kerroin (aamiainen: 3 pekonia ja 2 paahtoleipää, ei kymmeniä paloja).")]
+    public float countMul = 1f;
 
-    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2; }
+    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat; }
     static readonly Dictionary<string, Set> sets = new Dictionary<string, Set>();
-    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2;
+    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat;
     enum S { OnTable, Tipping, Burst, Done }
     S state = S.OnTable;
     SpriteRenderer sr;
@@ -28,7 +30,7 @@ public class FishPlate : MonoBehaviour
     {
         string key = string.IsNullOrEmpty(spriteSet) ? "Kala" : spriteSet;
         if (!sets.TryGetValue(key, out var set)) { set = LoadSet(key); sets[key] = set; }
-        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2;
+        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2; splat = set.splat;
     }
 
     static Set LoadSet(string folder)
@@ -44,6 +46,7 @@ public class FishPlate : MonoBehaviour
         }
         foreach (var s in all) if (s.name == "annos") set.plate = s;
         set.burst = Pick("hajoaa_"); set.fish = Pick("kala_"); set.fries = Pick("ranska_"); set.shards = Pick("sirpale_"); set.lemons = Pick("sitruuna_");
+        set.splat = Pick("roiske_");   // särkyneen kalan (munan) lattiaroiske
         set.veg1 = Pick("parsa_"); set.veg2 = Pick("peruna_");   // lentokuvat (pyörivät kuvasarjana)
         return set;
     }
@@ -138,14 +141,15 @@ public class FishPlate : MonoBehaviour
         if (fish.Length > 0)
         {
             bool towardCam = violent && Random.value < 0.4f;
-            FoodDebris.Spawn(fish, p, h, s,
+            var main = FoodDebris.Spawn(fish, p, h, s,
                 violent ? dir * Random.Range(3f, 7f) : dir * Random.Range(1.2f, 2.4f),
                 violent ? Random.Range(6f, 10f) : Random.Range(1f, 2f),
                 violent ? Random.Range(-1.2f, 0.6f) : 0f,
                 violent ? Random.Range(-500f, 500f) : -dir * Random.Range(60f, 140f),
                 true, towardCam ? Random.Range(0.9f, 1.4f) : 0f);
+            if (main != null && splat != null && splat.Length > 0) main.splat = splat;
         }
-        int nf = violent ? Random.Range(10, 17) : Random.Range(5, 9);
+        int nf = Mathf.Max(1, Mathf.RoundToInt((violent ? Random.Range(10, 17) : Random.Range(5, 9)) * countMul));
         for (int i = 0; i < nf && fries.Length > 0; i++)
         {
             float a = violent ? Random.Range(-1f, 1f) : dir * Random.Range(0.2f, 1f);
@@ -159,7 +163,7 @@ public class FishPlate : MonoBehaviour
         foreach (var veg in new[] { veg1, veg2 })
         {
             if (veg == null || veg.Length == 0) continue;
-            int nv = violent ? Random.Range(4, 7) : Random.Range(2, 4);
+            int nv = Mathf.Max(1, Mathf.RoundToInt((violent ? Random.Range(4, 7) : Random.Range(2, 4)) * countMul));
             for (int i = 0; i < nv; i++)
             {
                 float a = violent ? Random.Range(-1f, 1f) : dir * Random.Range(0.2f, 1f);
@@ -194,9 +198,11 @@ public class FoodDebris : MonoBehaviour
     float height, vx, vy, vDepth, spin, rot, baseScale, camBoost, frameT, peak;
     bool isFish, landed; int bounces;
 
-    public static void Spawn(Sprite[] frames, Vector3 pos, float height, float scale, float vx, float vy, float vDepth, float spin, bool isFish, float camBoost)
+    public Sprite[] splat;   // pääkala (muna) voi läjähtää lattialle tällä kuvalla
+
+    public static FoodDebris Spawn(Sprite[] frames, Vector3 pos, float height, float scale, float vx, float vy, float vDepth, float spin, bool isFish, float camBoost)
     {
-        if (frames == null || frames.Length == 0) return;
+        if (frames == null || frames.Length == 0) return null;
         var go = new GameObject(isFish ? "Kala" : "Pala");
         go.transform.position = new Vector3(pos.x, pos.y - Random.Range(0f, 0.15f), 0f);
         var d = go.AddComponent<FoodDebris>();
@@ -211,6 +217,7 @@ public class FoodDebris : MonoBehaviour
         live.Add(d);
         while (live.Count > MaxPieces) { var o = live[0]; live.RemoveAt(0); if (o != null) Destroy(o.gameObject); }
         d.Apply();
+        return d;
     }
 
     void OnDestroy() { live.Remove(this); }
@@ -259,6 +266,19 @@ public class FoodDebris : MonoBehaviour
             {
                 landed = true;
                 camBoost = 0f;
+                if (isFish && splat != null && splat.Length > 0 && Random.value < 0.5f)
+                {
+                    // muna läjähtää lattialle: roiske jää hetkeksi ja häipyy
+                    var sgo = new GameObject("Roiske");
+                    sgo.transform.position = transform.position;
+                    var ssr = sgo.AddComponent<SpriteRenderer>();
+                    ssr.sprite = splat[Random.Range(0, splat.Length)]; ssr.flipX = vx < 0f;
+                    ssr.transform.localScale = new Vector3(baseScale, baseScale, 1f);
+                    ssr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f) - 80;
+                    sgo.AddComponent<FloorDecalFade>();
+                    Destroy(gameObject);
+                    return;
+                }
                 if (isFish)
                 {
                     // lattialle jäänyt kala: poimittava ja heitettävä kuten pullo (nyrkin takana), osuma 1
@@ -286,5 +306,19 @@ public class FoodDebris : MonoBehaviour
         sr.transform.localPosition = new Vector3(0f, height, 0f);
         int order = Mathf.RoundToInt(-transform.position.y * 100f);
         sr.sortingOrder = camBoost > 0f && k > 0.2f ? 32000 : (landed ? order - 60 : order + 5);
+    }
+}
+
+/// Lattialle jäävä roiske: pysyy hetken ja häipyy.
+public class FloorDecalFade : MonoBehaviour
+{
+    public float stay = 12f, fade = 3f;
+    float t; SpriteRenderer sr;
+    void Awake() { sr = GetComponent<SpriteRenderer>(); }
+    void Update()
+    {
+        t += Time.deltaTime;
+        if (sr != null && t > stay) sr.color = new Color(1f, 1f, 1f, Mathf.Clamp01(1f - (t - stay) / fade));
+        if (t > stay + fade) Destroy(gameObject);
     }
 }

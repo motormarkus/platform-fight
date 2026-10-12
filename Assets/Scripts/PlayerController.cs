@@ -1138,7 +1138,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit }
 
     int comboIndex;
     bool comboQueued;
@@ -1181,6 +1181,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(counterThrowSprites);
         SortByFrameNumber(whipCatchSprites);
         SortByFrameNumber(rubyWhipCatchSprites);
+        SortByFrameNumber(pieHitSprites); SortByFrameNumber(rubyPieHitSprites);
         SortByFrameNumber(kneeSprites);
         SortByFrameNumber(monkeyFlipSprites);
         SortByFrameNumber(carrySprites);
@@ -2104,6 +2105,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (stateTime >= hurtTime && height <= 0f) Enter(State.Ground);
                 break;
+
+            case State.PieHit:
+                MoveOnGround(hurtVel * dt);
+                hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
+                if (height > 0f)
+                {
+                    verticalVel -= gravity * dt;
+                    height = Mathf.Max(0f, height + verticalVel * dt);
+                }
+                if (stateTime >= PieHitTimes[0] + PieHitTimes[1] + PieHitTimes[2] && height <= 0f) Enter(State.Ground);
+                break;
         }
 
         ApplyVisual();
@@ -2225,7 +2237,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float shakeUntil;       // osuman tärinä (reaaliaikaa, näkyy osumapysäytyksen aikana)
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt || state == State.CounterThrow || state == State.WhipCatch || state == State.Pummel || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
+    public bool IsDown => state == State.Hurt || state == State.PieHit || state == State.CounterThrow || state == State.WhipCatch || state == State.Pummel || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
                           || GameOver || invulnTimer > 0f;
 
     // ---------------- Heitto (vihollinen tarttuu kiinni) ----------------
@@ -2273,7 +2285,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (Riding) return false;
         if (GameOver || invulnTimer > 0f || height > 0.3f) return false;
-        if (state == State.Hurt || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
+        if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
             || state == State.Air || state == State.JumpSquat || state == State.CounterThrow || state == State.Pummel) return false;
         facingRight = enemyX > transform.position.x;    // kasvot tarttujaan päin
         DropCrate();
@@ -2652,7 +2664,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
-        if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;
+        if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
@@ -2716,7 +2728,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
         if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
-        else if (state == State.Hurt || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
+        else if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
@@ -2777,6 +2789,33 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("sankaritar_ruoskan_kiinniotto.png: Rubyn kuvat samassa järjestyksessä.")]
     public Sprite[] rubyWhipCatchSprites;
     Sprite[] WhipArt => AppliedCharacter == 1 ? rubyWhipCatchSprites : whipCatchSprites;
+    // ---------------- Piirakka naamaan ----------------
+    [Header("Piirakka naamaan: vihun heittämä piirakka katoaa osumahetkellä ja tämä sarja soi")]
+    [Tooltip("rocco_piirakka.png: 0 osuu naamaan, 1 roiskuu, 2 valuu. Tyhjä = piirakka läsähtää omilla kuvillaan.")]
+    public Sprite[] pieHitSprites;
+    [Tooltip("Rubyn kuvat samassa järjestyksessä (jos puuttuu, piirakka läsähtää omilla kuvillaan).")]
+    public Sprite[] rubyPieHitSprites;
+    Sprite[] PieArt => AppliedCharacter == 1 ? rubyPieHitSprites : pieHitSprites;
+    public bool HasPieArt => PieArt != null && PieArt.Length >= 3;
+    static readonly float[] PieHitTimes = { 0.12f, 0.16f, 0.4f };
+
+    /// Heitetty piirakka osuu. 0 = ei osunut, 1 = osui ja piirakka-animaatio alkoi (piirakka häviää), 2 = osui ilman animaatiota (torjuttu).
+    public int PieHit(int damage, float attackerX, Enemy attacker = null)
+    {
+        if (!HasPieArt) return 0;
+        if (!TakeHit(damage, attackerX, attacker)) return 0;
+        if (state != State.Hurt) return 2;
+        Enter(State.PieHit);
+        return 1;
+    }
+
+    Sprite PieFrame()
+    {
+        float t = stateTime;
+        for (int i = 0; i < PieHitTimes.Length - 1; i++) { if (t < PieHitTimes[i]) return PieArt[i]; t -= PieHitTimes[i]; }
+        return PieArt[PieHitTimes.Length - 1];
+    }
+
     static readonly float[] WhipCatchTimes = { 0.04f, 0.04f, 0.04f, 0.05f, 0.05f, 0.2f };
     const float WhipCatchTotal = 0.3f, WhipCatchSlideFrom = 0.08f, WhipCatchSlideTo = 0.2f, WhipCatchSlide = 4f;   // nopea nykäisy, hero vapaa heti   // lyhyt: ehtii lyödä vihua, kun se lentää päin
     bool HasWhipArt => WhipArt != null && WhipArt.Length >= 6;
@@ -3579,6 +3618,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Hurt:
                 if (hurtSprite != null) return hurtSprite;
                 return Action(F_HURT);
+
+            case State.PieHit:
+                return HasPieArt ? PieFrame() : Action(F_HURT);
 
             case State.SideKick:
             {

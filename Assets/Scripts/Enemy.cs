@@ -515,7 +515,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
 
-    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked }
+    enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked, PieHit, CarryPie }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
     bool attackRolled; // onko seuraavan hyökkäyksen tyyppi jo arvottu
     State state = State.Idle;
@@ -590,6 +590,41 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float afterWhipReach = 2.5f, afterWhipChance = 0.3f;
     const float YankStumble = 1.0f, YankFly = 0.35f, YankTotal = 1.65f, YankHeight = 1.1f;   // sekunnin viive nykäisyn jälkeen, sitten ilmalento heroa kohti   // nopea nykäisy: heron ehtii läimäyttää takaisin, kun vihu tulee päin
     Vector2 yankFrom, yankTo; bool yankLanded, yankDust;
+
+    [Header("Piirakka naamaan: heitetty piirakka katoaa osumahetkellä ja tämä sarja soi")]
+    [Tooltip("3 kuvaa: piirakka osuu naamaan, roiskuu, valuu (tina putoaa). Tyhjä = piirakka läsähtää omilla kuvillaan.")]
+    public Sprite[] pieSprites;
+    public float[] pieTimes = { 0.12f, 0.14f, 0.55f };
+    public bool HasPieArt => pieSprites != null && pieSprites.Length >= 3;
+
+    [Header("Piirakan poiminta ja heitto (5 kuvaa): 0 kurkottaa, 1 piirakka kämmenellä, 2 veto, 3 heitto, 4 seuranta")]
+    [Tooltip("Poiminta = kuvat 0–1, heitto = kuvat 1–4 (irti kuvan 3 alussa). Tyhjä = piirakka nostetaan ja heitetään pullon kuvilla.")]
+    public Sprite[] pieThrowSprites;
+    [Tooltip("Piirakan paikka kuvissa (x eteen, y korkeus jaloista yksikköinä, z kallistus), 5 kpl.")]
+    public Vector3[] pieGrips;
+    public bool HasPieThrowArt => pieThrowSprites != null && pieThrowSprites.Length >= 5 && pieGrips != null && pieGrips.Length >= 5;
+    static readonly float[] PiePickTimes = { 0.12f, 0.16f };
+    static readonly float[] PieThrowTimes = { 0.1f, 0.12f, 0.1f, 0.18f };   // kuvat 1, 2, 3, 4: irti kolmannen (kuva 3) alussa
+    bool pieSeq;   // käynnissä oleva poiminta/heitto käyttää piirakan omia kuvia
+
+    int PieFrameIndex()
+    {
+        if (state == State.BottlePick) { int i = ThrowPose.Index(PiePickTimes, stateTime); return i < 0 ? 1 : i; }
+        int j = ThrowPose.Index(PieThrowTimes, stateTime);
+        return j < 0 ? 4 : 1 + j;
+    }
+
+    /// Heitetty kermapiirakka osuu. 0 = ei osunut (esim. kaatunut vihu), 1 = osui ja piirakka-animaatio alkoi (piirakka häviää),
+    /// 2 = osui, mutta animaatiota ei voi näyttää (torjuttu tai kaatui): piirakka läsähtää omilla kuvillaan.
+    public int PieHit(int damage, float attackerX)
+    {
+        if (!HasPieArt) return 0;
+        if (!TakeHit(damage, attackerX, false)) return 0;
+        if (state != State.Hurt || JustBlocked) return 2;
+        knockVel *= 0.5f;
+        Enter(State.PieHit);
+        return 1;
+    }
 
     /// Ruoska on juuri iskemässä (lataus tai isku): hero voi valmistautua kurotukseen jo kaukaa.
     public bool IsWhipping => whipAttack && usingAlt && (state == State.Windup || state == State.Punch) && Has(altAttackSprites);
@@ -971,11 +1006,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.BottlePick:
-                if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0)
+                if (ThrowPose.Index(pieSeq ? PiePickTimes : ThrowPose.PickTimes, stateTime) < 0)
                 {
                     if (heldBottle == null) { Enter(State.Idle); break; }
-                    Enter(State.BottleThrow);
+                    // piirakka: kävelee sen kanssa pelaajaa kohti ja heittää vasta lähempää
+                    Enter(heldBottle.pie ? State.CarryPie : State.BottleThrow);
                 }
+                break;
+
+            case State.CarryPie:
+                UpdateCarryPie(dt);
                 break;
 
             case State.BottleThrow:
@@ -984,7 +1024,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     facingRight = player.transform.position.x > transform.position.x;
                 }
-                if (!bottleThrown && stateTime >= ThrowPose.Start(ThrowPose.PunkThrowTimes, ThrowPose.ReleaseIndex))
+                if (!bottleThrown && stateTime >= ThrowPose.Start(pieSeq ? PieThrowTimes : ThrowPose.PunkThrowTimes, pieSeq ? 2 : ThrowPose.ReleaseIndex))
                 {
                     bottleThrown = true;
                     if (heldBottle != null)
@@ -994,7 +1034,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         if (Random.value < attackSoundChance) PlayAttackSound();
                     }
                 }
-                if (ThrowPose.Index(ThrowPose.PunkThrowTimes, stateTime) < 0)
+                if (ThrowPose.Index(pieSeq ? PieThrowTimes : ThrowPose.PunkThrowTimes, stateTime) < 0)
                 {
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
                     Enter(State.Idle);
@@ -1045,6 +1085,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Yanked:
                 UpdateYank(dt);
+                break;
+
+            case State.PieHit:
+                Move(knockVel * dt);
+                knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 12f * dt);
+                { float total = 0f; foreach (var pt in pieTimes) total += pt; if (stateTime >= total) Enter(State.Chase); }
                 break;
 
             case State.Held:
@@ -1608,7 +1654,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (reach)
         {
             facingRight = bp.x > me.x;
-            if (targetBottle.TakeBy(this)) { heldBottle = targetBottle; moving = false; targetBottle = null; Enter(State.BottlePick); return true; }
+            if (targetBottle.TakeBy(this)) { heldBottle = targetBottle; pieSeq = heldBottle.pie && HasPieThrowArt; moving = false; targetBottle = null; Enter(State.BottlePick); return true; }
             targetBottle = null;
             return false;
         }
@@ -1619,6 +1665,22 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float stepY = Mathf.Min(Mathf.Abs(to.y), moveSpeedY * run * dt);
         Move(new Vector2(Mathf.Sign(to.x) * stepX, Mathf.Sign(to.y) * stepY));
         return true;
+    }
+
+    /// Piirakka kädessä: kävelee pelaajaa kohti tavallisilla kävelykuvilla (piirakka piirretään käden paikkaan) ja heittää, kun on kohdalla.
+    void UpdateCarryPie(float dt)
+    {
+        if (heldBottle == null || player == null) { Enter(State.Chase); return; }
+        Vector3 me = transform.position, hp = player.transform.position;
+        float dx = hp.x - me.x, dy = hp.y - me.y, dist = Mathf.Abs(dx);
+        facingRight = dx > 0f;
+        bool aligned = Mathf.Abs(dy) < depthTolerance + 0.1f;
+        if ((aligned && dist <= 6f) || dist < 2f || stateTime > 7f) { moving = false; Enter(State.BottleThrow); return; }
+        moving = true;
+        LocomotionMultiplier(false);
+        float stepX = dist > 5.5f ? Mathf.Sign(dx) * moveSpeedX * dt : 0f;
+        float stepY = Mathf.Abs(dy) > 0.15f ? Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), moveSpeedY * dt) : 0f;
+        Move(new Vector2(stepX, stepY));
     }
 
     int BottleFrame()
@@ -1635,6 +1697,26 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         float dir = facingRight ? 1f : -1f;
         order = body != null ? body.sortingOrder - 1 : Mathf.RoundToInt(-transform.position.y * 100f) - 1;
+        if (body != null && pieSeq && HasPieThrowArt && (state == State.BottlePick || state == State.BottleThrow || state == State.CarryPie))
+        {
+            // piirakan omat kuvat: piirakka kämmenellä (kuva 1), vedossa pään takana (2) ja irti ojennetussa kädessä (3)
+            order = body.sortingOrder + 1;
+            int fi = state == State.CarryPie ? 1 : PieFrameIndex();
+            if (fi == 0 || fi > 3) { hand = Vector3.zero; rot = 0f; return false; }   // kurkottaa: piirakka vielä lattialla
+            Vector3 g = pieGrips[fi];
+            float bob = state == State.CarryPie ? Mathf.Sin(animClock * 10f) * 0.04f : 0f;
+            hand = body.transform.position + new Vector3(dir * g.x * visualScale, g.y * visualScale + bob, 0f);
+            rot = dir * g.z;
+            return true;
+        }
+        if (body != null && state == State.CarryPie)
+        {
+            // kävellessä piirakka edessä vatsan korkeudella (vartalon päällä), kevyt keinunta askelten tahdissa
+            order = body.sortingOrder + 1;
+            hand = body.transform.position + new Vector3(dir * 0.75f, 2.0f + Mathf.Sin(animClock * 10f) * 0.04f, 0f);
+            rot = dir * 8f;
+            return true;
+        }
         if (body == null || (state != State.BottlePick && state != State.BottleThrow)
             || !ThrowPose.Punk.TryGetValue(BottleFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
         hand = body.transform.position + new Vector3(dir * g.hand.x, g.hand.y, 0f);
@@ -1724,7 +1806,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) secondHitDone = false;
         if (s != State.BarrelLift && s != State.BarrelThrow) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
-        if (s != State.BottlePick && s != State.BottleThrow && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
+        if (s != State.BottlePick && s != State.BottleThrow && s != State.CarryPie && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
@@ -2891,11 +2973,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         switch (state)
         {
-            case State.Windup: case State.Punch: case State.Recover: case State.Hurt: case State.Block: case State.Belly:
+            case State.Windup: case State.Punch: case State.Recover: case State.Hurt: case State.Block: case State.Belly: case State.PieHit:
                 return attackArtScale;
             case State.Airborne: case State.Down: case State.Dead: case State.GetUp: case State.Held: case State.Yanked:
                 return knockArtScale;
-            case State.Chase:
+            case State.Chase: case State.CarryPie:
                 return moving && Has(walkSprites) ? walkArtScale : 1f;
             default: return 1f;
         }
@@ -2964,6 +3046,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.Chase:
+            case State.CarryPie:
                 if (moving && running && Has(runSprites)) return runSprites[(int)(Time.time / runFrameTime) % runSprites.Length];
                 if (moving && Has(walkTalkSprites) && Time.time < talkUntil) return walkTalkSprites[(int)(animClock / walkFrameTime) % walkTalkSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
@@ -3013,6 +3096,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.BottlePick:
             case State.BottleThrow:
+                if (pieSeq && HasPieThrowArt) return pieThrowSprites[PieFrameIndex()];
                 if (HasBottleSprites) return bottleSprites[BottleFrame()];
                 return IdleFrame();
 
@@ -3067,6 +3151,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Yanked:
                 return YankFrame();
+
+            case State.PieHit:
+                {
+                    float acc = 0f;
+                    for (int i = 0; i < pieSprites.Length && i < pieTimes.Length; i++)
+                    {
+                        acc += pieTimes[i];
+                        if (stateTime < acc) return pieSprites[i];
+                    }
+                    return pieSprites[Mathf.Min(pieSprites.Length, pieTimes.Length) - 1];
+                }
 
             case State.Held:
                 if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
