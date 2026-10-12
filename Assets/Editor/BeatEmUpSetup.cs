@@ -4871,7 +4871,8 @@ public static class BeatEmUpSetup
             new Vector2(left + 2830f / ppu, DepthAt(540f)), new Vector2(left + 3830f / ppu, DepthAt(540f)),
             new Vector2(left + width, DepthAt(720f)) };
         bar.backScale = 1f;
-        bar.music = street.music; bar.ambience = street.ambience; bar.ambienceVolume = 0.2f;
+        var barMusic = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Aavikkobaari.mp3");   // bändin blues
+        bar.music = barMusic != null ? barMusic : street.music; bar.ambience = street.ambience; bar.ambienceVolume = barMusic != null ? 0.08f : 0.2f;
         foreach (var name in new[] { "Aavikkobaarin sisalto", "Aavikkokadulta baariin" })
         { var old = GameObject.Find(name); if (old != null) Undo.DestroyObjectImmediate(old); }
         var root = new GameObject("Aavikkobaarin sisalto");
