@@ -448,6 +448,7 @@ public class Bottle : MonoBehaviour
 
     void HoldInHand()
     {
+        if (holder is Component hc && hc != null && !hc.gameObject.activeInHierarchy) { holder = null; Drop(); return; }   // pitelijä poistui pelistä: putoaa
         if (holder == null || (holder is Object o && o == null)) { holder = null; Drop(); return; }
         // kädessä: kuva seuraa kättä joka framessa, kiertopiste (pullon keskiosa) kädessä
         if (!holder.BottleGrip(out Vector3 hand, out float r, out heldOrder)) return;   // käsi ei vielä ylety: lattialla

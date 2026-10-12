@@ -797,7 +797,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Herää heti (portsarit tulevat ovesta tappelun alkaessa).
     public void WakeUp() { awake = true; }
     public bool IsAwake => awake;
-    void OnDisable() { All.Remove(this); }
+    void OnDisable() { All.Remove(this); if (heldBottle != null) { heldBottle.Drop(); heldBottle = null; } }   // pois pelistä: kädessä oleva piirakka ei jää jumiin
 
     void Awake()
     {

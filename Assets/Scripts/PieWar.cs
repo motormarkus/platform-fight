@@ -13,6 +13,8 @@ using UnityEngine.InputSystem;
 public class PieWar : MonoBehaviour
 {
     public static bool Active;
+    /// Hero on Linseyn luona ja sota ei ole käynnissä: Linseyn puhe menee ostoskojun edelle.
+    public static bool LinseyPrompt;
     /// Piirakan osuma on käynnissä: sodan aikana vain se saa tehdä vahinkoa.
     public static bool PieDamage;
     static PieWar instance;
@@ -28,6 +30,11 @@ public class PieWar : MonoBehaviour
     readonly Dictionary<Enemy, int> hits = new Dictionary<Enemy, int>();
     readonly Dictionary<Enemy, Vector3> home = new Dictionary<Enemy, Vector3>();
     readonly HashSet<Enemy> gone = new HashSet<Enemy>();
+    // dinerin vihut: viitteet, kotipaikat ja piilotetut mallit (jos vihu on tuhoutunut, sodan alussa tehdään uusi mallista)
+    readonly List<Enemy> roster = new List<Enemy>();
+    readonly List<Vector3> rosterHome = new List<Vector3>();
+    readonly List<GameObject> rosterTemplate = new List<GameObject>();
+    bool captured;
     bool dialogOpen, ending, near;
     float fade, msgUntil;
     string msg = "";
@@ -76,7 +83,8 @@ public class PieWar : MonoBehaviour
     {
         if (hero == null) hero = FindFirstObjectByType<PlayerController>();
         if (hero == null || area == null) return;
-        if (Area.Current != area) { if (Active && !ending) AbortQuietly(); near = false; return; }
+        if (Area.Current != area) { if (Active && !ending) AbortQuietly(); near = false; LinseyPrompt = false; return; }
+        if (!captured) CaptureRoster();
         if (ending) return;
         if (dialogOpen)
         {
@@ -87,17 +95,42 @@ public class PieWar : MonoBehaviour
         near = !Active && linsey != null && !ShopCounter.IsOpen && !hero.Riding && hero.AirHeight <= 0.05f
             && Mathf.Abs(hero.transform.position.x - linsey.transform.position.x) <= 2.4f
             && Mathf.Abs(hero.transform.position.y - linsey.transform.position.y) <= 1.2f;
+        LinseyPrompt = near;
         if (near && Pressed()) { dialogOpen = true; oldScale = Time.timeScale; Time.timeScale = 0f; }
+    }
+
+    /// Tallentaa dinerin vihut ja piilotetut mallit ensimmäisellä kerralla, kun hero on dinerissä.
+    void CaptureRoster()
+    {
+        captured = true;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead || !e.isActiveAndEnabled) continue;
+            if (e.transform.position.x < area.walkMinX - 6f || e.transform.position.x > area.walkMaxX + 6f) continue;
+            var t = Instantiate(e.gameObject, transform);
+            t.name = e.gameObject.name + " (malli)";
+            t.SetActive(false);
+            roster.Add(e); rosterHome.Add(e.transform.position); rosterTemplate.Add(t);
+        }
     }
 
     void StartWar()
     {
         foes.Clear(); hits.Clear(); home.Clear(); gone.Clear();
-        foreach (var e in Enemy.All.ToArray())
+        // kaikki dinerin vihut mukaan: poissa olevat (pudotetut, kaadetut, tuhoutuneet) ilmestyvät takaisin peliin
+        for (int i = 0; i < roster.Count; i++)
         {
-            if (e == null || e.IsDead || !e.isActiveAndEnabled) continue;
-            if (e.transform.position.x < area.walkMinX - 6f || e.transform.position.x > area.walkMaxX + 6f) continue;
-            foes.Add(e); hits[e] = 0; home[e] = e.transform.position;
+            var e = roster[i];
+            if (e == null && rosterTemplate[i] != null)
+            {
+                var go = Instantiate(rosterTemplate[i]);
+                go.name = rosterTemplate[i].name.Replace(" (malli)", "");
+                e = go.GetComponent<Enemy>();
+                roster[i] = e;
+            }
+            if (e == null) continue;
+            e.WarReset(rosterHome[i]);
+            foes.Add(e); hits[e] = 0; home[e] = rosterHome[i];
             e.WarWake();
         }
         heroHits = 0;

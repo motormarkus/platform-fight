@@ -106,7 +106,8 @@ public class ShopCounter : MonoBehaviour
             near = !pc.GameOver && pc.enabled
                 && Mathf.Abs(p.x - transform.position.x) <= halfWidth
                 && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
-                && pc.AirHeight <= 0.05f;
+                && pc.AirHeight <= 0.05f
+                && !PieWar.LinseyPrompt;   // Linseyn puhe (piirakkasota) menee edelle, kun hän on lähellä
             if (near && Pressed(Btn.Open)) Open();
             return;
         }

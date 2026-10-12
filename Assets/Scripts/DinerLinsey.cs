@@ -50,6 +50,22 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
     static readonly float[] PickTimes = { 0.12f, 0.16f };
     static readonly float[] ThrowTimes = { 0.1f, 0.14f, 0.25f };   // kuvat 2, 3, 4: irti kuvan 4 alussa
 
+    float avoidMin, avoidMax; bool avoid;   // kaupan (Sohvin) edusta: ei pyöri siinä
+
+    void Start()
+    {
+        foreach (var sc in FindObjectsByType<ShopCounter>(FindObjectsSortMode.None))
+            if (sc != null && sc.here == area)
+            {
+                avoid = true;
+                avoidMin = sc.transform.position.x - sc.halfWidth - 1.5f;
+                avoidMax = sc.transform.position.x + sc.halfWidth + 1.5f;
+                break;
+            }
+    }
+
+    bool InAvoid(float x) => avoid && x >= avoidMin && x <= avoidMax;
+
     bool HasPieArt => pieThrow != null && pieThrow.Length >= 5 && pieGrips != null && pieGrips.Length >= 5;
 
     void OnEnable() { All.Add(this); }
@@ -326,9 +342,12 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
     void PickGoal()
     {
         goalIsCounter = counterXs != null && counterXs.Length > 0 && Random.value < counterChance;
-        float x;
-        if (goalIsCounter) x = counterXs[Random.Range(0, counterXs.Length)];
-        else x = Random.Range(laneMinX, laneMaxX);
+        float x = laneMinX;
+        for (int tries = 0; tries < 12; tries++)
+        {
+            x = goalIsCounter ? counterXs[Random.Range(0, counterXs.Length)] : Random.Range(laneMinX, laneMaxX);
+            if (!InAvoid(x)) break;   // ei pysähdy kaupan edustalle
+        }
         float y = goalIsCounter ? Limit(x) - 0.08f : Limit(x) - Random.Range(0.3f, 1.2f);
         goal = new Vector2(x, y);
         state = S.Walk; t = 0f;
