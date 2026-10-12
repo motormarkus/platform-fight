@@ -16,6 +16,8 @@ public class DinerTableRespawn : MonoBehaviour
     [Tooltip("Pöytä, joka on heitetty tätä kauemmas paikaltaan, korvataan uudella.")]
     public float movedDistance = 3f;
     public int maxTables = 10;
+    [Tooltip("Valinnainen oma malli paikkakohtaisesti (esim. pöytä ilman piirakkaa). Tyhjä = yhteinen malli.")]
+    public GameObject[] spotTemplates;
     public Vector3 templateOrigin;   // pöydän paikka mallissa
 
     Crate[] tables;
@@ -70,7 +72,8 @@ public class DinerTableRespawn : MonoBehaviour
 
     void Respawn(int i)
     {
-        var g = Instantiate(template, spots[i] - templateOrigin, Quaternion.identity, transform);
+        var tpl = spotTemplates != null && i < spotTemplates.Length && spotTemplates[i] != null ? spotTemplates[i] : template;
+        var g = Instantiate(tpl, spots[i] - templateOrigin, Quaternion.identity, transform);
         g.name = "Uusi pöytäryhmä";
         g.SetActive(true);
         tables[i] = null;

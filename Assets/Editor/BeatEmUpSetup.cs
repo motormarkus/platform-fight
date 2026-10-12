@@ -8742,6 +8742,21 @@ public static class BeatEmUpSetup
         if (table == null) return null;
         var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
         float top = 1.28f * TableScale - 0.04f;
+        if (pies == 0)
+        {
+            // tavallinen ruokapöytä: kaksi aamiaisannosta ja oluet, ei piirakoita
+            foreach (float x in new[] { -0.62f, 0.62f })
+            {
+                var dGo = new GameObject("Aamiaisannos");
+                dGo.transform.SetParent(parent, false);
+                dGo.transform.position = table.transform.position;
+                var df = dGo.AddComponent<FishPlate>();
+                df.spriteSet = "Aamiainen"; df.countMul = 0.35f;
+                df.table = table; df.tableX = x * TableScale; df.tableTop = top + 0.04f;
+                df.breakSounds = plateSnd;
+            }
+            return table;
+        }
         if (pies > 1)
         {
             // piirakkapöytä: vain piirakoita (3 kpl vierekkäin)
@@ -8784,8 +8799,20 @@ public static class BeatEmUpSetup
         var snookerSet = new GameObject("Snookerin piirakkapöytä");
         snookerSet.transform.SetParent(holder.transform, false);
         BuildDinerTableSet(snookerSet.transform, snookerTable, 88, 3);
+        // lisäpöydät vasempaan reunaan: annoksia ja oluita, ei piirakoita
+        Vector3 left1 = new Vector3(left + 170f / ppu, -2.5f, 0f), left2 = new Vector3(left + 830f / ppu, -3.8f, 0f);
+        var leftSet = new GameObject("Vasemman reunan pöydät");
+        leftSet.transform.SetParent(holder.transform, false);
+        BuildDinerTableSet(leftSet.transform, left1, 91, 0);
+        BuildDinerTableSet(leftSet.transform, left2, 92, 0);
+        // oma malli ilman piirakkaa (uusiutuvat pöydät)
+        var plainGroup = new GameObject("Pöytäryhmän malli (annokset)");
+        plainGroup.transform.SetParent(holder.transform, false);
+        BuildDinerTableSet(plainGroup.transform, origin, 78, 0);
+        plainGroup.SetActive(false);
         rs.spots = new[] { new Vector3(left + 520f / ppu, -3.1f, 0f), new Vector3(left + 1150f / ppu, -2.5f, 0f),
-                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f), snookerTable };
+                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f), snookerTable, left1, left2 };
+        rs.spotTemplates = new GameObject[] { null, null, null, null, null, plainGroup, plainGroup };
         EditorSceneManager.MarkSceneDirty(holder.scene);
         Info("Dinerin pöydät uusiutuvat: kun pöytä on rikki tai heitetty kauas, samaan paikkaan tulee 6 sekunnin päästä uusi pöytä annoksineen, piirakkoineen, oluineen ja tuoleineen (enintään 10 pöytää kerrallaan).\n\nTallenna scene (Ctrl+S).");
     }
@@ -8803,13 +8830,16 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Dinerin vihut");
         const float left = 90000f; float ppu = 941f / 12f;
         // paikat kuvapikseleinä (x) ja syvyys (y): pöytien väleissä lattialla
-        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f), new Vector2(3000f, -3.7f) };
-        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null, MakeRocker(root.transform) };
+        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f), new Vector2(3000f, -3.7f), new Vector2(420f, -3.6f), new Vector2(1250f, -1.7f) };
+        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null, MakeRocker(root.transform), MakeBiker(root.transform), null };
         if (puliTemplate != null)
         {
             var clone = Object.Instantiate(puliTemplate.gameObject, root.transform);
             clone.name = "Dinerin puliukko";
             foes[3] = clone.GetComponent<Enemy>();
+            var clone2 = Object.Instantiate(puliTemplate.gameObject, root.transform);
+            clone2.name = "Dinerin puliukko 2";
+            foes[6] = clone2.GetComponent<Enemy>();
         }
         int n = 0;
         for (int i = 0; i < foes.Count; i++)
@@ -8821,6 +8851,9 @@ public static class BeatEmUpSetup
             e.wakeDistance = 12f;
             e.joinsFightWhenSquadComes = false;
             if (i == 4) { e.pieOnly = true; e.gameObject.name = "Dinerin piirakkarokkimimmi"; }   // heittelee piirakoita aina, myös ilman sotaa
+            // motoristit ja puliukot tappelevat välillä keskenään (kaksi motoristia eri ryhmissä: he lyövät toisiaankin; puliukot mätkivät kaikkia)
+            if (i == 2 || i == 5) { e.brawlsWithOthers = true; e.brawlGroup = i == 2 ? "motoristi" : "motoristi2"; }
+            if (i == 3 || i == 6) { e.brawlsWithOthers = true; e.brawlGroup = ""; }
             e.gameObject.SetActive(true);
             n++;
         }
@@ -8838,7 +8871,7 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(war.counter);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Dineriin " + n + " vihua (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
+        Info("Dineriin " + n + " vihua (Rusty, 2 rokkimimmiä, 2 motoristia, 2 puliukkoa) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
              + "\nPiirakkasota: mene Linseyn luo ja paina E. Aja sen jälkeen 105, niin vihut saavat piirakkakuvat.\n\nTallenna scene (Ctrl+S).");
     }
 
