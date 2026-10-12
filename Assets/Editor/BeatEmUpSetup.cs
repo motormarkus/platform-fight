@@ -5248,13 +5248,25 @@ public static class BeatEmUpSetup
             Add(pc.GetComponent<Enemy>(), "Baarin puliukko", 1700f, -2.7f, 1, 140f);
         }
         else names.Add("(puliukko puuttuu: aja 1-2 vihujen kohdat)");
-        // alalattialle käppäilemään kaksi Kovista ja kaksi punkkaria (punkkari heittää pikkutavaraa)
-        foreach (var (who, px, y) in new[] { ("Kovis", 700f, -5.4f), ("Punkkari", 1500f, -5.6f), ("Kovis", 2900f, -5.3f), ("Punkkari", 3700f, -5.5f) })
+        if (puli != null)
         {
-            var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
-            if (tmpl == null) { names.Add("(" + who + " puuttuu)"); continue; }
-            var cgo = Object.Instantiate(tmpl.gameObject, root.transform);
-            Add(cgo.GetComponent<Enemy>(), "Baarin " + who + " (alalattia) " + (int)px, px, y, px < 2000f ? 1 : -1, 260f);
+            var pc2 = Object.Instantiate(puli.gameObject, root.transform);
+            Add(pc2.GetComponent<Enemy>(), "Baarin puliukko 2", 2900f, -4.2f, -1, 180f);   // toinen puliukko alalattialle
+        }
+        // alalattialle käppäilemään kaksi Kovista ja kaksi punkkaria (punkkari heittää pikkutavaraa)
+        foreach (var (who, px, y) in new[] { ("Kovis", 700f, -5.4f), ("Punkkari", 1500f, -5.6f), ("Kovis", 2900f, -5.3f), ("Punkkari", 3700f, -5.5f),
+            ("Prätkäjätkä", 1000f, -4.6f), ("Rokkimimmi tappelija", 2200f, -5.9f), ("Lippis", 2600f, -4.7f), ("Punkkari", 3300f, -6.1f), ("Kovis", 400f, -6.0f) })
+        {
+            Enemy made = null;
+            if (who == "Rokkimimmi tappelija") made = MakeRocker(root.transform);
+            else if (who == "Prätkäjätkä") made = MakeBiker(root.transform);
+            else
+            {
+                var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
+                if (tmpl != null) made = Object.Instantiate(tmpl.gameObject, root.transform).GetComponent<Enemy>();
+            }
+            if (made == null) { names.Add("(" + who + " puuttuu)"); continue; }
+            Add(made, "Baarin " + who + " (alalattia) " + (int)px, px, y, px < 2000f ? 1 : -1, 260f);
         }
         // rekkamies (tehty kohdassa 115): siirretään baarin oikeaan päätyyn lavan viereen
         var trucker = GameObject.Find("Rekkamies");
@@ -5301,20 +5313,20 @@ public static class BeatEmUpSetup
             sgo.transform.SetParent(root.transform, false);
             squad = sgo.AddComponent<BouncerSquad>();
             squad.area = bar; squad.bothSides = false; squad.firstDelay = 1.2f; squad.spawnInterval = 1.0f;
-            squad.waves = new[] { 2, 1 }; squad.waveNextAt = 1;
-            squad.bouncers = new Enemy[3];
+            squad.waves = new[] { 3, 2 }; squad.waveNextAt = 1;
+            squad.bouncers = new Enemy[5];
             float doorX = X(805f);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 var bgo = Object.Instantiate(bouncerT.gameObject, sgo.transform);
                 bgo.name = "Baarin portsari " + (i + 1);
                 var be = bgo.GetComponent<Enemy>();
                 be.wakeDistance = 100f; be.joinsFightWhenSquadComes = false; be.fightsEveryone = true;
-                bgo.transform.position = new Vector3(doorX + (i - 1) * 0.9f, bar.MaxDepthAtX(doorX, bar.maxDepthY) - 0.5f - i * 0.25f, 0f);
+                bgo.transform.position = new Vector3(doorX + (i - 2) * 0.9f, bar.MaxDepthAtX(doorX, bar.maxDepthY) - 0.5f - (i % 3) * 0.3f, 0f);
                 bgo.SetActive(false);
                 squad.bouncers[i] = be;
             }
-            bouncerInfo = "3 portsaria tulee sisäovelta";
+            bouncerInfo = "5 portsaria tulee sisäovelta (3 + 2)";
         }
         var brawl = root.AddComponent<BarBrawl>();
         brawl.members = members.ToArray();
