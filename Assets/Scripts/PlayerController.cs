@@ -2971,7 +2971,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         heldEnemy = e;
         counterReleased = false;
-        monkeyFlip = e.bigBody && HasMonkeyFlip;   // isot vastukset kuperkeikalla, muut niskalenkillä
+        monkeyFlip = (e.bigBody || (e.HasFlipArt && !e.HasHeadlockArt)) && HasMonkeyFlip;   // isot vastukset (ja ne, joilla on oma kuperkeikkasarja mutta ei niskalenkkikuvia, esim. Rusty) kuperkeikalla, muut niskalenkillä
         kneeMode = !monkeyFlip && HasKnee && e.HasKneeArt;   // Skettari: polvi päähän
         kneeHit = false; kneeHit2 = false;
         heldArt = e.HasArtFor(monkeyFlip);
