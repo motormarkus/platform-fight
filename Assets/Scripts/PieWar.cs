@@ -84,7 +84,7 @@ public class PieWar : MonoBehaviour
             else if (No()) { dialogOpen = false; Time.timeScale = oldScale; }
             return;
         }
-        near = linsey != null && !ShopCounter.IsOpen && !hero.Riding && hero.AirHeight <= 0.05f
+        near = !Active && linsey != null && !ShopCounter.IsOpen && !hero.Riding && hero.AirHeight <= 0.05f
             && Mathf.Abs(hero.transform.position.x - linsey.transform.position.x) <= 2.4f
             && Mathf.Abs(hero.transform.position.y - linsey.transform.position.y) <= 1.2f;
         if (near && Pressed()) { dialogOpen = true; oldScale = Time.timeScale; Time.timeScale = 0f; }
