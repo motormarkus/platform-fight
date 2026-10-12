@@ -1,16 +1,21 @@
 using UnityEngine;
 
 /// <summary>
-/// Elaine, baarin asiakas: ei taistelija eikä lyötävissä. Seisoskelee (idle), kävelee lattialla, pysähtyy välillä tiskille
+/// Baarin asiakas (Elaine ja Shanice): ei taistelija eikä lyötävissä. Seisoskelee (idle), kävelee lattialla, pysähtyy välillä tiskille
 /// (kääntyy tiskiä kohti, nojaa siihen, kääntyy takaisin) ja menee välillä lavan eteen tanssimaan.
+/// Jos partner ja puhekuvat on annettu, hän käy välillä juttelemassa partnerin vieressä (partner kuuntelee idlessä).
 /// Kuvat katsovat oikealle; vasemmalle kuva peilataan. Toimii vain, kun hänen alueensa on aktiivinen.
 /// </summary>
 public class BarElaine : MonoBehaviour
 {
     public Area area;
     public SpriteRenderer body, shadow;
-    public Sprite[] idle, walk, toCounter, atCounter, dance;
-    public float idleFrameTime = 0.208f, walkFrameTime = 0.073f, toCounterFrameTime = 0.083f, atCounterFrameTime = 0.167f, danceFrameTime = 0.15f;
+    public Sprite[] idle, walk, toCounter, atCounter, dance, talk;
+    [Tooltip("Tanssi toistetaan edestakaisin (kun kuvasarja ei ole silmukka).")]
+    public bool dancePingPong;
+    [Tooltip("Hän, jonka luo juttelemaan mennään.")]
+    public BarElaine partner;
+    public float idleFrameTime = 0.208f, walkFrameTime = 0.073f, toCounterFrameTime = 0.083f, atCounterFrameTime = 0.167f, danceFrameTime = 0.15f, talkFrameTime = 0.125f;
     public float speed = 1.5f;
     [Tooltip("Lattian kävelyalue (x).")]
     public float laneMinX, laneMaxX;
@@ -20,13 +25,13 @@ public class BarElaine : MonoBehaviour
     public Vector2 danceX, danceY;
     public Vector2 waitRange = new Vector2(2f, 6f);
     public Vector2 counterStay = new Vector2(7f, 14f);
-    public Vector2 danceTime = new Vector2(10f, 22f);
-    [Range(0f, 1f)] public float counterChance = 0.3f, danceChance = 0.35f;
+    public Vector2 danceTime = new Vector2(10f, 22f), talkTime = new Vector2(8f, 16f);
+    [Range(0f, 1f)] public float counterChance = 0.3f, danceChance = 0.35f, talkChance = 0f;
 
-    enum S { Idle, Walk, ToCounter, AtCounter, FromCounter, Dance }
+    enum S { Idle, Walk, ToCounter, AtCounter, FromCounter, Dance, Talk }
     S state = S.Idle;
     float t, wait;
-    Vector2 goal; bool goalIsCounter, goalIsDance;
+    Vector2 goal; bool goalIsCounter, goalIsDance, goalIsTalk;
     bool flipped;
     float danceLeft;
 
@@ -35,7 +40,7 @@ public class BarElaine : MonoBehaviour
         if (body == null) body = GetComponentInChildren<SpriteRenderer>();
         PlayerController.SortByFrameNumber(idle); PlayerController.SortByFrameNumber(walk);
         PlayerController.SortByFrameNumber(toCounter); PlayerController.SortByFrameNumber(atCounter);
-        PlayerController.SortByFrameNumber(dance);
+        PlayerController.SortByFrameNumber(dance); PlayerController.SortByFrameNumber(talk);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         wait = Random.Range(waitRange.x, waitRange.y);
     }
@@ -61,6 +66,7 @@ public class BarElaine : MonoBehaviour
                 {
                     if (goalIsCounter && Has(toCounter)) { state = S.ToCounter; t = 0f; }
                     else if (goalIsDance && Has(dance)) { state = S.Dance; t = 0f; danceLeft = Random.Range(danceTime.x, danceTime.y); flipped = false; }
+                    else if (goalIsTalk && Has(talk) && partner != null) { state = S.Talk; t = 0f; danceLeft = Random.Range(talkTime.x, talkTime.y); }
                     else { state = S.Idle; t = 0f; wait = Random.Range(waitRange.x, waitRange.y); }
                 }
                 Show(walk, walkFrameTime);
@@ -88,8 +94,20 @@ public class BarElaine : MonoBehaviour
                 break;
             }
 
+            case S.Talk:
+                if (partner != null) flipped = partner.transform.position.x < p.x;
+                Show(talk, talkFrameTime);
+                danceLeft -= dt;
+                if (danceLeft <= 0f) { state = S.Idle; t = 0f; wait = Random.Range(waitRange.x, waitRange.y); }
+                break;
+
             case S.Dance:
-                Show(dance, danceFrameTime);
+                if (dancePingPong && dance.Length > 1)
+                {
+                    int cycle = 2 * dance.Length - 2, k = (int)(t / danceFrameTime) % cycle;
+                    body.sprite = dance[k < dance.Length ? k : cycle - k];
+                }
+                else Show(dance, danceFrameTime);
                 danceLeft -= dt;
                 if (danceLeft <= 0f) { state = S.Idle; t = 0f; wait = Random.Range(waitRange.x, waitRange.y); }
                 break;
@@ -119,8 +137,10 @@ public class BarElaine : MonoBehaviour
         float r = Random.value;
         goalIsCounter = counterXs != null && counterXs.Length > 0 && r < counterChance;
         goalIsDance = !goalIsCounter && Has(dance) && r < counterChance + danceChance;
+        goalIsTalk = !goalIsCounter && !goalIsDance && partner != null && Has(talk) && r < counterChance + danceChance + talkChance;
         float x, y;
         if (goalIsCounter) { x = counterXs[Random.Range(0, counterXs.Length)]; y = Limit(x) - 0.08f; }
+        else if (goalIsTalk) { Vector3 pp = partner.transform.position; x = pp.x + (Random.value < 0.5f ? -1.4f : 1.4f); y = pp.y; }
         else if (goalIsDance) { x = Random.Range(danceX.x, danceX.y); y = Random.Range(danceY.x, danceY.y); }
         else { x = Random.Range(laneMinX, laneMaxX); y = Limit(x) - Random.Range(0.3f, 1.2f); }
         goal = new Vector2(x, y);
