@@ -47,6 +47,12 @@ public class PieWar : MonoBehaviour
 
     // ---------------- osumat ----------------
 
+    /// Onko vihu mukana sodassa ja vielä pelissä (toiset vihut voivat valita sen maaliksi).
+    public static bool IsFoe(Enemy e)
+    {
+        return Active && instance != null && e != null && instance.foes.Contains(e) && !instance.gone.Contains(e);
+    }
+
     public static void OnEnemyHit(Enemy e)
     {
         if (!Active || instance == null || e == null) return;

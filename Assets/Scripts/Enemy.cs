@@ -1046,6 +1046,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     if (heldBottle == null) { Enter(State.Idle); break; }
                     // piirakka: kävelee sen kanssa pelaajaa kohti ja heittää vasta lähempää
+                    if (heldBottle.pie) ChooseWarTarget();
                     Enter(heldBottle.pie ? State.CarryPie : State.BottleThrow);
                 }
                 break;
@@ -1058,7 +1059,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 // tähtäys: kääntyy pelaajaan ja hakeutuu samalle syvyydelle vedon aikana
                 if (!bottleThrown && player != null)
                 {
-                    facingRight = player.transform.position.x > transform.position.x;
+                    facingRight = TargetPos().x > transform.position.x;
                 }
                 if (!bottleThrown && stateTime >= ThrowPose.Start(pieSeq ? PieThrowTimes : ThrowPose.PunkThrowTimes, pieSeq ? 2 : ThrowPose.ReleaseIndex))
                 {
@@ -1705,10 +1706,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Piirakka kädessä: kävelee pelaajaa kohti tavallisilla kävelykuvilla (piirakka piirretään käden paikkaan) ja heittää, kun on kohdalla.
+    Enemy warFoe;   // piirakkasodassa joskus toinen vihu on heron sijasta maalina
+
+    /// Piirakkasota: puolet heitoista menee toiselle vihulle, puolet heroon.
+    void ChooseWarTarget()
+    {
+        warFoe = null;
+        if (!PieWar.Active || Random.value >= 0.5f) return;
+        var cands = new List<Enemy>();
+        foreach (var e in All) if (e != null && e != this && !e.IsDead && e.isActiveAndEnabled && PieWar.IsFoe(e)) cands.Add(e);
+        if (cands.Count > 0) warFoe = cands[Random.Range(0, cands.Count)];
+    }
+
+    Vector3 TargetPos()
+    {
+        if (warFoe != null && !warFoe.IsDead && warFoe.isActiveAndEnabled && PieWar.IsFoe(warFoe)) return warFoe.transform.position;
+        return player.transform.position;
+    }
+
     void UpdateCarryPie(float dt)
     {
         if (heldBottle == null || player == null) { Enter(State.Chase); return; }
-        Vector3 me = transform.position, hp = player.transform.position;
+        Vector3 me = transform.position, hp = TargetPos();
         float dx = hp.x - me.x, dy = hp.y - me.y, dist = Mathf.Abs(dx);
         facingRight = dx > 0f;
         bool aligned = Mathf.Abs(dy) < depthTolerance + 0.1f;

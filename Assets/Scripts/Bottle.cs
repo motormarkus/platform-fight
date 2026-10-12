@@ -306,8 +306,18 @@ public class Bottle : MonoBehaviour
                 if (!keepDebris && t > 1.6f) Destroy(gameObject);
                 break;
         }
+        if (pie)
+        {
+            // vahtikoira: ehjänä näkyvä piirakka ei saa jäädä jumiin tilaan, josta sitä ei voi nostaa: läsähtää
+            bool ok = state == S.Lying || state == S.Breaking || state == S.Thrown || state == S.Falling
+                || (state == S.Held && (gripped || t < 3f)) || ((state == S.OnTable || state == S.Wobble) && table != null);
+            stuckT = ok ? 0f : stuckT + dt;
+            if (stuckT > 1.5f) { table = null; stuckT = 0f; Shatter(); }
+        }
         ApplyVisual();
     }
+
+    float stuckT;
 
     /// Pöytää lyötiin: lentää, kaatuu ja tippuu tai jää heilumaan.
     /// Potku pöytään (tai pöytä hajoaa rajusti): pullo lentää ilmaan potkun suuntaan.
@@ -355,6 +365,29 @@ public class Bottle : MonoBehaviour
                 hitList.Add(lin);
                 if (lin.PieHit(me.x - Mathf.Sign(vx))) { HitFx.OnHit(false); pieVanish = true; return true; }
             }
+        if (enemyThrow && pie && PieWar.Active)
+        {
+            // piirakkasota: vihun heittämä piirakka osuu myös toiseen vihuun
+            foreach (var foe in Enemy.All.ToArray())
+            {
+                if (foe == null || foe == thrownBy || foe.IsDead || !foe.isActiveAndEnabled || hitList.Contains(foe)) continue;
+                Vector3 fq = foe.transform.position;
+                if (Mathf.Abs(fq.x - me.x) > 0.7f || Mathf.Abs(fq.y - me.y) > 0.5f || height > 3.6f) continue;
+                hitList.Add(foe);
+                if (foe.HasPieArt)
+                {
+                    int fr = foe.PieHit(throwDamage, me.x - Mathf.Sign(vx));
+                    if (fr == 0) continue;
+                    HitFx.OnHit(true);
+                    pieVanish = fr == 1;
+                    return true;
+                }
+                PieWar.PieDamage = true;
+                bool fh = foe.TakeHit(throwDamage, me.x - Mathf.Sign(vx), false);
+                PieWar.PieDamage = false;
+                if (fh) { PieWar.OnEnemyHit(foe); HitFx.OnHit(true); return true; }
+            }
+        }
         if (enemyThrow)
         {
             // vihun heittämä: osuu vain heroon
