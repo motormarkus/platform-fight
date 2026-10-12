@@ -6161,7 +6161,7 @@ public static class BeatEmUpSetup
         if (e.hurtSounds.Length == 0) { e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f; }
         e.attackSounds = LoadClips("Assets/Audio/motoristi", "hit"); e.attackVolume = 0.9f; e.attackSoundChance = 0.8f;
         e.fallVoice = LoadClips("Assets/Audio/motoristi", "fall").FirstOrDefault(); e.fallVoiceVolume = 1f;
-        e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus"); e.altWindupVolume = db3;
+        e.altWindupSounds = LoadClips("Assets/Audio/motoristi", "lataus"); e.altWindupVolume = 1f;   // tasattu heron tasolle tiedostossa
         e.tauntSounds = LoadClips("Assets/Audio/motoristi", "speak"); e.tauntVolume = db3; e.tauntNoRepeat = true;
         e.tauntPause = new Vector2(10f, 20f); e.tauntMinDistance = 5f; e.tauntOnWakeChance = 0.5f;
     }
