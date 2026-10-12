@@ -5074,6 +5074,7 @@ public static class BeatEmUpSetup
             SetupAndSlice(path);
         }
         var report = new List<string>();
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         var calm = EnemySheet("rekkamies_calm", report);
         var fight = EnemySheet("rekkamies_taistelu", report);
         var run = EnemySheet("rekkamies_juoksu", report);
@@ -5139,6 +5140,15 @@ public static class BeatEmUpSetup
         t.blockChance = 0.35f; t.maxBlocksInRow = 2;
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 1f;
         t.bigBody = true; t.wakeDistance = 10f; t.fightsEveryone = true;
+        // taisteluäänet samat kuin Koviksella: kopioidaan Koviksen ääniasetukset, muuten big thug -kansion äänet
+        var kovis = all.FirstOrDefault(en => en != null && en.gameObject.name == "Kovis");
+        t.punch3WindupSounds = LoadClips("Assets/Audio/big thug", "haymaker_lataus"); t.punch3SwingSounds = LoadClips("Assets/Audio/big thug", "haymaker_isku");
+        if (kovis != null)
+            foreach (var fn in new[] { "hurtSounds", "hurtVolume", "attackSounds", "attackVolume", "attackSoundChance", "fallVoice", "fallVoiceVolume", "getUpVoice", "deathVoice", "deathVoiceVolume", "launchVoice", "launchVoiceVolume", "punch3WindupSounds", "punch3SwingSounds", "punch3Volume", "altSwingSounds", "altWindupSounds", "altWindupVolume", "slapSounds", "tauntSounds" })
+            {
+                var fi = typeof(Enemy).GetField(fn);
+                if (fi != null) fi.SetValue(t, fi.GetValue(kovis));
+            }
         t.flankChance = 0.15f; t.retreatChance = 0f;
         float x = bar != null ? bar.walkMinX + 18f : 0f;
         go.transform.position = new Vector3(x, -2.6f, 0f);
@@ -5193,9 +5203,10 @@ public static class BeatEmUpSetup
         if (tEnemy != null)
         {
             Undo.RecordObject(tEnemy, "Rekkamies baariin");
-            tEnemy.transform.position = new Vector3(X(3600f), -2.0f, 0f);
+            // tanssii Elainen kanssa tanssilattialla (rauhallinen idle = hänen tanssinsa), kunnes tappelu alkaa
+            tEnemy.transform.position = new Vector3(X(3450f), -2.2f, 0f);
             tEnemy.wakeDistance = -1f; tEnemy.joinsFightWhenSquadComes = false;
-            tEnemy.wanderMinX = X(3450f); tEnemy.wanderMaxX = X(3750f); tEnemy.idleFacing = -1;
+            tEnemy.wanderMinX = tEnemy.wanderMaxX = 0f; tEnemy.idleFacing = -1;
             members.Add(tEnemy); names.Add("rekkamies");
         }
         else names.Add("(rekkamies puuttuu: aja 115 ja sitten tämä uudelleen)");
@@ -5249,10 +5260,34 @@ public static class BeatEmUpSetup
         var brawl = root.AddComponent<BarBrawl>();
         brawl.members = members.ToArray();
         brawl.area = bar; brawl.autoStartSeconds = 120f; brawl.squad = squad;
+        // Elaine tanssii tanssilattialla Rekkamiehen kanssa, kunnes tappelu alkaa
+        var elaineGo = GameObject.Find("Elaine"); var shaniceGo = GameObject.Find("Shanice");
+        var elaineC = elaineGo != null ? elaineGo.GetComponent<BarElaine>() : null;
+        var shaniceC = shaniceGo != null ? shaniceGo.GetComponent<BarElaine>() : null;
+        if (elaineC != null)
+        {
+            Undo.RecordObject(elaineC, "Elaine tanssii"); Undo.RecordObject(elaineGo.transform, "Elaine tanssii");
+            elaineGo.transform.position = new Vector3(X(3250f), -2.2f, 0f);
+            elaineC.stayDancing = true; elaineC.brawl = brawl;
+            EditorUtility.SetDirty(elaineC);
+        }
+        // Rekkamiehen puheet (Assets/Audio/rekkamies)
+        if (tEnemy != null)
+        {
+            var oldV = tEnemy.GetComponent<RekkamiesVoice>();
+            var voice = oldV != null ? oldV : Undo.AddComponent<RekkamiesVoice>(tEnemy.gameObject);
+            Undo.RecordObject(voice, "Rekkamiehen puhe");
+            voice.enemy = tEnemy; voice.area = bar; voice.brawl = brawl; voice.elaine = elaineC; voice.shanice = shaniceC;
+            voice.speak = LoadClips("Assets/Audio/rekkamies", "puhe");
+            voice.speakShanice = LoadClips("Assets/Audio/rekkamies", "shanice");
+            voice.danceTalk = LoadClips("Assets/Audio/rekkamies", "tanssilattialla");
+            EditorUtility.SetDirty(voice);
+            names.Add("puheet: " + voice.speak.Length + " yleistä, " + voice.speakShanice.Length + " Shanicelle, " + voice.danceTalk.Length + " tanssilattialla");
+        }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Aavikkobaarin väki: " + string.Join(", ", names) + ".\n" + shopInfo + ". " + bouncerInfo + ".\n"
              + "Kukaan ei aloita tappelua itse: se syttyy, kun joku saa osuman tai kun hero on ollut baarissa 2 minuuttia. Silloin kaikki heräävät ja portsarit tulevat.\n"
-             + "Elaine ja Shanice (112, 114) pysyvät baarissa ei-taistelijoina.\n\nTallenna scene (Ctrl+S).");
+             + "Elaine tanssii tanssilattialla Rekkamiehen kanssa, kunnes tappelu alkaa. Shanice (114) kävelee ja juttelee ei-taistelijana.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]

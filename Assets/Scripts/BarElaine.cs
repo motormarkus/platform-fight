@@ -11,6 +11,9 @@ public class BarElaine : MonoBehaviour
     public Area area;
     public SpriteRenderer body, shadow;
     public Sprite[] idle, walk, toCounter, atCounter, dance, talk;
+    [Tooltip("Tanssii paikallaan (tanssilattialla) koko ajan, kunnes tappelu alkaa (brawl.Started).")]
+    public bool stayDancing;
+    public BarBrawl brawl;
     [Tooltip("Tanssi toistetaan edestakaisin (kun kuvasarja ei ole silmukka).")]
     public bool dancePingPong;
     [Tooltip("Hän, jonka luo juttelemaan mennään.")]
@@ -53,6 +56,21 @@ public class BarElaine : MonoBehaviour
         if (body == null || (area != null && Area.Current != area)) return;
         float dt = Time.deltaTime; t += dt;
         Vector3 p = transform.position;
+        if (stayDancing && Has(dance) && (brawl == null || !brawl.Started))
+        {
+            // tanssii Elainen tapaan paikallaan, kunnes tappelu alkaa
+            state = S.Idle; flipped = false; wait = Random.Range(waitRange.x, waitRange.y);
+            if (dancePingPong && dance.Length > 1)
+            {
+                int cyc = 2 * dance.Length - 2, kk = (int)(t / danceFrameTime) % cyc;
+                body.sprite = dance[kk < dance.Length ? kk : cyc - kk];
+            }
+            else body.sprite = dance[(int)(t / danceFrameTime) % dance.Length];
+            body.flipX = false;
+            body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f);
+            if (shadow != null) shadow.sortingOrder = body.sortingOrder - 1;
+            return;
+        }
         switch (state)
         {
             case S.Idle:
