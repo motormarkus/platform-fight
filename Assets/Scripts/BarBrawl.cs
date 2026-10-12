@@ -7,6 +7,13 @@ using UnityEngine;
 public class BarBrawl : MonoBehaviour
 {
     public Enemy[] members;
+    [Tooltip("Alue, jossa tappelu on (aikalaskuri käy vain, kun hero on tällä alueella).")]
+    public Area area;
+    [Tooltip("Tappelu syttyy itsestään, kun hero on ollut alueella näin monta sekuntia ilman että kukaan on lyönyt (0 = ei käytössä).")]
+    public float autoStartSeconds = 0f;
+    [Tooltip("Portsarit: lähtevät liikkeelle heti, kun tappelu alkaa.")]
+    public BouncerSquad squad;
+    float timeInArea;
     [Header("Portsari (vartioi ovella, liittyy tappeluun)")]
     public Enemy guard;
     public Sprite[] guardFightIdle;
@@ -23,6 +30,11 @@ public class BarBrawl : MonoBehaviour
     {
         if (!started)
         {
+            if (autoStartSeconds > 0f && area != null && Area.Current == area)
+            {
+                timeInArea += Time.deltaTime;
+                if (timeInArea >= autoStartSeconds) { Begin(); return; }
+            }
             foreach (var e in members)
             {
                 if (e == null || !e.isActiveAndEnabled) continue;
@@ -43,6 +55,7 @@ public class BarBrawl : MonoBehaviour
         foreach (var e in members) if (e != null && e.isActiveAndEnabled) e.WakeUp();
         if (guard != null) guardT = 0f;
         if (latecomers != null) latecomers.Begin();
+        if (squad != null) squad.forceFight = true;
     }
 
     void GuardJoins()

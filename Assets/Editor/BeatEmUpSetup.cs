@@ -5140,6 +5140,114 @@ Tallenna scene (Ctrl+S).");
         Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Rauhallinen idle, kamppailuasento, kombot (jab, suora, etupotku, korkea potku, alakoukku), osuma, kaatuminen ja ylösnousu sekä juoksu ja torjumaton olkataklaus (hyppy väistää). Tappelee kaikkien kanssa, 520 elämää.\nPuuttuu vielä: torjunta. Alakoukku lennättää heron kattoon ja muut vihut ruudun yläreunaan (kevyet yli ruudun).\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/116. Aavikkobaari: väki (3 motoristia, 3 rokkimimmiä, 2 Rustya, puliukko, rekkamies), Sohvi ja tiski, tappelu 2 min jälkeen")]
+    static void AddDesertBarCrowd()
+    {
+        var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        if (bar == null) { Info("Tee ensin Aavikkobaari (110)."); return; }
+        var old = GameObject.Find("Aavikkobaarin tappelu");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var root = new GameObject("Aavikkobaarin tappelu");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin tappelu");
+        const float left = 91000f, centerY = 1.4f; float ppu = 941f / 12f;
+        float X(float px) => left + px / ppu;
+        var members = new List<Enemy>();
+        var names = new List<string>();
+        // väki odottaa rauhallisena (ei heräämistä läheisyydestä): herää, kun joku saa osuman tai 2 min on kulunut
+        void Add(Enemy e, string label, float px, float y, int facing, float wander)
+        {
+            if (e == null) return;
+            e.gameObject.name = label;
+            e.transform.position = new Vector3(X(px), y, 0f);
+            e.wakeDistance = -1f; e.joinsFightWhenSquadComes = false; e.huntsBrawlers = true;
+            e.wanderMinX = X(px - wander); e.wanderMaxX = X(px + wander); e.idleFacing = facing;
+            e.gameObject.SetActive(true);
+            members.Add(e); names.Add(label);
+        }
+        Add(MakeBiker(root.transform), "Baarin motoristi 1", 900f, -2.4f, 1, 160f);
+        Add(MakeBiker(root.transform), "Baarin motoristi 2", 1550f, -1.6f, -1, 120f);
+        Add(MakeBiker(root.transform), "Baarin motoristi 3", 2050f, -1.7f, 1, 120f);
+        Add(MakeRocker(root.transform), "Baarin rokkimimmi 1", 420f, -2.0f, 1, 100f);
+        Add(MakeRocker(root.transform), "Baarin rokkimimmi 2", 1300f, -2.9f, -1, 140f);
+        Add(MakeRocker(root.transform), "Baarin rokkimimmi 3", 3300f, -2.2f, -1, 160f);
+        Add(MakeRusty(root.transform), "Baarin Rusty 1", 2250f, -2.5f, -1, 140f);
+        Add(MakeRusty(root.transform), "Baarin Rusty 2", 3900f, -1.5f, -1, 100f);
+        var puli = all.FirstOrDefault(en => en != null && en.gameObject.name == "Puliukko");
+        if (puli != null)
+        {
+            var pc = Object.Instantiate(puli.gameObject, root.transform);
+            Add(pc.GetComponent<Enemy>(), "Baarin puliukko", 1700f, -2.7f, 1, 140f);
+        }
+        else names.Add("(puliukko puuttuu: aja 1-2 vihujen kohdat)");
+        // rekkamies (tehty kohdassa 115): siirretään baarin oikeaan päätyyn lavan viereen
+        var trucker = GameObject.Find("Rekkamies");
+        var tEnemy = trucker != null ? trucker.GetComponent<Enemy>() : null;
+        if (tEnemy != null)
+        {
+            Undo.RecordObject(tEnemy, "Rekkamies baariin");
+            tEnemy.transform.position = new Vector3(X(3600f), -2.0f, 0f);
+            tEnemy.wakeDistance = -1f; tEnemy.joinsFightWhenSquadComes = false;
+            tEnemy.wanderMinX = X(3450f); tEnemy.wanderMaxX = X(3750f); tEnemy.idleFacing = -1;
+            members.Add(tEnemy); names.Add("rekkamies");
+        }
+        else names.Add("(rekkamies puuttuu: aja 115 ja sitten tämä uudelleen)");
+        // Sohvi tiskin taakse ja kauppa tiskin eteen (kuten dinerissä)
+        string shopInfo = "Sohvi puuttuu";
+        float counterX = X(1965f), counterTop = centerY + 6f - 385f / ppu;
+        var sohvi = GameObject.Find("Sohvi");
+        if (sohvi != null)
+        {
+            var s2 = Object.Instantiate(sohvi, root.transform);
+            s2.name = "Baarin Sohvi";
+            s2.transform.position = new Vector3(counterX, counterTop - 0.1f, 0f);
+            s2.transform.localScale = sohvi.transform.localScale * 0.85f;
+            shopInfo = "Sohvi tiskin takana";
+        }
+        var clubShop = GameObject.Find("Baaritiski");
+        if (clubShop != null)
+        {
+            var sh = Object.Instantiate(clubShop, root.transform);
+            sh.name = "Baarin tiski";
+            sh.transform.position = new Vector3(counterX, bar.MaxDepthAtX(counterX, bar.maxDepthY), 0f);
+            var shop = sh.GetComponent<ShopCounter>();
+            if (shop != null) { shop.here = bar; shop.title = "BAARIN TISKI"; shop.halfWidth = 4.5f; shop.maxDistanceFromWall = 1.1f; }
+            shopInfo += ", kauppa tiskin edessä";
+        }
+        // portsarit: tulevat sisäovelta, kun tappelu alkaa (2 + 1 aaltona)
+        string bouncerInfo = "Portsari-malli puuttuu";
+        var bouncerT = all.FirstOrDefault(en => en != null && en.gameObject.name == "Portsari");
+        BouncerSquad squad = null;
+        if (bouncerT != null)
+        {
+            var sgo = new GameObject("Baarin portsarit");
+            sgo.transform.SetParent(root.transform, false);
+            squad = sgo.AddComponent<BouncerSquad>();
+            squad.area = bar; squad.bothSides = false; squad.firstDelay = 1.2f; squad.spawnInterval = 1.0f;
+            squad.waves = new[] { 2, 1 }; squad.waveNextAt = 1;
+            squad.bouncers = new Enemy[3];
+            float doorX = X(805f);
+            for (int i = 0; i < 3; i++)
+            {
+                var bgo = Object.Instantiate(bouncerT.gameObject, sgo.transform);
+                bgo.name = "Baarin portsari " + (i + 1);
+                var be = bgo.GetComponent<Enemy>();
+                be.wakeDistance = 100f; be.joinsFightWhenSquadComes = false; be.fightsEveryone = true;
+                bgo.transform.position = new Vector3(doorX + (i - 1) * 0.9f, bar.MaxDepthAtX(doorX, bar.maxDepthY) - 0.5f - i * 0.25f, 0f);
+                bgo.SetActive(false);
+                squad.bouncers[i] = be;
+            }
+            bouncerInfo = "3 portsaria tulee sisäovelta";
+        }
+        var brawl = root.AddComponent<BarBrawl>();
+        brawl.members = members.ToArray();
+        brawl.area = bar; brawl.autoStartSeconds = 120f; brawl.squad = squad;
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Aavikkobaarin väki: " + string.Join(", ", names) + ".\n" + shopInfo + ". " + bouncerInfo + ".\n"
+             + "Kukaan ei aloita tappelua itse: se syttyy, kun joku saa osuman tai kun hero on ollut baarissa 2 minuuttia. Silloin kaikki heräävät ja portsarit tulevat.\n"
+             + "Elaine ja Shanice (112, 114) pysyvät baarissa ei-taistelijoina.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
     public static void CreateDesertStreet()
     {

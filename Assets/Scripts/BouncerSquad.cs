@@ -31,6 +31,8 @@ public class BouncerSquad : MonoBehaviour
     [Tooltip("Apurit (esim. kolmas puliukko), jotka kävelevät ruudun oikeasta reunasta sisään, kun viimeinen aalto alkaa.")]
     public Enemy[] lastWaveHelpers;
     bool helpersSent;
+    [Tooltip("Ulkoa käynnistetty tappelu (esim. BarBrawl): portsarit tulevat, vaikka kukaan ei olisi saanut osumaa.")]
+    public bool forceFight;
     float lastSpawnTime = -99f;
 
     PlayerController pc;
@@ -70,7 +72,7 @@ public class BouncerSquad : MonoBehaviour
             if (area == null || Area.Current != area) { heroHealthAtEnter = -1; return; }
             if (pc == null) return;
             if (heroHealthAtEnter < 0) heroHealthAtEnter = pc.health;
-            bool fight = pc.health < heroHealthAtEnter || (triggerX > -9000f && pc.transform.position.x >= triggerX);
+            bool fight = forceFight || pc.health < heroHealthAtEnter || (triggerX > -9000f && pc.transform.position.x >= triggerX);
             if (!fight)
                 foreach (var e in Enemy.All)
                 {
