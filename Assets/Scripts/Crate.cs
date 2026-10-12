@@ -116,6 +116,17 @@ public class Crate : MonoBehaviour
 
     /// Voiko laatikon nostaa (ehjä ja maassa).
     public bool CanPickUp => state == State.Idle;
+    /// Pöytä (rikkoutuva, läpi kulkeva): vihollinen voi nostaa ja heittää sen (Rekkamies).
+    public bool IsTable => breakable && plowThrough;
+
+    /// Heitetyn osuma: pelaajan heittämä osuu vihuihin, vihun heittämä pelaajaan ja (jos heittäjä tappelee kaikkia vastaan) muihin vihuihin.
+    bool ThrowHit()
+    {
+        if (thrownBy == null) return HitEnemyInPath();
+        bool hit = HitPlayerInPath();
+        if (thrownBy.fightsEveryone && HitEnemyInPath()) hit = true;
+        return hit;
+    }
     /// Voiko laatikkoon lyödä.
     public bool CanBeHit => state == State.Idle;
 
@@ -282,7 +293,7 @@ public class Crate : MonoBehaviour
                 if (thrown) rollDist += Mathf.Abs(vel.x) * dt;   // pyörii lennossa
                 verticalVel -= 30f * dt;
                 height += verticalVel * dt;
-                if (thrown && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath()))
+                if (thrown && ThrowHit())
                 {
                     if (breakable && plowThrough)
                     {
@@ -340,7 +351,7 @@ public class Crate : MonoBehaviour
                 }
                 transform.position = p;
                 rollDist += Mathf.Abs(vel.x) * dt;
-                if (thrown && Mathf.Abs(vel.x) > 2.5f && (thrownBy != null ? HitPlayerInPath() : HitEnemyInPath())) vel.x *= 0.6f;
+                if (thrown && Mathf.Abs(vel.x) > 2.5f && ThrowHit()) vel.x *= 0.6f;
                 vel.x = Mathf.MoveTowards(vel.x, 0f, rollFriction * dt);
                 if (Mathf.Abs(vel.x) < 0.25f)
                 {
@@ -370,7 +381,7 @@ public class Crate : MonoBehaviour
             if (e == null || e.IsDead) continue;
             Vector3 p = e.transform.position;
             if (Mathf.Abs(p.x - me.x) > hitRadiusX || Mathf.Abs(p.y - me.y) > EnemyHitRadiusY) continue;
-            if (alreadyHit.Contains(e)) continue;
+            if (alreadyHit.Contains(e) || e == thrownBy) continue;
             // isku tulee lentosuunnasta: vihollinen kaatuu samaan suuntaan
             if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vel.x), true)) { any = true; alreadyHit.Add(e); }
         }

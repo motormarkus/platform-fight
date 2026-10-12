@@ -5070,7 +5070,7 @@ Tallenna scene (Ctrl+S).");
     [MenuItem("Beat em up/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)")]
     static void CreateTrucker()
     {
-        foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut", "rekkamies_alakoukku", "rekkamies_heitetty", "rekkamies_kavely" })
+        foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut", "rekkamies_alakoukku", "rekkamies_heitetty", "rekkamies_kavely", "rekkamies_poyta" })
         {
             string path = FindTexture(n);
             if (path == null) { Info("Puuttuu " + n + ".png (Sprites)."); return; }
@@ -5086,6 +5086,8 @@ Tallenna scene (Ctrl+S).");
         var atk = EnemySheet("rekkamies_iskut", report);
         var upper = EnemySheet("rekkamies_alakoukku", report);
         var thrown = EnemySheet("rekkamies_heitetty", report);
+        var tbl = EnemySheet("rekkamies_poyta", report);
+        if (tbl.Length < 6) { Info("rekkamies_poyta (6 kuvaa) puuttuu.\n\n" + string.Join("\n", report)); return; }
         var walk = EnemySheet("rekkamies_kavely", report);
         if (walk.Length < 8) { Info("rekkamies_kavely (21 kuvaa) puuttuu.\n\n" + string.Join("\n", report)); return; }
         if (upper.Length < 6 || thrown.Length < 8) { Info("rekkamies_alakoukku (6) tai rekkamies_heitetty (8) puuttuu.\n\n" + string.Join("\n", report)); return; }
@@ -5126,6 +5128,11 @@ Tallenna scene (Ctrl+S).");
         t.uppercutHeroUp = 24f; t.uppercutLaunchUp = 21f; t.uppercutLaunchX = 1.5f;
         t.combos = new[] { "JSPK", "JSJSK", "JSU", "JJSU", "JSK" }; t.comboChance = 0.6f; t.comboArmor = true;
         SetBossThrown(t, thrown);   // heitettynä (hero kuperkeikkaheitto)
+        // pöydän heitto: 0 kurkotus, 1 nosto, 2 pään yli, 3 veto taakse, 4 heitto, 5 jatko. Samat kuvat kevyen vihun nostoon ja heittoon:
+        // grabSprites (8): 0 kurkotus, 1-4 nosto, 5-6 heitto, 7 paluu. Pienempiä esineitä ei heitetä, heroa ei napata.
+        t.grabSprites = new[] { tbl[0], tbl[1], tbl[2], tbl[2], tbl[3], tbl[4], tbl[4], tbl[5] };
+        t.throwsTables = true; t.tableRange = 7f; t.barrelThrowSpeed = 15f; t.barrelThrowUp = 3.5f; t.barrelDamage = 24; t.barrelRate = 0.5f;
+        t.grabsHero = false; t.grabsAnyone = true; t.grabsLightOnly = true; t.grabChance = 0.25f;
         t.windupTime = 0.2f; t.punchRecoverTime = 0.35f; t.attackRange = 2.4f;
         t.moveSpeedX = 2.7f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 2f;
         t.maxHealth = 520; t.attackCooldown = 0.5f;

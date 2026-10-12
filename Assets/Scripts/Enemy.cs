@@ -210,6 +210,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Tynnyrit (pomo)")]
     [Tooltip("Hakee lähellä olevan tynnyrin ja heittää sen pelaajaa kohti (heittokuvat: 2–3 nosto, 4 veto, 5 heitto, 7 jälkeen).")]
     public bool throwsBarrels;
+    [Tooltip("Heittää myös pöytiä (Rekkamies): hakee lähimmän ehjän pöydän ja heittää sen samoilla nosto- ja heittokuvilla (grabSprites). Pienempiä esineitä ei heitetä.")]
+    public bool throwsTables;
+    public float tableRange = 7f;
+    [Tooltip("Voi napata ja heittää heron (Kovis). Pois = heittää vain vihuja (Rekkamies).")]
+    public bool grabsHero = true;
+    [Tooltip("Heittää vain kevyitä vihuja (ei isoja: Kovis, samoalainen, portsari, puliukko, pomot).")]
+    public bool grabsLightOnly;
     public float barrelThrowSpeed = 16f, barrelThrowUp = 4f;
     public int barrelDamage = 20;
     [Tooltip("Kuinka usein (1/s) tynnyriä lähdetään hakemaan, kun pelaaja on kaukana.")]
@@ -1994,15 +2001,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float side = me.x >= p.x ? 1f : -1f;
 
         // tynnyri: pelaajan ollessa kaukana haetaan lähin tynnyri ja heitetään se
-        if (throwsBarrels)
+        if (throwsBarrels || throwsTables)
         {
             if (targetBarrel != null && !targetBarrel.CanPickUp) targetBarrel = null;
             if (targetBarrel == null && cooldown <= 0f && Mathf.Abs(p.x - me.x) > 3.5f && Random.value < barrelRate * dt)
             {
-                float best = 6f;
+                float best = throwsTables ? tableRange : 6f;
                 foreach (var c in Crate.All)
                 {
-                    if (c == null || c.breakable || !c.CanPickUp) continue;
+                    if (c == null || !c.CanPickUp) continue;
+                    if (c.IsTable ? !throwsTables : (!throwsBarrels || c.breakable)) continue;
                     float d = Vector2.Distance(c.transform.position, me);
                     if (d < best) { best = d; targetBarrel = c; }
                 }
@@ -2049,7 +2057,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
         if (cooldown <= 0f && !attackRolled)
         {
-            grabIntent = Has(grabSprites) && Random.value < grabChance;
+            grabIntent = grabsHero && Has(grabSprites) && Random.value < grabChance;
             flanking = otherFighterVisible && Random.value < flankChance;
             attackRolled = true;
         }
@@ -2416,6 +2424,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool inRange = Mathf.Abs(me.x - t.x) <= attackRange && Mathf.Abs(me.y - t.y) <= depthTolerance;
         // heittäjä (Kovis) voi napata liittolaisen (seilorin) ja heittää sen
         if (inRange && cooldown <= 0f && !TargetDown(enemyTarget) && (enemyTarget.ally || grabsAnyone) && Has(grabSprites)
+            && (!grabsLightOnly || (!IsHeavyweight(enemyTarget) && !enemyTarget.bigBody))
             && Mathf.Abs(me.x - t.x) <= grabRange + 0.3f && enemyTarget.state != State.Held && enemyTarget.state != State.Airborne
             && enemyTarget.state != State.GrabLift && enemyTarget.state != State.GrabThrow   // ei kesken toisen heittoa
             && Random.value < grabChance)
