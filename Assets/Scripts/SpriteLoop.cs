@@ -105,8 +105,9 @@ public class SpriteLoop : MonoBehaviour
             if (next == null && HasAlt && --loopsLeft <= 0)
             {
                 next = cur == frames ? altFrames : frames;
-                tn = 0f;
-                fadeLeft = crossfade;
+                if (next == null || next.Length == 0) loopsLeft = Random.Range(loopsPerSet.x, loopsPerSet.y + 1);   // toinen kuvasarja puuttuu: jatketaan nykyisellä (ei nollalla jakoa)
+                if (next != null && next.Length == 0) next = null;
+                else { tn = 0f; fadeLeft = crossfade; }
             }
         }
         if (next != null)
