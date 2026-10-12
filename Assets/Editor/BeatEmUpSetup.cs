@@ -8704,6 +8704,49 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt Aavikolta Chinookin rampin edestä. Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/108. Diner: vihut (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota")]
+    static void AddDinerFoes()
+    {
+        var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
+        if (diner == null) { Info("Tee ensin Diner (103) ja kalusteet (104)."); return; }
+        foreach (var name in new[] { "Dinerin vihut", "Piirakkasota" })
+        { var o = GameObject.Find(name); if (o != null) Undo.DestroyObjectImmediate(o); }
+        var puliTemplate = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(en => en != null && en.gameObject.name == "Puliukko");
+        var root = new GameObject("Dinerin vihut");
+        Undo.RegisterCreatedObjectUndo(root, "Dinerin vihut");
+        const float left = 90000f; float ppu = 941f / 12f;
+        // paikat kuvapikseleinä (x) ja syvyys (y): pöytien väleissä lattialla
+        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f) };
+        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null };
+        if (puliTemplate != null)
+        {
+            var clone = Object.Instantiate(puliTemplate.gameObject, root.transform);
+            clone.name = "Dinerin puliukko";
+            foes[3] = clone.GetComponent<Enemy>();
+        }
+        int n = 0;
+        for (int i = 0; i < foes.Count; i++)
+        {
+            var e = foes[i];
+            if (e == null) continue;
+            e.gameObject.name = "Dinerin " + e.gameObject.name.Replace("Dinerin ", "");
+            e.transform.position = new Vector3(left + spots[i].x / ppu, spots[i].y, 0f);
+            e.wakeDistance = 12f;
+            e.joinsFightWhenSquadComes = false;
+            e.gameObject.SetActive(true);
+            n++;
+        }
+        var war = new GameObject("Piirakkasota").AddComponent<PieWar>();
+        Undo.RegisterCreatedObjectUndo(war.gameObject, "Piirakkasota");
+        war.area = diner; war.maxHits = 10;
+        war.linsey = Object.FindFirstObjectByType<DinerLinsey>();
+        war.counter = Object.FindFirstObjectByType<PieCounter>();
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Dineriin " + n + " vihua (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
+             + "\nPiirakkasota: mene Linseyn luo ja paina E. Aja sen jälkeen 105, niin vihut saavat piirakkakuvat.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/107. Aloita peli Aavikkokadulta dinerin läheltä")]
     static void StartAtDiner()
     {

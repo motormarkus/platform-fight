@@ -2722,6 +2722,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
         if (Riding || state == State.Drink) return false;
+        if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state != State.Block) Bottle.DropHeld();
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
@@ -2801,10 +2802,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly float[] PieHitTimes = { 0.12f, 0.16f, 0.4f };
 
     /// Heitetty piirakka osuu. 0 = ei osunut, 1 = osui ja piirakka-animaatio alkoi (piirakka häviää), 2 = osui ilman animaatiota (torjuttu).
+    public void WarHeal() { health = maxHealth; }
+
     public int PieHit(int damage, float attackerX, Enemy attacker = null)
     {
         if (!HasPieArt) return 0;
-        if (!TakeHit(damage, attackerX, attacker)) return 0;
+        PieWar.PieDamage = true;
+        bool hit = TakeHit(damage, attackerX, attacker);
+        PieWar.PieDamage = false;
+        if (!hit) return 0;
+        PieWar.OnHeroHit();
         if (state != State.Hurt) return 2;
         Enter(State.PieHit);
         return 1;

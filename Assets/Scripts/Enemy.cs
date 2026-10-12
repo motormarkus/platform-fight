@@ -616,10 +616,46 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     /// Heitetty kermapiirakka osuu. 0 = ei osunut (esim. kaatunut vihu), 1 = osui ja piirakka-animaatio alkoi (piirakka häviää),
     /// 2 = osui, mutta animaatiota ei voi näyttää (torjuttu tai kaatui): piirakka läsähtää omilla kuvillaan.
+    /// Piirakkasota: vihu ei taistele, hakee piirakoita ja heittää niitä heroon; muuten pysyttelee etäällä.
+    void PieWarChase(float dt)
+    {
+        if (player == null) { moving = false; return; }
+        Vector3 p = player.transform.position, me = transform.position;
+        if (BottleRun(dt, p, me, true)) return;
+        facingRight = p.x > me.x;
+        moving = false;
+        float dx = Mathf.Abs(p.x - me.x);
+        if (dx < 4f)
+        {
+            moving = true;
+            Move(new Vector2(Mathf.Sign(me.x - p.x) * moveSpeedX * 0.6f * dt, 0f));
+        }
+    }
+
+    public void WarWake() { awake = true; }
+    public void WarHeal() { health = maxHealth; }
+
+    /// Piirakkasota loppui: takaisin paikalle, täysille voimille ja rauhalliseen alkutilaan.
+    public void WarReset(Vector3 pos)
+    {
+        gameObject.SetActive(true);
+        transform.position = pos;
+        health = maxHealth;
+        if (heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
+        targetBottle = null;
+        knockVel = Vector2.zero; height = 0f; verticalVel = 0f;
+        awake = false;
+        Enter(State.Idle);
+    }
+
     public int PieHit(int damage, float attackerX)
     {
         if (!HasPieArt) return 0;
-        if (!TakeHit(damage, attackerX, false)) return 0;
+        PieWar.PieDamage = true;
+        bool hit = TakeHit(damage, attackerX, false);
+        PieWar.PieDamage = false;
+        if (!hit) return 0;
+        PieWar.OnEnemyHit(this);
         if (state != State.Hurt || JustBlocked) return 2;
         knockVel *= 0.5f;
         Enter(State.PieHit);
@@ -917,7 +953,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Chase:
-                Chase(dt);
+                if (PieWar.Active) PieWarChase(dt); else Chase(dt);
                 break;
 
             case State.Windup:
@@ -1624,15 +1660,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
         player.SetHeld(new Vector3(me.x + dir * v.x, me.y - 0.05f, 0f), v.y, dir * v.z, pose);
     }
 
-    bool BottleRun(float dt, Vector3 p, Vector3 me)
+    bool BottleRun(float dt, Vector3 p, Vector3 me, bool war = false)
     {
         if (targetBottle != null && !targetBottle.CanPickUp) targetBottle = null;
-        if (targetBottle == null && cooldown <= 0f && Mathf.Abs(p.x - me.x) > 2.2f && Random.value < bottleRate * dt)
+        if (targetBottle == null && (war || (cooldown <= 0f && Mathf.Abs(p.x - me.x) > 2.2f && Random.value < bottleRate * dt)))
         {
-            float best = 5f;
+            float best = war ? 20f : 5f;
             foreach (var b in Bottle.All)
             {
-                if (b == null || !b.CanPickUp) continue;
+                if (b == null || !b.CanPickUp || (war && !b.pie)) continue;
                 bool taken = false;
                 foreach (var e in All) if (e != this && e.targetBottle == b) { taken = true; break; }
                 if (taken) continue;
@@ -1644,7 +1680,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (targetBottle == null) return false;
         bottleRunTime += dt;
         if (bottleRunTime > 5f) { targetBottle = null; cooldown = 1f; return false; }   // ei pääse perille (esim. pöytä välissä): luovuttaa
-        if (Mathf.Abs(p.x - me.x) < 1.2f && Mathf.Abs(p.y - me.y) < depthTolerance) { targetBottle = null; return false; }   // pelaaja kimpussa: tappelee
+        if (!war && Mathf.Abs(p.x - me.x) < 1.2f && Mathf.Abs(p.y - me.y) < depthTolerance) { targetBottle = null; return false; }   // pelaaja kimpussa: tappelee
         Vector3 bp = targetBottle.transform.position;
         float side = me.x <= bp.x ? -1f : 1f;
         Vector2 spot = new Vector2(bp.x + side * 0.7f, bp.y + 0.01f);   // käsi ylettyy pulloon (kuvat 2–3)
@@ -2533,6 +2569,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         if (waitingToAppear) return false;   // piilossa odottava pomo
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso

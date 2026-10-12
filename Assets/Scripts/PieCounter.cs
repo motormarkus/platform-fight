@@ -24,6 +24,9 @@ public class PieCounter : MonoBehaviour
     float timer;
     bool seeded;
 
+    /// Piirakkasota alkoi: uusi täytö heti.
+    public void Reseed() { seeded = false; }
+
     void Update()
     {
         if (template == null || area == null || xs == null || xs.Length == 0) return;
@@ -32,11 +35,12 @@ public class PieCounter : MonoBehaviour
         if (!seeded)
         {
             seeded = true; timer = 0f;
-            for (int i = 0; i < initial; i++) SpawnOne();
+            int n = PieWar.Active ? xs.Length : initial;
+            for (int i = 0; i < n; i++) SpawnOne();
             return;
         }
         timer += Time.deltaTime;
-        if (timer < interval) return;
+        if (timer < (PieWar.Active ? Mathf.Min(interval, 2.5f) : interval)) return;   // piirakkasodassa nopeammin
         timer = 0f;
         SpawnOne();
     }

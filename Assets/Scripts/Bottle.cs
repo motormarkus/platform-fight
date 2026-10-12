@@ -354,8 +354,12 @@ public class Bottle : MonoBehaviour
                 pieVanish = pr == 1;
                 return true;
             }
-            if (pc.TakeHit(throwDamage, me.x - Mathf.Sign(vx)))
+            PieWar.PieDamage = pie;
+            bool pHit = pc.TakeHit(throwDamage, me.x - Mathf.Sign(vx));
+            PieWar.PieDamage = false;
+            if (pHit)
             {
+                if (pie) PieWar.OnHeroHit();
                 HitFx.OnHit(true);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
                 return true;
@@ -378,8 +382,12 @@ public class Bottle : MonoBehaviour
                 pieVanish = pr == 1;
                 return true;
             }
-            if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food && !ball && !pie))
+            PieWar.PieDamage = pie;
+            bool eHit = e.TakeHit(throwDamage, me.x - Mathf.Sign(vx), !food && !ball && !pie);
+            PieWar.PieDamage = false;
+            if (eHit)
             {
+                if (pie) PieWar.OnEnemyHit(e);
                 HitFx.OnHit(true);
                 HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
                 return true;
