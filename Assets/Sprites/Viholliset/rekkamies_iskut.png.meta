@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: bf80835500136d14286d63745a9ec522
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3261497508060742242
+    second: rekkamies_iskut_0
+  - first:
+      213: 585457200018990718
+    second: rekkamies_iskut_1
+  - first:
+      213: 4487991712934174033
+    second: rekkamies_iskut_2
+  - first:
+      213: -4559907811646769653
+    second: rekkamies_iskut_3
+  - first:
+      213: -7184847582451378045
+    second: rekkamies_iskut_4
+  - first:
+      213: -6798924868101188040
+    second: rekkamies_iskut_5
+  - first:
+      213: -9092268755274528578
+    second: rekkamies_iskut_6
+  - first:
+      213: 3790680875973028466
+    second: rekkamies_iskut_7
+  - first:
+      213: -2782374070930210735
+    second: rekkamies_iskut_8
+  - first:
+      213: -5826728591829760074
+    second: rekkamies_iskut_9
+  - first:
+      213: -1382513421934633687
+    second: rekkamies_iskut_10
+  - first:
+      213: -5742600127935725526
+    second: rekkamies_iskut_11
+  - first:
+      213: 4954054270006425752
+    second: rekkamies_iskut_12
+  - first:
+      213: 4864330449997002844
+    second: rekkamies_iskut_13
+  - first:
+      213: -471958082940581128
+    second: rekkamies_iskut_14
+  - first:
+      213: -5565643138768194329
+    second: rekkamies_iskut_15
+  - first:
+      213: 6928275726740603858
+    second: rekkamies_iskut_16
+  - first:
+      213: 7945842711624348379
+    second: rekkamies_iskut_17
+  - first:
+      213: 7745988574233324600
+    second: rekkamies_iskut_18
+  - first:
+      213: -3078548710497989133
+    second: rekkamies_iskut_19
+  - first:
+      213: 2124421414798934677
+    second: rekkamies_iskut_20
+  - first:
+      213: -6519527262838552355
+    second: rekkamies_iskut_21
+  - first:
+      213: -2001091628978302114
+    second: rekkamies_iskut_22
+  - first:
+      213: -2223586114949042315
+    second: rekkamies_iskut_23
+  - first:
+      213: -7833623783350743115
+    second: rekkamies_iskut_24
+  - first:
+      213: -81862252835865078
+    second: rekkamies_iskut_25
+  - first:
+      213: -7189841415572458478
+    second: rekkamies_iskut_26
+  - first:
+      213: 4597755435895336670
+    second: rekkamies_iskut_27
+  - first:
+      213: -1165840656822664042
+    second: rekkamies_iskut_28
+  - first:
+      213: -4124952382337440414
+    second: rekkamies_iskut_29
+  - first:
+      213: 2930624321288164988
+    second: rekkamies_iskut_30
+  - first:
+      213: -3396948981041431334
+    second: rekkamies_iskut_31
+  - first:
+      213: 6580849605070804973
+    second: rekkamies_iskut_32
+  - first:
+      213: 2541060130234183497
+    second: rekkamies_iskut_33
+  - first:
+      213: 5363455690531024789
+    second: rekkamies_iskut_34
+  - first:
+      213: 5227666532211339767
+    second: rekkamies_iskut_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rekkamies_iskut_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9db73ceb45dcb2d0800000000000000
+      internalID: -3261497508060742242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76a356b836ff1800800000000000000
+      internalID: 585457200018990718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d965c3fac884e30800000000000000
+      internalID: 4487991712934174033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06f3463104f7b0c0800000000000000
+      internalID: -4559907811646769653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38859a2d03b4a4c90800000000000000
+      internalID: -7184847582451378045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2240
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836524ecadd55a1a0800000000000000
+      internalID: -6798924868101188040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb88a7f6db5c1d180800000000000000
+      internalID: -9092268755274528578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a2d3d3c243b9430800000000000000
+      internalID: 3790680875973028466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15082fd26850369d0800000000000000
+      internalID: -2782374070930210735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b70061973d432fa0800000000000000
+      internalID: -5826728591829760074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d506c1e5350dce0800000000000000
+      internalID: -1382513421934633687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1792
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a204747fb9f2e40b0800000000000000
+      internalID: -5742600127935725526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8987db16c1650c440800000000000000
+      internalID: 4954054270006425752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58ff2e95c2918340800000000000000
+      internalID: 4864330449997002844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fac375cf944379f0800000000000000
+      internalID: -471958082940581128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4b127ad0dd2c2b0800000000000000
+      internalID: -5565643138768194329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3c55ed01e262060800000000000000
+      internalID: 6928275726740603858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_17
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2fe7be8dd454e60800000000000000
+      internalID: 7945842711624348379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c696971974f7b60800000000000000
+      internalID: 7745988574233324600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdc707324cc645d0800000000000000
+      internalID: -3078548710497989133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592c25665067b7d10800000000000000
+      internalID: 2124421414798934677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_21
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd888031f7cf585a0800000000000000
+      internalID: -6519527262838552355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_22
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e539db304c1ba34e0800000000000000
+      internalID: -2001091628978302114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_23
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fa8f2a53c3421e0800000000000000
+      internalID: -2223586114949042315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bfc3516ca0694390800000000000000
+      internalID: -7833623783350743115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_25
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e743bf6ba2ddef0800000000000000
+      internalID: -81862252835865078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_26
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2147961735d883c90800000000000000
+      internalID: -7189841415572458478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edea9a085328ecf30800000000000000
+      internalID: 4597755435895336670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_28
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6948069791a12dfe0800000000000000
+      internalID: -1165840656822664042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_29
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2652067c9a931c6c0800000000000000
+      internalID: -4124952382337440414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7650880b4baba820800000000000000
+      internalID: 2930624321288164988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc76e846ec9bd0d0800000000000000
+      internalID: -3396948981041431334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_32
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7d38659dfd35b50800000000000000
+      internalID: 6580849605070804973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_33
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f248fa9b8a34320800000000000000
+      internalID: 2541060130234183497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_34
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f26a2a882de6a40800000000000000
+      internalID: 5363455690531024789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_iskut_35
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1b7a083076c8840800000000000000
+      internalID: 5227666532211339767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7c7ecc435f0bc6a45b3c8ee02458b122
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rekkamies_iskut_0: -3261497508060742242
+      rekkamies_iskut_1: 585457200018990718
+      rekkamies_iskut_10: -1382513421934633687
+      rekkamies_iskut_11: -5742600127935725526
+      rekkamies_iskut_12: 4954054270006425752
+      rekkamies_iskut_13: 4864330449997002844
+      rekkamies_iskut_14: -471958082940581128
+      rekkamies_iskut_15: -5565643138768194329
+      rekkamies_iskut_16: 6928275726740603858
+      rekkamies_iskut_17: 7945842711624348379
+      rekkamies_iskut_18: 7745988574233324600
+      rekkamies_iskut_19: -3078548710497989133
+      rekkamies_iskut_2: 4487991712934174033
+      rekkamies_iskut_20: 2124421414798934677
+      rekkamies_iskut_21: -6519527262838552355
+      rekkamies_iskut_22: -2001091628978302114
+      rekkamies_iskut_23: -2223586114949042315
+      rekkamies_iskut_24: -7833623783350743115
+      rekkamies_iskut_25: -81862252835865078
+      rekkamies_iskut_26: -7189841415572458478
+      rekkamies_iskut_27: 4597755435895336670
+      rekkamies_iskut_28: -1165840656822664042
+      rekkamies_iskut_29: -4124952382337440414
+      rekkamies_iskut_3: -4559907811646769653
+      rekkamies_iskut_30: 2930624321288164988
+      rekkamies_iskut_31: -3396948981041431334
+      rekkamies_iskut_32: 6580849605070804973
+      rekkamies_iskut_33: 2541060130234183497
+      rekkamies_iskut_34: 5363455690531024789
+      rekkamies_iskut_35: 5227666532211339767
+      rekkamies_iskut_4: -7184847582451378045
+      rekkamies_iskut_5: -6798924868101188040
+      rekkamies_iskut_6: -9092268755274528578
+      rekkamies_iskut_7: 3790680875973028466
+      rekkamies_iskut_8: -2782374070930210735
+      rekkamies_iskut_9: -5826728591829760074
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

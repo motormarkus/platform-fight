@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: b796a8d7c7811d243ba3e24e242eb226
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8693109649213853059
+    second: rekkamies_kavely_0
+  - first:
+      213: -5667764111933620140
+    second: rekkamies_kavely_1
+  - first:
+      213: -7285627235834177032
+    second: rekkamies_kavely_2
+  - first:
+      213: 519692164781143365
+    second: rekkamies_kavely_3
+  - first:
+      213: -2547217697631863893
+    second: rekkamies_kavely_4
+  - first:
+      213: -7072865918339609805
+    second: rekkamies_kavely_5
+  - first:
+      213: 4508719138940610104
+    second: rekkamies_kavely_6
+  - first:
+      213: 3126129889497121556
+    second: rekkamies_kavely_7
+  - first:
+      213: 1472090375942694929
+    second: rekkamies_kavely_8
+  - first:
+      213: 4261308881487191549
+    second: rekkamies_kavely_9
+  - first:
+      213: 8018733405091010406
+    second: rekkamies_kavely_10
+  - first:
+      213: -6371958907810807875
+    second: rekkamies_kavely_11
+  - first:
+      213: 8673656077415032696
+    second: rekkamies_kavely_12
+  - first:
+      213: -7171115991891578299
+    second: rekkamies_kavely_13
+  - first:
+      213: 7929102078030580640
+    second: rekkamies_kavely_14
+  - first:
+      213: 3476229118821544298
+    second: rekkamies_kavely_15
+  - first:
+      213: -787224447385759297
+    second: rekkamies_kavely_16
+  - first:
+      213: 9161182489444251745
+    second: rekkamies_kavely_17
+  - first:
+      213: -6051104778757091208
+    second: rekkamies_kavely_18
+  - first:
+      213: -4811204104526058586
+    second: rekkamies_kavely_19
+  - first:
+      213: -3823292078927836514
+    second: rekkamies_kavely_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rekkamies_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d89eafa2124a870800000000000000
+      internalID: 8693109649213853059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4504d7db19e0851b0800000000000000
+      internalID: -5667764111933620140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9513241a044ea90800000000000000
+      internalID: -7285627235834177032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545755a3541563700800000000000000
+      internalID: 519692164781143365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab701feff676acd0800000000000000
+      internalID: -2547217697631863893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b8661cbe128dd90800000000000000
+      internalID: -7072865918339609805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8366f8c2b20329e30800000000000000
+      internalID: 4508719138940610104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4130531529e326b20800000000000000
+      internalID: 3126129889497121556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118e55fb56aed6410800000000000000
+      internalID: 1472090375942694929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdd24fa9d5332b30800000000000000
+      internalID: 4261308881487191549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667120ffb83484f60800000000000000
+      internalID: 8018733405091010406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbffc8822214297a0800000000000000
+      internalID: -6371958907810807875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8772b365f340f5870800000000000000
+      internalID: 8673656077415032696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542fd24eff31b7c90800000000000000
+      internalID: -7171115991891578299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab03dc6454d90e60800000000000000
+      internalID: 7929102078030580640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a613a3937fb0e3030800000000000000
+      internalID: 3476229118821544298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1911739873315f0800000000000000
+      internalID: -787224447385759297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1687ad5afee032f70800000000000000
+      internalID: 9161182489444251745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870d38b8348260ca0800000000000000
+      internalID: -6051104778757091208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aba2d79b5b2b3db0800000000000000
+      internalID: -4811204104526058586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a01f26c10f0fac0800000000000000
+      internalID: -3823292078927836514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8f1d5435f4f81c643be427be3fb93ed5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rekkamies_kavely_0: 8693109649213853059
+      rekkamies_kavely_1: -5667764111933620140
+      rekkamies_kavely_10: 8018733405091010406
+      rekkamies_kavely_11: -6371958907810807875
+      rekkamies_kavely_12: 8673656077415032696
+      rekkamies_kavely_13: -7171115991891578299
+      rekkamies_kavely_14: 7929102078030580640
+      rekkamies_kavely_15: 3476229118821544298
+      rekkamies_kavely_16: -787224447385759297
+      rekkamies_kavely_17: 9161182489444251745
+      rekkamies_kavely_18: -6051104778757091208
+      rekkamies_kavely_19: -4811204104526058586
+      rekkamies_kavely_2: -7285627235834177032
+      rekkamies_kavely_20: -3823292078927836514
+      rekkamies_kavely_3: 519692164781143365
+      rekkamies_kavely_4: -2547217697631863893
+      rekkamies_kavely_5: -7072865918339609805
+      rekkamies_kavely_6: 4508719138940610104
+      rekkamies_kavely_7: 3126129889497121556
+      rekkamies_kavely_8: 1472090375942694929
+      rekkamies_kavely_9: 4261308881487191549
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
