@@ -5064,13 +5064,13 @@ Tallenna scene (Ctrl+S).");
     }
 
     // ---------------- Rekkamies ----------------
-    // rekkamies_calm (12 kuvaa, rauhallinen idle), rekkamies_taistelu (6, kamppailuidle), rekkamies_juoksu (15, silmukka),
+    // rekkamies_calm (12 kuvaa, rauhallinen idle), rekkamies_taistelu (6, kamppailuidle), rekkamies_juoksu (15, silmukka), rekkamies_kavely (21, silmukka),
     // rekkamies_taklaus (6: 0 juoksuasento, 1-5 olkataklaus), rekkamies_kaatuminen (6: 0 osuma, 1-4 ilmassa, 5 makaa),
     // rekkamies_ylosnousu (6), rekkamies_alakoukku (6), rekkamies_heitetty (8: 0-1 ote, 2 nosto, 3-4 lento, 5 alastulo, 6-7 makaa) ja rekkamies_iskut (36): 0-6 jab, 7-13 suora, 14-20 potku, 21-35 korkea potku.
     [MenuItem("Beat em up/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)")]
     static void CreateTrucker()
     {
-        foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut", "rekkamies_alakoukku", "rekkamies_heitetty" })
+        foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut", "rekkamies_alakoukku", "rekkamies_heitetty", "rekkamies_kavely" })
         {
             string path = FindTexture(n);
             if (path == null) { Info("Puuttuu " + n + ".png (Sprites)."); return; }
@@ -5086,6 +5086,8 @@ Tallenna scene (Ctrl+S).");
         var atk = EnemySheet("rekkamies_iskut", report);
         var upper = EnemySheet("rekkamies_alakoukku", report);
         var thrown = EnemySheet("rekkamies_heitetty", report);
+        var walk = EnemySheet("rekkamies_kavely", report);
+        if (walk.Length < 8) { Info("rekkamies_kavely (21 kuvaa) puuttuu.\n\n" + string.Join("\n", report)); return; }
         if (upper.Length < 6 || thrown.Length < 8) { Info("rekkamies_alakoukku (6) tai rekkamies_heitetty (8) puuttuu.\n\n" + string.Join("\n", report)); return; }
         if (calm.Length < 1 || fight.Length < 1 || run.Length < 8 || tackle.Length < 6 || fall.Length < 6 || rise.Length < 6 || atk.Length < 36)
         { Info("Kuvia puuttuu.\n\n" + string.Join("\n", report)); return; }
@@ -5101,7 +5103,7 @@ Tallenna scene (Ctrl+S).");
         t.displayName = "Rekkamies";
         t.visualScale = 1f; t.attackArtScale = 1f; t.knockArtScale = 1f; t.walkArtScale = 1f;
         t.calmIdleSprites = calm; t.idleSprites = fight; t.idleFrameTime = 0.2f;
-        t.walkSprites = run; t.walkFrameTime = 0.07f;
+        t.walkSprites = walk; t.walkFrameTime = 0.0667f; t.calmWalkSprites = walk; t.calmWalkFrameTime = 0.0667f;
         t.runSprites = run; t.runFrameTime = 0.042f;
         // osuma = kaatumissarjan 1. kuva; kaatuminen 6 kuvaa (0-4 ilmassa, 5 makaa); ylösnousu 6 kuvaa
         t.hurtSprites = new[] { fall[0] }; t.knockdownSprites = fall.Take(6).ToArray();
@@ -5135,7 +5137,7 @@ Tallenna scene (Ctrl+S).");
         go.transform.position = new Vector3(x, -2.6f, 0f);
         Undo.RegisterCreatedObjectUndo(go, "Rekkamies");
         EditorSceneManager.MarkSceneDirty(go.scene);
-        Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Rauhallinen idle, kamppailuasento, kombot (jab, suora, etupotku, korkea potku, alakoukku), osuma, kaatuminen ja ylösnousu sekä juoksu ja torjumaton olkataklaus (hyppy väistää). Tappelee kaikkien kanssa, 520 elämää.\nPuuttuu vielä: kävely (käyttää juoksukuvia) ja torjunta. Alakoukku lennättää heron kattoon ja muut vihut ruudun yläreunaan (kevyet yli ruudun).\n\nTallenna scene (Ctrl+S).");
+        Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Rauhallinen idle, kamppailuasento, kombot (jab, suora, etupotku, korkea potku, alakoukku), osuma, kaatuminen ja ylösnousu sekä juoksu ja torjumaton olkataklaus (hyppy väistää). Tappelee kaikkien kanssa, 520 elämää.\nPuuttuu vielä: torjunta. Alakoukku lennättää heron kattoon ja muut vihut ruudun yläreunaan (kevyet yli ruudun).\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
