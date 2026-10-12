@@ -4220,6 +4220,7 @@ public static class BeatEmUpSetup
             tumbleweeds.count = 4;
             tumbleweeds.minSpeed = 2.4f; tumbleweeds.maxSpeed = 3.8f;
             tumbleweeds.kickUpSpeed = 8f;
+            tumbleweeds.breakSprites = LoadTumbleweedBreakSprites();
             EditorUtility.SetDirty(tumbleweeds);
         }
         var root = new GameObject("Aavikon maisemat");
@@ -4506,6 +4507,35 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
+    /// Risupallon hajoamiskuvat (risupallo_hajoaa_1…4, 512 × 512): hajoaa kolmannessa osumassa, viimeinen kuva häipyy.
+    static Sprite[] LoadTumbleweedBreakSprites()
+    {
+        var list = new List<Sprite>();
+        for (int i = 1; i <= 4; i++)
+        {
+            string path = $"Assets/Sprites/Rekvisiitta/risupallo_hajoaa_{i}.png";
+            if (AssetImporter.GetAtPath(path) == null) return null;
+            list.Add(ImportShipSprite(path, 100f, false, SpriteAlignment.Center));
+        }
+        return list.ToArray();
+    }
+
+    [MenuItem("Beat em up/102. Risupallojen hajoaminen kolmannessa osumassa (kaikille sceneen)")]
+    static void UpdateTumbleweedBreak()
+    {
+        var sprites = LoadTumbleweedBreakSprites();
+        if (sprites == null) { Info("Tarvitaan risupallo_hajoaa_1…4.png (Sprites/Rekvisiitta)."); return; }
+        int n = 0;
+        foreach (var w in Object.FindObjectsByType<DesertTumbleweeds>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            Undo.RecordObject(w, "Risupallon hajoaminen");
+            w.breakSprites = sprites; w.breakHits = 3;
+            EditorUtility.SetDirty(w); n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Risupallot hajoavat kolmannessa potkuosumassa ({n} aluetta). Tallenna scene (Ctrl+S).");
+    }
+
     public static void CreateDesertStreet()
     {
         if (PlayModeBlocked()) return;
@@ -4590,6 +4620,7 @@ public static class BeatEmUpSetup
         weeds.sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Rekvisiitta/aavikko_risupallo.png");
         weeds.rollSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/sfx/tumbleweed.wav");
         weeds.count = 6; weeds.minSpeed = 1.5f; weeds.maxSpeed = 4.8f;
+        weeds.breakSprites = LoadTumbleweedBreakSprites();
         void ReturnExit(string name, Area here, Area target, Vector2 spawn, bool onFoot)
         {
             var go = GameObject.Find(name);

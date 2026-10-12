@@ -15,6 +15,11 @@ public class DesertTumbleweeds : MonoBehaviour
     public int kickDamage = 5;
     [Tooltip("Kimpoamisen vauhti vihuun osuttua (0 = ei kimpoa, 1 = sama vauhti takaisin).")]
     [Range(0f, 1f)] public float bounceKeep = 0.55f;
+    [Tooltip("risupallo_hajoaa_1…4: pallo hajoaa, viimeinen kuva häipyy. Tyhjä = ei hajoa.")]
+    public Sprite[] breakSprites;
+    [Tooltip("Pallo hajoaa tässä osumassa (kimpoaa sitä ennen).")]
+    public int breakHits = 3;
+    public float breakFrameTime = 0.09f, breakFadeTime = 0.35f;
     static readonly System.Collections.Generic.List<DesertTumbleweeds> instances = new System.Collections.Generic.List<DesertTumbleweeds>();
 
     class Ball
@@ -25,6 +30,10 @@ public class DesertTumbleweeds : MonoBehaviour
         public float radius, speed, depth, phase, angle, delay;
         public bool rolling;
         public TumbleweedFlight motion;
+        public int hitCount;
+        public bool breaking;
+        public float breakT, breakHeight;
+        public Vector3 normalScale;
         public System.Collections.Generic.HashSet<Enemy> hits;   // lennon aikana jo osuneet vihut (kukin vain kerran)
     }
 
@@ -42,7 +51,7 @@ public class DesertTumbleweeds : MonoBehaviour
         for (int i = Mathf.Max(0, owner.balls.Length - 2); i < owner.balls.Length; i++)
         {
             var ball = owner.balls[i];
-            if (!ball.rolling || !ball.ground.gameObject.activeInHierarchy || ball.motion.Airborne) continue;
+            if (!ball.rolling || ball.breaking || !ball.ground.gameObject.activeInHierarchy || ball.motion.Airborne) continue;
             Vector3 p = ball.ground.position;
             float dx = (p.x - playerPosition.x) * direction;
             if (dx < -0.3f || dx > reach + ball.radius || Mathf.Abs(p.y - playerPosition.y) > depthRange + 0.2f) continue;
@@ -70,6 +79,7 @@ public class DesertTumbleweeds : MonoBehaviour
             art.transform.SetParent(ground, false);
             art.sprite = sprite;
             art.transform.localScale = Vector3.one * (diameter / Mathf.Max(0.01f, spriteSize));
+            var normalScale = art.transform.localScale;
             var shadow = new GameObject("Varjo").AddComponent<SpriteRenderer>();
             shadow.transform.SetParent(ground, false);
             shadow.sprite = PlayerController.CreateShadowSprite();
@@ -80,7 +90,7 @@ public class DesertTumbleweeds : MonoBehaviour
             audio.spatialBlend = 0f; audio.volume = 0f;
             balls[i] = new Ball { ground = ground, body = art.transform, art = art, shadow = shadow,
                 audio = audio,
-                radius = diameter * 0.5f, depth = depth, speed = Mathf.Lerp(maxSpeed, minSpeed, depth),
+                radius = diameter * 0.5f, depth = depth, normalScale = normalScale, speed = Mathf.Lerp(maxSpeed, minSpeed, depth),
                 phase = Random.Range(0f, Mathf.PI * 2f), angle = Random.Range(0f, 360f) };
             ground.position = new Vector3(0f, Mathf.Lerp(area.maxDepthY - 0.25f, area.minDepthY + 0.3f, depth), 0f);
             ground.gameObject.SetActive(false);
@@ -113,6 +123,7 @@ public class DesertTumbleweeds : MonoBehaviour
         }
         foreach (var ball in balls)
         {
+            if (ball.breaking) { UpdateBreak(ball); continue; }
             if (!ball.rolling)
             {
                 ball.delay -= Time.deltaTime;
@@ -126,6 +137,7 @@ public class DesertTumbleweeds : MonoBehaviour
                 ball.ground.position = start;
                 ball.rolling = true;
                 ball.motion = new TumbleweedFlight(ball.speed);
+                ball.hitCount = 0; ball.hits = null;
                 ball.ground.gameObject.SetActive(true);
                 if (rollSound != null)
                 {
@@ -175,10 +187,44 @@ public class DesertTumbleweeds : MonoBehaviour
             {
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), false, Mathf.RoundToInt(-q.y * 100f) + 5);
                 HitFx.OnHitQuiet();   // osumaääni (ei kameran tärinää eikä pysäytystä)
-                ball.motion.Bounce(bounceKeep, 3f);   // kimpoaa vihun naamasta takaisin
+                ball.hitCount++;
+                if (breakSprites != null && breakSprites.Length >= 2 && ball.hitCount >= breakHits) StartBreak(ball);   // kolmannessa osumassa hajoaa
+                else ball.motion.Bounce(bounceKeep, 3f);   // kimpoaa vihun naamasta takaisin
                 break;   // yksi osuma per törmäys
             }
         }
+    }
+
+    void StartBreak(Ball ball)
+    {
+        ball.breaking = true; ball.breakT = 0f; ball.breakHeight = ball.motion.Height;
+        ball.hits = null;
+        ball.audio.Stop();
+        // hajoamiskuvat ovat 512 × 512 -soluja, joissa pallo täyttää noin 480 px: sama näkyvä koko kuin ehjällä pallolla
+        float ppu = breakSprites[0].pixelsPerUnit;
+        ball.body.localScale = Vector3.one * (0.82f * ball.radius * 2f * ppu / 480f);
+        ball.body.localRotation = Quaternion.identity;
+        ball.body.localPosition = new Vector3(0f, ball.radius + ball.breakHeight, 0f);
+        ball.art.sprite = breakSprites[0];
+    }
+
+    void UpdateBreak(Ball ball)
+    {
+        ball.breakT += Time.deltaTime;
+        int n = breakSprites.Length;
+        int f = Mathf.Min((int)(ball.breakT / breakFrameTime), n - 1);
+        ball.art.sprite = breakSprites[f];
+        float fade = f == n - 1 ? 1f - Mathf.Clamp01((ball.breakT - (n - 1) * breakFrameTime) / Mathf.Max(0.01f, breakFadeTime)) : 1f;
+        ball.art.color = new Color(1f, 1f, 1f, fade);
+        var sc = ball.shadow.color; sc.a = 0.24f * fade; ball.shadow.color = sc;
+        if (fade > 0f) return;
+        // hävinnyt: palautetaan ehjäksi ja palaa myöhemmin oikealta
+        ball.breaking = false; ball.rolling = false;
+        ball.art.sprite = sprite; ball.art.color = Color.white; ball.body.localScale = ball.normalScale;
+        sc.a = 0.24f; ball.shadow.color = sc;
+        ball.hitCount = 0; ball.hits = null;
+        ball.delay = Random.Range(6f, 12f);
+        ball.ground.gameObject.SetActive(false);
     }
 
     void OnDisable()
