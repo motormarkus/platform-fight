@@ -4826,14 +4826,14 @@ public static class BeatEmUpSetup
         const float exitPx = 3285f;
         float exitX = left + exitPx / ppu;
         back.transform.position = new Vector3(exitX, diner.MaxDepthAtX(exitX, diner.maxDepthY), 0f);
-        back.here = diner; back.target = street; back.returnToLastDoor = true;
-        back.prompt = "Mene ulos (EXIT)"; back.halfWidth = 1.5f; back.maxDistanceFromWall = 1.1f;
-        const string exitSignPath = "Assets/Sprites/Taustat/diner_exit.png";
+        back.here = diner; back.target = street; back.returnToLastDoor = false;   // paluu aina kadulle dinerin oven eteen (ei riipu siitä, mistä pelaaja tuli)
+        back.prompt = "Mene ulos (EXIT)"; back.halfWidth = 2.2f; back.maxDistanceFromWall = 2.0f;
+        const string exitSignPath = "Assets/Sprites/Rekvisiitta/exit_kyltti.png";   // 2172 x 724, kuvan oma kyltti
         if (AssetImporter.GetAtPath(exitSignPath) != null)
         {
             var sign = new GameObject("Dinerin EXIT-kyltti").AddComponent<SpriteRenderer>();
             sign.transform.SetParent(root.transform, false);
-            sign.sprite = ImportShipSprite(exitSignPath, ppu, false, SpriteAlignment.Center);
+            sign.sprite = ImportShipSprite(exitSignPath, 1150f, false, SpriteAlignment.Center);   // ~1,9 yksikköä leveä
             sign.transform.position = new Vector3(exitX, centerY + 6f - 128f / ppu, 0f);   // oven yläpuolelle
             sign.sortingOrder = -9990;
         }
@@ -5373,10 +5373,10 @@ public static class BeatEmUpSetup
         float[] imageScales = { 1f, 1f, 1f, 1.008f, 1.157184f, 1.085438592f, 1.0095f, 1.0095f, 1.0095f };
         float[] curbRows = { 560f, 560f, 588f, 607f, 591f, 640f };
         // Kohdista jokaisen kuvan reunakiveys samaan 560 px linjaan myös mittakaavan muuttuessa.
-        // Kuvat 7-9 (941 + 48 px peilattua lattiaa alareunassa, ettei alareunaan jää rakoa) kohdistettu kuvamittauksella jatkokuvan 3 oikeaan reunaan; nosto annettu suoraan.
+        // Kuvat 7-9 (941 + 48 px peilattua lattiaa alareunassa, ettei alareunaan jää rakoa; lisäpikselit alareunassa, joten keskipiste on 24 px alempana: nosto +24) kohdistettu kuvamittauksella jatkokuvan 3 oikeaan reunaan.
         float[] risePixels = Enumerable.Range(0, startPixels.Length).Select(i =>
             i < curbRows.Length ? (curbRows[i] - 443.5f) * imageScales[i] - (560f - 443.5f)
-                : new[] { 80.9f, 79.9f, 97.1f }[i - curbRows.Length]).ToArray();
+                : new[] { 129.3f, 128.3f, 145.5f }[i - curbRows.Length]).ToArray();
         // Rajaa nostettujen kuvien alapuoliset aukot pois näkymästä.
         const float bottomCropPixels = 60f;
         float cameraSize = 6f - bottomCropPixels * 0.5f / ppu;
