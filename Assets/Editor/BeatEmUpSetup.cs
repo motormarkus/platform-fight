@@ -8768,7 +8768,7 @@ public static class BeatEmUpSetup
         var rs = holder.AddComponent<DinerTableRespawn>();
         rs.area = diner; rs.template = group; rs.templateOrigin = origin;
         // lisäpöytä snookerpöydän taakse (oikea pääty): vain piirakoita
-        Vector3 snookerTable = new Vector3(left + 3780f / ppu, -2.1f, 0f);
+        Vector3 snookerTable = new Vector3(left + 3780f / ppu, -0.7f, 0f);   // kauas snookerin taakse, lähelle takaseinää
         var snookerSet = new GameObject("Snookerin piirakkapöytä");
         snookerSet.transform.SetParent(holder.transform, false);
         BuildDinerTableSet(snookerSet.transform, snookerTable, 88, 3);
