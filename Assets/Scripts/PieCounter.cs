@@ -42,7 +42,26 @@ public class PieCounter : MonoBehaviour
         timer += Time.deltaTime;
         if (timer < (PieWar.Active ? Mathf.Min(interval, 1.5f) : interval)) return;   // piirakkasodassa nopeammin
         timer = 0f;
+        if (PieWar.Active && Random.value < 0.5f && SpawnFloor()) return;   // piirakkasodassa osa piirakoista ilmestyy lattialle
         SpawnOne();
+    }
+
+    readonly List<Bottle> floorMade = new List<Bottle>();
+
+    bool SpawnFloor()
+    {
+        floorMade.RemoveAll(b => b == null || (born.TryGetValue(b, out float t0) && Time.time - t0 > 0.5f && !b.CanPickUp));
+        if (floorMade.Count >= 5) return false;
+        float px = Random.Range(area.walkMinX + 1.5f, area.walkMaxX - 1.5f);
+        float top = Mathf.Min(area.MaxDepthAtX(px, area.maxDepthY) - 1.0f, area.maxDepthY - 1.0f);
+        float py = Random.Range(area.minDepthY + 0.6f, Mathf.Max(area.minDepthY + 0.7f, top));
+        var go = Instantiate(template.gameObject, new Vector3(px, py, 0f), Quaternion.identity, transform);
+        go.name = "Lattian piirakka";
+        go.SetActive(true);
+        var nb = go.GetComponent<Bottle>();
+        nb.restHeight = 0f; nb.restOnRenderer = null;   // lattialla, ei tiskin pinnalla
+        floorMade.Add(nb); born[nb] = Time.time;
+        return true;
     }
 
     void SpawnOne()
