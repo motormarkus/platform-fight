@@ -1733,8 +1733,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
-        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
-        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
+        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
+        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
         if (s == State.Slaps)
         {
@@ -2660,7 +2660,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void Launch(float vx, float up)
     {
         if (state != State.Airborne) return;
-        if (launchVoice != null && audioSource != null) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, launchVoiceVolume); }
+        if (launchVoice != null && audioSource != null && VoiceGate("launch")) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, launchVoiceVolume); }
         if (lightweight) up *= lightLaunchMul;
         knockVel = new Vector2(vx, 0f);
         verticalVel = up;
@@ -2731,9 +2731,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return c;
     }
 
+    // Samanaikaiset samat äänet (kolme samaa hahmoa saa osuman yhtä aikaa) summautuisivat vaiheistushäiriöksi: sama hahmo + äänilaji soi vain kerran lyhyessä ikkunassa.
+    static readonly System.Collections.Generic.Dictionary<string, float> voiceGate = new System.Collections.Generic.Dictionary<string, float>();
+    bool VoiceGate(string kind, float window = 0.15f)
+    {
+        string key = (string.IsNullOrEmpty(displayName) ? gameObject.name : displayName) + "|" + kind;
+        float now = Time.unscaledTime;
+        if (voiceGate.TryGetValue(key, out float last) && now >= last && now - last < window) return false;
+        voiceGate[key] = now;
+        return true;
+    }
+
     void PlayAttackSound()
     {
-        if (attackSounds == null || attackSounds.Length == 0 || audioSource == null) return;
+        if (attackSounds == null || attackSounds.Length == 0 || audioSource == null || !VoiceGate("attack")) return;
         int i = Random.Range(0, attackSounds.Length);
         if (attackSounds.Length > 1 && i == lastAttackSound) i = (i + 1) % attackSounds.Length;
         lastAttackSound = i;
@@ -2744,7 +2755,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void PlayHurtSound()
     {
-        if (hurtSounds == null || hurtSounds.Length == 0 || audioSource == null) return;
+        if (hurtSounds == null || hurtSounds.Length == 0 || audioSource == null || !VoiceGate("hurt")) return;
         int i = Random.Range(0, hurtSounds.Length);
         if (hurtSounds.Length > 1 && i == lastSound) i = (i + 1) % hurtSounds.Length;
         lastSound = i;
