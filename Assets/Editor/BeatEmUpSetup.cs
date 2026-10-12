@@ -4842,6 +4842,78 @@ public static class BeatEmUpSetup
         Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee STAFF-oven kohdalta (EXIT-kyltti) E:llä. Tallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/110. Aavikkobaari: sisätila (3 kuvaa), ovi kadulta ja portaat yläkertaan")]
+    static void CreateDesertBar()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/aavikkobaari_sisa.png";   // kolme kuvaa yhdistettynä (4102 × 941): ovi, tiski, lava ja portaat
+        var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
+        if (street == null || AssetImporter.GetAtPath(path) == null)
+        { Info("Tee ensin Aavikkokatu (95). Tarvitaan aavikkobaari_sisa.png (Sprites/Taustat)."); return; }
+        float ppu = 941f / 12f;
+        var bgSprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        const float left = 91000f, centerY = 1.4f;
+        float width = bgSprite.bounds.size.x, centerX = left + width * 0.5f;
+        float DepthAt(float py) => centerY + 6f - py / ppu;
+        var bar = ReuseArea("Alue: Aavikkobaari");
+        Undo.RecordObject(bar, "Aavikkobaari");
+        bar.areaName = "Aavikkobaari"; bar.useSidewalk = false;
+        bar.minDepthY = -4f; bar.maxDepthY = DepthAt(540f);
+        const float camSize = 6f;
+        bar.camMinX = left + camSize * 16f / 9f; bar.camMaxX = left + width - camSize * 16f / 9f; bar.camSize = camSize;
+        bar.camOffsetY = (centerY + 6f - camSize) - CamY; bar.camRiseY = 0f;
+        bar.walkMinX = left + 0.8f; bar.walkMaxX = left + width - 0.8f;
+        // Takaraja kuvapikseleinä: seinä, tiski (edempänä), portaiden juuri, lava ja oikean seinän vinous.
+        bar.depthLimits = new[] {
+            new Vector2(left + 0f, DepthAt(540f)), new Vector2(left + 1385f / ppu, DepthAt(540f)),
+            new Vector2(left + 1395f / ppu, DepthAt(660f)), new Vector2(left + 2510f / ppu, DepthAt(660f)),
+            new Vector2(left + 2520f / ppu, DepthAt(605f)), new Vector2(left + 2820f / ppu, DepthAt(605f)),
+            new Vector2(left + 2830f / ppu, DepthAt(540f)), new Vector2(left + 3830f / ppu, DepthAt(540f)),
+            new Vector2(left + width, DepthAt(720f)) };
+        bar.backScale = 1f;
+        bar.music = street.music; bar.ambience = street.ambience; bar.ambienceVolume = 0.2f;
+        foreach (var name in new[] { "Aavikkobaarin sisalto", "Aavikkokadulta baariin" })
+        { var old = GameObject.Find(name); if (old != null) Undo.DestroyObjectImmediate(old); }
+        var root = new GameObject("Aavikkobaarin sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkobaari");
+        var bg = new GameObject("Aavikkobaarin tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.transform.position = new Vector3(centerX, centerY, 0f);
+        bg.sprite = bgSprite; bg.sortingOrder = -10000;
+        // Sisään: pariovi Aavikkokadun viimeisessä kuvassa (jatkokuva 6, ovi kuvan x 990).
+        float streetDoorX = 86000f + (11629.3f + 990f * 1.0095f) / (887f / 12f);
+        var enter = new GameObject("Aavikkokadulta baariin").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(enter.gameObject, "Baarin ovi");
+        float doorX = left + 805f / ppu;   // sisäpuolen pariovi ensimmäisessä kuvassa
+        enter.here = street; enter.target = bar; enter.spawnPoint = new Vector2(doorX, -1.2f);
+        enter.prompt = "Mene baariin"; enter.halfWidth = 1.4f; enter.maxDistanceFromWall = 1.1f;
+        enter.transform.position = new Vector3(streetDoorX, street.maxDepthY, 0f);
+        var back = new GameObject("Baarista kadulle").AddComponent<Door>();
+        back.transform.SetParent(root.transform, false);
+        back.transform.position = new Vector3(doorX, bar.MaxDepthAtX(doorX, bar.maxDepthY), 0f);
+        back.here = bar; back.target = street; back.returnToLastDoor = true;
+        back.prompt = "Mene ulos"; back.halfWidth = 1.5f; back.maxDistanceFromWall = 1.1f;
+        back.spawnPoint = new Vector2(streetDoorX, street.maxDepthY - 0.3f);
+        // Portaat yläkertaan: ovi portaiden juurella (takaraja on siinä portaiden alareunassa).
+        float stairsX = left + 2665f / ppu;
+        var upstairs = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaarin yläkerta");
+        string stairInfo;
+        if (upstairs != null)
+        {
+            var up = new GameObject("Baarin portaat ylös").AddComponent<Door>();
+            up.transform.SetParent(root.transform, false);
+            up.transform.position = new Vector3(stairsX, bar.MaxDepthAtX(stairsX, bar.maxDepthY), 0f);
+            up.here = bar; up.target = upstairs; up.spawnPoint = new Vector2(upstairs.walkMinX + 2f, upstairs.maxDepthY - 0.5f);
+            up.prompt = "Mene yläkertaan"; up.halfWidth = 1.3f; up.maxDistanceFromWall = 0.9f;
+            stairInfo = "Portaat vievät alueelle Aavikkobaarin yläkerta.";
+        }
+        else stairInfo = "Portaiden ovi tehdään, kun yläkerran kuvat on tehty (alue \"Aavikkobaarin yläkerta\"); portaiden juurelle (x = " + stairsX.ToString("0.0") + ") pääsee jo kävelemään.";
+        EditorUtility.SetDirty(bar); EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Aavikkobaari lisätty: E-ovi Aavikkokadun viimeisen kuvan pariovesta sisään, ulos sisäoven kohdalta. Tiski ja portaat estävät kävelyn takaa.
+" + stairInfo + "
+Aja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
     public static void CreateDesertStreet()
     {
