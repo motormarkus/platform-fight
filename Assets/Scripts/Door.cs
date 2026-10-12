@@ -25,6 +25,8 @@ public class Door : MonoBehaviour
     public bool returnToLastDoor;
     [Tooltip("Sisääntulossa hahmo katsoo vasemmalle (esim. Peltihalli pelataan oikealta vasemmalle).")]
     public bool faceLeftOnArrival;
+    [Tooltip("Ovi on ruudun alareunassa (esim. dinerin uloskäynti): käytettävissä alueen etureunassa takarajan sijaan.")]
+    public bool atFront;
 
     [Header("Oven kohta")]
     public float halfWidth = 1.2f;
@@ -55,7 +57,7 @@ public class Door : MonoBehaviour
 
         Vector3 p = pc.transform.position;
         near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-            && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // porrastettu takaraja (esim. kadun baari)
+            && (here == null || (atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
             && pc.AirHeight <= 0.05f
             && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
         if (near && Pressed()) StartCoroutine(Go());

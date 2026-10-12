@@ -4822,12 +4822,13 @@ public static class BeatEmUpSetup
         enter.transform.position = new Vector3(doorX, street.maxDepthY, 0f);
         var back = new GameObject("Dinerista kadulle").AddComponent<Door>();
         back.transform.SetParent(root.transform, false);
-        back.transform.position = new Vector3(arrival.x, diner.maxDepthY, 0f);
+        back.transform.position = new Vector3(left + (1362f + 836f) / ppu, diner.minDepthY, 0f);   // uloskäynti keskellä alhaalla
         back.here = diner; back.target = street; back.returnToLastDoor = true;
-        back.prompt = "Mene ulos"; back.halfWidth = 1.6f; back.maxDistanceFromWall = 1.1f;
+        back.atFront = true;
+        back.prompt = "Mene ulos"; back.halfWidth = 2.6f; back.maxDistanceFromWall = 0.7f;
         back.spawnPoint = new Vector2(doorX, street.maxDepthY - 0.3f);
         EditorUtility.SetDirty(diner); EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee E:llä tiskin edestä. Tallenna scene (Ctrl+S).");
+        Info("Diner lisätty: E-ovi Aavikkokadun dinerin pääovesta sisään keskikuvaan (tiski), jatko vasemmalle (boksit) ja oikealle (kassa, ikkuna). Ulos pääsee E:llä ruudun alareunasta keskeltä. Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
