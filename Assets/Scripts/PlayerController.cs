@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kuluttaa staminaa, jos sitä on tarpeeksi. Palauttaa, onnistuiko.
     public bool UseStamina(float cost)
     {
-        if (Boosted) return true;   // pärinä: stamina ei kulu
+        if (Boosted || PieWar.Active) return true;   // pärinä ja piirakkasota: stamina ei kulu
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
         staminaRest = staminaRegenWait;
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void UpdateStamina(float dt)
     {
-        if (running && Boosted) return;
+        if (running && (Boosted || PieWar.Active)) return;   // piirakkasodassa juoksu ei kuluta staminaa (ehtii hakea piirakoita)
         if (running)
         {
             stamina = Mathf.Max(0f, stamina - runStaminaPerSecond * dt);
@@ -1329,7 +1329,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (HasCounterThrow && (FoeInFront(2.4f) || WhipIncoming())) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
-                if (punchPressed && Bottle.Held != null && PieWar.Active && Bottle.Held.pie && !UseStamina(PieThrowStamina)) break;   // piirakkasodassa heitto vie staminaa
                 if (punchPressed && Bottle.Held != null)
                 {
                     // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
@@ -2804,7 +2803,6 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Heitetty piirakka osuu. 0 = ei osunut, 1 = osui ja piirakka-animaatio alkoi (piirakka häviää), 2 = osui ilman animaatiota (torjuttu).
     public void WarHeal() { health = maxHealth; }
-    public const float PieThrowStamina = 12f;   // piirakan heitto piirakkasodassa
 
     public int PieHit(int damage, float attackerX, Enemy attacker = null)
     {
