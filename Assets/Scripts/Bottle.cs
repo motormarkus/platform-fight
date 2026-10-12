@@ -146,7 +146,7 @@ public class Bottle : MonoBehaviour
             if (!onTable && b.state != S.Lying && !landing) continue;
             Vector3 q = b.transform.position;
             float dx = Mathf.Abs(q.x - me.x), dy = Mathf.Abs(q.y - me.y);
-            if (dx > 2.0f || dy > 1.0f) continue;
+            if (dx > 3.2f || dy > 1.6f) continue;   // piirakka on leveä: nosto onnistuu jo reunan vierestä
             if (dx + dy < bd) { bd = dx + dy; best = b; }
         }
         if (best == null)
@@ -251,7 +251,7 @@ public class Bottle : MonoBehaviour
                         // pöytä nostetaan ylösalaisin: pullo putoaa lattialle ehjänä
                         float sd = Random.value < 0.5f ? -1f : 1f;
                         vx = sd * Random.Range(0.4f, 1.2f); vy = Random.Range(0.5f, 1.5f); spin = -sd * Random.Range(150f, 300f);
-                        fastFall = false; softLanding = true; table = null; state = S.Falling; t = 0f;
+                        fastFall = false; softLanding = true; if (pie) alwaysBreak = true; table = null; state = S.Falling; t = 0f;
                         break;
                     }
                     React(gone);
@@ -327,6 +327,7 @@ public class Bottle : MonoBehaviour
         t = 0f;
         vx = side * Random.Range(2.5f, 6f) + Random.Range(-1f, 1f); vy = Random.Range(6f, 10f);
         spin = -side * Random.Range(600f, 1200f); fastFall = true;
+        if (pie) alwaysBreak = true;   // pöydältä pudonnut piirakka läsähtää lattiaan (ei jää ehjänä makaamaan)
         table = null;
         state = S.Falling;
     }
@@ -349,6 +350,7 @@ public class Bottle : MonoBehaviour
             vx = side * Random.Range(0.8f, 1.6f); vy = Random.Range(0.5f, 1.5f);
             spin = -side * Random.Range(150f, 300f); fastFall = false;
         }
+        if (pie) alwaysBreak = true;   // pöydältä pudonnut piirakka läsähtää lattiaan (ei jää ehjänä makaamaan)
         table = null;
         state = S.Falling;
     }
