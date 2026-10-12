@@ -4926,16 +4926,51 @@ public static class BeatEmUpSetup
         // kuvapikselit panoraamassa → x; syvyys y. Lavan edusta (x 2850-3900) jätetään tanssitilaksi, ovi (x 805) ja portaat (x 2665) vapaiksi.
         var tables = new[] { new Vector3(left + 300f / ppu, -0.9f, 0f), new Vector3(left + 1100f / ppu, -1.8f, 0f),
             new Vector3(left + 2300f / ppu, -1.9f, 0f), new Vector3(left + 2620f / ppu, -3.3f, 0f),
-            new Vector3(left + 4000f / ppu, -2.6f, 0f) };
+            new Vector3(left + 4000f / ppu, -2.6f, 0f),
+            new Vector3(left + 1000f / ppu, -3.2f, 0f), new Vector3(left + 1700f / ppu, -2.4f, 0f),
+            // pari pöytää lavan eteen: reunoille, keskelle jää tanssilattia (Elaine ja Rekkamies tanssivat x 3250-3450)
+            new Vector3(left + 3000f / ppu, -0.9f, 0f), new Vector3(left + 3750f / ppu, -1.0f, 0f),
+            new Vector3(left + 2950f / ppu, -3.6f, 0f), new Vector3(left + 3700f / ppu, -3.6f, 0f) };
         var info = AddBottleTables(root.transform, tables, 57);
         int snooker = 0;
         foreach (float px in new[] { 600f, 1800f })
             if (AddSnookerTable(root.transform, new Vector2(left + px / ppu, -3.5f), PokerPoolWidth) != null) snooker++;
+        // pekoniannokset (Resources/Aamiainen) joillekin pöydille sinne tänne
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Aamiainen" }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)(Path.GetFileNameWithoutExtension(path) == "annos" ? SpriteAlignment.BottomCenter : SpriteAlignment.Center);
+            ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+        }
+        var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
+        float plateTop = 1.28f * TableScale - 0.04f;
+        int plates = 0, tableNo = 0;
+        foreach (var table in root.GetComponentsInChildren<Crate>().Where(c => c.gameObject.name == "Pöytä"))
+        {
+            tableNo++;
+            if (tableNo % 3 == 2) continue;   // noin kahdella kolmesta pöydästä on annos
+            float px = (tableNo % 2 == 0 ? -1f : 1f) * 0.62f;
+            var pGo = new GameObject("Pekoniannos");
+            pGo.transform.SetParent(root.transform, false);
+            pGo.transform.position = table.transform.position;
+            var fp = pGo.AddComponent<FishPlate>();
+            fp.spriteSet = "Aamiainen"; fp.countMul = 0.35f;
+            fp.table = table; fp.tableX = px * TableScale; fp.tableTop = plateTop + 0.04f;
+            fp.breakSounds = plateSnd;
+            plates++;
+        }
         // lisätuolit: yksi kunkin pöydän eteen sekä seinien ja lavan sivujen viereen (tanssitila jää tyhjäksi)
         var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
         var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
             .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
-        var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), t.y - 0.8f, 0f))
+        var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), Mathf.Max(t.y - 0.8f, -3.95f), 0f))
             .Concat(new[] { 150f, 1000f, 1450f, 2100f, 2350f, 2850f, 3900f }.Select((px, i) => new Vector3(left + px / ppu, -3.8f + (i % 3) * 0.3f, 0f)))
             .Append(new Vector3(left + 4040f / ppu, -1.4f, 0f)).ToArray();
         int extraChairs = 0;
@@ -4953,7 +4988,7 @@ public static class BeatEmUpSetup
                 extraChairs++;
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.\n\nTallenna scene (Ctrl+S).");
+        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia, {plates} pekoniannosta), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää (pari pöytää myös lavan edessä). Lavan edessä on tyhjää tanssitilaa.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/112. Elaine baariin (seisoskelee, kävelee, nojaa tiskiin ja tanssii lavan edessä)")]
