@@ -4858,7 +4858,7 @@ public static class BeatEmUpSetup
         var bar = ReuseArea("Alue: Aavikkobaari");
         Undo.RecordObject(bar, "Aavikkobaari");
         bar.areaName = "Aavikkobaari"; bar.useSidewalk = false;
-        bar.minDepthY = -4f; bar.maxDepthY = DepthAt(540f);
+        bar.minDepthY = -6.2f; bar.maxDepthY = DepthAt(540f);   // kävelyalue ulottuu peilatulle lattialle asti
         const float camSize = 7.2f;   // loitonnettu: tiski ja lava mahtuvat ruutuun, alle jatkuu peilattu lattia (aavikkobaari_lattia.png)
         bar.camMinX = left + camSize * 16f / 9f; bar.camMaxX = left + width - camSize * 16f / 9f; bar.camSize = camSize;
         bar.camOffsetY = (centerY + 6f - camSize) - CamY; bar.camRiseY = 0f;
@@ -4939,7 +4939,10 @@ public static class BeatEmUpSetup
             new Vector3(left + 1000f / ppu, -3.2f, 0f), new Vector3(left + 1700f / ppu, -2.4f, 0f),
             // pari pöytää lavan eteen: reunoille, keskelle jää tanssilattia (Elaine ja Rekkamies tanssivat x 3250-3450)
             new Vector3(left + 3000f / ppu, -0.9f, 0f), new Vector3(left + 3750f / ppu, -1.0f, 0f),
-            new Vector3(left + 2950f / ppu, -3.6f, 0f), new Vector3(left + 3700f / ppu, -3.6f, 0f) };
+            new Vector3(left + 2950f / ppu, -3.6f, 0f), new Vector3(left + 3700f / ppu, -3.6f, 0f),
+            // alas peilatulle lattialle lisää pöytiä (kamera loitonnettu)
+            new Vector3(left + 450f / ppu, -5.5f, 0f), new Vector3(left + 1250f / ppu, -5.7f, 0f), new Vector3(left + 2000f / ppu, -5.4f, 0f),
+            new Vector3(left + 2800f / ppu, -5.6f, 0f), new Vector3(left + 3550f / ppu, -5.4f, 0f), new Vector3(left + 3950f / ppu, -4.9f, 0f) };
         var info = AddBottleTables(root.transform, tables, 57);
         int snooker = 0;
         foreach (float px in new[] { 600f, 1800f })
@@ -4979,7 +4982,7 @@ public static class BeatEmUpSetup
         var chairSprite = ImportProp("Assets/Sprites/Rekvisiitta/tuoli.png");
         var wood = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" }).Select(AssetDatabase.GUIDToAssetPath)
             .Where(q => Path.GetFileNameWithoutExtension(q).ToLowerInvariant().StartsWith("puu")).Select(AssetDatabase.LoadAssetAtPath<AudioClip>).Where(clip => clip != null).ToArray();
-        var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), Mathf.Max(t.y - 0.8f, -3.95f), 0f))
+        var extra = tables.Select((t, i) => new Vector3(t.x + (i % 2 == 0 ? 0.5f : -0.5f), Mathf.Max(t.y - 0.8f, -6.4f), 0f))
             .Concat(new[] { 150f, 1000f, 1450f, 2100f, 2350f, 2850f, 3900f }.Select((px, i) => new Vector3(left + px / ppu, -3.8f + (i % 3) * 0.3f, 0f)))
             .Append(new Vector3(left + 4040f / ppu, -1.4f, 0f)).ToArray();
         int extraChairs = 0;
