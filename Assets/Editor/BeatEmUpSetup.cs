@@ -5245,6 +5245,14 @@ public static class BeatEmUpSetup
             Add(pc.GetComponent<Enemy>(), "Baarin puliukko", 1700f, -2.7f, 1, 140f);
         }
         else names.Add("(puliukko puuttuu: aja 1-2 vihujen kohdat)");
+        // alalattialle käppäilemään kaksi Kovista ja kaksi punkkaria (punkkari heittää pikkutavaraa)
+        foreach (var (who, px, y) in new[] { ("Kovis", 700f, -5.4f), ("Punkkari", 1500f, -5.6f), ("Kovis", 2900f, -5.3f), ("Punkkari", 3700f, -5.5f) })
+        {
+            var tmpl = all.FirstOrDefault(en => en != null && en.gameObject.name == who);
+            if (tmpl == null) { names.Add("(" + who + " puuttuu)"); continue; }
+            var cgo = Object.Instantiate(tmpl.gameObject, root.transform);
+            Add(cgo.GetComponent<Enemy>(), "Baarin " + who + " (alalattia) " + (int)px, px, y, px < 2000f ? 1 : -1, 260f);
+        }
         // rekkamies (tehty kohdassa 115): siirretään baarin oikeaan päätyyn lavan viereen
         var trucker = GameObject.Find("Rekkamies");
         var tEnemy = trucker != null ? trucker.GetComponent<Enemy>() : null;
