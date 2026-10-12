@@ -4909,9 +4909,7 @@ public static class BeatEmUpSetup
         }
         else stairInfo = "Portaiden ovi tehdään, kun yläkerran kuvat on tehty (alue \"Aavikkobaarin yläkerta\"); portaiden juurelle (x = " + stairsX.ToString("0.0") + ") pääsee jo kävelemään.";
         EditorUtility.SetDirty(bar); EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Aavikkobaari lisätty: E-ovi Aavikkokadun viimeisen kuvan pariovesta sisään, ulos sisäoven kohdalta. Tiski ja portaat estävät kävelyn takaa.
-" + stairInfo + "
-Aja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
+        Info("Aavikkobaari lisätty: E-ovi Aavikkokadun viimeisen kuvan pariovesta sisään, ulos sisäoven kohdalta. Tiski ja portaat estävät kävelyn takaa.\n" + stairInfo + "\nAja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/111. Aavikkobaari: pöydät, tuolit, pullot ja kaksi snookerpöytää (tanssitila lavan edessä)")]
@@ -4954,9 +4952,7 @@ Aja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
                 extraChairs++;
             }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.
-
-Tallenna scene (Ctrl+S).");
+        Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää. Lavan edessä on tyhjää tanssitilaa.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/112. Elaine baariin (seisoskelee, kävelee, nojaa tiskiin ja tanssii lavan edessä)")]
