@@ -4850,9 +4850,10 @@ public static class BeatEmUpSetup
         var road = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkotie");
         // Kuvat 2–6: vasen reuna häivytetty (_pehmea), jolloin limitys sulautuu eikä liitos näy.
         string[] files = { "aavikkokatu1.png", "aavikkokatu2_pehmea.png", "aavikkokatu3_pehmea.png",
-            "aavikkokadujatke1_pehmea.png", "aavikkokadujatke2_pehmea.png", "aavikkokadujatke3_pehmea.png" };
+            "aavikkokadujatke1_pehmea.png", "aavikkokadujatke2_pehmea.png", "aavikkokadujatke3_pehmea.png",
+            "aavikkokadujatke4_pehmea.png", "aavikkokadujatke5_pehmea.png", "aavikkokadujatke6_pehmea.png" };   // 7 motelli, 8 puisto, 9 baari
         if (road == null || files.Any(f => AssetImporter.GetAtPath(dir + f) == null))
-            throw new System.InvalidOperationException("Tarvitaan Aavikkotie (93), kolme aavikkokatukuvaa ja kolme jatkokuvaa.");
+            throw new System.InvalidOperationException("Tarvitaan Aavikkotie (93), kolme aavikkokatukuvaa ja kuusi jatkokuvaa.");
         // Reunoissa on sama rakennus kahdesti: kohdista yhteiset osat limittäin.
         float ppu = AssetDatabase.LoadAssetAtPath<Texture2D>(dir + files[0]).height / 12f;
         var sprites = files.Select(f => ImportShipSprite(dir + f, ppu, false, SpriteAlignment.Center)).ToArray();
@@ -4861,16 +4862,19 @@ public static class BeatEmUpSetup
         if (backgrounds.Any(s => s == null))
             throw new System.InvalidOperationException("Aavikon parallax-spritet puuttuvat.");
         const float left = 86000f;
-        float[] startPixels = { 0f, 1497f, 2917f, 4386f, 5896.992f, 7586.48064f };
-        float[] imageScales = { 1f, 1f, 1f, 1.008f, 1.157184f, 1.085438592f };
+        float[] startPixels = { 0f, 1497f, 2917f, 4386f, 5896.992f, 7586.48064f, 9112.7f, 10421f, 11629.3f };
+        float[] imageScales = { 1f, 1f, 1f, 1.008f, 1.157184f, 1.085438592f, 1.0095f, 1.0095f, 1.0095f };
         float[] curbRows = { 560f, 560f, 588f, 607f, 591f, 640f };
         // Kohdista jokaisen kuvan reunakiveys samaan 560 px linjaan myös mittakaavan muuttuessa.
-        float[] risePixels = curbRows.Select((row, i) =>
-            (row - 443.5f) * imageScales[i] - (560f - 443.5f)).ToArray();
+        // Kuvat 7-9 (941 px korkeita) kohdistettu kuvamittauksella jatkokuvan 3 oikeaan reunaan; nosto annettu suoraan.
+        float[] risePixels = Enumerable.Range(0, startPixels.Length).Select(i =>
+            i < curbRows.Length ? (curbRows[i] - 443.5f) * imageScales[i] - (560f - 443.5f)
+                : new[] { 105.1f, 104.1f, 121.3f }[i - curbRows.Length]).ToArray();
         // Rajaa nostettujen kuvien alapuoliset aukot pois näkymästä.
         const float bottomCropPixels = 60f;
         float cameraSize = 6f - bottomCropPixels * 0.5f / ppu;
-        float width = startPixels[5] / ppu + sprites[5].bounds.size.x * imageScales[5], halfScreen = cameraSize * 16f / 9f;
+        int lastView = sprites.Length - 1;
+        float width = startPixels[lastView] / ppu + sprites[lastView].bounds.size.x * imageScales[lastView], halfScreen = cameraSize * 16f / 9f;
         var area = ReuseArea("Alue: Aavikkokatu");
         area.areaName = "Aavikkokatu";
         area.minDepthY = CamY - 6f + bottomCropPixels / ppu + 0.6f;
@@ -4977,7 +4981,7 @@ public static class BeatEmUpSetup
         }
         EditorUtility.SetDirty(area); EditorUtility.SetDirty(exit);
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Aavikkokatu lisätty: kuusi kohdistettua kuvaa, samat aavikon parallaxit ja ajosiirtymä Aavikkotien lopusta. Tallenna scene (Ctrl+S).");
+        Info("Aavikkokatu lisätty: yhdeksän kohdistettua kuvaa (loppuun motelli, puisto ja baarin etuosa), samat aavikon parallaxit ja ajosiirtymä Aavikkotien lopusta. Tallenna scene (Ctrl+S).");
     }
 
     public static void BuildDesertStreetBatch()
