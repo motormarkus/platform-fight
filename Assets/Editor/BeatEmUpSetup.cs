@@ -5064,44 +5064,59 @@ Tallenna scene (Ctrl+S).");
     }
 
     // ---------------- Rekkamies ----------------
-    // rekkamies_idle (9 kuvaa), rekkamies_juoksu (15 kuvaa, silmukka), rekkamies_taklaus (6 kuvaa: 0 juoksuasento, 1-5 olkataklaus).
-    // Toistaiseksi vain erikoisliike: juoksu ja torjumaton taklaus (sama mekanismi kuin kapteenin liukutaklaus, yli voi hypätä).
-    // Lähitaisteluiskuna on väliaikaisesti taklauskuvat (oikeat lyöntikuvat puuttuvat vielä).
-    [MenuItem("Beat em up/115. Rekkamies: juoksu ja torjumaton taklaus (kaikkia vastaan)")]
+    // rekkamies_calm (12 kuvaa, rauhallinen idle), rekkamies_taistelu (6, kamppailuidle), rekkamies_juoksu (15, silmukka),
+    // rekkamies_taklaus (6: 0 juoksuasento, 1-5 olkataklaus), rekkamies_kaatuminen (6: 0 osuma, 1-4 ilmassa, 5 makaa),
+    // rekkamies_ylosnousu (6) ja rekkamies_iskut (36): 0-6 jab, 7-13 suora, 14-20 potku, 21-35 korkea potku.
+    [MenuItem("Beat em up/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)")]
     static void CreateTrucker()
     {
-        foreach (var n in new[] { "rekkamies_idle", "rekkamies_juoksu", "rekkamies_taklaus" })
+        foreach (var n in new[] { "rekkamies_calm", "rekkamies_taistelu", "rekkamies_juoksu", "rekkamies_taklaus", "rekkamies_kaatuminen", "rekkamies_ylosnousu", "rekkamies_iskut" })
         {
             string path = FindTexture(n);
             if (path == null) { Info("Puuttuu " + n + ".png (Sprites)."); return; }
             SetupAndSlice(path);
         }
         var report = new List<string>();
-        var idle = EnemySheet("rekkamies_idle", report);
+        var calm = EnemySheet("rekkamies_calm", report);
+        var fight = EnemySheet("rekkamies_taistelu", report);
         var run = EnemySheet("rekkamies_juoksu", report);
         var tackle = EnemySheet("rekkamies_taklaus", report);
-        if (idle.Length < 1 || run.Length < 8 || tackle.Length < 6) { Info("Kuvia puuttuu (idle, juoksu 15, taklaus 6).\n\n" + string.Join("\n", report)); return; }
+        var fall = EnemySheet("rekkamies_kaatuminen", report);
+        var rise = EnemySheet("rekkamies_ylosnousu", report);
+        var atk = EnemySheet("rekkamies_iskut", report);
+        if (calm.Length < 1 || fight.Length < 1 || run.Length < 8 || tackle.Length < 6 || fall.Length < 6 || rise.Length < 6 || atk.Length < 36)
+        { Info("Kuvia puuttuu.\n\n" + string.Join("\n", report)); return; }
         var old = GameObject.Find("Rekkamies");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        Sprite[] R(int a, int n) => atk.Skip(a).Take(n).ToArray();
         var go = new GameObject("Rekkamies");
         var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
         var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
         var t = go.AddComponent<Enemy>();
-        t.body = visual; t.shadow = shadow; visual.sprite = idle[0];
+        t.body = visual; t.shadow = shadow; visual.sprite = calm[0];
         t.displayName = "Rekkamies";
         t.visualScale = 1f; t.attackArtScale = 1f; t.knockArtScale = 1f; t.walkArtScale = 1f;
-        t.idleSprites = idle; t.idleFrameTime = 0.2f;
+        t.calmIdleSprites = calm; t.idleSprites = fight; t.idleFrameTime = 0.2f;
         t.walkSprites = run; t.walkFrameTime = 0.07f;
         t.runSprites = run; t.runFrameTime = 0.042f;
+        // osuma = kaatumissarjan 1. kuva; kaatuminen 6 kuvaa (0-4 ilmassa, 5 makaa); ylösnousu 6 kuvaa
+        t.hurtSprites = new[] { fall[0] }; t.knockdownSprites = fall.Take(6).ToArray();
+        t.getUpSprites = rise.Take(6).ToArray(); t.getUpTime = 1.0f;
         // erikoisliike: juoksu kohti ja olkataklaus (ei voi torjua; hypyllä yli). Ylösnousuna taklauskuvat takaperin.
         t.slideSprites = tackle.Take(6).ToArray();
         t.slideUpSprites = new[] { tackle[3], tackle[2], tackle[1], tackle[0] };
         t.slideChance = 0.8f; t.slideDamage = 26; t.slideRunSpeed = 11f; t.slideSpeed = 12f; t.slideTime = 0.6f;
         t.slideMinRange = 3.5f; t.slideMaxRange = 14f; t.slideCooldown = 3f; t.slideStartDist = 3.6f;
-        // väliaikainen lähi-isku: olkapäätyönnö taklauskuvilla
-        t.punchSprites = tackle.Skip(1).Take(5).ToArray(); t.punchImpactFrame = 3; t.punchDamage = 15;
-        t.windupTime = 0.25f; t.punchRecoverTime = 0.4f; t.attackRange = 2.4f;
+        // J: jab, S: suora, P: etupotku, K: korkea potku (kombon lopetus)
+        t.punchSprites = R(0, 7); t.punchImpactFrame = 2; t.punchDamage = 11;
+        t.punch2Sprites = R(7, 7); t.punch2ImpactFrame = 1; t.punch2Damage = 15; t.punch2Chance = 0.4f; t.punch2Knockdown = false;
+        t.altAttackSprites = R(14, 7); t.altImpactFrame = 2; t.altDamage = 17; t.altReach = 3.0f; t.altKnockdown = true;
+        t.altKnockSpeed = 6f; t.altKnockUp = 4f; t.chargeRange = 0f; t.altChance = 0f; t.altNearChance = 0.3f; t.altExtraWindup = 0.05f;
+        t.punch3Sprites = R(21, 15); t.punch3ImpactFrame = 8; t.punch3Damage = 24; t.punch3Knockdown = true; t.punch3Chance = 0f;
+        t.punch3WindupTime = 0.7f; t.punch3RecoverTime = 0.5f; t.punch3Reach = 3.2f; t.punch3LaunchUp = 7f; t.punch3LaunchX = 6f;
+        t.combos = new[] { "JSPK", "JSJSK", "JSK", "JJSP" }; t.comboChance = 0.6f; t.comboArmor = true;
+        t.windupTime = 0.2f; t.punchRecoverTime = 0.35f; t.attackRange = 2.4f;
         t.moveSpeedX = 2.7f; t.moveSpeedY = 1.6f; t.runSpeedMultiplier = 2f;
         t.maxHealth = 520; t.attackCooldown = 0.5f;
         t.blockChance = 0.35f; t.maxBlocksInRow = 2;
@@ -5109,10 +5124,10 @@ Tallenna scene (Ctrl+S).");
         t.bigBody = true; t.wakeDistance = 10f; t.fightsEveryone = true;
         t.flankChance = 0.15f; t.retreatChance = 0f;
         float x = bar != null ? bar.walkMinX + 18f : 0f;
-        go.transform.position = bar != null ? new Vector3(x, -2.6f, 0f) : new Vector3(0f, -2.6f, 0f);
+        go.transform.position = new Vector3(x, -2.6f, 0f);
         Undo.RegisterCreatedObjectUndo(go, "Rekkamies");
         EditorSceneManager.MarkSceneDirty(go.scene);
-        Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Erikoisliike: juoksu ja torjumaton olkataklaus (hyppy väistää), kaataa 26 vahinkoa. Hän tappelee kaikkien kanssa, 520 elämää.\nLähi-iskuna on toistaiseksi taklauskuvat, ja kaatuminen näkyy pyöräytettynä idlekuvana, kunnes omat kuvat tulevat.\n\nTallenna scene (Ctrl+S).");
+        Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Rauhallinen idle, kamppailuasento, kombot (jab, suora, etupotku, korkea potku), osuma, kaatuminen ja ylösnousu sekä juoksu ja torjumaton olkataklaus (hyppy väistää). Tappelee kaikkien kanssa, 520 elämää.\nPuuttuu vielä: kävely (käyttää juoksukuvia), torjunta, heitetty ja paikallaan olevat iskut kaatuneelle.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit")]
