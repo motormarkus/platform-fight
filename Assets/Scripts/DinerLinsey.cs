@@ -38,12 +38,13 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
     public Vector2 counterStay = new Vector2(7f, 14f);
     [Range(0f, 1f)] public float counterChance = 0.45f;
 
-    enum S { Idle, Walk, ToCounter, AtCounter, FromCounter, PieHit, GoPie, PiePick, Aim, PieThrow }
+    enum S { Idle, Walk, ToCounter, AtCounter, FromCounter, PieHit, GoPie, PiePick, Aim, PieThrow, Stumble }
     S state = S.Idle;
     float t, wait, speakT = 8f;
     Vector2 goal; bool goalIsCounter;
     bool flipped;   // kuva peilattu (katsoo vasemmalle)
     Bottle pie; Enemy target;
+    float shoveDir;
     PlayerController hero;
     bool released;
     static readonly float[] PickTimes = { 0.12f, 0.16f };
@@ -119,6 +120,16 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
                 body.sprite = pieHit[Mathf.Min(fi, pieHit.Length - 1)];
                 float total = 0f; foreach (var pt in pieTimes) total += pt;
                 if (t >= total) { state = S.Idle; t = 0f; wait = Random.Range(1f, 2.5f); }
+                break;
+            }
+
+            case S.Stumble:
+            {
+                // heitetty pöytä osui: säikähtää (järkyttynyt ilme) ja horjahtaa pois päin
+                body.sprite = pieHit != null && pieHit.Length >= 4 ? pieHit[3] : (Has(idle) ? idle[0] : body.sprite);
+                float shove = shoveDir * 2.5f * Mathf.Max(0f, 1f - t / 0.5f) * dt;
+                transform.position = new Vector3(Mathf.Clamp(p.x + shove, laneMinX, laneMaxX), p.y, 0f);
+                if (t >= 1.4f) { state = S.Idle; t = 0f; wait = Random.Range(1f, 2.5f); }
                 break;
             }
 
@@ -243,6 +254,18 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         DropPie();
         flipped = attackerX < transform.position.x;   // kuvissa piirakka tulee oikealta
         state = S.PieHit; t = 0f;
+        if (hitSounds != null && hitSounds.Length > 0) HitFx.PlayClip(hitSounds[Random.Range(0, hitSounds.Length)], hitVolume);
+        return true;
+    }
+
+    /// Heitetty pöytä osuu Linseyyn (ei vahinkoa). Palauttaa true, jos hän reagoi.
+    public bool TableHit(float attackerX)
+    {
+        if (state == S.PieHit || state == S.Stumble) return false;
+        DropPie();
+        flipped = attackerX < transform.position.x;   // katsoo pöytään päin
+        shoveDir = attackerX < transform.position.x ? 1f : -1f;
+        state = S.Stumble; t = 0f;
         if (hitSounds != null && hitSounds.Length > 0) HitFx.PlayClip(hitSounds[Random.Range(0, hitSounds.Length)], hitVolume);
         return true;
     }

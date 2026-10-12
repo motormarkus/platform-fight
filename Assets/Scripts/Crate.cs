@@ -106,6 +106,7 @@ public class Crate : MonoBehaviour
     Enemy thrownBy;         // vihollisen heittämä osuu pelaajaan, ei vihollisiin
     int enemyDamage;
     readonly HashSet<Enemy> alreadyHit = new HashSet<Enemy>();
+    readonly HashSet<DinerLinsey> alreadyHitLinsey = new HashSet<DinerLinsey>();
     float groundHeight;
     bool lying;             // tynnyri kyljellään
     float rollDist;         // vieritty matka (kuvan valinta)
@@ -154,7 +155,7 @@ public class Crate : MonoBehaviour
                 vel = new Vector2((transform.position.x >= attackerX ? 1f : -1f) * kickRollSpeed, 0f);
                 thrown = true;
                 thrownBy = null;
-                alreadyHit.Clear();
+                alreadyHit.Clear(); alreadyHitLinsey.Clear();
                 state = State.Rolling;
                 stateTime = 0f;
             }
@@ -201,7 +202,7 @@ public class Crate : MonoBehaviour
         thrown = true;
         thrownBy = by;
         enemyDamage = damage;
-        alreadyHit.Clear();
+        alreadyHit.Clear(); alreadyHitLinsey.Clear();
         alreadyHitPlayer = false;
         plowHits = 0;
         bounced = false; bounceRot = 0f;
@@ -372,6 +373,14 @@ public class Crate : MonoBehaviour
             if (alreadyHit.Contains(e)) continue;
             // isku tulee lentosuunnasta: vihollinen kaatuu samaan suuntaan
             if (e.TakeHit(throwDamage, me.x - Mathf.Sign(vel.x), true)) { any = true; alreadyHit.Add(e); }
+        }
+        // Linsey ei ole vihu, mutta heitetty pöytä osuu häneenkin (hän säikähtää ja horjahtaa)
+        foreach (var lin in DinerLinsey.All.ToArray())
+        {
+            if (lin == null || alreadyHitLinsey.Contains(lin)) continue;
+            Vector3 lp = lin.transform.position;
+            if (Mathf.Abs(lp.x - me.x) > hitRadiusX || Mathf.Abs(lp.y - me.y) > EnemyHitRadiusY) continue;
+            if (lin.TableHit(me.x - Mathf.Sign(vel.x))) { any = true; alreadyHitLinsey.Add(lin); }
         }
         if (any) HitFx.OnHit(true);
         return any;

@@ -8705,6 +8705,67 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt Aavikolta Chinookin rampin edestä. Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
+    static void ImportBreakfastSprites()
+    {
+        foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Aamiainen" }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var ti = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (ti == null) continue;
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = 100; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.Uncompressed;
+            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+            st.spriteAlignment = (int)(Path.GetFileNameWithoutExtension(path) == "annos" ? SpriteAlignment.BottomCenter : SpriteAlignment.Center);
+            ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+        }
+    }
+
+    /// Yksi dinerin pöytäryhmä: pöytä, olutpullot, tuolit, aamiaisannos ja kermapiirakka.
+    static Crate BuildDinerTableSet(Transform parent, Vector3 pos, int seed)
+    {
+        AddBottleTables(parent, new[] { pos }, seed, true);
+        var table = parent.GetComponentsInChildren<Crate>(true).LastOrDefault(c => c.gameObject.name == "Pöytä");
+        if (table == null) return null;
+        var plateSnd = LoadClips("Assets/Audio/sfx", "posliini");
+        float top = 1.28f * TableScale - 0.04f;
+        MakePie(parent, table, 0.62f * TableScale, top);
+        var pGo = new GameObject("Aamiaisannos");
+        pGo.transform.SetParent(parent, false);
+        pGo.transform.position = table.transform.position;
+        var fp = pGo.AddComponent<FishPlate>();
+        fp.spriteSet = "Aamiainen"; fp.countMul = 0.35f;
+        fp.table = table; fp.tableX = -0.62f * TableScale; fp.tableTop = top + 0.04f;
+        fp.breakSounds = plateSnd;
+        return table;
+    }
+
+    [MenuItem("Beat em up/109. Diner: pöydät uusiutuvat (annoksineen ja piirakkoineen)")]
+    static void AddDinerTableRespawn()
+    {
+        var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
+        if (diner == null) { Info("Tee ensin Diner (103) ja kalusteet (104)."); return; }
+        var old = GameObject.Find("Pöytien uusiutuminen");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        ImportBreakfastSprites();
+        const float left = 90000f; float ppu = 941f / 12f;
+        var holder = new GameObject("Pöytien uusiutuminen");
+        Undo.RegisterCreatedObjectUndo(holder, "Pöytien uusiutuminen");
+        var group = new GameObject("Pöytäryhmän malli");
+        group.transform.SetParent(holder.transform, false);
+        Vector3 origin = new Vector3(0f, -3f, 0f);
+        var table = BuildDinerTableSet(group.transform, origin, 77);
+        if (table == null) { Info("Pöydän tekeminen epäonnistui: tarvitaan poyta.png."); return; }
+        group.SetActive(false);
+        var rs = holder.AddComponent<DinerTableRespawn>();
+        rs.area = diner; rs.template = group; rs.templateOrigin = origin;
+        rs.spots = new[] { new Vector3(left + 520f / ppu, -3.1f, 0f), new Vector3(left + 1150f / ppu, -2.5f, 0f),
+                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f) };
+        EditorSceneManager.MarkSceneDirty(holder.scene);
+        Info("Dinerin pöydät uusiutuvat: kun pöytä on rikki tai heitetty kauas, samaan paikkaan tulee 6 sekunnin päästä uusi pöytä annoksineen, piirakkoineen, oluineen ja tuoleineen (enintään 10 pöytää kerrallaan).\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/108. Diner: vihut (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota")]
     static void AddDinerFoes()
     {

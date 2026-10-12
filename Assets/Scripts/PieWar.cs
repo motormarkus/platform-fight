@@ -102,6 +102,7 @@ public class PieWar : MonoBehaviour
         }
         heroHits = 0;
         Active = true;
+        if (counter == null) counter = FindFirstObjectByType<PieCounter>();
         if (counter != null) counter.Reseed();
         msg = foes.Count > 0 ? "Piirakkasota alkoi!" : "Ei vastustajia dinerissä.";
         msgUntil = Time.unscaledTime + 2.5f;
