@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 98535beeea0bfa049acfbea14ef7c986
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5470852100261364520
+    second: rekkamies_piirakkakavely_0
+  - first:
+      213: -4758104596191738528
+    second: rekkamies_piirakkakavely_1
+  - first:
+      213: -695199535741832007
+    second: rekkamies_piirakkakavely_2
+  - first:
+      213: 4825792880819150287
+    second: rekkamies_piirakkakavely_3
+  - first:
+      213: 8441026223050843341
+    second: rekkamies_piirakkakavely_4
+  - first:
+      213: 3092712831613718468
+    second: rekkamies_piirakkakavely_5
+  - first:
+      213: -573860605321385186
+    second: rekkamies_piirakkakavely_6
+  - first:
+      213: -4417507849923526184
+    second: rekkamies_piirakkakavely_7
+  - first:
+      213: 4330834830737968064
+    second: rekkamies_piirakkakavely_8
+  - first:
+      213: -2761827442794637820
+    second: rekkamies_piirakkakavely_9
+  - first:
+      213: -5716809452156371370
+    second: rekkamies_piirakkakavely_10
+  - first:
+      213: 7509143112480368752
+    second: rekkamies_piirakkakavely_11
+  - first:
+      213: -81686783218789317
+    second: rekkamies_piirakkakavely_12
+  - first:
+      213: -8633654648377782797
+    second: rekkamies_piirakkakavely_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcb8392001a314b0800000000000000
+      internalID: -5470852100261364520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06586db4411d7fdb0800000000000000
+      internalID: -4758104596191738528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b47710a4b72a56f0800000000000000
+      internalID: -695199535741832007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd95d49e09a8f240800000000000000
+      internalID: 4825792880819150287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4e3bc90ac842570800000000000000
+      internalID: 8441026223050843341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cfc0a83fe58bea20800000000000000
+      internalID: 3092712831613718468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b6a35e1dc3908f0800000000000000
+      internalID: -573860605321385186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d10fc4f30cd1b2c0800000000000000
+      internalID: -4417507849923526184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb860335573a1c30800000000000000
+      internalID: 4330834830737968064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406dc45d2940ca9d0800000000000000
+      internalID: -2761827442794637820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ebf9b9710d9a0b0800000000000000
+      internalID: -5716809452156371370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078a6fa20e5d53860800000000000000
+      internalID: 7509143112480368752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34566fad4acddef0800000000000000
+      internalID: -81686783218789317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekkamies_piirakkakavely_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdca0227d81f2880800000000000000
+      internalID: -8633654648377782797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 39a3a5e8aa748ca44acbc70732f730a1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rekkamies_piirakkakavely_0: -5470852100261364520
+      rekkamies_piirakkakavely_1: -4758104596191738528
+      rekkamies_piirakkakavely_10: -5716809452156371370
+      rekkamies_piirakkakavely_11: 7509143112480368752
+      rekkamies_piirakkakavely_12: -81686783218789317
+      rekkamies_piirakkakavely_13: -8633654648377782797
+      rekkamies_piirakkakavely_2: -695199535741832007
+      rekkamies_piirakkakavely_3: 4825792880819150287
+      rekkamies_piirakkakavely_4: 8441026223050843341
+      rekkamies_piirakkakavely_5: 3092712831613718468
+      rekkamies_piirakkakavely_6: -573860605321385186
+      rekkamies_piirakkakavely_7: -4417507849923526184
+      rekkamies_piirakkakavely_8: 4330834830737968064
+      rekkamies_piirakkakavely_9: -2761827442794637820
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

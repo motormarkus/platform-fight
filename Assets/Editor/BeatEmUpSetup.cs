@@ -4672,12 +4672,34 @@ public static class BeatEmUpSetup
         return b;
     }
 
+    /// Uusi vihu saa piirakan osuma- ja heittokuvat heti (sama kuin valikko 105, mutta vain tälle hahmolle).
+    static void ApplyPieArt(Enemy e, List<string> report)
+    {
+        if (e == null) return;
+        string first = e.idleSprites != null && e.idleSprites.Length > 0 && e.idleSprites[0] != null ? e.idleSprites[0].name : "";
+        foreach (var (prefix, hit) in new[] { ("rusty_", "rusty_piirakka"), ("rokkari2_", "rokkari2_piirakka"), ("motoristi_", "motoristi_piirakka"), ("puliukko_", "puliukko_piirakka"), ("rekkamies_", "rekkamies_piirakka") })
+        {
+            if (!first.Contains(prefix)) continue;
+            string hp = FindTexture(hit); if (hp != null) SetupAndSlice(hp);
+            var hs = EnemySheet(hit, report);
+            if (hs.Length >= 3) e.pieSprites = hs.Take(3).ToArray();
+        }
+        foreach (var (prefix, sheet, grips) in PieThrowData)
+        {
+            if (!first.Contains(prefix)) continue;
+            string tp = FindTexture(sheet); if (tp != null) SetupAndSlice(tp);
+            var ts = EnemySheet(sheet, report);
+            if (ts.Length >= 5) { e.pieThrowSprites = ts.Take(5).ToArray(); e.pieGrips = grips; }
+        }
+    }
+
     // piirakan poiminta ja heitto: hahmo (idle-kuvan alku), kuvasarja, piirakan paikka kuvissa 0–4
     static readonly (string prefix, string sheet, Vector3[] grips)[] PieThrowData = {
         ("puliukko_", "puliukko_heitto", new[] { Vector3.zero, new Vector3(0.32f, 1.93f, 0f), new Vector3(-0.72f, 3.39f, 0f), new Vector3(0.97f, 2.84f, 0f), Vector3.zero }),
         ("rokkari2_", "rokkari2_heitto", new[] { Vector3.zero, new Vector3(0.36f, 2.72f, 0f), new Vector3(-0.82f, 3.40f, 0f), new Vector3(1.69f, 2.73f, 0f), Vector3.zero }),
         ("motoristi_", "motoristi_heitto", new[] { Vector3.zero, new Vector3(0.69f, 1.88f, 0f), new Vector3(-0.53f, 2.87f, 0f), new Vector3(1.88f, 2.84f, 0f), Vector3.zero }),
         ("rusty_", "rusty_heitto", new[] { Vector3.zero, new Vector3(0.49f, 2.30f, 0f), new Vector3(-0.62f, 3.24f, 0f), new Vector3(1.38f, 2.68f, 0f), Vector3.zero }),
+        ("rekkamies_", "rekkamies_heitto", new[] { Vector3.zero, new Vector3(0.62f, 1.78f, 0f), new Vector3(-1.22f, 2.85f, 0f), new Vector3(1.42f, 2.75f, 0f), Vector3.zero }),
     };
 
     [MenuItem("Beat em up/106. Linsey dineriin (kävelee ja pysähtyy tiskille)")]
@@ -4730,7 +4752,7 @@ public static class BeatEmUpSetup
     static void AssignPieHits()
     {
         var report = new List<string>();
-        foreach (var n in new[] { "rusty_piirakka", "rokkari2_piirakka", "motoristi_piirakka", "puliukko_piirakka", "rocco_piirakka", "puliukko_heitto", "rokkari2_heitto", "rusty_heitto", "motoristi_heitto" })
+        foreach (var n in new[] { "rusty_piirakka", "rokkari2_piirakka", "motoristi_piirakka", "puliukko_piirakka", "rocco_piirakka", "sankaritar_piirakka", "rekkamies_piirakka", "rekkamies_heitto", "rekkamies_piirakkakavely", "puliukko_heitto", "rokkari2_heitto", "rusty_heitto", "motoristi_heitto" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
@@ -4739,6 +4761,9 @@ public static class BeatEmUpSetup
         var rocker = EnemySheet("rokkari2_piirakka", report);
         var biker = EnemySheet("motoristi_piirakka", report);
         var drunk = EnemySheet("puliukko_piirakka", report);
+        var trucker = EnemySheet("rekkamies_piirakka", report);
+        var truckerCarry = EnemySheet("rekkamies_piirakkakavely", report);
+        var rubyPie = LoadSprites("sankaritar_piirakka").OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         var rocco = LoadSprites("rocco_piirakka").OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
         int nr = 0, nk = 0, nb = 0, nd = 0, ns = 0, nt = 0;
         var pieSnd = LoadClips("Assets/Audio/sfx", "piirakka");
@@ -4751,12 +4776,19 @@ public static class BeatEmUpSetup
             hero.pieHitSprites = rocco.Take(3).ToArray();
             EditorUtility.SetDirty(hero);
         }
+        if (hero != null && rubyPie.Length >= 3)
+        {
+            Undo.RecordObject(hero, "Rubyn piirakkaosuma");
+            hero.rubyPieHitSprites = rubyPie.Take(3).ToArray();   // Ruby saa oman piirakkaosuman (heittää samalla logiikalla kuin Rocco)
+            EditorUtility.SetDirty(hero);
+        }
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             string first = e.idleSprites != null && e.idleSprites.Length > 0 && e.idleSprites[0] != null ? e.idleSprites[0].name : "";
             if (e.calmIdleSprites != null && e.calmIdleSprites.Length > 0 && e.calmIdleSprites[0] != null) first += "|" + e.calmIdleSprites[0].name;
             Sprite[] set = first.StartsWith("rusty_") && rusty.Length >= 3 ? rusty : first.Contains("rokkari2_") && rocker.Length >= 3 ? rocker
-                : first.StartsWith("motoristi_") && biker.Length >= 3 ? biker : first.StartsWith("puliukko_") && drunk.Length >= 3 ? drunk : null;
+                : first.StartsWith("motoristi_") && biker.Length >= 3 ? biker : first.StartsWith("puliukko_") && drunk.Length >= 3 ? drunk
+                : first.StartsWith("rekkamies_") && trucker.Length >= 3 ? trucker : null;
             // piirakan poiminta ja heitto (5 kuvaa) ja piirakan paikka kuvissa (x eteen, y korkeus, kallistus)
             foreach (var (prefix, sheet, grips) in PieThrowData)
             {
@@ -4770,12 +4802,13 @@ public static class BeatEmUpSetup
             if (set == null) continue;
             Undo.RecordObject(e, "Piirakkaosuma");
             e.pieSprites = set.Take(3).ToArray();
+            if (set == trucker && truckerCarry.Length >= 8) { e.pieCarrySprites = truckerCarry; e.pieCarryGrip = new Vector3(0.72f, 1.82f, 0f); e.pieCarryFrameTime = 0.08f; }   // kantaa piirakkaa kädet alhaalla (kävely videosta)
             EditorUtility.SetDirty(e);
             if (set == rusty) nr++; else if (set == rocker) nk++; else if (set == biker) nb++; else nd++;
         }
         if (nr + nk > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         string rep = string.Join("\n", report);
-        Info("Piirakka naamaan: Rocco " + (hero != null && rocco.Length >= 3 ? "kyllä" : "ei") + ", " + nr + " Rustya, " + nk + " rokkimimmiä, " + nb + " motoristia ja " + nd + " puliukkoa, piirakan heitto " + nt + " vihulle, osumaääni " + ns + " piirakalle (muut ja Ruby läsäyttävät piirakan omilla kuvillaan). Heitetty piirakka katoaa osumahetkellä ja vihun oma sarja soi.\n" + rep + "\n\nTallenna scene (Ctrl+S).");
+        Info("Piirakka naamaan: Rocco " + (hero != null && rocco.Length >= 3 ? "kyllä" : "ei") + ", Ruby " + (hero != null && rubyPie.Length >= 3 ? "kyllä" : "ei") + ", " + nr + " Rustya, " + nk + " rokkimimmiä, " + nb + " motoristia ja " + nd + " puliukkoa, piirakan heitto " + nt + " vihulle, osumaääni " + ns + " piirakalle (muut ja Ruby läsäyttävät piirakan omilla kuvillaan). Heitetty piirakka katoaa osumahetkellä ja vihun oma sarja soi.\n" + rep + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/104. Diner: pöydät, tuolit, olutpullot ja snookerpöytä oikeaan päätyyn")]
@@ -4789,10 +4822,10 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Dinerin kalusteet");
         const float left = 90000f; float ppu = DinerPpu;
         // pöydät lattialle boksien ja tiskin eteen (kuvapikselit panoraamassa → x; syvyys y)
-        var tables = new[] { new Vector3(left + 520f / ppu, -3.1f, 0f), new Vector3(left + 1150f / ppu, -2.5f, 0f),
-            new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f) };
+        var tables = DinerTableSpots(diner, left, ppu);
         var info = AddBottleTables(root.transform, tables, 41, true);
-        var snooker = AddSnookerTable(root.transform, new Vector2(left + 3780f / ppu, -3.4f), PokerPoolWidth);
+        var snookerPos = DinerClamp(diner, new Vector3(left + 3500f / ppu, -4.4f, 0f), PokerPoolWidth * 0.5f);
+        var snooker = AddSnookerTable(root.transform, new Vector2(snookerPos.x, snookerPos.y), PokerPoolWidth);
         // aamiaisannokset pöydille (Resources/Aamiainen): kaksi annosta pöytää kohti, kuten El Loipparin kala-annokset
         foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Resources/Aamiainen" }))
         {
@@ -4881,6 +4914,24 @@ public static class BeatEmUpSetup
     const float DinerScale = 0.75f;
     static float DinerPpu => 941f / 12f / DinerScale;
     static float DinerHalfH => 941f / DinerPpu * 0.5f;   // kuvan puolikorkeus yksikköinä
+
+    /// Pitää dinerin esineen kävelyalueen sisällä (halfW = esineen puolileveys): ei seinän, reunan tai tiskin läpi.
+    static Vector3 DinerClamp(Area d, Vector3 p, float halfW)
+    {
+        float xMin = d.walkMinX + halfW + 0.4f, xMax = d.walkMaxX - halfW - 0.4f;
+        p.x = Mathf.Clamp(p.x, xMin, Mathf.Max(xMin, xMax));
+        float yMax = Mathf.Min(d.MaxDepthAtX(p.x, d.maxDepthY), d.maxDepthY) - 0.5f;
+        p.y = Mathf.Clamp(p.y, d.minDepthY + 0.3f, yMax);
+        return p;
+    }
+
+    /// Dinerin pöytäpaikat (kuvapikseli x, y): ylärivi pöytien ja tiskin edessä, alarivi alalattialla.
+    static Vector3[] DinerTableSpots(Area d, float left, float ppu)
+    {
+        var raw = new[] { new Vector2(520f, -3.1f), new Vector2(1150f, -2.5f), new Vector2(1950f, -3.3f), new Vector2(2750f, -2.7f),
+                          new Vector2(450f, -5.5f), new Vector2(1250f, -6.0f), new Vector2(2050f, -5.4f), new Vector2(2850f, -6.0f), new Vector2(3450f, -5.5f) };
+        return raw.Select(v => DinerClamp(d, new Vector3(left + v.x / ppu, v.y, 0f), 1.6f)).ToArray();
+    }
     [MenuItem("Beat em up/103. Diner: sisätila (3 kuvaa) ja E-ovi Aavikkokadulta")]
     static void CreateDiner()
     {
@@ -4897,7 +4948,7 @@ public static class BeatEmUpSetup
         var diner = ReuseArea("Alue: Diner");
         Undo.RecordObject(diner, "Diner");
         diner.areaName = "Diner"; diner.useSidewalk = false;
-        diner.minDepthY = -4f; diner.maxDepthY = DepthAt(640f); diner.depthLimitsExceedMax = true;   // takarajan käyrä saa ylittää maxDepthY:n (EXIT-kolo)
+        diner.minDepthY = -7f; diner.maxDepthY = DepthAt(640f);   // lattia jatkuu alas: kävelytilaa ja paikkaa pöydille, vihuille diner.depthLimitsExceedMax = true;   // takarajan käyrä saa ylittää maxDepthY:n (EXIT-kolo)
         // kamera loitonnettu (7,2: kuva on 6:n korkuinen): yläreuna pysyy kuvan yläreunassa, alle jatkuu peilattu lattia (diner_lattia.png)
         const float dinerCamSize = 7.2f;
         diner.camMinX = left + dinerCamSize * 16f / 9f; diner.camMaxX = left + width - dinerCamSize * 16f / 9f; diner.camSize = dinerCamSize;
@@ -5065,7 +5116,7 @@ public static class BeatEmUpSetup
             // alas peilatulle lattialle lisää pöytiä (kamera loitonnettu)
             new Vector3(left + BarWx(450f), -5.5f, 0f), new Vector3(left + BarWx(1250f), -5.7f, 0f), new Vector3(left + BarWx(2000f), -5.4f, 0f),
             new Vector3(left + BarWx(2800f), -5.6f, 0f), new Vector3(left + BarWx(3550f), -5.4f, 0f), new Vector3(left + BarWx(3950f), -4.9f, 0f) };
-        var info = AddBottleTables(root.transform, tables, 57);
+        var info = AddBottleTables(root.transform, tables, 57, false, ti => ti % 3 == 2 ? float.NaN : (ti % 2 == 0 ? -1f : 1f) * 0.62f);   // sama lautasen paikka kuin pekoniannoksilla alla
         int snooker = 0;
         foreach (float px in new[] { 600f, 1800f })
             if (AddSnookerTable(root.transform, new Vector2(left + BarWx(px), -3.5f), PokerPoolWidth) != null) snooker++;
@@ -5467,7 +5518,7 @@ public static class BeatEmUpSetup
             var oldV = tEnemy.GetComponent<RekkamiesVoice>();
             var voice = oldV != null ? oldV : Undo.AddComponent<RekkamiesVoice>(tEnemy.gameObject);
             Undo.RecordObject(voice, "Rekkamiehen puhe");
-            voice.enemy = tEnemy; voice.area = bar; voice.brawl = brawl; voice.elaine = elaineC; voice.shanice = shaniceC;
+            voice.enemy = tEnemy; voice.area = null; voice.hearRange = 1000f; voice.brawl = brawl; voice.elaine = elaineC; voice.shanice = shaniceC;
             voice.speak = LoadClips("Assets/Audio/rekkamies", "puhe");
             voice.speakShanice = LoadClips("Assets/Audio/rekkamies", "shanice");
             voice.danceTalk = LoadClips("Assets/Audio/rekkamies", "tanssilattialla");
@@ -6375,7 +6426,7 @@ public static class BeatEmUpSetup
         ("Kovis", new Vector2(2780f, 0.06f), 1), ("Lippis", new Vector2(3120f, 0.05f), -1), ("Punkkari", new Vector2(2650f, 0.02f), 1) };
 
     /// Pullopöydät (6–8 pulloa ja lasia, ei annoksia) ja kaksi pientä tuolia kunkin päihin. Palauttaa pullot, lasit ja tuolit.
-    static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed, bool beerOnly = false)
+    static (int bottles, int glasses, int chairs) AddBottleTables(Transform root, IEnumerable<Vector3> positions, int seed, bool beerOnly = false, System.Func<int, float> plateX = null)
     {
         string tp = FindTexture("poyta");
         if (tp == null) return (0, 0, 0);
@@ -6401,9 +6452,10 @@ public static class BeatEmUpSetup
 
         var rnd = new System.Random(seed);
         float tableTop = 1.28f * TableScale - 0.04f;
-        int bottles = 0, glassN = 0, chairs = 0;
+        int bottles = 0, glassN = 0, chairs = 0, tableIdx = 0;
         foreach (var pos in positions)
         {
+            tableIdx++;
             var go = new GameObject("Pöytä");
             go.transform.SetParent(root, false);
             go.transform.position = pos;
@@ -6420,32 +6472,53 @@ public static class BeatEmUpSetup
             c.moneyChance = 0.3f; c.energyChance = 0.15f; c.throwDamage = 22;
             c.breakSounds = wood;
             vis.sprite = table[0];
-            // pullopöytä: 6–8 pulloa ja lasia, ei annoksia
+            // pullopöytä (ei annosta): 10–12 pulloa ja lasia ilman päällekkäisyyksiä; annospöytä (plateX antaa lautasen paikan):
+            // vain lasit ja pienet olutpullot, lautasen vapaalla puolella eivätkä ne osu lautaseen tai toisiinsa
+            float plateAt = plateX != null ? plateX(tableIdx) : float.NaN;
+            bool dish = !float.IsNaN(plateAt);
+            var placed = new List<(float x, float w)>();
+            float xMin = -1.12f, xMax = 1.12f;
+            if (dish) { if (plateAt > 0f) xMax = plateAt - 0.7f; else xMin = plateAt + 0.7f; }
+            int items = beerOnly ? 2 + rnd.Next(2) : dish ? 3 + rnd.Next(2) : 10 + rnd.Next(3);
             var slots = new List<float>();
             if (beerOnly) slots.AddRange(new[] { -1.12f, -0.1f, 0.1f, 1.12f });   // reunoille ja keskelle: annokset jäävät väleihin
-            else for (int k = 0; k < 10; k++) slots.Add(Mathf.Lerp(-1.1f, 1.1f, (k + 0.5f) / 10f));
-            int items = beerOnly ? 2 + rnd.Next(2) : 6 + rnd.Next(3);
-            for (int i = 0; i < items && slots.Count > 0; i++)
+            for (int i = 0; i < items; i++)
             {
-                int si = rnd.Next(slots.Count); float sx = slots[si]; slots.RemoveAt(si);
-                var bGo = new GameObject("Pullo");
+                if (beerOnly && slots.Count == 0) break;
+                Sprite[] spr = null; string stainK = "-"; float pivot = 0.2f, scl = 1f; bool isGlass = false;
+                bool wantGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(100) < (dish ? 55 : 20));
+                if (wantGlass) { var gl = glasses[rnd.Next(glasses.Count)]; spr = gl.sp; stainK = gl.stain; pivot = gl.tall ? 0.2f : 0.15f; isGlass = true; }
+                else if (kinds.Count > 0)
+                {
+                    var kk = dish ? kinds.Where(q => q.stain == "olut").ToList() : kinds;
+                    if (kk.Count == 0) kk = kinds;
+                    var k = kk[rnd.Next(kk.Count)];
+                    spr = k.sp; stainK = k.stain; scl = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble());
+                }
+                else continue;
+                float w = ((spr != null && spr.Length > 0 && spr[0] != null) ? spr[0].bounds.size.x : 0.3f) * (isGlass ? 1f : scl) / TableScale + 0.03f;
+                float sx;
+                if (beerOnly) { int si = rnd.Next(slots.Count); sx = slots[si]; slots.RemoveAt(si); }
+                else
+                {
+                    bool ok = false; sx = 0f;
+                    for (int tries = 0; tries < 50 && !ok; tries++)
+                    {
+                        sx = Mathf.Lerp(xMin + w * 0.5f, xMax - w * 0.5f, (float)rnd.NextDouble());
+                        ok = xMax - xMin > w;
+                        foreach (var q in placed) if (Mathf.Abs(q.x - sx) < (q.w + w) * 0.5f) { ok = false; break; }
+                    }
+                    if (!ok) continue;
+                    placed.Add((sx, w));
+                }
+                var bGo = new GameObject(isGlass ? "Lasi" : "Pullo");
                 bGo.transform.SetParent(root, false);
                 bGo.transform.position = go.transform.position;
                 var b = bGo.AddComponent<Bottle>();
-                if (glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(5) < 2))
-                {
-                    var gl = glasses[rnd.Next(glasses.Count)];
-                    b.sprites = gl.sp; b.stainKind = gl.stain; b.pivotY = gl.tall ? 0.2f : 0.15f; bGo.name = "Lasi"; glassN++;
-                }
-                else if (kinds.Count > 0)
-                {
-                    var k = kinds[rnd.Next(kinds.Count)];
-                    b.sprites = k.sp; b.stainKind = k.stain; b.scale = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble());
-                    bottles++;
-                }
-                else { Object.DestroyImmediate(bGo); continue; }
+                b.sprites = spr; b.stainKind = stainK;
+                if (isGlass) { b.pivotY = pivot; glassN++; } else { b.scale = scl; bottles++; }
                 b.breakSounds = glassSnd; b.table = c;
-                b.tableX = (sx + (float)(rnd.NextDouble() - 0.5) * 0.08f) * TableScale; b.tableTop = tableTop;
+                b.tableX = (sx + (beerOnly ? (float)(rnd.NextDouble() - 0.5) * 0.08f : 0f)) * TableScale; b.tableTop = tableTop;
             }
             // tuolit pöydän päihin, selkänoja ulospäin
             if (chairSprite != null)
@@ -7023,6 +7096,7 @@ public static class BeatEmUpSetup
         e.deathVoice = LoadClips("Assets/Audio/rusty", "defeated").FirstOrDefault(); e.deathVoiceVolume = 1f;
         e.wakeDistance = 100f; e.retreatChance = 0f;
         Undo.RegisterCreatedObjectUndo(go, "Rusty");
+        ApplyPieArt(e, report);
         Debug.Log("Rusty: " + string.Join(", ", report));
         return e;
     }
@@ -7199,11 +7273,14 @@ public static class BeatEmUpSetup
             e.gameObject.SetActive(true);
         }
         var voice = truck != null ? truck.GetComponent<RekkamiesVoice>() : null;
+        if (truck != null && voice == null) voice = truck.gameObject.AddComponent<RekkamiesVoice>();   // alkuperäisellä ei ole puhekomponenttia (tulee vasta valikosta 116)
         if (voice != null)
         {
             // puheet toimivat vain, kun hero on samalla alueella kuin ääni: kopio puhuu romuttamolla (ei baarin tanssi- ja Shanice-repliikkejä)
-            voice.enemy = truck; voice.area = yard; voice.brawl = null; voice.elaine = null; voice.shanice = null;
-            voice.speakInterval = new Vector2(8f, 16f);
+            voice.enemy = truck; voice.area = null; voice.brawl = null; voice.elaine = null; voice.shanice = null;   // area tyhjä: puhuu missä alueella tahansa
+            voice.speakInterval = new Vector2(8f, 16f); voice.hearRange = 1000f;
+            voice.speak = LoadClips("Assets/Audio/rekkamies", "puhe");
+            voice.speakShanice = new AudioClip[0]; voice.danceTalk = new AudioClip[0];
         }
         Place(rusty, "Romuttamon Rusty", 1350f, 0.5f, -1);
         Place(truck, "Romuttamon rekkamies", 3150f, 0.4f, -1);
@@ -7543,6 +7620,110 @@ public static class BeatEmUpSetup
              "Ikkunoista näkyy aavikon taivas ja hiekka parallaxina.\n\nTallenna scene (Ctrl+S).");
     }
 
+    /// Rekkamiehen puhe: lisää komponentin (jos puuttuu) ja puheäänet. Puhuu aina, kun hero on samalla alueella (baari, diner, romuttamo), ei muilla alueilla.
+    static bool EnsureTruckerVoice(Enemy e)
+    {
+        if (e == null) return false;
+        var v = e.GetComponent<RekkamiesVoice>();
+        if (v == null) v = Undo.AddComponent<RekkamiesVoice>(e.gameObject);
+        Undo.RecordObject(v, "Rekkamiehen puhe");
+        v.enemy = e; v.area = null; v.hearRange = 1000f;
+        var brawl = Object.FindFirstObjectByType<BarBrawl>();
+        if (brawl != null) v.brawl = brawl;
+        v.speak = LoadClips("Assets/Audio/rekkamies", "puhe");
+        v.speakShanice = LoadClips("Assets/Audio/rekkamies", "shanice");
+        v.danceTalk = LoadClips("Assets/Audio/rekkamies", "tanssilattialla");
+        v.speakInterval = new Vector2(10f, 20f);
+        EditorUtility.SetDirty(v);
+        return v.speak != null && v.speak.Length > 0;
+    }
+
+    [MenuItem("Beat em up/126. Baarin rekkamies rauhalliseksi (tanssii, herää vasta tappelun alkaessa) ja mukaan baaritappeluun")]
+    static void CalmBarTrucker()
+    {
+        Enemy trucker = null;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (e != null && e.displayName == "Rekkamies" && e.gameObject.name == "Rekkamies" && e.transform.position.x >= 91000f && e.transform.position.x < 92000f) { trucker = e; break; }
+        if (trucker == null) { Info("Baarin rekkamiestä ei löytynyt (nimi 'Rekkamies', x 91000–92000). Tee ensin Rekkamies (115)."); return; }
+        Undo.RecordObject(trucker, "Baarin rekkamies");
+        Undo.RecordObject(trucker.transform, "Baarin rekkamies");
+        trucker.transform.position = new Vector3(91000f + BarWx(3450f), -2.2f, 0f);   // tanssilattialla Elainen kanssa
+        trucker.wakeDistance = -1f; trucker.joinsFightWhenSquadComes = false;
+        trucker.wanderMinX = trucker.wanderMaxX = 0f; trucker.idleFacing = -1;
+        EditorUtility.SetDirty(trucker);
+        string brawlInfo = "baaritappelua ei löytynyt";
+        var brawl = Object.FindFirstObjectByType<BarBrawl>();
+        if (brawl != null)
+        {
+            Undo.RecordObject(brawl, "Baarin rekkamies tappeluun");
+            var list = new List<Enemy>(brawl.members ?? new Enemy[0]);
+            list.RemoveAll(m => m == null);
+            if (!list.Contains(trucker)) list.Add(trucker);
+            brawl.members = list.ToArray();
+            EditorUtility.SetDirty(brawl);
+            brawlInfo = "mukana baaritappelussa";
+        }
+        EditorSceneManager.MarkSceneDirty(trucker.gameObject.scene);
+        Info("Baarin rekkamies on rauhallinen (ei herää hero lähellä), " + brawlInfo + ". Tappelu alkaa vasta, kun joku saa osuman tai 2 minuuttia on kulunut.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/127. Aavikkobaari: lisää väkeä alalattialle (3 motoristia, 2 punkkaria) tappeluun mukaan")]
+    static void AddBarLowerCrowd()
+    {
+        var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        var brawl = Object.FindFirstObjectByType<BarBrawl>();
+        if (bar == null || brawl == null) { Info("Tee ensin Aavikkobaari (110) ja sen väki (116)."); return; }
+        var root = GameObject.Find("Aavikkobaarin tappelu");
+        if (root == null) { root = new GameObject("Aavikkobaarin tappelu"); Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin väki"); }
+        foreach (var o in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.gameObject.name.StartsWith("Baarin lisäväki ")).ToArray())
+            Undo.DestroyObjectImmediate(o.gameObject);   // aja uudestaan: vanhat lisähahmot pois
+        var members = new List<Enemy>((brawl.members ?? new Enemy[0]).Where(m => m != null && !m.gameObject.name.StartsWith("Baarin lisäväki ")));
+        const float left = 91000f;
+        float X(float px) => left + BarWx(px);
+        int n = 0;
+        void Add(Enemy e, string label, float px, float y, int facing, float wander)
+        {
+            if (e == null) return;
+            e.gameObject.name = "Baarin lisäväki " + label;
+            e.transform.position = new Vector3(X(px), Mathf.Max(y, bar.minDepthY + 0.2f), 0f);
+            e.wakeDistance = -1f; e.joinsFightWhenSquadComes = false; e.huntsBrawlers = true;
+            e.wanderMinX = X(px - wander); e.wanderMaxX = X(px + wander); e.idleFacing = facing;
+            e.gameObject.SetActive(true);
+            members.Add(e); n++;
+        }
+        // alalattia: motoristit ja punkkarit eri kohtiin (vanha pohjoispuoli täynnä tiskillä ja lavalla)
+        Add(MakeBiker(root.transform), "motoristi 1", 600f, -5.0f, 1, 140f);
+        Add(MakeBiker(root.transform), "motoristi 2", 2000f, -6.0f, -1, 160f);
+        Add(MakeBiker(root.transform), "motoristi 3", 3600f, -5.4f, -1, 140f);
+        var punkTemplate = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(en => en != null && en.displayName == "Punkkari" && !en.gameObject.name.StartsWith("Baarin lisäväki "));
+        string punkInfo = "";
+        if (punkTemplate != null)
+        {
+            Add(Object.Instantiate(punkTemplate.gameObject, root.transform).GetComponent<Enemy>(), "punkkari 1", 1300f, -5.8f, 1, 150f);
+            Add(Object.Instantiate(punkTemplate.gameObject, root.transform).GetComponent<Enemy>(), "punkkari 2", 2750f, -5.1f, -1, 150f);
+        }
+        else punkInfo = " (punkkaria ei löytynyt scenestä: aja vihujen kohdat 1–2)";
+        Undo.RecordObject(brawl, "Baarin lisäväki");
+        brawl.members = members.ToArray();
+        EditorUtility.SetDirty(brawl);
+        EditorSceneManager.MarkSceneDirty(brawl.gameObject.scene);
+        Info("Baarin alalattialle lisätty " + n + " hahmoa (3 motoristia ja punkkareita)" + punkInfo + ". He ovat rauhallisia ja heräävät tappelun mukana. Motoristit saavat piirakkakuvat, heiton ja juoksun automaattisesti.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/125. Rekkamiehen puhe kaikille rekkamiehille (baari, diner, romuttamo)")]
+    static void ApplyTruckerVoices()
+    {
+        int n = 0; bool clips = true;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.displayName != "Rekkamies") continue;
+            clips &= EnsureTruckerVoice(e); n++;
+        }
+        if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info(n + " rekkamiehelle lisätty puhe" + (clips ? "" : " (puheääniä ei löytynyt: Assets/Audio/rekkamies/puhe*.mp3)") + ". He puhuvat 10–20 sekunnin välein, kun hero on samalla alueella.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/98. Roccon ja Rubyn ruoskasta kiinniotto (kuvat pelaajalle)")]
     static void AssignWhipCatch()
     {
@@ -7762,6 +7943,7 @@ public static class BeatEmUpSetup
         var run = EnemySheet("motoristi_juoksu", report);   // 10 kuvaa, kaukana juostaan
         if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.085f; e.runSpeedMultiplier = 2.5f; }
         ApplyBikerThrow(e, report);   // pöytien ja heron nosto, kanto ja heitto
+        ApplyPieArt(e, report);       // piirakan osuma- ja heittokuvat (ei tarvitse valikkoa 105)
         var fall = EnemySheet("motoristi_kaatuminen", report);
         if (fall.Length >= 8)
         {
@@ -7937,6 +8119,7 @@ public static class BeatEmUpSetup
         e.wakeDistance = 8f; e.retreatChance = 0.1f;
         ApplyRocker2(e, report);   // uusi ulkoasu (farkkuliivi, cowboy-saappaat), jos kuvat on tehty
         Undo.RegisterCreatedObjectUndo(go, "Rokkimimmi");
+        ApplyPieArt(e, report);
         Debug.Log("Rokkimimmi: " + string.Join(", ", report));
         return e;
     }
@@ -9998,12 +10181,12 @@ public static class BeatEmUpSetup
         var rs = holder.AddComponent<DinerTableRespawn>();
         rs.area = diner; rs.template = group; rs.templateOrigin = origin;
         // lisäpöytä snookerpöydän taakse (oikea pääty): vain piirakoita
-        Vector3 snookerTable = new Vector3(left + 3780f / ppu, -0.7f, 0f);   // kauas snookerin taakse, lähelle takaseinää
+        Vector3 snookerTable = DinerClamp(diner, new Vector3(left + 3500f / ppu, -0.7f, 0f), 1.6f);   // kauas snookerin taakse, lähelle takaseinää
         var snookerSet = new GameObject("Snookerin piirakkapöytä");
         snookerSet.transform.SetParent(holder.transform, false);
         BuildDinerTableSet(snookerSet.transform, snookerTable, 88, 3);
         // lisäpöydät vasempaan reunaan: annoksia ja oluita, ei piirakoita
-        Vector3 left1 = new Vector3(left + 170f / ppu, -2.5f, 0f), left2 = new Vector3(left + 830f / ppu, -3.8f, 0f);
+        Vector3 left1 = DinerClamp(diner, new Vector3(left + 170f / ppu, -2.5f, 0f), 1.6f), left2 = DinerClamp(diner, new Vector3(left + 830f / ppu, -3.8f, 0f), 1.6f);
         var leftSet = new GameObject("Vasemman reunan pöydät");
         leftSet.transform.SetParent(holder.transform, false);
         BuildDinerTableSet(leftSet.transform, left1, 91, 0);
@@ -10013,9 +10196,11 @@ public static class BeatEmUpSetup
         plainGroup.transform.SetParent(holder.transform, false);
         BuildDinerTableSet(plainGroup.transform, origin, 78, 0);
         plainGroup.SetActive(false);
-        rs.spots = new[] { new Vector3(left + 520f / ppu, -3.1f, 0f), new Vector3(left + 1150f / ppu, -2.5f, 0f),
-                           new Vector3(left + 1950f / ppu, -3.3f, 0f), new Vector3(left + 2750f / ppu, -2.7f, 0f), snookerTable, left1, left2 };
-        rs.spotTemplates = new GameObject[] { null, null, null, null, null, plainGroup, plainGroup };
+        var spots7 = DinerTableSpots(diner, left, ppu);   // 4 ylärivin + 5 alalattian pöytää (sama lista kuin valikossa 104)
+        rs.spots = spots7.Concat(new[] { snookerTable, left1, left2 }).ToArray();
+        rs.spotTemplates = new GameObject[] { null, null, null, null, plainGroup, plainGroup, plainGroup, plainGroup, plainGroup, null, plainGroup, plainGroup };
+        rs.maxTables = 16;
+        rs.delay = 1000000f;   // ei automaattista uusiutumista tavallisessa tappelussa: pöydät palautuvat vain piirakkasodan alkaessa (RespawnMissingNow)
         EditorSceneManager.MarkSceneDirty(holder.scene);
         Info("Dinerin pöydät uusiutuvat: kun pöytä on rikki tai heitetty kauas, samaan paikkaan tulee 6 sekunnin päästä uusi pöytä annoksineen, piirakkoineen, oluineen ja tuoleineen (enintään 10 pöytää kerrallaan).\n\nTallenna scene (Ctrl+S).");
     }
@@ -10033,8 +10218,19 @@ public static class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(root, "Dinerin vihut");
         const float left = 90000f; float ppu = DinerPpu;
         // paikat kuvapikseleinä (x) ja syvyys (y): pöytien väleissä lattialla
-        var spots = new[] { new Vector2(850f, -1.9f), new Vector2(1550f, -3.8f), new Vector2(2350f, -2.0f), new Vector2(3350f, -2.3f), new Vector2(3000f, -3.7f), new Vector2(420f, -3.6f), new Vector2(1250f, -1.7f) };
-        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null, MakeRocker(root.transform), MakeBiker(root.transform), null };
+        var spots = new[] { new Vector2(850f, -2.6f), new Vector2(1550f, -4.9f), new Vector2(2350f, -3.0f), new Vector2(3350f, -3.4f), new Vector2(3000f, -5.4f), new Vector2(420f, -5.0f), new Vector2(1250f, -2.4f),
+                            new Vector2(900f, -6.3f), new Vector2(2150f, -6.6f), new Vector2(3050f, -6.2f) };
+        var foes = new List<Enemy> { MakeRusty(root.transform), MakeRocker(root.transform), MakeBiker(root.transform), null, MakeRocker(root.transform), MakeBiker(root.transform), null,
+                                     MakeRusty(root.transform), MakeRusty(root.transform), null };
+        var truckerTemplate = GameObject.Find("Rekkamies");
+        if (truckerTemplate != null && truckerTemplate.GetComponent<Enemy>() != null)
+        {
+            var truck = Object.Instantiate(truckerTemplate, root.transform);
+            truck.name = "Dinerin rekkamies";
+            foes[9] = truck.GetComponent<Enemy>();
+            EnsureTruckerVoice(foes[9]);
+            foes[9].fightsEveryone = false; foes[9].huntsBrawlers = false;   // tähän piirakkasotaan hän osallistuu kuvien valmistuttua (otto, heitto, osuma)
+        }
         if (puliTemplate != null)
         {
             var clone = Object.Instantiate(puliTemplate.gameObject, root.transform);
@@ -10050,10 +10246,10 @@ public static class BeatEmUpSetup
             var e = foes[i];
             if (e == null) continue;
             e.gameObject.name = "Dinerin " + e.gameObject.name.Replace("Dinerin ", "");
-            e.transform.position = new Vector3(left + spots[i].x / ppu, spots[i].y, 0f);
+            e.transform.position = DinerClamp(diner, new Vector3(left + spots[i].x / ppu, spots[i].y, 0f), 0.8f);
             e.wakeDistance = 12f;
             e.joinsFightWhenSquadComes = false;
-            if (i == 4) { e.pieOnly = true; e.gameObject.name = "Dinerin piirakkarokkimimmi"; }   // heittelee piirakoita aina, myös ilman sotaa
+            // rokkimimmi tappelee tavallisesti; piirakoita heitetään sodassa ja satunnaisesti tappelussa (pieFightRate)
             // motoristit ja puliukot tappelevat välillä keskenään (kaksi motoristia eri ryhmissä: he lyövät toisiaankin; puliukot mätkivät kaikkia)
             if (i == 2 || i == 5) { e.brawlsWithOthers = true; e.brawlGroup = i == 2 ? "motoristi" : "motoristi2"; }
             if (i == 3 || i == 6) { e.brawlsWithOthers = true; e.brawlGroup = ""; }
@@ -10074,7 +10270,7 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(war.counter);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Dineriin " + n + " vihua (Rusty, 2 rokkimimmiä, 2 motoristia, 2 puliukkoa) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
+        Info("Dineriin " + n + " vihua (3 Rustya, 2 rokkimimmiä, 2 motoristia, 2 puliukkoa, rekkamies) ja piirakkasota.\n" + (war.linsey == null ? "Linsey puuttuu: aja 106. " : "") + (war.counter == null ? "Tiskin piirakat puuttuvat: aja 104. " : "")
              + "\nPiirakkasota: mene Linseyn luo ja paina E. Aja sen jälkeen 105, niin vihut saavat piirakkakuvat.\n\nTallenna scene (Ctrl+S).");
     }
 

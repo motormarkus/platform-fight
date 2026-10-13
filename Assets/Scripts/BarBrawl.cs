@@ -33,12 +33,12 @@ public class BarBrawl : MonoBehaviour
             if (autoStartSeconds > 0f && area != null && Area.Current == area)
             {
                 timeInArea += Time.deltaTime;
-                if (timeInArea >= autoStartSeconds) { Begin(); return; }
+                if (timeInArea >= autoStartSeconds) { Debug.Log("[BarBrawl] alkoi ajastimesta (" + timeInArea.ToString("F0") + " s alueella)"); Begin(); return; }
             }
             foreach (var e in members)
             {
                 if (e == null || !e.isActiveAndEnabled) continue;
-                if (e.IsAwake || e.Health < e.maxHealth) { Begin(); break; }
+                if (e.IsAwake || e.Health < e.maxHealth) { Debug.Log("[BarBrawl] alkoi: " + e.name + " hereillä=" + e.IsAwake + " elämä=" + e.Health + "/" + e.maxHealth + " (ajastin " + timeInArea.ToString("F0") + " s)", e); Begin(); break; }
             }
             return;
         }

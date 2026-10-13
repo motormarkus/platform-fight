@@ -81,6 +81,8 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         wait = Random.Range(waitRange.x, waitRange.y);
     }
 
+    [Tooltip("Kuinka kaukana (y) Linsey pysyy takarajasta eli tiskin reunasta: isompi = lähempänä katsojaa, ei näytä seisovan tiskin päällä.")]
+    public float edgeInset = 0.35f;
     public float maxY = 99f;   // Linsey ei mene tätä ylemmäs (STAFF-oven kolo on vain heron)
     float Limit(float x) => area != null ? Mathf.Min(area.MaxDepthAtX(x, area.maxDepthY), maxY) : -1f;
     float Dir => flipped ? -1f : 1f;
@@ -247,7 +249,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
             if (moving)
             {
                 Vector3 np = p + (Vector3)move;
-                np.y = Mathf.Clamp(np.y, area != null ? area.minDepthY : -9f, Limit(np.x) - 0.08f);
+                np.y = Mathf.Clamp(np.y, area != null ? area.minDepthY : -9f, Limit(np.x) - edgeInset);
                 np.x = Mathf.Clamp(np.x, laneMinX, laneMaxX);
                 transform.position = np;
             }
@@ -349,7 +351,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
             x = goalIsCounter ? counterXs[Random.Range(0, counterXs.Length)] : Random.Range(laneMinX, laneMaxX);
             if (!InAvoid(x)) break;   // ei pysähdy kaupan edustalle
         }
-        float y = goalIsCounter ? Limit(x) - 0.08f : Limit(x) - Random.Range(0.3f, 1.2f);
+        float y = goalIsCounter ? Limit(x) - edgeInset : Limit(x) - Random.Range(0.3f, 1.2f);
         goal = new Vector2(x, y);
         state = S.Walk; t = 0f;
     }

@@ -668,6 +668,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public Sprite[] pieThrowSprites;
     [Tooltip("Piirakan paikka kuvissa (x eteen, y korkeus jaloista yksikköinä, z kallistus), 5 kpl.")]
     public Vector3[] pieGrips;
+    [Tooltip("Kävely piirakka kädessä (oma kuvasarja, esim. Rekkamies kädet alhaalla): käytetään piirakkaa kantaessa; piirakka piirretään kämmenelle kohtaan pieCarryGrip.")]
+    public Sprite[] pieCarrySprites;
+    public Vector3 pieCarryGrip = new Vector3(0.75f, 2.0f, 8f);
+    public float pieCarryFrameTime = 0.08f;
     public bool HasPieThrowArt => pieThrowSprites != null && pieThrowSprites.Length >= 5 && pieGrips != null && pieGrips.Length >= 5;
     static readonly float[] PiePickTimes = { 0.12f, 0.16f };
     static readonly float[] PieThrowTimes = { 0.1f, 0.12f, 0.1f, 0.18f };   // kuvat 1, 2, 3, 4: irti kolmannen (kuva 3) alussa
@@ -1759,12 +1763,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool BottleRun(float dt, Vector3 p, Vector3 me, bool war = false)
     {
         if (targetBottle != null && !targetBottle.CanPickUp) targetBottle = null;
-        if (targetBottle == null && (war || (cooldown <= 0f && Mathf.Abs(p.x - me.x) > 2.2f && Random.value < bottleRate * dt)))
+        if (targetBottle == null && (war || (cooldown <= 0f && Mathf.Abs(p.x - me.x) > 2.2f && Random.value < (HasBottleSprites ? bottleRate : pieFightRate) * dt)))
         {
             float best = war ? 20f : 5f;
             foreach (var b in Bottle.All)
             {
-                if (b == null || !b.CanPickUp || (war && !b.pie)) continue;
+                if (b == null || !b.CanPickUp || ((war || !HasBottleSprites) && !b.pie)) continue;   // sodassa ja pelkillä piirakkakuvilla vain piirakat
                 if (war && Vector2.Distance(b.transform.position, p) < Vector2.Distance(b.transform.position, me) * 0.7f) continue;   // sodassa hero ehtii ensin piirakalle, jonka vieressä hän on
                 bool taken = false;
                 foreach (var e in All) if (e != this && e.targetBottle == b) { taken = true; break; }
@@ -1803,6 +1807,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Piirakka kädessä: kävelee pelaajaa kohti tavallisilla kävelykuvilla (piirakka piirretään käden paikkaan) ja heittää, kun on kohdalla.
     [Tooltip("Heittelee vain piirakoita heroon (hakee piirakoita ja heittää) myös silloin, kun piirakkasotaa ei ole käynnissä.")]
     public bool pieOnly;
+    [Tooltip("Tavallisessa tappelussa (ei sotaa): todennäköisyys sekunnissa, että kaukana oleva vihu hakee lähellä olevan piirakan ja heittää sen (vain vihut, joilla on piirakan heittokuvat). Pieni = harvoin.")]
+    public float pieFightRate = 0.05f;
+    Crate badBarrel; float badBarrelUntil, barrelSeekTime;
     Enemy warFoe;   // piirakkasodassa joskus toinen vihu on heron sijasta maalina
 
     /// Piirakkasota: puolet heitoista menee toiselle vihulle, puolet heroon.
@@ -1866,8 +1873,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             // kävellessä piirakka edessä vatsan korkeudella (vartalon päällä), kevyt keinunta askelten tahdissa
             order = body.sortingOrder + 1;
-            hand = body.transform.position + new Vector3(dir * 0.75f, 2.0f + Mathf.Sin(animClock * 10f) * 0.04f, 0f);
-            rot = dir * 8f;
+            Vector3 cg = Has(pieCarrySprites) ? pieCarryGrip : new Vector3(0.75f, 2.0f, 8f);
+            hand = body.transform.position + new Vector3(dir * cg.x * visualScale, cg.y * visualScale + Mathf.Sin(animClock * 10f) * 0.04f, 0f);
+            rot = dir * cg.z;
             return true;
         }
         if (body == null || (state != State.BottlePick && state != State.BottleThrow)
@@ -2095,6 +2103,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 foreach (var c in Crate.All)
                 {
                     if (c == null || !c.CanPickUp) continue;
+                    if (c == badBarrel && Time.time < badBarrelUntil) continue;
                     if (c.IsTable ? !throwsTables : (!throwsBarrels || c.breakable)) continue;
                     float d = Vector2.Distance(c.transform.position, me);
                     if (d < best) { best = d; targetBarrel = c; }
@@ -2102,12 +2111,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
             }
             if (targetBarrel != null)
             {
+                barrelSeekTime += dt;
+                if (barrelSeekTime > 5f) { badBarrel = targetBarrel; badBarrelUntil = Time.time + 20f; targetBarrel = null; barrelSeekTime = 0f; cooldown = 2f; }   // ei pääse perille (jumissa pöydän tms. kanssa): luovuttaa ja kokeilee toista
+            }
+            else barrelSeekTime = 0f;
+            if (targetBarrel != null)
+            {
                 Vector3 b = targetBarrel.transform.position;
                 float toPlayer = p.x > b.x ? 1f : -1f;
                 Vector2 spot = new Vector2(b.x - toPlayer * 0.8f, b.y);   // tynnyrin taakse, pelaajasta katsoen
                 Vector2 tb = spot - (Vector2)me;
                 facingRight = b.x > me.x;
-                if (tb.magnitude < 0.15f)
+                if (tb.magnitude < 0.4f)
                 {
                     targetBarrel.PickUp();
                     heldBarrel = targetBarrel;
@@ -2126,7 +2141,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
 
         // pullo: lattialla ehjä pullo lähellä ja pelaaja ei aivan vieressä -> haetaan, nostetaan ja heitetään
-        if (HasBottleSprites && BottleRun(dt, p, me)) return;
+        if ((HasBottleSprites || HasPieThrowArt) && BottleRun(dt, p, me)) return;
 
         // liian kauan aivan vieressä: tarttuu heti (pomo)
         bool close = Mathf.Abs(p.x - me.x) <= grabRange + 0.3f && Mathf.Abs(p.y - me.y) <= depthTolerance;
@@ -3249,6 +3264,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Chase:
             case State.CarryPie:
+                if (state == State.CarryPie && moving && Has(pieCarrySprites)) return pieCarrySprites[(int)(animClock / Mathf.Max(0.01f, pieCarryFrameTime)) % pieCarrySprites.Length];
                 if (moving && running && Has(runSprites)) return runSprites[(int)(Time.time / runFrameTime) % runSprites.Length];
                 if (moving && Has(walkTalkSprites) && Time.time < talkUntil) return walkTalkSprites[(int)(animClock / walkFrameTime) % walkTalkSprites.Length];
                 if (moving && Has(walkSprites)) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];

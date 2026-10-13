@@ -22,7 +22,7 @@ public class RekkamiesVoice : MonoBehaviour
     void Update()
     {
         if (enemy == null || enemy.IsDead) return;
-        if (area != null && Area.Current != area) return;
+        if (!InHeroArea()) return;   // puhuu, kun hero on samalla alueella (baari / romuttamo), vaikkei ole ruudulla; muilla alueilla ei kuulu
         if (hero == null) hero = FindFirstObjectByType<PlayerController>();
         if (hero == null) return;
         if (Time.time < busyUntil) return;   // edellinen repliikki on vielä kesken: ei aloiteta uutta
@@ -56,6 +56,18 @@ public class RekkamiesVoice : MonoBehaviour
             speakT = Random.Range(speakInterval.x, speakInterval.y);
             Play(speak);
         }
+    }
+
+    /// Puhuu aina, kun hero on samalla alueella kuin hän. Jos area on tyhjä, alue päätellään hänen paikastaan (toimii missä tahansa alueella ja kopioille).
+    bool InHeroArea()
+    {
+        if (area != null) return Area.Current == area;
+        var a = Area.Current;
+        if (a == null) return true;
+        float x = transform.position.x;
+        float min = a.walkMinX != 0f ? a.walkMinX - 1f : float.NegativeInfinity;
+        float max = a.walkMaxX != 0f ? a.walkMaxX + 1f : float.PositiveInfinity;
+        return x >= min && x <= max;
     }
 
     void Play(AudioClip[] clips)
