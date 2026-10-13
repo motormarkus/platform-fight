@@ -5385,10 +5385,10 @@ public static class BeatEmUpSetup
         float[] imageScales = { 1f, 1f, 1f, 1.008f, 1.157184f, 1.085438592f, 1.0095f, 1.0095f, 1.0095f };
         float[] curbRows = { 560f, 560f, 588f, 607f, 591f, 640f };
         // Kohdista jokaisen kuvan reunakiveys samaan 560 px linjaan myös mittakaavan muuttuessa.
-        // Kuvat 7-9 (941 + 48 px peilattua lattiaa alareunassa, ettei alareunaan jää rakoa; lisäpikselit alareunassa, joten keskipiste on 24 px alempana: nosto +24) kohdistettu kuvamittauksella jatkokuvan 3 oikeaan reunaan.
+        // Kuvat 7-9 (941 + 48 px peilattua lattiaa alareunassa, ettei alareunaan jää rakoa; korkeus 989 px; nostot laskettu mitatusta reunakiveyksen korkeudesta: kuvan 3 oikea reuna = kuvan 4 vasen reuna) kohdistettu kuvamittauksella jatkokuvan 3 oikeaan reunaan.
         float[] risePixels = Enumerable.Range(0, startPixels.Length).Select(i =>
             i < curbRows.Length ? (curbRows[i] - 443.5f) * imageScales[i] - (560f - 443.5f)
-                : new[] { 129.3f, 128.3f, 145.5f }[i - curbRows.Length]).ToArray();
+                : new[] { 63.5f, 64.0f, 80.7f }[i - curbRows.Length]).ToArray();
         // Rajaa nostettujen kuvien alapuoliset aukot pois näkymästä.
         const float bottomCropPixels = 60f;
         float cameraSize = 6f - bottomCropPixels * 0.5f / ppu;
