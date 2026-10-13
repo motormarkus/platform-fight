@@ -29,7 +29,20 @@ public class Door : MonoBehaviour
     public bool atFront;
     [Tooltip("Ovi on lukossa, kunnes piirakkasota on voitettu ja Linsey on antanut romuttamon avaimen.")]
     public bool needsJunkyardKey;
+    [Tooltip("Ovi on lukossa, kunnes kaikki nämä viholliset on voitettu (esim. romuttamon pihan vartijat).")]
+    public Enemy[] guards;
+    public string guardsLockedText = "Ovi on lukossa. Voita ensin pihan vartijat.";
     float lockedMsgUntil;
+
+    bool GuardsAlive
+    {
+        get
+        {
+            if (guards == null) return false;
+            foreach (var g in guards) if (g != null && !g.IsDead) return true;
+            return false;
+        }
+    }
 
     [Header("Oven kohta")]
     public float halfWidth = 1.2f;
@@ -65,7 +78,7 @@ public class Door : MonoBehaviour
             && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
         if (near && Pressed())
         {
-            if (needsJunkyardKey && !PieWar.JunkyardKey) lockedMsgUntil = Time.unscaledTime + 3f;
+            if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
             else StartCoroutine(Go());
         }
     }
@@ -151,6 +164,8 @@ public class Door : MonoBehaviour
         }
         string text = needsJunkyardKey && !PieWar.JunkyardKey
             ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
+            : GuardsAlive
+            ? (Time.unscaledTime < lockedMsgUntil ? guardsLockedText : "[E]  " + Loc.T(prompt) + " (lukossa)")
             : "[E]  " + Loc.T(prompt);
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;
         // pitkä teksti jaetaan usealle riville: laatikko leveämmäksi (enintään 90 % ruudusta) ja tarvittaessa korkeammaksi

@@ -324,6 +324,51 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int barDamage = 16;
     static readonly float[] BarThrowTimes = { 0.06f, 0.09f, 0.13f, 0.05f, 0.2f, 0.1f, 0.12f };   // nopea: harkko lähtee n. 0,33 s
     float nextBarThrow;
+
+    [Header("Rengas (Romuukko)")]
+    [Tooltip("Rengas kädessä: idle, kävely ja juoksu vaihtuvat näihin, ja rengas voidaan heittää matkan päästä (heittokuvat: viimeinen kuva jää).")]
+    public Sprite[] tireIdleSprites, tireWalkSprites, tireRunSprites, tireThrowSprites;
+    public Sprite tireAirSprite, tireFloorSprite, tireRollingSprite;
+    public bool startsWithTire;
+    [Tooltip("Heittokuvien kestot (s) ja kuva, jonka alussa rengas lähtee kädestä.")]
+    public float[] tireThrowTimes = { 0.12f, 0.1f, 0.1f, 0.1f, 0.08f, 0.08f, 0.05f, 0.2f, 0.2f };
+    public int tireReleaseFrame = 7;
+    [Range(0f, 1f)] public float tireThrowChance = 0.6f;
+    public float tireThrowMinRange = 3f, tireThrowMaxRange = 10f, tireThrowCooldown = 2f;
+    public int tireDamage = 18;
+    [Tooltip("Heiton tai pudotuksen jälkeen uusi rengas käteen näin monen sekunnin kuluttua, kun hero on kaukana (0 = ei uutta).")]
+    public float tireRearmTime = 15f;
+    bool hasTire, usingTireThrow;
+    float tireRearmAt;
+    Sprite[] origIdle, origWalk, origRun;
+    float origRunTime;
+
+    bool HasTireArt => Has(tireThrowSprites) && Has(tireIdleSprites) && tireAirSprite != null;
+    static bool KeepsTire(State s) => s == State.Idle || s == State.Chase || s == State.BarThrow || s == State.Recover;
+
+    void SetTire(bool on)
+    {
+        if (on == hasTire || !HasTireArt) return;
+        if (on)
+        {
+            origIdle = idleSprites; origWalk = walkSprites; origRun = runSprites;
+            idleSprites = tireIdleSprites;
+            if (Has(tireWalkSprites)) walkSprites = tireWalkSprites;
+            if (Has(tireRunSprites)) runSprites = tireRunSprites;
+        }
+        else { idleSprites = origIdle; walkSprites = origWalk; runSprites = origRun; }
+        hasTire = on;
+    }
+
+    /// Rengas pois käsistä (hyökkäys, osuma tms.): putoaa maahan.
+    void DropTire()
+    {
+        if (!hasTire) return;
+        SetTire(false);
+        tireRearmAt = Time.time + tireRearmTime;
+        float d = facingRight ? 1f : -1f;
+        ThrownTire.SpawnDropped(tireAirSprite, transform.position + new Vector3(d * 0.5f, -0.02f, 0f), 1.3f, d, tireFloorSprite, tireRollingSprite);
+    }
     bool barReleased;
     bool rushAfterBar; float rushUntil;   // harkon jälkeen juostaan lähelle ja aloitetaan läpsy- tai potkukombo
 
@@ -831,7 +876,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -871,6 +916,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(runSprites);
+        if (startsWithTire) SetTire(true);
         PlayerController.SortByFrameNumber(punch2Sprites);
         PlayerController.SortByFrameNumber(walkTalkSprites);
         PlayerController.SortByFrameNumber(punchSprites);
@@ -1287,13 +1333,23 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.BarThrow:
             {
                 int f = BarFrame();
-                if (!barReleased && f >= 4)
+                if (!barReleased && f >= (usingTireThrow ? tireReleaseFrame : 4))
                 {
                     barReleased = true;
-                    if (HasSlaps || HasKickCombo) { rushAfterBar = true; rushUntil = Time.time + 4f; }
                     float d = facingRight ? 1f : -1f;
-                    GoldBar.Spawn(barSprite, transform.position + new Vector3(d * 1.1f, -0.02f, 0f), 2.7f, d, this, barDamage);
-                    PlayClipFrom(punch3SwingSounds, punch3Volume);
+                    if (usingTireThrow)
+                    {
+                        ThrownTire.Spawn(tireAirSprite, transform.position + new Vector3(d * 1.0f, -0.02f, 0f), 1.8f, d, this, tireDamage, tireFloorSprite, tireRollingSprite);
+                        PlayClipFrom(punch3SwingSounds, punch3Volume);
+                        SetTire(false);   // rengas lähti: kuvat takaisin tavallisiin, heittokuvat soivat loppuun
+                        tireRearmAt = Time.time + tireRearmTime;
+                    }
+                    else
+                    {
+                        if (HasSlaps || HasKickCombo) { rushAfterBar = true; rushUntil = Time.time + 4f; }
+                        GoldBar.Spawn(barSprite, transform.position + new Vector3(d * 1.1f, -0.02f, 0f), 2.7f, d, this, barDamage);
+                        PlayClipFrom(punch3SwingSounds, punch3Volume);
+                    }
                 }
                 if (f < 0) { cooldown = attackCooldown; Enter(State.Recover); }
                 break;
@@ -1511,7 +1567,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool HasBarThrow => barThrowSprites != null && barThrowSprites.Length >= 7 && barSprite != null;
-    int BarFrame() => ThrowPose.Index(BarThrowTimes, stateTime);
+    int BarFrame() => ThrowPose.Index(usingTireThrow ? tireThrowTimes : BarThrowTimes, stateTime);
 
     bool HasSlaps => slapSprites != null && slapSprites.Length >= 8;
     int slapsDone;
@@ -1909,6 +1965,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) secondHitDone = false;
+        if (hasTire && !KeepsTire(s)) DropTire();   // lyöminen, osuma tms.: rengas putoaa käsistä
         if (s != State.BarrelLift && s != State.BarrelThrow && s != State.CarryWalk) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s != State.BottlePick && s != State.BottleThrow && s != State.CarryPie && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
@@ -1918,7 +1975,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.SlideTackle) { slidePhase = 0; slideT = 0f; slideHit = false; nextSlide = Time.time + slideCooldown; rushAfterBar = false; }
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
-        if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + barThrowCooldown; }
+        if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + (usingTireThrow ? tireThrowCooldown : barThrowCooldown); }
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
@@ -2174,6 +2231,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             moving = false; attackRolled = false;
             facingRight = p.x > me.x;
+            usingTireThrow = false;
+            Enter(State.BarThrow);
+            return;
+        }
+        // rengas: uusi käteen, kun edellisestä on aikaa ja hero on kaukana
+        if (!hasTire && HasTireArt && tireRearmTime > 0f && Time.time >= tireRearmAt && adx >= 6f) SetTire(true);
+        // renkaan heitto matkan päästä samalla syvyydellä
+        if (hasTire && HasTireArt && cooldown <= 0f && Time.time >= nextBarThrow && !player.IsDown && adx >= tireThrowMinRange && adx <= tireThrowMaxRange
+            && Mathf.Abs(me.y - p.y) <= depthTolerance * 0.8f && Random.value < tireThrowChance * dt * 2f)
+        {
+            moving = false; attackRolled = false;
+            facingRight = p.x > me.x;
+            usingTireThrow = true;
             Enter(State.BarThrow);
             return;
         }
@@ -3348,7 +3418,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.BarThrow:
             {
                 int f = BarFrame();
-                return barThrowSprites[f < 0 ? barThrowSprites.Length - 1 : Mathf.Min(f, barThrowSprites.Length - 1)];
+                var bs = usingTireThrow ? tireThrowSprites : barThrowSprites;
+                return bs[f < 0 ? bs.Length - 1 : Mathf.Min(f, bs.Length - 1)];
             }
 
             case State.GrabReach:

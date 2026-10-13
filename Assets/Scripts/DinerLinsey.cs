@@ -81,7 +81,8 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         wait = Random.Range(waitRange.x, waitRange.y);
     }
 
-    float Limit(float x) => area != null ? area.MaxDepthAtX(x, area.maxDepthY) : -1f;
+    public float maxY = 99f;   // Linsey ei mene tätä ylemmäs (STAFF-oven kolo on vain heron)
+    float Limit(float x) => area != null ? Mathf.Min(area.MaxDepthAtX(x, area.maxDepthY), maxY) : -1f;
     float Dir => flipped ? -1f : 1f;
 
     void Update()
