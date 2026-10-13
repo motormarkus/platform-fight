@@ -4915,6 +4915,17 @@ public static class BeatEmUpSetup
     static float DinerPpu => 941f / 12f / DinerScale;
     static float DinerHalfH => 941f / DinerPpu * 0.5f;   // kuvan puolikorkeus yksikköinä
 
+    /// Spriten todellinen (tiukka) leveys maailman yksikköinä: solun läpinäkyvät reunat eivät lasketa.
+    static float TightSpriteWidth(Sprite sp)
+    {
+        if (sp == null) return 0.3f;
+        var v = sp.vertices;
+        if (v == null || v.Length == 0) return sp.bounds.size.x;
+        float mn = float.MaxValue, mx = float.MinValue;
+        foreach (var q in v) { mn = Mathf.Min(mn, q.x); mx = Mathf.Max(mx, q.x); }
+        return Mathf.Max(0.05f, mx - mn);
+    }
+
     /// Pitää dinerin esineen kävelyalueen sisällä (halfW = esineen puolileveys): ei seinän, reunan tai tiskin läpi.
     static Vector3 DinerClamp(Area d, Vector3 p, float halfW)
     {
@@ -5147,7 +5158,7 @@ public static class BeatEmUpSetup
             pGo.transform.position = table.transform.position;
             var fp = pGo.AddComponent<FishPlate>();
             fp.spriteSet = "Aamiainen"; fp.countMul = 0.35f;
-            fp.table = table; fp.tableX = px * TableScale; fp.tableTop = plateTop + 0.04f;
+            fp.table = table; fp.tableX = px * TableScale; fp.tableTop = plateTop - 0.1f;   // annos hieman alemmas pöydällä
             fp.breakSounds = plateSnd;
             plates++;
         }
@@ -5525,6 +5536,7 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(voice);
             names.Add("puheet: " + voice.speak.Length + " yleistä, " + voice.speakShanice.Length + " Shanicelle, " + voice.danceTalk.Length + " tanssilattialla");
         }
+        AddBarLowerCrowdCore();   // alalattialle 3 motoristia ja 2 punkkaria (sama kuin valikko 127), jotta väki ei katoa tätä ajettaessa
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Aavikkobaarin väki: " + string.Join(", ", names) + ".\n" + shopInfo + ". " + bouncerInfo + ".\n"
              + "Kukaan ei aloita tappelua itse: se syttyy, kun joku saa osuman tai kun hero on ollut baarissa 2 minuuttia. Silloin kaikki heräävät ja portsarit tulevat.\n"
@@ -6472,53 +6484,58 @@ public static class BeatEmUpSetup
             c.moneyChance = 0.3f; c.energyChance = 0.15f; c.throwDamage = 22;
             c.breakSounds = wood;
             vis.sprite = table[0];
-            // pullopöytä (ei annosta): 10–12 pulloa ja lasia ilman päällekkäisyyksiä; annospöytä (plateX antaa lautasen paikan):
-            // vain lasit ja pienet olutpullot, lautasen vapaalla puolella eivätkä ne osu lautaseen tai toisiinsa
+            // pullopöytä (ei annosta): täynnä pulloja ja laseja; annospöytä (plateX antaa lautasen paikan): lasit, olut ja viinapullot lautasen vapaalla puolella.
+            // Esineet pakataan riviin oikeilla leveyksillä (kuvan tiukka reuna) ja jaetaan tasavälein, joten ne eivät mene päällekkäin.
             float plateAt = plateX != null ? plateX(tableIdx) : float.NaN;
             bool dish = !float.IsNaN(plateAt);
-            var placed = new List<(float x, float w)>();
             float xMin = -1.12f, xMax = 1.12f;
             if (dish) { if (plateAt > 0f) xMax = plateAt - 0.7f; else xMin = plateAt + 0.7f; }
-            int items = beerOnly ? 2 + rnd.Next(2) : dish ? 3 + rnd.Next(2) : 10 + rnd.Next(3);
-            var slots = new List<float>();
-            if (beerOnly) slots.AddRange(new[] { -1.12f, -0.1f, 0.1f, 1.12f });   // reunoille ja keskelle: annokset jäävät väleihin
-            for (int i = 0; i < items; i++)
+            var cand = new List<(Sprite[] sp, string stain, float scl, bool glass, float pivot, float w)>();
+            if (beerOnly)
             {
-                if (beerOnly && slots.Count == 0) break;
-                Sprite[] spr = null; string stainK = "-"; float pivot = 0.2f, scl = 1f; bool isGlass = false;
-                bool wantGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(100) < (dish ? 55 : 20));
-                if (wantGlass) { var gl = glasses[rnd.Next(glasses.Count)]; spr = gl.sp; stainK = gl.stain; pivot = gl.tall ? 0.2f : 0.15f; isGlass = true; }
-                else if (kinds.Count > 0)
+                // vanha asettelu: reunoille ja keskelle, annokset jäävät väleihin
+                var slots0 = new List<float>(new[] { -1.12f, -0.1f, 0.1f, 1.12f });
+                int items0 = 2 + rnd.Next(2);
+                for (int i = 0; i < items0 && slots0.Count > 0 && kinds.Count > 0; i++)
                 {
-                    var kk = dish ? kinds.Where(q => q.stain == "olut").ToList() : kinds;
-                    if (kk.Count == 0) kk = kinds;
-                    var k = kk[rnd.Next(kk.Count)];
-                    spr = k.sp; stainK = k.stain; scl = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble());
+                    int si = rnd.Next(slots0.Count); float sx0 = slots0[si]; slots0.RemoveAt(si);
+                    var k0 = kinds[rnd.Next(kinds.Count)];
+                    var bGo0 = new GameObject("Pullo"); bGo0.transform.SetParent(root, false); bGo0.transform.position = go.transform.position;
+                    var b0 = bGo0.AddComponent<Bottle>();
+                    b0.sprites = k0.sp; b0.stainKind = k0.stain; b0.scale = 1.05f * k0.sc * (0.94f + 0.12f * (float)rnd.NextDouble()); bottles++;
+                    b0.breakSounds = glassSnd; b0.table = c;
+                    b0.tableX = (sx0 + (float)(rnd.NextDouble() - 0.5) * 0.08f) * TableScale; b0.tableTop = tableTop;
                 }
-                else continue;
-                float w = ((spr != null && spr.Length > 0 && spr[0] != null) ? spr[0].bounds.size.x : 0.3f) * (isGlass ? 1f : scl) / TableScale + 0.03f;
-                float sx;
-                if (beerOnly) { int si = rnd.Next(slots.Count); sx = slots[si]; slots.RemoveAt(si); }
-                else
+            }
+            else
+            {
+                float range = xMax - xMin, sumW = 0f;
+                for (int guard = 0; guard < 40; guard++)
                 {
-                    bool ok = false; sx = 0f;
-                    for (int tries = 0; tries < 50 && !ok; tries++)
-                    {
-                        sx = Mathf.Lerp(xMin + w * 0.5f, xMax - w * 0.5f, (float)rnd.NextDouble());
-                        ok = xMax - xMin > w;
-                        foreach (var q in placed) if (Mathf.Abs(q.x - sx) < (q.w + w) * 0.5f) { ok = false; break; }
-                    }
-                    if (!ok) continue;
-                    placed.Add((sx, w));
+                    bool wantGlass = glasses.Count > 0 && (kinds.Count == 0 || rnd.Next(100) < (dish ? 45 : 25));
+                    Sprite[] spr; string stainK; float scl = 1f, pivot = 0.2f; bool isGlass = false;
+                    if (wantGlass) { var gl = glasses[rnd.Next(glasses.Count)]; spr = gl.sp; stainK = gl.stain; pivot = gl.tall ? 0.2f : 0.15f; isGlass = true; }
+                    else if (kinds.Count > 0) { var k = kinds[rnd.Next(kinds.Count)]; spr = k.sp; stainK = k.stain; scl = 1.05f * k.sc * (0.94f + 0.12f * (float)rnd.NextDouble()); }
+                    else break;
+                    float w = TightSpriteWidth(spr != null && spr.Length > 0 ? spr[0] : null) * (isGlass ? 1f : scl) / TableScale + 0.02f;
+                    if (sumW + w > range) { if (cand.Count >= 3 || guard > 25) break; else continue; }
+                    cand.Add((spr, stainK, scl, isGlass, pivot, w)); sumW += w;
                 }
-                var bGo = new GameObject(isGlass ? "Lasi" : "Pullo");
-                bGo.transform.SetParent(root, false);
-                bGo.transform.position = go.transform.position;
-                var b = bGo.AddComponent<Bottle>();
-                b.sprites = spr; b.stainKind = stainK;
-                if (isGlass) { b.pivotY = pivot; glassN++; } else { b.scale = scl; bottles++; }
-                b.breakSounds = glassSnd; b.table = c;
-                b.tableX = (sx + (beerOnly ? (float)(rnd.NextDouble() - 0.5) * 0.08f : 0f)) * TableScale; b.tableTop = tableTop;
+                float gap = (range - sumW) / (cand.Count + 1);
+                float cx = xMin + gap;
+                foreach (var it in cand)
+                {
+                    float sx = cx + it.w * 0.5f + (float)(rnd.NextDouble() - 0.5) * gap * 0.3f;
+                    cx += it.w + gap;
+                    var bGo = new GameObject(it.glass ? "Lasi" : "Pullo");
+                    bGo.transform.SetParent(root, false);
+                    bGo.transform.position = go.transform.position;
+                    var b = bGo.AddComponent<Bottle>();
+                    b.sprites = it.sp; b.stainKind = it.stain;
+                    if (it.glass) { b.pivotY = it.pivot; glassN++; } else { b.scale = it.scl; bottles++; }
+                    b.breakSounds = glassSnd; b.table = c;
+                    b.tableX = sx * TableScale; b.tableTop = tableTop;
+                }
             }
             // tuolit pöydän päihin, selkänoja ulospäin
             if (chairSprite != null)
@@ -7641,6 +7658,7 @@ public static class BeatEmUpSetup
     [MenuItem("Beat em up/126. Baarin rekkamies rauhalliseksi (tanssii, herää vasta tappelun alkaessa) ja mukaan baaritappeluun")]
     static void CalmBarTrucker()
     {
+        if (PlayModeBlocked()) return;
         Enemy trucker = null;
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             if (e != null && e.displayName == "Rekkamies" && e.gameObject.name == "Rekkamies" && e.transform.position.x >= 91000f && e.transform.position.x < 92000f) { trucker = e; break; }
@@ -7670,9 +7688,17 @@ public static class BeatEmUpSetup
     [MenuItem("Beat em up/127. Aavikkobaari: lisää väkeä alalattialle (3 motoristia, 2 punkkaria) tappeluun mukaan")]
     static void AddBarLowerCrowd()
     {
+        if (PlayModeBlocked()) return;
+        string msg = AddBarLowerCrowdCore();
+        Info(msg ?? "Tee ensin Aavikkobaari (110) ja sen väki (116).");
+    }
+
+    /// Baarin alalattian lisäväki (3 motoristia, 2 punkkaria): myös valikko 116 kutsuu tätä, ettei väki katoa, kun baarin väki tehdään uusiksi.
+    static string AddBarLowerCrowdCore()
+    {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
         var brawl = Object.FindFirstObjectByType<BarBrawl>();
-        if (bar == null || brawl == null) { Info("Tee ensin Aavikkobaari (110) ja sen väki (116)."); return; }
+        if (bar == null || brawl == null) return null;
         var root = GameObject.Find("Aavikkobaarin tappelu");
         if (root == null) { root = new GameObject("Aavikkobaarin tappelu"); Undo.RegisterCreatedObjectUndo(root, "Aavikkobaarin väki"); }
         foreach (var o in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.gameObject.name.StartsWith("Baarin lisäväki ")).ToArray())
@@ -7708,12 +7734,13 @@ public static class BeatEmUpSetup
         brawl.members = members.ToArray();
         EditorUtility.SetDirty(brawl);
         EditorSceneManager.MarkSceneDirty(brawl.gameObject.scene);
-        Info("Baarin alalattialle lisätty " + n + " hahmoa (3 motoristia ja punkkareita)" + punkInfo + ". He ovat rauhallisia ja heräävät tappelun mukana. Motoristit saavat piirakkakuvat, heiton ja juoksun automaattisesti.\n\nTallenna scene (Ctrl+S).");
+        return "Baarin alalattialle lisätty " + n + " hahmoa (3 motoristia ja punkkareita)" + punkInfo + ". He ovat rauhallisia ja heräävät tappelun mukana. Motoristit saavat piirakkakuvat, heiton ja juoksun automaattisesti.\n\nTallenna scene (Ctrl+S).";
     }
 
     [MenuItem("Beat em up/125. Rekkamiehen puhe kaikille rekkamiehille (baari, diner, romuttamo)")]
     static void ApplyTruckerVoices()
     {
+        if (PlayModeBlocked()) return;
         int n = 0; bool clips = true;
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
@@ -7877,6 +7904,7 @@ public static class BeatEmUpSetup
     [MenuItem("Beat em up/122. Prätkäjätkät heittävät pöytiä ja heroa (kaikille sceneen)")]
     static void UpdateBikerThrow()
     {
+        if (PlayModeBlocked()) return;
         int n = 0; var report = new List<string>();
         foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {

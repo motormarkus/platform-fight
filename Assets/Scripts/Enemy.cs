@@ -994,10 +994,23 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return false;
     }
 
+    /// Vihu on kaukana heron nykyisestä alueesta (eri alue): sen liikettä ei rajata väärän alueen syvyyteen.
+    bool OutsideHeroArea()
+    {
+        var a = Area.Current;
+        if (a == null) return false;
+        // alueen laidat: kävelyrajat, tai vanhoilla alueilla (walk 0) kameran rajat
+        float min = a.walkMinX != 0f ? a.walkMinX : a.camMinX - 15f;
+        float max = a.walkMaxX != 0f ? a.walkMaxX : a.camMaxX + 15f;
+        float x = transform.position.x;
+        return x < min - 300f || x > max + 300f;
+    }
+
     void Update()
     {
         // toisella alueella olevat viholliset eivät pidä ääntä (äänet eivät jää edellisestä ruudusta kuulumaan)
         if (audioSource != null) { bool here = Area.IsHere(transform.position); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
+        if (OutsideHeroArea()) { moving = false; return; }   // toisella alueella: ei päivitetä (muuten liike rajautuisi heron alueen syvyyteen ja vihut siirtyisivät väärään kohtaan)
         if (appearAfterOthers && !awake && WaitToAppear()) return;
         Vector3 frameStart = transform.position;
         running = false;
