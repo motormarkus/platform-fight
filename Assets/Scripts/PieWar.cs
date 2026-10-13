@@ -44,7 +44,10 @@ public class PieWar : MonoBehaviour
     GUIStyle box, big;
     static Texture2D black;
 
-    void Awake() { instance = this; JunkyardKey = false; }
+    [Tooltip("Testausta varten: avain romuttamon porttiin on heti alusta asti. Poista rasti, niin avain tulee vasta piirakkasodan voitosta.")]
+    public bool startWithJunkyardKey = true;
+
+    void Awake() { instance = this; JunkyardKey = startWithJunkyardKey; }
     void OnDestroy() { if (instance == this) instance = null; Active = false; PieDamage = false; }
 
     // ---------------- osumat ----------------

@@ -4893,7 +4893,7 @@ public static class BeatEmUpSetup
         var diner = ReuseArea("Alue: Diner");
         Undo.RecordObject(diner, "Diner");
         diner.areaName = "Diner"; diner.useSidewalk = false;
-        diner.minDepthY = -4f; diner.maxDepthY = DepthAt(640f);
+        diner.minDepthY = -4f; diner.maxDepthY = DepthAt(640f); diner.depthLimitsExceedMax = true;   // takarajan käyrä saa ylittää maxDepthY:n (EXIT-kolo)
         // kamera loitonnettu (7,2: kuva on 6:n korkuinen): yläreuna pysyy kuvan yläreunassa, alle jatkuu peilattu lattia (diner_lattia.png)
         const float dinerCamSize = 7.2f;
         diner.camMinX = left + dinerCamSize * 16f / 9f; diner.camMaxX = left + width - dinerCamSize * 16f / 9f; diner.camSize = dinerCamSize;
@@ -4903,7 +4903,10 @@ public static class BeatEmUpSetup
         diner.depthLimits = new[] {
             new Vector2(left + 0f, DepthAt(610f)), new Vector2(left + 1330f / ppu, DepthAt(610f)),
             new Vector2(left + 1420f / ppu, DepthAt(640f)), new Vector2(left + 2950f / ppu, DepthAt(640f)),
-            new Vector2(left + 3010f / ppu, DepthAt(545f)), new Vector2(left + width, DepthAt(545f)) };
+            new Vector2(left + 3010f / ppu, DepthAt(545f)), new Vector2(left + 3130f / ppu, DepthAt(545f)),
+            // STAFF-oven kohdalla (EXIT) lattia jatkuu ylös ovelle asti: hero pääsee kävelemään oven eteen
+            new Vector2(left + 3150f / ppu, DepthAt(440f)), new Vector2(left + 3420f / ppu, DepthAt(440f)),
+            new Vector2(left + 3440f / ppu, DepthAt(545f)), new Vector2(left + width, DepthAt(545f)) };
         diner.backScale = 1f;
         diner.music = street.music; diner.ambience = street.ambience; diner.ambienceVolume = 0.2f;
         foreach (var name in new[] { "Dinerin sisalto", "Aavikkokadulta dineriin" })
@@ -4925,7 +4928,7 @@ public static class BeatEmUpSetup
         }
         // Keskimmäinen kuva (tiski) alkaa pikselistä 1362 ja on 1672 leveä: sisääntulo sen keskelle.
         Vector2 arrival = new Vector2(left + (1362f + 836f) / ppu, -2.4f);
-        const float doorPx = 897f;   // pariovi aavikkokadujatke2-kuvassa
+        const float doorPx = 867f;   // pariovi aavikkokadujatke2-kuvassa (diner suurennettu kuvassa: leveys 1,06 ja korkeus 1,20)
         float doorX = 86000f + 5896.992f / (887f / 12f) + doorPx * 1.157184f / (887f / 12f);
         var enter = new GameObject("Aavikkokadulta dineriin").AddComponent<Door>();
         Undo.RegisterCreatedObjectUndo(enter.gameObject, "Dinerin ovi");
@@ -4939,7 +4942,7 @@ public static class BeatEmUpSetup
         float exitX = left + exitPx / ppu;
         back.transform.position = new Vector3(exitX, diner.MaxDepthAtX(exitX, diner.maxDepthY), 0f);
         back.here = diner; back.target = street; back.returnToLastDoor = false;   // paluu aina kadulle dinerin oven eteen (ei riipu siitä, mistä pelaaja tuli)
-        back.prompt = "Mene ulos (EXIT)"; back.halfWidth = 2.2f; back.maxDistanceFromWall = 2.0f;
+        back.prompt = "Mene ulos (EXIT)"; back.halfWidth = 1.7f; back.maxDistanceFromWall = 0.9f;   // käytettävissä vasta ylhäällä oven edessä
         const string exitSignPath = "Assets/Sprites/Rekvisiitta/exit_kyltti.png";   // 2172 x 724, kuvan oma kyltti
         if (AssetImporter.GetAtPath(exitSignPath) != null)
         {

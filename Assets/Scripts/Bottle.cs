@@ -376,7 +376,7 @@ public class Bottle : MonoBehaviour
                 Vector3 lq = lin.transform.position;
                 if (Mathf.Abs(lq.x - me.x) > 0.8f || Mathf.Abs(lq.y - me.y) > 0.5f) continue;
                 hitList.Add(lin);
-                if (lin.PieHit(me.x - Mathf.Sign(vx))) { HitFx.OnHit(false); pieVanish = true; return true; }
+                if (lin.PieHit(me.x - Mathf.Sign(vx))) { if (enemyThrow) HitFx.OnHitQuiet(); else HitFx.OnHit(false); pieVanish = true; return true; }   // vihun heittämä: ei tärähdystä
             }
         if (enemyThrow && pie && PieWar.Active)
         {
@@ -391,14 +391,14 @@ public class Bottle : MonoBehaviour
                 {
                     int fr = foe.PieHit(throwDamage, me.x - Mathf.Sign(vx));
                     if (fr == 0) continue;
-                    HitFx.OnHit(true);
+                    HitFx.OnHitQuiet();   // vihujen keskinäinen osuma: ei tärähdystä eikä pysäytystä
                     pieVanish = fr == 1;
                     return true;
                 }
                 PieWar.PieDamage = true;
                 bool fh = foe.TakeHit(throwDamage, me.x - Mathf.Sign(vx), false);
                 PieWar.PieDamage = false;
-                if (fh) { PieWar.OnEnemyHit(foe); HitFx.OnHit(true); return true; }
+                if (fh) { PieWar.OnEnemyHit(foe); HitFx.OnHitQuiet(); return true; }   // vihujen keskinäinen osuma: ei tärähdystä
             }
         }
         if (enemyThrow)

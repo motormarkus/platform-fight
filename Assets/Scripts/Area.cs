@@ -53,14 +53,19 @@ public class Area : MonoBehaviour
     }
 
     /// Suurin sallittu syvyys kohdassa x tällä alueella.
+    [Tooltip("Takarajan käyrä (depthLimits) saa ylittää alueen maxDepthY:n (esim. dinerin STAFF-oven koloon pääsee muuta takarajaa ylemmäs).")]
+    public bool depthLimitsExceedMax;
+
+    float Cap(float fallback, float limit) => depthLimitsExceedMax ? limit : Mathf.Min(fallback, limit);
+
     public float MaxDepthAtX(float x, float fallback)
     {
         if (depthLimits == null || depthLimits.Length == 0) return fallback;
         var d = depthLimits;
-        if (x <= d[0].x) return Mathf.Min(fallback, d[0].y);
+        if (x <= d[0].x) return Cap(fallback, d[0].y);
         for (int i = 1; i < d.Length; i++)
-            if (x <= d[i].x) return Mathf.Min(fallback, Mathf.Lerp(d[i - 1].y, d[i].y, (x - d[i - 1].x) / Mathf.Max(0.001f, d[i].x - d[i - 1].x)));
-        return Mathf.Min(fallback, d[d.Length - 1].y);
+            if (x <= d[i].x) return Cap(fallback, Mathf.Lerp(d[i - 1].y, d[i].y, (x - d[i - 1].x) / Mathf.Max(0.001f, d[i].x - d[i - 1].x)));
+        return Cap(fallback, d[d.Length - 1].y);
     }
 
     [Header("Kameran rajat (x)")]
