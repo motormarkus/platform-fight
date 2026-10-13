@@ -2020,6 +2020,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (ComboContinues) ComboLog("kombo katkesi: tila " + s);   // osuma tms. katkaisee kombon
             comboSeq = null;
         }
+        if (s != State.Windup && s != State.Punch && s != State.Recover) counterActive = false;
         state = s;
         stateTime = 0f;
         if (s != State.Chase) { moving = false; edgeApproach = false; }
@@ -2753,7 +2754,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
-        if (comboArmor && comboSeq != null && !knockdown && health > damage
+        if (((comboArmor && comboSeq != null) || counterActive) && !knockdown && health > damage
             && (state == State.Windup || state == State.Punch || state == State.Recover))
         {
             awake = true;
@@ -2848,6 +2849,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
         }
+        else if (!unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
+                 && !(PieWar.Active || pieOnly))
+        {
+            // yleinen vastaisku: tasainen hakkaaminen ei kelpaa, kahden osuman jälkeen vihu lyö takaisin (iskun ajan panssari)
+            comboHits = 0;
+            knockVel = Vector2.zero;
+            moving = false; attackRolled = false;
+            usingAlt = false; usingPunch3 = false; usingUppercut = false; usingPunch2 = false;
+            comboSeq = null;
+            Enter(State.Windup);
+            counterActive = true;
+        }
         else
         {
             knockVel = new Vector2(fromLeft ? 3.2f : -3.2f, 0f);   // tuntuva työntö osumasta
@@ -2855,6 +2868,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         return true;
     }
+
+    bool counterActive;                       // yleinen vastaisku käynnissä (panssari, lyhyt lataus)
+    [Tooltip("Montako osumaa (peräkkäin, alle 0.9 s välein) otetaan ennen kuin vihu lyö takaisin, kun ei olla kombossa.")]
+    public int counterAfterHits = 2;
+    bool isHeld() => state == State.Held || state == State.Ringed || state == State.Clinch;
 
     // ---------------- Pelaajan vastaheitto ----------------
 
@@ -3483,7 +3501,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
     float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingUppercut ? uppercutWindupTime : usingPunch3 ? punch3WindupNow : windupTime)
-                           * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f);
+                           * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
 
