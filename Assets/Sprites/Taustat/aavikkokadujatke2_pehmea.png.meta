@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 5887e640952f0f9438e13dc05a417b0c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2485430119204308535
+    second: aavikkokadujatke2_pehmea_0
+  - first:
+      213: -7915107882579041341
+    second: aavikkokadujatke2_pehmea_1
+  - first:
+      213: -2923717357357245322
+    second: aavikkokadujatke2_pehmea_2
+  - first:
+      213: -7431150653880476866
+    second: aavikkokadujatke2_pehmea_3
+  - first:
+      213: 1483003901383305765
+    second: aavikkokadujatke2_pehmea_4
+  - first:
+      213: -2736217869219341515
+    second: aavikkokadujatke2_pehmea_5
+  - first:
+      213: -5423202765620378631
+    second: aavikkokadujatke2_pehmea_6
+  - first:
+      213: 4047587950872249622
+    second: aavikkokadujatke2_pehmea_7
+  - first:
+      213: -4485709290782658195
+    second: aavikkokadujatke2_pehmea_8
+  - first:
+      213: -3013250265351151249
+    second: aavikkokadujatke2_pehmea_9
+  - first:
+      213: 5836619765934250939
+    second: aavikkokadujatke2_pehmea_10
+  - first:
+      213: 5362496627097759366
+    second: aavikkokadujatke2_pehmea_11
+  - first:
+      213: -3066136231350292470
+    second: aavikkokadujatke2_pehmea_12
+  - first:
+      213: 5298601440724304357
+    second: aavikkokadujatke2_pehmea_13
+  - first:
+      213: -6457112754502973556
+    second: aavikkokadujatke2_pehmea_14
+  - first:
+      213: -2062099064039989512
+    second: aavikkokadujatke2_pehmea_15
+  - first:
+      213: -2131294066856301140
+    second: aavikkokadujatke2_pehmea_16
+  - first:
+      213: 6350226426899686637
+    second: aavikkokadujatke2_pehmea_17
+  - first:
+      213: 3592224581421987204
+    second: aavikkokadujatke2_pehmea_18
+  - first:
+      213: -8354049257229071602
+    second: aavikkokadujatke2_pehmea_19
+  - first:
+      213: 7144812908793320432
+    second: aavikkokadujatke2_pehmea_20
+  - first:
+      213: 3395668323345308814
+    second: aavikkokadujatke2_pehmea_21
+  - first:
+      213: 238738876916753178
+    second: aavikkokadujatke2_pehmea_22
+  - first:
+      213: 6166268400676384971
+    second: aavikkokadujatke2_pehmea_23
+  - first:
+      213: 690001325042379452
+    second: aavikkokadujatke2_pehmea_24
+  - first:
+      213: 2348963825201281083
+    second: aavikkokadujatke2_pehmea_25
+  - first:
+      213: 1194016083643991693
+    second: aavikkokadujatke2_pehmea_26
+  - first:
+      213: 1492622992096506380
+    second: aavikkokadujatke2_pehmea_27
+  - first:
+      213: -902610972505448538
+    second: aavikkokadujatke2_pehmea_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 73.916664
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_0
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 797
+        width: 86
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736ca3966850e7220800000000000000
+      internalID: 2485430119204308535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 844
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c36bfb1153e72290800000000000000
+      internalID: -7915107882579041341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 825
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67cd313dd8edc67d0800000000000000
+      internalID: -2923717357357245322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 862
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3bda0b2adf3fd890800000000000000
+      internalID: -7431150653880476866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_4
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 854
+        width: 69
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52a6876e030b49410800000000000000
+      internalID: 1483003901383305765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_5
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 783
+        width: 124
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bda155850070ad0800000000000000
+      internalID: -2736217869219341515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_6
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 856
+        width: 57
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3084a61d9ecb4b0800000000000000
+      internalID: -5423202765620378631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_7
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 864
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61544e8dbcbeb2830800000000000000
+      internalID: 4047587950872249622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 854
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61fa359a2f8fb1c0800000000000000
+      internalID: -4485709290782658195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_9
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 854
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f61a46a39d8ce26d0800000000000000
+      internalID: -3013250265351151249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_10
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 783
+        width: 120
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbd88dd0c6dff050800000000000000
+      internalID: 5836619765934250939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_11
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 854
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e6467454a6b6a40800000000000000
+      internalID: 5362496627097759366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_12
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 795
+        width: 44
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a003969b755e275d0800000000000000
+      internalID: -3066136231350292470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_13
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 820
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1ceb8efe9688940800000000000000
+      internalID: 5298601440724304357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_14
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 820
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87c439392ab366a0800000000000000
+      internalID: -6457112754502973556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_15
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 797
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe1b34a3d3f163e0800000000000000
+      internalID: -2062099064039989512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_16
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 807
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cade129965f1c62e0800000000000000
+      internalID: -2131294066856301140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_17
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 787
+        width: 67
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de467a25a49802850800000000000000
+      internalID: 6350226426899686637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_18
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 823
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485751179352ad130800000000000000
+      internalID: 3592224581421987204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_19
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 793
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0bceb25674701c80800000000000000
+      internalID: -8354049257229071602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_20
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 795
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f350475c79772360800000000000000
+      internalID: 7144812908793320432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_21
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 783
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c1b0c5956df1f20800000000000000
+      internalID: 3395668323345308814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_22
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 792
+        width: 53
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13e2b06ebb205300800000000000000
+      internalID: 238738876916753178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_23
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 798
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0380ca07cf29550800000000000000
+      internalID: 6166268400676384971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_24
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 803
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba23b1ac80639900800000000000000
+      internalID: 690001325042379452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_25
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 789
+        width: 28
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b387d575722399020800000000000000
+      internalID: 2348963825201281083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_26
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 789
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8604b94d4ff19010800000000000000
+      internalID: 1194016083643991693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_27
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 783
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c023e7bf3bcd6b410800000000000000
+      internalID: 1492622992096506380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aavikkokadujatke2_pehmea_28
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 1766
+        height: 786
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af517d4a184973f0800000000000000
+      internalID: -902610972505448538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      aavikkokadujatke2_pehmea_0: 2485430119204308535
+      aavikkokadujatke2_pehmea_1: -7915107882579041341
+      aavikkokadujatke2_pehmea_10: 5836619765934250939
+      aavikkokadujatke2_pehmea_11: 5362496627097759366
+      aavikkokadujatke2_pehmea_12: -3066136231350292470
+      aavikkokadujatke2_pehmea_13: 5298601440724304357
+      aavikkokadujatke2_pehmea_14: -6457112754502973556
+      aavikkokadujatke2_pehmea_15: -2062099064039989512
+      aavikkokadujatke2_pehmea_16: -2131294066856301140
+      aavikkokadujatke2_pehmea_17: 6350226426899686637
+      aavikkokadujatke2_pehmea_18: 3592224581421987204
+      aavikkokadujatke2_pehmea_19: -8354049257229071602
+      aavikkokadujatke2_pehmea_2: -2923717357357245322
+      aavikkokadujatke2_pehmea_20: 7144812908793320432
+      aavikkokadujatke2_pehmea_21: 3395668323345308814
+      aavikkokadujatke2_pehmea_22: 238738876916753178
+      aavikkokadujatke2_pehmea_23: 6166268400676384971
+      aavikkokadujatke2_pehmea_24: 690001325042379452
+      aavikkokadujatke2_pehmea_25: 2348963825201281083
+      aavikkokadujatke2_pehmea_26: 1194016083643991693
+      aavikkokadujatke2_pehmea_27: 1492622992096506380
+      aavikkokadujatke2_pehmea_28: -902610972505448538
+      aavikkokadujatke2_pehmea_3: -7431150653880476866
+      aavikkokadujatke2_pehmea_4: 1483003901383305765
+      aavikkokadujatke2_pehmea_5: -2736217869219341515
+      aavikkokadujatke2_pehmea_6: -5423202765620378631
+      aavikkokadujatke2_pehmea_7: 4047587950872249622
+      aavikkokadujatke2_pehmea_8: -4485709290782658195
+      aavikkokadujatke2_pehmea_9: -3013250265351151249
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

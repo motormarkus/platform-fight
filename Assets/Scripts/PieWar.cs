@@ -17,6 +17,8 @@ public class PieWar : MonoBehaviour
     public static bool LinseyPrompt;
     /// Piirakan osuma on käynnissä: sodan aikana vain se saa tehdä vahinkoa.
     public static bool PieDamage;
+    /// Piirakkasota voitettu: Linsey on antanut romuttamon portin avaimen.
+    public static bool JunkyardKey;
     static PieWar instance;
 
     public Area area;
@@ -42,7 +44,7 @@ public class PieWar : MonoBehaviour
     GUIStyle box, big;
     static Texture2D black;
 
-    void Awake() { instance = this; }
+    void Awake() { instance = this; JunkyardKey = false; }
     void OnDestroy() { if (instance == this) instance = null; Active = false; PieDamage = false; }
 
     // ---------------- osumat ----------------
@@ -176,8 +178,10 @@ public class PieWar : MonoBehaviour
             hero.TeleportTo(new Vector3(lp.x - 1.8f, Mathf.Min(lp.y, area.maxDepthY - 0.3f), 0f));
             if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(hero.transform.position.x);
         }
-        msg = quit ? "Piirakkasota päättyi." : won ? "Voitit piirakkasodan!" : "Sait 10 piirakkaa naamaan. Piirakkasota päättyi.";
-        msgUntil = Time.unscaledTime + 3f;
+        bool newKey = won && !JunkyardKey;
+        if (won) JunkyardKey = true;
+        msg = quit ? "Piirakkasota päättyi." : won ? (newKey ? "Voitit piirakkasodan!\nLinsey antaa sinulle romuttamon portin avaimen." : "Voitit piirakkasodan!") : "Sait 10 piirakkaa naamaan. Piirakkasota päättyi.";
+        msgUntil = Time.unscaledTime + (newKey ? 5f : 3f);
         yield return new WaitForSecondsRealtime(0.15f);
         for (float t = 0f; t < 0.4f; t += Time.unscaledDeltaTime) { fade = 1f - t / 0.4f; yield return null; }
         fade = 0f; ending = false;
@@ -248,7 +252,11 @@ public class PieWar : MonoBehaviour
             if (GUI.Button(new Rect(r.x + dw * 0.55f, r.y + dh * 0.58f, dw * 0.35f, dh * 0.28f), "[Q] Ei")) { Time.timeScale = oldScale; dialogOpen = false; }
         }
         if (Time.unscaledTime < msgUntil)
-            GUI.Box(new Rect((Screen.width - w * 1.4f) * 0.5f, Screen.height * 0.14f, w * 1.4f, h * 1.3f), msg, big);
+        {
+            float mw = w * 1.4f;
+            float mh = Mathf.Max(h * 1.3f, big.CalcHeight(new GUIContent(msg), mw - Screen.height * 0.02f) + Screen.height * 0.03f);   // teksti jaetaan riveille, laatikko kasvaa
+            GUI.Box(new Rect((Screen.width - mw) * 0.5f, Screen.height * 0.14f, mw, mh), msg, big);
+        }
         if (fade > 0f)
         {
             GUI.depth = -100;

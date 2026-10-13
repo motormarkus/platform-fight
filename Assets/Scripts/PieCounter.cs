@@ -31,6 +31,13 @@ public class PieCounter : MonoBehaviour
     {
         if (template == null || area == null || xs == null || xs.Length == 0) return;
         if (Area.Current != area) { seeded = false; return; }
+        if (!PieWar.Active)
+        {
+            // ei piirakkasotaa: tiskillä ja lattialla ei ole piirakoita (ilmassa olevat ja kädessä pidetyt jätetään)
+            ClearResting(made); ClearResting(floorMade);
+            seeded = false; timer = 0f; floorTimer = 0f;
+            return;
+        }
         made.RemoveAll(b => b == null || (born.TryGetValue(b, out float t0) && Time.time - t0 > 0.5f && !b.CanPickUp));   // poimittu, heitetty tai hajonnut: paikka vapautuu
         if (!seeded)
         {
@@ -48,6 +55,18 @@ public class PieCounter : MonoBehaviour
         if (timer < (PieWar.Active ? Mathf.Min(interval, 1.5f) : interval)) return;   // piirakkasodassa nopeammin
         timer = 0f;
         SpawnOne();
+    }
+
+    static void ClearResting(List<Bottle> list)
+    {
+        for (int i = list.Count - 1; i >= 0; i--)
+        {
+            var b = list[i];
+            if (b == null) { list.RemoveAt(i); continue; }
+            if (!b.CanPickUp) continue;
+            Destroy(b.gameObject);
+            list.RemoveAt(i);
+        }
     }
 
     readonly List<Bottle> floorMade = new List<Bottle>();

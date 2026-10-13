@@ -27,6 +27,9 @@ public class Door : MonoBehaviour
     public bool faceLeftOnArrival;
     [Tooltip("Ovi on ruudun alareunassa (esim. dinerin uloskäynti): käytettävissä alueen etureunassa takarajan sijaan.")]
     public bool atFront;
+    [Tooltip("Ovi on lukossa, kunnes piirakkasota on voitettu ja Linsey on antanut romuttamon avaimen.")]
+    public bool needsJunkyardKey;
+    float lockedMsgUntil;
 
     [Header("Oven kohta")]
     public float halfWidth = 1.2f;
@@ -60,7 +63,11 @@ public class Door : MonoBehaviour
             && (here == null || (atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
             && pc.AirHeight <= 0.05f
             && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
-        if (near && Pressed()) StartCoroutine(Go());
+        if (near && Pressed())
+        {
+            if (needsJunkyardKey && !PieWar.JunkyardKey) lockedMsgUntil = Time.unscaledTime + 3f;
+            else StartCoroutine(Go());
+        }
     }
 
     static bool Pressed()
@@ -139,11 +146,17 @@ public class Door : MonoBehaviour
         if (!near) return;
         if (style == null)
         {
-            style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter };
+            style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, wordWrap = true };
             style.normal.textColor = Color.white;
         }
-        string text = "[E]  " + Loc.T(prompt);
+        string text = needsJunkyardKey && !PieWar.JunkyardKey
+            ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
+            : "[E]  " + Loc.T(prompt);
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;
+        // pitkä teksti jaetaan usealle riville: laatikko leveämmäksi (enintään 90 % ruudusta) ja tarvittaessa korkeammaksi
+        float textW = style.CalcSize(new GUIContent(text)).x + Screen.height * 0.06f;
+        if (textW > w) w = Mathf.Min(textW, Screen.width * 0.9f, Screen.height * 0.9f);
+        h = Mathf.Max(h, style.CalcHeight(new GUIContent(text), w - Screen.height * 0.02f) + Screen.height * 0.02f);
         GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), text, style);
     }
 }

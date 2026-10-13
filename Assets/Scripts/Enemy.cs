@@ -946,6 +946,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Update()
     {
+        // toisella alueella olevat viholliset eivät pidä ääntä (äänet eivät jää edellisestä ruudusta kuulumaan)
+        if (audioSource != null) { bool here = Area.IsHere(transform.position); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
         if (appearAfterOthers && !awake && WaitToAppear()) return;
         Vector3 frameStart = transform.position;
         running = false;
@@ -2838,6 +2840,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         spinRot = 0f;
         spinCenter = 1.5f;
         heldPose = -1;
+        heldAsIdle = false;
         Enter(State.Held);
     }
 
@@ -2865,6 +2868,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         launched = true;
     }
     bool launched;
+    /// Otteessa näytetään seisova perusasento osumakuvan (pää taakse) sijaan: päät yhteen -liike.
+    [System.NonSerialized] public bool heldAsIdle;
     [System.NonSerialized] public bool thrownByEnemy;   // toisen vihun heittämä (portsari): ei kameran tärähdystä
 
     /// Voiko pelaaja tarttua rinnuksista (pystyssä, ei kantamassa mitään eikä jo kiinni).
@@ -2875,6 +2880,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void ReleaseKnockdown(int damage, float attackerX)
     {
         if (state != State.Held) return;
+        heldAsIdle = false;
         artSet = null; artThrow = false; flightArt = false; thrownByPlayer = false; launched = false;
         spinRot = 0f; heldPose = -1;
         awake = true;
@@ -3295,6 +3301,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Held:
                 if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
+                if (heldAsIdle) return FirstIdle();   // pää pystyssä (osumakuvissa pää kallistuu taakse)
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
             case State.Ringed:

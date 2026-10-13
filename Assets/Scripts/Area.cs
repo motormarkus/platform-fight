@@ -15,6 +15,13 @@ public class Area : MonoBehaviour
     /// Alue, jolla pelaaja on (viimeksi asetettu).
     public static Area Current;
 
+    /// Onko piste pelaajan nykyisellä alueella (alueet ovat eri kohdissa x-akselia). Muualla olevien vihollisten äänet mykistetään.
+    public static bool IsHere(Vector3 p, float margin = 8f)
+    {
+        if (Current == null) return true;
+        return p.x >= Current.walkMinX - margin && p.x <= Current.walkMaxX + margin;
+    }
+
     [Header("Kävelyalue (y = syvyys)")]
     public float minDepthY = -4.3f;
     public float maxDepthY = -0.8f;

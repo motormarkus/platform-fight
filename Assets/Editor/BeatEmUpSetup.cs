@@ -1393,6 +1393,118 @@ public static class BeatEmUpSetup
             $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/118. Romuttamo: alue ja portti Aavikkokadulta (avain tulee piirakkasodan voitosta)")]
+    static void CreateJunkyard()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/romuttamo_panoraama.png";   // 5536 x 1110: neljä kuvaa limitettynä (romuttamo_1-4.png)
+        const string skyPath = "Assets/Sprites/Taustat/aavikko_parallax_ylempi_loop.png";
+        var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
+        if (street == null || AssetImporter.GetAtPath(path) == null)
+        { Info("Tee ensin Aavikkokatu (95). Tarvitaan romuttamo_panoraama.png (Sprites/Taustat)."); return; }
+        const float ppu = 941f / 12f;
+        var bgSprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        float panoH = bgSprite.rect.height;
+        const float left = 92000f, camCenterY = 1.4f, camSize = 6.4f, windowTopRow = 92f;   // 91000 on Aavikkobaarin alue: oma alue ettei kalusteet ja tausta näy päällekkäin
+        float width = bgSprite.bounds.size.x, centerX = left + width * 0.5f;
+        float windowH = camSize * 2f * ppu;
+        // kuvan rivi -> maailman y (ikkunan keskirivi on kameran keskellä)
+        float Y(float row) => camCenterY + (windowTopRow + windowH * 0.5f - row) / ppu;
+        float PanoX(float px) => left + px / ppu;
+
+        var yard = ReuseArea("Alue: Romuttamo");
+        Undo.RecordObject(yard, "Romuttamo");
+        yard.areaName = "Romuttamo"; yard.useSidewalk = false;
+        yard.minDepthY = Y(1010f); yard.maxDepthY = Y(815f);
+        float halfScreen = camSize * 16f / 9f;
+        yard.camMinX = left + halfScreen; yard.camMaxX = left + width - halfScreen; yard.camSize = camSize;
+        yard.camOffsetY = camCenterY - CamY; yard.camRiseY = 0f;
+        yard.walkMinX = left + 0.8f; yard.walkMaxX = left + width - 0.8f;
+        yard.depthLimits = new Vector2[0];
+        yard.backScale = 1f;
+        yard.music = street.music; yard.ambience = street.ambience; yard.ambienceVolume = street.ambienceVolume;
+        foreach (var name in new[] { "Romuttamon sisalto", "Aavikkokadulta romuttamolle" })
+        { var old = GameObject.Find(name); if (old != null) Undo.DestroyObjectImmediate(old); }
+        var root = new GameObject("Romuttamon sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Romuttamo");
+        var bg = new GameObject("Romuttamon tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.transform.position = new Vector3(centerX, Y(panoH * 0.5f), 0f);
+        bg.sprite = bgSprite; bg.sortingOrder = -10000;
+        // taivas: aavikon ylempi parallax kuvan takana (kuvan taivas on läpinäkyvä)
+        var sky = ImportShipSprite(skyPath, 100f, true, SpriteAlignment.Center);
+        if (sky != null)
+        {
+            var s = new GameObject("Romuttamon taivas").AddComponent<SpriteRenderer>();
+            s.transform.SetParent(root.transform, false);
+            s.transform.position = new Vector3(left + width * 0.5f, camCenterY + 4.4f, 0f);   // mesat rakennusten yläpuolelle (kuten Aavikkokadulla: kameran keskikohdan yläpuolella 4,4)
+            s.sprite = sky; s.sortingOrder = -10200;
+            float skyK = camSize * 2f * 1.15f / sky.bounds.size.y;   // kuvan suhteet säilytetään
+            s.transform.localScale = new Vector3(skyK, skyK, 1f);
+            s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+            s.size = new Vector2((2f * halfScreen + (yard.camMaxX - yard.camMinX) * 0.04f + 4f) / skyK, sky.bounds.size.y);
+            var par = s.gameObject.AddComponent<ParallaxLayer>();
+            par.factor = 0.04f;
+            par.startCamX = yard.camMinX; par.minX = left; par.maxX = left + width;
+        }
+        // kaukainen hiekka mesojen alla (kuten Aavikkokadulla: horisontti kameran keskikohdan yläpuolella 0,8)
+        var sand = ImportShipSprite("Assets/Sprites/Taustat/aavikko_parallax_alempi_loop.png", 100f, true, SpriteAlignment.Center);
+        if (sand != null)
+        {
+            var d = new GameObject("Romuttamon kaukainen hiekka").AddComponent<SpriteRenderer>();
+            d.transform.SetParent(root.transform, false);
+            d.transform.position = new Vector3(left + width * 0.5f, camCenterY + 0.8f, 0f);
+            d.sprite = sand; d.sortingOrder = -10100;
+            float sandK = 12f / sand.bounds.size.y;
+            d.transform.localScale = new Vector3(sandK, sandK, 1f);
+            d.drawMode = SpriteDrawMode.Tiled; d.tileMode = SpriteTileMode.Continuous;
+            d.size = new Vector2((2f * halfScreen + (yard.camMaxX - yard.camMinX) * 0.08f + 4f) / sandK, sand.bounds.size.y);
+            var dpar = d.gameObject.AddComponent<ParallaxLayer>();
+            dpar.factor = 0.08f;
+            dpar.startCamX = yard.camMinX; dpar.minX = left; dpar.maxX = left + width;
+        }
+
+        // portti Aavikkokadulla: jatkokuva 3 (aavikkokatu3), portin keskikohta kuvassa n. 1084 px
+        const float gatePx = 1084f, streetPpu = 887f / 12f;
+        float streetGateX = 86000f + (2917f + gatePx) / streetPpu;
+        Vector2 arrival = new Vector2(PanoX(560f), Y(900f));
+        var enter = new GameObject("Aavikkokadulta romuttamolle").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(enter.gameObject, "Romuttamon portti");
+        enter.here = street; enter.target = yard; enter.spawnPoint = arrival;
+        enter.prompt = "Mene romuttamolle"; enter.halfWidth = 2.6f; enter.maxDistanceFromWall = 1.2f;
+        enter.needsJunkyardKey = true;   // lukossa, kunnes piirakkasota on voitettu (Linsey antaa avaimen)
+        enter.transform.position = new Vector3(streetGateX, street.maxDepthY, 0f);
+
+        // uloskäynti: romuttamon oma portti kuvan vasemmassa reunassa (keskikohta n. 205 px)
+        var back = new GameObject("Romuttamolta kadulle").AddComponent<Door>();
+        back.transform.SetParent(root.transform, false);
+        float exitX = PanoX(205f);
+        back.transform.position = new Vector3(exitX, yard.MaxDepthAtX(exitX, yard.maxDepthY), 0f);
+        back.here = yard; back.target = street; back.returnToLastDoor = false;
+        back.prompt = "Mene ulos kadulle"; back.halfWidth = 2.4f; back.maxDistanceFromWall = 2.0f;
+        back.spawnPoint = new Vector2(streetGateX, street.maxDepthY - 0.3f);
+        EditorUtility.SetDirty(yard); EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Romuttamo lisätty. Portti Aavikkokadulla (jatkokuva 3, JUNKYARD-kyltti) on lukossa, kunnes piirakkasota on voitettu: sen jälkeen Linsey antaa avaimen ja E avaa portin. Sisällä ulos pääsee vasemmasta portista.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/117. Roccon päät yhteen (O + U, vihut molemmin puolin)")]
+    static void SetupHeadCrush()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        const string path = "Assets/Sprites/paat_yhteen.png";
+        if (AssetImporter.GetAtPath(path) == null) { Info("Puuttuu: " + path); return; }
+        int cut = SetupAndSlice(path);   // 5 kuvaa, 512 × 384
+        Sprite[] sp = LoadSprites("paat_yhteen")
+            .OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int n) ? n : 0).ToArray();
+        if (sp.Length < 5) { Info($"paat_yhteen.png: {sp.Length}/5 kuvaa (leikkaus: {cut})."); return; }
+        Undo.RecordObject(pc, "Päät yhteen");
+        pc.headCrushSprites = sp;
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info("Päät yhteen (Rocco): " + sp.Length + " kuvaa.\nPaina O + U yhtä aikaa (ohjaimella LT + RT). Kun vihut ovat molemmin puolin lähellä, Rocco ottaa kiinni ja kolauttaa päät yhteen. Ilman vihuja liike jää tyhjäksi.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/20. Päivitä vastaheitto")]
     static void UpdateCounterThrow()
     {
@@ -5376,8 +5488,8 @@ public static class BeatEmUpSetup
         // Reunoissa on sama rakennus kahdesti: kohdista yhteiset osat limittäin.
         float ppu = AssetDatabase.LoadAssetAtPath<Texture2D>(dir + files[0]).height / 12f;
         var sprites = files.Select(f => ImportShipSprite(dir + f, ppu, false, SpriteAlignment.Center)).ToArray();
-        var backgrounds = new[] { "aavikko_parallax_ylempi.png", "aavikko_parallax_alempi.png" }
-            .Select(f => AssetDatabase.LoadAssetAtPath<Sprite>(dir + f)).ToArray();
+        var backgrounds = new[] { "aavikko_parallax_ylempi_loop.png", "aavikko_parallax_alempi_loop.png" }   // saumattomasti toistuvat versiot
+            .Select(f => ImportShipSprite(dir + f, 100f, true, SpriteAlignment.Center)).ToArray();
         if (backgrounds.Any(s => s == null))
             throw new System.InvalidOperationException("Aavikon parallax-spritet puuttuvat.");
         const float left = 86000f;
@@ -5396,7 +5508,9 @@ public static class BeatEmUpSetup
         float width = startPixels[lastView] / ppu + sprites[lastView].bounds.size.x * imageScales[lastView], halfScreen = cameraSize * 16f / 9f;
         var area = ReuseArea("Alue: Aavikkokatu");
         area.areaName = "Aavikkokatu";
-        area.minDepthY = CamY - 6f + bottomCropPixels / ppu + 0.6f;
+        // Katu laskettu kuvassa alemmas: kamera nousee, taivasta näkyy enemmän ja lattiaa (kävelytilaa) vähemmän.
+        const float streetLowering = 1.0f;
+        area.minDepthY = CamY - 6f + bottomCropPixels / ppu + 0.6f + streetLowering;
         // Kolmas kuva nostetaan samaan reunakiveyksen korkeuteen.
         area.useSidewalk = true;
         area.sidewalkHeight = 28f / ppu;
@@ -5405,7 +5519,7 @@ public static class BeatEmUpSetup
         area.depthLimits = new Vector2[0];
         area.camMinX = left + halfScreen; area.camMaxX = left + width - halfScreen;
         area.walkMinX = left + 0.8f; area.walkMaxX = left + width - 0.8f;
-        area.camSize = cameraSize; area.camRiseY = 0f; area.camOffsetY = bottomCropPixels * 0.5f / ppu; area.backScale = 1f;
+        area.camSize = cameraSize; area.camRiseY = 0f; area.camOffsetY = bottomCropPixels * 0.5f / ppu + streetLowering; area.backScale = 1f;
         area.music = road.music; area.ambience = road.ambience; area.ambienceVolume = road.ambienceVolume;
         var old = GameObject.Find("Aavikkokadun taustat");
         if (old != null) Undo.DestroyObjectImmediate(old);
@@ -5424,12 +5538,16 @@ public static class BeatEmUpSetup
         {
             var view = new GameObject(i == 0 ? "Aavikkokadun taivas ja vuoret" : "Aavikkokadun kaukainen hiekka").AddComponent<SpriteRenderer>();
             view.transform.SetParent(root.transform, false);
-            view.transform.position = new Vector3(left + width * 0.5f, CamY - (i == 1 ? 0.9f : 0f), 0f);
+            view.transform.position = new Vector3(left + width * 0.5f, CamY + (i == 0 ? 5.8f : 2.2f), 0f);   // taivas ja mesat nostettu (5,8 yks.): mesat näkyvät rakennusten yläpuolella; kaukainen hiekka (horisontti n. +2,4) mesojen alla
             view.sprite = backgrounds[i]; view.sortingOrder = i == 0 ? -10200 : -10100;
-            view.transform.localScale = new Vector3(width / backgrounds[i].bounds.size.x,
-                12f / backgrounds[i].bounds.size.y * (i == 0 ? 1.15f : 1f), 1f);
+            // kuvan suhteet säilytetään ja kuva toistuu vaakasuunnassa (saumaton), kerroksen leveys riittää parallax-liukuun
+            float bgK = 12f / backgrounds[i].bounds.size.y * (i == 0 ? 1.15f : 1f);
+            float bgFactor = i == 0 ? 0.04f : 0.08f;   // ylempi (mesat) hitaampi kuin alempi (hiekka)
+            view.transform.localScale = new Vector3(bgK, bgK, 1f);
+            view.drawMode = SpriteDrawMode.Tiled; view.tileMode = SpriteTileMode.Continuous;
+            view.size = new Vector2((2f * halfScreen + (area.camMaxX - area.camMinX) * bgFactor + 4f) / bgK, backgrounds[i].bounds.size.y);
             var parallax = view.gameObject.AddComponent<ParallaxLayer>();
-            parallax.factor = i == 0 ? 0.08f : 0.25f; parallax.startCamX = area.camMinX;
+            parallax.factor = bgFactor; parallax.startCamX = area.camMinX;
             parallax.minX = left; parallax.maxX = left + width;
         }
         var exitGo = GameObject.Find("Aavikkotieltä Aavikkokadulle");
