@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 0af083e78da201b4f8a13ce17169602a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4529347746791498728
+    second: deacon_idle_0
+  - first:
+      213: -1138967221928109035
+    second: deacon_idle_1
+  - first:
+      213: -8350236507406117507
+    second: deacon_idle_2
+  - first:
+      213: 6326146782631779878
+    second: deacon_idle_3
+  - first:
+      213: -3317442992792195867
+    second: deacon_idle_4
+  - first:
+      213: -4638476318829028541
+    second: deacon_idle_5
+  - first:
+      213: -8637881922496887356
+    second: deacon_idle_6
+  - first:
+      213: 7133579492542192900
+    second: deacon_idle_7
+  - first:
+      213: 3685003328143400254
+    second: deacon_idle_8
+  - first:
+      213: 6139121450075487485
+    second: deacon_idle_9
+  - first:
+      213: 1058241184422195863
+    second: deacon_idle_10
+  - first:
+      213: -4820363309983476817
+    second: deacon_idle_11
+  - first:
+      213: 8136823337811397803
+    second: deacon_idle_12
+  - first:
+      213: -4598686977124924026
+    second: deacon_idle_13
+  - first:
+      213: 4623495312212316155
+    second: deacon_idle_14
+  - first:
+      213: 5783092492121551714
+    second: deacon_idle_15
+  - first:
+      213: 7388974088390330767
+    second: deacon_idle_16
+  - first:
+      213: 2607758917696270678
+    second: deacon_idle_17
+  - first:
+      213: 2724028431625478482
+    second: deacon_idle_18
+  - first:
+      213: 4846712571772388757
+    second: deacon_idle_19
+  - first:
+      213: 2333552625298170396
+    second: deacon_idle_20
+  - first:
+      213: 3027945364412141325
+    second: deacon_idle_21
+  - first:
+      213: -7930813940313395032
+    second: deacon_idle_22
+  - first:
+      213: 1700001514014852688
+    second: deacon_idle_23
+  - first:
+      213: -4166925184372134909
+    second: deacon_idle_24
+  - first:
+      213: 2035111310069495761
+    second: deacon_idle_25
+  - first:
+      213: 6842233216225888752
+    second: deacon_idle_26
+  - first:
+      213: 8602741045963557534
+    second: deacon_idle_27
+  - first:
+      213: 8991300706153262742
+    second: deacon_idle_28
+  - first:
+      213: -6168512736814583565
+    second: deacon_idle_29
+  - first:
+      213: 8746284065096594438
+    second: deacon_idle_30
+  - first:
+      213: -8694276654356870297
+    second: deacon_idle_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: deacon_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e329b737c97bde30800000000000000
+      internalID: 4529347746791498728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c592e98539130f0800000000000000
+      internalID: -1138967221928109035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d755f8153200e1c80800000000000000
+      internalID: -8350236507406117507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e5fbf3bfcfac750800000000000000
+      internalID: 6326146782631779878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_4
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec2304bc2316f1d0800000000000000
+      internalID: -3317442992792195867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b522d1d52d0afb0800000000000000
+      internalID: -4638476318829028541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c50ecd2824102880800000000000000
+      internalID: -8637881922496887356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d1dfdc0c09ff260800000000000000
+      internalID: 7133579492542192900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d9e12c003c32330800000000000000
+      internalID: 3685003328143400254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfcfab0be6a823550800000000000000
+      internalID: 6139121450075487485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7927c2c10c0afae00800000000000000
+      internalID: 1058241184422195863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3db14eb11aa1db0800000000000000
+      internalID: -4820363309983476817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac4b5a07bdcbe070800000000000000
+      internalID: 8136823337811397803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68501472f8e2e20c0800000000000000
+      internalID: -4598686977124924026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_14
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff49197d74f92040800000000000000
+      internalID: 4623495312212316155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_15
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26332204bfba14050800000000000000
+      internalID: 5783092492121551714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f894211f8c8ea8660800000000000000
+      internalID: 7388974088390330767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_17
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 651b42d4bee903420800000000000000
+      internalID: 2607758917696270678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 251e9111d61bdc520800000000000000
+      internalID: 2724028431625478482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_19
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595c9e0b76bf24340800000000000000
+      internalID: 4846712571772388757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_20
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12e39fbfb1726020800000000000000
+      internalID: 2333552625298170396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f8315244c650a20800000000000000
+      internalID: 3027945364412141325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_22
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a077e39db610f190800000000000000
+      internalID: -7930813940313395032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_23
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0564b78be5e979710800000000000000
+      internalID: 1700001514014852688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30caed34f9b1c26c0800000000000000
+      internalID: -4166925184372134909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7721b34fa2e3c10800000000000000
+      internalID: 2035111310069495761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_26
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9c583cbde74fe50800000000000000
+      internalID: 6842233216225888752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_27
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a845be663136770800000000000000
+      internalID: 8602741045963557534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_28
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69eebf2ba5487cc70800000000000000
+      internalID: 8991300706153262742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_29
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0b1b9195a056aa0800000000000000
+      internalID: -6168512736814583565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_30
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604fdb4740b016970800000000000000
+      internalID: 8746284065096594438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_idle_31
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b46167279b75780800000000000000
+      internalID: -8694276654356870297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f790d78e836ebbe4caf7d49b1da00aae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      deacon_idle_0: 4529347746791498728
+      deacon_idle_1: -1138967221928109035
+      deacon_idle_10: 1058241184422195863
+      deacon_idle_11: -4820363309983476817
+      deacon_idle_12: 8136823337811397803
+      deacon_idle_13: -4598686977124924026
+      deacon_idle_14: 4623495312212316155
+      deacon_idle_15: 5783092492121551714
+      deacon_idle_16: 7388974088390330767
+      deacon_idle_17: 2607758917696270678
+      deacon_idle_18: 2724028431625478482
+      deacon_idle_19: 4846712571772388757
+      deacon_idle_2: -8350236507406117507
+      deacon_idle_20: 2333552625298170396
+      deacon_idle_21: 3027945364412141325
+      deacon_idle_22: -7930813940313395032
+      deacon_idle_23: 1700001514014852688
+      deacon_idle_24: -4166925184372134909
+      deacon_idle_25: 2035111310069495761
+      deacon_idle_26: 6842233216225888752
+      deacon_idle_27: 8602741045963557534
+      deacon_idle_28: 8991300706153262742
+      deacon_idle_29: -6168512736814583565
+      deacon_idle_3: 6326146782631779878
+      deacon_idle_30: 8746284065096594438
+      deacon_idle_31: -8694276654356870297
+      deacon_idle_4: -3317442992792195867
+      deacon_idle_5: -4638476318829028541
+      deacon_idle_6: -8637881922496887356
+      deacon_idle_7: 7133579492542192900
+      deacon_idle_8: 3685003328143400254
+      deacon_idle_9: 6139121450075487485
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

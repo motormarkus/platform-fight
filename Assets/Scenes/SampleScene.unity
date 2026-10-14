@@ -1044,6 +1044,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &5733206
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,6 +2237,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &9741639
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +4916,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &26281304
 Transform:
   m_ObjectHideFlags: 0
@@ -8385,6 +8391,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &46868412
 Transform:
   m_ObjectHideFlags: 0
@@ -10312,6 +10320,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &57236346
 Transform:
   m_ObjectHideFlags: 0
@@ -11499,6 +11509,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &60674567
 GameObject:
   m_ObjectHideFlags: 0
@@ -13295,6 +13307,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &66180678
 GameObject:
   m_ObjectHideFlags: 0
@@ -14079,6 +14093,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &68086518
 Transform:
   m_ObjectHideFlags: 0
@@ -15493,6 +15509,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &74318047
 GameObject:
   m_ObjectHideFlags: 0
@@ -16296,6 +16314,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &76188097
 Transform:
   m_ObjectHideFlags: 0
@@ -17005,6 +17025,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &76541059
 Transform:
   m_ObjectHideFlags: 0
@@ -17593,6 +17615,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &79602796
 GameObject:
   m_ObjectHideFlags: 0
@@ -20321,6 +20345,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &104132945
 GameObject:
   m_ObjectHideFlags: 0
@@ -20931,6 +20957,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &106448245
 GameObject:
   m_ObjectHideFlags: 0
@@ -21822,6 +21850,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &110030586
 GameObject:
   m_ObjectHideFlags: 0
@@ -23562,6 +23592,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &118582483
 GameObject:
   m_ObjectHideFlags: 0
@@ -24072,6 +24104,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &118715755
 GameObject:
   m_ObjectHideFlags: 0
@@ -26116,6 +26150,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &132033041
 Transform:
   m_ObjectHideFlags: 0
@@ -28806,6 +28842,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &151745041
 GameObject:
   m_ObjectHideFlags: 0
@@ -30223,6 +30261,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &159963118
 Transform:
   m_ObjectHideFlags: 0
@@ -30950,6 +30990,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &165018173
 Transform:
   m_ObjectHideFlags: 0
@@ -31857,6 +31899,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &167828261
 Transform:
   m_ObjectHideFlags: 0
@@ -33988,6 +34032,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &179551488
 Transform:
   m_ObjectHideFlags: 0
@@ -34742,6 +34788,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &182267477
 Transform:
   m_ObjectHideFlags: 0
@@ -36702,6 +36750,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &194744360
 GameObject:
   m_ObjectHideFlags: 0
@@ -40023,6 +40073,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &209977440
 GameObject:
   m_ObjectHideFlags: 0
@@ -40733,6 +40785,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &214143007
 Transform:
   m_ObjectHideFlags: 0
@@ -42488,6 +42542,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &223801953
 Transform:
   m_ObjectHideFlags: 0
@@ -43049,6 +43105,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &225589985
 Transform:
   m_ObjectHideFlags: 0
@@ -44905,6 +44963,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &234086936
 GameObject:
   m_ObjectHideFlags: 0
@@ -46357,6 +46417,97 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
   - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   throwDamage: 20
+--- !u!1 &246537909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246537911}
+  - component: {fileID: 246537910}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &246537910
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246537909}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &246537911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246537909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 527707379}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247582958
 GameObject:
   m_ObjectHideFlags: 0
@@ -47327,6 +47478,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &251839024
 GameObject:
   m_ObjectHideFlags: 0
@@ -49287,6 +49440,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &266577353
 GameObject:
   m_ObjectHideFlags: 0
@@ -50504,6 +50659,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &275161538
 GameObject:
   m_ObjectHideFlags: 0
@@ -51825,6 +51982,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &284237175
 Transform:
   m_ObjectHideFlags: 0
@@ -52639,6 +52798,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &286804803
 Transform:
   m_ObjectHideFlags: 0
@@ -53483,6 +53644,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &287545560
 Transform:
   m_ObjectHideFlags: 0
@@ -54886,6 +55049,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &293127577
 Transform:
   m_ObjectHideFlags: 0
@@ -55402,6 +55567,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &293717212
 Transform:
   m_ObjectHideFlags: 0
@@ -58682,6 +58849,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &318501101
 GameObject:
   m_ObjectHideFlags: 0
@@ -59758,6 +59927,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &325242948
 GameObject:
   m_ObjectHideFlags: 0
@@ -61297,6 +61468,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &334150070
 Transform:
   m_ObjectHideFlags: 0
@@ -63103,6 +63276,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &344989013
 GameObject:
   m_ObjectHideFlags: 0
@@ -64091,6 +64266,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &351428359
 Transform:
   m_ObjectHideFlags: 0
@@ -64748,6 +64925,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &352794917
 GameObject:
   m_ObjectHideFlags: 0
@@ -65267,6 +65446,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &353363052
 GameObject:
   m_ObjectHideFlags: 0
@@ -68000,6 +68181,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &366153021
 Transform:
   m_ObjectHideFlags: 0
@@ -68883,6 +69066,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &371053376
 Transform:
   m_ObjectHideFlags: 0
@@ -70092,6 +70277,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &377055737
 GameObject:
   m_ObjectHideFlags: 0
@@ -72305,6 +72492,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &395868342
 Transform:
   m_ObjectHideFlags: 0
@@ -75082,6 +75271,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &411919088
 GameObject:
   m_ObjectHideFlags: 0
@@ -75606,6 +75797,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &412678698
 GameObject:
   m_ObjectHideFlags: 0
@@ -77997,6 +78190,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &426826702
 GameObject:
   m_ObjectHideFlags: 0
@@ -78607,6 +78802,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &427456555
 Transform:
   m_ObjectHideFlags: 0
@@ -79100,6 +79297,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &428385180
 Transform:
   m_ObjectHideFlags: 0
@@ -80385,6 +80584,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &437696415
 GameObject:
   m_ObjectHideFlags: 0
@@ -81214,6 +81415,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &441252965
 GameObject:
   m_ObjectHideFlags: 0
@@ -82748,6 +82951,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &447264496
 Transform:
   m_ObjectHideFlags: 0
@@ -83572,6 +83777,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &450908014
 Transform:
   m_ObjectHideFlags: 0
@@ -84216,6 +84423,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &452097302
 GameObject:
   m_ObjectHideFlags: 0
@@ -86426,6 +86635,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &469876838
 GameObject:
   m_ObjectHideFlags: 0
@@ -87560,6 +87771,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &475321690
 Transform:
   m_ObjectHideFlags: 0
@@ -87576,6 +87789,40 @@ Transform:
   - {fileID: 442980414}
   - {fileID: 794545886}
   m_Father: {fileID: 37909019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &475894829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 475894830}
+  m_Layer: 0
+  m_Name: Aavikkobaarin edustan kyltit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &475894830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475894829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 542244533}
+  - {fileID: 1097936516}
+  - {fileID: 1707522130}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475909562
 GameObject:
@@ -88883,6 +89130,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &481064316
 GameObject:
   m_ObjectHideFlags: 0
@@ -90494,6 +90743,8 @@ MonoBehaviour:
   pieOnly: 1
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &493061201
 GameObject:
   m_ObjectHideFlags: 0
@@ -92008,6 +92259,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &499846782
 Transform:
   m_ObjectHideFlags: 0
@@ -92603,6 +92856,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &501022471
 Transform:
   m_ObjectHideFlags: 0
@@ -93088,6 +93343,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &503731672
 GameObject:
   m_ObjectHideFlags: 0
@@ -95115,6 +95372,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &517445063
 GameObject:
   m_ObjectHideFlags: 0
@@ -96724,6 +96983,850 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
+--- !u!1 &527707376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527707379}
+  - component: {fileID: 527707378}
+  - component: {fileID: 527707377}
+  m_Layer: 0
+  m_Name: Deacon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &527707377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527707376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1fe06716aa660408504b2cbdb28232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeaconBoss
+  cigarIdle:
+  - {fileID: 2267416239969585740, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: -4877939833173497907, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 7617892652559269319, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 6510056540505896305, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 7295719354369122769, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 8096942709995794504, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 2995978198217453724, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 4735302760971729018, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 3269822197469128074, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: -5998564808726796926, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 5258413698592986971, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 18296160877743298, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: -8355924810589846982, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 3961327679203234130, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  - {fileID: 1289840225966954450, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  intro:
+  - {fileID: -5843829118964946630, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -2753722699575835283, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 2449512050686151603, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 1818691572510008194, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 2885152013528408734, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -1132146542287897026, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -2597216076053592277, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -49137724565825144, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -861549357899790271, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 5148047491098379693, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7728137948780469019, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -825335381175098814, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7727277374391714666, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 4184938137701834562, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 5254509604504945782, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7985676605795217709, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7862814409165134935, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 907530790908200285, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 5524969271776588244, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 4355576618572839113, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -5111015447197600200, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 1236144073811980963, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7974120706054216590, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7802715191628606886, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -4973004685798623885, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7887885624053381879, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 3271754473087537137, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -4677815233869214614, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 3642150932580716102, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 9127027465440136300, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -5375707844900811189, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -5547239140551731592, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -6421600997591114487, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -2146066237715211136, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 4071391876687995031, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 9201877162430996234, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 8087932494599088765, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 8074631716802590694, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -8080506075782436626, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -5054245537606688194, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7609782976282305164, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -345476168918951999, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7648478159105740851, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -1196856746211115473, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 3749604997264210520, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7115809958633962918, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 650775637186088463, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7708771108157167979, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -3692014858112357695, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7939358762176436871, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7145883743436953505, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7783068239107169391, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 7901143046270723544, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 5599775786384966821, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -7510348766710552849, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 5017522569253430351, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 6326747757409180484, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: 3943534955548397552, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  - {fileID: -9175715143575505895, guid: 2c590dd4ea7b8174280034fd26257676, type: 3}
+  idle:
+  - {fileID: 4529347746791498728, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -1138967221928109035, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8350236507406117507, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6326146782631779878, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -3317442992792195867, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4638476318829028541, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8637881922496887356, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 7133579492542192900, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 3685003328143400254, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6139121450075487485, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 1058241184422195863, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4820363309983476817, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8136823337811397803, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4598686977124924026, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 4623495312212316155, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 5783092492121551714, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 7388974088390330767, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2607758917696270678, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2724028431625478482, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 4846712571772388757, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2333552625298170396, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 3027945364412141325, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -7930813940313395032, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 1700001514014852688, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4166925184372134909, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2035111310069495761, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6842233216225888752, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8602741045963557534, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8991300706153262742, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -6168512736814583565, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8746284065096594438, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8694276654356870297, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  walk:
+  - {fileID: 3540163090725935817, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5850121304269143419, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5606496245657794880, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 7966054838538967573, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -7872490658946278780, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6035934160846410008, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 8718722766458483132, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -8302049765690349486, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 2111511942964129410, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 6004884131501741472, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 2946229596136973538, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -1713620564488702430, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -7925969235246136304, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 7887574944309415189, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 8853200235133867913, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6420933951263059924, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5159812103008323066, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5722703530981369264, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6649634072093547041, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  run:
+  - {fileID: 2157868059680840989, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -9088481390017970025, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1086797474129965873, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 7453113434428852101, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8207953856895090432, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -8699875010745047490, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1068187612633040337, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8342003458900922577, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 6312700779137394282, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1199810940366066306, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 7256570452747943830, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -4819642698156284236, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -8986170769862632919, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1957732982829792963, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 5885862286470860693, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -7727960137885133823, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 2951926733645023518, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1468095256071713252, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 975575304414354567, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8941631232277806441, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -7797023152470921770, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1418052133864778137, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 400725641065327994, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -6656733427263323161, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 6560830111539586233, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 4194049581211245497, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  shuffle:
+  - {fileID: -715129815192829367, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 6919515260647787942, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 3804813462679716717, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -8035596414444453913, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 5875510162646723559, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 9037775322886769629, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 8664588040001241415, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 4175513854712398663, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 1803779539918396035, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -1660739481660214050, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -480789821934153334, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -494254437091458459, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 8407872531295234468, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 8836802917963531767, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -7137172033499202488, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -4513587475391024099, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -4531071367906018090, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -2700604332419787859, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -8196154292004964769, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -6750976464207228845, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 1845382689586069092, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 3060397788349520364, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -2165597120643005325, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 3717000262440616193, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 964911788531738751, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -4141567623144664089, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -5544550977426778476, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -535418766912924691, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 361267439039186444, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 7618229180392335278, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -7132046001614374358, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -3784172309877635069, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -8078281415254212358, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -1845745250986860818, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 3559323709522878472, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -7475688563726560226, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: -4684308509619979967, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  - {fileID: 941633330972982340, guid: a789f70531bae634b95db2ea19bbbb6b, type: 3}
+  jab:
+  - {fileID: -4072187401012390377, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -6172519871637125154, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: 8921094055380905502, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -5413850865152190539, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: 7891868311345444350, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -9163396043968041723, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  cross:
+  - {fileID: -4196736652011144330, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -7541099726450675165, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -8677597560358517603, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -8719409085558009581, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: 5353748099895502235, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: -8530525410775147025, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  - {fileID: 2386863242104165400, guid: 45672fb3040a4c94887013f7aeee807a, type: 3}
+  hookFront:
+  - {fileID: -6850939312835704620, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: 7518183363996120770, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -2804630801795592276, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -8554763333779052769, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -6981320338384160560, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: 1678033120490377747, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  hookRear:
+  - {fileID: 3152504000321019538, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -1838087086383895305, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: 3396717954734209730, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -3835048217460634056, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: -5497223708069202361, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  - {fileID: 3404898410409290197, guid: 63f948213db2b694ea790e91121b0a06, type: 3}
+  bodyRear:
+  - {fileID: 1238549382029456977, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  - {fileID: 6471753161249605915, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  - {fileID: 374144643185715736, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  - {fileID: 6577811938029128534, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  - {fileID: 4119242497598806560, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  - {fileID: -7851722453728810319, guid: d87ac4004f4398e4da7d0c37ec16bbe5, type: 3}
+  upperFront:
+  - {fileID: 252260768535485782, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: -1139449562741227128, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 6758786725459451425, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 425092461041990661, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 537480162950289569, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: -2261859551755856657, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  upperRear:
+  - {fileID: 2518411724166937965, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 6720723786165518206, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 5221584635509831080, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: -4734844886977132154, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: -1009354116399472277, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  - {fileID: 6822485085910888748, guid: 599f7284f309cec479625637304e6e25, type: 3}
+  dodgeLight:
+  - {fileID: -1533005546832879267, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 980836532136022430, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -6307959440481637079, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -5370823457429266588, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 382745562032401002, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 4564581590139510513, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -5258012724576183957, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 8598590228260068213, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -1341634076872584798, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 1504043844095304931, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 5581428755501883225, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 1465858945031273624, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 4389067730830855064, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -3867209859826097514, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -3185348034499708702, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -8798342378331747047, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  dodgeDeep:
+  - {fileID: 5976922752607950428, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -49297928937878943, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -5611856430446713605, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -5808065441761315051, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -6914586222325118079, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -3405283909176982380, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 6346731731246696579, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 4550500451422829476, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -1793145710992119270, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 8042147479075294746, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 9188280754899627829, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -2846443705161759386, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -1636526100669616302, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 8848798211684077404, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -635482081168835695, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 4013349093808846105, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 513155888777884627, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: -7512397338686568582, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 2314022678305405045, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  - {fileID: 8255389359397091946, guid: 2533bbbb00b4f164088427b04aaadde3, type: 3}
+  introReleaseFrame: 15
+  introEndFrame: 38
+  introFrameTime: 0.067
+  idleFrameTime: 0.04
+  walkFrameTime: 0.067
+  runFrameTime: 0.033
+  cigarIdleFrameTime: 0.067
+  shuffleFrameTime: 0.035
+  walkSpeed: 2.2
+  runSpeed: 4.2
+  shuffleSpeed: 1.4
+  depthSpeed: 2.6
+  wakeDistance: 12
+  rangeMin: 1.7
+  rangeMax: 2.4
+  runDistance: 6.5
+  windupFrameTime: 0.055
+  impactHold: 0.07
+  recoverFrameTime: 0.06
+  comboWindupScale: 0.6
+  flurryWindupScale: 0.45
+  jabDamage: 6
+  crossDamage: 9
+  hookDamage: 10
+  bodyDamage: 9
+  upperFrontDamage: 11
+  upperRearDamage: 14
+  finisherBonus: 4
+  comboChance: 0.7
+  decisionPause: {x: 0.25, y: 0.6}
+  reactiveDodgeChance: 0.3
+  dodgeCooldown: 1.6
+  dodgeDepth: 1
+  counterWindow: 0.9
+  cigarDamage: 7
+  cigarSpeed: 9
+  welcome: {fileID: 8300000, guid: a748963495edba646887cfed004729cc, type: 3}
+  speak: {fileID: 8300000, guid: df5c2ac652e0a3c41bb3ea41cb742d8d, type: 3}
+  cigarThrowSound: {fileID: 8300000, guid: 743627329d513674f890b786f7adea20, type: 3}
+  punchSounds:
+  - {fileID: 8300000, guid: 5a526aea6079086439f8e07b1f27642f, type: 3}
+  - {fileID: 8300000, guid: dc68f7d32c2ed294da0a277897521b82, type: 3}
+  punchGains:
+  - 2
+  - 1.8
+  welcomeVolume: 1.25
+  speakVolume: 0.5
+  cigarVolume: 0.6
+  speakInterval: {x: 10, y: 18}
+--- !u!114 &527707378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527707376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114f8001dd73b9143a2f32c6052a607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  displayName: Deacon
+  bigBody: 0
+  bowlDamage: 10
+  flipThrownSprites:
+  - {fileID: -8272434993911261090, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -8272434993911261090, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -8272434993911261090, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -6277870087563784622, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: 3449763763023358571, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: 2403409631822016182, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -2469890840855600961, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -883973592838315207, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  - {fileID: -883973592838315207, guid: d2c39a9577746db4ebc4838043e6a332, type: 3}
+  flipFlightFrames: 3
+  flipFlightFrameTime: 0.12
+  flipLandFrameTime: 0.13
+  headlockThrownSprites: []
+  headlockFlightSprites: []
+  kneeHeldSprites: []
+  kneeFlightSprites: []
+  idleSprites:
+  - {fileID: 4529347746791498728, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -1138967221928109035, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8350236507406117507, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6326146782631779878, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -3317442992792195867, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4638476318829028541, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8637881922496887356, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 7133579492542192900, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 3685003328143400254, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6139121450075487485, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 1058241184422195863, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4820363309983476817, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8136823337811397803, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4598686977124924026, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 4623495312212316155, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 5783092492121551714, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 7388974088390330767, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2607758917696270678, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2724028431625478482, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 4846712571772388757, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2333552625298170396, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 3027945364412141325, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -7930813940313395032, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 1700001514014852688, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -4166925184372134909, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 2035111310069495761, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 6842233216225888752, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8602741045963557534, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8991300706153262742, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -6168512736814583565, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: 8746284065096594438, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  - {fileID: -8694276654356870297, guid: 0af083e78da201b4f8a13ce17169602a, type: 3}
+  calmIdleSprites: []
+  calmWalkSprites: []
+  calmWalkFrameTime: 0.08
+  wakeOnFightRadius: 0
+  walkSprites:
+  - {fileID: 3540163090725935817, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5850121304269143419, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5606496245657794880, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 7966054838538967573, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -7872490658946278780, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6035934160846410008, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 8718722766458483132, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -8302049765690349486, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 2111511942964129410, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 6004884131501741472, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 2946229596136973538, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -1713620564488702430, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -7925969235246136304, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 7887574944309415189, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 8853200235133867913, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6420933951263059924, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5159812103008323066, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: 5722703530981369264, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  - {fileID: -6649634072093547041, guid: bd97edcb4d89cf847a993d71dbc3da30, type: 3}
+  runSprites:
+  - {fileID: 2157868059680840989, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -9088481390017970025, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1086797474129965873, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 7453113434428852101, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8207953856895090432, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -8699875010745047490, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1068187612633040337, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8342003458900922577, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 6312700779137394282, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1199810940366066306, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 7256570452747943830, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -4819642698156284236, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -8986170769862632919, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1957732982829792963, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 5885862286470860693, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -7727960137885133823, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 2951926733645023518, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1468095256071713252, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 975575304414354567, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 8941631232277806441, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -7797023152470921770, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 1418052133864778137, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 400725641065327994, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: -6656733427263323161, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 6560830111539586233, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  - {fileID: 4194049581211245497, guid: 39176926dadc9f84bafa4cdf79a45675, type: 3}
+  runFrameTime: 0.066
+  punch2Sprites: []
+  punch2ImpactFrame: 5
+  punch2Damage: 14
+  punch2Knockdown: 1
+  punch2LaunchUp: 0
+  punch2LaunchX: 4
+  punch2Chance: 0.3
+  punch2Uppercut: 0
+  uppercutUp: 24
+  punch3Sprites: []
+  punch3ImpactFrame: 8
+  punch3Damage: 20
+  punch3Knockdown: 1
+  punch3LaunchUp: 0
+  punch3LaunchX: 5
+  punch3Chance: 0
+  punch3WindupTime: 0.5
+  punch3RecoverTime: 0.5
+  punch3Reach: 2.4
+  punch3Heavy: 0
+  punch3Unblockable: 0
+  punch3WindupSounds: []
+  punch3SwingSounds: []
+  punch3Volume: 1
+  uppercutSprites: []
+  uppercutImpactFrame: 3
+  uppercutDamage: 22
+  uppercutChance: 0
+  uppercutReach: 2.4
+  uppercutWindupTime: 0.5
+  uppercutRecoverTime: 0.5
+  uppercutHeroUp: 24
+  uppercutLaunchUp: 21
+  uppercutLaunchX: 1.5
+  combos: []
+  comboChance: 0
+  comboWindupScale: 0.55
+  comboGap: 0.07
+  holdGround: 0
+  comboArmor: 0
+  debugCombos: 0
+  walkTalkSprites: []
+  talkDuration: 1.6
+  punchSprites: []
+  hurtSprites:
+  - {fileID: 1760228227362983983, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: -3131050107333403566, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  knockdownSprites:
+  - {fileID: -3131050107333403566, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: 3727818957991497352, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: 2289198155034217731, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: 7207468783134596811, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  getUpSprites:
+  - {fileID: -1312188955557616483, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  - {fileID: -251267745744312442, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  - {fileID: -5841656159781609333, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  - {fileID: -6998874922622616519, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  - {fileID: 6393477073449791486, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  - {fileID: -860402028789982703, guid: f62e7bf3f5346a248b886d80d9a4fbe3, type: 3}
+  idleFrameTime: 0.26
+  walkFrameTime: 0.13
+  body: {fileID: 551515487}
+  shadow: {fileID: 246537910}
+  wakeDistance: 9
+  moveSpeedX: 2.2
+  moveSpeedY: 1.6
+  attackRange: 1.9
+  depthTolerance: 0.45
+  attackCooldown: 1.6
+  windupTime: 0.4
+  punchActiveTime: 0.12
+  punchRecoverTime: 0.4
+  punchDamage: 8
+  punchImpactFrame: 3
+  secondImpactFrame: -1
+  secondImpactPunchOnly: 0
+  altAttackSprites: []
+  altImpactFrame: 4
+  altDamage: 12
+  altChance: 0.35
+  altExtraWindup: 0.15
+  altReach: 2.3
+  altLungeSpeed: 0
+  altLungeTime: 0.25
+  altJumpHeight: 0
+  punchKnockdown: 0
+  punchShake: 0
+  altKnockdown: 0
+  altUnblockable: 0
+  altKnockdownLightOnly: 0
+  brawlsWithOthers: 0
+  brawlGroup: 
+  brawlHeroPriority: 2.5
+  joinsFightWhenSquadComes: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  idleFacing: -1
+  altKnockSpeed: 7
+  altKnockUp: 6
+  chargeRange: 0
+  chargeMinRange: 2.6
+  chargeToEdge: 0
+  altNearChance: 0
+  altTimeScale: 1
+  throwsBarrels: 0
+  throwsTables: 0
+  tableRange: 7
+  carryWalkSprites: []
+  carryWalkFrameTime: 0.0417
+  carryWalkSpeedMul: 0.85
+  carryThrowRange: 6
+  carryWalkMaxTime: 4
+  grabsHero: 1
+  grabsLightOnly: 0
+  barrelThrowSpeed: 16
+  barrelThrowUp: 4
+  barrelDamage: 20
+  barrelRate: 0.35
+  bottleSprites: []
+  bottleRate: 0.3
+  fightsEveryone: 0
+  huntsBrawlers: 0
+  ally: 0
+  tauntSounds: []
+  tauntNoRepeat: 1
+  slapSounds: []
+  punchesAreSlaps: 0
+  hammerArt: 0
+  fallVoice: {fileID: 8300000, guid: 293c4011cedcdcc42b402041aa54c8ad, type: 3}
+  getUpVoice: {fileID: 0}
+  fallVoiceVolume: 1
+  altWindupVolume: 1
+  altSwingVolume: 1
+  deathVoiceVolume: 1
+  launchVoiceVolume: 1
+  tauntVolume: 1
+  tauntMinDistance: 0
+  tauntOnWakeChance: 0
+  tauntPause: {x: 4, y: 9}
+  runSpeedMultiplier: 1.3
+  flankChance: 0.25
+  flankArcDepth: 1.3
+  retreatChance: 0.2
+  retreatTime: 0.7
+  blockSprites:
+  - {fileID: -8532402042841908305, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -7607349712766739468, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -6392453147547330700, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -3043107495778843017, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -8011131009528457724, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: 2441976362361047693, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: 2441976362361047693, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -8011131009528457724, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -3043107495778843017, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  - {fileID: -6392453147547330700, guid: cdb4862d0eba6454abdee2e5fba07543, type: 3}
+  blockChance: 0.5
+  maxBlocksInRow: 5
+  blockTime: 0.45
+  guardWhenHurt: 1
+  grabSprites: []
+  clinchSprites: []
+  clinchChance: 0.35
+  clinchHits: 3
+  clinchDamage: 7
+  clinchFinalDamage: 12
+  clinchReach: 2.1
+  clinchReachTime: 0.34
+  clinchHitTime: 0.42
+  clinchLaunchX: 8
+  clinchLaunchUp: 5
+  slapSprites: []
+  slapChance: 0.25
+  slapCount: 10
+  slapDamage: 3
+  slapFinalDamage: 10
+  slapWindup: 1
+  slapTime: 0.2
+  slapStep: 0.16
+  slapReach: 2.2
+  slapGlide: 0
+  slapWindupSounds: []
+  heroDownLaugh: {fileID: 0}
+  helpShout: {fileID: 0}
+  helpBouncers: 2
+  barThrowSprites: []
+  barSprite: {fileID: 0}
+  barThrowChance: 0.5
+  barThrowMinRange: 3.2
+  barThrowMaxRange: 11
+  barThrowCooldown: 4
+  barDamage: 16
+  tireIdleSprites: []
+  tireWalkSprites: []
+  tireRunSprites: []
+  tireThrowSprites: []
+  tireAirSprite: {fileID: 0}
+  tireFloorSprite: {fileID: 0}
+  tireRollingSprite: {fileID: 0}
+  startsWithTire: 0
+  tireThrowTimes:
+  - 0.12
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.08
+  - 0.08
+  - 0.05
+  - 0.2
+  - 0.2
+  tireReleaseFrame: 7
+  tireThrowChance: 0.6
+  tireThrowMinRange: 3
+  tireThrowMaxRange: 10
+  tireThrowCooldown: 2
+  tireDamage: 18
+  tireRearmTime: 15
+  kickComboSprites: []
+  kickComboChance: 0.35
+  kickDamage1: 14
+  kickDamage2: 20
+  kickReach: 3.9
+  kickStartRange: 3.6
+  kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
+  grabChance: 0.3
+  grabRange: 1.3
+  grabReachTime: 0.3
+  grabLiftTime: 0.8
+  throwDamage: 18
+  throwForward: 0
+  throwTurnsAround: 1
+  grabsAnyone: 0
+  collarThrow: 0
+  heavyThrowScale: 0.55
+  throwSpeed: 5.5
+  throwUp: 4
+  grabWhenCloseTime: 0
+  bellySprites: []
+  bellyChance: 0
+  bellyRange: 1.6
+  bellyCounterChance: 0
+  bellyCounterAfterHits: 2
+  bellyDamage: 14
+  bellyKnockSpeed: 14
+  bellyKnockUp: 5.5
+  bellyPumpFrameTime: 0.08
+  bellyLaughFrameTime: 0.13
+  laughSound: {fileID: 0}
+  laughVolume: 1
+  stompSounds: []
+  stompVolume: 0.85
+  stompInterval: 0.2
+  stompShake: 0
+  looseBoardSprite: {fileID: 0}
+  landSprites:
+  - {fileID: 2289198155034217731, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: 6795187785405902224, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  - {fileID: 7207468783134596811, guid: 662ab6cdf1110354aa91d70e0e9decb3, type: 3}
+  landFrameTime: 0.12
+  footIdleSprites: []
+  footWalkSprites: []
+  footPunchSprites: []
+  footHurtSprites: []
+  footPunchImpactFrame: 3
+  footSecondImpactFrame: -1
+  footWindupTime: 0.15
+  footPunchRecoverTime: 0.6
+  footKickSprites: []
+  footKickImpactFrame: 5
+  footKickLunge: 6
+  footKickJump: 1.3
+  footMoveSpeedX: 2.8
+  footMoveSpeedY: 1.6
+  footWalkFrameTime: 0.05
+  skatePass: 0
+  passOvershoot: 6.5
+  passTurnInterval: 2.5
+  maxHealth: 520
+  hurtTime: 0.3
+  downTime: 1
+  getUpTime: 1.3
+  getUpFacesBack: 0
+  getUpRollSprites: []
+  getUpRollTime: 0.45
+  ringedSprites: []
+  ringedTime: 3.5
+  noteValue: 1
+  stackValue: 50
+  stackChance: 0.04
+  altSwingSounds: []
+  altWindupSounds: []
+  deathVoice: {fileID: 0}
+  launchVoice: {fileID: 0}
+  hurtSounds:
+  - {fileID: 8300000, guid: cb851e23fad370a4f8bfcd8d1ce4d84e, type: 3}
+  - {fileID: 8300000, guid: e1033025be5ac6142b73f24e1a18caff, type: 3}
+  - {fileID: 8300000, guid: 1e9e7fad932eeaa4da062d1e9d26c07b, type: 3}
+  hurtVolume: 0.85
+  attackSounds: []
+  attackVolume: 0.9
+  attackSoundChance: 0.6
+  footOffset: 0.08
+  visualScale: 1
+  attackArtScale: 1
+  knockArtScale: 1
+  walkArtScale: 1
+  isBoss: 0
+  lightweight: 0
+  lightLaunchMul: 1.6
+  lightUppercutUp: 12
+  lightUppercutX: 1.5
+  whipAttack: 0
+  yankSprites: []
+  yankStopGap: 1.5
+  afterWhipSprites: []
+  afterWhipImpact: 3
+  afterWhipDamage: 16
+  afterWhipReach: 2.5
+  afterWhipChance: 0.3
+  pieSprites: []
+  pieTimes:
+  - 0.12
+  - 0.14
+  - 0.55
+  pieThrowSprites: []
+  pieGrips: []
+  pieCarrySprites: []
+  pieCarryGrip: {x: 0.75, y: 2, z: 8}
+  pieCarryFrameTime: 0.08
+  appearAfterOthers: 0
+  pieOnly: 0
+  pieFightRate: 0.05
+  counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
+--- !u!4 &527707379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527707376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 97014.984, y: -0.75638795, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 551515488}
+  - {fileID: 246537911}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527712259
 GameObject:
   m_ObjectHideFlags: 0
@@ -97361,6 +98464,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &528923947
 GameObject:
   m_ObjectHideFlags: 0
@@ -99030,6 +100135,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1520040901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &542244532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542244533}
+  - component: {fileID: 542244534}
+  m_Layer: 0
+  m_Name: 'Kyltti: Deacon''s Den'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542244533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542244532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 86171.56, y: 7.7703056, z: 0}
+  m_LocalScale: {x: 0.22523238, y: 0.22523238, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 475894830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &542244534
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542244532}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9980
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: faa7eb680465a6d4592d969f8a090b8d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 20, y: 6.67}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &542388853
 GameObject:
   m_ObjectHideFlags: 0
@@ -100400,6 +101596,97 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &551515486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551515488}
+  - component: {fileID: 551515487}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &551515487
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551515486}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 2267416239969585740, guid: 3587b5a6a7ecd9b44b03431eaa274985, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.84, y: 4.48}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &551515488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551515486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 527707379}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552161459
 GameObject:
   m_ObjectHideFlags: 0
@@ -102816,6 +104103,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &570854379
 GameObject:
   m_ObjectHideFlags: 0
@@ -106066,6 +107355,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &587558947
 GameObject:
   m_ObjectHideFlags: 0
@@ -107355,6 +108646,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &599553666
 GameObject:
   m_ObjectHideFlags: 0
@@ -108523,6 +109816,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &602083343
 Transform:
   m_ObjectHideFlags: 0
@@ -109094,6 +110389,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &603330833
 Transform:
   m_ObjectHideFlags: 0
@@ -113572,6 +114869,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &623830561
 GameObject:
   m_ObjectHideFlags: 0
@@ -115153,6 +116452,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &635430499
 GameObject:
   m_ObjectHideFlags: 0
@@ -115962,6 +117263,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &641777233
 GameObject:
   m_ObjectHideFlags: 0
@@ -118999,6 +120302,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &657987353
 Transform:
   m_ObjectHideFlags: 0
@@ -121153,6 +122458,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &667373730
 Transform:
   m_ObjectHideFlags: 0
@@ -122345,6 +123652,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &669970117
 GameObject:
   m_ObjectHideFlags: 0
@@ -124606,6 +125915,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &681307861
 Transform:
   m_ObjectHideFlags: 0
@@ -125389,6 +126700,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &686460454
 GameObject:
   m_ObjectHideFlags: 0
@@ -126744,6 +128057,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &691453443
 Transform:
   m_ObjectHideFlags: 0
@@ -128302,6 +129617,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &700257088
 GameObject:
   m_ObjectHideFlags: 0
@@ -130947,6 +132264,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &709809714
 GameObject:
   m_ObjectHideFlags: 0
@@ -131454,6 +132773,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &710584476
 GameObject:
   m_ObjectHideFlags: 0
@@ -133067,6 +134388,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &716179634
 Transform:
   m_ObjectHideFlags: 0
@@ -134400,6 +135723,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &723903632
 GameObject:
   m_ObjectHideFlags: 0
@@ -135672,6 +136997,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &735491397
 Transform:
   m_ObjectHideFlags: 0
@@ -136439,6 +137766,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &736403304
 GameObject:
   m_ObjectHideFlags: 0
@@ -139655,6 +140984,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &760599755
 Transform:
   m_ObjectHideFlags: 0
@@ -140201,6 +141532,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &762486270
 Transform:
   m_ObjectHideFlags: 0
@@ -141713,6 +143046,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &773877133
 Transform:
   m_ObjectHideFlags: 0
@@ -142263,6 +143598,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &774628798
 Transform:
   m_ObjectHideFlags: 0
@@ -143009,6 +144346,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &775964779
 GameObject:
   m_ObjectHideFlags: 0
@@ -144479,6 +145818,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &782668963
 Transform:
   m_ObjectHideFlags: 0
@@ -147433,6 +148774,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &805639052
 GameObject:
   m_ObjectHideFlags: 0
@@ -148208,6 +149551,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &805960686
 GameObject:
   m_ObjectHideFlags: 0
@@ -151460,6 +152805,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &828285187
 Transform:
   m_ObjectHideFlags: 0
@@ -153908,6 +155255,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &841242462
 Transform:
   m_ObjectHideFlags: 0
@@ -155377,6 +156726,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &851499668
 Transform:
   m_ObjectHideFlags: 0
@@ -156371,6 +157722,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &858476435
 GameObject:
   m_ObjectHideFlags: 0
@@ -157229,6 +158582,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &861546566
 Transform:
   m_ObjectHideFlags: 0
@@ -158350,6 +159705,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &865590734
 Transform:
   m_ObjectHideFlags: 0
@@ -159370,6 +160727,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &871028622
 GameObject:
   m_ObjectHideFlags: 0
@@ -161563,6 +162922,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &886657363
 Transform:
   m_ObjectHideFlags: 0
@@ -163413,6 +164774,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &901886296
 GameObject:
   m_ObjectHideFlags: 0
@@ -167116,6 +168479,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &924000304
 GameObject:
   m_ObjectHideFlags: 0
@@ -169082,6 +170447,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &938246033
 GameObject:
   m_ObjectHideFlags: 0
@@ -172342,6 +173709,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &956936232
 GameObject:
   m_ObjectHideFlags: 0
@@ -172937,6 +174306,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &957446551
 GameObject:
   m_ObjectHideFlags: 0
@@ -173689,6 +175060,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &957844428
 Transform:
   m_ObjectHideFlags: 0
@@ -174465,6 +175838,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &961050463
 Transform:
   m_ObjectHideFlags: 0
@@ -175187,6 +176562,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &963294829
 Transform:
   m_ObjectHideFlags: 0
@@ -175677,6 +177054,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &963846353
 Transform:
   m_ObjectHideFlags: 0
@@ -176339,6 +177718,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &967171146
 GameObject:
   m_ObjectHideFlags: 0
@@ -177350,6 +178731,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &970476344
 GameObject:
   m_ObjectHideFlags: 0
@@ -178627,6 +180010,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &976346246
 Transform:
   m_ObjectHideFlags: 0
@@ -182022,6 +183407,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1009199111
 Transform:
   m_ObjectHideFlags: 0
@@ -183510,6 +184897,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1016533619
 GameObject:
   m_ObjectHideFlags: 0
@@ -184506,6 +185895,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1020301383
 GameObject:
   m_ObjectHideFlags: 0
@@ -185943,6 +187334,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1027789527
 Transform:
   m_ObjectHideFlags: 0
@@ -186493,6 +187886,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1028660493
 Transform:
   m_ObjectHideFlags: 0
@@ -188105,6 +189500,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1035976251
 Transform:
   m_ObjectHideFlags: 0
@@ -189541,6 +190938,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1042688138
 Transform:
   m_ObjectHideFlags: 0
@@ -190990,6 +192389,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1053718107
 Transform:
   m_ObjectHideFlags: 0
@@ -191676,6 +193077,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1055037133
 Transform:
   m_ObjectHideFlags: 0
@@ -192588,6 +193991,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1060404002
 Transform:
   m_ObjectHideFlags: 0
@@ -195224,6 +196629,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1077266119
 GameObject:
   m_ObjectHideFlags: 0
@@ -197337,6 +198744,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1085284120
 GameObject:
   m_ObjectHideFlags: 0
@@ -198359,6 +199768,97 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
   throwDamage: 22
   flyDamage: 10
+--- !u!1 &1097936515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097936516}
+  - component: {fileID: 1097936517}
+  m_Layer: 0
+  m_Name: 'Juliste: Trio Vanhat Koirat'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1097936516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097936515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 86165.39, y: 3.5775232, z: 0}
+  m_LocalScale: {x: 0.16893762, y: 0.16893762, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 475894830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1097936517
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097936515}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9979
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 385949f695457ce468968fde2e291c4a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 10.24, y: 15.36}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1098089455
 GameObject:
   m_ObjectHideFlags: 0
@@ -201102,6 +202602,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1119661178
 Transform:
   m_ObjectHideFlags: 0
@@ -203600,6 +205102,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1134612373
 Transform:
   m_ObjectHideFlags: 0
@@ -205727,6 +207231,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1146013976
 Transform:
   m_ObjectHideFlags: 0
@@ -206190,6 +207696,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1146042333
 Transform:
   m_ObjectHideFlags: 0
@@ -209100,6 +210608,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1167058557
 Transform:
   m_ObjectHideFlags: 0
@@ -209810,6 +211320,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1169240715
 Transform:
   m_ObjectHideFlags: 0
@@ -211146,6 +212658,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1176633944
 GameObject:
   m_ObjectHideFlags: 0
@@ -214251,6 +215765,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1197687055
 GameObject:
   m_ObjectHideFlags: 0
@@ -214781,6 +216297,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1199162649
 Transform:
   m_ObjectHideFlags: 0
@@ -217427,6 +218945,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1217717632
 GameObject:
   m_ObjectHideFlags: 0
@@ -218333,6 +219853,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1221065535
 GameObject:
   m_ObjectHideFlags: 0
@@ -220311,6 +221833,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1232186558
 Transform:
   m_ObjectHideFlags: 0
@@ -222932,6 +224456,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1256323132
 GameObject:
   m_ObjectHideFlags: 0
@@ -223833,6 +225359,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1263452068
 Transform:
   m_ObjectHideFlags: 0
@@ -225943,6 +227471,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1269377312
 GameObject:
   m_ObjectHideFlags: 0
@@ -227862,6 +229392,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1284444324
 Transform:
   m_ObjectHideFlags: 0
@@ -229333,6 +230865,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1297790983
 Transform:
   m_ObjectHideFlags: 0
@@ -231709,6 +233243,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1313106916
 Transform:
   m_ObjectHideFlags: 0
@@ -233692,6 +235228,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1327669249
 GameObject:
   m_ObjectHideFlags: 0
@@ -234947,6 +236485,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1336398916
 GameObject:
   m_ObjectHideFlags: 0
@@ -235521,6 +237061,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1336591494
 Transform:
   m_ObjectHideFlags: 0
@@ -236068,6 +237610,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1339792847
 Transform:
   m_ObjectHideFlags: 0
@@ -238689,6 +240233,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1354949048
 Transform:
   m_ObjectHideFlags: 0
@@ -239610,6 +241156,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1362720633
 Transform:
   m_ObjectHideFlags: 0
@@ -242980,6 +244528,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1381718625
 Transform:
   m_ObjectHideFlags: 0
@@ -246042,6 +247592,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!114 &1398339976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246573,6 +248125,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1398491948
 Transform:
   m_ObjectHideFlags: 0
@@ -247190,6 +248744,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1400635543
 Transform:
   m_ObjectHideFlags: 0
@@ -253082,6 +254638,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1441416501
 GameObject:
   m_ObjectHideFlags: 0
@@ -254216,6 +255774,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1445579930
 Transform:
   m_ObjectHideFlags: 0
@@ -255282,6 +256842,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1448270032
 GameObject:
   m_ObjectHideFlags: 0
@@ -256602,6 +258164,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1455166689
 Transform:
   m_ObjectHideFlags: 0
@@ -260954,6 +262518,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1482450628
 Transform:
   m_ObjectHideFlags: 0
@@ -262133,6 +263699,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1487216640
 GameObject:
   m_ObjectHideFlags: 0
@@ -264947,6 +266515,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1512502306
 Transform:
   m_ObjectHideFlags: 0
@@ -266749,6 +268319,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1525121797
 Transform:
   m_ObjectHideFlags: 0
@@ -267386,6 +268958,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1526426008
 Transform:
   m_ObjectHideFlags: 0
@@ -267841,6 +269415,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1527148098
 Transform:
   m_ObjectHideFlags: 0
@@ -270674,6 +272250,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1548755616
 GameObject:
   m_ObjectHideFlags: 0
@@ -271822,6 +273400,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1551687397
 Transform:
   m_ObjectHideFlags: 0
@@ -272521,6 +274101,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1554752002
 Transform:
   m_ObjectHideFlags: 0
@@ -273065,6 +274647,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1555148316
 Transform:
   m_ObjectHideFlags: 0
@@ -273922,6 +275506,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1558441157
 Transform:
   m_ObjectHideFlags: 0
@@ -276348,6 +277934,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1569431163
 Transform:
   m_ObjectHideFlags: 0
@@ -276811,6 +278399,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1570317535
 Transform:
   m_ObjectHideFlags: 0
@@ -281266,6 +282856,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1602788129
 GameObject:
   m_ObjectHideFlags: 0
@@ -281742,6 +283334,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1602788131
 Transform:
   m_ObjectHideFlags: 0
@@ -282543,6 +284137,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1605654587
 Transform:
   m_ObjectHideFlags: 0
@@ -283134,6 +284730,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1607041249
 Transform:
   m_ObjectHideFlags: 0
@@ -284237,6 +285835,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1613096267
 Transform:
   m_ObjectHideFlags: 0
@@ -286184,6 +287784,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1628367743
 Transform:
   m_ObjectHideFlags: 0
@@ -288745,6 +290347,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1648931265
 GameObject:
   m_ObjectHideFlags: 0
@@ -290597,6 +292201,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1660685092
 Transform:
   m_ObjectHideFlags: 0
@@ -291656,6 +293262,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1667382220
 Transform:
   m_ObjectHideFlags: 0
@@ -293136,6 +294744,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1681236298
 Transform:
   m_ObjectHideFlags: 0
@@ -295117,6 +296727,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1694951386
 GameObject:
   m_ObjectHideFlags: 0
@@ -296619,6 +298231,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1700945627
 Transform:
   m_ObjectHideFlags: 0
@@ -297171,6 +298785,97 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 1.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!1 &1707522129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707522130}
+  - component: {fileID: 1707522131}
+  m_Layer: 0
+  m_Name: 'Neonkyltti: Open, Come in'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707522130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707522129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 86175.56, y: 3.618495, z: 0}
+  m_LocalScale: {x: 0.19246438, y: 0.19246438, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 475894830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1707522131
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707522129}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -9979
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 905b8c966ecb8ac429abc0c01b7c310d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 17.74, y: 8.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -298380,6 +300085,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1713684657
 GameObject:
   m_ObjectHideFlags: 0
@@ -299276,6 +300983,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1715727377
 Transform:
   m_ObjectHideFlags: 0
@@ -301175,6 +302884,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1728157624
 GameObject:
   m_ObjectHideFlags: 0
@@ -304932,6 +306643,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1756457136
 Transform:
   m_ObjectHideFlags: 0
@@ -306622,6 +308335,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1765965889
 Transform:
   m_ObjectHideFlags: 0
@@ -307081,6 +308796,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1766878369
 Transform:
   m_ObjectHideFlags: 0
@@ -309345,6 +311062,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1782580935
 Transform:
   m_ObjectHideFlags: 0
@@ -310508,6 +312227,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1785014597
 Transform:
   m_ObjectHideFlags: 0
@@ -312028,6 +313749,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1796982109
 GameObject:
   m_ObjectHideFlags: 0
@@ -312487,6 +314210,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1796997487
 GameObject:
   m_ObjectHideFlags: 0
@@ -313245,6 +314970,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1798295163
 GameObject:
   m_ObjectHideFlags: 0
@@ -313836,6 +315563,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1799958567
 GameObject:
   m_ObjectHideFlags: 0
@@ -314329,6 +316058,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1800015314
 GameObject:
   m_ObjectHideFlags: 0
@@ -314792,6 +316523,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1800598647
 GameObject:
   m_ObjectHideFlags: 0
@@ -315956,6 +317689,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1808223569
 Transform:
   m_ObjectHideFlags: 0
@@ -318296,6 +320031,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1827784377
 GameObject:
   m_ObjectHideFlags: 0
@@ -319052,6 +320789,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1828631401
 Transform:
   m_ObjectHideFlags: 0
@@ -321960,6 +323699,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1848818727
 Transform:
   m_ObjectHideFlags: 0
@@ -322804,6 +324545,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1854739552
 Transform:
   m_ObjectHideFlags: 0
@@ -325413,6 +327156,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1870846222
 GameObject:
   m_ObjectHideFlags: 0
@@ -326206,6 +327951,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1875010334
 Transform:
   m_ObjectHideFlags: 0
@@ -327530,6 +329277,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1880240055
 GameObject:
   m_ObjectHideFlags: 0
@@ -328546,6 +330295,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1885750295
 Transform:
   m_ObjectHideFlags: 0
@@ -329136,6 +330887,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1887212859
 Transform:
   m_ObjectHideFlags: 0
@@ -330683,6 +332436,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1899763281
 Transform:
   m_ObjectHideFlags: 0
@@ -331343,6 +333098,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1900010772
 Transform:
   m_ObjectHideFlags: 0
@@ -335065,6 +336822,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1927518613
 Transform:
   m_ObjectHideFlags: 0
@@ -336083,6 +337842,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1931780519
 GameObject:
   m_ObjectHideFlags: 0
@@ -338076,6 +339837,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1946078033
 Transform:
   m_ObjectHideFlags: 0
@@ -338929,6 +340692,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1947958421
 Transform:
   m_ObjectHideFlags: 0
@@ -340463,6 +342228,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1964495884
 Transform:
   m_ObjectHideFlags: 0
@@ -341413,6 +343180,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1968567526
 GameObject:
   m_ObjectHideFlags: 0
@@ -341938,6 +343707,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1970343180
 Transform:
   m_ObjectHideFlags: 0
@@ -343196,6 +344967,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &1978327215
 GameObject:
   m_ObjectHideFlags: 0
@@ -344307,6 +346080,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1981792392
 Transform:
   m_ObjectHideFlags: 0
@@ -345708,6 +347483,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &1987418608
 Transform:
   m_ObjectHideFlags: 0
@@ -349873,6 +351650,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2015364024
 Transform:
   m_ObjectHideFlags: 0
@@ -352667,6 +354446,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2035886202
 Transform:
   m_ObjectHideFlags: 0
@@ -354048,6 +355829,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2040796037
 Transform:
   m_ObjectHideFlags: 0
@@ -354982,6 +356765,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2043689655
 Transform:
   m_ObjectHideFlags: 0
@@ -357731,6 +359516,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2061533619
 GameObject:
   m_ObjectHideFlags: 0
@@ -358488,6 +360275,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2065003164
 Transform:
   m_ObjectHideFlags: 0
@@ -359115,6 +360904,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2068379977
 GameObject:
   m_ObjectHideFlags: 0
@@ -360143,6 +361934,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2072121355
 Transform:
   m_ObjectHideFlags: 0
@@ -361981,6 +363774,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2082487213
 Transform:
   m_ObjectHideFlags: 0
@@ -362536,6 +364331,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2086938876
 Transform:
   m_ObjectHideFlags: 0
@@ -364332,6 +366129,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2097397279
 GameObject:
   m_ObjectHideFlags: 0
@@ -366468,6 +368267,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2110981537
 GameObject:
   m_ObjectHideFlags: 0
@@ -367349,6 +369150,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2112440618
 Transform:
   m_ObjectHideFlags: 0
@@ -367947,6 +369750,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2114387651
 GameObject:
   m_ObjectHideFlags: 0
@@ -368690,6 +370495,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2116697625
 Transform:
   m_ObjectHideFlags: 0
@@ -370946,6 +372753,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2126867578
 Transform:
   m_ObjectHideFlags: 0
@@ -371736,6 +373545,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!1 &2128082512
 GameObject:
   m_ObjectHideFlags: 0
@@ -373052,6 +374863,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2134041344
 Transform:
   m_ObjectHideFlags: 0
@@ -374577,6 +376390,8 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   counterAfterHits: 2
+  brain: {fileID: 0}
+  LastBlockTime: -99
 --- !u!4 &2139989617
 Transform:
   m_ObjectHideFlags: 0
@@ -377248,3 +379063,5 @@ SceneRoots:
   - {fileID: 1303033219}
   - {fileID: 1208916419}
   - {fileID: 1517600635}
+  - {fileID: 527707379}
+  - {fileID: 475894830}

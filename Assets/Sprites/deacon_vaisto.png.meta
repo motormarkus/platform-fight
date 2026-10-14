@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: 2533bbbb00b4f164088427b04aaadde3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1533005546832879267
+    second: deacon_vaisto_0
+  - first:
+      213: 980836532136022430
+    second: deacon_vaisto_1
+  - first:
+      213: -6307959440481637079
+    second: deacon_vaisto_2
+  - first:
+      213: -5370823457429266588
+    second: deacon_vaisto_3
+  - first:
+      213: 382745562032401002
+    second: deacon_vaisto_4
+  - first:
+      213: 4564581590139510513
+    second: deacon_vaisto_5
+  - first:
+      213: -5258012724576183957
+    second: deacon_vaisto_6
+  - first:
+      213: 8598590228260068213
+    second: deacon_vaisto_7
+  - first:
+      213: -1341634076872584798
+    second: deacon_vaisto_8
+  - first:
+      213: 1504043844095304931
+    second: deacon_vaisto_9
+  - first:
+      213: 5581428755501883225
+    second: deacon_vaisto_10
+  - first:
+      213: 1465858945031273624
+    second: deacon_vaisto_11
+  - first:
+      213: 4389067730830855064
+    second: deacon_vaisto_12
+  - first:
+      213: -3867209859826097514
+    second: deacon_vaisto_13
+  - first:
+      213: -3185348034499708702
+    second: deacon_vaisto_14
+  - first:
+      213: -8798342378331747047
+    second: deacon_vaisto_15
+  - first:
+      213: 5976922752607950428
+    second: deacon_vaisto_16
+  - first:
+      213: -49297928937878943
+    second: deacon_vaisto_17
+  - first:
+      213: -5611856430446713605
+    second: deacon_vaisto_18
+  - first:
+      213: -5808065441761315051
+    second: deacon_vaisto_19
+  - first:
+      213: -6914586222325118079
+    second: deacon_vaisto_20
+  - first:
+      213: -3405283909176982380
+    second: deacon_vaisto_21
+  - first:
+      213: 6346731731246696579
+    second: deacon_vaisto_22
+  - first:
+      213: 4550500451422829476
+    second: deacon_vaisto_23
+  - first:
+      213: -1793145710992119270
+    second: deacon_vaisto_24
+  - first:
+      213: 8042147479075294746
+    second: deacon_vaisto_25
+  - first:
+      213: 9188280754899627829
+    second: deacon_vaisto_26
+  - first:
+      213: -2846443705161759386
+    second: deacon_vaisto_27
+  - first:
+      213: -1636526100669616302
+    second: deacon_vaisto_28
+  - first:
+      213: 8848798211684077404
+    second: deacon_vaisto_29
+  - first:
+      213: -635482081168835695
+    second: deacon_vaisto_30
+  - first:
+      213: 4013349093808846105
+    second: deacon_vaisto_31
+  - first:
+      213: 513155888777884627
+    second: deacon_vaisto_32
+  - first:
+      213: -7512397338686568582
+    second: deacon_vaisto_33
+  - first:
+      213: 2314022678305405045
+    second: deacon_vaisto_34
+  - first:
+      213: 8255389359397091946
+    second: deacon_vaisto_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: deacon_vaisto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51a25ec39ba9bae0800000000000000
+      internalID: -1533005546832879267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9191b811a1ac9d00800000000000000
+      internalID: 980836532136022430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d25845f40a578a0800000000000000
+      internalID: -6307959440481637079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fd79475800775b0800000000000000
+      internalID: -5370823457429266588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_4
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a6c409f09cf4500800000000000000
+      internalID: 382745562032401002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe9d84a5c6a85f30800000000000000
+      internalID: 4564581590139510513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69172ff849c707b0800000000000000
+      internalID: -5258012724576183957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1792
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b169c5144545770800000000000000
+      internalID: 8598590228260068213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a153755aee816de0800000000000000
+      internalID: -1341634076872584798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e4e9ed48ef6fd410800000000000000
+      internalID: 1504043844095304931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f17d6a1e7357d40800000000000000
+      internalID: 5581428755501883225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cfa6da1f6c75410800000000000000
+      internalID: 1465858945031273624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b8d4fc8d919ec30800000000000000
+      internalID: 4389067730830855064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6926d213f19e45ac0800000000000000
+      internalID: -3867209859826097514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_14
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8f7add6de5bc3d0800000000000000
+      internalID: -3185348034499708702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_15
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1344
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91d4547f83206e580800000000000000
+      internalID: -8798342378331747047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c56952f839b42f250800000000000000
+      internalID: 5976922752607950428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_17
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ace797bcbd05ff0800000000000000
+      internalID: -49297928937878943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf46bb43f4eae12b0800000000000000
+      internalID: -5611856430446713605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_19
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 517389fc04b956fa0800000000000000
+      internalID: -5808065441761315051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_20
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b408147747a00a0800000000000000
+      internalID: -6914586222325118079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494072a93500eb0d0800000000000000
+      internalID: -3405283909176982380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_22
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388c8a512ee141850800000000000000
+      internalID: 6346731731246696579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_23
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 896
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abff4d0d00a62f30800000000000000
+      internalID: 4550500451422829476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aacc1f9777d17e0800000000000000
+      internalID: -1793145710992119270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e0699e5827b9f60800000000000000
+      internalID: 8042147479075294746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_26
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53fa95c3aa4538f70800000000000000
+      internalID: 9188280754899627829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_27
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665cfa008866f78d0800000000000000
+      internalID: -2846443705161759386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_28
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25faeef9e24e949e0800000000000000
+      internalID: -1636526100669616302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_29
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f8a80371f3dca70800000000000000
+      internalID: 8848798211684077404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_30
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b3ec20a605e27f0800000000000000
+      internalID: -635482081168835695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_31
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 448
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915bc18bcb742b730800000000000000
+      internalID: 4013349093808846105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d37101ef881f1700800000000000000
+      internalID: 513155888777884627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a774fff3c6a9eb790800000000000000
+      internalID: -7512397338686568582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_34
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578779e9d5f0d1020800000000000000
+      internalID: 2314022678305405045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deacon_vaisto_35
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 384
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a376922e8019270800000000000000
+      internalID: 8255389359397091946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 688026357f821964ea5ac63b97600ad4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      deacon_vaisto_0: -1533005546832879267
+      deacon_vaisto_1: 980836532136022430
+      deacon_vaisto_10: 5581428755501883225
+      deacon_vaisto_11: 1465858945031273624
+      deacon_vaisto_12: 4389067730830855064
+      deacon_vaisto_13: -3867209859826097514
+      deacon_vaisto_14: -3185348034499708702
+      deacon_vaisto_15: -8798342378331747047
+      deacon_vaisto_16: 5976922752607950428
+      deacon_vaisto_17: -49297928937878943
+      deacon_vaisto_18: -5611856430446713605
+      deacon_vaisto_19: -5808065441761315051
+      deacon_vaisto_2: -6307959440481637079
+      deacon_vaisto_20: -6914586222325118079
+      deacon_vaisto_21: -3405283909176982380
+      deacon_vaisto_22: 6346731731246696579
+      deacon_vaisto_23: 4550500451422829476
+      deacon_vaisto_24: -1793145710992119270
+      deacon_vaisto_25: 8042147479075294746
+      deacon_vaisto_26: 9188280754899627829
+      deacon_vaisto_27: -2846443705161759386
+      deacon_vaisto_28: -1636526100669616302
+      deacon_vaisto_29: 8848798211684077404
+      deacon_vaisto_3: -5370823457429266588
+      deacon_vaisto_30: -635482081168835695
+      deacon_vaisto_31: 4013349093808846105
+      deacon_vaisto_32: 513155888777884627
+      deacon_vaisto_33: -7512397338686568582
+      deacon_vaisto_34: 2314022678305405045
+      deacon_vaisto_35: 8255389359397091946
+      deacon_vaisto_4: 382745562032401002
+      deacon_vaisto_5: 4564581590139510513
+      deacon_vaisto_6: -5258012724576183957
+      deacon_vaisto_7: 8598590228260068213
+      deacon_vaisto_8: -1341634076872584798
+      deacon_vaisto_9: 1504043844095304931
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

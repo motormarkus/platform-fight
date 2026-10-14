@@ -866,12 +866,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void OnEnable() { All.Add(this); }
     /// Herää heti (portsarit tulevat ovesta tappelun alkaessa).
     public void WakeUp() { awake = true; }
-    public bool IsAwake => awake;
     void OnDisable() { All.Remove(this); if (heldBottle != null) { heldBottle.Drop(); heldBottle = null; } }   // pois pelistä: kädessä oleva piirakka ei jää jumiin
 
     void Awake()
     {
         health = maxHealth;
+        brain = GetComponent<DeaconBoss>();
         if (displayName == "Horhe" || displayName == "Puliukko")
         {
             // avokämmenläimäykset (Resources/Sfx/horhe/slap1–3): puliukon kaikki iskut, Horhen läpsykombo
@@ -880,7 +880,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1024,7 +1024,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Stomp(dt);
         BossVoices();
 
-        switch (state)
+        if (BrainDrives) brain.Tick(dt);
+        else switch (state)
         {
             case State.Idle:
                 moving = false;
@@ -2669,7 +2670,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (e.TakeHit(bowlDamage, from, true))
             {
                 if (thrownByEnemy) e.thrownByEnemy = true;   // vihun heittämän kaatama: hiljainen alastulo
-                if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnHit(true);   // portsarin heitto: ei tärähdystä
+                HitFx.OnHitQuiet();   // heitetty vihu kaataa muita: vain osumaääni, ei tärähdystä eikä pysäytystä (monen osuessa peli nykisi)
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
             }
         }
@@ -2751,10 +2752,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         if (waitingToAppear) return false;   // piilossa odottava pomo
+        if (brain != null && brain.enabled && brain.InterceptHit(damage, attackerX, knockdown)) return false;   // Deacon väistää
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
-        if (((comboArmor && comboSeq != null) || counterActive) && !knockdown && health > damage
+        if (((comboArmor && comboSeq != null) || counterActive || (brain != null && brain.ArmorNow)) && !knockdown && health > damage
             && (state == State.Windup || state == State.Punch || state == State.Recover))
         {
             awake = true;
@@ -2823,6 +2825,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             && (state == State.Block || Random.value < blockChance))
         {
             blocksInRow++;
+            LastBlockTime = Time.time;
             JustBlocked = true;
             knockVel = new Vector2(attackerX < transform.position.x ? 1.6f : -1.6f, 0f);
             shakeUntil = HitFx.ShakeUntil(false);
@@ -2850,7 +2853,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
         }
-        else if (!unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
+        else if (brain == null && !unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
                  && !(PieWar.Active || pieOnly))
         {
             // yleinen vastaisku: tasainen hakkaaminen ei kelpaa, kahden osuman jälkeen vihu lyö takaisin (iskun ajan panssari)
@@ -3125,7 +3128,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Move(Vector2 delta)
     {
-        bool locomotion = state == State.Idle || state == State.Chase;
+        bool locomotion = (state == State.Idle || state == State.Chase) && brain == null;   // ulkoinen aivo (Deacon) liikkuu vapaasti
         bool skating = skatePass && !boardLost;
         if (locomotion && !skating)
         {
@@ -3236,10 +3239,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (body == null) return;
         float rot = 0f;
-        body.sprite = CurrentSprite(ref rot);
+        bool brainSprite = BrainDrives && brain.HasSprite;
+        body.sprite = brainSprite ? brain.CurrentSprite : CurrentSprite(ref rot);
         // Kiertäessä kävelykuva katsoo liikkeeseen, isku edelleen kohteeseen.
         bool walkFacing = (state == State.Chase || state == State.Idle) && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
         body.flipX = walkFacing ? walkDirectionX < 0f : !facingRight;
+        if (brainSprite) body.flipX = !facingRight;
 
         Vector2 pivotFix = Vector2.zero;
         Sprite spr = body.sprite;
@@ -3505,6 +3510,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
+
+
+    // ---------------- Ulkoinen aivo (Deacon) ----------------
+    [HideInInspector] public DeaconBoss brain;
+    public enum BrainPhase { Idle, Chase, Windup, Punch }
+    /// Pelaaja, jota vastaan taistellaan.
+    public PlayerController Hero => player;
+    public bool FacingRight { get { return facingRight; } set { facingRight = value; } }
+    public bool IsAwake { get { return awake; } set { awake = value; } }
+    /// Viimeisin onnistunut torjunta (aivo vastaa torjunnan jälkeen jabilla).
+    [HideInInspector] public float LastBlockTime = -99f;
+    public AudioSource Audio => audioSource;
+    /// Enemy on perustilassa (ei osumaa, kaatumista, otetta tms.), jolloin aivo saa ohjata.
+    public bool BrainNeutral => state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch || state == State.Recover;
+    public bool BrainDrives => brain != null && brain.enabled && BrainNeutral;
+    /// Aivon liike (sama rajaus kuin muulla liikkeellä: alue, ruutu, esteet), ilman perustilan peruutuskieltoa.
+    public void BrainMove(Vector2 delta) { Move(delta); }
+    public void BrainPhaseSet(BrainPhase p)
+    {
+        State target = p == BrainPhase.Punch ? State.Punch : p == BrainPhase.Windup ? State.Windup : p == BrainPhase.Chase ? State.Chase : State.Idle;
+        if (state != target) Enter(target);
+    }
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
 
