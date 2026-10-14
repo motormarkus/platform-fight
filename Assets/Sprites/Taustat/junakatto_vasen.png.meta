@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 1a83ad8b7965dc14a9641d558efc3a8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7147028768351023522
+    second: junakatto_vasen_0
+  - first:
+      213: -7244304423456744843
+    second: junakatto_vasen_1
+  - first:
+      213: -5939002167050616216
+    second: junakatto_vasen_2
+  - first:
+      213: -541603354752189662
+    second: junakatto_vasen_3
+  - first:
+      213: -3552399649221744187
+    second: junakatto_vasen_4
+  - first:
+      213: -4396433314845384441
+    second: junakatto_vasen_5
+  - first:
+      213: -9146087365807409062
+    second: junakatto_vasen_6
+  - first:
+      213: -8608315246680654755
+    second: junakatto_vasen_7
+  - first:
+      213: 8930154907234544671
+    second: junakatto_vasen_8
+  - first:
+      213: -7044140262593861667
+    second: junakatto_vasen_9
+  - first:
+      213: 4435208580053528044
+    second: junakatto_vasen_10
+  - first:
+      213: -6093160746171825846
+    second: junakatto_vasen_11
+  - first:
+      213: -5359201616166250556
+    second: junakatto_vasen_12
+  - first:
+      213: -7392159410170305228
+    second: junakatto_vasen_13
+  - first:
+      213: -4088489220676037536
+    second: junakatto_vasen_14
+  - first:
+      213: -7442951187335770601
+    second: junakatto_vasen_15
+  - first:
+      213: 5850973843994114405
+    second: junakatto_vasen_16
+  - first:
+      213: -678673631395667669
+    second: junakatto_vasen_17
+  - first:
+      213: -6844019219065374817
+    second: junakatto_vasen_18
+  - first:
+      213: 4271013939552699127
+    second: junakatto_vasen_19
+  - first:
+      213: 7309934974469143055
+    second: junakatto_vasen_20
+  - first:
+      213: 3231776566280748651
+    second: junakatto_vasen_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 98.02083
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: junakatto_vasen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a17f095cc85f2360800000000000000
+      internalID: 7147028768351023522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_1
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 480
+        width: 345
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ad113428f077b90800000000000000
+      internalID: -7244304423456744843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_2
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 486
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8624ca8cefc649da0800000000000000
+      internalID: -5939002167050616216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_3
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 518
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bf5de4e96db78f0800000000000000
+      internalID: -541603354752189662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_4
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 486
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c96ae7275753bec0800000000000000
+      internalID: -3552399649221744187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_5
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 461
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701a2f5813bbcf2c0800000000000000
+      internalID: -4396433314845384441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_6
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 528
+        width: 63
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a587c54bff1921180800000000000000
+      internalID: -9146087365807409062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_7
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 480
+        width: 483
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c350754ee198880800000000000000
+      internalID: -8608315246680654755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_8
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 518
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c2deaf2984eeb70800000000000000
+      internalID: 8930154907234544671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_9
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 532
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd7e01ca0cf2e3e90800000000000000
+      internalID: -7044140262593861667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_10
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 559
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedeade64b60d8d30800000000000000
+      internalID: 4435208580053528044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_11
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 524
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a410315959eb07ba0800000000000000
+      internalID: -6093160746171825846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_12
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 518
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c716bc368a40a5b0800000000000000
+      internalID: -5359201616166250556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_13
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 512
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435ecb98e26c96990800000000000000
+      internalID: -7392159410170305228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_14
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 478
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 064579d27b4c247c0800000000000000
+      internalID: -4088489220676037536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_15
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 478
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e874e545355b890800000000000000
+      internalID: -7442951187335770601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_16
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 518
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569fe5916b5d23150800000000000000
+      internalID: 5850973843994114405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_17
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 455
+        width: 58
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21ac329dedd496f0800000000000000
+      internalID: -678673631395667669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_18
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 484
+        width: 154
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9779ab08c82501a0800000000000000
+      internalID: -6844019219065374817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_19
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 471
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f2c7c99c80b54b30800000000000000
+      internalID: 4271013939552699127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_20
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 437
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0aff6c212b127560800000000000000
+      internalID: 7309934974469143055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junakatto_vasen_21
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 443
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6e78921aa399dc20800000000000000
+      internalID: 3231776566280748651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      junakatto_vasen_0: 7147028768351023522
+      junakatto_vasen_1: -7244304423456744843
+      junakatto_vasen_10: 4435208580053528044
+      junakatto_vasen_11: -6093160746171825846
+      junakatto_vasen_12: -5359201616166250556
+      junakatto_vasen_13: -7392159410170305228
+      junakatto_vasen_14: -4088489220676037536
+      junakatto_vasen_15: -7442951187335770601
+      junakatto_vasen_16: 5850973843994114405
+      junakatto_vasen_17: -678673631395667669
+      junakatto_vasen_18: -6844019219065374817
+      junakatto_vasen_19: 4271013939552699127
+      junakatto_vasen_2: -5939002167050616216
+      junakatto_vasen_20: 7309934974469143055
+      junakatto_vasen_21: 3231776566280748651
+      junakatto_vasen_3: -541603354752189662
+      junakatto_vasen_4: -3552399649221744187
+      junakatto_vasen_5: -4396433314845384441
+      junakatto_vasen_6: -9146087365807409062
+      junakatto_vasen_7: -8608315246680654755
+      junakatto_vasen_8: 8930154907234544671
+      junakatto_vasen_9: -7044140262593861667
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

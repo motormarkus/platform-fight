@@ -7681,6 +7681,648 @@ public static class BeatEmUpSetup
              "Ikkunoista näkyy aavikon taivas ja hiekka parallaxina.\n\nTallenna scene (Ctrl+S).");
     }
 
+    const float TrainZoom = 0.8f;   // junan sisätilojen ja katon kuvat pienennetään tähän (kamera lähennetään): hahmo suhteessa suurempi
+
+    const int TrainCarCount = 4;   // vaunujen määrä: vaunu 1 on takaparvekkeen puolella, vaunu 4 veturin vieressä
+
+    [MenuItem("Beat em up/130. Junan vaunut (4): käytävä kahdesti peräkkäin ja päädyt, ovet vaunusta toiseen (siirtymä), ikkunoista aavikko")]
+    static void CreateTrainCar()
+    {
+        if (PlayModeBlocked()) return;
+        const string carPath = "Assets/Sprites/Taustat/junavaunu_koko.png";   // 6412 x 941: peilattu pääty + 2 käytävää + pääty, liitettynä pilarien kohdalta (saumaton); ikkunat läpinäkyviä
+        const string skyPath = "Assets/Sprites/Taustat/aavikko_parallax_ylempi_loop.png";
+        const string sandPath = "Assets/Sprites/Taustat/aavikko_parallax_alempi_loop.png";
+        var yard = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junapiha");
+        if (AssetImporter.GetAtPath(carPath) == null) { Info("Tarvitaan junavaunu_koko.png (Sprites/Taustat)."); return; }
+        var oldNames = new System.Collections.Generic.List<string> { "Vaunun sisalto", "Alue: Junan vaunu", "Junapihalta junaan", "Junasta pihalle vasen", "Junasta pihalle oikea" };
+        for (int c = 1; c <= TrainCarCount; c++) { oldNames.Add("Vaunun sisalto " + c); oldNames.Add("Alue: Junan vaunu " + c); oldNames.Add("Vaunu " + c + " eteen"); oldNames.Add("Vaunu " + c + " taakse"); }
+        foreach (var n in oldNames) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+
+        const float floorPx = 668f;           // seinän ja lattian raja (rivi ylhäältä)
+        const float horizonRow = 390f;        // ikkunoiden alareuna: hiekan horisontti
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        var carSprite = ImportShipSprite(carPath, ppu, false, SpriteAlignment.Center);
+        if (carSprite == null) { Info("Kuvan tuonti epäonnistui: " + carPath); return; }
+        const float carPx = 6412f, doorFromEdgePx = 107f, cornerFromEdgePx = 192f;   // kuvan leveys, oven keskikohta ja seinän kulma reunasta
+        float hU = 941f / ppu;
+        float wU = carPx / ppu;
+        float top = CamY + hU * 0.5f;
+        float DepthAt(float py) => top - py / ppu;
+        float leftDoorOff = doorFromEdgePx, rightDoorOff = carPx - doorFromEdgePx;
+        float halfW = CamHalf * TrainZoom * 16f / 9f;
+        var areas = new Area[TrainCarCount + 1];
+        var X0s = new float[TrainCarCount + 1];
+
+        for (int c = 1; c <= TrainCarCount; c++)
+        {
+            float X0 = 98000f + (c - 1) * 100f;
+            X0s[c] = X0;
+            float PX(float px) => X0 + px / ppu;
+            var root = new GameObject("Vaunun sisalto " + c);
+            Undo.RegisterCreatedObjectUndo(root, "Vaunu");
+            var carGo = new GameObject("Vaunun kuva").AddComponent<SpriteRenderer>();
+            carGo.transform.SetParent(root.transform, false);
+            carGo.sprite = carSprite; carGo.sortingOrder = -10000;
+            carGo.transform.position = new Vector3(X0 + wU * 0.5f, CamY, 0f);
+
+            var area = ReuseArea("Alue: Junan vaunu " + c);
+            Undo.RecordObject(area, "Junan vaunu");
+            area.areaName = "Junan vaunu " + c; area.useSidewalk = false;
+            if (yard != null) { area.music = yard.music; area.ambience = yard.ambience; area.ambienceVolume = yard.ambienceVolume; }
+            area.maxDepthY = DepthAt(floorPx);
+            area.minDepthY = CamY - CamHalf * TrainZoom + 1.2f;
+            area.camMinX = X0 + halfW; area.camMaxX = X0 + Mathf.Max(wU - halfW, halfW);
+            area.walkMinX = X0 + 0.5f; area.walkMaxX = X0 + wU - 0.5f;
+            area.backScale = 1f;
+            area.camSize = CamHalf * TrainZoom;   // lähennetty kamera: hahmo näyttää suuremmalta junan sisällä
+            // päädyissä sivuseinä (ovi seinällä): takaraja laskee oven edessä alemmas
+            area.depthLimitsExceedMax = false;
+            area.depthLimits = new[] {
+                new Vector2(X0, DepthAt(806f)), new Vector2(PX(cornerFromEdgePx), DepthAt(floorPx)),
+                new Vector2(PX(carPx - cornerFromEdgePx), DepthAt(floorPx)), new Vector2(X0 + wU, DepthAt(806f)) };
+            areas[c] = area;
+
+            // ikkunoista näkyy aavikko (134 korvaa nämä matkan taustavaiheilla)
+            float horizonY = top - horizonRow / ppu;
+            var layers = new[] { (skyPath, "Vaunun taivas ja mesat", -10200, 0.3f, 1.15f, 3.47f, 0.4f, 0.02f), (sandPath, "Vaunun kaukainen hiekka", -10100, 0.5f, 1f, -0.133f, 3f, 0.08f) };
+            foreach (var (lp, lname, order, factor, mul, dy, autoV, bobA) in layers)
+            {
+                var spr = ImportShipSprite(lp, 100f, true, SpriteAlignment.Center);
+                if (spr == null) continue;
+                var s = new GameObject(lname).AddComponent<SpriteRenderer>();
+                s.transform.SetParent(root.transform, false);
+                float k = CamHalf * TrainZoom * 2f / spr.bounds.size.y * mul;
+                s.transform.position = new Vector3(X0 + wU * 0.5f, horizonY + dy * (CamHalf * TrainZoom / 6f), 0f);
+                s.sprite = spr; s.sortingOrder = order;
+                s.transform.localScale = new Vector3(k, k, 1f);
+                s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+                s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);   // + yksi laatta vierimistä varten
+                var par = s.gameObject.AddComponent<ParallaxLayer>();
+                par.autoSpeed = autoV; par.bobAmplitude = bobA; par.factor = factor; par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+            }
+        }
+
+        // ovet vaunusta toiseen: oikea ovi vie seuraavaan (vaunu 4:n oikea ovi veturiin: 131), vasen edelliseen (vaunu 1:n vasen takaparvekkeelle: 132)
+        for (int c = 1; c <= TrainCarCount; c++)
+        {
+            float X0 = X0s[c];
+            float PX(float px) => X0 + px / ppu;
+            var rootGo = GameObject.Find("Vaunun sisalto " + c);
+            if (c < TrainCarCount)
+            {
+                float nextX0 = X0s[c + 1];
+                var fwd = new GameObject("Vaunu " + c + " eteen").AddComponent<Door>();
+                fwd.transform.SetParent(rootGo.transform, false);
+                fwd.here = areas[c]; fwd.target = areas[c + 1]; fwd.returnToLastDoor = false;
+                fwd.spawnPoint = new Vector2(nextX0 + (leftDoorOff + 1.8f * ppu) / ppu, DepthAt(floorPx + 90f));
+                fwd.prompt = "Mene seuraavaan vaunuun"; fwd.halfWidth = 1.2f; fwd.maxDistanceFromWall = 2.4f;
+                fwd.transform.position = new Vector3(PX(rightDoorOff), areas[c].MaxDepthAtX(PX(rightDoorOff), areas[c].maxDepthY), 0f);
+                EditorUtility.SetDirty(fwd);
+            }
+            if (c > 1)
+            {
+                float prevX0 = X0s[c - 1];
+                var back = new GameObject("Vaunu " + c + " taakse").AddComponent<Door>();
+                back.transform.SetParent(rootGo.transform, false);
+                back.here = areas[c]; back.target = areas[c - 1]; back.returnToLastDoor = false;
+                back.spawnPoint = new Vector2(prevX0 + (rightDoorOff - 1.8f * ppu) / ppu, DepthAt(floorPx + 90f));
+                back.prompt = "Mene edelliseen vaunuun"; back.halfWidth = 1.2f; back.maxDistanceFromWall = 2.4f;
+                back.transform.position = new Vector3(PX(leftDoorOff), areas[c].MaxDepthAtX(PX(leftDoorOff), areas[c].maxDepthY), 0f);
+                EditorUtility.SetDirty(back);
+            }
+            EditorUtility.SetDirty(areas[c]);
+        }
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Junan vaunut luotu ({TrainCarCount} kpl, kukin {wU:0} yksikköä leveä, alueet \"Junan vaunu 1\" … \"Junan vaunu {TrainCarCount}\"). Vaunujen väliset ovet (E) siirtävät seuraavaan tai edelliseen vaunuun. Vaunu 1:n vasen ovi (takaparveke, 132) ja vaunu {TrainCarCount}:n oikea ovi (veturi, 131) tehdään niissä valikoissa.\nIkkunoista näkyy aavikko, ja 134 tekee matkan taustavaiheet.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/131. Veturin ohjaamo: sisätila ja ovi junan vaunun oikeasta päädystä (ikkunoista aavikko)")]
+    static void CreateTrainCab()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/junaveturi_sisa.png";   // 1672 x 941: ovi vasemmalla, kaksi ikkunaa, ohjauspöytä oikealla
+        const string skyPath = "Assets/Sprites/Taustat/aavikko_parallax_ylempi_loop.png";
+        const string sandPath = "Assets/Sprites/Taustat/aavikko_parallax_alempi_loop.png";
+        var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu 4");
+        if (car == null || AssetImporter.GetAtPath(path) == null) { Info("Tee ensin Junan vaunut (130). Tarvitaan junaveturi_sisa.png (Sprites/Taustat)."); return; }
+        foreach (var n in new[] { "Veturin sisalto", "Alue: Junan veturi", "Veturista vaunuun", "Vaunu 4 veturiin" })
+        { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+
+        const float X0 = 99000f;
+        const float floorPx = 655f;           // seinän ja lattian raja
+        const float horizonRow = 380f;        // ikkunoiden alareuna
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        var sprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        if (sprite == null) { Info("Kuvan tuonti epäonnistui: " + path); return; }
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+        float PX(float px) => X0 + px / ppu;
+        float top = CamY + hU * 0.5f;
+        float DepthAt(float py) => top - py / ppu;
+
+        var root = new GameObject("Veturin sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Veturi");
+        var bg = new GameObject("Veturin tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.sprite = sprite; bg.sortingOrder = -10000;
+        bg.transform.position = new Vector3(X0 + wU * 0.5f, CamY, 0f);
+
+        float halfW = CamHalf * TrainZoom * 16f / 9f;
+        var area = ReuseArea("Alue: Junan veturi");
+        Undo.RecordObject(area, "Junan veturi");
+        area.areaName = "Junan veturi"; area.useSidewalk = false;
+        area.music = car.music; area.ambience = car.ambience; area.ambienceVolume = car.ambienceVolume;
+        area.maxDepthY = DepthAt(floorPx);
+        area.minDepthY = CamY - CamHalf * TrainZoom + 1.2f;
+        area.camMinX = X0 + halfW; area.camMaxX = X0 + Mathf.Max(wU - halfW, halfW);
+        area.walkMinX = X0 + 0.5f; area.walkMaxX = X0 + wU - 0.5f;
+        area.backScale = 1f;
+        area.camSize = CamHalf * TrainZoom;   // lähennetty kamera: hahmo näyttää suuremmalta junan sisällä
+        // takaraja: oven sivuseinä vasemmalla, tuoli ja ohjauspöytä oikealla
+        area.depthLimitsExceedMax = false;
+        area.depthLimits = new[] {
+            new Vector2(X0, DepthAt(800f)), new Vector2(PX(65f), DepthAt(790f)), new Vector2(PX(205f), DepthAt(floorPx)),
+            new Vector2(PX(1020f), DepthAt(floorPx)), new Vector2(PX(1030f), DepthAt(695f)),
+            new Vector2(PX(1300f), DepthAt(695f)), new Vector2(PX(1310f), DepthAt(725f)), new Vector2(X0 + wU, DepthAt(725f)) };
+
+        float horizonY = top - horizonRow / ppu;
+        var layers = new[] { (skyPath, "Veturin taivas ja mesat", -10200, 0.3f, 1.15f, 3.47f, 0.4f, 0.02f), (sandPath, "Veturin kaukainen hiekka", -10100, 0.5f, 1f, -0.133f, 3f, 0.08f) };   // viimeinen: junan liikkeen vierimisnopeus (yks./s)
+        foreach (var (lp, lname, order, factor, mul, dy, autoV, bobA) in layers)
+        {
+            var spr = ImportShipSprite(lp, 100f, true, SpriteAlignment.Center);
+            if (spr == null) continue;
+            var s = new GameObject(lname).AddComponent<SpriteRenderer>();
+            s.transform.SetParent(root.transform, false);
+            float k = CamHalf * TrainZoom * 2f / spr.bounds.size.y * mul;
+            s.transform.position = new Vector3(X0 + wU * 0.5f, horizonY + dy * (CamHalf * TrainZoom / 6f), 0f);
+            s.sprite = spr; s.sortingOrder = order;
+            s.transform.localScale = new Vector3(k, k, 1f);
+            s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+            s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);   // + yksi laatta vierimistä varten
+            var par = s.gameObject.AddComponent<ParallaxLayer>();
+            par.autoSpeed = autoV; par.bobAmplitude = bobA; par.factor = factor; par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+        }
+
+        // ovet: pihalta veturiin (kysely), veturista vaunuun ja vaunun oikeasta päädystä veturiin.
+        // Junaan noustaan vain veturin kautta: vaunussa ei ole tuloovea pihalta.
+        foreach (var n in new[] { "Junapihalta junaan", "Junasta pihalle vasen", "Junasta pihalle oikea", "Vaunusta veturiin", "Junapihalta veturiin" })
+        { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+        float doorX = PX(120f);
+        float carRightDoorX = car.walkMaxX + 0.5f - 107f / ppu;   // päädyn ovi (kuvan x 1565 → 107 px oikeasta reunasta)
+        var back = new GameObject("Veturista vaunuun").AddComponent<Door>();
+        back.transform.SetParent(root.transform, false);
+        back.here = area; back.target = car; back.returnToLastDoor = false;
+        back.spawnPoint = new Vector2(carRightDoorX - 1.8f, car.maxDepthY - 0.9f);
+        back.prompt = "Mene vaunuun"; back.halfWidth = 1.2f; back.maxDistanceFromWall = 2.4f;
+        back.transform.position = new Vector3(doorX, area.MaxDepthAtX(doorX, area.maxDepthY), 0f);
+        var toCab = new GameObject("Vaunusta veturiin").AddComponent<Door>();
+        toCab.transform.SetParent(root.transform, false);
+        toCab.here = car; toCab.target = area; toCab.returnToLastDoor = false;
+        toCab.spawnPoint = new Vector2(doorX + 1.8f, DepthAt(floorPx + 110f));
+        toCab.prompt = "Mene veturiin"; toCab.halfWidth = 1.2f; toCab.maxDistanceFromWall = 2.4f;
+        toCab.transform.position = new Vector3(carRightDoorX, car.MaxDepthAtX(carRightDoorX, car.maxDepthY), 0f);
+        // pihalta veturin ovesta junaan (kuvan x ≈ 5170; kuva suurennettu 1,5-kertaiseksi)
+        var yard = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junapiha");
+        string doorInfo = "Junapihaa (124) ei löytynyt: aja 124 ja sitten tämä uudelleen, niin pihan veturin ovi yhdistyy.";
+        if (yard != null)
+        {
+            float yardPpu = 941f / (2f * CamHalf) / 1.5f;
+            float yardDoorX = yard.walkMinX - 0.5f + 5170f / yardPpu;
+            var board = new GameObject("Junapihalta veturiin").AddComponent<Door>();
+            Undo.RegisterCreatedObjectUndo(board.gameObject, "Veturin ovi");
+            board.here = yard; board.target = area; board.returnToLastDoor = false;
+            board.spawnPoint = new Vector2(doorX + 1.8f, DepthAt(floorPx + 110f));
+            board.prompt = "Nouse junaan"; board.confirmText = "Nouse junaan ja matkusta Thaitowniin?";
+            board.halfWidth = 1.2f; board.maxDistanceFromWall = 2.4f;
+            board.transform.position = new Vector3(yardDoorX, yard.maxDepthY, 0f);
+            EditorUtility.SetDirty(board);
+            doorInfo = "Pihan veturin ovi (E) kysyy: Nouse junaan ja matkusta Thaitowniin? Kyllä vie veturiin, ja veturin ovesta pääsee vaunuun.";
+        }
+        EditorUtility.SetDirty(area); EditorUtility.SetDirty(back); EditorUtility.SetDirty(toCab);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Veturin ohjaamo luotu (x = {X0:0}, leveys {wU:0} yksikköä). {doorInfo}\nTakaisin pihalle ei pääse junan lähdettyä. Ikkunoista näkyy aavikko.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/132. Junan takaparveke: vaunun takaovi ja tikkaat katolle (taivas ja maasto vierivät taustalla)")]
+    static void CreateTrainRearPlatform()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/junaparveke.png";   // 1672 x 941: kaide, lattia, vaunun takaseinä ovella ja tikkaat katolle; yläosa läpinäkyvä
+        const string skyPath = "Assets/Sprites/Taustat/aavikko_parallax_ylempi_loop.png";
+        const string sandPath = "Assets/Sprites/Taustat/aavikko_parallax_alempi_loop.png";
+        var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu 1");
+        if (car == null || AssetImporter.GetAtPath(path) == null) { Info("Tee ensin Junan vaunut (130). Tarvitaan junaparveke.png (Sprites/Taustat)."); return; }
+        foreach (var n in new[] { "Takaparvekkeen sisalto", "Alue: Junan takaparveke", "Vaunusta takaparvekkeelle", "Takaparvekkeelta vaunuun" })
+        { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+
+        const float X0 = 100000f;
+        const float floorPx = 660f;           // kaiteen juuri (takaraja)
+        const float horizonRow = 485f;        // kaiteen yläreuna: maaston horisontti
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        var sprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        if (sprite == null) { Info("Kuvan tuonti epäonnistui: " + path); return; }
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+        float PX(float px) => X0 + px / ppu;
+        float top = CamY + hU * 0.5f;
+        float DepthAt(float py) => top - py / ppu;
+
+        var root = new GameObject("Takaparvekkeen sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Takaparveke");
+        var bg = new GameObject("Takaparvekkeen tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.sprite = sprite; bg.sortingOrder = -10000;
+        bg.transform.position = new Vector3(X0 + wU * 0.5f, CamY, 0f);
+
+        float halfW = CamHalf * TrainZoom * 16f / 9f;
+        var area = ReuseArea("Alue: Junan takaparveke");
+        Undo.RecordObject(area, "Junan takaparveke");
+        area.areaName = "Junan takaparveke"; area.useSidewalk = false;
+        area.music = car.music; area.ambience = car.ambience; area.ambienceVolume = car.ambienceVolume;
+        area.maxDepthY = DepthAt(floorPx);
+        area.minDepthY = CamY - CamHalf * TrainZoom + 1.2f;
+        area.camMinX = X0 + halfW; area.camMaxX = X0 + Mathf.Max(wU - halfW, halfW);
+        area.walkMinX = X0 + 0.5f; area.walkMaxX = X0 + wU - 0.5f;
+        area.backScale = 1f;
+        area.camSize = CamHalf * TrainZoom;   // lähennetty kamera: hahmo näyttää suuremmalta junan sisällä
+        // takaraja: vino kaide vasemmalla, kaiteen juuri, sitten vaunun seinä (edempänä) ovelle asti
+        area.depthLimitsExceedMax = false;
+        area.depthLimits = new[] {
+            new Vector2(X0, DepthAt(890f)), new Vector2(PX(60f), DepthAt(870f)), new Vector2(PX(270f), DepthAt(floorPx)),
+            new Vector2(PX(1000f), DepthAt(floorPx)), new Vector2(PX(1040f), DepthAt(748f)), new Vector2(X0 + wU, DepthAt(748f)) };
+
+        // avoin taivas ja maasto kaiteen takana: vierivät, kun juna on liikkeessä
+        float horizonY = top - horizonRow / ppu;
+        var layers = new[] { (skyPath, "Takaparvekkeen taivas ja mesat", -10200, 0.3f, 1.15f, 3.47f, 0.4f, 0.02f), (sandPath, "Takaparvekkeen maasto", -10100, 0.5f, 1f, -0.133f, 3f, 0.08f) };
+        foreach (var (lp, lname, order, factor, mul, dy, autoV, bobA) in layers)
+        {
+            var spr = ImportShipSprite(lp, 100f, true, SpriteAlignment.Center);
+            if (spr == null) continue;
+            var s = new GameObject(lname).AddComponent<SpriteRenderer>();
+            s.transform.SetParent(root.transform, false);
+            float k = CamHalf * TrainZoom * 2f / spr.bounds.size.y * mul;
+            s.transform.position = new Vector3(X0 + wU * 0.5f, horizonY + dy * (CamHalf * TrainZoom / 6f), 0f);
+            s.sprite = spr; s.sortingOrder = order;
+            s.transform.localScale = new Vector3(k, k, 1f);
+            s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+            s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);   // + yksi laatta vierimistä varten
+            var par = s.gameObject.AddComponent<ParallaxLayer>();
+            par.autoSpeed = autoV; par.bobAmplitude = bobA; par.factor = factor; par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+        }
+
+        // ovet: vaunun vasen (peilattu) pääty <-> takaparvekkeen ovi (kuvan x ≈ 1455); tikkaat katolle (x ≈ 1175), kun katto on tehty
+        float doorX = PX(1455f);
+        float carLeftDoorX = car.walkMinX - 0.5f + 107f / ppu;   // päädyn ovi (peilattu, 107 px vasemmasta reunasta)
+        var toRear = new GameObject("Vaunusta takaparvekkeelle").AddComponent<Door>();
+        toRear.transform.SetParent(root.transform, false);
+        toRear.here = car; toRear.target = area; toRear.returnToLastDoor = false;
+        toRear.spawnPoint = new Vector2(doorX - 2.2f, DepthAt(floorPx + 160f));
+        toRear.prompt = "Mene takaparvekkeelle"; toRear.halfWidth = 1.2f; toRear.maxDistanceFromWall = 2.4f;
+        toRear.transform.position = new Vector3(carLeftDoorX, car.MaxDepthAtX(carLeftDoorX, car.maxDepthY), 0f);
+        var toCar = new GameObject("Takaparvekkeelta vaunuun").AddComponent<Door>();
+        toCar.transform.SetParent(root.transform, false);
+        toCar.here = area; toCar.target = car; toCar.returnToLastDoor = false;
+        toCar.spawnPoint = new Vector2(carLeftDoorX + 1.8f, car.maxDepthY - 0.9f);
+        toCar.prompt = "Mene vaunuun"; toCar.halfWidth = 1.2f; toCar.maxDistanceFromWall = 1.6f;
+        toCar.transform.position = new Vector3(doorX, area.MaxDepthAtX(doorX, area.maxDepthY), 0f);
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan katto");
+        string roofInfo = "Tikkaat katolle (x = " + PX(1175f).ToString("0.0") + ") tehdään, kun junan katto on tehty (alue \"Junan katto\").";
+        if (roof != null)
+        {
+            var up = new GameObject("Takaparvekkeelta katolle").AddComponent<Door>();
+            up.transform.SetParent(root.transform, false);
+            up.here = area; up.target = roof; up.climbHeight = 1.6f; up.climbTime = 0.9f;
+            up.spawnPoint = new Vector2(roof.walkMinX + 3f, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.4f));
+            up.prompt = "Kiipeä katolle"; up.halfWidth = 1.1f; up.maxDistanceFromWall = 2.0f;
+            up.transform.position = new Vector3(PX(1175f), area.MaxDepthAtX(PX(1175f), area.maxDepthY), 0f);
+            roofInfo = "Tikkaat vievät junan katolle.";
+        }
+        EditorUtility.SetDirty(area); EditorUtility.SetDirty(toRear); EditorUtility.SetDirty(toCar);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Junan takaparveke luotu (x = {X0:0}, leveys {wU:0} yksikköä). Vaunun vasemmasta päädystä (E) pääsee parvekkeelle ja parvekkeen ovesta takaisin vaunuun. {roofInfo}\nTaivas ja maasto vierivät, kun juna on liikkeessä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/133. Junan katto: vasen pääty, vaunut, väli, veturiliitos ja veturin katto (tikkaat takaparvekkeelta, taivas ja maasto vierivät)")]
+    static void CreateTrainRoof()
+    {
+        if (PlayModeBlocked()) return;
+        const string dir = "Assets/Sprites/Taustat/";
+        // järjestys vasemmalta: vasen pääty (tikkaat), loop, väli, loop, veturiliitos, veturin katto; kaikki 1672 x 941
+        // vasen pääty, sitten 4 vaunua: kussakin 3 loop-kuvaa (≈ vaunun pituus), vaunujen välissä väli, viimeisen jälkeen veturiliitos ja veturi
+        var fileList = new System.Collections.Generic.List<string> { "junakatto_vasen.png" };
+        var nameList = new System.Collections.Generic.List<string> { "Katon vasen pääty" };
+        for (int car = 1; car <= TrainCarCount; car++)
+        {
+            for (int k = 1; k <= 3; k++) { fileList.Add("junakatto_loop.png"); nameList.Add("Katon vaunu " + car + "." + k); }
+            if (car < TrainCarCount) { fileList.Add("junakatto_valissa.png"); nameList.Add("Katon väli " + car); }
+        }
+        fileList.Add("junakatto_veturiliitos.png"); nameList.Add("Katon veturiliitos");
+        fileList.Add("junakatto_veturi.png"); nameList.Add("Katon veturi");
+        string[] files = fileList.ToArray();
+        const string skyPath = "Assets/Sprites/Taustat/aavikko_parallax_ylempi_loop.png";
+        const string sandPath = "Assets/Sprites/Taustat/aavikko_parallax_alempi_loop.png";
+        foreach (var f in files) if (AssetImporter.GetAtPath(dir + f) == null) { Info("Puuttuu kuva: " + dir + f); return; }
+        var platform = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan takaparveke");
+        foreach (var n in new[] { "Katon sisalto", "Alue: Junan katto", "Takaparvekkeelta katolle", "Katolta alas parvekkeelle" })
+        { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+
+        const float X0 = 101000f;
+        const float backPx = 600f;            // katon takareuna (rivi ylhäältä)
+        const float frontPx = 805f;           // katon etureuna: edestä putoaa
+        const float horizonRow = 565f;        // katon takareuna: horisontti
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        float pieceW = 1672f;
+        float wU = files.Length * pieceW / ppu, hU = 941f / ppu;
+        float PX(float px) => X0 + px / ppu;
+        float top = CamY + hU * 0.5f;
+        float DepthAt(float py) => top - py / ppu;
+
+        var root = new GameObject("Katon sisalto");
+        Undo.RegisterCreatedObjectUndo(root, "Katto");
+        string[] names = nameList.ToArray();
+        var spriteCache = new System.Collections.Generic.Dictionary<string, Sprite>();
+        for (int i = 0; i < files.Length; i++)
+        {
+            if (!spriteCache.TryGetValue(files[i], out var sp)) spriteCache[files[i]] = sp = ImportShipSprite(dir + files[i], ppu, false, SpriteAlignment.Center);
+            if (sp == null) { Info("Kuvan tuonti epäonnistui: " + files[i]); return; }
+            var r = new GameObject(names[i]).AddComponent<SpriteRenderer>();
+            r.transform.SetParent(root.transform, false);
+            r.sprite = sp; r.sortingOrder = -10000;
+            r.transform.position = new Vector3(PX((i + 0.5f) * pieceW), CamY, 0f);
+        }
+
+        float halfW = CamHalf * TrainZoom * 16f / 9f;
+        var area = ReuseArea("Alue: Junan katto");
+        Undo.RecordObject(area, "Junan katto");
+        area.areaName = "Junan katto"; area.useSidewalk = false;
+        if (platform != null) { area.music = platform.music; area.ambience = platform.ambience; area.ambienceVolume = platform.ambienceVolume; }
+        area.maxDepthY = DepthAt(backPx);
+        area.minDepthY = DepthAt(frontPx);
+        area.camMinX = X0 + halfW; area.camMaxX = X0 + Mathf.Max(wU - halfW, halfW);
+        area.walkMinX = PX(300f); area.walkMaxX = PX(files.Length * pieceW - 290f);   // pyöristetty pää ja veturin nokka rajaavat
+        area.backScale = 1f;
+        area.camSize = CamHalf * TrainZoom;   // lähennetty kamera: hahmo näyttää suuremmalta junan sisällä
+        area.depthLimitsExceedMax = false;
+        area.depthLimits = new Vector2[0];
+
+        // ympärillä aavikko: taivas, mesat ja hiekka vierivät, kun juna on liikkeessä
+        float horizonY = top - horizonRow / ppu;
+        var layers = new[] { (skyPath, "Katon taivas ja mesat", -10200, 0.3f, 1.15f, 3.47f, 0.4f, 0.02f), (sandPath, "Katon maasto", -10100, 0.5f, 1f, -0.133f, 3f, 0.08f) };
+        foreach (var (lp, lname, order, factor, mul, dy, autoV, bobA) in layers)
+        {
+            var spr = ImportShipSprite(lp, 100f, true, SpriteAlignment.Center);
+            if (spr == null) continue;
+            var s = new GameObject(lname).AddComponent<SpriteRenderer>();
+            s.transform.SetParent(root.transform, false);
+            float k = CamHalf * TrainZoom * 2f / spr.bounds.size.y * mul;
+            s.transform.position = new Vector3(X0 + wU * 0.5f, horizonY + dy * (CamHalf * TrainZoom / 6f), 0f);
+            s.sprite = spr; s.sortingOrder = order;
+            s.transform.localScale = new Vector3(k, k, 1f);
+            s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+            s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);   // + yksi laatta vierimistä varten
+            var par = s.gameObject.AddComponent<ParallaxLayer>();
+            par.autoSpeed = autoV; par.bobAmplitude = bobA; par.factor = factor; par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+        }
+
+        // tikkaat: takaparvekkeelta katon vasempaan päähän (kuvan x ≈ 310) ja takaisin
+        string ladderInfo = "Takaparveketta (132) ei ole: aja se ja sitten tämä uudelleen, niin tikkaat yhdistyvät.";
+        if (platform != null)
+        {
+            float ladderUpX = platform.walkMinX - 0.5f + 1175f / ppu;   // tikkaat parvekkeen kuvassa
+            var up = new GameObject("Takaparvekkeelta katolle").AddComponent<Door>();
+            Undo.RegisterCreatedObjectUndo(up.gameObject, "Tikkaat katolle");
+            up.here = platform; up.target = area; up.climbHeight = 1.6f; up.climbTime = 0.9f;
+            up.spawnPoint = new Vector2(PX(470f), DepthAt(715f));
+            up.prompt = "Kiipeä katolle"; up.halfWidth = 1.1f; up.maxDistanceFromWall = 2.0f;
+            up.transform.position = new Vector3(ladderUpX, platform.maxDepthY, 0f);
+            var down = new GameObject("Katolta alas parvekkeelle").AddComponent<Door>();
+            down.transform.SetParent(root.transform, false);
+            down.here = area; down.target = platform; down.climbHeight = -1.6f; down.climbTime = 0.9f;
+            down.atFront = true; down.returnToLastDoor = false;
+            down.spawnPoint = new Vector2(ladderUpX, platform.maxDepthY - 0.8f);
+            down.prompt = "Kiipeä alas"; down.halfWidth = 1.1f; down.maxDistanceFromWall = 1.5f;
+            down.transform.position = new Vector3(PX(310f), area.minDepthY, 0f);
+            EditorUtility.SetDirty(up); EditorUtility.SetDirty(down);
+            ladderInfo = "Takaparvekkeen tikkaista (E) pääsee katon vasempaan päähän ja takaisin alas.";
+        }
+        EditorUtility.SetDirty(area);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Junan katto luotu (x = {X0:0}, leveys {wU:0} yksikköä, {files.Length} kuvaa). {ladderInfo}\nKatolla kävellään kapealla kaistalla; taivas ja maasto vierivät, kun juna on liikkeessä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/134. Junamatkan taustavaiheet: aavikosta yölliseen kaupunkiin (korvaa junan alueiden taivas ja maasto, aja 130–133 jälkeen)")]
+    static void CreateJourneyBackdrop()
+    {
+        if (PlayModeBlocked()) return;
+        const string dir = "Assets/Sprites/Taustat/junamatka_vaihe";   // junamatka_vaihe1.png, 2, 3 ... (peilattu tuplaleveys: saumaton toisto)
+        var phases = new System.Collections.Generic.List<string>();
+        for (int i = 1; AssetImporter.GetAtPath(dir + i + ".png") != null; i++) phases.Add(dir + i + ".png");
+        if (phases.Count == 0) { Info("Ei taustavaiheita: tarvitaan " + dir + "1.png ..."); return; }
+
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        float hU = 941f / ppu, top = CamY + hU * 0.5f;
+        float halfW = CamHalf * TrainZoom * 16f / 9f;
+        // alue, juuri, x0, leveys kuvapikseleinä, horisontti (rivi), vanhat kerrokset
+        var targets = new[] {
+            ("Junan vaunu 1", "Vaunun sisalto 1", 98000f, 6412f, 390f, new[] { "Vaunun taivas ja mesat", "Vaunun kaukainen hiekka" }),
+            ("Junan vaunu 2", "Vaunun sisalto 2", 98100f, 6412f, 390f, new[] { "Vaunun taivas ja mesat", "Vaunun kaukainen hiekka" }),
+            ("Junan vaunu 3", "Vaunun sisalto 3", 98200f, 6412f, 390f, new[] { "Vaunun taivas ja mesat", "Vaunun kaukainen hiekka" }),
+            ("Junan vaunu 4", "Vaunun sisalto 4", 98300f, 6412f, 390f, new[] { "Vaunun taivas ja mesat", "Vaunun kaukainen hiekka" }),
+            ("Junan veturi", "Veturin sisalto", 99000f, 1672f, 380f, new[] { "Veturin taivas ja mesat", "Veturin kaukainen hiekka" }),
+            ("Junan takaparveke", "Takaparvekkeen sisalto", 100000f, 1672f, 485f, new[] { "Takaparvekkeen taivas ja mesat", "Takaparvekkeen maasto" }),
+            ("Junan katto", "Katon sisalto", 101000f, (3f * TrainCarCount + TrainCarCount - 1 + 3f) * 1672f, 565f, new[] { "Katon taivas ja mesat", "Katon maasto" }) };
+        var done = new System.Collections.Generic.List<string>();
+        var missing = new System.Collections.Generic.List<string>();
+        const float imgRows = 965f, imgHorizon = 690f;   // kuvan korkeus ja horisontti (vuorten juuri) riveinä
+        const float imgScale = 0.85f;                    // kuvarivin koko ruudun riveinä
+        // lähimaasto: junamatka_lahi1.png ... (läpinäkyvä taivas, maan yläreuna kuvan rivillä 480)
+        var nearPhases = new System.Collections.Generic.List<string>();
+        for (int i = 1; AssetImporter.GetAtPath("Assets/Sprites/Taustat/junamatka_lahi" + i + ".png") != null; i++) nearPhases.Add("Assets/Sprites/Taustat/junamatka_lahi" + i + ".png");
+        const float nearGround = 480f, nearScale = 1f;
+        foreach (var (areaName, rootName, X0, widthPx, horizonRow, oldNames) in targets)
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == areaName);
+            var rootGo = GameObject.Find(rootName);
+            if (area == null || rootGo == null) { missing.Add(areaName); continue; }
+            foreach (var n in oldNames)
+            {
+                var t = rootGo.transform.Find(n);
+                if (t != null) Undo.DestroyObjectImmediate(t.gameObject);
+            }
+            for (int i = rootGo.transform.childCount - 1; i >= 0; i--)
+            {
+                var c = rootGo.transform.GetChild(i);
+                if (c.name.StartsWith("Junamatkan vaihe ") || c.name.StartsWith("Junamatkan lähimaasto ")) Undo.DestroyObjectImmediate(c.gameObject);
+            }
+            float wU = widthPx / ppu;
+            float horizonY = top - horizonRow / ppu;
+            for (int i = 0; i < phases.Count; i++)
+            {
+                var spr = ImportShipSprite(phases[i], 100f, true, SpriteAlignment.Center);
+                if (spr == null) continue;
+                var s = new GameObject("Junamatkan vaihe " + (i + 1)).AddComponent<SpriteRenderer>();
+                s.transform.SetParent(rootGo.transform, false);
+                float k = 100f * imgScale / ppu;   // kuvan 1 rivi = imgScale ruudun riviä
+                s.transform.position = new Vector3(X0 + wU * 0.5f, horizonY + (imgHorizon - imgRows * 0.5f) * imgScale / ppu, 0f);
+                s.sprite = spr; s.sortingOrder = -10200 + i;
+                s.transform.localScale = new Vector3(k, k, 1f);
+                s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+                const float factor = 0.3f;
+                s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);
+                var par = s.gameObject.AddComponent<ParallaxLayer>();
+                par.autoSpeed = 1.5f; par.bobAmplitude = 0.04f; par.factor = factor;
+                par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+                s.gameObject.AddComponent<JourneyPhaseLayer>().phase = i;
+                EditorUtility.SetDirty(s.gameObject);
+            }
+            // lähimaasto: nopea kerros kaukaisen edessä (vauhdin tunne), oma kuvasarja samalla matkalla
+            float groundRow = areaName.StartsWith("Junan vaunu") ? 330f : areaName == "Junan veturi" ? 300f : areaName == "Junan takaparveke" ? 520f : 585f;   // maan yläreuna ruudulla (rivi)
+            float groundY = top - groundRow / ppu;
+            for (int i = 0; i < nearPhases.Count; i++)
+            {
+                var spr = ImportShipSprite(nearPhases[i], 100f, true, SpriteAlignment.Center);
+                if (spr == null) continue;
+                var s = new GameObject("Junamatkan lähimaasto " + (i + 1)).AddComponent<SpriteRenderer>();
+                s.transform.SetParent(rootGo.transform, false);
+                float k = 100f * nearScale / ppu;
+                s.transform.position = new Vector3(X0 + wU * 0.5f, groundY - (imgRows * 0.5f - nearGround) * nearScale / ppu, 0f);
+                s.sprite = spr; s.sortingOrder = -10150 + i;
+                s.transform.localScale = new Vector3(k, k, 1f);
+                s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+                const float nearFactor = 0.6f;
+                s.size = new Vector2((2f * halfW + (area.camMaxX - area.camMinX) * nearFactor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);
+                var par = s.gameObject.AddComponent<ParallaxLayer>();
+                par.autoSpeed = 5f; par.bobAmplitude = 0.09f; par.factor = nearFactor;   // nopea: lähellä oleva maa ohittaa ikkunan
+                par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
+                var jp = s.gameObject.AddComponent<JourneyPhaseLayer>(); jp.phase = i; jp.group = 1;
+                EditorUtility.SetDirty(s.gameObject);
+            }
+            done.Add(areaName);
+        }
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Junamatkan taustavaiheet ({phases.Count} kuvaa) ja lähimaasto ({nearPhases.Count} kuvaa) tehty alueille: {string.Join(", ", done)}." + (missing.Count > 0 ? $"\nPuuttuvat alueet (aja 130–133 ensin): {string.Join(", ", missing)}." : "") +
+             "\nMatka etenee junan liikkeessä (oletus 240 s): aavikko häipyy vaihe vaiheelta kohti kaupunkia. Lisää vaiheita nimillä junamatka_vaihe6.png, ... ja aja tämä uudelleen.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/135. Ravintolavaunu (vaunu 3): tiski, Sohvi tiskin takana, pullot hyllyyn, pöydät ja pullot")]
+    static void CreateDiningCar()
+    {
+        if (PlayModeBlocked()) return;
+        const string topPath = "Assets/Sprites/Rekvisiitta/junatiski_ylaosa.png";     // takabaari (hyllyt), 1010 x 330
+        const string bottomPath = "Assets/Sprites/Rekvisiitta/junatiski_alaosa.png";  // tiskilevy ja etuosa, 1010 x 309
+        var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu 3");
+        if (car == null || AssetImporter.GetAtPath(topPath) == null || AssetImporter.GetAtPath(bottomPath) == null)
+        { Info("Tee ensin Junan vaunut (130). Tarvitaan junatiski_ylaosa.png ja junatiski_alaosa.png (Sprites/Rekvisiitta)."); return; }
+        foreach (var n in new[] { "Ravintolavaunun kalusteet", "Ravintolavaunun tiski" })
+        { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+
+        const float cropW = 1010f, cropH = 639f, splitRow = 330f;   // tiskikuvan koko ja ylä-/alaosan raja
+        const float cs = 0.62f;                                     // yksi tiskikuvan pikseli = cs ruudun riviä (tiskin korkeus ≈ 400 riviä)
+        const float counterCenterPx = 3206f, counterBaseRow = 700f; // tiski vaunun keskellä takaseinän vieressä
+        float ppu = 941f / (2f * CamHalf * TrainZoom);
+        float X0 = car.walkMinX - 0.5f;
+        float top = CamY + 941f / ppu * 0.5f;
+        float DepthAt(float py) => top - py / ppu;
+        float PX(float px) => X0 + px / ppu;
+        float xC = PX(counterCenterPx), baseY = DepthAt(counterBaseRow);
+        float spritePpu = ppu / cs;
+
+        var root = new GameObject("Ravintolavaunun tiski");
+        Undo.RegisterCreatedObjectUndo(root, "Ravintolavaunu");
+        var topSpr = ImportShipSprite(topPath, spritePpu, false, SpriteAlignment.BottomCenter);
+        var botSpr = ImportShipSprite(bottomPath, spritePpu, false, SpriteAlignment.BottomCenter);
+        if (topSpr == null || botSpr == null) { Info("Tiskin kuvien tuonti epäonnistui."); return; }
+        float RowToY(float cropRow) => baseY + (cropH - cropRow) * cs / ppu;     // tiskikuvan rivi (ylhäältä) -> maailman y
+        float ColToX(float cropCol) => xC + (cropCol - cropW * 0.5f) * cs / ppu; // tiskikuvan sarake -> maailman x
+        var back = new GameObject("Takabaari").AddComponent<SpriteRenderer>();
+        back.transform.SetParent(root.transform, false);
+        back.sprite = topSpr; back.sortingOrder = -9600;
+        back.transform.position = new Vector3(xC, RowToY(splitRow), 0f);
+        var front = new GameObject("Tiskilevy").AddComponent<SpriteRenderer>();
+        front.transform.SetParent(root.transform, false);
+        front.sprite = botSpr; front.sortingOrder = -9400;                       // hahmojen takana, Sohvin edessä (peittää hänen alavartalonsa)
+        front.transform.position = new Vector3(xC, baseY, 0f);
+
+        // pullot hyllyille: koristeita (ei rikottavia), tiskilevyn ja takabaarin välissä
+        string FindSheet(string n) => FindTexture(n);
+        var kinds = new System.Collections.Generic.List<(Sprite sp, float rows)>();
+        foreach (var (n, rows) in new[] { ("pullo_olut", 52f), ("pullo_sininen", 58f), ("pullo_likoori", 64f), ("pullo_vodka", 70f) })
+        {
+            string bp = FindSheet(n); if (bp == null) continue;
+            SetupAndSlice(bp);
+            var sp = LoadSprites(n).OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).FirstOrDefault();
+            if (sp != null) kinds.Add((sp, rows));
+        }
+        int bottleCount = 0;
+        if (kinds.Count > 0)
+        {
+            var rnd = new System.Random(135);
+            // hyllylaudat tiskikuvan riveillä (pullojen alareuna) ja sarakealueet (vasen ja oikea puolisko, keskipylväs välissä)
+            foreach (float shelfRow in new[] { 182f, 312f })
+                foreach (var (c0, c1) in new[] { (125f, 480f), (530f, 890f) })
+                {
+                    float c = c0 + 14f;
+                    while (true)
+                    {
+                        var kd = kinds[rnd.Next(kinds.Count)];
+                        float hUnits = kd.rows * (0.92f + 0.16f * (float)rnd.NextDouble()) / ppu;
+                        float scale = hUnits / kd.sp.bounds.size.y;
+                        float wCols = kd.sp.bounds.size.x * scale * ppu / cs;       // pullon leveys tiskikuvan sarakkeina
+                        if (c + wCols > c1) break;
+                        var bGo = new GameObject("Hyllypullo").AddComponent<SpriteRenderer>();
+                        bGo.transform.SetParent(root.transform, false);
+                        bGo.sprite = kd.sp; bGo.sortingOrder = -9560;
+                        bGo.transform.localScale = new Vector3(scale, scale, 1f);
+                        bGo.transform.position = new Vector3(ColToX(c + wCols * 0.5f), RowToY(shelfRow) - kd.sp.bounds.min.y * scale, 0f);
+                        bottleCount++;
+                        c += wCols + 6f + 16f * (float)rnd.NextDouble();
+                        if (rnd.Next(7) == 0) c += 30f;                              // välillä aukko
+                    }
+                }
+        }
+
+        // Sohvi tiskin taakse ja kauppa tiskin eteen
+        string shopInfo = "Sohvi puuttuu (aja 14 ja 1)";
+        var sohvi = GameObject.Find("Sohvi");
+        if (sohvi != null)
+        {
+            var s2 = Object.Instantiate(sohvi, root.transform);
+            s2.name = "Ravintolavaunun Sohvi";
+            s2.transform.position = new Vector3(xC, baseY + 0.05f, 0f);
+            s2.transform.localScale = sohvi.transform.localScale * 0.9f;
+            var sr = s2.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.sortingOrder = -9500;                               // takabaarin edessä, tiskilevyn takana
+            shopInfo = "Sohvi tiskin takana";
+        }
+        var clubShop = GameObject.Find("Baaritiski");
+        float limitY = baseY;                                                       // tiskin etureuna = takaraja tiskin kohdalla
+        // takaraja: tiski estää kävelyn sen taakse (tiskin leveys + hieman reunoille)
+        float cl = ColToX(0f), cr = ColToX(cropW);
+        float floorY = DepthAt(668f);
+        Undo.RecordObject(car, "Ravintolavaunun takaraja");
+        car.depthLimits = new[] {
+            new Vector2(X0, DepthAt(806f)), new Vector2(PX(192f), floorY),
+            new Vector2(cl - 0.15f, floorY), new Vector2(cl, limitY), new Vector2(cr, limitY), new Vector2(cr + 0.15f, floorY),
+            new Vector2(PX(6412f - 192f), floorY), new Vector2(X0 + 6412f / ppu, DepthAt(806f)) };
+        EditorUtility.SetDirty(car);
+        if (clubShop != null)
+        {
+            var sh = Object.Instantiate(clubShop, root.transform);
+            sh.name = "Ravintolavaunun tiski";
+            sh.transform.position = new Vector3(xC, car.MaxDepthAtX(xC, car.maxDepthY), 0f);
+            var shop = sh.GetComponent<ShopCounter>();
+            if (shop != null) { shop.here = car; shop.title = "RAVINTOLAVAUNU"; shop.halfWidth = (cr - cl) * 0.5f; shop.maxDistanceFromWall = 1.2f; }
+            shopInfo += ", kauppa tiskin edessä";
+        }
+
+        // pöydät pulloineen ja tuoleineen vaunun lattialle tiskin molemmin puolin (ovet päissä ja tiski vapaaksi)
+        var furnRoot = new GameObject("Ravintolavaunun kalusteet");
+        Undo.RegisterCreatedObjectUndo(furnRoot, "Ravintolavaunun kalusteet");
+        var tables = new[] { new Vector3(PX(1000f), DepthAt(770f), 0f), new Vector3(PX(1850f), DepthAt(805f), 0f), new Vector3(PX(2450f), DepthAt(785f), 0f),
+            new Vector3(PX(3950f), DepthAt(785f), 0f), new Vector3(PX(4560f), DepthAt(805f), 0f), new Vector3(PX(5400f), DepthAt(770f), 0f) };
+        var info = AddBottleTables(furnRoot.transform, tables, 135, false, ti => ti % 3 == 2 ? float.NaN : (ti % 2 == 0 ? -1f : 1f) * 0.62f);
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        Info($"Ravintolavaunu (vaunu 3) valmis: tiski vaunun keskellä, {bottleCount} pulloa hyllyillä, {shopInfo}.\n{tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia) ja {info.chairs} tuolia lattialla.\nTiskin eteen E avaa kaupan. Tiski estää kävelyn sen taakse.\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)")]
     static void CreateBarUpstairs()
     {

@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 9ac543c3cc2de7c42a39ceec45e56795
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3933369947461966237
+    second: junamatka_lahi6_0
+  - first:
+      213: -2053016034133563649
+    second: junamatka_lahi6_1
+  - first:
+      213: -7298818197695802039
+    second: junamatka_lahi6_2
+  - first:
+      213: -7783066574390141710
+    second: junamatka_lahi6_3
+  - first:
+      213: 5007926141070479531
+    second: junamatka_lahi6_4
+  - first:
+      213: -4674415854123256117
+    second: junamatka_lahi6_5
+  - first:
+      213: 2268256950499458952
+    second: junamatka_lahi6_6
+  - first:
+      213: -7729754056555026077
+    second: junamatka_lahi6_7
+  - first:
+      213: -3790036052725131864
+    second: junamatka_lahi6_8
+  - first:
+      213: -3466574492048431584
+    second: junamatka_lahi6_9
+  - first:
+      213: -8130987376750589077
+    second: junamatka_lahi6_10
+  - first:
+      213: 7762059265776261205
+    second: junamatka_lahi6_11
+  - first:
+      213: -3319920754507956787
+    second: junamatka_lahi6_12
+  - first:
+      213: 282175684935113712
+    second: junamatka_lahi6_13
+  - first:
+      213: 5178867887234348853
+    second: junamatka_lahi6_14
+  - first:
+      213: 3033057329409283773
+    second: junamatka_lahi6_15
+  - first:
+      213: 1822359524331866355
+    second: junamatka_lahi6_16
+  - first:
+      213: 2667305045505904099
+    second: junamatka_lahi6_17
+  - first:
+      213: 6374053707776278935
+    second: junamatka_lahi6_18
+  - first:
+      213: -2890192148769400115
+    second: junamatka_lahi6_19
+  - first:
+      213: -3717217498015278555
+    second: junamatka_lahi6_20
+  - first:
+      213: 1450931450164860338
+    second: junamatka_lahi6_21
+  - first:
+      213: -2189157932558430211
+    second: junamatka_lahi6_22
+  - first:
+      213: 9097270709107623643
+    second: junamatka_lahi6_23
+  - first:
+      213: -8484536394155645394
+    second: junamatka_lahi6_24
+  - first:
+      213: 548502148507884361
+    second: junamatka_lahi6_25
+  - first:
+      213: -6800911629612062458
+    second: junamatka_lahi6_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: junamatka_lahi6_0
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 954
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36625576fdcd969c0800000000000000
+      internalID: -3933369947461966237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_1
+      rect:
+        serializedVersion: 2
+        x: 2938
+        y: 954
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6a9475bc83283e0800000000000000
+      internalID: -2053016034133563649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 771
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9455f2e158365ba90800000000000000
+      internalID: -7298818197695802039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_3
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 715
+        width: 271
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc5242ef2efcf390800000000000000
+      internalID: -7783066574390141710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_4
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 691
+        width: 193
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba016ebca4abf7540800000000000000
+      internalID: 5007926141070479531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_5
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 843
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6778afb83212fb0800000000000000
+      internalID: -4674415854123256117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_6
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 707
+        width: 180
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88fb4d1cda77a7f10800000000000000
+      internalID: 2268256950499458952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_7
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 684
+        width: 325
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36927e9b3a56ab490800000000000000
+      internalID: -7729754056555026077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_8
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 707
+        width: 180
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5156f5a46176bc0800000000000000
+      internalID: -3790036052725131864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_9
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 843
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026e50ebdd044efc0800000000000000
+      internalID: -3466574492048431584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_10
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 691
+        width: 193
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b88978f0ee82f80800000000000000
+      internalID: -8130987376750589077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_11
+      rect:
+        serializedVersion: 2
+        x: 2529
+        y: 715
+        width: 271
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5589f1ee6cf58bb60800000000000000
+      internalID: 7762059265776261205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_12
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 771
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd3b19d9a54de1d0800000000000000
+      internalID: -3319920754507956787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_13
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 692
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb5fc85a4d7ae300800000000000000
+      internalID: 282175684935113712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_14
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 698
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 537f74597e80fd740800000000000000
+      internalID: 5178867887234348853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_15
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 713
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6d5de3295971a20800000000000000
+      internalID: 3033057329409283773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_16
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 697
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8c9d405525a4910800000000000000
+      internalID: 1822359524331866355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_17
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 709
+        width: 156
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed8cf09ecb240520800000000000000
+      internalID: 2667305045505904099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_18
+      rect:
+        serializedVersion: 2
+        x: 2343
+        y: 705
+        width: 46
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79144477310357850800000000000000
+      internalID: 6374053707776278935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_19
+      rect:
+        serializedVersion: 2
+        x: 2742
+        y: 713
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca1af7bd89f3e7d0800000000000000
+      internalID: -2890192148769400115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_20
+      rect:
+        serializedVersion: 2
+        x: 2902
+        y: 698
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52adee5516ac96cc0800000000000000
+      internalID: -3717217498015278555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_21
+      rect:
+        serializedVersion: 2
+        x: 2954
+        y: 692
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5d480777eb22410800000000000000
+      internalID: 1450931450164860338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_22
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 695
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff40a0857c8e91e0800000000000000
+      internalID: -2189157932558430211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_23
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 697
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd60de1b28fff3e70800000000000000
+      internalID: 9097270709107623643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3260
+        height: 688
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26aa7e3a1fd04a80800000000000000
+      internalID: -8484536394155645394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_25
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 678
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94bd9584ccbac9700800000000000000
+      internalID: 548502148507884361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junamatka_lahi6_26
+      rect:
+        serializedVersion: 2
+        x: 2912
+        y: 678
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6096628d7ee4e91a0800000000000000
+      internalID: -6800911629612062458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      junamatka_lahi6_0: -3933369947461966237
+      junamatka_lahi6_1: -2053016034133563649
+      junamatka_lahi6_10: -8130987376750589077
+      junamatka_lahi6_11: 7762059265776261205
+      junamatka_lahi6_12: -3319920754507956787
+      junamatka_lahi6_13: 282175684935113712
+      junamatka_lahi6_14: 5178867887234348853
+      junamatka_lahi6_15: 3033057329409283773
+      junamatka_lahi6_16: 1822359524331866355
+      junamatka_lahi6_17: 2667305045505904099
+      junamatka_lahi6_18: 6374053707776278935
+      junamatka_lahi6_19: -2890192148769400115
+      junamatka_lahi6_2: -7298818197695802039
+      junamatka_lahi6_20: -3717217498015278555
+      junamatka_lahi6_21: 1450931450164860338
+      junamatka_lahi6_22: -2189157932558430211
+      junamatka_lahi6_23: 9097270709107623643
+      junamatka_lahi6_24: -8484536394155645394
+      junamatka_lahi6_25: 548502148507884361
+      junamatka_lahi6_26: -6800911629612062458
+      junamatka_lahi6_3: -7783066574390141710
+      junamatka_lahi6_4: 5007926141070479531
+      junamatka_lahi6_5: -4674415854123256117
+      junamatka_lahi6_6: 2268256950499458952
+      junamatka_lahi6_7: -7729754056555026077
+      junamatka_lahi6_8: -3790036052725131864
+      junamatka_lahi6_9: -3466574492048431584
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

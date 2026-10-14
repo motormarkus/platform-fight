@@ -32,7 +32,10 @@ public class Door : MonoBehaviour
     [Tooltip("Ovi on lukossa, kunnes kaikki nämä viholliset on voitettu (esim. romuttamon pihan vartijat).")]
     public Enemy[] guards;
     public string guardsLockedText = "Ovi on lukossa. Voita ensin pihan vartijat.";
+    [Tooltip("Jos asetettu, E kysyy ensin tämän kysymyksen (E / Enter = kyllä, Esc / Q = ei) ennen siirtymää, esim. junamatka.")]
+    public string confirmText;
     float lockedMsgUntil;
+    bool confirming;
 
     bool GuardsAlive
     {
@@ -69,7 +72,13 @@ public class Door : MonoBehaviour
     void Update()
     {
         if (pc == null) pc = FindFirstObjectByType<PlayerController>();
-        if (pc == null || busy) { near = false; return; }
+        if (pc == null || busy) { near = false; confirming = false; return; }
+        if (confirming)
+        {
+            if (Pressed() || EnterPressed()) { confirming = false; StartCoroutine(Go()); }
+            else if (CancelPressed()) { confirming = false; pc.enabled = true; }
+            return;
+        }
 
         Vector3 p = pc.transform.position;
         near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
@@ -79,8 +88,28 @@ public class Door : MonoBehaviour
         if (near && Pressed())
         {
             if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
+            else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; pc.enabled = false; }
             else StartCoroutine(Go());
         }
+    }
+
+    static bool EnterPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return Keyboard.current != null && (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.Return);
+#endif
+    }
+
+    static bool CancelPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return (Keyboard.current != null && (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.backspaceKey.wasPressedThisFrame))
+            || (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
+#endif
     }
 
     static bool Pressed()
@@ -156,13 +185,14 @@ public class Door : MonoBehaviour
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
             GUI.color = Color.white;
         }
-        if (!near) return;
+        if (!near && !confirming) return;
         if (style == null)
         {
             style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, wordWrap = true };
             style.normal.textColor = Color.white;
         }
-        string text = needsJunkyardKey && !PieWar.JunkyardKey
+        string text = confirming ? Loc.T(confirmText) + "  [E] Kyllä   [Esc] Ei"
+            : needsJunkyardKey && !PieWar.JunkyardKey
             ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
             : GuardsAlive
             ? (Time.unscaledTime < lockedMsgUntil ? guardsLockedText : "[E]  " + Loc.T(prompt) + " (lukossa)")
