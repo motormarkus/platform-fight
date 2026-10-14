@@ -452,6 +452,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int throwDamage = 18;
     [Tooltip("Heittää eteenpäin (ruudun poikki) eikä selän taakse.")]
     public bool throwForward;
+    [Tooltip("Käänteinen lentosuunta heitettävälle (hero, vihu tai pöytä): kuvat ja ote pysyvät ennallaan, vain heiton suunta kääntyy. Prätkäjätkä ja Rekkamies saavat tämän automaattisesti.")]
+    public bool throwFlip;
     [Tooltip("Selän taakse heitettäessä: kääntyykö heittäjä heittosuuntaan (Kovis) vai pysyykö alkuperäisessä suunnassa (kuvat päättyvät alkuasentoon).")]
     public bool throwTurnsAround = true;
     [Tooltip("Heittää kenet tahansa (portsari), ei vain liittolaisia. Isot hahmot lentävät lyhyemmälle (heavyThrowScale).")]
@@ -872,6 +874,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         health = maxHealth;
         brain = GetComponent<DeaconBoss>();
+        if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwFlip = true;   // heitettävä lensi väärään suuntaan
         if (displayName == "Horhe" || displayName == "Puliukko")
         {
             // avokämmenläimäykset (Resources/Sfx/horhe/slap1–3): puliukon kaikki iskut, Horhen läpsykombo
@@ -1132,7 +1135,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 else if (heldBarrel != null)
                 {
                     HoldBarrel(0.7f, 3.0f);
-                    float dir = facingRight ? 1f : -1f;
+                    float dir = (facingRight ? 1f : -1f) * (throwFlip ? -1f : 1f);
                     heldBarrel.Throw(dir * barrelThrowSpeed, barrelThrowUp, this, barrelDamage);
                     heldBarrel = null;
                     if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
@@ -1393,7 +1396,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 else if (!thrown)
                 {
                     thrown = true;
-                    float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f);   // eteen tai selän taakse
+                    float dir = (facingRight ? 1f : -1f) * (throwForward ? 1f : -1f) * (throwFlip ? -1f : 1f);   // eteen tai selän taakse (throwFlip kääntää lentosuunnan)
                     if (grabbedEnemy != null)
                     {
                         grabbedEnemy.thrownByEnemy = true;   // keinoja: ei kameran tärähdystä eikä pysäytystä
