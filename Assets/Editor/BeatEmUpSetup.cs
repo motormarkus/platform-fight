@@ -8499,9 +8499,7 @@ public static class BeatEmUpSetup
             SpawnWalker(root.transform, sprites, "John (vaunu " + c + ")", car, counts, 0.067f, 700f, c == 2 ? 3000f : 5700f, c == 2 ? 1300f : 4900f, 0.62f, carPpu, 1.5f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("John lisätty: " + string.Join(", ", names) + ". Hän seisoo (kello), lähtee kävelemään, pysähtyy ja toistaa. Ei taistelija eikä lyötävissä.
-
-Tallenna scene (Ctrl+S).");
+        Info("John lisätty: " + string.Join(", ", names) + ". Hän seisoo (kello), lähtee kävelemään, pysähtyy ja toistaa. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/142. Jade juna-asemalle ja vaunuihin (ei pihalle; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)")]
@@ -8528,9 +8526,7 @@ Tallenna scene (Ctrl+S).");
             SpawnWalker(root.transform, sprites, "Jade (vaunu " + c + ")", car, counts, 0.083f, 700f, c == 1 ? 5700f : 2800f, c == 1 ? 2200f : 1500f, 0.55f, carPpu, 1.4f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Jade lisätty: " + string.Join(", ", names) + ". Pihalla häntä ei ole. Ei taistelija eikä lyötävissä.
-
-Tallenna scene (Ctrl+S).");
+        Info("Jade lisätty: " + string.Join(", ", names) + ". Pihalla häntä ei ole. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/143. Meredith ratapihalle ja vaunuihin (seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)")]
@@ -8557,9 +8553,7 @@ Tallenna scene (Ctrl+S).");
             SpawnWalker(root.transform, sprites, "Meredith (vaunu " + c + ")", car, counts, 0.083f, c == 2 ? 3200f : 3700f, 5700f, c == 2 ? 4300f : 4500f, 0.45f, carPpu, 1.3f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Meredith lisätty: " + string.Join(", ", names) + ". Ei taistelija eikä lyötävissä.
-
-Tallenna scene (Ctrl+S).");
+        Info("Meredith lisätty: " + string.Join(", ", names) + ". Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/144. Violet juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)")]
@@ -8579,9 +8573,7 @@ Tallenna scene (Ctrl+S).");
         SpawnWalker(root.transform, sprites, "Violet (asema)", station, counts, 0.083f, 650f, 1500f, 1050f, 0.4f, 941f / (2f * CamHalf), 1.4f);
         SpawnWalker(root.transform, sprites, "Violet (ratapiha)", yard, counts, 0.083f, 2350f, 3150f, 2750f, 0.55f, 941f / (2f * CamHalf) / 1.5f, 1.4f);
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Violet lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.
-
-Tallenna scene (Ctrl+S).");
+        Info("Violet lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/145. Devo juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)")]
@@ -8601,9 +8593,7 @@ Tallenna scene (Ctrl+S).");
         SpawnWalker(root.transform, sprites, "Devo (asema)", station, counts, 0.083f, 1550f, 2400f, 1950f, 0.6f, 941f / (2f * CamHalf), 1.5f);
         SpawnWalker(root.transform, sprites, "Devo (ratapiha)", yard, counts, 0.083f, 450f, 1350f, 900f, 0.4f, 941f / (2f * CamHalf) / 1.5f, 1.5f);
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Devo lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.
-
-Tallenna scene (Ctrl+S).");
+        Info("Devo lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)")]
