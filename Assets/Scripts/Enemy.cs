@@ -2834,6 +2834,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         awake = true;
         comboHits++; lastHitTime = Time.time;
+        if (player != null && player.InPunchChain) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - damage);
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;

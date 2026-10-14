@@ -8453,9 +8453,12 @@ public static class BeatEmUpSetup
         var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
         visual.transform.localPosition = new Vector3(0f, -0.01f, 0f);
         visual.sprite = sprites[0];
+        // kaikki hieman leveämmiksi (vastaa pelin hahmojen vankkuutta); Devo on lisäksi isompi (Rocco oli häntä selvästi suurempi)
+        float grow = label.StartsWith("Devo") ? 1.12f : 1f, wide = 1.08f;
+        visual.transform.localScale = new Vector3(wide * grow, grow, 1f);
         var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
         shadow.color = new Color(0f, 0f, 0f, 0.3f);
-        shadow.transform.localScale = new Vector3(1.2f, 0.4f, 1f);
+        shadow.transform.localScale = new Vector3(1.2f * wide * grow, 0.4f * grow, 1f);
         var j = go.AddComponent<NpcWalker>();
         j.area = area; j.body = visual; j.shadow = shadow; j.sprites = sprites; j.speed = speed;
         j.standCount = counts[0]; j.startCount = counts[1]; j.walkCount = counts[2]; j.stopCount = counts[3]; j.stopMoveCount = counts[4];
@@ -8486,17 +8489,17 @@ public static class BeatEmUpSetup
         var root = new GameObject("John");
         Undo.RegisterCreatedObjectUndo(root, "John");
         var names = new List<string>();
-        int[] counts = { 34, 14, 23, 31, 17 };   // stand, start, walk, stop, stopMove
+        int[] counts = { 34, 12, 19, 24, 14 };   // stand, start, walk, stop, stopMove
         // laituri: aseman oven (kuvan x 115 px) ja veturin välillä
         float yardPpu = 941f / (2f * CamHalf) / 1.5f;
-        SpawnWalker(root.transform, sprites, "John (laituri)", yard, counts, 0.067f, 1400f, 2300f, 1850f, 0.35f, yardPpu, 1.5f); names.Add("laituri");
+        SpawnWalker(root.transform, sprites, "John (laituri)", yard, counts, 0.07f, 450f, 4000f, 1850f, 0.4f, yardPpu, 1.9f); names.Add("laituri");
         // vaunut 2 ja 4
         float carPpu = 941f / (2f * CamHalf * TrainZoom);
         foreach (int c in new[] { 2, 4 })
         {
             var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu " + c);
             if (car == null) { names.Add("(vaunu " + c + " puuttuu)"); continue; }
-            SpawnWalker(root.transform, sprites, "John (vaunu " + c + ")", car, counts, 0.067f, 700f, c == 2 ? 3000f : 5700f, c == 2 ? 1300f : 4900f, 0.62f, carPpu, 1.5f); names.Add("vaunu " + c);
+            SpawnWalker(root.transform, sprites, "John (vaunu " + c + ")", car, counts, 0.07f, 700f, 5700f, c == 2 ? 1300f : 4900f, 0.7f, carPpu, 1.9f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("John lisätty: " + string.Join(", ", names) + ". Hän seisoo (kello), lähtee kävelemään, pysähtyy ja toistaa. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
@@ -8517,13 +8520,13 @@ public static class BeatEmUpSetup
         var names = new List<string>();
         int[] counts = { 17, 8, 18, 24, 16 };   // stand, start, walk, stop, stopMove
         float stationPpu = 941f / (2f * CamHalf);
-        SpawnWalker(root.transform, sprites, "Jade (asema)", station, counts, 0.083f, 2450f, 3300f, 2850f, 0.5f, stationPpu, 1.4f); names.Add("asema");
+        SpawnWalker(root.transform, sprites, "Jade (asema)", station, counts, 0.083f, 650f, 3300f, 2850f, 0.8f, stationPpu, 1.6f); names.Add("asema");
         float carPpu = 941f / (2f * CamHalf * TrainZoom);
         foreach (int c in new[] { 1, 3 })
         {
             var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu " + c);
             if (car == null) { names.Add("(vaunu " + c + " puuttuu)"); continue; }
-            SpawnWalker(root.transform, sprites, "Jade (vaunu " + c + ")", car, counts, 0.083f, 700f, c == 1 ? 5700f : 2800f, c == 1 ? 2200f : 1500f, 0.55f, carPpu, 1.4f); names.Add("vaunu " + c);
+            SpawnWalker(root.transform, sprites, "Jade (vaunu " + c + ")", car, counts, 0.083f, 700f, c == 1 ? 5700f : 2800f, c == 1 ? 2200f : 1500f, 0.55f, carPpu, 1.6f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Jade lisätty: " + string.Join(", ", names) + ". Pihalla häntä ei ole. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
@@ -8544,13 +8547,13 @@ public static class BeatEmUpSetup
         var names = new List<string>();
         int[] counts = { 23, 19, 19, 15, 8 };   // stand, start, walk, stop, stopMove
         float yardPpu = 941f / (2f * CamHalf) / 1.5f;
-        SpawnWalker(root.transform, sprites, "Meredith (ratapiha)", yard, counts, 0.083f, 3200f, 4000f, 3600f, 0.7f, yardPpu, 1.3f); names.Add("ratapiha");
+        SpawnWalker(root.transform, sprites, "Meredith (ratapiha)", yard, counts, 0.083f, 450f, 4000f, 3600f, 0.8f, yardPpu, 1.3f); names.Add("ratapiha");
         float carPpu = 941f / (2f * CamHalf * TrainZoom);
         foreach (int c in new[] { 2, 3 })
         {
             var car = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Junan vaunu " + c);
             if (car == null) { names.Add("(vaunu " + c + " puuttuu)"); continue; }
-            SpawnWalker(root.transform, sprites, "Meredith (vaunu " + c + ")", car, counts, 0.083f, c == 2 ? 3200f : 3700f, 5700f, c == 2 ? 4300f : 4500f, 0.45f, carPpu, 1.3f); names.Add("vaunu " + c);
+            SpawnWalker(root.transform, sprites, "Meredith (vaunu " + c + ")", car, counts, 0.083f, c == 2 ? 700f : 3700f, 5700f, c == 2 ? 4300f : 4500f, c == 2 ? 0.4f : 0.45f, carPpu, 1.3f); names.Add("vaunu " + c);
         }
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Meredith lisätty: " + string.Join(", ", names) + ". Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
@@ -8570,8 +8573,8 @@ public static class BeatEmUpSetup
         var root = new GameObject("Violet");
         Undo.RegisterCreatedObjectUndo(root, "Violet");
         int[] counts = { 16, 19, 14, 16, 9 };   // stand, start, walk, stop, stopMove
-        SpawnWalker(root.transform, sprites, "Violet (asema)", station, counts, 0.083f, 650f, 1500f, 1050f, 0.4f, 941f / (2f * CamHalf), 1.4f);
-        SpawnWalker(root.transform, sprites, "Violet (ratapiha)", yard, counts, 0.083f, 2350f, 3150f, 2750f, 0.55f, 941f / (2f * CamHalf) / 1.5f, 1.4f);
+        SpawnWalker(root.transform, sprites, "Violet (asema)", station, counts, 0.083f, 650f, 3300f, 1050f, 0.3f, 941f / (2f * CamHalf), 2.4f);
+        SpawnWalker(root.transform, sprites, "Violet (ratapiha)", yard, counts, 0.083f, 450f, 4000f, 2750f, 0.6f, 941f / (2f * CamHalf) / 1.5f, 2.4f);
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Violet lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
@@ -8590,8 +8593,8 @@ public static class BeatEmUpSetup
         var root = new GameObject("Devo");
         Undo.RegisterCreatedObjectUndo(root, "Devo");
         int[] counts = { 26, 9, 21, 8, 5 };   // stand, start, walk, stop, stopMove
-        SpawnWalker(root.transform, sprites, "Devo (asema)", station, counts, 0.083f, 1550f, 2400f, 1950f, 0.6f, 941f / (2f * CamHalf), 1.5f);
-        SpawnWalker(root.transform, sprites, "Devo (ratapiha)", yard, counts, 0.083f, 450f, 1350f, 900f, 0.4f, 941f / (2f * CamHalf) / 1.5f, 1.5f);
+        SpawnWalker(root.transform, sprites, "Devo (asema)", station, counts, 0.083f, 650f, 3300f, 1950f, 0.55f, 941f / (2f * CamHalf), 1.6f);
+        SpawnWalker(root.transform, sprites, "Devo (ratapiha)", yard, counts, 0.083f, 450f, 4000f, 900f, 0.2f, 941f / (2f * CamHalf) / 1.5f, 1.6f);
         EditorSceneManager.MarkSceneDirty(root.scene);
         Info("Devo lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }

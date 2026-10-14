@@ -1246,7 +1246,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
-    public bool InPunchChain => state == State.Punch && (comboQueued || (comboIndex >= 1 && comboIndex + 1 < punchCombo.Length));
+    public bool InPunchChain => IsAttackState(state) && (chainLinks >= 1
+        || (state == State.Punch && (comboQueued || flurryKickQueued || backKickQueued || kneeStrikeQueued || comboScissorQueued || bigHookQueued || pendulumQueued)));
+    /// Montako iskua on ketjutettu edellisestä suoraan (isku alkaa toisesta iskusta, ei maasta/palautuksesta). 0 = yksittäinen isku.
+    int chainLinks;
+    static bool IsAttackState(State s) =>
+        s == State.Punch || s == State.Kick || s == State.SideKick || s == State.HiKick || s == State.KneeStrike || s == State.KneeDash
+        || s == State.DropKick || s == State.BigHook || s == State.Pummel || s == State.SoloKick || s == State.Pendulum || s == State.Special;
     bool comboQueued;
 
     State state = State.Ground;
@@ -2276,6 +2282,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             pummelTarget = null;
         }
         if (state == State.HeadCrush && s != State.HeadCrush) ReleaseHeadCrushTargets();
+        chainLinks = IsAttackState(s) && IsAttackState(state) ? chainLinks + 1 : 0;   // isku alkaa suoraan toisesta iskusta = ketju
         state = s;
         stateTime = 0f;
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;

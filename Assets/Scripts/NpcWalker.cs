@@ -21,7 +21,7 @@ public class NpcWalker : MonoBehaviour
     [Tooltip("Kuinka monta kertaa seisomasarja toistetaan ennen kävelyä (satunnainen väliltä).")]
     public Vector2Int standLoops = new Vector2Int(1, 1);
     [Tooltip("Kävelyn pituus (yksikköä).")]
-    public Vector2 walkDistance = new Vector2(3f, 7f);
+    public Vector2 walkDistance = new Vector2(8f, 30f);
 
     enum S { Stand, Start, Walk, Stop }
     S state = S.Stand;
@@ -62,7 +62,7 @@ public class NpcWalker : MonoBehaviour
                 break;
             case S.Start:
                 body.sprite = At(startOff, startCount, startFrameTime);
-                Move(ref p, Mathf.Clamp01(t / (startCount * startFrameTime)));
+                Move(ref p, Mathf.Lerp(0.3f, 1f, Mathf.Clamp01(t / (startCount * startFrameTime * 0.5f))));   // liike alkaa heti ja on täysi sarjan puolivälissä (ei askelta paikallaan)
                 if (t >= startCount * startFrameTime) { state = S.Walk; t = 0f; }
                 break;
             case S.Walk:
@@ -70,14 +70,15 @@ public class NpcWalker : MonoBehaviour
                 float cyc = walkCount * walkFrameTime;
                 body.sprite = sprites[Mathf.Min(walkOff + (int)((t % cyc) / walkFrameTime) % walkCount, sprites.Length - 1)];
                 Move(ref p, 1f);
-                float stopDist = speed * 0.5f * stopMoveCount * stopFrameTime;   // pysähtymiseen kuluva matka
+                float stopDist = speed * 0.7f * stopMoveCount * stopFrameTime;   // pysähtymiseen kuluva matka (täysi vauhti 40 %, sitten hidastus)
                 bool edge = (dir < 0 && p.x - stopDist <= laneMinX) || (dir > 0 && p.x + stopDist >= laneMaxX);
                 if (walked + stopDist >= targetDist || edge) { state = S.Stop; t = 0f; }
                 break;
             }
             case S.Stop:
                 body.sprite = At(stopOff, stopCount, stopFrameTime);
-                Move(ref p, 1f - Mathf.Clamp01(t / (stopMoveCount * stopFrameTime)));
+                float v = t / (stopMoveCount * stopFrameTime);
+                Move(ref p, v < 0.4f ? 1f : Mathf.Clamp01(1f - (v - 0.4f) / 0.6f));
                 if (t >= stopCount * stopFrameTime)
                 {
                     state = S.Stand; t = 0f;
@@ -97,8 +98,8 @@ public class NpcWalker : MonoBehaviour
         // suunta: kohti isompaa tilaa, joskus toiseen suuntaan
         float x = transform.position.x;
         float left = x - laneMinX, right = laneMaxX - x;
-        dir = Random.value < left / Mathf.Max(0.01f, left + right) ? -1 : 1;
-        targetDist = Random.Range(walkDistance.x, walkDistance.y);
+        dir = (left > right) == (Random.value < 0.8f) ? -1 : 1;   // yleensä kohti isompaa tilaa
+        targetDist = Mathf.Min(Random.Range(walkDistance.x, walkDistance.y), dir < 0 ? left : right);
         walked = 0f; state = S.Start; t = 0f;
     }
 
