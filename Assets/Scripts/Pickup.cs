@@ -255,6 +255,9 @@ public class Pickup : MonoBehaviour
             if (IsFood)
             {
                 if (pc.health >= pc.maxHealth && pc.stamina >= pc.maxStamina - 0.5f) return;   // täysillä ruokaa ei kerätä (jää odottamaan)
+                // tunnettu ruoka (hodari, lihis, pizza): hero syö sen omalla animaatiollaan, jos on vapaana
+                string foodKey = spriteName.Contains("hotdog") ? "hotdog" : spriteName.Contains("lihis") ? "lihis" : spriteName.Contains("pizza") ? "pizza" : "";
+                if (foodKey != "" && pc.EatFood(foodKey, me + Vector3.up * 1.3f)) { Destroy(gameObject); return; }
                 int gotHp = pc.Heal(fullRestore ? pc.maxHealth : healPercent > 0 ? Mathf.RoundToInt(pc.maxHealth * healPercent / 100f) : healAmount);
                 int gotSt = pc.AddStamina(staminaAmount);
                 if (drinkSound != null) HitFx.PlayClip(drinkSound, fullRestore ? 1f : 0.7f); else HitFx.PlayPickup(fullRestore);

@@ -876,6 +876,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         health = maxHealth;
         brain = GetComponent<DeaconBoss>();
+        // uusi rokkimimmi (valikko 73) asetti herätysetäisyydeksi -1 (rauhallinen baarin asiakas): dinerin, peltihallin ja junan rokkimimmit hyökkäävät kuten muut vihut
+        if (displayName == "Rokkimimmi" && wakeDistance < 0f && (name.StartsWith("Dinerin") || name.StartsWith("Peltihallin") || name.Contains("(vaunu"))) { wakeDistance = name.Contains("(vaunu") ? 8f : 12f; wakeOnFightRadius = 0f; }
         if (displayName == "Rokkimimmi") { maxHealth = Mathf.Max(maxHealth, 125); health = maxHealth; }   // rokkimimmin energia 125
         if (displayName == "Rokkimimmi" && combos != null && combos.Length > 0) { comboChance = Mathf.Max(comboChance, 0.85f); altChance = Mathf.Min(altChance, 0.1f); }   // kombo (JSJPK) useammin: yksittäinen potku ei vie vuoroa
         if (displayName == "Romuukko") { tireRearmTime = Mathf.Min(tireRearmTime, 8f); clinchChance = Mathf.Max(clinchChance, 0.5f); tireThrowChance = 1f; }   // erikoisliikkeet (rengas, karhunpuristus) useammin

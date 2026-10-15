@@ -8777,80 +8777,58 @@ public static class BeatEmUpSetup
              "\n\nKuvat: Assets/Resources/Pickups/ruoka_<nimi>_<energia>.png ja voima_<nimi>_<pidennys>.png (lisää omia samalla tavalla).\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/149. Aavikkokatu: puhelinkoppi junkyardin portin viereen (hajoaa, kun iso vihu lentää siihen)")]
-    static void AddPhoneBooth()
-    {
-        if (PlayModeBlocked()) return;
-        const string dir = "Assets/Sprites/Taustat/";
-        var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
-        var tex1 = AssetDatabase.LoadAssetAtPath<Texture2D>(dir + "aavikkokatu1.png");
-        string path = FindTexture("puhelinkoppi");
-        if (street == null || tex1 == null || path == null) { Info("Tee ensin Aavikkokatu (95). Tarvitaan puhelinkoppi.png (Sprites/Rekvisiitta)."); return; }
-        SetupAndSlice(path);
-        var sprites = LoadSprites("puhelinkoppi").OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
-        if (sprites.Length < 6) { Info("puhelinkoppi.png: viipalointi ei onnistunut (kuvia " + sprites.Length + ", pitäisi olla 6)."); return; }
-        // kuvan pivot alareunan keskellä: koppi seisoo jalkakäytävällä
-        var oldBar = GameObject.Find("Puhelinkoppi (baari)");
-        if (oldBar != null) Undo.DestroyObjectImmediate(oldBar);   // testikoppi baarista pois
-        var old = GameObject.Find("Puhelinkoppi");
-        if (old != null) Undo.DestroyObjectImmediate(old);
-
-        // portin (aavikkokatu3, kuvan x 640–1530) oikealla puolella: kuvan x 1650, jalkakäytävän rivi
-        float ppu = tex1.height / 12f;
-        const float startPx = 2917f, imgW = 1774f, imgH = 887f, imgPx = 1650f, rise = 28f;
-        float cx = 86000f + startPx / ppu + imgW / ppu * 0.5f;
-        float x = cx + (imgPx - imgW * 0.5f) / ppu;
-        float y = street.curbDepthY + 0.04f;   // jalkakäytävän etuosa: alue rajaa takaosan, koppi seisoo seinän ja kadun välissä
-        var go = new GameObject("Puhelinkoppi");
-        Undo.RegisterCreatedObjectUndo(go, "Puhelinkoppi");
-        go.transform.position = new Vector3(x, y, 0f);
-        var vis = new GameObject("Kuva").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
-        vis.sprite = sprites[0];
-        vis.transform.localPosition = new Vector3(0f, street.useSidewalk ? street.sidewalkHeight - 0.18f : -0.18f, 0f);   // jalat jalkakäytävän tasolla (kuvassa 18 px marginaali)
-        var ob = go.AddComponent<Obstacle>();
-        ob.body = vis; ob.halfWidth = 0.75f; ob.depth = Mathf.Max(0.2f, Mathf.Min(0.28f, street.maxDepthY - y - 0.02f));
-        ob.damageSprites = sprites.Take(6).ToArray();
-        ob.maxHealth = 30; ob.smashOnly = true;
-        ob.hitSounds = LoadClips("Assets/Audio/sfx", "glass");
-        EditorUtility.SetDirty(ob);
-        EditorSceneManager.MarkSceneDirty(go.scene);
-        Info("Puhelinkoppi lisätty Aavikkokadulle junkyardin portin oikealle puolelle jalkakäytävälle (x = " + x.ToString("0.0") + "). Se hajoaa, kun iso vihu (Kovis, Portsari, Puliukko, Horhe, Romuukko, rekkamies) lentää siihen heitosta tai koukusta. Heron iskut ja potkut eivät hajota.\n\nTallenna scene (Ctrl+S).");
-    }
-
-    [MenuItem("Beat em up/151. Aavikkokatu: motoristit (6 kpl, taistelevat vain heroa vastaan) ja Rustyt eivät tappele heidän kanssaan")]
-    static void AddDesertStreetBikers()
+    [MenuItem("Beat em up/152. Aavikkokatu: laatikoita jalkakäytävälle (muutama pino päällekkäin); poistaa puhelinkopit")]
+    static void AddDesertStreetCrates()
     {
         if (PlayModeBlocked()) return;
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
-        if (area == null) { Info("Aavikkokatua ei löydy: tee ensin kohta 95 (Aavikkokatu)."); return; }
-        var oldRoot = GameObject.Find("Aavikkokadun motoristit");
-        if (oldRoot != null) Undo.DestroyObjectImmediate(oldRoot);
-        var root = new GameObject("Aavikkokadun motoristit");
-        Undo.RegisterCreatedObjectUndo(root, "Aavikkokadun motoristit");
-        // väliin Rustyjen (0.2 … 0.82): aallot sekoittuvat
-        float[] along = { 0.14f, 0.26f, 0.38f, 0.5f, 0.62f, 0.75f, 0.88f };
-        float[] depth = { 0.6f, 0.3f, 0.7f, 0.45f, 0.25f, 0.65f, 0.4f };
-        int made = 0;
-        for (int i = 0; i < along.Length; i++)
+        if (area == null || AssetImporter.GetAtPath(CratePath) == null) { Info("Tee ensin Aavikkokatu (95). Tarvitaan " + CratePath + "."); return; }
+        foreach (var n in new[] { "Puhelinkoppi", "Puhelinkoppi (baari)", "Aavikkokadun laatikot" })
+        { var o = GameObject.Find(n); if (o != null) Undo.DestroyObjectImmediate(o); }
+        SetupAndSlice(CratePath);
+        Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(CratePath).OfType<Sprite>()
+            .OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var burst = AssetDatabase.LoadAssetAtPath<Sprite>(CrateBurstPath);
+        var woodSounds = LoadClips("Assets/Audio/sfx", "puu");
+        if (sprites.Length == 0) { Info("Laatikkokuvat puuttuvat."); return; }
+        var root = new GameObject("Aavikkokadun laatikot");
+        Undo.RegisterCreatedObjectUndo(root, "Aavikkokadun laatikot");
+        var blocked = StreetObstacles(false);
+        float y = Mathf.Lerp(area.curbDepthY, area.maxDepthY, 0.5f);
+        float lift = area.useSidewalk ? area.sidewalkHeight : 0f;
+        float x = area.walkMinX + 12f, end = area.walkMaxX - 8f;
+        int count = 0, stacks = 0, idx = 0;
+        System.Random rnd = new System.Random(7);
+        while (x < end)
         {
-            var b = MakeBiker(root.transform);
-            if (b == null) { Info("Motoristin kuvat puuttuvat (Sprites/Viholliset)."); return; }
-            b.name = "Aavikkokadun motoristi " + (i + 1);
-            b.transform.position = new Vector3(Mathf.Lerp(area.walkMinX, area.walkMaxX, along[i]), Mathf.Lerp(area.minDepthY, area.maxDepthY, depth[i]), 0f);
-            b.wakeDistance = 13f;
-            b.idleFacing = i % 2 == 0 ? -1 : 1;
-            b.fightsEveryone = false; b.huntsBrawlers = false; b.joinsFightWhenSquadComes = false;
-            b.gameObject.SetActive(true);
-            made++;
+            float cx = x;
+            for (int tries = 0; tries < 6 && Blocked(blocked, cx, 0.95f); tries++) cx += 1.2f;
+            x += 13f + (float)rnd.NextDouble() * 6f;   // 13–19 yksikön välein
+            if (Blocked(blocked, cx, 0.95f)) continue;
+            idx++;
+            var go = new GameObject("Laatikko " + idx);
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(cx, y + ((idx % 3) - 1) * 0.04f, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            var c = go.AddComponent<Crate>();
+            c.sprites = sprites; c.burstSprite = burst; c.breakSounds = woodSounds;
+            c.visualScale = 1.2f; c.hitRadiusX = 1.05f; c.body = vis; c.shadow = sh;
+            vis.sprite = sprites[0];
+            vis.transform.localPosition = new Vector3(0f, lift - c.footOffset, 0f);
+            count++;
+            // joka kolmas laatikko saa toisen päälleen (pari pinoa)
+            if (idx % 3 == 2)
+            {
+                var top = Object.Instantiate(go, root.transform);
+                top.name = go.name + " (päällä)";
+                top.transform.position = go.transform.position + new Vector3(0.08f, -0.02f, 0f);   // hieman edessä: piirretään päälle
+                top.GetComponent<Crate>().stackedOn = c;
+                count++; stacks++;
+            }
         }
-        // jo olemassa olevat kadun Rustyt: eivät tappele keskenään tai motoristien kanssa
-        int fixedRustys = 0;
-        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-            if (e != null && e.name.StartsWith("Aavikkokadun Rusty")) { Undo.RecordObject(e, "Rusty kadulla"); e.fightsEveryone = false; e.huntsBrawlers = false; e.joinsFightWhenSquadComes = false; EditorUtility.SetDirty(e); fixedRustys++; }
         EditorSceneManager.MarkSceneDirty(root.scene);
-        Info("Aavikkokadulle lisätty " + made + " motoristia, jotka heräävät kun hero lähestyy ja taistelevat vain heroa vastaan. " + fixedRustys + " kadun Rustya ei enää tappele muita vastaan.
-
-Tallenna scene (Ctrl+S).");
+        Info("Aavikkokadulle lisätty " + count + " laatikkoa (" + stacks + " pinoa, kaksi päällekkäin) jalkakäytävälle 13–19 yksikön välein. Puhelinkopit on poistettu.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)")]
@@ -9383,7 +9361,10 @@ Tallenna scene (Ctrl+S).");
             if (e == null || e.displayName != "Rokkimimmi") continue;
             Undo.RecordObject(e, "Uusi rokkimimmi");
             if (e.body != null) Undo.RecordObject(e.body, "Uusi rokkimimmi");
+            float oldWake = e.wakeDistance; float oldFightRadius = e.wakeOnFightRadius;
             if (!ApplyRocker2(e, report)) { Info("rokkari2_*.png puuttuu."); return; }
+            // vain baarin ja S-Clubin asiakkaat ovat rauhallisia: muut (diner, peltihalli, juna) säilyttävät herätysetäisyytensä ja hyökkäävät
+            if (!(e.gameObject.name.Contains("baari") || e.gameObject.name.Contains("Baarin") || e.gameObject.name.Contains("S-Club") || e.gameObject.name.Contains("Klubi"))) { e.wakeDistance = oldWake > 0f ? oldWake : 12f; e.wakeOnFightRadius = oldFightRadius; }
             // S-Clubin rokkimimmit tepastelevat neutraalisti paikkansa lähellä (kadun baarin rokkimimmit odottavat tiskillä)
             if (e.gameObject.name.Contains("S-Club") && e.wanderMaxX <= e.wanderMinX)
             { e.wanderMinX = e.transform.position.x - 1.5f; e.wanderMaxX = e.transform.position.x + 1.5f; }

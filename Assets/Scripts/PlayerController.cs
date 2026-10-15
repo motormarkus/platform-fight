@@ -1242,7 +1242,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -2181,6 +2181,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Drink:
                 UpdateDrink();
+                break;
+
+            case State.Eat:
+                UpdateEat();
                 break;
 
             case State.Down:
@@ -3488,20 +3492,80 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool UsePocketFood()
     {
         if (!HasPocketFood || !CanDrinkThermos) return false;
-        if (!Pickup.FoodStats(pocketFood, out int pct, out int st, out bool full)) { pocketFood = ""; return false; }
+        if (!Pickup.FoodStats(pocketFood, out _, out _, out _)) { pocketFood = ""; return false; }
         if (health >= maxHealth && stamina >= maxStamina - 0.5f) { GameHUD.Popup(Loc.T("Energia on jo täynnä."), transform.position + Vector3.up * 3.2f, Color.white); return false; }
+        string key = pocketFood;
+        pocketFood = "";
+        return EatFood(key, transform.position + Vector3.up * 3.4f);
+    }
+    // ---- syöminen: hodari, lihis ja pizza omilla kuvillaan (Resources/Syonti/<rocco|ruby>_<ruoka>_NN.png) ----
+    static readonly System.Collections.Generic.Dictionary<string, Sprite[]> eatCache = new System.Collections.Generic.Dictionary<string, Sprite[]>();
+    static AudioClip[] chewClips;
+    float eatChewNext;
+    int eatChewCount;
+    Sprite[] eatSprites;
+    float[] eatTimes;
+
+    Sprite[] EatSpritesFor(string key)
+    {
+        string who = AppliedCharacter == 1 ? "ruby" : "rocco";
+        string ck = who + "_" + key;
+        if (eatCache.TryGetValue(ck, out var cached)) return cached;
+        var l = new System.Collections.Generic.List<Sprite>();
+        for (int i = 0; i < 16; i++)
+        {
+            var tex = Resources.Load<Texture2D>("Syonti/" + ck + "_" + i.ToString("00"));
+            if (tex == null) break;
+            l.Add(Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0f), 100f));
+        }
+        var arr = l.Count >= 6 ? l.ToArray() : null;
+        eatCache[ck] = arr;
+        return arr;
+    }
+
+    /// Syö ruoan (avain hotdog, lihis, pizza): energia ja stamina heti, kuvat ja pureskelu perään. Ilman kuvia vain vaikutus.
+    /// Palauttaa true, jos ruoka kulutettiin (vaikutus annettu).
+    public bool EatFood(string key, Vector3 popupAt)
+    {
+        if (!Pickup.FoodStats(key, out int pct, out int st, out bool full)) return false;
         int hp = Heal(full ? maxHealth : Mathf.RoundToInt(maxHealth * pct / 100f));
         int sg = AddStamina(st);
-        pocketFood = "";
-        if (full) GameHUD.Popup("TÄYSI LATAUS!", transform.position + Vector3.up * 3.6f, new Color(1f, 0.95f, 0.4f));
+        if (full) GameHUD.Popup("TÄYSI LATAUS!", popupAt + Vector3.up * 0.3f, new Color(1f, 0.95f, 0.4f));
         else
         {
-            if (hp > 0) GameHUD.Popup("+" + hp + " ENERGIA", transform.position + Vector3.up * 3.4f, new Color(0.4f, 1f, 0.45f));
-            if (sg > 0) GameHUD.Popup("+" + sg + " STAMINA", transform.position + Vector3.up * 3.9f, new Color(0.35f, 0.7f, 1f));
+            if (hp > 0) GameHUD.Popup("+" + hp + " ENERGIA", popupAt, new Color(0.4f, 1f, 0.45f));
+            if (sg > 0) GameHUD.Popup("+" + sg + " STAMINA", popupAt + Vector3.up * 0.5f, new Color(0.35f, 0.7f, 1f));
+        }
+        var spr = CanEatNow ? EatSpritesFor(key) : null;
+        if (spr != null)
+        {
+            eatSprites = spr; eatChewCount = 0; eatChewNext = 0f;
+            // 8 kuvaa (7 pizzalla): ote, nosto, esille, pureskelu x3, siisti, perusasento
+            eatTimes = spr.Length >= 8 ? new[] { 0.07f, 0.07f, 0.1f, 0.14f, 0.14f, 0.14f, 0.1f, 0.08f }
+                                       : new[] { 0.07f, 0.07f, 0.1f, 0.16f, 0.16f, 0.1f, 0.08f };
+            moving = false; running = false;
+            Enter(State.Eat);
         }
         HitFx.PlayPickup(full);
         return true;
     }
+    /// Vapaana maassa: syöntianimaatio voidaan näyttää.
+    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && !Riding;
+
+    void UpdateEat()
+    {
+        if (eatSprites == null || eatTimes == null) { Enter(State.Ground); return; }
+        int f = ThrowPose.Index(eatTimes, stateTime);
+        if (f < 0) { eatSprites = null; Enter(State.Ground); return; }
+        // pureskelu: ääni puremakuvissa (3.–5.), jos Resources/Syonti/pureskelu*-ääniä on
+        if (f >= 3 && eatChewCount < 1)   // sama ääni kuin Sohvin baarissa makkaraa syödessä: kerran ensimmäisessä puraisussa
+        {
+            if (chewClips == null) chewClips = System.Array.FindAll(Resources.LoadAll<AudioClip>("Syonti"), c => c != null && c.name.StartsWith("pureskelu"));
+            if (chewClips.Length > 0) HitFx.PlayClip(chewClips[UnityEngine.Random.Range(0, chewClips.Length)], 0.9f);
+            eatChewCount++; eatChewNext = stateTime + 0.14f;
+        }
+    }
+
     public static bool PickHeld()
     {
 #if ENABLE_INPUT_SYSTEM
@@ -3701,6 +3765,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         switch (state)
         {
+            case State.Eat:
+            {
+                if (eatSprites == null || eatTimes == null) return Action(F_STAND);
+                int ef = ThrowPose.Index(eatTimes, stateTime);
+                return eatSprites[Mathf.Clamp(ef < 0 ? eatSprites.Length - 1 : ef, 0, eatSprites.Length - 1)];
+            }
+
             case State.Drink:
             {
                 var ds = DrinkSprites;
