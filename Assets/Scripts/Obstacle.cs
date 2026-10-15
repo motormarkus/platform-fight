@@ -18,6 +18,8 @@ public class Obstacle : MonoBehaviour
     [Tooltip("Vaiheet: 0 ehjä … viimeinen rikki (sama koko ja keskipiste kuin body.sprite).")]
     public Sprite[] damageSprites;
     public int maxHealth = 0;
+    [Tooltip("Hajoaa vain, kun iso vihu lentää siihen (heitto, koukku); heron iskut ja potkut eivät rikko (puhelinkoppi).")]
+    public bool smashOnly;
     public AudioClip[] hitSounds;
     int health = -1;
     public bool Broken { get; private set; }

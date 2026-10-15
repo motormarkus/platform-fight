@@ -92,16 +92,16 @@ public class GameHUD : MonoBehaviour
         if (player != null)
         {
             GUI.Label(new Rect(x, y, w, h * 1.4f), string.IsNullOrEmpty(player.characterName) ? Loc.T(playerName) : player.characterName.ToUpper(), label);
-            Bar(new Rect(x, y + h * 1.4f, w, h), player.health / (float)Mathf.Max(1, player.maxHealth), new Color(1f, 0.85f, 0.1f));
+            // yksi energiapalkki: pitenee voimakuvakkeista (perusmitta = 200 energiaa)
+            float bw = w * Mathf.Clamp(player.maxHealth / 200f, 0.6f, 2.0f);
+            Bar(new Rect(x, y + h * 1.4f, bw, h), player.health / (float)Mathf.Max(1, player.maxHealth), new Color(1f, 0.85f, 0.1f));
             // stamina sinisenä energian alla; vilkkuu, jos liikkeeseen ei riittänyt
             bool empty = Time.time - player.StaminaEmptyTime < 0.5f && Mathf.FloorToInt((Time.time - player.StaminaEmptyTime) * 10f) % 2 == 0;
             Bar(new Rect(x, y + h * 2.4f + 8 * s, w, h * 0.6f), player.stamina / Mathf.Max(1f, player.maxStamina),
                 empty ? new Color(1f, 1f, 1f) : new Color(0.2f, 0.55f, 1f), new Color(0.04f, 0.08f, 0.25f));
-            // elämät ja rahat palkin oikealla puolella
-            label.normal.textColor = Color.white;
-            GUI.Label(new Rect(x + w + 24 * s, y + h * 1.25f, 200 * s, h * 1.4f), "x " + Mathf.Max(0, player.lives), label);
+            // rahat palkin oikealla puolella
             label.normal.textColor = new Color(1f, 0.85f, 0.25f);
-            GUI.Label(new Rect(x + w + 110 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);
+            GUI.Label(new Rect(x + bw + 24 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);
             if (player.HasBooni)
             {
                 // Bööni taskussa: pieni termospullo rahojen vieressä
@@ -110,7 +110,20 @@ public class GameHUD : MonoBehaviour
                 {
                     float ih = h * 1.9f, iw = ih * booniIcon.rect.width / booniIcon.rect.height;
                     var tr = booniIcon.textureRect; var tx = booniIcon.texture;
-                    GUI.DrawTextureWithTexCoords(new Rect(x + w + 250 * s, y + h * 0.95f, iw, ih), tx,
+                    GUI.DrawTextureWithTexCoords(new Rect(x + bw + 250 * s, y + h * 0.95f, iw, ih), tx,
+                        new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
+                }
+            }
+            if (player.HasPocketFood)
+            {
+                // taskun eväs rahojen vieressä (sama paikka kuin Böönillä)
+                var fs = Pickup.FoodSprite(player.pocketFood);
+                if (fs != null)
+                {
+                    float ih = h * 1.9f, iw = ih * fs.rect.width / fs.rect.height;
+                    if (iw > ih * 1.6f) { iw = ih * 1.6f; }
+                    var tr = fs.textureRect; var tx = fs.texture;
+                    GUI.DrawTextureWithTexCoords(new Rect(x + bw + 250 * s, y + h * 0.95f, iw, iw * fs.rect.height / fs.rect.width), tx,
                         new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
                 }
             }

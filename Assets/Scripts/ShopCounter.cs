@@ -19,6 +19,8 @@ public class ShopCounter : MonoBehaviour
         [Tooltip("Staminaa takaisin. 999 = täyteen.")]
         public int stamina;
         public string comment;
+        [Tooltip("Kotipakettiin: avain (hotdog, lihis, pizza). Ei syödä tiskillä, vaan menee taskuun.")]
+        public string takeaway = "";
         [Tooltip("Ääni ostettaessa (Assets/Audio/sfx).")]
         public AudioClip sound;
     }
@@ -41,6 +43,7 @@ public class ShopCounter : MonoBehaviour
     };
 
     public const int BooniPrice = 75;
+    const string HodariName = "Hodari (kotipakettiin)", LihisName = "Lihis (kotipakettiin)", PizzaName = "Pizza (kotipakettiin)";
 
     [Header("Tiskin kohta")]
     public Area here;
@@ -86,6 +89,15 @@ public class ShopCounter : MonoBehaviour
         if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
             foreach (var it in items)
                 if (it != null && it.name == "Kossupaukku") { it.name = "Rommi"; it.price = 12; it.heal = 50; it.stamina = 999; it.comment = "Merimieskänni!"; }
+        // eväät kotipakettiin: menevät taskuun (yksi paikka, yhteinen Böönin kanssa), syödään pitämällä E / ympyrä pohjassa
+        if (items != null && System.Array.FindIndex(items, x => x != null && x.takeaway == "hotdog") < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = HodariName, price = 5, takeaway = "hotdog", comment = "Sinappia ja ketsuppia." });
+            l.Add(new Item { name = LihisName, price = 8, takeaway = "lihis", comment = "Kuumana paperissa." });
+            l.Add(new Item { name = PizzaName, price = 50, takeaway = "pizza", comment = "Koko laatikollinen." });
+            items = l.ToArray();
+        }
         // Bööni (termospullo) kaikille tiskeille: taskuun, juodaan tarvittaessa
         if (items != null && System.Array.FindIndex(items, x => x != null && x.name == "Bööni") < 0)
         {
@@ -137,9 +149,20 @@ public class ShopCounter : MonoBehaviour
 
     void Buy(Item it)
     {
+        if (!string.IsNullOrEmpty(it.takeaway))
+        {
+            if (pc.HasBooni || pc.HasPocketFood) { Say(Loc.T("Tasku on täynnä: siihen mahtuu yksi eväs tai Bööni.")); return; }
+            if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
+            pc.money -= it.price;
+            pc.StorePocketFood(it.takeaway);
+            HitFx.PlayPickup(false);
+            Say(Loc.T("Eväs taskuun. Syö: pidä E / ympyrä pohjassa."));
+            return;
+        }
         if (it.name == "Bööni")
         {
             if (pc.HasBooni) { Say(Loc.T("Taskussa on jo Bööni.")); return; }
+            if (pc.HasPocketFood) { Say(Loc.T("Tasku on täynnä: siihen mahtuu yksi eväs tai Bööni.")); return; }
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StoreBooni();
@@ -261,7 +284,7 @@ public class ShopCounter : MonoBehaviour
             row.alignment = TextAnchor.MiddleLeft;
             GUI.Label(new Rect(panel.x + 60 * u, y, 700 * u, 48 * u), (s ? "> " : "   ") + Loc.T(it.name), row);
             row.alignment = TextAnchor.MiddleRight;
-            GUI.Label(new Rect(panel.x + 740 * u, y, 170 * u, 48 * u), it.heal >= 999 ? Loc.T("TÄYSI") : "+" + it.heal, row);
+            GUI.Label(new Rect(panel.x + 740 * u, y, 170 * u, 48 * u), !string.IsNullOrEmpty(it.takeaway) ? (it.takeaway == "pizza" ? Loc.T("TÄYSI") : (it.takeaway == "hotdog" ? "25 %" : "35 %")) : it.heal >= 999 ? Loc.T("TÄYSI") : "+" + it.heal, row);
             GUI.Label(new Rect(panel.x + 930 * u, y, 190 * u, 48 * u), it.price + " mk", row);
             y += 62 * u;
         }

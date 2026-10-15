@@ -454,6 +454,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool throwForward;
     [Tooltip("Käänteinen lentosuunta heitettävälle (hero, vihu tai pöytä): kuvat ja ote pysyvät ennallaan, vain heiton suunta kääntyy. Prätkäjätkä ja Rekkamies saavat tämän automaattisesti.")]
     public bool throwFlip;
+    [Tooltip("Noston, kannon ja heiton kuvat on piirretty katsomaan vastakkaiseen suuntaan kuin muut kuvat: peilaa ne näissä tiloissa, jolloin hahmo katsoo heitettävää kohti ja heittää eteensä. Prätkäjätkä ja Rekkamies saavat tämän automaattisesti.")]
+    public bool throwArtMirrored;
     [Tooltip("Selän taakse heitettäessä: kääntyykö heittäjä heittosuuntaan (Kovis) vai pysyykö alkuperäisessä suunnassa (kuvat päättyvät alkuasentoon).")]
     public bool throwTurnsAround = true;
     [Tooltip("Heittää kenet tahansa (portsari), ei vain liittolaisia. Isot hahmot lentävät lyhyemmälle (heavyThrowScale).")]
@@ -874,7 +876,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         health = maxHealth;
         brain = GetComponent<DeaconBoss>();
-        if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwFlip = true;   // heitettävä lensi väärään suuntaan
+        if (displayName == "Rokkimimmi") { maxHealth = Mathf.Max(maxHealth, 125); health = maxHealth; }   // rokkimimmin energia 125
+        if (displayName == "Rokkimimmi" && combos != null && combos.Length > 0) { comboChance = Mathf.Max(comboChance, 0.85f); altChance = Mathf.Min(altChance, 0.1f); }   // kombo (JSJPK) useammin: yksittäinen potku ei vie vuoroa
+        if (displayName == "Romuukko") { tireRearmTime = Mathf.Min(tireRearmTime, 8f); clinchChance = Mathf.Max(clinchChance, 0.5f); tireThrowChance = 1f; }   // erikoisliikkeet (rengas, karhunpuristus) useammin
+        if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwArtMirrored = true;   // noston ja heiton kuvat katsoivat väärään suuntaan: peilataan (lentosuunta pysyy katsomissuuntana)
         if (displayName == "Horhe" || displayName == "Puliukko")
         {
             // avokämmenläimäykset (Resources/Sfx/horhe/slap1–3): puliukon kaikki iskut, Horhen läpsykombo
@@ -1322,7 +1327,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= downTime + (ringFall ? 0.6f : 0f))
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
-                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
+                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
                     else
                     {
                         rollFirst = Has(getUpRollSprites) && (slamLanded || flipLanded);   // heitosta selälleen: ensin vatsalleen
@@ -1728,7 +1733,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (player == null || player.IsDown) return false;
         Vector3 p = player.transform.position, me = transform.position;
-        return Mathf.Abs(p.x - me.x) <= clinchReach + 0.4f && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 0.3f;
+        return Mathf.Abs(p.x - me.x) <= Mathf.Max(clinchReach + 0.4f, attackRange + 0.2f) && Mathf.Abs(p.y - me.y) <= depthTolerance && player.AirHeight <= 0.3f;
     }
 
     bool CanGrabPlayer()
@@ -2299,7 +2304,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = false;
             attackRolled = false;                 // seuraava hyökkäys arvotaan uudelleen
             if (grabIntent) { Enter(State.GrabReach); return; }
-            if (HasClinch && Mathf.Abs(me.x - p.x) <= clinchReach + 0.2f && Random.value < clinchChance) { Enter(State.Clinch); return; }
+            if (HasClinch && Mathf.Abs(me.x - p.x) <= Mathf.Max(clinchReach + 0.2f, attackRange) && Random.value < clinchChance) { Enter(State.Clinch); return; }
             if (HasSlaps && Random.value < slapChance) { facingRight = p.x > me.x; Enter(State.Slaps); return; }
             if (HasKickCombo && Random.value < kickComboChance) { facingRight = p.x > me.x; Enter(State.KickCombo); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
@@ -3188,10 +3193,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
             }
         }
         // iso vihu lentää heitosta pöytään: pöytä hajoaa ja vihu menee läpi
-        if (state == State.Airborne && height < 2.5f && Mathf.Abs(knockVel.x) > 3f && (bigBody || IsHeavyweight(this)))
+        if (state == State.Airborne && height < 2.5f && Mathf.Abs(knockVel.x) > 3f)
         {
             var ob = Obstacle.BreakableAt(p);
-            if (ob != null) ob.Smash();
+            // puhelinkoppi (smashOnly) hajoaa kenen tahansa heitetyn tai lennätetyn osumasta; pöydät vain isoilta
+            if (ob != null && (ob.smashOnly || bigBody || IsHeavyweight(this) || displayName == "Rekkamies")) ob.Smash();
         }
         if (height < 1.2f)
         {
@@ -3248,6 +3254,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool walkFacing = (state == State.Chase || state == State.Idle) && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
         body.flipX = walkFacing ? walkDirectionX < 0f : !facingRight;
         if (brainSprite) body.flipX = !facingRight;
+        if (throwArtMirrored && (state == State.GrabReach || state == State.GrabLift || state == State.GrabThrow || state == State.BarrelLift || state == State.CarryWalk || state == State.BarrelThrow)) body.flipX = !body.flipX;
 
         Vector2 pivotFix = Vector2.zero;
         Sprite spr = body.sprite;

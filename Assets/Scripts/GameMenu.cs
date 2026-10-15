@@ -197,7 +197,7 @@ public class GameMenu : MonoBehaviour
                 if (i == 3) { page = Page.Character; sel = GameSettings.Character; break; }
                 GameSettings.Difficulty = (GameSettings.Level)i;
                 var pc = FindFirstObjectByType<PlayerController>();
-                if (pc != null) pc.lives = GameSettings.Lives;
+                if (pc != null) pc.SetBaseHealth(GameSettings.StartHealth);
                 Close();
                 break;
             case Page.Pause:
@@ -341,9 +341,9 @@ public class GameMenu : MonoBehaviour
         if (page == Page.Difficulty && sel < 3)
         {
             string[] info = {
-                "Viholliset lyövät heikommin, iskusi tehoavat enemmän. 5 elämää.",
-                "Tasapainoinen haaste. 3 elämää.",
-                "Viholliset lyövät kovempaa ja kestävät enemmän. 2 elämää." };
+                "Viholliset lyövät heikommin, iskusi tehoavat enemmän. Energiaa 250.",
+                "Tasapainoinen haaste. Energiaa 200.",
+                "Viholliset lyövät kovempaa ja kestävät enemmän. Energiaa 150." };
             Shadowed(new Rect(0, y0 + items.Length * step + 20 * s, w, 50 * s), Loc.T(info[sel]), smallStyle, Color.white);
         }
         string help = page == Page.Options ? "Ylös / alas valitse   Vasen / oikea säädä   Enter / A muuta   Esc / B takaisin" : "Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin";

@@ -127,8 +127,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (staminaRest > 0f) { staminaRest -= dt; return; }
         stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * dt);
     }
-    [Tooltip("Elämiä pelin alussa. Kun energia loppuu, menee yksi elämä ja energia täyttyy.")]
-    public int lives = 3;
+    [Tooltip("Ei käytössä: elämät poistettiin, vain yksi energiapalkki. Kun energia loppuu, peli päättyy.")]
+    public int lives = 1;
     [Tooltip("Rahat (markat): vihollisista putoaa, klubin baarissa voi ostaa.")]
     public int money;
     [Tooltip("Suoja-aika (s) elämän menettämisen jälkeen.")]
@@ -1273,7 +1273,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Awake()
     {
-        lives = GameSettings.Lives;   // vaikeustaso
+        maxHealth = GameSettings.StartHealth; healthBoost = 0;   // vaikeustaso: alkuenergia (voimakuvakkeet pidentävät palkkia)
         SortByFrameNumber(idleSprites);
         HeroIdle = idleSprites;
         SortByFrameNumber(actionSprites);
@@ -1390,10 +1390,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         UpdateGroundHeight(dt);
 
         // poimintanappi pohjassa 0,45 s vapaana maassa: taskun Bööni juodaan
-        if (!Scripted && HasBooni && state == State.Ground && PickHeld())
+        if (!Scripted && (HasBooni || HasPocketFood) && state == State.Ground && PickHeld())
         {
             pickHoldTime += Time.deltaTime;
-            if (pickHoldTime >= 0.45f) { pickHoldTime = 0f; UseBooni(); }
+            if (pickHoldTime >= 0.45f) { pickHoldTime = 0f; if (HasBooni) UseBooni(); else UsePocketFood(); }
         }
         else pickHoldTime = 0f;
 
@@ -2480,12 +2480,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (IsDrunk) damage = Mathf.CeilToInt(damage * drunkDamageTaken);
         health = Mathf.Max(0, health - damage);
-        if (health <= 0)
-        {
-            lives--;
-            if (lives > 0) { health = maxHealth; stamina = maxStamina; invulnTimer = respawnInvulnerable; }
-            else GameOver = true;
-        }
+        if (health <= 0) { health = 0; GameOver = true; }   // yksi energiapalkki: ei elämiä
     }
     /// Elämät loppuivat.
     public bool GameOver { get; private set; }
@@ -2500,6 +2495,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     public void AddMoney(int amount) { money += amount; }
+    int healthBoost;
+    public const int MaxHealthCap = 400;
+    /// Voimakuvake: energiapalkki pitenee (ja täyttyy saman verran).
+    public void AddMaxHealth(int amount)
+    {
+        int add = Mathf.Min(amount, MaxHealthCap - maxHealth);
+        if (add <= 0) { Heal(amount); return; }
+        maxHealth += add; healthBoost += add; health += add;
+    }
+    /// Vaikeustason vaihto kesken pelin: alkuenergia muuttuu, voimakuvakkeiden lisäykset säilyvät.
+    public void SetBaseHealth(int baseMax)
+    {
+        maxHealth = Mathf.Min(MaxHealthCap, baseMax + healthBoost);
+        health = Mathf.Min(health, maxHealth);
+    }
     /// Kuinka korkealla pelaaja on hypyssä (vihollisen lyönti menee ali, jos korkealla).
     public float AirHeight => height;
     /// Etummaisen nyrkin paikka maailmassa (pullo piirretään sen taakse).
@@ -2646,7 +2656,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // biljardipöytä: potkut ja lyönnit hajottavat vähitellen
         foreach (var ob in Obstacle.All.ToArray())
         {
-            if (ob == null || !ob.CanBeHit) continue;
+            if (ob == null || !ob.CanBeHit || ob.smashOnly) continue;
             Vector3 q = ob.NearestPoint(me);
             float dx = q.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
@@ -3451,7 +3461,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Bööni taskuun (Sohvilta ostettu tai löydetty, kun tasku on tyhjä). False = tasku jo täynnä.
     public bool StoreBooni()
     {
-        if (HasBooni) return false;
+        if (HasBooni || HasPocketFood) return false;
         booniPocket = 1;
         GameHUD.Popup(Loc.T("BÖÖNI TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
         return true;
@@ -3462,6 +3472,34 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (!HasBooni || !CanDrinkThermos) return false;
         booniPocket = 0;
         DrinkThermos();
+        return true;
+    }
+    /// Taskun eväs (kaupasta kotipakettiin): hodari, lihis tai pizza. Tasku on yhteinen Böönin kanssa (yksi paikka).
+    public string pocketFood = "";
+    public bool HasPocketFood => !string.IsNullOrEmpty(pocketFood);
+    public bool StorePocketFood(string key)
+    {
+        if (HasBooni || HasPocketFood) return false;
+        pocketFood = key;
+        GameHUD.Popup(Loc.T("EVÄS TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
+        return true;
+    }
+    /// Syö taskun evään (vapaana maassa): energia ja stamina samoin kuin maasta poimitusta.
+    public bool UsePocketFood()
+    {
+        if (!HasPocketFood || !CanDrinkThermos) return false;
+        if (!Pickup.FoodStats(pocketFood, out int pct, out int st, out bool full)) { pocketFood = ""; return false; }
+        if (health >= maxHealth && stamina >= maxStamina - 0.5f) { GameHUD.Popup(Loc.T("Energia on jo täynnä."), transform.position + Vector3.up * 3.2f, Color.white); return false; }
+        int hp = Heal(full ? maxHealth : Mathf.RoundToInt(maxHealth * pct / 100f));
+        int sg = AddStamina(st);
+        pocketFood = "";
+        if (full) GameHUD.Popup("TÄYSI LATAUS!", transform.position + Vector3.up * 3.6f, new Color(1f, 0.95f, 0.4f));
+        else
+        {
+            if (hp > 0) GameHUD.Popup("+" + hp + " ENERGIA", transform.position + Vector3.up * 3.4f, new Color(0.4f, 1f, 0.45f));
+            if (sg > 0) GameHUD.Popup("+" + sg + " STAMINA", transform.position + Vector3.up * 3.9f, new Color(0.35f, 0.7f, 1f));
+        }
+        HitFx.PlayPickup(full);
         return true;
     }
     public static bool PickHeld()

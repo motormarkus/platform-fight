@@ -18,7 +18,9 @@ public static class GameSettings
     public static float DamageToPlayer => Difficulty == Level.Helppo ? 0.6f : Difficulty == Level.Vaikea ? 1.4f : 1f;
     /// Iskut vihollisiin kerrotaan tällä.
     public static float DamageToEnemies => Difficulty == Level.Helppo ? 1.3f : Difficulty == Level.Vaikea ? 0.85f : 1f;
-    public static int Lives => Difficulty == Level.Helppo ? 5 : Difficulty == Level.Vaikea ? 2 : 3;
+    public static int Lives => Difficulty == Level.Helppo ? 5 : Difficulty == Level.Vaikea ? 2 : 3;   // ei käytössä (elämät poistettu)
+    /// Alkuenergia (palkin pituus pelin alussa).
+    public static int StartHealth => Difficulty == Level.Helppo ? 250 : Difficulty == Level.Vaikea ? 150 : 200;
 
     public static int ScaleToPlayer(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToPlayer));
     public static int ScaleToEnemy(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToEnemies));

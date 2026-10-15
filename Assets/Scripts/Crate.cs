@@ -86,6 +86,8 @@ public class Crate : MonoBehaviour
     [Range(0f, 1f)] public float moneyChance = 0.5f;
     [Tooltip("Todennäköisyys, että laatikosta löytyy energiajuoma (stamina).")]
     [Range(0f, 1f)] public float energyChance = 0.3f;
+    [Tooltip("Todennäköisyys, että hajonneesta laatikosta tulee ruokaa (energiaa).")]
+    [Range(0f, 1f)] public float foodChance = 0.15f;
     [Tooltip("Harvinainen termospullo (pärinä).")]
     [Range(0f, 1f)] public float thermosChance = 0.06f;
     public int energyStamina = 40;
@@ -251,6 +253,7 @@ public class Crate : MonoBehaviour
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.12f);
         if (Random.value < moneyChance) Pickup.SpawnMoney(transform.position + new Vector3(0.3f, -0.05f, 0f), 1, false);
         if (Random.value < energyChance) Pickup.SpawnEnergy(transform.position + new Vector3(-0.3f, -0.05f, 0f), energyStamina);
+        if (Random.value < foodChance) Pickup.SpawnFood(transform.position + new Vector3(0f, -0.1f, 0f), false);
         if (Random.value < thermosChance) Thermos.Spawn(transform.position + new Vector3(0f, -0.12f, 0f));
         if (burstSprite != null)
         {
