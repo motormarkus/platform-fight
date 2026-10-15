@@ -65,6 +65,19 @@ public class Door : MonoBehaviour
     [Tooltip("Taistelulukon tarkistusetäisyys (yksikköä).") ]
     public float fightBlockRange = 20f;
 
+    [Header("Viemärin kansi ja tikkaat")]
+    [Tooltip("Ovi on maassa (esim. viemärin kansi): käytettävissä, kun pelaaja on tämän kohdalla syvyydessä (takaseinän sijaan).")]
+    public bool onGround;
+    public float groundHalfDepth = 0.9f;
+    [Tooltip("Kansi, joka avataan ennen laskeutumista.")]
+    public Manhole manhole;
+    public float manholeWait = 0.55f;
+    [Tooltip("Kansi, joka avataan perillä (hero nousee kaivosta).")]
+    public Manhole emergeManhole;
+    [Tooltip("Perillä hero tulee tämän verran yläpuolelta (+, tikkaat alas) tai alapuolelta (-, nousu kaivosta) paikalleen.")]
+    public float arrivalOffsetY;
+    public float arrivalTime = 0.7f;
+
     PlayerController pc;
     bool near;
     float fade;   // 0 = näkyvä, 1 = musta
@@ -81,13 +94,14 @@ public class Door : MonoBehaviour
         }
 
         Vector3 p = pc.transform.position;
-        near = !pc.Riding && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-            && (here == null || (atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
+        near = !pc.Riding && !pc.HoldingLid && Mathf.Abs(p.x - transform.position.x) <= halfWidth
+            && (here == null || (onGround ? Mathf.Abs(p.y - transform.position.y) <= groundHalfDepth : atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
             && pc.AirHeight <= 0.05f
             && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
         if (near && Pressed())
         {
-            if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
+            if (manhole != null && !manhole.IsOpen) pc.TryLiftLid(manhole);   // kiinni oleva kansi: ensin nostetaan pois, sitten voi laskeutua
+            else if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
             else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; pc.enabled = false; }
             else StartCoroutine(Go());
         }
@@ -133,6 +147,11 @@ public class Door : MonoBehaviour
             anim.Open();
             for (float t = 0f; t < animWait; t += Time.unscaledDeltaTime) yield return null;
         }
+        if (manhole != null)
+        {
+            manhole.SetOpen(true);
+            for (float t = 0f; t < manholeWait; t += Time.unscaledDeltaTime) yield return null;
+        }
         if (climbHeight != 0f)
         {
             // kiipeäminen: ukko siirtyy tikkaiden kohdalle ja nousee, ruutu pimenee loppumatkasta
@@ -161,11 +180,30 @@ public class Door : MonoBehaviour
 
         if (anim != null) anim.Close();
         if (dest != null) dest.Apply(pc);
-        pc.TeleportTo(new Vector3(pos.x, pos.y, 0f));
+        Vector3 end = new Vector3(pos.x, pos.y, 0f);
+        pc.TeleportTo(arrivalOffsetY != 0f ? end + Vector3.up * arrivalOffsetY : end);
         if (faceLeftOnArrival) pc.Face(false);
+        if (emergeManhole != null) emergeManhole.SetOpen(true, true);
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(pos.x);
 
         yield return new WaitForSecondsRealtime(0.1f);
+        if (arrivalOffsetY != 0f)
+        {
+            // saapuminen: hero liukuu paikalleen (tikkaita alas tai ylös kaivosta) pimennyksen hälvetessä, ohjaus vasta perillä
+            float total = Mathf.Max(fadeTime, arrivalTime);
+            for (float t = 0f; t < total; t += Time.unscaledDeltaTime)
+            {
+                float k = Mathf.SmoothStep(0f, 1f, t / total);
+                pc.transform.position = end + Vector3.up * arrivalOffsetY * (1f - k);
+                fade = Mathf.Clamp01(1f - t / fadeTime);
+                yield return null;
+            }
+            pc.transform.position = end;
+            fade = 0f;
+            pc.enabled = true;
+            busy = false;
+            yield break;
+        }
         pc.enabled = true;
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
@@ -196,6 +234,7 @@ public class Door : MonoBehaviour
             ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
             : GuardsAlive
             ? (Time.unscaledTime < lockedMsgUntil ? guardsLockedText : "[E]  " + Loc.T(prompt) + " (lukossa)")
+            : manhole != null && !manhole.IsOpen ? "[E]  " + Loc.T("Nosta viemärin kansi")
             : "[E]  " + Loc.T(prompt);
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;
         // pitkä teksti jaetaan usealle riville: laatikko leveämmäksi (enintään 90 % ruudusta) ja tarvittaessa korkeammaksi

@@ -407,6 +407,54 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool HasRingSmash => ringSmashSprites != null && ringSmashSprites.Length >= 8;
     bool HasRing => ringTakeSprites != null && ringTakeSprites.Length >= 6 && ringThrowSprites != null && ringThrowSprites.Length >= 8 && ringPickSprites != null && ringPickSprites.Length >= 4;
 
+    [Header("Viemärin kansi")]
+    // Kuvat Resources/Kansi/<rocco|ruby>_kansi_NN.png (12): 0–3 nosto, 4–5 kantaa, 6–11 heitto. Kävely (valinnainen): <rocco|ruby>_kavely_NN.png.
+    static readonly System.Collections.Generic.Dictionary<string, Sprite[]> lidCache = new System.Collections.Generic.Dictionary<string, Sprite[]>();
+    static readonly float[] LidPickTimes = { 0.11f, 0.11f, 0.11f, 0.13f };
+    static readonly float[] LidThrowTimes = { 0.07f, 0.1f, 0.05f, 0.06f, 0.08f, 0.12f };   // kuvat 6–11
+    float lidWalkCycle = 0.9f;   // kantokävelyn yhden silmukan kesto (s): nopeutta säädetään tästä, kuvien määrä ei vaikuta
+    Lid liftingFloor;
+    Vector3 lidTarget;
+    bool lidResolved;
+    public bool HoldingLid => Lid.Held != null;
+
+    Sprite[] LidSet(string suffix, int min)
+    {
+        string who = AppliedCharacter == 1 ? "ruby" : "rocco";
+        string key = who + "_" + suffix;
+        if (lidCache.TryGetValue(key, out var cached)) return cached;
+        var l = new System.Collections.Generic.List<Sprite>();
+        for (int i = 0; i < 24; i++)
+        {
+            var tex = Resources.Load<Texture2D>("Kansi/" + key + "_" + i.ToString("00"));
+            if (tex == null) break;
+            l.Add(Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0f), 100f));
+        }
+        var arr = l.Count >= min ? l.ToArray() : null;
+        lidCache[key] = arr;
+        return arr;
+    }
+    Sprite[] LidArt => LidSet("kansi", 12);
+    /// Kansi irtoaa Rubylla jo kuvassa 8 (kuvassa 8 ei ole enää kantta käsissä), Roccolla kuvassa 9.
+    int LidReleaseIndex => AppliedCharacter == 1 ? 2 : 3;
+
+    /// Kiinni olevan kaivon kansi nostetaan pois (ovi kutsuu): nosto kuvineen, sitten kansi kädessä.
+    public bool TryLiftLid(Manhole m)
+    {
+        if (m == null || state != State.Ground || height > 0.05f || carried != null || Bottle.Held != null || Chair.Held != null
+            || Cue.Held != null || LifeRing.Held != null || Lid.Held != null || Riding || LidArt == null) return false;
+        var l = Lid.Create(m.lid != null ? m.lid.sprite : null, Area.Current, m.transform.position, m.openSounds);
+        l.sizeScale = m.sizeScale;
+        l.TakeBy();
+        m.LiftByHero();
+        liftingFloor = null; lidTarget = m.transform.position;
+        facingRight = m.transform.position.x >= transform.position.x;
+        StartLidPick();
+        return true;
+    }
+
+    void StartLidPick() { moving = false; running = false; lidResolved = false; Enter(State.LidPick); }
+
     [Header("Pudotuspotku (juoksusta lyönti + hyppy yhtä aikaa)")]
     [Tooltip("pudotuspotku.png: 0–1 juoksu (ei käytetä, ponnistus hypystä), 2 kippura, 3 potku lähtee, 4–5 jalat suorana, 6 alastulo selälleen, 7 makaa -> kip-up.")]
     public Sprite[] dropKickSprites;
@@ -1242,7 +1290,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -1393,7 +1441,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (!Scripted && (HasBooni || HasPocketFood) && state == State.Ground && PickHeld())
         {
             pickHoldTime += Time.deltaTime;
-            if (pickHoldTime >= 0.45f) { pickHoldTime = 0f; if (HasBooni) UseBooni(); else UsePocketFood(); }
+            if (pickHoldTime >= 0.45f) { pickHoldTime = 0f; if (HasPocketFood && (NeedsFood || !HasBooni)) UsePocketFood(); else if (HasBooni) UseBooni(); }   // eväs ensin, jos energiaa tai staminaa puuttuu; muuten Bööni
         }
         else pickHoldTime = 0f;
 
@@ -1423,6 +1471,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (canCarry && Bottle.TryPickUpFromTable(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // piirakka pöydältä suoraan käteen
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
+                    if (Lid.Held == null && LidArt != null)
+                    {
+                        var lidOnFloor = Lid.NearbyOnFloor(transform.position);
+                        if (lidOnFloor != null)
+                        {
+                            facingRight = lidOnFloor.transform.position.x >= transform.position.x;
+                            lidTarget = lidOnFloor.transform.position; lidOnFloor.TakeBy(); liftingFloor = lidOnFloor;
+                            StartLidPick(); break;
+                        }
+                    }
                     if (HasRing && LifeRing.Held == null)
                     {
                         var stand = RingStand.Nearby(transform.position);
@@ -1863,6 +1921,42 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     LifeRing.ThrowHeld(transform.position + new Vector3(dir * 2.0f, -0.01f, 0f), 2.2f + height, dir);   // käden korkeudelta
                 }
                 if (ThrowPose.Index(RingThrowTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+
+            case State.LidPick:
+            {
+                // hero astuu niin, että kansi (kuvissa n. 1,5 yksikköä edessä) on käden ulottuvilla
+                Vector3 target = lidTarget;
+                if (stateTime < 0.2f)
+                {
+                    float want = target.x - (facingRight ? 1f : -1f) * 1.5f;
+                    MoveOnGround(new Vector2(Mathf.Clamp(want - transform.position.x, -5f * dt, 5f * dt), Mathf.Clamp(target.y - transform.position.y, -2f * dt, 2f * dt)));
+                }
+                if (ThrowPose.Index(LidPickTimes, stateTime) < 0) { liftingFloor = null; Enter(Lid.Held != null ? State.LidHold : State.Ground); }
+                break;
+            }
+
+            case State.LidHold:
+            {
+                if (Lid.Held == null) { Enter(State.Ground); break; }
+                if (kickPressed || releaseThrow || punchPressed) { throwQueued = false; lidResolved = false; PlayGrunt(); Enter(State.LidThrow); break; }
+                moving = move.sqrMagnitude > 0.01f;
+                if (moving)
+                {
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
+                    MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * carrySpeedFactor * dt);
+                }
+                break;
+            }
+
+            case State.LidThrow:
+                if (!lidResolved && stateTime >= ThrowPose.Start(LidThrowTimes, LidReleaseIndex))
+                {
+                    lidResolved = true;
+                    float dir = facingRight ? 1f : -1f;
+                    Lid.ThrowHeld(transform.position + new Vector3(dir * 1.7f, -0.01f, 0f), 1.9f + height, dir);
+                }
+                if (ThrowPose.Index(LidThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
             case State.CuePick:
@@ -2814,6 +2908,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         Chair.DropHeld(transform.position);
         Cue.DropHeld(transform.position);
         LifeRing.DropHeld(transform.position);
+        Lid.DropHeld(transform.position);
         facingRight = fromRight;
         heldRot = 0f;
         height = Mathf.Max(height, 0.05f);
@@ -2866,6 +2961,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
         if (state != State.Block && Cue.Held != null) Cue.DropHeld(transform.position);
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
+        if (state != State.Block && Lid.Held != null) Lid.DropHeld(transform.position);
         if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
         else if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
@@ -3423,7 +3519,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     Sprite[] drinkSprites; int drinkLoadedFor = -1; bool drinkSoundPlayed;
     static readonly float[] DrinkTimes = { 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.13f, 0.13f, 0.13f, 0.13f, 0.13f, 0.05f, 0.05f, 0.05f, 0.05f, 0.08f };
     /// Termospullon voi juoda, kun seisoo vapaana maassa (ei kanna mitään, ei jo juo).
-    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && !Riding;
+    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
     Sprite[] DrinkSprites
     {
         get
@@ -3465,7 +3561,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Bööni taskuun (Sohvilta ostettu tai löydetty, kun tasku on tyhjä). False = tasku jo täynnä.
     public bool StoreBooni()
     {
-        if (HasBooni || HasPocketFood) return false;
+        if (HasBooni) return false;   // Bööni on oma paikkansa (taskuun mahtuu Bööni + 2 evästä)
         booniPocket = 1;
         GameHUD.Popup(Loc.T("BÖÖNI TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
         return true;
@@ -3478,24 +3574,28 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         DrinkThermos();
         return true;
     }
-    /// Taskun eväs (kaupasta kotipakettiin): hodari, lihis tai pizza. Tasku on yhteinen Böönin kanssa (yksi paikka).
-    public string pocketFood = "";
-    public bool HasPocketFood => !string.IsNullOrEmpty(pocketFood);
+    /// Taskun eväät (kaupasta kotipakettiin): hodari, lihis tai pizza. Taskuun mahtuu Bööni (oma paikka) ja 2 evästä.
+    public string pocketFood = "", pocketFood2 = "";
+    public bool HasPocketFood => !string.IsNullOrEmpty(pocketFood) || !string.IsNullOrEmpty(pocketFood2);
+    public bool PocketFoodFull => !string.IsNullOrEmpty(pocketFood) && !string.IsNullOrEmpty(pocketFood2);
+    /// Evään tarve: energia tai stamina ei ole täynnä.
+    bool NeedsFood => health < maxHealth || stamina < maxStamina - 0.5f;
     public bool StorePocketFood(string key)
     {
-        if (HasBooni || HasPocketFood) return false;
-        pocketFood = key;
+        if (PocketFoodFull) return false;
+        if (string.IsNullOrEmpty(pocketFood)) pocketFood = key; else pocketFood2 = key;
         GameHUD.Popup(Loc.T("EVÄS TASKUUN"), transform.position + Vector3.up * 3.6f, boostGlow);
         return true;
     }
-    /// Syö taskun evään (vapaana maassa): energia ja stamina samoin kuin maasta poimitusta.
+    /// Syö taskun vanhimman evään (vapaana maassa): energia ja stamina samoin kuin maasta poimitusta.
     public bool UsePocketFood()
     {
         if (!HasPocketFood || !CanDrinkThermos) return false;
-        if (!Pickup.FoodStats(pocketFood, out _, out _, out _)) { pocketFood = ""; return false; }
-        if (health >= maxHealth && stamina >= maxStamina - 0.5f) { GameHUD.Popup(Loc.T("Energia on jo täynnä."), transform.position + Vector3.up * 3.2f, Color.white); return false; }
+        if (string.IsNullOrEmpty(pocketFood)) { pocketFood = pocketFood2; pocketFood2 = ""; }
+        if (!Pickup.FoodStats(pocketFood, out _, out _, out _)) { pocketFood = pocketFood2; pocketFood2 = ""; return false; }
+        if (!NeedsFood) { GameHUD.Popup(Loc.T("Energia on jo täynnä."), transform.position + Vector3.up * 3.2f, Color.white); return false; }
         string key = pocketFood;
-        pocketFood = "";
+        pocketFood = pocketFood2; pocketFood2 = "";   // toinen eväs siirtyy ensimmäiseksi
         return EatFood(key, transform.position + Vector3.up * 3.4f);
     }
     // ---- syöminen: hodari, lihis ja pizza omilla kuvillaan (Resources/Syonti/<rocco|ruby>_<ruoka>_NN.png) ----
@@ -3503,6 +3603,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static AudioClip[] chewClips;
     float eatChewNext;
     int eatChewCount;
+    bool eatPizza;
     Sprite[] eatSprites;
     float[] eatTimes;
 
@@ -3543,6 +3644,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             // 8 kuvaa (7 pizzalla): ote, nosto, esille, pureskelu x3, siisti, perusasento
             eatTimes = spr.Length >= 8 ? new[] { 0.07f, 0.07f, 0.1f, 0.14f, 0.14f, 0.14f, 0.1f, 0.08f }
                                        : new[] { 0.07f, 0.07f, 0.1f, 0.16f, 0.16f, 0.1f, 0.08f };
+            eatPizza = key.Contains("pizza");
+            if (eatPizza) for (int i = 0; i < eatTimes.Length; i++) eatTimes[i] *= 2.4f;   // pizza syödään hitaammin: pidempi animaatio ja kaksi pureskelua
             moving = false; running = false;
             Enter(State.Eat);
         }
@@ -3550,7 +3653,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return true;
     }
     /// Vapaana maassa: syöntianimaatio voidaan näyttää.
-    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && !Riding;
+    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
 
     void UpdateEat()
     {
@@ -3558,7 +3661,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         int f = ThrowPose.Index(eatTimes, stateTime);
         if (f < 0) { eatSprites = null; Enter(State.Ground); return; }
         // pureskelu: ääni puremakuvissa (3.–5.), jos Resources/Syonti/pureskelu*-ääniä on
-        if (f >= 3 && eatChewCount < 1)   // sama ääni kuin Sohvin baarissa makkaraa syödessä: kerran ensimmäisessä puraisussa
+        int chewFrame = eatChewCount == 0 ? 3 : 5;   // pizzalla toinen pureskelu myöhemmin
+        if (f >= chewFrame && eatChewCount < (eatPizza ? 2 : 1))   // sama ääni kuin Sohvin baarissa makkaraa syödessä: kerran ensimmäisessä puraisussa (pizzalla kaksi)
         {
             if (chewClips == null) chewClips = System.Array.FindAll(Resources.LoadAll<AudioClip>("Syonti"), c => c != null && c.name.StartsWith("pureskelu"));
             if (chewClips.Length > 0) HitFx.PlayClip(chewClips[UnityEngine.Random.Range(0, chewClips.Length)], 0.9f);
@@ -3932,6 +4036,22 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 int f = ThrowPose.Index(RingThrowTimes, stateTime);
                 return ringThrowSprites[f < 0 ? ringThrowSprites.Length - 1 : Mathf.Min(f, ringThrowSprites.Length - 1)];
+            }
+            case State.LidPick:
+            {
+                var ls = LidArt; int f = ThrowPose.Index(LidPickTimes, stateTime);
+                return ls[f < 0 ? 3 : f];
+            }
+            case State.LidHold:
+            {
+                var walk = LidSet("kavely", 4);
+                if (moving && walk != null) return walk[(int)(animClock / (lidWalkCycle / walk.Length)) % walk.Length];
+                return LidArt[4];
+            }
+            case State.LidThrow:
+            {
+                var ls = LidArt; int f = ThrowPose.Index(LidThrowTimes, stateTime);
+                return ls[6 + (f < 0 ? LidThrowTimes.Length - 1 : f)];
             }
             case State.ChairHold:
                 if (moving && chairWalkSprites != null && chairWalkSprites.Length > 0)

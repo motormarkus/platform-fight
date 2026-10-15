@@ -875,7 +875,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Awake()
     {
         health = maxHealth;
-        brain = GetComponent<DeaconBoss>();
+        brain = GetComponent<IEnemyBrain>();
         // uusi rokkimimmi (valikko 73) asetti herätysetäisyydeksi -1 (rauhallinen baarin asiakas): dinerin, peltihallin ja junan rokkimimmit hyökkäävät kuten muut vihut
         if (displayName == "Rokkimimmi" && wakeDistance < 0f && (name.StartsWith("Dinerin") || name.StartsWith("Peltihallin") || name.Contains("(vaunu"))) { wakeDistance = name.Contains("(vaunu") ? 8f : 12f; wakeOnFightRadius = 0f; }
         if (displayName == "Rokkimimmi") { maxHealth = Mathf.Max(maxHealth, 125); health = maxHealth; }   // rokkimimmin energia 125
@@ -890,7 +890,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Rottakeisari") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1339,7 +1339,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.GetUp:
-                if (stateTime >= getUpTime + RollTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); Enter(State.Chase); }
+                if (stateTime >= getUpTime + RollTime) { if (getUpFacesBack && Has(getUpSprites)) facingRight = !facingRight; cooldown = Mathf.Max(cooldown, 0.6f); if (boardLost) GoOnFoot(); LastGetUpTime = Time.time; Enter(State.Chase); }
                 break;
 
             case State.Clinch:
@@ -3525,7 +3525,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
 
     // ---------------- Ulkoinen aivo (Deacon) ----------------
-    [HideInInspector] public DeaconBoss brain;
+    [HideInInspector] public IEnemyBrain brain;
+    /// Elämä osuutena (0–1): aivot käyttävät esim. erikoisliikkeen ajoitukseen.
+    public float HealthFraction => maxHealth > 0 ? Mathf.Clamp01((float)health / maxHealth) : 1f;
     public enum BrainPhase { Idle, Chase, Windup, Punch }
     /// Pelaaja, jota vastaan taistellaan.
     public PlayerController Hero => player;
@@ -3533,6 +3535,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool IsAwake { get { return awake; } set { awake = value; } }
     /// Viimeisin onnistunut torjunta (aivo vastaa torjunnan jälkeen jabilla).
     [HideInInspector] public float LastBlockTime = -99f;
+    /// Viimeisin ylösnousun päättyminen (aivo voi esim. harmistua noustessaan).
+    [HideInInspector] public float LastGetUpTime = -99f;
     public AudioSource Audio => audioSource;
     /// Enemy on perustilassa (ei osumaa, kaatumista, otetta tms.), jolloin aivo saa ohjata.
     public bool BrainNeutral => state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch || state == State.Recover;
@@ -3559,4 +3563,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
         int i = (int)(animClock / idleFrameTime) % period;
         return set[i < n ? i : period - i];
     }
+}
+
+/// Ulkoinen aivo (Deacon, Rottakeisari): ohjaa Enemyn liikettä, iskuja ja kuvia, kun Enemy on perustilassa.
+public interface IEnemyBrain
+{
+    bool enabled { get; set; }
+    void Tick(float dt);
+    bool InterceptHit(int damage, float attackerX, bool knockdown);
+    bool ArmorNow { get; }
+    bool HasSprite { get; }
+    Sprite CurrentSprite { get; }
 }

@@ -10,7 +10,7 @@ using UnityEngine;
 /// Kuvat katsovat oikealle. Kuvajärjestykset tulevat editorivalikosta (146).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class DeaconBoss : MonoBehaviour
+public class DeaconBoss : MonoBehaviour, IEnemyBrain
 {
     [Header("Kuvat (editori täyttää)")]
     public Sprite[] cigarIdle;      // sikari suussa, seisoo

@@ -151,7 +151,7 @@ public class ShopCounter : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(it.takeaway))
         {
-            if (pc.HasBooni || pc.HasPocketFood) { Say(Loc.T("Tasku on täynnä: siihen mahtuu yksi eväs tai Bööni.")); return; }
+            if (pc.PocketFoodFull) { Say(Loc.T("Tasku on täynnä: siihen mahtuu kaksi evästä ja Bööni.")); return; }
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StorePocketFood(it.takeaway);
@@ -162,7 +162,6 @@ public class ShopCounter : MonoBehaviour
         if (it.name == "Bööni")
         {
             if (pc.HasBooni) { Say(Loc.T("Taskussa on jo Bööni.")); return; }
-            if (pc.HasPocketFood) { Say(Loc.T("Tasku on täynnä: siihen mahtuu yksi eväs tai Bööni.")); return; }
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StoreBooni();

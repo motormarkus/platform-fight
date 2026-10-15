@@ -132,6 +132,28 @@ public class Crate : MonoBehaviour
     /// Voiko laatikkoon lyödä.
     public bool CanBeHit => state == State.Idle;
 
+    // ---- vihollisen (Rottakeisari) tynnyrityö ----
+    /// Tynnyri (vierii): ei hajoa.
+    public bool IsBarrel => HasRoll;
+    /// Tynnyri seisoo paikallaan ja sen voi potkaista liikkeelle.
+    public bool IsKickable => HasRoll && state == State.Idle && stackedOn == null;
+    /// Pelaajan potkaisema tai heittämä tynnyri liikkuu (lentää tai vierii).
+    public bool InFlightByHero => HasRoll && thrown && thrownBy == null && (state == State.Flying || state == State.Rolling);
+    public float VelX => vel.x;
+
+    /// Vihollinen potkaisee (tai potkaisee takaisin) tynnyrin vierimään suuntaan dir: osuu pelaajaan.
+    public bool Kick(float dir, Enemy by, int damage, float speed = 0f)
+    {
+        if (!HasRoll || state == State.Carried || state == State.Breaking) return false;
+        lying = true; height = 0f; verticalVel = 0f;
+        vel = new Vector2(Mathf.Sign(dir) * (speed > 0f ? speed : kickRollSpeed), 0f);
+        thrown = true; thrownBy = by; enemyDamage = damage;
+        alreadyHit.Clear(); alreadyHitLinsey.Clear(); alreadyHitPlayer = false;
+        state = State.Rolling; stateTime = 0f;
+        Disturb++; shakeTimer = 0.15f;
+        return true;
+    }
+
     void OnEnable() { All.Add(this); }
     void OnDisable() { All.Remove(this); }
 

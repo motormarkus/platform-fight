@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: b595780fc46ad4a48967cc4841a5eb6b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2753560024476998694
+    second: rottakeisari_idle_0
+  - first:
+      213: 2765448795160080946
+    second: rottakeisari_idle_1
+  - first:
+      213: 1311745237548386785
+    second: rottakeisari_idle_2
+  - first:
+      213: -4020343227353943460
+    second: rottakeisari_idle_3
+  - first:
+      213: 2176921628517531044
+    second: rottakeisari_idle_4
+  - first:
+      213: 7114937294965236260
+    second: rottakeisari_idle_5
+  - first:
+      213: -7897032107091202351
+    second: rottakeisari_idle_6
+  - first:
+      213: 3651467493022921106
+    second: rottakeisari_idle_7
+  - first:
+      213: 8326369382716612038
+    second: rottakeisari_idle_8
+  - first:
+      213: 7163314670990617036
+    second: rottakeisari_idle_9
+  - first:
+      213: 8566985792918679615
+    second: rottakeisari_idle_10
+  - first:
+      213: -2022237715537303376
+    second: rottakeisari_idle_11
+  - first:
+      213: 1024581134133333758
+    second: rottakeisari_idle_12
+  - first:
+      213: 2471550828402762310
+    second: rottakeisari_idle_13
+  - first:
+      213: 6166917859083268920
+    second: rottakeisari_idle_14
+  - first:
+      213: -1618104011121000554
+    second: rottakeisari_idle_15
+  - first:
+      213: -5667856832898634895
+    second: rottakeisari_idle_16
+  - first:
+      213: 1304997697826420761
+    second: rottakeisari_idle_17
+  - first:
+      213: -3026886173435284672
+    second: rottakeisari_idle_18
+  - first:
+      213: -1177014370473429684
+    second: rottakeisari_idle_19
+  - first:
+      213: 2485632513030555285
+    second: rottakeisari_idle_20
+  - first:
+      213: 6025580494171881695
+    second: rottakeisari_idle_21
+  - first:
+      213: -8376216924671770412
+    second: rottakeisari_idle_22
+  - first:
+      213: -1453247090629733855
+    second: rottakeisari_idle_23
+  - first:
+      213: 5856628421990479122
+    second: rottakeisari_idle_24
+  - first:
+      213: 7603088337108742498
+    second: rottakeisari_idle_25
+  - first:
+      213: -7568365599977338750
+    second: rottakeisari_idle_26
+  - first:
+      213: -349392951783855851
+    second: rottakeisari_idle_27
+  - first:
+      213: -5356424361693568726
+    second: rottakeisari_idle_28
+  - first:
+      213: 4768153690154273005
+    second: rottakeisari_idle_29
+  - first:
+      213: -8852097595450895857
+    second: rottakeisari_idle_30
+  - first:
+      213: 6988991549176201034
+    second: rottakeisari_idle_31
+  - first:
+      213: -1406221271303017714
+    second: rottakeisari_idle_32
+  - first:
+      213: 6243081205115487154
+    second: rottakeisari_idle_33
+  - first:
+      213: 1024512808744332829
+    second: rottakeisari_idle_34
+  - first:
+      213: -1565903563971112407
+    second: rottakeisari_idle_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rottakeisari_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad325592fb369c9d0800000000000000
+      internalID: -2753560024476998694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2327c08f609d06620800000000000000
+      internalID: 2765448795160080946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9c1e7f751443210800000000000000
+      internalID: 1311745237548386785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3584
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52bb6aa22fd438c0800000000000000
+      internalID: -4020343227353943460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4adf6a3ffaaf53e10800000000000000
+      internalID: 2176921628517531044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422e491f5c55db260800000000000000
+      internalID: 7114937294965236260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de69fc832b186290800000000000000
+      internalID: -7897032107091202351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291748ea65e9ca230800000000000000
+      internalID: 3651467493022921106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd138da6d43d8370800000000000000
+      internalID: 8326369382716612038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc96dba8db4396360800000000000000
+      internalID: 7163314670990617036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f307cb6503c04e670800000000000000
+      internalID: 8566985792918679615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8600213819fe3e0800000000000000
+      internalID: -2022237715537303376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe859fec1b083e00800000000000000
+      internalID: 1024581134133333758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642e4433266bc4220800000000000000
+      internalID: 2471550828402762310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833bbad7e1b459550800000000000000
+      internalID: 6166917859083268920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f7f7799f65b89e0800000000000000
+      internalID: -1618104011121000554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b6e457d3ab751b0800000000000000
+      internalID: -5667856832898634895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91875a3fd784c1210800000000000000
+      internalID: 1304997697826420761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04339d8ff075ef5d0800000000000000
+      internalID: -3026886173435284672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45b6688aa76aafe0800000000000000
+      internalID: -1177014370473429684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5960955e99dbe7220800000000000000
+      internalID: 2485632513030555285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd043a8d8892f9350800000000000000
+      internalID: 6025580494171881695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0035b0613b1cb80800000000000000
+      internalID: -8376216924671770412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1221520887705dbe0800000000000000
+      internalID: -1453247090629733855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215f232258ce64150800000000000000
+      internalID: 5856628421990479122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26138494f88938960800000000000000
+      internalID: 7603088337108742498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2888013f593c7f690800000000000000
+      internalID: -7568365599977338750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_27
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519e5e526f4b62bf0800000000000000
+      internalID: -349392951783855851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21a10f2c682aa5b0800000000000000
+      internalID: -5356424361693568726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de80d18b482eb2240800000000000000
+      internalID: 4768153690154273005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f025f0a2328072580800000000000000
+      internalID: -8852097595450895857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_31
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4fbad2e8c2edf060800000000000000
+      internalID: 6988991549176201034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ba26844391c7ce0800000000000000
+      internalID: -1406221271303017714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b383de5741e3a650800000000000000
+      internalID: 6243081205115487154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_34
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e2b01b8fcc73e00800000000000000
+      internalID: 1024512808744332829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rottakeisari_idle_35
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922dbfc410bc44ae0800000000000000
+      internalID: -1565903563971112407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f31825e3ffa04c4468b9a98dc69412ff
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rottakeisari_idle_0: -2753560024476998694
+      rottakeisari_idle_1: 2765448795160080946
+      rottakeisari_idle_10: 8566985792918679615
+      rottakeisari_idle_11: -2022237715537303376
+      rottakeisari_idle_12: 1024581134133333758
+      rottakeisari_idle_13: 2471550828402762310
+      rottakeisari_idle_14: 6166917859083268920
+      rottakeisari_idle_15: -1618104011121000554
+      rottakeisari_idle_16: -5667856832898634895
+      rottakeisari_idle_17: 1304997697826420761
+      rottakeisari_idle_18: -3026886173435284672
+      rottakeisari_idle_19: -1177014370473429684
+      rottakeisari_idle_2: 1311745237548386785
+      rottakeisari_idle_20: 2485632513030555285
+      rottakeisari_idle_21: 6025580494171881695
+      rottakeisari_idle_22: -8376216924671770412
+      rottakeisari_idle_23: -1453247090629733855
+      rottakeisari_idle_24: 5856628421990479122
+      rottakeisari_idle_25: 7603088337108742498
+      rottakeisari_idle_26: -7568365599977338750
+      rottakeisari_idle_27: -349392951783855851
+      rottakeisari_idle_28: -5356424361693568726
+      rottakeisari_idle_29: 4768153690154273005
+      rottakeisari_idle_3: -4020343227353943460
+      rottakeisari_idle_30: -8852097595450895857
+      rottakeisari_idle_31: 6988991549176201034
+      rottakeisari_idle_32: -1406221271303017714
+      rottakeisari_idle_33: 6243081205115487154
+      rottakeisari_idle_34: 1024512808744332829
+      rottakeisari_idle_35: -1565903563971112407
+      rottakeisari_idle_4: 2176921628517531044
+      rottakeisari_idle_5: 7114937294965236260
+      rottakeisari_idle_6: -7897032107091202351
+      rottakeisari_idle_7: 3651467493022921106
+      rottakeisari_idle_8: 8326369382716612038
+      rottakeisari_idle_9: 7163314670990617036
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

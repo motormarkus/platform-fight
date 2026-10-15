@@ -114,18 +114,18 @@ public class GameHUD : MonoBehaviour
                         new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
                 }
             }
-            if (player.HasPocketFood)
+            // taskun eväät (2 paikkaa) Böönin paikan oikealla puolella
+            string[] foods = { player.pocketFood, player.pocketFood2 };
+            for (int fi = 0; fi < foods.Length; fi++)
             {
-                // taskun eväs rahojen vieressä (sama paikka kuin Böönillä)
-                var fs = Pickup.FoodSprite(player.pocketFood);
-                if (fs != null)
-                {
-                    float ih = h * 1.9f, iw = ih * fs.rect.width / fs.rect.height;
-                    if (iw > ih * 1.6f) { iw = ih * 1.6f; }
-                    var tr = fs.textureRect; var tx = fs.texture;
-                    GUI.DrawTextureWithTexCoords(new Rect(x + bw + 250 * s, y + h * 0.95f, iw, iw * fs.rect.height / fs.rect.width), tx,
-                        new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
-                }
+                if (string.IsNullOrEmpty(foods[fi])) continue;
+                var fs = Pickup.FoodSprite(foods[fi]);
+                if (fs == null) continue;
+                float ih = h * 1.9f, iw = ih * fs.rect.width / fs.rect.height;
+                if (iw > ih * 1.6f) { iw = ih * 1.6f; }
+                var tr = fs.textureRect; var tx = fs.texture;
+                GUI.DrawTextureWithTexCoords(new Rect(x + bw + (330 + fi * 95) * s, y + h * 0.95f, iw, iw * fs.rect.height / fs.rect.width), tx,
+                    new Rect(tr.x / tx.width, tr.y / tx.height, tr.width / tx.width, tr.height / tx.height));
             }
             if (player.Boosted)
             {

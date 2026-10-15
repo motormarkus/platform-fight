@@ -38,6 +38,8 @@ public class Pickup : MonoBehaviour
     static Sprite note, stack, coin, drink, canFallback;
     static AudioClip drinkSound;
     static bool loaded;
+    /// Irtonaiset ruoat ja voimakuvakkeet (maassa, vihujen pudottamina tai laatikoista): pois käytöstä, ruoka ostetaan Sohvin kaupasta.
+    public static bool LooseFood = false;
 
     // ---- ruoka ja voimakuvakkeet: kuvat Resources/Pickups/ruoka_<nimi>[_<maara>].png ja voima_<nimi>[_<maara>].png ----
     // Tiedoston nimen lopussa oleva luku on energian maara (ruoka) tai palkin pidennys (voimakuvake); ilman lukua 20.
@@ -87,6 +89,7 @@ public class Pickup : MonoBehaviour
     /// Ruoka maahan: big = isompi annos (yli 20 energiaa), muuten pieni. Kuva arvotaan.
     public static void SpawnFood(Vector3 pos, bool big = false, string spriteName = "")
     {
+        if (!LooseFood && spriteName != "pizza") return;   // ainoa poikkeus: pomojen ja rekkamiehen pizza
         LoadItems();
         var go = new GameObject("Ruoka");
         go.transform.position = pos;
@@ -99,6 +102,7 @@ public class Pickup : MonoBehaviour
     /// Voimakuvake maahan: pidentaa energiapalkkia pysyvasti.
     public static void SpawnPowerUp(Vector3 pos, string spriteName = "")
     {
+        if (!LooseFood) return;
         LoadItems();
         var go = new GameObject("Voimakuvake");
         go.transform.position = pos;
@@ -178,6 +182,7 @@ public class Pickup : MonoBehaviour
 
     void Awake()
     {
+        if (!LooseFood && (IsFood || maxBoost > 0)) { Destroy(gameObject); return; }   // sceneen aiemmin sijoitetut ruoat ja voimakuvakkeet
         var vis = new GameObject("Visual");
         vis.transform.SetParent(transform, false);
         sr = vis.AddComponent<SpriteRenderer>();
