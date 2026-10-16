@@ -109,11 +109,12 @@ public class Lid : MonoBehaviour
         {
             Vector3 p = transform.position;
             float dx = vx * dt; p.x += dx; travelled += Mathf.Abs(dx);
-            if (area != null) p.x = Mathf.Clamp(p.x, area.walkMinX + 0.3f, area.walkMaxX - 0.3f);
+            bool limited = area != null && area.walkMaxX > area.walkMinX;   // kadulla (Katu) rajoja ei ole annettu (0 = ei rajaa)
+            if (limited) p.x = Mathf.Clamp(p.x, area.walkMinX + 0.3f, area.walkMaxX - 0.3f);
             transform.position = p;
             vy -= 1.2f * dt; height = Mathf.Max(0.4f, height + vy * dt);   // liitää lähes vaakaan
             HitInPath();
-            if (travelled >= range || hits >= maxHits || (area != null && (p.x <= area.walkMinX + 0.31f || p.x >= area.walkMaxX - 0.31f)))
+            if (travelled >= range || hits >= maxHits || (limited && (p.x <= area.walkMinX + 0.31f || p.x >= area.walkMaxX - 0.31f)))
             { state = S.Falling; vy = 1.5f; vx *= 0.3f; }
         }
         else if (state == S.Falling)

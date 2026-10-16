@@ -9,6 +9,10 @@ public class Area : MonoBehaviour
     public string areaName = "Alue";
     [Tooltip("Alueen oma musiikki (tyhjä = kentän pääkappale).")]
     public AudioClip music;
+    [Tooltip("Alueen musiikin vahvistus (1 = kappaleen oma taso, 1,334 = +2,5 dB; AudioSource ei voi ylittää 1:tä, joten vaikutus riippuu musiikin perustasosta).")]
+    public float musicGain = 1f;
+    /// Viemärin musiikin vahvistus (+3,9 dB): Viemari.mp3 on n. 3,5 dB hiljaisempi kuin muu musiikki (RMS -19,7 vs n. -16 dBFS).
+    public const float SewerDefaultGain = 1.57f;
     [Tooltip("Alueen taustahäly silmukkana (tyhjä = Resources/Ambienssi/<alueen nimi>, esim. laivan_kansi.wav).")]
     public AudioClip ambience;
     [Range(0f, 2f)] public float ambienceVolume = 1f;
@@ -19,7 +23,14 @@ public class Area : MonoBehaviour
     public static bool IsHere(Vector3 p, float margin = 8f)
     {
         if (Current == null) return true;
-        return p.x >= Current.walkMinX - margin && p.x <= Current.walkMaxX + margin;
+        float lo = Current.walkMinX, hi = Current.walkMaxX;
+        if (!(hi > lo))
+        {
+            // kävelyrajoja ei ole annettu (esim. katu: 0 = ei rajaa): käytetään kameran rajoja, muuten ei rajausta (muuten kaikkien vihujen äänet mykistyisivät alueelle siirryttäessä)
+            if (Current.camMaxX > Current.camMinX) { lo = Current.camMinX - 20f; hi = Current.camMaxX + 20f; }
+            else return true;
+        }
+        return p.x >= lo - margin && p.x <= hi + margin;
     }
 
     [Header("Kävelyalue (y = syvyys)")]
@@ -85,7 +96,9 @@ public class Area : MonoBehaviour
     public void Apply(PlayerController pc)
     {
         Current = this;
-        MusicPlayer.SetAreaMusic(music);
+        float gain = musicGain;
+        if (Mathf.Approximately(gain, 1f) && areaName != null && areaName.StartsWith("Viemäri")) gain = SewerDefaultGain;   // viemärin musiikki on hiljaisempaa kuin muu: oletusvahvistus ilman valikon ajoa
+        MusicPlayer.SetAreaMusic(music, music != null ? gain : 1f);
         if (pc != null)
         {
             pc.minDepthY = minDepthY;

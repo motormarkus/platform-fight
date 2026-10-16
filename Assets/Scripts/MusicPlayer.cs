@@ -41,10 +41,11 @@ public class MusicPlayer : MonoBehaviour
     }
 
     /// Alueen oma musiikki (null = takaisin pääkappaleeseen).
-    public static void SetAreaMusic(AudioClip clip)
+    public static void SetAreaMusic(AudioClip clip, float gain = 1f)
     {
-        if (Instance != null) Instance.SetArea(clip);
+        if (Instance != null) { Instance.areaGain = gain; Instance.SetArea(clip); }
     }
+    float areaGain = 1f;   // alueen musiikin vahvistus (1 = kappaleen oma taso; 1,334 = +2,5 dB)
 
     void Awake()
     {
@@ -94,7 +95,7 @@ public class MusicPlayer : MonoBehaviour
         overMix = Mathf.MoveTowards(overMix, overTarget, dt / overFade);
         float rest = 1f - overMix;
         source.volume = master * (1f - areaMix) * rest;
-        areaSource.volume = master * areaMix * rest;
+        areaSource.volume = Mathf.Clamp01(master * areaMix * rest * areaGain);
         overSource.volume = master * overMix;
         if (overTarget <= 0f && overMix <= 0f && overSource.isPlaying) overSource.Stop();
         if (areaClip == null && areaMix <= 0f && areaSource.isPlaying) areaSource.Stop();

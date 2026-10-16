@@ -142,10 +142,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("skeittari_") || baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -8873,6 +8873,7 @@ public static class BeatEmUpSetup
         var area = ReuseArea("Alue: " + areaName);
         Undo.RecordObject(area, "Viemäri");
         area.areaName = areaName; area.useSidewalk = false;
+        area.musicGain = SewerMusic() != null ? SewerMusicGain : 1f;
         area.music = SewerMusic() ?? street.music;   // viemärin oma musiikki (soi myös Rottakeisarin taistelussa)
         area.maxDepthY = DepthAt(640f);                       // seinän ja lattian raja
         area.minDepthY = CamY - CamHalf + 1.2f;
@@ -9224,15 +9225,16 @@ public static class BeatEmUpSetup
         // omat osuma- ja kaatumisäänet (Koviksen äänet korvataan)
         var painClips = LoadClips("Assets/Audio/rottakeisari", "kipu");
         if (painClips.Length > 0) { t.hurtSounds = painClips; t.hurtVolume = 1f; }
-        var fallClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/rottakeisari/kaatuminen.mp3");
-        if (fallClip != null) { t.fallVoice = fallClip; t.fallVoiceVolume = 1f; t.deathVoice = fallClip; t.deathVoiceVolume = 1f; }
+        var fallClip1 = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/rottakeisari/kaatuminen1.mp3");
+        var fallClip2 = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/rottakeisari/kaatuminen2.mp3");
+        if (fallClip1 != null) { t.fallVoice = fallClip1; t.fallVoiceAlt = fallClip2; t.fallVoiceVolume = 1f; t.deathVoice = fallClip2 != null ? fallClip2 : fallClip1; t.deathVoiceVolume = 1f; }
         Undo.RegisterCreatedObjectUndo(go, "Rottakeisari");
 
         // viemäreihin: keskelle matkaa (jos viemäri on tehty), muuten origoon
         var areas = Object.FindObjectsByType<Area>(FindObjectsSortMode.None);
         var placed = new List<string>();
         GameObject first = go;
-        foreach (var (areaName, label) in new[] { ("Viemäri", ""), ("Viemäri (katu)", " (katu)") })
+        foreach (var (areaName, label) in new[] { ("Viemäri", "") })   // Rottakeisari vain Aavikkokadun viemärissä (ensimmäisen kadun viemärissä on Pierre, valikko 159)
         {
             var sw = areas.FirstOrDefault(a => a.areaName == areaName);
             if (sw == null) continue;
@@ -9251,6 +9253,7 @@ public static class BeatEmUpSetup
     }
 
     const string SewerMusicPath = "Assets/Audio/Musiikki/Viemari.mp3";
+    const float SewerMusicGain = 1.57f;   // +3,9 dB: Viemari.mp3 on mitattu -19,7 dBFS (RMS), muu musiikki n. -16 dBFS; sama arvo Area.SewerDefaultGain
     static AudioClip SewerMusic() => AssetDatabase.LoadAssetAtPath<AudioClip>(SewerMusicPath);
 
     [MenuItem("Beat em up/158. Viemärin musiikki (Viemari.mp3) viemäreille")]
@@ -9264,12 +9267,115 @@ public static class BeatEmUpSetup
         {
             if (a.areaName == null || !a.areaName.StartsWith("Viemäri")) continue;
             Undo.RecordObject(a, "Viemärin musiikki");
-            a.music = clip;
+            a.music = clip; a.musicGain = SewerMusicGain;
             EditorUtility.SetDirty(a);
             n++;
         }
         if (n > 0) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         Info("Viemärin musiikki asetettu " + n + " alueelle. Se soi koko viemärissä ja siis myös Rottakeisarin taistelussa.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/159. Pierre: viemärin toinen minibossi (ensimmäisen kadun viemäri)")]
+    static void CreatePierre()
+    {
+        if (PlayModeBlocked()) return;
+        AssetDatabase.Refresh();
+        string[] required = { "pierre_kavely", "pierre_idle", "pierre_taistelukavely", "pierre_juoksu", "pierre_juoksuisku", "pierre_isku1", "pierre_isku2", "pierre_isku3", "pierre_potku", "pierre_tornado", "pierre_ylaisku" };
+        string[] optional = { "pierre_torjunta", "pierre_heitetty", "pierre_kaatuminen", "pierre_ylosnousu" };
+        foreach (var n in required)
+        {
+            string path = FindTexture(n);
+            if (path == null) { Info("Puuttuu " + n + ".png (Assets/Sprites/Viholliset)."); return; }
+            SetupAndSlice(path);
+        }
+        foreach (var n in optional) { string path = FindTexture(n); if (path != null) SetupAndSlice(path); }
+        var report = new List<string>();
+        var walk = EnemySheet("pierre_kavely", report);
+        var idle = EnemySheet("pierre_idle", report);
+        var fwalk = EnemySheet("pierre_taistelukavely", report);
+        var run = EnemySheet("pierre_juoksu", report);
+        var runPunch = EnemySheet("pierre_juoksuisku", report);
+        var j1 = EnemySheet("pierre_isku1", report);
+        var j2 = EnemySheet("pierre_isku2", report);
+        var j3 = EnemySheet("pierre_isku3", report);
+        var kick = EnemySheet("pierre_potku", report);
+        var torn = EnemySheet("pierre_tornado", report);
+        var over = EnemySheet("pierre_ylaisku", report);
+        if (walk.Length < 12 || idle.Length < 12 || fwalk.Length < 12 || run.Length < 10 || runPunch.Length < 15 || j1.Length < 6 || j2.Length < 6 || j3.Length < 9 || kick.Length < 19 || torn.Length < 23 || over.Length < 15)
+        { Info("Kuvia puuttuu tai leikkaus on kesken.\n\n" + string.Join("\n", report)); return; }
+        var block = EnemySheet("pierre_torjunta", report);
+        var thrownArt = EnemySheet("pierre_heitetty", report);
+        var fall = EnemySheet("pierre_kaatuminen", report);
+        var rise = EnemySheet("pierre_ylosnousu", report);
+        var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var e in all) if (e != null && e.gameObject.name.StartsWith("Pierre")) Undo.DestroyObjectImmediate(e.gameObject);
+        // Rottakeisari on vain Aavikkokadun viemärissä: poistetaan ensimmäisen kadun viemäristä (jos vanha kopio on vielä siellä)
+        int ratsRemoved = 0;
+        foreach (var e in all) if (e != null && e.gameObject.name == "Rottakeisari (katu)") { Undo.DestroyObjectImmediate(e.gameObject); ratsRemoved++; }
+
+        var go = new GameObject("Pierre");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+        var t = go.AddComponent<Enemy>();
+        t.body = visual; t.shadow = shadow; visual.sprite = walk[0];
+        t.displayName = "Pierre";
+        t.visualScale = 1f; t.attackArtScale = 1f; t.knockArtScale = 1f; t.walkArtScale = 1f;
+        t.calmIdleSprites = walk; t.idleSprites = idle; t.idleFrameTime = 0.2f;
+        t.walkSprites = fwalk; t.walkFrameTime = 0.075f;
+        t.punchSprites = j1; t.punchImpactFrame = 2; t.punchDamage = 9;
+        t.maxHealth = 480; t.attackRange = 2.3f; t.moveSpeedX = 2.5f; t.moveSpeedY = 1.5f;
+        t.bigBody = true; t.wakeDistance = 10f;
+        t.flankChance = 0.2f; t.retreatChance = 0f;
+        // kipu-, kaatumis- ja nousukuvat sekä torjunta ja heitettynä: tulevat omista sheeteistään (jos tehty)
+        // kaatumissarja 6 kuvaa: 0 vartioasento, 1 osuma (pää taakse), 2–3 ilmassa, 4–5 makaa. Osumakuva = 1, kaatuminen alkaa kuvasta 1
+        if (fall.Length >= 6) { t.hurtSprites = new[] { fall[1] }; t.knockdownSprites = fall.Skip(1).Take(5).ToArray(); }
+        if (rise.Length >= 6) { t.getUpSprites = rise.Take(6).ToArray(); t.getUpTime = 1.1f; }
+        if (block.Length >= 3) { t.blockSprites = block.ToArray(); t.blockTime = 0.5f; t.blockChance = 0.25f; t.maxBlocksInRow = 2; }
+        // heitettynä: 0–2 ote (osumakuva), 3–4 lento, 5–7 alastulo ja makaaminen
+        if (thrownArt.Length >= 8)
+        {
+            t.bigBody = true;
+            t.flipThrownSprites = thrownArt.Take(8).ToArray();
+            t.flipFlightFrames = 2; t.flipFlightFrameTime = 0.2f; t.flipLandFrameTime = 0.11f;
+        }
+        // ääniä ei löydy: Koviksen äänet varalla (omat äänet ladataan alempana)
+        t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); t.hurtVolume = 1f;
+        var kovis = all.FirstOrDefault(en => en != null && en.gameObject.name == "Kovis");
+        if (kovis != null)
+            foreach (var fn in new[] { "hurtSounds", "hurtVolume", "attackSounds", "attackVolume", "attackSoundChance", "fallVoice", "fallVoiceVolume", "getUpVoice", "deathVoice", "deathVoiceVolume", "launchVoice", "launchVoiceVolume" })
+            {
+                var fi = typeof(Enemy).GetField(fn);
+                if (fi != null) fi.SetValue(t, fi.GetValue(kovis));
+            }
+        // omat äänet (Assets/Audio/pierre): kipu, ylösnousu, kaatuminen (käyttää kipuääntä), iskut, erikoisliike ja puhe
+        var painClips = LoadClips("Assets/Audio/pierre", "kipu");
+        if (painClips.Length > 0) { t.hurtSounds = painClips; t.hurtVolume = 1f; t.fallVoice = painClips[painClips.Length - 1]; t.fallVoiceVolume = 1f; t.deathVoice = painClips[painClips.Length - 1]; t.deathVoiceVolume = 1f; }
+        var upClip1 = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/pierre/nousu1.mp3");
+        var upClip2 = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/pierre/nousu2.mp3");
+        if (upClip1 != null) { t.getUpVoice = upClip1; t.getUpVoiceAlt = upClip2; }
+        var pb = go.AddComponent<PierreBoss>();
+        pb.specialSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/pierre/erikoisliike.mp3");
+        pb.speak = LoadClips("Assets/Audio/pierre", "puhe");
+        pb.welcome = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/pierre/puhe1.mp3");   // puhe1 toimii myös tervetuloäänenä
+        pb.punchSounds = LoadClips("Assets/Audio/pierre", "isku");
+        pb.walk = walk; pb.idle = idle; pb.fightWalk = fwalk; pb.run = run;
+        pb.jab1 = j1; pb.jab2 = j2; pb.jab3 = j3; pb.kick = kick; pb.runPunch = runPunch; pb.tornado = torn; pb.overhead = over;
+        Undo.RegisterCreatedObjectUndo(go, "Pierre");
+
+        var sewer = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viemäri (katu)");
+        if (sewer != null)
+        {
+            go.transform.position = new Vector3((sewer.walkMinX + sewer.walkMaxX) * 0.5f, Mathf.Lerp(sewer.minDepthY + 0.8f, sewer.maxDepthY - 0.8f, 0.5f), 0f);
+            pb.zoneHalfWidth = 24f;
+        }
+        else go.transform.position = new Vector3(98464f, -2.6f, 0f);
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        string missing = (fall.Length < 6 ? " kaatuminen," : "") + (rise.Length < 6 ? " ylösnousu," : "") + (block.Length < 3 ? " torjunta," : "") + (thrownArt.Length < 8 ? " heitettynä (8 kuvaa)," : "");
+        if (ratsRemoved > 0) report.Add("Rottakeisari poistettu ensimmäisen kadun viemäristä.");
+        Info("Pierre luotu" + (sewer != null ? " ensimmäisen kadun viemäriin (Viemäri (katu))" : " (Viemäri (katu) puuttuu: aja 156 ja sitten tämä uudelleen)") + ".\n" +
+             "Minibossi: 480 elämää, rauhallisena kävelee edestakaisin, hero lähellä taisteluasento ja -kävely. Juoksee kaukaa ja päättää juoksun juoksuiskuun. Kombot: jabit, suora, jabisarja ja potku. Erikoisliikkeet: tornadopotku ja ylhäältä isku (iskuaalto: yli voi hypätä). Pysyy viemärin keskellä.\n" +
+             (missing.Length > 0 ? "Puuttuu vielä:" + missing.TrimEnd(',') + " (Resources-valmiit sheetit nimillä pierre_torjunta, pierre_heitetty, pierre_kaatuminen, pierre_ylosnousu).\n" : "") +
+             "\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)")]

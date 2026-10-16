@@ -252,6 +252,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [HideInInspector] public bool hammerArt;   // Horhe: vasaran nosto näytetään selvästi
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
+    [Tooltip("Toinen ylösnousuääni: arvotaan getUpVoicen kanssa (tyhjä = vain getUpVoice).")]
+    public AudioClip getUpVoiceAlt;
+    [Tooltip("Toinen kaatumisääni: arvotaan fallVoicen kanssa (tyhjä = vain fallVoice).")]
+    public AudioClip fallVoiceAlt;
     [Range(0f, 1f)] public float fallVoiceVolume = 1f, altWindupVolume = 1f, altSwingVolume = 1f, deathVoiceVolume = 1f, launchVoiceVolume = 1f;
     public float tauntVolume = 1f;
     [Tooltip("Satunnainen huuto vain, kun hero on tätä kauempana (0 = aina). Ei puhu heron naamalle.")]
@@ -890,13 +894,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Rottakeisari") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
             var sp = new System.Collections.Generic.List<AudioClip>();
             for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_speak" + i); if (c != null) sp.Add(c); }
-            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(14f, 24f); tauntNoRepeat = false; }
+            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(8f, 14f); tauntNoRepeat = false; tauntOnWakeChance = 1f; }
             var gr = new System.Collections.Generic.List<AudioClip>();
             for (int i = 1; i <= 9; i++) { var c = Resources.Load<AudioClip>("Sfx/horhe/horhe_gasp" + i); if (c != null) gr.Add(c); }
             if (gr.Count > 0) { hurtSounds = gr.ToArray(); hurtVolume = 1f; }
@@ -948,6 +952,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        if (displayName == "Horhe") audioSource.volume = 0.55f;   // Horhen äänet olivat liian kovia (noin -5 dB)
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
         cooldown = Random.Range(0.5f, 1.2f);
@@ -1016,10 +1021,28 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return x < min - 300f || x > max + 300f;
     }
 
+    [Header("Äänen panorointi")]
+    [Tooltip("Vihun äänet (puhe, huudot, kipu) kuuluvat sen suunnasta: reunalla ja ruudun ulkopuolella lähes kokonaan sivulla, lähemmäs tultaessa keskellä. Iskujen ja osumien äänet (HitFx) eivät panoroidu.")]
+    public bool panVoices = true;
+    [Tooltip("Panorointi ruudun reunalla ja sen ulkopuolella (1 = kokonaan sivulla).")]
+    [Range(0f, 1f)] public float panMax = 0.95f;
+
+    /// Stereopanorointi vihun paikasta kameraan nähden: ruudun keskellä 0, reunalla ja ulkopuolella panMax.
+    float VoicePan()
+    {
+        var cam = Camera.main;
+        if (cam == null) return 0f;
+        float half = Mathf.Max(0.1f, cam.orthographicSize * cam.aspect);
+        float u = (transform.position.x - cam.transform.position.x) / half;      // -1 … 1 = ruudun reunat
+        float k = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.12f, 1f, Mathf.Abs(u)));   // lähellä keskeltä, reunalla täysi
+        return Mathf.Sign(u) * k * panMax;
+    }
+
     void Update()
     {
         // toisella alueella olevat viholliset eivät pidä ääntä (äänet eivät jää edellisestä ruudusta kuulumaan)
         if (audioSource != null) { bool here = Area.IsHere(transform.position); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
+        if (audioSource != null && panVoices) audioSource.panStereo = VoicePan();
         if (OutsideHeroArea()) { moving = false; return; }   // toisella alueella: ei päivitetä (muuten liike rajautuisi heron alueen syvyyteen ja vihut siirtyisivät väärään kohtaan)
         if (appearAfterOthers && !awake && WaitToAppear()) return;
         Vector3 frameStart = transform.position;
@@ -2008,9 +2031,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + (usingTireThrow ? tireThrowCooldown : barThrowCooldown); }
-        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoice, fallVoiceVolume);
+        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
-        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoice, 1f);
+        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f);
         if (s == State.Slaps)
         {
             slapsDone = 0;
