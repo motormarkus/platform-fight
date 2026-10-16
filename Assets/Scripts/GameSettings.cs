@@ -65,6 +65,14 @@ public static class GameSettings
         set { PlayerPrefs.SetInt("kirkkaus", Mathf.Clamp(value, 0, 10)); PlayerPrefs.Save(); }
     }
 
+    static int fpsShowCache = -1;
+    /// FPS-laskuri näkyvissä (F3 tai Asetukset → Video).
+    public static bool ShowFps
+    {
+        get { if (fpsShowCache < 0) fpsShowCache = PlayerPrefs.GetInt("fpsnaytto", 0); return fpsShowCache != 0; }
+        set { fpsShowCache = value ? 1 : 0; PlayerPrefs.SetInt("fpsnaytto", fpsShowCache); PlayerPrefs.Save(); }
+    }
+
     static int shakeCache = -1;
     /// Ruudun tärinä päällä.
     public static bool ScreenShake

@@ -55,7 +55,7 @@ public class GameMenu : MonoBehaviour
     static readonly string[] OptSectionNames = { "Ääni", "Video", "Peli", "Ohjaus" };
     static readonly string[] OptSectionHeads = { "ÄÄNI", "VIDEO", "PELI", "OHJAUS" };
     /// Alivalikon rivit (asetusrivien numerot, ks. Adjust).
-    static readonly int[][] SectionRows = { new[] { 0, 1, 2 }, new[] { 3, 4, 5, 6, 7 }, new[] { 9, 10, 8 }, new int[0] };   // 3 = ohjaus: oma sivu (UpdateControls / DrawControls)
+    static readonly int[][] SectionRows = { new[] { 0, 1, 2 }, new[] { 3, 4, 5, 6, 7, 11 }, new[] { 9, 10, 8 }, new int[0] };   // 3 = ohjaus: oma sivu (UpdateControls / DrawControls)
     int sel;
     float creditsT;
     float oldTimeScale = 1f;
@@ -143,7 +143,8 @@ public class GameMenu : MonoBehaviour
                     Loc.T("Kirkkaus") + "  <  " + GameSettings.Brightness + "  >",
                     Loc.T("Ruudun tärinä") + ":  " + Loc.T(GameSettings.ScreenShake ? "Päällä" : "Pois"),
                     Loc.T("Kieli") + ":  " + (Loc.Current == Loc.Lang.Suomi ? "Suomi" : "English"),
-                    Loc.T("Vaikeustaso") + ":  " + Loc.T(GameSettings.Difficulty.ToString()) };
+                    Loc.T("Vaikeustaso") + ":  " + Loc.T(GameSettings.Difficulty.ToString()),
+                    Loc.T("FPS-laskuri") + ":  " + Loc.T(GameSettings.ShowFps ? "Päällä" : "Pois") + "  (F3)" };
     }
 
     void Update()
@@ -184,7 +185,7 @@ public class GameMenu : MonoBehaviour
 
     static readonly string[] ScreenModeNames = { "Koko näyttö", "Reunaton ikkuna", "Ikkuna" };
 
-    /// Asetussivun rivit: 0 pääääni, 1 musiikki, 2 tehosteet, 3 näyttötila, 4 resoluutio, 5 vsync, 6 fps-raja, 7 kirkkaus, 8 tärinä, 9 kieli, 10 vaikeustaso, 11 takaisin.
+    /// Asetussivun rivit (11 = fps-laskuri): 0 pääääni, 1 musiikki, 2 tehosteet, 3 näyttötila, 4 resoluutio, 5 vsync, 6 fps-raja, 7 kirkkaus, 8 tärinä, 9 kieli, 10 vaikeustaso, 11 takaisin.
     void Adjust(int i, int dx)
     {
         if (i == 0) GameSettings.MasterVolume += dx * 0.1f;
@@ -194,7 +195,17 @@ public class GameMenu : MonoBehaviour
         else if (i == 4) CycleResolution(dx);
         else if (i == 6) GameSettings.FpsCapIndex += dx;
         else if (i == 7) GameSettings.Brightness += dx;
-        else Choose(i);
+        else OptToggle(i);   // päälle/pois- ja kiertävät rivit (vasen/oikea vaihtaa)
+    }
+
+    /// Asetusrivin id: päälle/pois tai seuraava arvo.
+    void OptToggle(int id)
+    {
+        if (id == 5) GameSettings.VSync = !GameSettings.VSync;
+        else if (id == 8) GameSettings.ScreenShake = !GameSettings.ScreenShake;
+        else if (id == 9) Loc.Toggle();
+        else if (id == 10) GameSettings.Difficulty = (GameSettings.Level)(((int)GameSettings.Difficulty + 1) % 3);
+        else if (id == 11) GameSettings.ShowFps = !GameSettings.ShowFps;
     }
 
     void CycleResolution(int dx)
@@ -270,6 +281,7 @@ public class GameMenu : MonoBehaviour
                 else if (i == 7) GameSettings.Brightness = GameSettings.Brightness >= 10 ? 0 : GameSettings.Brightness + 1;
                 else if (i == 8) GameSettings.ScreenShake = !GameSettings.ScreenShake;
                 else if (i == 9) Loc.Toggle();
+                else if (i == 11) GameSettings.ShowFps = !GameSettings.ShowFps;
                 else if (i == 10) GameSettings.Difficulty = (GameSettings.Level)(((int)GameSettings.Difficulty + 1) % 3);   // elämät vaihtuvat seuraavassa pelissä
                 else { page = back; sel = 0; }
                 break;

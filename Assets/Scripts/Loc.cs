@@ -38,7 +38,7 @@ public static class Loc
     {
         { "Suutele Auroraa", "Kiss Aurora" },
         // --- Valikot ---
-        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
+        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "FPS-laskuri", "FPS counter" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
         { "Lyönti", "Punch" }, { "Potku", "Kick" }, { "Hyppy", "Jump" }, { "Juoksu", "Run" }, { "Juoksu (pidä pohjassa)", "Run (hold)" },
         { "Tornado", "Tornado" }, { "Tuulimylly", "Windmill" }, { "Kärrynpyörä", "Cartwheel" }, { "Pusku", "Shove" }, { "Toiminto", "Action" },
         { "Toiminto / poiminta", "Action / pick up" }, { "Heitto", "Throw" }, { "Vastaheitto / heitto", "Counter / throw" }, { "Suojaus", "Block" },
