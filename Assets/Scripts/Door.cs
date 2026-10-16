@@ -99,15 +99,12 @@ public class Door : MonoBehaviour
             return;
         }
 
-        Vector3 p = pc.transform.position;
-        near = !pc.Riding && !pc.HoldingLid && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-            && (here == null || (onGround ? Mathf.Abs(p.y - transform.position.y) <= groundHalfDepth : atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
-            && pc.AirHeight <= 0.05f
-            && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
+        near = NearOk(pc) && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
         if (near && Pressed())
         {
             if (manhole != null && !manhole.IsOpen) pc.TryLiftLid(manhole);   // kiinni oleva kansi: ensin nostetaan pois, sitten voi laskeutua
             else if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
+            else if (!AllNear()) partnerMsgUntil = Time.unscaledTime + 2.5f;   // kaksinpeli: molempien pitää olla paikalla
             else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; SetAllEnabled(false); }
             else StartCoroutine(Go());
         }
@@ -133,6 +130,24 @@ public class Door : MonoBehaviour
     }
 
     bool Pressed() => pc != null && CoopInput.Pick(pc.playerIndex);
+
+    float partnerMsgUntil;
+
+    /// Onko pelaaja oven kohdalla (sama ehto kaikille pelaajille).
+    bool NearOk(PlayerController q)
+    {
+        Vector3 p = q.transform.position;
+        return !q.Riding && !q.HoldingLid && Mathf.Abs(p.x - transform.position.x) <= halfWidth
+            && (here == null || (onGround ? Mathf.Abs(p.y - transform.position.y) <= groundHalfDepth : atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
+            && q.AirHeight <= 0.05f;
+    }
+
+    /// Kaksinpeli: kaikki elossa olevat pelaajat ovat oven kohdalla.
+    bool AllNear()
+    {
+        foreach (var q in Players.All) if (q != null && !q.GameOver && !NearOk(q)) return false;
+        return true;
+    }
 
     /// Kaikki pelaajat pois ohjauksesta siirtymän ajaksi (kaksinpeli: molemmat siirtyvät yhdessä).
     static void SetAllEnabled(bool on)
@@ -249,7 +264,8 @@ public class Door : MonoBehaviour
             style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, wordWrap = true };
             style.normal.textColor = Color.white;
         }
-        string text = confirming ? Loc.T(confirmText) + "  [E] Kyllä   [Esc] Ei"
+        string text = Time.unscaledTime < partnerMsgUntil ? Loc.T("Molempien pelaajien pitää olla oven luona.")
+            : confirming ? Loc.T(confirmText) + "  [E] Kyllä   [Esc] Ei"
             : needsJunkyardKey && !PieWar.JunkyardKey
             ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
             : GuardsAlive

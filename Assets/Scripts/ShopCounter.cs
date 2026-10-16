@@ -109,18 +109,15 @@ public class ShopCounter : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = Players.Primary;
+        if (!open) pc = Players.Nearest(transform.position);   // kaksinpeli: tiskille tuleva (tai E:tä painanut) pelaaja saa oman valikkonsa
         if (pc == null) return;
 
         if (!open)
         {
-            Vector3 p = pc.transform.position;
-            near = !pc.GameOver && pc.enabled
-                && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-                && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
-                && pc.AirHeight <= 0.05f
-                && !PieWar.LinseyPrompt
-                && !PieWar.Active;   // piirakkasodan aikana ei voi puhua Sohville   // Linseyn puhe (piirakkasota) menee edelle, kun hän on lähellä
+            near = NearFor(pc);
+            if (Players.Count > 1)
+                foreach (var q in Players.All)
+                    if (q != null && NearFor(q) && CoopInput.Pick(q.playerIndex)) { pc = q; near = true; Open(); return; }
             if (near && Pressed(Btn.Open)) Open();
             return;
         }
@@ -129,6 +126,18 @@ public class ShopCounter : MonoBehaviour
         if (Pressed(Btn.Down)) sel = (sel + 1) % items.Length;
         if (Pressed(Btn.Buy)) Buy(items[sel]);
         else if (Pressed(Btn.Close)) Close();
+    }
+
+    /// Onko pelaaja tiskin edessä.
+    bool NearFor(PlayerController q)
+    {
+        Vector3 p = q.transform.position;
+        return !q.GameOver && q.enabled
+            && Mathf.Abs(p.x - transform.position.x) <= halfWidth
+            && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
+            && q.AirHeight <= 0.05f
+            && !PieWar.LinseyPrompt
+            && !PieWar.Active;   // piirakkasodan aikana ei voi puhua Sohville   // Linseyn puhe (piirakkasota) menee edelle, kun hän on lähellä
     }
 
     void Open()
@@ -206,28 +215,28 @@ public class ShopCounter : MonoBehaviour
 
     enum Btn { Open, Up, Down, Buy, Close }
 
-    static bool Pressed(Btn k)
+    /// Valikon napit pelaajakohtaisesti: valikkoa käyttää se pelaaja, joka avasi sen (P1: näppäimistö + ohjain, P2: oma ohjain tai nuolinäppäimet).
+    bool Pressed(Btn k)
     {
-#if ENABLE_INPUT_SYSTEM
-        var kb = Keyboard.current; var g = Gamepad.current;
+        int idx = pc != null ? pc.playerIndex : 0;
+        var kb = Keyboard.current;
+        var g = CoopInput.PadFor(idx);
+        bool coop = Players.Count > 1;
+        bool kbP1 = idx == 0 && kb != null;
+        bool kbP2 = idx == 1 && CoopInput.P2OnKeyboard && kb != null;
+        bool arrows = kbP2 || (kbP1 && !(coop && CoopInput.P2OnKeyboard));
         switch (k)
         {
-            case Btn.Open:  return (kb != null && kb.eKey.wasPressedThisFrame) || (g != null && g.buttonEast.wasPressedThisFrame);
-            case Btn.Up:    return (kb != null && (kb.wKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame)) || (g != null && g.dpad.up.wasPressedThisFrame);
-            case Btn.Down:  return (kb != null && (kb.sKey.wasPressedThisFrame || kb.downArrowKey.wasPressedThisFrame)) || (g != null && g.dpad.down.wasPressedThisFrame);
-            case Btn.Buy:   return (kb != null && (kb.eKey.wasPressedThisFrame || kb.jKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)) || (g != null && g.buttonSouth.wasPressedThisFrame);
-            default:        return (kb != null && (kb.escapeKey.wasPressedThisFrame || kb.kKey.wasPressedThisFrame || kb.backspaceKey.wasPressedThisFrame)) || (g != null && g.buttonEast.wasPressedThisFrame);
+            case Btn.Open:  return CoopInput.Pick(idx);
+            case Btn.Up:    return (kbP1 && kb.wKey.wasPressedThisFrame) || (arrows && kb.upArrowKey.wasPressedThisFrame) || (g != null && g.dpad.up.wasPressedThisFrame);
+            case Btn.Down:  return (kbP1 && kb.sKey.wasPressedThisFrame) || (arrows && kb.downArrowKey.wasPressedThisFrame) || (g != null && g.dpad.down.wasPressedThisFrame);
+            case Btn.Buy:   return (kbP1 && (kb.eKey.wasPressedThisFrame || kb.jKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame))
+                                || (kbP2 && (kb.quoteKey.wasPressedThisFrame || kb.commaKey.wasPressedThisFrame || kb.numpad5Key.wasPressedThisFrame || kb.numpad1Key.wasPressedThisFrame))
+                                || (g != null && g.buttonSouth.wasPressedThisFrame);
+            default:        return (kbP1 && (kb.escapeKey.wasPressedThisFrame || kb.kKey.wasPressedThisFrame || kb.backspaceKey.wasPressedThisFrame))
+                                || (kbP2 && (kb.periodKey.wasPressedThisFrame || kb.numpad2Key.wasPressedThisFrame || kb.backspaceKey.wasPressedThisFrame))
+                                || (g != null && g.buttonEast.wasPressedThisFrame);
         }
-#else
-        switch (k)
-        {
-            case Btn.Open:  return Input.GetKeyDown(KeyCode.E);
-            case Btn.Up:    return Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
-            case Btn.Down:  return Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
-            case Btn.Buy:   return Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Return);
-            default:        return Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Backspace);
-        }
-#endif
     }
 
     // ---------------- Piirto ----------------
@@ -270,7 +279,7 @@ public class ShopCounter : MonoBehaviour
         Fill(new Rect(panel.x - 4 * u, panel.y - 4 * u, panel.width + 8 * u, panel.height + 8 * u), new Color(1f, 0.25f, 0.7f));
         Fill(panel, new Color(0.08f, 0.03f, 0.08f, 0.97f));
 
-        GUI.Label(new Rect(panel.x, panel.y + 18 * u, pw, 70 * u), Loc.T(title), big);
+        GUI.Label(new Rect(panel.x, panel.y + 18 * u, pw, 70 * u), Loc.T(title) + (Players.Count > 1 && !string.IsNullOrEmpty(pc.characterName) ? "  –  " + pc.characterName.ToUpper() : ""), big);
 
         float y = panel.y + 110 * u;
         for (int i = 0; i < items.Length; i++)
