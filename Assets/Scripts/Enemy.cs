@@ -211,6 +211,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool chargeToEdge;
     [Tooltip("Juoksee (juoksukuvat ja runSpeedMultiplier), kun kohde on tämän kauempana. Oletus 3,5; Metsuri juoksee lähes koko ajan.")]
     public float runDistance = 3.5f;
+    [Tooltip("Pomo katkaisee pelaajan kombon: vatsatöytäisy- ja yleinen vastaisku toimivat myös, kun pelaaja on lyöntisarjan keskellä (muuten lyöntisarja nollaa laskurin ja vihua voi hakata loputtomiin).")]
+    public bool breaksCombos;
     [Tooltip("Ahdistus: pelaaja on 'nurkassa', kun hän on näin lähellä ruudun tai alueen reunaa ja vihu on hänen ja kentän keskustan puolella. Silloin rynnäkkö ja taklaus tulevat paljon useammin, myös lähietäisyydeltä. 0 = ei käytössä.")]
     public float corneredRange = 0f;
     [Tooltip("Rynnäkkö (chargeRange > 0) voi laueta myös vierestä tällä todennäköisyydellä (esim. prätkäjätkän hyppylyönti).")]
@@ -950,6 +952,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (!HasLocomotion(runSprites) && HasLocomotion(walkSprites)) runSprites = walkSprites;
             runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 1.9f); runFrameTime = 0.055f;
             runDistance = 1.6f; corneredRange = 3.4f;
+            breaksCombos = true;                                                   // katkaisee pelaajan kombon (vatsatöytäisy), ei hakattavissa nurkkaan
+            bellyCounterChance = Mathf.Max(bellyCounterChance, 0.85f); bellyCounterAfterHits = Mathf.Min(Mathf.Max(bellyCounterAfterHits, 1), 2);
+            attackRange = Mathf.Max(attackRange, 2.1f); punchActiveTime = Mathf.Max(punchActiveTime, 0.18f);   // iskut yltävät ja osuvat paremmin
             altNearChance = Mathf.Max(altNearChance, 0.3f);
             attackCooldown = Mathf.Min(attackCooldown, 0.6f);
             altTimeScale = Mathf.Min(altTimeScale, 1.2f);
@@ -2374,7 +2379,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (HasKickCombo && Random.value < kickComboChance) { facingRight = p.x > me.x; Enter(State.KickCombo); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
-            usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : (cornered ? Mathf.Max(altNearChance, 0.85f) : altNearChance));   // rynnäkkö kaukaa, vierestä vain altNearChance (nurkassa useammin)
+            usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : (cornered ? Mathf.Max(altNearChance, 0.85f) : SelfCornered() ? Mathf.Max(altNearChance, 0.6f) : altNearChance));   // rynnäkkö kaukaa, vierestä vain altNearChance (nurkassa useammin)
             RollPunch23();
             Enter(State.Windup);
             return;
@@ -2402,6 +2407,31 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (c == null || !c.IsBarrel) return;
         float dir = player != null ? (player.transform.position.x < c.transform.position.x ? -1f : 1f) : (facingRight ? 1f : -1f);
         if (c.Kick(dir, this, barrelDamage, barrelThrowSpeed) && CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);
+    }
+
+    /// Tämä vihu on itse ahdistettu nurkkaan: lähellä ruudun / alueen reunaa ja pelaaja on reunan ja kentän keskustan välissä (Metsuri purkautuu taklauksella).
+    bool SelfCornered()
+    {
+        if (corneredRange <= 0f || player == null) return false;
+        float px = player.transform.position.x, mx = transform.position.x;
+        float lo = float.NegativeInfinity, hi = float.PositiveInfinity;
+        var cam = Camera.main;
+        if (cam != null)
+        {
+            float half = Mathf.Max(0.1f, cam.orthographicSize * cam.aspect - 0.9f);
+            lo = cam.transform.position.x - half;
+            hi = cam.transform.position.x + half;
+        }
+        var area = Area.Current;
+        if (area != null)
+        {
+            if (area.walkMinX != 0f) lo = Mathf.Max(lo, area.walkMinX + 0.25f);
+            if (area.walkMaxX != 0f) hi = Mathf.Min(hi, area.walkMaxX - 0.25f);
+        }
+        if (!(lo < hi) || float.IsInfinity(lo)) return false;
+        if (mx <= lo + corneredRange && px > mx && px - mx < 3.2f) return true;
+        if (mx >= hi - corneredRange && px < mx && mx - px < 3.2f) return true;
+        return false;
     }
 
     /// Pelaaja on ahdistettu nurkkaan: lähellä ruudun / alueen reunaa ja tämä vihu on hänen ja kentän keskustan välissä.
@@ -2957,7 +2987,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         awake = true;
         comboHits++; lastHitTime = Time.time;
-        if (player != null && player.InPunchChain) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
+        if (player != null && player.InPunchChain && !breaksCombos) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - damage);
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
@@ -2973,7 +3003,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
         }
-        else if (brain == null && !unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
+        else if (brain == null && !unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain && !breaksCombos) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
                  && !(PieWar.Active || pieOnly))
         {
             // yleinen vastaisku: tasainen hakkaaminen ei kelpaa, kahden osuman jälkeen vihu lyö takaisin (iskun ajan panssari)

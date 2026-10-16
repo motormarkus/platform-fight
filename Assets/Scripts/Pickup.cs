@@ -86,10 +86,32 @@ public class Pickup : MonoBehaviour
         }
     }
 
+    /// Pudotettu esine pidetään alueella, jonne pelaaja pääsee (ei seinän sisään eikä ruudun reunan taakse): pelaajan x-raja on 1,3 yksikköä ruudun reunasta.
+    static Vector3 ClampToReach(Vector3 pos)
+    {
+        var pc = Players.Primary;
+        var cf = CameraFollow.Instance; var cam = Camera.main;
+        if (cf != null && cam != null)
+        {
+            float halfW = cam.orthographicSize * cam.aspect - 1.3f - 0.5f;
+            if (pos.x >= cf.minX - halfW - 3f && pos.x <= cf.maxX + halfW + 3f)   // vain pelaajan nykyisellä alueella
+            {
+                pos.x = Mathf.Clamp(pos.x, cf.minX - halfW, cf.maxX + halfW);
+                var ar = Area.Current;
+                if (ar != null && ar.walkMaxX != 0f) pos.x = Mathf.Min(pos.x, ar.walkMaxX - 0.5f);
+                if (ar != null && ar.walkMinX != 0f) pos.x = Mathf.Max(pos.x, ar.walkMinX + 0.5f);
+            }
+        }
+        if (pc != null && Mathf.Abs(pos.x - pc.transform.position.x) < 40f)
+            pos.y = Mathf.Clamp(pos.y, pc.minDepthY, Mathf.Max(pc.minDepthY, Area.MaxDepthAt(pos.x, pc.maxDepthY) - 0.1f));
+        return pos;
+    }
+
     /// Ruoka maahan: big = isompi annos (yli 20 energiaa), muuten pieni. Kuva arvotaan.
     public static void SpawnFood(Vector3 pos, bool big = false, string spriteName = "")
     {
         if (!LooseFood && spriteName != "pizza") return;   // ainoa poikkeus: pomojen ja rekkamiehen pizza
+        pos = ClampToReach(pos);
         LoadItems();
         var go = new GameObject("Ruoka");
         go.transform.position = pos;
@@ -103,6 +125,7 @@ public class Pickup : MonoBehaviour
     public static void SpawnPowerUp(Vector3 pos, string spriteName = "")
     {
         if (!LooseFood) return;
+        pos = ClampToReach(pos);
         LoadItems();
         var go = new GameObject("Voimakuvake");
         go.transform.position = pos;
@@ -160,6 +183,7 @@ public class Pickup : MonoBehaviour
     public static void SpawnMoney(Vector3 pos, int value, bool rare)
     {
         if (value <= 0) return;
+        pos = ClampToReach(pos);
         var go = new GameObject((rare ? "Setelitukku " : "Seteli ") + value + " mk");
         go.transform.position = pos;
         var p = go.AddComponent<Pickup>();
@@ -172,6 +196,7 @@ public class Pickup : MonoBehaviour
     public static void SpawnEnergy(Vector3 pos, int stamina)
     {
         if (stamina <= 0) return;
+        pos = ClampToReach(pos);
         var go = new GameObject("Energiajuoma");
         go.transform.position = pos;
         var p = go.AddComponent<Pickup>();

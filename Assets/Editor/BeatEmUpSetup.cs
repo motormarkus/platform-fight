@@ -2453,6 +2453,7 @@ public static class BeatEmUpSetup
         roof.camMinX = RoofX0 + halfW;
         roof.camMaxX = RoofX0 + wU - halfW;
         Undo.RegisterCreatedObjectUndo(roof.gameObject, "Alue");
+        ApplyRoofWallLimits(roof, bg);
 
         // tikkaat kadulla ja paluu katolta
         var esr = ext.GetComponent<SpriteRenderer>();
@@ -2586,8 +2587,11 @@ public static class BeatEmUpSetup
             b.bellySprites = belly.Length >= 8 ? belly : none;
             b.bellyChance = 0.4f;
             b.bellyRange = 1.7f;
-            b.bellyCounterChance = 0.35f;
+            b.bellyCounterChance = 0.85f;     // katkaisee pelaajan kombon
             b.bellyCounterAfterHits = 2;
+            b.breaksCombos = true;
+            b.attackRange = 2.1f; b.punchActiveTime = 0.18f;
+            b.corneredRange = 3.4f;
             b.bellyDamage = 14;
             b.bellyKnockSpeed = 14f;
             b.bellyKnockUp = 5.5f;
@@ -2629,6 +2633,36 @@ public static class BeatEmUpSetup
         }
 
         return report;
+    }
+
+
+    /// Katon seinärajat: sivuseinien alareuna kulkee kuvassa vinosti (vasen (310,550) -> (0,890), oikea (W-310,550) -> (W,890), kuvan pikseleitä).
+    /// Takaraja alennetaan seinän kohdalla niin, ettei kukaan (pelaaja, vihu tai pudotettu esine) mene seinän sisään.
+    static void ApplyRoofWallLimits(Area roof, GameObject bg)
+    {
+        var sr = bg.GetComponent<SpriteRenderer>();
+        float left = sr.bounds.min.x, top = sr.bounds.max.y, W = sr.sprite.rect.width;
+        float XAt(float col) => left + col / RoofPPU;
+        float YAt(float row) => top - row / RoofPPU;
+        const float slope = 0.912f, margin = 22f;
+        var pts = new List<Vector2>();
+        foreach (float c in new[] { 0f, 100f, 200f, 310f })
+            pts.Add(new Vector2(XAt(c), Mathf.Min(roof.maxDepthY, YAt(550f + (310f - c) / slope + margin))));
+        foreach (float c in new[] { W - 310f, W - 210f, W - 100f, W })
+            pts.Add(new Vector2(XAt(c), Mathf.Min(roof.maxDepthY, YAt(550f + (c - (W - 310f)) / slope + margin))));
+        roof.depthLimits = pts.ToArray();
+        EditorUtility.SetDirty(roof);
+    }
+
+    [MenuItem("Beat em up/30c. Katon seinärajat (ei seinän sisään; ei muuta kattoa)")]
+    static void RoofWallLimitsOnly()
+    {
+        var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katto");
+        var bg = GameObject.Find("Katto");
+        if (roof == null || bg == null) { Info("Kadun kattoa ei löytynyt: tee ensin kohta 30."); return; }
+        ApplyRoofWallLimits(roof, bg);
+        EditorSceneManager.MarkSceneDirty(roof.gameObject.scene);
+        Info("Katon seinärajat asetettu (" + roof.depthLimits.Length + " pistettä): takaraja laskee vinoseinien kohdalla. Hero, vihut ja pudotetut esineet pysyvät lattialla.\n\nTallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/30b. Kadun katon viholliset ja Metsuri uudelleen (ei muuta kattoa)")]
@@ -9324,6 +9358,7 @@ public static class BeatEmUpSetup
         foreach (var e in all) if (e != null && e.gameObject.name == "Rottakeisari (katu)") { Undo.DestroyObjectImmediate(e.gameObject); ratsRemoved++; }
 
         var go = new GameObject("Pierre");
+        go.transform.localScale = Vector3.one * 1.1f;   // Pierre vähän isommaksi (lyöntikuvat on skaalattu samaan kokoon idlen kanssa)
         var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
         var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
         var t = go.AddComponent<Enemy>();
