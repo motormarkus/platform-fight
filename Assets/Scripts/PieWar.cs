@@ -103,11 +103,27 @@ public class PieWar : MonoBehaviour
             else if (No()) { dialogOpen = false; Time.timeScale = oldScale; }
             return;
         }
-        near = !Active && linsey != null && !ShopCounter.IsOpen && !hero.Riding && hero.AirHeight <= 0.05f
-            && Mathf.Abs(hero.transform.position.x - linsey.transform.position.x) <= 2.4f
-            && Mathf.Abs(hero.transform.position.y - linsey.transform.position.y) <= 1.2f;
+        var actor = linsey != null ? Players.Nearest(linsey.transform.position) : hero;
+        near = !Active && linsey != null && !ShopCounter.IsOpen && AtLinsey(actor);
         LinseyPrompt = near;
-        if (near && Pressed()) { dialogOpen = true; oldScale = Time.timeScale; Time.timeScale = 0f; }
+        // kaksinpeli: kaikkien elossa olevien pelaajien pitää olla Linseyn luona, ja kumpi tahansa heistä voi puhua (E) ja käynnistää sodan
+        bool pressed = false;
+        foreach (var q in Players.All) if (q != null && AtLinsey(q) && CoopInput.Pick(q.playerIndex)) pressed = true;
+        if (near && pressed)
+        {
+            bool allHere = true;
+            foreach (var q in Players.All) if (q != null && !q.GameOver && !AtLinsey(q)) allHere = false;
+            if (!allHere) { msg = "Molempien pelaajien pitää olla Linseyn luona."; msgUntil = Time.unscaledTime + 2.5f; }
+            else { dialogOpen = true; oldScale = Time.timeScale; Time.timeScale = 0f; }
+        }
+    }
+
+    /// Pelaaja on Linseyn juttusilla (lähellä, maassa, ei ajossa).
+    bool AtLinsey(PlayerController q)
+    {
+        return q != null && !q.GameOver && linsey != null && !q.Riding && q.AirHeight <= 0.05f
+            && Mathf.Abs(q.transform.position.x - linsey.transform.position.x) <= 2.4f
+            && Mathf.Abs(q.transform.position.y - linsey.transform.position.y) <= 1.2f;
     }
 
     /// Tallentaa dinerin vihut ja piilotetut mallit ensimmäisellä kerralla, kun hero on dinerissä.
@@ -176,9 +192,10 @@ public class PieWar : MonoBehaviour
         }
         if (hero != null)
         {
-            hero.WarHeal();
+            foreach (var q in Players.All) if (q != null) q.WarHeal();
             Vector3 lp = linsey != null ? linsey.transform.position : hero.transform.position;
             hero.TeleportTo(new Vector3(lp.x - 1.8f, Mathf.Min(lp.y, area.maxDepthY - 0.3f), 0f));
+            Players.TeleportOthers(hero, new Vector3(lp.x - 1.8f, Mathf.Min(lp.y, area.maxDepthY - 0.3f), 0f));   // kaksinpeli: myös toinen Linseyn viereen
             if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(hero.transform.position.x);
         }
         bool newKey = won && !JunkyardKey;
