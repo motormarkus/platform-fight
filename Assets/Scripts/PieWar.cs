@@ -27,7 +27,9 @@ public class PieWar : MonoBehaviour
     public int maxHits = 10;
 
     PlayerController hero;
-    int heroHits;
+    // kaksinpeli: jokaisella pelaajalla oma osumalaskuri. 10 osumaa = pelaaja on ulos (seisoo paikallaan), sota jatkuu kunnes kaikki pelaajat ovat ulos tai vihut voitettu
+    readonly Dictionary<PlayerController, int> heroHitsBy = new Dictionary<PlayerController, int>();
+    readonly HashSet<PlayerController> outPlayers = new HashSet<PlayerController>();
     readonly List<Enemy> foes = new List<Enemy>();
     readonly Dictionary<Enemy, int> hits = new Dictionary<Enemy, int>();
     readonly Dictionary<Enemy, Vector3> home = new Dictionary<Enemy, Vector3>();
@@ -65,12 +67,36 @@ public class PieWar : MonoBehaviour
         instance.CountEnemy(e);
     }
 
-    public static void OnHeroHit()
+    /// Pelaaja on pudonnut sodasta (10 osumaa): seisoo paikallaan, eikä hänet valita maaliksi.
+    public static bool IsOut(PlayerController p)
     {
-        if (!Active || instance == null) return;
-        if (instance.hero != null) instance.hero.WarHeal();
-        instance.heroHits++;
-        if (instance.heroHits >= instance.maxHits && !instance.ending) instance.StartCoroutine(instance.End(false));
+        return Active && instance != null && p != null && instance.outPlayers.Contains(p);
+    }
+
+    public static void OnHeroHit(PlayerController p)
+    {
+        if (!Active || instance == null || p == null || instance.outPlayers.Contains(p)) return;
+        p.WarHeal();
+        instance.heroHitsBy.TryGetValue(p, out int n);
+        n++;
+        instance.heroHitsBy[p] = n;
+        if (n >= instance.maxHits)
+        {
+            instance.outPlayers.Add(p);
+            p.enabled = false;   // paikallaan: ei liiku eikä heitä
+            bool anyLeft = false;
+            foreach (var q in Players.All) if (q != null && !q.GameOver && !instance.outPlayers.Contains(q)) anyLeft = true;
+            if (!anyLeft && !instance.ending) instance.StartCoroutine(instance.End(false));
+        }
+    }
+
+    int HitsOf(PlayerController p) { heroHitsBy.TryGetValue(p, out int n); return n; }
+
+    /// Kaikki sodasta pudonneet takaisin liikkeelle (sota päättyi).
+    void ReleaseOutPlayers()
+    {
+        foreach (var p in outPlayers) if (p != null) p.enabled = true;
+        outPlayers.Clear();
     }
 
     void CountEnemy(Enemy e)
@@ -162,7 +188,7 @@ public class PieWar : MonoBehaviour
         }
         var respawner = FindFirstObjectByType<DinerTableRespawn>();
         if (respawner != null) respawner.RespawnMissingNow();   // raivattu paikka: pöydät takaisin ehjinä
-        heroHits = 0;
+        heroHitsBy.Clear(); outPlayers.Clear();
         Active = true;
         if (counter == null) counter = FindFirstObjectByType<PieCounter>();
         if (counter != null) counter.Reseed();
@@ -175,6 +201,7 @@ public class PieWar : MonoBehaviour
     void AbortQuietly()
     {
         Active = false; PieDamage = false;
+        ReleaseOutPlayers();
         foreach (var e in foes) if (e != null) e.WarReset(home.ContainsKey(e) ? home[e] : e.transform.position);
     }
 
@@ -184,6 +211,7 @@ public class PieWar : MonoBehaviour
         for (float t = 0f; t < 0.4f; t += Time.unscaledDeltaTime) { fade = t / 0.4f; yield return null; }
         fade = 1f;
         Active = false; PieDamage = false;
+        ReleaseOutPlayers();
         // vihut takaisin paikoilleen ja täysillä voimilla, hero Linseyn viereen
         foreach (var e in foes)
         {
@@ -200,7 +228,7 @@ public class PieWar : MonoBehaviour
         }
         bool newKey = won && !JunkyardKey;
         if (won) JunkyardKey = true;
-        msg = quit ? "Piirakkasota päättyi." : won ? (newKey ? "Voitit piirakkasodan!\nLinsey antaa sinulle romuttamon portin avaimen." : "Voitit piirakkasodan!") : "Sait 10 piirakkaa naamaan. Piirakkasota päättyi.";
+        msg = quit ? "Piirakkasota päättyi." : won ? (newKey ? "Voitit piirakkasodan!\nLinsey antaa sinulle romuttamon portin avaimen." : "Voitit piirakkasodan!") : (Players.Count > 1 ? "Molemmat saivat 10 piirakkaa naamaan. Piirakkasota päättyi." : "Sait 10 piirakkaa naamaan. Piirakkasota päättyi.");
         msgUntil = Time.unscaledTime + (newKey ? 5f : 3f);
         yield return new WaitForSecondsRealtime(0.15f);
         for (float t = 0f; t < 0.4f; t += Time.unscaledDeltaTime) { fade = 1f - t / 0.4f; yield return null; }
@@ -257,7 +285,16 @@ public class PieWar : MonoBehaviour
         if (Active)
         {
             int alive = foes.Count - gone.Count;
-            GUI.Box(new Rect(Screen.width * 0.5f - w * 0.5f, Screen.height * 0.02f, w, h), "PIIRAKKASOTA   osumia sinuun " + heroHits + "/" + maxHits + "   vastustajia " + alive, box);
+            string hitText;
+            if (Players.Count > 1)
+            {
+                hitText = "";
+                foreach (var q in Players.All)
+                    if (q != null) hitText += (hitText.Length > 0 ? "   " : "") + (string.IsNullOrEmpty(q.characterName) ? "P" + (q.playerIndex + 1) : q.characterName) + " " + (outPlayers.Contains(q) ? "ULOS" : HitsOf(q) + "/" + maxHits);
+                hitText = "osumia: " + hitText;
+            }
+            else hitText = "osumia sinuun " + (hero != null ? HitsOf(hero) : 0) + "/" + maxHits;
+            GUI.Box(new Rect(Screen.width * 0.5f - w * 0.65f, Screen.height * 0.02f, w * 1.3f, h), "PIIRAKKASOTA   " + hitText + "   vastustajia " + alive, box);
         }
         if (near && !dialogOpen && !ending)
             GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), "[E]  " + (Active ? "Lopeta piirakkasota" : "Puhu Linseylle"), box);

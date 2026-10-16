@@ -72,7 +72,7 @@ public static class Players
         PlayerController best = null; float bestD = float.MaxValue;
         foreach (var p in All)
         {
-            if (p.GameOver) continue;
+            if (p.GameOver || PieWar.IsOut(p)) continue;
             float d = Dist(from, p.transform.position);
             if (d < bestD) { bestD = d; best = p; }
         }
@@ -89,7 +89,7 @@ public static class Players
         PlayerController best = null; float bestD = float.MaxValue;
         foreach (var p in All)
         {
-            if (p.GameOver) continue;
+            if (p.GameOver || PieWar.IsOut(p)) continue;
             float d = Dist(from, p.transform.position);
             if (d < bestD) { bestD = d; best = p; }
         }

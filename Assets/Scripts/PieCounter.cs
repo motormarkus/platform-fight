@@ -73,11 +73,19 @@ public class PieCounter : MonoBehaviour
     float floorTimer;
     PlayerController hero;
 
+    /// Kaksinpeli: lattiapiirakat tulevat vuorotellen kummankin (sodassa vielä mukana olevan) pelaajan lähelle.
+    static PlayerController RandomActivePlayer()
+    {
+        var ok = new List<PlayerController>();
+        foreach (var p in Players.All) if (p != null && !p.GameOver && !PieWar.IsOut(p)) ok.Add(p);
+        return ok.Count > 0 ? ok[Random.Range(0, ok.Count)] : Players.Primary;
+    }
+
     bool SpawnFloor()
     {
         floorMade.RemoveAll(b => b == null || (born.TryGetValue(b, out float t0) && Time.time - t0 > 0.5f && !b.CanPickUp));
         if (floorMade.Count >= 10) return false;
-        if (hero == null) hero = Players.Primary;
+        hero = RandomActivePlayer();
         float cx = hero != null ? hero.transform.position.x : (area.walkMinX + area.walkMaxX) * 0.5f;
         float cy = hero != null ? hero.transform.position.y : area.minDepthY + 1.5f;
         float px = Mathf.Clamp(cx + Random.Range(-5f, 5f), area.walkMinX + 1.5f, area.walkMaxX - 1.5f);

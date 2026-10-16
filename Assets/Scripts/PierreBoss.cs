@@ -40,16 +40,16 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
     public float walkSpeed = 2.5f, runSpeed = 5.4f, depthSpeed = 2.6f;
     [Tooltip("Etäisyys (x), jolta hero herättää hänet.")]
     public float wakeDistance = 10f;
-    public float rangeMin = 1.6f, rangeMax = 2.3f, runDistance = 6.5f;
+    public float rangeMin = 1.2f, rangeMax = 1.9f, runDistance = 6.5f;
     [Tooltip("Näin kauas lähtöpaikastaan (x) hän liikkuu korkeintaan taistelussa.")]
     public float zoneHalfWidth = 24f;
 
     [Header("Iskut")]
     public int jab1Damage = 9, jab2Damage = 11, jab3Damage = 12, kickDamage = 20, runPunchDamage = 18, tornadoDamage = 12, overheadDamage = 20, finisherBonus = 3;
-    [Range(0f, 1f)] public float comboChance = 0.6f;
-    public Vector2 decisionPause = new Vector2(0.3f, 0.7f);
+    [Range(0f, 1f)] public float comboChance = 0.8f;
+    public Vector2 decisionPause = new Vector2(0.15f, 0.45f);
     [Tooltip("Erikoisliike (tornadopotku tai ylhäältä isku) aikaisintaan näin monen sekunnin välein, kun hero on lähellä.")]
-    public Vector2 specialInterval = new Vector2(6f, 11f);
+    public Vector2 specialInterval = new Vector2(5f, 9f);
     [Range(0f, 1f)] public float specialChance = 0.5f;
 
     // ---------------- sisäinen tila ----------------
@@ -240,7 +240,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
             if (!atks.ContainsKey(sp)) sp = sp == Kind.Tornado ? Kind.Overhead : Kind.Tornado;
             if (atks.ContainsKey(sp)) { plan.Add(new Step(sp, true)); decisionTimer = Random.Range(decisionPause.x, decisionPause.y); return; }
         }
-        if (adx > rangeMax + 0.2f && atks.ContainsKey(Kind.Kick)) { plan.Add(new Step(Kind.Kick, true)); decisionTimer = Random.Range(decisionPause.x, decisionPause.y); return; }   // kauempaa potku
+        if (adx > 2.9f && atks.ContainsKey(Kind.Kick)) { plan.Add(new Step(Kind.Kick, true)); decisionTimer = Random.Range(decisionPause.x, decisionPause.y); return; }   // kauempaa potku
         if (Random.value < comboChance)
         {
             switch (Random.Range(0, 5))
@@ -256,7 +256,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
             return;
         }
         float r = Random.value;
-        Kind k = r < 0.4f ? Kind.Jab1 : r < 0.65f ? Kind.Jab2 : r < 0.85f ? Kind.Jab3 : Kind.Kick;
+        Kind k = r < 0.35f ? Kind.Jab1 : r < 0.65f ? Kind.Jab2 : r < 0.9f ? Kind.Jab3 : Kind.Kick;
         if (!atks.ContainsKey(k)) k = Kind.Jab1;
         if (atks.ContainsKey(k)) plan.Add(new Step(k, k == Kind.Kick));
         decisionTimer = Random.Range(decisionPause.x, decisionPause.y);

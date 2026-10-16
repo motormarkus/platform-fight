@@ -17,8 +17,20 @@ public interface IBottleHolder
 public class Bottle : MonoBehaviour
 {
     public static readonly List<Bottle> All = new List<Bottle>();
-    /// Pelaajan kädessä oleva pullo (null = ei pulloa).
-    public static Bottle Held { get; private set; }
+    /// Pelaajan kädessä oleva pullo (null = ei pulloa). Kaksinpelissä jokaisella pelaajalla on oma käsi.
+    static readonly Dictionary<PlayerController, Bottle> heldMap = new Dictionary<PlayerController, Bottle>();
+    public static Bottle HeldBy(PlayerController p)
+    {
+        if (p == null || !heldMap.TryGetValue(p, out var b)) return null;
+        if (b == null || b.state != S.Held) { heldMap.Remove(p); return null; }
+        return b;
+    }
+    static void Release(Bottle b)
+    {
+        List<PlayerController> rm = null;
+        foreach (var kv in heldMap) if (kv.Value == b) { if (rm == null) rm = new List<PlayerController>(); rm.Add(kv.Key); }
+        if (rm != null) foreach (var k in rm) heldMap.Remove(k);
+    }
 
     public Sprite[] sprites;
     [Tooltip("Pöytä, jolla pullo seisoo (null = lattialla).")]
@@ -84,7 +96,7 @@ public class Bottle : MonoBehaviour
     readonly HashSet<Object> hitList = new HashSet<Object>();
 
     void OnEnable() { All.Add(this); }
-    void OnDisable() { All.Remove(this); if (Held == this) Held = null; }
+    void OnDisable() { All.Remove(this); Release(this); }
 
     void Awake()
     {
@@ -112,7 +124,7 @@ public class Bottle : MonoBehaviour
     /// Kiinniottonappi: poimi lähin ehjä lattialla oleva pullo.
     public static bool TryPickUp(PlayerController p)
     {
-        if (Held != null || p == null) return false;
+        if (p == null || HeldBy(p) != null) return false;
         Vector3 me = p.transform.position;
         Bottle best = null; float bd = 99f;
         foreach (var b in All)
@@ -126,7 +138,7 @@ public class Bottle : MonoBehaviour
         if (best == null) return false;
         if (best.ball && best.restOnRenderer != null) Obstacle.RattleNear(best.transform.position);   // pallo pöydältä: muut kalisevat
         best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false;
-        Held = best;
+        heldMap[p] = best;
         HitFx.PlayPickup(false);
         return true;
     }
@@ -136,7 +148,7 @@ public class Bottle : MonoBehaviour
     /// Piirakka suoraan käteen ennen kuin lähin pöytä nostetaan: lähin pöydällä, tiskillä tai lattialla oleva piirakka.
     public static bool TryPickUpFromTable(PlayerController p)
     {
-        if (Held != null || p == null) return false;
+        if (p == null || HeldBy(p) != null) return false;
         Vector3 me = p.transform.position;
         Bottle best = null; float bd = 99f;
         foreach (var b in All)
@@ -173,7 +185,7 @@ public class Bottle : MonoBehaviour
             return false;
         }
         best.table = null; best.state = S.Held; best.t = 0f; best.holder = p; best.gripped = false; best.rot = 0f;
-        Held = best;
+        heldMap[p] = best;
         HitFx.PlayPickup(false);
         return true;
     }
@@ -181,8 +193,9 @@ public class Bottle : MonoBehaviour
     /// Lyöntinappi pullo kädessä: heitto eteen.
     public static bool ThrowHeld(PlayerController p)
     {
-        if (Held == null || p == null) return false;
-        var b = Held; Held = null;
+        var b = HeldBy(p);
+        if (b == null) return false;
+        heldMap.Remove(p);
         b.Throw(p.transform.position.y, p.FacingRight ? 1f : -1f, false);
         return true;
     }
@@ -209,7 +222,7 @@ public class Bottle : MonoBehaviour
         else height = 1.9f;
         thrownBy = holder as Object;
         holder = null;
-        if (Held == this) Held = null;
+        Release(this);
         enemyThrow = enemy;
         vx = dir * throwSpeed; vy = 1.5f;
         spin = pie ? 0f : -dir * 900f; rot = pie ? 0f : rot; hitList.Clear();
@@ -228,16 +241,17 @@ public class Bottle : MonoBehaviour
     public void Drop()
     {
         if (state != S.Held) return;
-        if (Held == this) Held = null;
+        Release(this);
         holder = null;
         vx = Random.Range(-1.5f, 1.5f); vy = 2f; spin = Random.Range(-500f, 500f);
         fastFall = false; state = S.Falling; t = 0f;
     }
 
     /// Pelaaja saa osuman: pullo putoaa kädestä.
-    public static void DropHeld()
+    public static void DropHeld(PlayerController p)
     {
-        if (Held != null) Held.Drop();
+        var b = HeldBy(p);
+        if (b != null) b.Drop();
     }
 
     // ---------------- päivitys ----------------
@@ -403,29 +417,32 @@ public class Bottle : MonoBehaviour
         }
         if (enemyThrow)
         {
-            // vihun heittämä: osuu vain heroon
-            if (pc == null || hitList.Contains(pc)) return false;
-            Vector3 q = pc.transform.position;
-            if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.45f || height > 3.6f) return false;
-            hitList.Add(pc);
-            if (pie && pc.HasPieArt)
+            // vihun heittämä: osuu pelaajiin (kaksinpelissä kumpaan tahansa; sodasta pudonneeseen ei osu)
+            foreach (var tp in Players.All.ToArray())
             {
-                // heron oma piirakka-animaatio (läsähtää naamaan): heitetty piirakka häviää osumahetkellä
-                int pr = pc.PieHit(throwDamage, me.x - Mathf.Sign(vx));
-                if (pr == 0) return false;
-                HitFx.OnHit(true);
-                pieVanish = pr == 1;
-                return true;
-            }
-            PieWar.PieDamage = pie;
-            bool pHit = pc.TakeHit(throwDamage, me.x - Mathf.Sign(vx));
-            PieWar.PieDamage = false;
-            if (pHit)
-            {
-                if (pie) PieWar.OnHeroHit();
-                HitFx.OnHit(true);
-                HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
-                return true;
+                if (tp == null || tp.GameOver || PieWar.IsOut(tp) || hitList.Contains(tp)) continue;
+                Vector3 q = tp.transform.position;
+                if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.45f || height > 3.6f) continue;
+                hitList.Add(tp);
+                if (pie && tp.HasPieArt)
+                {
+                    // pelaajan oma piirakka-animaatio (läsähtää naamaan): heitetty piirakka häviää osumahetkellä
+                    int pr = tp.PieHit(throwDamage, me.x - Mathf.Sign(vx));
+                    if (pr == 0) continue;
+                    HitFx.OnHit(true);
+                    pieVanish = pr == 1;
+                    return true;
+                }
+                PieWar.PieDamage = pie;
+                bool pHit = tp.TakeHit(throwDamage, me.x - Mathf.Sign(vx));
+                PieWar.PieDamage = false;
+                if (pHit)
+                {
+                    if (pie) PieWar.OnHeroHit(tp);
+                    HitFx.OnHit(true);
+                    HitSpark.Spawn(new Vector3(q.x, q.y + 2.2f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
+                    return true;
+                }
             }
             return false;
         }

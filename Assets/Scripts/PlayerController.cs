@@ -441,7 +441,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kiinni olevan kaivon kansi nostetaan pois (ovi kutsuu): nosto kuvineen, sitten kansi kädessä.
     public bool TryLiftLid(Manhole m)
     {
-        if (m == null || state != State.Ground || height > 0.05f || carried != null || Bottle.Held != null || Chair.Held != null
+        if (m == null || state != State.Ground || height > 0.05f || carried != null || Bottle.HeldBy(this) != null || Chair.Held != null
             || Cue.Held != null || LifeRing.Held != null || Lid.Held != null || Riding || LidArt == null) return false;
         var l = Lid.Create(m.lid != null ? m.lid.sprite : null, Area.Current, m.transform.position, m.openSounds);
         l.sizeScale = m.sizeScale;
@@ -1423,7 +1423,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
         if (catchPressed) { catchBufferUntil = Time.time + 0.18f; lastCatchPressAt = Time.time; }
         // päät yhteen: vastaheitto-nappi + pusku (lähes) yhtä aikaa vapaana maassa tai heti ensimmäisen napin aloittaman liikkeen alussa
-        if (HasHeadCrush && Bottle.Held == null && carried == null
+        if (HasHeadCrush && Bottle.HeldBy(this) == null && carried == null
             && (state == State.Ground || ((state == State.Push || state == State.Catch) && stateTime < headCrushWindow + 0.05f))
             && Mathf.Abs(lastCatchPressAt - lastPushPressAt) <= headCrushWindow && (catchPressed || pushPressed))
         {
@@ -1451,7 +1451,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (pummelDir != 0 && Bottle.Held == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
+                if (pummelDir != 0 && Bottle.HeldBy(this) == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
@@ -1466,12 +1466,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 // jab–polvi–pusku: puskunappi heti polven loputtua -> silti viimeistely
                 if (pushPressed && HasPush && AppliedCharacter != 1 && Time.time - kneeEndedAt <= HeadbuttLate) { StartHeadbuttFinisher(); break; }
                 if (pushPressed && HasPush && UseStamina(pushStamina)) { StartPush(); break; }
-                if (Bottle.Held != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; pickNow = false; pickBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
-                if (pickNow && Bottle.Held == null)
+                if (Bottle.HeldBy(this) != null && releaseThrow) { throwQueued = false; catchPressed = false; catchNow = false; catchBufferUntil = 0f; pickNow = false; pickBufferUntil = 0f; punchPressed = true; }   // pullo kädessä: nappi uudelleen = heitto
+                if (pickNow && Bottle.HeldBy(this) == null)
                 {
                     pickBufferUntil = 0f;
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
-                    if (canCarry && Bottle.TryPickUpFromTable(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // piirakka pöydältä suoraan käteen
+                    if (canCarry && Bottle.TryPickUpFromTable(this)) { facingRight = Bottle.HeldBy(this).transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // piirakka pöydältä suoraan käteen
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
                     if (Lid.Held == null && LidArt != null)
@@ -1501,15 +1501,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     }
                     if (HasCue && Cue.TryPickUp(this)) { throwQueued = false; Enter(State.CuePick); break; }   // biljardikeppi
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
-                    if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.Held.transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
+                    if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.HeldBy(this).transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
                 }
-                if (catchNow && Bottle.Held == null)
+                if (catchNow && Bottle.HeldBy(this) == null)
                 {
                     catchBufferUntil = 0f;
                     if (HasCounterThrow && (FoeInFront(2.4f) || WhipIncoming())) { quickReach = false; Enter(State.Catch); break; }   // vastaheiton kurotus vain, kun joku on lyöntietäisyydellä
                     if (HasPummel || HasCounterThrow) { quickReach = true; Enter(State.Catch); break; }   // nopea ojennus tyhjään joka painalluksella (ei pitkää pysähdystä)
                 }
-                if (punchPressed && Bottle.Held != null)
+                if (punchPressed && Bottle.HeldBy(this) != null)
                 {
                     // pullon heitto: käsi taakse ja heitto omilla kuvilla (ilman kuvia vanha tapa: lyönti ja heitto)
                     PlayGrunt();
@@ -2929,7 +2929,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool fromRight = attackerX > transform.position.x;
         if (state == State.Block) Enter(State.Ground);   // torjumaton isku: suoja murtuu
         DropCrate();
-        Bottle.DropHeld();
+        Bottle.DropHeld(this);
         Chair.DropHeld(transform.position);
         Cue.DropHeld(transform.position);
         LifeRing.DropHeld(transform.position);
@@ -2982,7 +2982,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding || state == State.Drink) return false;
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
-        if (state != State.Block && !(PieWar.Active && Bottle.Held != null && Bottle.Held.pie)) Bottle.DropHeld();   // piirakkasodassa osuma ei pudota piirakkaa kädestä
+        if (state != State.Block && !(PieWar.Active && Bottle.HeldBy(this) != null && Bottle.HeldBy(this).pie)) Bottle.DropHeld(this);   // piirakkasodassa osuma ei pudota piirakkaa kädestä
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
         if (state != State.Block && Cue.Held != null) Cue.DropHeld(transform.position);
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
@@ -3070,7 +3070,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool hit = TakeHit(damage, attackerX, attacker);
         PieWar.PieDamage = false;
         if (!hit) return 0;
-        PieWar.OnHeroHit();
+        PieWar.OnHeroHit(this);
         if (PieWar.Active) invulnTimer = Mathf.Max(invulnTimer, 0.45f);   // sodassa ei jatkuvaa pyörittelyä: ehtii poimia piirakan
         if (state != State.Hurt) return 2;
         Enter(State.PieHit);
@@ -3544,7 +3544,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     Sprite[] drinkSprites; int drinkLoadedFor = -1; bool drinkSoundPlayed;
     static readonly float[] DrinkTimes = { 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.13f, 0.13f, 0.13f, 0.13f, 0.13f, 0.05f, 0.05f, 0.05f, 0.05f, 0.08f };
     /// Termospullon voi juoda, kun seisoo vapaana maassa (ei kanna mitään, ei jo juo).
-    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
+    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
     Sprite[] DrinkSprites
     {
         get
@@ -3678,7 +3678,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return true;
     }
     /// Vapaana maassa: syöntianimaatio voidaan näyttää.
-    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.Held == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
+    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
 
     void UpdateEat()
     {
