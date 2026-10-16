@@ -38,7 +38,7 @@ public static class Loc
     {
         { "Suutele Auroraa", "Kiss Aurora" },
         // --- Valikot ---
-        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Pääääni", "Master volume" }, { "Tehosteet", "Effects" }, { "Näyttötila", "Display mode" },
+        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Ääni", "Audio" }, { "Peli", "Game" }, { "ÄÄNI", "AUDIO" }, { "PELI", "GAME" }, { "Pääääni", "Master volume" }, { "Tehosteet", "Effects" }, { "Näyttötila", "Display mode" },
         { "Reunaton ikkuna", "Borderless window" }, { "Ikkuna", "Windowed" }, { "FPS-raja", "FPS limit" }, { "Rajaton", "Unlimited" },
         { "Kirkkaus", "Brightness" }, { "Ruudun tärinä", "Screen shake" }, { "Pidä E: nosta", "Hold E: revive" }, { "Molempien pelaajien pitää olla oven luona.", "Both players must be at the door." }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
         { "Helppo", "Easy" }, { "Normaali", "Normal" }, { "Vaikea", "Hard" }, { "Takaisin", "Back" },

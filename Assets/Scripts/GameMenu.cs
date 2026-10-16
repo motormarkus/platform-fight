@@ -50,6 +50,12 @@ public class GameMenu : MonoBehaviour
 
     enum Page { None, Title, Character, Difficulty, Pause, Options, Credits, ConfirmQuit }
     Page page = Page.None, back = Page.None;
+    /// Asetusten alivalikko: -1 = asetusten päävalikko, 0 = ääni, 1 = video, 2 = peli.
+    int optSection = -1;
+    static readonly string[] OptSectionNames = { "Ääni", "Video", "Peli" };
+    static readonly string[] OptSectionHeads = { "ÄÄNI", "VIDEO", "PELI" };
+    /// Alivalikon rivit (asetusrivien numerot, ks. Adjust).
+    static readonly int[][] SectionRows = { new[] { 0, 1, 2 }, new[] { 3, 4, 5, 6, 7 }, new[] { 9, 10, 8 } };
     int sel;
     float creditsT;
     float oldTimeScale = 1f;
@@ -109,6 +115,23 @@ public class GameMenu : MonoBehaviour
                     : new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
             }
             case Page.Options:
+            {
+                if (optSection < 0) return new[] { Loc.T(OptSectionNames[0]), Loc.T(OptSectionNames[1]), Loc.T(OptSectionNames[2]), Loc.T("Takaisin") };
+                var all = OptionLabels();
+                var rows = SectionRows[optSection];
+                var l = new string[rows.Length + 1];
+                for (int r = 0; r < rows.Length; r++) l[r] = all[rows[r]];
+                l[rows.Length] = Loc.T("Takaisin");
+                return l;
+            }
+            case Page.ConfirmQuit: return new[] { "Kyllä, lopeta", "Ei" };
+            default: return new string[0];
+        }
+    }
+
+    /// Kaikki asetusrivit järjestyksessä (numero = rivin id).
+    string[] OptionLabels()
+    {
                 return new[] {
                     Loc.T("Pääääni") + "  <  " + Mathf.RoundToInt(GameSettings.MasterVolume * 10) + "  >",
                     Loc.T("Musiikki") + "  <  " + Mathf.RoundToInt(GameSettings.MusicVolume * 10) + "  >",
@@ -120,11 +143,7 @@ public class GameMenu : MonoBehaviour
                     Loc.T("Kirkkaus") + "  <  " + GameSettings.Brightness + "  >",
                     Loc.T("Ruudun tärinä") + ":  " + Loc.T(GameSettings.ScreenShake ? "Päällä" : "Pois"),
                     Loc.T("Kieli") + ":  " + (Loc.Current == Loc.Lang.Suomi ? "Suomi" : "English"),
-                    Loc.T("Vaikeustaso") + ":  " + Loc.T(GameSettings.Difficulty.ToString()),
-                    "Takaisin" };
-            case Page.ConfirmQuit: return new[] { "Kyllä, lopeta", "Ei" };
-            default: return new string[0];
-        }
+                    Loc.T("Vaikeustaso") + ":  " + Loc.T(GameSettings.Difficulty.ToString()) };
     }
 
     void Update()
@@ -147,7 +166,7 @@ public class GameMenu : MonoBehaviour
         int dy = NavY();
         if (dy != 0) sel = (sel + dy + items.Length) % items.Length;
         int dx = NavX();
-        if (page == Page.Options && dx != 0) Adjust(sel, dx);
+        if (page == Page.Options && dx != 0 && optSection >= 0 && sel < SectionRows[optSection].Length) Adjust(SectionRows[optSection][sel], dx);
         if (page == Page.Title && dx != 0 && sel == 1) Players.SetCoop(!Players.CoopWanted);
         if (page == Page.Character && dx != 0 && sel < 2) sel = 1 - sel;
         if (ConfirmPressed()) Choose(sel);
@@ -157,6 +176,7 @@ public class GameMenu : MonoBehaviour
             else if (page == Page.Title) { }
             else if (page == Page.Character) { page = Page.Title; sel = 0; }
             else if (page == Page.Difficulty) { page = Page.Character; sel = GameSettings.Character; }
+            else if (page == Page.Options && optSection >= 0) { sel = optSection; optSection = -1; }
             else { page = back == Page.None ? Page.Title : back; sel = 0; }
         }
     }
@@ -193,7 +213,7 @@ public class GameMenu : MonoBehaviour
             case Page.Title:
                 if (i == 0) { page = Page.Character; sel = Mathf.Clamp(GameSettings.Character, 0, 1); }
                 else if (i == 1) Players.SetCoop(!Players.CoopWanted);   // 1 / 2 pelaajaa
-                else if (i == 2) { back = Page.Title; page = Page.Options; sel = 0; }
+                else if (i == 2) { back = Page.Title; page = Page.Options; optSection = -1; sel = 0; }
                 else if (i == 3) { back = Page.Title; page = Page.Credits; creditsT = 0f; }
                 else { back = Page.Title; page = Page.ConfirmQuit; sel = 1; }
                 break;
@@ -224,13 +244,21 @@ public class GameMenu : MonoBehaviour
                     var pcb = Players.Primary;
                     if (pcb != null) pcb.UseBooni();
                 }
-                else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; sel = 0; }
+                else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; optSection = -1; sel = 0; }
                 else if (lbl == "Aloita alusta") { SkipTitleOnce = true; Restart(); }
                 else if (lbl == "Päävalikkoon") Restart();
                 else { back = Page.Pause; page = Page.ConfirmQuit; sel = 1; }
                 break;
             }
             case Page.Options:
+                if (optSection < 0)
+                {
+                    if (i < 3) { optSection = i; sel = 0; }
+                    else { page = back; sel = 0; }
+                    break;
+                }
+                if (i >= SectionRows[optSection].Length) { sel = optSection; optSection = -1; break; }
+                i = SectionRows[optSection][i];
                 if (i == 0) GameSettings.MasterVolume = GameSettings.MasterVolume >= 0.99f ? 0f : GameSettings.MasterVolume + 0.1f;
                 else if (i == 1) GameSettings.MusicVolume = GameSettings.MusicVolume >= 0.99f ? 0f : GameSettings.MusicVolume + 0.1f;
                 else if (i == 2) GameSettings.SfxVolume = GameSettings.SfxVolume >= 0.99f ? 0f : GameSettings.SfxVolume + 0.1f;
@@ -344,14 +372,13 @@ public class GameMenu : MonoBehaviour
         if (page == Page.Character) { DrawCharacters(w, h, s, gold); return; }
 
         string head = page == Page.Title || page == Page.Difficulty ? gameTitle
-                    : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T("ASETUKSET") : Loc.T("Lopetetaanko peli?");
+                    : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T(optSection >= 0 ? OptSectionHeads[optSection] : "ASETUKSET") : Loc.T("Lopetetaanko peli?");
         if (head != gameTitle || Logo(w, h * (page == Page.Difficulty ? 0.08f : 0.10f), w * 0.36f) <= 0f)
             Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
         if (page == Page.Difficulty) Shadowed(new Rect(0, h * 0.27f, w, 60 * s), Loc.T("Valitse vaikeustaso"), headStyle, Color.white);
 
         var items = Items();
         float y0 = h * 0.38f, step = 66 * s;
-        if (page == Page.Options) { y0 = h * 0.29f; step = 56 * s; }   // 12 riviä mahtuu ruutuun
         for (int i = 0; i < items.Length; i++)
         {
             bool on = i == sel;
