@@ -319,7 +319,7 @@ public class GameMenu : MonoBehaviour
     };
     static readonly Vector2[] PadDir =
     {
-        new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, 0), new Vector2(0, -1),
+        new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, 0.6f), new Vector2(0, -1),
         new Vector2(-1, 0), new Vector2(1, 0), new Vector2(-1, 0), new Vector2(1, 0),
         new Vector2(0, 0), new Vector2(0, 0),
     };
@@ -410,6 +410,17 @@ public class GameMenu : MonoBehaviour
         }
         System.Func<Vector2, Vector2> ToScreen = p => new Vector2(ix + p.x / 1536f * iw, iy + p.y / 1024f * ih);
 
+        // PS-symbolit nappien päälle (peittävät kuvan numerot): rasti, ympyrä, neliö, kolmio
+        float dsz = iw * 0.072f;
+        foreach (var fb in FaceButtons)
+        {
+            var c = ToScreen(PadPos[(int)fb]);
+            GUI.color = new Color(0.06f, 0.06f, 0.09f, 0.96f);
+            GUI.DrawTexture(new Rect(c.x - dsz * 0.5f, c.y - dsz * 0.5f, dsz, dsz), SymbolDisc());
+            GUI.color = Color.white;
+            GUI.DrawTexture(new Rect(c.x - dsz * 0.36f, c.y - dsz * 0.36f, dsz * 0.72f, dsz * 0.72f), PadSymbol(fb));
+        }
+
         // nimilaput napeille
         for (int b = 0; b < PadPos.Length; b++)
         {
@@ -423,7 +434,6 @@ public class GameMenu : MonoBehaviour
         }
         Tag(ToScreen(new Vector2(355, 455)), Vector2.zero, Loc.T("Liiku"), false, false, s, iw, ih);       // ristiohjain
         Tag(ToScreen(new Vector2(772, 463)), Vector2.zero, Loc.T("Tauko"), false, false, s, iw, ih);       // PS-nappi / keskinappi
-        Tag(ToScreen(new Vector2(938, 463)), Vector2.zero, Loc.T("Tauko"), false, false, s, iw, ih);       // Options / Start
         Tag(ToScreen(new Vector2(617, 463)), Vector2.zero, "–", false, true, s, iw, ih);                   // Share / Create: ei käytössä
 
         // vasemmalla lista toiminnoista
@@ -437,8 +447,15 @@ public class GameMenu : MonoBehaviour
         }
         foreach (var a in CoopInput.AllActs)
         {
-            string t = ActName(a, false) + "  –  " + Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, a)));
+            var bb = CoopInput.GetBinding(ctrlPlayer, a);
+            string t = ActName(a, false) + "  –  " + Loc.T(CoopInput.PadBtnName(bb));
             DrawRow(new Rect(x0, y0 + row * step, lw, step), t, sel == row, gold);
+            if (System.Array.IndexOf(FaceButtons, bb) >= 0)
+            {
+                float isz = 38 * s;
+                GUI.color = Color.white;
+                GUI.DrawTexture(new Rect(x0 + lw - isz - 10 * s, y0 + row * step + (step - isz) * 0.5f, isz, isz), PadSymbol(bb));
+            }
             row++;
         }
         DrawRow(new Rect(x0, y0 + row * step, lw, step), Loc.T("Palauta oletukset"), sel == row, gold); row++;
@@ -446,13 +463,75 @@ public class GameMenu : MonoBehaviour
 
         // päät yhteen -yhdistelmä (Rocco)
         if (CtrlCharacter() == 0)
-            Shadowed(new Rect(ix, iy + ih + 4 * s, iw, 40 * s), Loc.T("Päät yhteen (L2 + R2 oletuksena)").Replace("L2 + R2", Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Catch))) + " + " + Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Push)))), smallStyle, new Color(1f, 1f, 1f, 0.85f));
+            Shadowed(new Rect(x0 + 14 * s, y0 + (row + 1) * step + 16 * s, lw, 40 * s), Loc.T("Päät yhteen (L2 + R2 oletuksena)").Replace("L2 + R2", Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Catch))) + " + " + Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Push)))), rowStyle, new Color(1f, 1f, 1f, 0.85f));
 
         string help = rebinding.HasValue
             ? Loc.T("Paina uutta nappia ohjaimella   Esc / Start = peru")
             : Time.unscaledTime < ctrlMsgUntil ? Loc.T("Ohjainta ei löydy: kytke ohjain ja yritä uudelleen")
             : Loc.T("Ylös / alas valitse   Enter / A muuta nappi   Esc / B takaisin");
         Shadowed(new Rect(0, h - 70 * s, w, 50 * s), help, smallStyle, rebinding.HasValue ? gold : new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    static readonly CoopInput.PadBtn[] FaceButtons = { CoopInput.PadBtn.South, CoopInput.PadBtn.East, CoopInput.PadBtn.West, CoopInput.PadBtn.North };
+    static Texture2D symDisc;
+    static readonly Texture2D[] symTex = new Texture2D[4];
+
+    /// Tumma pyöreä tausta symbolin alle (tekstuuri on valkoinen, väri tulee GUI.colorista).
+    static Texture2D SymbolDisc()
+    {
+        if (symDisc != null) return symDisc;
+        const int n = 64;
+        symDisc = new Texture2D(n, n, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+        for (int y = 0; y < n; y++)
+            for (int x = 0; x < n; x++)
+            {
+                float px = (x + 0.5f) / n * 2f - 1f, py = (y + 0.5f) / n * 2f - 1f;
+                float d = Mathf.Sqrt(px * px + py * py);
+                symDisc.SetPixel(x, y, new Color(1f, 1f, 1f, Mathf.Clamp01((1f - d) / 0.05f)));
+            }
+        symDisc.Apply();
+        return symDisc;
+    }
+
+    static float SegDist(Vector2 p, Vector2 a, Vector2 b)
+    {
+        Vector2 ab = b - a;
+        float t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / ab.sqrMagnitude);
+        return (p - (a + ab * t)).magnitude;
+    }
+
+    /// PS-symboli väreineen: rasti (sininen), ympyrä (punainen), neliö (vaaleanpunainen), kolmio (vihreä).
+    static Texture2D PadSymbol(CoopInput.PadBtn b)
+    {
+        int idx = System.Array.IndexOf(FaceButtons, b);
+        if (idx < 0) idx = 0;
+        if (symTex[idx] != null) return symTex[idx];
+        const int n = 96;
+        var t = new Texture2D(n, n, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+        Color col = b == CoopInput.PadBtn.South ? new Color(0.45f, 0.65f, 1f)
+                  : b == CoopInput.PadBtn.East ? new Color(1f, 0.38f, 0.38f)
+                  : b == CoopInput.PadBtn.West ? new Color(1f, 0.6f, 0.88f)
+                  : new Color(0.35f, 0.92f, 0.62f);
+        Vector2 ta = new Vector2(0f, 0.74f), tb = new Vector2(-0.72f, -0.5f), tc = new Vector2(0.72f, -0.5f);
+        for (int y = 0; y < n; y++)
+            for (int x = 0; x < n; x++)
+            {
+                var p = new Vector2((x + 0.5f) / n * 2f - 1f, (y + 0.5f) / n * 2f - 1f);
+                float d;
+                switch (b)
+                {
+                    case CoopInput.PadBtn.West: d = Mathf.Abs(Mathf.Max(Mathf.Abs(p.x), Mathf.Abs(p.y)) - 0.58f); break;
+                    case CoopInput.PadBtn.East: d = Mathf.Abs(p.magnitude - 0.66f); break;
+                    case CoopInput.PadBtn.South:
+                        d = Mathf.Min(SegDist(p, new Vector2(-0.58f, -0.58f), new Vector2(0.58f, 0.58f)), SegDist(p, new Vector2(-0.58f, 0.58f), new Vector2(0.58f, -0.58f)));
+                        break;
+                    default: d = Mathf.Min(SegDist(p, ta, tb), Mathf.Min(SegDist(p, tb, tc), SegDist(p, tc, ta))); break;
+                }
+                t.SetPixel(x, y, new Color(col.r, col.g, col.b, Mathf.Clamp01((0.1f - d) / 0.035f)));
+            }
+        t.Apply();
+        symTex[idx] = t;
+        return t;
     }
 
     void DrawRow(Rect r, string text, bool on, Color gold)
