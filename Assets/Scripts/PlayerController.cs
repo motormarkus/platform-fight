@@ -3670,7 +3670,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             eatTimes = spr.Length >= 8 ? new[] { 0.07f, 0.07f, 0.1f, 0.14f, 0.14f, 0.14f, 0.1f, 0.08f }
                                        : new[] { 0.07f, 0.07f, 0.1f, 0.16f, 0.16f, 0.1f, 0.08f };
             eatPizza = key.Contains("pizza");
-            if (eatPizza) for (int i = 0; i < eatTimes.Length; i++) eatTimes[i] *= 2.4f;   // pizza syödään hitaammin: pidempi animaatio ja kaksi pureskelua
+            if (eatPizza)
+            {
+                // pizza: koko syöntianimaatio kaksi kertaa peräkkäin normaalilla nopeudella (kaksi puraisua)
+                var twice = new Sprite[spr.Length * 2]; spr.CopyTo(twice, 0); spr.CopyTo(twice, spr.Length);
+                var twiceT = new float[eatTimes.Length * 2]; eatTimes.CopyTo(twiceT, 0); eatTimes.CopyTo(twiceT, eatTimes.Length);
+                eatSprites = twice; eatTimes = twiceT;
+            }
             moving = false; running = false;
             Enter(State.Eat);
         }
@@ -3686,7 +3692,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         int f = ThrowPose.Index(eatTimes, stateTime);
         if (f < 0) { eatSprites = null; Enter(State.Ground); return; }
         // pureskelu: ääni puremakuvissa (3.–5.), jos Resources/Syonti/pureskelu*-ääniä on
-        int chewFrame = eatChewCount == 0 ? 3 : 5;   // pizzalla toinen pureskelu myöhemmin
+        int chewFrame = eatChewCount == 0 ? 3 : (eatPizza ? eatSprites.Length / 2 + 3 : 5);   // pizzalla toinen pureskelu toisella kierroksella
         if (f >= chewFrame && eatChewCount < (eatPizza ? 2 : 1))   // sama ääni kuin Sohvin baarissa makkaraa syödessä: kerran ensimmäisessä puraisussa (pizzalla kaksi)
         {
             if (chewClips == null) chewClips = System.Array.FindAll(Resources.LoadAll<AudioClip>("Syonti"), c => c != null && c.name.StartsWith("pureskelu"));

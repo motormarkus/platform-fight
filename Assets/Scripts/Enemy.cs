@@ -903,6 +903,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (displayName == "Rokkimimmi") { maxHealth = Mathf.Max(maxHealth, 125); health = maxHealth; }   // rokkimimmin energia 125
         if (displayName == "Rokkimimmi" && combos != null && combos.Length > 0) { comboChance = Mathf.Max(comboChance, 0.85f); altChance = Mathf.Min(altChance, 0.1f); }   // kombo (JSJPK) useammin: yksittäinen potku ei vie vuoroa
         if (displayName == "Romuukko") { tireRearmTime = Mathf.Min(tireRearmTime, 8f); clinchChance = Mathf.Max(clinchChance, 0.5f); tireThrowChance = 1f; }   // erikoisliikkeet (rengas, karhunpuristus) useammin
+        if (displayName == "Romuukko" || displayName == "Horhe")
+        {
+            // liian helppoja: aggressiivisemmat. Katkaisevat pelaajan kombon, hyökkäävät tiheämmin, liikkuvat ja juoksevat nopeammin
+            breaksCombos = true;
+            attackCooldown = Mathf.Min(attackCooldown, 0.4f);
+            windupTime *= 0.8f; punchRecoverTime *= 0.75f;
+            moveSpeedX *= 1.3f; moveSpeedY *= 1.2f;
+            runDistance = Mathf.Min(runDistance, 2.0f);
+            comboChance = Mathf.Max(comboChance, 0.75f);
+            corneredRange = Mathf.Max(corneredRange, 3.2f);
+            retreatChance = 0f;
+        }
         if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwArtMirrored = true;   // noston ja heiton kuvat katsoivat väärään suuntaan: peilataan (lentosuunta pysyy katsomissuuntana)
         if (displayName == "Horhe" || displayName == "Puliukko")
         {
@@ -3396,7 +3408,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool walkFacing = (state == State.Chase || state == State.Idle) && moving && Mathf.Abs(walkDirectionX) > 0.0001f;
         body.flipX = walkFacing ? walkDirectionX < 0f : !facingRight;
         if (brainSprite) body.flipX = !facingRight;
-        if (throwArtMirrored && (state == State.GrabReach || state == State.GrabLift || state == State.GrabThrow || state == State.BarrelLift || state == State.CarryWalk || state == State.BarrelThrow)) body.flipX = !body.flipX;
+        if (throwArtMirrored && (state == State.GrabReach || state == State.GrabLift || state == State.GrabThrow || state == State.BarrelLift || state == State.BarrelThrow)) body.flipX = !body.flipX;   // kantokävely (CarryWalk) ei peilata: kuvat katsovat jo kulkusuuntaan
 
         Vector2 pivotFix = Vector2.zero;
         Sprite spr = body.sprite;
