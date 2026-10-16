@@ -69,10 +69,13 @@ public static class CoopInput
     public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, g => g.buttonNorth);
     public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, g => g.rightStickButton);
     public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, g => g.rightTrigger);
-    public static bool Pick(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
+    /// E / ympyrä: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).
+    public static bool Pick(int i) => !Players.NearFallen(i) && PickRaw(i);
+    public static bool PickRaw(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
     public static bool Catch(int i) => Pressed(i, Key.O, Key.None, Key.Numpad6, Key.RightAlt, g => g.leftTrigger);
 
-    public static bool PickHeld(int i) => Held(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
+    public static bool PickHeld(int i) => !Players.NearFallen(i) && PickHeldRaw(i);
+    public static bool PickHeldRaw(int i) => Held(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
     public static bool Block(int i) => Held(i, Key.I, Key.None, Key.Numpad7, Key.Backslash, g => g.leftShoulder);
 
     public static bool Run(int i)

@@ -2789,7 +2789,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (waitingToAppear) return false;   // piilossa odottava pomo
         if (brain != null && brain.enabled && brain.InterceptHit(damage, attackerX, knockdown)) return false;   // Deacon väistää
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
-        damage = GameSettings.ScaleToEnemy(damage);   // vaikeustaso
+        damage = GameSettings.ScaleToEnemy(damage, isBoss);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (((comboArmor && comboSeq != null) || counterActive || (brain != null && brain.ArmorNow)) && !knockdown && health > damage
             && (state == State.Windup || state == State.Punch || state == State.Recover))
@@ -3039,7 +3039,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         artSet = null; artThrow = false; flightArt = false; thrownByPlayer = false; launched = false;
         spinRot = 0f; heldPose = -1;
         awake = true;
-        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage));
+        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage, isBoss));
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;
@@ -3057,7 +3057,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (state != State.Held) return;
         awake = true;
-        health = Mathf.Max(1, health - GameSettings.ScaleToEnemy(damage));
+        health = Mathf.Max(1, health - GameSettings.ScaleToEnemy(damage, isBoss));
         flashTimer = 0.1f;
         LastHit = this; LastHitTime = Time.time;
     }

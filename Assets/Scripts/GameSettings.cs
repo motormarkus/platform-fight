@@ -23,7 +23,11 @@ public static class GameSettings
     public static int StartHealth => Difficulty == Level.Helppo ? 250 : Difficulty == Level.Vaikea ? 150 : 200;
 
     public static int ScaleToPlayer(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToPlayer));
-    public static int ScaleToEnemy(int damage) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToEnemies));
+    /// Kaksinpelissä viholliset kestävät enemmän (iskut tekevät vastaavasti vähemmän): tavalliset 1,5-kertaisesti, pomot 1,8-kertaisesti.
+    public const float CoopEnemyHealth = 1.5f, CoopBossHealth = 1.8f;
+    public static float CoopFactor(bool boss) => Players.Count > 1 ? (boss ? CoopBossHealth : CoopEnemyHealth) : 1f;
+
+    public static int ScaleToEnemy(int damage, bool boss = false) => damage <= 0 ? damage : Mathf.Max(1, Mathf.RoundToInt(damage * DamageToEnemies / CoopFactor(boss)));
 
     /// Pelattava hahmo: 0 = Rocco, 1 = Ruby.
     public static int Character

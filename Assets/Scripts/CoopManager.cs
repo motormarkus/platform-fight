@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class CoopManager : MonoBehaviour
 {
-    /// Kuinka monta sekuntia kaatunut pelaaja odottaa, ennen kuin herää kumppanin viereen.
-    public const float ReviveDelay = 12f;
-    public const float ReviveHealthFraction = 0.4f;
+    /// Kuinka kauan E:tä pidetään pohjassa, ja kuinka suuri osa energiapalkista kaatuneelle palautuu.
+    public const float ReviveTime = 1.6f;
+    public const float ReviveHealthFraction = 0.25f;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void Boot()
@@ -52,17 +52,55 @@ public class CoopManager : MonoBehaviour
             return;
         }
 
-        // kaksinpeli: kaatunut pelaaja herää, kun toinen on hengissä
-        foreach (var p in Players.All)
+        // kaksinpeli: kaatunut pelaaja nostetaan pitämällä E / ympyrää pohjassa hänen vieressään
+        foreach (var d in Players.All)
         {
-            if (p == null || !p.GameOver) continue;
-            bool partnerAlive = false;
-            foreach (var o in Players.All) if (o != null && o != p && !o.GameOver) partnerAlive = true;
-            if (partnerAlive && Time.time - p.DeadAt >= ReviveDelay)
+            if (d == null || !d.GameOver) continue;
+            bool reviving = false;
+            foreach (var a in Players.All)
+                if (a != null && !a.GameOver && Players.FallenNear(a) == d && CoopInput.PickHeldRaw(a.playerIndex)) { reviving = true; break; }
+            float prev = reviveProgress.TryGetValue(d, out float v) ? v : 0f;
+            if (reviving) prev += Time.deltaTime;
+            else prev = Mathf.Max(0f, prev - Time.deltaTime * 2f);
+            if (prev >= ReviveTime)
             {
-                PlayerController partner = null;
-                foreach (var o in Players.All) if (o != null && o != p && !o.GameOver) partner = o;
-                p.Revive(Mathf.Max(1, Mathf.RoundToInt(p.maxHealth * ReviveHealthFraction)), partner.transform.position + new Vector3(partner.transform.position.x < 0f ? 1.5f : -1.5f, 0f, 0f));
+                reviveProgress.Remove(d);
+                d.Revive(Mathf.Max(1, Mathf.RoundToInt(d.maxHealth * ReviveHealthFraction)), d.transform.position);
+                HitFx.PlayPickup(true);
+            }
+            else reviveProgress[d] = prev;
+        }
+    }
+
+    readonly System.Collections.Generic.Dictionary<PlayerController, float> reviveProgress = new System.Collections.Generic.Dictionary<PlayerController, float>();
+
+    GUIStyle reviveStyle;
+
+    void OnGUI()
+    {
+        if (Players.Count < 2) return;
+        var cam = Camera.main;
+        if (cam == null) return;
+        float s = Mathf.Min(Screen.height / 1080f, Screen.width / 1920f);
+        if (reviveStyle == null) reviveStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, clipping = TextClipping.Overflow };
+        reviveStyle.fontSize = Mathf.RoundToInt(28 * s);
+        foreach (var d in Players.All)
+        {
+            if (d == null || !d.GameOver) continue;
+            bool partnerNear = false;
+            foreach (var a in Players.All) if (a != null && !a.GameOver && Players.FallenNear(a) == d) partnerNear = true;
+            Vector3 sp = cam.WorldToScreenPoint(d.transform.position + Vector3.up * 2.6f);
+            if (sp.z < 0f) continue;
+            reviveStyle.normal.textColor = Color.white;
+            var r = new Rect(sp.x - 200 * s, Screen.height - sp.y - 20 * s, 400 * s, 40 * s);
+            GUI.Label(r, partnerNear ? Loc.T("Pidä E: nosta") : "...", reviveStyle);
+            float k = reviveProgress.TryGetValue(d, out float v) ? Mathf.Clamp01(v / ReviveTime) : 0f;
+            if (k > 0f)
+            {
+                var bar = new Rect(sp.x - 70 * s, Screen.height - sp.y + 22 * s, 140 * s, 14 * s);
+                GUI.color = Color.black; GUI.DrawTexture(new Rect(bar.x - 2, bar.y - 2, bar.width + 4, bar.height + 4), Texture2D.whiteTexture);
+                GUI.color = new Color(0.3f, 1f, 0.4f); GUI.DrawTexture(new Rect(bar.x, bar.y, bar.width * k, bar.height), Texture2D.whiteTexture);
+                GUI.color = Color.white;
             }
         }
     }

@@ -150,6 +150,30 @@ public static class Players
         return p2;
     }
 
+    public const float ReviveRangeX = 1.9f, ReviveRangeY = 1.3f;
+
+    /// Kaatunut kumppani, jonka vieressä (edessä tai päällä) pelaaja a on. Null, jos ei ole.
+    public static PlayerController FallenNear(PlayerController a)
+    {
+        if (a == null || a.GameOver || All.Count < 2) return null;
+        Vector3 ap = a.transform.position;
+        foreach (var d in All)
+        {
+            if (d == null || d == a || !d.GameOver) continue;
+            Vector3 dp = d.transform.position;
+            if (Mathf.Abs(ap.x - dp.x) <= ReviveRangeX && Mathf.Abs(ap.y - dp.y) <= ReviveRangeY) return d;
+        }
+        return null;
+    }
+
+    /// Onko pelaaja numero i kaatuneen kumppanin vieressä (E on silloin elvytysnappi).
+    public static bool NearFallen(int i)
+    {
+        if (All.Count < 2) return false;
+        foreach (var a in All) if (a != null && a.playerIndex == i) return FallenNear(a) != null;
+        return false;
+    }
+
     /// Päävalikon 1 / 2 pelaajaa. Päälle: P2 syntyy heti (CoopManager) toisella ohjaimella tai, jos ohjaimia on vain yksi, näppäimistön nuolilla.
     public static void SetCoop(bool on)
     {
