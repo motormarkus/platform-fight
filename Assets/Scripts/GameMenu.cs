@@ -319,7 +319,7 @@ public class GameMenu : MonoBehaviour
     };
     static readonly Vector2[] PadDir =
     {
-        new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, 0.6f), new Vector2(0, -1),
+        new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, -1f), new Vector2(0, -1),
         new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 0),   // olkanapit ja liipaisimet: lappu napin päällä
         new Vector2(0, 0), new Vector2(0, 0),
     };
