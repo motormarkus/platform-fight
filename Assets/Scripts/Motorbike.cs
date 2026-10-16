@@ -89,9 +89,41 @@ public class Motorbike : MonoBehaviour
     public void SetTravelLock(bool value) { travelLocked = value; }
     float speed, animClock, rideClock, groundHeight;
     readonly Dictionary<Object, float> lastHit = new Dictionary<Object, float>();
-    static Motorbike active;
-    /// Pyörä, jota pelaaja ajaa (null jos ei aja).
-    public static Motorbike Current => active != null && active.riding ? active : null;
+    /// Kaikki sceneen kuuluvat pyörät. Kaksinpelissä jokaisella pelaajalla on oma pyörä (pc = pyörän kuski).
+    static readonly List<Motorbike> allBikes = new List<Motorbike>();
+    /// Ajossa oleva pyörä (null jos kukaan ei aja). Kaksinpelissä P1:n pyörä ensin.
+    public static Motorbike Current
+    {
+        get
+        {
+            Motorbike best = null;
+            foreach (var b in allBikes)
+                if (b != null && b.riding && (best == null || (b.pc != null && best.pc != null && b.pc.playerIndex < best.pc.playerIndex))) best = b;
+            return best;
+        }
+    }
+    /// Kaikki ajossa olevat pyörät.
+    public static List<Motorbike> RidingBikes()
+    {
+        var l = new List<Motorbike>();
+        foreach (var b in allBikes) if (b != null && b.riding) l.Add(b);
+        l.Sort((a, b2) => (a.pc != null ? a.pc.playerIndex : 0).CompareTo(b2.pc != null ? b2.pc.playerIndex : 0));
+        return l;
+    }
+    /// Lähin ajossa oleva pyörä (vihut valitsevat kohteensa tästä).
+    public static Motorbike NearestRiding(Vector3 from)
+    {
+        Motorbike best = null; float bd = float.MaxValue;
+        foreach (var b in allBikes)
+        {
+            if (b == null || !b.riding || b.pc == null) continue;
+            float d = Mathf.Abs(b.pc.transform.position.x - from.x) + 2f * Mathf.Abs(b.pc.transform.position.y - from.y);
+            if (d < bd) { bd = d; best = b; }
+        }
+        return best;
+    }
+    /// Pyörän kuski.
+    public PlayerController Rider => pc;
     public float Speed => speed;
     public float VisualScale => Scale;
     public bool FacingRight => facingRight;
@@ -187,24 +219,35 @@ public class Motorbike : MonoBehaviour
         float ps = Mathf.Min(Scale, propScale);
         if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
         if (!rideable || (parkedNoRideArea != null && Area.Current == parkedNoRideArea)) { near = false; return; }
-        if (pc == null) pc = Players.Primary;
-        if (pc == null) return;
-        if (riding) { Ride(Time.deltaTime); return; }
+        if (riding) { if (pc != null) Ride(Time.deltaTime); return; }
         near = false;
-        if (busy || active != null || !pc.enabled || !pc.IsFree) return;
-        Vector3 p = pc.transform.position, me = transform.position;
-        near = Mathf.Abs(p.x - me.x) <= useHalfWidth && Mathf.Abs(p.y - me.y) <= useDepth;
-        if (near && UsePressed()) StartCoroutine(Mount());
+        if (busy) return;
+        // kaksinpeli: pyörälle nousee se pelaaja, joka on sen vieressä ja painaa E:tä (lähin vapaa pyörä); jokainen pelaaja ajaa vain yhtä pyörää
+        PlayerController rider = null;
+        foreach (var q in Players.All)
+        {
+            if (q == null || q.GameOver || q.Riding || !q.enabled || !q.IsFree) continue;
+            Vector3 p = q.transform.position, me = transform.position;
+            if (Mathf.Abs(p.x - me.x) > useHalfWidth || Mathf.Abs(p.y - me.y) > useDepth) continue;
+            if (NearestFreeBikeTo(q) != this) continue;
+            near = true;
+            if (CoopInput.Pick(q.playerIndex)) { rider = q; break; }
+        }
+        if (rider != null) { pc = rider; StartCoroutine(Mount()); }
     }
 
-    static bool UsePressed()
+    /// Lähin vapaa (pysäköity, ajettava) pyörä pelaajalle.
+    static Motorbike NearestFreeBikeTo(PlayerController q)
     {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.E);
-#endif
+        Motorbike best = null; float bd = float.MaxValue;
+        foreach (var b in allBikes)
+        {
+            if (b == null || !b.rideable || b.riding || b.busy || b.travelLocked) continue;
+            if (b.parkedNoRideArea != null && Area.Current == b.parkedNoRideArea) continue;
+            float d = Mathf.Abs(b.transform.position.x - q.transform.position.x) + 2f * Mathf.Abs(b.transform.position.y - q.transform.position.y);
+            if (d < bd) { bd = d; best = b; }
+        }
+        return best;
     }
 
     float Dir => facingRight ? 1f : -1f;
@@ -214,7 +257,7 @@ public class Motorbike : MonoBehaviour
     void UseCharacterSprites()
     {
         if (roccoRide == null) { roccoRide = rideSprites; roccoMount = mountSprites; roccoGrab = grabSprites; }
-        var h = pc != null && GameSettings.Character == 1 ? pc.heroine : null;
+        var h = pc != null && pc.AppliedCharacter == 1 ? pc.heroine : null;
         bool ruby = h != null && h.bikeRide != null && h.bikeRide.Length > 0 && h.bikeMount != null && h.bikeMount.Length > 0;
         rideSprites = ruby ? h.bikeRide : roccoRide;
         mountSprites = ruby ? h.bikeMount : roccoMount;
@@ -223,7 +266,7 @@ public class Motorbike : MonoBehaviour
 
     IEnumerator Mount()
     {
-        busy = true; active = this; near = false;
+        busy = true; near = false;
         UseCharacterSprites();
         pc.Riding = true;
         pc.enabled = false;
@@ -264,7 +307,7 @@ public class Motorbike : MonoBehaviour
         if (pc.body != null) pc.body.transform.localScale = Vector3.one;
         pc.enabled = true;
         pc.TeleportTo(new Vector3(p.x - Dir * 1.4f, p.y, 0f));   // seisoo pyörän vieressä
-        active = null; busy = false;
+        busy = false;
     }
 
     /// Pysäköi heti ilman laskeutumisanimaatiota (esim. uuden alueen alussa pimennyksen aikana): pyörä kohtaan pos, pelaaja viereen.
@@ -289,7 +332,7 @@ public class Motorbike : MonoBehaviour
         if (pc == null) pc = Players.Primary;
         if (pc == null) return;
         UseCharacterSprites();
-        active = this; riding = true; busy = false;
+        riding = true; busy = false;
         pc.Riding = true; pc.enabled = false;
         if (parked != null) parked.enabled = false;
         speed = 0f; animClock = 0f; loopAt = Time.time;
@@ -319,7 +362,6 @@ public class Motorbike : MonoBehaviour
             pc.enabled = true;
             pc.TeleportTo(new Vector3(pos.x - Dir * 1.6f, pos.y - 0.25f, 0f));
         }
-        if (active == this) active = null;
     }
 
     void StopEngine()
@@ -330,7 +372,8 @@ public class Motorbike : MonoBehaviour
         if (audioSrc != null) audioSrc.Stop();
     }
 
-    void OnDisable() => StopEngine();
+    void OnEnable() { if (!allBikes.Contains(this)) allBikes.Add(this); }
+    void OnDisable() { allBikes.Remove(this); StopEngine(); }
 
     void ShowRider(Sprite s)
     {
@@ -367,7 +410,7 @@ public class Motorbike : MonoBehaviour
     void Ride(float dt)
     {
         if (busy) return;
-        Vector2 input = PlayerController.ReadMoveInput();
+        Vector2 input = CoopInput.Move(pc.playerIndex);
         if (wobble > 0f)
         {
             // potkun jälkeen hetki hallitsematonta heilumista
@@ -378,7 +421,7 @@ public class Motorbike : MonoBehaviour
         // suunnanvaihto vain lähes pysähdyksissä
         if (Mathf.Abs(speed) < 1f && Mathf.Abs(input.x) > 0.3f && Mathf.Sign(input.x) != Dir) { facingRight = input.x > 0f; speed = 0f; }
         // kiihdytys (puskunappi): keulii ja kiihtyy hetken huippunopeuden yli
-        if (boostT < 0f && grabT < 0f && PlayerController.PushInput())
+        if (boostT < 0f && grabT < 0f && CoopInput.Push(pc.playerIndex))
         {
             boostT = 0f;
             if (SkaterHitch.Attached != null) SkaterHitch.Attached.ShakeOff(Dir);   // kiihdytys repäisee perässä roikkujan irti
@@ -431,7 +474,7 @@ public class Motorbike : MonoBehaviour
         rideClock += dt * (rearWheel != null ? rideFps : 6f + speed * 1.4f);
         UpdateWheels(true, dt);
         // kiskaisu (lyöntinappi): kurotus vierellä ajavaan vihuun, ote niskasta ja riuhtaisu irti pyörästä
-        if (grabT < 0f && grabSprites != null && grabSprites.Length >= 10 && (PlayerController.PunchInput() || PlayerController.CatchInput()))
+        if (grabT < 0f && grabSprites != null && grabSprites.Length >= 10 && (CoopInput.Punch(pc.playerIndex) || CoopInput.Catch(pc.playerIndex)))
         {
             grabTarget = null; float best = 99f;
             foreach (var eb in FindObjectsByType<EnemyBike>(FindObjectsSortMode.None))
@@ -471,7 +514,7 @@ public class Motorbike : MonoBehaviour
         }
 
         if (speed >= runOverMinSpeed) RunOver(p);
-        if (UsePressed() && speed < 1.5f) StartCoroutine(Dismount());
+        if (CoopInput.Pick(pc.playerIndex) && speed < 1.5f) StartCoroutine(Dismount());
     }
 
     void RunOver(Vector3 me)

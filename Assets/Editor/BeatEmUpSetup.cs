@@ -9319,6 +9319,31 @@ public static class BeatEmUpSetup
         Info("Viemärin musiikki asetettu " + n + " alueelle. Se soi koko viemärissä ja siis myös Rottakeisarin taistelussa.\n\nTallenna scene (Ctrl+S).");
     }
 
+    [MenuItem("Beat em up/160. Toiset prätkät kaksinpeliä varten (jokaiselle ajettavalle pyörälle pari viereen)")]
+    static void AddSecondBikes()
+    {
+        if (PlayModeBlocked()) return;
+        var bikes = Object.FindObjectsByType<Motorbike>(FindObjectsSortMode.None).Where(m => m != null && m.rideable && !m.name.EndsWith(" (P2)")).ToArray();
+        if (bikes.Length == 0) { Info("Ajettavia prätkiä ei löytynyt (tee ensin takakuja ja prätkä, kohta 34)."); return; }
+        var report = new List<string>();
+        int added = 0;
+        foreach (var b in bikes)
+        {
+            string pairName = b.name + " (P2)";
+            if (GameObject.Find(pairName) != null) { report.Add(b.name + ": pari on jo."); continue; }
+            var copy = Object.Instantiate(b.gameObject, b.transform.parent);
+            copy.name = pairName;
+            copy.transform.position = b.transform.position + new Vector3(-3.2f, 0f, 0f);   // viereen vasemmalle
+            Undo.RegisterCreatedObjectUndo(copy, "Toinen prätkä");
+            var cm = copy.GetComponent<Motorbike>();
+            if (cm != null) cm.parkedNoRideArea = b.parkedNoRideArea;
+            added++;
+            report.Add(b.name + " -> " + pairName + " (x " + copy.transform.position.x.ToString("0.0") + ")");
+        }
+        if (added > 0) EditorSceneManager.MarkSceneDirty(bikes[0].gameObject.scene);
+        Info("Kaksinpeli: " + added + " uutta prätkää (jokaisen ajettavan viereen vasemmalle)."+"\n"+string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S). Ajon aikana kumpikin pelaaja nousee omalle pyörälleen E:llä.");
+    }
+
     [MenuItem("Beat em up/159. Pierre: viemärin toinen minibossi (ensimmäisen kadun viemäri)")]
     static void CreatePierre()
     {

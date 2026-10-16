@@ -70,7 +70,8 @@ public class PariRider : EnemyBike
         if (area != null && Area.Current != area) { Destroy(gameObject); return; }
         float dt = Time.deltaTime;
         flashTime = Mathf.Max(0f, flashTime - dt);
-        var heroBike = Motorbike.Current;
+        var heroBike = Motorbike.NearestRiding(transform.position);
+        if (heroBike != null && heroBike.Rider != null) player = heroBike.Rider;   // kaksinpeli: lähin ajava pelaaja
         if (heroBike == null && mode != Mode.Slowed) mode = Mode.Flee;
         else if (heroBike != null && mode != Mode.Slowed) direction = heroBike.FacingRight ? 1f : -1f;
         Vector3 p = player.transform.position, me = transform.position;

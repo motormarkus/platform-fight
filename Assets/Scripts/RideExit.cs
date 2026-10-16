@@ -16,7 +16,7 @@ public class RideExit : MonoBehaviour
     public bool turnBikeLeft;
     public bool returnOnFoot;
     public bool preventParkedRide;
-    static Motorbike parkedTravelBike;
+    static readonly System.Collections.Generic.List<Motorbike> parkedTravelBikes = new System.Collections.Generic.List<Motorbike>();   // kaksinpeli: molempien pyörät
     static Area parkedTravelArea;
     public Vector2 spawnPoint;
     public string title = "Valtatie";
@@ -34,35 +34,46 @@ public class RideExit : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = Players.Primary;
-        bool walkingReturn = pc != null && returnOnFoot && !pc.Riding && parkedTravelBike != null && Area.Current == parkedTravelArea;
-        if (pc == null || busy || (!walkingReturn && (!pc.Riding || Motorbike.Current == null)) || target == null || (here != null && Area.Current != here)) return;
-        // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)
-        float x = pc.transform.position.x;
-        float threshold = transform.position.x;
-        if (!walkingReturn && CameraFollow.Instance != null && Camera.main != null)
+        if (busy || target == null || (here != null && Area.Current != here)) return;
+        // kuka tahansa ajava pelaaja (tai jalan palaava) laukaisee siirtymän: kaikki pyörät ja pelaajat siirtyvät yhdessä
+        bool walkingReturn = returnOnFoot && parkedTravelBikes.Count > 0 && Area.Current == parkedTravelArea;
+        if (walkingReturn)
         {
-            // Pyörän keskikohta pysähtyy puolen pyörän mitan ennen kuvan reunaa.
-            // Poistumiskynnys on aina tämän liikerajan saavutettavalla puolella.
-            float halfView = Camera.main.orthographicSize * Camera.main.aspect;
-            float bikeLeftLimit = CameraFollow.Instance.minX - halfView + Motorbike.Current.halfLength;
-            float bikeRightLimit = CameraFollow.Instance.maxX + halfView - Motorbike.Current.halfLength;
-            if (Area.Current != null && Area.Current.walkMaxX != 0f)
-                bikeRightLimit = Mathf.Min(bikeRightLimit, Area.Current.walkMaxX - Motorbike.Current.halfLength * 0.6f);
-            threshold = exitToLeft ? Mathf.Max(threshold, bikeLeftLimit + 0.25f)
-                : Mathf.Min(threshold, bikeRightLimit - 0.25f);
+            foreach (var q in Players.All)
+                if (q != null && !q.Riding && q.transform.position.x >= transform.position.x && q.transform.position.x <= transform.position.x + triggerWidth) { StartCoroutine(Go()); return; }
+            return;
         }
-        bool crossed = exitToLeft ? x <= threshold && x >= threshold - triggerWidth
-            : x >= threshold && x <= threshold + triggerWidth;
-        if (crossed) StartCoroutine(Go());
+        foreach (var bike in Motorbike.RidingBikes())
+        {
+            var rider = bike.Rider;
+            if (rider == null) continue;
+            // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)
+            float x = rider.transform.position.x;
+            float threshold = transform.position.x;
+            if (CameraFollow.Instance != null && Camera.main != null)
+            {
+                // Pyörän keskikohta pysähtyy puolen pyörän mitan ennen kuvan reunaa.
+                // Poistumiskynnys on aina tämän liikerajan saavutettavalla puolella.
+                float halfView = Camera.main.orthographicSize * Camera.main.aspect;
+                float bikeLeftLimit = CameraFollow.Instance.minX - halfView + bike.halfLength;
+                float bikeRightLimit = CameraFollow.Instance.maxX + halfView - bike.halfLength;
+                if (Area.Current != null && Area.Current.walkMaxX != 0f)
+                    bikeRightLimit = Mathf.Min(bikeRightLimit, Area.Current.walkMaxX - bike.halfLength * 0.6f);
+                threshold = exitToLeft ? Mathf.Max(threshold, bikeLeftLimit + 0.25f)
+                    : Mathf.Min(threshold, bikeRightLimit - 0.25f);
+            }
+            bool crossed = exitToLeft ? x <= threshold && x >= threshold - triggerWidth
+                : x >= threshold && x <= threshold + triggerWidth;
+            if (crossed) { StartCoroutine(Go()); return; }
+        }
     }
 
     IEnumerator Go()
     {
-        var bike = returnOnFoot ? parkedTravelBike : Motorbike.Current;
-        if (bike == null) yield break;
+        var bikes = returnOnFoot ? new System.Collections.Generic.List<Motorbike>(parkedTravelBikes) : Motorbike.RidingBikes();
+        if (bikes.Count == 0) yield break;
         busy = true;
-        bike.SetTravelLock(true);                 // pyörän selästä ei voi nousta kesken ajosiirtymän
+        foreach (var bk in bikes) bk.SetTravelLock(true);                 // pyörän selästä ei voi nousta kesken ajosiirtymän
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
         fade = 1f;
         Time.timeScale = 0f;                       // ajo pysähtyy pimennyksen ajaksi
@@ -72,33 +83,54 @@ public class RideExit : MonoBehaviour
             yield return null;
         }
         titleAlpha = 0f;
+        pc = Players.Primary;
         if (target != null) target.Apply(pc);
-        pc.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, 0f);
-        if (returnOnFoot)
+        if (returnOnFoot) { parkedTravelBikes.Clear(); parkedTravelArea = null; }
+        // jokainen pyörä omalle kaistalleen (P1 kohtaan spawnPoint / parkPoint, toinen sen viereen)
+        for (int i = 0; i < bikes.Count; i++)
         {
-            bike.ResumeTravel(new Vector3(spawnPoint.x, spawnPoint.y, 0f), !turnBikeLeft);
-            bike.parkedNoRideArea = null;
-            parkedTravelBike = null; parkedTravelArea = null;
-        }
-        if (!parkBike && turnBikeRight && bike != null)
-            bike.ContinueRide(new Vector3(spawnPoint.x, spawnPoint.y, 0f), true);
-        if (!parkBike && turnBikeLeft && bike != null)
-            bike.ContinueRide(new Vector3(spawnPoint.x, spawnPoint.y, 0f), false);
-        if (parkBike && bike != null)
-        {
-            bike.ParkNow(new Vector3(parkPoint.x, parkPoint.y, 0f), true);   // pyörä parkkiin, pelaaja jalan vieressä
-            if (preventParkedRide)
+            var bike = bikes[i];
+            if (bike == null) continue;
+            var rider = bike.Rider;
+            Vector3 sp = new Vector3(spawnPoint.x - 1.2f * i, spawnPoint.y - 0.9f * i, 0f);
+            if (rider != null) sp.y = Mathf.Clamp(sp.y, rider.minDepthY, rider.maxDepthY);
+            Vector3 pk = new Vector3(parkPoint.x - 3.2f * i, parkPoint.y, 0f);
+            if (rider != null) rider.transform.position = sp;
+            if (returnOnFoot)
             {
-                bike.parkedNoRideArea = target;
-                parkedTravelBike = bike; parkedTravelArea = target;
+                bike.ResumeTravel(sp, !turnBikeLeft);
+                bike.parkedNoRideArea = null;
             }
-            if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(parkPoint.x);
+            if (!parkBike && turnBikeRight) bike.ContinueRide(sp, true);
+            if (!parkBike && turnBikeLeft) bike.ContinueRide(sp, false);
+            if (parkBike)
+            {
+                bike.ParkNow(pk, true);   // pyörä parkkiin, pelaaja jalan vieressä
+                if (preventParkedRide)
+                {
+                    bike.parkedNoRideArea = target;
+                    parkedTravelBikes.Add(bike); parkedTravelArea = target;
+                }
+            }
         }
+        // jalan olevat pelaajat (esim. toinen ei noussut pyörälle) tulevat mukaan
+        int extra = 0;
+        foreach (var q in Players.All)
+        {
+            if (q == null || q.Riding) continue;
+            bool isRider = false;
+            foreach (var bk in bikes) if (bk != null && bk.Rider == q) isRider = true;
+            if (isRider) continue;
+            extra++;
+            Vector3 at = parkBike ? new Vector3(parkPoint.x - 1.4f * extra, parkPoint.y, 0f) : new Vector3(spawnPoint.x - 1.4f * extra, spawnPoint.y, 0f);
+            q.TeleportTo(at);
+        }
+        if (parkBike && CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(parkPoint.x);
         else if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(spawnPoint.x);
         Time.timeScale = 1f;
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
-        if (bike != null) bike.SetTravelLock(false);
+        foreach (var bk in bikes) if (bk != null) bk.SetTravelLock(false);
         busy = false;
     }
 

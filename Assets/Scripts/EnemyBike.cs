@@ -115,7 +115,8 @@ public class EnemyBike : MonoBehaviour
     {
         float dt = Time.deltaTime;
         t += dt;
-        var mb = Motorbike.Current;
+        var mb = Motorbike.NearestRiding(transform.position);
+        if (mb != null && mb.Rider != null) pc = mb.Rider;   // kaksinpeli: lähin ajava pelaaja
         if (pc == null) { Destroy(gameObject); return; }
         Vector3 me = transform.position, p = pc.transform.position;
         float ps = mb != null ? mb.Speed : 0f;

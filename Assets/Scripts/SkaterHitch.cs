@@ -71,7 +71,8 @@ public class SkaterHitch : MonoBehaviour
     {
         float dt = Time.deltaTime; t += dt;
         if (pc == null) { Destroy(gameObject); return; }
-        var mb = Motorbike.Current;
+        var mb = Motorbike.NearestRiding(transform.position);
+        if (mb != null && mb.Rider != null) pc = mb.Rider;   // kaksinpeli: lähin ajava pelaaja
         Vector3 me = transform.position, p = pc.transform.position;
         float ps = mb != null ? mb.Speed : 0f;
 
