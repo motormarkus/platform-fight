@@ -145,7 +145,7 @@ public class SkaterHitch : MonoBehaviour
                 Vector3 g = HeroGrip(mb);
                 speed = ps;
                 me = new Vector3(g.x - HandOffset(hand).x * d, p.y - 0.12f, 0f);
-                if (brake != null) brake.volume = Mathf.MoveTowards(brake.volume, frame >= 3 ? brakeVolume * Mathf.Clamp01(ps / 10f) : 0f, 2f * dt);
+                if (brake != null) brake.volume = Mathf.MoveTowards(brake.volume, frame >= 3 ? brakeVolume * Mathf.Clamp01(ps / 10f) * GameSettings.SfxVolume : 0f, 2f * dt);
                 break;
             }
             case S.Fall:

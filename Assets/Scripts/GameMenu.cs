@@ -110,10 +110,15 @@ public class GameMenu : MonoBehaviour
             }
             case Page.Options:
                 return new[] {
-                    Loc.T("Äänet") + "  <  " + Mathf.RoundToInt(GameSettings.MasterVolume * 10) + "  >",
+                    Loc.T("Pääääni") + "  <  " + Mathf.RoundToInt(GameSettings.MasterVolume * 10) + "  >",
                     Loc.T("Musiikki") + "  <  " + Mathf.RoundToInt(GameSettings.MusicVolume * 10) + "  >",
-                    Loc.T("Koko näyttö") + ":  " + Loc.T(Screen.fullScreen ? "Päällä" : "Pois"),
+                    Loc.T("Tehosteet") + "  <  " + Mathf.RoundToInt(GameSettings.SfxVolume * 10) + "  >",
+                    Loc.T("Näyttötila") + ":  " + Loc.T(ScreenModeNames[GameSettings.ScreenMode]),
                     Loc.T("Resoluutio") + ":  " + Screen.width + " x " + Screen.height,
+                    "VSync:  " + Loc.T(GameSettings.VSync ? "Päällä" : "Pois"),
+                    Loc.T("FPS-raja") + ":  " + (GameSettings.FpsCapIndex == 0 ? "60" : GameSettings.FpsCapIndex == 1 ? "120" : Loc.T("Rajaton")),
+                    Loc.T("Kirkkaus") + "  <  " + GameSettings.Brightness + "  >",
+                    Loc.T("Ruudun tärinä") + ":  " + Loc.T(GameSettings.ScreenShake ? "Päällä" : "Pois"),
                     Loc.T("Kieli") + ":  " + (Loc.Current == Loc.Lang.Suomi ? "Suomi" : "English"),
                     Loc.T("Vaikeustaso") + ":  " + Loc.T(GameSettings.Difficulty.ToString()),
                     "Takaisin" };
@@ -156,11 +161,18 @@ public class GameMenu : MonoBehaviour
         }
     }
 
+    static readonly string[] ScreenModeNames = { "Koko näyttö", "Reunaton ikkuna", "Ikkuna" };
+
+    /// Asetussivun rivit: 0 pääääni, 1 musiikki, 2 tehosteet, 3 näyttötila, 4 resoluutio, 5 vsync, 6 fps-raja, 7 kirkkaus, 8 tärinä, 9 kieli, 10 vaikeustaso, 11 takaisin.
     void Adjust(int i, int dx)
     {
         if (i == 0) GameSettings.MasterVolume += dx * 0.1f;
         else if (i == 1) GameSettings.MusicVolume += dx * 0.1f;
-        else if (i == 3) CycleResolution(dx);
+        else if (i == 2) GameSettings.SfxVolume += dx * 0.1f;
+        else if (i == 3) GameSettings.ScreenMode += dx;
+        else if (i == 4) CycleResolution(dx);
+        else if (i == 6) GameSettings.FpsCapIndex += dx;
+        else if (i == 7) GameSettings.Brightness += dx;
         else Choose(i);
     }
 
@@ -221,10 +233,15 @@ public class GameMenu : MonoBehaviour
             case Page.Options:
                 if (i == 0) GameSettings.MasterVolume = GameSettings.MasterVolume >= 0.99f ? 0f : GameSettings.MasterVolume + 0.1f;
                 else if (i == 1) GameSettings.MusicVolume = GameSettings.MusicVolume >= 0.99f ? 0f : GameSettings.MusicVolume + 0.1f;
-                else if (i == 2) Screen.fullScreen = !Screen.fullScreen;
-                else if (i == 3) CycleResolution(1);
-                else if (i == 4) Loc.Toggle();
-                else if (i == 5) GameSettings.Difficulty = (GameSettings.Level)(((int)GameSettings.Difficulty + 1) % 3);   // elämät vaihtuvat seuraavassa pelissä
+                else if (i == 2) GameSettings.SfxVolume = GameSettings.SfxVolume >= 0.99f ? 0f : GameSettings.SfxVolume + 0.1f;
+                else if (i == 3) GameSettings.ScreenMode += 1;
+                else if (i == 4) CycleResolution(1);
+                else if (i == 5) GameSettings.VSync = !GameSettings.VSync;
+                else if (i == 6) GameSettings.FpsCapIndex += 1;
+                else if (i == 7) GameSettings.Brightness = GameSettings.Brightness >= 10 ? 0 : GameSettings.Brightness + 1;
+                else if (i == 8) GameSettings.ScreenShake = !GameSettings.ScreenShake;
+                else if (i == 9) Loc.Toggle();
+                else if (i == 10) GameSettings.Difficulty = (GameSettings.Level)(((int)GameSettings.Difficulty + 1) % 3);   // elämät vaihtuvat seuraavassa pelissä
                 else { page = back; sel = 0; }
                 break;
             case Page.ConfirmQuit:
@@ -334,6 +351,7 @@ public class GameMenu : MonoBehaviour
 
         var items = Items();
         float y0 = h * 0.38f, step = 66 * s;
+        if (page == Page.Options) { y0 = h * 0.29f; step = 56 * s; }   // 12 riviä mahtuu ruutuun
         for (int i = 0; i < items.Length; i++)
         {
             bool on = i == sel;

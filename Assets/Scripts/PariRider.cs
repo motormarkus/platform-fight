@@ -124,7 +124,7 @@ public class PariRider : EnemyBike
         if (ahead < -40f) { Destroy(gameObject); return; }
         if (motor != null)
         {
-            motor.volume = engineVolume * Mathf.Clamp01(1f - Mathf.Abs(ahead) / 22f);
+            motor.volume = engineVolume * Mathf.Clamp01(1f - Mathf.Abs(ahead) / 22f) * GameSettings.SfxVolume;
             motor.pitch = Mathf.Clamp(0.85f + pariSpeed * 0.02f, 0.8f, 1.5f);
             motor.panStereo = Mathf.Clamp((me.x - p.x) / 14f, -0.8f, 0.8f);
         }

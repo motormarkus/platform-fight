@@ -63,7 +63,7 @@ public class SpriteLoop : MonoBehaviour
             src.loop = true;
             src.playOnAwake = false;
             src.spatialBlend = 0f;
-            src.volume = volume;
+            src.volume = volume * GameSettings.SfxVolume;
             src.mute = true;
         }
     }
@@ -130,7 +130,7 @@ public class SpriteLoop : MonoBehaviour
 
         if (src != null)
         {
-            src.volume = volume;
+            src.volume = volume * GameSettings.SfxVolume;
             src.mute = !sr.isVisible;
         }
     }
@@ -159,6 +159,6 @@ public class SpriteLoop : MonoBehaviour
         float a = crossfade > 0f ? Mathf.Clamp01(ft / crossfade) : 1f;
         finaleRenderer.color = new Color(1f, 1f, 1f, a);
         if (a >= 1f) { sr.enabled = false; if (fadeSr != null) fadeSr.enabled = false; }
-        if (src != null) src.volume = volume * (1f - Mathf.Clamp01(ft / 1.5f));
+        if (src != null) src.volume = volume * GameSettings.SfxVolume * (1f - Mathf.Clamp01(ft / 1.5f));
     }
 }

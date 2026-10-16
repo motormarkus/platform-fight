@@ -158,7 +158,7 @@ public class DesertTumbleweeds : MonoBehaviour
             float screenX = ball.ground.position.x - cam.transform.position.x;
             float audible = Mathf.Clamp01((halfWidth - Mathf.Abs(screenX)) / 2f);
             float loudness = rollVolume * audible * Mathf.Lerp(0.55f, 1f, ball.radius / (maxDiameter * 0.5f));
-            ball.audio.volume = Time.deltaTime > 0f && !ball.motion.Airborne ? loudness : 0f;
+            ball.audio.volume = Time.deltaTime > 0f && !ball.motion.Airborne ? loudness * GameSettings.SfxVolume : 0f;
             ball.audio.panStereo = Mathf.Clamp(screenX / Mathf.Max(1f, halfWidth), -0.75f, 0.75f);
             bool leftScreen = ball.motion.VelocityX < 0f && ball.ground.position.x < left - ball.radius - 1f;
             bool rightScreen = ball.motion.VelocityX > 0f && ball.ground.position.x > right + ball.radius + 1f;

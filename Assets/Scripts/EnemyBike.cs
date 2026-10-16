@@ -104,7 +104,7 @@ public class EnemyBike : MonoBehaviour
         if (engine == null) return;
         float near = Mathf.Clamp01(1f - Mathf.Abs(ahead) / 22f);       // kaukana hiljaa
         float target = state == S.Crash ? 0f : engineVolume * (0.25f + 0.75f * near);
-        engine.volume = Mathf.MoveTowards(engine.volume, target, (state == S.Crash ? 1.5f : 1f) * Time.deltaTime);
+        engine.volume = Mathf.MoveTowards(engine.volume, target * GameSettings.SfxVolume, (state == S.Crash ? 1.5f : 1f) * Time.deltaTime);
         // sävel: oma vauhti + doppler-tyyppinen ohitus (lähestyessä korkeampi)
         float rel = speed - playerSpeed;
         engine.pitch = Mathf.Clamp(0.85f + speed * 0.025f + (ahead < 0f ? rel : -rel) * 0.02f, 0.7f, 1.5f);

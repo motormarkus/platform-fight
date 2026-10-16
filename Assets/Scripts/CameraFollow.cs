@@ -66,7 +66,7 @@ public class CameraFollow : MonoBehaviour
     /// Ruudun tärähdys (amp = voimakkuus yksiköinä, dur = kesto sekunteina).
     public static void Shake(float amp, float dur)
     {
-        if (Instance == null) return;
+        if (Instance == null || !GameSettings.ScreenShake) return;
         if (amp >= Instance.shakeAmp * (Instance.shakeTime / Mathf.Max(Instance.shakeDuration, 0.001f)))
         {
             Instance.shakeAmp = amp;

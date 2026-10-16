@@ -235,7 +235,7 @@ public class Motorbike : MonoBehaviour
         EnsureWheels();
         if (mountSprites != null)
             foreach (var s in mountSprites) { ShowRider(s); UpdateWheels(true, 0f); yield return new WaitForSeconds(mountFrameTime); }
-        if (startSound != null) { startSrc.clip = startSound; startSrc.volume = startVolume; startSrc.Play(); }
+        if (startSound != null) { startSrc.clip = startSound; startSrc.volume = startVolume * GameSettings.SfxVolume; startSrc.Play(); }
         loopAt = Time.time + (startSound != null ? Mathf.Min(engineLoopDelay, startSound.length) : 0f);   // käyntiääni ristihäivytyksellä startin perään
         if (parked != null) parked.enabled = false;
         speed = 0f; animClock = 0f; boostT = -1f; wheelie = 0f;
@@ -405,8 +405,8 @@ public class Motorbike : MonoBehaviour
         {
             // ristihäivytys: käyntiääni nousee, starttiääni hiipuu
             float f = Mathf.Clamp01((Time.time - loopAt) / Mathf.Max(0.01f, engineFadeTime));
-            if (loopSrc != null) loopSrc.volume = engineVolume * f;
-            if (startSrc != null && startSrc.isPlaying) { startSrc.volume = startVolume * (1f - f); if (f >= 1f) startSrc.Stop(); }
+            if (loopSrc != null) loopSrc.volume = engineVolume * f * GameSettings.SfxVolume;
+            if (startSrc != null && startSrc.isPlaying) { startSrc.volume = startVolume * (1f - f) * GameSettings.SfxVolume; if (f >= 1f) startSrc.Stop(); }
         }
         if (loopSrc != null && loopSrc.isPlaying)
             loopSrc.pitch = Mathf.Lerp(loopSrc.pitch, 0.9f + 0.35f * Mathf.Clamp01(speed / Mathf.Max(1f, maxSpeed * (1f + boostExtra))), 4f * dt);

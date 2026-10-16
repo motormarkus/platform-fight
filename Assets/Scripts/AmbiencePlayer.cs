@@ -83,7 +83,7 @@ public class AmbiencePlayer : MonoBehaviour
         }
         float dt = Time.unscaledDeltaTime / Mathf.Max(0.01f, crossfadeTime);
         float target = volume * (shownArea != null ? shownArea.ambienceVolume : 1f);   // taustahäly kuuluu äänien, ei musiikin voimakkuuteen
-        a.volume = Mathf.MoveTowards(a.volume, a.clip != null ? target : 0f, dt);
+        a.volume = Mathf.MoveTowards(a.volume, a.clip != null ? target * GameSettings.SfxVolume : 0f, dt);
         b.volume = Mathf.MoveTowards(b.volume, 0f, dt);
         if (b.volume <= 0f && b.isPlaying) b.Stop();
     }
