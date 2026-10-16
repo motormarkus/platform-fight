@@ -214,6 +214,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Tynnyrit (pomo)")]
     [Tooltip("Hakee lähellä olevan tynnyrin ja heittää sen pelaajaa kohti (heittokuvat: 2–3 nosto, 4 veto, 5 heitto, 7 jälkeen).")]
     public bool throwsBarrels;
+    [Tooltip("Lyö tynnyrin lentoon (Metsuri): hakee tynnyrin, menee sen taakse pelaajasta katsoen ja lyö sen vierimään pelaajaa kohti (ei nosta käsiin). Vaatii throwsBarrels.")]
+    public bool punchesBarrels;
+    Crate barrelPunchTarget;   // tynnyri, joka lyödään vierimään iskun osuessa
     [Tooltip("Heittää myös pöytiä (Rekkamies): hakee lähimmän ehjän pöydän ja heittää sen samoilla nosto- ja heittokuvilla (grabSprites). Pienempiä esineitä ei heitetä.")]
     public bool throwsTables;
     public float tableRange = 7f;
@@ -1094,6 +1097,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     punchLanded = false;
                     if (!usingAlt && punchShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(0.15f, punchShake);   // isku maahan (vain pelaajaa vastaan)
+                    if (barrelPunchTarget != null) KickBarrelPunch();
                     if (usingPunch3 && punch3SwingSounds != null && punch3SwingSounds.Length > 0) PlayClipFrom(punch3SwingSounds, punch3Volume);
                     else if (usingAlt && altSwingSounds != null && altSwingSounds.Length > 0) PlayClipFrom(altSwingSounds, altSwingVolume);
                     else if (Random.value < attackSoundChance) PlayAttackSound();
@@ -2038,6 +2042,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s != State.BottlePick && s != State.BottleThrow && s != State.CarryPie && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
         if (s == State.BottleThrow) bottleThrown = false;
         if (s == State.GrabThrow) thrown = false;
+        if (s != State.Windup && s != State.Punch) barrelPunchTarget = null;   // isku keskeytyi: tynnyri jää
         if (s != State.Clinch && clinchHolding) { clinchHolding = false; if (player != null) player.ReleaseGrab(); }   // ote keskeytyi: pelaaja irti
         if (s == State.Clinch) { clinchHolding = false; clinchHitsDone = 0; }
         if (s == State.SlideTackle) { slidePhase = 0; slideT = 0f; slideHit = false; nextSlide = Time.time + slideCooldown; rushAfterBar = false; }
@@ -2164,6 +2169,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 foreach (var c in Crate.All)
                 {
                     if (c == null || !c.CanPickUp) continue;
+                    if (punchesBarrels && !c.IsKickable) continue;   // lyötävä tynnyri: seisova, ei pinossa
                     if (c == badBarrel && Time.time < badBarrelUntil) continue;
                     if (c.IsTable ? !throwsTables : (!throwsBarrels || c.breakable)) continue;
                     float d = Vector2.Distance(c.transform.position, me);
@@ -2183,6 +2189,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 Vector2 spot = new Vector2(b.x - toPlayer * 0.8f, b.y);   // tynnyrin taakse, pelaajasta katsoen
                 Vector2 tb = spot - (Vector2)me;
                 facingRight = b.x > me.x;
+                if (punchesBarrels && tb.magnitude < 0.4f)
+                {
+                    // perillä: isku tynnyriin (yläisku), tynnyri lähtee vierimään pelaajaa kohti kun isku osuu
+                    barrelPunchTarget = targetBarrel;
+                    targetBarrel = null;
+                    moving = false;
+                    attackRolled = false;
+                    usingAlt = false; usingPunch3 = false; usingUppercut = false; comboSeq = null;
+                    usingPunch2 = Has(punch2Sprites);
+                    Enter(State.Windup);
+                    return;
+                }
                 if (tb.magnitude < 0.4f)
                 {
                     targetBarrel.PickUp();
@@ -2367,6 +2385,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Move(step);
         }
         else moving = false;
+    }
+
+    /// Isku osuu tynnyriin: tynnyri lähtee vierimään pelaajaa kohti ja kaataa vihut ja pelaajan tieltään.
+    void KickBarrelPunch()
+    {
+        var c = barrelPunchTarget;
+        barrelPunchTarget = null;
+        if (c == null || !c.IsBarrel) return;
+        float dir = player != null ? (player.transform.position.x < c.transform.position.x ? -1f : 1f) : (facingRight ? 1f : -1f);
+        if (c.Kick(dir, this, barrelDamage, barrelThrowSpeed) && CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f);
     }
 
     /// Pelaaja on ahdistettu nurkkaan: lähellä ruudun / alueen reunaa ja tämä vihu on hänen ja kentän keskustan välissä.
