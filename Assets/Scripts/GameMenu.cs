@@ -98,7 +98,7 @@ public class GameMenu : MonoBehaviour
     {
         switch (page)
         {
-            case Page.Title: return new[] { "Aloita peli", "Asetukset", "Tekijät", "Lopeta" };
+            case Page.Title: return new[] { "Aloita peli", Loc.T("Pelaajia") + ":  < " + (Players.CoopWanted ? 2 : 1) + " >", "Asetukset", "Tekijät", "Lopeta" };
             case Page.Character: return new[] { "Rocco", HeroineName(), "Takaisin" };
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
             case Page.Pause:
@@ -143,6 +143,7 @@ public class GameMenu : MonoBehaviour
         if (dy != 0) sel = (sel + dy + items.Length) % items.Length;
         int dx = NavX();
         if (page == Page.Options && dx != 0) Adjust(sel, dx);
+        if (page == Page.Title && dx != 0 && sel == 1) Players.SetCoop(!Players.CoopWanted);
         if (page == Page.Character && dx != 0 && sel < 2) sel = 1 - sel;
         if (ConfirmPressed()) Choose(sel);
         else if (BackPressed())
@@ -179,8 +180,9 @@ public class GameMenu : MonoBehaviour
         {
             case Page.Title:
                 if (i == 0) { page = Page.Character; sel = Mathf.Clamp(GameSettings.Character, 0, 1); }
-                else if (i == 1) { back = Page.Title; page = Page.Options; sel = 0; }
-                else if (i == 2) { back = Page.Title; page = Page.Credits; creditsT = 0f; }
+                else if (i == 1) Players.SetCoop(!Players.CoopWanted);   // 1 / 2 pelaajaa
+                else if (i == 2) { back = Page.Title; page = Page.Options; sel = 0; }
+                else if (i == 3) { back = Page.Title; page = Page.Credits; creditsT = 0f; }
                 else { back = Page.Title; page = Page.ConfirmQuit; sel = 1; }
                 break;
             case Page.Character:

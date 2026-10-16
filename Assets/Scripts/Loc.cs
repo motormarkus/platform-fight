@@ -38,7 +38,7 @@ public static class Loc
     {
         { "Suutele Auroraa", "Kiss Aurora" },
         // --- Valikot ---
-        { "Aloita peli", "Start game" }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
+        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
         { "Helppo", "Easy" }, { "Normaali", "Normal" }, { "Vaikea", "Hard" }, { "Takaisin", "Back" },
         { "Jatka", "Resume" }, { "Aloita alusta", "Restart" }, { "Päävalikkoon", "Main menu" }, { "Lopeta peli", "Quit game" },
         { "Kyllä, lopeta", "Yes, quit" }, { "Ei", "No" }, { "Lopetetaanko peli?", "Quit the game?" },

@@ -150,6 +150,31 @@ public static class Players
         return p2;
     }
 
+    /// Päävalikon 1 / 2 pelaajaa. Päälle: P2 syntyy heti (CoopManager) toisella ohjaimella tai, jos ohjaimia on vain yksi, näppäimistön nuolilla.
+    public static void SetCoop(bool on)
+    {
+        if (on)
+        {
+            var all = UnityEngine.InputSystem.Gamepad.all;
+            CoopInput.P2OnKeyboard = all.Count < 2;
+            if (all.Count >= 2)
+            {
+                var p1 = CoopInput.P1Pad != null ? CoopInput.P1Pad : (UnityEngine.InputSystem.Gamepad.current != null ? UnityEngine.InputSystem.Gamepad.current : all[0]);
+                UnityEngine.InputSystem.Gamepad p2 = null;
+                foreach (var g in all) if (g != p1) { p2 = g; break; }
+                CoopInput.Pads[0] = p1; CoopInput.Pads[1] = p2;
+            }
+            CoopWanted = true;
+        }
+        else
+        {
+            CoopWanted = false;
+            CoopInput.P2OnKeyboard = false;
+            Clean();
+            foreach (var p in All.ToArray()) if (p != null && p.playerIndex == 1) Object.Destroy(p.gameObject);
+        }
+    }
+
     /// Siirtää muut pelaajat samaan kohtaan kuin pelaaja who (alueenvaihto, ovet).
     public static void TeleportOthers(PlayerController who, Vector3 pos, bool alsoDead = true)
     {
