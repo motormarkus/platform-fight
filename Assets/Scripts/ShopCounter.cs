@@ -89,7 +89,7 @@ public class ShopCounter : MonoBehaviour
         if (here != null && (here.areaName == "El Loippari" || here.areaName == "Uccopulco") && items != null)
             foreach (var it in items)
                 if (it != null && it.name == "Kossupaukku") { it.name = "Rommi"; it.price = 12; it.heal = 50; it.stamina = 999; it.comment = "Merimieskänni!"; }
-        // eväät kotipakettiin: menevät taskuun (yksi paikka, yhteinen Böönin kanssa), syödään pitämällä E / ympyrä pohjassa
+        // eväät kotipakettiin: menevät taskuun (yksi paikka, yhteinen Böönin kanssa), syödään pitämällä E / toimintanappi pohjassa
         if (items != null && System.Array.FindIndex(items, x => x != null && x.takeaway == "hotdog") < 0)
         {
             var l = new System.Collections.Generic.List<Item>(items);
@@ -165,7 +165,7 @@ public class ShopCounter : MonoBehaviour
             pc.money -= it.price;
             pc.StorePocketFood(it.takeaway);
             HitFx.PlayPickup(false);
-            Say(Loc.T("Eväs taskuun. Syö: pidä E / ympyrä pohjassa."));
+            Say(Loc.T("Eväs taskuun. Syö: pidä E / toimintanappi pohjassa."));
             return;
         }
         if (it.name == "Bööni")
@@ -175,7 +175,7 @@ public class ShopCounter : MonoBehaviour
             pc.money -= it.price;
             pc.StoreBooni();
             HitFx.PlayPickup(false);
-            Say(Loc.T("Bööni taskuun. Juo: pidä E / ympyrä pohjassa tai taukovalikosta."));
+            Say(Loc.T("Bööni taskuun. Juo: pidä E / toimintanappi pohjassa tai taukovalikosta."));
             return;
         }
         bool rum = it.name == "Rommi";

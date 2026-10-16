@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 #endif
 
 /// <summary>
-/// Kadun moottoripyörä. Pelaaja menee viereen ja painaa E (ohjaimessa ympyrä): nousuanimaatio, käynnistysääni
+/// Kadun moottoripyörä. Pelaaja menee viereen ja painaa E (ohjaimessa toimintanappi): nousuanimaatio, käynnistysääni
 /// ja ajo. Ajossa vasen/oikea kiihdyttää ja jarruttaa, ylös/alas vaihtaa kaistaa. Vauhdissa pyörä kaataa
 /// viholliset ja lennättää laatikot ja tynnyrit. E pysähtyneenä: pelaaja nousee pois ja pyörä jää siihen.
 /// </summary>

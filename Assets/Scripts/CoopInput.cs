@@ -69,7 +69,7 @@ public static class CoopInput
     public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
     public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, Act.Special);
     public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, Act.Push);
-    /// E / ympyrä: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).
+    /// E / toimintanappi: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).
     public static bool Pick(int i) => !Players.NearFallen(i) && PickRaw(i);
     public static bool PickRaw(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, Act.Pick);
     public static bool Catch(int i) => Pressed(i, Key.O, Key.None, Key.Numpad6, Key.RightAlt, Act.Catch);
@@ -113,12 +113,12 @@ public static class CoopInput
 
     /// Toiminnot, joille ohjaimen napin voi vaihtaa. Liike (tikku / ristiohjain) ja Start ovat kiinteät.
     public enum Act { Jump, Punch, Kick, Special, Push, Pick, Catch, Block, Run }
-    /// Ohjaimen napit, joihin toiminnon voi sitoa (PS5: Cross, Circle, Square, Triangle, L1, R1, L2, R2, L3, R3).
+    /// Ohjaimen napit, joihin toiminnon voi sitoa (neljä etunappia numeroituna 1–4, kaksi olkanappia, kaksi liipaisinta ja tikkujen painallukset).
     public enum PadBtn { South, East, West, North, L1, R1, L2, R2, L3, R3 }
 
     public static readonly Act[] AllActs = { Act.Punch, Act.Kick, Act.Jump, Act.Run, Act.Special, Act.Push, Act.Pick, Act.Catch, Act.Block };
 
-    /// Oletusasettelu (sama kuin ennen määritystä): neliö lyönti, kolmio potku, rasti hyppy, R1 juoksu, R3 erikoisliike, R2 puskunappi, ympyrä poiminta, L2 nappaus, L1 suojaus.
+    /// Oletusasettelu: nappi 1 lyönti, 2 potku, 3 hyppy, oikea olkanappi juoksu, oikea tikku erikoisliike, oikea liipaisin pusku, nappi 4 poiminta, vasen liipaisin nappaus, vasen olkanappi suojaus.
     public static PadBtn DefaultBinding(Act a)
     {
         switch (a)
@@ -174,21 +174,21 @@ public static class CoopInput
         PlayerPrefs.Save();
     }
 
-    /// Napin nimi PS5-ohjaimen mukaan.
+    /// Napin nimi pelaajalle: etunapit numeroituina (1 vasen, 2 ylä, 3 ala, 4 oikea), muut asennon mukaan. Ei merkkien tai valmistajien nimiä.
     public static string PadBtnName(PadBtn b)
     {
         switch (b)
         {
-            case PadBtn.South: return "Rasti";
-            case PadBtn.East: return "Ympyrä";
-            case PadBtn.West: return "Neliö";
-            case PadBtn.North: return "Kolmio";
-            case PadBtn.L1: return "L1";
-            case PadBtn.R1: return "R1";
-            case PadBtn.L2: return "L2";
-            case PadBtn.R2: return "R2";
-            case PadBtn.L3: return "L3";
-            default: return "R3";
+            case PadBtn.South: return "Nappi 3";
+            case PadBtn.East: return "Nappi 4";
+            case PadBtn.West: return "Nappi 1";
+            case PadBtn.North: return "Nappi 2";
+            case PadBtn.L1: return "Vasen olkanappi";
+            case PadBtn.R1: return "Oikea olkanappi";
+            case PadBtn.L2: return "Vasen liipaisin";
+            case PadBtn.R2: return "Oikea liipaisin";
+            case PadBtn.L3: return "Vasen tikku (paina)";
+            default: return "Oikea tikku (paina)";
         }
     }
 

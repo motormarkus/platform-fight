@@ -1430,7 +1430,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             StartHeadCrush();
         }
         bool catchNow = catchPressed || (Time.time <= catchBufferUntil && state == State.Ground);
-        // esineen poiminta omalla napilla (E / ympyrä); sama nappi myös heittää kädessä olevan esineen
+        // esineen poiminta omalla napilla (E / toimintanappi); sama nappi myös heittää kädessä olevan esineen
         bool pickPressed = !Scripted && PickPressed();
         if (pickPressed) pickBufferUntil = Time.time + 0.18f;
         bool pickNow = pickPressed || (Time.time <= pickBufferUntil && state == State.Ground);
@@ -3579,7 +3579,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return drinkSprites;
         }
     }
-    [Tooltip("Böönejä taskussa (enintään 1): juodaan taukovalikosta tai pitämällä poimintanappia (E / ympyrä) pohjassa.")]
+    [Tooltip("Böönejä taskussa (enintään 1): juodaan taukovalikosta tai pitämällä poimintanappia (E / toimintanappi) pohjassa.")]
     public int booniPocket;
     public bool HasBooni => booniPocket > 0;
     float pickHoldTime;
@@ -4263,7 +4263,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     bool PunchPressed() => CoopInput.Punch(playerIndex);
 
-    /// Lyöntinappi (J / ohjaimen neliö), P1:n, myös muiden skriptien käyttöön (esim. prätkä).
+    /// Lyöntinappi (J / ohjaimen vasen nappi), P1:n, myös muiden skriptien käyttöön (esim. prätkä).
     public static bool PunchInput() => CoopInput.Punch(0);
 
     bool RunHeld() => !Scripted && CoopInput.Run(playerIndex);
@@ -4282,7 +4282,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     bool throwQueued;
     float pickBufferUntil;
 
-    /// Esineen poiminta (E / ohjaimen ympyrä eli itänappi): pullot, pallot, keppi, tuoli, rengas, laatikot, pöydät ja telkkari.
+    /// Esineen poiminta (E / ohjaimen oikea nappi): pullot, pallot, keppi, tuoli, rengas, laatikot, pöydät ja telkkari.
     bool PickPressed() => CoopInput.Pick(playerIndex);   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
 
     /// Nappausnappi (O / ohjaimen vasen liipaisin L2): vastaheiton kurotus; heittää myös kädessä olevan esineen. P1:n, myös muiden skriptien käyttöön.

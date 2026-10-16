@@ -2487,7 +2487,7 @@ public static class BeatEmUpSetup
 
         EditorSceneManager.MarkSceneDirty(bg.scene);
         Info(
-            $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa ympyrä).\n" +
+            $"Palotikkaat kadun lopussa (x = {ladderX:0.0}): mene tikkaiden eteen jalkakäytävälle ja paina E (ohjaimessa toimintanappi).\n" +
             $"Katolla {RoofEnemies.Length} vihollista ja pomo. Takaisin alas vasemman reunan tikkailta.\n" +
             (report.Count > 0 ? string.Join("\n", report) + "\n" : "") +
             "\nKaton oikea puoli on kattokuvan 1 peilikuva, kunnes kuvat 2 ja 3 valmistuvat.\n\nTallenna scene (Ctrl+S).");

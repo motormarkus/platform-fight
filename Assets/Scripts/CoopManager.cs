@@ -52,7 +52,7 @@ public class CoopManager : MonoBehaviour
             return;
         }
 
-        // kaksinpeli: kaatunut pelaaja nostetaan pitämällä E / ympyrää pohjassa hänen vieressään
+        // kaksinpeli: kaatunut pelaaja nostetaan pitämällä E / toimintanappia pohjassa hänen vieressään
         foreach (var d in Players.All)
         {
             if (d == null || !d.GameOver) continue;
@@ -142,9 +142,7 @@ public class CoopManager : MonoBehaviour
     {
         foreach (var g in Gamepad.all)
         {
-            var psBtn = g.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("systemButton");
-            bool ps = psBtn != null && psBtn.wasPressedThisFrame;   // PS-nappi (keskinappi) pausettaa myös
-            if (!g.startButton.wasPressedThisFrame && !ps) continue;
+            if (!g.startButton.wasPressedThisFrame) continue;
             if (Players.Count <= 1 && Gamepad.all.Count >= 2 && CoopInput.P1Pad != null && g != CoopInput.P1Pad && !Players.CoopWanted) continue;   // liittyminen
             return true;
         }

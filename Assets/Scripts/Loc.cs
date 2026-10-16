@@ -43,8 +43,10 @@ public static class Loc
         { "Tornado", "Tornado" }, { "Tuulimylly", "Windmill" }, { "Kärrynpyörä", "Cartwheel" }, { "Pusku", "Shove" }, { "Toiminto", "Action" },
         { "Toiminto / poiminta", "Action / pick up" }, { "Heitto", "Throw" }, { "Vastaheitto / heitto", "Counter / throw" }, { "Suojaus", "Block" },
         { "Liiku", "Move" }, { "Tauko", "Pause" }, { "Palauta oletukset", "Restore defaults" },
-        { "Rasti", "Cross" }, { "Ympyrä", "Circle" }, { "Neliö", "Square" }, { "Kolmio", "Triangle" },
-        { "Päät yhteen (L2 + R2 oletuksena)", "Heads together (L2 + R2 by default)" },
+        { "Nappi 1", "Button 1" }, { "Nappi 2", "Button 2" }, { "Nappi 3", "Button 3" }, { "Nappi 4", "Button 4" },
+        { "Vasen olkanappi", "Left shoulder" }, { "Oikea olkanappi", "Right shoulder" }, { "Vasen liipaisin", "Left trigger" }, { "Oikea liipaisin", "Right trigger" },
+        { "Vasen tikku (paina)", "Left stick (press)" }, { "Oikea tikku (paina)", "Right stick (press)" },
+        { "Päät yhteen", "Heads together" },
         { "Paina uutta nappia ohjaimella   Esc / Start = peru", "Press the new button on the controller   Esc / Start = cancel" },
         { "Ohjainta ei löydy: kytke ohjain ja yritä uudelleen", "No controller found: connect one and try again" },
         { "Ylös / alas valitse   Enter / A muuta nappi   Esc / B takaisin", "Up / down select   Enter / A change button   Esc / B back" }, { "Ääni", "Audio" }, { "Peli", "Game" }, { "ÄÄNI", "AUDIO" }, { "PELI", "GAME" }, { "Pääääni", "Master volume" }, { "Tehosteet", "Effects" }, { "Näyttötila", "Display mode" },
@@ -122,7 +124,7 @@ public static class Loc
         { "BÖÖNI TASKUUN", "BÖÖNI IN POCKET" },
         { "Taskuun pahan päivän varalle.", "For a rainy day." },
         { "Taskussa on jo Bööni.", "You already have a Bööni." },
-        { "Bööni taskuun. Juo: pidä E / ympyrä pohjassa tai taukovalikosta.", "Bööni in pocket. Drink: hold E / circle, or from the pause menu." },
+        { "Bööni taskuun. Juo: pidä E / toimintanappi pohjassa tai taukovalikosta.", "Bööni in pocket. Drink: hold E / action button, or from the pause menu." },
         { "PÄRINÄ", "BUZZ" },
     };
 }
