@@ -89,6 +89,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Heron lentonopeus ylös (24 = kattoon, kuten Horhe) ja muiden vihujen (21 = ruudun yläreunaan; kevyillä x1,6).")]
     public float uppercutHeroUp = 24f, uppercutLaunchUp = 21f, uppercutLaunchX = 1.5f;
     bool usingUppercut;
+    [Tooltip("Alakoukku (ei kombossa) ladataan: pitkä lataus (uppercutChargeTime) ja humaus. Osuessaan heittää pelaajan kauas sivulle (uppercutChargeKnockX/Up), ei voi torjua eikä napata. Kombossa alakoukku on normaali.")]
+    public bool uppercutCharged;
+    public float uppercutChargeTime = 1.0f;
+    public int uppercutChargedDamage = 26;
+    [Tooltip("Ladatun alakoukun lennätys: vaakanopeus (28 = noin ruudun toiselle puolelle) ja nousu.")]
+    public float uppercutChargeKnockX = 28f, uppercutChargeKnockUp = 13f;
+    bool ChargedUppercut => usingUppercut && uppercutCharged && comboSeq == null && !usingAlt;
 
     [Header("Kombot")]
     [Tooltip("Iskusarjat peräkkäin: J = lyönti, S = toinen isku (suora), P = vaihtoehtoinen (polvi), K = kolmas (kierrepotku). Esim. \"JSJ\".")]
@@ -2790,6 +2797,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
         if (usingUppercut && !usingAlt)
         {
+            if (ChargedUppercut)
+            {
+                // ladattu alakoukku: pelaaja lentää toiselle puolelle ruutua (ei voi torjua, ei napata)
+                bool ch = player.TakeKnockdown(uppercutChargedDamage, me.x, uppercutChargeKnockX, uppercutChargeKnockUp, this, true);
+                if (ch)
+                {
+                    HitSpark.Spawn(new Vector3(p.x - Mathf.Sign(dx) * 0.3f, p.y + 2.3f, 0f), true, Mathf.RoundToInt(-p.y * 100f) + 6);
+                    HitFx.Freeze(0.28f);
+                    if (CameraFollow.Instance != null) CameraFollow.Shake(0.5f, 0.3f);
+                }
+                return ch;
+            }
             bool upHit = player.TakeUppercut(uppercutDamage, me.x, uppercutHeroUp, this);
             if (upHit && player.IsAirborneThrown) nextHeroLaugh = 0f;
             return upHit;
@@ -3411,6 +3430,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return IdleFrame();
 
             case State.Windup:
+                if (ChargedUppercut && Has(uppercutSprites))
+                {
+                    // lataus: käsi taakse ja vartalo vapisee, lopussa (viimeiset 20 %) humaus
+                    float cu = stateTime / Mathf.Max(0.01f, CurrentWindup);
+                    int lastWind = Mathf.Max(0, PunchImpact - 1);
+                    if (cu < 0.8f) { rot = Mathf.Sin(stateTime * 75f) * 2.5f * Mathf.Clamp01(stateTime / 0.3f); return uppercutSprites[Mathf.Min(1, lastWind)]; }
+                    return uppercutSprites[Mathf.Min(2 + (int)((cu - 0.8f) / 0.2f * 2f), lastWind)];
+                }
                 if (hammerArt && usingPunch3 && !usingAlt && Has(punch3Sprites) && punch3Sprites.Length >= 6)
                 {
                     // vasara: asento hetken, nosto, kädet pään yllä pidetään (selvä varoitus)
@@ -3612,7 +3639,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
     Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingUppercut ? uppercutWindupTime : usingPunch3 ? punch3WindupNow : windupTime)
+    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
     float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;

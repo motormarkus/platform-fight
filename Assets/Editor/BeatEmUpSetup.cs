@@ -2553,13 +2553,14 @@ public static class BeatEmUpSetup
             b.punchSprites = jab.Length >= 6 ? jab : none; b.punchImpactFrame = 4; b.windupTime = 0.3f; b.punchDamage = 12; b.punchKnockdown = false; b.punchShake = 0f;
             // 2) yläisku: käsi nousee pään taakse ja iskee alas (osumakuva 5), kaataa
             b.punch2Sprites = chop.Length >= 7 ? chop : none; b.punch2ImpactFrame = 5; b.punch2Damage = 16; b.punch2Knockdown = true; b.punch2Chance = 0.3f;
-            // 3) iso koukku: kyykystä nousu ja pitkä lataus (10 kuvaa), ei voi torjua mutta napattavissa (osumakuva 10)
+            // 3) iso koukku: kyykystä nousu ja pitkä lataus (10 kuvaa), ei voi torjua eikä napata (osumakuva 10)
             b.punch3Sprites = hay.Length >= 12 ? hay : none; b.punch3ImpactFrame = 10; b.punch3Damage = 24; b.punch3Knockdown = true;
-            b.punch3WindupTime = 0.85f; b.punch3RecoverTime = 0.5f; b.punch3Reach = 2.7f; b.punch3Heavy = true; b.punch3Chance = 0.18f;
+            b.punch3WindupTime = 0.85f; b.punch3RecoverTime = 0.5f; b.punch3Reach = 2.7f; b.punch3Heavy = false; b.punch3Unblockable = true; b.punch3Chance = 0.18f;   // ei voi torjua eikä napata
             b.punch3LaunchUp = 5f; b.punch3LaunchX = 6f;
-            // 4) alakoukku: nostaa pelaajan ilmaan (osumakuva 4)
+            // 4) alakoukku: yksittäisenä ladataan hetki (1 s, vapisee) ja humautetaan: osuessaan pelaaja lentää toiselle puolelle ruutua. Kombossa (U) normaali.
             b.uppercutSprites = upper.Length >= 6 ? upper : none; b.uppercutImpactFrame = 4; b.uppercutDamage = 18; b.uppercutChance = 0.15f;
             b.uppercutWindupTime = 0.4f; b.uppercutRecoverTime = 0.5f; b.uppercutReach = 2.4f; b.uppercutHeroUp = 14f;
+            b.uppercutCharged = true; b.uppercutChargeTime = 1.0f; b.uppercutChargedDamage = 26; b.uppercutChargeKnockX = 28f; b.uppercutChargeKnockUp = 13f;
             // kombot: J = suora, S = yläisku, U = alakoukku, K = iso koukku
             b.combos = new[] { "JJ", "JS", "JU", "JJK" }; b.comboChance = 0.4f;
             // taklaus (10 kuvaa): 0–4 vauhti ja ponnistus, 5 = syöksy (osuma, pidetään liu'un ajan), 6–9 liuku ja palautuminen
