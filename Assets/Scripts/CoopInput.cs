@@ -64,19 +64,19 @@ public static class CoopInput
     }
 
     // P2:n näppäimistöasettelu: numeronäppäimistö tai oikean käden näppäimet (kannettavissa).
-    public static bool Jump(int i) => Pressed(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, g => g.buttonSouth);
-    public static bool Punch(int i) => Pressed(i, Key.J, Key.None, Key.Numpad1, Key.Comma, g => g.buttonWest);
-    public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, g => g.buttonNorth);
-    public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, g => g.rightStickButton);
-    public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, g => g.rightTrigger);
+    public static bool Jump(int i) => Pressed(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, Act.Jump);
+    public static bool Punch(int i) => Pressed(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
+    public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
+    public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, Act.Special);
+    public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, Act.Push);
     /// E / ympyrä: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).
     public static bool Pick(int i) => !Players.NearFallen(i) && PickRaw(i);
-    public static bool PickRaw(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
-    public static bool Catch(int i) => Pressed(i, Key.O, Key.None, Key.Numpad6, Key.RightAlt, g => g.leftTrigger);
+    public static bool PickRaw(int i) => Pressed(i, Key.E, Key.None, Key.Numpad5, Key.Quote, Act.Pick);
+    public static bool Catch(int i) => Pressed(i, Key.O, Key.None, Key.Numpad6, Key.RightAlt, Act.Catch);
 
     public static bool PickHeld(int i) => !Players.NearFallen(i) && PickHeldRaw(i);
-    public static bool PickHeldRaw(int i) => Held(i, Key.E, Key.None, Key.Numpad5, Key.Quote, g => g.buttonEast);
-    public static bool Block(int i) => Held(i, Key.I, Key.None, Key.Numpad7, Key.Backslash, g => g.leftShoulder);
+    public static bool PickHeldRaw(int i) => Held(i, Key.E, Key.None, Key.Numpad5, Key.Quote, Act.Pick);
+    public static bool Block(int i) => Held(i, Key.I, Key.None, Key.Numpad7, Key.Backslash, Act.Block);
 
     public static bool Run(int i)
     {
@@ -88,24 +88,143 @@ public static class CoopInput
         }
         else if (P2OnKeyboard && k != null && k.rightShiftKey.isPressed) return true;
         var g = PadFor(i);
-        return g != null && g.rightShoulder.isPressed;
+        return g != null && Btn(g, i, Act.Run).isPressed;
     }
 
-    static bool Pressed(int i, Key p1a, Key p1b, Key p2a, Key p2b, System.Func<Gamepad, UnityEngine.InputSystem.Controls.ButtonControl> btn)
+    static bool Pressed(int i, Key p1a, Key p1b, Key p2a, Key p2b, Act act)
     {
         var k = Keyboard.current;
         if (i == 0 && Hit(k, p1a, p1b)) return true;
         if (i == 1 && P2OnKeyboard && Hit(k, p2a, p2b)) return true;
         var g = PadFor(i);
-        return g != null && btn(g).wasPressedThisFrame;
+        return g != null && Btn(g, i, act).wasPressedThisFrame;
     }
 
-    static bool Held(int i, Key p1a, Key p1b, Key p2a, Key p2b, System.Func<Gamepad, UnityEngine.InputSystem.Controls.ButtonControl> btn)
+    static bool Held(int i, Key p1a, Key p1b, Key p2a, Key p2b, Act act)
     {
         var k = Keyboard.current;
         if (i == 0 && Down(k, p1a, p1b)) return true;
         if (i == 1 && P2OnKeyboard && Down(k, p2a, p2b)) return true;
         var g = PadFor(i);
-        return g != null && btn(g).isPressed;
+        return g != null && Btn(g, i, act).isPressed;
+    }
+
+    // ---------------- Ohjaimen nappien määritys (pelaajakohtainen, tallentuu PlayerPrefsiin) ----------------
+
+    /// Toiminnot, joille ohjaimen napin voi vaihtaa. Liike (tikku / ristiohjain) ja Start ovat kiinteät.
+    public enum Act { Jump, Punch, Kick, Special, Push, Pick, Catch, Block, Run }
+    /// Ohjaimen napit, joihin toiminnon voi sitoa (PS5: Cross, Circle, Square, Triangle, L1, R1, L2, R2, L3, R3).
+    public enum PadBtn { South, East, West, North, L1, R1, L2, R2, L3, R3 }
+
+    public static readonly Act[] AllActs = { Act.Punch, Act.Kick, Act.Jump, Act.Run, Act.Special, Act.Push, Act.Pick, Act.Catch, Act.Block };
+
+    /// Oletusasettelu (sama kuin ennen määritystä): neliö lyönti, kolmio potku, rasti hyppy, R1 juoksu, R3 erikoisliike, R2 puskunappi, ympyrä poiminta, L2 nappaus, L1 suojaus.
+    public static PadBtn DefaultBinding(Act a)
+    {
+        switch (a)
+        {
+            case Act.Jump: return PadBtn.South;
+            case Act.Punch: return PadBtn.West;
+            case Act.Kick: return PadBtn.North;
+            case Act.Special: return PadBtn.R3;
+            case Act.Push: return PadBtn.R2;
+            case Act.Pick: return PadBtn.East;
+            case Act.Catch: return PadBtn.L2;
+            case Act.Block: return PadBtn.L1;
+            default: return PadBtn.R1;   // Run
+        }
+    }
+
+    static readonly PadBtn[][] bindings = new PadBtn[2][];
+
+    static string Key2(int player, Act a) => "nappi" + player + "_" + (int)a;
+
+    static PadBtn[] Table(int player)
+    {
+        player = Mathf.Clamp(player, 0, 1);
+        if (bindings[player] == null)
+        {
+            var t = new PadBtn[System.Enum.GetValues(typeof(Act)).Length];
+            foreach (Act a in System.Enum.GetValues(typeof(Act)))
+                t[(int)a] = (PadBtn)PlayerPrefs.GetInt(Key2(player, a), (int)DefaultBinding(a));
+            bindings[player] = t;
+        }
+        return bindings[player];
+    }
+
+    public static PadBtn GetBinding(int player, Act a) => Table(player)[(int)a];
+
+    /// Sitoo toiminnon nappiin. Jos nappi on jo toisella toiminnolla, toiminnot vaihtavat paikkaa (ei kahta toimintoa samalle napille).
+    public static void SetBinding(int player, Act a, PadBtn b)
+    {
+        var t = Table(player);
+        PadBtn old = t[(int)a];
+        foreach (Act o in System.Enum.GetValues(typeof(Act)))
+            if (o != a && t[(int)o] == b) { t[(int)o] = old; PlayerPrefs.SetInt(Key2(player, o), (int)old); }
+        t[(int)a] = b;
+        PlayerPrefs.SetInt(Key2(player, a), (int)b);
+        PlayerPrefs.Save();
+    }
+
+    public static void ResetBindings(int player)
+    {
+        player = Mathf.Clamp(player, 0, 1);
+        foreach (Act a in System.Enum.GetValues(typeof(Act))) PlayerPrefs.DeleteKey(Key2(player, a));
+        bindings[player] = null;
+        PlayerPrefs.Save();
+    }
+
+    /// Napin nimi PS5-ohjaimen mukaan.
+    public static string PadBtnName(PadBtn b)
+    {
+        switch (b)
+        {
+            case PadBtn.South: return "Rasti";
+            case PadBtn.East: return "Ympyrä";
+            case PadBtn.West: return "Neliö";
+            case PadBtn.North: return "Kolmio";
+            case PadBtn.L1: return "L1";
+            case PadBtn.R1: return "R1";
+            case PadBtn.L2: return "L2";
+            case PadBtn.R2: return "R2";
+            case PadBtn.L3: return "L3";
+            default: return "R3";
+        }
+    }
+
+    /// Ohjaimen nappi (ohjain, pelaaja, toiminto) -> ohjauselementti.
+    public static UnityEngine.InputSystem.Controls.ButtonControl Btn(Gamepad g, int player, Act a)
+    {
+        switch (GetBinding(player, a))
+        {
+            case PadBtn.South: return g.buttonSouth;
+            case PadBtn.East: return g.buttonEast;
+            case PadBtn.West: return g.buttonWest;
+            case PadBtn.North: return g.buttonNorth;
+            case PadBtn.L1: return g.leftShoulder;
+            case PadBtn.R1: return g.rightShoulder;
+            case PadBtn.L2: return g.leftTrigger;
+            case PadBtn.R2: return g.rightTrigger;
+            case PadBtn.L3: return g.leftStickButton;
+            default: return g.rightStickButton;
+        }
+    }
+
+    /// Mitä ohjaimen nappia pelaaja painoi tällä hetkellä (uuden napin odotus määrityssivulla). Null, jos mitään ei painettu.
+    public static PadBtn? ReadPressedPadBtn(int player)
+    {
+        var g = PadFor(player);
+        if (g == null) return null;
+        if (g.buttonSouth.wasPressedThisFrame) return PadBtn.South;
+        if (g.buttonEast.wasPressedThisFrame) return PadBtn.East;
+        if (g.buttonWest.wasPressedThisFrame) return PadBtn.West;
+        if (g.buttonNorth.wasPressedThisFrame) return PadBtn.North;
+        if (g.leftShoulder.wasPressedThisFrame) return PadBtn.L1;
+        if (g.rightShoulder.wasPressedThisFrame) return PadBtn.R1;
+        if (g.leftTrigger.wasPressedThisFrame) return PadBtn.L2;
+        if (g.rightTrigger.wasPressedThisFrame) return PadBtn.R2;
+        if (g.leftStickButton.wasPressedThisFrame) return PadBtn.L3;
+        if (g.rightStickButton.wasPressedThisFrame) return PadBtn.R3;
+        return null;
     }
 }
