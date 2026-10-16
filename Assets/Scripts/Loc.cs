@@ -38,7 +38,16 @@ public static class Loc
     {
         { "Suutele Auroraa", "Kiss Aurora" },
         // --- Valikot ---
-        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Ääni", "Audio" }, { "Peli", "Game" }, { "ÄÄNI", "AUDIO" }, { "PELI", "GAME" }, { "Pääääni", "Master volume" }, { "Tehosteet", "Effects" }, { "Näyttötila", "Display mode" },
+        { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
+        { "Lyönti", "Punch" }, { "Potku", "Kick" }, { "Hyppy", "Jump" }, { "Juoksu", "Run" }, { "Juoksu (pidä pohjassa)", "Run (hold)" },
+        { "Tornado", "Tornado" }, { "Tuulimylly", "Windmill" }, { "Kärrynpyörä", "Cartwheel" }, { "Pusku", "Shove" }, { "Toiminto", "Action" },
+        { "Toiminto / poiminta", "Action / pick up" }, { "Heitto", "Throw" }, { "Vastaheitto / heitto", "Counter / throw" }, { "Suojaus", "Block" },
+        { "Liiku", "Move" }, { "Tauko", "Pause" }, { "Palauta oletukset", "Restore defaults" },
+        { "Rasti", "Cross" }, { "Ympyrä", "Circle" }, { "Neliö", "Square" }, { "Kolmio", "Triangle" },
+        { "Päät yhteen (L2 + R2 oletuksena)", "Heads together (L2 + R2 by default)" },
+        { "Paina uutta nappia ohjaimella   Esc / Start = peru", "Press the new button on the controller   Esc / Start = cancel" },
+        { "Ohjainta ei löydy: kytke ohjain ja yritä uudelleen", "No controller found: connect one and try again" },
+        { "Ylös / alas valitse   Enter / A muuta nappi   Esc / B takaisin", "Up / down select   Enter / A change button   Esc / B back" }, { "Ääni", "Audio" }, { "Peli", "Game" }, { "ÄÄNI", "AUDIO" }, { "PELI", "GAME" }, { "Pääääni", "Master volume" }, { "Tehosteet", "Effects" }, { "Näyttötila", "Display mode" },
         { "Reunaton ikkuna", "Borderless window" }, { "Ikkuna", "Windowed" }, { "FPS-raja", "FPS limit" }, { "Rajaton", "Unlimited" },
         { "Kirkkaus", "Brightness" }, { "Ruudun tärinä", "Screen shake" }, { "Pidä E: nosta", "Hold E: revive" }, { "Molempien pelaajien pitää olla oven luona.", "Both players must be at the door." }, { "Asetukset", "Options" }, { "Tekijät", "Credits" }, { "Lopeta", "Quit" },
         { "Helppo", "Easy" }, { "Normaali", "Normal" }, { "Vaikea", "Hard" }, { "Takaisin", "Back" },

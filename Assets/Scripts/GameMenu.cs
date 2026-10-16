@@ -52,10 +52,10 @@ public class GameMenu : MonoBehaviour
     Page page = Page.None, back = Page.None;
     /// Asetusten alivalikko: -1 = asetusten päävalikko, 0 = ääni, 1 = video, 2 = peli.
     int optSection = -1;
-    static readonly string[] OptSectionNames = { "Ääni", "Video", "Peli" };
-    static readonly string[] OptSectionHeads = { "ÄÄNI", "VIDEO", "PELI" };
+    static readonly string[] OptSectionNames = { "Ääni", "Video", "Peli", "Ohjaus" };
+    static readonly string[] OptSectionHeads = { "ÄÄNI", "VIDEO", "PELI", "OHJAUS" };
     /// Alivalikon rivit (asetusrivien numerot, ks. Adjust).
-    static readonly int[][] SectionRows = { new[] { 0, 1, 2 }, new[] { 3, 4, 5, 6, 7 }, new[] { 9, 10, 8 } };
+    static readonly int[][] SectionRows = { new[] { 0, 1, 2 }, new[] { 3, 4, 5, 6, 7 }, new[] { 9, 10, 8 }, new int[0] };   // 3 = ohjaus: oma sivu (UpdateControls / DrawControls)
     int sel;
     float creditsT;
     float oldTimeScale = 1f;
@@ -116,7 +116,7 @@ public class GameMenu : MonoBehaviour
             }
             case Page.Options:
             {
-                if (optSection < 0) return new[] { Loc.T(OptSectionNames[0]), Loc.T(OptSectionNames[1]), Loc.T(OptSectionNames[2]), Loc.T("Takaisin") };
+                if (optSection < 0) return new[] { Loc.T(OptSectionNames[0]), Loc.T(OptSectionNames[1]), Loc.T(OptSectionNames[2]), Loc.T(OptSectionNames[3]), Loc.T("Takaisin") };
                 var all = OptionLabels();
                 var rows = SectionRows[optSection];
                 var l = new string[rows.Length + 1];
@@ -162,6 +162,7 @@ public class GameMenu : MonoBehaviour
             if (ConfirmPressed() || BackPressed()) { page = back; sel = 0; }
             return;
         }
+        if (page == Page.Options && optSection == 3) { UpdateControls(); return; }
         var items = Items();
         int dy = NavY();
         if (dy != 0) sel = (sel + dy + items.Length) % items.Length;
@@ -253,7 +254,7 @@ public class GameMenu : MonoBehaviour
             case Page.Options:
                 if (optSection < 0)
                 {
-                    if (i < 3) { optSection = i; sel = 0; }
+                    if (i < 4) { optSection = i; sel = 0; rebinding = null; }
                     else { page = back; sel = 0; }
                     break;
                 }
@@ -292,6 +293,201 @@ public class GameMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    // ---------------- Ohjaus (ohjaimen nappien määritys) ----------------
+
+    CoopInput.Act? rebinding;
+    int rebindFrame, ctrlPlayer;
+    float ctrlMsgUntil;
+    Texture2D padArt;
+    GUIStyle rowStyle, tagStyle;
+
+    /// Napin paikka ohjainkuvassa (kuvan pikseleinä 1536 x 1024, y ylhäältä) ja suunta, johon nimilappu siirretään napin viereen.
+    static readonly Vector2[] PadPos =
+    {
+        new Vector2(1197, 545),   // South (rasti)
+        new Vector2(1290, 453),   // East (ympyrä)
+        new Vector2(1105, 453),   // West (neliö)
+        new Vector2(1197, 360),   // North (kolmio)
+        new Vector2(380, 182),    // L1
+        new Vector2(1185, 182),   // R1
+        new Vector2(415, 103),    // L2
+        new Vector2(1153, 103),   // R2
+        new Vector2(547, 648),    // L3 (vasen tikku)
+        new Vector2(985, 648),    // R3 (oikea tikku)
+    };
+    static readonly Vector2[] PadDir =
+    {
+        new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, 0), new Vector2(0, -1),
+        new Vector2(-1, 0), new Vector2(1, 0), new Vector2(-1, 0), new Vector2(1, 0),
+        new Vector2(0, 0), new Vector2(0, 0),
+    };
+
+    int CtrlCharacter()
+    {
+        foreach (var p in Players.All) if (p != null && p.playerIndex == ctrlPlayer) return p.AppliedCharacter;
+        return ctrlPlayer == 0 ? GameSettings.Character : 1 - GameSettings.Character;
+    }
+
+    string ActName(CoopInput.Act a, bool shortName)
+    {
+        bool ruby = CtrlCharacter() == 1;
+        switch (a)
+        {
+            case CoopInput.Act.Punch: return Loc.T("Lyönti");
+            case CoopInput.Act.Kick: return Loc.T("Potku");
+            case CoopInput.Act.Jump: return Loc.T("Hyppy");
+            case CoopInput.Act.Run: return Loc.T(shortName ? "Juoksu" : "Juoksu (pidä pohjassa)");
+            case CoopInput.Act.Special: return Loc.T(ruby ? "Tornado" : "Tuulimylly");
+            case CoopInput.Act.Push: return Loc.T(ruby ? "Kärrynpyörä" : "Pusku");
+            case CoopInput.Act.Pick: return Loc.T(shortName ? "Toiminto" : "Toiminto / poiminta");
+            case CoopInput.Act.Catch: return Loc.T(shortName ? "Heitto" : "Vastaheitto / heitto");
+            default: return Loc.T("Suojaus");
+        }
+    }
+
+    void UpdateControls()
+    {
+        bool coop = Players.CoopWanted;
+        int off = coop ? 1 : 0;
+        if (!coop) ctrlPlayer = 0;
+        int n = CoopInput.AllActs.Length;
+        int total = off + n + 2;
+        sel = Mathf.Clamp(sel, 0, total - 1);
+        if (rebinding.HasValue)
+        {
+            var kb = Keyboard.current;
+            var pad = CoopInput.PadFor(ctrlPlayer);
+            if ((kb != null && (kb.escapeKey.wasPressedThisFrame || kb.backspaceKey.wasPressedThisFrame)) || (pad != null && pad.startButton.wasPressedThisFrame)) { rebinding = null; return; }
+            if (Time.frameCount > rebindFrame)
+            {
+                var b = CoopInput.ReadPressedPadBtn(ctrlPlayer);
+                if (b.HasValue) { CoopInput.SetBinding(ctrlPlayer, rebinding.Value, b.Value); rebinding = null; }
+            }
+            return;
+        }
+        int dy = NavY();
+        if (dy != 0) sel = (sel + dy + total) % total;
+        int dx = NavX();
+        if (coop && sel == 0 && dx != 0) ctrlPlayer = 1 - ctrlPlayer;
+        if (ConfirmPressed())
+        {
+            int r = sel - off;
+            if (coop && sel == 0) ctrlPlayer = 1 - ctrlPlayer;
+            else if (r >= 0 && r < n)
+            {
+                if (CoopInput.PadFor(ctrlPlayer) != null) { rebinding = CoopInput.AllActs[r]; rebindFrame = Time.frameCount; }
+                else ctrlMsgUntil = Time.unscaledTime + 2.5f;
+            }
+            else if (r == n) CoopInput.ResetBindings(ctrlPlayer);
+            else { optSection = -1; sel = 3; }
+        }
+        else if (BackPressed()) { optSection = -1; sel = 3; }
+    }
+
+    void DrawControls(float w, float h, float s, Color gold)
+    {
+        if (padArt == null) padArt = Resources.Load<Texture2D>("Valikko/ohjain");
+        if (rowStyle == null || !Mathf.Approximately(rowStyle.fontSize, Mathf.RoundToInt(30 * s)))
+        {
+            rowStyle = new GUIStyle(smallStyle) { alignment = TextAnchor.MiddleLeft, fontSize = Mathf.RoundToInt(30 * s) };
+            tagStyle = new GUIStyle(smallStyle) { alignment = TextAnchor.MiddleCenter, fontSize = Mathf.RoundToInt(24 * s) };
+        }
+        bool coop = Players.CoopWanted;
+        int off = coop ? 1 : 0;
+        int n = CoopInput.AllActs.Length;
+        int r = sel - off;
+        CoopInput.Act? selAct = r >= 0 && r < n ? CoopInput.AllActs[r] : (CoopInput.Act?)null;
+
+        // ohjainkuva oikealla
+        float iw = w * 0.56f, ih = iw * 1024f / 1536f, ix = w * 0.41f, iy = h * 0.25f;
+        if (padArt != null)
+        {
+            GUI.color = new Color(1f, 1f, 1f, 0.55f);
+            GUI.DrawTexture(new Rect(ix, iy, iw, ih), padArt, ScaleMode.StretchToFill);
+            GUI.color = Color.white;
+        }
+        System.Func<Vector2, Vector2> ToScreen = p => new Vector2(ix + p.x / 1536f * iw, iy + p.y / 1024f * ih);
+
+        // nimilaput napeille
+        for (int b = 0; b < PadPos.Length; b++)
+        {
+            var btn = (CoopInput.PadBtn)b;
+            string label = null; bool isSel = false;
+            foreach (var a in CoopInput.AllActs)
+                if (CoopInput.GetBinding(ctrlPlayer, a) == btn) { label = ActName(a, true); isSel = selAct.HasValue && selAct.Value == a; break; }
+            if (btn == CoopInput.PadBtn.L3) { label = label == null ? Loc.T("Liiku") : Loc.T("Liiku") + " / " + label; }
+            else if (label == null) label = "–";
+            Tag(ToScreen(PadPos[b]), PadDir[b], label, isSel, label == "–", s, iw, ih);
+        }
+        Tag(ToScreen(new Vector2(355, 455)), Vector2.zero, Loc.T("Liiku"), false, false, s, iw, ih);       // ristiohjain
+        Tag(ToScreen(new Vector2(772, 463)), Vector2.zero, Loc.T("Tauko"), false, false, s, iw, ih);       // PS-nappi / keskinappi
+        Tag(ToScreen(new Vector2(938, 463)), Vector2.zero, Loc.T("Tauko"), false, false, s, iw, ih);       // Options / Start
+        Tag(ToScreen(new Vector2(617, 463)), Vector2.zero, "–", false, true, s, iw, ih);                   // Share / Create: ei käytössä
+
+        // vasemmalla lista toiminnoista
+        float x0 = w * 0.04f, y0 = h * 0.27f, step = 50 * s, lw = w * 0.36f;
+        int row = 0;
+        if (coop)
+        {
+            string hn = CtrlCharacter() == 1 ? "Ruby" : "Rocco";
+            DrawRow(new Rect(x0, y0 + row * step, lw, step), Loc.T("Pelaaja") + ":  < " + (ctrlPlayer + 1) + " >   " + hn, sel == row, gold);
+            row++;
+        }
+        foreach (var a in CoopInput.AllActs)
+        {
+            string t = ActName(a, false) + "  –  " + Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, a)));
+            DrawRow(new Rect(x0, y0 + row * step, lw, step), t, sel == row, gold);
+            row++;
+        }
+        DrawRow(new Rect(x0, y0 + row * step, lw, step), Loc.T("Palauta oletukset"), sel == row, gold); row++;
+        DrawRow(new Rect(x0, y0 + row * step, lw, step), Loc.T("Takaisin"), sel == row, gold);
+
+        // päät yhteen -yhdistelmä (Rocco)
+        if (CtrlCharacter() == 0)
+            Shadowed(new Rect(ix, iy + ih + 4 * s, iw, 40 * s), Loc.T("Päät yhteen (L2 + R2 oletuksena)").Replace("L2 + R2", Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Catch))) + " + " + Loc.T(CoopInput.PadBtnName(CoopInput.GetBinding(ctrlPlayer, CoopInput.Act.Push)))), smallStyle, new Color(1f, 1f, 1f, 0.85f));
+
+        string help = rebinding.HasValue
+            ? Loc.T("Paina uutta nappia ohjaimella   Esc / Start = peru")
+            : Time.unscaledTime < ctrlMsgUntil ? Loc.T("Ohjainta ei löydy: kytke ohjain ja yritä uudelleen")
+            : Loc.T("Ylös / alas valitse   Enter / A muuta nappi   Esc / B takaisin");
+        Shadowed(new Rect(0, h - 70 * s, w, 50 * s), help, smallStyle, rebinding.HasValue ? gold : new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    void DrawRow(Rect r, string text, bool on, Color gold)
+    {
+        if (on)
+        {
+            GUI.color = new Color(gold.r, gold.g, gold.b, 0.22f);
+            GUI.DrawTexture(r, white);
+            GUI.color = Color.white;
+        }
+        Shadowed(new Rect(r.x + 14 * styleScale, r.y, r.width, r.height), text, rowStyle, on ? gold : Color.white);
+    }
+
+    /// Nimilappu napin viereen: tumma tausta, valittuna kultainen kehys (odottaessa uutta nappia vilkkuu).
+    void Tag(Vector2 pos, Vector2 dir, string text, bool selected, bool dim, float s, float iw, float ih)
+    {
+        var sz = tagStyle.CalcSize(new GUIContent(text));
+        float bw = sz.x + 22 * s, bh = sz.y + 6 * s;
+        float cx = pos.x + dir.x * (bw * 0.5f + iw * 0.04f);
+        float cy = pos.y + dir.y * (bh * 0.5f + ih * 0.06f);
+        var r = new Rect(cx - bw * 0.5f, cy - bh * 0.5f, bw, bh);
+        GUI.color = new Color(0f, 0f, 0f, 0.82f);
+        GUI.DrawTexture(r, white);
+        if (selected)
+        {
+            bool blink = !rebinding.HasValue || Mathf.FloorToInt(Time.unscaledTime * 6f) % 2 == 0;
+            GUI.color = blink ? new Color(1f, 0.82f, 0.25f) : new Color(1f, 0.82f, 0.25f, 0.25f);
+            float t = 3 * s;
+            GUI.DrawTexture(new Rect(r.x - t, r.y - t, r.width + 2 * t, t), white);
+            GUI.DrawTexture(new Rect(r.x - t, r.yMax, r.width + 2 * t, t), white);
+            GUI.DrawTexture(new Rect(r.x - t, r.y, t, r.height), white);
+            GUI.DrawTexture(new Rect(r.xMax, r.y, t, r.height), white);
+        }
+        GUI.color = Color.white;
+        Shadowed(r, text, tagStyle, dim ? new Color(1f, 1f, 1f, 0.4f) : Color.white);
     }
 
     // ---------------- Piirto ----------------
@@ -377,6 +573,7 @@ public class GameMenu : MonoBehaviour
             Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
         if (page == Page.Difficulty) Shadowed(new Rect(0, h * 0.27f, w, 60 * s), Loc.T("Valitse vaikeustaso"), headStyle, Color.white);
 
+        if (page == Page.Options && optSection == 3) { DrawControls(w, h, s, gold); return; }
         var items = Items();
         float y0 = h * 0.38f, step = 66 * s;
         for (int i = 0; i < items.Length; i++)

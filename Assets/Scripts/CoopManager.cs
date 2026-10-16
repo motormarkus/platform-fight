@@ -142,7 +142,9 @@ public class CoopManager : MonoBehaviour
     {
         foreach (var g in Gamepad.all)
         {
-            if (!g.startButton.wasPressedThisFrame) continue;
+            var psBtn = g.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("systemButton");
+            bool ps = psBtn != null && psBtn.wasPressedThisFrame;   // PS-nappi (keskinappi) pausettaa myös
+            if (!g.startButton.wasPressedThisFrame && !ps) continue;
             if (Players.Count <= 1 && Gamepad.all.Count >= 2 && CoopInput.P1Pad != null && g != CoopInput.P1Pad && !Players.CoopWanted) continue;   // liittyminen
             return true;
         }
