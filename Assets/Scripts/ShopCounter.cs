@@ -58,6 +58,12 @@ public class ShopCounter : MonoBehaviour
     bool near, open;
     int sel;
     string msg; float msgTime;
+    /// Kaksinpeli: molemmat tiskillä olevat pelaajat saavat oman valikkonsa yhtä aikaa. pc / sel / msg / msgTime ovat "nykyisen" valikon tilaa,
+    /// Load ja Save vaihtavat sen istunnon ja kenttien välillä.
+    class Sess { public PlayerController pc; public int sel; public string msg; public float msgTime; }
+    readonly System.Collections.Generic.List<Sess> sessions = new System.Collections.Generic.List<Sess>();
+    void Load(Sess x) { pc = x.pc; sel = x.sel; msg = x.msg; msgTime = x.msgTime; }
+    void Save(Sess x) { x.sel = sel; x.msg = msg; x.msgTime = msgTime; }
     float oldTimeScale = 1f;
 
     void Awake()
@@ -109,23 +115,30 @@ public class ShopCounter : MonoBehaviour
 
     void Update()
     {
-        if (!open) pc = Players.Nearest(transform.position);   // kaksinpeli: tiskille tuleva (tai E:tä painanut) pelaaja saa oman valikkonsa
-        if (pc == null) return;
-
-        if (!open)
+        if (sessions.Count == 0)
         {
+            pc = Players.Nearest(transform.position);
+            if (pc == null) return;
             near = NearFor(pc);
+            bool pressed = near && Pressed(Btn.Open);
             if (Players.Count > 1)
                 foreach (var q in Players.All)
-                    if (q != null && NearFor(q) && CoopInput.Pick(q.playerIndex)) { pc = q; near = true; Open(); return; }
-            if (near && Pressed(Btn.Open)) Open();
+                    if (q != null && NearFor(q) && CoopInput.Pick(q.playerIndex)) { pressed = true; near = true; break; }
+            if (pressed) OpenAll();
             return;
         }
 
-        if (Pressed(Btn.Up)) sel = (sel + items.Length - 1) % items.Length;
-        if (Pressed(Btn.Down)) sel = (sel + 1) % items.Length;
-        if (Pressed(Btn.Buy)) Buy(items[sel]);
-        else if (Pressed(Btn.Close)) Close();
+        // auki: jokainen tiskillä oleva pelaaja ohjaa omaa valikkoaan omilla napeillaan
+        for (int i = sessions.Count - 1; i >= 0; i--)
+        {
+            var sx = sessions[i];
+            Load(sx);
+            if (Pressed(Btn.Up)) sel = (sel + items.Length - 1) % items.Length;
+            if (Pressed(Btn.Down)) sel = (sel + 1) % items.Length;
+            if (Pressed(Btn.Buy)) { Buy(items[sel]); Save(sx); }
+            else if (Pressed(Btn.Close)) CloseOne(sx);
+            else Save(sx);
+        }
     }
 
     /// Onko pelaaja tiskin edessä.
@@ -140,20 +153,33 @@ public class ShopCounter : MonoBehaviour
             && !PieWar.Active;   // piirakkasodan aikana ei voi puhua Sohville   // Linseyn puhe (piirakkasota) menee edelle, kun hän on lähellä
     }
 
-    void Open()
+    /// Avaa valikon kaikille tiskin edessä oleville pelaajille (yksinpelissä vain P1).
+    void OpenAll()
     {
+        sessions.Clear();
+        if (Players.Count > 1)
+        {
+            foreach (var q in Players.All)
+                if (q != null && NearFor(q)) sessions.Add(new Sess { pc = q, msg = npcName + ": " + Loc.T("Mitä saisi olla?"), msgTime = Time.unscaledTime });
+        }
+        if (sessions.Count == 0 && pc != null) sessions.Add(new Sess { pc = pc, msg = npcName + ": " + Loc.T("Mitä saisi olla?"), msgTime = Time.unscaledTime });
+        if (sessions.Count == 0) return;
         open = true; IsOpen = true; near = false;
-        msg = npcName + ": " + Loc.T("Mitä saisi olla?"); msgTime = Time.unscaledTime;
-        pc.enabled = false;
+        foreach (var sx in sessions) sx.pc.enabled = false;
         oldTimeScale = Time.timeScale;
         Time.timeScale = 0f;
     }
 
-    void Close()
+    /// Yksi pelaaja poistuu valikosta; kun kaikki ovat poistuneet, peli jatkuu.
+    void CloseOne(Sess sx)
     {
-        open = false; IsOpen = false;
-        Time.timeScale = oldTimeScale <= 0.05f ? 1f : oldTimeScale;
-        pc.enabled = true;
+        if (sx.pc != null) sx.pc.enabled = true;
+        sessions.Remove(sx);
+        if (sessions.Count == 0)
+        {
+            open = false; IsOpen = false;
+            Time.timeScale = oldTimeScale <= 0.05f ? 1f : oldTimeScale;
+        }
     }
 
     void Buy(Item it)
@@ -274,12 +300,24 @@ public class ShopCounter : MonoBehaviour
 
         GUI.depth = -50;
         Fill(new Rect(0, 0, Screen.width, Screen.height), new Color(0f, 0f, 0f, 0.55f));
-        float pw = 1180 * u, ph = (260 + items.Length * 62) * u;
-        var panel = new Rect((Screen.width - pw) * 0.5f, (Screen.height - ph) * 0.5f, pw, ph);
+        int n = sessions.Count;
+        float k = n > 1 ? 0.78f : 1f;      // kaksi valikkoa vierekkäin: pienemmät
+        float pw = 1180 * u * k, ph = (260 + items.Length * 62) * u * k;
+        for (int i = 0; i < n; i++)
+        {
+            Load(sessions[i]);
+            float px = n > 1 ? Screen.width * 0.5f + (i == 0 ? -pw - 12 * u : 12 * u) : (Screen.width - pw) * 0.5f;
+            DrawPanel(new Rect(px, (Screen.height - ph) * 0.5f, pw, ph), u * k, n > 1);
+        }
+    }
+
+    void DrawPanel(Rect panel, float u, bool coop)
+    {
+        float pw = panel.width;
         Fill(new Rect(panel.x - 4 * u, panel.y - 4 * u, panel.width + 8 * u, panel.height + 8 * u), new Color(1f, 0.25f, 0.7f));
         Fill(panel, new Color(0.08f, 0.03f, 0.08f, 0.97f));
 
-        GUI.Label(new Rect(panel.x, panel.y + 18 * u, pw, 70 * u), Loc.T(title) + (Players.Count > 1 && !string.IsNullOrEmpty(pc.characterName) ? "  –  " + pc.characterName.ToUpper() : ""), big);
+        GUI.Label(new Rect(panel.x, panel.y + 18 * u, pw, 70 * u), Loc.T(title) + (coop && !string.IsNullOrEmpty(pc.characterName) ? "  –  " + pc.characterName.ToUpper() : ""), big);
 
         float y = panel.y + 110 * u;
         for (int i = 0; i < items.Length; i++)
