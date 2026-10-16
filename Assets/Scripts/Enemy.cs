@@ -202,6 +202,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float chargeMinRange = 2.6f;
     [Tooltip("Rynnäkkö jatkuu ohi mentyään ruudun reunaan asti (Metsuri juoksee ruudun päästä päähän) ja hakeutuu pelaajan syvyydelle.")]
     public bool chargeToEdge;
+    [Tooltip("Juoksee (juoksukuvat ja runSpeedMultiplier), kun kohde on tämän kauempana. Oletus 3,5; Metsuri juoksee lähes koko ajan.")]
+    public float runDistance = 3.5f;
+    [Tooltip("Ahdistus: pelaaja on 'nurkassa', kun hän on näin lähellä ruudun tai alueen reunaa ja vihu on hänen ja kentän keskustan puolella. Silloin rynnäkkö ja taklaus tulevat paljon useammin, myös lähietäisyydeltä. 0 = ei käytössä.")]
+    public float corneredRange = 0f;
     [Tooltip("Rynnäkkö (chargeRange > 0) voi laueta myös vierestä tällä todennäköisyydellä (esim. prätkäjätkän hyppylyönti).")]
     [Range(0f, 1f)] public float altNearChance = 0f;
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
@@ -932,6 +936,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
             // taklausjuoksu ruudun päästä päähän on pääliike: vähemmän kävelyä
             chargeToEdge = true; chargeRange = 24f; chargeMinRange = 1.8f; altChance = Mathf.Max(altChance, 0.9f);
+            // juoksee lähes koko ajan (kävelykuvat vain aivan lähellä) ja taklaa useammin, varsinkin kun pelaaja on ahdistettu nurkkaan
+            if (!HasLocomotion(runSprites) && HasLocomotion(walkSprites)) runSprites = walkSprites;
+            runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 1.9f); runFrameTime = 0.055f;
+            runDistance = 1.6f; corneredRange = 3.4f;
+            altNearChance = Mathf.Max(altNearChance, 0.3f);
+            attackCooldown = Mathf.Min(attackCooldown, 0.6f);
+            altTimeScale = Mathf.Min(altTimeScale, 1.2f);
         }
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
@@ -2312,9 +2323,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enter(State.BarThrow);
             return;
         }
+        bool cornered = PlayerCornered();   // nurkkaan ahdistettu pelaaja: taklaus lähempää ja moninkertaisella todennäköisyydellä
         if (chargeRange > 0f && Has(altAttackSprites) && attackRank <= 1 && cooldown <= 0f && retreatTimer <= 0f && !player.IsDown
-            && !grabIntent && adx >= chargeMinRange && adx <= chargeRange && Mathf.Abs(me.y - p.y) <= (chargeToEdge ? 1.4f : depthTolerance * 0.8f)
-            && Random.value < altChance * dt * 3f)
+            && !grabIntent && adx >= (cornered ? Mathf.Min(chargeMinRange, 1.0f) : chargeMinRange) && adx <= chargeRange
+            && Mathf.Abs(me.y - p.y) <= (chargeToEdge ? (cornered ? 2.2f : 1.4f) : depthTolerance * 0.8f)
+            && Random.value < altChance * dt * 3f * (cornered ? 3f : 1f))
         {
             moving = false;
             attackRolled = false;
@@ -2336,7 +2349,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (HasKickCombo && Random.value < kickComboChance) { facingRight = p.x > me.x; Enter(State.KickCombo); return; }
             if (Has(bellySprites) && bellySprites.Length >= 8 && Mathf.Abs(me.x - p.x) <= bellyRange && Random.value < bellyChance)
             { StartBelly(false); return; }
-            usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : altNearChance);   // rynnäkkö kaukaa, vierestä vain altNearChance
+            usingAlt = Has(altAttackSprites) && Random.value < (chargeRange <= 0f ? altChance : (cornered ? Mathf.Max(altNearChance, 0.85f) : altNearChance));   // rynnäkkö kaukaa, vierestä vain altNearChance (nurkassa useammin)
             RollPunch23();
             Enter(State.Windup);
             return;
@@ -2347,13 +2360,38 @@ public class Enemy : MonoBehaviour, IBottleHolder
             moving = true;
             Vector2 dir = to.normalized;
             // kaukana juostaan (myös kierrettäessä selän taakse)
-            float run = LocomotionMultiplier(to.magnitude > 3.5f || crossing || rushAfterBar);
+            float run = LocomotionMultiplier(to.magnitude > runDistance || crossing || rushAfterBar);
             Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
             step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x));
             step.y = Mathf.Sign(to.y) * Mathf.Min(Mathf.Abs(to.y), Mathf.Abs(step.y));
             Move(step);
         }
         else moving = false;
+    }
+
+    /// Pelaaja on ahdistettu nurkkaan: lähellä ruudun / alueen reunaa ja tämä vihu on hänen ja kentän keskustan välissä.
+    bool PlayerCornered()
+    {
+        if (corneredRange <= 0f || player == null) return false;
+        float px = player.transform.position.x, mx = transform.position.x;
+        float lo = float.NegativeInfinity, hi = float.PositiveInfinity;
+        var cam = Camera.main;
+        if (cam != null)
+        {
+            float half = Mathf.Max(0.1f, cam.orthographicSize * cam.aspect - 0.9f);
+            lo = cam.transform.position.x - half;
+            hi = cam.transform.position.x + half;
+        }
+        var area = Area.Current;
+        if (area != null)
+        {
+            if (area.walkMinX != 0f) lo = Mathf.Max(lo, area.walkMinX + 0.25f);
+            if (area.walkMaxX != 0f) hi = Mathf.Min(hi, area.walkMaxX - 0.25f);
+        }
+        if (!(lo < hi) || float.IsInfinity(lo)) return false;
+        if (px <= lo + corneredRange && mx > px) return true;    // pelaaja vasemmassa reunassa, vihu oikealla
+        if (px >= hi - corneredRange && mx < px) return true;    // pelaaja oikeassa reunassa, vihu vasemmalla
+        return false;
     }
 
     Vector2 ClampChaseTarget(Vector2 target, Vector3 me, Vector3 opponent)
@@ -3362,9 +3400,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Punch:
                 // Metsurin taklausjuoksu: juoksee (juoksukuvat nopeasti), olkataklaus vasta pelaajan kohdalla
-                if (chargeToEdge && usingAlt && !punchLanded && Has(walkSprites) && player != null
+                if (chargeToEdge && usingAlt && !punchLanded && (HasLocomotion(runSprites) || Has(walkSprites)) && player != null
                     && Mathf.Abs(player.transform.position.x - transform.position.x) > 2.4f)
-                    return walkSprites[(int)(animClock / 0.05f) % walkSprites.Length];
+                {
+                    var chargeFrames = HasLocomotion(runSprites) ? runSprites : walkSprites;
+                    return chargeFrames[(int)(animClock / 0.05f) % chargeFrames.Length];
+                }
                 if (Has(AtkSprites))
                 {
                     // lyhyt välikuva ja sitten täysin ojennettu käsi (vasarassa alastulo näkyy pidempään)

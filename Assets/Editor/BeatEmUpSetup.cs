@@ -2527,6 +2527,8 @@ public static class BeatEmUpSetup
             // pomo: metsuri, Koviksen kokoinen. Pohjana Koviksen kopio (varjo, äänet), omat kuvat päälle.
             foreach (var f in new[] { "pomo_idle", "pomo_juoksu", "pomo_heitto", "pomo_taklaus", "pomo_lyonti", "pomo_maha", "pomo_kaatuu" })
                 SetupAndSlice(EnemyFolder + "/" + f + ".png");
+            if (File.Exists(EnemyFolder + "/pomo_kavely.png")) SetupAndSlice(EnemyFolder + "/pomo_kavely.png");   // uusi kävelyvideo (valinnainen)
+            var walk = EnemySheet("pomo_kavely", report);
             var idle = EnemySheet("pomo_idle", report);
             var run = EnemySheet("pomo_juoksu", report);
             var grab = EnemySheet("pomo_heitto", report);
@@ -2544,7 +2546,10 @@ public static class BeatEmUpSetup
             b.bigBody = true;
             var none = new Sprite[0];
             if (idle.Length > 0) { b.idleSprites = idle; b.body.sprite = idle[0]; b.idleFrameTime = 0.16f; }   // 6 kuvaa, suu liikkuu (puhuu)
-            if (run.Length > 0) { b.walkSprites = run; b.walkFrameTime = 0.07f; }   // pomo ei kävele, se juoksee
+            // juoksu (pomo_juoksu) on pääliikkumistapa, kävely (pomo_kavely, jos on) vain aivan lähellä
+            if (run.Length > 0) { b.runSprites = run; b.runFrameTime = 0.055f; }
+            if (walk.Length > 0) { b.walkSprites = walk; b.walkFrameTime = 0.08f; }
+            else if (run.Length > 0) { b.walkSprites = run; b.walkFrameTime = 0.07f; }
             // lyönti ylhäältä alas: lataa nyrkkiä 0.3 s (ehtii alta pois), heilautus ja isku maahan kaataa.
             // Varalla kahden käden töytäisy heittokuvista.
             if (slam.Length >= 4) { b.punchSprites = slam; b.punchImpactFrame = 2; b.windupTime = 0.3f; b.punchKnockdown = true; b.punchShake = 0.18f; }
