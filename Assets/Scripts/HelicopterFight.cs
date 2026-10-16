@@ -27,7 +27,7 @@ public class HelicopterFight : MonoBehaviour
     void Update()
     {
         if (Area.Current != area || Completed) return;
-        if (player == null) player = FindFirstObjectByType<PlayerController>();
+        if (player == null) player = Players.Primary;
         if (player == null) return;
         if (!cargoStarted)
         {

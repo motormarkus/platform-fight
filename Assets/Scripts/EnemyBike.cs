@@ -84,7 +84,7 @@ public class EnemyBike : MonoBehaviour
 
     void Start()
     {
-        pc = FindFirstObjectByType<PlayerController>();
+        pc = Players.Primary;
         PlayerController.SortByFrameNumber(sprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         var mb = Motorbike.Current;

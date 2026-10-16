@@ -107,6 +107,11 @@ public class Area : MonoBehaviour
             pc.sidewalkHeight = sidewalkHeight;
             pc.curbDepthY = curbDepthY;
         }
+        foreach (var o in Players.All)
+        {
+            if (o == null || o == pc) continue;
+            o.minDepthY = minDepthY; o.maxDepthY = maxDepthY; o.useSidewalk = useSidewalk; o.sidewalkHeight = sidewalkHeight; o.curbDepthY = curbDepthY;
+        }
         var cam = CameraFollow.Instance;
         if (cam != null)
         {

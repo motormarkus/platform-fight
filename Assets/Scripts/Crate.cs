@@ -167,7 +167,7 @@ public class Crate : MonoBehaviour
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerController>();
+        player = Players.Primary;
         groundHeight = TargetGround();
     }
 

@@ -65,7 +65,7 @@ public class Manhole : MonoBehaviour
     {
         if (wantOpen && !lidAway)
         {
-            if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+            if (pc == null) pc = Players.Primary;
             bool away = Area.Current != area
                 || (pc != null && (Mathf.Abs(pc.transform.position.x - transform.position.x) > closeDistance
                                    || Mathf.Abs(pc.transform.position.y - transform.position.y) > 2.4f));

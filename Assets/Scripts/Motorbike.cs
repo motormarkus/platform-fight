@@ -187,7 +187,7 @@ public class Motorbike : MonoBehaviour
         float ps = Mathf.Min(Scale, propScale);
         if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
         if (!rideable || (parkedNoRideArea != null && Area.Current == parkedNoRideArea)) { near = false; return; }
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         if (pc == null) return;
         if (riding) { Ride(Time.deltaTime); return; }
         near = false;
@@ -286,7 +286,7 @@ public class Motorbike : MonoBehaviour
 
     public void ResumeTravel(Vector3 pos, bool faceRight)
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         if (pc == null) return;
         UseCharacterSprites();
         active = this; riding = true; busy = false;

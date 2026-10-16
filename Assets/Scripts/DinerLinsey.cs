@@ -204,7 +204,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
     bool TryStartPie()
     {
         if (!throwsPies || !HasPieArt) return false;
-        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        if (hero == null) hero = Players.Primary;
         Vector3 me = transform.position;
         Enemy foe = null; float fd = pieRange;
         foreach (var e in Enemy.All)
@@ -318,7 +318,7 @@ public class DinerLinsey : MonoBehaviour, IBottleHolder
         speakT -= dt;
         if (speakT > 0f) return;
         speakT = Random.Range(speakInterval.x, speakInterval.y);
-        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        if (hero == null) hero = Players.Primary;
         if (hero == null || Mathf.Abs(hero.transform.position.x - transform.position.x) > 12f) return;
         HitFx.PlayClip(speakSounds[Random.Range(0, speakSounds.Length)], speakVolume);
     }

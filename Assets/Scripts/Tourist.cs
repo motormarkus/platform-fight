@@ -90,7 +90,7 @@ public class Tourist : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         float dt = Time.deltaTime;
         t += dt;
         switch (state)

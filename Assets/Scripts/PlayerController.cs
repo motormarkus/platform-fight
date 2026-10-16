@@ -1321,6 +1321,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Awake()
     {
+        if (Players.Cloning) return;   // P2:n mallikopio: Awake ei tee mitään (kopio pysyy puhtaana, hahmo asetetaan vasta synnyttäessä)
+        if (playerIndex == 0) Players.MakeTemplate(this);
+        Players.Register(this);
         maxHealth = GameSettings.StartHealth; healthBoost = 0;   // vaikeustaso: alkuenergia (voimakuvakkeet pidentävät palkkia)
         SortByFrameNumber(idleSprites);
         HeroIdle = idleSprites;
@@ -1350,7 +1353,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         SortByFrameNumber(carryWalkSprites);
         HeroHits = punchCombo; HeroBigHook = bigHookSprites; HeroGrunts = attackGrunts;
         if (punchCombo != null) HeroCombo = ComboFrames(System.Array.ConvertAll(punchCombo, c => c.HasAnimation ? c.sprites : null));
-        if (GameSettings.Character == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
+        if ((Players.SpawnCharacter >= 0 ? Players.SpawnCharacter : GameSettings.Character) == 1) ApplyHeroine();   // hahmonvalinta (järjestyksen jälkeen: osa sarjoista järjestetään uudelleen)
         // Roccon hyppy videosta (Resources/Hyppy/rocco_hyppy_00…08): 0 seisoo, 1 kyykky, 2–6 ilmassa nopeuden mukaan, 7–8 alastulo
         if (AppliedCharacter == 0 && (jumpSprites == null || jumpSprites.Length < 9))
         {
@@ -1373,7 +1376,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // pärinä: kaikki liikkeet nopeutuvat
         heroDt = dt;
-        Enemy.TimeScale = Boosted ? boostEnemySlow : 1f;
+        Enemy.TimeScale = Players.AnyBoosted ? boostEnemySlow : 1f;
         stateTime += dt;
         animClock += dt;
 
@@ -1428,7 +1431,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         bool catchNow = catchPressed || (Time.time <= catchBufferUntil && state == State.Ground);
         // esineen poiminta omalla napilla (E / ympyrä); sama nappi myös heittää kädessä olevan esineen
-        bool pickPressed = !Scripted && PickInput();
+        bool pickPressed = !Scripted && PickPressed();
         if (pickPressed) pickBufferUntil = Time.time + 0.18f;
         bool pickNow = pickPressed || (Time.time <= pickBufferUntil && state == State.Ground);
         bool picking = state == State.SmallPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
@@ -2578,10 +2581,32 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (IsDrunk) damage = Mathf.CeilToInt(damage * drunkDamageTaken);
         health = Mathf.Max(0, health - damage);
-        if (health <= 0) { health = 0; GameOver = true; }   // yksi energiapalkki: ei elämiä
+        if (health <= 0) { health = 0; if (!GameOver) DeadAt = Time.time; GameOver = true; }   // yksi energiapalkki: ei elämiä
     }
     /// Elämät loppuivat.
     public bool GameOver { get; private set; }
+    /// Pelaajan numero: 0 = P1 (Rocco tai valittu hahmo), 1 = P2 (kaksinpeli).
+    [HideInInspector] public int playerIndex;
+    /// Milloin energia loppui (kaksinpelin herätys).
+    public float DeadAt { get; private set; }
+
+    void OnDestroy() { Players.Unregister(this); }
+
+    /// Kaksinpeli: P2 perii P1:n alueen rajat (syvyys, jalkakäytävä).
+    public void CopyAreaFrom(PlayerController o)
+    {
+        minDepthY = o.minDepthY; maxDepthY = o.maxDepthY; useSidewalk = o.useSidewalk; sidewalkHeight = o.sidewalkHeight; curbDepthY = o.curbDepthY;
+    }
+
+    /// Kaksinpeli: kaatunut pelaaja herää annettuun paikkaan annetulla energialla.
+    public void Revive(int hp, Vector3 pos)
+    {
+        GameOver = false;
+        health = Mathf.Clamp(hp, 1, maxHealth);
+        invulnTimer = 2f;
+        TeleportTo(pos);
+        Enter(State.Ground);
+    }
     float invulnTimer;
 
     /// Energian palautus (ruoka ja juoma). Palauttaa todellisen lisäyksen.
@@ -3670,15 +3695,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
-    public static bool PickHeld()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.eKey.isPressed)
-            || (Gamepad.current != null && Gamepad.current.buttonEast.isPressed);
-#else
-        return Input.GetKey(KeyCode.E);
-#endif
-    }
+    bool PickHeld() => CoopInput.PickHeld(playerIndex);
 
     /// Molemmat hahmot juovat omilla kuvillaan, sitten sama pärinä päälle.
     public void DrinkThermos()
@@ -4235,139 +4252,43 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return actionSprites[Mathf.Clamp(index, 0, actionSprites.Length - 1)];
     }
 
-    // ---------------- Syöte (näppäimistö + peliohjain) ----------------
+    // ---------------- Syöte (näppäimistö + peliohjain, pelaajakohtainen: CoopInput) ----------------
 
-    Vector2 ReadMove() => ReadMoveInput();
+    Vector2 ReadMove() => CoopInput.Move(playerIndex);
 
-    /// Liikesyöte (näppäimistö + peliohjain), myös muiden skriptien käyttöön (esim. moottoripyörä).
-    public static Vector2 ReadMoveInput()
-    {
-        Vector2 v = Vector2.zero;
-#if ENABLE_INPUT_SYSTEM
-        var k = Keyboard.current;
-        if (k != null)
-        {
-            if (k.aKey.isPressed || k.leftArrowKey.isPressed) v.x -= 1;
-            if (k.dKey.isPressed || k.rightArrowKey.isPressed) v.x += 1;
-            if (k.sKey.isPressed || k.downArrowKey.isPressed) v.y -= 1;
-            if (k.wKey.isPressed || k.upArrowKey.isPressed) v.y += 1;
-        }
-        var g = Gamepad.current;
-        if (g != null)
-        {
-            Vector2 stick = g.leftStick.ReadValue();
-            if (stick.magnitude > 0.25f) v += stick;
-            v += g.dpad.ReadValue();
-        }
-#else
-        v = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-#endif
-        return Vector2.ClampMagnitude(v, 1f);
-    }
+    /// Liikesyöte (P1: näppäimistö + peliohjain), myös muiden skriptien käyttöön (esim. moottoripyörä).
+    public static Vector2 ReadMoveInput() => CoopInput.Move(0);
 
-    bool JumpPressed()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.Space);
-#endif
-    }
+    bool JumpPressed() => CoopInput.Jump(playerIndex);
 
-    bool PunchPressed() => PunchInput();
+    bool PunchPressed() => CoopInput.Punch(playerIndex);
 
-    /// Lyöntinappi (J / ohjaimen neliö), myös muiden skriptien käyttöön (esim. prätkä).
-    public static bool PunchInput()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.J);
-#endif
-    }
+    /// Lyöntinappi (J / ohjaimen neliö), P1:n, myös muiden skriptien käyttöön (esim. prätkä).
+    public static bool PunchInput() => CoopInput.Punch(0);
 
-    bool RunHeld()
-    {
-        if (Scripted) return false;
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && (Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))
-            || (Gamepad.current != null && Gamepad.current.rightShoulder.isPressed);
-#else
-        return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-#endif
-    }
+    bool RunHeld() => !Scripted && CoopInput.Run(playerIndex);
 
-    bool KickPressed()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.K);
-#endif
-    }
+    bool KickPressed() => CoopInput.Kick(playerIndex);
 
-    bool SpecialPressed()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.rightStickButton.wasPressedThisFrame);   // erikoisliike R3:een (L-olkanappi on nosto/heitto)
-#else
-        return Input.GetKeyDown(KeyCode.L);
-#endif
-    }
+    bool SpecialPressed() => CoopInput.Special(playerIndex);   // erikoisliike R3:een (L-olkanappi on nosto/heitto)
 
-    bool PushPressed() => PushInput();
+    bool PushPressed() => CoopInput.Push(playerIndex);
 
-    /// Puskunappi (U / ohjaimen RT), myös muiden skriptien käyttöön (esim. prätkän kiihdytys).
-    public static bool PushInput()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.uKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.U);
-#endif
-    }
+    /// Puskunappi (U / ohjaimen RT), P1:n, myös muiden skriptien käyttöön (esim. prätkän kiihdytys).
+    public static bool PushInput() => CoopInput.Push(0);
 
-    bool CatchPressed() => CatchInput();
+    bool CatchPressed() => CoopInput.Catch(playerIndex);
 
     bool throwQueued;
     float pickBufferUntil;
 
     /// Esineen poiminta (E / ohjaimen ympyrä eli itänappi): pullot, pallot, keppi, tuoli, rengas, laatikot, pöydät ja telkkari.
-    public static bool PickInput()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.E);
-#endif
-    }   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
+    bool PickPressed() => CoopInput.Pick(playerIndex);   // nappia painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
 
-    /// Nappausnappi (O / ohjaimen vasen liipaisin L2): vastaheiton kurotus; heittää myös kädessä olevan esineen.
-    public static bool CatchInput()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.oKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.O);
-#endif
-    }
+    /// Nappausnappi (O / ohjaimen vasen liipaisin L2): vastaheiton kurotus; heittää myös kädessä olevan esineen. P1:n, myös muiden skriptien käyttöön.
+    public static bool CatchInput() => CoopInput.Catch(0);
 
-    bool BlockHeld()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.iKey.isPressed)
-            || (Gamepad.current != null && Gamepad.current.leftShoulder.isPressed);   // suojaus / parry: L1
-#else
-        return Input.GetKey(KeyCode.I);
-#endif
-    }
+    bool BlockHeld() => CoopInput.Block(playerIndex);   // suojaus / parry: L1
 
     // ---------------- Apufunktiot ----------------
 

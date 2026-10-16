@@ -23,7 +23,7 @@ public class RekkamiesVoice : MonoBehaviour
     {
         if (enemy == null || enemy.IsDead) return;
         if (!InHeroArea()) return;   // puhuu, kun hero on samalla alueella (baari / romuttamo), vaikkei ole ruudulla; muilla alueilla ei kuulu
-        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        if (hero == null) hero = Players.Primary;
         if (hero == null) return;
         if (Time.time < busyUntil) return;   // edellinen repliikki on vielä kesken: ei aloiteta uutta
         float dt = Time.deltaTime;

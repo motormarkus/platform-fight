@@ -103,7 +103,7 @@ public class GameMenu : MonoBehaviour
             case Page.Difficulty: return new[] { "Helppo", "Normaali", "Vaikea", "Takaisin" };
             case Page.Pause:
             {
-                var pc0 = FindFirstObjectByType<PlayerController>();
+                var pc0 = Players.Primary;
                 return pc0 != null && pc0.HasBooni
                     ? new[] { "Jatka", "Juo Bööni", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" }
                     : new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
@@ -126,7 +126,7 @@ public class GameMenu : MonoBehaviour
     {
         if (page == Page.None)
         {
-            var pc = FindFirstObjectByType<PlayerController>();
+            var pc = Players.Primary;
             if (ShopCounter.IsOpen) shopOpenFrame = Time.frameCount;
             bool shopJustClosed = Time.frameCount - shopOpenFrame <= 1;   // kaupan sulkeva Esc ei avaa taukoa
             if (PausePressed() && !ShopCounter.IsOpen && !shopJustClosed && (pc == null || !pc.GameOver)) Open(Page.Pause);
@@ -187,7 +187,7 @@ public class GameMenu : MonoBehaviour
             {
                 if (i == 2) { page = Page.Title; sel = 0; break; }
                 GameSettings.Character = i;
-                var cur = FindFirstObjectByType<PlayerController>();
+                var cur = Players.Primary;
                 // hahmo vaihtui: kuvat vaihdetaan pelaajan herätessä, joten scene ladataan uudelleen
                 if (cur != null && cur.AppliedCharacter != i) { difficultyOnce = true; Restart(); break; }
                 page = Page.Difficulty; sel = (int)GameSettings.Difficulty;
@@ -196,7 +196,7 @@ public class GameMenu : MonoBehaviour
             case Page.Difficulty:
                 if (i == 3) { page = Page.Character; sel = GameSettings.Character; break; }
                 GameSettings.Difficulty = (GameSettings.Level)i;
-                var pc = FindFirstObjectByType<PlayerController>();
+                var pc = Players.Primary;
                 if (pc != null) pc.SetBaseHealth(GameSettings.StartHealth);
                 Close();
                 break;
@@ -207,7 +207,7 @@ public class GameMenu : MonoBehaviour
                 else if (lbl == "Juo Bööni")
                 {
                     Close();
-                    var pcb = FindFirstObjectByType<PlayerController>();
+                    var pcb = Players.Primary;
                     if (pcb != null) pcb.UseBooni();
                 }
                 else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; sel = 0; }
@@ -385,7 +385,7 @@ public class GameMenu : MonoBehaviour
 
     static string HeroineName()
     {
-        var pc = FindFirstObjectByType<PlayerController>();
+        var pc = Players.Primary;
         return pc != null && pc.heroine != null && !string.IsNullOrEmpty(pc.heroine.name) ? pc.heroine.name : "Ruby";
     }
 
@@ -471,7 +471,7 @@ public class GameMenu : MonoBehaviour
     {
         if (Logo(w, h * 0.05f, w * 0.30f) <= 0f) Title(new Rect(0, h * 0.10f, w, 130 * s), gameTitle, titleStyle);
         Shadowed(new Rect(0, h * 0.23f, w, 60 * s), Loc.T("Valitse hahmo"), headStyle, Color.white);
-        var pc = FindFirstObjectByType<PlayerController>();
+        var pc = Players.Primary;
         Sprite[][] sets = { pc != null ? pc.HeroIdle : null, pc != null && pc.heroine != null ? pc.heroine.idle : null };
         if (pc != null && menuSeqs == null) BuildMenuSeqs(pc);
         if (sel != lastCharSel) { lastCharSel = sel; charSelT = Time.unscaledTime; }
@@ -621,7 +621,7 @@ public class GameMenu : MonoBehaviour
     {
 #if ENABLE_INPUT_SYSTEM
         return (Keyboard.current != null && (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame))
-            || (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame);
+            || CoopManager.PauseStartPressed();
 #else
         return Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P);
 #endif

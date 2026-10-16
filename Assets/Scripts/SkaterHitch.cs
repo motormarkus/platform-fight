@@ -44,7 +44,7 @@ public class SkaterHitch : MonoBehaviour
 
     void Start()
     {
-        pc = FindFirstObjectByType<PlayerController>();
+        pc = Players.Primary;
         PlayerController.SortByFrameNumber(towSprites); PlayerController.SortByFrameNumber(reachSprites);
         PlayerController.SortByFrameNumber(holdSprites); PlayerController.SortByFrameNumber(fallSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();

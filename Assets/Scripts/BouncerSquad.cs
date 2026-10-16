@@ -66,7 +66,7 @@ public class BouncerSquad : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         if (!triggered)
         {
             if (area == null || Area.Current != area) { heroHealthAtEnter = -1; return; }

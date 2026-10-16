@@ -109,7 +109,7 @@ public class ShopCounter : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         if (pc == null) return;
 
         if (!open)

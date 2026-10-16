@@ -605,7 +605,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     AudioSource audioSource;
     int lastSound = -1;
 
-    PlayerController player;
+    PlayerController playerCache;
+    /// Kohde: lähin elossa oleva pelaaja (kaksinpelissä), yksinpelissä aina P1.
+    PlayerController player { get { playerCache = Players.Target(transform.position, playerCache); return playerCache; } }
     bool awake;
     Crate targetBarrel;     // tynnyri, jota ollaan hakemassa
     Crate heldBarrel;       // tynnyri käsissä
@@ -960,7 +962,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerController>();
+        playerCache = Players.Primary;
         groundHeight = TargetGround();
         if (idleFacing != 0) facingRight = idleFacing > 0;
         CacheBouncerTemplate();

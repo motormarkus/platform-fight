@@ -34,7 +34,7 @@ public class RideExit : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        if (pc == null) pc = Players.Primary;
         bool walkingReturn = pc != null && returnOnFoot && !pc.Riding && parkedTravelBike != null && Area.Current == parkedTravelArea;
         if (pc == null || busy || (!walkingReturn && (!pc.Riding || Motorbike.Current == null)) || target == null || (here != null && Area.Current != here)) return;
         // vain kujan lopussa (kohdealue on samassa scenessä kauempana oikealla)

@@ -44,7 +44,7 @@ public class PariRider : EnemyBike
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerController>();
+        player = Players.Primary;
         var all = Resources.LoadAll<Sprite>("AjoPari");
         if (idleSprites == null || idleSprites.Length == 0) idleSprites = Frames(all, "ajo_idle_");
         if (punchSprites == null || punchSprites.Length == 0) punchSprites = Frames(all, "lyonti_");

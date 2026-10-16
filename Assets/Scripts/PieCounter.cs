@@ -77,7 +77,7 @@ public class PieCounter : MonoBehaviour
     {
         floorMade.RemoveAll(b => b == null || (born.TryGetValue(b, out float t0) && Time.time - t0 > 0.5f && !b.CanPickUp));
         if (floorMade.Count >= 10) return false;
-        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        if (hero == null) hero = Players.Primary;
         float cx = hero != null ? hero.transform.position.x : (area.walkMinX + area.walkMaxX) * 0.5f;
         float cy = hero != null ? hero.transform.position.y : area.minDepthY + 1.5f;
         float px = Mathf.Clamp(cx + Random.Range(-5f, 5f), area.walkMinX + 1.5f, area.walkMaxX - 1.5f);

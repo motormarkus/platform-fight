@@ -55,7 +55,7 @@ public class ThrownTire : MonoBehaviour
             p.x += dir * step; travelled += step;
             rot -= dir * 540f * dt;
             transform.position = p;
-            if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+            pc = Players.Nearest(transform.position);
             if (pc != null)
             {
                 Vector3 q = pc.transform.position;

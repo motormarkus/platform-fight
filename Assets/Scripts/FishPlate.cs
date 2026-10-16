@@ -226,7 +226,7 @@ public class FoodDebris : MonoBehaviour
     {
         if (landed) return;
         float dt = Time.deltaTime;
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
+        pc = Players.Nearest(transform.position);
         Vector3 p = transform.position;
         p.x += vx * dt;
         float minY = pc != null ? pc.minDepthY : -10f, maxY = pc != null ? pc.maxDepthY : 10f;

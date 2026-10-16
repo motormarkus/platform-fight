@@ -100,11 +100,30 @@ public class CameraFollow : MonoBehaviour
         return Mathf.Clamp(x, lo, hi);
     }
 
+    /// Kaksinpeli: jälkeen jäävä pelaaja ei pääse ruudun ulkopuolelle (kamera seuraa keskikohtaa).
+    void KeepPlayersOnScreen()
+    {
+        if (Players.Count < 2) return;
+        var c = GetComponent<Camera>();
+        if (c == null || !c.orthographic) return;
+        float half = c.orthographicSize * c.aspect - 1.0f;
+        float cx = transform.position.x;
+        foreach (var p in Players.All)
+        {
+            if (p == null || p.GameOver) continue;
+            var pos = p.transform.position;
+            float nx = Mathf.Clamp(pos.x, cx - half, cx + half);
+            if (!Mathf.Approximately(nx, pos.x)) p.transform.position = new Vector3(nx, pos.y, pos.z);
+        }
+    }
+
     void LateUpdate()
     {
         if (target != null)
         {
-            float goal = ClampX(target.position.x);
+            float tx = target.position.x;
+            if (Players.Count > 1 && Players.LivingBounds(out float lx, out float hx, out float ay)) tx = (lx + hx) * 0.5f;   // kaksinpeli: keskikohta
+            float goal = ClampX(tx);
             basePos.x = Mathf.SmoothDamp(basePos.x, goal, ref velocity, smoothTime);
             basePos.y = Mathf.SmoothDamp(basePos.y, GoalY(), ref yVel, 0.35f);
         }
@@ -120,5 +139,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 pos = basePos + offset + new Vector3(0f, -zoomDrop, 0f);
         if (target != null) pos.x = ClampX(pos.x);   // tärähdyskään ei vie kuvan päädyn yli
         transform.position = pos;
+        KeepPlayersOnScreen();
     }
 }

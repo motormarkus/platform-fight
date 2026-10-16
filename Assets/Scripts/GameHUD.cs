@@ -33,13 +33,13 @@ public class GameHUD : MonoBehaviour
 
     void Update()
     {
-        if (player == null) player = FindFirstObjectByType<PlayerController>();
+        if (player == null) player = Players.Primary;
         if (LanguagePressed())
         {
             Loc.Toggle();
             langShown = Time.unscaledTime;
         }
-        if (player != null && player.GameOver && RestartPressed())
+        if (player != null && Players.AllDown && RestartPressed())
         {
             Time.timeScale = 1f;
             pops.Clear();
@@ -89,8 +89,59 @@ public class GameHUD : MonoBehaviour
         // reunoista selvä marginaali: editorin Game-ikkuna voi leikata reunoja
         float x = 40 * s + Screen.width * 0.025f, y = 30 * s + Screen.height * 0.035f, w = 420 * s, h = 26 * s;
 
-        if (player != null)
+        DrawPlayer(player, x, y, s, w, h);
+        if (Players.Count > 1)
         {
+            // kaksinpeli: P2:n paneeli keskellä ylhäällä
+            foreach (var p2 in Players.All) if (p2 != null && p2 != player) DrawPlayer(p2, Screen.width * 0.5f - w * 0.35f, y, s, w, h);
+        }
+
+        // pomon energiapalkki oikeaan yläkulmaan, samankokoinen kuin pelaajan
+        var boss = Enemy.ActiveBoss;
+        if (boss != null)
+        {
+            float bx = Screen.width - x - w;
+            var right = new GUIStyle(label) { alignment = TextAnchor.UpperRight };
+            GUI.Label(new Rect(bx, y, w, h * 1.4f), Loc.T(boss.displayName).ToUpper(), right);
+            Bar(new Rect(bx, y + h * 1.4f, w, h), boss.Health / (float)Mathf.Max(1, boss.maxHealth), new Color(0.9f, 0.2f, 0.15f));
+        }
+
+        var e = Enemy.LastHit;
+        if (e != null && e != boss && Time.time - Enemy.LastHitTime < enemyBarTime)
+        {
+            float ey = y + h * 3.8f;
+            GUI.Label(new Rect(x, ey, w, h * 1.4f), Loc.T(e.displayName).ToUpper(), label);
+            Bar(new Rect(x, ey + h * 1.4f, w * 0.8f, h * 0.8f), e.Health / (float)Mathf.Max(1, e.maxHealth), new Color(0.9f, 0.2f, 0.15f));
+        }
+
+        // kelluvat tekstit
+        var cam = Camera.main;
+        for (int i = pops.Count - 1; i >= 0; i--)
+        {
+            float age = Time.unscaledTime - pops[i].t0;
+            if (age > PopTime) { pops.RemoveAt(i); continue; }
+            if (cam == null) continue;
+            Vector3 sp = cam.WorldToScreenPoint(pops[i].pos + Vector3.up * age * 0.8f);
+            var c = pops[i].color; c.a = 1f - age / PopTime;
+            Shadowed(new Rect(sp.x - 150 * s, Screen.height - sp.y - 25 * s, 300 * s, 50 * s), pops[i].text, popupStyle, c);
+        }
+
+        if (Time.unscaledTime - langShown < 2f)
+            Shadowed(new Rect(0, Screen.height * 0.12f, Screen.width, Screen.height * 0.06f), Loc.T("Kieli: Suomi"), popupStyle, Color.white);
+
+        if (player != null && Players.AllDown)
+        {
+            GUI.color = new Color(0f, 0f, 0f, 0.6f);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), white);
+            GUI.color = Color.white;
+            Shadowed(new Rect(0, Screen.height * 0.35f, Screen.width, Screen.height * 0.15f), "GAME OVER", bigStyle, new Color(1f, 0.2f, 0.2f));
+            Shadowed(new Rect(0, Screen.height * 0.52f, Screen.width, Screen.height * 0.06f), Loc.T("Enter = uusi peli"), popupStyle, Color.white);
+        }
+    }
+
+    void DrawPlayer(PlayerController player, float x, float y, float s, float w, float h)
+    {
+        if (player == null) return;
             GUI.Label(new Rect(x, y, w, h * 1.4f), string.IsNullOrEmpty(player.characterName) ? Loc.T(playerName) : player.characterName.ToUpper(), label);
             // yksi energiapalkki: pitenee voimakuvakkeista (perusmitta = 200 energiaa)
             float bw = w * Mathf.Clamp(player.maxHealth / 200f, 0.6f, 2.0f);
@@ -141,49 +192,6 @@ public class GameHUD : MonoBehaviour
                 GUI.Label(new Rect(x + sway, y + h * (player.Boosted ? 4.8f : 3.4f) + 12 * s, 600 * s, h * 1.4f), Loc.T("MERIMIESKÄNNI") + "  " + Mathf.CeilToInt(player.DrunkLeft), label);
             }
             label.normal.textColor = Color.white;
-        }
-
-        // pomon energiapalkki oikeaan yläkulmaan, samankokoinen kuin pelaajan
-        var boss = Enemy.ActiveBoss;
-        if (boss != null)
-        {
-            float bx = Screen.width - x - w;
-            var right = new GUIStyle(label) { alignment = TextAnchor.UpperRight };
-            GUI.Label(new Rect(bx, y, w, h * 1.4f), Loc.T(boss.displayName).ToUpper(), right);
-            Bar(new Rect(bx, y + h * 1.4f, w, h), boss.Health / (float)Mathf.Max(1, boss.maxHealth), new Color(0.9f, 0.2f, 0.15f));
-        }
-
-        var e = Enemy.LastHit;
-        if (e != null && e != boss && Time.time - Enemy.LastHitTime < enemyBarTime)
-        {
-            float ey = y + h * 3.8f;
-            GUI.Label(new Rect(x, ey, w, h * 1.4f), Loc.T(e.displayName).ToUpper(), label);
-            Bar(new Rect(x, ey + h * 1.4f, w * 0.8f, h * 0.8f), e.Health / (float)Mathf.Max(1, e.maxHealth), new Color(0.9f, 0.2f, 0.15f));
-        }
-
-        // kelluvat tekstit
-        var cam = Camera.main;
-        for (int i = pops.Count - 1; i >= 0; i--)
-        {
-            float age = Time.unscaledTime - pops[i].t0;
-            if (age > PopTime) { pops.RemoveAt(i); continue; }
-            if (cam == null) continue;
-            Vector3 sp = cam.WorldToScreenPoint(pops[i].pos + Vector3.up * age * 0.8f);
-            var c = pops[i].color; c.a = 1f - age / PopTime;
-            Shadowed(new Rect(sp.x - 150 * s, Screen.height - sp.y - 25 * s, 300 * s, 50 * s), pops[i].text, popupStyle, c);
-        }
-
-        if (Time.unscaledTime - langShown < 2f)
-            Shadowed(new Rect(0, Screen.height * 0.12f, Screen.width, Screen.height * 0.06f), Loc.T("Kieli: Suomi"), popupStyle, Color.white);
-
-        if (player != null && player.GameOver)
-        {
-            GUI.color = new Color(0f, 0f, 0f, 0.6f);
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), white);
-            GUI.color = Color.white;
-            Shadowed(new Rect(0, Screen.height * 0.35f, Screen.width, Screen.height * 0.15f), "GAME OVER", bigStyle, new Color(1f, 0.2f, 0.2f));
-            Shadowed(new Rect(0, Screen.height * 0.52f, Screen.width, Screen.height * 0.06f), Loc.T("Enter = uusi peli"), popupStyle, Color.white);
-        }
     }
 
     void Shadowed(Rect r, string text, GUIStyle st, Color c)

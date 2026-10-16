@@ -20,7 +20,7 @@ public class EnemyBikeSpawner : MonoBehaviour
         var cam = Camera.main;
         if (mb == null || template == null || cam == null) return;
         float x = mb.transform.position.x;
-        var pc = FindFirstObjectByType<PlayerController>();
+        var pc = Players.Primary;
         if (pc == null) return;
         x = pc.transform.position.x;
         if (x < minX || x > maxX - 40f) return;

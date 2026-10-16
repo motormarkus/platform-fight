@@ -92,7 +92,7 @@ public class PieWar : MonoBehaviour
 
     void Update()
     {
-        if (hero == null) hero = FindFirstObjectByType<PlayerController>();
+        if (hero == null) hero = Players.Primary;
         if (hero == null || area == null) return;
         if (Area.Current != area) { if (Active && !ending) AbortQuietly(); near = false; LinseyPrompt = false; return; }
         if (!captured) CaptureRoster();

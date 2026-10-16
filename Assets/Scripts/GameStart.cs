@@ -11,7 +11,7 @@ public class GameStart : MonoBehaviour
 
     void Start()
     {
-        var pc = FindFirstObjectByType<PlayerController>();
+        var pc = Players.Primary;
         if (pc == null) return;
         if (area != null) area.Apply(pc);
         pc.TeleportTo(new Vector3(position.x, position.y, 0f));

@@ -84,12 +84,18 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (pc == null) pc = FindFirstObjectByType<PlayerController>();
-        if (pc == null || busy) { near = false; confirming = false; return; }
+        if (busy) { near = false; confirming = false; return; }
+        if (!confirming)
+        {
+            pc = Players.Nearest(transform.position);   // kaksinpeli: ovea käyttää lähin pelaaja, tai se joka painoi nappia
+            if (Players.Count > 1)
+                foreach (var q in Players.All) if (q != null && !q.GameOver && CoopInput.Pick(q.playerIndex)) { pc = q; break; }
+        }
+        if (pc == null) { near = false; confirming = false; return; }
         if (confirming)
         {
             if (Pressed() || EnterPressed()) { confirming = false; StartCoroutine(Go()); }
-            else if (CancelPressed()) { confirming = false; pc.enabled = true; }
+            else if (CancelPressed()) { confirming = false; SetAllEnabled(true); }
             return;
         }
 
@@ -102,7 +108,7 @@ public class Door : MonoBehaviour
         {
             if (manhole != null && !manhole.IsOpen) pc.TryLiftLid(manhole);   // kiinni oleva kansi: ensin nostetaan pois, sitten voi laskeutua
             else if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
-            else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; pc.enabled = false; }
+            else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; SetAllEnabled(false); }
             else StartCoroutine(Go());
         }
     }
@@ -126,21 +132,31 @@ public class Door : MonoBehaviour
 #endif
     }
 
-    static bool Pressed()
+    bool Pressed() => pc != null && CoopInput.Pick(pc.playerIndex);
+
+    /// Kaikki pelaajat pois ohjauksesta siirtymän ajaksi (kaksinpeli: molemmat siirtyvät yhdessä).
+    static void SetAllEnabled(bool on)
     {
-#if ENABLE_INPUT_SYSTEM
-        return (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-            || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame);
-#else
-        return Input.GetKeyDown(KeyCode.E);
-#endif
+        foreach (var p in Players.All) if (p != null) p.enabled = on;
+    }
+
+    /// Muut pelaajat oven viereen (kaksinpeli).
+    static void PlaceOthers(PlayerController who, Vector3 basePos)
+    {
+        int n = 0;
+        foreach (var p in Players.All)
+        {
+            if (p == null || p == who) continue;
+            n++;
+            p.TeleportTo(basePos + new Vector3(n % 2 == 1 ? -1.3f : 1.3f, 0f, 0f));
+        }
     }
 
     IEnumerator Go()
     {
         busy = true;
         near = false;
-        pc.enabled = false;
+        SetAllEnabled(false);
 
         if (anim != null)
         {
@@ -182,6 +198,7 @@ public class Door : MonoBehaviour
         if (dest != null) dest.Apply(pc);
         Vector3 end = new Vector3(pos.x, pos.y, 0f);
         pc.TeleportTo(arrivalOffsetY != 0f ? end + Vector3.up * arrivalOffsetY : end);
+        PlaceOthers(pc, arrivalOffsetY != 0f ? end + Vector3.up * arrivalOffsetY : end);
         if (faceLeftOnArrival) pc.Face(false);
         if (emergeManhole != null) emergeManhole.SetOpen(true, true);
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(pos.x);
@@ -194,17 +211,20 @@ public class Door : MonoBehaviour
             for (float t = 0f; t < total; t += Time.unscaledDeltaTime)
             {
                 float k = Mathf.SmoothStep(0f, 1f, t / total);
-                pc.transform.position = end + Vector3.up * arrivalOffsetY * (1f - k);
+                Vector3 cur = end + Vector3.up * arrivalOffsetY * (1f - k);
+                pc.transform.position = cur;
+                foreach (var o in Players.All) if (o != null && o != pc) o.transform.position = new Vector3(o.transform.position.x, cur.y, 0f);
                 fade = Mathf.Clamp01(1f - t / fadeTime);
                 yield return null;
             }
             pc.transform.position = end;
+            foreach (var o in Players.All) if (o != null && o != pc) o.transform.position = new Vector3(o.transform.position.x, end.y, 0f);
             fade = 0f;
-            pc.enabled = true;
+            SetAllEnabled(true);
             busy = false;
             yield break;
         }
-        pc.enabled = true;
+        SetAllEnabled(true);
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
         busy = false;
