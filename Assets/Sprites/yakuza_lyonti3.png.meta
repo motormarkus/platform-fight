@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 783c9d2ec74fbd34daa79e5da966d46c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1630067514268102119
+    second: yakuza_lyonti3_0
+  - first:
+      213: 301472733786761639
+    second: yakuza_lyonti3_1
+  - first:
+      213: 8320712106265832411
+    second: yakuza_lyonti3_2
+  - first:
+      213: -2959927238905547783
+    second: yakuza_lyonti3_3
+  - first:
+      213: -8941164116886424138
+    second: yakuza_lyonti3_4
+  - first:
+      213: 1519040391060518258
+    second: yakuza_lyonti3_5
+  - first:
+      213: 1086832685951963806
+    second: yakuza_lyonti3_6
+  - first:
+      213: 6587007581557199816
+    second: yakuza_lyonti3_7
+  - first:
+      213: 5208141382480917801
+    second: yakuza_lyonti3_8
+  - first:
+      213: -7082242432924710416
+    second: yakuza_lyonti3_9
+  - first:
+      213: -9087096701594010555
+    second: yakuza_lyonti3_10
+  - first:
+      213: -2341079580674663662
+    second: yakuza_lyonti3_11
+  - first:
+      213: 5170496385029281958
+    second: yakuza_lyonti3_12
+  - first:
+      213: 8478699124154715473
+    second: yakuza_lyonti3_13
+  - first:
+      213: 6459879884275410165
+    second: yakuza_lyonti3_14
+  - first:
+      213: 2349414995601931455
+    second: yakuza_lyonti3_15
+  - first:
+      213: 6844312362677103789
+    second: yakuza_lyonti3_16
+  - first:
+      213: -5575886904783631235
+    second: yakuza_lyonti3_17
+  - first:
+      213: 6515249615813090816
+    second: yakuza_lyonti3_18
+  - first:
+      213: -81874366513813255
+    second: yakuza_lyonti3_19
+  - first:
+      213: 1364681041784450235
+    second: yakuza_lyonti3_20
+  - first:
+      213: 4134962751737882279
+    second: yakuza_lyonti3_21
+  - first:
+      213: 6878793095538892093
+    second: yakuza_lyonti3_22
+  - first:
+      213: -5844555171563004493
+    second: yakuza_lyonti3_23
+  - first:
+      213: 7295124704464819938
+    second: yakuza_lyonti3_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuza_lyonti3_0
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 447
+        width: 248
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91255247b36d069e0800000000000000
+      internalID: -1630067514268102119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_1
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 447
+        width: 355
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a963d6aadb0f2400800000000000000
+      internalID: 301472733786761639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_2
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 447
+        width: 396
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb644c539b197370800000000000000
+      internalID: 8320712106265832411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_3
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 447
+        width: 362
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3380ccbd93ce6d0800000000000000
+      internalID: -2959927238905547783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_4
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 747
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5f386ab9a9ae380800000000000000
+      internalID: -8941164116886424138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_5
+      rect:
+        serializedVersion: 2
+        x: 2917
+        y: 738
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 275f1acff27b41510800000000000000
+      internalID: 1519040391060518258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_6
+      rect:
+        serializedVersion: 2
+        x: 2922
+        y: 715
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e925370d194351f00800000000000000
+      internalID: 1086832685951963806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_7
+      rect:
+        serializedVersion: 2
+        x: 2890
+        y: 674
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c39587fe70c96b50800000000000000
+      internalID: 6587007581557199816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_8
+      rect:
+        serializedVersion: 2
+        x: 2911
+        y: 693
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92579c25ef8074840800000000000000
+      internalID: 5208141382480917801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_9
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 0
+        width: 383
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f90354d702d6bd90800000000000000
+      internalID: -7082242432924710416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_10
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 0
+        width: 377
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c7dd502b524e180800000000000000
+      internalID: -9087096701594010555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_11
+      rect:
+        serializedVersion: 2
+        x: 1780
+        y: 0
+        width: 359
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b57f26680d28fd0800000000000000
+      internalID: -2341079580674663662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_12
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 304
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a89c16511b41c740800000000000000
+      internalID: 5170496385029281958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_13
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 314
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d48ac6ee36aa570800000000000000
+      internalID: 8478699124154715473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_14
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 321
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f46de1678a16a950800000000000000
+      internalID: 6459879884275410165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_15
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 297
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc34d2ad7cca9020800000000000000
+      internalID: 2349414995601931455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_16
+      rect:
+        serializedVersion: 2
+        x: 2157
+        y: 294
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dacee25c4d1ebfe50800000000000000
+      internalID: 6844312362677103789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_17
+      rect:
+        serializedVersion: 2
+        x: 2157
+        y: 267
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c8e9407687e92b0800000000000000
+      internalID: -5575886904783631235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_18
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 274
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e1a8d9101da6a50800000000000000
+      internalID: 6515249615813090816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_19
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 269
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8ebbb82bf1ddef0800000000000000
+      internalID: -81874366513813255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_20
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 247
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbca5475d2250f210800000000000000
+      internalID: 1364681041784450235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_21
+      rect:
+        serializedVersion: 2
+        x: 2919
+        y: 247
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6eec8f6b6526930800000000000000
+      internalID: 4134962751737882279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_22
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 225
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d510fffd1667f50800000000000000
+      internalID: 6878793095538892093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_23
+      rect:
+        serializedVersion: 2
+        x: 2873
+        y: 230
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd90d88908f3eea0800000000000000
+      internalID: -5844555171563004493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_lyonti3_24
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 225
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e65dc9744d7d3560800000000000000
+      internalID: 7295124704464819938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuza_lyonti3_0: -1630067514268102119
+      yakuza_lyonti3_1: 301472733786761639
+      yakuza_lyonti3_10: -9087096701594010555
+      yakuza_lyonti3_11: -2341079580674663662
+      yakuza_lyonti3_12: 5170496385029281958
+      yakuza_lyonti3_13: 8478699124154715473
+      yakuza_lyonti3_14: 6459879884275410165
+      yakuza_lyonti3_15: 2349414995601931455
+      yakuza_lyonti3_16: 6844312362677103789
+      yakuza_lyonti3_17: -5575886904783631235
+      yakuza_lyonti3_18: 6515249615813090816
+      yakuza_lyonti3_19: -81874366513813255
+      yakuza_lyonti3_2: 8320712106265832411
+      yakuza_lyonti3_20: 1364681041784450235
+      yakuza_lyonti3_21: 4134962751737882279
+      yakuza_lyonti3_22: 6878793095538892093
+      yakuza_lyonti3_23: -5844555171563004493
+      yakuza_lyonti3_24: 7295124704464819938
+      yakuza_lyonti3_3: -2959927238905547783
+      yakuza_lyonti3_4: -8941164116886424138
+      yakuza_lyonti3_5: 1519040391060518258
+      yakuza_lyonti3_6: 1086832685951963806
+      yakuza_lyonti3_7: 6587007581557199816
+      yakuza_lyonti3_8: 5208141382480917801
+      yakuza_lyonti3_9: -7082242432924710416
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

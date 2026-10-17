@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 784b10985375c4c40b3d6e81153f7174
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1780565738512137619
+    second: betty_istuen_0
+  - first:
+      213: -4469921122215141924
+    second: betty_istuen_1
+  - first:
+      213: -6638362466997033958
+    second: betty_istuen_2
+  - first:
+      213: -2895929502394110418
+    second: betty_istuen_3
+  - first:
+      213: -1844569051540130460
+    second: betty_istuen_4
+  - first:
+      213: -3101993338306398746
+    second: betty_istuen_5
+  - first:
+      213: -196917241740806890
+    second: betty_istuen_6
+  - first:
+      213: 5261631190409501279
+    second: betty_istuen_7
+  - first:
+      213: 4260387522223540033
+    second: betty_istuen_8
+  - first:
+      213: 6360644012432298830
+    second: betty_istuen_9
+  - first:
+      213: 5371339021997340606
+    second: betty_istuen_10
+  - first:
+      213: 3879254413034299077
+    second: betty_istuen_11
+  - first:
+      213: -1171149404394362434
+    second: betty_istuen_12
+  - first:
+      213: -7325334414195675962
+    second: betty_istuen_13
+  - first:
+      213: 4094437541072712879
+    second: betty_istuen_14
+  - first:
+      213: -3815380833461173996
+    second: betty_istuen_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: betty_istuen_0
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1719
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d3f37fa17d5b810800000000000000
+      internalID: 1780565738512137619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1344
+        width: 202
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cddd9580c66a7f1c0800000000000000
+      internalID: -4469921122215141924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_2
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1344
+        width: 211
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a142b50028ccfd3a0800000000000000
+      internalID: -6638362466997033958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 1344
+        width: 224
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ea93bf5779fc7d0800000000000000
+      internalID: -2895929502394110418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_4
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 1344
+        width: 234
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46575477836c666e0800000000000000
+      internalID: -1844569051540130460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 900
+        width: 267
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e57e9e6e7183f4d0800000000000000
+      internalID: -3101993338306398746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_6
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 895
+        width: 292
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615b3ebdfc8644df0800000000000000
+      internalID: -196917241740806890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_7
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 895
+        width: 287
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a597bb0b1150940800000000000000
+      internalID: 5261631190409501279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_8
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 895
+        width: 289
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14704a301efef1b30800000000000000
+      internalID: 4260387522223540033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_9
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 447
+        width: 294
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e431eb7770c854850800000000000000
+      internalID: 6360644012432298830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_10
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 447
+        width: 323
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb77856c164da8a40800000000000000
+      internalID: 5371339021997340606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_11
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 447
+        width: 299
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce9642e551e5d530800000000000000
+      internalID: 3879254413034299077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_12
+      rect:
+        serializedVersion: 2
+        x: 2588
+        y: 452
+        width: 205
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9e92c52dd3fbfe0800000000000000
+      internalID: -1171149404394362434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_13
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 4
+        width: 168
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cc2cec592f275a90800000000000000
+      internalID: -7325334414195675962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_14
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 2
+        width: 208
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa4b9a6104d52d830800000000000000
+      internalID: 4094437541072712879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_istuen_15
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 0
+        width: 210
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41186b2c85b0d0bc0800000000000000
+      internalID: -3815380833461173996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      betty_istuen_0: 1780565738512137619
+      betty_istuen_1: -4469921122215141924
+      betty_istuen_10: 5371339021997340606
+      betty_istuen_11: 3879254413034299077
+      betty_istuen_12: -1171149404394362434
+      betty_istuen_13: -7325334414195675962
+      betty_istuen_14: 4094437541072712879
+      betty_istuen_15: -3815380833461173996
+      betty_istuen_2: -6638362466997033958
+      betty_istuen_3: -2895929502394110418
+      betty_istuen_4: -1844569051540130460
+      betty_istuen_5: -3101993338306398746
+      betty_istuen_6: -196917241740806890
+      betty_istuen_7: 5261631190409501279
+      betty_istuen_8: 4260387522223540033
+      betty_istuen_9: 6360644012432298830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

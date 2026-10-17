@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 3bcd45cbc8a232b4ab289065f751ab11
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4946680170810781522
+    second: yakuza_potku6_0
+  - first:
+      213: 4463844955734483457
+    second: yakuza_potku6_1
+  - first:
+      213: 3322506152302122883
+    second: yakuza_potku6_2
+  - first:
+      213: 8093971674753890346
+    second: yakuza_potku6_3
+  - first:
+      213: -2291355934261922214
+    second: yakuza_potku6_4
+  - first:
+      213: -2163939388893103932
+    second: yakuza_potku6_5
+  - first:
+      213: 3348665255547670912
+    second: yakuza_potku6_6
+  - first:
+      213: -1123651557275595648
+    second: yakuza_potku6_7
+  - first:
+      213: -8604745159121556459
+    second: yakuza_potku6_8
+  - first:
+      213: 3880245959787371321
+    second: yakuza_potku6_9
+  - first:
+      213: -4267048790819078114
+    second: yakuza_potku6_10
+  - first:
+      213: -7273378788104513227
+    second: yakuza_potku6_11
+  - first:
+      213: -7542537687525909832
+    second: yakuza_potku6_12
+  - first:
+      213: -2310683452861955696
+    second: yakuza_potku6_13
+  - first:
+      213: -6145432785836954629
+    second: yakuza_potku6_14
+  - first:
+      213: 2737195690340566210
+    second: yakuza_potku6_15
+  - first:
+      213: 3722838426372511968
+    second: yakuza_potku6_16
+  - first:
+      213: -3854386582030166811
+    second: yakuza_potku6_17
+  - first:
+      213: -5276329830993139986
+    second: yakuza_potku6_18
+  - first:
+      213: 2404627656811460453
+    second: yakuza_potku6_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuza_potku6_0
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 453
+        width: 203
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f25ae186326a440800000000000000
+      internalID: 4946680170810781522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_1
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 452
+        width: 400
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10229f63653c2fd30800000000000000
+      internalID: 4463844955734483457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_2
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 452
+        width: 424
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387940cfdb9eb1e20800000000000000
+      internalID: 3322506152302122883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_3
+      rect:
+        serializedVersion: 2
+        x: 2648
+        y: 452
+        width: 389
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2877cfba50935070800000000000000
+      internalID: 8093971674753890346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_4
+      rect:
+        serializedVersion: 2
+        x: 3003
+        y: 712
+        width: 50
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56b55cfae77330e0800000000000000
+      internalID: -2291355934261922214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_5
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 685
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8fc81479428f1e0800000000000000
+      internalID: -2163939388893103932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_6
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 619
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0819c94de49d87e20800000000000000
+      internalID: 3348665255547670912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_7
+      rect:
+        serializedVersion: 2
+        x: 3042
+        y: 647
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c064dacdcf760f0800000000000000
+      internalID: -1123651557275595648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_8
+      rect:
+        serializedVersion: 2
+        x: 3015
+        y: 589
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c2ccf1eddc59880800000000000000
+      internalID: -8604745159121556459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_9
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4
+        width: 389
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b554a542769d530800000000000000
+      internalID: 3880245959787371321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_10
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 290
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1008f78bb568c4c0800000000000000
+      internalID: -4267048790819078114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_11
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 4
+        width: 388
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5395b2a3784cf0b90800000000000000
+      internalID: -7273378788104513227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_12
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 4
+        width: 359
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba950e6fe5835790800000000000000
+      internalID: -7542537687525909832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_13
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 5
+        width: 192
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0914ac364adceefd0800000000000000
+      internalID: -2310683452861955696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_14
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 264
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb2621f07907baa0800000000000000
+      internalID: -6145432785836954629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_15
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 253
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4ca736af87cf520800000000000000
+      internalID: 2737195690340566210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_16
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 245
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e89b1803dd2aa330800000000000000
+      internalID: 3722838426372511968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_17
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 195
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e45f0733d7728ac0800000000000000
+      internalID: -3854386582030166811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_18
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 148
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee66bd159f5b6c6b0800000000000000
+      internalID: -5276329830993139986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuza_potku6_19
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 163
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567b3551d14fe5120800000000000000
+      internalID: 2404627656811460453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuza_potku6_0: 4946680170810781522
+      yakuza_potku6_1: 4463844955734483457
+      yakuza_potku6_10: -4267048790819078114
+      yakuza_potku6_11: -7273378788104513227
+      yakuza_potku6_12: -7542537687525909832
+      yakuza_potku6_13: -2310683452861955696
+      yakuza_potku6_14: -6145432785836954629
+      yakuza_potku6_15: 2737195690340566210
+      yakuza_potku6_16: 3722838426372511968
+      yakuza_potku6_17: -3854386582030166811
+      yakuza_potku6_18: -5276329830993139986
+      yakuza_potku6_19: 2404627656811460453
+      yakuza_potku6_2: 3322506152302122883
+      yakuza_potku6_3: 8093971674753890346
+      yakuza_potku6_4: -2291355934261922214
+      yakuza_potku6_5: -2163939388893103932
+      yakuza_potku6_6: 3348665255547670912
+      yakuza_potku6_7: -1123651557275595648
+      yakuza_potku6_8: -8604745159121556459
+      yakuza_potku6_9: 3880245959787371321
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

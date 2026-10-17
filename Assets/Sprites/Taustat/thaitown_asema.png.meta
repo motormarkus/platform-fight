@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 794069691810d444aa6022285e68d7ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6910668779792415323
+    second: thaitown_asema_0
+  - first:
+      213: 2542151542934836163
+    second: thaitown_asema_1
+  - first:
+      213: 7369184234855882950
+    second: thaitown_asema_2
+  - first:
+      213: -4187564420349590856
+    second: thaitown_asema_3
+  - first:
+      213: 6053418759069466737
+    second: thaitown_asema_4
+  - first:
+      213: -8390169404452330005
+    second: thaitown_asema_5
+  - first:
+      213: -3790240349901349480
+    second: thaitown_asema_6
+  - first:
+      213: 6818831091544336369
+    second: thaitown_asema_7
+  - first:
+      213: -5536388718804517339
+    second: thaitown_asema_8
+  - first:
+      213: 2197207120394217713
+    second: thaitown_asema_9
+  - first:
+      213: 7439861842479284939
+    second: thaitown_asema_10
+  - first:
+      213: -7850569068899679523
+    second: thaitown_asema_11
+  - first:
+      213: 2044009687884164779
+    second: thaitown_asema_12
+  - first:
+      213: 7497217944639711382
+    second: thaitown_asema_13
+  - first:
+      213: 67763409283122975
+    second: thaitown_asema_14
+  - first:
+      213: -6140502262270473761
+    second: thaitown_asema_15
+  - first:
+      213: -7655927429107112142
+    second: thaitown_asema_16
+  - first:
+      213: -5545458956566937915
+    second: thaitown_asema_17
+  - first:
+      213: -8352022034289474717
+    second: thaitown_asema_18
+  - first:
+      213: -2766165492315099382
+    second: thaitown_asema_19
+  - first:
+      213: 4491814289363436007
+    second: thaitown_asema_20
+  - first:
+      213: -8609990665762336161
+    second: thaitown_asema_21
+  - first:
+      213: -5621032449212898722
+    second: thaitown_asema_22
+  - first:
+      213: 6882575936829417711
+    second: thaitown_asema_23
+  - first:
+      213: -5319052084912908128
+    second: thaitown_asema_24
+  - first:
+      213: 2444140033815504795
+    second: thaitown_asema_25
+  - first:
+      213: 3529868640011667198
+    second: thaitown_asema_26
+  - first:
+      213: -9060587419018467452
+    second: thaitown_asema_27
+  - first:
+      213: -7348470763266215751
+    second: thaitown_asema_28
+  - first:
+      213: -4443583056768156669
+    second: thaitown_asema_29
+  - first:
+      213: 7984103879321577818
+    second: thaitown_asema_30
+  - first:
+      213: 6014452623817059316
+    second: thaitown_asema_31
+  - first:
+      213: 1404782936227784274
+    second: thaitown_asema_32
+  - first:
+      213: -2865799256997087267
+    second: thaitown_asema_33
+  - first:
+      213: 5665248324927221377
+    second: thaitown_asema_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 52.277775
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thaitown_asema_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 860
+        width: 49
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ab8e314a0a7ef50800000000000000
+      internalID: 6910668779792415323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 907
+        width: 91
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c397d10c59874320800000000000000
+      internalID: 2542151542934836163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_2
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 883
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c06efa940a944660800000000000000
+      internalID: 7369184234855882950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 912
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b28ffaa858c2e5c0800000000000000
+      internalID: -4187564420349590856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_4
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 905
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170850bf940120450800000000000000
+      internalID: 6053418759069466737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_5
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 907
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5a4423161209b80800000000000000
+      internalID: -8390169404452330005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_6
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 893
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d17cabb7c566bc0800000000000000
+      internalID: -3790240349901349480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 877
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7a3e200ca51ae50800000000000000
+      internalID: 6818831091544336369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_8
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 905
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e3d251bcbca23b0800000000000000
+      internalID: -5536388718804517339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_9
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 863
+        width: 44
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f86e051c3c0e7e10800000000000000
+      internalID: 2197207120394217713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_10
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 899
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc206fa7de2bf3760800000000000000
+      internalID: 7439861842479284939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_11
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 865
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2c093a60d2d0390800000000000000
+      internalID: -7850569068899679523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_12
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 861
+        width: 130
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baeeac34bf7cd5c10800000000000000
+      internalID: 2044009687884164779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_13
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 916
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6982fe9aff77b0860800000000000000
+      internalID: 7497217944639711382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_14
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 863
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f170713367eb0f000800000000000000
+      internalID: 67763409283122975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_15
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 826
+        width: 56
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9c2eae9bd88caa0800000000000000
+      internalID: -6140502262270473761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_16
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 885
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237a6e9e09ea0c590800000000000000
+      internalID: -7655927429107112142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_17
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 903
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ceb159c5729a03b0800000000000000
+      internalID: -5545458956566937915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_18
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 863
+        width: 81
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363c0f1f538a71c80800000000000000
+      internalID: -8352022034289474717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_19
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 828
+        width: 72
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f6d98f32b9c99d0800000000000000
+      internalID: -2766165492315099382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_20
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 867
+        width: 51
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e1088a2c41265e30800000000000000
+      internalID: 4491814289363436007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_21
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 893
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f529ecf6b1b238880800000000000000
+      internalID: -8609990665762336161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_22
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 873
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52a8b9d4c41ef1b0800000000000000
+      internalID: -5621032449212898722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_23
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 871
+        width: 42
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe86e5e5952d38f50800000000000000
+      internalID: 6882575936829417711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_24
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 867
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a817f07f4eee26b0800000000000000
+      internalID: -5319052084912908128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_25
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 870
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9762e049645be120800000000000000
+      internalID: 2444140033815504795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_26
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 867
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef6cfa773dc9cf030800000000000000
+      internalID: 3529868640011667198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_27
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 848
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487e7095fb3524280800000000000000
+      internalID: -9060587419018467452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_28
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 863
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b07c2156ccf40a90800000000000000
+      internalID: -7348470763266215751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_29
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 877
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30cb363c0c83552c0800000000000000
+      internalID: -4443583056768156669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_30
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 875
+        width: 37
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59e7c83d2c3dce60800000000000000
+      internalID: 7984103879321577818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_31
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 853
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb2801abc0a77350800000000000000
+      internalID: 6014452623817059316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 827
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 256236c33aace7310800000000000000
+      internalID: 1404782936227784274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_33
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 802
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd73c1962c2aa38d0800000000000000
+      internalID: -2865799256997087267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_asema_34
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 786
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ee9a3f5510f9e40800000000000000
+      internalID: 5665248324927221377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thaitown_asema_0: 6910668779792415323
+      thaitown_asema_1: 2542151542934836163
+      thaitown_asema_10: 7439861842479284939
+      thaitown_asema_11: -7850569068899679523
+      thaitown_asema_12: 2044009687884164779
+      thaitown_asema_13: 7497217944639711382
+      thaitown_asema_14: 67763409283122975
+      thaitown_asema_15: -6140502262270473761
+      thaitown_asema_16: -7655927429107112142
+      thaitown_asema_17: -5545458956566937915
+      thaitown_asema_18: -8352022034289474717
+      thaitown_asema_19: -2766165492315099382
+      thaitown_asema_2: 7369184234855882950
+      thaitown_asema_20: 4491814289363436007
+      thaitown_asema_21: -8609990665762336161
+      thaitown_asema_22: -5621032449212898722
+      thaitown_asema_23: 6882575936829417711
+      thaitown_asema_24: -5319052084912908128
+      thaitown_asema_25: 2444140033815504795
+      thaitown_asema_26: 3529868640011667198
+      thaitown_asema_27: -9060587419018467452
+      thaitown_asema_28: -7348470763266215751
+      thaitown_asema_29: -4443583056768156669
+      thaitown_asema_3: -4187564420349590856
+      thaitown_asema_30: 7984103879321577818
+      thaitown_asema_31: 6014452623817059316
+      thaitown_asema_32: 1404782936227784274
+      thaitown_asema_33: -2865799256997087267
+      thaitown_asema_34: 5665248324927221377
+      thaitown_asema_4: 6053418759069466737
+      thaitown_asema_5: -8390169404452330005
+      thaitown_asema_6: -3790240349901349480
+      thaitown_asema_7: 6818831091544336369
+      thaitown_asema_8: -5536388718804517339
+      thaitown_asema_9: 2197207120394217713
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

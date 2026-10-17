@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 5926f3f6d1b96774fa977ef665f8c297
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5792262043714762438
+    second: betty_potku2_0
+  - first:
+      213: -3610586684476893494
+    second: betty_potku2_1
+  - first:
+      213: 1476181275857113791
+    second: betty_potku2_2
+  - first:
+      213: 6383440519855564255
+    second: betty_potku2_3
+  - first:
+      213: 8119428230304219693
+    second: betty_potku2_4
+  - first:
+      213: 2870135415777336772
+    second: betty_potku2_5
+  - first:
+      213: 3560865376468737755
+    second: betty_potku2_6
+  - first:
+      213: -4842777169304729145
+    second: betty_potku2_7
+  - first:
+      213: 1235337967315482054
+    second: betty_potku2_8
+  - first:
+      213: 8458997359687089683
+    second: betty_potku2_9
+  - first:
+      213: -3091722923043752131
+    second: betty_potku2_10
+  - first:
+      213: 5293330286351234649
+    second: betty_potku2_11
+  - first:
+      213: 5186600451820912422
+    second: betty_potku2_12
+  - first:
+      213: -2046317971664105673
+    second: betty_potku2_13
+  - first:
+      213: 7488591471719053993
+    second: betty_potku2_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: betty_potku2_0
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1346
+        width: 144
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6b899d3af326050800000000000000
+      internalID: 5792262043714762438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_1
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1346
+        width: 160
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6dff84a8e94edc0800000000000000
+      internalID: -3610586684476893494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_2
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 1346
+        width: 164
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2db8b9c037c7410800000000000000
+      internalID: 1476181275857113791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_3
+      rect:
+        serializedVersion: 2
+        x: 2681
+        y: 1346
+        width: 164
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd563d6f459869850800000000000000
+      internalID: 6383440519855564255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_4
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 898
+        width: 255
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22cf86f4f00ea070800000000000000
+      internalID: 8119428230304219693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_5
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 898
+        width: 295
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd1daa34f4c4d720800000000000000
+      internalID: 2870135415777336772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_6
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 898
+        width: 306
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde1861913cba6130800000000000000
+      internalID: 3560865376468737755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_7
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 897
+        width: 311
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9483992dffaccb0800000000000000
+      internalID: -4842777169304729145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_8
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 449
+        width: 321
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5746f065dc42110800000000000000
+      internalID: 1235337967315482054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_9
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 449
+        width: 314
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ebd1ce745646570800000000000000
+      internalID: 8458997359687089683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_10
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 449
+        width: 296
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d377b04d16ef715d0800000000000000
+      internalID: -3091722923043752131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_11
+      rect:
+        serializedVersion: 2
+        x: 2663
+        y: 449
+        width: 262
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95638c4a9dfa57940800000000000000
+      internalID: 5293330286351234649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_12
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 2
+        width: 227
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f7aa291a18af740800000000000000
+      internalID: 5186600451820912422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_13
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 1
+        width: 163
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f867985a40a93e0800000000000000
+      internalID: -2046317971664105673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_potku2_14
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 2
+        width: 137
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa75db6442dce760800000000000000
+      internalID: 7488591471719053993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      betty_potku2_0: 5792262043714762438
+      betty_potku2_1: -3610586684476893494
+      betty_potku2_10: -3091722923043752131
+      betty_potku2_11: 5293330286351234649
+      betty_potku2_12: 5186600451820912422
+      betty_potku2_13: -2046317971664105673
+      betty_potku2_14: 7488591471719053993
+      betty_potku2_2: 1476181275857113791
+      betty_potku2_3: 6383440519855564255
+      betty_potku2_4: 8119428230304219693
+      betty_potku2_5: 2870135415777336772
+      betty_potku2_6: 3560865376468737755
+      betty_potku2_7: -4842777169304729145
+      betty_potku2_8: 1235337967315482054
+      betty_potku2_9: 8458997359687089683
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
