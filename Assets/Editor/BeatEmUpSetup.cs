@@ -13201,4 +13201,298 @@ public static class BeatEmUpSetup
         if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
         Info($"Thaitownin ovia nimetty uudelleen: {renamed}, kohde liitetty uudelleen: {relinked}. Aavikon aseman ovia luotu: {made}. Kohteettomia ovia poistettu: {dead} (junan katolle pääsy).{camInfo}\n\nAseman oikea ovi vie junapihalle, junapihan vasen ovi takaisin ja aseman vasen ovi kadulle.\n\nTallenna scene (Ctrl+S).");
     }
+
+    [MenuItem("Beat em up/177. Thaitown: hotellin aula (5 kuvaa) ja ovet kadulta takaisin")]
+    static void CreateThaitownHotelLobby()
+    {
+        if (PlayModeBlocked()) return;
+        const string path = "Assets/Sprites/Taustat/thaitown_hotelli_aula1.png";
+        var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown katu");
+        if (street == null) { Info("Tee ensin Thaitownin katu (164)."); return; }
+        AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+        const float X0 = 109000f;
+        float ppu = 941f / (2f * CamHalf);
+        var sprite = ImportShipSprite(path, ppu, false, SpriteAlignment.Center);
+        if (sprite == null) { Info("Kuva puuttuu: " + path); return; }
+        const string continuationPath = "Assets/Sprites/Taustat/thaitown_hotelli_aula2.png";
+        AssetDatabase.ImportAsset(continuationPath, ImportAssetOptions.ForceSynchronousImport);
+        var continuation = ImportShipSprite(continuationPath, ppu, false, SpriteAlignment.Center);
+        if (continuation == null) { Info("Kuva puuttuu: " + continuationPath); return; }
+        const string restaurantPath = "Assets/Sprites/Taustat/thaitown_hotelli_aula3.png";
+        AssetDatabase.ImportAsset(restaurantPath, ImportAssetOptions.ForceSynchronousImport);
+        var restaurant = ImportShipSprite(restaurantPath, ppu, false, SpriteAlignment.Center);
+        if (restaurant == null) { Info("Kuva puuttuu: " + restaurantPath); return; }
+        const string barPath = "Assets/Sprites/Taustat/thaitown_hotelli_aula4.png";
+        AssetDatabase.ImportAsset(barPath, ImportAssetOptions.ForceSynchronousImport);
+        var bar = ImportShipSprite(barPath, ppu, false, SpriteAlignment.Center);
+        if (bar == null) { Info("Kuva puuttuu: " + barPath); return; }
+        const string endPath = "Assets/Sprites/Taustat/thaitown_hotelli_aula5.png";
+        AssetDatabase.ImportAsset(endPath, ImportAssetOptions.ForceSynchronousImport);
+        var end = ImportShipSprite(endPath, ppu, false, SpriteAlignment.Center);
+        if (end == null) { Info("Kuva puuttuu: " + endPath); return; }
+        // Rajataan paallekkaiset arkkitehtuurit spriteina: alkuperaiset PNG:t sailyvat.
+        Sprite CropLobby(Sprite source, int left, int width, string assetPath)
+        {
+            var cropped = Sprite.Create(source.texture, new Rect(left, 0, width, source.rect.height), new Vector2(0.5f, 0.5f), ppu, 0, SpriteMeshType.FullRect);
+            var saved = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            if (saved != null) { EditorUtility.CopySerialized(cropped, saved); Object.DestroyImmediate(cropped); EditorUtility.SetDirty(saved); return saved; }
+            AssetDatabase.CreateAsset(cropped, assetPath); return cropped;
+        }
+        sprite = CropLobby(sprite, 0, 1350, "Assets/Sprites/Taustat/thaitown_hotelli_aula1_rajaus.asset");
+        continuation = CropLobby(continuation, 210, 1045, "Assets/Sprites/Taustat/thaitown_hotelli_aula2_rajaus.asset");
+        var old = GameObject.Find("Thaitownin hotellin aula 1");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Thaitownin hotellin aula 1");
+        Undo.RegisterCreatedObjectUndo(root, "Hotellin aula");
+        float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+        float top = CamY + hU * 0.5f;
+        var bg = new GameObject("Hotelliaulan tausta").AddComponent<SpriteRenderer>();
+        bg.transform.SetParent(root.transform, false);
+        bg.sprite = sprite; bg.sortingOrder = -10000;
+        bg.transform.position = new Vector3(X0 + wU * 0.5f, CamY, 0f);
+        var bg2 = new GameObject("Hotelliaulan tausta 2 (WC-ovet)").AddComponent<SpriteRenderer>();
+        bg2.transform.SetParent(root.transform, false);
+        bg2.sprite = continuation; bg2.sortingOrder = -10000;
+        float continuationWU = continuation.rect.width / ppu;
+        bg2.transform.position = new Vector3(X0 + wU + continuationWU * 0.5f, CamY, 0f);
+        float restaurantWU = restaurant.rect.width / ppu;
+        var bg3 = new GameObject("Hotelliaulan tausta 3 (ravintola)").AddComponent<SpriteRenderer>();
+        bg3.transform.SetParent(root.transform, false);
+        bg3.sprite = restaurant; bg3.sortingOrder = -10000;
+        bg3.transform.position = new Vector3(X0 + wU + continuationWU + restaurantWU * 0.5f, CamY, 0f);
+        float barWU = bar.rect.width / ppu;
+        var bg4 = new GameObject("Hotelliaulan tausta 4 (baari ja tanssilava)").AddComponent<SpriteRenderer>();
+        bg4.transform.SetParent(root.transform, false);
+        bg4.sprite = bar; bg4.sortingOrder = -10000;
+        bg4.transform.position = new Vector3(X0 + wU + continuationWU + restaurantWU + barWU * 0.5f, CamY, 0f);
+        float endWU = end.rect.width / ppu;
+        const float stageOverlapPx = 64f;
+        float endX = X0 + wU + continuationWU + restaurantWU + barWU - stageOverlapPx / ppu;
+        var bg5 = new GameObject("Hotelliaulan tausta 5 (salin paaty)").AddComponent<SpriteRenderer>();
+        bg5.transform.SetParent(root.transform, false);
+        bg5.sprite = end; bg5.sortingOrder = -9999;
+        var seamShader = Shader.Find("PlatformFight/SpriteEdgeFade");
+        if (seamShader != null)
+        {
+            const string materialPath = "Assets/Shaders/HotelliLavanLiitos.mat";
+            var seamMaterial = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+            if (seamMaterial == null)
+            {
+                seamMaterial = new Material(seamShader);
+                AssetDatabase.CreateAsset(seamMaterial, materialPath);
+            }
+            seamMaterial.SetFloat("_FadeWidth", stageOverlapPx / end.rect.width);
+            EditorUtility.SetDirty(seamMaterial); bg5.sharedMaterial = seamMaterial;
+        }
+        bg5.transform.position = new Vector3(endX + endWU * 0.5f, CamY, 0f);
+        float totalWU = wU + continuationWU + restaurantWU + barWU + endWU - stageOverlapPx / ppu;
+        // Taivas tayttaa myos kulmaikkunoiden ylaosat. Kerrokset ovat vain sisakuvan takana.
+        var skySprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+        if (skySprite != null)
+        {
+            var sky = new GameObject("Hotellin ikkunoiden yotaivas").AddComponent<SpriteRenderer>();
+            sky.transform.SetParent(root.transform, false); sky.sprite = skySprite;
+            sky.sortingOrder = -10100; sky.color = new Color(0.05f, 0.07f, 0.16f, 1f);
+            sky.transform.position = new Vector3(X0 + totalWU * 0.5f, CamY, 0f);
+            sky.transform.localScale = new Vector3((totalWU + 4f) / skySprite.bounds.size.x, (hU + 4f) / skySprite.bounds.size.y, 1f);
+        }
+        var hotelLayers = new[] {
+            ("Assets/Sprites/Taustat/thaitown_kaupunki_kaukainen_loop.png", "Hotellin ikkunoiden kaupunki", -10090, 0.08f, 150f),
+            ("Assets/Sprites/Taustat/thaitown_puisto_lahi_loop.png", "Hotellin ikkunoiden puisto", -10080, 0.25f, 200f) };
+        foreach (var (lp, lname, order, factor, lift) in hotelLayers)
+        {
+            var layer = ImportShipSprite(lp, 100f, true, SpriteAlignment.Center);
+            if (layer == null) continue;
+            var windows = new GameObject(lname).AddComponent<SpriteRenderer>();
+            windows.transform.SetParent(root.transform, false);
+            windows.sprite = layer; windows.sortingOrder = order;
+            windows.drawMode = SpriteDrawMode.Tiled; windows.tileMode = SpriteTileMode.Continuous;
+            float k = 100f / ppu;
+            windows.transform.localScale = new Vector3(k, k, 1f);
+            float screenWU = 2f * CamHalf * 16f / 9f;
+            windows.size = new Vector2((screenWU + totalWU * factor + 4f) / k, layer.bounds.size.y);
+            windows.transform.position = new Vector3(X0 + totalWU * 0.5f, top - (470.5f - lift) / ppu, 0f);
+            var par = windows.gameObject.AddComponent<ParallaxLayer>();
+            par.factor = factor; par.startCamX = X0 + screenWU * 0.5f;
+            par.minX = X0; par.maxX = X0 + totalWU;
+        }
+        AssetDatabase.SaveAssets();
+        var area = ReuseArea("Alue: Thaitown hotelli aula 1");
+        Undo.RecordObject(area, "Hotellin aula");
+        area.areaName = "Thaitown hotelli aula 1"; area.useSidewalk = false;
+        area.music = ThaitownMusic();
+        area.maxDepthY = top - 580f / ppu; // lattia alkaa vastaanottotiskin edesta
+        area.minDepthY = CamY - hU * 0.5f + 0.65f;
+        area.walkMinX = X0 + 0.5f; area.walkMaxX = X0 + totalWU - 0.5f;
+        float halfW = CamHalf * 16f / 9f;
+        area.camMinX = X0 + halfW;
+        area.camMaxX = X0 + Mathf.Max(totalWU - halfW, halfW);
+        area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f;
+        area.depthLimits = new[] {
+            new Vector2(X0, area.maxDepthY),
+            new Vector2(endX + 1200f / ppu, area.maxDepthY),
+            new Vector2(X0 + totalWU, top - 665f / ppu) };
+        area.depthLimitsExceedMax = false; area.backScale = 1f;
+        foreach (var name in new[] { "Thaitown: Kadulta hotelliin", "Thaitown: Hotellista kadulle" })
+        {
+            var door = GameObject.Find(name);
+            if (door != null) Undo.DestroyObjectImmediate(door);
+        }
+        float streetX = street.walkMinX - 0.5f + (4f * 1672f + 1170f) / ppu;
+        float lobbyX = X0 + 836f / ppu;
+        var enter = new GameObject("Thaitown: Kadulta hotelliin").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(enter.gameObject, "Hotellin ovi");
+        enter.here = street; enter.target = area;
+        enter.prompt = "Mene hotelliin"; enter.halfWidth = 1.6f; enter.maxDistanceFromWall = 2.4f;
+        enter.spawnPoint = new Vector2(lobbyX, area.minDepthY + 1.2f);
+        enter.transform.position = new Vector3(streetX, street.maxDepthY, 0f);
+        var exit = new GameObject("Thaitown: Hotellista kadulle").AddComponent<Door>();
+        Undo.RegisterCreatedObjectUndo(exit.gameObject, "Hotellin uloskaynti");
+        exit.here = area; exit.target = street; exit.atFront = true;
+        exit.prompt = "Mene kadulle"; exit.halfWidth = 2f; exit.maxDistanceFromWall = 0.9f;
+        exit.spawnPoint = new Vector2(streetX, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.3f));
+        exit.transform.position = new Vector3(lobbyX, area.minDepthY, 0f);
+        EditorUtility.SetDirty(area); EditorUtility.SetDirty(enter); EditorUtility.SetDirty(exit);
+        EditorSceneManager.MarkSceneDirty(area.gameObject.scene);
+        Info("Hotellin aula luotu viidesta kuvasta: vastaanotto, WC-ovet, ravintola, baari ja salin paaty. Ikkunoiden takana kaupungin ja puiston parallaxit. Paallekkaiset hissi- ja seinaosuudet rajattu. Kadun hotellin ovi vie aulaan, ja aulan alareunan keskikohta takaisin kadulle. Hissi ja WC-ovet odottavat seuraavia tiloja. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/178. Hotellin ravintolaan hummeri-shamppanjapoydat ja Sohvi")]
+    static void FurnishThaitownHotel()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        var hotel = GameObject.Find("Thaitownin hotellin aula 1");
+        var restaurant = GameObject.Find("Hotelliaulan tausta 3 (ravintola)");
+        var end = GameObject.Find("Hotelliaulan tausta 5 (salin paaty)");
+        var salon = GameObject.Find("Salin pöydät");
+        var sohvi = GameObject.Find("Sohvi");
+        var shopSource = GameObject.Find("Baaritiski");
+        if (area == null || hotel == null || restaurant == null || end == null)
+        { Info("Luo ensin hotellin viisi taustaa valikolla 177."); return; }
+        if (salon == null || sohvi == null || shopSource == null)
+        { Info("Tarvitaan laivan salin poydat (62) seka S-Clubin Sohvi ja Baaritiski (14)."); return; }
+        var plate = salon.GetComponentsInChildren<FishPlate>(true).FirstOrDefault(f => f.spriteSet == "Hummeri" && f.table != null);
+        if (plate == null) { Info("Laivan salista ei loytynyt hummeripoytaa. Aja ensin valikko 62."); return; }
+        var sourceTable = plate.table;
+        var bottles = salon.GetComponentsInChildren<Bottle>(true).Where(b => b.table == sourceTable).ToArray();
+        var old = GameObject.Find("Hotellin ravintolan kalustus");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Hotellin ravintolan kalustus");
+        root.transform.SetParent(hotel.transform, false);
+        Undo.RegisterCreatedObjectUndo(root, "Hotellin kalustus");
+        var rb = restaurant.GetComponent<SpriteRenderer>().bounds;
+        var eb = end.GetComponent<SpriteRenderer>().bounds;
+        float ppu = 941f / (2f * CamHalf);
+        float left = rb.min.x + 2.5f;
+        float right = eb.max.x - 3f;
+        int count = 0;
+        for (int row = 0; row < 2; row++)
+        {
+            float rowRight = row == 0 ? eb.min.x - 2f : right; // tanssilavan edusta ja Sohvin tiski valjiksi
+            for (float x = left + row * 2.8f; x <= rowRight; x += 6f)
+            {
+                float counterX = rb.min.x + 1335f / ppu;
+                if (row == 0 && Mathf.Abs(x - counterX) < 3.5f) continue;
+                float back = area.MaxDepthAtX(x + 1.5f, area.maxDepthY);
+                float y = Mathf.Lerp(back - 0.2f, area.minDepthY + 0.4f, row == 0 ? 0.22f : 0.9f);
+                var table = Object.Instantiate(sourceTable, root.transform);
+                table.name = "Hotellin hummeripoyta " + (++count);
+                table.transform.position = new Vector3(x, y, 0f);
+                var food = Object.Instantiate(plate, root.transform);
+                food.name = "Hummeriannos " + count; food.table = table;
+                food.transform.position = table.transform.position;
+                foreach (var source in bottles)
+                {
+                    var bottle = Object.Instantiate(source, root.transform);
+                    bottle.name = source.name + " " + count; bottle.table = table;
+                    bottle.transform.position = table.transform.position;
+                }
+            }
+        }
+        float sx = rb.min.x + 1335f / ppu;
+        float counterY = rb.max.y - 398f / ppu;
+        var npc = Object.Instantiate(sohvi, root.transform);
+        npc.name = "Hotellin Sohvi";
+        npc.transform.localScale = sohvi.transform.localScale * 0.9f;
+        npc.transform.position = new Vector3(sx, counterY, 0f);
+        var renderers = npc.GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in renderers) sr.sortingOrder = -9500;
+        if (renderers.Length > 0)
+        {
+            float bottom = renderers.Min(sr => sr.bounds.min.y);
+            npc.transform.position += Vector3.up * (counterY - bottom - 0.03f);
+        }
+        var shopGo = Object.Instantiate(shopSource, root.transform);
+        shopGo.name = "Hotellin ravintolan tiski";
+        shopGo.transform.position = new Vector3(sx, area.maxDepthY, 0f);
+        var shop = shopGo.GetComponent<ShopCounter>();
+        if (shop != null)
+        {
+            shop.here = area; shop.title = "HOTELLIN RAVINTOLA";
+            shop.halfWidth = 2.5f; shop.maxDistanceFromWall = 1.4f;
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info($"Hotellin ravintolaan {count} laivan hummeri-shamppanjapoytaa laseineen ja Sohvi tiskille. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 178 uudelleen.");
+    }
+
+    [MenuItem("Beat em up/179. Mary ja tanko hotellin tanssilavalle (5 tanssia)")]
+    static void AddHotelMary()
+    {
+        if (PlayModeBlocked()) return;
+        var hotel = GameObject.Find("Thaitownin hotellin aula 1");
+        var stage = GameObject.Find("Hotelliaulan tausta 5 (salin paaty)");
+        if (hotel == null || stage == null) { Info("Luo ensin hotelli valikolla 177."); return; }
+        var dance = new List<Sprite>();
+        for (int clip = 1; clip <= 5; clip++)
+        {
+            var forward = new List<Sprite>();
+            for (int page = 0; page < 4; page++)
+            {
+                string path = $"Assets/Sprites/Mary/mary_tanssi{clip}_{page:00}.png";
+                AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+                if (SetupAndSlice(path) != 20) { Info("Maryn kuvasarja puuttuu tai on vaaran kokoinen: " + path); return; }
+                forward.AddRange(AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
+                    .OrderBy(sprite => int.Parse(sprite.name.Substring(sprite.name.LastIndexOf('_') + 1))));
+            }
+            dance.AddRange(forward);
+            // Palataan lahtoasentoon ilman hyppausta tai kahdennettua paatekuvaa.
+            for (int frame = forward.Count - 2; frame > 0; frame--) dance.Add(forward[frame]);
+        }
+        var old = GameObject.Find("Hotellin Mary ja tanko");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Hotellin Mary ja tanko");
+        go.transform.SetParent(hotel.transform, false);
+        Undo.RegisterCreatedObjectUndo(go, "Mary lavalle");
+        var bounds = stage.GetComponent<SpriteRenderer>().bounds;
+        float ppu = 941f / (2f * CamHalf);
+        go.transform.position = new Vector3(bounds.min.x + 160f / ppu, bounds.max.y - 470f / ppu - 0.12f, 0f);
+        go.transform.localScale = Vector3.one * 1.17f; // Mary 10 % pienemmaksi (1.3 * 0.9)
+        var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = dance[0]; sr.sortingOrder = -9400;
+        var dancer = go.AddComponent<Dancer>();
+        dancer.sprites = dance.ToArray(); dancer.frameTime = 0.1f; dancer.keepOrder = true;
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Mary tankoineen lisatty hotellin tanssilavalle. Viisi tanssia, kukin palaa takaperin alkuun. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 179 uudelleen.");
+    }
+
+    [MenuItem("Beat em up/180. Aloita peli hotellista (hissin edesta)")]
+    static void StartInHotelAtElevator()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        var background = GameObject.Find("Hotelliaulan tausta 2 (WC-ovet)");
+        if (area == null || background == null) { Info("Luo ensin hotelli valikolla 177."); return; }
+        var sr = background.GetComponent<SpriteRenderer>();
+        if (sr == null || sr.sprite == null) { Info("Hotellin taustakuva puuttuu: aja 177."); return; }
+        // Toisen lahdekuvan hissin keskus x=414; rajaus alkaa x=210.
+        float x = sr.bounds.min.x + (414f - sr.sprite.rect.x) / sr.sprite.pixelsPerUnit;
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        Undo.RegisterCreatedObjectUndo(go, "Aloitus hotelliin");
+        var start = go.AddComponent<GameStart>(); start.area = area;
+        start.position = new Vector2(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f));
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt hotellin hissin edesta. Tallenna scene (Ctrl+S). Takaisin kadun alkuun: valikko 37.");
+    }
 }
