@@ -52,6 +52,8 @@ public class LooseBoard : MonoBehaviour
     {
         float dt = Time.deltaTime;
         t += dt;
+        // muulla alueella oleva lauta ei kuulu tähän: muuten alueen rajaus vetäisi sen pelaajan alueelle
+        if (!Area.IsHere(transform.position, 2f)) { Destroy(gameObject); return; }
         Vector3 p = transform.position;
         p.x += vx * dt;
         vx = Mathf.MoveTowards(vx, 0f, 3.5f * dt);   // rullaa ja hidastuu
@@ -74,7 +76,7 @@ public class LooseBoard : MonoBehaviour
         sr.transform.localRotation = Quaternion.Euler(0f, 0f, wobble > 0f ? Mathf.Sin(wobble * 40f) * 8f : 0f);
         int order = Mathf.RoundToInt(-p.y * 100f);
         sr.sortingOrder = order; shadow.sortingOrder = order - 1;
-        if (persistent && t > 150f && Mathf.Abs(vx) < 0.1f) Destroy(gameObject);   // vanha, käyttämätön lauta siivotaan pois
+        if (persistent && t > 60f && Mathf.Abs(vx) < 0.1f) Destroy(gameObject);   // vanha, käyttämätön lauta siivotaan pois
         // omistaja kuollut tai poissa: häipyy hetken päästä
         if (!persistent && (owner == null || owner.IsDead))
         {

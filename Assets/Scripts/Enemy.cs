@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool comboArmor;
     [Tooltip("Väliaikainen: kirjoittaa Consoleen kombojen alun, jatkon ja katkeamisen syyn.")]
     public bool debugCombos;
-    void ComboLog(string msg) { if (debugCombos) Debug.Log($"[{name}] {msg} (t={Time.time:F2})", this); }
+    void ComboLog(string msg) { /* lokitus pois: kymmenet viholliset kirjoittivat Consoleen joka iskulla ja hidastivat editoria (piirakkasota) */ }
     bool ComboContinues => comboSeq != null && comboPos < comboSeq.Length - 1;
 
     [Header("Puhuen kävely (huuto, esim. \"tämä on ryöstö\")")]

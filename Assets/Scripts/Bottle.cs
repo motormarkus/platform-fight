@@ -384,8 +384,10 @@ public class Bottle : MonoBehaviour
     {
         Vector3 me = transform.position;
         if (pie)
-            foreach (var lin in DinerLinsey.All.ToArray())
+            for (int _i = DinerLinsey.All.Count - 1; _i >= 0; _i--)
             {
+                if (_i >= DinerLinsey.All.Count) continue;
+                var lin = DinerLinsey.All[_i];
                 if (lin == null || lin == thrownBy || hitList.Contains(lin)) continue;
                 Vector3 lq = lin.transform.position;
                 if (Mathf.Abs(lq.x - me.x) > 0.8f || Mathf.Abs(lq.y - me.y) > 0.5f) continue;
@@ -395,8 +397,10 @@ public class Bottle : MonoBehaviour
         if (enemyThrow && pie && PieWar.Active)
         {
             // piirakkasota: vihun heittämä piirakka osuu myös toiseen vihuun
-            foreach (var foe in Enemy.All.ToArray())
+            for (int _i = Enemy.All.Count - 1; _i >= 0; _i--)
             {
+                if (_i >= Enemy.All.Count) continue;
+                var foe = Enemy.All[_i];
                 if (foe == null || foe == thrownBy || foe.IsDead || !foe.isActiveAndEnabled || hitList.Contains(foe)) continue;
                 Vector3 fq = foe.transform.position;
                 if (Mathf.Abs(fq.x - me.x) > 0.7f || Mathf.Abs(fq.y - me.y) > 0.5f || height > 3.6f) continue;
@@ -418,8 +422,10 @@ public class Bottle : MonoBehaviour
         if (enemyThrow)
         {
             // vihun heittämä: osuu pelaajiin (kaksinpelissä kumpaan tahansa; sodasta pudonneeseen ei osu)
-            foreach (var tp in Players.All.ToArray())
+            for (int _i = Players.All.Count - 1; _i >= 0; _i--)
             {
+                if (_i >= Players.All.Count) continue;
+                var tp = Players.All[_i];
                 if (tp == null || tp.GameOver || PieWar.IsOut(tp) || hitList.Contains(tp)) continue;
                 Vector3 q = tp.transform.position;
                 if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.45f || height > 3.6f) continue;
@@ -446,8 +452,10 @@ public class Bottle : MonoBehaviour
             }
             return false;
         }
-        foreach (var e in Enemy.All.ToArray())
+        for (int _i = Enemy.All.Count - 1; _i >= 0; _i--)
         {
+            if (_i >= Enemy.All.Count) continue;
+            var e = Enemy.All[_i];
             if (e == null || e.IsDead || hitList.Contains(e)) continue;
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.7f || Mathf.Abs(q.y - me.y) > 0.5f) continue;
@@ -473,8 +481,10 @@ public class Bottle : MonoBehaviour
                 return true;
             }
         }
-        foreach (var c in Crate.All.ToArray())
+        for (int _i = Crate.All.Count - 1; _i >= 0; _i--)
         {
+                if (_i >= Crate.All.Count) continue;
+                var c = Crate.All[_i];
             if (c == null || !c.CanBeHit || hitList.Contains(c)) continue;
             Vector3 q = c.transform.position;
             if (Mathf.Abs(q.x - me.x) > 0.9f || Mathf.Abs(q.y - me.y) > 0.5f || height > 1.6f) continue;

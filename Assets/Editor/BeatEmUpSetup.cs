@@ -8213,7 +8213,8 @@ public static class BeatEmUpSetup
             float horizonY = top - horizonRow / ppu;
             for (int i = 0; i < phases.Count; i++)
             {
-                var spr = ImportShipSprite(phases[i], 100f, false, SpriteAlignment.Center);   // kaukaisia ei peilata eikä toisteta: vaiheet vaihtuvat yöksi
+                bool roofFar = areaName == "Junan katto";   // katto on pitkä: kaukainen kerros toistuu ja vierii
+                var spr = ImportShipSprite(phases[i], 100f, roofFar, SpriteAlignment.Center);   // kaukaisia ei peilata eikä toisteta: vaiheet vaihtuvat yöksi
                 if (spr == null) continue;
                 var s = new GameObject("Junamatkan vaihe " + (i + 1)).AddComponent<SpriteRenderer>();
                 s.transform.SetParent(rootGo.transform, false);
@@ -8222,9 +8223,14 @@ public static class BeatEmUpSetup
                 s.sprite = spr; s.sortingOrder = -10200 + i;
                 s.transform.localScale = new Vector3(k, k, 1f);
                 float camRange = area.camMaxX - area.camMinX;
-                float factor = camRange > 1f ? Mathf.Min(0.05f, 5.5f / camRange) : 0.05f;   // kaukainen: liikkuu kameran mukana vain vähän (kuva riittää ilman toistoa)
+                float factor = roofFar ? 0.15f : camRange > 1f ? Mathf.Min(0.05f, 5.5f / camRange) : 0.05f;   // kaukainen: liikkuu kameran mukana vain vähän (kuva riittää ilman toistoa)
                 var par = s.gameObject.AddComponent<ParallaxLayer>();
-                par.autoSpeed = 0f; par.bobAmplitude = 0.01f; par.factor = factor;
+                if (roofFar)
+                {
+                    s.drawMode = SpriteDrawMode.Tiled; s.tileMode = SpriteTileMode.Continuous;
+                    s.size = new Vector2((2f * halfW + camRange * factor + 4f) / k + spr.bounds.size.x, spr.bounds.size.y);
+                }
+                par.autoSpeed = roofFar ? 0.4f : 0f; par.bobAmplitude = 0.01f; par.factor = factor;
                 par.startCamX = area.camMinX; par.minX = X0; par.maxX = X0 + wU;
                 s.gameObject.AddComponent<JourneyPhaseLayer>().phase = i;
                 EditorUtility.SetDirty(s.gameObject);
@@ -9907,7 +9913,8 @@ public static class BeatEmUpSetup
 
     /// Betty (betty_*.png, 768 x 448): erittäin vahva. Lonkkataklaus lennättää heron kauas, hyppypotku ja polvi kaatavat.
     /// Bettyn koko kaikkialla (1 = kuvan oma koko; Rocco on 1). Muuta tästä ja aja valikko 175.
-    const float BettyScale = 1.15f;
+    // Enemy kertoo visualScale x tilan kerroin, joten tilakertoimet ovat suhteessa seisovaan kuvaan. Kuvien pituudet (px): seisoo 311, kavely 323, isku 307, kaatuminen 300; Rocco 332.
+    const float BettyScale = 1.065f, BettyWalkScale = 0.967f, BettyAttackScale = 1.014f, BettyKnockScale = 1.03f;
 
     static Enemy MakeBetty(Transform parent, List<string> report)
     {
@@ -9926,7 +9933,7 @@ public static class BeatEmUpSetup
         var e = go.AddComponent<Enemy>();
         e.body = visual; e.shadow = shadow; visual.sprite = sheets["betty_idle"][0];
         e.displayName = "Betty";
-        e.visualScale = BettyScale; e.attackArtScale = BettyScale; e.knockArtScale = BettyScale; e.walkArtScale = BettyScale;   // koko yhdessä paikassa (valikko 175 päivittää scenen kaikki Bettyt)
+        e.visualScale = BettyScale; e.attackArtScale = BettyAttackScale; e.knockArtScale = BettyKnockScale; e.walkArtScale = BettyWalkScale;   // koko yhdessä paikassa (valikko 175 päivittää scenen kaikki Bettyt)
         e.idleSprites = sheets["betty_idle"]; e.idleFrameTime = 0.15f;
         e.walkSprites = sheets["betty_kavely"]; e.walkFrameTime = 0.09f;
         e.runSprites = sheets["betty_holkka"]; e.runSpeedMultiplier = 1.5f;
@@ -11242,7 +11249,7 @@ public static class BeatEmUpSetup
                 var pirateHit = LoadClips("Assets/Audio/Merirosvo isku", "merirosvohit");   // nyrkkeilijän puhallukset lyönneissä ja potkuissa
                 if (pirateHit.Length > 0) { re.attackSounds = pirateHit; re.attackSoundChance = 1f; }
                 // kombot: nopea jab–suora–jab ja jab–suora–polvi; kierrepotku välillä yksinään
-                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f; re.comboArmor = true; re.debugCombos = true;   // vasen–oikea–vasen menee loppuun (debug: Console)
+                re.combos = new[] { "JSJ", "JSP" }; re.comboChance = 0.7f; re.comboArmor = true;   // vasen–oikea–vasen menee loppuun (debug: Console)
                 re.holdGround = true; re.retreatChance = 0f;   // ei peräänny heron tullessa kimppuun
                 re.comboWindupScale = 0.7f; re.comboGap = 0.1f;   // iskujen välissä käsi palaa näkyvästi
                 re.punchActiveTime = 0.13f;   // isku näkyy ojennettuna hetken: kombon iskut erottuvat toisistaan
@@ -13115,10 +13122,10 @@ public static class BeatEmUpSetup
         {
             if (e.displayName != "Betty") continue;
             Undo.RecordObject(e, "Bettyn koko");
-            e.visualScale = BettyScale; e.attackArtScale = BettyScale; e.knockArtScale = BettyScale; e.walkArtScale = BettyScale;
+            e.visualScale = BettyScale; e.attackArtScale = BettyAttackScale; e.knockArtScale = BettyKnockScale; e.walkArtScale = BettyWalkScale;
             EditorUtility.SetDirty(e); EditorSceneManager.MarkSceneDirty(e.gameObject.scene); n++;
         }
-        Info($"Bettyjä päivitetty: {n}. Koko {BettyScale}× kaikilla (katu ja laituri).\n\nTallenna scene (Ctrl+S).");
+        Info($"Bettyjä päivitetty: {n}. Koko Roccon pituiseksi kaikilla tiloilla (katu ja laituri).\n\nTallenna scene (Ctrl+S).");
     }
     [MenuItem("Beat em up/176. Korjaa aavikon juna-aseman ovet (Thaitown poisti ne samannimisinä): asema <-> katu ja asema <-> junapiha")]
     static void RepairDesertStationDoors()
@@ -13135,6 +13142,25 @@ public static class BeatEmUpSetup
             bool thai = (d.here != null && d.here.areaName.StartsWith("Thaitown")) || (d.target != null && d.target.areaName.StartsWith("Thaitown"));
             if (!thai || d.name.StartsWith("Thaitown: ")) continue;
             Undo.RecordObject(d.gameObject, "Oven nimi"); d.gameObject.name = "Thaitown: " + d.gameObject.name; renamed++;
+        }
+        // 0) pelin alussa kamera käyttää CameraFollow-rajoja (ei alueen): kadun oikea raja takaisin jatkon loppuun
+        string camInfo = "";
+        var camFollow = Object.FindFirstObjectByType<CameraFollow>();
+        var katu = Find("Katu");
+        if (camFollow != null && katu != null && !Mathf.Approximately(camFollow.maxX, katu.camMaxX))
+        {
+            Undo.RecordObject(camFollow, "Kameran raja"); camFollow.maxX = katu.camMaxX; EditorUtility.SetDirty(camFollow);
+            camInfo = $"\nKadun oikea raja korjattu: {camFollow.maxX:0.0} (katu jatkuu taas oikealle).";
+        }
+        // 1a) Thaitownin ovet, joiden kohde on kadonnut (alue luotu uudelleen): liitetaan takaisin nimen perusteella
+        int relinked = 0;
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (d.target != null || !d.name.StartsWith("Thaitown")) continue;
+            string want = d.name.Contains("Asemalta laiturille") ? "Thaitown laituri" : d.name.Contains("Laiturilta asemalle") ? "Thaitown asema" : null;
+            var t = want != null ? Find(want) : null;
+            if (t == null) continue;
+            Undo.RecordObject(d, "Oven kohde"); d.target = t; EditorUtility.SetDirty(d); relinked++;
         }
         // 1b) kohteettomat ovet (kaksoiskappaleet) pois: ne veivät samaan ruutuun (esim. junan takaparvekkeen \"Kiipeä katolle\")
         int dead = 0;
@@ -13173,6 +13199,6 @@ public static class BeatEmUpSetup
                 new Vector3(yardPx(115f), yard.maxDepthY, 0f));
         var any = Object.FindFirstObjectByType<PlayerController>();
         if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
-        Info($"Thaitownin ovia nimetty uudelleen: {renamed}. Aavikon aseman ovia luotu: {made}. Kohteettomia ovia poistettu: {dead} (junan katolle pääsy).\n\nAseman oikea ovi vie junapihalle, junapihan vasen ovi takaisin ja aseman vasen ovi kadulle.\n\nTallenna scene (Ctrl+S).");
+        Info($"Thaitownin ovia nimetty uudelleen: {renamed}, kohde liitetty uudelleen: {relinked}. Aavikon aseman ovia luotu: {made}. Kohteettomia ovia poistettu: {dead} (junan katolle pääsy).{camInfo}\n\nAseman oikea ovi vie junapihalle, junapihan vasen ovi takaisin ja aseman vasen ovi kadulle.\n\nTallenna scene (Ctrl+S).");
     }
 }
