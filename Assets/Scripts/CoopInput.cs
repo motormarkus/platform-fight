@@ -23,13 +23,47 @@ public static class CoopInput
     public static Gamepad PadFor(int i)
     {
         if (!Joined) return i == 0 ? Gamepad.current : null;
-        return Pads[Mathf.Clamp(i, 0, 1)];
+        i = Mathf.Clamp(i, 0, 1);
+        var g = Pads[i];
+        if (g != null && g.added) return g;
+        // ei ohjainta tai ohjain on irronnut/liitetty uudelleen: etsi uusi
+        // P1: viimeksi käytetty ohjain (myös kun P2 pelaa näppäimistöllä); P2: jokin muu kuin P1:n ohjain (ei, jos P2 on näppäimistöllä)
+        var all = Gamepad.all;
+        if (i == 0)
+        {
+            g = P1Pad != null && P1Pad.added ? P1Pad : Gamepad.current;
+            if (g == null && all.Count > 0) g = all[0];
+            if (g != null && !P2OnKeyboard && all.Count >= 2 && Pads[1] == g) { g = null; foreach (var o in all) if (o != Pads[1]) { g = o; break; } }
+        }
+        else if (!P2OnKeyboard)
+        {
+            var p1 = Pads[0] != null && Pads[0].added ? Pads[0] : (P1Pad != null && P1Pad.added ? P1Pad : Gamepad.current);
+            g = null;
+            foreach (var o in all) if (o != p1) { g = o; break; }
+        }
+        else g = null;
+        if (g != null) Pads[i] = g;
+        return g;
     }
 
     static bool KbOwns(int i) => i == 0 || P2OnKeyboard;
 
     static bool Down(Keyboard k, Key a, Key b = Key.None) => k != null && (k[a].isPressed || (b != Key.None && k[b].isPressed));
     static bool Hit(Keyboard k, Key a, Key b = Key.None) => k != null && (k[a].wasPressedThisFrame || (b != Key.None && k[b].wasPressedThisFrame));
+
+    // rikkinäinen tikku (jää keskelle muttei palaa nollaan): jos arvo pysyy täsmälleen samana yli 3 s, se ohitetaan, kunnes tikku liikkuu uudelleen
+    static readonly System.Collections.Generic.Dictionary<int, Vector3> stickMemory = new System.Collections.Generic.Dictionary<int, Vector3>();   // x, y, aika jolloin arvo viimeksi muuttui
+
+    static Vector2 StickNoDrift(Gamepad g)
+    {
+        Vector2 cur = g.leftStick.ReadValue();
+        float now = Time.unscaledTime;
+        if (!stickMemory.TryGetValue(g.deviceId, out Vector3 m)) m = new Vector3(cur.x, cur.y, now);
+        if ((new Vector2(m.x, m.y) - cur).sqrMagnitude > 0.0001f) m = new Vector3(cur.x, cur.y, now);   // muutos yli 0,01
+        stickMemory[g.deviceId] = m;
+        if (cur.magnitude > 0.25f && now - m.z > 3f) return Vector2.zero;
+        return cur;
+    }
 
     public static Vector2 Move(int i)
     {
@@ -56,7 +90,7 @@ public static class CoopInput
         var g = PadFor(i);
         if (g != null)
         {
-            Vector2 stick = g.leftStick.ReadValue();
+            Vector2 stick = StickNoDrift(g);
             if (stick.magnitude > 0.25f) v += stick;
             v += g.dpad.ReadValue();
         }
@@ -65,6 +99,7 @@ public static class CoopInput
 
     // P2:n näppäimistöasettelu: numeronäppäimistö tai oikean käden näppäimet (kannettavissa).
     public static bool Jump(int i) => Pressed(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, Act.Jump);
+    public static bool JumpHeld(int i) => Held(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, Act.Jump);
     public static bool Punch(int i) => Pressed(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
     public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
     public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, Act.Special);

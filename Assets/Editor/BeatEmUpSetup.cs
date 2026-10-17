@@ -142,10 +142,10 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("ruby_spagaatti") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("ruby_spagaatti") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("skeittari_") || baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
@@ -2197,29 +2197,21 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Skettari ----------------
-    // Liikkuu rullalaudalla: potkii vauhtia ja liukuu, lyö laudalta ja syöksyy kauempaa lyönti edellä.
-    static readonly Vector2[] SkaterStreet = { new Vector2(38f, -2.9f), new Vector2(68f, -2.1f), new Vector2(98f, -3.3f), new Vector2(140f, -2.5f) };
-
-    [MenuItem("Beat em up/39. Lisää Skettarit (uusi vihollinen)")]
-    static void AddSkaters()
+    /// Skettari-vihollinen (ei sijoiteta): käytetään kadulle (39) ja Thaitownin laiturille (171).
+    static Enemy MakeSkater(Transform parent, PlayerController pc, List<string> report)
     {
-        var pc = Object.FindFirstObjectByType<PlayerController>();
-        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
         foreach (var n in new[] { "skettari_ajo", "skettari_vauhti", "skettari_lyonti", "skettari_kaatuminen", "skettari_ylosnousu", "skettari_idle", "skettari_hyppypotku", "skettari_lyonnit", "skettari_kavely", "skettari_polvi" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
         }
-        var report = new List<string>();
         Sprite[] ride = EnemySheet("skettari_ajo", report);
-        if (ride.Length == 0) { Info( "skettari_ajo.png puuttuu."); return; }
+        if (ride.Length == 0) { report.Add("skettari_ajo.png puuttuu."); return null; }
         Sprite[] push = EnemySheet("skettari_vauhti", report);
         Sprite[] punch = EnemySheet("skettari_lyonti", report);
 
-        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
-            if (e.gameObject.name.StartsWith("Skettari")) Undo.DestroyObjectImmediate(e.gameObject);
-
         var go = new GameObject("Skettari");
+        go.transform.SetParent(parent, false);
         var visual = new GameObject("Visual").AddComponent<SpriteRenderer>();
         visual.transform.SetParent(go.transform, false);
         var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>();
@@ -2317,6 +2309,23 @@ public static class BeatEmUpSetup
         t.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp");
         t.hurtVolume = 0.95f;
         Undo.RegisterCreatedObjectUndo(go, "Skettari");
+        return t;
+    }
+
+    // Liikkuu rullalaudalla: potkii vauhtia ja liukuu, lyö laudalta ja syöksyy kauempaa lyönti edellä.
+    static readonly Vector2[] SkaterStreet = { new Vector2(38f, -2.9f), new Vector2(68f, -2.1f), new Vector2(98f, -3.3f), new Vector2(140f, -2.5f) };
+
+    [MenuItem("Beat em up/39. Lisää Skettarit (uusi vihollinen)")]
+    static void AddSkaters()
+    {
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info( "Scenessä ei ole pelaajaa."); return; }
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+            if (e.gameObject.name.StartsWith("Skettari")) Undo.DestroyObjectImmediate(e.gameObject);
+        var report = new List<string>();
+        var sk = MakeSkater(null, pc, report);
+        if (sk == null) { Info(string.Join("\n", report)); return; }
+        var go = sk.gameObject;
 
         float x0 = pc.transform.position.x;
         for (int i = 0; i < SkaterStreet.Length; i++)
@@ -9543,17 +9552,17 @@ public static class BeatEmUpSetup
         }
 
         // ovet: laiturin oikea ovi -> aseman vasen pääty (ja takaisin); laiturin vasen ovi ei vie mihinkään
-        foreach (var n in new[] { "Laiturilta asemalle", "Asemalta laiturille" }) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+        foreach (var n in new[] { "Thaitown: Laiturilta asemalle", "Thaitown: Asemalta laiturille" }) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
         float platPpu = ppu / 1.5f;   // laiturin kuvat on suurennettu 1,5-kertaisiksi
         float platDoorX = 106000f + (2942f + 1525f) / platPpu;
         float stLeftX = PX(doorPx);
-        var enter = new GameObject("Laiturilta asemalle").AddComponent<Door>();
+        var enter = new GameObject("Thaitown: Laiturilta asemalle").AddComponent<Door>();
         Undo.RegisterCreatedObjectUndo(enter.gameObject, "Aseman ovi");
         enter.here = plat; enter.target = area;
         enter.spawnPoint = new Vector2(PX(doorPx + 320f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f));
         enter.prompt = "Mene asemalle"; enter.halfWidth = 2.4f; enter.maxDistanceFromWall = 3.2f;
         enter.transform.position = new Vector3(platDoorX, plat.maxDepthY, 0f);
-        var back = new GameObject("Asemalta laiturille").AddComponent<Door>();
+        var back = new GameObject("Thaitown: Asemalta laiturille").AddComponent<Door>();
         back.transform.SetParent(root.transform, false);
         back.here = area; back.target = plat; back.returnToLastDoor = false;
         back.spawnPoint = new Vector2(platDoorX - 1.6f, Mathf.Lerp(plat.maxDepthY, plat.minDepthY, 0.3f));
@@ -9818,17 +9827,17 @@ public static class BeatEmUpSetup
     /// Thaitownin aseman oikea pääty <-> kadun aseman pääovi (kuva 1, x ≈ 620 px).
     static string LinkThaitownStationStreet(Area station, Area street)
     {
-        foreach (var n in new[] { "Kadulta asemalle", "Asemalta kadulle" }) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+        foreach (var n in new[] { "Thaitown: Kadulta asemalle", "Thaitown: Asemalta kadulle" }) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
         float ppu = 941f / (2f * CamHalf);
         float streetDoorX = street.walkMinX - 0.5f + 620f / ppu;
         float stRightX = station.walkMaxX + 0.5f - 108f / ppu;
-        var main = new GameObject("Kadulta asemalle").AddComponent<Door>();
+        var main = new GameObject("Thaitown: Kadulta asemalle").AddComponent<Door>();
         Undo.RegisterCreatedObjectUndo(main.gameObject, "Aseman pääovi");
         main.here = street; main.target = station; main.returnToLastDoor = false;
         main.spawnPoint = new Vector2(stRightX - 320f / ppu, Mathf.Lerp(station.maxDepthY, station.minDepthY, 0.3f));
         main.prompt = "Mene asemalle"; main.halfWidth = 1.6f; main.maxDistanceFromWall = 2.4f;
         main.transform.position = new Vector3(streetDoorX, street.maxDepthY, 0f);
-        var exit = new GameObject("Asemalta kadulle").AddComponent<Door>();
+        var exit = new GameObject("Thaitown: Asemalta kadulle").AddComponent<Door>();
         Undo.RegisterCreatedObjectUndo(exit.gameObject, "Aseman oikea ovi");
         exit.here = station; exit.target = street; exit.returnToLastDoor = false;
         exit.spawnPoint = new Vector2(streetDoorX, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.3f));
@@ -9897,6 +9906,9 @@ public static class BeatEmUpSetup
     }
 
     /// Betty (betty_*.png, 768 x 448): erittäin vahva. Lonkkataklaus lennättää heron kauas, hyppypotku ja polvi kaatavat.
+    /// Bettyn koko kaikkialla (1 = kuvan oma koko; Rocco on 1). Muuta tästä ja aja valikko 175.
+    const float BettyScale = 1.15f;
+
     static Enemy MakeBetty(Transform parent, List<string> report)
     {
         var sheets = new Dictionary<string, Sprite[]>();
@@ -9914,7 +9926,7 @@ public static class BeatEmUpSetup
         var e = go.AddComponent<Enemy>();
         e.body = visual; e.shadow = shadow; visual.sprite = sheets["betty_idle"][0];
         e.displayName = "Betty";
-        e.visualScale = 1.25f; e.attackArtScale = 1.25f; e.knockArtScale = 1.25f; e.walkArtScale = 1.25f;   // 25 % isompi (oli heroa lyhyempi)
+        e.visualScale = BettyScale; e.attackArtScale = BettyScale; e.knockArtScale = BettyScale; e.walkArtScale = BettyScale;   // koko yhdessä paikassa (valikko 175 päivittää scenen kaikki Bettyt)
         e.idleSprites = sheets["betty_idle"]; e.idleFrameTime = 0.15f;
         e.walkSprites = sheets["betty_kavely"]; e.walkFrameTime = 0.09f;
         e.runSprites = sheets["betty_holkka"]; e.runSpeedMultiplier = 1.5f;
@@ -12934,5 +12946,233 @@ public static class BeatEmUpSetup
             ti.SaveAndReimport();
         }
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    }
+    [MenuItem("Beat em up/170. Rullalauta (Rocco ja Ruby: liuku, hyppy, jarrutus; lauta maassa, nousu poimintanapilla)")]
+    static void SetupRoccoSkateboard()
+    {
+        if (PlayModeBlocked()) return;
+        var report = new List<string>();
+        foreach (var n in new[] { "rocco_skeitti_liuku", "rocco_skeitti_kickflip" })
+        {
+            string tp = FindTexture(n);
+            if (tp == null) { Info(n + ".png puuttuu (Assets/Sprites)."); return; }
+            int c = SetupAndSlice(tp);
+            report.Add($"{n}: {c} kuvaa");
+        }
+        System.Func<string, Sprite[]> load = n => LoadSprites(n).OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        var glide = load("rocco_skeitti_liuku");
+        var flip = load("rocco_skeitti_kickflip");
+        // Ruby (valinnainen): liuku 26 ja ollie 18 kuvaa
+        Sprite[] rGlide = new Sprite[0], rOllie = new Sprite[0];
+        if (FindTexture("ruby_skeitti_liuku") != null && FindTexture("ruby_skeitti_ollie") != null)
+        {
+            foreach (var rn in new[] { "ruby_skeitti_liuku", "ruby_skeitti_ollie" }) report.Add($"{rn}: {SetupAndSlice(FindTexture(rn))} kuvaa");
+            rGlide = load("ruby_skeitti_liuku"); rOllie = load("ruby_skeitti_ollie");
+        }
+        Sprite[] rBrake = new Sprite[0];
+        if (FindTexture("ruby_skeitti_jarru") != null) { report.Add($"ruby_skeitti_jarru: {SetupAndSlice(FindTexture("ruby_skeitti_jarru"))} kuvaa"); rBrake = load("ruby_skeitti_jarru"); }
+        else report.Add("Rubyn laudan kuvat puuttuvat (ruby_skeitti_liuku / ruby_skeitti_ollie)");
+        Sprite[] rPunch = new Sprite[0], rrPunch = new Sprite[0];
+        foreach (var pn in new[] { "rocco_skeitti_lyonnit", "ruby_skeitti_lyonnit" })
+        {
+            string pp = FindTexture(pn);
+            if (pp == null) { report.Add(pn + ".png puuttuu"); continue; }
+            report.Add($"{pn}: {SetupAndSlice(pp)} kuvaa");
+            if (pn.StartsWith("rocco")) rPunch = load(pn); else rrPunch = load(pn);
+        }
+        string bp = FindTexture("rocco_skeitti_jarru");
+        Sprite[] brake = new Sprite[0];
+        if (bp != null) { int bc = SetupAndSlice(bp); report.Add($"rocco_skeitti_jarru: {bc} kuvaa"); brake = load("rocco_skeitti_jarru"); }
+        else report.Add("rocco_skeitti_jarru.png puuttuu (jarrutus ilman omaa kuvaa)");
+        var board = ImportProp("Assets/Sprites/Rekvisiitta/skettari_lauta.png");
+        if (glide.Length != 26 || flip.Length != 18 || board == null) { Info(string.Join("\n", report) + "\nOdotettiin 26 + 18 kuvaa ja laudan kuva."); return; }
+        var players = Object.FindObjectsByType<PlayerController>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var pc in players)
+        {
+            Undo.RecordObject(pc, "Rullalauta");
+            pc.skateSprites = glide; pc.kickflipSprites = flip; pc.boardSprite = board;
+            pc.skateBrakeSprites = brake;
+            if (rPunch.Length >= 12) pc.skatePunchSprites = rPunch;
+            if (rrPunch.Length >= 12) pc.rubySkatePunchSprites = rrPunch;
+            if (rGlide.Length == 26 && rOllie.Length >= 18) { pc.rubySkateSprites = rGlide; pc.rubyOllieSprites = rOllie; pc.rubyBrakeSprites = rBrake; }
+            EditorUtility.SetDirty(pc);
+            EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        }
+        foreach (var bs in Object.FindObjectsByType<BoardSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None)) Undo.DestroyObjectImmediate(bs.gameObject);   // laudat tulevat vain skettareilta
+        Info(string.Join("\n", report) + $"\nPelaajia päivitetty: {players.Length}.\n\nLaudan saa skettarilta: kaada skettari, ja hänen lautansa jää maahan. Mene laudan viereen ja paina poimintanappia (E): kuvat vaihtuvat. Juoksunappi = vauhdinpotkut, ilman sitä hiljainen liuku. Hyppy = kickflip, E (poiminta) = hyppää pois. Skettareiden pudottamille laudoille voi astua samoin. Vain Rocco (Ruby saa omat kuvat myöhemmin).\n\nTallenna scene (Ctrl+S).");
+    }
+    [MenuItem("Beat em up/171. Thaitownin laiturille skettari (pudottaa laudan, jolla voi ajaa)")]
+    static void AddYardSkater()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown laituri");
+        if (area == null) { Info("Tee ensin Thaitownin laituri (161)."); return; }
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        foreach (var n in new[] { "Laiturin skettari", "Laiturin laudat" }) { var old = GameObject.Find(n); if (old != null) Undo.DestroyObjectImmediate(old); }
+        var report = new List<string>();
+        var root = new GameObject("Laiturin skettari");
+        Undo.RegisterCreatedObjectUndo(root, "Laiturin skettari");
+        var sk = MakeSkater(root.transform, pc, report);
+        if (sk == null) { Undo.DestroyObjectImmediate(root); Info(string.Join("\n", report)); return; }
+        sk.gameObject.name = "Skettari (laituri)";
+        float minX = area.walkMinX, maxX = area.walkMaxX;
+        float sx = Mathf.Lerp(minX, maxX, 0.6f);
+        sk.transform.position = new Vector3(sx, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.5f), 0f);
+        sk.wanderMinX = sx - 4f; sk.wanderMaxX = sx + 4f; sk.idleFacing = -1;
+        sk.wakeDistance = 10f;
+        sk.gameObject.SetActive(true);
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Laiturille 1 skettari (kaadettuaan pudottaa laudan). " + string.Join(", ", report.Distinct()) + "\n\nAja ensin 170 (Roccon laudan kuvat), jos et ole. Kaada skettari, mene hänen lautansa viereen ja paina poimintanappia (E).\n\nTallenna scene (Ctrl+S). Tarkista Console.");
+    }
+    const string TestOffMark = " [pois]";
+
+    [MenuItem("Beat em up/172. Testitila: vihollisten ja spawnerien piilotus (aja uudelleen = takaisin)")]
+    static void ToggleEnemiesOff()
+    {
+        if (PlayModeBlocked()) return;
+        var marked = Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t.name.EndsWith(TestOffMark)).Select(t => t.gameObject).ToList();
+        if (marked.Count > 0)
+        {
+            foreach (var g in marked)
+            {
+                Undo.RecordObject(g, "Testitila pois");
+                g.name = g.name.Substring(0, g.name.Length - TestOffMark.Length);
+                g.SetActive(true);
+                var sp = g.GetComponent<EnemyBikeSpawner>();
+                if (sp != null) { Undo.RecordObject(sp, "Spawner"); sp.enabled = true; EditorUtility.SetDirty(sp); }
+                EditorUtility.SetDirty(g);
+            }
+            EditorSceneManager.MarkSceneDirty(marked[0].scene);
+            Info($"Testitila pois: {marked.Count} vihollista/spawneria takaisin.\n\nTallenna scene (Ctrl+S).");
+            return;
+        }
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+        {
+            var g = e.gameObject;
+            Undo.RecordObject(g, "Testitila");
+            g.name += TestOffMark; g.SetActive(false); EditorUtility.SetDirty(g); n++;
+        }
+        int ns = 0;
+        foreach (var sp in Object.FindObjectsByType<EnemyBikeSpawner>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+        {
+            Undo.RecordObject(sp, "Spawner");
+            sp.gameObject.name += TestOffMark; sp.enabled = false; EditorUtility.SetDirty(sp); EditorUtility.SetDirty(sp.gameObject); ns++;
+        }
+        var any = Object.FindFirstObjectByType<PlayerController>();
+        if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
+        Info($"Testitila: {n} vihollista ja {ns} spawneria pois päältä (nimessä \"{TestOffMark.Trim()}\").\nAja valikko 172 uudelleen, niin ne palaavat.\n\nÄlä unohda palauttaa ennen kuin tallennat oikeaa peliä.");
+    }
+
+    [MenuItem("Beat em up/173. Rubyn spagaattipotku (L2 + R2 tai O + U: potkaisee molemmin puolin, vihut lentävät)")]
+    static void SetupRubySplitKick()
+    {
+        if (PlayModeBlocked()) return;
+        string tp = FindTexture("ruby_spagaatti");
+        if (tp == null) { Info("ruby_spagaatti.png puuttuu (Assets/Sprites)."); return; }
+        int c = SetupAndSlice(tp);
+        var sp = LoadSprites("ruby_spagaatti").OrderBy(s => int.TryParse(s.name.Substring(s.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        if (sp.Length != 20) { Info($"ruby_spagaatti.png: {sp.Length}/20 kuvaa."); return; }
+        var players = Object.FindObjectsByType<PlayerController>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var pc in players)
+        {
+            Undo.RecordObject(pc, "Spagaattipotku");
+            pc.splitKickSprites = sp;
+            EditorUtility.SetDirty(pc);
+            EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        }
+        Info($"Rubyn spagaattipotku: {c} kuvaa, pelaajia päivitetty: {players.Length}.\n\nRuby: vastaheitto-nappi + pusku yhtä aikaa (näppäimistö O + U, ohjain L2 + R2). Potkaisee molemmille puolille, vihut lentävät (kevyet kauemmas), kuluttaa staminaa 22 ja on loikan ajan lyömätön.\n\nTallenna scene (Ctrl+S).");
+    }
+    [MenuItem("Beat em up/174. Palauta viholliset (172:n piilotus pois) ja poista testilaudat (laudat vain skettareilta)")]
+    static void RestoreEnemiesAndRemoveTestBoards()
+    {
+        if (PlayModeBlocked()) return;
+        var marked = Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t.name.EndsWith(TestOffMark)).Select(t => t.gameObject).ToList();
+        foreach (var g in marked)
+        {
+            Undo.RecordObject(g, "Vihollinen takaisin");
+            g.name = g.name.Substring(0, g.name.Length - TestOffMark.Length);
+            g.SetActive(true);
+            var sp = g.GetComponent<EnemyBikeSpawner>();
+            if (sp != null) { Undo.RecordObject(sp, "Spawner"); sp.enabled = true; EditorUtility.SetDirty(sp); }
+            EditorUtility.SetDirty(g);
+        }
+        int boards = 0;
+        foreach (var bs in Object.FindObjectsByType<BoardSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None)) { Undo.DestroyObjectImmediate(bs.gameObject); boards++; }
+        var group = GameObject.Find("Laiturin laudat");
+        if (group != null) Undo.DestroyObjectImmediate(group);
+        var any = Object.FindFirstObjectByType<PlayerController>();
+        if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
+        Info($"Takaisin: {marked.Count} vihollista/spawneria. Testilautoja poistettu: {boards}.\n\nLaudat tulevat nyt vain skettareilta (kaadettu skettari pudottaa laudan, jolle nousee poimintanapilla).\n\nTallenna scene (Ctrl+S).");
+    }
+    [MenuItem("Beat em up/175. Bettyjen koko samaksi kaikkialla (kadulla ja laiturilla)")]
+    static void SyncBettyScale()
+    {
+        if (PlayModeBlocked()) return;
+        int n = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e.displayName != "Betty") continue;
+            Undo.RecordObject(e, "Bettyn koko");
+            e.visualScale = BettyScale; e.attackArtScale = BettyScale; e.knockArtScale = BettyScale; e.walkArtScale = BettyScale;
+            EditorUtility.SetDirty(e); EditorSceneManager.MarkSceneDirty(e.gameObject.scene); n++;
+        }
+        Info($"Bettyjä päivitetty: {n}. Koko {BettyScale}× kaikilla (katu ja laituri).\n\nTallenna scene (Ctrl+S).");
+    }
+    [MenuItem("Beat em up/176. Korjaa aavikon juna-aseman ovet (Thaitown poisti ne samannimisinä): asema <-> katu ja asema <-> junapiha")]
+    static void RepairDesertStationDoors()
+    {
+        if (PlayModeBlocked()) return;
+        var areas = Object.FindObjectsByType<Area>(FindObjectsSortMode.None);
+        Area Find(string n) => areas.FirstOrDefault(a => a.areaName == n);
+        var station = Find("Juna-asema"); var street = Find("Aavikkokatu"); var yard = Find("Junapiha");
+        if (station == null || street == null || yard == null) { Info("Tarvitaan Aavikkokatu, Juna-asema ja Junapiha (95, 123, 124)."); return; }
+        int renamed = 0, made = 0;
+        // 1) Thaitownin ovet saavat oman nimen, ettei aavikon valikko (tai toisinpäin) poista niitä samannimisinä
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            bool thai = (d.here != null && d.here.areaName.StartsWith("Thaitown")) || (d.target != null && d.target.areaName.StartsWith("Thaitown"));
+            if (!thai || d.name.StartsWith("Thaitown: ")) continue;
+            Undo.RecordObject(d.gameObject, "Oven nimi"); d.gameObject.name = "Thaitown: " + d.gameObject.name; renamed++;
+        }
+        // 1b) kohteettomat ovet (kaksoiskappaleet) pois: ne veivät samaan ruutuun (esim. junan takaparvekkeen \"Kiipeä katolle\")
+        int dead = 0;
+        foreach (var d in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (d.target != null || d.name.StartsWith("Thaitown")) continue;
+            Undo.DestroyObjectImmediate(d.gameObject); dead++;
+        }
+        float ppu0 = 941f / (2f * CamHalf), ppuYard = ppu0 / 1.5f;
+        float stationPx(float px) => 94000f + px / ppu0;
+        float yardPx(float px) => 95000f + px / ppuYard;
+        bool Has(Area from, Area to) => Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).Any(d => d.here == from && d.target == to);
+        Door New(string name, Area from, Area to, Vector2 spawn, string prompt, float halfW, float maxWall, Vector3 pos)
+        {
+            var go = new GameObject(name);
+            Undo.RegisterCreatedObjectUndo(go, name);
+            var d = go.AddComponent<Door>();
+            d.here = from; d.target = to; d.returnToLastDoor = false; d.spawnPoint = spawn;
+            d.prompt = prompt; d.halfWidth = halfW; d.maxDistanceFromWall = maxWall;
+            go.transform.position = pos; made++;
+            return d;
+        }
+        const float streetPpu = 887f / 12f;
+        float streetDoorX = 86000f + (15268.71f + 750f * 1.027588f) / streetPpu;   // aseman pääovi Aavikkokadulla
+        // 2) aseman vasen ovi -> katu
+        if (!Has(station, street))
+            New("Asemalta kadulle", station, street, new Vector2(streetDoorX, street.maxDepthY - 0.3f), "Mene ulos kadulle", 1.4f, 2.4f,
+                new Vector3(stationPx(115f), station.MaxDepthAtX(stationPx(115f), station.maxDepthY), 0f));
+        // 3) aseman oikea ovi <-> junapihan vasen ovi
+        float stationDoorX = station.walkMaxX + 0.5f - 115f / ppu0;
+        if (!Has(station, yard))
+            New("Asemalta laiturille", station, yard, new Vector2(yardPx(330f), Mathf.Lerp(yard.maxDepthY, yard.minDepthY, 0.3f)), "Mene laiturille", 1.4f, 2.4f,
+                new Vector3(stationDoorX, station.MaxDepthAtX(stationDoorX, station.maxDepthY), 0f));
+        if (!Has(yard, station))
+            New("Laiturilta asemalle", yard, station, new Vector2(stationDoorX - 1.6f, Mathf.Lerp(station.maxDepthY, station.minDepthY, 0.3f)), "Mene asemalle", 1.4f, 1.4f,
+                new Vector3(yardPx(115f), yard.maxDepthY, 0f));
+        var any = Object.FindFirstObjectByType<PlayerController>();
+        if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
+        Info($"Thaitownin ovia nimetty uudelleen: {renamed}. Aavikon aseman ovia luotu: {made}. Kohteettomia ovia poistettu: {dead} (junan katolle pääsy).\n\nAseman oikea ovi vie junapihalle, junapihan vasen ovi takaisin ja aseman vasen ovi kadulle.\n\nTallenna scene (Ctrl+S).");
     }
 }

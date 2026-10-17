@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>Skettarin irronnut rullalauta: jatkaa matkaa, hidastuu ja jää maahan. Häipyy, kun omistaja on poissa.</summary>
@@ -6,6 +7,29 @@ public class LooseBoard : MonoBehaviour
     SpriteRenderer sr, shadow;
     float vx, t, wobble;
     public Enemy owner;
+    /// Pelaajan pudottama lauta: ei häviä omistajan mukana.
+    public bool persistent;
+    float muteUntil;
+    static readonly List<LooseBoard> All = new List<LooseBoard>();
+    void OnEnable() { All.Add(this); }
+    void OnDisable() { All.Remove(this); }
+
+    /// Estää nousun laudalle hetkeksi (juuri pudotettu lauta).
+    public void Mute(float seconds) { muteUntil = Time.time + seconds; }
+
+    /// Seisova lauta pelaajan jalkojen alla (pelaaja astuu päälle): null, jos ei ole.
+    public static LooseBoard FindRideable(Vector3 pos)
+    {
+        foreach (var b in All)
+        {
+            if (b == null || b.fade > 0f || Time.time < b.muteUntil || b.t < 0.6f || Mathf.Abs(b.vx) > 0.6f) continue;
+            if (Mathf.Abs(b.transform.position.x - pos.x) < 1.5f && Mathf.Abs(b.transform.position.y - pos.y) < 0.8f) return b;
+        }
+        return null;
+    }
+
+    /// Pelaaja nousi laudalle: lauta häviää (kuvat sisältävät laudan).
+    public void Take() { Destroy(gameObject); }
 
     public static LooseBoard Spawn(Sprite sprite, Vector3 pos, float vx, Enemy owner)
     {
@@ -31,6 +55,17 @@ public class LooseBoard : MonoBehaviour
         Vector3 p = transform.position;
         p.x += vx * dt;
         vx = Mathf.MoveTowards(vx, 0f, 3.5f * dt);   // rullaa ja hidastuu
+        // ei seinien läpi eikä ruudun ohi: sama alue kuin hahmoilla, törmätessä vauhti loppuu
+        float before = p.x;
+        var cf = CameraFollow.Instance; var cam = Camera.main;
+        if (cf != null && cam != null)
+        {
+            float halfW = cam.orthographicSize * cam.aspect - 0.6f;
+            p.x = Mathf.Clamp(p.x, cf.minX - halfW, cf.maxX + halfW);
+            if (Area.Current != null && Area.Current.walkMaxX != 0f) p.x = Mathf.Min(p.x, Area.Current.walkMaxX);
+            if (Area.Current != null && Area.Current.walkMinX != 0f) p.x = Mathf.Max(p.x, Area.Current.walkMinX);
+        }
+        if (!Mathf.Approximately(p.x, before)) vx = 0f;
         transform.position = p;
         // irtoaa pienellä pompulla ja keikahduksella
         if (wobble > 0f) wobble -= dt;
@@ -39,8 +74,9 @@ public class LooseBoard : MonoBehaviour
         sr.transform.localRotation = Quaternion.Euler(0f, 0f, wobble > 0f ? Mathf.Sin(wobble * 40f) * 8f : 0f);
         int order = Mathf.RoundToInt(-p.y * 100f);
         sr.sortingOrder = order; shadow.sortingOrder = order - 1;
+        if (persistent && t > 150f && Mathf.Abs(vx) < 0.1f) Destroy(gameObject);   // vanha, käyttämätön lauta siivotaan pois
         // omistaja kuollut tai poissa: häipyy hetken päästä
-        if (owner == null || owner.IsDead)
+        if (!persistent && (owner == null || owner.IsDead))
         {
             fade += dt;
             float a = Mathf.Clamp01(1f - (fade - 2f));

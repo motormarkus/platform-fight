@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Kuluttaa staminaa, jos sitä on tarpeeksi. Palauttaa, onnistuiko.
     public bool UseStamina(float cost)
     {
-        if (Boosted || PieWar.Active) return true;   // pärinä ja piirakkasota: stamina ei kulu
+        if (Boosted || PieWar.Active || Skating) return true;   // pärinä, piirakkasota ja lauta: stamina ei kulu
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
         staminaRest = staminaRegenWait;
@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void UpdateStamina(float dt)
     {
+        if (Skating) { stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * dt); staminaRest = 0f; return; }   // laudalla stamina palautuu eikä kulu
         if (running && (Boosted || PieWar.Active)) return;   // piirakkasodassa juoksu ei kuluta staminaa (ehtii hakea piirakoita)
         if (running)
         {
@@ -465,7 +466,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Pudotuspotkun osuman lennätysvauhti (yksikköä/s).")]
     public float dropKickLaunch = 11f;
     bool dropKickHit, punchFromRun;
-    float lastPunchPressTime = -9f, lastJumpPressTime = -9f;
+    float lastPunchPressTime = -9f, lastJumpPressTime = -9f, lastKickPressTime = -9f;
     bool HasDropKick => dropKickSprites != null && (dropKickLandsOnFeet ? dropKickSprites.Length >= 5 && HasJumpArt
                                                                       : dropKickSprites.Length >= 8 && kipUpSprites != null && kipUpSprites.Length > 0);
     // kuvat 2–7 ja ajat: kippura, potku, suorana (lento), alastulo, makuu
@@ -966,6 +967,88 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         return headCrushSprites[4];
     }
+
+    // ---------------- Spagaattipotku (Ruby): vastaheitto-nappi + pusku yhtä aikaa (L2 + R2) ----------------
+    [Header("Spagaattipotku (Ruby)")]
+    [Tooltip("ruby_spagaatti.png: 20 kuvaa (0 asento, 1-4 kyykky, 5-9 loikka, 10-14 spagaatti, 15-19 palautuminen).")]
+    public Sprite[] splitKickSprites;
+    public int splitKickDamage = 28;
+    [Tooltip("Ulottuma molemmille puolille (yksikköä).")]
+    public float splitKickReach = 3.0f;
+    [Tooltip("Stamina, joka kuluu liikkeestä.")]
+    public float splitKickStamina = 22f;
+    [Tooltip("Nousu loikassa (yksikköä, kuvan oman loikan päälle).")]
+    public float splitKickHeight = 1.1f;
+    const float SplitLiftFrom = 0.26f, SplitLiftTo = 0.95f;
+    bool HasSplitKick => AppliedCharacter == 1 && splitKickSprites != null && splitKickSprites.Length >= 20;
+    // kuvien kestot; spagaatti (kuva 10) alkaa 0,51 s kohdalla, jolloin potku osuu
+    static readonly float[] SplitKickTimes = { 0.06f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.08f, 0.08f, 0.08f, 0.08f, 0.06f, 0.06f, 0.06f, 0.06f, 0.08f };
+    bool splitHit;
+    const int SplitHitFrame = 10;
+
+    void StartSplitKick()
+    {
+        splitHit = false;
+        if (!Boosted) { stamina = Mathf.Max(0f, stamina - splitKickStamina); staminaRest = staminaRegenWait; }
+        lastPushPressAt = -9f; lastCatchPressAt = -9f; catchBufferUntil = 0f;
+        moving = false; running = false;
+        PlayGruntSpecial();
+        Enter(State.SplitKick);
+    }
+
+    float SplitLaunchX(Enemy e)
+    {
+        float mass = e.bigBody || Enemy.IsHeavyweight(e) ? 0.4f : e.lightweight ? 1.25f : 0.9f;
+        return Mathf.Min(22f, drunkLaunchX * mass) * UnityEngine.Random.Range(0.92f, 1.08f);
+    }
+
+    void UpdateSplitKick(float dt)
+    {
+        float hitAt = 0f;
+        for (int i = 0; i < SplitHitFrame; i++) hitAt += SplitKickTimes[i];
+        Vector3 me = transform.position;
+        if (!splitHit && stateTime >= hitAt)
+        {
+            splitHit = true;
+            bool any = false;
+            foreach (var e in Enemy.All.ToArray())
+            {
+                if (e == null || e.IsDead || e.ally || !e.isActiveAndEnabled) continue;
+                Vector3 p = e.transform.position; float dx = p.x - me.x;
+                if (Mathf.Abs(dx) > splitKickReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.3f) continue;
+                if (e.TakeHit(splitKickDamage, me.x, true))
+                {
+                    float side = dx >= 0f ? 1f : -1f;
+                    if (!e.JustBlocked) e.Launch(side * SplitLaunchX(e), 7f);
+                    HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + 1.5f, 0f), !e.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
+                    any = true;
+                }
+            }
+            if (any)
+            {
+                HitFx.OnHit(true);
+                if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.22f);
+            }
+        }
+        // nousu kaarena loikan ajan (kuvissa on jo oma pieni nousu)
+        float lk = Mathf.Clamp01((stateTime - SplitLiftFrom) / (SplitLiftTo - SplitLiftFrom));
+        height = Mathf.Sin(lk * Mathf.PI) * splitKickHeight;
+        float total = 0f;
+        foreach (var t in SplitKickTimes) total += t;
+        if (stateTime >= total) { height = 0f; Enter(State.Ground); }
+    }
+
+    Sprite SplitKickSprite()
+    {
+        float t = stateTime;
+        for (int i = 0; i < SplitKickTimes.Length && i < splitKickSprites.Length; i++)
+        {
+            if (t < SplitKickTimes[i]) return splitKickSprites[i];
+            t -= SplitKickTimes[i];
+        }
+        return splitKickSprites[splitKickSprites.Length - 1];
+    }
+
     const float PummelReachTime = 0.16f, PummelGripTime = 0.14f, PummelStep = 0.17f;   // yksi lyönti: veto, lyönti, osuma
     const int PummelHits = 5;
 
@@ -1290,7 +1373,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -1414,6 +1497,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         int pummelDir = HasPummel && punchPressed && Time.time <= dashArmedUntil ? (dashDir >= 0f ? 1 : -1) : 0;
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
+        if (kickPressed) lastKickPressTime = Time.time;
         bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;   // Ruby: alas, eteen + potku
         bool specialPressed = !Scripted && SpecialPressed();
         bool pushPressed = !Scripted && PushPressed();
@@ -1423,11 +1507,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
         if (catchPressed) { catchBufferUntil = Time.time + 0.18f; lastCatchPressAt = Time.time; }
         // päät yhteen: vastaheitto-nappi + pusku (lähes) yhtä aikaa vapaana maassa tai heti ensimmäisen napin aloittaman liikkeen alussa
-        if (HasHeadCrush && Bottle.HeldBy(this) == null && carried == null
+        if ((HasHeadCrush || HasSplitKick) && Bottle.HeldBy(this) == null && carried == null
             && (state == State.Ground || ((state == State.Push || state == State.Catch) && stateTime < headCrushWindow + 0.05f))
             && Mathf.Abs(lastCatchPressAt - lastPushPressAt) <= headCrushWindow && (catchPressed || pushPressed))
         {
-            StartHeadCrush();
+            if (HasSplitKick) StartSplitKick(); else StartHeadCrush();   // Rocco: päät yhteen, Ruby: spagaattipotku
         }
         bool catchNow = catchPressed || (Time.time <= catchBufferUntil && state == State.Ground);
         // esineen poiminta omalla napilla (E / toimintanappi); sama nappi myös heittää kädessä olevan esineen
@@ -1453,7 +1537,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Ground:
                 if (pummelDir != 0 && Bottle.HeldBy(this) == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
-                if (dropKickInput && running && UseStamina(jumpStamina)) { StartDropKick(); break; }
+                if (dropKickInput && (running || Skating) && UseStamina(jumpStamina)) { StartDropKick(); break; }
                 if (jumpPressed && UseStamina(jumpStamina))
                 {
                     // muista juoksu ja vauhti, jotta ne säilyvät hypyssä
@@ -1517,6 +1601,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (Bottle.ThrowHeld(this) && punchCombo.Length > 0) StartComboHit(0);
                     break;
                 }
+                if (Skating && HasSkatePunch && punchPressed) { StartSkatePunch(); break; }   // laudalta omat lyönnit
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed && Time.time <= dashArmedUntil && HasKneeStrikeArt && UseStamina(pushStamina))
                 {
@@ -1547,19 +1632,29 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 {
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGruntSpecial(); break;
                 }
-                Walk(move, dt);
+                if (Skating)
+                {
+                    if (pickPressed) { Dismount(true); break; }   // poimintanappi: hyppää pois laudalta
+                    SkateMove(move, dt);
+                }
+                else
+                {
+                    if (pickPressed) TryMountBoard();   // laudalle noustaan poimintanapilla
+                    Walk(move, dt);
+                }
                 break;
 
             case State.JumpSquat:
-                if (dropKickInput && jumpFromRun && !scissorJump) { StartDropKick(); break; }   // hyppy ensin, lyönti heti perään
+                if (dropKickInput && (jumpFromRun || Skating) && !scissorJump) { StartDropKick(); break; }   // hyppy ensin, lyönti heti perään
                 MoveOnGround(squatVel * dt);   // vauhti ei katkea ponnistuksen ajaksi
-                if (stateTime >= jumpSquatTime)
+                if (stateTime >= (Skating ? SkateSquatTime : jumpSquatTime) && !(Skating && !Scripted && CoopInput.JumpHeld(playerIndex)))   // laudalla hyppy lähtee vasta, kun nappi päästetään irti (pito = lataus, enimmäislataus säilyy)
                 {
                     verticalVel = jumpVelocity;
+                    if (Skating) { verticalVel *= 1f + SkateChargeBoost * Mathf.Clamp01((stateTime - SkateSquatTime) / (SkateChargeMax - SkateSquatTime)); skateJumpV = verticalVel; }
                     bool runJump = jumpFromRun || (RunHeld() && Mathf.Abs(move.x) > 0.1f);
                     float sx = moveSpeedX * (runJump ? runSpeedMultiplier : 1f);
                     float sy = moveSpeedY * (runJump ? runDepthMultiplier : 1f);
-                    airVel = new Vector2(move.x * sx, move.y * sy);
+                    airVel = Skating ? skateVel : new Vector2(move.x * sx, move.y * sy);
                     if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0;
                     jumpKick = false;
                     scissor = false;
@@ -1581,7 +1676,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 float g = scissor && scissorTime < ScissorKick2End && verticalVel < 0f ? gravity * scissorGravityScale : gravity;
                 verticalVel -= g * dt;
                 height += verticalVel * dt;
-                if (!jumpKick && !scissor && kickPressed && HasScissor)
+                // laudalta tuplapotku (pudotuspotku): hyppy + lyönti yhtä aikaa; lauta jatkaa matkaa
+                if ((Skating || Time.time < skateAttackUntil) && HasDropKick && dropKickInput && !scissor && (!jumpKick || jumpKickTime < 0.15f))
+                {
+                    LaunchBoard(); StartDropKick(); break;
+                }
+                if (Skating && !jumpKick && !scissor && kickPressed)
+                {
+                    // laudalta potkunappi = hyppypotku (ei saksipotkua); lauta pysyy jalkojen alla ja hero laskeutuu takaisin sen päälle
+                    jumpKick = true; jumpKickTime = 0f; attackHit = false; PlayGrunt();
+                }
+                else if (!jumpKick && !scissor && kickPressed && HasScissor)
                 {
                     scissor = true; scissorTime = 0f; scissorHit1 = scissorHit2 = false; PlayGrunt(); comboScissor = false;
                     if (verticalVel < 0f) verticalVel *= 0.3f;   // laskussa aloitettu: pieni pysähdys ilmassa
@@ -1610,6 +1715,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Landing:
+                if (Skating) MoveOnGround(skateVel * dt);   // laudalla vauhti jatkuu alastulossa (ei jämähdä paikalleen)
                 if (comboScissor && landedFromScissor && stateTime >= landingTime * 0.4f)
                 {
                     comboScissor = false;
@@ -1620,7 +1726,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Punch:
             {
-                if (dropKickInput && punchFromRun && comboIndex == 0 && stateTime < 0.15f) { StartDropKick(); break; }   // lyönti ensin, hyppy heti perään
+                if (dropKickInput && (punchFromRun || Skating) && comboIndex == 0 && stateTime < 0.15f) { StartDropKick(); break; }   // lyönti ensin, hyppy heti perään
                 ComboHit hit = punchCombo[comboIndex];
                 float total = hit.TotalTime;
 
@@ -1776,7 +1882,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         foreach (var e in lastHitEnemies)
                         {
                             if (e == null) continue;
-                            e.Launch(dir * dropKickLaunch, 8f);
+                            e.Launch(dir * Mathf.Max(dropKickLaunch, SkateHitSpeed >= SkateLaunchMinSpeed ? SkateLaunchX(e, SkateHitSpeed) : 0f), 8f);
                             Vector3 q = e.transform.position;
                             HitSpark.Spawn(new Vector3(q.x - dir * 0.2f, q.y + height + 1.4f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 6);
                         }
@@ -2178,6 +2284,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.HeadCrush:
                 UpdateHeadCrush(dt);
                 break;
+            case State.SplitKick:
+                UpdateSplitKick(dt);
+                break;
+            case State.SkatePunch:
+                UpdateSkatePunch(dt);
+                break;
             case State.Pummel:
                 UpdatePummel(dt);
                 if (state == State.Pummel && pummelCount >= PummelHits && stateTime >= PummelReachTime + PummelGripTime + PummelHits * PummelStep + 0.22f) Enter(State.Ground);
@@ -2375,6 +2487,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        SkateOnEnter(s);
         fxStage = 0;
         // rinnuksista-lyönnit keskeytyivät (esim. ovi tai kuolema): vihu irti, ettei jää otteeseen
         if (state == State.Pummel && s != State.Pummel && pummelTarget != null)
@@ -2463,7 +2576,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float shakeUntil;       // osuman tärinä (reaaliaikaa, näkyy osumapysäytyksen aikana)
 
     /// Onko pelaaja maassa tai osuman kourissa (viholliset eivät silloin aloita uutta lyöntiä).
-    public bool IsDown => state == State.Hurt || state == State.PieHit || state == State.CounterThrow || state == State.WhipCatch || state == State.Pummel || state == State.HeadCrush || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
+    public bool IsDown => state == State.Hurt || state == State.PieHit || state == State.CounterThrow || state == State.WhipCatch || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick || state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp
                           || GameOver || invulnTimer > 0f;
 
     // ---------------- Heitto (vihollinen tarttuu kiinni) ----------------
@@ -2512,7 +2625,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (Riding) return false;
         if (GameOver || invulnTimer > 0f || height > 0.3f) return false;
         if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.Grabbed || state == State.Thrown || state == State.Down
-            || state == State.Air || state == State.JumpSquat || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush) return false;
+            || state == State.Air || state == State.JumpSquat || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick) return false;
         facingRight = enemyX > transform.position.x;    // kasvot tarttujaan päin
         DropCrate();
         Enter(State.Grabbed);
@@ -2689,6 +2802,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void StartDropKick()
     {
+        if (Skating) { skateVel.x = skateVel.x * 0.9f; LaunchBoard(); }   // tuplapotku laudalta: lauta jatkaa matkaa
         dropKickHit = false; attackHit = false;
         if (Mathf.Abs(lastGroundVel.x) > 0.1f) facingRight = lastGroundVel.x > 0f;
         lastPunchPressTime = lastJumpPressTime = -9f;
@@ -2750,9 +2864,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach : dx <= 0.3f && dx >= -reach;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
-            bool kd = knockdown || drunkKnock;
+            float skateHit = SkateHitSpeed;   // laudalta vauhdissa tehty isku kaataa ja lennättää
+            bool kd = knockdown || drunkKnock || skateHit >= SkateLaunchMinSpeed;
             if (e.TakeHit(damage, me.x, kd))
             {
+                if (skateHit >= SkateLaunchMinSpeed && kd && !e.JustBlocked && !IsDrunk) e.Launch(side * SkateLaunchX(e, skateHit), drunkLaunchUp * (0.7f + 0.3f * Mathf.Min(1.6f, skateHit / skateSpeedX)));
                 // merimieskänni: kaatunut vihu lentää ruudun poikki ja kaataa matkalla muita
                 if (IsDrunk && kd && !e.JustBlocked) e.Launch(side * drunkLaunchX * UnityEngine.Random.Range(0.85f, 1.15f), drunkLaunchUp);
                 any = true;
@@ -2922,7 +3038,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
-        if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.WhipCatch) return false;
+        if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick || state == State.WhipCatch) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
@@ -2977,6 +3093,323 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Ajaa moottoripyörää (Motorbike ohjaa liikettä ja kuvaa; iskut eivät osu).
     public bool Riding { get; set; }
 
+    // ---------------- Rullalauta (Rocco) ----------------
+
+    [Header("Rullalauta")]
+    [Tooltip("Laudalla: 0-12 = liukuidle (edestakaisin), 13-25 = yksi vauhdinpotku (rocco_skeitti_liuku).")]
+    public Sprite[] skateSprites;
+    [Tooltip("Kickflip-hyppy: 0-4 kyykky, 5-7 ponnistus, 8-13 flip, 14-17 lasku (rocco_skeitti_kickflip).")]
+    public Sprite[] kickflipSprites;
+    [Tooltip("Laudan kuva (iskuissa lauta näkyy jalkojen alla, kun laudalla ei ole omaa kuvaa).")]
+    public Sprite boardSprite;
+    [Tooltip("Jarrutus: laudan takapää painetaan maahan (rocco_skeitti_jarru). Tyhjä = jarrutus toimii ilman omaa kuvaa.")]
+    public Sprite[] skateBrakeSprites;
+    [Tooltip("Rubyn liuku: 0-12 liukuidle, 13-25 vauhdinotto (ruby_skeitti_liuku).")]
+    public Sprite[] rubySkateSprites;
+    [Tooltip("Rubyn ollie-hyppy: 0-4 kyykky, 5-7 ponnistus, 8-15 ilma (8), 16-19 lasku (ruby_skeitti_ollie, 20 kuvaa).")]
+    public Sprite[] rubyOllieSprites;
+    [Tooltip("Rubyn jarrutus (ruby_skeitti_jarru).")]
+    public Sprite[] rubyBrakeSprites;
+    // hahmon omat kuvat (Rocco / Ruby)
+    Sprite[] SkateArt => AppliedCharacter == 1 ? rubySkateSprites : skateSprites;
+    Sprite[] FlipArt => AppliedCharacter == 1 ? rubyOllieSprites : kickflipSprites;
+    Sprite[] BrakeArt => AppliedCharacter == 1 ? rubyBrakeSprites : skateBrakeSprites;
+    // vakioita (ei Inspectorissa: vanhan scenen arvot eivät jää voimaan)
+    const float skateSpeedX = 8.5f, skateSpeedY = 3.2f, skateAccel = 6f, skateCoast = 1.2f, skateRunMul = 1.6f;
+    public float SkateSquatTime = 0.2f;
+    const float SkatePushFrame = 0.05f, SkateIdleFrame = 0.09f;
+    const int SkateIdleFrames = 13;
+    public bool Skating { get; private set; }
+    Vector2 skateVel;
+    float skateClock;
+    bool skatePushing, skateBraking;
+    float skateBrakeClock;
+    const float SkateBrakeDecel = 17f, SkateBrakeMinSpeed = 2.5f, SkateBrakeFrame = 0.07f;
+    SpriteRenderer boardProp;
+    float skateAttackSpeed, skateAttackUntil, skateJumpV;
+    // pidempi pito = korkeampi kickflip: täysi lataus nostaa jalat vihun pään korkeudelle (n. 3,6 yks.)
+    const float SkateChargeMax = 0.6f, SkateChargeBoost = 0.18f;
+    const float SkateLaunchMinSpeed = 5f;
+    /// Vauhti, jolla isku osuu: laudalla nykyinen vauhti, laudasta irtautuneella iskulla (tuplahyppypotku) vauhti irtautumishetkellä.
+    float SkateHitSpeed => Skating ? Mathf.Abs(skateVel.x) : Time.time < skateAttackUntil ? skateAttackSpeed : 0f;
+
+    /// Lentomatka vauhdin ja vihun painon mukaan: kevyet lentävät ruudun laitaan, raskaat vain lyhyen matkan.
+    float SkateLaunchX(Enemy e, float speed)
+    {
+        float mass = e.bigBody || Enemy.IsHeavyweight(e) ? 0.3f : e.lightweight ? 1.2f : 0.7f;
+        return Mathf.Min(26f, drunkLaunchX * (speed / skateSpeedX) * mass) * UnityEngine.Random.Range(0.92f, 1.08f);
+    }
+    bool CanSkate => (AppliedCharacter == 0 || AppliedCharacter == 1) && SkateArt != null && SkateArt.Length > 1 && boardSprite != null;
+    bool KickflipArt => FlipArt != null && FlipArt.Length >= 18;
+
+    /// Nousee seisovan laudan päälle poimintanapilla (vapaana maassa): hahmon kuva vaihtuu kuviin, joissa lauta on mukana.
+    void TryMountBoard()
+    {
+        if (!CanSkate || !IsFree || Riding || Bottle.HeldBy(this) != null || Chair.Held != null || Cue.Held != null || LifeRing.Held != null || Lid.Held != null) return;
+        var b = LooseBoard.FindRideable(transform.position);
+        if (b == null) return;
+        b.Take();
+        Skating = true; skateVel = Vector2.zero; skateClock = 0f; skatePushing = false;
+    }
+
+    /// Pois laudalta: lauta jää maahan (tai jatkaa matkaa vauhdin mukana).
+    void Dismount(bool hop)
+    {
+        if (!Skating) return;
+        Skating = false; skatePushing = false;
+        if (boardProp != null) boardProp.enabled = false;
+        float vx = hop ? skateVel.x * 0.6f : (facingRight ? 3f : -3f);
+        var b = LooseBoard.Spawn(boardSprite, transform.position, vx, null);
+        b.persistent = true; b.Mute(hop ? 1.2f : 0.4f);   // ei noustavissa heti takaisin
+        skateVel = Vector2.zero;
+    }
+
+    /// Potkuliike ilmasta: lauta jää ajamaan omaa matkaansa maata pitkin eikä hero putoa sen päälle.
+    void LaunchBoard()
+    {
+        if (!Skating) return;
+        skateAttackSpeed = Mathf.Abs(skateVel.x); skateAttackUntil = Time.time + 1.3f;
+        Skating = false; skatePushing = false;
+        if (boardProp != null) boardProp.enabled = false;
+        float vx = skateVel.x;
+        if (Mathf.Abs(vx) < 3f) vx = (facingRight ? 1f : -1f) * 3f;
+        var b = LooseBoard.Spawn(boardSprite, new Vector3(transform.position.x, transform.position.y, 0f), vx, null);
+        b.persistent = true; b.Mute(2.5f);
+    }
+
+    // ---- rullalaudan äänet: vieriminen loopilla, hyppy ja alastulo risteyshäivytyksellä loopin päälle ----
+    static AudioClip skateRollClip, skateJumpClip, skateLandClip;
+    static bool skateSfxLoaded;
+    AudioSource skateRoll, skateSfx;
+    float skateRollVol;
+    const float SkateRollMax = 0.55f, SkateRollFadeIn = 3.5f, SkateRollFadeOut = 8f;
+
+    void LoadSkateSfx()
+    {
+        if (skateSfxLoaded) return;
+        skateSfxLoaded = true;
+        skateRollClip = Resources.Load<AudioClip>("Sfx/Skate/skate_rolling_loop");
+        skateJumpClip = Resources.Load<AudioClip>("Sfx/Skate/skate_jump");
+        skateLandClip = Resources.Load<AudioClip>("Sfx/Skate/skate_land");
+    }
+
+    AudioSource MakeSkateSource(string name, bool loop)
+    {
+        var go = new GameObject(name); go.transform.SetParent(transform, false);
+        var a = go.AddComponent<AudioSource>();
+        a.playOnAwake = false; a.loop = loop; a.spatialBlend = 0f; a.volume = 0f;
+        return a;
+    }
+
+    void PlaySkateOneShot(bool jump, float vol)
+    {
+        LoadSkateSfx();
+        var c = jump ? skateJumpClip : skateLandClip;
+        if (c == null) return;
+        if (skateSfx == null) skateSfx = MakeSkateSource("SkateSfx", false);
+        skateSfx.pitch = 1f; skateSfx.volume = 1f;   // PlayOneShot kertoo lähteen voimakkuudella (aiemmin 0)
+        skateSfx.PlayOneShot(c, vol * GameSettings.SfxVolume);
+    }
+
+    /// Vieriminen soi, kun lauta liikkuu maassa; ilmassa se häivytetään pois ja alastulon jälkeen takaisin.
+    void UpdateSkateAudio()
+    {
+        if (!Skating && skateRollVol <= 0.001f) return;
+        LoadSkateSfx();
+        if (skateRollClip == null) return;
+        float speed = Mathf.Abs(skateVel.x) + Mathf.Abs(skateVel.y) * 0.5f;
+        bool rolling = Skating && !GameOver && !GameMenu.IsOpen && height <= 0.05f && state != State.JumpSquat && state != State.Air && speed > 0.4f;
+        float target = rolling ? SkateRollMax * Mathf.Clamp01(0.25f + speed / 9f) : 0f;
+        float rate = target > skateRollVol ? SkateRollFadeIn : SkateRollFadeOut;
+        skateRollVol = Mathf.MoveTowards(skateRollVol, target, rate * SkateRollMax * Time.deltaTime);
+        if (skateRollVol > 0.001f)
+        {
+            if (skateRoll == null) skateRoll = MakeSkateSource("SkateRoll", true);
+            if (skateRoll.clip != skateRollClip) skateRoll.clip = skateRollClip;
+            if (!skateRoll.isPlaying) skateRoll.Play();
+            skateRoll.volume = skateRollVol * GameSettings.SfxVolume;
+            skateRoll.pitch = 0.92f + 0.22f * Mathf.Clamp01(speed / 13f);
+        }
+        else if (skateRoll != null && skateRoll.isPlaying) skateRoll.Pause();
+    }
+
+    // ---- lyönnit laudalta: jab ja suora vuorotellen (kuvat sisältävät laudan) ----
+    [Tooltip("Laudalta lyönnit (rocco_skeitti_lyonnit): 0-5 jab, 6-11 suora; osumakuva on 3 ja 9.")]
+    public Sprite[] skatePunchSprites;
+    [Tooltip("Rubyn laudalta lyönnit (ruby_skeitti_lyonnit): 0-5 jab, 6-11 suora.")]
+    public Sprite[] rubySkatePunchSprites;
+    Sprite[] SkatePunchArt => AppliedCharacter == 1 ? rubySkatePunchSprites : skatePunchSprites;
+    bool HasSkatePunch => SkatePunchArt != null && SkatePunchArt.Length >= 12;
+    static readonly float[][] SkatePunchTimes =
+    {
+        new[] { 0.04f, 0.04f, 0.05f, 0.10f, 0.06f, 0.06f },
+        new[] { 0.06f, 0.05f, 0.05f, 0.12f, 0.07f, 0.07f },
+    };
+    int skatePunchIdx, skatePunchLast = 1;
+    bool skatePunchHit;
+    float skatePunchEndedAt = -9f;
+
+    void StartSkatePunch()
+    {
+        skatePunchIdx = Time.time - skatePunchEndedAt <= 0.5f ? 1 - skatePunchLast : 0;   // jab, suora, jab...
+        skatePunchHit = false; attackHit = false;
+        PlayGrunt();
+        Enter(State.SkatePunch);
+    }
+
+    float SkatePunchHitAt()
+    {
+        var t = SkatePunchTimes[skatePunchIdx];
+        return t[0] + t[1] + t[2];
+    }
+
+    void UpdateSkatePunch(float dt)
+    {
+        var t = SkatePunchTimes[skatePunchIdx];
+        // vauhti jatkuu iskun aikana ja hiipuu hitaasti
+        MoveOnGround(skateVel * dt);
+        skateVel.x = Mathf.MoveTowards(skateVel.x, 0f, skateCoast * dt);
+        skateVel.y = Mathf.MoveTowards(skateVel.y, 0f, skateCoast * 2f * dt);
+        float hitAt = SkatePunchHitAt();
+        if (!skatePunchHit && stateTime >= hitAt)
+        {
+            skatePunchHit = true;
+            var ch = punchCombo != null && punchCombo.Length > skatePunchIdx ? punchCombo[skatePunchIdx] : null;
+            int dmg = ch != null ? ch.damage : (skatePunchIdx == 0 ? 6 : 8);
+            float reach = ch != null ? Mathf.Max(ch.reach, 1.8f) : 1.9f;
+            attackHit = AttackEnemies(reach, dmg, false, 2.4f);
+            if (attackHit) HitFx.OnHit(false);
+        }
+        float total = 0f;
+        foreach (var x in t) total += x;
+        // uusi painallus osuman jälkeen: seuraava isku heti
+        if (skatePunchHit && stateTime >= hitAt + 0.1f && lastPunchPressTime >= hitAt - 0.05f + (Time.time - stateTime))
+        {
+            skatePunchLast = skatePunchIdx; skatePunchEndedAt = Time.time;
+            StartSkatePunch();
+            return;
+        }
+        if (stateTime >= total) { skatePunchLast = skatePunchIdx; skatePunchEndedAt = Time.time; Enter(State.Ground); }
+    }
+
+    Sprite SkatePunchSprite()
+    {
+        var art = SkatePunchArt;
+        if (art == null || art.Length < 12) return null;
+        var t = SkatePunchTimes[skatePunchIdx];
+        float tt = stateTime;
+        for (int i = 0; i < t.Length; i++)
+        {
+            if (tt < t[i]) return art[skatePunchIdx * 6 + i];
+            tt -= t[i];
+        }
+        return art[skatePunchIdx * 6 + 5];
+    }
+
+    void SkateOnEnter(State s)
+    {
+        if (Skating)
+        {
+            if (s == State.Air && state == State.JumpSquat) PlaySkateOneShot(true, 1f);   // hyppy: ääni loopin päälle
+            else if (s == State.Landing && state == State.Air) PlaySkateOneShot(false, 1f);   // alastulo
+        }
+        if (!Skating) return;
+        switch (s)
+        {
+            case State.Ground: case State.JumpSquat: case State.Air: case State.Landing: case State.Punch: case State.Kick: case State.Recovery:
+            case State.Hurt: case State.SideKick: case State.HiKick: case State.Push: case State.Block: case State.Catch: case State.KneeStrike:
+            case State.KneeDash: case State.DropKick: case State.SoloKick: case State.BigHook: case State.Special: case State.SkatePunch:
+                if (s != State.SkatePunch && s != State.Ground && s != State.JumpSquat && s != State.Air && s != State.Landing) skateVel *= 0.25f;
+                return;
+            default: Dismount(false); return;
+        }
+    }
+
+    void SkateMove(Vector2 move, float dt)
+    {
+        move = DrunkSway(move);
+        moving = move.sqrMagnitude > 0.01f;
+        running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f;   // laudalla juoksunappi toimii ilman staminaa
+        float k = running ? skateRunMul : 0.5f;   // juoksunappi = potkut (vauhti); ilman sitä vain hiljainen liuku
+        Vector2 target = moving ? new Vector2(move.x * skateSpeedX * k, move.y * skateSpeedY * (running ? 1f : 0.7f)) : Vector2.zero;
+        // jarrutus: vastakkainen suunta kovassa vauhdissa painaa laudan takapään maahan (ei käännytä ennen kuin vauhti on hiipunut)
+        bool wasBraking = skateBraking;
+        skateBraking = moving && Mathf.Abs(skateVel.x) > SkateBrakeMinSpeed && Mathf.Abs(move.x) > 0.3f && Mathf.Sign(move.x) != Mathf.Sign(skateVel.x);
+        if (skateBraking) { skateBrakeClock += dt; skateVel.x = Mathf.MoveTowards(skateVel.x, 0f, SkateBrakeDecel * dt); facingRight = skateVel.x > 0f; move.x = 0f; target.x = 0f; }
+        else skateBrakeClock = 0f;
+        // jarrutuksen jälkeen vauhti käännetään heti uuteen suuntaan (ei polkemista paikallaan)
+        if (wasBraking && !skateBraking && running && Mathf.Abs(move.x) > 0.3f) skateVel.x = Mathf.Sign(move.x) * skateSpeedX * 0.35f;
+        if (!skateBraking && Mathf.Abs(move.x) > 0.1f) { bool nf = move.x > 0; if (nf != facingRight) lastTurnTime = Time.time; facingRight = nf; }
+        // vauhti kasvaa potkuilla ja rullaa pitkälle: ylinopeutta (juoksunappi vapautettu) hidastetaan vain vierimisvastuksella
+        bool reversing = moving && Mathf.Abs(move.x) > 0.3f && Mathf.Abs(skateVel.x) > 0.05f && Mathf.Sign(skateVel.x) != Mathf.Sign(move.x);
+        float ax = (moving && !(Mathf.Abs(skateVel.x) > Mathf.Abs(target.x) && Mathf.Sign(skateVel.x) == Mathf.Sign(move.x)) ? (reversing ? skateAccel * 3f : skateAccel) : skateCoast) * dt;
+        skateVel.x = Mathf.MoveTowards(skateVel.x, target.x, ax);
+        skateVel.y = Mathf.MoveTowards(skateVel.y, target.y, (moving ? skateAccel : skateCoast * 2f) * dt);
+        lastGroundVel = skateVel;
+        Vector3 before = transform.position;
+        MoveOnGround(skateVel * dt);
+        Vector3 d = transform.position - before;
+        if (Mathf.Abs(d.x) < Mathf.Abs(skateVel.x * dt) * 0.3f) skateVel.x *= 0.5f;   // seinä/este: vauhti hiipuu
+        if (Mathf.Abs(d.y) < Mathf.Abs(skateVel.y * dt) * 0.3f) skateVel.y = 0f;
+        bool wasPushing = skatePushing;
+        skatePushing = running && !skateBraking;
+        if (skatePushing) skateClock += dt; else skateClock = 0f;
+        if (skatePushing && !wasPushing) skateVel.x += (facingRight ? 1f : -1f) * skateSpeedX * 0.3f;   // ensimmäinen potku antaa pienen sysäyksen
+    }
+
+    /// Kuva, jossa lauta on mukana (null = tavallinen hahmokuva + lauta jalkojen alla).
+    Sprite SkateSprite()
+    {
+        if (!Skating || !CanSkate) return null;
+        switch (state)
+        {
+            case State.Ground:
+            {
+                if (skateBraking && BrakeArt != null && BrakeArt.Length > 0)
+                    return BrakeArt[Mathf.Min(BrakeArt.Length - 1, (int)(skateBrakeClock / SkateBrakeFrame))];
+                if (skatePushing && SkateArt.Length > SkateIdleFrames) return SkateArt[SkateIdleFrames + (int)(skateClock / SkatePushFrame) % (SkateArt.Length - SkateIdleFrames)];
+                int n = Mathf.Min(SkateIdleFrames, SkateArt.Length), period = 2 * n - 2, i = (int)(animClock / SkateIdleFrame) % period;
+                return SkateArt[i < n ? i : period - i];
+            }
+            case State.JumpSquat:
+                if (!KickflipArt || scissorJump) return null;
+                return FlipArt[Mathf.Clamp((int)(stateTime / SkateSquatTime * 5f), 0, 4)];
+            case State.Air:
+            {
+                if (!KickflipArt || jumpKick || scissor) return null;
+                float u = Mathf.Clamp01(stateTime / (2f * Mathf.Max(skateJumpV, jumpVelocity) / gravity));
+                int airN = FlipArt.Length - 12;   // ilmakuvien määrä (Rocco 6, Ruby 8); 0-4 kyykky, 5-7 ponnistus, lopussa 4 laskua
+                return FlipArt[u < 0.1f ? 5 + Mathf.Min(2, (int)(u * 30f)) : 8 + Mathf.Min(airN - 1, (int)((u - 0.1f) / 0.8f * airN))];
+            }
+            case State.SkatePunch:
+                return SkatePunchSprite();
+            case State.Landing:
+                if (!KickflipArt || landedFromScissor) return null;
+                return FlipArt[FlipArt.Length - 4 + Mathf.Clamp((int)(stateTime / landingTime * 4f), 0, 3)];
+        }
+        return null;
+    }
+
+    void UpdateBoardProp(int order)
+    {
+        bool show = Skating && CanSkate && SkateSprite() == null;
+        if (boardProp == null)
+        {
+            if (!show) return;
+            var go = new GameObject("LautaKuva"); go.transform.SetParent(transform, false);
+            boardProp = go.AddComponent<SpriteRenderer>();
+        }
+        boardProp.enabled = show;
+        if (!show) return;
+        float ds = Area.DepthScale(transform.position.y);
+        boardProp.sprite = boardSprite;
+        boardProp.flipX = !facingRight;
+        boardProp.transform.localScale = new Vector3(bodyBaseScale.x * ds, bodyBaseScale.y * ds, 1f);
+        float ppu = boardSprite.pixelsPerUnit;
+        boardProp.transform.localPosition = new Vector3(0f, groundHeight + height - footOffset * ds + boardSprite.pivot.y / ppu * ds, 0f);
+        boardProp.sortingOrder = order - 1;
+    }
+
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
         if (Riding || state == State.Drink) return false;
@@ -2989,7 +3422,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (state != State.Block && Lid.Held != null) Lid.DropHeld(transform.position);
         if (takingStand != null) { takingStand.EndTake(); takingStand = null; }
         if (state == State.Hurt && comboFollow) { } // kombon jatkoisku (jab -> suora) osuu vielä osumatilassa
-        else if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
+        else if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick || state == State.WhipCatch) return false;   // pyörähdyksen ja heiton aikana ei voi lyödä
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
         if (GameOver || invulnTimer > 0f) return false;
         bool fromRight = attackerX > transform.position.x;
@@ -3836,6 +4269,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void ApplyVisual()
     {
+        UpdateSkateAudio();
         if (body == null) return;
 
         if (state == State.RingPick && pickingRing != null) tireArtActive = pickingRing.tire;
@@ -3880,9 +4314,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         int order = Mathf.RoundToInt(-transform.position.y * 100f);
         body.sortingOrder = order;
 
+        UpdateBoardProp(order);
         if (shadow != null)
         {
-            shadow.sortingOrder = order - 1;
+            shadow.sortingOrder = Skating ? order - 2 : order - 1;
             float s = Mathf.Lerp(1f, 0.55f, Mathf.Clamp01(height / 2.5f)) * ds;
             shadow.transform.localScale = new Vector3(1.5f * s, 0.45f * s, 1f);
         }
@@ -3890,6 +4325,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     Sprite CurrentSprite()
     {
+        var skateFrame = SkateSprite();
+        if (skateFrame != null) return skateFrame;
         switch (state)
         {
             case State.Eat:
@@ -4155,6 +4592,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.HeadCrush:
                 return HeadCrushSprite();
+            case State.SplitKick:
+                return SplitKickSprite();
             case State.Pummel:
                 return PummelSprite();
             case State.Pendulum:

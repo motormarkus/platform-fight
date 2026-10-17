@@ -163,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 896
+        y: 1344
         width: 768
         height: 448
       alignment: 7
@@ -185,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 896
+        y: 1344
         width: 768
         height: 448
       alignment: 7
@@ -207,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 896
+        y: 1344
         width: 768
         height: 448
       alignment: 7
@@ -229,7 +229,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2304
-        y: 896
+        y: 1344
         width: 768
         height: 448
       alignment: 7
@@ -251,7 +251,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
+        y: 896
         width: 768
         height: 448
       alignment: 7
@@ -273,7 +273,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 448
+        y: 896
         width: 768
         height: 448
       alignment: 7
@@ -295,7 +295,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 448
+        y: 896
         width: 768
         height: 448
       alignment: 7
@@ -317,7 +317,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2304
-        y: 448
+        y: 896
         width: 768
         height: 448
       alignment: 7
@@ -339,7 +339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 448
         width: 768
         height: 448
       alignment: 7
@@ -361,7 +361,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
+        y: 448
         width: 768
         height: 448
       alignment: 7
@@ -383,7 +383,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 0
+        y: 448
         width: 768
         height: 448
       alignment: 7
@@ -405,7 +405,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2304
-        y: 0
+        y: 448
         width: 768
         height: 448
       alignment: 7
@@ -418,6 +418,28 @@ TextureImporter:
       bones: []
       spriteID: 1b1ff51e646a72490800000000000000
       internalID: -7771059808645418575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betty_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d598c0ef27d3ef94c98465d10f14dbf3
+      internalID: -1822541113
       vertices: []
       indices: 
       edges: []
@@ -440,6 +462,7 @@ TextureImporter:
       betty_kavely_1: -5269365815913450320
       betty_kavely_10: -8359891692355034162
       betty_kavely_11: -7771059808645418575
+      betty_kavely_12: -1822541113
       betty_kavely_2: 5213876981739302137
       betty_kavely_3: -9081456974996815930
       betty_kavely_4: 5204485627794398236

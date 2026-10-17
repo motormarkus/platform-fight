@@ -6,7 +6,7 @@ using UnityEngine;
 /// ruutu pimenee, näytetään otsikko ja pelaaja jatkaa ajoa kohdealueen alusta.
 /// </summary>
 public class RideExit : MonoBehaviour
-{
+            {
     public Area target;
     public Area here;
     [Tooltip("Poistutaan kynnyksen vasemmalle puolelle (Peltihalli).")]
@@ -40,7 +40,12 @@ public class RideExit : MonoBehaviour
         if (walkingReturn)
         {
             foreach (var q in Players.All)
-                if (q != null && !q.Riding && q.transform.position.x >= transform.position.x && q.transform.position.x <= transform.position.x + triggerWidth) { StartCoroutine(Go()); return; }
+            {
+                if (q == null || q.Riding) continue;
+                float qx = q.transform.position.x, ex = transform.position.x;
+                bool past = exitToLeft ? qx <= ex && qx >= ex - triggerWidth : qx >= ex && qx <= ex + triggerWidth;   // jalan palataan vain kynnyksen yli poistumissuuntaan
+                if (past) { StartCoroutine(Go()); return; }
+            }
             return;
         }
         foreach (var bike in Motorbike.RidingBikes())

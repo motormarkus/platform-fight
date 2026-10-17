@@ -971,6 +971,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             attackCooldown = Mathf.Min(attackCooldown, 0.6f);
             altTimeScale = Mathf.Min(altTimeScale, 1.2f);
         }
+        // vanhentunut kuvaviittaus (sheet leikattu uudelleen) näkyisi tyhjänä ruutuna: poistetaan puuttuvat kuvat sarjoista
+        idleSprites = StripMissing(idleSprites); walkSprites = StripMissing(walkSprites); runSprites = StripMissing(runSprites);
         PlayerController.SortByFrameNumber(idleSprites);
         PlayerController.SortByFrameNumber(walkSprites);
         PlayerController.SortByFrameNumber(runSprites);
@@ -2014,7 +2016,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (boardLost || looseBoardSprite == null) return;
         boardLost = true;
-        LooseBoard.Spawn(looseBoardSprite, transform.position, lastMoveX * 6.5f, this);
+        var lb = LooseBoard.Spawn(looseBoardSprite, transform.position, lastMoveX * 6.5f, this);
+        if (lb != null) lb.persistent = true;   // lauta jää maahan ottajaa varten (ei häviä omistajan mukana)
     }
 
     /// Noustua jatketaan tappelua jalan (lauta jäi maahan).
@@ -3713,6 +3716,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
+
+    static Sprite[] StripMissing(Sprite[] s)
+    {
+        if (s == null) return null;
+        int n = 0;
+        foreach (var x in s) if (x != null) n++;
+        if (n == s.Length) return s;
+        var r = new Sprite[n]; n = 0;
+        foreach (var x in s) if (x != null) r[n++] = x;
+        return r;
+    }
 
     Sprite FirstIdle() => Has(idleSprites) ? idleSprites[0] : null;
 
