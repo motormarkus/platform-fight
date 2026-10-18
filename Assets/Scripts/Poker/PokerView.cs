@@ -251,7 +251,7 @@ public sealed class PokerView : MonoBehaviour
         }
         pot.text = "POTTI  " + t.Pot.ToString("N0"); phase.text = between ? "Jaon ulkopuolella" : t.Street.ToString().ToUpperInvariant();
         walletText.text = (host.Demo ? "TESTIRAHA  " : "Lompakko  ") + host.Cash.Wallet.ToString("N0") + " mk";
-        status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
+        status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor < 0 ? "" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
         if (runoutActive) { status.text = "All-in!"; phase.text = "KORTIT AVAUTUVAT"; }
         message.text = host.Error ?? (runoutActive ? "Jännitys tiivistyy…" : t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
