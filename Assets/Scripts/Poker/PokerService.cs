@@ -29,6 +29,7 @@ public sealed class PokerService : MonoBehaviour
     string thinkSession;
     float nextBotAt, thinkReadyAt, oldTimeScale = 1, lastWalletSave;
     bool quitting, loaded, faulted, walletDirty;
+    bool pokerMusicPlaying;
     static readonly PokerStyle[] Styles = { PokerStyle.Balanced, PokerStyle.Loose, PokerStyle.Cautious, PokerStyle.Aggressive, PokerStyle.Balanced };
     string SavePath => Path.Combine(Application.persistentDataPath, Demo ? "total-fist-poker-demo.json" : "total-fist-poker.json");
     PokerCheckpointStore<PokerCashSession> Store => new PokerCheckpointStore<PokerCashSession>(SavePath, s => JsonUtility.ToJson(s), s => JsonUtility.FromJson<PokerCashSession>(s));
@@ -89,6 +90,12 @@ public sealed class PokerService : MonoBehaviour
         Error = null;
         if (!Commit()) return false;
         ApplyWallet(); Visible = true; oldTimeScale = Time.timeScale; Time.timeScale = 0;
+        var pokerMusic = Resources.Load<AudioClip>("Poker/PokerMusic");
+        if (pokerMusic != null && MusicPlayer.Instance != null)
+        {
+            MusicPlayer.PlayOverride(pokerMusic, 1.5f);
+            pokerMusicPlaying = true;
+        }
         foreach (var p in Players.All) if (p != null && p.enabled) { disabledPlayers.Add(p); p.enabled = false; }
         foreach (var hud in FindObjectsByType<GameHUD>(FindObjectsSortMode.None)) if (hud.enabled) { disabledHuds.Add(hud); hud.enabled = false; }
         var go = new GameObject("Texas Hold'em · UI"); go.transform.SetParent(transform);
@@ -134,6 +141,7 @@ public sealed class PokerService : MonoBehaviour
     {
         if (!Visible) return;
         Visible = false; closedFrame = Time.frameCount + 1;
+        if (pokerMusicPlaying) { MusicPlayer.StopOverride(1.5f); pokerMusicPlaying = false; }
         foreach (var p in disabledPlayers) if (p != null) p.enabled = true; disabledPlayers.Clear();
         foreach (var hud in disabledHuds) if (hud != null) hud.enabled = true; disabledHuds.Clear();
         Time.timeScale = oldTimeScale;
