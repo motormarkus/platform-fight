@@ -27,8 +27,11 @@ Shader "Total Fist/Poker Asset Model"
             fixed4 frag(v2f i):SV_Target
             {
                 fixed4 c=tex2D(_MainTex,i.uv)*_Color; clip(c.a-.04);
-                float light=.73+.27*saturate(dot(normalize(i.normal),normalize(float3(-.35,.5,-1))));
-                return fixed4(c.rgb*light,1);
+                float light=.84+.3*saturate(dot(normalize(i.normal),normalize(float3(-.35,.5,-1))));
+                // Ostetut tekstuurit jäivät harmaiksi: palautetaan väriä ja kontrastia.
+                float luma=dot(c.rgb,float3(.299,.587,.114));
+                float3 rgb=lerp(luma.xxx,c.rgb,1.3);
+                return fixed4(saturate(rgb*light),1);
             }
             ENDCG
         }

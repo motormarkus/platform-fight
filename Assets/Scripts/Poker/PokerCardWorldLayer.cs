@@ -17,7 +17,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly List<GameObject> chips = new List<GameObject>();
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
-    static readonly Vector2[] Holes = { new Vector2(588, 500), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
+    static readonly Vector2[] Holes = { new Vector2(588, 445), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
     static readonly Vector2[] Stacks = { new Vector2(765, 532), new Vector2(184, 408), new Vector2(437, 305), new Vector2(891, 311), new Vector2(1111, 409) };
     static readonly Vector2[] Bets = { new Vector2(744, 451), new Vector2(284, 418), new Vector2(524, 323), new Vector2(776, 323), new Vector2(1012, 418) };
     public bool Active => camera3D != null;
@@ -129,14 +129,14 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
             amount -= settings.chipValues[index];
             var go = Instantiate(settings.chipPrefabs[index], world); Layer(go); chips.Add(go);
             go.transform.position = Position(center + new Vector2((n % 3) * 18, -(n / 3) * 4)) + new Vector3(0, 0, -(n / 3) * .012f);
-            go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(24);
+            go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(30);
         }
     }
     void AnimateChip(int seat, int amount)
     {
         int index = ChipIndex(amount); if (index < 0) return;
         var go = Instantiate(settings.chipPrefabs[index], world); Layer(go);
-        go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(24);
+        go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(30);
         StartCoroutine(ChipMotion(go, Position(Stacks[seat]), Position(Bets[seat])));
     }
     IEnumerator ChipMotion(GameObject go, Vector3 from, Vector3 to)
