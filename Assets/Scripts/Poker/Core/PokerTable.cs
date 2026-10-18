@@ -244,8 +244,25 @@ namespace TotalFist.Poker
             }
             foreach (var s in Seats) s.Committed = s.Bet = 0;
             Street = PokerStreet.Complete; Actor = -1;
-            Message = string.Join(" | ", Awards.Select(a => string.Join(" / ", a.Winners.Select(i => Seats[i].Name)) + " " + a.Amount + " mk · " + a.Hand));
+            Message = WinMessage();
             AssertConserved();
+        }
+
+        // Selkeä voittoteksti: sama voittaja ja käsi (pääpotti + sivupotit) yhdistetään yhdeksi riviksi.
+        string WinMessage()
+        {
+            var parts = new List<string>();
+            foreach (var g in Awards.GroupBy(a => string.Join(",", a.Winners.OrderBy(i => i)) + "|" + a.Hand))
+            {
+                var first = g.First(); int amount = g.Sum(a => a.Amount);
+                var names = first.Winners.Select(i => Seats[i].Name).ToArray();
+                bool you = first.Winners.Length == 1 && first.Winners[0] == 0;
+                string who = string.Join(" ja ", names);
+                string verb = first.Winners.Length > 1 ? "jakoivat" : you ? "voitit" : "voitti";
+                string how = first.Hand == "Muut luovuttivat" ? "muut luovuttivat" : first.Hand;
+                parts.Add(who + " " + verb + " " + amount + " mk – " + how);
+            }
+            return string.Join("  ·  ", parts);
         }
 
         public void AddChips(int index, int amount)

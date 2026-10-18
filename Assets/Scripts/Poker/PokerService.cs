@@ -158,7 +158,7 @@ public sealed class PokerService : MonoBehaviour
             {
                 var d = task.Result;
                 if (!Cash.Act(thinkSeat, d.Action, d.RaiseTo, thinkRevision)) { Fail("Botti tarjosi laittoman toiminnon."); return; }
-                PersistAndNotify(); nextBotAt = Time.unscaledTime + (Visible ? .8f : .01f);
+                PersistAndNotify(); nextBotAt = Time.unscaledTime + (Visible ? 1.4f : .01f);
             }
         }
         if (thinking != null || !Cash.Joined || !Cash.Table.Running || Time.unscaledTime < nextBotAt) return;
@@ -166,7 +166,7 @@ public sealed class PokerService : MonoBehaviour
         thinkSeat = Cash.Table.Actor; thinkRevision = Cash.Table.Revision; thinkSession = Cash.SessionId;
         var obs = PokerBot.Observe(Cash.Table, thinkSeat); var style = Styles[thinkSeat]; int seed = random.Next();
         // Näkyvässä pöydässä botti "miettii" hetken, jotta vuoron kierto ja valinta ehtii nähdä.
-        thinkReadyAt = Time.unscaledTime + (Visible ? 1f + (float)random.NextDouble() * 1.4f : 0f);
+        thinkReadyAt = Time.unscaledTime + (Visible ? 1.6f + (float)random.NextDouble() * 1.6f : 0f);
         thinking = Task.Run(() => PokerBot.Decide(obs, style, new System.Random(seed)));
     }
 

@@ -22,6 +22,7 @@ public sealed class PokerView : MonoBehaviour
     Text pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
     RawImage[] turnOutlines = new RawImage[5];
+    GameObject[] bubbles = new GameObject[5]; Text[] bubbleTexts = new Text[5]; string[] lastActions = new string[5]; float[] bubbleUntil = new float[5];
     GameObject[] blindBadges = new GameObject[5]; Text[] blindTexts = new Text[5];
     Button fold, call, raise, allIn, deal, rebuy, minus, plus, leave;
     Slider slider;
@@ -104,6 +105,12 @@ public sealed class PokerView : MonoBehaviour
             bets[i] = Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white);
             var badge = Panel(root, new Rect(rect.x - 12, rect.y - 14, 40, 24), new Color(.95f, .85f, .45f)); badge.name = "Blindimerkki";
             blindTexts[i] = Label(badge.transform, new Rect(0, 0, 40, 24), "", 19, Color.black); blindBadges[i] = badge.gameObject;
+            if (i > 0)
+            {
+                // Puhekupla: näyttää kuka miettii ja mitä botti teki.
+                var bubble = Panel(root, new Rect(rect.x + rect.width / 2 - 85, rect.y - 66, 170, 30), new Color(.04f, .03f, .02f, .93f)); bubble.name = "Puhekupla";
+                bubbleTexts[i] = Label(bubble.transform, new Rect(0, 0, 170, 30), "", 21, Gold); bubbles[i] = bubble.gameObject; bubble.gameObject.SetActive(false);
+            }
         }
         Box(root, new Rect(560, 306, 165, 44));
         pot = Label(root, new Rect(564, 309, 157, 37), "", 27, Gold);
@@ -221,6 +228,11 @@ public sealed class PokerView : MonoBehaviour
         if (host == null || !host.Visible) return;
         var t = host.Cash.Table; var legal = t.Legal(0); bool between = !t.Running;
         bool newRevision = shownRevision != t.Revision; shownRevision = t.Revision;
+        for (int i = 1; i < 5; i++)
+        {
+            string la = t.Seats[i].LastAction ?? "";
+            if (la != lastActions[i]) { lastActions[i] = la; if (la.Length > 0 && !la.Contains("blindi")) bubbleUntil[i] = Time.unscaledTime + 2.4f; }
+        }
         rendering = true;
         for (int i = 0; i < 5; i++)
         {
@@ -324,8 +336,20 @@ public sealed class PokerView : MonoBehaviour
     }
 
     List<Button> ActiveControls() => controls.Where(b => b != null && b.gameObject.activeInHierarchy && b.interactable).ToList();
+    void UpdateBubbles()
+    {
+        if (host == null || !host.Visible || host.Cash.Table == null) return;
+        var t = host.Cash.Table;
+        for (int i = 1; i < 5; i++)
+        {
+            if (bubbles[i] == null) continue;
+            string text = t.Running && t.Actor == i ? "Miettii…" : Time.unscaledTime < bubbleUntil[i] ? lastActions[i] : null;
+            bubbles[i].SetActive(!string.IsNullOrEmpty(text)); if (text != null) bubbleTexts[i].text = text;
+        }
+    }
     void LateUpdate()
     {
+        UpdateBubbles();
         if (eventSystem == null) return;
         var selected = eventSystem.currentSelectedGameObject;
         var selectedButton = selected != null ? selected.GetComponent<Button>() : null;
