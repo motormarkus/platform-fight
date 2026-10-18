@@ -131,7 +131,7 @@ public static class PokerSetSetup
             else if (line.StartsWith("Kd "))
             {
                 var rgb = line.Substring(3).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(s => float.Parse(s, CultureInfo.InvariantCulture)).ToArray();
-                result[name] = Material(Output + "/Materials/Chip-" + name + ".mat", shader, null, new Color(rgb[0], rgb[1], rgb[2]));
+                result[name] = Material(Output + "/Materials/Chip-" + name + ".mat", shader, null, new Color(rgb[0], rgb[1], rgb[2]).gamma); // OBJ/MTL-värit ovat lineaarisia, materiaalin _Color on gamma
             }
         }
         return result;

@@ -20,6 +20,8 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     static readonly Vector2[] Holes = { new Vector2(594, 490), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
     static readonly Vector2[] Stacks = { new Vector2(765, 532), new Vector2(184, 408), new Vector2(437, 305), new Vector2(891, 311), new Vector2(1111, 409) };
     static readonly Vector2[] Bets = { new Vector2(744, 451), new Vector2(284, 418), new Vector2(524, 323), new Vector2(776, 323), new Vector2(1012, 418) };
+    RenderTexture runtimeTexture;
+    void OnDestroy() { if (runtimeTexture != null) { runtimeTexture.Release(); Destroy(runtimeTexture); } }
     public bool Active => camera3D != null;
     public void Build(PokerPresentationSettings art, RectTransform ui)
     {
@@ -29,11 +31,14 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         var cameraGo = new GameObject("Poker card perspective camera"); cameraGo.transform.SetParent(world, false); cameraGo.transform.localPosition = new Vector3(0, 0, -12);
         camera3D = cameraGo.AddComponent<Camera>(); camera3D.clearFlags = CameraClearFlags.SolidColor; camera3D.backgroundColor = Color.clear;
         camera3D.cullingMask = 1 << 30; camera3D.nearClipPlane = .1f; camera3D.farClipPlane = 30; camera3D.fieldOfView = 45;
-        camera3D.allowHDR = false; camera3D.allowMSAA = false; camera3D.targetTexture = art.cardRenderTexture;
+        camera3D.allowHDR = false; camera3D.allowMSAA = true;
+        // Oma suurempi ja reunoiltaan pehmennetty kuva (asset on 1920x1080 ilman MSAA:ta, mikä näytti pikselöityneeltä).
+        runtimeTexture = new RenderTexture(2560, 1440, 24, RenderTextureFormat.ARGB32) { antiAliasing = 4, filterMode = FilterMode.Bilinear, name = "Poker cards (runtime)" };
+        runtimeTexture.Create(); camera3D.targetTexture = runtimeTexture;
         var cameraData = camera3D.GetUniversalAdditionalCameraData(); cameraData.renderPostProcessing = false; cameraData.renderShadows = false;
         var raw = new GameObject("3D cards and chips", typeof(RectTransform), typeof(RawImage)); raw.transform.SetParent(ui, false);
         var rt = raw.GetComponent<RectTransform>(); rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one; rt.offsetMin = rt.offsetMax = Vector2.zero;
-        var image = raw.GetComponent<RawImage>(); image.texture = art.cardRenderTexture; image.raycastTarget = false;
+        var image = raw.GetComponent<RawImage>(); image.texture = runtimeTexture; image.raycastTarget = false;
     }
     public void Show(PokerTable table)
     {

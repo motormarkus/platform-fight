@@ -10,9 +10,10 @@ Käyttö: python3 Tools/PokerAssets/key_poker_artwork.py
 """
 import numpy as np
 from collections import deque
-from PIL import Image
+from PIL import Image, ImageFilter
 import os
 
+UPSCALE = 2   # Unity suurentaa 1280x720-kuvan ruudulle; Lanczos 2x + kevyt terävöinti on tarkempi kuin pelkkä bilineaarinen suurennus
 ART = "Assets/Resources/Poker/Artwork"
 JOBS = [("TableOpponents.jpg", "TableOpponentsKeyed.png"), ("Panels.jpg", "PanelsKeyed.png")]
 CORE, MIN_POCKET, BAND = 0.90, 16, 2
@@ -71,6 +72,12 @@ for src, dst in JOBS:
             acc += vs * ks[..., None]; cnt += ks
         f = grow & (cnt > 0)
         out[f] = acc[f] / cnt[f, None]; known |= f
-    rgba = np.dstack([out, a])
+    h, w = a.shape; size = (w * UPSCALE, h * UPSCALE)
+    pre = out * a[..., None]                       # premultiplied: ei valkoista vuotoa reunoille
+    chans = [np.asarray(Image.fromarray(pre[..., c].astype(np.float32), "F").resize(size, Image.LANCZOS)) for c in range(3)]
+    alpha = np.clip(np.asarray(Image.fromarray(a.astype(np.float32), "F").resize(size, Image.LANCZOS)), 0, 1)
+    rgb2 = np.clip(np.dstack(chans) / np.maximum(alpha[..., None], .02), 0, 1)
+    rgb_img = Image.fromarray((rgb2 * 255 + .5).astype(np.uint8), "RGB").filter(ImageFilter.UnsharpMask(radius=1.6, percent=55, threshold=2))
+    rgba = np.dstack([np.asarray(rgb_img).astype(np.float32) / 255, alpha])
     Image.fromarray((rgba * 255 + .5).astype(np.uint8), "RGBA").save(os.path.join(ART, dst))
     print(dst, "tausta", round(float(bg.mean()), 3), "kaista-px", int(band.sum()))

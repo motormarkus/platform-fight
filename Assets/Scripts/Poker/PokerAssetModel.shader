@@ -30,7 +30,7 @@ Shader "Total Fist/Poker Asset Model"
                 float light=.82+.22*saturate(dot(normalize(i.normal),normalize(float3(-.35,.5,-1))));
                 // Ostetut tekstuurit jäivät harmaiksi: palautetaan väriä ja kontrastia.
                 float luma=dot(c.rgb,float3(.299,.587,.114));
-                float3 rgb=lerp(luma.xxx,c.rgb,1.3);
+                float3 rgb=lerp(luma.xxx,c.rgb,1.15);
                 // Pehmennä puhtaan valkoinen kermanväriseksi, jotta kortit istuvat maalattuun pöytäkuvaan.
                 rgb*=lerp(float3(1,1,1),float3(.95,.92,.85),smoothstep(.7,1,luma));
                 return fixed4(saturate(rgb*light),1);

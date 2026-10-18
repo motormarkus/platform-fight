@@ -154,7 +154,7 @@ public sealed class PokerView : MonoBehaviour
     RawImage Raw(Transform parent, Rect r, Texture texture, Material material, Rect? pixels = null)
     {
         var image = Obj(parent, "Artwork", r).AddComponent<RawImage>(); image.texture = texture; image.material = material; image.raycastTarget = false;
-        if (pixels.HasValue && texture != null) { var p = pixels.Value; image.uvRect = new Rect(p.x / texture.width, 1 - (p.y + p.height) / texture.height, p.width / texture.width, p.height / texture.height); }
+        if (pixels.HasValue && texture != null) { var p = pixels.Value; float k = texture.width / 1280f; p = new Rect(p.x * k, p.y * k, p.width * k, p.height * k); image.uvRect = new Rect(p.x / texture.width, 1 - (p.y + p.height) / texture.height, p.width / texture.width, p.height / texture.height); }
         if (texture == null) image.color = new Color(.09f, .07f, .055f); return image;
     }
     Text Label(Transform parent, Rect r, string value, int size, Color color)
@@ -340,7 +340,10 @@ public sealed class PokerView : MonoBehaviour
     void SelectFirst()
     {
         var list = ActiveControls(); if (list.Count == 0) return;
-        var action = list.FirstOrDefault(b => b != leave) ?? list[0]; selection = list.IndexOf(action); action.Select();
+        // Oletus: Sökö/Maksa omalla vuorolla, muuten Jaa seuraava jako. Poistu pöydästä ei koskaan ole oletusvalinta.
+        Button action = list.Contains(call) ? call : list.Contains(deal) ? deal : list.FirstOrDefault(b => b != leave);
+        if (action == null) { if (eventSystem != null) eventSystem.SetSelectedGameObject(null); return; }
+        selection = list.IndexOf(action); action.Select();
     }
     void Update()
     {
