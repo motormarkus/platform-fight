@@ -41,7 +41,8 @@ public sealed class PokerView : MonoBehaviour
     // Pelipaikat on järjestetty pöydän ympäri myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi.
     static readonly int[] OutlineFile = { 0, 3, 1, 2, 4 };   // paikka -> TurnOutline-tiedosto (make_turn_outlines.py: 1 Yakuza, 2 Prätkäjätkä, 3 Puliukko, 4 Rokkimimmi)
     static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(35, 335), new Vector2(310, 230), new Vector2(850, 230), new Vector2(1125, 335) };
-    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(180, 315), new Vector2(435, 280), new Vector2(815, 285), new Vector2(1080, 315) };
+    // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
+    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(135, 319), new Vector2(410, 214), new Vector2(950, 214), new Vector2(1225, 319) };
     static readonly Vector2[] HolePos = { new Vector2(548, 395), new Vector2(170, 345), new Vector2(463, 250), new Vector2(772, 250), new Vector2(980, 345) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
