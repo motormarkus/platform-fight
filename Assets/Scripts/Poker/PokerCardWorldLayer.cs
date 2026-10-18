@@ -17,9 +17,9 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly List<GameObject> chips = new List<GameObject>();
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
-    static readonly Vector2[] Holes = { new Vector2(588, 500), new Vector2(485, 278), new Vector2(794, 278), new Vector2(192, 373), new Vector2(1002, 373) };
-    static readonly Vector2[] Stacks = { new Vector2(765, 532), new Vector2(437, 305), new Vector2(891, 311), new Vector2(184, 408), new Vector2(1111, 409) };
-    static readonly Vector2[] Bets = { new Vector2(744, 451), new Vector2(524, 323), new Vector2(776, 323), new Vector2(284, 418), new Vector2(1012, 418) };
+    static readonly Vector2[] Holes = { new Vector2(588, 500), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
+    static readonly Vector2[] Stacks = { new Vector2(765, 532), new Vector2(184, 408), new Vector2(437, 305), new Vector2(891, 311), new Vector2(1111, 409) };
+    static readonly Vector2[] Bets = { new Vector2(744, 451), new Vector2(284, 418), new Vector2(524, 323), new Vector2(776, 323), new Vector2(1012, 418) };
     public bool Active => camera3D != null;
     public void Build(PokerPresentationSettings art, RectTransform ui)
     {

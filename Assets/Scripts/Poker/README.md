@@ -35,7 +35,7 @@ Kopioi asetusassetti toista baaria varten ja vaihda `barBackground`. Samat sää
 
 - `Core/PokerCards.cs`: puhdas C#, viiden kortin vertailu kaikista seitsemän yhdistelmistä ja kickerit.
 - `Core/PokerTable.cs`: tilakone, jako, burn-kortit, lailliset toiminnot, minimikorotukset, kumulatiivinen uudelleenavaus, sivupotit, jakopotit, parittomat merkit jakajasta vasemmalle ja maksamattoman panoksen palautus.
-- `Core/PokerBot.cs`: neljä tyyliä (varovainen Yakuza, aggressiivinen prätkäjätkä, löysä puliukko, tasapainoinen rokkimimmi). Monte Carlo -equity, preflop-aloituskäsien vahvuus, asema, pot odds, vastustajien korotusten huomiointi (equity laskee, kun joku on korottanut), bluffit vain kun kukaan ei ole näyttänyt voimaa, vaihteleva panoskoko ja all-in vain vahvoilla käsillä. Päätösrajapinta sisältää vain omat kortit ja julkiset tiedot.
+- `Core/PokerBot.cs`: neljä tyyliä (varovainen Yakuza, aggressiivinen prätkäjätkä, löysä puliukko, tasapainoinen rokkimimmi). Pelipaikat myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi. Monte Carlo -equity, preflop-aloituskäsien vahvuus, asema, pot odds, vastustajien korotusten huomiointi (equity laskee, kun joku on korottanut), bluffit vain kun kukaan ei ole näyttänyt voimaa, vaihteleva panoskoko ja all-in vain vahvoilla käsillä. Päätösrajapinta sisältää vain omat kortit ja julkiset tiedot.
 - `Core/PokerCashSession.cs`: sisäänosto, lisäosto, poistuminen ja täsmälleen kerran tehtävä tilitys. Tyhjiä botteja täydennetään vain jakojen välissä asetetun sisäänoston mukaan.
 - `Core/PokerCheckpointStore.cs`: atominen yhteinen lompakko-/jaon tallennus.
 - `PokerService.cs`: `DontDestroyOnLoad`-omistaja, rahasilta, taustasäikeen bottityöt ja unscaled-aika. UI-animaatioiden valmistuminen ei koskaan ohjaa sääntöjä.

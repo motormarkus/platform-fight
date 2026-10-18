@@ -22,7 +22,7 @@ namespace TotalFist.Poker
             if (Joined || buyIn <= 0 || liveWallet < buyIn || buyIn > 100000000 || smallBlind <= 0 || bigBlind < smallBlind || bigBlind > 100000000) return false;
             // Validate before touching money.
             var table = new PokerTable(new[] { buyIn, buyIn, buyIn, buyIn, buyIn }, smallBlind, bigBlind);
-            string[] names = { "Sinä", "Yakuza", "Prätkäjätkä", "Puliukko", "Rokkimimmi" };
+            string[] names = { "Sinä", "Puliukko", "Yakuza", "Prätkäjätkä", "Rokkimimmi" };
             for (int i = 0; i < names.Length; i++) table.Seats[i].Name = names[i];
             Wallet = liveWallet - buyIn; WalletInitialized = true; Table = table; BuyIn = buyIn;
             Joined = true; Leaving = false; SessionId = Guid.NewGuid().ToString("N"); Transactions++;

@@ -38,9 +38,11 @@ public sealed class PokerView : MonoBehaviour
     EventSystem eventSystem;
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
-    static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(310, 230), new Vector2(850, 230), new Vector2(35, 335), new Vector2(1125, 335) };
-    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(435, 280), new Vector2(815, 285), new Vector2(180, 315), new Vector2(1080, 315) };
-    static readonly Vector2[] HolePos = { new Vector2(548, 450), new Vector2(463, 250), new Vector2(772, 250), new Vector2(170, 345), new Vector2(980, 345) };
+    // Pelipaikat on järjestetty pöydän ympäri myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi.
+    static readonly int[] OutlineFile = { 0, 3, 1, 2, 4 };   // paikka -> TurnOutline-tiedosto (make_turn_outlines.py: 1 Yakuza, 2 Prätkäjätkä, 3 Puliukko, 4 Rokkimimmi)
+    static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(35, 335), new Vector2(310, 230), new Vector2(850, 230), new Vector2(1125, 335) };
+    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(180, 315), new Vector2(435, 280), new Vector2(815, 285), new Vector2(1080, 315) };
+    static readonly Vector2[] HolePos = { new Vector2(548, 450), new Vector2(170, 345), new Vector2(463, 250), new Vector2(772, 250), new Vector2(980, 345) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
     public void Build(PokerService service, PokerPresentationSettings settings)
@@ -81,7 +83,7 @@ public sealed class PokerView : MonoBehaviour
         // Vuorossa olevan hahmon kultainen ääriviiva (Tools/PokerAssets/make_turn_outlines.py).
         for (int i = 1; i <= 4; i++)
         {
-            var tex = Resources.Load<Texture2D>("Poker/Artwork/TurnOutline" + i);
+            var tex = Resources.Load<Texture2D>("Poker/Artwork/TurnOutline" + OutlineFile[i]);
             if (tex == null) continue;
             turnOutlines[i] = Raw(root, new Rect(0, -3, 1280, 655), tex, null); turnOutlines[i].gameObject.SetActive(false);
         }

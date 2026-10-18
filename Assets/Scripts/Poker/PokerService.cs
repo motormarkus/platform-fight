@@ -29,7 +29,7 @@ public sealed class PokerService : MonoBehaviour
     string thinkSession;
     float nextBotAt, thinkReadyAt, oldTimeScale = 1, lastWalletSave;
     bool quitting, loaded, faulted, walletDirty;
-    static readonly PokerStyle[] Styles = { PokerStyle.Balanced, PokerStyle.Cautious, PokerStyle.Aggressive, PokerStyle.Loose, PokerStyle.Balanced };
+    static readonly PokerStyle[] Styles = { PokerStyle.Balanced, PokerStyle.Loose, PokerStyle.Cautious, PokerStyle.Aggressive, PokerStyle.Balanced };
     string SavePath => Path.Combine(Application.persistentDataPath, Demo ? "total-fist-poker-demo.json" : "total-fist-poker.json");
     PokerCheckpointStore<PokerCashSession> Store => new PokerCheckpointStore<PokerCashSession>(SavePath, s => JsonUtility.ToJson(s), s => JsonUtility.FromJson<PokerCashSession>(s));
 
