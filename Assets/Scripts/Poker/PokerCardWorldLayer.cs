@@ -17,7 +17,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly List<GameObject> chips = new List<GameObject>();
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
-    static readonly Vector2[] Holes = { new Vector2(588, 445), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
+    static readonly Vector2[] Holes = { new Vector2(594, 490), new Vector2(192, 373), new Vector2(485, 278), new Vector2(794, 278), new Vector2(1002, 373) };
     static readonly Vector2[] Stacks = { new Vector2(765, 532), new Vector2(184, 408), new Vector2(437, 305), new Vector2(891, 311), new Vector2(1111, 409) };
     static readonly Vector2[] Bets = { new Vector2(744, 451), new Vector2(284, 418), new Vector2(524, 323), new Vector2(776, 323), new Vector2(1012, 418) };
     public bool Active => camera3D != null;
@@ -56,7 +56,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 85 : 45), 0), i == 0 ? 80 : 43, k == 0 ? -6 : 6);
+                        Holes[i] + new Vector2(k * (i == 0 ? 72 : 45), 0), i == 0 ? 68 : 43, k == 0 ? -6 : 6);
                 }
         var remove = new List<string>();
         foreach (var pair in cards) if (!wanted.Contains(pair.Key)) { if (pair.Value != null) Destroy(pair.Value.gameObject); remove.Add(pair.Key); }

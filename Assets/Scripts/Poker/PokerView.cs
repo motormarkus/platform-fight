@@ -43,7 +43,7 @@ public sealed class PokerView : MonoBehaviour
     static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(35, 335), new Vector2(310, 230), new Vector2(850, 230), new Vector2(1125, 335) };
     // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
     static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(135, 319), new Vector2(410, 214), new Vector2(950, 214), new Vector2(1225, 319) };
-    static readonly Vector2[] HolePos = { new Vector2(548, 395), new Vector2(170, 345), new Vector2(463, 250), new Vector2(772, 250), new Vector2(980, 345) };
+    static readonly Vector2[] HolePos = { new Vector2(548, 430), new Vector2(170, 345), new Vector2(463, 250), new Vector2(772, 250), new Vector2(980, 345) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
     public void Build(PokerService service, PokerPresentationSettings settings)
@@ -260,7 +260,7 @@ public sealed class PokerView : MonoBehaviour
         if (lastHand != t.HandNumber) { lastHand = t.HandNumber; lastCards.Clear(); Array.Clear(lastBets, 0, lastBets.Length); }
         for (int i = 0; i < 5; i++)
             if (t.Seats[i].InHand && !t.Seats[i].Folded)
-                    for (int k = 0; k < 2; k++) MakeCard("hole" + i + ":" + k, t.Seats[i].Hole[k], i == 0 || t.Showdown, new Rect(HolePos[i].x + k * (i == 0 ? 85 : 45), HolePos[i].y, i == 0 ? 80 : 43, i == 0 ? 99 : 56), i == 0 ? 8 : 0);
+                    for (int k = 0; k < 2; k++) MakeCard("hole" + i + ":" + k, t.Seats[i].Hole[k], i == 0 || t.Showdown, new Rect(HolePos[i].x + k * (i == 0 ? 72 : 45), HolePos[i].y, i == 0 ? 68 : 43, i == 0 ? 84 : 56), i == 0 ? 8 : 0);
         for (int i = 0; i < 5; i++)
         {
             Rect r = new Rect(454 + i * 78, 356, 70, 87);

@@ -15,7 +15,8 @@ import os
 
 ART = "Assets/Resources/Poker/Artwork"
 JOBS = [("TableOpponents.jpg", "TableOpponentsKeyed.png"), ("Panels.jpg", "PanelsKeyed.png")]
-CORE, MIN_POCKET, BAND = 0.90, 400, 3
+CORE, MIN_POCKET, BAND = 0.90, 16, 2
+FRINGE, GREY_MIN, GREY_SAT, FRINGE_PASSES = 0.60, 0.30, 0.14, 5   # vaalea JPEG-reunus syödään taustaa vasten, kunnes tulee tumma ääriviiva
 
 def smooth(lo, hi, x):
     t = np.clip((x - lo) / (hi - lo), 0, 1)
@@ -49,10 +50,14 @@ for src, dst in JOBS:
     rgb = np.asarray(Image.open(os.path.join(ART, src)).convert("RGB")).astype(np.float32) / 255
     m = rgb.min(2)
     bg = background(m > CORE)
+    for _ in range(FRINGE_PASSES):
+        # vaalea tai harmaa (väritön) reunapikseli taustaa vasten = JPEG-halo; iho ja värit säilyvät
+        grey = (rgb.max(2) - m < GREY_SAT) & (m > GREY_MIN)
+        bg |= dilate(bg, 1) & ~bg & ((m > FRINGE) | grey)
     band = dilate(bg, BAND) & ~bg
     a = np.ones(m.shape, np.float32)
     a[bg] = 0
-    a[band] = 1 - smooth(.64, .94, m[band])
+    a[band] = 1 - smooth(.45, .85, m[band])
     out = rgb.copy()
     k = band & (a > .02)
     out[k] = np.clip((rgb[k] - (1 - a[k, None])) / a[k, None], 0, 1)
