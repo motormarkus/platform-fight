@@ -21,6 +21,7 @@ public sealed class PokerView : MonoBehaviour
     GameObject[] highlights = new GameObject[5];
     Text pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
+    GameObject[] blindBadges = new GameObject[5]; Text[] blindTexts = new Text[5];
     Button fold, call, raise, allIn, deal, rebuy, minus, plus, leave;
     Slider slider;
     int raiseTo, shownRevision = -1, selection;
@@ -90,6 +91,8 @@ public sealed class PokerView : MonoBehaviour
             names[i] = Label(root, new Rect(rect.x, rect.y + 3, rect.width, 20), "", 19, Color.white);
             stacks[i] = Label(root, new Rect(rect.x, rect.y + 22, rect.width, 29), "", 27, Gold);
             bets[i] = Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white);
+            var badge = Panel(root, new Rect(rect.x - 12, rect.y - 14, 40, 24), new Color(.95f, .85f, .45f)); badge.name = "Blindimerkki";
+            blindTexts[i] = Label(badge.transform, new Rect(0, 0, 40, 24), "", 19, Color.black); blindBadges[i] = badge.gameObject;
         }
         Box(root, new Rect(560, 306, 165, 44));
         pot = Label(root, new Rect(564, 309, 157, 37), "", 27, Gold);
@@ -220,6 +223,11 @@ public sealed class PokerView : MonoBehaviour
         message.text = host.Error ?? t.Message;
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
+        for (int i = 0; i < 5; i++)
+        {
+            bool sb = t.Dealer >= 0 && i == t.SmallBlindSeat, bb = t.Dealer >= 0 && i == t.BigBlindSeat;
+            blindBadges[i].SetActive(sb || bb); blindTexts[i].text = bb ? "BB" : "SB";
+        }
         fold.gameObject.SetActive(legal.Fold); call.gameObject.SetActive(legal.Check || legal.Call);
         raise.gameObject.SetActive(legal.Raise); allIn.gameObject.SetActive(legal.AllIn);
         callText.text = legal.Check ? "Sökö" : "Maksa " + legal.CallAmount.ToString("N0") + " mk";
