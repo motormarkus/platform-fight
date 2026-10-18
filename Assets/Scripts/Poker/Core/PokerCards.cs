@@ -39,6 +39,23 @@ namespace TotalFist.Poker
             return best;
         }
 
+        // The five cards that make up the best hand (used to highlight the winning hand).
+        public static int[] BestFive(IList<int> cards)
+        {
+            long best = -1; var result = new int[5]; var five = new int[5];
+            for (int a = 0; a < cards.Count - 4; a++)
+            for (int b = a + 1; b < cards.Count - 3; b++)
+            for (int c = b + 1; c < cards.Count - 2; c++)
+            for (int d = c + 1; d < cards.Count - 1; d++)
+            for (int e = d + 1; e < cards.Count; e++)
+            {
+                five[0] = cards[a]; five[1] = cards[b]; five[2] = cards[c]; five[3] = cards[d]; five[4] = cards[e];
+                long v = Five(five);
+                if (v > best) { best = v; Array.Copy(five, result, 5); }
+            }
+            return result;
+        }
+
         static long Pack(int category, params int[] ranks)
         {
             long value = category;

@@ -120,9 +120,9 @@ public sealed class PokerView : MonoBehaviour
                 bubbleTexts[i] = Label(bubble.transform, new Rect(0, 0, 170, 30), "", 21, Gold); bubbles[i] = bubble.gameObject; bubble.gameObject.SetActive(false);
             }
         }
-        Box(root, new Rect(560, 306, 165, 44));
-        pot = Label(root, new Rect(564, 309, 157, 37), "", 27, Gold);
-        phase = Label(root, new Rect(460, 281, 360, 24), "", 18, Color.white);
+        Box(root, new Rect(560, 296, 165, 44));
+        pot = Label(root, new Rect(564, 299, 157, 37), "", 27, Gold);
+        phase = Label(root, new Rect(460, 271, 360, 24), "", 18, Color.white);
         dealer = new GameObject("Jakajan merkki", typeof(RectTransform)).GetComponent<RectTransform>(); dealer.SetParent(root, false);
         SetRect(dealer, new Rect(735, 275, 80, 40));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
@@ -188,9 +188,9 @@ public sealed class PokerView : MonoBehaviour
     }
     GameObject Frame(Transform parent, Rect r)
     {
-        if (panelTex != null) return Raw(parent, r, panelTex, panelMat, new Rect(92, 284, 530, 116)).gameObject;
         var go = Obj(parent, "Vuorokorostus", r);
         Panel(go.transform, new Rect(0, 0, r.width, 3), Gold); Panel(go.transform, new Rect(0, r.height - 3, r.width, 3), Gold);
+        Panel(go.transform, new Rect(0, 0, 3, r.height), Gold); Panel(go.transform, new Rect(r.width - 3, 0, 3, r.height), Gold);
         return go;
     }
     Button Button(Rect rect, string text, int style, UnityEngine.Events.UnityAction action)
@@ -198,18 +198,15 @@ public sealed class PokerView : MonoBehaviour
         var go = Obj(root, text, rect); var hit = go.AddComponent<Image>(); hit.color = new Color(.08f, .07f, .06f);
         var button = go.AddComponent<Button>(); button.targetGraphic = hit;
         var colors = button.colors; colors.highlightedColor = new Color(1, .78f, .35f); colors.selectedColor = colors.highlightedColor; colors.disabledColor = new Color(.25f, .25f, .25f); button.colors = colors;
-        if (panelTex != null) Raw(go.transform, new Rect(0, 0, rect.width, rect.height), panelTex, panelMat,
-            style == 1 ? new Rect(27, 167, 399, 100) : style == 2 ? new Rect(855, 167, 400, 100) : new Rect(444, 167, 391, 100));
+        // Tasainen, terävä nappi ilman kultareunaa: väri kertoo tyylin (punainen = luovuta/all-in, sininen = korotus/lisäosto).
+        Color fill = style == 1 ? new Color(.46f, .08f, .07f) : style == 2 ? new Color(.07f, .21f, .46f) : new Color(.13f, .12f, .11f);
+        Panel(go.transform, new Rect(0, 0, rect.width, rect.height), new Color(fill.r * .5f + .1f, fill.g * .5f + .1f, fill.b * .5f + .1f, 1));
+        Panel(go.transform, new Rect(2, 2, rect.width - 4, rect.height - 4), fill);
         var label = Label(go.transform, new Rect(5, 0, rect.width - 10, rect.height), text, rect.height < 40 ? 20 : 29, Color.white);
         if (art.headingFont != null) label.font = art.headingFont;
-        var outline = label.gameObject.AddComponent<Outline>(); outline.effectColor = Color.black; outline.effectDistance = new Vector2(1, -1);
         // Keep focus above opaque artwork: tinting the underlying hit image is invisible.
         var focus = Frame(go.transform, new Rect(-5, -5, rect.width + 10, rect.height + 10));
         focus.name = "Ohjainvalinta";
-        Panel(focus.transform, new Rect(6, 6, rect.width - 2, 4), Gold);
-        Panel(focus.transform, new Rect(6, rect.height, rect.width - 2, 4), Gold);
-        Panel(focus.transform, new Rect(6, 6, 4, rect.height - 2), Gold);
-        Panel(focus.transform, new Rect(rect.width, 6, 4, rect.height - 2), Gold);
         focus.SetActive(false); controlFrames.Add(button, focus);
         button.onClick.AddListener(action); controls.Add(button); return button;
     }
@@ -317,7 +314,7 @@ public sealed class PokerView : MonoBehaviour
             if (i < BoardShown(t)) MakeCard("board" + i, t.Board[i], true, r, 0);
             else { var g = Obj(root, "Yhteisen kortin paikka", r); var im = g.AddComponent<Image>(); im.color = new Color(.12f, .4f, .32f, .15f); im.raycastTarget = false; cards.Add(g); }
         }
-        if (worldCards != null) worldCards.Show(t, BoardShown(t));
+        if (worldCards != null) worldCards.Show(t, BoardShown(t), !runoutActive);
         for (int i = 0; i < 5; i++)
         {
             if (t.Running && t.Seats[i].Bet > lastBets[i]) { if (worldCards == null || !worldCards.Active) AnimateChip(i); if (art.chipSound != null) audioSource.PlayOneShot(art.chipSound, GameSettings.SfxVolume); }

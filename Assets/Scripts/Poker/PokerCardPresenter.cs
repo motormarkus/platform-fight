@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class PokerCardPresenter : MonoBehaviour
 {
     public abstract void SetCard(int cardId, bool faceUp);
+    /// Himmentää kortin (ei-voittava kortti loppunäytöksessä).
+    public virtual void SetDim(bool dim) { }
 }
