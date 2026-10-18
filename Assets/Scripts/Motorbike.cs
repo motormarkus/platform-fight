@@ -214,6 +214,7 @@ public class Motorbike : MonoBehaviour
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         if (travelLocked) return;
         // pysäköity kuva (3D-render) samaan kokoon kuin kadun pyörät; ajokuvat käyttävät omaa kokoaan (Scale)
         float ps = Mathf.Min(Scale, propScale);

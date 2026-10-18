@@ -1,0 +1,7 @@
+{
+  "name": "TotalFist.Poker.Tests",
+  "references": ["TotalFist.Poker.Core"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "noEngineReferences": true
+}

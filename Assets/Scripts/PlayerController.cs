@@ -1542,6 +1542,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // pärinä: kaikki liikkeet nopeutuvat
         heroDt = dt;
         Enemy.TimeScale = Players.AnyBoosted ? boostEnemySlow : 1f;

@@ -84,6 +84,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         if (busy) { near = false; confirming = false; return; }
         if (!confirming)
         {

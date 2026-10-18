@@ -22,6 +22,7 @@ public class CoopManager : MonoBehaviour
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         if (Keyboard.current != null && Keyboard.current.f4Key.wasPressedThisFrame) padDebug = !padDebug;
         var p1 = Players.Primary;
         if (p1 == null) return;

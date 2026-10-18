@@ -115,6 +115,7 @@ public class ShopCounter : MonoBehaviour
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         if (sessions.Count == 0)
         {
             pc = Players.Nearest(transform.position);

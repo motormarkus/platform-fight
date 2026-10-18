@@ -1,0 +1,193 @@
+{
+  "source": "PokerSet.obj",
+  "sourceBytes": 374591257,
+  "sourceSha256": "5df64c7b1a70931f06615f9af9f4d2967ea1ba8fc58ab6f2a8137c9df4b1a29f",
+  "cardOrder": "clubs, diamonds, hearts, spades; 2..10,J,Q,K,A",
+  "models": {
+    "CardFace.obj": {
+      "vertices": 529,
+      "triangles": 960,
+      "materials": [
+        "CardFront"
+      ]
+    },
+    "CardBack.obj": {
+      "vertices": 529,
+      "triangles": 960,
+      "materials": [
+        "CardBackBlue"
+      ]
+    },
+    "CardEdges.obj": {
+      "vertices": 1500,
+      "triangles": 2304,
+      "materials": [
+        "CardSides"
+      ]
+    },
+    "Chip-1.obj": {
+      "vertices": 5713,
+      "triangles": 10088,
+      "materials": [
+        "White",
+        "1"
+      ]
+    },
+    "Chip-2.obj": {
+      "vertices": 7324,
+      "triangles": 11680,
+      "materials": [
+        "White",
+        "2",
+        "1"
+      ]
+    },
+    "Chip-5.obj": {
+      "vertices": 7705,
+      "triangles": 12030,
+      "materials": [
+        "White",
+        "5",
+        "1"
+      ]
+    },
+    "Chip-10.obj": {
+      "vertices": 7443,
+      "triangles": 11776,
+      "materials": [
+        "White",
+        "10",
+        "1"
+      ]
+    },
+    "Chip-20.obj": {
+      "vertices": 9052,
+      "triangles": 13368,
+      "materials": [
+        "White",
+        "20",
+        "1"
+      ]
+    },
+    "Chip-25.obj": {
+      "vertices": 10083,
+      "triangles": 14350,
+      "materials": [
+        "White",
+        "25",
+        "1"
+      ]
+    },
+    "Chip-50.obj": {
+      "vertices": 9419,
+      "triangles": 13718,
+      "materials": [
+        "White",
+        "50",
+        "1"
+      ]
+    }
+  },
+  "materials": {
+    "1": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "10": [
+      0.000416,
+      0.000134,
+      0.350556
+    ],
+    "1000": [
+      0.429226,
+      0.002848,
+      0.0
+    ],
+    "100Alt": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "2": [
+      0.581463,
+      0.476034,
+      0.0
+    ],
+    "20": [
+      0.08714,
+      0.08714,
+      0.08714
+    ],
+    "2000": [
+      0.0,
+      0.570028,
+      0.761272
+    ],
+    "25": [
+      0.019355,
+      0.295692,
+      0.0
+    ],
+    "250": [
+      0.650005,
+      0.0,
+      0.623809
+    ],
+    "5": [
+      0.246195,
+      0.0,
+      0.001576
+    ],
+    "50": [
+      0.698193,
+      0.151397,
+      0.0
+    ],
+    "500": [
+      0.242982,
+      0.0,
+      1.0
+    ],
+    "5000": [
+      0.042028,
+      0.012599,
+      0.003951
+    ],
+    "Background": [
+      0.592045,
+      0.592045,
+      0.592045
+    ],
+    "CardBackBlue": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "CardFront": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "CardSides": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "Gold": [
+      0.658375,
+      0.42869,
+      0.038204
+    ],
+    "Silver": [
+      0.527115,
+      0.527115,
+      0.527115
+    ],
+    "White": [
+      0.626663,
+      0.626663,
+      0.626663
+    ]
+  }
+}

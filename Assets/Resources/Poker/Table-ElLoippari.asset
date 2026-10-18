@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565d98ba17fa460b8a281c44f48e9a2a, type: 3}
+  m_Name: Table-ElLoippari
+  m_EditorClassIdentifier: Assembly-CSharp::PokerPresentationSettings
+  smallBlind: 1
+  bigBlind: 2
+  buyIn: 50
+  barBackground: {fileID: 2800000, guid: 26c473c103161674196070d58eecefef, type: 3}
+  tableAndOpponents: {fileID: 2800000, guid: a204f897c24f4414b2717727846f3ca1, type: 3}
+  whiteKeyMaterial: {fileID: 2100000, guid: fcb12327a3074bf9b41e9daa086cb073, type: 2}
+  panelAtlas: {fileID: 2800000, guid: a204f897c24f4414b2717727846f3ca2, type: 3}
+  originalLogo: {fileID: 2800000, guid: 04005516c0691754784c9115b1483062, type: 3}
+  headingFont: {fileID: 12800000, guid: 4333947f4bff93147b7b9c594165f421, type: 3}
+  textFont: {fileID: 12800000, guid: cc7bf1dbb6c7d3149b6d229bafc3757e, type: 3}
+  cardFaces:
+  - {fileID: 21300000, guid: 3d561b6215f241f38e98e29fe9bf84da, type: 3}
+  - {fileID: 21300000, guid: 3770839842154506a57057f8f46a8459, type: 3}
+  - {fileID: 21300000, guid: a948f8781d004ea5a82b688521ba07ac, type: 3}
+  - {fileID: 21300000, guid: 784ccdd59679416e86c486bf5f43d00d, type: 3}
+  - {fileID: 21300000, guid: 897fd808f6c94f948916e802261950ba, type: 3}
+  - {fileID: 21300000, guid: 9d5ff68c1bde48fc9a374fc6b1686f36, type: 3}
+  - {fileID: 21300000, guid: 395e4f42afb540618c0634bf926761f7, type: 3}
+  - {fileID: 21300000, guid: 47012714bc7f4c64ab39df87172c4756, type: 3}
+  - {fileID: 21300000, guid: d4591482f1294e2792cde62efd5ab5bb, type: 3}
+  - {fileID: 21300000, guid: dd743008f4d540b9b6082a8fa9c0965d, type: 3}
+  - {fileID: 21300000, guid: 255567bbfc0c452bb82d7bef35b325af, type: 3}
+  - {fileID: 21300000, guid: d8093ae2ee384745bf6637b4aa47c897, type: 3}
+  - {fileID: 21300000, guid: 33e6561ad1174f56aa397a5e214b0438, type: 3}
+  - {fileID: 21300000, guid: dcc49bd55d004a07909fd3a7c8170fe6, type: 3}
+  - {fileID: 21300000, guid: f3ab405a6e3d430d88d09d7670608e1c, type: 3}
+  - {fileID: 21300000, guid: d14c8d81b95d4c589ad38edf2fb4bf4d, type: 3}
+  - {fileID: 21300000, guid: 67b90cecdf2248fd9da37351e31cbe48, type: 3}
+  - {fileID: 21300000, guid: fc36ec3dcf0e458cb2e9c930b3048897, type: 3}
+  - {fileID: 21300000, guid: 24192a0a331848bcaa64968896167982, type: 3}
+  - {fileID: 21300000, guid: 2b240bd86dc442109632c81cee079bd1, type: 3}
+  - {fileID: 21300000, guid: 9ffa5552257347a2bb6ab125194e3b8f, type: 3}
+  - {fileID: 21300000, guid: 4b563a8ef215447eb8e3740059a16a8d, type: 3}
+  - {fileID: 21300000, guid: 7056bff8c00c4823aade1ab382ec38e1, type: 3}
+  - {fileID: 21300000, guid: efce5551b1cb43489befe18e444fb9e0, type: 3}
+  - {fileID: 21300000, guid: 295ca8defc524d5380f5c4a418994477, type: 3}
+  - {fileID: 21300000, guid: 5123129e0965443488c0a4c10c9bbbfb, type: 3}
+  - {fileID: 21300000, guid: b376b328abf8464d882045e3b526bebb, type: 3}
+  - {fileID: 21300000, guid: 7af6fb20fb3748c9a946efa00fe7a5e2, type: 3}
+  - {fileID: 21300000, guid: 095ec60d47684479810cc8b64bf19329, type: 3}
+  - {fileID: 21300000, guid: 00384d0b077e417da30e373b0f326e5d, type: 3}
+  - {fileID: 21300000, guid: 0b37a2c392c94e74ae64131a95cf10e5, type: 3}
+  - {fileID: 21300000, guid: 560d16c622b84d69a75d0a1a75f22554, type: 3}
+  - {fileID: 21300000, guid: 6a2f9a49e7a044ec9faa802c72d42ce4, type: 3}
+  - {fileID: 21300000, guid: 1f6d2eda2bfd43daa86f55767646304c, type: 3}
+  - {fileID: 21300000, guid: f20a276135a54e689bb956ac90e7f974, type: 3}
+  - {fileID: 21300000, guid: 57b63de80973498fa226f08f867bf3b8, type: 3}
+  - {fileID: 21300000, guid: a208c3aa6f094ef5a56a1f940e8f7c43, type: 3}
+  - {fileID: 21300000, guid: 44226bb5e01d41e8aec1f7b3b5911308, type: 3}
+  - {fileID: 21300000, guid: 9a1caffc5af1475c888d75c24950c8b2, type: 3}
+  - {fileID: 21300000, guid: f6db37e0322e45798c0ccf0913dc60fa, type: 3}
+  - {fileID: 21300000, guid: 24aa8cce3846493489ef7f61c20399e5, type: 3}
+  - {fileID: 21300000, guid: 507732c3021b4f52912a4b8e733caefb, type: 3}
+  - {fileID: 21300000, guid: ec8fa4a5aa7045d791e001a1021c0450, type: 3}
+  - {fileID: 21300000, guid: 5a69c3f5fb814c249c45a838e64f5347, type: 3}
+  - {fileID: 21300000, guid: 10b20dc94f7646a2b9eb5f0087a298e4, type: 3}
+  - {fileID: 21300000, guid: 4850f61f8f9e4878b4f2d9f109384087, type: 3}
+  - {fileID: 21300000, guid: a29c4330e7ac4e5494e2c247cda239ba, type: 3}
+  - {fileID: 21300000, guid: 7050f79ebd544581bc183c303db7955b, type: 3}
+  - {fileID: 21300000, guid: 5fad2dbcf1cb4252b2dcdb6bef3e2d76, type: 3}
+  - {fileID: 21300000, guid: c2642d46b9a24d0a8bfbfb35e4859374, type: 3}
+  - {fileID: 21300000, guid: 9c805bda658c43e98772474580df3857, type: 3}
+  - {fileID: 21300000, guid: 423e46e196c64ec4b4db5a4df82d7c75, type: 3}
+  cardBack: {fileID: 21300000, guid: 56e4ef37d08c4699aa700c1128797ada, type: 3}
+  chip: {fileID: 0}
+  dealerMarker: {fileID: 21300000, guid: d136d0a6a74b2f34bbeb4e38f8cbcef6, type: 2}
+  chipPrefabs:
+  - {fileID: 4935599244968743419, guid: 3e6ed407613b83740bc6e9c6be438d35, type: 3}
+  - {fileID: 8729845222864321279, guid: a0a9207236658894cbaae61d516cf7b4, type: 3}
+  - {fileID: 5845119079771181189, guid: 845b339664be07e47a3f2f1791fc8b82, type: 3}
+  - {fileID: 7760916107291195103, guid: b1c4c690e198c93478231f3328fa111d, type: 3}
+  - {fileID: 5212709832992510133, guid: 54144a77d6b548b45968c9a2bc91ae82, type: 3}
+  - {fileID: 8239238853637571468, guid: 9053c7232ecc41c4688c185ac3da0dad, type: 3}
+  - {fileID: 8381374008197829607, guid: a21743cbb03f5c44da1acd8388faa0ea, type: 3}
+  chipValues: 0100000002000000050000000a000000140000001900000032000000
+  cardPrefab: {fileID: 1789829447744575951, guid: 3c55420402fd785418d1ab526bb16dc0, type: 3}
+  cardRenderTexture: {fileID: 8400000, guid: 5c7643baab7b54a4592c2f000b2b719c, type: 2}
+  cardTableEuler: {x: 30, y: 0, z: 0}
+  cardWorldScale: 1
+  dealSound: {fileID: 0}
+  chipSound: {fileID: 0}

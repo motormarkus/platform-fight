@@ -76,6 +76,7 @@ public class GameMenu : MonoBehaviour
 
     static void Ensure()
     {
+        if (FindFirstObjectByType<PokerTestBootstrap>() != null) return;
         if (FindFirstObjectByType<GameMenu>() != null) return;
         new GameObject("Valikot").AddComponent<GameMenu>();
     }
@@ -149,6 +150,7 @@ public class GameMenu : MonoBehaviour
 
     void Update()
     {
+        if (PokerService.BlocksCombat) return;
         if (page == Page.None)
         {
             var pc = Players.Primary;
