@@ -345,22 +345,43 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float[] PanThrowTimes => AppliedCharacter == 1 ? RubyPanThrowTimes : RoccoPanThrowTimes;
     bool HasPanThrowArt => panThrowSprites != null && panThrowSprites.Length == PanThrowTimes.Length;
     public float panFrameTime = 0.065f, panReach = 3.6f;
-    static readonly int[] RoccoPanSwingFrames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 0 };
-    static readonly float[] RoccoPanSwingTimes = { .080f, .100f, .120f, .090f, .060f, .040f, .025f, .018f, .045f, .055f, .065f, .050f };
-    float PanSwingImpactTime => AppliedCharacter == 1 ? 4f * panFrameTime : ThrowPose.Start(RoccoPanSwingTimes, 8);
-    bool PanSwingFinished => AppliedCharacter == 1
-        ? stateTime >= panSwingSprites.Length * panFrameTime + 0.08f
-        : ThrowPose.Index(RoccoPanSwingTimes, stateTime) < 0;
+    static readonly float[] RoccoPanSwingTimes = BuildRoccoPanSwingTimes();
+    static float[] BuildRoccoPanSwingTimes()
+    {
+        var times = new float[51];
+        for (int i = 0; i < times.Length; i++) times[i] = i < 14 ? .016f : i < 34 ? .018f : .020f;
+        return times;
+    }
+    static readonly float[] RubyPanSwingTimes = BuildRubyPanSwingTimes();
+    static float[] BuildRubyPanSwingTimes()
+    {
+        var times = new float[49];
+        for (int i = 0; i < times.Length; i++) times[i] = i < 15 ? .023f : i < 30 ? .018f : .040f;
+        return times;
+    }
+    float[] PanSwingTimes => AppliedCharacter == 1 ? RubyPanSwingTimes : RoccoPanSwingTimes;
+    float PanSwingImpactTime => ThrowPose.Start(PanSwingTimes, AppliedCharacter == 1 ? 22 : 20);
+    bool PanSwingFinished => ThrowPose.Index(PanSwingTimes, stateTime) < 0;
     int PanSwingFrame()
     {
-        if (AppliedCharacter == 1) return Mathf.Min((int)(stateTime / panFrameTime), panSwingSprites.Length - 1);
-        int index = ThrowPose.Index(RoccoPanSwingTimes, stateTime);
-        return RoccoPanSwingFrames[index < 0 ? RoccoPanSwingFrames.Length - 1 : index];
+        int index = ThrowPose.Index(PanSwingTimes, stateTime);
+        return index < 0 ? panSwingSprites.Length - 1 : index;
     }
-
     public int panDamage = 22;
     bool panResolved;
-    bool HasPanArt => panSwingSprites != null && panSwingSprites.Length >= (AppliedCharacter == 1 ? 7 : 9) && HasSmallItem;
+    bool HasPanArt => panSwingSprites != null && panSwingSprites.Length == (AppliedCharacter == 1 ? 49 : 51) && HasSmallItem;
+    public void OnPanDropped()
+    {
+        // An ignored hit can still drop the prop during invulnerability.
+        // Clear the weapon pose immediately, including its pan baked into the sprite.
+        if (state == State.PanHold || state == State.PanSwing || state == State.PanPick || state == State.PanThrow)
+        {
+            Enter(State.Ground);
+            // A hit freeze can skip the normal visual update for several frames.
+            if (body != null) body.sprite = CurrentSprite();
+        }
+    }
+    public bool CanHoldPan => state == State.PanHold || state == State.PanSwing || state == State.PanPick || state == State.PanThrow;
     public bool PanArtContainsWeapon => state == State.PanSwing || (state == State.PanHold && (!moving || HasPanWalkArt)) || (state == State.PanThrow && HasPanThrowArt);
     void LoadPanArt()
     {
@@ -378,7 +399,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
         panWalkSprites = walking.ToArray(); SortByFrameNumber(panWalkSprites);
         panIdleSprites = idle.ToArray(); SortByFrameNumber(panIdleSprites);
-        if (swing.Count == (AppliedCharacter == 1 ? 7 : 9)) { panSwingSprites = swing.ToArray(); SortByFrameNumber(panSwingSprites); }
+        if (swing.Count == (AppliedCharacter == 1 ? 49 : 51)) { panSwingSprites = swing.ToArray(); SortByFrameNumber(panSwingSprites); }
         if (throwing.Count == PanThrowTimes.Length) { panThrowSprites = throwing.ToArray(); SortByFrameNumber(panThrowSprites); }
     }
     bool chairResolved;
@@ -2153,7 +2174,20 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (!panResolved && stateTime >= PanSwingImpactTime)
                 {
                     panResolved = true;
-                    if (AttackEnemies(panReach, panDamage, true, 2.3f)) Pan.UseHeld(this);
+                    if (AttackEnemies(panReach, panDamage, true, 2.3f))
+                    {
+                        float dir = facingRight ? 1f : -1f;
+                        foreach (var enemy in lastHitEnemies)
+                        {
+                            if (enemy == null) continue;
+                            bool heavy = enemy.bigBody || Enemy.IsHeavyweight(enemy);
+                            // Launch applies the existing lightweight multiplier to upward speed.
+                            float up = heavy ? 10f : enemy.lightweight ? 9.5f : 12f;
+                            float speed = heavy ? 3f : enemy.lightweight ? 5.5f : 4.5f;
+                            enemy.Launch(dir * speed, up);
+                        }
+                        Pan.UseHeld(this);
+                    }
                 }
                 if (PanSwingFinished)
                     Enter(Pan.HeldBy(this) != null ? State.PanHold : State.Ground);
@@ -2583,6 +2617,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        bool panState = s == State.PanPick || s == State.PanHold || s == State.PanSwing || s == State.PanThrow;
+        if (!panState && Pan.HeldBy(this) != null) Pan.DropHeld(this);
         SkateOnEnter(s);
         fxStage = 0;
         // rinnuksista-lyönnit keskeytyivät (esim. ovi tai kuolema): vihu irti, ettei jää otteeseen
@@ -2979,6 +3015,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (c == null || !c.CanBeHit) continue;
             Vector3 p = c.transform.position;
             float dx = p.x - me.x;
+            if (c.anchored) dx = Mathf.Sign(dx) * Mathf.Max(0f, Mathf.Abs(dx) - c.impactRadiusX);
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             if (c.TakeHit(damage, me.x))
@@ -3004,6 +3041,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (st == null || !st.CanBeHit) continue;
             Vector3 p = st.transform.position;
             float dx = p.x - me.x;
+
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             if (st.Hit(knockdown)) { any = true; HitSpark.Spawn(new Vector3(p.x - side * 0.3f, p.y + 2.0f, 0f), false, Mathf.RoundToInt(-p.y * 100f) + 5); }
@@ -3014,6 +3052,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (tv == null || !tv.CanBeHit) continue;
             Vector3 p = tv.transform.position;
             float dx = p.x - me.x;
+
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach + 0.3f : dx <= 0.3f && dx >= -reach - 0.3f;
             if (!inFront || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             if (tv.TakeHit(me.x, AttackIsKick)) any = true;

@@ -90,7 +90,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -148,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,9 +170,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 384
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,9 +192,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 384
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,9 +214,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 384
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: ruby_pannu_isku_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 2560
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: ruby_pannu_isku_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
+        x: 3200
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: ruby_pannu_isku_6
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
+        x: 3840
+        y: 2688
         width: 640
-        height: 384
+        height: 448
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,6 +293,930 @@ TextureImporter:
       bones: []
       spriteID: c965c6ebe88c4c780800000000000000
       internalID: -8663579267748309348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2688
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b4ad272863e3343932f0b8d10520c0
+      internalID: -1533254046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c876fc50def03a245a9b5ac3fb07fcc4
+      internalID: -2111676793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d7287a8b7dba845b6d0589454bbad9
+      internalID: 1203502799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34d437a88f7df6469d021e3f59f91a4
+      internalID: -545397722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098ebf8715ebe7c4d926ec4f7fcb8c5b
+      internalID: -430452697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_12
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802c7e07a8384b548aba531da274f708
+      internalID: -49295744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_13
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e581e233f0b3fda4fa1646ee93551f23
+      internalID: -1139614357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_14
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5413a383884f97d4aadfcd1f62c1e9ff
+      internalID: -991760651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_15
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2240
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceab7b9af4974fd4599a421b7854f83d
+      internalID: 1179148445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9703ba7351fa8f74499cd1f47904fc46
+      internalID: 394888323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81aed7a34d9b974d9119ebd404da7b6
+      internalID: -48009452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61374f1a584fe264ebe3eaad897af1eb
+      internalID: -958205835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8d6e30b0ca03740bd8336c607e3256
+      internalID: 1726114343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01dcd3e0014b18d4e9756ca6a58082a2
+      internalID: -1116720484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_21
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b3e60f7b6651c4d88159a317ba4991
+      internalID: 228898066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_22
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae30a05d8ed9fd42b13f1ce1734c2e0
+      internalID: -451344602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_23
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1792
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6a0bd54890bde4e8610d1ba07b6682
+      internalID: 515055461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58370cc95a384b44a8a2f1353b60e3ab
+      internalID: -591181515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f035e430d51a3440b95caa47666ef2a
+      internalID: -1647052670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53011fb342bf27d498a1276b6a0e4fa6
+      internalID: 502446238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ff2398cda0a7b4681ecbcb8f44b7ef
+      internalID: 1144341932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36a85a1929ae524fa3b3eaa02213abc
+      internalID: -1219187370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_29
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44ccc18567b07f4896d764ff891522c
+      internalID: 320034568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_30
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb18275e68888843b7090deaff6543d
+      internalID: -2026463921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_31
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1344
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a347b7db7f0d8741bf2b5ddf411d1d9
+      internalID: 1054298469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864a9a47fd8f7d64eb79d4d56f229a36
+      internalID: 1575533031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_33
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b6ace4a91f49648a55d54f003f8c41
+      internalID: -1525606256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a656c2a94135fbb4ea36260eabe73e0d
+      internalID: 1229273514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_35
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9823cab66a5ddc648a837455d79f118a
+      internalID: 2114450926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_36
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f1456f75ad2b0429cd745f12a0ffbb
+      internalID: -1271159552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_37
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac3e742d9a6a674fac727e85e8d31af
+      internalID: -714025730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_38
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8e4f945eae91447a869fe09b242d94
+      internalID: -1664694770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_39
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 896
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356f4a04a21473b4480325c45d02c0e3
+      internalID: -1318549876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2169ce7ce03b5448947ae354a414de
+      internalID: -909099880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fe97208e99fc943beb59392100d76d
+      internalID: 489750728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_42
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887c334b677a2f548881997e5ca236cf
+      internalID: -561146381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_43
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369d8cc5780eb4f499048b3a24f55268
+      internalID: 336856071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_44
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9829eb95c79214d9eccaa7ef8d259e
+      internalID: -1791398830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_45
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a00ab58c5b4854aaf2474228b2126c
+      internalID: -1178762873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_46
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf6d07b9612b9840ade224f4c9b1320
+      internalID: -1476261085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_47
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 448
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82641f28342410a47831601d17dc7aca
+      internalID: 1077794393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_pannu_isku_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be332b43042ca684ea2b161eaa4bd97c
+      internalID: -1329936701
       vertices: []
       indices: 
       edges: []
@@ -313,11 +1237,53 @@ TextureImporter:
     nameFileIdTable:
       ruby_pannu_isku_0: -653224839236687706
       ruby_pannu_isku_1: 5402366935551634920
+      ruby_pannu_isku_10: -545397722
+      ruby_pannu_isku_11: -430452697
+      ruby_pannu_isku_12: -49295744
+      ruby_pannu_isku_13: -1139614357
+      ruby_pannu_isku_14: -991760651
+      ruby_pannu_isku_15: 1179148445
+      ruby_pannu_isku_16: 394888323
+      ruby_pannu_isku_17: -48009452
+      ruby_pannu_isku_18: -958205835
+      ruby_pannu_isku_19: 1726114343
       ruby_pannu_isku_2: 6979454737222670872
+      ruby_pannu_isku_20: -1116720484
+      ruby_pannu_isku_21: 228898066
+      ruby_pannu_isku_22: -451344602
+      ruby_pannu_isku_23: 515055461
+      ruby_pannu_isku_24: -591181515
+      ruby_pannu_isku_25: -1647052670
+      ruby_pannu_isku_26: 502446238
+      ruby_pannu_isku_27: 1144341932
+      ruby_pannu_isku_28: -1219187370
+      ruby_pannu_isku_29: 320034568
       ruby_pannu_isku_3: 6869238482196113442
+      ruby_pannu_isku_30: -2026463921
+      ruby_pannu_isku_31: 1054298469
+      ruby_pannu_isku_32: 1575533031
+      ruby_pannu_isku_33: -1525606256
+      ruby_pannu_isku_34: 1229273514
+      ruby_pannu_isku_35: 2114450926
+      ruby_pannu_isku_36: -1271159552
+      ruby_pannu_isku_37: -714025730
+      ruby_pannu_isku_38: -1664694770
+      ruby_pannu_isku_39: -1318549876
       ruby_pannu_isku_4: -3307344093461355143
+      ruby_pannu_isku_40: -909099880
+      ruby_pannu_isku_41: 489750728
+      ruby_pannu_isku_42: -561146381
+      ruby_pannu_isku_43: 336856071
+      ruby_pannu_isku_44: -1791398830
+      ruby_pannu_isku_45: -1178762873
+      ruby_pannu_isku_46: -1476261085
+      ruby_pannu_isku_47: 1077794393
+      ruby_pannu_isku_48: -1329936701
       ruby_pannu_isku_5: -1429180217355658134
       ruby_pannu_isku_6: -8663579267748309348
+      ruby_pannu_isku_7: -1533254046
+      ruby_pannu_isku_8: -2111676793
+      ruby_pannu_isku_9: 1203502799
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,8 @@ public class Pan : MonoBehaviour
     public static readonly List<Pan> All = new List<Pan>();
     public SpriteRenderer body;
     public Sprite[] spinSprites;
+    public Crate table;
+    public float tableX, tableTop = 1.65f;
     public int hitDurability = 10, throwDurability = 3, throwDamage = 24;
     public float artScale = 0.7f;
     int hits, throws;
@@ -53,7 +55,7 @@ public class Pan : MonoBehaviour
             if (d.sqrMagnitude < distance) { distance = d.sqrMagnitude; best = pan; }
         }
         if (best == null) return false;
-        best.holder = player; best.clock = 0f; return true;
+        best.table = null; best.holder = player; best.clock = 0f; return true;
     }
     public static void UseHeld(PlayerController player)
     {
@@ -71,6 +73,7 @@ public class Pan : MonoBehaviour
     {
         var pan = HeldBy(player); if (pan == null) return;
         pan.holder = null; pan.dropped = true; pan.Launch(player.transform.position, 1.3f, 0f, 1f);
+        player.OnPanDropped();
     }
     void Launch(Vector3 at, float h, float speed, float up)
     {
@@ -79,11 +82,21 @@ public class Pan : MonoBehaviour
     }
     void Break(Vector3 at, float h)
     {
+        var previousHolder = holder;
         holder = null; broken = true; Launch(at, h, 1f, 2f);
+        if (previousHolder != null) previousHolder.OnPanDropped();
         HitFx.OnBreak(0.04f);
     }
     void Update()
     {
+        if (table != null && holder == null && !flying)
+        {
+            transform.position = table.transform.position + Vector3.right * tableX;
+            groundY = transform.position.y; height = tableTop;
+            if (table.Disturb == 0 && table.Intact) return;
+            float dir = table.LastHitDir == 0f ? 1f : table.LastHitDir;
+            table = null; dropped = true; Launch(transform.position, tableTop, dir * 2.5f, 2f);
+        }
         if (holder != null || !flying) return;
         float dt = Time.deltaTime; clock += dt;
         float oldX = transform.position.x;
@@ -126,6 +139,7 @@ public class Pan : MonoBehaviour
     void LateUpdate()
     {
         if (body == null) return;
+        if (holder != null && !holder.CanHoldPan) DropHeld(holder);
         if (holder != null)
         {
             transform.position = holder.transform.position;

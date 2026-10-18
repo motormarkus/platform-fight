@@ -1338,7 +1338,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         var c = Crate.All[ci];
                         if (c == null || !c.breakable || !c.CanBeHit || c.breakSprites == null || c.breakSprites.Length == 0) continue;
                         Vector3 q = c.transform.position, me2 = transform.position;
-                        if (Mathf.Abs(q.x - me2.x) < 1.2f && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
+                        if (Mathf.Abs(q.x - me2.x) < c.impactRadiusX && Mathf.Abs(q.y - me2.y) < 0.5f) c.Smash();
                     }
                 if (height < 1.8f && Mathf.Abs(knockVel.x) > 2f) RingStand.SmashNear(transform.position);
                 // iso heitetty vihu (Kovis, portsari) kaataa tieltään muut vihut

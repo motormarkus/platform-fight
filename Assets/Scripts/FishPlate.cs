@@ -17,9 +17,9 @@ public class FishPlate : MonoBehaviour
     [Tooltip("Ranskalaisten ja lisukkeiden määrän kerroin (aamiainen: 3 pekonia ja 2 paahtoleipää, ei kymmeniä paloja).")]
     public float countMul = 1f;
 
-    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat; }
+    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks; }
     static readonly Dictionary<string, Set> sets = new Dictionary<string, Set>();
-    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat;
+    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks;
     enum S { OnTable, Tipping, Burst, Done }
     S state = S.OnTable;
     SpriteRenderer sr;
@@ -30,7 +30,7 @@ public class FishPlate : MonoBehaviour
     {
         string key = string.IsNullOrEmpty(spriteSet) ? "Kala" : spriteSet;
         if (!sets.TryGetValue(key, out var set)) { set = LoadSet(key); sets[key] = set; }
-        plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2; splat = set.splat;
+        sticks = set.sticks; plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2; splat = set.splat;
     }
 
     static Set LoadSet(string folder)
@@ -46,6 +46,7 @@ public class FishPlate : MonoBehaviour
         }
         foreach (var s in all) if (s.name == "annos") set.plate = s;
         set.burst = Pick("hajoaa_"); set.fish = Pick("kala_"); set.fries = Pick("ranska_"); set.shards = Pick("sirpale_"); set.lemons = Pick("sitruuna_");
+        set.sticks = Pick("tikku_");
         set.splat = Pick("roiske_");   // särkyneen kalan (munan) lattiaroiske
         set.veg1 = Pick("parsa_"); set.veg2 = Pick("peruna_");   // lentokuvat (pyörivät kuvasarjana)
         return set;
@@ -137,6 +138,10 @@ public class FishPlate : MonoBehaviour
         Vector3 p = transform.position;
         float h = violent ? height : 0.1f;
         float s = scale;
+        if (sticks != null)
+            foreach (var stick in sticks)
+                FoodDebris.Spawn(new[] { stick }, p, h, s, dir * Random.Range(10f, 16f),
+                    Random.Range(7f, 12f), Random.Range(-1.2f, 1.2f), Random.Range(900f, 1500f) * dir, false, 0f);
         // kala
         if (fish.Length > 0)
         {

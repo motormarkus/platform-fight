@@ -117,7 +117,9 @@ public class Crate : MonoBehaviour
     PlayerController player;
 
     /// Voiko laatikon nostaa (ehjä ja maassa).
-    public bool CanPickUp => state == State.Idle;
+    public bool anchored;
+    public float impactRadiusX = 1.2f;
+    public bool CanPickUp => !anchored && state == State.Idle;
     /// Pöytä (rikkoutuva, läpi kulkeva): vihollinen voi nostaa ja heittää sen (Rekkamies).
     public bool IsTable => breakable && plowThrough;
 
@@ -224,7 +226,7 @@ public class Crate : MonoBehaviour
     {
         if (state != State.Carried) return;
         transform.position = new Vector3(pos.x, pos.y, 0f);
-        height = lift;
+        height = lift + (carryUpsideDown ? 0.8f * Mathf.Clamp01(lift / 2.5f) : 0f);
         carriedOrder = order;
     }
 

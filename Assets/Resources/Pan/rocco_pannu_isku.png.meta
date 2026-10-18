@@ -96,7 +96,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -154,8 +154,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
-        width: 512
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -175,9 +175,9 @@ TextureImporter:
       name: rocco_pannu_isku_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 768
-        width: 512
+        x: 640
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -197,9 +197,9 @@ TextureImporter:
       name: rocco_pannu_isku_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 768
-        width: 512
+        x: 1280
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -219,9 +219,9 @@ TextureImporter:
       name: rocco_pannu_isku_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 768
-        width: 512
+        x: 1920
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -241,9 +241,9 @@ TextureImporter:
       name: rocco_pannu_isku_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 512
+        x: 2560
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -263,9 +263,9 @@ TextureImporter:
       name: rocco_pannu_isku_5
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
-        width: 512
+        x: 3200
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -285,9 +285,9 @@ TextureImporter:
       name: rocco_pannu_isku_6
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 384
-        width: 512
+        x: 3840
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -307,9 +307,9 @@ TextureImporter:
       name: rocco_pannu_isku_7
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 384
-        width: 512
+        x: 4480
+        y: 2304
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -330,8 +330,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
+        y: 1920
+        width: 640
         height: 384
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -343,6 +343,930 @@ TextureImporter:
       bones: []
       spriteID: 00d55b181dad17db0800000000000000
       internalID: -4795811534813700864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6eb5a55f012afc44bb16d7b17de11bd
+      internalID: -1399203133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b11670449b7e24dbdce7fd71026f6c
+      internalID: -637357156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b1a526c9b3b644f82e49b4963bddb4
+      internalID: 1088342304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_12
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85fe21c0a94222447ac588803993297e
+      internalID: 220370474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_13
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b52f159911a4c47997aeaadb185335
+      internalID: 1917901194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_14
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d9d74ddfff22543843b8d3c73f68a5
+      internalID: 1796096507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_15
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1920
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047b9ddd95b9ffe4d9f582cede474093
+      internalID: 1498743957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d8f8e3a2679734a9bda9efbcff959c
+      internalID: -593704452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109ba5ac1a5f36140af789aff8994fee
+      internalID: -2089255837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ec2de30d49bd649941fb313bd35565
+      internalID: 1051358619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0178b49a6274b5f419e8d8b3716bbfdb
+      internalID: 201810868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55bcce5e4492924490d516de7f1e863
+      internalID: 1785839410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_21
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a3e1e381fc22948841dee561ecbc08
+      internalID: 22893963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_22
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b1eb5b2d5101734e86acb695f1231c0
+      internalID: 1242409535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_23
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1536
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8562d9d2acc7b409d21639ac1a46fd
+      internalID: 1948396307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb50615ac175a247bbb69accd602c31
+      internalID: 583167489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592eafe3f5c4bb24d8fbcf50f3e69129
+      internalID: -1214788992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5dd32624a1466c4f9dde42fd8d85d89
+      internalID: -1016538359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1495127d5965b4a478e6d3b8832f2516
+      internalID: -1129402805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a86060009ce1c7459647c5485a9d9c6
+      internalID: 1115877694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_29
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3199c66f7f04a448f061a66dbc8d9c
+      internalID: 753392294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_30
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e77cf4a195a5e4294929e6ac1c394e
+      internalID: -674371040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_31
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1152
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38aeb466804062c4c8169770152c87d1
+      internalID: 1553234546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033039f8b28b92d45bdf4f7ea6466ce9
+      internalID: 63168200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_33
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddb6e9dce8d8ea4da769813b3ee9a45
+      internalID: 975450838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a14c8362801ee45b9658e8139b809b
+      internalID: 33406484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_35
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3e0504d20a4da4287e7a9b11cf8456
+      internalID: 1362506552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_36
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82ba10e984513b43a9e8efcf2adda52
+      internalID: -1776473022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_37
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a994534dd625a942b41e0e7a708b7b6
+      internalID: -1465342437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_38
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd309de0c2574a8429bebe741f65b7b3
+      internalID: -365314405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_39
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 768
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80277590a22d9f644ab3c97189b10ab9
+      internalID: -263770754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657b5e7f67a8bef438b74da83688949a
+      internalID: -1247932692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc04b04d4fa71da46b8774166c90bc4d
+      internalID: 1931709408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_42
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f64210090a9f514695f19e1f1f57664
+      internalID: -1708131444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_43
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f330796d68dfeb41838bc4e1366b720
+      internalID: 1297024742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_44
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26da48a83a6eda42a13ae024994f583
+      internalID: 843576624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_45
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506115bbee12d7748b343f2a7e5fc47f
+      internalID: -443173384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_46
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f7d957d13154449a5d8bd95d723982
+      internalID: -1529401667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_47
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 384
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe0e716818f6fc4698e60aeec79ba6d
+      internalID: 1930403454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4660cef4f94da74d907476aa2f21fe1
+      internalID: -1405429552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_49
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58da5d23984ec242b8cfed78a366160
+      internalID: 1082603640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_pannu_isku_50
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325eda5643f6fab418d78a3d9f4f4733
+      internalID: 933929511
       vertices: []
       indices: 
       edges: []
@@ -363,13 +1287,55 @@ TextureImporter:
     nameFileIdTable:
       rocco_pannu_isku_0: -6815248715406936347
       rocco_pannu_isku_1: 7889440786310815378
+      rocco_pannu_isku_10: -637357156
+      rocco_pannu_isku_11: 1088342304
+      rocco_pannu_isku_12: 220370474
+      rocco_pannu_isku_13: 1917901194
+      rocco_pannu_isku_14: 1796096507
+      rocco_pannu_isku_15: 1498743957
+      rocco_pannu_isku_16: -593704452
+      rocco_pannu_isku_17: -2089255837
+      rocco_pannu_isku_18: 1051358619
+      rocco_pannu_isku_19: 201810868
       rocco_pannu_isku_2: 8042958124157260983
+      rocco_pannu_isku_20: 1785839410
+      rocco_pannu_isku_21: 22893963
+      rocco_pannu_isku_22: 1242409535
+      rocco_pannu_isku_23: 1948396307
+      rocco_pannu_isku_24: 583167489
+      rocco_pannu_isku_25: -1214788992
+      rocco_pannu_isku_26: -1016538359
+      rocco_pannu_isku_27: -1129402805
+      rocco_pannu_isku_28: 1115877694
+      rocco_pannu_isku_29: 753392294
       rocco_pannu_isku_3: -7169869223524570947
+      rocco_pannu_isku_30: -674371040
+      rocco_pannu_isku_31: 1553234546
+      rocco_pannu_isku_32: 63168200
+      rocco_pannu_isku_33: 975450838
+      rocco_pannu_isku_34: 33406484
+      rocco_pannu_isku_35: 1362506552
+      rocco_pannu_isku_36: -1776473022
+      rocco_pannu_isku_37: -1465342437
+      rocco_pannu_isku_38: -365314405
+      rocco_pannu_isku_39: -263770754
       rocco_pannu_isku_4: -8022653935721951464
+      rocco_pannu_isku_40: -1247932692
+      rocco_pannu_isku_41: 1931709408
+      rocco_pannu_isku_42: -1708131444
+      rocco_pannu_isku_43: 1297024742
+      rocco_pannu_isku_44: 843576624
+      rocco_pannu_isku_45: -443173384
+      rocco_pannu_isku_46: -1529401667
+      rocco_pannu_isku_47: 1930403454
+      rocco_pannu_isku_48: -1405429552
+      rocco_pannu_isku_49: 1082603640
       rocco_pannu_isku_5: -1884534755887643640
+      rocco_pannu_isku_50: 933929511
       rocco_pannu_isku_6: 5277029604316020776
       rocco_pannu_isku_7: -8197122014849104721
       rocco_pannu_isku_8: -4795811534813700864
+      rocco_pannu_isku_9: -1399203133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
