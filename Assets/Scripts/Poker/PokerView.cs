@@ -79,14 +79,14 @@ public sealed class PokerView : MonoBehaviour
         root = reference;
         Raw(root, new Rect(0, 0, 1280, 720), art.barBackground, null);
         Panel(root, new Rect(0, 0, 1280, 720), new Color(0, 0, 0, .22f));
-        if (tableTex != null) Raw(root, new Rect(0, -3, 1280, 655), tableTex, tableMat);
+        if (tableTex != null) Raw(root, new Rect(0, 0, 1280, 720), tableTex, tableMat);
         else Panel(root, new Rect(35, 240, 1210, 355), new Color(.015f, .22f, .19f));
         // Vuorossa olevan hahmon kultainen ääriviiva (Tools/PokerAssets/make_turn_outlines.py).
         for (int i = 1; i <= 4; i++)
         {
             var tex = Resources.Load<Texture2D>("Poker/Artwork/TurnOutline" + OutlineFile[i]);
             if (tex == null) continue;
-            turnOutlines[i] = Raw(root, new Rect(0, -3, 1280, 655), tex, null); turnOutlines[i].gameObject.SetActive(false);
+            turnOutlines[i] = Raw(root, new Rect(0, 0, 1280, 720), tex, null); turnOutlines[i].gameObject.SetActive(false);
         }
         if (art.originalLogo != null) Raw(root, new Rect(25, 10, 290, 95), art.originalLogo, null);
         else Label(root, new Rect(25, 10, 290, 65), "TOTAL FIST", 48, Gold);
