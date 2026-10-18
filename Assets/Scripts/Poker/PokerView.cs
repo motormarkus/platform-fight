@@ -35,7 +35,8 @@ public sealed class PokerView : MonoBehaviour
     readonly List<GameObject> cards = new List<GameObject>();
     readonly Dictionary<string, int> lastCards = new Dictionary<string, int>();
     readonly int[] lastBets = new int[5];
-    int lastHand = -1;
+    int lastHand = -1, boardHand = -1, revealedBoard;
+    bool runoutActive; Coroutine runoutRoutine;
     EventSystem eventSystem;
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
@@ -66,7 +67,7 @@ public sealed class PokerView : MonoBehaviour
         font = art.textFont != null ? art.textFont : Resources.Load<Font>("Valikko/Bangers");
         if (font == null) font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         audioSource = gameObject.AddComponent<AudioSource>(); audioSource.ignoreListenerPause = true; audioSource.playOnAwake = false;
-        var canvas = gameObject.AddComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.sortingOrder = 30000;
+        var canvas = gameObject.AddComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.sortingOrder = 30000; canvas.pixelPerfect = true;   // teksti pikselirajoihin, ei sumeutta
         var scale = gameObject.AddComponent<CanvasScaler>(); scale.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize; scale.referenceResolution = new Vector2(1280, 720); scale.matchWidthOrHeight = .5f;
         gameObject.AddComponent<GraphicRaycaster>();
         // Fit reference without stretching on ultrawide/4:3; outside remains a dark matte.
@@ -181,8 +182,9 @@ public sealed class PokerView : MonoBehaviour
     }
     void Box(Transform parent, Rect r)
     {
-        if (panelTex != null) Raw(parent, r, panelTex, panelMat, new Rect(98, 31, 519, 111));
-        else { Panel(parent, r, Gold); Panel(parent, new Rect(r.x + 2, r.y + 2, r.width - 4, r.height - 4), new Color(.035f, .035f, .035f)); }
+        // Selkeä tumma lohko ilman kultareunaa (kultakehys on varattu napeille ja vuoron korostukselle).
+        Panel(parent, r, new Color(0, 0, 0, .92f));
+        Panel(parent, new Rect(r.x + 2, r.y + 2, r.width - 4, r.height - 4), new Color(.055f, .05f, .045f, .9f));
     }
     GameObject Frame(Transform parent, Rect r)
     {
@@ -236,6 +238,8 @@ public sealed class PokerView : MonoBehaviour
         if (host == null || !host.Visible) return;
         var t = host.Cash.Table; var legal = t.Legal(0); bool between = !t.Running;
         bool newRevision = shownRevision != t.Revision; shownRevision = t.Revision;
+        if (newRevision) StartRunoutIfNeeded(t);
+        if (runoutActive) between = false;
         for (int i = 1; i < 5; i++)
         {
             string la = t.Seats[i].LastAction ?? "";
@@ -251,7 +255,8 @@ public sealed class PokerView : MonoBehaviour
         pot.text = "POTTI  " + t.Pot.ToString("N0"); phase.text = between ? "Jaon ulkopuolella" : t.Street.ToString().ToUpperInvariant();
         walletText.text = (host.Demo ? "TESTIRAHA  " : "Lompakko  ") + host.Cash.Wallet.ToString("N0") + " mk";
         status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
-        message.text = host.Error ?? (t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
+        if (runoutActive) { status.text = "All-in!"; phase.text = "KORTIT AVAUTUVAT"; }
+        message.text = host.Error ?? (runoutActive ? "Jännitys tiivistyy…" : t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
         for (int i = 1; i <= 4; i++) if (turnGlows[i] != null) turnGlows[i].gameObject.SetActive(t.Running && t.Actor == i);
@@ -273,6 +278,31 @@ public sealed class PokerView : MonoBehaviour
         if (eventSystem != null && (eventSystem.currentSelectedGameObject == null || !eventSystem.currentSelectedGameObject.activeInHierarchy)) SelectFirst();
     }
 
+    // All-in-jaossa loput yhteiset kortit paljastetaan yksi katu kerrallaan jännityksen vuoksi; sääntömoottori ratkaisee jaon heti.
+    int BoardShown(PokerTable t) => runoutActive ? revealedBoard : t.Board.Count;
+    void StartRunoutIfNeeded(PokerTable t)
+    {
+        if (boardHand != t.HandNumber) { boardHand = t.HandNumber; revealedBoard = 0; runoutActive = false; if (runoutRoutine != null) StopCoroutine(runoutRoutine); runoutRoutine = null; }
+        if (runoutActive) return;
+        int target = t.Board.Count, gap = target - revealedBoard;
+        bool dramatic = gap > 1 && !(revealedBoard == 0 && target == 3) || (!t.Running && gap > 0);
+        if (!dramatic) { revealedBoard = target; return; }
+        runoutActive = true; runoutRoutine = StartCoroutine(Runout(t, target));
+    }
+    IEnumerator Runout(PokerTable t, int target)
+    {
+        yield return new WaitForSecondsRealtime(1.6f);
+        while (revealedBoard < target)
+        {
+            revealedBoard = revealedBoard == 0 ? 3 : revealedBoard + 1;
+            if (host == null || !host.Visible) yield break;
+            RenderCards();
+            yield return new WaitForSecondsRealtime(revealedBoard < target ? 2.4f : 1.2f);
+        }
+        runoutActive = false; runoutRoutine = null;
+        if (host != null && host.Visible) { shownRevision = -1; Render(); }
+    }
+
     void RenderCards()
     {
         foreach (var g in cards) if (g != null) Destroy(g); cards.Clear();
@@ -284,10 +314,10 @@ public sealed class PokerView : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Rect r = new Rect(454 + i * 78, 356, 70, 87);
-            if (i < t.Board.Count) MakeCard("board" + i, t.Board[i], true, r, 0);
+            if (i < BoardShown(t)) MakeCard("board" + i, t.Board[i], true, r, 0);
             else { var g = Obj(root, "Yhteisen kortin paikka", r); var im = g.AddComponent<Image>(); im.color = new Color(.12f, .4f, .32f, .15f); im.raycastTarget = false; cards.Add(g); }
         }
-        if (worldCards != null) worldCards.Show(t);
+        if (worldCards != null) worldCards.Show(t, BoardShown(t));
         for (int i = 0; i < 5; i++)
         {
             if (t.Running && t.Seats[i].Bet > lastBets[i]) { if (worldCards == null || !worldCards.Active) AnimateChip(i); if (art.chipSound != null) audioSource.PlayOneShot(art.chipSound, GameSettings.SfxVolume); }

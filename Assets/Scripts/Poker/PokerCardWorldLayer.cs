@@ -40,8 +40,9 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         var rt = raw.GetComponent<RectTransform>(); rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one; rt.offsetMin = rt.offsetMax = Vector2.zero;
         var image = raw.GetComponent<RawImage>(); image.texture = runtimeTexture; image.raycastTarget = false;
     }
-    public void Show(PokerTable table)
+    public void Show(PokerTable table, int boardCount = -1)
     {
+        if (boardCount < 0 || boardCount > table.Board.Count) boardCount = table.Board.Count;
         if (!Active) return;
         if (lastHand != table.HandNumber)
         {
@@ -50,7 +51,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
             cards.Clear(); shown.Clear(); animations.Clear(); System.Array.Clear(lastBets, 0, lastBets.Length);
         }
         var wanted = new HashSet<string>();
-        for (int i = 0; i < table.Board.Count; i++)
+        for (int i = 0; i < boardCount; i++)
         {
             string slot = "board" + i; wanted.Add(slot);
             PutCard(slot, table.Board[i], true, new Vector2(489 + i * 78, 400), 70, 0);
