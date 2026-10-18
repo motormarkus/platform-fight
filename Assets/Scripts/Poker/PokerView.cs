@@ -21,6 +21,7 @@ public sealed class PokerView : MonoBehaviour
     GameObject[] highlights = new GameObject[5];
     Text pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
+    RawImage[] turnOutlines = new RawImage[5];
     GameObject[] blindBadges = new GameObject[5]; Text[] blindTexts = new Text[5];
     Button fold, call, raise, allIn, deal, rebuy, minus, plus, leave;
     Slider slider;
@@ -77,6 +78,13 @@ public sealed class PokerView : MonoBehaviour
         Panel(root, new Rect(0, 0, 1280, 720), new Color(0, 0, 0, .22f));
         if (tableTex != null) Raw(root, new Rect(0, -3, 1280, 655), tableTex, tableMat);
         else Panel(root, new Rect(35, 240, 1210, 355), new Color(.015f, .22f, .19f));
+        // Vuorossa olevan hahmon kultainen ääriviiva (Tools/PokerAssets/make_turn_outlines.py).
+        for (int i = 1; i <= 4; i++)
+        {
+            var tex = Resources.Load<Texture2D>("Poker/Artwork/TurnOutline" + i);
+            if (tex == null) continue;
+            turnOutlines[i] = Raw(root, new Rect(0, -3, 1280, 655), tex, null); turnOutlines[i].gameObject.SetActive(false);
+        }
         if (art.originalLogo != null) Raw(root, new Rect(25, 10, 290, 95), art.originalLogo, null);
         else Label(root, new Rect(25, 10, 290, 65), "TOTAL FIST", 48, Gold);
         Label(root, new Rect(35, 98, 285, 25), "TEXAS HOLD'EM", 21, Gold);
@@ -223,6 +231,7 @@ public sealed class PokerView : MonoBehaviour
         message.text = host.Error ?? (t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
+        for (int i = 1; i <= 4; i++) if (turnOutlines[i] != null) turnOutlines[i].gameObject.SetActive(t.Running && t.Actor == i);
         for (int i = 0; i < 5; i++)
         {
             bool sb = t.Dealer >= 0 && i == t.SmallBlindSeat, bb = t.Dealer >= 0 && i == t.BigBlindSeat;
