@@ -13,10 +13,13 @@ from collections import deque
 from PIL import Image, ImageFilter
 import os
 
-UPSCALE_MIN_WIDTH = 2560   # jos lähdekuva on tätä kapeampi, se suurennetaan 2x; muuten käytetään sellaisenaan
+UPSCALE_MIN_WIDTH = 1900   # jos lähdekuva on tätä kapeampi, se suurennetaan 2x; muuten käytetään sellaisenaan
 UPSCALE = 2   # Unity suurentaa 1280x720-kuvan ruudulle; Lanczos 2x + kevyt terävöinti on tarkempi kuin pelkkä bilineaarinen suurennus
 ART = os.environ.get("POKER_ART", "Assets/Resources/Poker/Artwork")
-JOBS = [("TableOpponents.jpg", "TableOpponentsKeyed.png"), ("Panels.jpg", "PanelsKeyed.png")]
+# (lähde, tulos). Pöytäkuva on nyt valmis TableScene.jpg, joten vain paneeliatlas keyataan.
+# Tarkempi atlas (ArtSources/Poker/ui-panels-hires.png) käytetään, jos se on olemassa.
+HIRES_PANELS = "Assets/ArtSources/Poker/ui-panels-hires.png"
+JOBS = [(HIRES_PANELS if os.path.exists(HIRES_PANELS) else "Panels.jpg", "PanelsKeyed.png")]
 CORE, MIN_POCKET, BAND = 0.90, 16, 2
 FRINGE, GREY_MIN, GREY_SAT, FRINGE_PASSES = 0.60, 0.30, 0.14, 5   # vaalea JPEG-reunus syödään taustaa vasten, kunnes tulee tumma ääriviiva
 
@@ -49,7 +52,7 @@ def background(white, min_pocket):
     return bg
 
 for src, dst in JOBS:
-    rgb = np.asarray(Image.open(os.path.join(ART, src)).convert("RGB")).astype(np.float32) / 255
+    rgb = np.asarray(Image.open(src if os.path.exists(src) else os.path.join(ART, src)).convert("RGB")).astype(np.float32) / 255
     m = rgb.min(2)
     S = rgb.shape[1] / 1280.0                      # lähdekuvan koko suhteessa 1280x720-asetteluun
     UPSCALE = 1 if rgb.shape[1] >= UPSCALE_MIN_WIDTH else 2
