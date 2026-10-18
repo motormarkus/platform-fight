@@ -95,9 +95,9 @@ public sealed class PokerView : MonoBehaviour
         pot = Label(root, new Rect(564, 309, 157, 37), "", 27, Gold);
         phase = Label(root, new Rect(460, 281, 360, 24), "", 18, Color.white);
         dealer = new GameObject("Jakajan merkki", typeof(RectTransform)).GetComponent<RectTransform>(); dealer.SetParent(root, false);
-        SetRect(dealer, new Rect(735, 275, 38, 24));
+        SetRect(dealer, new Rect(735, 275, 64, 32));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
-        else { Panel(dealer, new Rect(0, 0, 30, 27), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 30, 27), "D", 23, Color.black); }
+        else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
         message = Label(root, new Rect(270, 128, 740, 65), "", 21, Color.white);
         Panel(root, new Rect(0, 606, 1280, 114), new Color(.025f, .025f, .025f, .98f));
         status = Label(root, new Rect(18, 620, 265, 60), "", 30, Gold);
@@ -218,7 +218,7 @@ public sealed class PokerView : MonoBehaviour
         walletText.text = (host.Demo ? "TESTIRAHA  " : "Lompakko  ") + host.Cash.Wallet.ToString("N0") + " mk";
         status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
         message.text = host.Error ?? t.Message;
-        var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x, -dp.y);
+        var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
         fold.gameObject.SetActive(legal.Fold); call.gameObject.SetActive(legal.Check || legal.Call);
         raise.gameObject.SetActive(legal.Raise); allIn.gameObject.SetActive(legal.AllIn);
