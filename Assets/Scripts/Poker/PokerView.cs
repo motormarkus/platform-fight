@@ -40,6 +40,7 @@ public sealed class PokerView : MonoBehaviour
     static readonly Vector2[] DealerPos = { new Vector2(720, 545), new Vector2(435, 280), new Vector2(815, 285), new Vector2(180, 315), new Vector2(1080, 315) };
     static readonly Vector2[] HolePos = { new Vector2(548, 450), new Vector2(463, 250), new Vector2(772, 250), new Vector2(170, 345), new Vector2(980, 345) };
 
+    Texture2D tableTex, panelTex; Material tableMat, panelMat;
     public void Build(PokerService service, PokerPresentationSettings settings)
     {
         host = service; art = settings;
@@ -48,7 +49,12 @@ public sealed class PokerView : MonoBehaviour
         if (art.tableAndOpponents == null) art.tableAndOpponents = Resources.Load<Texture2D>("Poker/Artwork/TableOpponents");
         if (art.panelAtlas == null) art.panelAtlas = Resources.Load<Texture2D>("Poker/Artwork/Panels");
         if (art.whiteKeyMaterial == null) art.whiteKeyMaterial = Resources.Load<Material>("Poker/WhiteKey");
-        if (art.tableAndOpponents == null || art.panelAtlas == null)
+        // Esikäsitellyt RGBA-versiot (Tools/PokerAssets/key_poker_artwork.py): tausta poistettu kuvasta, ei shaderilla.
+        tableTex = Resources.Load<Texture2D>("Poker/Artwork/TableOpponentsKeyed"); tableMat = null;
+        if (tableTex == null) { tableTex = art.tableAndOpponents; tableMat = art.whiteKeyMaterial; }
+        panelTex = Resources.Load<Texture2D>("Poker/Artwork/PanelsKeyed"); panelMat = null;
+        if (panelTex == null) { panelTex = art.panelAtlas; panelMat = art.whiteKeyMaterial; }
+        if (tableTex == null || panelTex == null)
             Debug.LogError("Pokerin yhteinen kuvitus puuttuu Resources/Poker/Artwork-kansiosta. Tarkista kuvien importointi.");
         font = art.textFont != null ? art.textFont : Resources.Load<Font>("Valikko/Bangers");
         if (font == null) font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -68,7 +74,7 @@ public sealed class PokerView : MonoBehaviour
         root = reference;
         Raw(root, new Rect(0, 0, 1280, 720), art.barBackground, null);
         Panel(root, new Rect(0, 0, 1280, 720), new Color(0, 0, 0, .22f));
-        if (art.tableAndOpponents != null) Raw(root, new Rect(0, -3, 1280, 655), art.tableAndOpponents, art.whiteKeyMaterial);
+        if (tableTex != null) Raw(root, new Rect(0, -3, 1280, 655), tableTex, tableMat);
         else Panel(root, new Rect(35, 240, 1210, 355), new Color(.015f, .22f, .19f));
         if (art.originalLogo != null) Raw(root, new Rect(25, 10, 290, 95), art.originalLogo, null);
         else Label(root, new Rect(25, 10, 290, 65), "TOTAL FIST", 48, Gold);
@@ -146,12 +152,12 @@ public sealed class PokerView : MonoBehaviour
     }
     void Box(Transform parent, Rect r)
     {
-        if (art.panelAtlas != null) Raw(parent, r, art.panelAtlas, art.whiteKeyMaterial, new Rect(98, 31, 519, 111));
+        if (panelTex != null) Raw(parent, r, panelTex, panelMat, new Rect(98, 31, 519, 111));
         else { Panel(parent, r, Gold); Panel(parent, new Rect(r.x + 2, r.y + 2, r.width - 4, r.height - 4), new Color(.035f, .035f, .035f)); }
     }
     GameObject Frame(Transform parent, Rect r)
     {
-        if (art.panelAtlas != null) return Raw(parent, r, art.panelAtlas, art.whiteKeyMaterial, new Rect(92, 284, 530, 116)).gameObject;
+        if (panelTex != null) return Raw(parent, r, panelTex, panelMat, new Rect(92, 284, 530, 116)).gameObject;
         var go = Obj(parent, "Vuorokorostus", r);
         Panel(go.transform, new Rect(0, 0, r.width, 3), Gold); Panel(go.transform, new Rect(0, r.height - 3, r.width, 3), Gold);
         return go;
@@ -161,7 +167,7 @@ public sealed class PokerView : MonoBehaviour
         var go = Obj(root, text, rect); var hit = go.AddComponent<Image>(); hit.color = new Color(.08f, .07f, .06f);
         var button = go.AddComponent<Button>(); button.targetGraphic = hit;
         var colors = button.colors; colors.highlightedColor = new Color(1, .78f, .35f); colors.selectedColor = colors.highlightedColor; colors.disabledColor = new Color(.25f, .25f, .25f); button.colors = colors;
-        if (art.panelAtlas != null) Raw(go.transform, new Rect(0, 0, rect.width, rect.height), art.panelAtlas, art.whiteKeyMaterial,
+        if (panelTex != null) Raw(go.transform, new Rect(0, 0, rect.width, rect.height), panelTex, panelMat,
             style == 1 ? new Rect(27, 167, 399, 100) : style == 2 ? new Rect(855, 167, 400, 100) : new Rect(444, 167, 391, 100));
         var label = Label(go.transform, new Rect(5, 0, rect.width - 10, rect.height), text, rect.height < 40 ? 20 : 29, Color.white);
         if (art.headingFont != null) label.font = art.headingFont;
