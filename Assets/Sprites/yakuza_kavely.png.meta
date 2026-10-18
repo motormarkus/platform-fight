@@ -400,28 +400,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: yakuza_kavely_11
-      rect:
-        serializedVersion: 2
-        x: 2304
-        y: 0
-        width: 768
-        height: 448
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8a4aad6dc0b5c360800000000000000
-      internalID: 7189346776521525900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -439,7 +417,6 @@ TextureImporter:
       yakuza_kavely_0: 643055148355565380
       yakuza_kavely_1: 3388789554017165453
       yakuza_kavely_10: -286468661249247643
-      yakuza_kavely_11: 7189346776521525900
       yakuza_kavely_2: -2143704828649798817
       yakuza_kavely_3: 5499519760537067209
       yakuza_kavely_4: 5433394441387541493

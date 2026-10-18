@@ -15,6 +15,8 @@ public class BouncerSquad : MonoBehaviour
     public float firstDelay = 1.2f;
     [Tooltip("Joka toinen portsari tulee klubin oikeasta reunasta (muut ovelta): molemmista suunnista.")]
     public bool bothSides = true;
+    [Tooltip("Saapuvat nykyisen kameraruudun molemmista reunoista, eivat alueen paadyista.")]
+    public bool fromCurrentScreenEdges;
     [Tooltip("Tappelu alkaa myös, kun pelaaja kävelee tämän x:n ohi (esim. laivan hyttiovi). Ei käytössä, jos < -9000.")]
     public float triggerX = -99999f;
     [Tooltip("Aallot: montako tulee kerralla (esim. 3, 3, 2). Seuraava aalto, kun edellisistä on pystyssä enää waveNextAt. Tyhjä = kaikki peräkkäin.")]
@@ -66,6 +68,7 @@ public class BouncerSquad : MonoBehaviour
 
     void Update()
     {
+        if (fromCurrentScreenEdges && Area.Current != area) return; // ei synnyteta portsareita toiseen alueeseen
         if (pc == null) pc = Players.Primary;
         if (!triggered)
         {
@@ -114,7 +117,16 @@ public class BouncerSquad : MonoBehaviour
         var bnc = bouncers[next++];
         timer = spawnInterval;
         if (bnc == null) return;
-        if (fromRightEdge || (bothSides && next % 2 == 0))
+        if (fromCurrentScreenEdges)
+        {
+            var cam = Camera.main;
+            float halfW = cam != null ? cam.orthographicSize * cam.aspect : 9f;
+            float cx = cam != null ? cam.transform.position.x : (area.camMinX + area.camMaxX) * 0.5f;
+            bool right = bothSides && next % 2 == 0;
+            Vector3 q = bnc.transform.position;
+            bnc.transform.position = new Vector3(cx + (right ? halfW + 1f : -halfW - 1f), q.y, 0f);
+        }
+        else if (fromRightEdge || (bothSides && next % 2 == 0))
         {
             // oikea reuna: kävelee sisään ruudun ulkopuolelta (taustakuvan oikeasta päästä)
             var cam = Camera.main;

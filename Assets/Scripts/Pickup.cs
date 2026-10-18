@@ -110,7 +110,7 @@ public class Pickup : MonoBehaviour
     /// Ruoka maahan: big = isompi annos (yli 20 energiaa), muuten pieni. Kuva arvotaan.
     public static void SpawnFood(Vector3 pos, bool big = false, string spriteName = "")
     {
-        if (!LooseFood && spriteName != "pizza") return;   // ainoa poikkeus: pomojen ja rekkamiehen pizza
+        if (!LooseFood && spriteName != "pizza") return;   // poikkeus: pomojen, rekkamiehen ja Bettyn palkintopizza
         pos = ClampToReach(pos);
         LoadItems();
         var go = new GameObject("Ruoka");
@@ -144,7 +144,7 @@ public class Pickup : MonoBehaviour
             SpawnFood(pos + new Vector3(0.6f, -0.05f, 0f), true, "pizza");   // pomo pudottaa aina pizzan (täysi lataus) ja voimakuvakkeen
             return;
         }
-        if (enemyName == "Rekkamies") { SpawnFood(pos + new Vector3(0.4f, -0.05f, 0f), true, "pizza"); return; }   // rekkamies pudottaa aina pizzan
+        if (enemyName == "Rekkamies" || enemyName == "Betty") { SpawnFood(pos + new Vector3(0.4f, -0.05f, 0f), true, "pizza"); return; }   // rekkamies ja Betty pudottavat aina palkintopizzan
         float r = Random.value;
         if (r < 0.16f) SpawnFood(pos + new Vector3(0f, -0.05f, 0f), r < 0.04f);   // 4 % iso, 12 % pieni
     }
@@ -154,7 +154,7 @@ public class Pickup : MonoBehaviour
         LoadItems();
         if (foods.Count == 0) { healAmount = big ? 25 : 15; staminaAmount = big ? 15 : 10; return; }
         if (!string.IsNullOrEmpty(spriteName)) { foreach (var it in foods) if (it.name == "ruoka_" + spriteName || it.name == spriteName) { Apply(it); return; } }
-        // satunnaisesti arvottavista pizza (täysi lataus) on pois: sen pudottavat vain rekkamies ja pomot
+        // satunnaisesti arvottavista pizza (täysi lataus) on pois: sen pudottavat vain rekkamies, Betty ja pomot
         var pool = new List<Item>();
         foreach (var it in foods) if (!it.full && (big ? Mathf.Max(it.pct, it.amount) >= 30 : Mathf.Max(it.pct, it.amount) < 30)) pool.Add(it);
         if (pool.Count == 0) foreach (var it in foods) if (!it.full) pool.Add(it);

@@ -142,7 +142,7 @@ public static class BeatEmUpSetup
         int w = tex.width, h = tex.height;
         string baseName0 = Path.GetFileNameWithoutExtension(path);
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("ruby_spagaatti") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = (baseName0 == "rocco_pannu_heitto" || (baseName0 == "ruby_pannu_isku" || baseName0 == "ruby_pannu_heitto")) ? 640 : baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("ruby_spagaatti") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
         int CellH = baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("ruby_spagaatti") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
@@ -183,8 +183,8 @@ public static class BeatEmUpSetup
                 {
                     name = n,
                     rect = new Rect(x, y, CellW, CellH),
-                    alignment = SpriteAlignment.BottomCenter,
-                    pivot = new Vector2(0.5f, 0f),
+                    alignment = baseName == "pannu_kuvakulmat" ? SpriteAlignment.Center : SpriteAlignment.BottomCenter,
+                    pivot = baseName == "pannu_kuvakulmat" ? new Vector2(0.5f, 0.5f) : new Vector2(0.5f, 0f),
                     spriteID = oldIds.TryGetValue(n, out GUID id) ? id : GUID.Generate(),
                 });
             }
@@ -9692,6 +9692,8 @@ public static class BeatEmUpSetup
 
     /// Jakuza (yakuza_*.png, 768 x 448, hahmo Deaconin kokoinen): kova mutta ei pomo. Nopea lyömään ja potkimaan:
     /// kombot lyönneistä, etupotkusta, korkeasta potkusta (kaataa) ja alakoukusta. Torjuu harvoin.
+    const int ThaitownFighterHealth = 180; // Jakuzan alkuperainen 240 - 25 %; sama Tanyalle
+
     static Enemy MakeYakuza(Transform parent, List<string> report)
     {
         var sheets = new Dictionary<string, Sprite[]>();
@@ -9715,7 +9717,7 @@ public static class BeatEmUpSetup
         e.runSprites = sheets["yakuza_juoksu"]; e.runSpeedMultiplier = 1.6f;
         e.bigBody = false;
         // nopeus ja kestävyys: kova jätkä, selvästi perusvihua kestävämpi mutta ei pomo
-        e.maxHealth = 240; e.hurtTime = 0.25f; e.getUpTime = 0.9f; e.depthTolerance = 0.4f;
+        e.maxHealth = ThaitownFighterHealth; e.hurtTime = 0.25f; e.getUpTime = 0.9f; e.depthTolerance = 0.4f;
         e.moveSpeedX = 3.6f; e.moveSpeedY = 1.8f; e.attackRange = 1.9f; e.attackCooldown = 0.5f;
         e.wakeDistance = 9f; e.retreatChance = 0.05f;
         // jab (J), etupotku (S), liukupotku (alt, syöksy), korkea potku (K, kaataa), alakoukku (U)
@@ -9751,7 +9753,7 @@ public static class BeatEmUpSetup
         e.flipFlightFrames = 3; e.flipFlightFrameTime = 0.12f; e.flipLandFrameTime = 0.13f;
         e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
         Undo.RegisterCreatedObjectUndo(go, "Jakuza");
-        report.Add("Jakuza: 240 elämää, nopea, kombot JSK / JJSK / JSU ja liukupotkusyöksy kauempaa.");
+        report.Add("Jakuza: 180 elämää, nopea, kombot JSK / JJSK / JSU ja liukupotkusyöksy kauempaa.");
         return e;
     }
 
@@ -10519,8 +10521,8 @@ public static class BeatEmUpSetup
         // erikoisliike: hyppylyönti kaukaa (kyykky ja ponnistus, lento nyrkki edellä, alastulo); joskus myös vierestä
         var leap = EnemySheet("motoristi_hyppylyonti", report);   // 15 kuvaa: 0–7 kyykky ja ponnistus, 8 lento (isku), 9–14 alastulo
         SetBikerCharge(e, leap);
-        var run = EnemySheet("motoristi_juoksu", report);   // 10 kuvaa, kaukana juostaan
-        if (run.Length >= 8) { e.runSprites = run; e.runFrameTime = 0.085f; e.runSpeedMultiplier = 2.5f; }
+        var run = EnemySheet("motoristi_juoksu_uusi", report);   // videon kokonainen 27 ruudun askelkierto
+        if (run.Length == 27) { e.runSprites = run; e.runFrameTime = 1f / 30f; e.runSpeedMultiplier = 2.5f; }
         ApplyBikerThrow(e, report);   // pöytien ja heron nosto, kanto ja heitto
         ApplyPieArt(e, report);       // piirakan osuma- ja heittokuvat (ei tarvitse valikkoa 105)
         var fall = EnemySheet("motoristi_kaatuminen", report);
@@ -13494,5 +13496,383 @@ public static class BeatEmUpSetup
         start.position = new Vector2(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f));
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt hotellin hissin edesta. Tallenna scene (Ctrl+S). Takaisin kadun alkuun: valikko 37.");
+    }
+
+    [MenuItem("Beat em up/181. Tanyan spritet (kaikki liikkeet)")]
+    static void ImportTanyaSprites()
+    {
+        if (PlayModeBlocked()) return;
+        const string folder = "Assets/Sprites/Tanya";
+        if (!Directory.Exists(folder)) { Info("Tanyan kuvat puuttuvat."); return; }
+        int count = 0;
+        foreach (var file in Directory.GetFiles(folder, "tanya_*.png").OrderBy(path => path))
+        {
+            string path = file.Replace(Path.DirectorySeparatorChar, '/');
+            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+            int frames = SetupAndSlice(path);
+            if (frames < 0) { Info("Tanyan kuvan jako epaonnistui: " + path); return; }
+            count += frames;
+        }
+        Info($"Tanyan {count} spritea tuotu: kavely, potku, paikallaanolo, kombo, tuplapotku, ylosnousu, osumareaktio, nopea ylosnousu, iso osuma/kaatuminen, tappioasento, juoksu ja kasillaseisontapotku, suojaus, heitettyna oleminen ja oma kuperkeikkaheitto. Ruutuaika 0,1 s. Hahmoa ei viela sijoitettu kenttaan.");
+    }
+
+    [MenuItem("Beat em up/182. Tanya: luo vihuprefab (2 lyontia, potku, 2 lyontia, kierrepotku)")]
+    static void CreateTanyaPrefab()
+    {
+        if (PlayModeBlocked()) return;
+        Sprite[] Frames(string set) => Directory.GetFiles("Assets/Sprites/Tanya", "tanya_" + set + "_*.png")
+            .OrderBy(path => path).SelectMany(path => AssetDatabase.LoadAllAssetsAtPath(path.Replace(Path.DirectorySeparatorChar, '/')).OfType<Sprite>()
+                .OrderBy(sprite => int.Parse(sprite.name.Substring(sprite.name.LastIndexOf('_') + 1)))).ToArray();
+        var combo = Frames("kombo"); var idle = Frames("idle"); var walk = Frames("kavely");
+        var hurt = Frames("osuma"); var getup = Frames("nopea_ylosnousu");
+        var run = Frames("juoksu"); var fall = Frames("iso_osuma");
+        var defeated = Frames("tappio"); var handstand = Frames("kasillaseisonta_potku");
+        var guard = Frames("suoja"); var thrown = Frames("heitetty");
+        var ownThrow = Frames("oma_heitto");
+        var doubleKick = Frames("tuplapotku"); var doubleKickUp = Frames("ylosnousu");
+        if (combo.Length != 50 || idle.Length == 0 || walk.Length == 0 || hurt.Length < 52 || getup.Length == 0 || run.Length == 0 || fall.Length < 52 || defeated.Length != 1 || handstand.Length == 0 || guard.Length != 6 || thrown.Length != 6 || ownThrow.Length != 12 || doubleKick.Length != 40 || doubleKickUp.Length != 20)
+        { Info("Tuo ensin Tanyan kaikki spritet valikolla 181."); return; }
+        var report = new List<string>();
+        var enemy = MakeBetty(null, report);
+        try
+        {
+            enemy.name = "Tanya"; enemy.displayName = "Tanya";
+            enemy.visualScale = 1.15f; enemy.attackArtScale = enemy.walkArtScale = enemy.knockArtScale = 1f;
+            enemy.footOffset = 0.43f; // 37 px tyhjaa jalkojen alla * 1.15 / 100
+            enemy.bigBody = false; enemy.maxHealth = ThaitownFighterHealth;
+            enemy.idleSprites = idle; enemy.walkSprites = walk; enemy.runSprites = run; enemy.runSpeedMultiplier = 1.5f;
+            // Videon ylimaaraisten potkujen sijaan kuusi erillista iskua.
+            enemy.punchSprites = combo.Take(6).ToArray(); enemy.punchImpactFrame = 3;
+            enemy.punch2Sprites = combo.Skip(10).Take(5).ToArray(); enemy.punch2ImpactFrame = 2;
+            enemy.punch3Sprites = combo.Skip(38).Take(12).ToArray(); enemy.punch3ImpactFrame = 6;
+            enemy.secondImpactFrame = -1;
+            enemy.doubleKickSprites = doubleKick.Take(18).Concat(doubleKick.Skip(29)).Concat(doubleKickUp).ToArray(); // pois ilmassa pidettava odotus, nousu ja lasku sailytetaan
+            enemy.doubleKickChance = 0.15f; enemy.doubleKickImpactFrame = 17;
+            enemy.doubleKickFrameTime = 0.05f;
+            enemy.doubleKickDamage = 24; enemy.doubleKickReach = 2.8f;
+            enemy.doubleKickLaunchX = 14f; enemy.doubleKickLaunchUp = 6f;
+            enemy.combos = new[] { "JJSJJK" }; enemy.comboChance = 0.5f; // puolet tavallisista hyokkayksista
+            enemy.punchKnockdown = false; enemy.punch2Knockdown = false;
+            enemy.punch3Knockdown = true; enemy.punch3LaunchX = 4.5f; enemy.punch3LaunchUp = 5f;
+            enemy.punch2Chance = 0.5f; enemy.punch3Chance = enemy.uppercutChance = 0f; // jaljelle jaavista puolet lyontia, puolet etupotkua
+            enemy.altChance = enemy.altNearChance = 0f;
+            enemy.altAttackSprites = handstand.Take(16).Concat(handstand.Skip(31)).ToArray(); enemy.uppercutSprites = new Sprite[0]; // ojennus heti kasillaolon jalkeen
+            enemy.altImpactFrame = 21; enemy.altDamage = 22; enemy.altKnockdown = true;
+            enemy.altAnimationFrameTime = 1f / 30f; // koko kasillaseisontapotku noin 2 sekuntia
+            enemy.altChance = 0.18f; enemy.altNearChance = 0.12f;
+            enemy.altReach = 2.8f; enemy.altLungeSpeed = 0f; enemy.altLungeTime = 0f;
+            enemy.altJumpHeight = 0f; enemy.altTimeScale = 1f;
+            enemy.altExtraWindup = 0.45f;
+            enemy.windupTime = 0.15f; enemy.punchRecoverTime = 0.2f;
+            enemy.punch3WindupTime = 0.25f; enemy.punch3RecoverTime = 0.3f;
+            enemy.comboWindupScale = 0.8f; enemy.comboGap = 0.06f;
+            enemy.hurtSprites = hurt.Skip(11).Take(9).ToArray(); // ohitetaan paan peittava iskuvalahdys
+            enemy.knockdownSprites = fall.Skip(8).Take(17).Concat(defeated).ToArray();
+            enemy.landSprites = fall.Skip(25).Take(6).Concat(defeated).ToArray();
+            enemy.getUpSprites = getup; enemy.blockSprites = guard;
+            enemy.blockChance = 0.25f; enemy.blockTime = 0.55f; enemy.getUpTime = 1.1f;
+            var throwLanding = fall.Skip(25).Take(4).Concat(defeated).ToArray();
+            enemy.flipThrownSprites = new[] { thrown[0], thrown[0], thrown[0], thrown[1], thrown[2], thrown[3], thrown[4], thrown[5] }.Concat(throwLanding).ToArray();
+            enemy.flipFlightFrames = 3; enemy.flipFlightFrameTime = 0.12f; enemy.flipLandFrameTime = 0.12f;
+            enemy.headlockThrownSprites = thrown.Concat(throwLanding).ToArray();
+            enemy.headlockFlightSprites = new[] { thrown[1], thrown[2], thrown[3], thrown[4], thrown[5] }.Concat(throwLanding).ToArray();
+            enemy.body.sprite = idle[0];
+            enemy.grabSprites = ownThrow; enemy.somersaultThrow = true;
+            enemy.grabChance = 0.25f; enemy.grabsHero = true; enemy.grabsAnyone = true;
+            enemy.grabReachTime = 0.2f; enemy.grabLiftTime = 0.65f;
+            enemy.throwForward = false; enemy.throwFlip = false; enemy.throwTurnsAround = false;
+            enemy.throwArtMirrored = false; enemy.collarThrow = false;
+            enemy.throwSpeed = 6.5f; enemy.throwUp = 5f; enemy.throwDamage = 20;
+            Directory.CreateDirectory("Assets/Resources/Enemies");
+            PrefabUtility.SaveAsPrefabAsset(enemy.gameObject, "Assets/Resources/Enemies/Tanya.prefab");
+            // Sama korjaus mahdollisiin kenttaan jo lisattyihin Tanyoihin.
+            foreach (var placed in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (placed == enemy || placed.displayName != "Tanya") continue;
+                Undo.RecordObject(placed, "Tanyan kombo");
+                placed.maxHealth = ThaitownFighterHealth;
+                placed.footOffset = 0.43f;
+                placed.getUpTime = enemy.getUpTime; placed.getUpSprites = enemy.getUpSprites;
+                placed.hurtSprites = enemy.hurtSprites;
+                placed.punchSprites = enemy.punchSprites; placed.punchImpactFrame = enemy.punchImpactFrame;
+                placed.punch2Sprites = enemy.punch2Sprites; placed.punch2ImpactFrame = enemy.punch2ImpactFrame;
+                placed.punch3Sprites = enemy.punch3Sprites; placed.punch3ImpactFrame = enemy.punch3ImpactFrame;
+                placed.combos = new[] { "JJSJJK" }; placed.comboChance = 0.5f;
+                placed.punchKnockdown = placed.punch2Knockdown = false; placed.punch3Knockdown = true;
+                placed.punch2Chance = 0.5f; placed.punch3Chance = placed.uppercutChance = placed.altChance = placed.altNearChance = 0f;
+                placed.secondImpactFrame = -1;
+                placed.doubleKickSprites = enemy.doubleKickSprites; placed.doubleKickChance = enemy.doubleKickChance;
+                placed.doubleKickImpactFrame = enemy.doubleKickImpactFrame; placed.doubleKickDamage = enemy.doubleKickDamage;
+                placed.doubleKickFrameTime = enemy.doubleKickFrameTime;
+                placed.doubleKickReach = enemy.doubleKickReach;
+                placed.doubleKickLaunchX = enemy.doubleKickLaunchX; placed.doubleKickLaunchUp = enemy.doubleKickLaunchUp;
+                placed.grabSprites = ownThrow; placed.somersaultThrow = true;
+                placed.grabChance = enemy.grabChance; placed.grabsHero = true; placed.grabsAnyone = true;
+                placed.grabReachTime = enemy.grabReachTime; placed.grabLiftTime = enemy.grabLiftTime;
+                placed.throwForward = placed.throwFlip = placed.throwTurnsAround = placed.throwArtMirrored = placed.collarThrow = false;
+                placed.throwSpeed = enemy.throwSpeed; placed.throwUp = enemy.throwUp; placed.throwDamage = enemy.throwDamage;
+                placed.runSprites = run; placed.runSpeedMultiplier = 1.5f;
+                placed.blockSprites = guard; placed.blockChance = enemy.blockChance; placed.blockTime = enemy.blockTime;
+                placed.flipThrownSprites = enemy.flipThrownSprites; placed.flipFlightFrames = enemy.flipFlightFrames;
+                placed.flipFlightFrameTime = enemy.flipFlightFrameTime; placed.flipLandFrameTime = enemy.flipLandFrameTime;
+                placed.headlockThrownSprites = enemy.headlockThrownSprites; placed.headlockFlightSprites = enemy.headlockFlightSprites;
+                placed.knockdownSprites = enemy.knockdownSprites; placed.landSprites = enemy.landSprites;
+                placed.altAttackSprites = enemy.altAttackSprites; placed.altImpactFrame = enemy.altImpactFrame;
+                placed.altAnimationFrameTime = enemy.altAnimationFrameTime;
+                placed.altDamage = enemy.altDamage; placed.altKnockdown = true;
+                placed.altChance = enemy.altChance; placed.altNearChance = enemy.altNearChance;
+                placed.altReach = enemy.altReach; placed.altLungeSpeed = placed.altLungeTime = placed.altJumpHeight = 0f;
+                placed.altExtraWindup = enemy.altExtraWindup; placed.altTimeScale = 1f;
+                EditorUtility.SetDirty(placed); EditorSceneManager.MarkSceneDirty(placed.gameObject.scene);
+            }
+            Info("Tanyan prefab luotu: kaksi lyontia, etupotku, kaksi lyontia ja kaatava kierrepotku (JJSJJK). Mukana juoksu, tappioasento, suojaus, heittoanimaatiot ja erillinen kasillaseisontapotku. Myos kentan Tanyat paivitetty. Tallenna scene (Ctrl+S).");
+        }
+        finally { Object.DestroyImmediate(enemy.gameObject); }
+    }
+
+    [MenuItem("Beat em up/183. Tanya Thaitownin kadulle ja Jakuza-Tanya energia 180")]
+    static void PlaceThaitownTanya()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown katu");
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Enemies/Tanya.prefab");
+        if (area == null) { Info("Tee ensin Thaitownin katu (164)."); return; }
+        if (prefab == null) { Info("Tuo Tanyan spritet (181) ja luo prefab (182) ensin."); return; }
+        var prefabEnemy = prefab.GetComponent<Enemy>();
+        if (prefabEnemy != null) { prefabEnemy.maxHealth = ThaitownFighterHealth; EditorUtility.SetDirty(prefabEnemy); }
+        var old = GameObject.Find("Thaitownin Tanya");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, area.gameObject.scene);
+        go.name = "Thaitownin Tanya";
+        Undo.RegisterCreatedObjectUndo(go, "Tanya Thaitowniin");
+        float ppu = 941f / (2f * CamHalf), left = area.walkMinX - 0.5f;
+        float x = left + 7000f / ppu;
+        go.transform.position = new Vector3(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.55f), 0f);
+        var tanya = go.GetComponent<Enemy>();
+        tanya.wanderMinX = x - 220f / ppu; tanya.wanderMaxX = x + 220f / ppu;
+        tanya.idleFacing = -1; go.SetActive(true);
+        int yakuzas = 0;
+        foreach (var enemy in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (enemy.displayName != "Jakuza" && enemy.displayName != "Tanya") continue;
+            Undo.RecordObject(enemy, "Vihollisen energia");
+            enemy.maxHealth = ThaitownFighterHealth;
+            EditorUtility.SetDirty(enemy); EditorSceneManager.MarkSceneDirty(enemy.gameObject.scene);
+            if (enemy.displayName == "Jakuza") yakuzas++;
+        }
+        AssetDatabase.SaveAssets();
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info($"Tanya sijoitettu Thaitownin kadulle ennen hotellia. Jakuza: 240 -> 180 (-25 %), Tanya: 180. Paivitetty {yakuzas} jakuzaa. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/184. Korjaa motoristien juoksusilmukka")]
+    static void RepairBikerRun()
+    {
+        if (PlayModeBlocked()) return;
+        var report = new List<string>();
+        string path = FindTexture("motoristi_juoksu_uusi");
+        if (path == null) { Info("Uusi motoristin juoksukuva puuttuu."); return; }
+        AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+        SetupAndSlice(path);
+        var frames = EnemySheet("motoristi_juoksu_uusi", report);
+        if (frames == null || frames.Length != 27) { Info("Motoristin juoksukuvat puuttuvat."); return; }
+        int count = 0;
+        foreach (var enemy in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (enemy.displayName != "Prätkäjätkä") continue;
+            Undo.RecordObject(enemy, "Motoristin juoksu");
+            enemy.runSprites = frames; enemy.runFrameTime = 1f / 30f;
+            EditorUtility.SetDirty(enemy); EditorSceneManager.MarkSceneDirty(enemy.gameObject.scene); count++;
+        }
+        Info($"{count} motoristin juoksusilmukka korjattu: uusi 27 ruudun askelkierto, 30 kuvaa sekunnissa. Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/185. Hotellin ravintolaan 2 Tanyaa, 2 jakuzaa ja 2 puliukkoa")]
+    static void AddHotelRestaurantEnemies()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        var hotel = GameObject.Find("Thaitownin hotellin aula 1");
+        var first = GameObject.Find("Hotelliaulan tausta 3 (ravintola)");
+        var last = GameObject.Find("Hotelliaulan tausta 5 (salin paaty)");
+        var tanyaPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Enemies/Tanya.prefab");
+        var drunk = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(e => e.gameObject.name == "Puliukko");
+        if (area == null || hotel == null || first == null || last == null) { Info("Luo ensin hotelli (177)."); return; }
+        if (tanyaPrefab == null) { Info("Luo ensin Tanyan prefab (181 ja 182)."); return; }
+        if (drunk == null) { Info("Puliukon malli puuttuu. Aja ensin 61."); return; }
+        var report = new List<string>();
+        // Rakennetaan ensin uusi ryhma. Vanha korvataan vasta kun kaikki kuusi onnistuivat.
+        var root = new GameObject("Hotellin ravintolan viholliset (uusi)");
+        root.transform.SetParent(hotel.transform, false);
+        var made = new List<Enemy>();
+        for (int i = 0; i < 2; i++)
+        {
+            var t = ((GameObject)PrefabUtility.InstantiatePrefab(tanyaPrefab, root.transform)).GetComponent<Enemy>();
+            t.name = "Hotellin Tanya " + (i + 1); t.maxHealth = ThaitownFighterHealth; made.Add(t);
+            var y = MakeYakuza(root.transform, report);
+            if (y == null) { Object.DestroyImmediate(root); Info(string.Join("; ", report)); return; }
+            y.name = "Hotellin jakuza " + (i + 1); made.Add(y);
+            var d = Object.Instantiate(drunk, root.transform);
+            d.name = "Hotellin puliukko " + (i + 1); made.Add(d);
+        }
+        float left = first.GetComponent<SpriteRenderer>().bounds.min.x + 3f;
+        float right = last.GetComponent<SpriteRenderer>().bounds.max.x - 3f;
+        for (int i = 0; i < made.Count; i++)
+        {
+            var e = made[i];
+            float x = Mathf.Lerp(left, right, (i + 0.5f) / made.Count);
+            float back = area.MaxDepthAtX(x, area.maxDepthY);
+            // Poytarivien valinen kaytava, ei vastaanotossa eika lavalla.
+            e.transform.position = new Vector3(x, Mathf.Lerp(back, area.minDepthY, 0.55f), 0f);
+            e.wanderMinX = Mathf.Max(left, x - 1.8f); e.wanderMaxX = Mathf.Min(right, x + 1.8f);
+            e.idleFacing = -1; e.wakeDistance = 9f; e.wakeOnFightRadius = 0f;
+            e.joinsFightWhenSquadComes = false; e.ally = false; e.brawlsWithOthers = false;
+            e.gameObject.SetActive(true);
+        }
+        var old = GameObject.Find("Hotellin ravintolan viholliset");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        root.name = "Hotellin ravintolan viholliset";
+        Undo.RegisterCreatedObjectUndo(root, "Hotellin viholliset");
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Hotellin ravintolaan lisatty 2 Tanyaa, 2 jakuzaa ja 2 puliukkoa poytien valiseen kaytavaan. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 185.");
+    }
+
+    [MenuItem("Beat em up/186. Hotellin baariin 2 motoristia (Tanya ja jakuza samalla puolella)")]
+    static void AddHotelBikers()
+    {
+        if (PlayModeBlocked()) return;
+        var hotel = GameObject.Find("Thaitownin hotellin aula 1");
+        var bar = GameObject.Find("Hotelliaulan tausta 4 (baari ja tanssilava)");
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        if (hotel == null || bar == null || area == null) { Info("Luo ensin hotelli (177) ja ravintolan vihut (185)."); return; }
+        string runPath = FindTexture("motoristi_juoksu_uusi");
+        if (runPath != null) { AssetDatabase.ImportAsset(runPath, ImportAssetOptions.ForceSynchronousImport); SetupAndSlice(runPath); }
+        var root = new GameObject("Hotellin motoristit (uusi)");
+        root.transform.SetParent(hotel.transform, false);
+        var bikers = new List<Enemy>();
+        for (int i = 0; i < 2; i++)
+        {
+            var e = MakeBiker(root.transform);
+            if (e == null) { Object.DestroyImmediate(root); Info("Motoristin kuvat puuttuvat."); return; }
+            e.name = "Hotellin motoristi " + (i + 1); bikers.Add(e);
+        }
+        var bounds = bar.GetComponent<SpriteRenderer>().bounds;
+        for (int i = 0; i < bikers.Count; i++)
+        {
+            var e = bikers[i];
+            float x = Mathf.Lerp(bounds.min.x, bounds.max.x, i == 0 ? 0.3f : 0.75f);
+            e.transform.position = new Vector3(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.55f), 0f);
+            e.wanderMinX = x - 1.5f; e.wanderMaxX = x + 1.5f;
+            e.wakeDistance = 12f; e.idleFacing = -1; e.joinsFightWhenSquadComes = false;
+            e.brawlsWithOthers = true; e.brawlGroup = "hotelli_motoristit";
+            e.brawlHeroPriority = 2.5f; e.fightsEveryone = false; e.ally = false;
+            e.gameObject.SetActive(true);
+        }
+        var old = GameObject.Find("Hotellin motoristit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        root.name = "Hotellin motoristit";
+        Undo.RegisterCreatedObjectUndo(root, "Hotellin motoristit");
+        foreach (var e in hotel.GetComponentsInChildren<Enemy>(true))
+        {
+            if (e.displayName != "Tanya" && e.displayName != "Jakuza") continue;
+            Undo.RecordObject(e, "Hotellin joukkueet");
+            e.brawlsWithOthers = true; e.brawlGroup = "hotelli_thaitown";
+            e.brawlHeroPriority = 2.5f; e.fightsEveryone = false;
+            EditorUtility.SetDirty(e);
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Hotellin baariin 2 motoristia. Motoristit taistelevat heroa ja muita ryhmia vastaan. Tanya ja jakuza ovat samalla puolella eivatka lyo toisiaan. Tallenna scene (Ctrl+S). Jos ajat 185 uudelleen, aja sen jalkeen myos 186.");
+    }
+
+    [MenuItem("Beat em up/187. Hotellin portsarit (10 s tappelusta, 2 kummaltakin ruudun reunalta)")]
+    static void AddHotelBouncerRaid()
+    {
+        if (PlayModeBlocked()) return;
+        var hotel = GameObject.Find("Thaitownin hotellin aula 1");
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        var source = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e.gameObject.name == "Portsari");
+        if (hotel == null || area == null) { Info("Luo ensin hotelli (177)."); return; }
+        if (source == null) { Info("Portsarin malli puuttuu: tee ensin S-Clubin portsarit (43)."); return; }
+        var old = GameObject.Find("Hotellin portsarit");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var root = new GameObject("Hotellin portsarit"); root.transform.SetParent(hotel.transform, false);
+        Undo.RegisterCreatedObjectUndo(root, "Hotellin portsarit");
+        var squad = root.AddComponent<BouncerSquad>();
+        squad.area = area; squad.firstDelay = 10f; squad.spawnInterval = 0f;
+        squad.bothSides = true; squad.fromCurrentScreenEdges = true;
+        squad.bouncers = new Enemy[4];
+        for (int i = 0; i < 4; i++)
+        {
+            var e = Object.Instantiate(source, root.transform);
+            e.name = "Hotellin portsari " + (i + 1);
+            e.transform.position = new Vector3((area.camMinX + area.camMaxX) * 0.5f,
+                Mathf.Lerp(area.maxDepthY, area.minDepthY, i < 2 ? 0.4f : 0.65f), 0f);
+            e.brawlsWithOthers = true; e.brawlGroup = "hotelli_portsarit";
+            e.brawlHeroPriority = 2.5f; e.fightsEveryone = false; e.ally = false;
+            e.joinsFightWhenSquadComes = false; e.wakeDistance = 15f;
+            squad.bouncers[i] = e; e.gameObject.SetActive(false);
+        }
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Info("Hotellin tappelu kutsuu 10 sekunnin kuluttua 4 portsaria: kaksi nykyisen ruudun vasemmalta ja kaksi oikealta. Portsarit taistelevat muita ryhmia vastaan. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 187.");
+    }
+
+    [MenuItem("Beat em up/188. Roccon ja Rubyn pannu (10 osumaa tai 3 heittoa)")]
+    static void SetupRoccoPan()
+    {
+        if (PlayModeBlocked()) return;
+        foreach (var path in new[] { "Assets/Resources/Pan/rocco_pannu_isku.png", "Assets/Resources/Pan/rocco_pannu_heitto.png", "Assets/Resources/Pan/pannu_kuvakulmat.png", "Assets/Resources/Pan/ruby_pannu_isku.png", "Assets/Resources/Pan/ruby_pannu_heitto.png", "Assets/Resources/Pan/rocco_pannu_kavely.png", "Assets/Resources/Pan/ruby_pannu_kavely.png", "Assets/Resources/Pan/ruby_pannu_idle.png" })
+        {
+            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+            if (SetupAndSlice(path) < 0) { Info("Pannun kuvan jako epaonnistui: " + path); return; }
+        }
+        Sprite[] Load(string path) => AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
+            .OrderBy(sprite => int.Parse(sprite.name.Substring(sprite.name.LastIndexOf('_') + 1))).ToArray();
+        var swing = Load("Assets/Resources/Pan/rocco_pannu_isku.png");
+        var views = Load("Assets/Resources/Pan/pannu_kuvakulmat.png");
+        var throwing = Load("Assets/Resources/Pan/rocco_pannu_heitto.png");
+        if (swing.Length != 9 || views.Length != 8 || throwing.Length != 7) { Info("Tarvitaan 9 lyontiruutua, 7 heittoruutua ja 8 pannun kuvakulmaa."); return; }
+        var walking = Load("Assets/Resources/Pan/rocco_pannu_kavely.png");
+        if (walking.Length != 24) { Info("Roccon pannukavely tarvitsee 24 ruutua."); return; }
+        var rubyWalking = Load("Assets/Resources/Pan/ruby_pannu_kavely.png");
+        var rubyIdle = Load("Assets/Resources/Pan/ruby_pannu_idle.png");
+        if (rubyWalking.Length != 30 || rubyIdle.Length != 60) { Info("Rubyn pannukavely tai idle puuttuu."); return; }
+        var rubySwing = Load("Assets/Resources/Pan/ruby_pannu_isku.png");
+        var rubyThrow = Load("Assets/Resources/Pan/ruby_pannu_heitto.png");
+        if (rubySwing.Length != 7 || rubyThrow.Length != 9) { Info("Rubylle tarvitaan 7 lyonti- ja 9 heittoruutua."); return; }
+        var players = Object.FindObjectsByType<PlayerController>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var player in players)
+        {
+            bool ruby = player.AppliedCharacter == 1 || player.characterName == "Ruby";
+            Undo.RecordObject(player, "Pannu"); player.panSwingSprites = ruby ? rubySwing : swing; player.panThrowSprites = ruby ? rubyThrow : throwing;
+            player.panWalkSprites = ruby ? rubyWalking : walking;
+            player.panIdleSprites = ruby ? rubyIdle : new Sprite[0];
+            EditorUtility.SetDirty(player); EditorSceneManager.MarkSceneDirty(player.gameObject.scene);
+        }
+        var first = players.FirstOrDefault(p => p.characterName == "Rocco");
+        var start = Object.FindFirstObjectByType<GameStart>();
+        Vector3 pos = start != null ? new Vector3(start.position.x, start.position.y, 0f)
+            : first != null ? first.transform.position : Vector3.zero;
+        var hotel = Object.FindObjectsByType<Area>(FindObjectsSortMode.None)
+            .FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
+        var elevator = GameObject.Find("Hotelliaulan tausta 2 (WC-ovet)")?.GetComponent<SpriteRenderer>();
+        if (hotel != null && elevator != null && elevator.sprite != null)
+        {
+            pos = new Vector3(elevator.bounds.min.x + (414f - elevator.sprite.rect.x) / elevator.sprite.pixelsPerUnit + 1.5f,
+                Mathf.Lerp(hotel.maxDepthY, hotel.minDepthY, 0.35f), 0f);
+            pos.x = Mathf.Clamp(pos.x, hotel.walkMinX + 0.5f, hotel.walkMaxX - 0.5f);
+        }
+        else pos.x += 1.5f;
+        var old = GameObject.Find("Roccon pannu");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Roccon pannu"); go.transform.position = pos;
+        Undo.RegisterCreatedObjectUndo(go, "Pannu");
+        var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+        visual.sprite = views[0]; visual.transform.localScale = Vector3.one * 0.7f;
+        visual.sortingOrder = Mathf.RoundToInt(-pos.y * 100f) + 1;
+        var pan = go.AddComponent<Pan>(); pan.body = visual; pan.spinSprites = views;
+        pan.hitDurability = 10; pan.throwDurability = 3;
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Pannu lisatty hotellin hissin viereen (1,5 yksikkoa aloituskohdasta oikealle). Rocco ja Ruby: poimintanappi nostaa, lyonti heilauttaa, potku tai poiminta/kiinniotto heittaa. Kestaa 10 osunutta lyontia tai 3 heittoa. Voi poimia uudelleen; kuluminen sailyy. Tallenna scene (Ctrl+S).");
     }
 }

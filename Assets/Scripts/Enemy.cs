@@ -50,6 +50,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float runFrameTime = 0.066f;
     [Tooltip("Toinen lyöntisarja (esim. yläkoukku), valitaan satunnaisesti tavallisen lyönnin tilalle.")]
     public Sprite[] punch2Sprites;
+    [Header("Tuplapotku")]
+    public Sprite[] doubleKickSprites;
+    [Range(0f, 1f)] public float doubleKickChance;
+    public int doubleKickImpactFrame = 21, doubleKickDamage = 24;
+    public float doubleKickFrameTime = 0.05f;
+    public float doubleKickReach = 2.8f, doubleKickLaunchX = 14f, doubleKickLaunchUp = 6f;
+    bool usingDoubleKick;
     public int punch2ImpactFrame = 5;
     public int punch2Damage = 14;
     public bool punch2Knockdown = true;
@@ -219,6 +226,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Range(0f, 1f)] public float altNearChance = 0f;
     [Tooltip("Toisen hyökkäyksen veto ja palautus kerrotaan tällä (0.5 = kaksi kertaa nopeampi).")]
     public float altTimeScale = 1f;
+    [Tooltip("Vaihtoehtoisen iskun ruutuaika. 0 = tavallinen iskun ajoitus.")]
+    public float altAnimationFrameTime;
 
     [Header("Tynnyrit (pomo)")]
     [Tooltip("Hakee lähellä olevan tynnyrin ja heittää sen pelaajaa kohti (heittokuvat: 2–3 nosto, 4 veto, 5 heitto, 7 jälkeen).")]
@@ -482,6 +491,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool grabsAnyone;
     [Tooltip("Rinnuksista heitto (portsari): ote rinnasta, veto lähelle ja viskaus olan yli taakse matalalta (ei nostoa pään yli).")]
     public bool collarThrow;
+    [Tooltip("Kuperkeikkaheitto: laskeutuu maahan, heittaa taakse ja nousee kuvasarjan loppuun (12 kuvaa).")]
+    public bool somersaultThrow;
     [Range(0.2f, 1f)] public float heavyThrowScale = 0.55f;
     [Tooltip("Heiton vauhti vaakaan ja ylös.")]
     public float throwSpeed = 5.5f, throwUp = 4f;
@@ -613,6 +624,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int health;
     bool facingRight;
     bool moving;
+    bool motionSampleActive, sampledMoving;
+    float motionSampleTime, sampledWalkDirection;
+    Vector3 motionSampleStart;
     float height, verticalVel;
     Vector2 knockVel;
     bool punchLanded;
@@ -973,24 +987,25 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // vanhentunut kuvaviittaus (sheet leikattu uudelleen) näkyisi tyhjänä ruutuna: poistetaan puuttuvat kuvat sarjoista
         idleSprites = StripMissing(idleSprites); walkSprites = StripMissing(walkSprites); runSprites = StripMissing(runSprites);
-        PlayerController.SortByFrameNumber(idleSprites);
-        PlayerController.SortByFrameNumber(walkSprites);
-        PlayerController.SortByFrameNumber(runSprites);
+        SortAnimationFrames(idleSprites);
+        SortAnimationFrames(walkSprites);
+        SortAnimationFrames(runSprites);
+        if (displayName == "Prätkäjätkä" && runSprites != null && runSprites.Length == 27 && runSprites[0] != null && runSprites[0].name.StartsWith("motoristi_juoksu_uusi_")) runFrameTime = 1f / 30f;
         if (startsWithTire) SetTire(true);
-        PlayerController.SortByFrameNumber(punch2Sprites);
-        PlayerController.SortByFrameNumber(walkTalkSprites);
-        PlayerController.SortByFrameNumber(punchSprites);
-        PlayerController.SortByFrameNumber(altAttackSprites);
-        PlayerController.SortByFrameNumber(grabSprites);
-        PlayerController.SortByFrameNumber(hurtSprites);
+        SortAnimationFrames(punch2Sprites);
+        SortAnimationFrames(walkTalkSprites);
+        SortAnimationFrames(punchSprites);
+        SortAnimationFrames(altAttackSprites);
+        SortAnimationFrames(grabSprites);
+        SortAnimationFrames(hurtSprites);
         // blockSprites: järjestys asetetaan editorissa (voi sisältää toistoja)
-        PlayerController.SortByFrameNumber(bellySprites);
-        PlayerController.SortByFrameNumber(knockdownSprites);
-        PlayerController.SortByFrameNumber(getUpSprites);
-        PlayerController.SortByFrameNumber(flipThrownSprites);
-        PlayerController.SortByFrameNumber(headlockThrownSprites);
-        PlayerController.SortByFrameNumber(headlockFlightSprites);
-        PlayerController.SortByFrameNumber(kneeHeldSprites);
+        SortAnimationFrames(bellySprites);
+        SortAnimationFrames(knockdownSprites);
+        SortAnimationFrames(getUpSprites);
+        SortAnimationFrames(flipThrownSprites);
+        SortAnimationFrames(headlockThrownSprites);
+        SortAnimationFrames(headlockFlightSprites);
+        SortAnimationFrames(kneeHeldSprites);
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -1480,7 +1495,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     }
                     else player.Throw(dir * throwSpeed, throwUp, throwDamage);
                 }
-                if (stateTime >= ThrowSwing + 0.15f + 0.3f)
+                if (stateTime >= ThrowSwing + (somersaultThrow ? 0.72f : 0.45f))
                 {
                     if (!throwForward && throwTurnsAround) facingRight = !facingRight;       // Kovis on kääntynyt heittosuuntaan
                     cooldown = attackCooldown * Random.Range(0.9f, 1.3f);
@@ -1499,11 +1514,27 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Separate(dt);
         if (state == State.Idle || state == State.Chase)
         {
-            Vector3 travelled = transform.position - frameStart;
-            moving = travelled.sqrMagnitude > 0.000001f;
-            walkDirectionX = travelled.x;
+            // Esteen reunassa resolven ja erottelun millimetriliike ei ole askel.
+            // Mitataan nettoliike 0.1 sekunnilta, ei yksittaista tormayskorjausta.
+            if (!motionSampleActive)
+            {
+                motionSampleActive = true; motionSampleStart = frameStart;
+                motionSampleTime = 0f; sampledMoving = false; sampledWalkDirection = 0f;
+            }
+            motionSampleTime += dt;
+            if (motionSampleTime >= 0.1f)
+            {
+                Vector3 travelled = transform.position - motionSampleStart;
+                sampledMoving = travelled.sqrMagnitude > 0.0025f;
+                // Tormays ei saa kaantaa kuvaa vastakkaiseen suuntaan kuin aiottu askel.
+                sampledWalkDirection = sampledMoving && Mathf.Abs(travelled.x) > 0.04f
+                    ? Mathf.Abs(travelled.x) * (lastMoveX != 0f ? lastMoveX : Mathf.Sign(travelled.x)) : 0f;
+                motionSampleStart = transform.position; motionSampleTime = 0f;
+            }
+            moving = sampledMoving; walkDirectionX = sampledWalkDirection;
             if (!moving) running = false;
         }
+        else motionSampleActive = false;
         ApplyVisual();
     }
 
@@ -1571,6 +1602,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (collarThrow)   // rinnuksista: matalalla, viskaus olan yli taakse
             keys = art ? new[] { new Vector3(0.95f, 0f, 0f), new Vector3(0.8f, 0.05f, 0f), new Vector3(0.55f, 0.15f, 0f), new Vector3(0.35f, 0.4f, 0f), new Vector3(-0.7f, 1.3f, 0f) }
                        : new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.75f, 0.05f, 5f), new Vector3(0.5f, 0.15f, 10f), new Vector3(0.3f, 0.5f, 30f), new Vector3(-0.6f, 1.4f, 110f) };
+        if (somersaultThrow)
+            keys = new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.8f, 0.05f, 10f), new Vector3(0.7f, 0.6f, 40f), new Vector3(0.1f, 1.5f, 80f), new Vector3(-0.8f, 2f, 130f) };
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
         Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
         float dir = facingRight ? 1f : -1f;
@@ -1842,6 +1875,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             rotKeys = new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.75f, 0.05f, 5f), new Vector3(0.5f, 0.15f, 10f), new Vector3(0.3f, 0.5f, 30f), new Vector3(-0.6f, 1.4f, 110f) };
         }
         Vector3[] keys = art ? artKeys : rotKeys;
+        if (somersaultThrow)
+            keys = new[] { new Vector3(0.9f, 0f, 0f), new Vector3(0.8f, 0.05f, 10f), new Vector3(0.7f, 0.6f, 40f), new Vector3(0.1f, 1.5f, 80f), new Vector3(-0.8f, 2f, 130f) };
         int i = Mathf.Clamp(Mathf.FloorToInt(k), 0, keys.Length - 2);
         int pose = collarThrow ? (k < 0.5f ? 0 : k < 3f ? 1 : 2) : k < 0.5f ? 0 : k < 1f ? 1 : k < 2f ? 2 : 3;
         Vector3 v = Vector3.Lerp(keys[i], keys[i + 1], Mathf.Clamp01(k - i));
@@ -2610,7 +2645,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
     bool UpdateEnemyTarget()
     {
-        if (enemyTarget != null && (!VisibleFighter(enemyTarget) || TargetDown(enemyTarget) || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
+        if (enemyTarget != null && (!VisibleFighter(enemyTarget) || TargetDown(enemyTarget) || (!string.IsNullOrEmpty(brawlGroup) && enemyTarget.brawlGroup == brawlGroup) || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
             enemyTarget = null;
         if (brawlsWithOthers && !ally)
         {
@@ -2741,9 +2776,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Toinen ja kolmas isku arvotaan, ellei vaihtoehtoista hyökkäystä valittu.
     void RollPunch23()
     {
+        usingDoubleKick = false;
         comboSeq = null;
         usingUppercut = false;
         if (!usingAlt && Has(uppercutSprites) && Random.value < uppercutChance) { usingUppercut = true; usingPunch2 = false; usingPunch3 = false; return; }
+        if (!usingAlt && Has(doubleKickSprites) && Random.value < doubleKickChance)
+        {
+            usingDoubleKick = true; usingPunch2 = usingPunch3 = usingUppercut = false; return;
+        }
         // kolmas isku (esim. kierrepotku) arvotaan ensin, ettei kombo vie sen vuoroa
         if (!usingAlt && Has(punch3Sprites) && Random.value < punch3Chance) { usingPunch3 = true; usingPunch2 = false; return; }
         if (!usingAlt && combos != null && combos.Length > 0 && Random.value < comboChance)
@@ -2758,6 +2798,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void SetAttack(char c)
     {
+        usingDoubleKick = false;
         usingAlt = c == 'P' && Has(altAttackSprites);
         usingPunch2 = c == 'S' && Has(punch2Sprites);
         usingPunch3 = c == 'K' && Has(punch3Sprites);
@@ -2778,10 +2819,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     bool TryHitEnemy(Enemy e)
     {
+        if (e == null || (!string.IsNullOrEmpty(brawlGroup) && e.brawlGroup == brawlGroup)) return false;
         Vector3 p = e.transform.position, me = transform.position;
         float dx = p.x - me.x;
         bool front = facingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
+        if (usingDoubleKick)
+        {
+            if (!e.TakeHit(doubleKickDamage, me.x, true)) return false;
+            if (!e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * doubleKickLaunchX, doubleKickLaunchUp);
+            e.GotHitBy(this); return true;
+        }
         bool upper = usingUppercut && !usingAlt;
         bool kd = upper || (!ComboContinues && !(usingAlt && altKnockdownLightOnly && IsHeavyweight(e)) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown));
         if (!e.TakeHit(upper ? uppercutDamage : usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
@@ -2799,6 +2847,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void GotHitBy(Enemy a)
     {
         if (a == null || a == this) return;
+        if (!string.IsNullOrEmpty(brawlGroup) && a.brawlGroup == brawlGroup) return;
         if (fightsEveryone && a.fightsEveryone && a.displayName == displayName) return;
         if (ally && a.ally) return;
         enemyTarget = a;
@@ -2839,6 +2888,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
+        if (usingDoubleKick)
+            return player.TakeKnockdown(doubleKickDamage, me.x, doubleKickLaunchX, doubleKickLaunchUp, this); // torjuttavissa
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
         if (usingUppercut && !usingAlt)
         {
@@ -3255,6 +3306,20 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     // ---------------- Liike ja maa ----------------
 
+    static void SortAnimationFrames(Sprite[] sprites)
+    {
+        if (sprites == null) return;
+        foreach (var sprite in sprites)
+        {
+            if (sprite == null) continue;
+            // Tanyan sarjat on koottu sivu- ja ruutujarjestykseen editorissa.
+            // Pelkka viimeinen numero sekoittaisi sivujen 0..19-ruudut keskenaan.
+            if (sprite.name.StartsWith("tanya_")) return;
+            break;
+        }
+        PlayerController.SortByFrameNumber(sprites);
+    }
+
     static bool HasLocomotion(Sprite[] sprites)
     {
         if (sprites == null) return false;
@@ -3657,12 +3722,18 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return Has(grabSprites) ? grabSprites[0] : IdleFrame();
 
             case State.GrabLift:
+                if (somersaultThrow && Has(grabSprites)) return grabSprites[Mathf.Min(1 + (int)(LiftEase * 4f), Mathf.Min(4, grabSprites.Length - 1))];
                 if (Has(grabSprites)) return grabSprites[Mathf.Clamp(1 + (int)(LiftEase * 4f), 1, 4)];
                 return IdleFrame();
 
             case State.GrabThrow:
                 if (Has(grabSprites))
                 {
+                    if (somersaultThrow)
+                    {
+                        int frame = stateTime < ThrowSwing ? 5 : 6 + (int)((stateTime - ThrowSwing) / 0.12f);
+                        return grabSprites[Mathf.Min(frame, grabSprites.Length - 1)];
+                    }
                     if (stateTime < ThrowSwing) return grabSprites[Mathf.Min(5, grabSprites.Length - 1)];
                     if (stateTime < ThrowSwing + 0.15f) return grabSprites[Mathf.Min(6, grabSprites.Length - 1)];
                     return grabSprites[grabSprites.Length - 1];
@@ -3682,12 +3753,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
-    Sprite[] AtkSprites => usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
-    int PunchImpact => Mathf.Clamp(usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => (usingAlt ? (windupTime + altExtraWindup) * altTimeScale : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
+    Sprite[] AtkSprites => usingDoubleKick ? doubleKickSprites : usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingDoubleKick ? doubleKickImpactFrame : usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    float CurrentWindup => (usingDoubleKick ? Mathf.Max(0.1f, doubleKickImpactFrame * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, altImpactFrame * altAnimationFrameTime) : (windupTime + altExtraWindup) * altTimeScale) : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
-    float CurrentRecover => usingAlt ? punchRecoverTime * altTimeScale : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
-    float CurrentReach => usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
+    float CurrentRecover => usingDoubleKick ? Mathf.Max(0.1f, (doubleKickSprites.Length - doubleKickImpactFrame) * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, (altAttackSprites.Length - altImpactFrame) * altAnimationFrameTime) : punchRecoverTime * altTimeScale) : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
+    float CurrentReach => usingDoubleKick ? doubleKickReach : usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
 
 
     // ---------------- Ulkoinen aivo (Deacon) ----------------

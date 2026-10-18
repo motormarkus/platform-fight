@@ -372,6 +372,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: yakuza_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed1770df424f4d4d8cdcaa2ea833259
+      internalID: -1890093723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -388,6 +410,7 @@ TextureImporter:
     nameFileIdTable:
       yakuza_juoksu_0: -7777657052274955231
       yakuza_juoksu_1: -3244142533796763357
+      yakuza_juoksu_10: -1890093723
       yakuza_juoksu_2: -6675875353461991044
       yakuza_juoksu_3: -6477991987336665379
       yakuza_juoksu_4: -6629195208870844569

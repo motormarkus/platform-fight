@@ -318,7 +318,69 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     static readonly float[] ChairThrowTimes = { 0.09f, 0.08f, 0.08f, 0.14f, 0.035f, 0.05f, 0.06f, 0.07f, 0.07f, 0.07f };
     public float chairFrameTime = 0.07f;
     public int chairDamage = 26;
-    public float chairReach = 2.4f;
+    public float chairReach = 3.6f;
+    [Header("Pannu (Rocco ja Ruby)")]
+    public Sprite[] panSwingSprites;
+    public Sprite[] panWalkSprites;
+    public Sprite[] panIdleSprites;
+    bool HasPanWalkArt => panWalkSprites != null && panWalkSprites.Length == (AppliedCharacter == 1 ? 30 : 24);
+    int PanWalkFrame()
+    {
+        if (!moving) return 0;
+        if (AppliedCharacter != 1) return (int)(stateTime * 24f) % panWalkSprites.Length;
+        // The five near-identical poses around the loop join need less screen time.
+        float phase = Mathf.Repeat(stateTime, 25f / 24f + 5f / 40f);
+        for (int i = 0; i < 30; i++)
+        {
+            float duration = i < 2 || i >= 27 ? 1f / 40f : 1f / 24f;
+            if (phase < duration) return i;
+            phase -= duration;
+        }
+        return 0;
+    }
+
+    public Sprite[] panThrowSprites;
+    static readonly float[] RoccoPanThrowTimes = { 0.09f, 0.10f, 0.09f, 0.055f, 0.07f, 0.10f, 0.12f };
+    static readonly float[] RubyPanThrowTimes = { 0.07f, 0.08f, 0.08f, 0.07f, 0.055f, 0.06f, 0.08f, 0.08f, 0.10f };
+    float[] PanThrowTimes => AppliedCharacter == 1 ? RubyPanThrowTimes : RoccoPanThrowTimes;
+    bool HasPanThrowArt => panThrowSprites != null && panThrowSprites.Length == PanThrowTimes.Length;
+    public float panFrameTime = 0.065f, panReach = 3.6f;
+    static readonly int[] RoccoPanSwingFrames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 0 };
+    static readonly float[] RoccoPanSwingTimes = { .080f, .100f, .120f, .090f, .060f, .040f, .025f, .018f, .045f, .055f, .065f, .050f };
+    float PanSwingImpactTime => AppliedCharacter == 1 ? 4f * panFrameTime : ThrowPose.Start(RoccoPanSwingTimes, 8);
+    bool PanSwingFinished => AppliedCharacter == 1
+        ? stateTime >= panSwingSprites.Length * panFrameTime + 0.08f
+        : ThrowPose.Index(RoccoPanSwingTimes, stateTime) < 0;
+    int PanSwingFrame()
+    {
+        if (AppliedCharacter == 1) return Mathf.Min((int)(stateTime / panFrameTime), panSwingSprites.Length - 1);
+        int index = ThrowPose.Index(RoccoPanSwingTimes, stateTime);
+        return RoccoPanSwingFrames[index < 0 ? RoccoPanSwingFrames.Length - 1 : index];
+    }
+
+    public int panDamage = 22;
+    bool panResolved;
+    bool HasPanArt => panSwingSprites != null && panSwingSprites.Length >= (AppliedCharacter == 1 ? 7 : 9) && HasSmallItem;
+    public bool PanArtContainsWeapon => state == State.PanSwing || (state == State.PanHold && (!moving || HasPanWalkArt)) || (state == State.PanThrow && HasPanThrowArt);
+    void LoadPanArt()
+    {
+        var swing = new System.Collections.Generic.List<Sprite>();
+        var throwing = new System.Collections.Generic.List<Sprite>();
+        var walking = new System.Collections.Generic.List<Sprite>();
+        var idle = new System.Collections.Generic.List<Sprite>();
+        string prefix = AppliedCharacter == 1 ? "ruby_pannu_" : "rocco_pannu_";
+        foreach (var sprite in Resources.LoadAll<Sprite>("Pan"))
+        {
+            if (sprite.name.StartsWith(prefix + "isku_")) swing.Add(sprite);
+            else if (sprite.name.StartsWith(prefix + "heitto_")) throwing.Add(sprite);
+            else if (sprite.name.StartsWith(prefix + "kavely_")) walking.Add(sprite);
+            else if (sprite.name.StartsWith(prefix + "idle_")) idle.Add(sprite);
+        }
+        panWalkSprites = walking.ToArray(); SortByFrameNumber(panWalkSprites);
+        panIdleSprites = idle.ToArray(); SortByFrameNumber(panIdleSprites);
+        if (swing.Count == (AppliedCharacter == 1 ? 7 : 9)) { panSwingSprites = swing.ToArray(); SortByFrameNumber(panSwingSprites); }
+        if (throwing.Count == PanThrowTimes.Length) { panThrowSprites = throwing.ToArray(); SortByFrameNumber(panThrowSprites); }
+    }
     bool chairResolved;
 
     [Header("Biljardikeppi (kiinniotto: käteen, L2 irti: heitto)")]
@@ -443,7 +505,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TryLiftLid(Manhole m)
     {
         if (m == null || state != State.Ground || height > 0.05f || carried != null || Bottle.HeldBy(this) != null || Chair.Held != null
-            || Cue.Held != null || LifeRing.Held != null || Lid.Held != null || Riding || LidArt == null) return false;
+            || Cue.Held != null || Pan.HeldBy(this) != null || LifeRing.Held != null || Lid.Held != null || Riding || LidArt == null) return false;
         var l = Lid.Create(m.lid != null ? m.lid.sprite : null, Area.Current, m.transform.position, m.openSounds);
         l.sizeScale = m.sizeScale;
         l.TakeBy();
@@ -1190,6 +1252,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var a = heroine;
         if (a == null || !a.IsComplete) return;
         AppliedCharacter = 1;
+        LoadPanArt();
         drinkLoadedFor = -1; drinkSprites = null;
         characterName = string.IsNullOrEmpty(a.name) ? "Ruby" : a.name;
         idleSprites = a.idle;
@@ -1373,7 +1436,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch, PanPick, PanHold, PanSwing, PanThrow }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -1404,6 +1467,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Awake()
     {
+        LoadPanArt();
         if (Players.Cloning) return;   // P2:n mallikopio: Awake ei tee mitään (kopio pysyy puhtaana, hahmo asetetaan vasta synnyttäessä)
         if (playerIndex == 0) Players.MakeTemplate(this);
         Players.Register(this);
@@ -1518,7 +1582,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pickPressed = !Scripted && PickPressed();
         if (pickPressed) pickBufferUntil = Time.time + 0.18f;
         bool pickNow = pickPressed || (Time.time <= pickBufferUntil && state == State.Ground);
-        bool picking = state == State.SmallPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
+        bool picking = state == State.SmallPick || state == State.PanPick || state == State.CuePick || state == State.ChairPick || state == State.Lift || state == State.RingTake || state == State.RingPick;
         if ((catchPressed || pickPressed) && picking) throwQueued = true;   // painettiin uudelleen jo noston aikana: heitto heti, kun esine on käsissä
         bool releaseThrow = ((catchPressed || pickPressed) && !picking) || throwQueued;   // 1. painallus nostaa, 2. painallus heittää
 
@@ -1583,6 +1647,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         var fr = LifeRing.NearbyOnFloor(transform.position);
                         if (fr != null) { facingRight = fr.transform.position.x >= transform.position.x; pickingRing = fr; Enter(State.RingPick); break; }
                     }
+                    if (HasPanArt && Pan.TryPickUp(this)) { throwQueued = false; Enter(State.PanPick); break; }
                     if (HasCue && Cue.TryPickUp(this)) { throwQueued = false; Enter(State.CuePick); break; }   // biljardikeppi
                     if (HasChair && Chair.TryPickUp(this)) { facingRight = Chair.Held.transform.position.x >= transform.position.x; Enter(State.ChairPick); break; }
                     if (canCarry && Bottle.TryPickUp(this)) { facingRight = Bottle.HeldBy(this).transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // ehjä pullo lattialla: kumartuu ja nostaa
@@ -2068,6 +2133,36 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (ThrowPose.Index(LidThrowTimes, stateTime) < 0) Enter(State.Ground);
                 break;
 
+            case State.PanPick:
+                if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0) Enter(Pan.HeldBy(this) != null ? State.PanHold : State.Ground);
+                break;
+            case State.PanHold:
+            {
+                if (Pan.HeldBy(this) == null) { Enter(State.Ground); break; }
+                if (punchPressed) { panResolved = false; PlayGrunt(); Enter(State.PanSwing); break; }
+                if (kickPressed || releaseThrow) { throwQueued = false; panResolved = false; PlayGrunt(); Enter(State.PanThrow); break; }
+                moving = move.sqrMagnitude > 0.01f;
+                if (moving)
+                {
+                    if (Mathf.Abs(move.x) > 0.1f) facingRight = move.x > 0f;
+                    MoveOnGround(new Vector2(move.x * moveSpeedX, move.y * moveSpeedY) * 0.9f * dt);
+                }
+                break;
+            }
+            case State.PanSwing:
+                if (!panResolved && stateTime >= PanSwingImpactTime)
+                {
+                    panResolved = true;
+                    if (AttackEnemies(panReach, panDamage, true, 2.3f)) Pan.UseHeld(this);
+                }
+                if (PanSwingFinished)
+                    Enter(Pan.HeldBy(this) != null ? State.PanHold : State.Ground);
+                break;
+            case State.PanThrow:
+                if (!panResolved && stateTime >= (HasPanThrowArt ? ThrowPose.Start(PanThrowTimes, AppliedCharacter == 1 ? 5 : 4) : ThrowPose.Start(ThrowPose.ThrowTimes, ThrowPose.ReleaseIndex)))
+                { panResolved = true; Pan.ThrowHeld(this); }
+                if (ThrowPose.Index(HasPanThrowArt ? PanThrowTimes : ThrowPose.ThrowTimes, stateTime) < 0) Enter(State.Ground);
+                break;
             case State.CuePick:
                 if (ThrowPose.Index(ThrowPose.PickTimes, stateTime) < 0) Enter(State.CueHold);
                 break;
@@ -2139,7 +2234,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (!chairResolved && stateTime >= impact)
                 {
                     chairResolved = true;
-                    if (AttackEnemies(chairReach, chairDamage, true, 2.4f))
+                    // Myos vanhan scenen 2.4-arvolla tuoli ylettaa 3.6 yksikkoon.
+                    if (AttackEnemies(Mathf.Max(chairReach, 3.6f), chairDamage, true, 2.4f))
                     {
                         Chair.BreakHeld(transform.position + new Vector3(facingRight ? 1.4f : -1.4f, -0.02f, 0f), facingRight ? 1f : -1f);
                         if (CameraFollow.Instance != null) CameraFollow.Shake(0.12f, 0.15f);
@@ -2813,7 +2909,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Nosto- tai heittosarjan kuva (pullonosto.png).
     int SmallFrame()
     {
-        bool pick = state == State.SmallPick || state == State.CuePick;
+        bool pick = state == State.SmallPick || state == State.CuePick || state == State.PanPick;
         float[] times = pick ? ThrowPose.PickTimes : ThrowPose.ThrowTimes;
         int[] frames = pick ? ThrowPose.PickFrames : ThrowPose.ThrowFrames;
         int i = ThrowPose.Index(times, stateTime);
@@ -2987,6 +3083,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Siirtää pelaajan heti uuteen paikkaan (ovet): maahan, perustilaan.
     public void TeleportTo(Vector3 pos)
     {
+        Pan.DropHeld(this);
         transform.position = pos;
         height = 0f;
         verticalVel = 0f;
@@ -3047,6 +3144,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         DropCrate();
         Bottle.DropHeld(this);
         Chair.DropHeld(transform.position);
+        Pan.DropHeld(this);
         Cue.DropHeld(transform.position);
         LifeRing.DropHeld(transform.position);
         Lid.DropHeld(transform.position);
@@ -3145,7 +3243,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Nousee seisovan laudan päälle poimintanapilla (vapaana maassa): hahmon kuva vaihtuu kuviin, joissa lauta on mukana.
     void TryMountBoard()
     {
-        if (!CanSkate || !IsFree || Riding || Bottle.HeldBy(this) != null || Chair.Held != null || Cue.Held != null || LifeRing.Held != null || Lid.Held != null) return;
+        if (!CanSkate || !IsFree || Riding || Bottle.HeldBy(this) != null || Chair.Held != null || Cue.Held != null || Pan.HeldBy(this) != null || LifeRing.Held != null || Lid.Held != null) return;
         var b = LooseBoard.FindRideable(transform.position);
         if (b == null) return;
         b.Take();
@@ -3417,6 +3515,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state != State.Block && !(PieWar.Active && Bottle.HeldBy(this) != null && Bottle.HeldBy(this).pie)) Bottle.DropHeld(this);   // piirakkasodassa osuma ei pudota piirakkaa kädestä
         if (state != State.Block && Chair.Held != null) Chair.DropHeld(transform.position);
+        if (state != State.Block) Pan.DropHeld(this);
         if (state != State.Block && Cue.Held != null) Cue.DropHeld(transform.position);
         if (state != State.Block && LifeRing.Held != null) LifeRing.DropHeld(transform.position);
         if (state != State.Block && Lid.Held != null) Lid.DropHeld(transform.position);
@@ -3977,7 +4076,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     Sprite[] drinkSprites; int drinkLoadedFor = -1; bool drinkSoundPlayed;
     static readonly float[] DrinkTimes = { 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.06f, 0.13f, 0.13f, 0.13f, 0.13f, 0.13f, 0.05f, 0.05f, 0.05f, 0.05f, 0.08f };
     /// Termospullon voi juoda, kun seisoo vapaana maassa (ei kanna mitään, ei jo juo).
-    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
+    public bool CanDrinkThermos => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && Pan.HeldBy(this) == null && LifeRing.Held == null && Lid.Held == null && !Riding;
     Sprite[] DrinkSprites
     {
         get
@@ -4117,7 +4216,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return true;
     }
     /// Vapaana maassa: syöntianimaatio voidaan näyttää.
-    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && LifeRing.Held == null && Lid.Held == null && !Riding;
+    public bool CanEatNow => state == State.Ground && height <= 0.05f && carried == null && Bottle.HeldBy(this) == null && Chair.Held == null && Cue.Held == null && Pan.HeldBy(this) == null && LifeRing.Held == null && Lid.Held == null && !Riding;
 
     void UpdateEat()
     {
@@ -4450,6 +4549,21 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 return pushSprites[Mathf.Clamp(i, 0, pushSprites.Length - 1)];
             }
 
+            case State.PanHold:
+                if (!moving && panIdleSprites != null && panIdleSprites.Length > 0) return panIdleSprites[(int)(stateTime * 12f) % panIdleSprites.Length];
+                if (HasPanWalkArt) return panWalkSprites[PanWalkFrame()];
+                if (moving && walkSprites != null && walkSprites.Length > 0) return walkSprites[(int)(animClock / walkFrameTime) % walkSprites.Length];
+                return panSwingSprites[AppliedCharacter == 1 ? 2 : 0];
+            case State.PanSwing:
+                return panSwingSprites[PanSwingFrame()];
+            case State.PanThrow:
+                if (HasPanThrowArt)
+                {
+                    int frame = ThrowPose.Index(PanThrowTimes, stateTime);
+                    return panThrowSprites[frame < 0 ? panThrowSprites.Length - 1 : frame];
+                }
+                return smallItemSprites[SmallFrame()];
+            case State.PanPick:
             case State.SmallPick:
             case State.SmallThrow:
             case State.CuePick:
