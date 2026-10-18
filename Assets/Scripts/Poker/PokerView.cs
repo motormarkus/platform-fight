@@ -38,7 +38,7 @@ public sealed class PokerView : MonoBehaviour
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
     static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(310, 230), new Vector2(850, 230), new Vector2(35, 335), new Vector2(1125, 335) };
-    static readonly Vector2[] DealerPos = { new Vector2(720, 545), new Vector2(435, 280), new Vector2(815, 285), new Vector2(180, 315), new Vector2(1080, 315) };
+    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(435, 280), new Vector2(815, 285), new Vector2(180, 315), new Vector2(1080, 315) };
     static readonly Vector2[] HolePos = { new Vector2(548, 450), new Vector2(463, 250), new Vector2(772, 250), new Vector2(170, 345), new Vector2(980, 345) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
@@ -98,7 +98,7 @@ public sealed class PokerView : MonoBehaviour
         pot = Label(root, new Rect(564, 309, 157, 37), "", 27, Gold);
         phase = Label(root, new Rect(460, 281, 360, 24), "", 18, Color.white);
         dealer = new GameObject("Jakajan merkki", typeof(RectTransform)).GetComponent<RectTransform>(); dealer.SetParent(root, false);
-        SetRect(dealer, new Rect(735, 275, 64, 32));
+        SetRect(dealer, new Rect(735, 275, 80, 40));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
         message = Label(root, new Rect(270, 128, 740, 65), "", 21, Color.white);
@@ -220,7 +220,7 @@ public sealed class PokerView : MonoBehaviour
         pot.text = "POTTI  " + t.Pot.ToString("N0"); phase.text = between ? "Jaon ulkopuolella" : t.Street.ToString().ToUpperInvariant();
         walletText.text = (host.Demo ? "TESTIRAHA  " : "Lompakko  ") + host.Cash.Wallet.ToString("N0") + " mk";
         status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
-        message.text = host.Error ?? t.Message;
+        message.text = host.Error ?? (t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
         for (int i = 0; i < 5; i++)
