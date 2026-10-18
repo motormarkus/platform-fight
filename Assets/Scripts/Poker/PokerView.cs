@@ -168,7 +168,8 @@ public sealed class PokerView : MonoBehaviour
     RawImage Raw(Transform parent, Rect r, Texture texture, Material material, Rect? pixels = null)
     {
         var image = Obj(parent, "Artwork", r).AddComponent<RawImage>(); image.texture = texture; image.material = material; image.raycastTarget = false;
-        if (pixels.HasValue && texture != null) { var p = pixels.Value; float kx = texture.width / 1280f, ky = texture.height / 426f; p = new Rect(p.x * kx, p.y * ky, p.width * kx, p.height * ky);   // atlas on suunniteltu 1280x426-kokoon image.uvRect = new Rect(p.x / texture.width, 1 - (p.y + p.height) / texture.height, p.width / texture.width, p.height / texture.height); }
+        // Atlas on suunniteltu 1280x426-kokoon; skaalataan tekstuurin todelliseen kokoon.
+        if (pixels.HasValue && texture != null) { var p = pixels.Value; float kx = texture.width / 1280f, ky = texture.height / 426f; p = new Rect(p.x * kx, p.y * ky, p.width * kx, p.height * ky); image.uvRect = new Rect(p.x / texture.width, 1 - (p.y + p.height) / texture.height, p.width / texture.width, p.height / texture.height); }
         if (texture == null) image.color = new Color(.09f, .07f, .055f); return image;
     }
     Text Label(Transform parent, Rect r, string value, int size, Color color)
