@@ -21,7 +21,7 @@ public sealed class PokerView : MonoBehaviour
     GameObject[] highlights = new GameObject[5];
     Text pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
-    RawImage[] turnOutlines = new RawImage[5];
+    RawImage[] turnGlows = new RawImage[5]; Texture2D glowTexture;
     GameObject[] bubbles = new GameObject[5]; Text[] bubbleTexts = new Text[5]; string[] lastActions = new string[5]; float[] bubbleUntil = new float[5];
     GameObject[] blindBadges = new GameObject[5]; Text[] blindTexts = new Text[5];
     Button fold, call, raise, allIn, deal, rebuy, minus, plus, leave;
@@ -40,11 +40,12 @@ public sealed class PokerView : MonoBehaviour
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
     // Pelipaikat on järjestetty pöydän ympäri myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi.
-    static readonly int[] OutlineFile = { 0, 3, 1, 2, 4 };   // paikka -> TurnOutline-tiedosto (make_turn_outlines.py: 1 Yakuza, 2 Prätkäjätkä, 3 Puliukko, 4 Rokkimimmi)
-    static readonly Vector2[] SeatPos = { new Vector2(560, 545), new Vector2(35, 335), new Vector2(310, 230), new Vector2(850, 230), new Vector2(1125, 335) };
+    static readonly Vector2[] SeatPos = { new Vector2(560, 548), new Vector2(25, 385), new Vector2(395, 262), new Vector2(790, 264), new Vector2(1110, 380) };
+    // Hehkun keskipiste ja koko (x, y, leveys, korkeus) hahmon kohdalla.
+    static readonly Vector4[] GlowCenter = { Vector4.zero, new Vector4(150, 235, 380, 340), new Vector4(450, 150, 420, 320), new Vector4(850, 155, 420, 320), new Vector4(1150, 255, 380, 340) };
     // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
-    static readonly Vector2[] DealerPos = { new Vector2(765, 565), new Vector2(135, 319), new Vector2(410, 214), new Vector2(950, 214), new Vector2(1225, 319) };
-    static readonly Vector2[] HolePos = { new Vector2(548, 430), new Vector2(170, 345), new Vector2(463, 250), new Vector2(772, 250), new Vector2(980, 345) };
+    static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(495, 246), new Vector2(890, 248), new Vector2(1210, 364) };
+    static readonly Vector2[] HolePos = { new Vector2(560, 448), new Vector2(168, 367), new Vector2(278, 242), new Vector2(923, 242), new Vector2(978, 367) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
     public void Build(PokerService service, PokerPresentationSettings settings)
@@ -78,16 +79,22 @@ public sealed class PokerView : MonoBehaviour
         var reference = new GameObject("Reference content", typeof(RectTransform)).GetComponent<RectTransform>(); reference.SetParent(root, false);
         reference.anchorMin = reference.anchorMax = new Vector2(.5f, .5f); reference.sizeDelta = new Vector2(1280, 720);
         root = reference;
-        Raw(root, new Rect(0, 0, 1280, 720), art.barBackground, null);
-        Panel(root, new Rect(0, 0, 1280, 720), new Color(0, 0, 0, .22f));
-        if (tableTex != null) Raw(root, new Rect(0, 0, 1280, 720), tableTex, tableMat);
-        else Panel(root, new Rect(35, 240, 1210, 355), new Color(.015f, .22f, .19f));
-        // Vuorossa olevan hahmon kultainen ääriviiva (Tools/PokerAssets/make_turn_outlines.py).
+        // Valmis kuva: baari, pöytä ja pelaajat samassa tarkassa (3840x2160) kuvassa. Vanha polku on varalla.
+        var scene = Resources.Load<Texture2D>("Poker/Artwork/TableScene");
+        if (scene != null) Raw(root, new Rect(0, 0, 1280, 720), scene, null);
+        else
+        {
+            Raw(root, new Rect(0, 0, 1280, 720), art.barBackground, null);
+            Panel(root, new Rect(0, 0, 1280, 720), new Color(0, 0, 0, .22f));
+            if (tableTex != null) Raw(root, new Rect(0, 0, 1280, 720), tableTex, tableMat);
+            else Panel(root, new Rect(35, 240, 1210, 355), new Color(.015f, .22f, .19f));
+        }
+        // Vuorossa olevan hahmon kultainen hehku (pehmeä säteittäinen kuva, luodaan koodilla).
+        glowTexture = MakeGlowTexture();
         for (int i = 1; i <= 4; i++)
         {
-            var tex = Resources.Load<Texture2D>("Poker/Artwork/TurnOutline" + OutlineFile[i]);
-            if (tex == null) continue;
-            turnOutlines[i] = Raw(root, new Rect(0, 0, 1280, 720), tex, null); turnOutlines[i].gameObject.SetActive(false);
+            var c = GlowCenter[i]; var g = Raw(root, new Rect(c.x - c.z / 2, c.y - c.w / 2, c.z, c.w), glowTexture, null);
+            g.color = new Color(1f, .78f, .25f, .0f); g.gameObject.name = "Vuorohehku"; turnGlows[i] = g; g.gameObject.SetActive(false);
         }
         if (art.originalLogo != null) Raw(root, new Rect(25, 10, 290, 95), art.originalLogo, null);
         else Label(root, new Rect(25, 10, 290, 65), "TOTAL FIST", 48, Gold);
@@ -119,7 +126,7 @@ public sealed class PokerView : MonoBehaviour
         SetRect(dealer, new Rect(735, 275, 80, 40));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
-        message = Label(root, new Rect(270, 128, 740, 65), "", 21, Color.white);
+        message = Label(root, new Rect(110, 554, 440, 50), "", 22, Color.white);
         Panel(root, new Rect(0, 606, 1280, 114), new Color(.025f, .025f, .025f, .98f));
         status = Label(root, new Rect(18, 620, 265, 60), "", 30, Gold);
         fold = Button(new Rect(305, 617, 220, 62), "Luovuta", 1, () => Submit(PokerAction.Fold));
@@ -246,7 +253,7 @@ public sealed class PokerView : MonoBehaviour
         message.text = host.Error ?? (t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
-        for (int i = 1; i <= 4; i++) if (turnOutlines[i] != null) turnOutlines[i].gameObject.SetActive(t.Running && t.Actor == i);
+        for (int i = 1; i <= 4; i++) if (turnGlows[i] != null) turnGlows[i].gameObject.SetActive(t.Running && t.Actor == i);
         for (int i = 0; i < 5; i++)
         {
             bool sb = t.Dealer >= 0 && i == t.SmallBlindSeat, bb = t.Dealer >= 0 && i == t.BigBlindSeat;
@@ -336,6 +343,18 @@ public sealed class PokerView : MonoBehaviour
     }
 
     List<Button> ActiveControls() => controls.Where(b => b != null && b.gameObject.activeInHierarchy && b.interactable).ToList();
+    static Texture2D MakeGlowTexture()
+    {
+        const int n = 128; var tex = new Texture2D(n, n, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+        var px = new Color32[n * n];
+        for (int y = 0; y < n; y++) for (int x = 0; x < n; x++)
+        {
+            float dx = (x + .5f) / n * 2 - 1, dy = (y + .5f) / n * 2 - 1, d = Mathf.Sqrt(dx * dx + dy * dy);
+            float a = Mathf.Pow(Mathf.Clamp01(1 - d), 1.7f);
+            px[y * n + x] = new Color32(255, 255, 255, (byte)Mathf.RoundToInt(a * 255));
+        }
+        tex.SetPixels32(px); tex.Apply(false, true); return tex;
+    }
     void UpdateBubbles()
     {
         if (host == null || !host.Visible || host.Cash.Table == null) return;
@@ -350,6 +369,8 @@ public sealed class PokerView : MonoBehaviour
     void LateUpdate()
     {
         UpdateBubbles();
+        float pulse = .42f + .13f * Mathf.Sin(Time.unscaledTime * 4f);
+        for (int i = 1; i <= 4; i++) if (turnGlows[i] != null && turnGlows[i].gameObject.activeSelf) turnGlows[i].color = new Color(1f, .78f, .25f, pulse);
         if (eventSystem == null) return;
         var selected = eventSystem.currentSelectedGameObject;
         var selectedButton = selected != null ? selected.GetComponent<Button>() : null;
