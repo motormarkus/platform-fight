@@ -80,11 +80,11 @@ public sealed class PokerView : MonoBehaviour
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
     // Pelipaikat on järjestetty pöydän ympäri myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi.
-    static readonly Vector2[] SeatPos = { new Vector2(560, 548), new Vector2(25, 385), new Vector2(395, 262), new Vector2(790, 264), new Vector2(1110, 380) };
+    static readonly Vector2[] SeatPos = { new Vector2(560, 548), new Vector2(25, 385), new Vector2(395, 284), new Vector2(790, 264), new Vector2(1110, 380) };
     // Hehkun keskipiste ja koko (x, y, leveys, korkeus) hahmon kohdalla.
     static readonly Vector4[] GlowCenter = { Vector4.zero, new Vector4(150, 235, 380, 340), new Vector4(450, 150, 420, 320), new Vector4(850, 155, 420, 320), new Vector4(1150, 255, 380, 340) };
     // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
-    static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(495, 246), new Vector2(890, 248), new Vector2(1210, 364) };
+    static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(550, 240), new Vector2(890, 248), new Vector2(1210, 364) };
     static readonly Vector2[] HolePos = { new Vector2(560, 448), new Vector2(168, 367), new Vector2(278, 242), new Vector2(923, 242), new Vector2(978, 367) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
