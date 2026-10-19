@@ -163,7 +163,7 @@ public sealed class PokerView : MonoBehaviour
         pot = Label(root, new Rect(564, 299, 157, 37), "", 27, Gold);
         phase = Label(root, new Rect(460, 271, 360, 24), "", 18, Color.white);
         dealer = new GameObject("Jakajan merkki", typeof(RectTransform)).GetComponent<RectTransform>(); dealer.SetParent(root, false);
-        SetRect(dealer, new Rect(735, 275, 80, 40));
+        SetRect(dealer, new Rect(735, 275, 60, 30));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
         message = Label(root, new Rect(400, 452, 480, 30), "", 20, Color.white);

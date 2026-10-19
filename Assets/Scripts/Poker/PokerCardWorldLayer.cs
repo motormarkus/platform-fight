@@ -18,7 +18,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
     static readonly Vector2[] Holes = { new Vector2(598, 496), new Vector2(190, 395), new Vector2(300, 270), new Vector2(945, 270), new Vector2(1000, 395) };
-    static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(355, 305), new Vector2(965, 300), new Vector2(1180, 484) };
+    static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(250, 302), new Vector2(1065, 304), new Vector2(1180, 484) };
     static readonly Vector2[] Bets = { new Vector2(770, 482), new Vector2(300, 420), new Vector2(395, 372), new Vector2(895, 372), new Vector2(1050, 474) };
     RenderTexture runtimeTexture;
     AudioSource audioOut; AudioClip dealClip, chipClip;
@@ -152,15 +152,15 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
             int index = ChipIndex(amount); if (index < 0) break;
             amount -= settings.chipValues[index];
             var go = Instantiate(settings.chipPrefabs[index], world); Layer(go); chips.Add(go);
-            go.transform.position = Position(center + new Vector2((n % 3) * 18, -(n / 3) * 4)) + new Vector3(0, 0, -(n / 3) * .04f - (n % 3) * .02f);
-            go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(30);
+            go.transform.position = Position(center + new Vector2((n % 3) * 13, -(n / 3) * 3)) + new Vector3(0, 0, -(n / 3) * .04f - (n % 3) * .02f);
+            go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(22);
         }
     }
     void AnimateChip(int seat, int amount)
     {
         int index = ChipIndex(amount); if (index < 0) return;
         var go = Instantiate(settings.chipPrefabs[index], world); Layer(go);
-        go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(30);
+        go.transform.rotation = Quaternion.Euler(42, 0, -8); go.transform.localScale = Vector3.one * ScaleForWidth(22);
         Play(chipClip, .6f);
         StartCoroutine(ChipMotion(go, Position(Stacks[seat]), Position(Bets[seat])));
     }
