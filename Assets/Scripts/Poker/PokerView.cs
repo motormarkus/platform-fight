@@ -22,6 +22,7 @@ public sealed class PokerView : MonoBehaviour
     Text logText, pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
     RawImage[] turnGlows = new RawImage[5]; Texture2D glowTexture;
+    GameObject[] dotBubbles = new GameObject[5]; GameObject[][] dotItems = new GameObject[5][];   // miettivän botin kolme animoitua pistettä pään vieressä
     GameObject[] bubbles = new GameObject[5]; Text[] bubbleTexts = new Text[5]; string[] lastActions = new string[5]; float[] bubbleUntil = new float[5];
     GameObject[] blindBadges = new GameObject[5]; Text[] blindTexts = new Text[5];
     Button fold, call, raise, allIn, deal, rebuy, minus, plus, leave;
@@ -80,11 +81,13 @@ public sealed class PokerView : MonoBehaviour
     AudioSource audioSource;
     PokerCardWorldLayer worldCards;
     // Pelipaikat on järjestetty pöydän ympäri myötäpäivään: Sinä, Puliukko, Yakuza, Prätkäjätkä, Rokkimimmi.
-    static readonly Vector2[] SeatPos = { new Vector2(560, 548), new Vector2(25, 385), new Vector2(395, 284), new Vector2(790, 286), new Vector2(1110, 380) };
+    static readonly Vector2[] SeatPos = { new Vector2(560, 548), new Vector2(25, 385), new Vector2(290, 152), new Vector2(881, 137), new Vector2(1110, 380) };
     // Hehkun keskipiste ja koko (x, y, leveys, korkeus) hahmon kohdalla.
     static readonly Vector4[] GlowCenter = { Vector4.zero, new Vector4(150, 235, 380, 340), new Vector4(450, 150, 420, 320), new Vector4(850, 155, 420, 320), new Vector4(1150, 255, 380, 340) };
     // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
     static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(550, 240), new Vector2(970, 258), new Vector2(1264, 350) };
+    // Miettimispisteiden paikka (vasen yläkulma) hahmon pään vieressä, poissa paneelien, logon ja nappien päältä.
+    static readonly Vector2[] DotPos = { Vector2.zero, new Vector2(222, 150), new Vector2(350, 70), new Vector2(925, 70), new Vector2(1185, 135) };
     static readonly Vector2[] HolePos = { new Vector2(560, 448), new Vector2(168, 367), new Vector2(278, 242), new Vector2(923, 242), new Vector2(978, 367) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
@@ -155,8 +158,12 @@ public sealed class PokerView : MonoBehaviour
             if (i > 0)
             {
                 // Puhekupla: näyttää kuka miettii ja mitä botti teki.
-                var bubble = Panel(root, new Rect(rect.x + rect.width / 2 - 85, i == 2 || i == 3 ? 192 : i == 4 ? 286 : rect.y - 66, 170, 30), new Color(.04f, .03f, .02f, .93f)); bubble.name = "Puhekupla";
+                var bubble = Panel(root, new Rect(i == 2 ? rect.x - 10 : i == 3 ? rect.x + 10 : rect.x + rect.width / 2 - 85, i == 2 || i == 3 ? rect.y - 29 : i == 4 ? 286 : rect.y - 66, 170, 30), new Color(.04f, .03f, .02f, .93f)); bubble.name = "Puhekupla";
                 bubbleTexts[i] = Label(bubble.transform, new Rect(0, 0, 170, 30), "", 21, Gold); bubbles[i] = bubble.gameObject; bubble.gameObject.SetActive(false);
+                var dots = Panel(root, new Rect(DotPos[i].x, DotPos[i].y, 50, 22), new Color(.04f, .03f, .02f, .93f)); dots.name = "Miettimispisteet";
+                dotItems[i] = new GameObject[3];
+                for (int d = 0; d < 3; d++) { var dot = Panel(dots.transform, new Rect(9 + d * 13, 7, 8, 8), Gold); dot.sprite = CircleSprite(); dotItems[i][d] = dot.gameObject; }   // pyöreät, fontista riippumattomat pisteet
+                dotBubbles[i] = dots.gameObject; dots.gameObject.SetActive(false);
             }
         }
         Box(root, new Rect(560, 296, 165, 44));
@@ -467,6 +474,22 @@ public sealed class PokerView : MonoBehaviour
         }
         tex.SetPixels32(px); tex.Apply(false, true); return tex;
     }
+    static Sprite circleSprite;
+    /// Pehmeäreunainen pyöreä pistekuva (luodaan koodilla).
+    static Sprite CircleSprite()
+    {
+        if (circleSprite != null) return circleSprite;
+        const int n = 32;
+        var tex = new Texture2D(n, n, TextureFormat.RGBA32, false) { filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp };
+        var px = new Color32[n * n];
+        for (int y = 0; y < n; y++) for (int x = 0; x < n; x++)
+        {
+            float d = Vector2.Distance(new Vector2(x + .5f, y + .5f), new Vector2(n / 2f, n / 2f)) / (n / 2f);
+            px[y * n + x] = new Color32(255, 255, 255, (byte)Mathf.RoundToInt(Mathf.Clamp01((1f - d) * (n / 2f) / 1.5f) * 255));
+        }
+        tex.SetPixels32(px); tex.Apply(false, true);
+        return circleSprite = Sprite.Create(tex, new Rect(0, 0, n, n), new Vector2(.5f, .5f), 100f);
+    }
     void UpdateBubbles()
     {
         if (host == null || !host.Visible || host.Cash.Table == null) return;
@@ -474,8 +497,14 @@ public sealed class PokerView : MonoBehaviour
         for (int i = 1; i < 5; i++)
         {
             if (bubbles[i] == null) continue;
-            string text = t.Running && t.Actor == i ? "Miettii…" : Time.unscaledTime < bubbleUntil[i] ? lastActions[i] : null;
+            bool thinking = t.Running && t.Actor == i;
+            string text = thinking ? null : Time.unscaledTime < bubbleUntil[i] ? lastActions[i] : null;
             bubbles[i].SetActive(!string.IsNullOrEmpty(text)); if (text != null) bubbleTexts[i].text = text;
+            if (dotBubbles[i] != null)
+            {
+                dotBubbles[i].SetActive(thinking);
+                if (thinking) { int n = 1 + (int)(Time.unscaledTime * 2.5f) % 3; for (int d = 0; d < 3; d++) dotItems[i][d].SetActive(d < n); }   // yksi, kaksi, kolme pistettä
+            }
         }
     }
     void LateUpdate()

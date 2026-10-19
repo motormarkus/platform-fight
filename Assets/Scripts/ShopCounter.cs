@@ -49,6 +49,8 @@ public class ShopCounter : MonoBehaviour
     public Area here;
     public float halfWidth = 4.5f;
     public float maxDistanceFromWall = 1.0f;
+    [Tooltip("Tiski avautuu vain myyjän (npcName, esim. Sohvi) kohdalta tämän verran molemmin puolin, ei koko tiskin leveydeltä. 0 = koko leveys. Jos myyjää ei löydy, käytetään koko leveyttä.")]
+    public float keeperHalfWidth = 2f;
 
     [Header("Äänet")]
     [Range(0f, 1f)] public float soundVolume = 0.9f;
@@ -142,12 +144,31 @@ public class ShopCounter : MonoBehaviour
         }
     }
 
+    Transform keeper; float nextKeeperSearch;
+    /// Myyjä (nimessä npcName), joka seisoo tiskin kohdalla: tiski avautuu hänen edestään.
+    Transform Keeper()
+    {
+        if (keeper != null || keeperHalfWidth <= 0f || Time.unscaledTime < nextKeeperSearch) return keeper;
+        nextKeeperSearch = Time.unscaledTime + 1f;
+        float best = halfWidth + 1.5f;
+        foreach (var n in FindObjectsByType<NpcIdle>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (n == null || !n.name.Contains(npcName)) continue;
+            float d = Mathf.Abs(n.transform.position.x - transform.position.x);
+            if (d < best) { best = d; keeper = n.transform; }
+        }
+        return keeper;
+    }
+
     /// Onko pelaaja tiskin edessä.
     bool NearFor(PlayerController q)
     {
         Vector3 p = q.transform.position;
+        var k = Keeper();
+        float cx = k != null ? k.position.x : transform.position.x;
+        float hw = k != null ? Mathf.Min(keeperHalfWidth, halfWidth) : halfWidth;
         return !q.GameOver && q.enabled
-            && Mathf.Abs(p.x - transform.position.x) <= halfWidth
+            && Mathf.Abs(p.x - cx) <= hw
             && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
             && q.AirHeight <= 0.05f
             && !PieWar.LinseyPrompt

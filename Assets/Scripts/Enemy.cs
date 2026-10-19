@@ -556,6 +556,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float passTurnInterval = 2.5f;
     bool boardLost;
     float lastMoveX = 1f;
+    int pushedSamples;       // peräkkäiset mittaukset, joissa liike oli vastakkainen aiottuun (joukon työntö)
     float walkDirectionX;
 
     public int maxHealth = 60;
@@ -1527,8 +1528,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 Vector3 travelled = transform.position - motionSampleStart;
                 sampledMoving = travelled.sqrMagnitude > 0.0025f;
                 // Tormays ei saa kaantaa kuvaa vastakkaiseen suuntaan kuin aiottu askel.
-                sampledWalkDirection = sampledMoving && Mathf.Abs(travelled.x) > 0.04f
-                    ? Mathf.Abs(travelled.x) * (lastMoveX != 0f ? lastMoveX : Mathf.Sign(travelled.x)) : 0f;
+                // Jos joukko työntää vihun kestävästi vastakkaiseen suuntaan (2 mittausta), kuva katsoo todelliseen liikkeeseen: ei kävellä takaperin.
+                float walkDir = 0f;
+                if (sampledMoving && Mathf.Abs(travelled.x) > 0.04f)
+                {
+                    float want = lastMoveX != 0f ? lastMoveX : Mathf.Sign(travelled.x);
+                    if (Mathf.Sign(travelled.x) == Mathf.Sign(want)) { pushedSamples = 0; walkDir = Mathf.Abs(travelled.x) * want; }
+                    else if (++pushedSamples >= 2) walkDir = travelled.x;
+                    else walkDir = Mathf.Abs(travelled.x) * want;
+                }
+                else pushedSamples = 0;
+                sampledWalkDirection = walkDir;
                 motionSampleStart = transform.position; motionSampleTime = 0f;
             }
             moving = sampledMoving; walkDirectionX = sampledWalkDirection;
@@ -1569,7 +1579,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float pace = running ? Mathf.Max(1f, runSpeedMultiplier) : 1f;
         separationStep.x = Mathf.Clamp(separationStep.x, -moveSpeedX * pace * dt, moveSpeedX * pace * dt);
         separationStep.y = Mathf.Clamp(separationStep.y, -moveSpeedY * pace * dt, moveSpeedY * pace * dt);
+        float keepMoveX = lastMoveX;   // erottelun työntö ei saa muuttaa kävelyn suuntaa (muuten vihu kävelee takaperin)
         Move(separationStep);
+        lastMoveX = keepMoveX;
     }
 
     static bool SeparatesNow(State s) =>

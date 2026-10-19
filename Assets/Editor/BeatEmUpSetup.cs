@@ -157,7 +157,7 @@ public static class BeatEmUpSetup
         ti.spriteImportMode = SpriteImportMode.Multiple;
         ti.spritePixelsPerUnit = ppu;
         ti.filterMode = FilterMode.Bilinear;
-        ti.textureCompression = TextureImporterCompression.Uncompressed;
+        ti.textureCompression = TextureImporterCompression.CompressedHQ;   // BC7: neljäsosa muistista pakkaamattomaan verrattuna (valikko 199)
         int big = Mathf.Max(w, h);
         ti.maxTextureSize = big > 4096 ? 8192 : big > 2048 ? 4096 : 2048;   // isot sheetit (esim. videosta) täysikokoisina
         ti.mipmapEnabled = false;
@@ -3971,7 +3971,7 @@ public static class BeatEmUpSetup
         if (t == null) return null;
         t.textureType = TextureImporterType.Sprite; t.spriteImportMode = SpriteImportMode.Single;
         t.spritePixelsPerUnit = ppu; t.filterMode = FilterMode.Bilinear; t.alphaIsTransparency = true;
-        t.textureCompression = TextureImporterCompression.Uncompressed; t.maxTextureSize = 8192; t.mipmapEnabled = false;
+        t.textureCompression = TextureImporterCompression.CompressedHQ; t.maxTextureSize = 8192; t.mipmapEnabled = false;   // BC7 (valikko 199)
         t.wrapMode = tiled ? TextureWrapMode.Repeat : TextureWrapMode.Clamp;
         var st = new TextureImporterSettings(); t.ReadTextureSettings(st);
         st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)align;
@@ -14314,5 +14314,39 @@ public static class BeatEmUpSetup
         Selection.activeGameObject = go;
         Info($"Jumppatyttö lisätty salin vasemmalle (x = {GymX0 + AerobicsX:0.0}): {seq.Count} kuvaa, yksi kierros n. {seq.Count * AerobicsFrameTime:0} s.\n" +
              "Liikkeet: askelkyykky, haarahypyt, etutaivutus, polvinosto/potku, hölkkä, kyykyt selin.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Muistin säästö ----------------
+    // Scenen sprite-tekstuurit olivat pakkaamattomia (4 tavua/pikseli): arvio n. 4,7 Gt muistia heti käynnistyksessä (Tools/MemoryReport.py).
+    // BC7-pakkaus (CompressedHQ) pienentää sen n. neljäsosaan; kuva näyttää piirrostyylille käytännössä samalta.
+    [MenuItem("Beat em up/199. Muistin säästö: pakkaa pakkaamattomat sprite-tekstuurit (BC7)")]
+    static void CompressSpriteTextures()
+    {
+        if (PlayModeBlocked()) return;
+        var paths = AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Sprites", "Assets/Resources" })
+            .Select(AssetDatabase.GUIDToAssetPath).Where(p => !p.Contains("/Poker/") && !p.Contains("/Valikko/")).ToList();   // pokerilla ja valikoilla oma tuontinsa
+        int changed = 0; double beforeMb = 0, afterMb = 0;
+        AssetDatabase.StartAssetEditing();
+        try
+        {
+            for (int i = 0; i < paths.Count; i++)
+            {
+                if (i % 50 == 0) EditorUtility.DisplayProgressBar("Pakataan tekstuureja", paths[i], i / (float)paths.Count);
+                var ti = AssetImporter.GetAtPath(paths[i]) as TextureImporter;
+                if (ti == null || ti.textureType != TextureImporterType.Sprite || ti.textureCompression != TextureImporterCompression.Uncompressed) continue;
+                ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+                if (w < 128 || h < 128) continue;   // pienet kuvat pakkaamattomina
+                float k = Mathf.Min(1f, ti.maxTextureSize / (float)Mathf.Max(w, h));
+                double px = w * k * h * k;
+                beforeMb += px * 4 / 1e6; afterMb += px / 1e6;
+                ti.textureCompression = TextureImporterCompression.CompressedHQ;
+                ti.crunchedCompression = false;
+                EditorUtility.SetDirty(ti);
+                ti.SaveAndReimport();
+                changed++;
+            }
+        }
+        finally { AssetDatabase.StopAssetEditing(); EditorUtility.ClearProgressBar(); }
+        Info($"Pakattu {changed} tekstuuria (BC7). Arvioitu muisti {beforeMb:0} Mt -> {afterMb:0} Mt.\nTarkista pelissä, että kuvat näyttävät samalta (hahmot, taustat, tekstit).\nPalautus: git checkout .meta-tiedostoihin.");
     }
 }
