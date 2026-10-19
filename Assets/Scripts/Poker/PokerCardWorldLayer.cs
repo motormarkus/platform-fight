@@ -18,7 +18,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
     static readonly Vector2[] Holes = { new Vector2(598, 496), new Vector2(190, 395), new Vector2(300, 270), new Vector2(945, 270), new Vector2(1000, 395) };
-    static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(380, 350), new Vector2(960, 346), new Vector2(1180, 484) };
+    static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(405, 246), new Vector2(815, 248), new Vector2(1180, 484) };
     static readonly Vector2[] Bets = { new Vector2(770, 482), new Vector2(300, 420), new Vector2(402, 382), new Vector2(885, 376), new Vector2(1050, 474) };
     RenderTexture runtimeTexture;
     AudioSource audioOut; AudioClip dealClip, chipClip;
