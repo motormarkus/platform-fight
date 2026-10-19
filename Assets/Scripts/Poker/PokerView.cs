@@ -19,7 +19,7 @@ public sealed class PokerView : MonoBehaviour
     Font font;
     Text[] names = new Text[5], stacks = new Text[5], bets = new Text[5];
     GameObject[] highlights = new GameObject[5];
-    Text pot, status, callText, raiseText, amountText, walletText, message, phase;
+    Text logText, pot, status, callText, raiseText, amountText, walletText, message, phase;
     RectTransform dealer;
     RawImage[] turnGlows = new RawImage[5]; Texture2D glowTexture;
     GameObject[] bubbles = new GameObject[5]; Text[] bubbleTexts = new Text[5]; string[] lastActions = new string[5]; float[] bubbleUntil = new float[5];
@@ -145,11 +145,11 @@ public sealed class PokerView : MonoBehaviour
         walletText = Label(root, new Rect(1000, 105, 265, 30), "", 19, Gold);
         for (int i = 0; i < 5; i++)
         {
-            var pos = SeatPos[i]; var rect = new Rect(pos.x, pos.y, i == 4 ? 145 : 140, i == 0 ? 54 : 74);   // botilla oma tilarivi lohkon sisällä (merkkipinot peittäisivät sen ulkopuolella)
+            var pos = SeatPos[i]; var rect = new Rect(pos.x, pos.y, i == 4 ? 145 : 140, i == 0 ? 54 : 66);   // botilla oma tilarivi lohkon sisällä (merkkipinot peittäisivät sen ulkopuolella)
             Box(root, rect); highlights[i] = Frame(root, new Rect(rect.x - 5, rect.y - 5, rect.width + 10, rect.height + 10));
-            names[i] = Label(root, new Rect(rect.x, rect.y + 3, rect.width, 20), "", 19, Color.white);
-            stacks[i] = Label(root, new Rect(rect.x, rect.y + 22, rect.width, 29), "", 27, Gold);
-            bets[i] = i == 0 ? Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white) : Label(root, new Rect(rect.x, rect.y + 52, rect.width, 20), "", 16, Color.white);
+            names[i] = Label(root, new Rect(rect.x, rect.y + 2, rect.width, 20), "", 18, Color.white);
+            stacks[i] = Label(root, new Rect(rect.x, rect.y + 20, rect.width, 28), "", i == 0 ? 27 : 25, Gold);
+            bets[i] = i == 0 ? Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white) : Label(root, new Rect(rect.x, rect.y + 46, rect.width, 18), "", 14, Color.white);
             var badge = Panel(root, new Rect(rect.x - 12, rect.y - 14, 40, 24), new Color(.95f, .85f, .45f)); badge.name = "Blindimerkki";
             blindTexts[i] = Label(badge.transform, new Rect(0, 0, 40, 24), "", 19, Color.black); blindBadges[i] = badge.gameObject;
             if (i > 0)
@@ -166,7 +166,11 @@ public sealed class PokerView : MonoBehaviour
         SetRect(dealer, new Rect(735, 275, 80, 40));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
-        message = Label(root, new Rect(110, 554, 440, 50), "", 22, Color.white);
+        message = Label(root, new Rect(400, 452, 480, 30), "", 20, Color.white);
+        // Tapahtumahistoria vasemmalla alhaalla: viimeisimmät toiminnot, uusin alimpana.
+        Panel(root, new Rect(18, 468, 372, 134), new Color(0, 0, 0, .42f));
+        logText = Label(root, new Rect(26, 470, 358, 130), "", 16, Color.white);
+        logText.alignment = TextAnchor.LowerLeft; logText.supportRichText = true; logText.horizontalOverflow = HorizontalWrapMode.Wrap;
         Panel(root, new Rect(0, 606, 1280, 114), new Color(.025f, .025f, .025f, .98f));
         status = Label(root, new Rect(18, 620, 265, 60), "", 30, Gold);
         fold = Button(new Rect(305, 617, 220, 62), "Luovuta", 1, () => Submit(PokerAction.Fold));
@@ -294,7 +298,8 @@ public sealed class PokerView : MonoBehaviour
         walletText.text = (host.Demo ? "TESTIRAHA  " : "Lompakko  ") + host.Cash.Wallet.ToString("N0") + " mk";
         status.text = host.Error != null ? "Virhe" : between ? "Seuraava jako" : t.Actor < 0 ? "" : t.Actor == 0 ? "SINUN VUOROSI" : t.Seats[t.Actor].Name + " miettii…";
         if (runoutActive) { status.text = "All-in!"; phase.text = "KORTIT AVAUTUVAT"; }
-        message.text = host.Error ?? (runoutActive ? "Jännitys tiivistyy…" : t.Running && t.Actor > 0 ? t.Seats[t.Actor].Name + " miettii…" : t.Message);
+        message.text = host.Error ?? (runoutActive ? "Jännitys tiivistyy…" : "");
+        UpdateLog(t);
         var dp = DealerPos[Math.Max(0, t.Dealer)]; dealer.anchoredPosition = new Vector2(dp.x - dealer.sizeDelta.x / 2, -(dp.y - dealer.sizeDelta.y / 2));
         dealer.gameObject.SetActive(t.Dealer >= 0);
         for (int i = 1; i <= 4; i++) if (turnGlows[i] != null) turnGlows[i].gameObject.SetActive(t.Running && t.Actor == i);
@@ -339,6 +344,45 @@ public sealed class PokerView : MonoBehaviour
         }
         runoutActive = false; runoutRoutine = null;
         if (host != null && host.Visible) { shownRevision = -1; Render(); }
+    }
+
+    // Tapahtumahistoria
+    readonly List<string> log = new List<string>();
+    readonly string[] loggedActions = new string[5];
+    int logHand = -1; PokerStreet logStreet; int logResultHand = -1;
+    void AddLog(string line) { log.Add(line); if (log.Count > 40) log.RemoveAt(0); }
+    void UpdateLog(PokerTable t)
+    {
+        if (logHand != t.HandNumber)
+        {
+            logHand = t.HandNumber; logStreet = PokerStreet.BetweenHands; Array.Clear(loggedActions, 0, loggedActions.Length);
+            if (t.HandNumber > 0) AddLog("<color=#e8c86a>— Jako " + t.HandNumber + " —</color>");
+        }
+        if (t.Running && t.Street != logStreet && t.Street != PokerStreet.Preflop && t.Street != PokerStreet.BetweenHands)
+        {
+            logStreet = t.Street;
+            AddLog("<color=#8fd3c0>" + (t.Street == PokerStreet.Flop ? "Flop" : t.Street == PokerStreet.Turn ? "Turn" : "River") + ": " + string.Join(" ", t.Board.Select(PokerCards.Text)) + "</color>");
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            string la = t.Seats[i].LastAction ?? "";
+            if (la == loggedActions[i]) continue;
+            loggedActions[i] = la;
+            if (la.Length > 0 && !la.Contains("blindi")) AddLog(t.Seats[i].Name + ": " + la);
+        }
+        if (!t.Running && !runoutActive && t.Street == PokerStreet.Complete && logResultHand != t.HandNumber)
+        {
+            logResultHand = t.HandNumber; AddLog("<color=#ffffff><b>" + t.Message + "</b></color>");
+        }
+        int from = Math.Max(0, log.Count - 6); var sb = new System.Text.StringBuilder();
+        for (int i = from; i < log.Count; i++)
+        {
+            string line = log[i]; bool tagged = line.StartsWith("<");
+            sb.Append(i == log.Count - 1 || tagged ? line : "<color=#c9c2ad>" + line + "</color>");
+            if (i < log.Count - 1) sb.Append('
+');
+        }
+        logText.text = sb.ToString();
     }
 
     void RenderCards()
