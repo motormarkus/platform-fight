@@ -10498,6 +10498,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -12531,6 +12532,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -13394,6 +13396,7 @@ MonoBehaviour:
   returnToLastDoor: 1
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -21781,6 +21784,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -36041,6 +36045,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -44977,6 +44982,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -45141,6 +45147,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -48542,6 +48549,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -54844,54 +54852,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &976021867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 976021869}
-  - component: {fileID: 976021868}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &976021868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976021867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 86213.99, y: -1.1488615}
-  areaName: Aavikkokatu
-  sceneName: Aavikko
---- !u!4 &976021869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976021867}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976346244
 GameObject:
   m_ObjectHideFlags: 0
@@ -55928,6 +55888,7 @@ MonoBehaviour:
   returnToLastDoor: 1
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -72710,6 +72671,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -80708,6 +80670,7 @@ MonoBehaviour:
   returnToLastDoor: 1
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -94440,6 +94403,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -97463,6 +97427,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -121906,6 +121871,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -122147,6 +122113,7 @@ MonoBehaviour:
   returnToLastDoor: 0
   faceLeftOnArrival: 0
   atFront: 0
+  autoTrigger: 0
   needsJunkyardKey: 0
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
@@ -127097,4 +127064,3 @@ SceneRoots:
   - {fileID: 270872287}
   - {fileID: 50513859}
   - {fileID: 1889188337}
-  - {fileID: 976021869}
