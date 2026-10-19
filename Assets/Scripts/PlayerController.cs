@@ -1717,7 +1717,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (specialPressed && specialSprites != null && specialSprites.Length > 0 && UseStamina(specialStamina))
                 {
-                    Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); PlayGruntSpecial(); break;
+                    Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); specialFxDone = false; PlayGruntSpecial(); break;
                 }
                 if (Skating)
                 {
@@ -3158,8 +3158,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (Mathf.Abs(p.x - me.x) > specialReach || Mathf.Abs(p.y - me.y) > attackDepth + 0.15f) continue;
             if (c.TakeHit(specialDamage)) { specialCrates.Add(c); any = true; }
         }
-        if (any) HitFx.OnHit(true);
+        if (!any) return;
+        // koko erikoisliikkeestä vain ensimmäinen osuma tärähtää ja pysäyttää; loput vain äänenä, ettei peli pätki joukon keskellä
+        if (specialFxDone) HitFx.OnHitQuiet();
+        else { specialFxDone = true; HitFx.OnHit(true); }
     }
+    bool specialFxDone;
 
     /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
     /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.

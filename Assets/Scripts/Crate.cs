@@ -410,6 +410,7 @@ public class Crate : MonoBehaviour
         if (height > 3.4f) return false;   // lentää päiden yli (heitetään pään yläpuolelta: osuu korkealtakin)
         Vector3 me = transform.position;
         bool any = false;
+        bool firstHit = alreadyHit.Count == 0 && alreadyHitLinsey.Count == 0;   // vain heiton ensimmäinen osuma tärähtää ja pysäyttää
         foreach (var e in Enemy.All.ToArray())
         {
             if (e == null || e.IsDead) continue;
@@ -427,7 +428,11 @@ public class Crate : MonoBehaviour
             if (Mathf.Abs(lp.x - me.x) > hitRadiusX || Mathf.Abs(lp.y - me.y) > EnemyHitRadiusY) continue;
             if (lin.TableHit(me.x - Mathf.Sign(vel.x))) { any = true; alreadyHitLinsey.Add(lin); }
         }
-        if (any) HitFx.OnHit(true);
+        if (any)
+        {
+            if (firstHit) HitFx.OnHit(true);
+            else HitFx.OnHitQuiet();   // joukon läpi lentäessä seuraavat osumat vain äänenä, ettei peli nykisi
+        }
         return any;
     }
 

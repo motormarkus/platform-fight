@@ -14008,4 +14008,311 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(first.gameObject.scene);
         Info($"Ravintolan alku vapautettu Sohvin kohdalle asti: poistettu {removed} poytaa tavaroineen, sijoitettu {moved} vihua oikeammalle. Tallenna Ctrl+S.");
     }
+
+    // ---------------- Kadun alku vasemmalle: Boxing & Gym ----------------
+    // katu_vasen_sali.png (1536 x 1024): kadun jatko vasemmalle, sama mittakaava ja jalkakäytävä kuin katu_sarja.png.
+    // sali_boxing_N.png: salin sisäkuvat vasemmalta oikealle (1 = vasen reuna); uudet kuvat lisätään numerojärjestyksessä ja valikko ajetaan uudelleen.
+    // sali_ikkuna_talot.png ja sali_ikkuna_tie.png: ikkunoista näkyvä katu (kaukainen talorivi ja lähempi jalkakäytävä + tie).
+    const string GymStreetPath = "Assets/Sprites/Taustat/katu_vasen_sali.png";
+    const string GymInteriorFmt = "Assets/Sprites/Taustat/sali_boxing_{0}.png";
+    const string GymViewFarPath = "Assets/Sprites/Taustat/sali_ikkuna_talot.png";
+    const string GymViewNearPath = "Assets/Sprites/Taustat/sali_ikkuna_tie.png";
+    const float GymDoorPx = 630f;                         // kaksoisoven keskikohta katukuvassa (px vasemmasta reunasta)
+    const float GymPPU = 85f, GymFloorRow = 575f;         // sisäkuva täyttää ruudun korkeussuunnassa; lattian takaraja (seinän juuri) rivillä
+    const float GymWindowBottomRow = 440f;                // ikkunoiden alareuna sisäkuvassa
+    const float GymViewPPU = 52f;                         // ikkunanäkymän mittakaava = katu
+    const float GymFarGroundRow = 835f, GymNearGroundRow = 712f;   // jalkakäytävän yläreuna talokuvassa ja tiekuvassa
+    const float GymX0 = 110000f;
+    const float GymOverlapPx = 48f;   // sisäkuvat limittyvät näin monta px (Tools/GymAssets/make_gym_images.py häivyttää reunan): sauma ei näy
+    const float GymImageStridePx = 1536f - GymOverlapPx;
+    const float GymExitDoorPx = 542f;   // sisäkuvan 2 kaksoisoven keskikohta (px)
+
+    [MenuItem("Beat em up/196. Kadun alku vasemmalle: Boxing & Gym -sali (ikkunaparallax)")]
+    static void AddGymStreetAndInterior()
+    {
+        if (PlayModeBlocked()) return;
+        var street = GameObject.Find("Tausta");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        var cam = Camera.main;
+        var follow = Object.FindFirstObjectByType<CameraFollow>();
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (street == null || streetArea == null || cam == null || follow == null || pc == null)
+        { Info("Tarvitaan katutausta (kohta 4), katualue (kohta 10), kamera ja pelaaja."); return; }
+        var interiorPaths = new List<string>();
+        for (int i = 1; File.Exists(string.Format(GymInteriorFmt, i)); i++) interiorPaths.Add(string.Format(GymInteriorFmt, i));
+        foreach (var path in new[] { GymStreetPath, GymViewFarPath, GymViewNearPath })
+            if (!File.Exists(path)) { Info("Puuttuu kuva " + path); return; }
+        if (interiorPaths.Count == 0) { Info("Puuttuu salin ensimmäinen kuva " + string.Format(GymInteriorFmt, 1)); return; }
+
+        foreach (var n in new[] { "Kadun vasen jatko", "Salin tausta", "Salin ikkuna kaukana", "Salin ikkuna lähellä", "Salin ovet" })
+        { var o = GameObject.Find(n); if (o != null) Undo.DestroyObjectImmediate(o); }
+
+        // --- katu vasemmalle ---
+        var streetSprite = ImportShipSprite(GymStreetPath, BackgroundPPU, false, SpriteAlignment.Center);
+        float streetW = streetSprite.rect.width / BackgroundPPU;
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float oldLeft = street.transform.position.x - ssr.size.x * 0.5f;
+        var ext = new GameObject("Kadun vasen jatko");
+        var esr = ext.AddComponent<SpriteRenderer>();
+        esr.sprite = streetSprite; esr.sortingOrder = -10000;
+        ext.transform.position = new Vector3(oldLeft - streetW * 0.5f, street.transform.position.y, 0f);   // sama korkeus: jalkakäytävä jatkuu suoraan
+        Undo.RegisterCreatedObjectUndo(ext, "Kadun vasen jatko");
+        float newLeft = oldLeft - streetW;
+        float halfW = cam.orthographicSize * 16f / 9f;
+        Undo.RecordObject(follow, "Kameran rajat"); follow.minX = newLeft + halfW; EditorUtility.SetDirty(follow);
+        Undo.RecordObject(streetArea, "Kameran rajat"); streetArea.camMinX = newLeft + halfW; EditorUtility.SetDirty(streetArea);
+
+        // --- sali sisältä ---
+        float camY = cam.transform.position.y;
+        float x = GymX0, hU = 0f;
+        var bgRoot = new GameObject("Salin tausta");
+        Undo.RegisterCreatedObjectUndo(bgRoot, "Salin tausta");
+        for (int i = 0; i < interiorPaths.Count; i++)
+        {
+            var spr = ImportShipSprite(interiorPaths[i], GymPPU, false, SpriteAlignment.Center);
+            float w = spr.rect.width / GymPPU; hU = spr.rect.height / GymPPU;
+            var part = new GameObject("Salin kuva " + (i + 1));
+            part.transform.SetParent(bgRoot.transform, false);
+            var sr = part.AddComponent<SpriteRenderer>();
+            sr.sprite = spr; sr.sortingOrder = -10000 + i;   // ikkunat ovat puoliläpinäkyviä: takana oleva katu paistaa läpi; seuraava kuva häivyttyy edellisen päälle
+            part.transform.position = new Vector3(x + w * 0.5f, camY, 0f);
+            x += w - GymOverlapPx / GymPPU;
+        }
+        float totalW = x + GymOverlapPx / GymPPU - GymX0;
+        float top = camY + hU * 0.5f;
+
+        var gym = ReuseArea("Alue: Nyrkkeilysali");
+        gym.areaName = "Nyrkkeilysali";
+        gym.maxDepthY = top - GymFloorRow / GymPPU;
+        gym.minDepthY = pc.minDepthY;
+        gym.useSidewalk = false;
+        gym.camMinX = GymX0 + halfW;
+        gym.camMaxX = Mathf.Max(gym.camMinX, GymX0 + totalW - halfW);   // yksi kuva (18 yks.) on ruutua kapeampi: kamera pysyy paikallaan
+        gym.walkMinX = GymX0 + 0.8f;
+        gym.walkMaxX = GymX0 + totalW - 0.8f;
+
+        // --- ikkunoista näkyvä katu (kaukainen talorivi liikkuu hitaammin kuin lähempi jalkakäytävä ja tie) ---
+        float windowBottomY = top - GymWindowBottomRow / GymPPU;
+        float groundY = windowBottomY + 1.0f;   // jalkakäytävä näkyy ikkunan alaosassa
+        var refCam = new Vector2(gym.camMinX, camY);
+        var far = new GameObject("Salin ikkuna kaukana").AddComponent<SpriteRenderer>();
+        far.sprite = ImportShipSprite(GymViewFarPath, GymViewPPU, false, SpriteAlignment.Center); far.sortingOrder = -10200;
+        var near = new GameObject("Salin ikkuna lähellä").AddComponent<SpriteRenderer>();
+        near.sprite = ImportShipSprite(GymViewNearPath, GymViewPPU, false, SpriteAlignment.Center); near.sortingOrder = -10100;
+        Undo.RegisterCreatedObjectUndo(far.gameObject, "Salin ikkuna"); Undo.RegisterCreatedObjectUndo(near.gameObject, "Salin ikkuna");
+        float farY = groundY - (512f - GymFarGroundRow) / GymViewPPU;     // kuvan keskipiste niin, että jalkakäytävän yläreuna on groundY:ssä
+        float nearY = groundY - (512f - GymNearGroundRow) / GymViewPPU;
+        var farFx = far.gameObject.AddComponent<InteriorWindowParallax>();
+        farFx.area = gym; farFx.anchor = new Vector2(refCam.x, farY); farFx.cameraReference = refCam; farFx.factor = 0.07f;
+        var nearFx = near.gameObject.AddComponent<InteriorWindowParallax>();
+        nearFx.area = gym; nearFx.anchor = new Vector2(refCam.x, nearY); nearFx.cameraReference = refCam; nearFx.factor = 0.12f;
+        far.transform.position = farFx.anchor; near.transform.position = nearFx.anchor;
+
+        // --- ovet: kadulta saliin ja takaisin ---
+        var doors = new GameObject("Salin ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Salin ovet");
+        float doorX = newLeft + GymDoorPx / BackgroundPPU;
+        // sisällä ovi on kuvan 2 kaksoisovi: sieltä tullaan sisään ja sinne mennään ulos; ilman kuvaa 2 salin vasen reuna
+        bool hasDoor = interiorPaths.Count >= 2;
+        float exitX = hasDoor ? GymX0 + GymImageStridePx / GymPPU + GymExitDoorPx / GymPPU : GymX0 + 1.2f;
+        var enter = new GameObject("Kadulta saliin").AddComponent<Door>();
+        enter.transform.SetParent(doors.transform, false);
+        enter.transform.position = new Vector3(doorX, streetArea.maxDepthY - 0.25f, 0f);
+        enter.prompt = "Mene saliin"; enter.here = streetArea; enter.target = gym;
+        enter.spawnPoint = hasDoor ? new Vector2(exitX, Mathf.Lerp(gym.maxDepthY, gym.minDepthY, 0.25f)) : new Vector2(GymX0 + 3.2f, (gym.minDepthY + gym.maxDepthY) * 0.5f);
+        enter.halfWidth = 1.4f; enter.maxDistanceFromWall = 0.9f;
+        var exit = new GameObject("Salista kadulle").AddComponent<Door>();
+        exit.transform.SetParent(doors.transform, false);
+        // uloskäynti: sisäkuvan 2 kaksoisovi (keskikohta GymExitDoorPx); jos kuvaa 2 ei ole, salin vasen reuna
+        exit.transform.position = new Vector3(exitX, hasDoor ? gym.maxDepthY : gym.minDepthY, 0f);
+        exit.prompt = "Ulos kadulle"; exit.here = gym; exit.target = streetArea; exit.returnToLastDoor = true;
+        exit.halfWidth = hasDoor ? 1.8f : 2.2f; exit.maxDistanceFromWall = hasDoor ? 1.1f : 100f;
+        exit.spawnPoint = new Vector2(doorX, streetArea.maxDepthY - 0.25f);
+
+        EditorUtility.SetDirty(gym);
+        EditorSceneManager.MarkSceneDirty(bgRoot.scene);
+        Selection.activeGameObject = ext;
+        Info($"Katu jatkuu vasemmalle {streetW:0.0} yksikköä (Boxing & Gym). Sali: {interiorPaths.Count} kuva(a), ikkunoista näkyy katu parallaksilla.\n" +
+             $"Ovi saliin: x = {doorX:0.0} (E tai B). Ulos pääsee salin kaksoisovesta (E tai B).\n" +
+             "Lisää salin seuraavat kuvat nimillä sali_boxing_2.png jne. ja aja tämä valikko uudelleen.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Nyrkkeilykehä (lähikuva, portaista sisään) ----------------
+    // sali_kehakuva.png (16:9): kehän sisäpuoli; portaat ovat salin kuvassa 3 (px GymStairsPx), ja kuvassa 3 kehän etureunan rivi on GymStairsRow.
+    const string RingPath = "Assets/Sprites/Taustat/sali_kehakuva.png";
+    const float RingX0 = 112000f;
+    const float GymStairsPx = 515f, GymStairsRow = 615f;                 // porrasaskelmien keskikohta ja jalat salin kuvassa 3
+    const float RingBackRow = 485f, RingFrontRow = 680f;                  // kehän lattian takaraja ja etuosa kehäkuvassa (rivi 941 px korkeassa kuvassa)
+    const float RingWalkLeftPx = 140f, RingWalkRightPx = 1530f;
+    const float RingWindowBottomRow = 360f;                               // ikkunoiden alareuna kehäkuvassa
+
+    [MenuItem("Beat em up/197. Nyrkkeilykehä: portaat salista (kehän sisäkuva)")]
+    static void AddBoxingRing()
+    {
+        if (PlayModeBlocked()) return;
+        var gym = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Nyrkkeilysali");
+        var cam = Camera.main;
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (gym == null || cam == null || pc == null) { Info("Aja ensin valikko 196 (katu ja sali)."); return; }
+        if (!File.Exists(RingPath)) { Info("Puuttuu kuva " + RingPath); return; }
+        if (!File.Exists(string.Format(GymInteriorFmt, 3))) { Info("Portaat ovat salin kuvassa 3 (" + string.Format(GymInteriorFmt, 3) + ")."); return; }
+        foreach (var n in new[] { "Kehän tausta", "Kehän ovet", "Kehän ikkuna kaukana", "Kehän ikkuna lähellä" })
+        { var o = GameObject.Find(n); if (o != null) Undo.DestroyObjectImmediate(o); }
+
+        var ti = AssetImporter.GetAtPath(RingPath) as TextureImporter;
+        ti.GetSourceTextureWidthAndHeight(out int tw, out int th);
+        float ppu = th / 12f;   // kuva täyttää ruudun korkeussuunnassa
+        var sprite = ImportShipSprite(RingPath, ppu, false, SpriteAlignment.Center);
+        float wU = tw / ppu;
+        float camY = cam.transform.position.y;
+        float top = camY + 6f;
+        float halfW = cam.orthographicSize * 16f / 9f;
+
+        var bg = new GameObject("Kehän tausta");
+        var sr = bg.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(RingX0 + wU * 0.5f, camY, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Kehän tausta");
+
+        var ring = ReuseArea("Alue: Nyrkkeilykehä");
+        ring.areaName = "Nyrkkeilykehä";
+        ring.maxDepthY = top - RingBackRow / ppu;
+        ring.minDepthY = top - RingFrontRow / ppu;
+        ring.useSidewalk = false;
+        ring.backScale = 0.92f;
+        ring.camMinX = ring.camMaxX = RingX0 + wU * 0.5f;   // kuva täyttää ruudun: kamera paikallaan
+        ring.walkMinX = RingX0 + RingWalkLeftPx / ppu;
+        ring.walkMaxX = RingX0 + RingWalkRightPx / ppu;
+
+        // ikkunoista näkyvä katu (sama kuin salissa; kamera on kehässä paikallaan, joten näkymä on paikallaan)
+        float ringWindowBottomY = top - RingWindowBottomRow / ppu;
+        float ringGroundY = ringWindowBottomY + 1.0f;
+        float ringCamX = ring.camMinX;
+        var rFar = new GameObject("Kehän ikkuna kaukana").AddComponent<SpriteRenderer>();
+        rFar.sprite = ImportShipSprite(GymViewFarPath, GymViewPPU, false, SpriteAlignment.Center); rFar.sortingOrder = -10200;
+        var rNear = new GameObject("Kehän ikkuna lähellä").AddComponent<SpriteRenderer>();
+        rNear.sprite = ImportShipSprite(GymViewNearPath, GymViewPPU, false, SpriteAlignment.Center); rNear.sortingOrder = -10100;
+        Undo.RegisterCreatedObjectUndo(rFar.gameObject, "Kehän ikkuna"); Undo.RegisterCreatedObjectUndo(rNear.gameObject, "Kehän ikkuna");
+        var rFarFx = rFar.gameObject.AddComponent<InteriorWindowParallax>();
+        rFarFx.area = ring; rFarFx.anchor = new Vector2(ringCamX, ringGroundY - (512f - GymFarGroundRow) / GymViewPPU);
+        rFarFx.cameraReference = new Vector2(ringCamX, camY); rFarFx.factor = 0.07f;
+        var rNearFx = rNear.gameObject.AddComponent<InteriorWindowParallax>();
+        rNearFx.area = ring; rNearFx.anchor = new Vector2(ringCamX, ringGroundY - (512f - GymNearGroundRow) / GymViewPPU);
+        rNearFx.cameraReference = new Vector2(ringCamX, camY); rNearFx.factor = 0.12f;
+        rFar.transform.position = rFarFx.anchor; rNear.transform.position = rNearFx.anchor;
+
+        var doors = new GameObject("Kehän ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Kehän ovet");
+        // portaat salissa (kuva 3): pelaaja seisoo porrasaskelmien edessä
+        float gymTop = gym.maxDepthY + GymFloorRow / GymPPU;
+        float stairsX = GymX0 + 2f * GymImageStridePx / GymPPU + GymStairsPx / GymPPU;
+        float stairsY = gymTop - GymStairsRow / GymPPU;
+        var up = new GameObject("Portaat kehään").AddComponent<Door>();
+        up.transform.SetParent(doors.transform, false);
+        up.transform.position = new Vector3(stairsX, stairsY, 0f);
+        up.prompt = "Nouse kehään"; up.here = gym; up.target = ring;
+        up.spawnPoint = new Vector2(ring.walkMinX + 2.2f, (ring.minDepthY + ring.maxDepthY) * 0.5f);
+        up.onGround = true; up.groundHalfDepth = 1.0f; up.halfWidth = 1.3f;
+        var down = new GameObject("Kehästä portaille").AddComponent<Door>();
+        down.transform.SetParent(doors.transform, false);
+        down.transform.position = new Vector3(ring.walkMinX + 0.3f, ring.minDepthY, 0f);
+        down.prompt = "Poistu kehästä"; down.here = ring; down.target = gym; down.returnToLastDoor = true;
+        down.halfWidth = 1.8f; down.maxDistanceFromWall = 100f;   // vasen reuna (portaiden puoli)
+        down.spawnPoint = new Vector2(stairsX, stairsY);
+
+        EditorUtility.SetDirty(ring);
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Selection.activeGameObject = bg;
+        Info($"Nyrkkeilykehä lisätty. Portaat salin kuvassa 3 (x = {stairsX:0.0}): E tai B vie kehään, ulos pääsee kehän vasemmasta reunasta.\n" +
+             "Kehän lattia: syvyys " + ring.minDepthY.ToString("0.00") + " … " + ring.maxDepthY.ToString("0.00") + ".\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Jumppatyttö saliin ----------------
+    // Assets/Sprites/Jumppa/jumppa_1..7.png (Tools/GymAssets/make_jumppa_sheets.py): 7 harjoitusliikettä, kukin 10 x 8 ruutua (320 x 400 px, 10 fps).
+    // Jalkojen kohta ruudun rivillä 384 (pivot alhaalla 16 px:n marginaalilla).
+    const string AerobicsDir = "Assets/Sprites/Jumppa/";
+    const float AerobicsFrameTime = 0.1f, AerobicsScale = 1.1f, AerobicsX = 5.3f;
+
+    static Sprite[] SliceAerobicsSheet(string path)
+    {
+        const int cellW = 320, cellH = 400;
+        AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+        var ti = (TextureImporter)AssetImporter.GetAtPath(path);
+        if (ti == null) return null;
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        if (w % cellW != 0 || h % cellH != 0) return null;
+        ti.textureType = TextureImporterType.Sprite;
+        ti.spriteImportMode = SpriteImportMode.Multiple;
+        ti.spritePixelsPerUnit = 100f;
+        ti.filterMode = FilterMode.Bilinear;
+        ti.alphaIsTransparency = true;
+        ti.mipmapEnabled = false;
+        ti.maxTextureSize = 4096;
+        ti.textureCompression = TextureImporterCompression.CompressedHQ;   // 7 arkkia x 3200 x 3200: pakkaamattomana muistiin yli 270 Mt
+        ti.SaveAndReimport();
+        var factory = new SpriteDataProviderFactories();
+        factory.Init();
+        var dp = factory.GetSpriteEditorDataProviderFromObject(ti);
+        dp.InitSpriteEditorDataProvider();
+        var oldIds = dp.GetSpriteRects().GroupBy(r => r.name).ToDictionary(g => g.Key, g => g.First().spriteID);
+        string baseName = Path.GetFileNameWithoutExtension(path);
+        var rects = new List<SpriteRect>();
+        for (int r = 0; r < h / cellH; r++)
+            for (int c = 0; c < w / cellW; c++)
+            {
+                string n = $"{baseName}_{rects.Count:00}";
+                rects.Add(new SpriteRect
+                {
+                    name = n, rect = new Rect(c * cellW, h - (r + 1) * cellH, cellW, cellH),
+                    alignment = SpriteAlignment.Custom, pivot = new Vector2(0.5f, 16f / cellH),
+                    spriteID = oldIds.TryGetValue(n, out GUID id) ? id : GUID.Generate(),
+                });
+            }
+        dp.SetSpriteRects(rects.ToArray());
+        dp.GetDataProvider<ISpriteNameFileIdDataProvider>()?.SetNameFileIdPairs(rects.Select(r => new SpriteNameFileIdPair(r.name, r.spriteID)));
+        dp.Apply();
+        ti.SaveAndReimport();
+        return AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
+            .OrderBy(s => int.Parse(s.name.Substring(s.name.LastIndexOf('_') + 1))).ToArray();
+    }
+
+    [MenuItem("Beat em up/198. Jumppatyttö saliin vasemmalle (7 harjoitusliikettä)")]
+    static void AddAerobicsGirl()
+    {
+        if (PlayModeBlocked()) return;
+        var gym = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Nyrkkeilysali");
+        if (gym == null) { Info("Aja ensin valikko 196 (katu ja sali)."); return; }
+        var sheets = new Sprite[8][];
+        for (int i = 1; i <= 7; i++)
+        {
+            sheets[i] = SliceAerobicsSheet($"{AerobicsDir}jumppa_{i}.png");
+            if (sheets[i] == null || sheets[i].Length < 80) { Info($"Puuttuu tai on väärän kokoinen: {AerobicsDir}jumppa_{i}.png"); return; }
+        }
+        // Liikkeet peräkkäin niin, että jokainen liitos on sama asento: 1 (seisoo edestä) -> 4 haarahypyt -> 5 etutaivutus (menee ja palaa) -> 6 polvi/potku -> 7 hölkkä
+        // -> 2 kyykky (kääntyy selin) -> 3 kyykky selin -> 2 takaperin (kääntyy takaisin edestä) -> alkuun.
+        var seq = new List<Sprite>();
+        void Add(int sheet, bool reverse)
+        {
+            var f = sheets[sheet];
+            if (!reverse) seq.AddRange(f);
+            else for (int i = f.Length - 2; i >= 1; i--) seq.Add(f[i]);   // ilman päätykuvia: ei tuplakuvia liitoksissa
+        }
+        Add(1, false); Add(4, false); Add(5, false); Add(5, true); Add(6, false); Add(7, false); Add(2, false); Add(3, false); Add(2, true);
+
+        var old = GameObject.Find("Jumppatyttö");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Jumppatyttö");
+        Undo.RegisterCreatedObjectUndo(go, "Jumppatyttö");
+        float y = Mathf.Lerp(gym.maxDepthY, gym.minDepthY, 0.35f);
+        go.transform.position = new Vector3(GymX0 + AerobicsX, y, 0f);
+        go.transform.localScale = Vector3.one * AerobicsScale;
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = seq[0]; sr.sortingOrder = Mathf.RoundToInt(-y * 100f);   // sama järjestys kuin hahmoilla: edessä kävelevä peittää hänet
+        var dancer = go.AddComponent<Dancer>();
+        dancer.sprites = seq.ToArray(); dancer.frameTime = AerobicsFrameTime; dancer.keepOrder = true;
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Selection.activeGameObject = go;
+        Info($"Jumppatyttö lisätty salin vasemmalle (x = {GymX0 + AerobicsX:0.0}): {seq.Count} kuvaa, yksi kierros n. {seq.Count * AerobicsFrameTime:0} s.\n" +
+             "Liikkeet: askelkyykky, haarahypyt, etutaivutus, polvinosto/potku, hölkkä, kyykyt selin.\n\nTallenna scene (Ctrl+S).");
+    }
 }
