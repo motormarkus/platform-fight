@@ -14594,6 +14594,7 @@ public static class BeatEmUpSetup
         }
 
         // 5) siirto
+        var unsureNames = unsure.Where(u => u != null).Select(u => u.name).Take(8).ToList();   // nimet ennen siirtoa: siirretyt oliot tuhoutuvat scenen sulkemisessa
         var areaNames = move.SelectMany(g => g.GetComponentsInChildren<Area>(true)).Select(a => a.areaName).Distinct().ToList();
         Directory.CreateDirectory("Assets/Scenes/Areas");
         var sc = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
@@ -14611,7 +14612,7 @@ public static class BeatEmUpSetup
         Info((ok ? "Kenttä " + level + " siirretty omaan sceneensä: " + scenePath : "Scenen tallennus epäonnistui!") + "\n" +
              "Siirretty " + move.Count + " juuriolioa, alueet: " + string.Join(", ", areaNames) + ".\n" +
              "Korjattu ovia: " + (doorFix.Distinct().Count() + rideFix.Distinct().Count()) + ", aloituskohtia: " + startFix.Distinct().Count() + ". Scene lisätty Build Settingsiin, pääscene tallennettu.\n" +
-             (unsure.Count > 0 ? "Paikattomia olioita (jäivät pääsceneen ellei viittauksista selvinnyt): " + string.Join(", ", unsure.Take(8).Select(u => u.name)) + "\n" : "") +
+             (unsureNames.Count > 0 ? "Paikattomia olioita (jäivät pääsceneen ellei viittauksista selvinnyt): " + string.Join(", ", unsureNames) + "\n" : "") +
              "\nKentän muokkaus: avaa " + level + ".unity pääscenen rinnalle (hiiren oikea > Open Scene Additive).");
     }
 

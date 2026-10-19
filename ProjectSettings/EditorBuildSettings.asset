@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Areas/UccoLaiva.unity
     guid: 503b8114027ddd146a37263a41798b0c
+  - enabled: 1
+    path: Assets/Scenes/Areas/Aavikko.unity
+    guid: 8e0e37e7d6677924bbce8c497f60702a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
