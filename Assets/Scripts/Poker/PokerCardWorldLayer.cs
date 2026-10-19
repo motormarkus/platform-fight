@@ -78,7 +78,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 68 : 28), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
+                        Holes[i] + new Vector2(k * (i == 0 ? 68 : 28), 0), i == 0 ? 60 : 43, i == 0 ? (k == 0 ? 6 : -6) : (k == 0 ? -6 : 6),
                         win == null ? 0 : win.Contains(table.Seats[i].Hole[k]) ? 1 : -1,
                         (k * 5 + (i - table.Dealer - 1 + 10) % 5) * .09f);
                 }
