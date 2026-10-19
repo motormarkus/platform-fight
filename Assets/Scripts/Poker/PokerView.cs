@@ -84,7 +84,7 @@ public sealed class PokerView : MonoBehaviour
     // Hehkun keskipiste ja koko (x, y, leveys, korkeus) hahmon kohdalla.
     static readonly Vector4[] GlowCenter = { Vector4.zero, new Vector4(150, 235, 380, 340), new Vector4(450, 150, 420, 320), new Vector4(850, 155, 420, 320), new Vector4(1150, 255, 380, 340) };
     // Jakajan nappi paneelin yläpuolelle, poissa korttien ja merkkipinojen päältä.
-    static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(550, 240), new Vector2(970, 258), new Vector2(1210, 364) };
+    static readonly Vector2[] DealerPos = { new Vector2(745, 578), new Vector2(125, 369), new Vector2(550, 240), new Vector2(970, 258), new Vector2(1264, 350) };
     static readonly Vector2[] HolePos = { new Vector2(560, 448), new Vector2(168, 367), new Vector2(278, 242), new Vector2(923, 242), new Vector2(978, 367) };
 
     Texture2D tableTex, panelTex; Material tableMat, panelMat;
@@ -155,7 +155,7 @@ public sealed class PokerView : MonoBehaviour
             if (i > 0)
             {
                 // Puhekupla: näyttää kuka miettii ja mitä botti teki.
-                var bubble = Panel(root, new Rect(rect.x + rect.width / 2 - 85, rect.y - 66, 170, 30), new Color(.04f, .03f, .02f, .93f)); bubble.name = "Puhekupla";
+                var bubble = Panel(root, new Rect(rect.x + rect.width / 2 - 85, i == 2 || i == 3 ? 192 : i == 4 ? 286 : rect.y - 66, 170, 30), new Color(.04f, .03f, .02f, .93f)); bubble.name = "Puhekupla";
                 bubbleTexts[i] = Label(bubble.transform, new Rect(0, 0, 170, 30), "", 21, Gold); bubbles[i] = bubble.gameObject; bubble.gameObject.SetActive(false);
             }
         }
@@ -166,7 +166,7 @@ public sealed class PokerView : MonoBehaviour
         SetRect(dealer, new Rect(735, 275, 60, 30));
         if (art.dealerMarker != null) { var im = dealer.gameObject.AddComponent<Image>(); im.sprite = art.dealerMarker; im.preserveAspect = true; im.raycastTarget = false; }
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
-        message = Label(root, new Rect(400, 452, 480, 30), "", 20, Color.white);
+        message = Label(root, new Rect(392, 570, 168, 30), "", 18, Color.white);
         // Tapahtumahistoria vasemmalla alhaalla: viimeisimmät toiminnot, uusin alimpana.
         Panel(root, new Rect(18, 468, 372, 134), new Color(0, 0, 0, .42f));
         logText = Label(root, new Rect(26, 470, 358, 130), "", 16, Color.white);
