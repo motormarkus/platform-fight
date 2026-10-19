@@ -12,12 +12,14 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     Camera camera3D;
     Transform world;
     readonly Dictionary<string, PokerCardPresenter> cards = new Dictionary<string, PokerCardPresenter>();
+    // Jokaiselle kortille oma syvyys: samassa tasossa päällekkäin olevat kortit eivät "vilku läpi" (z-fight).
+    readonly Dictionary<string, int> cardOrder = new Dictionary<string, int>(); int nextOrder;
     readonly Dictionary<string, int> shown = new Dictionary<string, int>();
     readonly Dictionary<string, int> animations = new Dictionary<string, int>();
     readonly List<GameObject> chips = new List<GameObject>();
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
-    static readonly Vector2[] Holes = { new Vector2(601, 496), new Vector2(203, 395), new Vector2(456, 254), new Vector2(874, 254), new Vector2(1180, 352) };
+    static readonly Vector2[] Holes = { new Vector2(601, 496), new Vector2(195, 395), new Vector2(448, 254), new Vector2(866, 254), new Vector2(1172, 352) };
     static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(345, 318), new Vector2(732, 302), new Vector2(1180, 484) };
     static readonly Vector2[] Bets = { new Vector2(770, 482), new Vector2(300, 420), new Vector2(402, 382), new Vector2(885, 376), new Vector2(1050, 474) };
     RenderTexture runtimeTexture;
@@ -54,7 +56,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         {
             lastHand = table.HandNumber;
             foreach (var p in cards.Values) if (p != null) Destroy(p.gameObject);
-            cards.Clear(); shown.Clear(); animations.Clear(); System.Array.Clear(lastBets, 0, lastBets.Length);
+            cards.Clear(); cardOrder.Clear(); nextOrder = 0; shown.Clear(); animations.Clear(); System.Array.Clear(lastBets, 0, lastBets.Length);
         }
         // Loppunäytös: voittokäsien viisi korttia nostetaan esiin, muut himmennetään.
         HashSet<int> win = null;
@@ -76,7 +78,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 62 : 28), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
+                        Holes[i] + new Vector2(k * (i == 0 ? 62 : 44), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
                         win == null ? 0 : win.Contains(table.Seats[i].Hole[k]) ? 1 : -1,
                         (k * 5 + (i - table.Dealer - 1 + 10) % 5) * .09f);
                 }
@@ -113,7 +115,8 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     {
         bool fresh = !cards.TryGetValue(slot, out var presenter) || presenter == null;
         if (fresh) { presenter = Instantiate(settings.cardPrefab, world); cards[slot] = presenter; Layer(presenter.gameObject); }
-        Vector3 target = Position(emphasis > 0 ? pixel + new Vector2(0, -14) : pixel) + (emphasis > 0 ? new Vector3(0, 0, -1.2f) : Vector3.zero); Quaternion rotation = Quaternion.Euler(settings.cardTableEuler + new Vector3(0, 0, turn));
+        if (!cardOrder.TryGetValue(slot, out int order)) cardOrder[slot] = order = nextOrder++;
+        Vector3 target = Position(emphasis > 0 ? pixel + new Vector2(0, -14) : pixel) + new Vector3(0, 0, -order * .03f - (emphasis > 0 ? 1.2f : 0f)); Quaternion rotation = Quaternion.Euler(settings.cardTableEuler + new Vector3(0, 0, turn));
         float scale = ScaleForWidth(faceUp ? width : width * .85f) * settings.cardWorldScale * (emphasis > 0 ? 1.1f : 1f);
         int visible = faceUp ? card : -1;
         bool flip = shown.TryGetValue(slot, out int previous) && previous < 0 && faceUp;
