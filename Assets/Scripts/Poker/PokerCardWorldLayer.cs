@@ -76,7 +76,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 63 : 45), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
+                        Holes[i] + new Vector2(k * (i == 0 ? 68 : 54), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
                         win == null ? 0 : win.Contains(table.Seats[i].Hole[k]) ? 1 : -1,
                         (k * 5 + (i - table.Dealer - 1 + 10) % 5) * .09f);
                 }
@@ -114,7 +114,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         bool fresh = !cards.TryGetValue(slot, out var presenter) || presenter == null;
         if (fresh) { presenter = Instantiate(settings.cardPrefab, world); cards[slot] = presenter; Layer(presenter.gameObject); }
         Vector3 target = Position(emphasis > 0 ? pixel + new Vector2(0, -14) : pixel) + (emphasis > 0 ? new Vector3(0, 0, -1.2f) : Vector3.zero); Quaternion rotation = Quaternion.Euler(settings.cardTableEuler + new Vector3(0, 0, turn));
-        float scale = ScaleForWidth(width) * settings.cardWorldScale * (emphasis > 0 ? 1.2f : 1f);
+        float scale = ScaleForWidth(width) * settings.cardWorldScale * (emphasis > 0 ? 1.1f : 1f);
         int visible = faceUp ? card : -1;
         bool flip = shown.TryGetValue(slot, out int previous) && previous < 0 && faceUp;
         presenter.SetCard(faceUp ? card : -1, faceUp); presenter.SetDim(emphasis < 0 && faceUp); shown[slot] = visible;
