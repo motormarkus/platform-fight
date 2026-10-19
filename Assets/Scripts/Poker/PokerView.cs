@@ -379,8 +379,7 @@ public sealed class PokerView : MonoBehaviour
         {
             string line = log[i]; bool tagged = line.StartsWith("<");
             sb.Append(i == log.Count - 1 || tagged ? line : "<color=#c9c2ad>" + line + "</color>");
-            if (i < log.Count - 1) sb.Append('
-');
+            if (i < log.Count - 1) sb.Append('\n');
         }
         logText.text = sb.ToString();
     }
