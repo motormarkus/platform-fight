@@ -17,7 +17,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
     readonly List<GameObject> chips = new List<GameObject>();
     readonly int[] lastBets = new int[5];
     int lastHand = -1, animationId;
-    static readonly Vector2[] Holes = { new Vector2(612, 496), new Vector2(203, 395), new Vector2(456, 254), new Vector2(874, 254), new Vector2(1180, 352) };
+    static readonly Vector2[] Holes = { new Vector2(601, 496), new Vector2(203, 395), new Vector2(456, 254), new Vector2(874, 254), new Vector2(1180, 352) };
     static readonly Vector2[] Stacks = { new Vector2(775, 535), new Vector2(195, 452), new Vector2(345, 318), new Vector2(732, 302), new Vector2(1180, 484) };
     static readonly Vector2[] Bets = { new Vector2(770, 482), new Vector2(300, 420), new Vector2(402, 382), new Vector2(885, 376), new Vector2(1050, 474) };
     RenderTexture runtimeTexture;
@@ -76,7 +76,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 42 : 28), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
+                        Holes[i] + new Vector2(k * (i == 0 ? 62 : 28), 0), i == 0 ? 60 : 43, k == 0 ? -6 : 6,
                         win == null ? 0 : win.Contains(table.Seats[i].Hole[k]) ? 1 : -1,
                         (k * 5 + (i - table.Dealer - 1 + 10) % 5) * .09f);
                 }
