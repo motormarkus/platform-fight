@@ -1408,7 +1408,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     Move(knockVel * dt);
                     knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 9f * dt);
                 }
-                if (stateTime >= downTime + (ringFall ? 0.6f : 0f))
+                if (stateTime >= downTime + (ringFall ? 0.6f : 0f) && !sparKO)
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
@@ -2123,6 +2123,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.KickCombo) { kicksDone = 0; kickSoundPlayed = false; rushAfterBar = false; }
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + (usingTireThrow ? tireThrowCooldown : barThrowCooldown); }
+        if (s == State.Airborne && state != State.Airborne) PickFallVariant();
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
         if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f);
@@ -3067,6 +3068,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         comboHits++; lastHitTime = Time.time;
         if (player != null && player.InPunchChain && !breaksCombos) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - damage);
+        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; }   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;   // käänny lyöjään päin
@@ -3099,6 +3101,32 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enter(State.Hurt);
         }
         return true;
+    }
+
+    [Header("Sparraus ja toinen kaatumistapa (Marcus)")]
+    [Tooltip("Sparraus: nollaan lyöty kaatuu mutta ei kuole (energia täyttyy takaisin).")]
+    public bool sparring;
+    /// Sparraus: energia loppui, makaa kanveesissa kunnes SparReset.
+    public bool SparKO => sparKO;
+    bool sparKO;
+    /// Hero lähti kehästä: Marcus herää, energia täyteen ja nousee ylös.
+    public void SparReset()
+    {
+        if (!sparKO) return;
+        sparKO = false; health = maxHealth;
+        if (state == State.Down) Enter(State.GetUp);
+    }
+    [Tooltip("Vaihtoehtoinen kaatuminen (ilma, makuu, ylösnousu): arvotaan joka kaatumisella tavallisen rinnalla.")]
+    public Sprite[] knockdownAltSprites, landAltSprites, getUpAltSprites;
+    Sprite[] kdMain, landMain, getUpMain;
+    void PickFallVariant()
+    {
+        if (!Has(knockdownAltSprites) || !Has(getUpAltSprites)) return;
+        if (kdMain == null) { kdMain = knockdownSprites; landMain = landSprites; getUpMain = getUpSprites; }
+        bool alt = sparKO || Random.value < 0.5f;   // kanveesiin lyöty jää aina käsien nojaan (toinen kaatuminen)
+        knockdownSprites = alt ? knockdownAltSprites : kdMain;
+        landSprites = alt ? (Has(landAltSprites) ? landAltSprites : null) : landMain;
+        getUpSprites = alt ? getUpAltSprites : getUpMain;
     }
 
     bool counterActive;                       // yleinen vastaisku käynnissä (panssari, lyhyt lataus)

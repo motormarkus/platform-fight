@@ -2823,10 +2823,38 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         invulnTimer = Mathf.Max(invulnTimer, 0.8f);
     }
 
+    /// Sparraus kehässä (MarcusBoxer asettaa): osumat eivät tapa pelaajaa.
+    public static bool Sparring;
+    /// Sparrauksessa energia loppui: MarcusBoxer kaataa heron, näyttää YOU LOSE ja vie kehän ulkopuolelle.
+    public static System.Action<PlayerController> SparDefeated;
+
+    /// Kaataa heron maahan ilman vahinkoa (sparrauksen häviö); ohittaa osuma- ja kaatumissuojat.
+    public void SparKnockOut(float attackerX)
+    {
+        bool fromRight = attackerX > transform.position.x;
+        DropCrate();
+        Bottle.DropHeld(this);
+        Chair.DropHeld(transform.position);
+        Pan.DropHeld(this);
+        Cue.DropHeld(transform.position);
+        LifeRing.DropHeld(transform.position);
+        Lid.DropHeld(transform.position);
+        facingRight = fromRight;
+        heldRot = 0f;
+        height = Mathf.Max(height, 0.05f);
+        airVel = new Vector2(fromRight ? -3.5f : 3.5f, 0f);
+        verticalVel = 5f;
+        pendingDamage = 0;
+        HitFx.OnHit(true);
+        Enter(State.Thrown);
+        knockedDown = true;
+    }
+
     void ApplyDamage(int damage)
     {
         if (IsDrunk) damage = Mathf.CeilToInt(damage * drunkDamageTaken);
-        health = Mathf.Max(0, health - damage);
+        health = Mathf.Max(Sparring ? 1 : 0, health - damage);   // sparraus (Marcus): ei kuole
+        if (Sparring && health <= 1 && SparDefeated != null) SparDefeated(this);   // energia loppui sparrauksessa: häviö (MarcusBoxer)
         if (health <= 0) { health = 0; if (!GameOver) DeadAt = Time.time; GameOver = true; }   // yksi energiapalkki: ei elämiä
     }
     /// Elämät loppuivat.
