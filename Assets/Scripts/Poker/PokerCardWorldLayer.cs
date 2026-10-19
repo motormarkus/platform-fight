@@ -114,7 +114,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         bool fresh = !cards.TryGetValue(slot, out var presenter) || presenter == null;
         if (fresh) { presenter = Instantiate(settings.cardPrefab, world); cards[slot] = presenter; Layer(presenter.gameObject); }
         Vector3 target = Position(emphasis > 0 ? pixel + new Vector2(0, -14) : pixel) + (emphasis > 0 ? new Vector3(0, 0, -1.2f) : Vector3.zero); Quaternion rotation = Quaternion.Euler(settings.cardTableEuler + new Vector3(0, 0, turn));
-        float scale = ScaleForWidth(width) * settings.cardWorldScale * (emphasis > 0 ? 1.1f : 1f);
+        float scale = ScaleForWidth(faceUp ? width : width * .85f) * settings.cardWorldScale * (emphasis > 0 ? 1.1f : 1f);
         int visible = faceUp ? card : -1;
         bool flip = shown.TryGetValue(slot, out int previous) && previous < 0 && faceUp;
         presenter.SetCard(faceUp ? card : -1, faceUp); presenter.SetDim(emphasis < 0 && faceUp); shown[slot] = visible;
