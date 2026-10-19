@@ -106,11 +106,11 @@ public sealed class PokerView : MonoBehaviour
         walletText = Label(root, new Rect(1000, 105, 265, 30), "", 19, Gold);
         for (int i = 0; i < 5; i++)
         {
-            var pos = SeatPos[i]; var rect = new Rect(pos.x, pos.y, i == 4 ? 145 : 140, 54);
+            var pos = SeatPos[i]; var rect = new Rect(pos.x, pos.y, i == 4 ? 145 : 140, i == 0 ? 54 : 74);   // botilla oma tilarivi lohkon sisällä (merkkipinot peittäisivät sen ulkopuolella)
             Box(root, rect); highlights[i] = Frame(root, new Rect(rect.x - 5, rect.y - 5, rect.width + 10, rect.height + 10));
             names[i] = Label(root, new Rect(rect.x, rect.y + 3, rect.width, 20), "", 19, Color.white);
             stacks[i] = Label(root, new Rect(rect.x, rect.y + 22, rect.width, 29), "", 27, Gold);
-            bets[i] = Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white);
+            bets[i] = i == 0 ? Label(root, new Rect(rect.x - 20, rect.y + 55, rect.width + 40, 24), "", 17, Color.white) : Label(root, new Rect(rect.x, rect.y + 52, rect.width, 20), "", 16, Color.white);
             var badge = Panel(root, new Rect(rect.x - 12, rect.y - 14, 40, 24), new Color(.95f, .85f, .45f)); badge.name = "Blindimerkki";
             blindTexts[i] = Label(badge.transform, new Rect(0, 0, 40, 24), "", 19, Color.black); blindBadges[i] = badge.gameObject;
             if (i > 0)
