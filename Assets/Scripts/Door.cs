@@ -87,7 +87,7 @@ public class Door : MonoBehaviour
 
     PlayerController pc;
     bool near;
-    float fade;   // 0 = näkyvä, 1 = musta
+    float fade { get { return ScreenFader.Alpha; } set { ScreenFader.Alpha = value; } }   // 0 = näkyvä, 1 = musta; pysyvä pimennys (ScreenFader)
 
     void Update()
     {
@@ -102,7 +102,7 @@ public class Door : MonoBehaviour
         if (pc == null) { near = false; confirming = false; return; }
         if (confirming)
         {
-            if (Pressed() || EnterPressed()) { confirming = false; StartCoroutine(Go()); }
+            if (Pressed() || EnterPressed()) { confirming = false; ScreenFader.Host.StartCoroutine(Go()); }
             else if (CancelPressed()) { confirming = false; SetAllEnabled(true); }
             return;
         }
@@ -112,7 +112,7 @@ public class Door : MonoBehaviour
         {
             if (!near || manhole != null || GuardsAlive || (needsJunkyardKey && !PieWar.JunkyardKey)) return;
             if (!AllNear()) { partnerMsgUntil = Time.unscaledTime + 0.5f; return; }
-            StartCoroutine(Go());
+            ScreenFader.Host.StartCoroutine(Go());
             return;
         }
         if (near && Pressed())
@@ -121,7 +121,7 @@ public class Door : MonoBehaviour
             else if ((needsJunkyardKey && !PieWar.JunkyardKey) || GuardsAlive) lockedMsgUntil = Time.unscaledTime + 3f;
             else if (!AllNear()) partnerMsgUntil = Time.unscaledTime + 2.5f;   // kaksinpeli: molempien pitää olla paikalla
             else if (!string.IsNullOrEmpty(confirmText)) { confirming = true; SetAllEnabled(false); }
-            else StartCoroutine(Go());
+            else ScreenFader.Host.StartCoroutine(Go());
         }
     }
 
@@ -242,6 +242,7 @@ public class Door : MonoBehaviour
         if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(pos.x);
 
         yield return new WaitForSecondsRealtime(0.1f);
+        yield return Area.FreeOtherScenes(dest, pc);   // vanha kenttä pois ja kuvat vapaiksi, kun ruutu on vielä musta
         if (arrivalOffsetY != 0f)
         {
             // saapuminen: hero liukuu paikalleen (tikkaita alas tai ylös kaivosta) pimennyksen hälvetessä, ohjaus vasta perillä
@@ -260,18 +261,13 @@ public class Door : MonoBehaviour
             fade = 0f;
             SetAllEnabled(true);
             busy = false;
-            UnloadLeftScene(dest);
             yield break;
         }
         SetAllEnabled(true);
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
         busy = false;
-        UnloadLeftScene(dest);
     }
-
-    /// Puretaan poistutut kenttäscenet vasta aivan lopussa: ovi itse on usein siinä scenessä, ja sen mukana loppuu myös tämä rutiini.
-    void UnloadLeftScene(Area dest) { Area.UnloadOtherScenes(dest, pc); }
 
     void DrawPartnerHint()
     {
@@ -289,14 +285,6 @@ public class Door : MonoBehaviour
 
     void OnGUI()
     {
-        if (fade > 0f)
-        {
-            if (black == null) { black = new Texture2D(1, 1); black.SetPixel(0, 0, Color.black); black.Apply(); }
-            GUI.depth = -100;
-            GUI.color = new Color(1f, 1f, 1f, fade);
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
-            GUI.color = Color.white;
-        }
         if (autoTrigger) { if (Time.unscaledTime < partnerMsgUntil) DrawPartnerHint(); return; }
         if (!near && !confirming) return;
         if (style == null)

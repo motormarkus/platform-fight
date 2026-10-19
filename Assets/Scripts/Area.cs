@@ -32,18 +32,23 @@ public class Area : MonoBehaviour
         return !string.IsNullOrEmpty(name) && registry.TryGetValue(name, out var a) && a != null ? a : null;
     }
 
-    /// Aluevaihdon jälkeen puretaan kaikki muut ladatut kenttäscenet paitsi kohdealueen ja pelaajan scene (muisti vapautuu).
-    /// Kutsutaan siirtymän aivan lopussa, koska siirtymän tekevä ovi voi olla purettavassa scenessä.
-    public static void UnloadOtherScenes(Area dest, PlayerController pc)
+    /// Aluevaihdon jälkeen puretaan kaikki muut ladatut kenttäscenet (paitsi kohdealueen ja pelaajan scene) ja vapautetaan niiden tekstuurit.
+    /// Kutsutaan mustan ruudun aikana: Unity ei vapauta purettujen scenejen kuvia itsestään (UnloadUnusedAssets), ja vapautus voi pysäyttää pelin hetkeksi.
+    public static System.Collections.IEnumerator FreeOtherScenes(Area dest, PlayerController pc)
     {
-        if (dest == null || pc == null) return;
+        if (dest == null || pc == null) yield break;
         Scene keepA = dest.gameObject.scene, keepB = pc.gameObject.scene;
+        var ops = new System.Collections.Generic.List<AsyncOperation>();
         for (int i = SceneManager.sceneCount - 1; i >= 0; i--)
         {
             var s = SceneManager.GetSceneAt(i);
             if (!s.isLoaded || s == keepA || s == keepB) continue;
-            SceneManager.UnloadSceneAsync(s);
+            var op = SceneManager.UnloadSceneAsync(s);
+            if (op != null) ops.Add(op);
         }
+        if (ops.Count == 0) yield break;
+        foreach (var op in ops) while (!op.isDone) yield return null;
+        yield return Resources.UnloadUnusedAssets();
     }
 
     void Awake() { if (!string.IsNullOrEmpty(areaName)) registry[areaName] = this; }

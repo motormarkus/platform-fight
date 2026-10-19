@@ -143,12 +143,12 @@ public class RideExit : MonoBehaviour
         }
         if (parkBike && CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(parkPoint.x);
         else if (CameraFollow.Instance != null) CameraFollow.Instance.SnapTo(spawnPoint.x);
+        yield return Area.FreeOtherScenes(dest, pc);   // vanha kenttä pois ja kuvat vapaiksi mustan ruudun aikana
         Time.timeScale = 1f;
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
         foreach (var bk in bikes) if (bk != null) bk.SetTravelLock(false);
         busy = false;
-        Area.UnloadOtherScenes(dest, pc);
     }
 
     static Texture2D black;
