@@ -55,3 +55,9 @@ Haara `codex/poker-handoff`. Unity 6000.3.18f1 / URP 2D. Tavoite: pilkkoa yksi i
 - Koodi: `Area.Find(nimi)` (aluerekisteri), `Door.targetName/targetScene/leaveScene`, `GameStart.areaName/sceneName`. `RideExit` ei vielä tue nimeä (tehdään UccoLaiva-vaiheessa).
 - Valikko 201 siirtää Thaitownin (`MoveLevelToScene`, yleinen; samaan tapaan UccoLaiva ja Aavikko). Se luokittelee juuriolioiden kentän sijainnin mukaan, keskeyttää jos viittaus ylittäisi rajan ja kirjaa alueet `Assets/Scenes/Areas/<kenttä>.areas.txt`-tiedostoon. Koordinaatteja EI siirretä lähelle origoa (skriptien kovakoodatut x-arvot rikkoutuisivat); float-tarkkuus ratkaistaan erikseen.
 - Vanhat rakennusvalikot (`GameObject.Find`) eivät löydä siirrettyjä alueita ennen kuin kentän scene avataan pääscenen rinnalle (Open Scene Additive).
+
+## Tilanne (päivitys, kaikki neljä kenttää jaettu)
+
+- Valmiit ja testatut: valikot 200 (sali+kehä), 201 (Thaitown), 202 (UccoLaiva), 203 (Aavikko+junat), 204 (junan katon oikea reuna -> Thaitownin laituri, `Door.autoTrigger`). Bricktown jää pääsceneen. Siirtymissä vanha kenttä puretaan automaattisesti (`Area.UnloadOtherScenes`).
+- Tekstuuriarvio (`python Tools/MemoryReportScenes.py`): pääscene 917 Mt (ennen 2141 Mt). Profilerin mittaus vielä tekemättä.
+- Jäljellä: Profiler-mittaus; float-tarkkuus kaukana (x>78000) ratkaisematta; vanhat rakennusvalikot (`GameObject.Find`) eivät löydä siirrettyjä alueita ilman että kenttäscene avataan pääscenen rinnalle; tallennus/co-op/pokerin rahat testaamatta scenevaihdon yli.

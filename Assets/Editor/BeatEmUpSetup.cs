@@ -14653,4 +14653,51 @@ public static class BeatEmUpSetup
             foreach (var sc in opened) EditorSceneManager.CloseScene(sc, true);
         }
     }
+
+    // ---------------- Junan katto -> Thaitownin laituri ----------------
+    // Kun pelaaja kävelee junan katon aivan oikeaan reunaan, juna saapuu Thaitownin laiturille: Thaitown ladataan, Aavikko puretaan.
+    [MenuItem("Beat em up/204. Junan katon oikea reuna vie Thaitownin laiturille")]
+    static void AddRoofToThaitown()
+    {
+        if (PlayModeBlocked()) return;
+        const string aavikkoPath = "Assets/Scenes/Areas/Aavikko.unity", thaiPath = "Assets/Scenes/Areas/Thaitown.unity";
+        if (!File.Exists(aavikkoPath) || !File.Exists(thaiPath)) { Info("Aja ensin valikot 201 ja 203 (Thaitown ja Aavikko omiin sceneihinsä)."); return; }
+        var main = EditorSceneManager.GetActiveScene();
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Open(string path)
+        {
+            var s = EditorSceneManager.GetSceneByPath(path);
+            if (s.IsValid() && s.isLoaded) return s;
+            s = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(s); return s;
+        }
+        try
+        {
+            var aav = Open(aavikkoPath); var thai = Open(thaiPath);
+            var roof = aav.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Area>(true)).FirstOrDefault(a => a.areaName == "Junan katto");
+            var quay = thai.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Area>(true)).FirstOrDefault(a => a.areaName == "Thaitown laituri");
+            if (roof == null || quay == null) { Info("Aluetta \"Junan katto\" tai \"Thaitown laituri\" ei löytynyt."); return; }
+
+            foreach (var g in aav.GetRootGameObjects().Where(g => g.name == "Katon Thaitown-yhteys").ToList()) Object.DestroyImmediate(g);
+            var root = new GameObject("Katon Thaitown-yhteys");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, aav);
+            var door = new GameObject("Katolta Thaitowniin").AddComponent<Door>();
+            door.transform.SetParent(root.transform, false);
+            door.transform.position = new Vector3(roof.walkMaxX - 0.5f, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.5f), 0f);
+            door.here = roof; door.target = null;
+            door.targetName = "Thaitown laituri"; door.targetScene = "Thaitown";
+            door.prompt = "Thaitown";
+            door.autoTrigger = true;
+            door.halfWidth = 0.6f;
+            door.onGround = true; door.groundHalfDepth = 100f;   // koko katon leveydeltä
+            door.fadeTime = 0.7f;
+            // juna pysähtyy laiturin alkuun
+            door.spawnPoint = new Vector2(quay.walkMinX + 6f, Mathf.Lerp(quay.maxDepthY, quay.minDepthY, 0.5f));
+            EditorUtility.SetDirty(door);
+            EditorSceneManager.MarkSceneDirty(aav);
+            EditorSceneManager.SaveScene(aav);
+            Info("Junan katon oikea reuna (x = " + door.transform.position.x.ToString("0.0") + ") vie nyt Thaitownin laiturille (x = " + door.spawnPoint.x.ToString("0.0") + ").\n" +
+                 "Testaa: valikko 139 (aloita junan katolta), kävele katon oikeaan reunaan.\nLaiturin saapumiskohdan voi muuttaa Aavikko-scenen oliosta Katolta Thaitowniin (Spawn Point).");
+        }
+        finally { foreach (var s in opened) EditorSceneManager.CloseScene(s, true); }
+    }
 }

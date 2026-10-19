@@ -32,6 +32,8 @@ public class Door : MonoBehaviour
     public bool faceLeftOnArrival;
     [Tooltip("Ovi on ruudun alareunassa (esim. dinerin uloskäynti): käytettävissä alueen etureunassa takarajan sijaan.")]
     public bool atFront;
+    [Tooltip("Ei kehotetta eikä nappia: siirtymä alkaa itsestään, kun (kaikki) pelaajat ovat oven kohdalla (esim. junan katon oikea reuna).")]
+    public bool autoTrigger;
     [Tooltip("Ovi on lukossa, kunnes piirakkasota on voitettu ja Linsey on antanut romuttamon avaimen.")]
     public bool needsJunkyardKey;
     [Tooltip("Ovi on lukossa, kunnes kaikki nämä viholliset on voitettu (esim. romuttamon pihan vartijat).")]
@@ -106,6 +108,13 @@ public class Door : MonoBehaviour
         }
 
         near = NearOk(pc) && !(blockedDuringFight && Enemy.HostileNear(transform.position, fightBlockRange));
+        if (autoTrigger)
+        {
+            if (!near || manhole != null || GuardsAlive || (needsJunkyardKey && !PieWar.JunkyardKey)) return;
+            if (!AllNear()) { partnerMsgUntil = Time.unscaledTime + 0.5f; return; }
+            StartCoroutine(Go());
+            return;
+        }
         if (near && Pressed())
         {
             if (manhole != null && !manhole.IsOpen) pc.TryLiftLid(manhole);   // kiinni oleva kansi: ensin nostetaan pois, sitten voi laskeutua
@@ -264,6 +273,17 @@ public class Door : MonoBehaviour
     /// Puretaan poistutut kenttäscenet vasta aivan lopussa: ovi itse on usein siinä scenessä, ja sen mukana loppuu myös tämä rutiini.
     void UnloadLeftScene(Area dest) { Area.UnloadOtherScenes(dest, pc); }
 
+    void DrawPartnerHint()
+    {
+        if (style == null)
+        {
+            style = new GUIStyle(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.032f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, wordWrap = true };
+            style.normal.textColor = Color.white;
+        }
+        float w = Screen.height * 0.9f, h = Screen.height * 0.065f;
+        GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), Loc.T("Molempien pelaajien pitää olla oven luona."), style);
+    }
+
     static Texture2D black;
     GUIStyle style;
 
@@ -277,6 +297,7 @@ public class Door : MonoBehaviour
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), black);
             GUI.color = Color.white;
         }
+        if (autoTrigger) { if (Time.unscaledTime < partnerMsgUntil) DrawPartnerHint(); return; }
         if (!near && !confirming) return;
         if (style == null)
         {
