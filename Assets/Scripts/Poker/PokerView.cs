@@ -35,7 +35,46 @@ public sealed class PokerView : MonoBehaviour
     readonly List<GameObject> cards = new List<GameObject>();
     readonly Dictionary<string, int> lastCards = new Dictionary<string, int>();
     readonly int[] lastBets = new int[5];
-    int lastHand = -1, boardHand = -1, revealedBoard;
+    int lastHand = -1, boardHand = -1, revealedBoard, voiceHand = -1;
+    // Hahmojen repliikit: voitosta ja tappiosta aina, luovutuksesta silloin tällöin. Resources/Poker/Voice/<Nimi>_Win|Lose|Fold.
+    static readonly string[] VoiceNames = { null, "Puliukko", "Yakuza", "Motoristi", "Rokkimimmi" };
+    readonly Dictionary<string, AudioClip> voiceClips = new Dictionary<string, AudioClip>();
+    readonly Queue<AudioClip> voiceQueue = new Queue<AudioClip>();
+    AudioSource voiceSource; Coroutine voiceRoutine;
+    const float FoldVoiceChance = .35f;
+    AudioClip VoiceClip(int seat, string kind)
+    {
+        if (seat < 1 || seat >= VoiceNames.Length) return null;
+        string key = VoiceNames[seat] + "_" + kind;
+        if (!voiceClips.TryGetValue(key, out var clip)) voiceClips[key] = clip = Resources.Load<AudioClip>("Poker/Voice/" + key);
+        return clip;
+    }
+    void Say(int seat, string kind)
+    {
+        // Tappio ja luovutus jakavat tarvittaessa saman repliikin (esim. vain Fold- tai vain Lose-tiedosto).
+        var clip = VoiceClip(seat, kind) ?? VoiceClip(seat, kind == "Lose" ? "Fold" : kind == "Fold" ? "Lose" : kind);
+        if (clip == null) return;
+        voiceQueue.Enqueue(clip);
+        if (voiceRoutine == null) voiceRoutine = StartCoroutine(VoiceLoop());
+    }
+    IEnumerator VoiceLoop()
+    {
+        while (voiceQueue.Count > 0)
+        {
+            var clip = voiceQueue.Dequeue();
+            if (voiceSource == null) { voiceSource = gameObject.AddComponent<AudioSource>(); voiceSource.playOnAwake = false; voiceSource.ignoreListenerPause = true; }
+            voiceSource.PlayOneShot(clip, GameSettings.SfxVolume);
+            yield return new WaitForSecondsRealtime(clip.length + .25f);
+        }
+        voiceRoutine = null;
+    }
+    void SayHandResult(PokerTable t)
+    {
+        var winners = new HashSet<int>();
+        foreach (var a in t.Awards) foreach (int w in a.Winners) winners.Add(w);
+        foreach (int w in winners) Say(w, "Win");
+        for (int i = 1; i < 5; i++) if (t.Seats[i].InHand && !t.Seats[i].Folded && !winners.Contains(i)) Say(i, "Lose");
+    }
     bool runoutActive; Coroutine runoutRoutine;
     EventSystem eventSystem;
     AudioSource audioSource;
@@ -149,6 +188,7 @@ public sealed class PokerView : MonoBehaviour
         eventSystem = events.GetComponent<EventSystem>();
         var module = events.GetComponent<InputSystemUIInputModule>(); module.AssignDefaultActions(); module.move = null; module.submit = null; module.cancel = null;
         inputAfter = Time.unscaledTime + .2f;
+        { var t0 = host.Cash.Table; if (t0 != null && !t0.Running) voiceHand = t0.HandNumber; }   // vanhan päättyneen jaon repliikkejä ei toisteta
         host.Changed += Render; Render();
     }
 
@@ -237,10 +277,11 @@ public sealed class PokerView : MonoBehaviour
         bool newRevision = shownRevision != t.Revision; shownRevision = t.Revision;
         if (newRevision) StartRunoutIfNeeded(t);
         if (runoutActive) between = false;
+        if (!t.Running && !runoutActive && t.Street == PokerStreet.Complete && voiceHand != t.HandNumber) { voiceHand = t.HandNumber; SayHandResult(t); }
         for (int i = 1; i < 5; i++)
         {
             string la = t.Seats[i].LastAction ?? "";
-            if (la != lastActions[i]) { lastActions[i] = la; if (la.Length > 0 && !la.Contains("blindi")) bubbleUntil[i] = Time.unscaledTime + 2.4f; }
+            if (la != lastActions[i]) { lastActions[i] = la; if (t.Running && (la == "Luovutti" || la.StartsWith("Poistui")) && UnityEngine.Random.value < FoldVoiceChance) Say(i, "Fold"); if (la.Length > 0 && !la.Contains("blindi")) bubbleUntil[i] = Time.unscaledTime + 2.4f; }
         }
         rendering = true;
         for (int i = 0; i < 5; i++)
