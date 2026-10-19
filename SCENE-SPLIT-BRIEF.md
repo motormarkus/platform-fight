@@ -47,3 +47,11 @@ Haara `codex/poker-handoff`. Unity 6000.3.18f1 / URP 2D. Tavoite: pilkkoa yksi i
 - Aluevaihto ja ovet ovat suoria viittauksia: iso työ, tee vaiheittain ja testaa joka vaiheen jälkeen.
 - Älä lupaa muistisäästöä ilman Profilerin lukua; vertaa aina saman tilanteen mittaus (Play 20–30 s, Stop, Memory-moduulin Simple-näkymä, Textures-rivi). Tarkempi mittaus: asenna Memory Profiler -paketti tai tee Windows Development Build.
 - Kuvaus alueiden riippuvuuksista (mikä viittaa mihin) puuttuu; selvitä ensin skriptillä tai koodihaulla ennen kuin siirrät mitään.
+
+## Tilanne 19.10. (päivitys)
+
+- Päätetty jako neljään kenttään: **Bricktown** (katu, S-Club, katto, takakuja, kadun baari, baari, kadun viemäri; jää pääsceneen pelaajan, kameran ja valikoiden kanssa), **UccoLaiva** (valtatie, Uccopulco, El Loippari, laiva, komentosilta, katto, kopterin rahtitila), **Aavikko** (aavikko … juna, aavikon viemäri), **Thaitown**. Sali+kehä on jo omassa scenessään (valikko 200, `Nyrkkeilysali.unity`).
+- Kenttien väliset yhteydet: kuja → valtatie (`RideExit`), kopteri → aavikko (`Door`), juna → Thaitown (ei vielä yhteyttä, Thaitownin voi aloittaa vain `GameStart`illa).
+- Koodi: `Area.Find(nimi)` (aluerekisteri), `Door.targetName/targetScene/leaveScene`, `GameStart.areaName/sceneName`. `RideExit` ei vielä tue nimeä (tehdään UccoLaiva-vaiheessa).
+- Valikko 201 siirtää Thaitownin (`MoveLevelToScene`, yleinen; samaan tapaan UccoLaiva ja Aavikko). Se luokittelee juuriolioiden kentän sijainnin mukaan, keskeyttää jos viittaus ylittäisi rajan ja kirjaa alueet `Assets/Scenes/Areas/<kenttä>.areas.txt`-tiedostoon. Koordinaatteja EI siirretä lähelle origoa (skriptien kovakoodatut x-arvot rikkoutuisivat); float-tarkkuus ratkaistaan erikseen.
+- Vanhat rakennusvalikot (`GameObject.Find`) eivät löydä siirrettyjä alueita ennen kuin kentän scene avataan pääscenen rinnalle (Open Scene Additive).

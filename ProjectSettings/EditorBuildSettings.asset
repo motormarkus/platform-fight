@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Areas/Nyrkkeilysali.unity
+    guid: 8e06f5b87aef92643931530e1e0a92b4
+  - enabled: 1
+    path: Assets/Scenes/Areas/Thaitown.unity
+    guid: 2d6244dd69c82f840a404e52d397b91b
+  - enabled: 1
+    path: Assets/Scenes/Areas/UccoLaiva.unity
+    guid: 503b8114027ddd146a37263a41798b0c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

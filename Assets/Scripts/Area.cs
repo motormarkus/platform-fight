@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Pelialue (esim. katu tai S-Club sisältä): kävelyalueen syvyysrajat, jalkakäytävä ja kameran rajat.
@@ -18,6 +19,39 @@ public class Area : MonoBehaviour
     [Range(0f, 2f)] public float ambienceVolume = 1f;
     /// Alue, jolla pelaaja on (viimeksi asetettu).
     public static Area Current;
+
+    // Aluerekisteri: alue ilmoittautuu nimellään, kun se latautuu. Ovi voi etsiä kohteensa nimellä, vaikka alue on omassa sceneensä.
+    static readonly System.Collections.Generic.Dictionary<string, Area> registry = new System.Collections.Generic.Dictionary<string, Area>();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetRegistry() { registry.Clear(); }
+
+    /// Ladattu alue nimen mukaan (null, jos sitä ei ole ladattuna).
+    public static Area Find(string name)
+    {
+        return !string.IsNullOrEmpty(name) && registry.TryGetValue(name, out var a) && a != null ? a : null;
+    }
+
+    /// Aluevaihdon jälkeen puretaan kaikki muut ladatut kenttäscenet paitsi kohdealueen ja pelaajan scene (muisti vapautuu).
+    /// Kutsutaan siirtymän aivan lopussa, koska siirtymän tekevä ovi voi olla purettavassa scenessä.
+    public static void UnloadOtherScenes(Area dest, PlayerController pc)
+    {
+        if (dest == null || pc == null) return;
+        Scene keepA = dest.gameObject.scene, keepB = pc.gameObject.scene;
+        for (int i = SceneManager.sceneCount - 1; i >= 0; i--)
+        {
+            var s = SceneManager.GetSceneAt(i);
+            if (!s.isLoaded || s == keepA || s == keepB) continue;
+            SceneManager.UnloadSceneAsync(s);
+        }
+    }
+
+    void Awake() { if (!string.IsNullOrEmpty(areaName)) registry[areaName] = this; }
+
+    void OnDestroy()
+    {
+        if (!string.IsNullOrEmpty(areaName) && registry.TryGetValue(areaName, out var a) && a == this) registry.Remove(areaName);
+    }
 
     /// Onko piste pelaajan nykyisellä alueella (alueet ovat eri kohdissa x-akselia). Muualla olevien vihollisten äänet mykistetään.
     public static bool IsHere(Vector3 p, float margin = 8f)

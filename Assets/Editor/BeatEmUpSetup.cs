@@ -8425,28 +8425,46 @@ public static class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == areaName);
+        string sceneName = null; UnityEngine.SceneManagement.Scene opened = default;
+        if (area == null)
+        {
+            // alue voi olla omassa kenttäscenessään (valikot 201...): avataan se hetkeksi lukemaan rajat
+            sceneName = AreaSceneName(areaName);
+            if (sceneName != null)
+            {
+                opened = EditorSceneManager.OpenScene("Assets/Scenes/Areas/" + sceneName + ".unity", OpenSceneMode.Additive);
+                area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == areaName);
+            }
+        }
         if (area == null) { Info("Aluetta \"" + areaName + "\" ei ole: aja junaketju (valikko 136)."); return; }
         var old = GameObject.Find("Aloituskohta");
         if (old != null) Undo.DestroyObjectImmediate(old);
         var go = new GameObject("Aloituskohta");
         var start = go.AddComponent<GameStart>();
-        start.area = area;
         float x = Mathf.Lerp(area.walkMinX + 3f, area.walkMaxX - 3f, fx);
         float y = Mathf.Lerp(area.maxDepthY, area.minDepthY, fy);
         start.position = new Vector2(x, y);
+        if (sceneName == null) start.area = area;
+        else { start.areaName = areaName; start.sceneName = sceneName; EditorSceneManager.CloseScene(opened, true); }
         Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt: " + label + ". Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/137. Aloita peli junasta: vaunu 4 (veturin puolelta)")]
-    static void StartInTrainCar4() { StartInTrainArea("Junan vaunu 4", 0.92f, 0.5f, "junan vaunu 4 (oikea pääty, veturin ovi vieressä)"); }
+    static void StartInTrainCar4() { WithLevelScenes(StartInTrainCar4Impl); }
+
+    static void StartInTrainCar4Impl() { StartInTrainArea("Junan vaunu 4", 0.92f, 0.5f, "junan vaunu 4 (oikea pääty, veturin ovi vieressä)"); }
 
     [MenuItem("Beat em up/138. Aloita peli junasta: ravintolavaunu (vaunu 3, tiskin vasemmalta puolelta)")]
-    static void StartInTrainCar3() { StartInTrainArea("Junan vaunu 3", 0.3f, 0.45f, "ravintolavaunu (vaunu 3)"); }
+    static void StartInTrainCar3() { WithLevelScenes(StartInTrainCar3Impl); }
+
+    static void StartInTrainCar3Impl() { StartInTrainArea("Junan vaunu 3", 0.3f, 0.45f, "ravintolavaunu (vaunu 3)"); }
 
     [MenuItem("Beat em up/139. Aloita peli junan katolta (vasen pääty, tikkaiden luota)")]
-    static void StartOnTrainRoof() { StartInTrainArea("Junan katto", 0.02f, 0.4f, "junan katto"); }
+    static void StartOnTrainRoof() { WithLevelScenes(StartOnTrainRoofImpl); }
+
+    static void StartOnTrainRoofImpl() { StartInTrainArea("Junan katto", 0.02f, 0.4f, "junan katto"); }
 
     [MenuItem("Beat em up/140. Viholliset junan vaunuihin (ravintolavaunussa kaikki: puliukot, motoristit, rekkamies, rokkimimmi, Rusty)")]
     static void AddTrainEnemies()
@@ -9688,7 +9706,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/165. Aloita peli Thaitownin kadulta (aseman edestä)")]
-    static void StartInThaitownStreet() { StartInTrainArea("Thaitown katu", 0.04f, 0.5f, "Thaitownin katu"); }
+    static void StartInThaitownStreet() { WithLevelScenes(StartInThaitownStreetImpl); }
+
+    static void StartInThaitownStreetImpl() { StartInTrainArea("Thaitown katu", 0.04f, 0.5f, "Thaitownin katu"); }
 
     /// Jakuza (yakuza_*.png, 768 x 448, hahmo Deaconin kokoinen): kova mutta ei pomo. Nopea lyömään ja potkimaan:
     /// kombot lyönneistä, etupotkusta, korkeasta potkusta (kaataa) ja alakoukusta. Torjuu harvoin.
@@ -9996,7 +10016,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/162. Aloita peli Thaitownin laiturilta")]
-    static void StartInThaitownPlatform() { StartInTrainArea("Thaitown laituri", 0.3f, 0.5f, "Thaitownin laituri"); }
+    static void StartInThaitownPlatform() { WithLevelScenes(StartInThaitownPlatformImpl); }
+
+    static void StartInThaitownPlatformImpl() { StartInTrainArea("Thaitown laituri", 0.3f, 0.5f, "Thaitownin laituri"); }
 
     [MenuItem("Beat em up/159. Pierre: viemärin toinen minibossi (ensimmäisen kadun viemäri)")]
     static void CreatePierre()
@@ -11810,7 +11832,9 @@ public static class BeatEmUpSetup
 
     // ---------------- Aloituskohta ----------------
     [MenuItem("Beat em up/36. Aloita peli takakujan parkkipaikalta")]
-    static void StartAtAlley()
+    static void StartAtAlley() { WithLevelScenes(StartAtAlleyImpl); }
+
+    static void StartAtAlleyImpl()
     {
         var alley = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Takakuja");
         var bike = GameObject.Find("Takakujan prätkä");
@@ -12605,7 +12629,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/46. Aloita peli Uccopulcosta")]
-    static void StartAtUccopulco()
+    static void StartAtUccopulco() { WithLevelScenes(StartAtUccopulcoImpl); }
+
+    static void StartAtUccopulcoImpl()
     {
         var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
         if (ucco == null) { Info("Tee ensin kohta 44 (Uccopulco)."); return; }
@@ -12629,7 +12655,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/88. Aloita peli laivan salista (tanssisalista)")]
-    static void StartAtShipSalon()
+    static void StartAtShipSalon() { WithLevelScenes(StartAtShipSalonImpl); }
+
+    static void StartAtShipSalonImpl()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
         if (sal == null) { Info("Tee ensin laivan sisätilat (kohta 60)."); return; }
@@ -12649,7 +12677,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/90. Aloita peli laivan katolta")]
-    static void StartAtShipRoof()
+    static void StartAtShipRoof() { WithLevelScenes(StartAtShipRoofImpl); }
+
+    static void StartAtShipRoofImpl()
     {
         if (PlayModeBlocked()) return;
         var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == RoofAreaName);
@@ -12669,7 +12699,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/92. Aloita peli Aavikolta")]
-    static void StartAtDesert()
+    static void StartAtDesert() { WithLevelScenes(StartAtDesertImpl); }
+
+    static void StartAtDesertImpl()
     {
         if (PlayModeBlocked()) return;
         var desert = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikko");
@@ -12859,7 +12891,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/107. Aloita peli Aavikkokadulta dinerin läheltä")]
-    static void StartAtDiner()
+    static void StartAtDiner() { WithLevelScenes(StartAtDinerImpl); }
+
+    static void StartAtDinerImpl()
     {
         if (PlayModeBlocked()) return;
         var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
@@ -12879,7 +12913,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/128. Aloita peli Aavikkokadulta juna-aseman pääoven edestä")]
-    static void StartAtStation()
+    static void StartAtStation() { WithLevelScenes(StartAtStationImpl); }
+
+    static void StartAtStationImpl()
     {
         if (PlayModeBlocked()) return;
         var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkokatu");
@@ -13478,7 +13514,9 @@ public static class BeatEmUpSetup
     }
 
     [MenuItem("Beat em up/180. Aloita peli hotellista (hissin edesta)")]
-    static void StartInHotelAtElevator()
+    static void StartInHotelAtElevator() { WithLevelScenes(StartInHotelAtElevatorImpl); }
+
+    static void StartInHotelAtElevatorImpl()
     {
         if (PlayModeBlocked()) return;
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1");
@@ -14348,5 +14386,270 @@ public static class BeatEmUpSetup
         }
         finally { AssetDatabase.StopAssetEditing(); EditorUtility.ClearProgressBar(); }
         Info($"Pakattu {changed} tekstuuria (BC7). Arvioitu muisti {beforeMb:0} Mt -> {afterMb:0} Mt.\nTarkista pelissä, että kuvat näyttävät samalta (hahmot, taustat, tekstit).\nPalautus: git checkout .meta-tiedostoihin.");
+    }
+
+    // ---------------- Scenen jako: pilotti (sali + kehä omaan sceneen) ----------------
+    // Sali ja kehä siirretään tiedostoon Assets/Scenes/Areas/Nyrkkeilysali.unity. Katu pysyy pääscenessä; "Kadulta saliin" -ovi lataa salin
+    // (kohde nimellä) ja salin uloskäynti purkaa sen. Koordinaatit säilyvät ennallaan.
+    const string GymScenePath = "Assets/Scenes/Areas/Nyrkkeilysali.unity";
+    const string GymSceneName = "Nyrkkeilysali";
+
+    [MenuItem("Beat em up/200. Scenen jako: siirrä sali ja kehä omaan sceneen (ladataan sisään mentäessä)")]
+    static void MoveGymToOwnScene()
+    {
+        if (PlayModeBlocked()) return;
+        if (File.Exists(GymScenePath)) { Info("Sali ja kehä on jo siirretty (" + GymScenePath + ")."); return; }
+        var main = EditorSceneManager.GetActiveScene();
+        var roots = main.GetRootGameObjects();
+        GameObject Root(string n) => roots.FirstOrDefault(r => r.name == n);
+
+        var gymAreaGo = Root("Alue: Nyrkkeilysali");
+        var doorsGo = Root("Salin ovet");
+        var enterT = doorsGo != null ? doorsGo.transform.Find("Kadulta saliin") : null;
+        var exitT = doorsGo != null ? doorsGo.transform.Find("Salista kadulle") : null;
+        if (gymAreaGo == null || enterT == null || exitT == null) { Info("Salia ei löytynyt pääscenestä (tai se on jo siirretty). Aja ensin valikko 196."); return; }
+        var enter = enterT.GetComponent<Door>();
+        var exit = exitT.GetComponent<Door>();
+        var streetArea = enter != null ? enter.here : null;
+        if (enter == null || exit == null || streetArea == null) { Info("Salin ovet eivät ole odotetussa muodossa."); return; }
+        if (Object.FindObjectsByType<Area>(FindObjectsSortMode.None).Count(a => a.areaName == streetArea.areaName) != 1)
+        { Info("Kadun alueen nimi \"" + streetArea.areaName + "\" ei ole yksilöllinen; ovi ei löytäisi sitä nimellä."); return; }
+
+        // siirrettävät juuriobjektit (sali, kehä, ikkunat, jumppatyttö); "Salista kadulle" irrotetaan ovien ryhmästä
+        var names = new[] { "Salin tausta", "Alue: Nyrkkeilysali", "Salin ikkuna kaukana", "Salin ikkuna lähellä", "Jumppatyttö",
+                            "Kehän tausta", "Alue: Nyrkkeilykehä", "Kehän ikkuna kaukana", "Kehän ikkuna lähellä", "Kehän ovet" };
+        var move = new List<GameObject>();
+        foreach (var n in names) { var g = Root(n); if (g != null) move.Add(g); }
+        move.Add(exitT.gameObject);
+
+        // tarkistus: viittaako siirrettävä mikään pääsceneen jäävään olioon (muuten viittaus katkeaisi hiljaa)?
+        var inSet = new HashSet<GameObject>();
+        foreach (var g in move) foreach (var t in g.GetComponentsInChildren<Transform>(true)) inSet.Add(t.gameObject);
+        var bad = new List<string>();
+        foreach (var g in move)
+            foreach (var c in g.GetComponentsInChildren<Component>(true))
+            {
+                if (c == null) continue;
+                var so = new SerializedObject(c);
+                var p = so.GetIterator();
+                while (p.NextVisible(true))
+                {
+                    if (p.propertyType != SerializedPropertyType.ObjectReference || p.objectReferenceValue == null) continue;
+                    if (c is Door && p.name == "target") continue;   // korvataan nimellä
+                    var o = p.objectReferenceValue;
+                    var tgo = o is Component oc ? oc.gameObject : o as GameObject;
+                    if (tgo == null || !tgo.scene.IsValid() || inSet.Contains(tgo)) continue;
+                    bad.Add(c.gameObject.name + "." + c.GetType().Name + "." + p.name + " -> " + tgo.name);
+                }
+            }
+        if (bad.Count > 0) { Info("Siirto peruttu: salin oliot viittaavat pääsceneen jääviin olioihin:\n" + string.Join("\n", bad.Take(15)) + "\n\nMitään ei muutettu."); return; }
+
+        // ovet: kohde nimellä
+        Undo.RecordObject(enter, "Salin ovet"); Undo.RecordObject(exit, "Salin ovet");
+        var gymArea = gymAreaGo.GetComponent<Area>();
+        enter.targetName = gymArea.areaName; enter.targetScene = GymSceneName; enter.target = null;
+        exit.targetName = streetArea.areaName; exit.target = null;
+        exitT.SetParent(null, true);
+        EditorUtility.SetDirty(enter); EditorUtility.SetDirty(exit);
+
+        Directory.CreateDirectory("Assets/Scenes/Areas");
+        var sc = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+        foreach (var g in move) UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(g, sc);
+        bool ok = EditorSceneManager.SaveScene(sc, GymScenePath);
+        EditorSceneManager.CloseScene(sc, true);
+        EditorSceneManager.MarkSceneDirty(main);
+        EditorSceneManager.SaveScene(main);
+
+        var list = EditorBuildSettings.scenes.ToList();
+        if (!list.Any(s => s.path == GymScenePath)) { list.Add(new EditorBuildSettingsScene(GymScenePath, true)); EditorBuildSettings.scenes = list.ToArray(); }
+
+        var left = main.GetRootGameObjects().Where(g => g.transform.position.x >= 109000f).Select(g => g.name).Take(10).ToList();
+        Info((ok ? "Sali ja kehä siirretty omaan sceneen: " + GymScenePath : "Scenen tallennus epäonnistui!") + "\n" +
+             "Siirretty " + move.Count + " oliota. Scene lisätty Build Settingsiin. Pääscene tallennettu.\n" +
+             (left.Count > 0 ? "\nHUOM: pääsceneen jäi olioita salin alueelle (x ≥ 109000): " + string.Join(", ", left) + "\n" : "") +
+             "\nTestaa: Play, kävele kadun vasempaan päähän, mene saliin (E), portaat kehään ja ulos kadulle.");
+    }
+
+    // ---------------- Kenttien jako (Thaitown, Uccopulco + laiva, Aavikko omiin sceneihinsä) ----------------
+    // Bricktown (katu, S-Club, baarit, kuja, katon tilat) jää pääsceneen yhdessä pelaajan, kameran ja valikoiden kanssa.
+    // Kenttä siirretään omaan sceneensä (Assets/Scenes/Areas/<nimi>.unity) ja ladataan, kun sinne mennään. Koordinaatit säilyvät ennallaan.
+    // Jokaisen kentän alueiden nimet kirjataan tiedostoon <nimi>.areas.txt (muut työkalut löytävät alueen sceneen sen kautta).
+    static string LevelOfX(float x)
+    {
+        if (x < 1000f || (x >= 1000f && x < 6000f) || (x >= 40000f && x < 60000f) || (x >= 98400f && x < 98600f)) return "Bricktown";
+        if (x >= 6000f && x < 78000f) return "UccoLaiva";
+        if (x >= 78000f && x < 106000f) return "Aavikko";
+        if (x >= 106000f && x < 110000f) return "Thaitown";
+        return "Bricktown";
+    }
+
+    // pysyvät oliot: näitä sisältävä juuriolio ei lähde pääscenestä
+    static readonly string[] LevelKeepTypes = { "Camera", "AudioListener", "PlayerController", "CameraFollow", "GameHUD", "GameMenu", "MusicPlayer",
+                                                "HitFx", "CoopManager", "PokerService", "AmbiencePlayer", "EventSystem" };
+
+    static string AreaSceneName(string areaName)
+    {
+        if (!Directory.Exists("Assets/Scenes/Areas")) return null;
+        foreach (var f in Directory.GetFiles("Assets/Scenes/Areas", "*.areas.txt"))
+            if (File.ReadAllLines(f).Any(l => l.Trim() == areaName)) return Path.GetFileName(f).Replace(".areas.txt", "");
+        return null;
+    }
+
+    static void MoveLevelToScene(string level)
+    {
+        if (PlayModeBlocked()) return;
+        string scenePath = "Assets/Scenes/Areas/" + level + ".unity";
+        if (File.Exists(scenePath)) { Info("Kenttä " + level + " on jo siirretty (" + scenePath + ")."); return; }
+        var main = EditorSceneManager.GetActiveScene();
+        var roots = main.GetRootGameObjects();
+
+        // 1) juuriolioiden kenttä: pysyvät pois, alueet nimen mukaan, muut keskimmäisen osan sijainnin mukaan
+        var rootLevel = new Dictionary<GameObject, string>();
+        var unsure = new List<GameObject>();
+        foreach (var r in roots)
+        {
+            if (r.GetComponentsInChildren<Component>(true).Any(c => c != null && LevelKeepTypes.Contains(c.GetType().Name))) { rootLevel[r] = "Bricktown"; continue; }
+            var area = r.GetComponent<Area>();
+            if (area != null) { rootLevel[r] = LevelOfX(area.camMinX); continue; }
+            var xs = r.GetComponentsInChildren<Transform>(true).Select(t => t.position.x).Where(x => Mathf.Abs(x) > 1f).OrderBy(x => x).ToList();
+            if (xs.Count == 0) { rootLevel[r] = "Bricktown"; unsure.Add(r); continue; }
+            rootLevel[r] = LevelOfX(xs[xs.Count / 2]);
+        }
+        string LevelOf(GameObject go) { var rt = go.transform.root.gameObject; return rootLevel.TryGetValue(rt, out var l) ? l : "Bricktown"; }
+
+        // 2) paikattomat (ei kuvia/oliota koordinaateissa, esim. tappelulaskurit): viittausten enemmistö
+        foreach (var r in unsure)
+        {
+            var votes = new Dictionary<string, int>();
+            foreach (var c in r.GetComponentsInChildren<Component>(true))
+            {
+                if (c == null) continue;
+                var p = new SerializedObject(c).GetIterator();
+                while (p.NextVisible(true))
+                {
+                    if (p.propertyType != SerializedPropertyType.ObjectReference || p.objectReferenceValue == null) continue;
+                    var o = p.objectReferenceValue; var tgo = o is Component oc ? oc.gameObject : o as GameObject;
+                    if (tgo == null || !tgo.scene.IsValid() || tgo.transform.root.gameObject == r) continue;
+                    var l = LevelOf(tgo); votes[l] = votes.TryGetValue(l, out var n) ? n + 1 : 1;
+                }
+            }
+            if (votes.Count > 0) rootLevel[r] = votes.OrderByDescending(v => v.Value).First().Key;
+        }
+
+        var move = roots.Where(r => rootLevel[r] == level).ToList();
+        if (move.Count == 0) { Info("Kentälle " + level + " ei löytynyt siirrettäviä olioita (onko se jo siirretty?)."); return; }
+
+        // 3) viittaukset kenttien välillä: oven kohde ja aloituskohta korvataan nimellä, kaikki muu keskeyttää
+        var bad = new List<string>();
+        var doorFix = new List<Door>(); var rideFix = new List<RideExit>(); var startFix = new List<GameStart>();
+        foreach (var r in roots)
+            foreach (var c in r.GetComponentsInChildren<Component>(true))
+            {
+                if (c == null) continue;
+                string myLevel = rootLevel[r];
+                var p = new SerializedObject(c).GetIterator();
+                while (p.NextVisible(true))
+                {
+                    if (p.propertyType != SerializedPropertyType.ObjectReference || p.objectReferenceValue == null) continue;
+                    var o = p.objectReferenceValue; var tgo = o is Component oc ? oc.gameObject : o as GameObject;
+                    if (tgo == null || !tgo.scene.IsValid()) continue;
+                    string tl = LevelOf(tgo);
+                    if (tl == myLevel) continue;
+                    if (myLevel != level && tl != level) continue;   // kahden muun kentän välinen viittaus: ei tämän siirron asia
+                    if (c is Door && p.name == "target") { doorFix.Add((Door)c); continue; }
+                    if (c is RideExit && p.name == "target") { rideFix.Add((RideExit)c); continue; }
+                    if (c is GameStart && p.name == "area") { startFix.Add((GameStart)c); continue; }
+                    bad.Add(r.name + " / " + c.gameObject.name + "." + c.GetType().Name + "." + p.name + " -> " + tgo.name);
+                }
+            }
+        if (bad.Count > 0)
+        {
+            Info("Siirto peruttu (" + level + "): nämä viittaukset ylittäisivät kentän rajan:\n" + string.Join("\n", bad.Distinct().Take(25)) +
+                 (bad.Count > 25 ? "\n... yhteensä " + bad.Count : "") + "\n\nMitään ei muutettu.");
+            return;
+        }
+
+        // 4) korjaukset: ovet ja aloituskohta nimellä
+        foreach (var d in doorFix.Distinct())
+        {
+            Undo.RecordObject(d, "Kenttien jako");
+            var ta = d.target;
+            d.targetName = ta.areaName; d.target = null;
+            string tl = LevelOf(ta.gameObject); d.targetScene = tl == "Bricktown" ? null : tl;   // pääscenessä oleva kohde ei tarvitse latausta
+            EditorUtility.SetDirty(d);
+        }
+        foreach (var rx in rideFix.Distinct())
+        {
+            Undo.RecordObject(rx, "Kenttien jako");
+            var ta = rx.target;
+            rx.targetName = ta.areaName; rx.target = null;
+            string tl = LevelOf(ta.gameObject); rx.targetScene = tl == "Bricktown" ? null : tl;
+            EditorUtility.SetDirty(rx);
+        }
+        foreach (var s in startFix.Distinct())
+        {
+            Undo.RecordObject(s, "Kenttien jako");
+            s.areaName = s.area.areaName; s.sceneName = level; s.area = null;
+            EditorUtility.SetDirty(s);
+        }
+
+        // 5) siirto
+        var areaNames = move.SelectMany(g => g.GetComponentsInChildren<Area>(true)).Select(a => a.areaName).Distinct().ToList();
+        Directory.CreateDirectory("Assets/Scenes/Areas");
+        var sc = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+        foreach (var g in move) UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(g, sc);
+        bool ok = EditorSceneManager.SaveScene(sc, scenePath);
+        EditorSceneManager.CloseScene(sc, true);
+        File.WriteAllLines("Assets/Scenes/Areas/" + level + ".areas.txt", areaNames);
+        EditorSceneManager.MarkSceneDirty(main);
+        EditorSceneManager.SaveScene(main);
+        AssetDatabase.Refresh();
+
+        var list = EditorBuildSettings.scenes.ToList();
+        if (!list.Any(s => s.path == scenePath)) { list.Add(new EditorBuildSettingsScene(scenePath, true)); EditorBuildSettings.scenes = list.ToArray(); }
+
+        Info((ok ? "Kenttä " + level + " siirretty omaan sceneensä: " + scenePath : "Scenen tallennus epäonnistui!") + "\n" +
+             "Siirretty " + move.Count + " juuriolioa, alueet: " + string.Join(", ", areaNames) + ".\n" +
+             "Korjattu ovia: " + (doorFix.Distinct().Count() + rideFix.Distinct().Count()) + ", aloituskohtia: " + startFix.Distinct().Count() + ". Scene lisätty Build Settingsiin, pääscene tallennettu.\n" +
+             (unsure.Count > 0 ? "Paikattomia olioita (jäivät pääsceneen ellei viittauksista selvinnyt): " + string.Join(", ", unsure.Take(8).Select(u => u.name)) + "\n" : "") +
+             "\nKentän muokkaus: avaa " + level + ".unity pääscenen rinnalle (hiiren oikea > Open Scene Additive).");
+    }
+
+    [MenuItem("Beat em up/201. Kenttien jako: Thaitown omaan sceneen")]
+    static void MoveLevelThaitown() { MoveLevelToScene("Thaitown"); }
+
+    [MenuItem("Beat em up/202. Kenttien jako: Uccopulco + laiva omaan sceneen")]
+    static void MoveLevelUccoLaiva() { MoveLevelToScene("UccoLaiva"); }
+
+    [MenuItem("Beat em up/203. Kenttien jako: Aavikko + junat omaan sceneen")]
+    static void MoveLevelAavikko() { MoveLevelToScene("Aavikko"); }
+
+    // Aloitus-valikot etsivät alueen Find-haulla: kenttäscenet avataan hetkeksi pääscenen rinnalle, ja jos aloituskohta osuu kenttäsceneen,
+    // se tallennetaan alueen nimellä ja scenen nimellä (muuten viittaus katkeaisi).
+    static void WithLevelScenes(System.Action menu)
+    {
+        var main = EditorSceneManager.GetActiveScene();
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        if (!EditorApplication.isPlaying && Directory.Exists("Assets/Scenes/Areas"))
+            foreach (var f in Directory.GetFiles("Assets/Scenes/Areas", "*.unity"))
+            {
+                var path = f.Replace('\\', '/');
+                var sc = EditorSceneManager.GetSceneByPath(path);
+                if (sc.IsValid() && sc.isLoaded) continue;
+                opened.Add(EditorSceneManager.OpenScene(path, OpenSceneMode.Additive));
+            }
+        try { menu(); }
+        finally
+        {
+            var go = main.GetRootGameObjects().FirstOrDefault(g => g.name == "Aloituskohta");
+            var gs = go != null ? go.GetComponent<GameStart>() : null;
+            if (gs != null && gs.area != null && gs.area.gameObject.scene != main)
+            {
+                gs.sceneName = Path.GetFileNameWithoutExtension(gs.area.gameObject.scene.path);
+                gs.areaName = gs.area.areaName; gs.area = null;
+                EditorUtility.SetDirty(gs); EditorSceneManager.MarkSceneDirty(main);
+            }
+            foreach (var sc in opened) EditorSceneManager.CloseScene(sc, true);
+        }
     }
 }

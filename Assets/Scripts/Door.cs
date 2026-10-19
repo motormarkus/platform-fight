@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -19,6 +20,10 @@ public class Door : MonoBehaviour
     public Area here;
     [Tooltip("Alue, johon ovi vie.")]
     public Area target;
+    [Tooltip("Kohdealueen nimi (Area.areaName), jos kohde on omassa sceneensä eikä sitä voi vetää yllä olevaan kenttään.")]
+    public string targetName;
+    [Tooltip("Kohdealueen scenen nimi: ladataan oven käytössä, jos kohdealue ei ole vielä ladattuna.")]
+    public string targetScene;
     [Tooltip("Mihin pelaaja ilmestyy kohdealueella.")]
     public Vector2 spawnPoint;
     [Tooltip("Palaa sen oven eteen, josta tultiin sisään (spawnPoint ohitetaan).")]
@@ -200,10 +205,18 @@ public class Door : MonoBehaviour
             for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
         fade = 1f;
 
-        Area dest = target;
+        Area dest = target != null ? target : Area.Find(targetName);
+        if (dest == null && !string.IsNullOrEmpty(targetScene))
+        {
+            var load = SceneManager.LoadSceneAsync(targetScene, LoadSceneMode.Additive);   // ruutu on mustana latauksen ajan
+            if (load != null) while (!load.isDone) yield return null;
+            dest = Area.Find(targetName);
+        }
+        if (dest == null && (target != null || !string.IsNullOrEmpty(targetName))) Debug.LogWarning("Door: kohdealuetta ei löytynyt: " + (target != null ? target.name : targetName));
+        Area wanted = dest;
         Vector3 pos = spawnPoint;
         // paluu vain, jos edellinen ovi on alueella, johon tämä vie (muuten esim. kujalta noussut päätyisi katon kadun puoleisista tikkaista kujalle)
-        if (returnToLastDoor && LastUsed != null && LastUsed.here == target)
+        if (returnToLastDoor && LastUsed != null && LastUsed.here == wanted)
         {
             dest = LastUsed.here;
             pos = LastUsed.transform.position;
@@ -238,13 +251,18 @@ public class Door : MonoBehaviour
             fade = 0f;
             SetAllEnabled(true);
             busy = false;
+            UnloadLeftScene(dest);
             yield break;
         }
         SetAllEnabled(true);
         for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = 1f - t / fadeTime; yield return null; }
         fade = 0f;
         busy = false;
+        UnloadLeftScene(dest);
     }
+
+    /// Puretaan poistutut kenttäscenet vasta aivan lopussa: ovi itse on usein siinä scenessä, ja sen mukana loppuu myös tämä rutiini.
+    void UnloadLeftScene(Area dest) { Area.UnloadOtherScenes(dest, pc); }
 
     static Texture2D black;
     GUIStyle style;

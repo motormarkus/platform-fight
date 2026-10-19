@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Alueen loppu, josta ajetaan seuraavaan (esim. kujalta valtatielle): kun pelaaja ajaa prätkällä kohdan x ohi,
@@ -8,6 +9,9 @@ using UnityEngine;
 public class RideExit : MonoBehaviour
             {
     public Area target;
+    [Tooltip("Kohdealueen nimi ja scene, jos kohde on omassa sceneensä (ladataan tarvittaessa).")]
+    public string targetName;
+    public string targetScene;
     public Area here;
     [Tooltip("Poistutaan kynnyksen vasemmalle puolelle (Peltihalli).")]
     public bool exitToLeft;
@@ -34,7 +38,7 @@ public class RideExit : MonoBehaviour
 
     void Update()
     {
-        if (busy || target == null || (here != null && Area.Current != here)) return;
+        if (busy || (target == null && string.IsNullOrEmpty(targetName)) || (here != null && Area.Current != here)) return;
         // kuka tahansa ajava pelaaja (tai jalan palaava) laukaisee siirtymän: kaikki pyörät ja pelaajat siirtyvät yhdessä
         bool walkingReturn = returnOnFoot && parkedTravelBikes.Count > 0 && Area.Current == parkedTravelArea;
         if (walkingReturn)
@@ -89,7 +93,14 @@ public class RideExit : MonoBehaviour
         }
         titleAlpha = 0f;
         pc = Players.Primary;
-        if (target != null) target.Apply(pc);
+        Area dest = target != null ? target : Area.Find(targetName);
+        if (dest == null && !string.IsNullOrEmpty(targetScene))
+        {
+            var load = SceneManager.LoadSceneAsync(targetScene, LoadSceneMode.Additive);   // ruutu on mustana latauksen ajan
+            if (load != null) while (!load.isDone) yield return null;
+            dest = Area.Find(targetName);
+        }
+        if (dest != null) dest.Apply(pc);
         if (returnOnFoot) { parkedTravelBikes.Clear(); parkedTravelArea = null; }
         // jokainen pyörä omalle kaistalleen (P1 kohtaan spawnPoint / parkPoint, toinen sen viereen)
         for (int i = 0; i < bikes.Count; i++)
@@ -113,8 +124,8 @@ public class RideExit : MonoBehaviour
                 bike.ParkNow(pk, true);   // pyörä parkkiin, pelaaja jalan vieressä
                 if (preventParkedRide)
                 {
-                    bike.parkedNoRideArea = target;
-                    parkedTravelBikes.Add(bike); parkedTravelArea = target;
+                    bike.parkedNoRideArea = dest;
+                    parkedTravelBikes.Add(bike); parkedTravelArea = dest;
                 }
             }
         }
@@ -137,6 +148,7 @@ public class RideExit : MonoBehaviour
         fade = 0f;
         foreach (var bk in bikes) if (bk != null) bk.SetTravelLock(false);
         busy = false;
+        Area.UnloadOtherScenes(dest, pc);
     }
 
     static Texture2D black;
