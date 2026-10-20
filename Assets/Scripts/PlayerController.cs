@@ -1457,7 +1457,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch, PanPick, PanHold, PanSwing, PanThrow }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch, PanPick, PanHold, PanSwing, PanThrow, Duck }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -1589,6 +1589,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool pushPressed = !Scripted && PushPressed();
         if (pushPressed) lastPushPressAt = Time.time;
         bool blockHeld = !Scripted && BlockHeld();
+        if (!(blockHeld && move.y < -0.5f)) duckReady = true;   // alasväistö vaatii uuden painalluksen (alas + suojaus)
         bool catchPressed = !Scripted && CatchPressed();
         // nappauspainallus muistetaan hetken: toimii heti edellisen liikkeen loputtua (ennen hukkui)
         if (catchPressed) { catchBufferUntil = Time.time + 0.18f; lastCatchPressAt = Time.time; }
@@ -1621,6 +1622,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
+                if (kickPressed && Time.time - duckEndedAt <= 0.35f && HasDuckKnee && Bottle.HeldBy(this) == null) { StartDuckKnee(); break; }   // potku heti väistön jälkeen: polviisku
                 if (pummelDir != 0 && Bottle.HeldBy(this) == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && (running || Skating) && UseStamina(jumpStamina)) { StartDropKick(); break; }
@@ -1632,6 +1634,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     Enter(State.JumpSquat);
                     break;
                 }
+                if (blockHeld && move.y < -0.5f && duckReady && HasDuck && !Skating && Time.time >= nextDuckTime && Bottle.HeldBy(this) == null && carried == null) { duckReady = false; StartDuck(); break; }   // alas + suojaus: alasväistö
                 if (blockHeld && HasBlock) { StartBlock(); break; }
                 // jab–polvi–pusku: puskunappi heti polven loputtua -> silti viimeistely
                 if (pushPressed && HasPush && AppliedCharacter != 1 && Time.time - kneeEndedAt <= HeadbuttLate) { StartHeadbuttFinisher(); break; }
@@ -1811,10 +1814,20 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 if (stateTime >= landingTime) { comboScissor = false; comboFinisherQueued = false; Enter(State.Ground); }
                 break;
 
+            case State.Duck:
+                // väistön aikana lyönti = nopea takakäden alakoukku, potku = polviisku (kaataa), pusku-nappi = pusku
+                if (punchPressed && HasQuickUppercut && stateTime >= DuckTotal * 0.1f) { StartQuickUppercut(); break; }
+                if (kickPressed && HasDuckKnee && stateTime >= DuckTotal * 0.1f) { StartDuckKnee(); break; }
+                if (pushPressed && HasPush && stateTime >= DuckTotal * 0.1f && UseStamina(pushStamina)) { StartPush(); break; }
+                // alas + suojaus pohjassa: Rocco jää kyykkyyn (kuva pysähtyy syvimpään kohtaan), nousee kun nappi päästetään
+                if (blockHeld && move.y < -0.5f && stateTime >= duckFrameTime * duckHoldIndex) { stateTime = duckFrameTime * duckHoldIndex; duckHoldTime += dt; }
+                if (stateTime >= DuckTotal) { duckEndedAt = Time.time; Enter(State.Ground); }
+                break;
+
             case State.Punch:
             {
                 if (dropKickInput && (punchFromRun || Skating) && comboIndex == 0 && stateTime < 0.15f) { StartDropKick(); break; }   // lyönti ensin, hyppy heti perään
-                ComboHit hit = punchCombo[comboIndex];
+                ComboHit hit = CurHit;
                 float total = hit.TotalTime;
 
                 // eteenpäin liukuminen osumahetkeen asti
@@ -1873,13 +1886,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     StartKick(0);
                     break;
                 }
-                bool hasNextPunch = comboIndex + 1 < punchCombo.Length;
+                bool hasNextPunch = !quickPunchActive && comboIndex + 1 < punchCombo.Length;
                 // seuraava lyönti jo painettu: katkaistaan heti osuman jälkeen (nopea sarja)
                 if (comboQueued && hasNextPunch && stateTime >= cancelAt) { StartComboHit(comboIndex + 1); break; }
 
                 if (stateTime >= total)
                 {
-                    bool hasNext = comboIndex + 1 < punchCombo.Length;
+                    bool hasNext = !quickPunchActive && comboIndex + 1 < punchCombo.Length;
                     if (comboQueued && hasNext) StartComboHit(comboIndex + 1);
                     else if (!hasNext) Enter(State.Recovery);
                     else Enter(State.Ground);
@@ -2003,7 +2016,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (!attackHit && stateTime >= impact && stateTime <= impact + KneeStrikeTimes[KneeStrikeImpact])
                 {
-                    attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown, 2.0f);   // polvi vatsaan / leukaan
+                    attackHit = AttackEnemies(kneeStrikeReach, kneeStrikeDamage, kneeStrikeKnockdown || duckKnee, 2.0f);   // polvi vatsaan / leukaan
                     if (attackHit) { HitFx.Freeze(0.07f); if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.12f); }   // selvä osuma kombon keskellä
                 }
                 // jab + polvi + pusku: puskunappi polven aikana (tai jo jabin lopussa) -> heti polven jälkeen kova pääpusku (Rocco)
@@ -2618,6 +2631,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        if (s != State.KneeStrike) duckKnee = false;   // väistöstä lähtenyt polviisku kaataa vain itse iskun ajan
         bool panState = s == State.PanPick || s == State.PanHold || s == State.PanSwing || s == State.PanThrow;
         if (!panState && Pan.HeldBy(this) != null) Pan.DropHeld(this);
         SkateOnEnter(s);
@@ -3198,6 +3212,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
     {
         if (Riding || state == State.Drink) return false;   // ryypyn aikana iskut eivät osu
+        if (Ducking) return false;   // alasväistö: isku menee yli
         // haymaker: ei voi torjua, mutta ajoitetulla kurotuksella lyövästä kädestä saa kiinni ja heitettyä
         // (vain ojennuksessa: kurotus painettava juuri ennen kuin käsi lähtee, latauksen aikana painettu menee ohi)
         if (state == State.Catch && stateTime <= haymakerCatchWindow && (attackerX > transform.position.x) == facingRight
@@ -3583,6 +3598,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeHit(int damage, float attackerX, Enemy attacker = null, bool comboFollow = false)
     {
         if (Riding || state == State.Drink) return false;
+        if (Ducking) return false;   // alasväistö: isku menee yli
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state != State.Block && !(PieWar.Active && Bottle.HeldBy(this) != null && Bottle.HeldBy(this).pie)) Bottle.DropHeld(this);   // piirakkasodassa osuma ei pudota piirakkaa kädestä
@@ -4013,6 +4029,45 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         Enter(State.Push);
     }
 
+    // ---------------- Alasväistö (Rocco): alas + suojaus ----------------
+    [Header("Alasväistö (alas + suojaus): painuu alas, iskut menevät yli")]
+    [Tooltip("rocco_alasvaisto.png: painuminen alas, pito ja nousu (12 kuvaa).")]
+    public Sprite[] duckSprites;
+    public float duckFrameTime = 0.05f, duckCooldown = 0.35f;
+    [Tooltip("Väistön osuma-aikaikkuna kokonaiskeston osuutena (alku ja loppu ovat haavoittuvia).")]
+    public Vector2 duckSafeWindow = new Vector2(0.15f, 0.85f);
+    [Tooltip("Kuva, jossa kyykky pysähtyy, kun alas + suojaus pidetään pohjassa (0 = ensimmäinen).")]
+    public int duckHoldIndex = 5;
+    [Tooltip("Kuinka kauan kyykyssä pysyminen suojaa iskuilta (s); sen jälkeen kyykky on haavoittuva.")]
+    public float duckHoldSafeTime = 1.0f;
+    float nextDuckTime, duckHoldTime, duckEndedAt = -9f;
+    bool duckKnee;   // polviisku väistöstä: kaataa
+    bool duckReady = true;
+    bool HasDuck => duckSprites != null && duckSprites.Length >= 6;
+    float DuckTotal => HasDuck ? duckFrameTime * duckSprites.Length : 0.6f;
+    /// Alasväistö on käynnissä ja iskut menevät yli.
+    public bool Ducking => state == State.Duck && stateTime >= DuckTotal * duckSafeWindow.x && stateTime <= DuckTotal * duckSafeWindow.y && duckHoldTime <= duckHoldSafeTime;
+
+    bool HasDuckKnee => HasKnee || HasKneeStrikeArt;
+
+    /// Polviisku väistöstä (potku väistön aikana tai heti sen jälkeen): kaataa.
+    void StartDuckKnee()
+    {
+        attackHit = false;
+        attackLunge = ChaseLunge(kneeStrikeLunge, kneeStrikeReach);
+        PlayGrunt();
+        duckKnee = true;
+        Enter(State.KneeStrike);
+    }
+
+    void StartDuck()
+    {
+        hurtVel = Vector2.zero;
+        duckHoldTime = 0f;
+        nextDuckTime = Time.time + DuckTotal + duckCooldown;
+        Enter(State.Duck);
+    }
+
     void StartBlock()
     {
         blockReleasing = false;
@@ -4100,8 +4155,28 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         PlayGrunt();
         comboIndex = index;
         comboQueued = false;
+        quickPunchActive = false;
         Enter(State.Punch);
         attackLunge = ChaseLunge(punchCombo[index].lunge, punchCombo[index].reach);
+    }
+
+    // Nopea takakäden alakoukku väistön perään (alas + suojaus, sitten lyönti): oma isku, ei kombon jatkoa.
+    [Header("Nopea alakoukku (väistön aikana lyönti)")]
+    public ComboHit quickUppercut;
+    bool quickPunchActive;
+    bool HasQuickUppercut => quickUppercut != null && quickUppercut.HasAnimation;
+    ComboHit CurHit => quickPunchActive && HasQuickUppercut ? quickUppercut : punchCombo[comboIndex];
+
+    void StartQuickUppercut()
+    {
+        attackHit = false;
+        kneeStrikeQueued = false; bigHookQueued = false;
+        PlayGrunt();
+        quickPunchActive = true;
+        comboIndex = Mathf.Max(0, punchCombo.Length - 1);
+        comboQueued = false;
+        Enter(State.Punch);
+        attackLunge = ChaseLunge(quickUppercut.lunge, quickUppercut.reach);
     }
 
     [Header("Liuku seuraa vihollista")]
@@ -4563,7 +4638,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
             case State.Punch:
             {
-                ComboHit hit = punchCombo[comboIndex];
+                ComboHit hit = CurHit;
                 int idx = hit.SpriteIndexAt(stateTime);
                 if (idx >= 0 && hit.sprites[idx] != null) return hit.sprites[idx];
                 return Action(stateTime < hit.windupTime ? F_STAND : hit.frame);
@@ -4815,6 +4890,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 int k = Mathf.Min((int)ThrowKeyAt(stateTime), fr.Length - 1);
                 return sp[Mathf.Min(fr[k], sp.Length - 1)];
             }
+
+            case State.Duck:
+                return duckSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.01f, duckFrameTime)), duckSprites.Length - 1)];
 
             case State.Block:
                 if (blockReleasing)

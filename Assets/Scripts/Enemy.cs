@@ -677,6 +677,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
     }
     public bool IsDead => state == State.Dead;
+    /// Tilannekuva vianetsintään (PuliukkoDebug kirjoittaa tiedostoon).
+    public string DebugInfo()
+    {
+        return $"{name} tila={state} hereillä={awake} liikkuu={moving} kohde={(enemyTarget != null ? enemyTarget.name : "-")} sijainti=({transform.position.x:0.00},{transform.position.y:0.00}) " +
+               $"vaellus={wanderMinX:0.0}..{wanderMaxX:0.0} tavoite={wanderTarget:0.0} nopeus=({moveSpeedX},{moveSpeedY}) kävelykuvia={(walkSprites != null ? walkSprites.Length : -1)} fightsEveryone={fightsEveryone} " +
+               $"ulkopuolella={OutsideHeroArea()} brain={(brain != null)} cooldown={cooldown:0.0}";
+    }
     /// Vihujen kellon kerroin (heron pärinä hidastaa vihuja).
     public static float TimeScale = 1f;
 
@@ -3396,6 +3403,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return false;
     }
 
+    float xCarry;   // Move: x-askeleen pyöristysjäännös (float-tarkkuus suurilla x-arvoilla)
     void Move(Vector2 delta)
     {
         bool locomotion = (state == State.Idle || state == State.Chase) && brain == null;   // ulkoinen aivo (Deacon) liikkuu vapaasti
@@ -3417,7 +3425,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector3 p = transform.position;
         float minY = player != null ? player.minDepthY : -4.3f;
         float maxY = player != null ? player.maxDepthY : -0.8f;
-        p.x += delta.x;
+        // float-tarkkuus suurilla x-arvoilla (Thaitown x ≈ 109000: tarkkuus 0,0078): hitaan vihun (puliukko, kävely 0,9 yks/s) askel nopealla ruudunpäivityksellä
+        // on alle puolen tarkkuusyksikön ja pyöristyisi nollaksi, jolloin vihu liikkuisi vain pystysuunnassa. Pyöristysjäännös siirretään seuraavalle ruudulle.
+        double xWanted = (double)p.x + delta.x + xCarry;
+        p.x = (float)xWanted;
+        xCarry = (float)System.Math.Max(-0.02, System.Math.Min(0.02, xWanted - p.x));
         p.y = Mathf.Clamp(p.y + delta.y, minY, Area.MaxDepthAt(p.x, maxY));
         // pelaajan alueella pysytään taustakuvan sisällä (esim. taklaus ei liu'u katolta yli)
         var cf = CameraFollow.Instance; var cam = Camera.main;

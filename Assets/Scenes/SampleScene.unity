@@ -753,6 +753,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -2225,6 +2229,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -5496,6 +5504,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -6272,6 +6284,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -6745,6 +6761,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -7497,6 +7517,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -10292,6 +10316,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -10985,6 +11013,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -11627,6 +11659,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -12291,6 +12327,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -14045,6 +14085,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -14930,6 +14974,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -15427,6 +15475,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -17215,6 +17267,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -17771,6 +17827,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -18338,6 +18398,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -18911,6 +18975,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -21711,6 +21779,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -23905,6 +23977,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -25103,6 +25179,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -27782,6 +27862,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -30733,6 +30817,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -31245,6 +31333,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -34573,6 +34665,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -37737,6 +37833,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -38206,6 +38306,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -40616,6 +40720,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -41774,6 +41882,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -42715,6 +42827,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -43288,6 +43404,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -43770,6 +43890,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -46309,6 +46433,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -46858,6 +46986,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -47769,6 +47901,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -49212,6 +49348,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -50575,6 +50715,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -52826,6 +52970,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -53376,6 +53524,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -54367,6 +54519,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -55322,6 +55478,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -57727,6 +57887,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -58452,6 +58616,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -59016,6 +59184,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -60568,6 +60740,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -62407,6 +62583,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -63391,6 +63571,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -64124,6 +64308,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -66010,6 +66198,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -67293,6 +67485,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -67766,6 +67962,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -68491,6 +68691,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -69216,6 +69420,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -69878,6 +70086,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -70634,6 +70846,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -71207,39 +71423,69 @@ MonoBehaviour:
     damage: 8
     reach: 1.7
     knockdown: 0
-  - name: Jab
+  - name: Etukoukku
     sprites:
-    - {fileID: -192575822130853248, guid: 2347e369775c3ac46bb6785154ae3125, type: 3}
-    - {fileID: -3341302415110977990, guid: 2347e369775c3ac46bb6785154ae3125, type: 3}
-    - {fileID: 7981830388274524313, guid: 2347e369775c3ac46bb6785154ae3125, type: 3}
-    - {fileID: 5628815120451167553, guid: 2347e369775c3ac46bb6785154ae3125, type: 3}
+    - {fileID: -2025316701435345273, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -1929261341444944824, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -1410655918150280364, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: 7441936006488886685, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -2185302885009478518, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -5292891123564362792, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -8884844293636333181, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: 8799361436609448320, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: -7277912248607493272, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: 6568179630063150609, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    - {fileID: 3412044239731072399, guid: cef3125311a21a649a0b990ae9a2a939, type: 3}
+    frameTime: 0.045
+    impactFrame: 4
+    impactHold: 0.12
+    windupTime: 0.05
+    frame: 8
+    duration: 0.2
+    lunge: 0.22
+    damage: 10
+    reach: 1.8
+    knockdown: 0
+  - name: Takakoukku
+    sprites:
+    - {fileID: 3359427186804700769, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: 8160128773022666861, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: 1483519225384411599, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: -7981872469829384816, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: -8189397017179353621, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: 3514986064708532569, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: -1773677339368962369, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: -3692959941116333913, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: -9104702783709930977, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    - {fileID: 5017422165043841662, guid: 8652c3c374945d34b8055c8483798d14, type: 3}
+    frameTime: 0.042
+    impactFrame: 3
+    impactHold: 0.14
+    windupTime: 0.05
+    frame: 8
+    duration: 0.2
+    lunge: 0.45
+    damage: 12
+    reach: 1.95
+    knockdown: 0
+  - name: Etusivukoukku
+    sprites:
+    - {fileID: 8022480815698124644, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: -3246798238410004697, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: -6393704250718367680, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: 4803147504381808580, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: 8571671885823354168, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: 4623842085635555555, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
+    - {fileID: 2520576110300401181, guid: a2a99e5cb21ded845a4cf1bdbcc7eb17, type: 3}
     frameTime: 0.045
     impactFrame: 2
-    impactHold: 0.09
+    impactHold: 0.15
     windupTime: 0.05
     frame: 8
     duration: 0.2
-    lunge: 0.18
-    damage: 6
-    reach: 1.6
-    knockdown: 0
-  - name: Uppercut
-    sprites:
-    - {fileID: 3059609763556844199, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    - {fileID: -5029236590022502257, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    - {fileID: -384415484906886151, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    - {fileID: -7196614772504596566, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    - {fileID: -5620748930331980793, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    - {fileID: -1065705033657583174, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
-    frameTime: 0.055
-    impactFrame: 4
-    impactHold: 0.16
-    windupTime: 0.05
-    frame: 8
-    duration: 0.2
-    lunge: 0.3
-    damage: 14
-    reach: 1.7
+    lunge: 0.4
+    damage: 15
+    reach: 1.9
     knockdown: 1
   comboInputFrom: 0.25
   comboRecovery: 0.12
@@ -72570,6 +72816,43 @@ MonoBehaviour:
   - {fileID: -4762686471073232182, guid: 3e322da3ddf85624c9898ac1f5ae4890, type: 3}
   - {fileID: -5464440571154374883, guid: 3e322da3ddf85624c9898ac1f5ae4890, type: 3}
   - {fileID: -2061790351818150307, guid: 3e322da3ddf85624c9898ac1f5ae4890, type: 3}
+  duckSprites:
+  - {fileID: 6647705799563786652, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: -475241987028108529, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 6082282706182387253, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 8065696555047337468, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 4720551212415472804, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 429319329407614597, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: -7071209435852073183, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: -4090544648658584002, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: -9066754198826814597, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 8401955439007239497, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 5636882206055601253, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  - {fileID: 5292104122010262876, guid: b87264f1709757b46b35218f5a75da22, type: 3}
+  duckFrameTime: 0.05
+  duckCooldown: 0.35
+  duckSafeWindow: {x: 0.15, y: 0.85}
+  duckHoldIndex: 5
+  duckHoldSafeTime: 1
+  quickUppercut:
+    name: Uppercut
+    sprites:
+    - {fileID: 3059609763556844199, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    - {fileID: -5029236590022502257, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    - {fileID: -384415484906886151, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    - {fileID: -7196614772504596566, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    - {fileID: -5620748930331980793, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    - {fileID: -1065705033657583174, guid: 7b2f50478467ba04d81307fcdaa902c1, type: 3}
+    frameTime: 0.045
+    impactFrame: 4
+    impactHold: 0.13
+    windupTime: 0.05
+    frame: 8
+    duration: 0.2
+    lunge: 0.3
+    damage: 14
+    reach: 1.7
+    knockdown: 1
   maxChaseLunge: 0.9
   chaseReachFactor: 0.7
   boostDuration: 20
@@ -74101,6 +74384,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -74772,6 +75059,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -75638,6 +75929,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -76896,6 +77191,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -77473,6 +77772,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -77976,6 +78279,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -78933,6 +79240,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -81505,6 +81816,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -83965,6 +84280,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -84638,6 +84957,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -85906,6 +86229,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -88538,6 +88865,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -89020,6 +89351,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -90389,6 +90724,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -90888,6 +91227,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -91448,6 +91791,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -92811,6 +93158,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -93556,6 +93907,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -94971,6 +95326,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -95828,6 +96187,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -99443,6 +99806,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -101028,6 +101395,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -102060,6 +102431,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -103329,6 +103704,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -103919,6 +104298,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -104907,6 +105290,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -106069,6 +106456,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -109357,6 +109748,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -110088,6 +110483,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -111068,6 +111467,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -113828,6 +114231,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -114318,6 +114725,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -115417,6 +115828,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -116435,6 +116850,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -117794,6 +118213,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -119351,6 +119774,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -120511,6 +120938,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -121633,6 +122064,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -123507,6 +123942,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -124486,6 +124925,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -125484,6 +125927,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -126312,6 +126759,10 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99

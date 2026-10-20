@@ -14888,4 +14888,403 @@ public static class BeatEmUpSetup
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(sc, true); }
     }
+
+    // ---------------- Hotellin hissi ja kattohuoneistokäytävä (Thaitown) ----------------
+    // Kuvat: Tools/HotelAssets/make_penthouse_images.py (Assets/ArtSources/Hotel -> thaitown_kattokayt_1..5.png ja thaitown_hissi_sisa.png).
+    // Aulan hissin ovi (E) -> hissin sisätila (ElevatorRide: matka, ruutu mustaksi) -> kattohuoneistokäytävä hissin eteen.
+    // Käytävä on peilikuvana molempiin suuntiin hissistä: [peilattu pääty, peilattu ovet, hissi, ovet, pääty]. Käytävän hissi vie takaisin alas.
+    const string ThaitownScenePath = "Assets/Scenes/Areas/Thaitown.unity";
+    const float LiftInteriorX0 = 125000f, PenthouseX0 = 126000f, PenthouseOverlapPx = 48f, LobbyLiftPx = 1561f, PenthouseFloorRow = 645f;
+
+    [MenuItem("Beat em up/208. Thaitown: hotellin hissi (E vie ylös) ja kattohuoneistokäytävä (peilikuvana molempiin suuntiin)")]
+    static void AddHotelElevatorAndPenthouse()
+    {
+        if (PlayModeBlocked()) return;
+        if (!File.Exists(ThaitownScenePath)) { Info("Aja ensin valikko 201 (Thaitown omaan sceneensä)."); return; }
+        var wall = new string[5];
+        for (int i = 0; i < 5; i++) wall[i] = "Assets/Sprites/Taustat/thaitown_kattokayt_" + (i + 1) + ".png";
+        const string insidePath = "Assets/Sprites/Taustat/thaitown_hissi_sisa.png";
+        if (wall.Concat(new[] { insidePath }).Any(p => !File.Exists(p))) { Info("Puuttuu kuvia. Aja ensin: python Tools/HotelAssets/make_penthouse_images.py"); return; }
+        var scene = EditorSceneManager.GetSceneByPath(ThaitownScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(ThaitownScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var lobby = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1" && a.gameObject.scene == scene);
+            if (lobby == null) { Info("Tee ensin hotellin aula (valikko 177)."); return; }
+            foreach (var n in new[] { "Thaitownin hotellin hissi", "Thaitownin kattohuoneisto", "Alue: Thaitown hotellin hissi", "Alue: Thaitown kattohuoneisto", "Thaitown: Aulan hissi", "Thaitown: Kattohuoneiston hissi" })
+            {
+                var o = scene.GetRootGameObjects().FirstOrDefault(g => g.name == n);
+                if (o != null) Undo.DestroyObjectImmediate(o);
+            }
+            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, halfW = CamHalf * 16f / 9f;
+            float imgW = 1672f / ppu, stride = (1672f - PenthouseOverlapPx) / ppu;
+
+            // ---- hissin sisätila (yksi kuva) ----
+            var inSprite = ImportShipSprite(insidePath, ppu, false, SpriteAlignment.Center);
+            var liftRoot = new GameObject("Thaitownin hotellin hissi");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(liftRoot, scene);
+            Undo.RegisterCreatedObjectUndo(liftRoot, "Hissi");
+            var inBg = new GameObject("Hissin sisätilan tausta").AddComponent<SpriteRenderer>();
+            inBg.transform.SetParent(liftRoot.transform, false);
+            inBg.sprite = inSprite; inBg.sortingOrder = -10000;
+            inBg.transform.position = new Vector3(LiftInteriorX0 + imgW * 0.5f, CamY, 0f);
+            var lift = ReuseArea("Alue: Thaitown hotellin hissi");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(lift.gameObject, scene);
+            lift.areaName = "Thaitown hotellin hissi"; lift.useSidewalk = false; lift.music = lobby.music;
+            lift.maxDepthY = top - 650f / ppu; lift.minDepthY = CamY - hU * 0.5f + 0.9f;
+            lift.walkMinX = LiftInteriorX0 + 3.5f; lift.walkMaxX = LiftInteriorX0 + imgW - 3.5f;
+            lift.camMinX = lift.camMaxX = LiftInteriorX0 + imgW * 0.5f;   // kuva täyttää ruudun: kamera paikallaan
+            lift.camSize = CamHalf; lift.camRiseY = 0f; lift.camOffsetY = 0f; lift.backScale = 1f;
+
+            // ---- kattohuoneistokäytävä (5 kuvaa, peilikuvana molempiin suuntiin hissistä) ----
+            var corridor = ReuseArea("Alue: Thaitown kattohuoneisto");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(corridor.gameObject, scene);
+            var pRoot = new GameObject("Thaitownin kattohuoneisto");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(pRoot, scene);
+            Undo.RegisterCreatedObjectUndo(pRoot, "Kattohuoneisto");
+            for (int i = 0; i < 5; i++)
+            {
+                var sp = ImportShipSprite(wall[i], ppu, false, SpriteAlignment.Center);
+                var part = new GameObject("Käytävän kuva " + (i + 1)).AddComponent<SpriteRenderer>();
+                part.transform.SetParent(pRoot.transform, false);
+                part.sprite = sp; part.sortingOrder = -10000 + i;   // seuraava kuva häivyttyy edellisen päälle
+                part.transform.position = new Vector3(PenthouseX0 + i * stride + imgW * 0.5f, CamY, 0f);
+            }
+            float totalW = 4f * stride + imgW;
+            var skySprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+            if (skySprite != null)
+            {
+                var sky = new GameObject("Käytävän ikkunoiden yötaivas").AddComponent<SpriteRenderer>();
+                sky.transform.SetParent(pRoot.transform, false); sky.sprite = skySprite;
+                sky.sortingOrder = -10100; sky.color = new Color(0.05f, 0.07f, 0.16f, 1f);
+                sky.transform.position = new Vector3(PenthouseX0 + totalW * 0.5f, CamY, 0f);
+                sky.transform.localScale = new Vector3((totalW + 4f) / skySprite.bounds.size.x, (hU + 4f) / skySprite.bounds.size.y, 1f);
+            }
+            var city = ImportShipSprite("Assets/Sprites/Taustat/thaitown_kaupunki_kaukainen_loop.png", 100f, true, SpriteAlignment.Center);
+            if (city != null)
+            {
+                var windows = new GameObject("Käytävän ikkunoiden kaupunki").AddComponent<SpriteRenderer>();
+                windows.transform.SetParent(pRoot.transform, false);
+                windows.sprite = city; windows.sortingOrder = -10090;
+                windows.drawMode = SpriteDrawMode.Tiled; windows.tileMode = SpriteTileMode.Continuous;
+                float k = 100f / ppu, factor = 0.08f, screenWU = 2f * CamHalf * 16f / 9f;
+                windows.transform.localScale = new Vector3(k, k, 1f);
+                windows.size = new Vector2((screenWU + totalW * factor + 4f) / k, city.bounds.size.y);
+                windows.transform.position = new Vector3(PenthouseX0 + totalW * 0.5f, top - (470.5f - 150f) / ppu, 0f);
+                var par = windows.gameObject.AddComponent<ParallaxLayer>();
+                par.factor = factor; par.startCamX = PenthouseX0 + screenWU * 0.5f; par.minX = PenthouseX0; par.maxX = PenthouseX0 + totalW;
+            }
+            corridor.areaName = "Thaitown kattohuoneisto"; corridor.useSidewalk = false; corridor.music = lobby.music;
+            corridor.maxDepthY = top - PenthouseFloorRow / ppu; corridor.minDepthY = CamY - hU * 0.5f + 0.65f;
+            corridor.walkMinX = PenthouseX0 + 0.8f; corridor.walkMaxX = PenthouseX0 + totalW - 0.8f;
+            corridor.camMinX = PenthouseX0 + halfW; corridor.camMaxX = PenthouseX0 + Mathf.Max(totalW - halfW, halfW);
+            corridor.camSize = CamHalf; corridor.camRiseY = 0f; corridor.camOffsetY = 0f; corridor.backScale = 1f;
+
+            // ---- ovet ja hissin kulku ----
+            float lobbyX0 = lobby.walkMinX - 0.5f;
+            float lobbyLiftX = lobbyX0 + LobbyLiftPx / ppu;
+            float corridorLiftX = PenthouseX0 + 2f * stride + 836f / ppu;
+            float liftMidX = LiftInteriorX0 + imgW * 0.5f;
+            Vector2 lobbySpawn = new Vector2(lobbyLiftX, Mathf.Lerp(lobby.maxDepthY, lobby.minDepthY, 0.3f));
+            Vector2 corridorSpawn = new Vector2(corridorLiftX, Mathf.Lerp(corridor.maxDepthY, corridor.minDepthY, 0.3f));
+            Vector2 liftSpawn = new Vector2(liftMidX, Mathf.Lerp(lift.maxDepthY, lift.minDepthY, 0.45f));
+
+            var up = new GameObject("Thaitown: Aulan hissi").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(up.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(up.gameObject, "Aulan hissi");
+            up.here = lobby; up.target = lift; up.prompt = "Nouse hissillä"; up.halfWidth = 1.6f; up.maxDistanceFromWall = 2.4f;
+            up.spawnPoint = liftSpawn; up.transform.position = new Vector3(lobbyLiftX, lobby.maxDepthY, 0f);
+            var down = new GameObject("Thaitown: Kattohuoneiston hissi").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(down.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(down.gameObject, "Kattohuoneiston hissi");
+            down.here = corridor; down.target = lift; down.prompt = "Laskeudu hissillä"; down.halfWidth = 1.6f; down.maxDistanceFromWall = 2.4f;
+            down.spawnPoint = liftSpawn; down.transform.position = new Vector3(corridorLiftX, corridor.maxDepthY, 0f);
+            var ride = liftRoot.AddComponent<ElevatorRide>();
+            ride.interior = lift; ride.lobby = lobby; ride.corridor = corridor; ride.lobbySpawn = lobbySpawn; ride.corridorSpawn = corridorSpawn;
+
+            // alueiden nimet kentän luetteloon
+            const string listPath = "Assets/Scenes/Areas/Thaitown.areas.txt";
+            if (File.Exists(listPath))
+            {
+                var names = File.ReadAllLines(listPath).Select(l => l.Trim()).Where(l => l.Length > 0).ToList();
+                foreach (var n in new[] { "Thaitown hotellin hissi", "Thaitown kattohuoneisto" }) if (!names.Contains(n)) names.Add(n);
+                File.WriteAllLines(listPath, names);
+            }
+            EditorUtility.SetDirty(lift); EditorUtility.SetDirty(corridor);
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
+            Info("Hotellin hissi ja kattohuoneistokäytävä luotu ja Thaitownin scene tallennettu.\n" +
+                 "Aulan hissi (aulan kuvassa 2, x ≈ " + lobbyLiftX.ToString("0.0") + "): E vie hissiin, hissi vie ylös käytävän keskelle (hissin eteen). Käytävä jatkuu peilikuvana molempiin suuntiin (päädyissä ikkunat), ja käytävän hissi (E) vie takaisin alas aulaan. " +
+                 "Käytävän huoneiden ovet ovat toistaiseksi kuvia.\n\nTestaa: kävele hotellin aulassa hissille.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Hotellin sviitti (yhden huoneen sisältö) ----------------
+    // Kuvat: Tools/HotelAssets/make_suite_images.py (thaitown_sviitti_1 = sisäänkäynti, thaitown_sviitti_2 = sänky ja ikkunat; peräkkäiset leikkeet, ei limitystä).
+    // Kattohuoneistokäytävän (valikko 208) hissistä oikealle toinen eli keskimmäinen ovi (1202) vie tänne; sviitin sisäänkäyntiovi vie takaisin.
+    const float SuiteX0 = 128000f, SuiteFloorRow = 612f, SuiteDoorPx = 200f, CorridorMiddleDoorPx = 942f;
+
+    [MenuItem("Beat em up/209. Thaitown: hotellin sviitti (kattohuoneistokäytävän keskimmäinen ovi 1202 vie sinne)")]
+    static void AddHotelSuite()
+    {
+        if (PlayModeBlocked()) return;
+        if (!File.Exists(ThaitownScenePath)) { Info("Aja ensin valikko 201 (Thaitown omaan sceneensä)."); return; }
+        var paths = new[] { "Assets/Sprites/Taustat/thaitown_sviitti_1.png", "Assets/Sprites/Taustat/thaitown_sviitti_2.png" };
+        if (paths.Any(p => !File.Exists(p))) { Info("Puuttuu kuvia. Aja ensin: python Tools/HotelAssets/make_suite_images.py"); return; }
+        var scene = EditorSceneManager.GetSceneByPath(ThaitownScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(ThaitownScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var corridor = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown kattohuoneisto" && a.gameObject.scene == scene);
+            if (corridor == null) { Info("Tee ensin kattohuoneistokäytävä (valikko 208)."); return; }
+            foreach (var n in new[] { "Thaitownin hotellin sviitti", "Alue: Thaitown sviitti", "Thaitown: Käytävältä sviittiin", "Thaitown: Sviitistä käytävälle" })
+            {
+                var o = scene.GetRootGameObjects().FirstOrDefault(g => g.name == n);
+                if (o != null) Undo.DestroyObjectImmediate(o);
+            }
+            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, halfW = CamHalf * 16f / 9f;
+            float imgW = 1672f / ppu, totalW = 2f * imgW;
+
+            var root = new GameObject("Thaitownin hotellin sviitti");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Sviitti");
+            for (int i = 0; i < 2; i++)
+            {
+                var sp = ImportShipSprite(paths[i], ppu, false, SpriteAlignment.Center);
+                var part = new GameObject("Sviitin kuva " + (i + 1)).AddComponent<SpriteRenderer>();
+                part.transform.SetParent(root.transform, false);
+                part.sprite = sp; part.sortingOrder = -10000 + i;
+                part.transform.position = new Vector3(SuiteX0 + i * imgW + imgW * 0.5f, CamY, 0f);
+            }
+            var skySprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+            if (skySprite != null)
+            {
+                var sky = new GameObject("Sviitin ikkunoiden yötaivas").AddComponent<SpriteRenderer>();
+                sky.transform.SetParent(root.transform, false); sky.sprite = skySprite;
+                sky.sortingOrder = -10100; sky.color = new Color(0.05f, 0.07f, 0.16f, 1f);
+                sky.transform.position = new Vector3(SuiteX0 + totalW * 0.5f, CamY, 0f);
+                sky.transform.localScale = new Vector3((totalW + 4f) / skySprite.bounds.size.x, (hU + 4f) / skySprite.bounds.size.y, 1f);
+            }
+            var city = ImportShipSprite("Assets/Sprites/Taustat/thaitown_kaupunki_kaukainen_loop.png", 100f, true, SpriteAlignment.Center);
+            if (city != null)
+            {
+                var windows = new GameObject("Sviitin ikkunoiden kaupunki").AddComponent<SpriteRenderer>();
+                windows.transform.SetParent(root.transform, false);
+                windows.sprite = city; windows.sortingOrder = -10090;
+                windows.drawMode = SpriteDrawMode.Tiled; windows.tileMode = SpriteTileMode.Continuous;
+                float k = 100f / ppu, factor = 0.08f, screenWU = 2f * CamHalf * 16f / 9f;
+                windows.transform.localScale = new Vector3(k, k, 1f);
+                windows.size = new Vector2((screenWU + totalW * factor + 4f) / k, city.bounds.size.y);
+                windows.transform.position = new Vector3(SuiteX0 + totalW * 0.5f, top - (470.5f - 150f) / ppu, 0f);
+                var par = windows.gameObject.AddComponent<ParallaxLayer>();
+                par.factor = factor; par.startCamX = SuiteX0 + screenWU * 0.5f; par.minX = SuiteX0; par.maxX = SuiteX0 + totalW;
+            }
+
+            var suite = ReuseArea("Alue: Thaitown sviitti");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(suite.gameObject, scene);
+            suite.areaName = "Thaitown sviitti"; suite.useSidewalk = false; suite.music = corridor.music;
+            suite.maxDepthY = top - SuiteFloorRow / ppu; suite.minDepthY = CamY - hU * 0.5f + 0.65f;
+            suite.walkMinX = SuiteX0 + 0.8f; suite.walkMaxX = SuiteX0 + totalW - 0.8f;
+            suite.camMinX = SuiteX0 + halfW; suite.camMaxX = SuiteX0 + Mathf.Max(totalW - halfW, halfW);
+            suite.camSize = CamHalf; suite.camRiseY = 0f; suite.camOffsetY = 0f; suite.backScale = 1f;
+            // ikkunaseinä kallistuu oikeassa reunassa: lattian takaraja laskee kohti kuvan oikeaa reunaa
+            suite.depthLimits = new[] {
+                new Vector2(SuiteX0, suite.maxDepthY),
+                new Vector2(SuiteX0 + imgW + 1100f / ppu, suite.maxDepthY),
+                new Vector2(SuiteX0 + totalW, top - 690f / ppu) };
+            suite.depthLimitsExceedMax = false;
+
+            // ovet: käytävän keskimmäinen huoneovi (kuvassa 4: 1202) <-> sviitin sisäänkäynti
+            float stride = (1672f - PenthouseOverlapPx) / ppu;
+            float corridorDoorX = PenthouseX0 + 3f * stride + CorridorMiddleDoorPx / ppu;
+            float suiteDoorX = SuiteX0 + SuiteDoorPx / ppu;
+            var enter = new GameObject("Thaitown: Käytävältä sviittiin").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(enter.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(enter.gameObject, "Sviitin ovi");
+            enter.here = corridor; enter.target = suite; enter.prompt = "Mene sviittiin"; enter.halfWidth = 1.3f; enter.maxDistanceFromWall = 2.4f;
+            enter.spawnPoint = new Vector2(suiteDoorX + 1.6f, Mathf.Lerp(suite.maxDepthY, suite.minDepthY, 0.3f));
+            enter.transform.position = new Vector3(corridorDoorX, corridor.maxDepthY, 0f);
+            var exit = new GameObject("Thaitown: Sviitistä käytävälle").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(exit.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(exit.gameObject, "Sviitin uloskäynti");
+            exit.here = suite; exit.target = corridor; exit.prompt = "Poistu käytävälle"; exit.halfWidth = 1.3f; exit.maxDistanceFromWall = 2.4f;
+            exit.spawnPoint = new Vector2(corridorDoorX, Mathf.Lerp(corridor.maxDepthY, corridor.minDepthY, 0.3f));
+            exit.transform.position = new Vector3(suiteDoorX, suite.maxDepthY, 0f);
+
+            const string listPath = "Assets/Scenes/Areas/Thaitown.areas.txt";
+            if (File.Exists(listPath))
+            {
+                var names = File.ReadAllLines(listPath).Select(l => l.Trim()).Where(l => l.Length > 0).ToList();
+                if (!names.Contains("Thaitown sviitti")) names.Add("Thaitown sviitti");
+                File.WriteAllLines(listPath, names);
+            }
+            EditorUtility.SetDirty(suite); EditorUtility.SetDirty(enter); EditorUtility.SetDirty(exit);
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
+            Info("Sviitti luotu ja Thaitownin scene tallennettu. Käytävän hissistä oikealle toinen (keskimmäinen) ovi 1202 (x ≈ " + corridorDoorX.ToString("0.0") + ") vie sviittiin, " +
+                 "ja sviitin sisäänkäyntiovi vasemmassa reunassa vie takaisin käytävälle. Sviitin oikeassa päässä ikkunat näyttävät kaupungin.\n\nTestaa: valikko 208 ensin, sitten hissillä ylös ja ovelle 1202.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Hotellin katto (helikopterikenttä) ----------------
+    // Kuvat: Tools/HotelAssets/make_roof_images.py. Katto on symmetrinen oven (rakennus) ympärillä: [peilattu laaja katto, OVI, laaja katto],
+    // laaja katto = ilmastointilaite, helikopterikenttä ja kulma yhdessä kuvassa. Päissä kulma: parapetti kääntyy ja lattian takaraja laskee.
+    // Kattohuoneistokäytävän kummankin pään leveä ovi (valikko 208) vie katolle oven eteen; katon ovi vie takaisin siihen päähän, josta tultiin.
+    const float HotelRoofX0 = 130000f, HotelRoofFloorRow = 612f, HotelRoofDoorPx = 824f, CorridorEndDoorPx = 650f;
+
+    [MenuItem("Beat em up/210. Thaitown: hotellin katto ja helikopterikenttä (käytävän päätyovet vievät katolle)")]
+    static void AddHotelRoof()
+    {
+        if (PlayModeBlocked()) return;
+        if (!File.Exists(ThaitownScenePath)) { Info("Aja ensin valikko 201 (Thaitown omaan sceneensä)."); return; }
+        var paths = new[] { "Assets/Sprites/Taustat/thaitown_katto_paa_1.png", "Assets/Sprites/Taustat/thaitown_katto_paa_2.png", "Assets/Sprites/Taustat/thaitown_katto_paa_3.png" };
+        if (paths.Any(p => !File.Exists(p))) { Info("Puuttuu kuvia. Aja ensin: python Tools/HotelAssets/make_roof_images.py"); return; }
+        var scene = EditorSceneManager.GetSceneByPath(ThaitownScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(ThaitownScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var corridor = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown kattohuoneisto" && a.gameObject.scene == scene);
+            if (corridor == null) { Info("Tee ensin kattohuoneistokäytävä (valikko 208)."); return; }
+            // vanhat versiot pois (myös aiemmat ruutuun jaetut kokeilut)
+            string[] oldAreas = { "Thaitown katto", "Thaitown katto kenttä oikea", "Thaitown katto kulma oikea", "Thaitown katto kenttä vasen", "Thaitown katto kulma vasen" };
+            foreach (var o in scene.GetRootGameObjects().Where(g => oldAreas.Any(a => g.name == "Alue: " + a) || g.name == "Thaitownin hotellin katto" || g.name.StartsWith("Thaitown: Katto")
+                         || g.name.StartsWith("Thaitown: Kenttä") || g.name.StartsWith("Thaitown: Kulma") || g.name.StartsWith("Thaitown: Katolta") || (g.name.StartsWith("Thaitown: Käytävän") && g.name.EndsWith("katolle"))).ToList())
+                Undo.DestroyObjectImmediate(o);
+
+            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, halfW = CamHalf * 16f / 9f;
+            float ov = PenthouseOverlapPx / ppu;
+            var sprites = paths.Select(p => ImportShipSprite(p, ppu, false, SpriteAlignment.Center)).ToArray();
+            float[] w = sprites.Select(s => s.rect.width / ppu).ToArray();
+            float x1 = HotelRoofX0, x2 = x1 + w[0] - ov, x3 = x2 + w[1] - ov, totalW = w[0] + w[1] + w[2] - 2f * ov;
+            float[] xs = { x1, x2, x3 };
+
+            var root = new GameObject("Thaitownin hotellin katto");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Katto");
+            for (int i = 0; i < 3; i++)
+            {
+                var sr = new GameObject("Katon kuva " + (i + 1)).AddComponent<SpriteRenderer>();
+                sr.transform.SetParent(root.transform, false);
+                sr.sprite = sprites[i]; sr.sortingOrder = -10000 + i;   // seuraava kuva häivyttyy edellisen päälle
+                sr.transform.position = new Vector3(xs[i] + w[i] * 0.5f, CamY, 0f);
+            }
+            // taivas on kuvissa läpinäkyvä: taakse yötaivas ja kaupungin parallaksi
+            var skySprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+            if (skySprite != null)
+            {
+                var sky = new GameObject("Katon yötaivas").AddComponent<SpriteRenderer>();
+                sky.transform.SetParent(root.transform, false); sky.sprite = skySprite;
+                sky.sortingOrder = -10100; sky.color = new Color(0.05f, 0.07f, 0.16f, 1f);
+                sky.transform.position = new Vector3(x1 + totalW * 0.5f, CamY, 0f);
+                sky.transform.localScale = new Vector3((totalW + 4f) / skySprite.bounds.size.x, (hU + 4f) / skySprite.bounds.size.y, 1f);
+            }
+            var city = ImportShipSprite("Assets/Sprites/Taustat/thaitown_kaupunki_kaukainen_loop.png", 100f, true, SpriteAlignment.Center);
+            if (city != null)
+            {
+                var skyline = new GameObject("Katon kaupunki").AddComponent<SpriteRenderer>();
+                skyline.transform.SetParent(root.transform, false);
+                skyline.sprite = city; skyline.sortingOrder = -10090;
+                skyline.drawMode = SpriteDrawMode.Tiled; skyline.tileMode = SpriteTileMode.Continuous;
+                float k = 100f / ppu, factor = 0.08f, screenWU = 2f * CamHalf * 16f / 9f;
+                skyline.transform.localScale = new Vector3(k, k, 1f);
+                skyline.size = new Vector2((screenWU + totalW * factor + 4f) / k, city.bounds.size.y);
+                skyline.transform.position = new Vector3(x1 + totalW * 0.5f, top - (470.5f - 150f) / ppu, 0f);
+                var par = skyline.gameObject.AddComponent<ParallaxLayer>();
+                par.factor = factor; par.startCamX = x1 + screenWU * 0.5f; par.minX = x1; par.maxX = x1 + totalW;
+            }
+
+            var roof = ReuseArea("Alue: Thaitown katto");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(roof.gameObject, scene);
+            roof.areaName = "Thaitown katto"; roof.useSidewalk = false; roof.music = corridor.music;
+            roof.maxDepthY = top - HotelRoofFloorRow / ppu; roof.minDepthY = CamY - hU * 0.5f + 0.65f;
+            roof.walkMinX = x1 + 0.8f; roof.walkMaxX = x1 + totalW - 0.8f;
+            roof.camMinX = x1 + halfW; roof.camMaxX = x1 + Mathf.Max(totalW - halfW, halfW);
+            roof.camSize = CamHalf; roof.camRiseY = 0f; roof.camOffsetY = 0f; roof.backScale = 1f;
+            // molemmissa päissä kulma: parapetti kääntyy kohti ruudun reunaa ja lattian takaraja laskee (laaja kuva: kulma x ≈ 2631 / 2822 px)
+            float cornerW = w[0] * (191f / 2822f);   // peilattu kulma: 191 px kuvan alusta
+            roof.depthLimits = new[] {
+                new Vector2(x1, top - 712f / ppu),
+                new Vector2(x1 + cornerW, roof.maxDepthY),
+                new Vector2(x1 + totalW - (w[2] - w[2] * 2631f / 2822f), roof.maxDepthY),
+                new Vector2(x1 + totalW, top - 712f / ppu) };
+            roof.depthLimitsExceedMax = false;
+
+            float roofDoorX = x2 + HotelRoofDoorPx / ppu;
+            float stride = (1672f - PenthouseOverlapPx) / ppu;
+            float rightEndX = PenthouseX0 + 4f * stride + CorridorEndDoorPx / ppu;
+            float leftEndX = PenthouseX0 + (1672f - CorridorEndDoorPx) / ppu;
+            Vector2 roofSpawn = new Vector2(roofDoorX, Mathf.Lerp(roof.maxDepthY, roof.minDepthY, 0.35f));
+            Door MakeDoor(string name, Area here, Area target, string prompt, float x, float y, Vector2 spawn)
+            {
+                var d = new GameObject(name).AddComponent<Door>();
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(d.gameObject, scene);
+                Undo.RegisterCreatedObjectUndo(d.gameObject, name);
+                d.here = here; d.target = target; d.prompt = prompt; d.halfWidth = 1.8f; d.maxDistanceFromWall = 2.4f;
+                d.spawnPoint = spawn; d.transform.position = new Vector3(x, y, 0f);
+                EditorUtility.SetDirty(d);
+                return d;
+            }
+            MakeDoor("Thaitown: Käytävän oikea päätyovi katolle", corridor, roof, "Mene katolle", rightEndX, corridor.maxDepthY, roofSpawn);
+            MakeDoor("Thaitown: Käytävän vasen päätyovi katolle", corridor, roof, "Mene katolle", leftEndX, corridor.maxDepthY, roofSpawn);
+            var back = MakeDoor("Thaitown: Katolta käytävälle", roof, corridor, "Mene sisään", roofDoorX, roof.maxDepthY,
+                                new Vector2(rightEndX, Mathf.Lerp(corridor.maxDepthY, corridor.minDepthY, 0.3f)));
+            back.returnToLastDoor = true;   // takaisin siihen käytävän päähän, josta tultiin
+
+            const string listPath = "Assets/Scenes/Areas/Thaitown.areas.txt";
+            if (File.Exists(listPath))
+            {
+                var names = File.ReadAllLines(listPath).Select(l => l.Trim()).Where(l => l.Length > 0 && !oldAreas.Skip(1).Contains(l)).ToList();   // vanhojen ruutujen nimet pois
+                if (!names.Contains("Thaitown katto")) names.Add("Thaitown katto");
+                File.WriteAllLines(listPath, names);
+            }
+            EditorUtility.SetDirty(roof);
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
+            Info("Katto luotu ja Thaitownin scene tallennettu. Kattohuoneistokäytävän kummankin pään leveä ovi (E) vie katolle oven eteen; katon ovi vie takaisin siihen päähän, josta tultiin.\n" +
+                 "Katto: ovi keskellä, molemmin puolin ilmastointilaite, helikopterikenttä ja kulma (vasen puoli peilikuva); taivaan takana yötaivas ja kaupungin parallaksi.\n\nTestaa: valikko 208 ensin, hissillä ylös ja käytävän päähän.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Roccon uudet iskut: etukoukku, takakäden sivukoukku ja alasväistö ----------------
+    // Kuvat: Tools/RoccoAssets/make_rocco_sheets.py (rocco_etukoukku, rocco_takasivukoukku, rocco_etusivukoukku, rocco_alasvaisto, ruutu 512 x 384).
+    // Kombo: jab -> takasuora -> etukoukku -> takakäden sivukoukku -> etukäden sivukoukku (kaataa). Alas + suojaus: alasväistö (iskut menevät yli). rocco_etukoukku ja rocco_takasivukoukku on leikattu valmiiksi (ei käytössä).
+    [MenuItem("Beat em up/211. Rocco: kombo jab, takasuora, etukoukku, takasivukoukku, etusivukoukku ja alasväistö (alas + suojaus)")]
+    static void AddRoccoHooksAndDuck()
+    {
+        if (PlayModeBlocked()) return;
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        var missing = new List<string>();
+        foreach (var n in new[] { "rocco_etukoukku", "rocco_takasivukoukku", "rocco_etusivukoukku", "rocco_alasvaisto" })
+        {
+            string path = FindTexture(n);
+            if (path == null) missing.Add(n + ".png"); else SetupAndSlice(path);
+        }
+        { string up = FindTexture(UppercutName); if (up != null) SetupAndSlice(up); }   // nopea alakoukku (väistön perään)
+        if (missing.Count > 0) { Info("Puuttuu: " + string.Join(", ", missing) + ". Aja: python Tools/RoccoAssets/make_rocco_sheets.py <kansio jossa rocco_0001.png...>"); return; }
+        var found = new List<string>();
+        var old = pc.punchCombo != null && pc.punchCombo.Length >= 2 ? pc.punchCombo : null;
+        if (old == null) { Info("Aja ensin valikko 3 (Päivitä lyöntikombo)."); return; }
+        var combo = new List<PlayerController.ComboHit> { old[0], old[1] };   // jab ja takasuora ennallaan (säädöt säilyvät)
+        combo.Add(MakeHit("Etukoukku", "rocco_etukoukku", impactFrame: 4, frameTime: 0.045f, impactHold: 0.12f, lunge: 0.22f,
+            fallbackFrame: 8, found, damage: 10, reach: 1.8f, knockdown: false));
+        combo.Add(MakeHit("Takakoukku", "rocco_takasivukoukku", impactFrame: 3, frameTime: 0.042f, impactHold: 0.14f, lunge: 0.45f,
+            fallbackFrame: 8, found, damage: 12, reach: 1.95f, knockdown: false));   // takakäden sivukoukku, ei kaada
+        combo.Add(MakeHit("Etusivukoukku", "rocco_etusivukoukku", impactFrame: 2, frameTime: 0.045f, impactHold: 0.15f, lunge: 0.40f,
+            fallbackFrame: 8, found, damage: 15, reach: 1.9f, knockdown: true));   // päätös: etukäden sivukoukku, kaataa
+        Undo.RecordObject(pc, "Roccon uudet iskut");
+        pc.punchCombo = combo.ToArray();
+        pc.quickUppercut = MakeHit("Uppercut", UppercutName, impactFrame: 4, frameTime: 0.045f, impactHold: 0.13f, lunge: 0.30f,
+            fallbackFrame: 8, found, damage: 14, reach: 1.7f, knockdown: true);   // väistön aikana lyönti: nopea takakäden alakoukku
+        pc.duckSprites = LoadSprites("rocco_alasvaisto")
+            .OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        found.Add("Alasväistö: rocco_alasvaisto.png, " + pc.duckSprites.Length + " kuvaa");
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info("Roccon kombo: Jab → Takasuora → Etukoukku → Takakäden sivukoukku → Etukäden sivukoukku (kaataa). Alas + suojaus: alasväistö; väistön aikana lyönti = nopea takakäden alakoukku, pusku-nappi = pusku.\n\n" + string.Join("\n", found) +
+             "\n\nKaikki kolme uutta iskua ovat kombossa.\nTallenna scene (Ctrl+S).");
+    }
 }
