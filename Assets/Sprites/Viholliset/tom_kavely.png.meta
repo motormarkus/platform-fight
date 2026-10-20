@@ -1,0 +1,843 @@
+fileFormatVersion: 2
+guid: f01b87c98e577ef428887014e061e650
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6616813819703303441
+    second: tom_kavely_0
+  - first:
+      213: 6522211075990128297
+    second: tom_kavely_1
+  - first:
+      213: -9163272147537660203
+    second: tom_kavely_2
+  - first:
+      213: 9027827161102869587
+    second: tom_kavely_3
+  - first:
+      213: 4861747495002579260
+    second: tom_kavely_4
+  - first:
+      213: 5500992903808881878
+    second: tom_kavely_5
+  - first:
+      213: -3004207747426999412
+    second: tom_kavely_6
+  - first:
+      213: 4047303907285540071
+    second: tom_kavely_7
+  - first:
+      213: 3552513454493973770
+    second: tom_kavely_8
+  - first:
+      213: 1228368290096141009
+    second: tom_kavely_9
+  - first:
+      213: -5375656080409263822
+    second: tom_kavely_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tom_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe260bb63ea5c24a0800000000000000
+      internalID: -6616813819703303441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6828eda6c838a50800000000000000
+      internalID: 6522211075990128297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d679c9e78485d080800000000000000
+      internalID: -9163272147537660203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3136
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354e827b8f8494d70800000000000000
+      internalID: 9027827161102869587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31264b8695687340800000000000000
+      internalID: 4861747495002579260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4197786e3775c40800000000000000
+      internalID: 5500992903808881878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83232f78f8ee46d0800000000000000
+      internalID: -3004207747426999412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2688
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec1ecbc579ea2830800000000000000
+      internalID: 4047303907285540071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0db8e23a201d4130800000000000000
+      internalID: 3552513454493973770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2d880a37a0c0110800000000000000
+      internalID: 1228368290096141009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231898cb645d565b0800000000000000
+      internalID: -5375656080409263822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8017fe2cb15874d873fc0d1215295a
+      internalID: -2010662045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff46b2a8f0ff2a458dc8a8135014954
+      internalID: 1650553827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae042bc8711cf346a7701824faf2b60
+      internalID: -1421253147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8961af7783dd184fb3f8bc7dc263229
+      internalID: 282983703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30da7e511b981ba459e50f9c74c199f2
+      internalID: 1890542536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7294d99b581fe3549958172c1fbf012c
+      internalID: 1260526338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292d5bcaf80f00f418a9b9243f332d6d
+      internalID: 686562003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef817d92d3aaa9440a2e20d6633b2ca8
+      internalID: -1998703995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb57a2b724727f489f5678610bd7c41
+      internalID: 138168719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca28fd684dafab469a40929b574239b
+      internalID: 2066834972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779a0482e1af5904ba30fead48c7077f
+      internalID: 1782014454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46af7bb2022e93648a619b750695056c
+      internalID: 1735633660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f393eea7860d7ce4ba0ef04a382fb359
+      internalID: -1877483737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a333e25adabd945b19f3188d53a55a
+      internalID: -1176522431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0c3f65047b0234f9b3df8b08c42cf1
+      internalID: -1689357373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bf4bd1970c52f428c61f4bb7747bb1
+      internalID: 1547946375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3c9863cc3c45646bd795fd13970d3f
+      internalID: 1139457559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f16e62d04977044ac67320d49ccc83
+      internalID: -1971257543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2453913c65daca8448c15e1b079146ff
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tom_kavely_0: -6616813819703303441
+      tom_kavely_1: 6522211075990128297
+      tom_kavely_10: -5375656080409263822
+      tom_kavely_11: -2010662045
+      tom_kavely_12: 1650553827
+      tom_kavely_13: -1421253147
+      tom_kavely_14: 282983703
+      tom_kavely_15: 1890542536
+      tom_kavely_16: 1260526338
+      tom_kavely_17: 686562003
+      tom_kavely_18: -1998703995
+      tom_kavely_19: 138168719
+      tom_kavely_2: -9163272147537660203
+      tom_kavely_20: 2066834972
+      tom_kavely_21: 1782014454
+      tom_kavely_22: 1735633660
+      tom_kavely_23: -1877483737
+      tom_kavely_24: -1176522431
+      tom_kavely_25: -1689357373
+      tom_kavely_26: 1547946375
+      tom_kavely_27: 1139457559
+      tom_kavely_28: -1971257543
+      tom_kavely_3: 9027827161102869587
+      tom_kavely_4: 4861747495002579260
+      tom_kavely_5: 5500992903808881878
+      tom_kavely_6: -3004207747426999412
+      tom_kavely_7: 4047303907285540071
+      tom_kavely_8: 3552513454493973770
+      tom_kavely_9: 1228368290096141009
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

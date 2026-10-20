@@ -677,6 +677,44 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
     }
     public bool IsDead => state == State.Dead;
+    /// Vihu on kesken hyökkäystä (valmistelu, isku tai palautus): pelaajan counter-isku (suojaus + lyönti) voi katkaista sen.
+    /// Anteeksiantava: myös 0,25 s hyökkäystilan jälkeen (sarjan askelten väli, aivopomojen siirtymät), kun vihu on vielä perustilassa.
+    public bool InAttack => !waitingToAppear && (state == State.Windup || state == State.Punch || state == State.Recover
+        || ((state == State.Chase || state == State.Idle) && Time.time - lastAttackStateTime < 0.25f));
+    float lastAttackStateTime = -9f;
+    float hurtOverride;
+
+    /// Counter-isku: katkaisee meneillään olevan hyökkäyksen ja kombon, vahinko ja horjahdus stunTime sekuntia (aivopomot: aivot keskeyttävät sarjansa itse horjahduksen alkaessa).
+    public bool CounterHit(int damage, float attackerX, float stunTime)
+    {
+        if (!InAttack) return false;
+        comboSeq = null; counterActive = false;
+        awake = true;
+        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage, isBoss));
+        LastHit = this; LastHitTime = Time.time;
+        bool fromLeft = attackerX < transform.position.x;
+        facingRight = !fromLeft;
+        flashTimer = 0.1f;
+        shakeUntil = HitFx.ShakeUntil(false);
+        PlayHurtSound();
+        if (health <= 0)
+        {
+            if (undying) { health = 1; undyingFallen = true; }
+            else if (sparring) { health = 1; sparKO = true; }
+            knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f);
+            verticalVel = 7f;
+            height = Mathf.Max(height, 0.05f);
+            Enter(State.Airborne);
+            return true;
+        }
+        knockVel = new Vector2(fromLeft ? 2.5f : -2.5f, 0f);
+        hurtOverride = stunTime;
+        Enter(State.Hurt);
+        return true;
+    }
+
+    /// Maassa, nousemassa, otteessa, kuollut tai piilossa odottava: ei kelpaa kohteeksi (Tom).
+    public bool IsDownOrDead => TargetDown(this) || waitingToAppear;
     /// Tilannekuva vianetsintään (PuliukkoDebug kirjoittaa tiedostoon).
     public string DebugInfo()
     {
@@ -946,7 +984,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1122,6 +1160,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Stomp(dt);
         BossVoices();
 
+        if (state == State.Windup || state == State.Punch || state == State.Recover) lastAttackStateTime = Time.time;   // counter-iskun anteeksiantava ikkuna
+        if (BrainDrives && height > 0.02f) height = Mathf.MoveTowards(height, 0f, 14f * dt);   // aivopomo ei jää leijumaan: perustilassa (ei lennossa) korkeus palaa maahan
         if (BrainDrives) brain.Tick(dt);
         else switch (state)
         {
@@ -1314,7 +1354,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Hurt:
                 Move(knockVel * dt);
                 knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, 12f * dt);
-                if (stateTime >= hurtTime) Enter(State.Chase);
+                if (stateTime >= (hurtOverride > 0f ? hurtOverride : hurtTime)) { hurtOverride = 0f; Enter(State.Chase); }
                 break;
 
             case State.Ringed:
@@ -1418,6 +1458,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= downTime + (ringFall ? 0.6f : 0f) && !sparKO)
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
+                    if (health <= 0 && undying) { health = 1; undyingFallen = true; }   // muu kuolemantie (heitto, ote): sama kuin iskussa
                     if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
                     else
                     {
@@ -2109,6 +2150,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void Enter(State s)
     {
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
+        if (s != State.Hurt) hurtOverride = 0f;   // counter-iskun pidennetty horjahdus päättyy aina tilan vaihtuessa
         if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, altWindupVolume);
         if (s == State.Windup && usingPunch3)
         {
@@ -2884,7 +2926,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector3 me = transform.position;
         foreach (var e in All.ToArray())
         {
-            if (e == this || e == null || e.IsDead || bowled.Contains(e) || TargetDown(e) || e.state == State.Airborne) continue;
+            if (e == this || e == null || e == thrownBy || e.IsDead || bowled.Contains(e) || TargetDown(e) || e.state == State.Airborne) continue;
             Vector3 q = e.transform.position;
             if (Mathf.Abs(q.x - me.x) > 1.1f || Mathf.Abs(q.y - me.y) > 0.55f || height > 2.6f) continue;
             bowled.Add(e);
@@ -3075,7 +3117,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         comboHits++; lastHitTime = Time.time;
         if (player != null && player.InPunchChain && !breaksCombos) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - damage);
-        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; }   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
+        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; }
+        else if (undying && health <= 0) { knockdown = true; undyingFallen = true; health = 1; }   // uusiutuva pomo: ei kuole, kaatuu ja aivo ajaa pakoon   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;   // käänny lyöjään päin
@@ -3109,6 +3152,16 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         return true;
     }
+
+    [Header("Uusiutuva pomo (Gustav)")]
+    [Tooltip("Nollaan lyötynä ei kuole: kaatuu, nousee ja aivo ajaa pakoon (UndyingFallen).")]
+    public bool undying;
+    bool undyingFallen;
+    /// Energia loppui (viimeinen kaatuminen): aivo lukee tämän ja kuittaa ClearUndyingFallen.
+    public bool UndyingFallen => undyingFallen;
+    public void ClearUndyingFallen() { undyingFallen = false; }
+    /// Uusi kohtaaminen: energia täyteen (maxHealth voi vaihtua kohtaamisittain).
+    public void Renew(int newMax) { maxHealth = newMax; health = newMax; undyingFallen = false; }
 
     [Header("Sparraus ja toinen kaatumistapa (Marcus)")]
     [Tooltip("Sparraus: nollaan lyöty kaatuu mutta ei kuole (energia täyttyy takaisin).")]
@@ -3254,9 +3307,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Otteessa näytetään seisova perusasento osumakuvan (pää taakse) sijaan: päät yhteen -liike.
     [System.NonSerialized] public bool heldAsIdle;
     [System.NonSerialized] public bool thrownByEnemy;   // toisen vihun heittämä (portsari): ei kameran tärähdystä
+    [System.NonSerialized] public Enemy thrownBy;       // heittäjä (Tom): heitetty vihu ei kaada häntä lentoreitillään
 
     /// Voiko pelaaja tarttua rinnuksista (pystyssä, ei kantamassa mitään eikä jo kiinni).
-    public bool CanBeGrabbed => !ally && (state == State.Idle || state == State.Block || state == State.Chase || state == State.Windup
+    public bool CanBeGrabbed => !ally && !(brain is TomBrain tomBrain && tomBrain.Invulnerable) && (state == State.Idle || state == State.Block || state == State.Chase || state == State.Windup
                                           || state == State.Punch || state == State.Recover || state == State.Hurt);
 
     /// Otteesta irti tavallisena kaatavana iskuna (Rubyn viimeinen lyönti): kaatuu taaksepäin kuin kaatavasta lyönnistä, ei heittolentoa eikä pyörimistä.

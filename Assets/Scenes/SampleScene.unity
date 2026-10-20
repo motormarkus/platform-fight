@@ -185,6 +185,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -753,6 +754,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -837,6 +839,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -999,6 +1002,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -1345,6 +1349,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -1472,6 +1477,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -1549,6 +1555,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -1715,6 +1722,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -2229,6 +2237,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -2410,6 +2419,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -2758,6 +2768,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -3905,6 +3916,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -4925,6 +4937,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -5504,6 +5517,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -6284,6 +6298,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -6761,6 +6776,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -6936,6 +6952,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -7517,6 +7534,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -7675,6 +7693,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -8200,6 +8219,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -8371,6 +8391,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -8452,6 +8473,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -8533,6 +8555,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -9010,6 +9033,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -10316,6 +10340,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -10406,6 +10431,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -11013,6 +11039,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -11101,6 +11128,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -11182,6 +11210,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -11659,6 +11688,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -12327,6 +12357,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -12966,6 +12997,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -13225,6 +13257,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -13523,6 +13556,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -13604,6 +13638,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -14085,6 +14120,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -14490,6 +14526,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -14974,6 +15011,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -15475,6 +15513,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -16016,6 +16055,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -16325,6 +16365,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -16493,6 +16534,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -17267,6 +17309,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -17827,6 +17870,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -18398,6 +18442,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -18975,6 +19020,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -19156,6 +19202,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -19413,6 +19460,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -19887,6 +19935,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -19962,6 +20011,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -20071,6 +20121,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -20151,6 +20202,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -20414,6 +20466,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -20586,6 +20639,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -21298,6 +21352,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -21779,6 +21834,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -21943,6 +21999,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -22018,6 +22075,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -22094,6 +22152,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -22175,6 +22234,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -22523,6 +22583,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -22650,6 +22711,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -23097,6 +23159,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -23265,6 +23328,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -23977,6 +24041,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -24050,6 +24115,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -25179,6 +25245,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -25615,6 +25682,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -25965,6 +26033,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -26046,6 +26115,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -26212,6 +26282,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -26617,6 +26688,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -27104,6 +27176,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -27862,6 +27935,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -28128,6 +28202,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -28296,6 +28371,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -28371,6 +28447,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -28442,6 +28519,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -28513,6 +28591,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -28825,6 +28904,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -28906,6 +28986,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -29581,6 +29662,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -29662,6 +29744,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -30005,6 +30088,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -30258,6 +30342,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -30817,6 +30902,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -31333,6 +31419,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -31497,6 +31584,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -32025,6 +32113,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -32100,6 +32189,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -32444,6 +32534,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -32697,6 +32788,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -32865,6 +32957,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -32945,6 +33038,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33026,6 +33120,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33336,6 +33431,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33502,6 +33598,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -33579,6 +33676,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33741,6 +33839,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -34180,6 +34279,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -34665,6 +34765,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -34749,6 +34850,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -35739,6 +35841,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -35996,6 +36099,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -36073,6 +36177,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -36319,6 +36424,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -36491,6 +36597,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -36661,6 +36768,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -36836,6 +36944,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -37002,6 +37111,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -37833,6 +37943,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -38306,6 +38417,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -38764,6 +38876,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -40023,6 +40136,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -40239,6 +40353,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -40720,6 +40835,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -40901,6 +41017,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -41125,6 +41242,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -41384,6 +41502,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -41882,6 +42001,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -42042,6 +42162,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -42123,6 +42244,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -42203,6 +42325,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -42827,6 +42950,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -43404,6 +43528,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -43890,6 +44015,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -43974,6 +44100,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -44320,6 +44447,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -44765,6 +44893,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -45445,6 +45574,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -46433,6 +46563,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -46986,6 +47117,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -47053,6 +47185,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -47130,6 +47263,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -47901,6 +48035,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -48863,6 +48998,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -49348,6 +49484,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -49438,6 +49575,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -49513,6 +49651,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -49767,6 +49906,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -50715,6 +50855,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -51085,6 +51226,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -51381,6 +51523,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -51613,6 +51756,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -52135,6 +52279,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -52283,6 +52428,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -52970,6 +53116,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -53043,6 +53190,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -53524,6 +53672,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -53705,6 +53854,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -54519,6 +54669,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -54683,6 +54834,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -54849,6 +55001,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -55478,6 +55631,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -55980,6 +56134,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -56134,6 +56289,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -56482,6 +56638,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -56741,6 +56898,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -56907,6 +57065,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -56982,6 +57141,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -57235,6 +57395,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -57311,6 +57472,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -57887,6 +58049,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -57971,6 +58134,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -58139,6 +58303,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -58616,6 +58781,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -58700,6 +58866,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -59184,6 +59351,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -59589,6 +59757,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -59757,6 +59926,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -59838,6 +60008,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -59919,6 +60090,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -60089,6 +60261,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -60164,6 +60337,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -60175,6 +60349,54 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &1083843318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083843320}
+  - component: {fileID: 1083843319}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083843319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083843318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 109019.81, y: -1.3801515}
+  areaName: Thaitown hotelli aula 1
+  sceneName: Thaitown
+--- !u!4 &1083843320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083843318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084905430
 GameObject:
   m_ObjectHideFlags: 0
@@ -60740,6 +60962,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -60807,6 +61030,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -60974,6 +61198,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -61055,6 +61280,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -61394,6 +61620,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -61924,6 +62151,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -62095,6 +62323,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -62583,6 +62812,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -62758,6 +62988,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -62835,6 +63066,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -63007,6 +63239,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -63571,6 +63804,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -63746,6 +63980,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -63823,6 +64058,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -64308,6 +64544,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -64489,6 +64726,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -65111,6 +65349,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -65374,6 +65613,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -65721,6 +65961,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -66198,6 +66439,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -66811,6 +67053,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -66892,6 +67135,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -67485,6 +67729,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -67962,6 +68207,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -68046,6 +68292,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -68691,6 +68938,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -68764,6 +69012,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -69420,6 +69669,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -70086,6 +70336,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -70261,6 +70512,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -70846,6 +71098,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -70919,6 +71172,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -71182,6 +71436,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -72654,6 +72909,37 @@ MonoBehaviour:
   getupSweepDamage: 5
   getupSweepReach: 2
   playerIndex: 0
+  dazeSpritesRocco:
+  - {fileID: 6928831539455882833, guid: daf6e396d758ade44a9242b8140751ff, type: 3}
+  - {fileID: 3468542285808075646, guid: daf6e396d758ade44a9242b8140751ff, type: 3}
+  - {fileID: -6926746025936547149, guid: daf6e396d758ade44a9242b8140751ff, type: 3}
+  dazeSpritesRuby:
+  - {fileID: 3340368149199318043, guid: 0ce1599478f8a0642a5ad07a1703f34e, type: 3}
+  - {fileID: -6109124787414081628, guid: 0ce1599478f8a0642a5ad07a1703f34e, type: 3}
+  - {fileID: -2303094464092169603, guid: 0ce1599478f8a0642a5ad07a1703f34e, type: 3}
+  counterSpritesRocco:
+  - {fileID: -1977487338689043113, guid: d8620a7b75be1814db0207461931ffab, type: 3}
+  - {fileID: -4787070182350277162, guid: d8620a7b75be1814db0207461931ffab, type: 3}
+  - {fileID: 6309322826931268648, guid: d8620a7b75be1814db0207461931ffab, type: 3}
+  - {fileID: -1573611667462959042, guid: d8620a7b75be1814db0207461931ffab, type: 3}
+  - {fileID: -2117043838276542762, guid: d8620a7b75be1814db0207461931ffab, type: 3}
+  counterSpritesRuby:
+  - {fileID: 6874289429961851405, guid: 3973d0a632ea5854fbcea5eca360f6c7, type: 3}
+  - {fileID: -2892043798248362878, guid: 3973d0a632ea5854fbcea5eca360f6c7, type: 3}
+  - {fileID: -4081798166807997045, guid: 3973d0a632ea5854fbcea5eca360f6c7, type: 3}
+  - {fileID: -3826321340572658163, guid: 3973d0a632ea5854fbcea5eca360f6c7, type: 3}
+  - {fileID: -6144153617932797771, guid: 3973d0a632ea5854fbcea5eca360f6c7, type: 3}
+  counterDamage: 14
+  counterBossDamage: 10
+  counterStun: 0.8
+  counterBossStun: 0.35
+  counterCooldown: 1.2
+  counterLunge: 0.9
+  counterRange: 2.6
+  counterSounds:
+  - {fileID: 8300000, guid: 5d0ec0b08e29f01419f1c489d92a3d92, type: 3}
+  - {fileID: 8300000, guid: e227b58df5ae0b347bef8b0b37cddefe, type: 3}
+  - {fileID: 8300000, guid: 067948a9f813e31478879089feb5909c, type: 3}
   skateSprites:
   - {fileID: 7513231047694455045, guid: dce4de26a07c63b47a03f1337ae6b521, type: 3}
   - {fileID: 7726855553000758595, guid: dce4de26a07c63b47a03f1337ae6b521, type: 3}
@@ -73256,6 +73542,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -73428,6 +73715,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -73630,6 +73918,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -74384,6 +74673,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -74561,6 +74851,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -75059,6 +75350,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -75290,6 +75582,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -75371,6 +75664,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -75929,6 +76223,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -76548,6 +76843,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -77191,6 +77487,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -77772,6 +78069,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -78279,6 +78577,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -78352,6 +78651,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -79240,6 +79540,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -79330,6 +79631,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80168,6 +80470,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80249,6 +80552,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80381,6 +80685,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80605,6 +80910,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -81159,6 +81465,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -81816,6 +82123,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -81991,6 +82299,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -82192,6 +82501,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -82358,6 +82668,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -82525,6 +82836,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -82605,6 +82917,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83228,6 +83541,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83309,6 +83623,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83481,6 +83796,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83556,6 +83872,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -83718,6 +84035,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -83795,6 +84113,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -84280,6 +84599,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -84957,6 +85277,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -85030,6 +85351,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -85289,6 +85611,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -85370,6 +85693,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -86229,6 +86553,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -86848,6 +87173,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -86925,6 +87251,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -87005,6 +87332,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -87467,6 +87795,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -87548,6 +87877,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -88094,6 +88424,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -88865,6 +89196,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -89351,6 +89683,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -89441,6 +89774,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -90724,6 +91058,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -91227,6 +91562,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -91791,6 +92127,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -92148,6 +92485,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -93158,6 +93496,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -93907,6 +94246,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -94299,6 +94639,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -94845,6 +95186,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -95326,6 +95668,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -95502,6 +95845,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -96187,6 +96531,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -96814,6 +97159,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -97378,6 +97724,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -97550,6 +97897,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -98477,6 +98825,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -98558,6 +98907,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -98724,6 +99074,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667964
@@ -98979,6 +99330,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -99059,6 +99411,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -99225,6 +99578,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -99806,6 +100160,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -100256,6 +100611,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -100483,6 +100839,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -100742,6 +101099,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -100914,6 +101272,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -101395,6 +101754,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -101661,6 +102021,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -101738,6 +102099,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -101819,6 +102181,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -101898,6 +102261,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -102431,6 +102795,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -102842,6 +103207,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -102922,6 +103288,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -103142,6 +103509,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -103223,6 +103591,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -103704,6 +104073,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -104298,6 +104668,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -104371,6 +104742,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104556,6 +104928,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -104809,6 +105182,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -105290,6 +105664,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -105772,6 +106147,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -106456,6 +106832,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -106798,6 +107175,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107152,6 +107530,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107233,6 +107612,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107587,6 +107967,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107668,6 +108049,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107834,6 +108216,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -107905,6 +108288,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -108471,6 +108855,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.566796
@@ -108835,6 +109220,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -109250,6 +109636,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -109748,6 +110135,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -110483,6 +110871,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -110567,6 +110956,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -110820,6 +111210,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -111467,6 +111858,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -112410,6 +112802,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -112491,6 +112884,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -112570,6 +112964,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -112645,6 +113040,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -112716,6 +113112,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -112878,6 +113275,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -113046,6 +113444,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -113305,6 +113704,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -113568,6 +113968,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -114231,6 +114632,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -114725,6 +115127,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -114906,6 +115309,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -115256,6 +115660,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -115828,6 +116233,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -115964,6 +116370,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -116122,6 +116529,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -116199,6 +116607,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -116850,6 +117259,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -117390,6 +117800,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -117557,6 +117968,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -117637,6 +118049,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -118213,6 +118626,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -118393,6 +118807,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -119111,6 +119526,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -119774,6 +120190,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -120127,6 +120544,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -120198,6 +120616,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -120275,6 +120694,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -120938,6 +121358,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -121388,6 +121809,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -122064,6 +122486,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -122480,6 +122903,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -122635,6 +123059,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -122807,6 +123232,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -122974,6 +123400,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -123055,6 +123482,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -123130,6 +123558,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -123207,6 +123636,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -123288,6 +123718,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -123942,6 +124373,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -124168,6 +124600,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -124925,6 +125358,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -125181,6 +125615,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -125348,6 +125783,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -125927,6 +126363,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -126017,6 +126454,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -126759,6 +127197,7 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
   sparring: 0
   knockdownAltSprites: []
   landAltSprites: []
@@ -127098,6 +127537,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -127515,3 +127955,4 @@ SceneRoots:
   - {fileID: 270872287}
   - {fileID: 50513859}
   - {fileID: 1889188337}
+  - {fileID: 1083843320}

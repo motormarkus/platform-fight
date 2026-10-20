@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: c23ae434869f8ef43a444b28337faabb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5182216383926550782
+    second: tom_pose_0
+  - first:
+      213: -1668373379253469472
+    second: tom_pose_1
+  - first:
+      213: 5841240584439793147
+    second: tom_pose_2
+  - first:
+      213: 4400577004227088382
+    second: tom_pose_3
+  - first:
+      213: -8906236170467444185
+    second: tom_pose_4
+  - first:
+      213: -9148205421474549160
+    second: tom_pose_5
+  - first:
+      213: 6340167264045527245
+    second: tom_pose_6
+  - first:
+      213: 7709662411291229063
+    second: tom_pose_7
+  - first:
+      213: 2754206675956510262
+    second: tom_pose_8
+  - first:
+      213: -5676641918749283267
+    second: tom_pose_9
+  - first:
+      213: 6927090608580025191
+    second: tom_pose_10
+  - first:
+      213: -1633147092277908325
+    second: tom_pose_11
+  - first:
+      213: 4739986065209658703
+    second: tom_pose_12
+  - first:
+      213: 3816346705240383052
+    second: tom_pose_13
+  - first:
+      213: 3440299717889503289
+    second: tom_pose_14
+  - first:
+      213: 3051549305256800694
+    second: tom_pose_15
+  - first:
+      213: -4185185376551965309
+    second: tom_pose_16
+  - first:
+      213: 6340243346409633938
+    second: tom_pose_17
+  - first:
+      213: -6966663968155193589
+    second: tom_pose_18
+  - first:
+      213: 4173254905571014776
+    second: tom_pose_19
+  - first:
+      213: -6793515365086675663
+    second: tom_pose_20
+  - first:
+      213: 1192963258461244812
+    second: tom_pose_21
+  - first:
+      213: -5556351253138368445
+    second: tom_pose_22
+  - first:
+      213: -5129577108701893368
+    second: tom_pose_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tom_pose_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0c629385eeae740800000000000000
+      internalID: 5182216383926550782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eef0e0404fb8d8e0800000000000000
+      internalID: -1668373379253469472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf501230d51401150800000000000000
+      internalID: 5841240584439793147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2240
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff45b7587df11d30800000000000000
+      internalID: 4400577004227088382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a7d85e361b66480800000000000000
+      internalID: -8906236170467444185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852f4b073ab0b0180800000000000000
+      internalID: -9148205421474549160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc07ef5f88cccf750800000000000000
+      internalID: 6340167264045527245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78bf1339d193efa60800000000000000
+      internalID: 7709662411291229063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ea56e1168e83620800000000000000
+      internalID: 2754206675956510262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c6bd340448831b0800000000000000
+      internalID: -5676641918749283267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b5b5b0538f12060800000000000000
+      internalID: 6927090608580025191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c20d25f55e559e0800000000000000
+      internalID: -1633147092277908325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d8f197630d7c140800000000000000
+      internalID: 4739986065209658703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ed599cb1366f430800000000000000
+      internalID: 3816346705240383052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9303eadad566ebf20800000000000000
+      internalID: 3440299717889503289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1fb62ece7495a20800000000000000
+      internalID: 3051549305256800694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38de577f21c3be5c0800000000000000
+      internalID: -4185185376551965309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298b7444bb11df750800000000000000
+      internalID: 6340243346409633938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0fa89c2800715f90800000000000000
+      internalID: -6966663968155193589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 448
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87877bbc9316ae930800000000000000
+      internalID: 4173254905571014776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13db9dfd4c598b1a0800000000000000
+      internalID: -6793515365086675663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dcca253c14e8010800000000000000
+      internalID: 1192963258461244812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348146d59ffd3e2b0800000000000000
+      internalID: -5556351253138368445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tom_pose_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 768
+        height: 448
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d29db1cc410d8b0800000000000000
+      internalID: -5129577108701893368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d6066b8daebae5f4191fbd820959d543
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tom_pose_0: 5182216383926550782
+      tom_pose_1: -1668373379253469472
+      tom_pose_10: 6927090608580025191
+      tom_pose_11: -1633147092277908325
+      tom_pose_12: 4739986065209658703
+      tom_pose_13: 3816346705240383052
+      tom_pose_14: 3440299717889503289
+      tom_pose_15: 3051549305256800694
+      tom_pose_16: -4185185376551965309
+      tom_pose_17: 6340243346409633938
+      tom_pose_18: -6966663968155193589
+      tom_pose_19: 4173254905571014776
+      tom_pose_2: 5841240584439793147
+      tom_pose_20: -6793515365086675663
+      tom_pose_21: 1192963258461244812
+      tom_pose_22: -5556351253138368445
+      tom_pose_23: -5129577108701893368
+      tom_pose_3: 4400577004227088382
+      tom_pose_4: -8906236170467444185
+      tom_pose_5: -9148205421474549160
+      tom_pose_6: 6340167264045527245
+      tom_pose_7: 7709662411291229063
+      tom_pose_8: 2754206675956510262
+      tom_pose_9: -5676641918749283267
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

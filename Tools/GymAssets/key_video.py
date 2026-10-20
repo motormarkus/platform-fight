@@ -10,7 +10,7 @@ def border_color(img):
     return np.median(b, axis=0)
 
 
-def key_frame(bgr, t_in=26.0, t_out=60.0):
+def key_frame(bgr, t_in=26.0, t_out=60.0, cyan_safe=False):
     img = bgr.astype(np.float32)
     bg = border_color(bgr).astype(np.float32)
     d = np.sqrt(((img - bg) ** 2).sum(axis=2))
@@ -28,7 +28,7 @@ def key_frame(bgr, t_in=26.0, t_out=60.0):
     touching = np.unique(lab3[bgmask]); touching = touching[touching > 0]
     bgmask = np.isin(lab3, touching)
     # vihreä/turkoosi tausta myös suljetuissa aukoissa (käsivarsien väli, taustan sävy vaihtuu ruuduittain)
-    bgmask |= (g - r > 45)
+    bgmask |= (g - r > 45) & ((g - b > 25) if cyan_safe else True)   # cyan_safe: turkoosi vaate (b ~ g) ei ole taustaa
     # vain suurin yhtenäinen hahmo (irtonaiset piirretyt sydämet ym. pois)
     n2, lab2, st, _ = cv2.connectedComponentsWithStats((~bgmask).astype(np.uint8), connectivity=8)
     if n2 > 2:

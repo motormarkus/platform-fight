@@ -56,6 +56,8 @@ public class Bottle : MonoBehaviour
     public Sprite[] tumbleSprites;
     [Tooltip("Biljardipallo: ei hajoa, heitto lentää kauas ja osuu kovaa (ei kaada), kimpoaa ja jää lattialle.")]
     public bool ball;
+    [Tooltip("Käsipaino (ball-tila): kädessä pystyssä ja nyrkin takana; lattialla ja lennossa vaakatasossa.")]
+    public bool uprightHeld;
     [Tooltip("Pallon koko × scale: pöydällä ja muualla (kädessä, lennossa, lattialla).")]
     public float ballTableScale = 1.25f, ballFlightScale = 2f;
     [Tooltip("Lepää pöydällä (esim. biljardipöytä): korkeus maasta ja pöydän kuva (piirtojärjestys sen päälle).")]
@@ -660,10 +662,11 @@ public class Bottle : MonoBehaviour
         float vs = !ball ? scale : scale * (state == S.Lying && restOnRenderer != null ? ballTableScale : ballFlightScale);
         sr.transform.localScale = new Vector3(vs, vs, 1f);
         sr.transform.localRotation = q;
-        if (ball) { drawRot = 0f; q = Quaternion.identity; }   // pallo: valo pysyy paikallaan
+        bool upr = ball && uprightHeld && state == S.Held;   // käsipaino kädessä pystyssä (nyrkin takana)
+        if (ball) { drawRot = upr ? 90f : 0f; q = Quaternion.Euler(0f, 0f, drawRot); }   // pallo: valo pysyy paikallaan (kädessä pystyssä, jos uprightHeld)
         sr.transform.localRotation = q;
         sr.transform.localPosition = ball
-            ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * vs : 0.08f), 0f)   // pallo (keskipiste)
+            ? new Vector3(0f, height + (sr.sprite != null ? (upr ? sr.sprite.bounds.extents.x : sr.sprite.bounds.extents.y) * vs : 0.08f), 0f)   // pallo (keskipiste)
             : food
             ? new Vector3(0f, height + (sr.sprite != null ? sr.sprite.bounds.extents.y * scale * 0.55f : 0.2f), 0f)   // kala (keskipiste): lattian päällä
             : new Vector3(0f, height - 0.04f * scale, 0f) + c - q * c;
