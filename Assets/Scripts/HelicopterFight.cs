@@ -9,6 +9,9 @@ public class HelicopterFight : MonoBehaviour
     public Door exitDoor;
     public float cargoRightX, cockpitTriggerX, cockpitLeftX;
     public bool Completed { get; private set; }
+    /// Kopteri on jo voitettu tällä pelikerralla: sinne voi palata Aavikolta ilman uutta taistelua.
+    public static bool Cleared;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)] static void ResetCleared() { Cleared = false; }
 
     PlayerController player;
     bool cargoStarted, cargoCleared, cockpitStarted;
@@ -20,6 +23,12 @@ public class HelicopterFight : MonoBehaviour
         if (cockpitGroup != null) cockpitGroup.SetActive(false);
         if (exitDoor != null) exitDoor.enabled = false;
         if (area == null) { enabled = false; return; }
+        if (Cleared)
+        {
+            Completed = true;   // aallot on jo voitettu: ei uusia vihuja, ohjaamon ovi auki
+            if (exitDoor != null) exitDoor.enabled = true;
+            return;
+        }
         fullWalkMin = area.walkMinX; fullWalkMax = area.walkMaxX;
         fullCamMin = area.camMinX; fullCamMax = area.camMaxX;
     }
@@ -52,6 +61,7 @@ public class HelicopterFight : MonoBehaviour
         }
         if (!Defeated(cockpitEnemies)) return;
         Completed = true;
+        Cleared = true;
         RestoreBounds();
         if (exitDoor != null) exitDoor.enabled = true;
     }

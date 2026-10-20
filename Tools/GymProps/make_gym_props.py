@@ -42,9 +42,11 @@ def main(out):
     DUMB = [(0.30, 0.30, 0.33), (1.35, 0.28, 0.25), (0.28, 0.5, 1.4), (1.4, 1.2, 0.22)]
     BLUE, RED = (0.30, 0.52, 1.35), (1.35, 0.28, 0.25)
     # kiinteät: penkkiasema (teline + penkki + tanko), erillinen penkki, kyykkyräkki, painoteline
-    save(r(faces_in_box(V, F, (-352, -146, 0, 200, -70, 70)), yaw=-25, pitch=14), f"{out}/gym_penkkiasema.png")
+    st_ids = sorted(set(faces_in_box(V, F, (-352, -146, 0, 200, -70, 70))) | set(faces_in_box(V, F, (-352, -120, 108, 128, -9, 9))))   # tangon oikea pää (x -170..-128) ylittää laatikon reunan: otetaan mukaan
+    save(r(st_ids, yaw=-25, pitch=14), f"{out}/gym_penkkiasema.png")
     save(r(faces_in_box(V, F, (-146, -100, 0, 200, -70, 70)), yaw=90, pitch=16), f"{out}/gym_penkki.png")
-    save(r(faces_in_box(V, F, (78, 300, 0, 240, -70, 70)), yaw=-18, pitch=12), f"{out}/gym_kyykkyrakki.png")
+    rk_ids = sorted(set(faces_in_box(V, F, (78, 300, 0, 240, -70, 70))) | set(faces_in_box(V, F, (78, 310, 138, 156, -30, -10))))   # tangon oikea pää (x 262..304) ylittää laatikon reunan
+    save(r(rk_ids, yaw=-18, pitch=12), f"{out}/gym_kyykkyrakki.png")
     save(r(faces_in_box(V, F, (-256, -148, 0, 80, 115, 232)), pitch=14), f"{out}/gym_painoteline.png")
     # käsipainot (4 kpl, makaavat z-akselin suuntaisesti) sivusta ylhäältä
     for n, (x0, x1) in enumerate([(5, 17), (-11, -1), (24, 38), (45, 60)], 1):

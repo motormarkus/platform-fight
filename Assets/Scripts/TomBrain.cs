@@ -50,6 +50,10 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     public bool attacksEveryone;
     [Tooltip("Etäisyys (x), jolta hän huomaa kohteen (kaikkien kimppuun käydessään).")]
     public float foeRange = 10f;
+    [Tooltip("Deacon's Den: Tom pysyy rauhassa, kunnes hero on ollut huoneessa näin kauan (s) tai joku aloittaa tappelun (wakeOnFight). 0 = herää heti, kun joku on lähellä (hotelli).")]
+    public float wakeAfterSeconds = 0f;
+    public bool wakeOnFight;
+    float calmTimer;
     public int foeDamageBonus = 6;   // iskut muihin vihuihin (kaataa aina)
 
     enum Mode { Dormant, Fight, Act, Tired, Fetch }
@@ -73,7 +77,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     public AudioClip fightStartLine, berserkStartSound, drinkSound, berserkHitSound;
     [Tooltip("Puhe taistelun aikana näin harvoin (s); berserkinä 0,7 ×.")]
     public Vector2 speakEvery = new Vector2(7f, 14f);
-    float nextSpeakAt = 4f, voiceBusyUntil;
+    float nextSpeakAt = 1.5f, voiceBusyUntil;
     AudioClip[] normalHurtSounds;
 
     [Header("Heitettävät esineet (berserk)")]
@@ -140,8 +144,15 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         {
             e.BrainPhaseSet(Enemy.BrainPhase.Idle);
             DormantSprite();
-            if (Time.time >= nextSpeakAt) { if (Mathf.Abs(dx) < 12f) VoiceRandom(speakLines, 0.8f, false); nextSpeakAt = Time.time + Random.Range(10f, 20f); }   // jorisee rauhassakin silloin tällöin
+            if (Time.time >= nextSpeakAt) { if (Mathf.Abs(dx) < 22f) VoiceRandom(speakLines, 0.9f, false); nextSpeakAt = Time.time + Random.Range(5f, 10f); }   // jorisee rauhassakin silloin tällöin
+            if (Mathf.Abs(dx) < 30f) calmTimer += dt;   // aika, jonka hero on ollut huoneessa
             bool sees = attacksEveryone && Mathf.Abs(dx) <= foeRange && Mathf.Abs(hp.y - me.y) < 4f;   // hotellin Tom huomaa kenet tahansa
+            if (wakeAfterSeconds > 0f)
+            {
+                // Deacon's Den: ei heti; vasta kun aikaa on kulunut tai joku (hero) aloittaa tappelun huoneessa
+                bool fightStarted = wakeOnFight && Time.time - Enemy.LastHitTime < 0.6f && Enemy.LastHit != null && Enemy.LastHit != e && Mathf.Abs(Enemy.LastHit.transform.position.x - me.x) < 30f;
+                sees = attacksEveryone && (calmTimer >= wakeAfterSeconds || fightStarted);
+            }
             if (e.IsAwake || sees) { mode = Mode.Fight; e.IsAwake = true; decisionTimer = 0.5f; poseStart = -1f; Voice(fightStartLine); nextSpeakAt = Time.time + Random.Range(speakEvery.x, speakEvery.y); }   // "lähtee tappeluun"
             return;
         }

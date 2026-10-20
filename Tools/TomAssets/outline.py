@@ -7,7 +7,7 @@ import numpy as np
 
 OUTLINE_COLOR = np.array([24.0, 16.0, 14.0])   # lähes musta, lämmin
 SS = 3                                          # ylösotto
-WIDTH_PX = 1.2                                  # reunan leveys valmiissa kuvassa
+WIDTH_PX = 0.72                                 # reunan leveys valmiissa kuvassa
 SMOOTH = 1.3                                    # alfan pehmennys (pikseliä ylösotetussa kuvassa × 1)
 
 def _outline_cell(cell):

@@ -715,6 +715,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     /// Maassa, nousemassa, otteessa, kuollut tai piilossa odottava: ei kelpaa kohteeksi (Tom).
     public bool IsDownOrDead => TargetDown(this) || waitingToAppear;
+    /// Lennossa (kaatuu / lentää): ei kelpaa jatkoiskujen kohteeksi (mayhem ei lyö ilmassa olevaa).
+    int airHits;
+    /// Enintään näin monta iskua osuu ilmassa olevaan (yhden lennon aikana).
+    public const int MaxJuggleHits = 3;
+    public bool IsAirborneNow => state == State.Airborne || height > 0.15f;
     /// Tilannekuva vianetsintään (PuliukkoDebug kirjoittaa tiedostoon).
     public string DebugInfo()
     {
@@ -984,6 +989,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sl.Count > 0) slapSounds = sl.ToArray();
             punchesAreSlaps = displayName == "Puliukko";
         }
+        if (displayName == "Puliukko")
+        {
+            // puheet puliukko_speak1–3 satunnaisesti (Resources/Sfx/puliukko)
+            var sp = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 3; i++) { var c = Resources.Load<AudioClip>("Sfx/puliukko/puliukko_speak" + i); if (c != null) sp.Add(c); }
+            if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; }
+        }
         if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
@@ -1162,6 +1174,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         if (state == State.Windup || state == State.Punch || state == State.Recover) lastAttackStateTime = Time.time;   // counter-iskun anteeksiantava ikkuna
         if (BrainDrives && height > 0.02f) height = Mathf.MoveTowards(height, 0f, 14f * dt);   // aivopomo ei jää leijumaan: perustilassa (ei lennossa) korkeus palaa maahan
+        if (!BrainDrives && height > 0.02f && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Block || state == State.Recover || state == State.GetUp))
+            height = Mathf.MoveTowards(height, 0f, 14f * dt);   // osuma tms. ei jätä leijumaan ilmaan: korkeus palaa maahan
         if (BrainDrives) brain.Tick(dt);
         else switch (state)
         {
@@ -2149,6 +2163,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        if (s == State.Airborne && state != State.Airborne) airHits = 0;   // uusi lento: ilmaosumien laskuri nollaan
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
         if (s != State.Hurt) hurtOverride = 0f;   // counter-iskun pidennetty horjahdus päättyy aina tilan vaihtuessa
         if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, altWindupVolume);
@@ -3031,6 +3046,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         if (waitingToAppear) return false;   // piilossa odottava pomo
         if (brain != null && brain.enabled && brain.InterceptHit(damage, attackerX, knockdown)) return false;   // Deacon väistää
+        if (!IsDead) { var mp = Players.Nearest(new Vector3(attackerX, transform.position.y, 0f)); if (mp != null && Mathf.Abs(mp.transform.position.x - attackerX) < 0.6f) mp.AddMayhem(damage); }   // lyönti täyttää mayhem-mittaria
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage, isBoss);   // vaikeustaso
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
@@ -3069,7 +3085,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (state == State.Down || state == State.GetUp || state == State.Dead) return false;
         if (state == State.GrabLift || state == State.GrabThrow || state == State.Held || (state == State.Clinch && clinchHolding) || state == State.Slaps
             || (state == State.SlideTackle && slidePhase == 1)) return false;   // heiton, otteen, läpsykombon ja liu'un aikana ei keskeytetä
-        if (state == State.Airborne && height > 0.1f && !knockdown) return false;
+        if (state == State.Airborne && height > 0.1f)
+        {
+            if (!knockdown) return false;
+            if (++airHits > MaxJuggleHits) return false;   // ilmassa olevaan osuu enintään 3 iskua: ei loputonta pätkimistä (nurkassa / seinää vasten)
+        }
         if (state == State.Yanked)
         {
             if (stateTime < YankStumble) return false;   // ennen kuin lento alkaa

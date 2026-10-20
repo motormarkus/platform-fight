@@ -179,6 +179,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -256,6 +257,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -1431,6 +1433,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -2620,6 +2627,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -2870,6 +2882,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -3042,6 +3055,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -3330,86 +3344,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1254602914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &32967900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 32967901}
-  - component: {fileID: 32967902}
-  m_Layer: 0
-  m_Name: Lasi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &32967901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32967900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91003.8, y: -0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &32967902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32967900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769715db6e4e614981177d2c09eb35c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bottle
-  sprites:
-  - {fileID: 5204456623081499062, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  - {fileID: 946386707157545491, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  - {fileID: -8284714739233223559, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  - {fileID: 362447531739630630, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  - {fileID: -1730596471702961610, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  - {fileID: 1265773369500083635, guid: ab3aea55e6bc2ba40a8fec45d1eb368d, type: 3}
-  table: {fileID: 1026417308}
-  tableX: -0.3163018
-  tableTop: 1.624
-  frameTime: 0.06
-  throwDamage: 18
-  throwSpeed: 15
-  stainKind: '-'
-  pivotY: 0.15
-  scale: 1.05
-  food: 0
-  pie: 0
-  flightSprites: []
-  tumbleSprites: []
-  ball: 0
-  ballTableScale: 1.25
-  ballFlightScale: 2
-  restHeight: 0
-  restOnRenderer: {fileID: 0}
-  pickRangeX: 1.1
-  pickRangeY: 0.5
-  breakSounds:
-  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
-  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
-  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
-  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
-  spinSprites: []
-  keepDebris: 0
-  alwaysBreak: 0
-  thrownBy: {fileID: 0}
 --- !u!1 &33527624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,6 +3501,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -4671,6 +4606,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -4930,6 +4866,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -5221,6 +5158,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -5803,6 +5741,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -6117,6 +6056,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -6694,6 +6634,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -7150,6 +7095,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -8241,6 +8187,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -8743,6 +8694,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -8915,6 +8867,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -8995,6 +8948,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -9218,6 +9172,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -9389,6 +9344,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -10242,6 +10198,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -10995,6 +10956,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -11515,6 +11481,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -12371,6 +12338,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -12622,6 +12594,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -12862,6 +12835,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -13292,6 +13266,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -14097,6 +14072,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -14350,6 +14326,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -14438,6 +14415,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -15056,6 +15034,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -16456,6 +16435,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -16921,6 +16905,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -18539,6 +18524,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -18888,6 +18878,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -18963,6 +18954,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -19225,6 +19217,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -19540,6 +19533,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -21096,6 +21090,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -21894,6 +21889,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -22056,6 +22052,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -22629,6 +22626,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -23757,6 +23759,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -24532,6 +24535,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -24948,6 +24956,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -25153,6 +25162,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -25733,6 +25743,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -27520,6 +27535,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -27844,6 +27864,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -27925,6 +27946,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -29247,6 +29269,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -29318,6 +29341,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -29753,6 +29777,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -29915,6 +29940,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -30632,6 +30658,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -30780,6 +30807,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -31848,6 +31876,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -32207,6 +32240,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33155,6 +33189,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -33304,6 +33339,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -33570,6 +33606,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -34543,6 +34580,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -34793,6 +34835,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -35871,6 +35914,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -36561,6 +36605,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -36896,6 +36945,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -36967,6 +37017,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -36974,87 +37025,6 @@ MonoBehaviour:
   pickRangeX: 1
   pickRangeY: 1.1
   breakSounds: []
-  spinSprites: []
-  keepDebris: 0
-  alwaysBreak: 0
-  thrownBy: {fileID: 0}
---- !u!1 &423852632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 423852633}
-  - component: {fileID: 423852634}
-  m_Layer: 0
-  m_Name: Pullo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &423852633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423852632}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91003.8, y: -0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &423852634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423852632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769715db6e4e614981177d2c09eb35c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bottle
-  sprites:
-  - {fileID: 3260893893091349390, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: -3900326160058132337, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: -2160533633612837608, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: -2835934968328355836, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: 1671803814671730209, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: 5111878521878214723, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  - {fileID: -1289649762010601240, guid: 60bbf3cc39bdaaa45b2b66ef1382441c, type: 3}
-  table: {fileID: 1026417308}
-  tableX: -1.182193
-  tableTop: 1.624
-  frameTime: 0.06
-  throwDamage: 18
-  throwSpeed: 15
-  stainKind: likoori
-  pivotY: 0.3
-  scale: 1.3298782
-  food: 0
-  pie: 0
-  flightSprites: []
-  tumbleSprites: []
-  ball: 0
-  ballTableScale: 1.25
-  ballFlightScale: 2
-  restHeight: 0
-  restOnRenderer: {fileID: 0}
-  pickRangeX: 1.1
-  pickRangeY: 0.5
-  breakSounds:
-  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
-  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
-  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
-  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
   spinSprites: []
   keepDebris: 0
   alwaysBreak: 0
@@ -37132,6 +37102,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -37607,6 +37578,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -38148,6 +38124,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -38319,6 +38296,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -38965,6 +38943,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -39729,6 +39712,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -40777,6 +40761,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -42291,6 +42280,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -42372,6 +42362,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -42447,6 +42438,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -42524,6 +42516,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -43833,6 +43826,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 1
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -44113,6 +44111,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -44913,6 +44912,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -45183,6 +45183,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -45490,6 +45491,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -45747,6 +45749,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -46559,6 +46562,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -47385,6 +47393,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -48381,6 +48390,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -48605,6 +48615,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -48775,6 +48786,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -49964,6 +49976,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -50221,6 +50234,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -50298,6 +50312,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -50649,7 +50664,7 @@ Transform:
   m_GameObject: {fileID: 569467425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91004.6, y: -5.447002, z: 0}
+  m_LocalPosition: {x: 91004.02, y: -1.392957, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51150,6 +51165,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -51475,6 +51495,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -51842,6 +51863,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -52014,6 +52036,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -52186,6 +52209,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -52267,6 +52291,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -52491,6 +52516,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -53480,6 +53506,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -54607,6 +54638,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -55222,6 +55258,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -55802,61 +55839,14 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
---- !u!1 &623830561
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 623830562}
-  - component: {fileID: 623830563}
-  m_Layer: 0
-  m_Name: Tuoli
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &623830562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623830561}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91006.52, y: -0.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 829156511}
-  - {fileID: 906337252}
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623830563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623830561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47249c5dfb6f42149b81c6169f52ac5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Chair
-  body: {fileID: 829156512}
-  shadow: {fileID: 906337253}
-  breakSounds:
-  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
-  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
-  throwDamage: 20
 --- !u!1 &626074253
 GameObject:
   m_ObjectHideFlags: 0
@@ -56066,6 +56056,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -56141,6 +56132,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -56212,6 +56204,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -56432,6 +56425,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -56656,6 +56650,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -57386,6 +57381,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -57546,6 +57546,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -58019,6 +58020,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -58369,6 +58371,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -58384,97 +58387,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &656129742
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 656129743}
-  - component: {fileID: 656129744}
-  m_Layer: 0
-  m_Name: Shadow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &656129743
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656129742}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1404757861}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &656129744
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656129742}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &656948098
 GameObject:
   m_ObjectHideFlags: 0
@@ -58955,6 +58867,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -60357,6 +60270,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -61752,6 +61670,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -62089,6 +62012,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -62133,12 +62057,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1026417309}
-  - {fileID: 423852633}
-  - {fileID: 2069905379}
-  - {fileID: 32967901}
-  - {fileID: 1404757861}
-  - {fileID: 623830562}
   - {fileID: 840928222}
   - {fileID: 1437262754}
   - {fileID: 1299920224}
@@ -62274,7 +62192,6 @@ Transform:
   - {fileID: 1778239933}
   - {fileID: 770920953}
   - {fileID: 1254602914}
-  - {fileID: 1069375602}
   - {fileID: 918505296}
   - {fileID: 909383731}
   - {fileID: 1616583148}
@@ -62285,7 +62202,6 @@ Transform:
   - {fileID: 1230595265}
   - {fileID: 1989926612}
   - {fileID: 981444432}
-  - {fileID: 894836752}
   - {fileID: 1230561246}
   - {fileID: 493061202}
   - {fileID: 210420526}
@@ -62469,6 +62385,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -62549,6 +62466,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -62630,6 +62548,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -63486,6 +63405,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -63764,6 +63688,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -64144,6 +64069,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -65153,6 +65079,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -66026,97 +65957,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 826494206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &726294639
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 726294641}
-  - component: {fileID: 726294640}
-  m_Layer: 0
-  m_Name: Shadow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &726294640
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726294639}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.35}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
---- !u!4 &726294641
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726294639}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026417309}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731445426
 GameObject:
   m_ObjectHideFlags: 0
@@ -66776,6 +66616,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -66845,6 +66690,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -66926,6 +66772,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -67506,6 +67353,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -67660,6 +67512,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -68236,6 +68089,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -68920,6 +68778,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -69214,6 +69077,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -70271,6 +70135,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -70342,6 +70207,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -70419,6 +70285,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -70761,6 +70628,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -71333,6 +71201,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -72234,6 +72107,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -73064,6 +72942,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -73334,6 +73213,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -74156,6 +74036,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -74813,6 +74698,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -76249,97 +76139,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &829156510
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 829156511}
-  - component: {fileID: 829156512}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &829156511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829156510}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 623830562}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &829156512
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829156510}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: aa5069c11e7339d46bb62ffc7c79047a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.44, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &829762952
 GameObject:
   m_ObjectHideFlags: 0
@@ -76406,6 +76205,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -76481,6 +76281,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -77744,6 +77545,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -77824,6 +77626,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -77903,6 +77706,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -77978,6 +77782,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -78713,6 +78518,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -79397,6 +79207,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80109,6 +79920,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -80566,6 +80382,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80641,6 +80458,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -80805,6 +80623,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -80886,6 +80705,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -81401,6 +81221,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -81969,58 +81790,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 823743074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &894836751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 894836752}
-  - component: {fileID: 894836753}
-  m_Layer: 0
-  m_Name: Tuoli
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &894836752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894836751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91004.3, y: -1.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1515922613}
-  - {fileID: 1209572268}
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &894836753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894836751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47249c5dfb6f42149b81c6169f52ac5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Chair
-  body: {fileID: 1515922614}
-  shadow: {fileID: 1209572269}
-  breakSounds:
-  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
-  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
-  throwDamage: 20
 --- !u!1 &895436909
 GameObject:
   m_ObjectHideFlags: 0
@@ -82081,6 +81850,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -82158,6 +81928,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -82239,6 +82010,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -82435,97 +82207,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
---- !u!1 &906337251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 906337252}
-  - component: {fileID: 906337253}
-  m_Layer: 0
-  m_Name: Shadow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &906337252
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906337251}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 623830562}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &906337253
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906337251}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &907031568
 GameObject:
@@ -82775,6 +82456,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83124,6 +82806,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -83241,6 +82924,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -83696,6 +83380,97 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d46a2e4e6b0b9547833acf86350fb71, type: 3}
   spriteSet: Aamiainen
   countMul: 0.35
+--- !u!1 &919594391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919594393}
+  - component: {fileID: 919594392}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &919594392
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919594391}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 3278680621612286464, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.68, y: 4.48}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &919594393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919594391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001725413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921121766
 GameObject:
   m_ObjectHideFlags: 0
@@ -84603,6 +84378,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -84666,6 +84446,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -84741,6 +84522,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -84955,6 +84737,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -85382,6 +85165,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -85875,6 +85659,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -86642,6 +86427,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -87121,9 +86911,9 @@ MonoBehaviour:
   camMaxX: 82662.97
   walkMaxX: 82672.836
   walkMinX: 82000.8
-  camSize: 6
+  camSize: 7.2
   camRiseY: 0
-  camOffsetY: 0
+  camOffsetY: 1.2
 --- !u!4 &953004711
 Transform:
   m_ObjectHideFlags: 0
@@ -87296,6 +87086,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -87377,6 +87168,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -87504,6 +87296,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -88072,6 +87865,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -88396,6 +88194,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -89021,6 +88820,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -89336,6 +89136,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -89906,6 +89707,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -90130,6 +89932,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -91097,6 +90900,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -91375,6 +91183,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -92015,6 +91824,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -92084,6 +91898,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -92347,6 +92162,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -92561,95 +92377,6 @@ MonoBehaviour:
   spriteName: 
   pickRadiusX: 0.8
   pickRadiusY: 0.45
---- !u!1 &1026417307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1026417309}
-  - component: {fileID: 1026417308}
-  m_Layer: 0
-  m_Name: "P\xF6yt\xE4"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1026417308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026417307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cebc93f6ed13e34b8b02e6e7d9ad07a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Crate
-  sprites:
-  - {fileID: -1661269725853197392, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  - {fileID: -8675545566667445983, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  - {fileID: 5966430981286066353, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  burstSprite: {fileID: 0}
-  breakSprites:
-  - {fileID: -592143444179897664, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  - {fileID: -1871899973839918655, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  - {fileID: 6780156489355070375, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  - {fileID: -8542581225832791439, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  breakFrameTime: 0.1
-  shadowWidth: 2.6
-  carryLower: 1.118
-  carryUpsideDown: 0
-  plowThrough: 1
-  stackedOn: {fileID: 0}
-  stackHeight: 1.5
-  breakSounds:
-  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
-  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
-  body: {fileID: 1747911758}
-  shadow: {fileID: 726294640}
-  rollSprites: []
-  standUpChance: 0.2
-  rollFriction: 5
-  kickRollSpeed: 9
-  breakable: 1
-  hitsToBreak: 3
-  throwDamage: 22
-  hitRadiusX: 1.8199999
-  hitRadiusY: 0.5
-  tableDepthFactor: 1.6
-  debrisTime: 6
-  burstTime: 0.35
-  moneyChance: 0.3
-  energyChance: 0.15
-  foodChance: 0.15
-  thermosChance: 0.06
-  energyStamina: 40
-  visualScale: 1.3
-  footOffset: 0.04
-  anchored: 0
-  impactRadiusX: 1.2
---- !u!4 &1026417309
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026417307}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91003.8, y: -0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1747911759}
-  - {fileID: 726294641}
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027789525
 GameObject:
   m_ObjectHideFlags: 0
@@ -93195,6 +92922,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -93681,6 +93413,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -93701,97 +93438,6 @@ Transform:
   - {fileID: 290405879}
   m_Father: {fileID: 951627834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1029436237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1029436238}
-  - component: {fileID: 1029436239}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1029436238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029436237}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1404757861}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1029436239
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029436237}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: aa5069c11e7339d46bb62ffc7c79047a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.44, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1029714112
 GameObject:
   m_ObjectHideFlags: 0
@@ -94492,6 +94138,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -95093,6 +94744,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -96541,6 +96193,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -97289,58 +96946,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1069375601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1069375602}
-  - component: {fileID: 1069375603}
-  m_Layer: 0
-  m_Name: Pekoniannos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1069375602
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069375601}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91003.8, y: -0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1069375603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069375601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9e1d3c142f92e4696ab94abd8b250f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishPlate
-  table: {fileID: 1026417308}
-  tableX: 0.806
-  tableTop: 1.5239999
-  scale: 1
-  breakSounds:
-  - {fileID: 8300000, guid: 5d46a2e4e6b0b9547833acf86350fb71, type: 3}
-  spriteSet: Aamiainen
-  countMul: 0.35
 --- !u!1 &1071159477
 GameObject:
   m_ObjectHideFlags: 0
@@ -97492,6 +97097,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -97659,6 +97265,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -99237,6 +98844,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -99619,6 +99227,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -99942,6 +99551,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.566796
@@ -100289,6 +99899,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -101958,6 +101569,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -102245,6 +101857,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -103450,6 +103063,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -103531,6 +103145,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -103612,6 +103227,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104025,6 +103641,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104104,6 +103721,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104397,6 +104015,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104702,6 +104321,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -104760,97 +104380,6 @@ Transform:
   - {fileID: 162805265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1209572267
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209572268}
-  - component: {fileID: 1209572269}
-  m_Layer: 0
-  m_Name: Shadow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1209572268
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209572267}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 894836752}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1209572269
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209572267}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1210089782
 GameObject:
   m_ObjectHideFlags: 0
@@ -105507,6 +105036,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -105758,6 +105292,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -106359,6 +105894,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -106515,6 +106055,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107013,6 +106554,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -107173,6 +106719,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107436,6 +106983,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -107850,6 +107398,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -108285,6 +107834,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -109563,6 +109113,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -110232,6 +109783,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -110301,6 +109857,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -110728,6 +110285,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -111284,7 +110842,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 490
+  m_SortingOrder: 84
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b1a1cca45af4401e95985f014be7d2db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -112413,6 +111971,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -113266,6 +112829,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -113614,6 +113178,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -114193,6 +113758,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -114852,6 +114422,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -114933,6 +114504,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -117272,6 +116844,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -117495,6 +117072,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -117691,6 +117269,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -117863,6 +117442,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -118029,6 +117609,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -118389,6 +117970,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -118652,6 +118234,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -119131,6 +118714,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -119310,6 +118894,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -119963,6 +119548,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -121121,6 +120707,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -121696,6 +121287,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -121850,6 +121446,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -122113,6 +121710,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -122128,58 +121726,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &1404757860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1404757861}
-  - component: {fileID: 1404757862}
-  m_Layer: 0
-  m_Name: Tuoli
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1404757861
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404757860}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91001.07, y: -0.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1029436238}
-  - {fileID: 656129743}
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1404757862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404757860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47249c5dfb6f42149b81c6169f52ac5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Chair
-  body: {fileID: 1029436239}
-  shadow: {fileID: 656129744}
-  breakSounds:
-  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
-  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
-  throwDamage: 20
 --- !u!1 &1404768847
 GameObject:
   m_ObjectHideFlags: 0
@@ -122999,6 +122545,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -123712,6 +123263,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -124822,6 +124378,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -124903,6 +124460,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -125468,6 +125026,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -128800,6 +128359,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -129281,6 +128841,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -129673,6 +129238,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -130324,6 +129890,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -131024,6 +130595,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -131269,97 +130841,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
   - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   throwDamage: 20
---- !u!1 &1515922612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1515922613}
-  - component: {fileID: 1515922614}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1515922613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515922612}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 894836752}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1515922614
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515922612}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: aa5069c11e7339d46bb62ffc7c79047a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.44, y: 2.49}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1518887468
 GameObject:
   m_ObjectHideFlags: 0
@@ -131695,6 +131176,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -131776,6 +131258,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -132568,6 +132051,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -133244,6 +132732,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -133832,6 +133325,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -134658,6 +134156,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -135547,6 +135050,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -135622,6 +135126,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -136558,6 +136063,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -136822,6 +136332,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -136990,6 +136501,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -137324,6 +136836,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -138013,6 +137526,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -138589,6 +138103,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -138838,6 +138357,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -140526,6 +140046,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -141189,6 +140714,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -142086,6 +141616,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -142662,6 +142193,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -143142,6 +142678,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -143796,6 +143333,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -143889,6 +143431,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -144020,8 +143563,8 @@ Transform:
   m_GameObject: {fileID: 1630735519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82010.664, y: 3.7, z: 0}
-  m_LocalScale: {x: 1.688397, y: 1, z: 1}
+  m_LocalPosition: {x: 82010.664, y: 3.75, z: 0}
+  m_LocalScale: {x: 2.026076, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 528923948}
@@ -144731,6 +144274,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -145810,6 +145354,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -146453,6 +145998,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -146934,6 +146480,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667964
@@ -147009,6 +146556,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -147423,6 +146971,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 2.247609
@@ -148438,6 +147987,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -148829,6 +148383,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -148910,6 +148465,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -149450,6 +149006,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -149622,6 +149179,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -150576,6 +150134,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -150908,6 +150467,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -151910,6 +151470,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1313106916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1744035288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744035290}
+  - component: {fileID: 1744035289}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1744035289
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744035288}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1744035290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744035288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001725413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744479521
 GameObject:
   m_ObjectHideFlags: 0
@@ -152157,6 +151808,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -152237,6 +151889,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -152343,97 +151996,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1747911757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1747911759}
-  - component: {fileID: 1747911758}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1747911758
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747911757}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -1661269725853197392, guid: 7d5ab553ed1b87a4fba2a28377b20d76, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.48, y: 2.56}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
---- !u!4 &1747911759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747911757}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026417309}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748852174
 GameObject:
   m_ObjectHideFlags: 0
@@ -153273,6 +152835,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -153666,6 +153233,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -153838,6 +153406,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -155381,6 +154950,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -156125,6 +155695,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -157860,6 +157435,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -157929,6 +157509,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -158565,6 +158146,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -159743,6 +159329,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -160301,6 +159892,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -160842,6 +160434,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -162037,6 +161630,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -163749,6 +163347,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -164621,6 +164224,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -164815,6 +164423,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -165221,6 +164830,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -165719,6 +165329,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -166809,6 +166424,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -167429,6 +167049,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -168129,6 +167754,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -168204,6 +167830,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -168610,6 +168237,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -169595,6 +169223,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -170447,6 +170080,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -170932,6 +170566,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -171159,6 +170798,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -171755,6 +171395,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -172440,6 +172085,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -172987,6 +172633,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -173064,6 +172711,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -173418,6 +173066,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -173875,6 +173524,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -173950,6 +173600,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -174027,6 +173678,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -174585,6 +174237,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -175700,6 +175357,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -176194,6 +175852,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -176435,6 +176094,80 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+--- !u!1 &1999000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999000002}
+  - component: {fileID: 1999000003}
+  m_Layer: 0
+  m_Name: Aavikolta Chinookiin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 78017.5, y: -1.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Nouse Chinookiin
+  here: {fileID: 1721607561}
+  target: {fileID: 0}
+  targetName: Kopterin rahtitila
+  targetScene: UccoLaiva
+  spawnPoint: {x: 76005, y: -0.6}
+  returnToLastDoor: 0
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  halfWidth: 2.2
+  maxDistanceFromWall: 3
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
 --- !u!1 &1999162683
 GameObject:
   m_ObjectHideFlags: 0
@@ -176705,6 +176438,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667962
@@ -176782,6 +176516,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -176797,6 +176532,682 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &2001725410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001725413}
+  - component: {fileID: 2001725412}
+  - component: {fileID: 2001725411}
+  m_Layer: 0
+  m_Name: Tom (Deacon's Den)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2001725411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001725410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172041b914aae414d84952859f6a7074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TomBrain
+  idle:
+  - {fileID: 3278680621612286464, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 1934093223968157259, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -5394712879821894113, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -3592278858713586626, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -8189308920677607779, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -8804088085905083734, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 5784081393816757137, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -5937003979095942153, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 173466560348964188, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 6991487519876550645, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 5713509492417337548, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 8573345583376221987, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 7549993218733567269, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  pose:
+  - {fileID: 5182216383926550782, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -1668373379253469472, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 5841240584439793147, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 4400577004227088382, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -8906236170467444185, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -9148205421474549160, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 6340167264045527245, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 7709662411291229063, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 2754206675956510262, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -5676641918749283267, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 6927090608580025191, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -1633147092277908325, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 4739986065209658703, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 3816346705240383052, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 3440299717889503289, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 3051549305256800694, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -4185185376551965309, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 6340243346409633938, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -6966663968155193589, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 4173254905571014776, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -6793515365086675663, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: 1192963258461244812, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -5556351253138368445, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  - {fileID: -5129577108701893368, guid: c23ae434869f8ef43a444b28337faabb, type: 3}
+  walk:
+  - {fileID: -6616813819703303441, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 6522211075990128297, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -9163272147537660203, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 9027827161102869587, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 4861747495002579260, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 5500992903808881878, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -3004207747426999412, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 4047303907285540071, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 3552513454493973770, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1228368290096141009, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -5375656080409263822, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -2010662045, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1650553827, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1421253147, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 282983703, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1890542536, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1260526338, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 686562003, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1998703995, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 138168719, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 2066834972, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1782014454, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1735633660, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1877483737, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1176522431, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1689357373, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1547946375, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1139457559, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1971257543, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  jab:
+  - {fileID: 7715049625312435013, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: -5342567564057253257, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: -5803599666105160306, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: -6202481900233481692, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: -4255757271859150636, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: 7483711223353741418, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  - {fileID: -6455561635268524818, guid: d6d23bf1d9bafab40bddd5903f54f6a9, type: 3}
+  cross:
+  - {fileID: -5554261275187027733, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: 5187394769533900516, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: 4632796936096300018, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: 7912520815316303571, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: 1391292502730687093, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: -7421173397846333526, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: -1461037009954544762, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  - {fileID: -5747060301747210800, guid: 744c99d8d5853284fbdaaa666d6a1fe2, type: 3}
+  power:
+  - {fileID: 8759337435150125185, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: -4345270732452701489, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: 2213050706926632385, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: -6382358064552281729, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: -6309377685219532297, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: 8354815534285402165, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: 3967168639945772077, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: -4856239651446372959, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  - {fileID: -5080052079012443843, guid: 32ede641eb3e59349b0b12765c5aa202, type: 3}
+  grab:
+  - {fileID: -5423208417231729361, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: -471745550616301308, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: -328277665682020008, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: -5672803953155734132, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: 6779180590869195672, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: 2099837068729177342, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  - {fileID: -2178011027386704514, guid: afe856a704f56ae41b8540e1db95545b, type: 3}
+  drink:
+  - {fileID: -2311693970793693647, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 8743517808497797661, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: -536342622704028371, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 5481009076012142546, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 640063189279484129, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: -7380808224996006631, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 4153715976843224265, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 3300848651403893056, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 1881786381425916406, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  - {fileID: 31148825997265387, guid: 729384859606ced4ba2d7ebc2dd85117, type: 3}
+  walkSpeed: 2.4
+  depthSpeed: 2
+  walkFrameTime: 0.0417
+  idleFrameTime: 0.14
+  poseFrameTime: 0.1
+  rangeMin: 1.5
+  rangeMax: 2.3
+  poseEvery: {x: 6, y: 14}
+  jabDamage: 14
+  crossDamage: 18
+  powerDamage: 24
+  throwDamage: 26
+  foeThrowDamage: 30
+  windFrameTime: 0.05
+  impactHold: 0.07
+  recoverFrameTime: 0.05
+  powerWindScale: 1.5
+  throwChance: 0.35
+  throwSpeed: 16
+  throwUp: 9
+  staminaMax: 100
+  staminaRegen: 14
+  tiredTime: 2.4
+  jabCost: 22
+  crossCost: 28
+  powerCost: 38
+  throwCost: 45
+  berserkAt: 0.25
+  drinkFrameTime: 0.13
+  berserkSpeed: 1.9
+  berserkWindScale: 0.55
+  berserkThrowChance: 0.6
+  fetchRange: 12
+  glowColor: {r: 1, g: 0.08, b: 0.04, a: 1}
+  attacksEveryone: 1
+  foeRange: 11
+  wakeAfterSeconds: 120
+  wakeOnFight: 1
+  foeDamageBonus: 6
+  speakLines:
+  - {fileID: 8300000, guid: 2f6da33205027604e85c8d7e5b04739e, type: 3}
+  - {fileID: 8300000, guid: 5a0fe7cee25c22a47ad503b887542d07, type: 3}
+  - {fileID: 8300000, guid: 7bf48d79afd25ee459a19df84eabb279, type: 3}
+  berserkLines:
+  - {fileID: 8300000, guid: f0c5da778ca2f4946ad6b1094145fc0a, type: 3}
+  - {fileID: 8300000, guid: 86c9adc1fc6f37f4dada4a7be0828710, type: 3}
+  throwSounds:
+  - {fileID: 8300000, guid: a1948dcfe44b689488f8fb27cfd54591, type: 3}
+  - {fileID: 8300000, guid: a60cc7614dc47f146bb57b960d49f83f, type: 3}
+  fightStartLine: {fileID: 8300000, guid: 1e15893f26853384f95aafb32e2fad02, type: 3}
+  berserkStartSound: {fileID: 8300000, guid: f35fc83b36e773e4e9d9d8f5a7e0429d, type: 3}
+  drinkSound: {fileID: 8300000, guid: 78b9318a8391c184e8b15ca616c993ab, type: 3}
+  berserkHitSound: {fileID: 8300000, guid: 0a9d152ec23b6ed4db277aeaab1c2ef0, type: 3}
+  speakEvery: {x: 7, y: 14}
+  crateThrowDamage: 26
+  crateThrowSpeed: 12
+  crateThrowUp: 5
+  liftsWeights: 1
+--- !u!114 &2001725412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001725410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114f8001dd73b9143a2f32c6052a607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  displayName: Tom
+  bigBody: 0
+  bowlDamage: 10
+  flipThrownSprites:
+  - {fileID: -8596458037204143142, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  - {fileID: 1230013864359975479, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  - {fileID: 8206136930182088673, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  - {fileID: 5548209343376142864, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  - {fileID: -1143999989183615075, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  - {fileID: 7401317347726533731, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  - {fileID: 1505440588871593074, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  - {fileID: -2333191599823404708, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  - {fileID: -6364370853312714406, guid: fca13b90a077e8f4aa5b25c9799358d2, type: 3}
+  flipFlightFrames: 3
+  flipFlightFrameTime: 0.12
+  flipLandFrameTime: 0.13
+  headlockThrownSprites: []
+  headlockFlightSprites: []
+  kneeHeldSprites: []
+  kneeFlightSprites: []
+  idleSprites:
+  - {fileID: 3278680621612286464, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 1934093223968157259, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -5394712879821894113, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -3592278858713586626, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -8189308920677607779, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -8804088085905083734, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 5784081393816757137, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: -5937003979095942153, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 173466560348964188, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 6991487519876550645, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 5713509492417337548, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 8573345583376221987, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  - {fileID: 7549993218733567269, guid: 435c7be0042425849ba68c54a06f4ab7, type: 3}
+  calmIdleSprites: []
+  calmWalkSprites: []
+  calmWalkFrameTime: 0.08
+  wakeOnFightRadius: 0
+  walkSprites:
+  - {fileID: -6616813819703303441, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 6522211075990128297, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -9163272147537660203, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 9027827161102869587, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 4861747495002579260, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 5500992903808881878, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -3004207747426999412, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 4047303907285540071, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 3552513454493973770, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1228368290096141009, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -5375656080409263822, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -2010662045, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1650553827, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1421253147, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 282983703, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1890542536, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1260526338, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 686562003, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1998703995, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 138168719, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 2066834972, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1782014454, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1735633660, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1877483737, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1176522431, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1689357373, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1547946375, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: 1139457559, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  - {fileID: -1971257543, guid: f01b87c98e577ef428887014e061e650, type: 3}
+  runSprites: []
+  runFrameTime: 0.066
+  punch2Sprites: []
+  doubleKickSprites: []
+  doubleKickChance: 0
+  doubleKickImpactFrame: 21
+  doubleKickDamage: 24
+  doubleKickFrameTime: 0.05
+  doubleKickReach: 2.8
+  doubleKickLaunchX: 14
+  doubleKickLaunchUp: 6
+  punch2ImpactFrame: 5
+  punch2Damage: 14
+  punch2Knockdown: 1
+  punch2LaunchUp: 0
+  punch2LaunchX: 4
+  punch2Chance: 0.3
+  punch2Uppercut: 0
+  uppercutUp: 24
+  punch3Sprites: []
+  punch3ImpactFrame: 8
+  punch3Damage: 20
+  punch3Knockdown: 1
+  punch3LaunchUp: 0
+  punch3LaunchX: 5
+  punch3Chance: 0
+  punch3WindupTime: 0.5
+  punch3RecoverTime: 0.5
+  punch3Reach: 2.4
+  punch3Heavy: 0
+  punch3Unblockable: 0
+  punch3WindupSounds:
+  - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
+  - {fileID: 8300000, guid: d82a745f7ced07242a43ca7257ccd25a, type: 3}
+  punch3SwingSounds:
+  - {fileID: 8300000, guid: 7101841331e6a8d4c99d8e4a5411964a, type: 3}
+  - {fileID: 8300000, guid: 3ce312d3030f4644189645cd5b075f8b, type: 3}
+  - {fileID: 8300000, guid: cc322252e53dd3045bd3b07f122a0d68, type: 3}
+  punch3Volume: 1
+  uppercutSprites: []
+  uppercutImpactFrame: 3
+  uppercutDamage: 22
+  uppercutChance: 0
+  uppercutReach: 2.4
+  uppercutWindupTime: 0.5
+  uppercutRecoverTime: 0.5
+  uppercutHeroUp: 24
+  uppercutLaunchUp: 21
+  uppercutLaunchX: 1.5
+  uppercutCharged: 0
+  uppercutChargeTime: 1
+  uppercutChargedDamage: 26
+  uppercutChargeKnockX: 28
+  uppercutChargeKnockUp: 13
+  combos: []
+  comboChance: 0
+  comboWindupScale: 0.55
+  comboGap: 0.07
+  holdGround: 0
+  comboArmor: 0
+  debugCombos: 0
+  walkTalkSprites: []
+  talkDuration: 1.6
+  punchSprites: []
+  hurtSprites:
+  - {fileID: -1007741631943861257, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  - {fileID: -8596458037204143142, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  - {fileID: 1230013864359975479, guid: 729c0259d89faa44a9d6ddaad2841de6, type: 3}
+  knockdownSprites:
+  - {fileID: -4988821169527493206, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  - {fileID: -5474994164955522548, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  - {fileID: -857108357312604319, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  getUpSprites:
+  - {fileID: -2509540180309540988, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: 4636472147090539972, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: 1678602823925043834, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: 4282063661155525332, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: 4016221992684586955, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: -9011961511913911314, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: 3695566802641524731, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  - {fileID: -7383738814588026747, guid: 67aad4d90e2ccdb46a48c2297a557c3a, type: 3}
+  idleFrameTime: 0.14
+  walkFrameTime: 0.0417
+  body: {fileID: 919594392}
+  shadow: {fileID: 1744035289}
+  wakeDistance: 0
+  moveSpeedX: 2
+  moveSpeedY: 1.4
+  attackRange: 1.9
+  depthTolerance: 0.45
+  attackCooldown: 1.6
+  windupTime: 0.4
+  punchActiveTime: 0.12
+  punchRecoverTime: 0.4
+  punchDamage: 8
+  punchImpactFrame: 3
+  secondImpactFrame: -1
+  secondImpactPunchOnly: 0
+  altAttackSprites: []
+  altImpactFrame: 4
+  altDamage: 12
+  altChance: 0.35
+  altExtraWindup: 0.15
+  altReach: 2.3
+  altLungeSpeed: 0
+  altLungeTime: 0.25
+  altJumpHeight: 0
+  punchKnockdown: 0
+  punchShake: 0
+  altKnockdown: 0
+  altUnblockable: 0
+  altKnockdownLightOnly: 0
+  brawlsWithOthers: 0
+  brawlGroup: 
+  brawlHeroPriority: 2.5
+  joinsFightWhenSquadComes: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  idleFacing: -1
+  altKnockSpeed: 7
+  altKnockUp: 6
+  chargeRange: 0
+  chargeMinRange: 2.6
+  chargeToEdge: 0
+  runDistance: 3.5
+  breaksCombos: 0
+  corneredRange: 0
+  altNearChance: 0
+  altTimeScale: 1
+  altAnimationFrameTime: 0
+  throwsBarrels: 0
+  punchesBarrels: 0
+  throwsTables: 0
+  tableRange: 7
+  carryWalkSprites: []
+  carryWalkFrameTime: 0.0417
+  carryWalkSpeedMul: 0.85
+  carryThrowRange: 6
+  carryWalkMaxTime: 4
+  grabsHero: 1
+  grabsLightOnly: 0
+  barrelThrowSpeed: 16
+  barrelThrowUp: 4
+  barrelDamage: 20
+  barrelRate: 0.35
+  bottleSprites: []
+  bottleRate: 0.3
+  fightsEveryone: 1
+  huntsBrawlers: 0
+  ally: 0
+  tauntSounds: []
+  tauntNoRepeat: 1
+  slapSounds: []
+  punchesAreSlaps: 0
+  hammerArt: 0
+  fallVoice: {fileID: 0}
+  getUpVoice: {fileID: 8300000, guid: 26021e2d82e621d4591114fb1e492ace, type: 3}
+  getUpVoiceAlt: {fileID: 0}
+  fallVoiceAlt: {fileID: 0}
+  fallVoiceVolume: 1
+  altWindupVolume: 1
+  altSwingVolume: 1
+  deathVoiceVolume: 1
+  launchVoiceVolume: 1
+  tauntVolume: 1
+  tauntMinDistance: 0
+  tauntOnWakeChance: 0
+  tauntPause: {x: 4, y: 9}
+  runSpeedMultiplier: 1.3
+  flankChance: 0.25
+  flankArcDepth: 1.3
+  retreatChance: 0.2
+  retreatTime: 0.7
+  blockSprites: []
+  blockChance: 0
+  maxBlocksInRow: 2
+  blockTime: 0.35
+  guardWhenHurt: 0
+  grabSprites: []
+  clinchSprites: []
+  clinchChance: 0.35
+  clinchHits: 3
+  clinchDamage: 7
+  clinchFinalDamage: 12
+  clinchReach: 2.1
+  clinchReachTime: 0.34
+  clinchHitTime: 0.42
+  clinchLaunchX: 8
+  clinchLaunchUp: 5
+  slapSprites: []
+  slapChance: 0.25
+  slapCount: 10
+  slapDamage: 3
+  slapFinalDamage: 10
+  slapWindup: 1
+  slapTime: 0.2
+  slapStep: 0.16
+  slapReach: 2.2
+  slapGlide: 0
+  slapWindupSounds: []
+  heroDownLaugh: {fileID: 0}
+  helpShout: {fileID: 0}
+  helpBouncers: 2
+  barThrowSprites: []
+  barSprite: {fileID: 0}
+  barThrowChance: 0.5
+  barThrowMinRange: 3.2
+  barThrowMaxRange: 11
+  barThrowCooldown: 4
+  barDamage: 16
+  tireIdleSprites: []
+  tireWalkSprites: []
+  tireRunSprites: []
+  tireThrowSprites: []
+  tireAirSprite: {fileID: 0}
+  tireFloorSprite: {fileID: 0}
+  tireRollingSprite: {fileID: 0}
+  startsWithTire: 0
+  tireThrowTimes:
+  - 0.12
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.08
+  - 0.08
+  - 0.05
+  - 0.2
+  - 0.2
+  tireReleaseFrame: 7
+  tireThrowChance: 0.6
+  tireThrowMinRange: 3
+  tireThrowMaxRange: 10
+  tireThrowCooldown: 2
+  tireDamage: 18
+  tireRearmTime: 15
+  kickComboSprites: []
+  kickComboChance: 0.35
+  kickDamage1: 14
+  kickDamage2: 20
+  kickReach: 3.9
+  kickStartRange: 3.6
+  kickComboSounds: []
+  slideSprites: []
+  slideUpSprites: []
+  slideChance: 0.5
+  slideMinRange: 4
+  slideMaxRange: 12
+  slideCooldown: 5
+  slideRunSpeed: 7
+  slideSpeed: 10
+  slideTime: 0.55
+  slideStartDist: 3.4
+  slideUpTime: 0.45
+  slideDamage: 18
+  grabChance: 0.3
+  grabRange: 1.3
+  grabReachTime: 0.3
+  grabLiftTime: 0.8
+  throwDamage: 18
+  throwForward: 0
+  throwFlip: 0
+  throwArtMirrored: 0
+  throwTurnsAround: 1
+  grabsAnyone: 0
+  collarThrow: 0
+  somersaultThrow: 0
+  heavyThrowScale: 0.55
+  throwSpeed: 5.5
+  throwUp: 4
+  grabWhenCloseTime: 0
+  bellySprites: []
+  bellyChance: 0
+  bellyRange: 1.6
+  bellyCounterChance: 0
+  bellyCounterAfterHits: 2
+  bellyDamage: 14
+  bellyKnockSpeed: 14
+  bellyKnockUp: 5.5
+  bellyPumpFrameTime: 0.08
+  bellyLaughFrameTime: 0.13
+  laughSound: {fileID: 0}
+  laughVolume: 1
+  stompSounds: []
+  stompVolume: 0.85
+  stompInterval: 0.2
+  stompShake: 0
+  looseBoardSprite: {fileID: 0}
+  landSprites:
+  - {fileID: -8691000956463978771, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  - {fileID: 8954153204494748464, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  - {fileID: -4756924363449200529, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
+  landFrameTime: 0.12
+  footIdleSprites: []
+  footWalkSprites: []
+  footPunchSprites: []
+  footHurtSprites: []
+  footPunchImpactFrame: 3
+  footSecondImpactFrame: -1
+  footWindupTime: 0.15
+  footPunchRecoverTime: 0.6
+  footKickSprites: []
+  footKickImpactFrame: 5
+  footKickLunge: 6
+  footKickJump: 1.3
+  footMoveSpeedX: 2.8
+  footMoveSpeedY: 1.6
+  footWalkFrameTime: 0.05
+  skatePass: 0
+  passOvershoot: 6.5
+  passTurnInterval: 2.5
+  maxHealth: 350
+  hurtTime: 0.3
+  downTime: 1
+  getUpTime: 1.6
+  getUpFacesBack: 0
+  getUpRollSprites: []
+  getUpRollTime: 0.45
+  ringedSprites: []
+  ringedTime: 3.5
+  noteValue: 1
+  stackValue: 50
+  stackChance: 0.04
+  altSwingSounds: []
+  altWindupSounds: []
+  deathVoice: {fileID: 0}
+  launchVoice: {fileID: 0}
+  hurtSounds:
+  - {fileID: 8300000, guid: cddcde7a932a82b45af901b773257baa, type: 3}
+  - {fileID: 8300000, guid: 23cfbc3d363c9664a83f1857a25bb198, type: 3}
+  hurtVolume: 1
+  attackSounds:
+  - {fileID: 8300000, guid: dccb1db4bb7d1ca4891eae63e21ba759, type: 3}
+  - {fileID: 8300000, guid: 77df51bffe253014394cf1423c2390f0, type: 3}
+  attackVolume: 0.9
+  attackSoundChance: 0.6
+  footOffset: 0.08
+  visualScale: 1.25
+  attackArtScale: 1
+  knockArtScale: 1
+  walkArtScale: 1
+  isBoss: 0
+  lightweight: 0
+  lightLaunchMul: 1.6
+  lightUppercutUp: 12
+  lightUppercutX: 1.5
+  whipAttack: 0
+  yankSprites: []
+  yankStopGap: 1.5
+  afterWhipSprites: []
+  afterWhipImpact: 3
+  afterWhipDamage: 16
+  afterWhipReach: 2.5
+  afterWhipChance: 0.3
+  pieSprites: []
+  pieTimes:
+  - 0.12
+  - 0.14
+  - 0.55
+  pieThrowSprites: []
+  pieGrips: []
+  pieCarrySprites: []
+  pieCarryGrip: {x: 0.75, y: 2, z: 8}
+  pieCarryFrameTime: 0.08
+  appearAfterOthers: 0
+  panVoices: 1
+  panMax: 0.95
+  pieOnly: 0
+  pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
+  counterAfterHits: 2
+  LastBlockTime: -99
+  LastGetUpTime: -99
+--- !u!4 &2001725413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001725410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91037.13, y: -3.3949795, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 919594393}
+  - {fileID: 1744035290}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002106896
 GameObject:
   m_ObjectHideFlags: 0
@@ -177000,6 +177411,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -178390,6 +178802,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -178864,6 +179277,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -179423,6 +179837,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -180099,6 +180518,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -180287,8 +180711,8 @@ Transform:
   m_GameObject: {fileID: 2042056061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82010.664, y: 5.1, z: 0}
-  m_LocalScale: {x: 1.688397, y: 1.15, z: 1}
+  m_LocalPosition: {x: 82010.664, y: 5.43, z: 0}
+  m_LocalScale: {x: 2.026076, y: 1.38, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 528923948}
@@ -181100,6 +181524,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667961
@@ -182258,87 +182683,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1908114248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2069905378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2069905379}
-  - component: {fileID: 2069905380}
-  m_Layer: 0
-  m_Name: Pullo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2069905379
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069905378}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91003.8, y: -0.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 687309011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2069905380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069905378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769715db6e4e614981177d2c09eb35c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bottle
-  sprites:
-  - {fileID: 3252623789441095918, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: -3448189972557154690, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: -5175653585774788198, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: -3540276930172780274, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: 3186705669450276815, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: 2503278823538519736, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  - {fileID: -665538723525489905, guid: b9505adfdb2c960488811e81e7c3f5f6, type: 3}
-  table: {fileID: 1026417308}
-  tableX: -0.7113155
-  tableTop: 1.624
-  frameTime: 0.06
-  throwDamage: 18
-  throwSpeed: 15
-  stainKind: vodka
-  pivotY: 0.3
-  scale: 1.4472549
-  food: 0
-  pie: 0
-  flightSprites: []
-  tumbleSprites: []
-  ball: 0
-  ballTableScale: 1.25
-  ballFlightScale: 2
-  restHeight: 0
-  restOnRenderer: {fileID: 0}
-  pickRangeX: 1.1
-  pickRangeY: 0.5
-  breakSounds:
-  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
-  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
-  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
-  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
-  spinSprites: []
-  keepDebris: 0
-  alwaysBreak: 0
-  thrownBy: {fileID: 0}
 --- !u!1 &2071980212
 GameObject:
   m_ObjectHideFlags: 0
@@ -182845,6 +183189,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -183195,6 +183540,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -183270,6 +183616,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 1
+  uprightHeld: 0
   ballTableScale: 1.2
   ballFlightScale: 1.75
   restHeight: 1.5667963
@@ -183438,6 +183785,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -183617,6 +183965,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc5fcb34fbba5534dab93f4d7b0fdb41, type: 3}
   - {fileID: 21300000, guid: dc01a031c73ce2e4981e9676a816b7e8, type: 3}
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -183843,6 +184192,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -184830,6 +185180,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -185541,6 +185896,11 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  undying: 0
+  sparring: 0
+  knockdownAltSprites: []
+  landAltSprites: []
+  getUpAltSprites: []
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
@@ -186648,6 +187008,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -187177,6 +187538,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -187418,6 +187780,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -187950,6 +188313,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -188208,6 +188572,7 @@ MonoBehaviour:
   flightSprites: []
   tumbleSprites: []
   ball: 0
+  uprightHeld: 0
   ballTableScale: 1.25
   ballFlightScale: 2
   restHeight: 0
@@ -188464,6 +188829,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1999000002}
   - {fileID: 1721607562}
   - {fileID: 1264368158}
   - {fileID: 264246011}
@@ -188566,3 +188932,4 @@ SceneRoots:
   - {fileID: 184251602}
   - {fileID: 569467428}
   - {fileID: 1917415064}
+  - {fileID: 2001725413}

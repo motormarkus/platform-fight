@@ -9,7 +9,7 @@ public class EnemyBikeSpawner : MonoBehaviour
     public int maxAlive = 2;
     [Tooltip("Skeittari roikkuu osan vihuprätkien perässä (malli, piilossa).")]
     public SkaterHitch skaterTemplate;
-    [Range(0f, 1f)] public float skaterChance = 0.4f;
+    [Range(0f, 1f)] public float skaterChance = 0.2f;
     [Tooltip("Määrän kerroin: tiheämmin (väli / kerroin) ja useampi kerralla; skeittareita enemmän.")]
     public float density = 5f;
     float timer = 4f;

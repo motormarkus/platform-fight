@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -55,7 +56,8 @@ public class ShopCounter : MonoBehaviour
     [Header("Äänet")]
     [Range(0f, 1f)] public float soundVolume = 0.9f;
 
-    AudioSource audioSource;
+    AudioSource audioSource, voiceSource;
+    AudioClip[] welcomeLines, purchaseLines, byeLines;   // Sohvin repliikit (Resources/Sfx/sohvi): tiskille, oston jälkeen, poistuessa
     PlayerController pc;
     bool near, open;
     int sel;
@@ -75,6 +77,22 @@ public class ShopCounter : MonoBehaviour
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
+        // Sohvi on jokaisella tiskillä
+        {
+            voiceSource = gameObject.AddComponent<AudioSource>();
+            voiceSource.playOnAwake = false; voiceSource.spatialBlend = 0f;
+            welcomeLines = Resources.LoadAll<AudioClip>("Sfx/sohvi").Where(c => c.name.StartsWith("sohvi_welcome")).ToArray();
+            purchaseLines = Resources.LoadAll<AudioClip>("Sfx/sohvi").Where(c => c.name.StartsWith("sohvi_purchase")).ToArray();
+            byeLines = Resources.LoadAll<AudioClip>("Sfx/sohvi").Where(c => c.name.StartsWith("sohvi_thanks") || c.name.StartsWith("sohvi_nahdaan")).ToArray();
+        }
+    }
+
+    /// Myyjän repliikki (vain Sohvi): edellinen katkeaa.
+    void Speak(AudioClip[] lines)
+    {
+        if (voiceSource == null || lines == null || lines.Length == 0) return;
+        voiceSource.Stop();
+        voiceSource.PlayOneShot(lines[Random.Range(0, lines.Length)], soundVolume);
     }
 
     /// Baarin hinnat (markkoina): asetetaan myös sceneen tallennetuille tiskeille.
@@ -187,6 +205,7 @@ public class ShopCounter : MonoBehaviour
         if (sessions.Count == 0 && pc != null) sessions.Add(new Sess { pc = pc, msg = npcName + ": " + Loc.T("Mitä saisi olla?"), msgTime = Time.unscaledTime });
         if (sessions.Count == 0) return;
         open = true; IsOpen = true; near = false;
+        Speak(welcomeLines);
         foreach (var sx in sessions) sx.pc.enabled = false;
         oldTimeScale = Time.timeScale;
         Time.timeScale = 0f;
@@ -199,6 +218,7 @@ public class ShopCounter : MonoBehaviour
         sessions.Remove(sx);
         if (sessions.Count == 0)
         {
+            Speak(byeLines);
             open = false; IsOpen = false;
             Time.timeScale = oldTimeScale <= 0.05f ? 1f : oldTimeScale;
         }
@@ -212,6 +232,7 @@ public class ShopCounter : MonoBehaviour
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StorePocketFood(it.takeaway);
+            Speak(purchaseLines);
             HitFx.PlayPickup(false);
             Say(Loc.T("Eväs taskuun. Syö: pidä E / toimintanappi pohjassa."));
             return;
@@ -222,6 +243,7 @@ public class ShopCounter : MonoBehaviour
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
             pc.money -= it.price;
             pc.StoreBooni();
+            Speak(purchaseLines);
             HitFx.PlayPickup(false);
             Say(Loc.T("Bööni taskuun. Juo: pidä E / toimintanappi pohjassa tai taukovalikosta."));
             return;
@@ -230,6 +252,7 @@ public class ShopCounter : MonoBehaviour
         if (!rum && pc.health >= pc.maxHealth && (it.stamina <= 0 || pc.stamina >= pc.maxStamina)) { Say(Loc.T("Energia on jo täynnä.")); return; }
         if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
         pc.money -= it.price;
+        Speak(purchaseLines);
         int got = pc.Heal(it.heal);
         int st = pc.AddStamina(it.stamina);
         if (rum) pc.StartDrunk(pc.drunkDuration);

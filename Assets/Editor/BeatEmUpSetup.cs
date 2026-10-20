@@ -3041,6 +3041,7 @@ public static class BeatEmUpSetup
     const string HighwayRoadPath = "Assets/Sprites/Taustat/valtatie_tie.png";
     const string HighwayViewPath = "Assets/Sprites/Taustat/valtatie_maisema.png";
     const float HighwayX0 = 6000f, HighwayLength = 2500f, HighwayPPU = 85f;   // n. 3 min ajoa täydellä vauhdilla (13.75 yks/s): kaupungista saarelle
+    const float HighwayCamSize = 7.2f, HighwayCamOffsetY = 1.2f;   // oletus 6; ylhäällä maisemaa on 2,7 yks. tien kuvan yläreunan yli
     const float HighwayRoadTopPx = 440f, HighwayRoadBottomPx = 990f;   // ajettava tie kuvassa
     const float HighwayViewAnchorPx = 560f, HighwayViewAtRoadPx = 330f; // maiseman rivi 560 tien rivin 330 kohdalle (kaiteen taakse)
 
@@ -3116,6 +3117,7 @@ public static class BeatEmUpSetup
         px.startCamX = HighwayX0 + halfW;
         px.minX = HighwayX0;
         px.maxX = HighwayX0 + HighwayLength;
+        FitHighwayView(vGo.transform, px, HighwayCamSize);
 
         var area = new GameObject("Alue: Valtatie").AddComponent<Area>();
         area.areaName = "Valtatie";
@@ -3124,6 +3126,7 @@ public static class BeatEmUpSetup
         area.useSidewalk = false;
         area.camMinX = HighwayX0 + halfW;
         area.camMaxX = HighwayX0 + HighwayLength - halfW;
+        area.camSize = HighwayCamSize; area.camOffsetY = HighwayCamOffsetY;   // kamera kauemmas: näkee pidemmälle, tien alareuna pysyy ruudun alareunassa
         Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
 
         // kujan lopussa siirtymä (prätkällä oikeasta reunasta ulos)
@@ -13586,7 +13589,7 @@ public static class BeatEmUpSetup
             enemy.secondImpactFrame = -1;
             enemy.doubleKickSprites = doubleKick.Take(18).Concat(doubleKick.Skip(29)).Concat(doubleKickUp).ToArray(); // pois ilmassa pidettava odotus, nousu ja lasku sailytetaan
             enemy.doubleKickChance = 0.15f; enemy.doubleKickImpactFrame = 17;
-            enemy.doubleKickFrameTime = 0.05f;
+            enemy.doubleKickFrameTime = 0.03f; // nopeampi tuplapotku
             enemy.doubleKickDamage = 24; enemy.doubleKickReach = 2.8f;
             enemy.doubleKickLaunchX = 14f; enemy.doubleKickLaunchUp = 6f;
             enemy.combos = new[] { "JJSJJK" }; enemy.comboChance = 0.5f; // puolet tavallisista hyokkayksista
@@ -13594,8 +13597,8 @@ public static class BeatEmUpSetup
             enemy.punch3Knockdown = true; enemy.punch3LaunchX = 4.5f; enemy.punch3LaunchUp = 5f;
             enemy.punch2Chance = 0.5f; enemy.punch3Chance = enemy.uppercutChance = 0f; // jaljelle jaavista puolet lyontia, puolet etupotkua
             enemy.altChance = enemy.altNearChance = 0f;
-            enemy.altAttackSprites = handstand.Take(16).Concat(handstand.Skip(31)).ToArray(); enemy.uppercutSprites = new Sprite[0]; // ojennus heti kasillaolon jalkeen
-            enemy.altImpactFrame = 21; enemy.altDamage = 22; enemy.altKnockdown = true;
+            enemy.altAttackSprites = handstand.Take(16).Where((f, i) => i % 2 == 0).Concat(handstand.Skip(31).Take(5)).Concat(handstand.Skip(36).Where((f, i) => i % 2 == 0)).ToArray(); // nousu ja lasku nopeammiksi (joka toinen kuva), potkuosa ennallaan enemy.uppercutSprites = new Sprite[0]; // ojennus heti kasillaolon jalkeen
+            enemy.altImpactFrame = 13; enemy.altDamage = 22; enemy.altKnockdown = true;
             enemy.altAnimationFrameTime = 1f / 30f; // koko kasillaseisontapotku noin 2 sekuntia
             enemy.altChance = 0.18f; enemy.altNearChance = 0.12f;
             enemy.altReach = 2.8f; enemy.altLungeSpeed = 0f; enemy.altLungeTime = 0f;
@@ -13620,7 +13623,7 @@ public static class BeatEmUpSetup
             enemy.grabReachTime = 0.2f; enemy.grabLiftTime = 0.65f;
             enemy.throwForward = false; enemy.throwFlip = false; enemy.throwTurnsAround = false;
             enemy.throwArtMirrored = false; enemy.collarThrow = false;
-            enemy.throwSpeed = 6.5f; enemy.throwUp = 5f; enemy.throwDamage = 20;
+            enemy.throwSpeed = 11f; enemy.throwUp = 6.5f; enemy.throwDamage = 20;
             Directory.CreateDirectory("Assets/Resources/Enemies");
             PrefabUtility.SaveAsPrefabAsset(enemy.gameObject, "Assets/Resources/Enemies/Tanya.prefab");
             // Sama korjaus mahdollisiin kenttaan jo lisattyihin Tanyoihin.
@@ -15786,5 +15789,151 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
         Info("Counter-isku lisätty: pidä suojausta ja paina lyöntinappia, kun vihu on kesken hyökkäystä edessäsi (2,6 yksikköä). Nopea (0,3 s), haavoittumaton, katkaisee vihun sarjan ja horjauttaa sen 0,8 s " +
              "(pomoilla sarja katkeaa ja horjahdus on 0,35 s, vahinko 10; tavallisille 14). Latausaika 1,2 s. Ilman vihua suojaus + lyönti tekee puskun kuten ennenkin.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // Valtatien maisema (kaukana) pidetään samankokoisena kuin ennen: skaalataan kameran zoomin verran, ankkuririvi (kaide) pysyy paikallaan.
+    static void FitHighwayView(Transform view, ParallaxLayer px, float camSize)
+    {
+        var sr = view.GetComponent<SpriteRenderer>();
+        if (sr == null || sr.sprite == null) return;
+        float h = sr.sprite.rect.height, oldScale = view.localScale.x, newScale = camSize / 6f;
+        float anchorY = view.position.y - (HighwayViewAnchorPx - h * 0.5f) / HighwayPPU * oldScale;
+        view.localScale = new Vector3(newScale, newScale, 1f);
+        view.position = new Vector3(view.position.x, anchorY + (HighwayViewAnchorPx - h * 0.5f) / HighwayPPU * newScale, view.position.z);
+        if (px == null) return;
+        float halfW = camSize * 16f / 9f, viewW = sr.sprite.rect.width / HighwayPPU * newScale;
+        px.factor = Mathf.Clamp((viewW - 2f * halfW) / Mathf.Max(1f, HighwayLength - 2f * halfW), 0.01f, 0.2f);
+        px.startCamX = HighwayX0 + halfW;
+    }
+
+    [MenuItem("Beat em up/220. Valtatie: kamera kauemmas (tie ja prätkä pienemmiksi, näkee pidemmälle; maisema ennallaan)")]
+    static void HighwayCameraFarther()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Valtatie");
+        var px = Object.FindObjectsByType<ParallaxLayer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(l => l.transform.parent != null && l.transform.parent.name == "Valtatie" && l.name == "Maisema");
+        if (area == null) { Info("Valtatie-aluetta ei löytynyt tästä scenestä (avaa pääscene SampleScene)."); return; }
+        Undo.RecordObject(area, "Valtatie kamera");
+        area.camSize = HighwayCamSize; area.camOffsetY = HighwayCamOffsetY;
+        EditorUtility.SetDirty(area);
+        if (px != null) { Undo.RecordObject(px.transform, "Maisema"); Undo.RecordObject(px, "Maisema"); FitHighwayView(px.transform, px, HighwayCamSize); EditorUtility.SetDirty(px); EditorUtility.SetDirty(px.transform); }
+        EditorSceneManager.MarkSceneDirty(area.gameObject.scene);
+        Info("Valtatien kamera siirretty kauemmas (koko 6 -> " + HighwayCamSize + "): tie ja prätkä näkyvät noin 17 % pienempinä ja ruutuun mahtuu pidemmältä matkaa. Tien alareuna pysyy ruudun alareunassa. " +
+             (px != null ? "Kaukainen maisema säilyy ennallaan (skaalattu zoomin mukaan)." : "Maisemaa (Valtatie/Maisema) ei löytynyt.") + "\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Rubyn alasväistö (kyykky): sama logiikka kuin Roccolla ----------------
+    // ruby_alasvaisto.png (Tools/RubyDuck/make_ruby_duck.py): 5 kuvaa, 512 x 384. Alas + suojaus -> kyykky (iskut menevät yli); kyykystä: lyönti = alakoukku, pusku = kärrynpyörä, potku = korkea potku.
+    [MenuItem("Beat em up/221. Ruby: alasväistö (kyykky) + alakoukku, kärrynpyörä tai potku kyykystä")]
+    static void AddRubyDuck()
+    {
+        if (PlayModeBlocked()) return;
+        var pc = Object.FindFirstObjectByType<PlayerController>();
+        if (pc == null) { Info("Scenessä ei ole pelaajaa."); return; }
+        string path = FindTexture("ruby_alasvaisto");
+        if (path == null) { Info("Puuttuu ruby_alasvaisto.png (Assets/Sprites). Aja: python Tools/RubyDuck/make_ruby_duck.py Assets/Sprites"); return; }
+        SetupAndSlice(path);
+        var sp = LoadSprites("ruby_alasvaisto").OrderBy(x => int.TryParse(x.name.Substring(x.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
+        if (sp.Length < 5) { Info("ruby_alasvaisto.png ei leikkaudu viideksi kuvaksi (" + sp.Length + ")."); return; }
+        Undo.RecordObject(pc, "Rubyn alasväistö");
+        pc.duckSpritesRuby = new[] { sp[0], sp[1], sp[2], sp[3], sp[3], sp[3], sp[4], sp[4] };   // painuu, pito pohjassa (kuva 3), nousu
+        EditorUtility.SetDirty(pc);
+        EditorSceneManager.MarkSceneDirty(pc.gameObject.scene);
+        Info("Rubyn alasväistö lisätty: alas + suojaus -> kyykky (iskut menevät yli, pohjassa voi pysyä kunnes nappi päästetään). Kyykystä: lyönti = alakoukku (takakoukun kuvilla, kaataa), pusku = kärrynpyörä, potku = korkea potku (kaataa).\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Deacon's Denin pokeripöytä oven viereen vasemmalle takaseinän lähelle; pöydät ja tuolit raivataan pois ----------------
+    [MenuItem("Beat em up/222. Pokeripöytä (Deacon's Den) oven viereen vasemmalle, pöydät ja tuolit pois tieltä")]
+    static void MovePokerTableNextToDoor()
+    {
+        if (PlayModeBlocked()) return;
+        var dscene = EditorSceneManager.GetSceneByPath(DesertScenePath);
+        bool openedHere = false;
+        if (!dscene.IsValid() || !dscene.isLoaded) { dscene = EditorSceneManager.OpenScene(DesertScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try { MovePokerTableNextToDoorIn(dscene); }
+        finally { if (openedHere) EditorSceneManager.CloseScene(dscene, true); }
+    }
+
+    static void MovePokerTableNextToDoorIn(UnityEngine.SceneManagement.Scene dscene)
+    {
+        var entry = Object.FindObjectsByType<PokerTableEntry>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(t => t != null && t.name.Contains("DeaconsDen") && t.gameObject.scene == dscene);
+        if (entry == null) { Info("Deacon's Denin pokeripöytää ei löydy Aavikon scenestä."); return; }
+        var area = entry.here != null ? entry.here : Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
+        var ob = entry.GetComponent<Obstacle>();
+        float halfW = ob != null ? ob.halfWidth : 3.1f, depth = ob != null ? ob.depth : 1.1f;
+        float x = (area != null ? area.walkMinX : 91000.8f) + halfW + 0.1f;   // vasempaan reunaan, oven vasemmalle puolelle
+        float y = (area != null ? area.maxDepthY : -0.24f) - depth - 0.05f;   // takareuna takaseinän vieressä
+        Undo.RecordObject(entry.transform, "Pokeripöytä");
+        entry.transform.position = new Vector3(x, y, 0f);
+        if (ob != null && ob.body != null) { Undo.RecordObject(ob.body, "Pokeripöytä"); ob.body.sortingOrder = Mathf.RoundToInt(-(y + depth * 0.5f) * 100f); EditorUtility.SetDirty(ob.body); }
+        EditorUtility.SetDirty(entry.transform);
+        // raivaus: pöydät, tuolit, pullot ja annokset pöydän jalanjäljen ympäriltä
+        float x0 = x - halfW - 1.0f, x1 = x + halfW + 1.0f, y0 = y - 1.0f, y1 = y + depth + 1.5f;
+        var scene = entry.gameObject.scene;
+        int removed = 0;
+        foreach (var c in Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToArray())
+        {
+            if (c == null || c.gameObject.scene != scene) continue;
+            var q = c.transform.position; if (q.x < x0 || q.x > x1 || q.y < y0 || q.y > y1) continue;
+            Undo.DestroyObjectImmediate(c.gameObject); removed++;
+        }
+        foreach (var ch in Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToArray())
+        {
+            if (ch == null || ch.gameObject.scene != scene) continue;
+            var q = ch.transform.position; if (q.x < x0 || q.x > x1 || q.y < y0 || q.y > y1) continue;
+            Undo.DestroyObjectImmediate(ch.gameObject); removed++;
+        }
+        foreach (var b in Object.FindObjectsByType<Bottle>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToArray())
+        {
+            if (b == null || b.gameObject.scene != scene) continue;
+            var q = b.transform.position; if (q.x < x0 || q.x > x1 || q.y < y0 || q.y > y1) continue;
+            Undo.DestroyObjectImmediate(b.gameObject); removed++;
+        }
+        foreach (var f in Object.FindObjectsByType<FishPlate>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToArray())
+        {
+            if (f == null || f.gameObject.scene != scene) continue;
+            var q = f.transform.position; if (q.x < x0 || q.x > x1 || q.y < y0 || q.y > y1) continue;
+            Undo.DestroyObjectImmediate(f.gameObject); removed++;
+        }
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+        Info("Deacon's Denin pokeripöytä siirretty ylös vasemmalle oven viereen (x " + x.ToString("0.0") + ", y " + y.ToString("0.00") + "). Raivattu pois " + removed + " esinettä (pöytä, tuolit, pullot ja annokset alueelta x " + x0.ToString("0.0") + "…" + x1.ToString("0.0") + "). Aavikon scene tallennettu.");
+    }
+
+    // ---------------- Tom Deacon's Deniin (Aavikkobaari): käy kaikkien kimppuun kuten hotellissa ----------------
+    const string DesertScenePath = "Assets/Scenes/Areas/Aavikko.unity";
+    [MenuItem("Beat em up/223. Tom: Deacon's Deniin (Aavikkobaari, käy kaikkien kimppuun)")]
+    static void AddTomToDeaconsDen()
+    {
+        if (PlayModeBlocked()) return;
+        if (!File.Exists(DesertScenePath)) { Info("Aavikon scene puuttuu: " + DesertScenePath); return; }
+        var sheets = new Dictionary<string, Sprite[]>();
+        foreach (var n in TomSheetNames)
+        {
+            var sp = LoadWalkerSprites(n);
+            if (sp == null || sp.Length == 0) { Info("Puuttuu tai ei leikkaudu: " + n + ".png (Assets/Sprites/Viholliset)."); return; }
+            sheets[n] = sp;
+        }
+        var scene = EditorSceneManager.GetSceneByPath(DesertScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(DesertScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari" && a.gameObject.scene == scene);
+            if (area == null) { Info("Aluetta 'Aavikkobaari' (Deacon's Den) ei löydy Aavikon scenestä."); return; }
+            foreach (var old in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.gameObject.name == "Tom (Deacon's Den)").ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+            var go = BuildTom(sheets, scene, "Tom (Deacon's Den)");
+            var e = go.GetComponent<Enemy>(); var b = go.GetComponent<TomBrain>();
+            b.attacksEveryone = true; b.foeRange = 11f; b.wakeAfterSeconds = 120f; b.wakeOnFight = true;   // rauhassa kunnes 2 min tai hero aloittaa tappelun
+            e.fightsEveryone = true;
+            e.ally = false; e.brawlsWithOthers = false;
+            float x = Mathf.Lerp(area.walkMinX, area.walkMaxX, 0.72f);
+            go.transform.position = new Vector3(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.5f), 0f);
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Tom lisätty Deacon's Deniin (x ≈ " + x.ToString("0.0") + ") ja Aavikon scene tallennettu. Hän käy kaikkien kimppuun (hero, muut vihut ja baarin väki), hakkaa lähimmän ja juo shakerin energian ollessa 25 % (berserk).\n\nTarkista Console.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 }

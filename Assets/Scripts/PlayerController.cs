@@ -1287,6 +1287,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             Hit("Etukoukku",  a.leadHook, 3, 0.05f,  0.11f, 0.22f,  8, 1.6f, false),
             Hit("Takakoukku", a.rearHook, 3, 0.055f, 0.16f, 0.30f, 14, 1.7f, true),
         };
+        quickUppercutRuby = Hit("Alakoukku", a.rearHook, 3, 0.045f, 0.12f, 0.30f, 14, 1.7f, true);   // väistöstä nouseva nopea koukku (kaataa)
         lowKickSprites = a.lowKick;
         sideKickSprites = a.midKick; sideKickFrameTime = 0.06f; sideKickImpactFrame = 2; sideKickImpactHold = 0.14f; sideKickArtOffset = 0f; sideKickReach = 2.3f;
         hiKickSprites = a.highKick; hiKickFrameTime = 0.055f; hiKickImpactFrame = 2; hiKickImpactHold = 0.14f; hiKickArtOffset = 0f;
@@ -1302,6 +1303,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 for (int i = 31; i <= 36; i++) t.Add(a.special[i]);
                 specialSprites = t.ToArray();
             }
+            mayhemSprites = a.special.Length == 37 ? System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Take(System.Linq.Enumerable.Skip(a.special, 2), 30)) : null;   // mayhem-silmukka: vain jatkuva pyörähdys (ei asentokuvia, jotka pysäyttäisivät)
             specialFrameTime = 0.065f;                       // 17 kuvaa = n. 1,1 s, rauhallisempi kuvatahti
             float specialLen = specialFrameTime * specialSprites.Length;
             specialHitFrom = 0.12f; specialHitTo = specialLen - 0.3f; specialHitEvery = 0.4f;
@@ -1622,7 +1624,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         switch (state)
         {
             case State.Ground:
-                if (kickPressed && Time.time - duckEndedAt <= 0.35f && HasDuckKnee && Bottle.HeldBy(this) == null) { StartDuckKnee(); break; }   // potku heti väistön jälkeen: polviisku
+                if (kickPressed && Time.time - duckEndedAt <= 0.35f && HasDuckKick && Bottle.HeldBy(this) == null) { StartDuckKick(); break; }   // potku heti väistön jälkeen: polviisku
                 if (pummelDir != 0 && Bottle.HeldBy(this) == null && PummelStamina()) { dashArmedUntil = -9f; StartPummel(pummelDir); break; }
                 if (bigHookInput) { StartBigHook(); break; }
                 if (dropKickInput && (running || Skating) && UseStamina(jumpStamina)) { StartDropKick(); break; }
@@ -1721,8 +1723,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     StartKick(0);
                     break;
                 }
-                if (specialPressed && specialSprites != null && specialSprites.Length > 0 && UseStamina(specialStamina))
+                if (specialPressed && specialSprites != null && specialSprites.Length > 0 && MayhemReady)
                 {
+                    mayhem = 0f; mayhemOn = true; mayhemNextHit = 0f; mayhemNextGrunt = 0f; mayhemNextBang = 0f; mayhemLastHit.Clear(); mayhemHitCount.Clear();
                     Enter(State.Special); specialHits.Clear(); specialCrates.Clear(); specialFxDone = false; PlayGruntSpecial(); break;
                 }
                 if (Skating)
@@ -1820,10 +1823,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Duck:
                 // väistön aikana lyönti = nopea takakäden alakoukku, potku = polviisku (kaataa), pusku-nappi = pusku
                 if (punchPressed && HasQuickUppercut && stateTime >= DuckTotal * 0.1f) { StartQuickUppercut(); break; }
-                if (kickPressed && HasDuckKnee && stateTime >= DuckTotal * 0.1f) { StartDuckKnee(); break; }
+                if (kickPressed && HasDuckKick && stateTime >= DuckTotal * 0.1f) { StartDuckKick(); break; }
                 if (pushPressed && HasPush && stateTime >= DuckTotal * 0.1f && UseStamina(pushStamina)) { StartPush(); break; }
                 // alas + suojaus pohjassa: Rocco jää kyykkyyn (kuva pysähtyy syvimpään kohtaan), nousee kun nappi päästetään
-                if (blockHeld && move.y < -0.5f && stateTime >= duckFrameTime * duckHoldIndex) { stateTime = duckFrameTime * duckHoldIndex; duckHoldTime += dt; }
+                if (blockHeld && move.y < -0.5f && stateTime >= duckFrameTime * DuckHold) { stateTime = duckFrameTime * DuckHold; duckHoldTime += dt; }
                 if (stateTime >= DuckTotal) { duckEndedAt = Time.time; Enter(State.Ground); }
                 break;
 
@@ -2471,6 +2474,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Special:
+                if (mayhemOn) { UpdateMayhem(dt, move); break; }
                 // tuulimylly: osumat nollataan joka kierroksella, joten jokainen kierros osuu uudestaan
                 if (specialHitEvery > 0f && stateTime >= specialHitFrom)
                 {
@@ -2640,6 +2644,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
+        if (s != State.Special) mayhemOn = false;
         if (s != State.KneeStrike) duckKnee = false;   // väistöstä lähtenyt polviisku kaataa vain itse iskun ajan
         bool panState = s == State.PanPick || s == State.PanHold || s == State.PanSwing || s == State.PanThrow;
         if (!panState && Pan.HeldBy(this) != null) Pan.DropHeld(this);
@@ -3308,6 +3313,117 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
     bool specialFxDone;
 
+    // ---------------- Mayhem: kultainen mittari staminan alla; täynnä -> tuulimylly / tornadopotku muuttuu 3 s tuhoamiseksi ----------------
+    [Header("Mayhem-mittari: täyttyy vihuja lyömällä; täynnä erikoisliike (tuulimylly / tornadopotku) on 3 s tuhoisa liike ruudun poikki")]
+    public float mayhem;
+    public float mayhemMax = 100f;
+    [Tooltip("Mittari täyttyy näin paljon (osuus iskun vahingosta, mittari 0–100).")]
+    public float mayhemPerDamage = 0.9f;
+    public float mayhemDuration = 3f, mayhemSpeedX = 6.5f, mayhemSpeedY = 3.2f, mayhemReach = 3.6f, mayhemTick = 0.18f;
+    public int mayhemDamage = 16;
+    [Tooltip("Sama vihu voi saada osuman tästä liikkeestä korkeintaan tämän välein (s); pomoilla pidempi.")]
+    public float mayhemRehit = 0.9f, mayhemBossRehit = 1.8f;
+    [Tooltip("Pomoihin osuva vahinko on tämän osuus (eikä pomo kaadu liikkeestä).")]
+    [Range(0f, 1f)] public float mayhemBossDamage = 0.4f;
+    readonly System.Collections.Generic.Dictionary<Enemy, float> mayhemLastHit = new System.Collections.Generic.Dictionary<Enemy, float>();
+    [Tooltip("Yksi vihu voi saada tästä liikkeestä enintään näin monta osumaa.")]
+    public int mayhemMaxHitsPerFoe = 3;
+    readonly System.Collections.Generic.Dictionary<Enemy, int> mayhemHitCount = new System.Collections.Generic.Dictionary<Enemy, int>();
+    bool mayhemOn; float mayhemNextHit, mayhemNextGrunt, mayhemNextBang;
+    Sprite[] mayhemSprites;           // Ruby: oma silmukka (tornadon pyörähdyskuvat); Rocco käyttää specialSpritesia
+    const float MayhemLoopFrameTime = 0.045f;
+    public bool MayhemReady => !mayhemOn && state != State.Special && mayhem >= mayhemMax - 0.01f;
+    public bool MayhemActive => mayhemOn && state == State.Special;
+    /// Mittarin täyttö (0–1): liikkeen aikana tyhjenee 3 sekunnissa.
+    public float MayhemFraction => MayhemActive ? Mathf.Clamp01(1f - stateTime / Mathf.Max(0.1f, mayhemDuration)) : Mathf.Clamp01(mayhem / Mathf.Max(1f, mayhemMax));
+    /// Pelaajan osuma vihuun täyttää mittaria.
+    public void AddMayhem(float damage)
+    {
+        if (mayhemOn || state == State.Special) return;
+        mayhem = Mathf.Min(mayhemMax, mayhem + Mathf.Max(0f, damage) * mayhemPerDamage);
+    }
+
+    void UpdateMayhem(float dt, Vector2 move)
+    {
+        // ohjattavissa; ilman suuntaa hakeutuu lähimmän vihun luo
+        Vector2 dir = move;
+        if (dir.sqrMagnitude < 0.04f)
+        {
+            Enemy near = null; float bestD = 14f; Vector3 me0 = transform.position;
+            foreach (var e in Enemy.All)
+            {
+                if (e == null || e.IsDead) continue;
+                float d = Mathf.Abs(e.transform.position.x - me0.x);
+                if (d < bestD) { bestD = d; near = e; }
+            }
+            if (near != null)
+            {
+                Vector3 dv = near.transform.position - me0;
+                dir = new Vector2(Mathf.Abs(dv.x) < 0.8f ? 0f : Mathf.Sign(dv.x), Mathf.Clamp(dv.y * 1.5f, -1f, 1f));
+            }
+        }
+        if (dir.sqrMagnitude > 1f) dir.Normalize();
+        MoveOnGround(new Vector2(dir.x * mayhemSpeedX, dir.y * mayhemSpeedY) * dt);
+        if (Mathf.Abs(dir.x) > 0.2f) facingRight = dir.x > 0f;
+        if (Time.time >= mayhemNextHit) { mayhemNextHit = Time.time + mayhemTick; MayhemStrike(); }
+        if (Time.time >= mayhemNextGrunt) { mayhemNextGrunt = Time.time + 0.9f; PlayGruntSpecial(); }
+        if (stateTime >= mayhemDuration) { mayhemOn = false; Enter(State.Ground); }
+    }
+
+    /// Lähellä olevat vihut lentävät; laatikot, pöydät, tv:t ja muut hajoavat.
+    void MayhemStrike()
+    {
+        Vector3 me = transform.position;
+        float depth = attackDepth + 0.7f;
+        bool any = false;
+        foreach (var e in Enemy.All.ToArray())
+        {
+            if (e == null || e.IsDead || e.IsDownOrDead || e.IsAirborneNow) continue;   // ei ilmassa olevia eikä maassa makaavia: ei jatkoiskuja
+            Vector3 p = e.transform.position;
+            if (Mathf.Abs(p.x - me.x) > mayhemReach || Mathf.Abs(p.y - me.y) > depth) continue;
+            if (mayhemLastHit.TryGetValue(e, out float lastT) && Time.time - lastT < (e.isBoss ? mayhemBossRehit : mayhemRehit)) continue;   // sama vihu ei jauhu uudestaan heti
+            mayhemHitCount.TryGetValue(e, out int hitsSoFar);
+            if (hitsSoFar >= mayhemMaxHitsPerFoe) continue;   // enintään 3 osumaa / vihu / liike
+            bool boss = e.isBoss;
+            if (!e.TakeHit(boss ? Mathf.Max(1, Mathf.RoundToInt(mayhemDamage * mayhemBossDamage)) : mayhemDamage, me.x, !boss)) continue;   // pomo ei kaadu
+            mayhemLastHit[e] = Time.time; mayhemHitCount[e] = hitsSoFar + 1;
+            any = true;
+            if (!boss && !HeavyForHook(e)) e.Launch((p.x >= me.x ? 1f : -1f) * 6.5f, 11f);   // lentää kauas ja kaataa matkalla muut
+        }
+        foreach (var c in Crate.All.ToArray())
+        {
+            if (c == null || !c.CanBeHit) continue;
+            Vector3 p = c.transform.position;
+            if (Mathf.Abs(p.x - me.x) > mayhemReach || Mathf.Abs(p.y - me.y) > depth) continue;
+            if (c.breakable) c.Smash(); else c.TakeHit(mayhemDamage, me.x);
+            any = true;
+        }
+        foreach (var o in Obstacle.All.ToArray())
+        {
+            if (o == null || !o.isActiveAndEnabled || !o.CanBeHit || o.smashOnly) continue;
+            Vector3 np = o.NearestPoint(me);
+            if (Mathf.Abs(np.x - me.x) > mayhemReach || Mathf.Abs(np.y - me.y) > depth) continue;
+            o.Smash(); any = true;
+        }
+        foreach (var t in TvSet.All.ToArray())
+        {
+            if (t == null || !t.CanBeHit) continue;
+            Vector3 p = t.transform.position;
+            if (Mathf.Abs(p.x - me.x) > mayhemReach || Mathf.Abs(p.y - me.y) > depth) continue;
+            if (t.TakeHit(me.x, true)) any = true;
+        }
+        foreach (var r in RingStand.All.ToArray())
+        {
+            if (r == null || !r.CanBeHit) continue;
+            Vector3 p = r.transform.position;
+            if (Mathf.Abs(p.x - me.x) > mayhemReach || Mathf.Abs(p.y - me.y) > depth) continue;
+            r.Smash(); any = true;
+        }
+        if (!any) return;
+        HitFx.OnHitQuiet();
+        if (Time.time >= mayhemNextBang) { mayhemNextBang = Time.time + 0.5f; HitFx.OnHit(true); if (CameraFollow.Instance != null) CameraFollow.Shake(0.14f, 0.18f); }
+    }
+
     /// Vihollisen isku osuu pelaajaan. attackerX = lyöjän x-sijainti.
     /// Kaatava isku (esim. pomon taklaus): pelaaja lentää taaksepäin ja kaatuu. Suojaus torjuu edestä.
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
@@ -3910,8 +4026,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (c == null || !c.CanPickUp) continue;
             Vector3 p = c.transform.position;
             float dx = p.x - me.x;
-            bool front = facingRight ? dx >= -0.4f && dx <= 1.5f : dx <= 0.4f && dx >= -1.5f;
-            if (!front || Mathf.Abs(p.y - me.y) > 0.45f) continue;
+            float edge = c.body != null ? Mathf.Max(0f, c.body.bounds.extents.x - 0.9f) : 0f;   // leveä esine (levytanko): mitataan reunasta, ei keskikohdasta
+            bool front = facingRight ? dx >= -0.4f - edge && dx <= 1.5f + edge : dx <= 0.4f + edge && dx >= -1.5f - edge;
+            if (!front || Mathf.Abs(p.y - me.y) > (edge > 0f ? 1.1f : 0.45f)) continue;
             if (Mathf.Abs(dx) < bestD) { bestD = Mathf.Abs(dx); best = c; }
         }
         return best;
@@ -4134,6 +4251,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Header("Alasväistö (alas + suojaus): painuu alas, iskut menevät yli")]
     [Tooltip("rocco_alasvaisto.png: painuminen alas, pito ja nousu (12 kuvaa).")]
     public Sprite[] duckSprites;
+    [HideInInspector] public Sprite[] duckSpritesRuby;   // ruby_alasvaisto: kuvajärjestys 0,1,2,3,3,3,4,4 (pohja = kuva 3)
+    Sprite[] DuckArt => AppliedCharacter == 1 ? duckSpritesRuby : duckSprites;
+    int DuckHold => AppliedCharacter == 1 ? 3 : duckHoldIndex;
     public float duckFrameTime = 0.05f, duckCooldown = 0.35f;
     [Tooltip("Väistön osuma-aikaikkuna kokonaiskeston osuutena (alku ja loppu ovat haavoittuvia).")]
     public Vector2 duckSafeWindow = new Vector2(0.15f, 0.85f);
@@ -4144,12 +4264,15 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float nextDuckTime, duckHoldTime, duckEndedAt = -9f;
     bool duckKnee;   // polviisku väistöstä: kaataa
     bool duckReady = true;
-    bool HasDuck => duckSprites != null && duckSprites.Length >= 6;
-    float DuckTotal => HasDuck ? duckFrameTime * duckSprites.Length : 0.6f;
+    bool HasDuck => DuckArt != null && DuckArt.Length >= 6;
+    float DuckTotal => HasDuck ? duckFrameTime * DuckArt.Length : 0.6f;
     /// Alasväistö on käynnissä ja iskut menevät yli.
     public bool Ducking => state == State.Duck && stateTime >= DuckTotal * duckSafeWindow.x && stateTime <= DuckTotal * duckSafeWindow.y && duckHoldTime <= duckHoldSafeTime;
 
     bool HasDuckKnee => HasKnee || HasKneeStrikeArt;
+    bool HasRubyDuckKick => AppliedCharacter == 1 && kickChain != null && kickChain.Length >= 4 && kickChain[3].sp != null;   // Ruby: korkea (kaatava) potku kyykystä
+    bool HasDuckKick => AppliedCharacter == 1 ? HasRubyDuckKick : HasDuckKnee;
+    void StartDuckKick() { if (AppliedCharacter == 1) StartKickChain(3, false); else StartDuckKnee(); }
 
     /// Polviisku väistöstä (potku väistön aikana tai heti sen jälkeen): kaataa.
     void StartDuckKnee()
@@ -4264,9 +4387,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     // Nopea takakäden alakoukku väistön perään (alas + suojaus, sitten lyönti): oma isku, ei kombon jatkoa.
     [Header("Nopea alakoukku (väistön aikana lyönti)")]
     public ComboHit quickUppercut;
+    ComboHit quickUppercutRuby;   // Ruby: alakoukku kyykystä (takakoukun kuvilla)
+    ComboHit QuickUp => AppliedCharacter == 1 ? quickUppercutRuby : quickUppercut;
     bool quickPunchActive;
-    bool HasQuickUppercut => quickUppercut != null && quickUppercut.HasAnimation;
-    ComboHit CurHit => quickPunchActive && HasQuickUppercut ? quickUppercut : punchCombo[comboIndex];
+    bool HasQuickUppercut => QuickUp != null && QuickUp.HasAnimation;
+    ComboHit CurHit => quickPunchActive && HasQuickUppercut ? QuickUp : punchCombo[comboIndex];
 
     void StartQuickUppercut()
     {
@@ -4277,7 +4402,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         comboIndex = Mathf.Max(0, punchCombo.Length - 1);
         comboQueued = false;
         Enter(State.Punch);
-        attackLunge = ChaseLunge(quickUppercut.lunge, quickUppercut.reach);
+        attackLunge = ChaseLunge(QuickUp.lunge, QuickUp.reach);
     }
 
     [Header("Liuku seuraa vihollista")]
@@ -4999,7 +5124,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Duck:
-                return duckSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.01f, duckFrameTime)), duckSprites.Length - 1)];
+                return DuckArt[Mathf.Min((int)(stateTime / Mathf.Max(0.01f, duckFrameTime)), DuckArt.Length - 1)];
 
             case State.Counter:
             {
@@ -5025,6 +5150,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             }
 
             case State.Special:
+                if (mayhemOn)
+                {
+                    if (AppliedCharacter == 1 && mayhemSprites != null && mayhemSprites.Length > 0) return mayhemSprites[(int)(stateTime / MayhemLoopFrameTime) % mayhemSprites.Length];
+                    return specialSprites[(int)(stateTime / specialFrameTime) % specialSprites.Length];   // mayhem: pyörähdys jatkuu silmukkana
+                }
                 return specialSprites[Mathf.Min((int)(stateTime / specialFrameTime), specialSprites.Length - 1)];
 
             case State.Kick:

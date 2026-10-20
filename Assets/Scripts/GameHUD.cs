@@ -150,6 +150,11 @@ public class GameHUD : MonoBehaviour
             bool empty = Time.time - player.StaminaEmptyTime < 0.5f && Mathf.FloorToInt((Time.time - player.StaminaEmptyTime) * 10f) % 2 == 0;
             Bar(new Rect(x, y + h * 2.4f + 8 * s, w, h * 0.6f), player.stamina / Mathf.Max(1f, player.maxStamina),
                 empty ? new Color(1f, 1f, 1f) : new Color(0.2f, 0.55f, 1f), new Color(0.04f, 0.08f, 0.25f));
+            // mayhem-mittari (kulta) staminan alla: täyttyy vihuja lyömällä; täynnä hohtaa, liikkeen aikana tyhjenee
+            bool mFull = player.MayhemReady, mOn = player.MayhemActive;
+            Color mCol = mFull ? Color.Lerp(new Color(1f, 0.8f, 0.1f), Color.white, 0.5f + 0.5f * Mathf.Sin(Time.unscaledTime * 10f)) : new Color(1f, 0.75f, 0.05f);
+            if (mOn) mCol = Color.Lerp(new Color(1f, 0.55f, 0.05f), new Color(1f, 0.95f, 0.4f), 0.5f + 0.5f * Mathf.Sin(Time.unscaledTime * 24f));
+            Bar(new Rect(x, y + h * 3.0f + 14 * s, w * 0.7f, h * 0.38f), player.MayhemFraction, mCol, new Color(0.22f, 0.15f, 0f));
             // rahat palkin oikealla puolella
             label.normal.textColor = new Color(1f, 0.85f, 0.25f);
             GUI.Label(new Rect(x + bw + 24 * s, y + h * 1.25f, 300 * s, h * 1.4f), player.money + " mk", label);

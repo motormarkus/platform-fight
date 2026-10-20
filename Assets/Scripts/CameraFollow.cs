@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     public float minX = -100f;
     public float maxX = 100f;
 
+    float lastTx, speedSm, lead;   // ajonopeuden etuosoitus
     float velocity;
     Vector3 basePos;
     float shakeAmp, shakeTime, shakeDuration;
@@ -123,7 +124,19 @@ public class CameraFollow : MonoBehaviour
         {
             float tx = target.position.x;
             if (Players.Count > 1 && Players.LivingBounds(out float lx, out float hx, out float ay)) tx = (lx + hx) * 0.5f;   // kaksinpeli: keskikohta
-            float goal = ClampX(tx);
+            // prätkällä ajaessa kamera menee edelle: pyörä ei karkaa ruudun oikeaan reunaan (vain kun hero ajaa prätkällä)
+            float dtl = Time.deltaTime;
+            if (dtl > 0.0001f)
+            {
+                float v = (tx - lastTx) / dtl;
+                if (Mathf.Abs(v) > 40f) { speedSm = 0f; lead = 0f; }   // aluevaihto / teleportti
+                else speedSm = Mathf.Lerp(speedSm, v, 1f - Mathf.Exp(-6f * dtl));
+                var rider = target != null ? target.GetComponent<PlayerController>() : null;
+                float wantLead = rider != null && rider.Riding ? Mathf.Clamp(speedSm * 0.3f, -4f, 4f) : 0f;   // vain prätkällä, nopeuden mukaan
+                lead = Mathf.Lerp(lead, wantLead, 1f - Mathf.Exp(-3f * dtl));
+            }
+            lastTx = tx;
+            float goal = ClampX(tx + lead);
             basePos.x = Mathf.SmoothDamp(basePos.x, goal, ref velocity, smoothTime);
             basePos.y = Mathf.SmoothDamp(basePos.y, GoalY(), ref yVel, 0.35f);
         }
