@@ -1,0 +1,2743 @@
+fileFormatVersion: 2
+guid: e32bf61efa82c2043aa817934dce4b9e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3949190842930359939
+    second: sohvi_tanssi_1_0
+  - first:
+      213: 4110199287307588310
+    second: sohvi_tanssi_1_1
+  - first:
+      213: -7784770431960789523
+    second: sohvi_tanssi_1_2
+  - first:
+      213: -7821914930623926799
+    second: sohvi_tanssi_1_3
+  - first:
+      213: -2761587446536132734
+    second: sohvi_tanssi_1_4
+  - first:
+      213: 2205313025898450233
+    second: sohvi_tanssi_1_5
+  - first:
+      213: 1869047020857893417
+    second: sohvi_tanssi_1_6
+  - first:
+      213: -8767431352845350101
+    second: sohvi_tanssi_1_7
+  - first:
+      213: -7108846906259524742
+    second: sohvi_tanssi_1_8
+  - first:
+      213: 6287130906302737834
+    second: sohvi_tanssi_1_9
+  - first:
+      213: -4315689019973266375
+    second: sohvi_tanssi_1_10
+  - first:
+      213: 4210611220274744632
+    second: sohvi_tanssi_1_11
+  - first:
+      213: -2916383316553280716
+    second: sohvi_tanssi_1_12
+  - first:
+      213: 3350287756344728406
+    second: sohvi_tanssi_1_13
+  - first:
+      213: 5330337170605544150
+    second: sohvi_tanssi_1_14
+  - first:
+      213: -5046351621157602049
+    second: sohvi_tanssi_1_15
+  - first:
+      213: -2659570015057786229
+    second: sohvi_tanssi_1_16
+  - first:
+      213: 6836690196409208959
+    second: sohvi_tanssi_1_17
+  - first:
+      213: 1588934768565766326
+    second: sohvi_tanssi_1_18
+  - first:
+      213: -7617149720460518670
+    second: sohvi_tanssi_1_19
+  - first:
+      213: 883096059376233114
+    second: sohvi_tanssi_1_20
+  - first:
+      213: 4193671450959759444
+    second: sohvi_tanssi_1_21
+  - first:
+      213: -8159596931817621002
+    second: sohvi_tanssi_1_22
+  - first:
+      213: 4417555666404607735
+    second: sohvi_tanssi_1_23
+  - first:
+      213: -999430846846715829
+    second: sohvi_tanssi_1_24
+  - first:
+      213: 6341158288500607014
+    second: sohvi_tanssi_1_25
+  - first:
+      213: 3601137939613284151
+    second: sohvi_tanssi_1_26
+  - first:
+      213: 6639061502486034107
+    second: sohvi_tanssi_1_27
+  - first:
+      213: 4473482572184475478
+    second: sohvi_tanssi_1_28
+  - first:
+      213: 24979016582536076
+    second: sohvi_tanssi_1_29
+  - first:
+      213: 1035022183210839529
+    second: sohvi_tanssi_1_30
+  - first:
+      213: -3068691761585137550
+    second: sohvi_tanssi_1_31
+  - first:
+      213: 2256542862125143141
+    second: sohvi_tanssi_1_32
+  - first:
+      213: -3146309902809651991
+    second: sohvi_tanssi_1_33
+  - first:
+      213: 509275257057779399
+    second: sohvi_tanssi_1_34
+  - first:
+      213: 5442036945245840490
+    second: sohvi_tanssi_1_35
+  - first:
+      213: 8275013535633817298
+    second: sohvi_tanssi_1_36
+  - first:
+      213: 8631016644517258544
+    second: sohvi_tanssi_1_37
+  - first:
+      213: 4613747687889492485
+    second: sohvi_tanssi_1_38
+  - first:
+      213: 6082288088321727727
+    second: sohvi_tanssi_1_39
+  - first:
+      213: -576702568643193080
+    second: sohvi_tanssi_1_40
+  - first:
+      213: 1099029758060074903
+    second: sohvi_tanssi_1_41
+  - first:
+      213: -2959229921945462334
+    second: sohvi_tanssi_1_42
+  - first:
+      213: -2065320505612162884
+    second: sohvi_tanssi_1_43
+  - first:
+      213: 8288352603450415679
+    second: sohvi_tanssi_1_44
+  - first:
+      213: 3688826085177320886
+    second: sohvi_tanssi_1_45
+  - first:
+      213: 3238185293423313738
+    second: sohvi_tanssi_1_46
+  - first:
+      213: 5794737568276629115
+    second: sohvi_tanssi_1_47
+  - first:
+      213: 5025377162102397314
+    second: sohvi_tanssi_1_48
+  - first:
+      213: 6891692150451069930
+    second: sohvi_tanssi_1_49
+  - first:
+      213: -8927838531164460068
+    second: sohvi_tanssi_1_50
+  - first:
+      213: 8112584827625197055
+    second: sohvi_tanssi_1_51
+  - first:
+      213: 462783452931105327
+    second: sohvi_tanssi_1_52
+  - first:
+      213: 3455005133482971557
+    second: sohvi_tanssi_1_53
+  - first:
+      213: 3456617203346669871
+    second: sohvi_tanssi_1_54
+  - first:
+      213: -3101081372779617062
+    second: sohvi_tanssi_1_55
+  - first:
+      213: 7756008157430826605
+    second: sohvi_tanssi_1_56
+  - first:
+      213: 7708377786471958959
+    second: sohvi_tanssi_1_57
+  - first:
+      213: -8588058237702261315
+    second: sohvi_tanssi_1_58
+  - first:
+      213: 3434191399389667904
+    second: sohvi_tanssi_1_59
+  - first:
+      213: -6247646951565779442
+    second: sohvi_tanssi_1_60
+  - first:
+      213: 6494333780261587666
+    second: sohvi_tanssi_1_61
+  - first:
+      213: -3458817283803487186
+    second: sohvi_tanssi_1_62
+  - first:
+      213: 7882630340387686152
+    second: sohvi_tanssi_1_63
+  - first:
+      213: 123884398926567869
+    second: sohvi_tanssi_1_64
+  - first:
+      213: -7807933986364929152
+    second: sohvi_tanssi_1_65
+  - first:
+      213: -6030825037527952434
+    second: sohvi_tanssi_1_66
+  - first:
+      213: 7062522924087091957
+    second: sohvi_tanssi_1_67
+  - first:
+      213: 279494033882262939
+    second: sohvi_tanssi_1_68
+  - first:
+      213: -5197284127959111469
+    second: sohvi_tanssi_1_69
+  - first:
+      213: 4656489709416113484
+    second: sohvi_tanssi_1_70
+  - first:
+      213: 3670051548397643283
+    second: sohvi_tanssi_1_71
+  - first:
+      213: 2249291302885354350
+    second: sohvi_tanssi_1_72
+  - first:
+      213: -1647212633644711735
+    second: sohvi_tanssi_1_73
+  - first:
+      213: -2824558941775454260
+    second: sohvi_tanssi_1_74
+  - first:
+      213: -2752207913151543754
+    second: sohvi_tanssi_1_75
+  - first:
+      213: -1551244815993211362
+    second: sohvi_tanssi_1_76
+  - first:
+      213: 4129361318431125161
+    second: sohvi_tanssi_1_77
+  - first:
+      213: -4257344739812966629
+    second: sohvi_tanssi_1_78
+  - first:
+      213: -6713194861930765973
+    second: sohvi_tanssi_1_79
+  - first:
+      213: -6216877739317020475
+    second: sohvi_tanssi_1_80
+  - first:
+      213: -3096661230897557159
+    second: sohvi_tanssi_1_81
+  - first:
+      213: -1444242710033631373
+    second: sohvi_tanssi_1_82
+  - first:
+      213: -7617723780316579450
+    second: sohvi_tanssi_1_83
+  - first:
+      213: -7051578167922976471
+    second: sohvi_tanssi_1_84
+  - first:
+      213: -7036419301784560192
+    second: sohvi_tanssi_1_85
+  - first:
+      213: 6782198637470576014
+    second: sohvi_tanssi_1_86
+  - first:
+      213: 8935513435269974644
+    second: sohvi_tanssi_1_87
+  - first:
+      213: 8497824585073233901
+    second: sohvi_tanssi_1_88
+  - first:
+      213: -7982146158825512922
+    second: sohvi_tanssi_1_89
+  - first:
+      213: 4453899641931400869
+    second: sohvi_tanssi_1_90
+  - first:
+      213: -1775983072704099406
+    second: sohvi_tanssi_1_91
+  - first:
+      213: 4538838864407783943
+    second: sohvi_tanssi_1_92
+  - first:
+      213: 8565636754226039778
+    second: sohvi_tanssi_1_93
+  - first:
+      213: -3116033510877109266
+    second: sohvi_tanssi_1_94
+  - first:
+      213: 205167560001301501
+    second: sohvi_tanssi_1_95
+  - first:
+      213: -1721042026463979326
+    second: sohvi_tanssi_1_96
+  - first:
+      213: 5368477161966348434
+    second: sohvi_tanssi_1_97
+  - first:
+      213: 3553732632401504739
+    second: sohvi_tanssi_1_98
+  - first:
+      213: -5012548852612572970
+    second: sohvi_tanssi_1_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 934907ba3b79b14c0800000000000000
+      internalID: -4315689019973266375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d00c798981f6a30800000000000000
+      internalID: 4210611220274744632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43357f343dce687d0800000000000000
+      internalID: -2916383316553280716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b944cb6fc9e7e20800000000000000
+      internalID: 3350287756344728406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d211035a6929f940800000000000000
+      internalID: 5330337170605544150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_15
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc3f21ffe1c7f9b0800000000000000
+      internalID: -5046351621157602049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_16
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a433d892f471bd0800000000000000
+      internalID: -2659570015057786229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_17
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70dd54e28dc0ee50800000000000000
+      internalID: 6836690196409208959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_18
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b841a3e0c70d0610800000000000000
+      internalID: 1588934768565766326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa1cf6cfa27a4690800000000000000
+      internalID: -7617149720460518670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9aeaa9ef23614c00800000000000000
+      internalID: 883096059376233114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458472337f9e23a30800000000000000
+      internalID: 4193671450959759444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9b4a862d943ce80800000000000000
+      internalID: -8159596931817621002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f68f8f297f4e4d30800000000000000
+      internalID: 4417555666404607735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b483224a0fe4122f0800000000000000
+      internalID: -999430846846715829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6284a92ddd1500850800000000000000
+      internalID: 6341158288500607014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737f4dd50efc9f130800000000000000
+      internalID: 3601137939613284151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_27
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6b6a1e24fa22c50800000000000000
+      internalID: 6639061502486034107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657d4f7a2b0051e30800000000000000
+      internalID: 4473482572184475478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_29
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b9d32884eb85000800000000000000
+      internalID: 24979016582536076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed6eec11332d5e00800000000000000
+      internalID: 1035022183210839529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_31
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278dc89f911d965d0800000000000000
+      internalID: -3068691761585137550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_32
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564996507c9d05f10800000000000000
+      internalID: 2256542862125143141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4acb130df0654d0800000000000000
+      internalID: -3146309902809651991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce13d5e52f411700800000000000000
+      internalID: 509275257057779399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_35
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a642eefb4cff58b40800000000000000
+      internalID: 5442036945245840490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_36
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2deb00fb7f0c6d270800000000000000
+      internalID: 8275013535633817298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_37
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0356feab8e787c770800000000000000
+      internalID: 8631016644517258544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_38
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50adee3d313570040800000000000000
+      internalID: 4613747687889492485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_39
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec910e7ac0a86450800000000000000
+      internalID: 6082288088321727727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80797feb1142ff7f0800000000000000
+      internalID: -576702568643193080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79711c6fdb9804f00800000000000000
+      internalID: 1099029758060074903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9dbbd8014bee6d0800000000000000
+      internalID: -2959229921945462334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_43
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb828a351f18653e0800000000000000
+      internalID: -2065320505612162884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_44
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a98dd77c4260370800000000000000
+      internalID: 8288352603450415679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_45
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5603db7c7513330800000000000000
+      internalID: 3688826085177320886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_46
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4304632e5850fc20800000000000000
+      internalID: 3238185293423313738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_47
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b764db3dd1b0b6050800000000000000
+      internalID: 5794737568276629115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_48
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289597147e9bdb540800000000000000
+      internalID: 5025377162102397314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_49
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae3ebf04f7534af50800000000000000
+      internalID: 6891692150451069930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdba5e95822f91480800000000000000
+      internalID: -8927838531164460068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdc2dc1be0b59070800000000000000
+      internalID: 8112584827625197055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_52
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2223e739132c6600800000000000000
+      internalID: 462783452931105327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1576e0dd4a2ff20800000000000000
+      internalID: 3455005133482971557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_54
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f218bf1580f58ff20800000000000000
+      internalID: 3456617203346669871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_55
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4e3e3fbeeb6f4d0800000000000000
+      internalID: -3101081372779617062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_56
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6642ba7350e2ab60800000000000000
+      internalID: 7756008157430826605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_57
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa94c2d81c8a9fa60800000000000000
+      internalID: 7708377786471958959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_58
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5b367c88611d880800000000000000
+      internalID: -8588058237702261315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_59
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042a253f1e2b8af20800000000000000
+      internalID: 3434191399389667904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e9ed1f236eb49a0800000000000000
+      internalID: -6247646951565779442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dacf492a22802a50800000000000000
+      internalID: 6494333780261587666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_62
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2469e78100dfffc0800000000000000
+      internalID: -3458817283803487186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8074686d78ab46d60800000000000000
+      internalID: 7882630340387686152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_64
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db91b37543028b100800000000000000
+      internalID: 123884398926567869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_65
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bc4095865a4a390800000000000000
+      internalID: -7807933986364929152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_66
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec35d9fb4943e4ca0800000000000000
+      internalID: -6030825037527952434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_67
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2a34c3e2f130260800000000000000
+      internalID: 7062522924087091957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_68
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9da46ec756f0e300800000000000000
+      internalID: 279494033882262939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_69
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8a83c3f998fd7b0800000000000000
+      internalID: -5197284127959111469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45620638bc2f9040800000000000000
+      internalID: 4656489709416113484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_71
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3162d914074aee230800000000000000
+      internalID: 3670051548397643283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_72
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b6bd0d586173f10800000000000000
+      internalID: 2249291302885354350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_73
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0421646dce329e0800000000000000
+      internalID: -1647212633644711735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_74
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf125c8b962dc8d0800000000000000
+      internalID: -2824558941775454260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_75
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 636459c1c713ec9d0800000000000000
+      internalID: -2752207913151543754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_76
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16fe070f0fd87ae0800000000000000
+      internalID: -1551244815993211362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_77
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae6356ad307e4930800000000000000
+      internalID: 4129361318431125161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_78
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ff119f38fdae4c0800000000000000
+      internalID: -4257344739812966629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_79
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61a3a257d0f5d2a0800000000000000
+      internalID: -6713194861930765973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8b9ff62a639b9a0800000000000000
+      internalID: -6216877739317020475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_81
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95190ae64037605d0800000000000000
+      internalID: -3096661230897557159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_82
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3777ffa38e405fbe0800000000000000
+      internalID: -1444242710033631373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_83
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6893f2d0598684690800000000000000
+      internalID: -7617723780316579450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_84
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9291d036403c32e90800000000000000
+      internalID: -7051578167922976471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_85
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cddd62fced995e90800000000000000
+      internalID: -7036419301784560192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_86
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d62962ab53f1e50800000000000000
+      internalID: 6782198637470576014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_87
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a4ff28022510c70800000000000000
+      internalID: 8935513435269974644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_88
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def0fdccf665ee570800000000000000
+      internalID: 8497824585073233901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_89
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620e4f91c58b93190800000000000000
+      internalID: -7982146158825512922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a68f86602e6fcd30800000000000000
+      internalID: 4453899641931400869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_91
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb8d501ec07a57e0800000000000000
+      internalID: -1775983072704099406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_92
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a63cd36e13dfe30800000000000000
+      internalID: 4538838864407783943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_93
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb4caace314fd670800000000000000
+      internalID: 8565636754226039778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_94
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3e4f30800a1c4d0800000000000000
+      internalID: -3116033510877109266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_95
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfbaf4d0fc6e8d200800000000000000
+      internalID: 205167560001301501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_96
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c898193561ad18e0800000000000000
+      internalID: -1721042026463979326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_97
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2982dcf0989a08a40800000000000000
+      internalID: 5368477161966348434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_98
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e9610d2005615130800000000000000
+      internalID: 3553732632401504739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_99
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d85cbc4069df6ab0800000000000000
+      internalID: -5012548852612572970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b981e62753c979342a4ba4566f4c86c4
+      internalID: 79016246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_01
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8a21d586b41b647b92c4cdd85ec25d
+      internalID: 59683970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_02
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6baa53a185d473a4c9b08e249325e788
+      internalID: 1074755123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_03
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdb2ce60b8157a498ae1bb38b7cb0ac
+      internalID: 1982771859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_04
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef181c68b32c6c4f97a3cb98612a64f
+      internalID: -1330727417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_05
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd028e72cb7bf1c4b988a9c5078f3f73
+      internalID: -1766734040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_06
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d2cfb21f55f444da9408d311403649
+      internalID: -1709017486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_07
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ad1cb8704e4354a9fe2d923dead512
+      internalID: -538551020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_08
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802c8333b6e4e494eb8d78ca025e503c
+      internalID: -1924493339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_tanssi_1_09
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040ea26db0766494a92f59880d39ca6b
+      internalID: -74469503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b3febfaa4b2bf1546a63d7a4ce0f79f1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sohvi_tanssi_1_00: 79016246
+      sohvi_tanssi_1_01: 59683970
+      sohvi_tanssi_1_02: 1074755123
+      sohvi_tanssi_1_03: 1982771859
+      sohvi_tanssi_1_04: -1330727417
+      sohvi_tanssi_1_05: -1766734040
+      sohvi_tanssi_1_06: -1709017486
+      sohvi_tanssi_1_07: -538551020
+      sohvi_tanssi_1_08: -1924493339
+      sohvi_tanssi_1_09: -74469503
+      sohvi_tanssi_1_10: -4315689019973266375
+      sohvi_tanssi_1_11: 4210611220274744632
+      sohvi_tanssi_1_12: -2916383316553280716
+      sohvi_tanssi_1_13: 3350287756344728406
+      sohvi_tanssi_1_14: 5330337170605544150
+      sohvi_tanssi_1_15: -5046351621157602049
+      sohvi_tanssi_1_16: -2659570015057786229
+      sohvi_tanssi_1_17: 6836690196409208959
+      sohvi_tanssi_1_18: 1588934768565766326
+      sohvi_tanssi_1_19: -7617149720460518670
+      sohvi_tanssi_1_20: 883096059376233114
+      sohvi_tanssi_1_21: 4193671450959759444
+      sohvi_tanssi_1_22: -8159596931817621002
+      sohvi_tanssi_1_23: 4417555666404607735
+      sohvi_tanssi_1_24: -999430846846715829
+      sohvi_tanssi_1_25: 6341158288500607014
+      sohvi_tanssi_1_26: 3601137939613284151
+      sohvi_tanssi_1_27: 6639061502486034107
+      sohvi_tanssi_1_28: 4473482572184475478
+      sohvi_tanssi_1_29: 24979016582536076
+      sohvi_tanssi_1_30: 1035022183210839529
+      sohvi_tanssi_1_31: -3068691761585137550
+      sohvi_tanssi_1_32: 2256542862125143141
+      sohvi_tanssi_1_33: -3146309902809651991
+      sohvi_tanssi_1_34: 509275257057779399
+      sohvi_tanssi_1_35: 5442036945245840490
+      sohvi_tanssi_1_36: 8275013535633817298
+      sohvi_tanssi_1_37: 8631016644517258544
+      sohvi_tanssi_1_38: 4613747687889492485
+      sohvi_tanssi_1_39: 6082288088321727727
+      sohvi_tanssi_1_40: -576702568643193080
+      sohvi_tanssi_1_41: 1099029758060074903
+      sohvi_tanssi_1_42: -2959229921945462334
+      sohvi_tanssi_1_43: -2065320505612162884
+      sohvi_tanssi_1_44: 8288352603450415679
+      sohvi_tanssi_1_45: 3688826085177320886
+      sohvi_tanssi_1_46: 3238185293423313738
+      sohvi_tanssi_1_47: 5794737568276629115
+      sohvi_tanssi_1_48: 5025377162102397314
+      sohvi_tanssi_1_49: 6891692150451069930
+      sohvi_tanssi_1_50: -8927838531164460068
+      sohvi_tanssi_1_51: 8112584827625197055
+      sohvi_tanssi_1_52: 462783452931105327
+      sohvi_tanssi_1_53: 3455005133482971557
+      sohvi_tanssi_1_54: 3456617203346669871
+      sohvi_tanssi_1_55: -3101081372779617062
+      sohvi_tanssi_1_56: 7756008157430826605
+      sohvi_tanssi_1_57: 7708377786471958959
+      sohvi_tanssi_1_58: -8588058237702261315
+      sohvi_tanssi_1_59: 3434191399389667904
+      sohvi_tanssi_1_60: -6247646951565779442
+      sohvi_tanssi_1_61: 6494333780261587666
+      sohvi_tanssi_1_62: -3458817283803487186
+      sohvi_tanssi_1_63: 7882630340387686152
+      sohvi_tanssi_1_64: 123884398926567869
+      sohvi_tanssi_1_65: -7807933986364929152
+      sohvi_tanssi_1_66: -6030825037527952434
+      sohvi_tanssi_1_67: 7062522924087091957
+      sohvi_tanssi_1_68: 279494033882262939
+      sohvi_tanssi_1_69: -5197284127959111469
+      sohvi_tanssi_1_70: 4656489709416113484
+      sohvi_tanssi_1_71: 3670051548397643283
+      sohvi_tanssi_1_72: 2249291302885354350
+      sohvi_tanssi_1_73: -1647212633644711735
+      sohvi_tanssi_1_74: -2824558941775454260
+      sohvi_tanssi_1_75: -2752207913151543754
+      sohvi_tanssi_1_76: -1551244815993211362
+      sohvi_tanssi_1_77: 4129361318431125161
+      sohvi_tanssi_1_78: -4257344739812966629
+      sohvi_tanssi_1_79: -6713194861930765973
+      sohvi_tanssi_1_80: -6216877739317020475
+      sohvi_tanssi_1_81: -3096661230897557159
+      sohvi_tanssi_1_82: -1444242710033631373
+      sohvi_tanssi_1_83: -7617723780316579450
+      sohvi_tanssi_1_84: -7051578167922976471
+      sohvi_tanssi_1_85: -7036419301784560192
+      sohvi_tanssi_1_86: 6782198637470576014
+      sohvi_tanssi_1_87: 8935513435269974644
+      sohvi_tanssi_1_88: 8497824585073233901
+      sohvi_tanssi_1_89: -7982146158825512922
+      sohvi_tanssi_1_90: 4453899641931400869
+      sohvi_tanssi_1_91: -1775983072704099406
+      sohvi_tanssi_1_92: 4538838864407783943
+      sohvi_tanssi_1_93: 8565636754226039778
+      sohvi_tanssi_1_94: -3116033510877109266
+      sohvi_tanssi_1_95: 205167560001301501
+      sohvi_tanssi_1_96: -1721042026463979326
+      sohvi_tanssi_1_97: 5368477161966348434
+      sohvi_tanssi_1_98: 3553732632401504739
+      sohvi_tanssi_1_99: -5012548852612572970
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

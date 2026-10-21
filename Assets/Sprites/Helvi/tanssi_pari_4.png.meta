@@ -1,0 +1,2223 @@
+fileFormatVersion: 2
+guid: 70619bcff0eb4ea4cafc4e4873928688
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6079123546165964468
+    second: tanssi_pari_4_0
+  - first:
+      213: -1862952047879311818
+    second: tanssi_pari_4_1
+  - first:
+      213: 7850411026813056354
+    second: tanssi_pari_4_2
+  - first:
+      213: -2086477754875846098
+    second: tanssi_pari_4_3
+  - first:
+      213: 6208764716261522828
+    second: tanssi_pari_4_4
+  - first:
+      213: 3753817186009790173
+    second: tanssi_pari_4_5
+  - first:
+      213: 5182707794814639720
+    second: tanssi_pari_4_6
+  - first:
+      213: 2482731815438912754
+    second: tanssi_pari_4_7
+  - first:
+      213: 4244354193921673237
+    second: tanssi_pari_4_8
+  - first:
+      213: 1083072915567594253
+    second: tanssi_pari_4_9
+  - first:
+      213: -3551187410163020638
+    second: tanssi_pari_4_10
+  - first:
+      213: -5551703383515895304
+    second: tanssi_pari_4_11
+  - first:
+      213: -7218937604140153958
+    second: tanssi_pari_4_12
+  - first:
+      213: -2546908496791958460
+    second: tanssi_pari_4_13
+  - first:
+      213: 1815459606789256713
+    second: tanssi_pari_4_14
+  - first:
+      213: 3400690021752485640
+    second: tanssi_pari_4_15
+  - first:
+      213: -5932135482187455689
+    second: tanssi_pari_4_16
+  - first:
+      213: -5056279393209773977
+    second: tanssi_pari_4_17
+  - first:
+      213: 2882585864449589954
+    second: tanssi_pari_4_18
+  - first:
+      213: 4648302158993377846
+    second: tanssi_pari_4_19
+  - first:
+      213: 8769376393046751872
+    second: tanssi_pari_4_20
+  - first:
+      213: 4589719634412430874
+    second: tanssi_pari_4_21
+  - first:
+      213: -2446052619678580952
+    second: tanssi_pari_4_22
+  - first:
+      213: -8991629274220870023
+    second: tanssi_pari_4_23
+  - first:
+      213: -8018811569675775399
+    second: tanssi_pari_4_24
+  - first:
+      213: -3388677401751137882
+    second: tanssi_pari_4_25
+  - first:
+      213: -338724578079368689
+    second: tanssi_pari_4_26
+  - first:
+      213: -7348183454849981643
+    second: tanssi_pari_4_27
+  - first:
+      213: 6900778293009385361
+    second: tanssi_pari_4_28
+  - first:
+      213: -328539444782238122
+    second: tanssi_pari_4_29
+  - first:
+      213: -4013889698033387314
+    second: tanssi_pari_4_30
+  - first:
+      213: 5768222334436518005
+    second: tanssi_pari_4_31
+  - first:
+      213: 1135982430625558556
+    second: tanssi_pari_4_32
+  - first:
+      213: -5100346376621174732
+    second: tanssi_pari_4_33
+  - first:
+      213: -6823183362231748849
+    second: tanssi_pari_4_34
+  - first:
+      213: 2140545230978022550
+    second: tanssi_pari_4_35
+  - first:
+      213: -1340369188118653048
+    second: tanssi_pari_4_36
+  - first:
+      213: 5992904733721639860
+    second: tanssi_pari_4_37
+  - first:
+      213: 1704373177044385042
+    second: tanssi_pari_4_38
+  - first:
+      213: -4669174626336809854
+    second: tanssi_pari_4_39
+  - first:
+      213: -5471609148106303202
+    second: tanssi_pari_4_40
+  - first:
+      213: 2417780994468399663
+    second: tanssi_pari_4_41
+  - first:
+      213: 1472571029952576641
+    second: tanssi_pari_4_42
+  - first:
+      213: 7520528012051260389
+    second: tanssi_pari_4_43
+  - first:
+      213: -4732091858362306193
+    second: tanssi_pari_4_44
+  - first:
+      213: 3812868374494506116
+    second: tanssi_pari_4_45
+  - first:
+      213: -1820266855105897643
+    second: tanssi_pari_4_46
+  - first:
+      213: 2956711852627920316
+    second: tanssi_pari_4_47
+  - first:
+      213: -2299298234734708388
+    second: tanssi_pari_4_48
+  - first:
+      213: 6834243987604145465
+    second: tanssi_pari_4_49
+  - first:
+      213: -3408548099561959120
+    second: tanssi_pari_4_50
+  - first:
+      213: -8552644151982746059
+    second: tanssi_pari_4_51
+  - first:
+      213: -1724814366083186415
+    second: tanssi_pari_4_52
+  - first:
+      213: -562360462074141011
+    second: tanssi_pari_4_53
+  - first:
+      213: -8182622704123960827
+    second: tanssi_pari_4_54
+  - first:
+      213: -2615487709737910918
+    second: tanssi_pari_4_55
+  - first:
+      213: 1144802029987970854
+    second: tanssi_pari_4_56
+  - first:
+      213: -3060679683374661527
+    second: tanssi_pari_4_57
+  - first:
+      213: 5412182908258305583
+    second: tanssi_pari_4_58
+  - first:
+      213: 1472151731325923962
+    second: tanssi_pari_4_59
+  - first:
+      213: 1000348756812740671
+    second: tanssi_pari_4_60
+  - first:
+      213: 4896563894454529478
+    second: tanssi_pari_4_61
+  - first:
+      213: -1779978383860540359
+    second: tanssi_pari_4_62
+  - first:
+      213: 5565217883203609120
+    second: tanssi_pari_4_63
+  - first:
+      213: -6659333671644146597
+    second: tanssi_pari_4_64
+  - first:
+      213: -4255972801406317660
+    second: tanssi_pari_4_65
+  - first:
+      213: -4492482602280227270
+    second: tanssi_pari_4_66
+  - first:
+      213: 2264569415483583574
+    second: tanssi_pari_4_67
+  - first:
+      213: 2576456546856989872
+    second: tanssi_pari_4_68
+  - first:
+      213: 8310718003928726718
+    second: tanssi_pari_4_69
+  - first:
+      213: -2704887401009811477
+    second: tanssi_pari_4_70
+  - first:
+      213: -8958592022730223513
+    second: tanssi_pari_4_71
+  - first:
+      213: 33060075391719189
+    second: tanssi_pari_4_72
+  - first:
+      213: 4109556879955181770
+    second: tanssi_pari_4_73
+  - first:
+      213: 8027223264856143915
+    second: tanssi_pari_4_74
+  - first:
+      213: 8699638837975150462
+    second: tanssi_pari_4_75
+  - first:
+      213: 4350499368205700376
+    second: tanssi_pari_4_76
+  - first:
+      213: -1598839432174401765
+    second: tanssi_pari_4_77
+  - first:
+      213: -4865957342338434021
+    second: tanssi_pari_4_78
+  - first:
+      213: 7231913546792469427
+    second: tanssi_pari_4_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tanssi_pari_4_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2acc46e8dd5a7bec0800000000000000
+      internalID: -3551187410163020638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f96337df2364f2b0800000000000000
+      internalID: -5551703383515895304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9344812f7e21db90800000000000000
+      internalID: -7218937604140153958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c8a4d573097acd0800000000000000
+      internalID: -2546908496791958460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_14
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9067eb6c4eec13910800000000000000
+      internalID: 1815459606789256713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_15
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807b5c1ae8da13f20800000000000000
+      internalID: 3400690021752485640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_16
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733e9b07532dcada0800000000000000
+      internalID: -5932135482187455689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_17
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7609a926eac74d9b0800000000000000
+      internalID: -5056279393209773977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_18
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c284153290010820800000000000000
+      internalID: 2882585864449589954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_19
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a4b739f26128040800000000000000
+      internalID: 4648302158993377846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a7f390e5513b970800000000000000
+      internalID: 8769376393046751872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16e9cba0b5f1bf30800000000000000
+      internalID: 4589719634412430874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ff4262a10ed0ed0800000000000000
+      internalID: -2446052619678580952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976cf0690d0573380800000000000000
+      internalID: -8991629274220870023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_24
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952dea4ec5577b090800000000000000
+      internalID: -8018811569675775399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_25
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1da3a6bdff8f0d0800000000000000
+      internalID: -3388677401751137882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_26
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a92e67acb9c4bf0800000000000000
+      internalID: -338724578079368689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_27
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533a3458412060a90800000000000000
+      internalID: -7348183454849981643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_28
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1970d8cab4d74cf50800000000000000
+      internalID: 6900778293009385361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_29
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2000
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 656fc0b9d1bc07bf0800000000000000
+      internalID: -328539444782238122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8be1d069ccb48c0800000000000000
+      internalID: -4013889698033387314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_31
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578209dd6a7dc0050800000000000000
+      internalID: 5768222334436518005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_32
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1075808002d3cf00800000000000000
+      internalID: 1135982430625558556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_33
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4305b064efde739b0800000000000000
+      internalID: -5100346376621174732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_34
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0732d002ee2f41a0800000000000000
+      internalID: -6823183362231748849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_35
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69cf916eb8eb4bd10800000000000000
+      internalID: 2140545230978022550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_36
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8871f42335d066de0800000000000000
+      internalID: -1340369188118653048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_37
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb3c328a131b2350800000000000000
+      internalID: 5992904733721639860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_38
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d3f66df5627a710800000000000000
+      internalID: 1704373177044385042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_39
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1600
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c5dea6a62c33fb0800000000000000
+      internalID: -4669174626336809854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1998593870f014b0800000000000000
+      internalID: -5471609148106303202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2acaf7210fad8120800000000000000
+      internalID: 2417780994468399663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_42
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cbadabc8f9f6410800000000000000
+      internalID: 1472571029952576641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_43
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3a0b9a1684e5860800000000000000
+      internalID: 7520528012051260389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_44
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f61fbc9c68b345eb0800000000000000
+      internalID: -4732091858362306193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_45
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ce01dc5970ae430800000000000000
+      internalID: 3812868374494506116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_46
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55bdef080fc1db6e0800000000000000
+      internalID: -1820266855105897643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_47
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5031fb3c9580920800000000000000
+      internalID: 2956711852627920316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_48
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5974fd00704710e0800000000000000
+      internalID: -2299298234734708388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_49
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1200
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9358e7582bc18de50800000000000000
+      internalID: 6834243987604145465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031d6cd009762b0d0800000000000000
+      internalID: -3408548099561959120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5361fb62577ee4980800000000000000
+      internalID: -8552644151982746059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_52
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1110f16f87a3018e0800000000000000
+      internalID: -1724814366083186415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_53
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da6a856a3281238f0800000000000000
+      internalID: -562360462074141011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_54
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50225a5010c717e80800000000000000
+      internalID: -8182622704123960827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_55
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7dfba219cbe3bbd0800000000000000
+      internalID: -2615487709737910918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_56
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f349f716723ef00800000000000000
+      internalID: 1144802029987970854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_57
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960c23d4b084685d0800000000000000
+      internalID: -3060679683374661527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_58
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f264d2a1eafeb1b40800000000000000
+      internalID: 5412182908258305583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_59
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72782923322e6410800000000000000
+      internalID: 1472151731325923962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38b35de4e3f1ed00800000000000000
+      internalID: 1000348756812740671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd27fc3be614f340800000000000000
+      internalID: 4896563894454529478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_62
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c5e12371f3c47e0800000000000000
+      internalID: -1779978383860540359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_63
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022a002dd20ab3d40800000000000000
+      internalID: 5565217883203609120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_64
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b545adcee4b4593a0800000000000000
+      internalID: -6659333671644146597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_65
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abc376494fbfe4c0800000000000000
+      internalID: -4255972801406317660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_66
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ee67b10ee77a1c0800000000000000
+      internalID: -4492482602280227270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_67
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cec1b92ed5d6f10800000000000000
+      internalID: 2264569415483583574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_68
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4f3a6249961c320800000000000000
+      internalID: 2576456546856989872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_69
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 400
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc7d941ef9955370800000000000000
+      internalID: 8310718003928726718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef61696d3f467ad0800000000000000
+      internalID: -2704887401009811477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_71
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760548d1500bca380800000000000000
+      internalID: -8958592022730223513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_72
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51798f1a6f3757000800000000000000
+      internalID: 33060075391719189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_73
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0cdfd7534180930800000000000000
+      internalID: 4109556879955181770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_74
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b287082870d666f60800000000000000
+      internalID: 8027223264856143915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_75
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f63b33e635bb870800000000000000
+      internalID: 8699638837975150462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_76
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d467d1024106c30800000000000000
+      internalID: 4350499368205700376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_77
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b178b58e108cfc9e0800000000000000
+      internalID: -1598839432174401765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_78
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1cb6bdf395a87cb0800000000000000
+      internalID: -4865957342338434021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_79
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b386e2fd0bec5460800000000000000
+      internalID: 7231913546792469427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709ce4a366d67224ab235e9d3f8133d8
+      internalID: -144618188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_01
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce62a51fde9d08419a90e4e7c7c744e
+      internalID: -1774594345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_02
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cefed760266af1d459d663f0a210920e
+      internalID: 432056541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_03
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e66ae528a336b94ea7ce122a0d185c4
+      internalID: 449979454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_04
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324b4ee2c4cba6b41a912edc0b746097
+      internalID: -1900069786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_05
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ae44a19e62cda4d9363289a805bf55
+      internalID: 82224436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_06
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfa8b06b7a726049b54b16b9d77fcb6
+      internalID: 568406662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_07
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5a742e17112dd4c8d7e5c2de784f50
+      internalID: 1658401432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_08
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9566e29ac8a794ca31dadd438e8195
+      internalID: 266624991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanssi_pari_4_09
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2800
+        width: 640
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d39288c60e3c041b39ef4a9cb5c1f3
+      internalID: 1944940139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9e4a911360815624ba332c73ee28c4ff
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tanssi_pari_4_00: -144618188
+      tanssi_pari_4_01: -1774594345
+      tanssi_pari_4_02: 432056541
+      tanssi_pari_4_03: 449979454
+      tanssi_pari_4_04: -1900069786
+      tanssi_pari_4_05: 82224436
+      tanssi_pari_4_06: 568406662
+      tanssi_pari_4_07: 1658401432
+      tanssi_pari_4_08: 266624991
+      tanssi_pari_4_09: 1944940139
+      tanssi_pari_4_10: -3551187410163020638
+      tanssi_pari_4_11: -5551703383515895304
+      tanssi_pari_4_12: -7218937604140153958
+      tanssi_pari_4_13: -2546908496791958460
+      tanssi_pari_4_14: 1815459606789256713
+      tanssi_pari_4_15: 3400690021752485640
+      tanssi_pari_4_16: -5932135482187455689
+      tanssi_pari_4_17: -5056279393209773977
+      tanssi_pari_4_18: 2882585864449589954
+      tanssi_pari_4_19: 4648302158993377846
+      tanssi_pari_4_20: 8769376393046751872
+      tanssi_pari_4_21: 4589719634412430874
+      tanssi_pari_4_22: -2446052619678580952
+      tanssi_pari_4_23: -8991629274220870023
+      tanssi_pari_4_24: -8018811569675775399
+      tanssi_pari_4_25: -3388677401751137882
+      tanssi_pari_4_26: -338724578079368689
+      tanssi_pari_4_27: -7348183454849981643
+      tanssi_pari_4_28: 6900778293009385361
+      tanssi_pari_4_29: -328539444782238122
+      tanssi_pari_4_30: -4013889698033387314
+      tanssi_pari_4_31: 5768222334436518005
+      tanssi_pari_4_32: 1135982430625558556
+      tanssi_pari_4_33: -5100346376621174732
+      tanssi_pari_4_34: -6823183362231748849
+      tanssi_pari_4_35: 2140545230978022550
+      tanssi_pari_4_36: -1340369188118653048
+      tanssi_pari_4_37: 5992904733721639860
+      tanssi_pari_4_38: 1704373177044385042
+      tanssi_pari_4_39: -4669174626336809854
+      tanssi_pari_4_40: -5471609148106303202
+      tanssi_pari_4_41: 2417780994468399663
+      tanssi_pari_4_42: 1472571029952576641
+      tanssi_pari_4_43: 7520528012051260389
+      tanssi_pari_4_44: -4732091858362306193
+      tanssi_pari_4_45: 3812868374494506116
+      tanssi_pari_4_46: -1820266855105897643
+      tanssi_pari_4_47: 2956711852627920316
+      tanssi_pari_4_48: -2299298234734708388
+      tanssi_pari_4_49: 6834243987604145465
+      tanssi_pari_4_50: -3408548099561959120
+      tanssi_pari_4_51: -8552644151982746059
+      tanssi_pari_4_52: -1724814366083186415
+      tanssi_pari_4_53: -562360462074141011
+      tanssi_pari_4_54: -8182622704123960827
+      tanssi_pari_4_55: -2615487709737910918
+      tanssi_pari_4_56: 1144802029987970854
+      tanssi_pari_4_57: -3060679683374661527
+      tanssi_pari_4_58: 5412182908258305583
+      tanssi_pari_4_59: 1472151731325923962
+      tanssi_pari_4_60: 1000348756812740671
+      tanssi_pari_4_61: 4896563894454529478
+      tanssi_pari_4_62: -1779978383860540359
+      tanssi_pari_4_63: 5565217883203609120
+      tanssi_pari_4_64: -6659333671644146597
+      tanssi_pari_4_65: -4255972801406317660
+      tanssi_pari_4_66: -4492482602280227270
+      tanssi_pari_4_67: 2264569415483583574
+      tanssi_pari_4_68: 2576456546856989872
+      tanssi_pari_4_69: 8310718003928726718
+      tanssi_pari_4_70: -2704887401009811477
+      tanssi_pari_4_71: -8958592022730223513
+      tanssi_pari_4_72: 33060075391719189
+      tanssi_pari_4_73: 4109556879955181770
+      tanssi_pari_4_74: 8027223264856143915
+      tanssi_pari_4_75: 8699638837975150462
+      tanssi_pari_4_76: 4350499368205700376
+      tanssi_pari_4_77: -1598839432174401765
+      tanssi_pari_4_78: -4865957342338434021
+      tanssi_pari_4_79: 7231913546792469427
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

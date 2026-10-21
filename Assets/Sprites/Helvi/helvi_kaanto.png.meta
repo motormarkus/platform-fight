@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: fabdc825a8cd80c49b8fac3af9b9a189
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7429703481083542606
+    second: helvi_kaanto_0
+  - first:
+      213: -7560186955056877409
+    second: helvi_kaanto_1
+  - first:
+      213: 5756298385444978678
+    second: helvi_kaanto_2
+  - first:
+      213: 1409606332237508258
+    second: helvi_kaanto_3
+  - first:
+      213: 7231244327212887207
+    second: helvi_kaanto_4
+  - first:
+      213: 6337006458663821595
+    second: helvi_kaanto_5
+  - first:
+      213: -264780307891616873
+    second: helvi_kaanto_6
+  - first:
+      213: -2994651101700634354
+    second: helvi_kaanto_7
+  - first:
+      213: -2577616174895191881
+    second: helvi_kaanto_8
+  - first:
+      213: 5323177310707208074
+    second: helvi_kaanto_9
+  - first:
+      213: -5688809950243990209
+    second: helvi_kaanto_10
+  - first:
+      213: 7278682179666822055
+    second: helvi_kaanto_11
+  - first:
+      213: 2697938405388190115
+    second: helvi_kaanto_12
+  - first:
+      213: 2580587422962579895
+    second: helvi_kaanto_13
+  - first:
+      213: 931301922306182491
+    second: helvi_kaanto_14
+  - first:
+      213: -8912767771822516691
+    second: helvi_kaanto_15
+  - first:
+      213: -927873978366849786
+    second: helvi_kaanto_16
+  - first:
+      213: -9057591653763698653
+    second: helvi_kaanto_17
+  - first:
+      213: 1465308334763291920
+    second: helvi_kaanto_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: helvi_kaanto_0
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 414
+        width: 149
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4cb778a3fb9b1760800000000000000
+      internalID: 7429703481083542606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_1
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 414
+        width: 138
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90fa4c1502d41790800000000000000
+      internalID: -7560186955056877409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_2
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 414
+        width: 134
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff3a9522ea72ef40800000000000000
+      internalID: 5756298385444978678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_3
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 414
+        width: 122
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae6822ad7def8310800000000000000
+      internalID: 1409606332237508258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_4
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 414
+        width: 117
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac259f176a8a5460800000000000000
+      internalID: 7231244327212887207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_5
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 414
+        width: 118
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11630c9cc191f750800000000000000
+      internalID: 6337006458663821595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_6
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 414
+        width: 117
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7930a9c76bf435cf0800000000000000
+      internalID: -264780307891616873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_7
+      rect:
+        serializedVersion: 2
+        x: 2348
+        y: 414
+        width: 113
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09c6e870bcd076d0800000000000000
+      internalID: -2994651101700634354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_8
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 414
+        width: 109
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b82218eeb77a3cd0800000000000000
+      internalID: -2577616174895191881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_9
+      rect:
+        serializedVersion: 2
+        x: 2987
+        y: 414
+        width: 114
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f4f198f89bfd940800000000000000
+      internalID: 5323177310707208074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_10
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 14
+        width: 119
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35dff8ad794d01b0800000000000000
+      internalID: -5688809950243990209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_11
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 14
+        width: 120
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3c108d0e2130560800000000000000
+      internalID: 7278682179666822055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_12
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 14
+        width: 114
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a10c077fa0017520800000000000000
+      internalID: 2697938405388190115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_13
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 14
+        width: 113
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b97681b69610d320800000000000000
+      internalID: 2580587422962579895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_14
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 14
+        width: 117
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5dc2b10a26acec00800000000000000
+      internalID: 931301922306182491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_15
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 14
+        width: 123
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2618f2feec7f4480800000000000000
+      internalID: -8912767771822516691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_16
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 12
+        width: 133
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d8d1368878f13f0800000000000000
+      internalID: -927873978366849786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_17
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 13
+        width: 137
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3203fdc4168fc4280800000000000000
+      internalID: -9057591653763698653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kaanto_18
+      rect:
+        serializedVersion: 2
+        x: 2678
+        y: 13
+        width: 146
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0153cfbba22d55410800000000000000
+      internalID: 1465308334763291920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      helvi_kaanto_0: 7429703481083542606
+      helvi_kaanto_1: -7560186955056877409
+      helvi_kaanto_10: -5688809950243990209
+      helvi_kaanto_11: 7278682179666822055
+      helvi_kaanto_12: 2697938405388190115
+      helvi_kaanto_13: 2580587422962579895
+      helvi_kaanto_14: 931301922306182491
+      helvi_kaanto_15: -8912767771822516691
+      helvi_kaanto_16: -927873978366849786
+      helvi_kaanto_17: -9057591653763698653
+      helvi_kaanto_18: 1465308334763291920
+      helvi_kaanto_2: 5756298385444978678
+      helvi_kaanto_3: 1409606332237508258
+      helvi_kaanto_4: 7231244327212887207
+      helvi_kaanto_5: 6337006458663821595
+      helvi_kaanto_6: -264780307891616873
+      helvi_kaanto_7: -2994651101700634354
+      helvi_kaanto_8: -2577616174895191881
+      helvi_kaanto_9: 5323177310707208074
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

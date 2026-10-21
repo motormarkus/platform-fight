@@ -8325,6 +8325,54 @@ Transform:
   - {fileID: 29070987}
   m_Father: {fileID: 489638170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &115770751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115770753}
+  - component: {fileID: 115770752}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &115770752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115770751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 9004, y: -0.07508819}
+  areaName: Uccopulco
+  sceneName: UccoLaiva
+--- !u!4 &115770753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115770751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116903026
 GameObject:
   m_ObjectHideFlags: 0
@@ -10557,6 +10605,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.8
   fadeTime: 0.35
@@ -12608,6 +12658,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.7
   maxDistanceFromWall: 0.9
   fadeTime: 0.35
@@ -13474,6 +13526,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 2.2
   maxDistanceFromWall: 100
   fadeTime: 0.25
@@ -21835,6 +21889,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -36087,6 +36143,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -38398,6 +38456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  ownItemsOnly: 0
   title: BAARI
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -38409,6 +38470,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -38416,6 +38478,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -38423,6 +38486,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -38430,6 +38494,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -38437,6 +38502,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -38444,6 +38510,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 1302233299}
   halfWidth: 5.4761906
   maxDistanceFromWall: 1
@@ -41272,54 +41339,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!1 &742363570
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 742363572}
-  - component: {fileID: 742363571}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &742363571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742363570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 109019.81, y: -1.3801515}
-  areaName: Thaitown hotelli aula 1
-  sceneName: Thaitown
---- !u!4 &742363572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742363570}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744619895
 GameObject:
   m_ObjectHideFlags: 0
@@ -45124,6 +45143,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.8
   maxDistanceFromWall: 1.2
   fadeTime: 0.25
@@ -45289,6 +45310,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.4
   fadeTime: 0.25
@@ -48709,6 +48732,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -56092,6 +56117,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
   maxDistanceFromWall: 1.2
   fadeTime: 0.25
@@ -72941,6 +72968,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -80906,6 +80935,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
   maxDistanceFromWall: 100
   fadeTime: 0.25
@@ -94636,6 +94667,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.8
   maxDistanceFromWall: 100
   fadeTime: 0.25
@@ -97474,6 +97507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  ownItemsOnly: 0
   title: S-CLUB  BAARI
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -97485,6 +97521,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -97492,6 +97529,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -97499,6 +97537,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -97506,6 +97545,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -97513,6 +97553,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -97520,6 +97561,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 1332018955}
   halfWidth: 4.8235292
   maxDistanceFromWall: 1
@@ -97675,6 +97717,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.7
   maxDistanceFromWall: 0.9
   fadeTime: 0.35
@@ -122102,6 +122146,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.8
   fadeTime: 0.35
@@ -122345,6 +122391,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -127315,4 +127363,4 @@ SceneRoots:
   - {fileID: 270872287}
   - {fileID: 50513859}
   - {fileID: 1889188337}
-  - {fileID: 742363572}
+  - {fileID: 115770753}

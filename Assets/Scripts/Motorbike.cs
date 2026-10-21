@@ -221,7 +221,7 @@ public class Motorbike : MonoBehaviour
         if (parked != null) parked.transform.localScale = new Vector3(ps, ps, 1f);
         if (!rideable || (parkedNoRideArea != null && Area.Current == parkedNoRideArea)) { near = false; return; }
         if (riding) { if (pc != null) Ride(Time.deltaTime); return; }
-        near = false;
+        near = false; keyLocked = false;
         if (busy) return;
         // kaksinpeli: pyörälle nousee se pelaaja, joka on sen vieressä ja painaa E:tä (lähin vapaa pyörä); jokainen pelaaja ajaa vain yhtä pyörää
         PlayerController rider = null;
@@ -232,6 +232,7 @@ public class Motorbike : MonoBehaviour
             if (Mathf.Abs(p.x - me.x) > useHalfWidth || Mathf.Abs(p.y - me.y) > useDepth) continue;
             if (NearestFreeBikeTo(q) != this) continue;
             near = true;
+            if (!Clues.Open(Clues.BikeKey)) { keyLocked = true; if (CoopInput.Pick(q.playerIndex)) lockedMsgUntil = Time.unscaledTime + 3f; continue; }
             if (CoopInput.Pick(q.playerIndex)) { rider = q; break; }
         }
         if (rider != null) { pc = rider; StartCoroutine(Mount()); }
@@ -548,6 +549,7 @@ public class Motorbike : MonoBehaviour
         }
     }
 
+    bool keyLocked; float lockedMsgUntil;
     GUIStyle style;
     void OnGUI()
     {
@@ -559,6 +561,7 @@ public class Motorbike : MonoBehaviour
             style.normal.textColor = Color.white;
         }
         string text = "[E]  " + Loc.T(riding ? "Nouse pyörän selästä" : prompt);
+        if (!riding && keyLocked) text = Time.unscaledTime < lockedMsgUntil ? Loc.T("Avaimet puuttuvat.") : "[E]  " + Loc.T(prompt) + " (lukossa)";
         float w = Screen.height * 0.5f, h = Screen.height * 0.065f;
         GUI.Box(new Rect((Screen.width - w) * 0.5f, Screen.height * 0.82f, w, h), text, style);
     }

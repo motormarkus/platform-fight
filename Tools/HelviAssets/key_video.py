@@ -10,7 +10,7 @@ def border_color(img):
     return np.median(b, axis=0)
 
 
-def key_frame(bgr, t_in=26.0, t_out=60.0, cyan_safe=False):
+def key_frame(bgr, t_in=26.0, t_out=60.0, cyan_safe=False, multi=False):
     img = bgr.astype(np.float32)
     bg = border_color(bgr).astype(np.float32)
     d = np.sqrt(((img - bg) ** 2).sum(axis=2))
@@ -32,8 +32,13 @@ def key_frame(bgr, t_in=26.0, t_out=60.0, cyan_safe=False):
     # vain suurin yhtenäinen hahmo (irtonaiset piirretyt sydämet ym. pois)
     n2, lab2, st, _ = cv2.connectedComponentsWithStats((~bgmask).astype(np.uint8), connectivity=8)
     if n2 > 2:
-        keep = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
-        bgmask = bgmask | (lab2 != keep)
+        if multi:   # useampi hahmo (pari): kaikki isot osat mukaan
+            big = st[1:, cv2.CC_STAT_AREA].max()
+            ok = [i for i in range(1, n2) if st[i, cv2.CC_STAT_AREA] >= 0.12 * big]
+            bgmask = bgmask | ~np.isin(lab2, ok)
+        else:
+            keep = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
+            bgmask = bgmask | (lab2 != keep)
     alpha = np.where(bgmask, 0.0, 1.0).astype(np.float32)
     # pehmeä reuna: lähellä taustaa olevat reunapikselit läpinäkyvämmiksi
     soft = np.clip((d - t_in) / (t_out - t_in), 0, 1)

@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 2b893379eca0fc64ba0e0555bb4dad23
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4544954649606348298
+    second: helvi_kavely_0
+  - first:
+      213: 7768383862502855393
+    second: helvi_kavely_1
+  - first:
+      213: -1210118882660729166
+    second: helvi_kavely_2
+  - first:
+      213: -2727087385081796302
+    second: helvi_kavely_3
+  - first:
+      213: -8797711107927374058
+    second: helvi_kavely_4
+  - first:
+      213: -3954126754565447667
+    second: helvi_kavely_5
+  - first:
+      213: 8227237006719284782
+    second: helvi_kavely_6
+  - first:
+      213: -4307888690563423536
+    second: helvi_kavely_7
+  - first:
+      213: 2064800697173296627
+    second: helvi_kavely_8
+  - first:
+      213: 6063558571237277929
+    second: helvi_kavely_9
+  - first:
+      213: 8909945786598562923
+    second: helvi_kavely_10
+  - first:
+      213: 1225627189647329502
+    second: helvi_kavely_11
+  - first:
+      213: -451327700174234992
+    second: helvi_kavely_12
+  - first:
+      213: -4240207853243903514
+    second: helvi_kavely_13
+  - first:
+      213: -5247590178806504029
+    second: helvi_kavely_14
+  - first:
+      213: -4407186554811085762
+    second: helvi_kavely_15
+  - first:
+      213: -2919870478526169528
+    second: helvi_kavely_16
+  - first:
+      213: -5496679376001017640
+    second: helvi_kavely_17
+  - first:
+      213: -1197639963353634824
+    second: helvi_kavely_18
+  - first:
+      213: 7040858149996348366
+    second: helvi_kavely_19
+  - first:
+      213: -5190185040303002400
+    second: helvi_kavely_20
+  - first:
+      213: -1768687121567969895
+    second: helvi_kavely_21
+  - first:
+      213: 6330767214448713217
+    second: helvi_kavely_22
+  - first:
+      213: 1861114851221142385
+    second: helvi_kavely_23
+  - first:
+      213: 4546949675862086801
+    second: helvi_kavely_24
+  - first:
+      213: 1063859420230874885
+    second: helvi_kavely_25
+  - first:
+      213: -3624963664485994143
+    second: helvi_kavely_26
+  - first:
+      213: 1048000560043787458
+    second: helvi_kavely_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: helvi_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 816
+        width: 157
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f124fd83d31de0c0800000000000000
+      internalID: -4544954649606348298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 816
+        width: 161
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e21c5bd6f7decb60800000000000000
+      internalID: 7768383862502855393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 815
+        width: 168
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2beb307a94bc43fe0800000000000000
+      internalID: -1210118882660729166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 814
+        width: 171
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23920c4d870772ad0800000000000000
+      internalID: -2727087385081796302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 814
+        width: 172
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6170b7f0c5048e580800000000000000
+      internalID: -8797711107927374058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 814
+        width: 168
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d002245aaae1029c0800000000000000
+      internalID: -3954126754565447667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 814
+        width: 158
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e267374c7740d2270800000000000000
+      internalID: 8227237006719284782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 815
+        width: 133
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d26b036f0e4734c0800000000000000
+      internalID: -4307888690563423536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 815
+        width: 109
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f54ef65b45a7ac10800000000000000
+      internalID: 2064800697173296627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 814
+        width: 106
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e08f59f466162450800000000000000
+      internalID: 6063558571237277929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 414
+        width: 107
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c123a6c7c76ab70800000000000000
+      internalID: 8909945786598562923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 414
+        width: 110
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed84df17f6d420110800000000000000
+      internalID: 1225627189647329502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 414
+        width: 130
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a12d119df8cb9f0800000000000000
+      internalID: -451327700174234992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 414
+        width: 139
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1539d4c61c725c0800000000000000
+      internalID: -4240207853243903514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 414
+        width: 161
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5e8690980dc27b0800000000000000
+      internalID: -5247590178806504029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 414
+        width: 169
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c8b9dbd2786d2c0800000000000000
+      internalID: -4407186554811085762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 414
+        width: 169
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e3c4915498a77d0800000000000000
+      internalID: -2919870478526169528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 414
+        width: 169
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d85e3dea3fd7b3b0800000000000000
+      internalID: -5496679376001017640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 2627
+        y: 414
+        width: 168
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7ae777cc0216fe0800000000000000
+      internalID: -1197639963353634824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 414
+        width: 164
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec34270fe2726b160800000000000000
+      internalID: 7040858149996348366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 14
+        width: 150
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec61326432c8f7b0800000000000000
+      internalID: -5190185040303002400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 16
+        width: 137
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d02201f6c5477e0800000000000000
+      internalID: -1768687121567969895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 16
+        width: 116
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e97ec5d376bd750800000000000000
+      internalID: 6330767214448713217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 16
+        width: 107
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b7d39b81204d910800000000000000
+      internalID: 1861114851221142385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 15
+        width: 107
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1945651b3a20a1f30800000000000000
+      internalID: 4546949675862086801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 11
+        width: 110
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50770d1918693ce00800000000000000
+      internalID: 1063859420230874885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 12
+        width: 126
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1613d96c0ca81bdc0800000000000000
+      internalID: -3624963664485994143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 2338
+        y: 14
+        width: 153
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c402d1f4fe3b8e00800000000000000
+      internalID: 1048000560043787458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      helvi_kavely_0: -4544954649606348298
+      helvi_kavely_1: 7768383862502855393
+      helvi_kavely_10: 8909945786598562923
+      helvi_kavely_11: 1225627189647329502
+      helvi_kavely_12: -451327700174234992
+      helvi_kavely_13: -4240207853243903514
+      helvi_kavely_14: -5247590178806504029
+      helvi_kavely_15: -4407186554811085762
+      helvi_kavely_16: -2919870478526169528
+      helvi_kavely_17: -5496679376001017640
+      helvi_kavely_18: -1197639963353634824
+      helvi_kavely_19: 7040858149996348366
+      helvi_kavely_2: -1210118882660729166
+      helvi_kavely_20: -5190185040303002400
+      helvi_kavely_21: -1768687121567969895
+      helvi_kavely_22: 6330767214448713217
+      helvi_kavely_23: 1861114851221142385
+      helvi_kavely_24: 4546949675862086801
+      helvi_kavely_25: 1063859420230874885
+      helvi_kavely_26: -3624963664485994143
+      helvi_kavely_27: 1048000560043787458
+      helvi_kavely_3: -2727087385081796302
+      helvi_kavely_4: -8797711107927374058
+      helvi_kavely_5: -3954126754565447667
+      helvi_kavely_6: 8227237006719284782
+      helvi_kavely_7: -4307888690563423536
+      helvi_kavely_8: 2064800697173296627
+      helvi_kavely_9: 6063558571237277929
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2223 @@
+fileFormatVersion: 2
+guid: 5c2d1acc722a55649bbbd059bed212b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1264988951280710015
+    second: helvi_tanssi_3_0
+  - first:
+      213: -1834424693569004577
+    second: helvi_tanssi_3_1
+  - first:
+      213: -4796256933233894798
+    second: helvi_tanssi_3_2
+  - first:
+      213: 3473398175788756572
+    second: helvi_tanssi_3_3
+  - first:
+      213: 236181447793739166
+    second: helvi_tanssi_3_4
+  - first:
+      213: -5014998682785716170
+    second: helvi_tanssi_3_5
+  - first:
+      213: -5632604309116631795
+    second: helvi_tanssi_3_6
+  - first:
+      213: -7279545018207379763
+    second: helvi_tanssi_3_7
+  - first:
+      213: -6576271658224971232
+    second: helvi_tanssi_3_8
+  - first:
+      213: 6202530504518252574
+    second: helvi_tanssi_3_9
+  - first:
+      213: 8709750366556983549
+    second: helvi_tanssi_3_10
+  - first:
+      213: 7624273461654523178
+    second: helvi_tanssi_3_11
+  - first:
+      213: -531667108061664981
+    second: helvi_tanssi_3_12
+  - first:
+      213: -5337424535662157073
+    second: helvi_tanssi_3_13
+  - first:
+      213: 160695076791538237
+    second: helvi_tanssi_3_14
+  - first:
+      213: 1931702956522430471
+    second: helvi_tanssi_3_15
+  - first:
+      213: -6607221904536850361
+    second: helvi_tanssi_3_16
+  - first:
+      213: 5575161465529758431
+    second: helvi_tanssi_3_17
+  - first:
+      213: -1647243566679203569
+    second: helvi_tanssi_3_18
+  - first:
+      213: 1084057224454235823
+    second: helvi_tanssi_3_19
+  - first:
+      213: -1139308575842191523
+    second: helvi_tanssi_3_20
+  - first:
+      213: -2412675999643460140
+    second: helvi_tanssi_3_21
+  - first:
+      213: -331818695778231192
+    second: helvi_tanssi_3_22
+  - first:
+      213: -7759073971585149161
+    second: helvi_tanssi_3_23
+  - first:
+      213: 8237429146677508976
+    second: helvi_tanssi_3_24
+  - first:
+      213: -5749012891582613370
+    second: helvi_tanssi_3_25
+  - first:
+      213: -8845792187928899583
+    second: helvi_tanssi_3_26
+  - first:
+      213: -7314719711400859817
+    second: helvi_tanssi_3_27
+  - first:
+      213: -8322432249325914957
+    second: helvi_tanssi_3_28
+  - first:
+      213: -988724444482218329
+    second: helvi_tanssi_3_29
+  - first:
+      213: -7932922418593963985
+    second: helvi_tanssi_3_30
+  - first:
+      213: -1630649701142644205
+    second: helvi_tanssi_3_31
+  - first:
+      213: 2226163211043652776
+    second: helvi_tanssi_3_32
+  - first:
+      213: 1198395259200187688
+    second: helvi_tanssi_3_33
+  - first:
+      213: 4525552444401364840
+    second: helvi_tanssi_3_34
+  - first:
+      213: -5020265041551427411
+    second: helvi_tanssi_3_35
+  - first:
+      213: -6031708509652307120
+    second: helvi_tanssi_3_36
+  - first:
+      213: -5361215324537918909
+    second: helvi_tanssi_3_37
+  - first:
+      213: 5959920016914750450
+    second: helvi_tanssi_3_38
+  - first:
+      213: -6025975721713793464
+    second: helvi_tanssi_3_39
+  - first:
+      213: 6595639195563170562
+    second: helvi_tanssi_3_40
+  - first:
+      213: -5330287411958476077
+    second: helvi_tanssi_3_41
+  - first:
+      213: -8066250296139624511
+    second: helvi_tanssi_3_42
+  - first:
+      213: 1748230601868297577
+    second: helvi_tanssi_3_43
+  - first:
+      213: -4645663909982607239
+    second: helvi_tanssi_3_44
+  - first:
+      213: 2206281471073885056
+    second: helvi_tanssi_3_45
+  - first:
+      213: 2090914656765376825
+    second: helvi_tanssi_3_46
+  - first:
+      213: 1837314212887715643
+    second: helvi_tanssi_3_47
+  - first:
+      213: 8665134051064443983
+    second: helvi_tanssi_3_48
+  - first:
+      213: 2754402322510168363
+    second: helvi_tanssi_3_49
+  - first:
+      213: 1405676230943835587
+    second: helvi_tanssi_3_50
+  - first:
+      213: -716955366573037212
+    second: helvi_tanssi_3_51
+  - first:
+      213: -3812174582978944913
+    second: helvi_tanssi_3_52
+  - first:
+      213: 958621394646819669
+    second: helvi_tanssi_3_53
+  - first:
+      213: -8014423884814189242
+    second: helvi_tanssi_3_54
+  - first:
+      213: 8213606719426884207
+    second: helvi_tanssi_3_55
+  - first:
+      213: 3998254063955470851
+    second: helvi_tanssi_3_56
+  - first:
+      213: -5180160159554197629
+    second: helvi_tanssi_3_57
+  - first:
+      213: 8163284481893718003
+    second: helvi_tanssi_3_58
+  - first:
+      213: 1291420572715404402
+    second: helvi_tanssi_3_59
+  - first:
+      213: 3279762872212157688
+    second: helvi_tanssi_3_60
+  - first:
+      213: 5445165660981742157
+    second: helvi_tanssi_3_61
+  - first:
+      213: -6154394761057002813
+    second: helvi_tanssi_3_62
+  - first:
+      213: 6402187022076488107
+    second: helvi_tanssi_3_63
+  - first:
+      213: -6720700885223131143
+    second: helvi_tanssi_3_64
+  - first:
+      213: -1860307937483161783
+    second: helvi_tanssi_3_65
+  - first:
+      213: -7902200790560929411
+    second: helvi_tanssi_3_66
+  - first:
+      213: 1829086872339780401
+    second: helvi_tanssi_3_67
+  - first:
+      213: 653478794113633091
+    second: helvi_tanssi_3_68
+  - first:
+      213: -3310559817046695713
+    second: helvi_tanssi_3_69
+  - first:
+      213: 7100633417897477332
+    second: helvi_tanssi_3_70
+  - first:
+      213: -7344969989755895909
+    second: helvi_tanssi_3_71
+  - first:
+      213: -4805641969695286435
+    second: helvi_tanssi_3_72
+  - first:
+      213: -143847204819762256
+    second: helvi_tanssi_3_73
+  - first:
+      213: -8009228837954681336
+    second: helvi_tanssi_3_74
+  - first:
+      213: 5761498880650833212
+    second: helvi_tanssi_3_75
+  - first:
+      213: -6731245109358692957
+    second: helvi_tanssi_3_76
+  - first:
+      213: 7746433142437647282
+    second: helvi_tanssi_3_77
+  - first:
+      213: -50363123357113391
+    second: helvi_tanssi_3_78
+  - first:
+      213: -8188150068091065920
+    second: helvi_tanssi_3_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: helvi_tanssi_3_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df015f8efcf3fd870800000000000000
+      internalID: 8709750366556983549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2d0b58715cdec960800000000000000
+      internalID: 7624273461654523178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29a93505932f98f0800000000000000
+      internalID: -531667108061664981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe22768e9a8ade5b0800000000000000
+      internalID: -5337424535662157073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3250592257ea3200800000000000000
+      internalID: 160695076791538237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_15
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7006717ba99ceca10800000000000000
+      internalID: 1931702956522430471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_16
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740b6e33fae6e44a0800000000000000
+      internalID: -6607221904536850361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_17
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2f85e70d3fe5d40800000000000000
+      internalID: 5575161465529758431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_18
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01e98d14b0d329e0800000000000000
+      internalID: -1647243566679203569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa66ac35d485b0f00800000000000000
+      internalID: 1084057224454235823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57be57f2ec5030f0800000000000000
+      internalID: -1139308575842191523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd142316f3748ed0800000000000000
+      internalID: -2412675999643460140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c1e4c77a4256bf0800000000000000
+      internalID: -331818695778231192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71710b9055b325490800000000000000
+      internalID: -7759073971585149161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b79264a2a315270800000000000000
+      internalID: 8237429146677508976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688b3141c376730b0800000000000000
+      internalID: -5749012891582613370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10092914fde6d3580800000000000000
+      internalID: -8845792187928899583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_27
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75767627d25ec7a90800000000000000
+      internalID: -7314719711400859817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b47caf96f7c08c80800000000000000
+      internalID: -8322432249325914957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_29
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a654e13b585742f0800000000000000
+      internalID: -988724444482218329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2069f8371998e190800000000000000
+      internalID: -7932922418593963985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_31
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31abb428cb4ce59e0800000000000000
+      internalID: -1630649701142644205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_32
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4cc4e45abe4ee10800000000000000
+      internalID: 2226163211043652776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82da32d832e81a010800000000000000
+      internalID: 1198395259200187688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fa1f488fdfdce30800000000000000
+      internalID: 4525552444401364840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_35
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da8f3001b8f645ab0800000000000000
+      internalID: -5020265041551427411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_36
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053397d51111b4ca0800000000000000
+      internalID: -6031708509652307120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_37
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a698831132995b0800000000000000
+      internalID: -5361215324537918909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_38
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb91f9ada3e5b250800000000000000
+      internalID: 5959920016914750450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_39
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8460f12120f6f5ca0800000000000000
+      internalID: -6025975721713793464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b9f2637ea688b50800000000000000
+      internalID: 6595639195563170562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d29a7307d30706b0800000000000000
+      internalID: -5330287411958476077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf453da71cee0090800000000000000
+      internalID: -8066250296139624511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_43
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965c3d94876f24810800000000000000
+      internalID: 1748230601868297577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_44
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97862a3a949478fb0800000000000000
+      internalID: -4645663909982607239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_45
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b92edfe494e9e10800000000000000
+      internalID: 2206281471073885056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_46
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939782c5dcb640d10800000000000000
+      internalID: 2090914656765376825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_47
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3fd2f7ca837f7910800000000000000
+      internalID: 1837314212887715643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_48
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4476d4728db04870800000000000000
+      internalID: 8665134051064443983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_49
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21cab1a15a993620800000000000000
+      internalID: 2754402322510168363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c50e9e9517f18310800000000000000
+      internalID: 1405676230943835587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469aa9784ecdc06f0800000000000000
+      internalID: -716955366573037212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_52
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6064cf1a6f681bc0800000000000000
+      internalID: -3812174582978944913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55363065415bd4d00800000000000000
+      internalID: 958621394646819669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_54
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d7e3260fb07c090800000000000000
+      internalID: -8014423884814189242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_55
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6273343bc79cf170800000000000000
+      internalID: 8213606719426884207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_56
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ae3d333e6ac7730800000000000000
+      internalID: 3998254063955470851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_57
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3872422d7cf5c18b0800000000000000
+      internalID: -5180160159554197629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_58
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7dbbf3cffc94170800000000000000
+      internalID: 8163284481893718003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_59
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c455c2b2c0ce110800000000000000
+      internalID: 1291420572715404402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f478b194fe048d20800000000000000
+      internalID: 3279762872212157688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ac8f5a15d119b40800000000000000
+      internalID: 5445165660981742157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_62
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca1cab7292379aa0800000000000000
+      internalID: -6154394761057002813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba92c742d2329d850800000000000000
+      internalID: 6402187022076488107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_64
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f73f9617264bb2a0800000000000000
+      internalID: -6720700885223131143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_65
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ff97589cbde26e0800000000000000
+      internalID: -1860307937483161783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_66
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d790ec6af3eb55290800000000000000
+      internalID: -7902200790560929411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_67
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1339429c1d8326910800000000000000
+      internalID: 1829086872339780401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_68
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bc46f308f911900800000000000000
+      internalID: 653478794113633091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_69
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd0ef31f2678e02d0800000000000000
+      internalID: -3310559817046695713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d40c0a09748a8260800000000000000
+      internalID: 7100633417897477332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_71
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ff1baa5bc611a90800000000000000
+      internalID: -7344969989755895909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_72
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b9a96071eee4db0800000000000000
+      internalID: -4805641969695286435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_73
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b309c6bab3f00ef0800000000000000
+      internalID: -143847204819762256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_74
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80685ec7ec089d090800000000000000
+      internalID: -8009228837954681336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_75
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3de00bc4b4f4ff40800000000000000
+      internalID: 5761498880650833212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_76
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5f6989c30d592a0800000000000000
+      internalID: -6731245109358692957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_77
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b31f4396ebd08b60800000000000000
+      internalID: 7746433142437647282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_78
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d3258291031d4ff0800000000000000
+      internalID: -50363123357113391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_79
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c967df45e8dd5e80800000000000000
+      internalID: -8188150068091065920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed19ce4505cda2340afdd3b8a6ea5477
+      internalID: 2070937804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_01
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fc1b47d18eb694f8c1f080aab42266
+      internalID: 81508762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_02
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21310c24623a3094580c2c798a53519d
+      internalID: 1899315245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_03
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4876640dadd95a7499df7bc839fd97e6
+      internalID: -277316656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_04
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4033cd491db7045bc418cfb1d6f039
+      internalID: -428458373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_05
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc24e31311fdd9948aa6a2c81c43d0d3
+      internalID: -1188164212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_06
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311ae8d0b5c03a84aa5b665eeaf7e7cc
+      internalID: -1115530192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_07
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1f24614bc6a58448173bcace51bfbe
+      internalID: -336105995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_08
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f224d9f134890b48a64736457795836
+      internalID: -197276396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helvi_tanssi_3_09
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1950acdf5e4e64d939728391d9c752
+      internalID: -322393185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e0e84a4a3fb9f09498bda10d50aaf83b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      helvi_tanssi_3_00: 2070937804
+      helvi_tanssi_3_01: 81508762
+      helvi_tanssi_3_02: 1899315245
+      helvi_tanssi_3_03: -277316656
+      helvi_tanssi_3_04: -428458373
+      helvi_tanssi_3_05: -1188164212
+      helvi_tanssi_3_06: -1115530192
+      helvi_tanssi_3_07: -336105995
+      helvi_tanssi_3_08: -197276396
+      helvi_tanssi_3_09: -322393185
+      helvi_tanssi_3_10: 8709750366556983549
+      helvi_tanssi_3_11: 7624273461654523178
+      helvi_tanssi_3_12: -531667108061664981
+      helvi_tanssi_3_13: -5337424535662157073
+      helvi_tanssi_3_14: 160695076791538237
+      helvi_tanssi_3_15: 1931702956522430471
+      helvi_tanssi_3_16: -6607221904536850361
+      helvi_tanssi_3_17: 5575161465529758431
+      helvi_tanssi_3_18: -1647243566679203569
+      helvi_tanssi_3_19: 1084057224454235823
+      helvi_tanssi_3_20: -1139308575842191523
+      helvi_tanssi_3_21: -2412675999643460140
+      helvi_tanssi_3_22: -331818695778231192
+      helvi_tanssi_3_23: -7759073971585149161
+      helvi_tanssi_3_24: 8237429146677508976
+      helvi_tanssi_3_25: -5749012891582613370
+      helvi_tanssi_3_26: -8845792187928899583
+      helvi_tanssi_3_27: -7314719711400859817
+      helvi_tanssi_3_28: -8322432249325914957
+      helvi_tanssi_3_29: -988724444482218329
+      helvi_tanssi_3_30: -7932922418593963985
+      helvi_tanssi_3_31: -1630649701142644205
+      helvi_tanssi_3_32: 2226163211043652776
+      helvi_tanssi_3_33: 1198395259200187688
+      helvi_tanssi_3_34: 4525552444401364840
+      helvi_tanssi_3_35: -5020265041551427411
+      helvi_tanssi_3_36: -6031708509652307120
+      helvi_tanssi_3_37: -5361215324537918909
+      helvi_tanssi_3_38: 5959920016914750450
+      helvi_tanssi_3_39: -6025975721713793464
+      helvi_tanssi_3_40: 6595639195563170562
+      helvi_tanssi_3_41: -5330287411958476077
+      helvi_tanssi_3_42: -8066250296139624511
+      helvi_tanssi_3_43: 1748230601868297577
+      helvi_tanssi_3_44: -4645663909982607239
+      helvi_tanssi_3_45: 2206281471073885056
+      helvi_tanssi_3_46: 2090914656765376825
+      helvi_tanssi_3_47: 1837314212887715643
+      helvi_tanssi_3_48: 8665134051064443983
+      helvi_tanssi_3_49: 2754402322510168363
+      helvi_tanssi_3_50: 1405676230943835587
+      helvi_tanssi_3_51: -716955366573037212
+      helvi_tanssi_3_52: -3812174582978944913
+      helvi_tanssi_3_53: 958621394646819669
+      helvi_tanssi_3_54: -8014423884814189242
+      helvi_tanssi_3_55: 8213606719426884207
+      helvi_tanssi_3_56: 3998254063955470851
+      helvi_tanssi_3_57: -5180160159554197629
+      helvi_tanssi_3_58: 8163284481893718003
+      helvi_tanssi_3_59: 1291420572715404402
+      helvi_tanssi_3_60: 3279762872212157688
+      helvi_tanssi_3_61: 5445165660981742157
+      helvi_tanssi_3_62: -6154394761057002813
+      helvi_tanssi_3_63: 6402187022076488107
+      helvi_tanssi_3_64: -6720700885223131143
+      helvi_tanssi_3_65: -1860307937483161783
+      helvi_tanssi_3_66: -7902200790560929411
+      helvi_tanssi_3_67: 1829086872339780401
+      helvi_tanssi_3_68: 653478794113633091
+      helvi_tanssi_3_69: -3310559817046695713
+      helvi_tanssi_3_70: 7100633417897477332
+      helvi_tanssi_3_71: -7344969989755895909
+      helvi_tanssi_3_72: -4805641969695286435
+      helvi_tanssi_3_73: -143847204819762256
+      helvi_tanssi_3_74: -8009228837954681336
+      helvi_tanssi_3_75: 5761498880650833212
+      helvi_tanssi_3_76: -6731245109358692957
+      helvi_tanssi_3_77: 7746433142437647282
+      helvi_tanssi_3_78: -50363123357113391
+      helvi_tanssi_3_79: -8188150068091065920
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -22,6 +22,35 @@ public static class Clues
 
     public static int IndexOf(string id) => All.FindIndex(c => c.id == id);
 
+    /// Tarinalukot (pyörän avain, laivalippu). Editorissa voi kytkeä pois testausta varten (valikko 229).
+    public static bool GatesOn
+    {
+        get
+        {
+#if UNITY_EDITOR
+            return UnityEditor.EditorPrefs.GetBool("TotalFist.StoryGates", true);
+#else
+            return true;
+#endif
+        }
+    }
+    /// Lukko auki: lukot pois päältä tai vihje löytynyt.
+    public static bool Open(string id) => string.IsNullOrEmpty(id) || !GatesOn || Has(id);
+
+    public const string Belt = "mestaruusvyo";
+    /// Mestaruusvyö: vihujen lentomatka (sivusuunta) pitenee 15 %.
+    public static float LaunchMul => Has(Belt) ? 1.15f : 1f;
+    public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 15 % pidemmälle."); }
+
+    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva";
+
+    /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu.
+    public static void BossDown(string boss)
+    {
+        if (boss == "Metsuri") Add(BikeKey, "Moottoripyörän avaimet", "Metsurin taskusta löytyi moottoripyörän avaimet. Nyt pääset ajamaan.");
+        else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
+    }
+
     /// Lisää vihjeen, jos sitä ei vielä ole. Palauttaa true, jos se oli uusi.
     public static bool Add(string id, string title, string text, string art = null, bool notify = true)
     {

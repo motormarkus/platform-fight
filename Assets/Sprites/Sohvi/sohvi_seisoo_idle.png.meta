@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: c9bee355fec8b0243a3e0278e0b62192
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 298563374912979343
+    second: sohvi_seisoo_idle_0
+  - first:
+      213: -1233618176785786410
+    second: sohvi_seisoo_idle_1
+  - first:
+      213: 7548274217678818869
+    second: sohvi_seisoo_idle_2
+  - first:
+      213: -6018471442321078709
+    second: sohvi_seisoo_idle_3
+  - first:
+      213: 4256262449485218930
+    second: sohvi_seisoo_idle_4
+  - first:
+      213: 2331417145884207933
+    second: sohvi_seisoo_idle_5
+  - first:
+      213: 1892509305316741312
+    second: sohvi_seisoo_idle_6
+  - first:
+      213: -3820102034708555258
+    second: sohvi_seisoo_idle_7
+  - first:
+      213: 6252929342674839619
+    second: sohvi_seisoo_idle_8
+  - first:
+      213: 8098614907531492588
+    second: sohvi_seisoo_idle_9
+  - first:
+      213: -193494519432214478
+    second: sohvi_seisoo_idle_10
+  - first:
+      213: 6685166496961368827
+    second: sohvi_seisoo_idle_11
+  - first:
+      213: -3626418025333628301
+    second: sohvi_seisoo_idle_12
+  - first:
+      213: 507367267232477596
+    second: sohvi_seisoo_idle_13
+  - first:
+      213: 3172528324187399569
+    second: sohvi_seisoo_idle_14
+  - first:
+      213: -6301059827939417021
+    second: sohvi_seisoo_idle_15
+  - first:
+      213: -2358430876740159141
+    second: sohvi_seisoo_idle_16
+  - first:
+      213: 5531886368278842147
+    second: sohvi_seisoo_idle_17
+  - first:
+      213: 5706117638094230539
+    second: sohvi_seisoo_idle_18
+  - first:
+      213: -5562740268968835200
+    second: sohvi_seisoo_idle_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_0
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8141a0cec5b42400800000000000000
+      internalID: 298563374912979343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_1
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d9d730edce41eee0800000000000000
+      internalID: -1233618176785786410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_2
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e4cf3986bd0c860800000000000000
+      internalID: 7548274217678818869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b468e954c181a7ca0800000000000000
+      internalID: -6018471442321078709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_4
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274866ca528411b30800000000000000
+      internalID: 4256262449485218930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3beea3ba8bda5020800000000000000
+      internalID: 2331417145884207933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_6
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c0968daf2b834a10800000000000000
+      internalID: 1892509305316741312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2351
+        y: 414
+        width: 96
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a137f60754cfac0800000000000000
+      internalID: -3820102034708555258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_8
+      rect:
+        serializedVersion: 2
+        x: 2671
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34820c39b1ed6c650800000000000000
+      internalID: 6252929342674839619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_9
+      rect:
+        serializedVersion: 2
+        x: 2991
+        y: 414
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cecf810a95f046070800000000000000
+      internalID: 8098614907531492588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_10
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238024f72c1905df0800000000000000
+      internalID: -193494519432214478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_11
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf299bb628b76cc50800000000000000
+      internalID: 6685166496961368827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_12
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3726ae005006cadc0800000000000000
+      internalID: -3626418025333628301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c917d0667d78a0700800000000000000
+      internalID: 507367267232477596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1952e0bb3b5170c20800000000000000
+      internalID: 3172528324187399569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_15
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 14
+        width: 96
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344ef2f88732e88a0800000000000000
+      internalID: -6301059827939417021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_16
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 14
+        width: 95
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59f694fc9b254fd0800000000000000
+      internalID: -2358430876740159141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_17
+      rect:
+        serializedVersion: 2
+        x: 2351
+        y: 14
+        width: 95
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b061fb75535cc40800000000000000
+      internalID: 5531886368278842147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_18
+      rect:
+        serializedVersion: 2
+        x: 2671
+        y: 14
+        width: 95
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04923172c3303f40800000000000000
+      internalID: 5706117638094230539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_idle_19
+      rect:
+        serializedVersion: 2
+        x: 2991
+        y: 14
+        width: 95
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0870a52b23d2dc2b0800000000000000
+      internalID: -5562740268968835200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sohvi_seisoo_idle_0: 298563374912979343
+      sohvi_seisoo_idle_1: -1233618176785786410
+      sohvi_seisoo_idle_10: -193494519432214478
+      sohvi_seisoo_idle_11: 6685166496961368827
+      sohvi_seisoo_idle_12: -3626418025333628301
+      sohvi_seisoo_idle_13: 507367267232477596
+      sohvi_seisoo_idle_14: 3172528324187399569
+      sohvi_seisoo_idle_15: -6301059827939417021
+      sohvi_seisoo_idle_16: -2358430876740159141
+      sohvi_seisoo_idle_17: 5531886368278842147
+      sohvi_seisoo_idle_18: 5706117638094230539
+      sohvi_seisoo_idle_19: -5562740268968835200
+      sohvi_seisoo_idle_2: 7548274217678818869
+      sohvi_seisoo_idle_3: -6018471442321078709
+      sohvi_seisoo_idle_4: 4256262449485218930
+      sohvi_seisoo_idle_5: 2331417145884207933
+      sohvi_seisoo_idle_6: 1892509305316741312
+      sohvi_seisoo_idle_7: -3820102034708555258
+      sohvi_seisoo_idle_8: 6252929342674839619
+      sohvi_seisoo_idle_9: 8098614907531492588
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

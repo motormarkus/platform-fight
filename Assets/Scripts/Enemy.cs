@@ -700,7 +700,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (health <= 0)
         {
             if (undying) { health = 1; undyingFallen = true; }
-            else if (sparring) { health = 1; sparKO = true; }
+            else if (sparring) { health = 1; sparKO = true; Clues.WinBelt(); }
             knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f);
             verticalVel = 7f;
             height = Mathf.Max(height, 0.05f);
@@ -1473,7 +1473,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0 && undying) { health = 1; undyingFallen = true; }   // muu kuolemantie (heitto, ote): sama kuin iskussa
-                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); }
+                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); if (isBoss) Clues.BossDown(displayName); }
                     else
                     {
                         rollFirst = Has(getUpRollSprites) && (slamLanded || flipLanded);   // heitosta selälleen: ensin vatsalleen
@@ -2237,6 +2237,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (tauntMinDistance > 0f && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) < tauntMinDistance) return;
         SayTaunt();
     }
+
+    /// Sanoo repliikin (esim. Salsafestin Puliukko vittuilee Tomille).
+    public void Speak() { SayTaunt(); }
 
     /// Soittaa yhden huudon (vain yksi vihu kerrallaan, tauko seuraavaan).
     void SayTaunt()
@@ -3137,7 +3140,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         comboHits++; lastHitTime = Time.time;
         if (player != null && player.InPunchChain && !breaksCombos) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
         health = Mathf.Max(0, health - damage);
-        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; }
+        if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; Clues.WinBelt(); }
         else if (undying && health <= 0) { knockdown = true; undyingFallen = true; health = 1; }   // uusiutuva pomo: ei kuole, kaatuu ja aivo ajaa pakoon   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
@@ -3148,7 +3151,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
         if (knockdown || health <= 0)
         {
-            knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f);
+            knockVel = new Vector2(fromLeft ? 4.5f : -4.5f, 0f) * (player != null ? Clues.LaunchMul : 1f);
             verticalVel = 7f;
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
@@ -3319,7 +3322,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (state != State.Airborne) return;
         if (launchVoice != null && audioSource != null && VoiceGate("launch")) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, launchVoiceVolume); }
         if (lightweight) up *= lightLaunchMul;
-        knockVel = new Vector2(vx, 0f);
+        knockVel = new Vector2(vx * Clues.LaunchMul, 0f);
         verticalVel = up;
         launched = true;
     }
@@ -3371,7 +3374,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         awake = true;
         health = Mathf.Max(0, health - damage);
         LastHit = this; LastHitTime = Time.time;
-        knockVel = new Vector2(vx, 0f);
+        knockVel = new Vector2(vx * Clues.LaunchMul, 0f);
         verticalVel = up;
         height = Mathf.Max(height, 0.05f);
         thrownByPlayer = true;

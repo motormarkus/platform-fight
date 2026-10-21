@@ -43,11 +43,20 @@ public class Door : MonoBehaviour
     public string confirmText;
     float lockedMsgUntil;
     bool confirming;
+    [Tooltip("Ovi on lukossa, kunnes tämä vihje (tarinaesine) on tapauskansiossa.")]
+    public string requiredClue;
+    public string lockedClueText = "Ovi on lukossa.";
+    void Awake()
+    {
+        if (string.IsNullOrEmpty(requiredClue) && name == "Varaston ovi laivaan") { requiredClue = Clues.ShipTicket; lockedClueText = "Tarvitset laivalipun."; }
+    }
+    bool ClueLocked => !string.IsNullOrEmpty(requiredClue) && !Clues.Open(requiredClue);
 
     bool GuardsAlive
     {
         get
         {
+            if (ClueLocked) return true;
             if (guards == null) return false;
             foreach (var g in guards) if (g != null && !g.IsDead) return true;
             return false;
@@ -297,7 +306,7 @@ public class Door : MonoBehaviour
             : needsJunkyardKey && !PieWar.JunkyardKey
             ? (Time.unscaledTime < lockedMsgUntil ? "Portti on lukossa. Voita piirakkasota dinerissä, niin Linsey antaa avaimen." : "[E]  Romuttamon portti (lukossa)")
             : GuardsAlive
-            ? (Time.unscaledTime < lockedMsgUntil ? guardsLockedText : "[E]  " + Loc.T(prompt) + " (lukossa)")
+            ? (Time.unscaledTime < lockedMsgUntil ? (ClueLocked ? lockedClueText : guardsLockedText) : "[E]  " + Loc.T(prompt) + " (lukossa)")
             : manhole != null && !manhole.IsOpen ? "[E]  " + Loc.T("Nosta viemärin kansi")
             : "[E]  " + Loc.T(prompt);
         float w = Screen.height * 0.45f, h = Screen.height * 0.065f;

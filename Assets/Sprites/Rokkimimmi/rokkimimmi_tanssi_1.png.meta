@@ -1,0 +1,2743 @@
+fileFormatVersion: 2
+guid: ce667c9d9bbc7b24b96a7b8e27e4b794
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4347656678342698563
+    second: rokkimimmi_tanssi_1_0
+  - first:
+      213: -5059963923024319743
+    second: rokkimimmi_tanssi_1_1
+  - first:
+      213: 2085320343904995496
+    second: rokkimimmi_tanssi_1_2
+  - first:
+      213: 7149109814386847130
+    second: rokkimimmi_tanssi_1_3
+  - first:
+      213: 2718583254605028264
+    second: rokkimimmi_tanssi_1_4
+  - first:
+      213: -4173056488858342408
+    second: rokkimimmi_tanssi_1_5
+  - first:
+      213: 6060807409759595660
+    second: rokkimimmi_tanssi_1_6
+  - first:
+      213: 6665018023725689002
+    second: rokkimimmi_tanssi_1_7
+  - first:
+      213: 8234210310697070934
+    second: rokkimimmi_tanssi_1_8
+  - first:
+      213: 2711188217141783043
+    second: rokkimimmi_tanssi_1_9
+  - first:
+      213: -2471806932198036187
+    second: rokkimimmi_tanssi_1_10
+  - first:
+      213: -2192393284731496996
+    second: rokkimimmi_tanssi_1_11
+  - first:
+      213: 508933537124850438
+    second: rokkimimmi_tanssi_1_12
+  - first:
+      213: 1202877160437932762
+    second: rokkimimmi_tanssi_1_13
+  - first:
+      213: 1078183680422974911
+    second: rokkimimmi_tanssi_1_14
+  - first:
+      213: -7248097989784046494
+    second: rokkimimmi_tanssi_1_15
+  - first:
+      213: 1720007736129246433
+    second: rokkimimmi_tanssi_1_16
+  - first:
+      213: 2921893827075932957
+    second: rokkimimmi_tanssi_1_17
+  - first:
+      213: 9149656293951438351
+    second: rokkimimmi_tanssi_1_18
+  - first:
+      213: 5442618697609100609
+    second: rokkimimmi_tanssi_1_19
+  - first:
+      213: 4751976606120776361
+    second: rokkimimmi_tanssi_1_20
+  - first:
+      213: -7216053622382699893
+    second: rokkimimmi_tanssi_1_21
+  - first:
+      213: 6278347563248381430
+    second: rokkimimmi_tanssi_1_22
+  - first:
+      213: -8208920862725849642
+    second: rokkimimmi_tanssi_1_23
+  - first:
+      213: -3131865152239882043
+    second: rokkimimmi_tanssi_1_24
+  - first:
+      213: -2290395850550743130
+    second: rokkimimmi_tanssi_1_25
+  - first:
+      213: -840949825509289500
+    second: rokkimimmi_tanssi_1_26
+  - first:
+      213: -8706722334651484486
+    second: rokkimimmi_tanssi_1_27
+  - first:
+      213: -3898390221278392178
+    second: rokkimimmi_tanssi_1_28
+  - first:
+      213: -3459937985249642781
+    second: rokkimimmi_tanssi_1_29
+  - first:
+      213: 5383115784319414486
+    second: rokkimimmi_tanssi_1_30
+  - first:
+      213: -1709591128877448487
+    second: rokkimimmi_tanssi_1_31
+  - first:
+      213: 3533997098600549857
+    second: rokkimimmi_tanssi_1_32
+  - first:
+      213: -6945913922268718385
+    second: rokkimimmi_tanssi_1_33
+  - first:
+      213: 3982817810054970605
+    second: rokkimimmi_tanssi_1_34
+  - first:
+      213: 840143401497261509
+    second: rokkimimmi_tanssi_1_35
+  - first:
+      213: -857783202286840569
+    second: rokkimimmi_tanssi_1_36
+  - first:
+      213: 6825347744863746192
+    second: rokkimimmi_tanssi_1_37
+  - first:
+      213: 3976499010237314091
+    second: rokkimimmi_tanssi_1_38
+  - first:
+      213: 5111655718644628800
+    second: rokkimimmi_tanssi_1_39
+  - first:
+      213: 7308185202810276662
+    second: rokkimimmi_tanssi_1_40
+  - first:
+      213: -2061736930658036824
+    second: rokkimimmi_tanssi_1_41
+  - first:
+      213: 3577257580800691774
+    second: rokkimimmi_tanssi_1_42
+  - first:
+      213: -8075473099072806878
+    second: rokkimimmi_tanssi_1_43
+  - first:
+      213: -1715491793648662923
+    second: rokkimimmi_tanssi_1_44
+  - first:
+      213: -2550188200335384346
+    second: rokkimimmi_tanssi_1_45
+  - first:
+      213: -5113568136058046982
+    second: rokkimimmi_tanssi_1_46
+  - first:
+      213: -8861976761667583746
+    second: rokkimimmi_tanssi_1_47
+  - first:
+      213: -6838091054177094902
+    second: rokkimimmi_tanssi_1_48
+  - first:
+      213: 5269114681091621789
+    second: rokkimimmi_tanssi_1_49
+  - first:
+      213: 7528356113989165999
+    second: rokkimimmi_tanssi_1_50
+  - first:
+      213: -6359700977203499491
+    second: rokkimimmi_tanssi_1_51
+  - first:
+      213: -5251179303412566585
+    second: rokkimimmi_tanssi_1_52
+  - first:
+      213: -1370300204778391583
+    second: rokkimimmi_tanssi_1_53
+  - first:
+      213: 8529648272336923997
+    second: rokkimimmi_tanssi_1_54
+  - first:
+      213: 8770494126536435482
+    second: rokkimimmi_tanssi_1_55
+  - first:
+      213: 1297550938503221106
+    second: rokkimimmi_tanssi_1_56
+  - first:
+      213: -6354225367438445132
+    second: rokkimimmi_tanssi_1_57
+  - first:
+      213: 6233428118393831350
+    second: rokkimimmi_tanssi_1_58
+  - first:
+      213: -2149870378587411512
+    second: rokkimimmi_tanssi_1_59
+  - first:
+      213: 4782635601749982883
+    second: rokkimimmi_tanssi_1_60
+  - first:
+      213: 5861321454585029304
+    second: rokkimimmi_tanssi_1_61
+  - first:
+      213: -8378976205580419681
+    second: rokkimimmi_tanssi_1_62
+  - first:
+      213: -8746875307229729374
+    second: rokkimimmi_tanssi_1_63
+  - first:
+      213: -7755860357650337043
+    second: rokkimimmi_tanssi_1_64
+  - first:
+      213: 5669927917899282752
+    second: rokkimimmi_tanssi_1_65
+  - first:
+      213: -9131816724608447414
+    second: rokkimimmi_tanssi_1_66
+  - first:
+      213: 8337053547632012351
+    second: rokkimimmi_tanssi_1_67
+  - first:
+      213: 4793323967961048775
+    second: rokkimimmi_tanssi_1_68
+  - first:
+      213: 1647656200360724856
+    second: rokkimimmi_tanssi_1_69
+  - first:
+      213: 8903264070555401354
+    second: rokkimimmi_tanssi_1_70
+  - first:
+      213: -9054690040030619732
+    second: rokkimimmi_tanssi_1_71
+  - first:
+      213: 1790719027953753506
+    second: rokkimimmi_tanssi_1_72
+  - first:
+      213: -4643866073337890697
+    second: rokkimimmi_tanssi_1_73
+  - first:
+      213: -6722050538418992697
+    second: rokkimimmi_tanssi_1_74
+  - first:
+      213: 2492014144371435687
+    second: rokkimimmi_tanssi_1_75
+  - first:
+      213: -8487567072025064288
+    second: rokkimimmi_tanssi_1_76
+  - first:
+      213: -3200418721104412685
+    second: rokkimimmi_tanssi_1_77
+  - first:
+      213: -3296843650861346788
+    second: rokkimimmi_tanssi_1_78
+  - first:
+      213: 4964162118220197418
+    second: rokkimimmi_tanssi_1_79
+  - first:
+      213: 4213518897771276552
+    second: rokkimimmi_tanssi_1_80
+  - first:
+      213: -8032580615938561301
+    second: rokkimimmi_tanssi_1_81
+  - first:
+      213: -3881414365633038927
+    second: rokkimimmi_tanssi_1_82
+  - first:
+      213: 300566371514770819
+    second: rokkimimmi_tanssi_1_83
+  - first:
+      213: -599944049015388869
+    second: rokkimimmi_tanssi_1_84
+  - first:
+      213: 6549148110921963516
+    second: rokkimimmi_tanssi_1_85
+  - first:
+      213: 1192686784705627564
+    second: rokkimimmi_tanssi_1_86
+  - first:
+      213: -4005635141237025014
+    second: rokkimimmi_tanssi_1_87
+  - first:
+      213: 5350046756713302637
+    second: rokkimimmi_tanssi_1_88
+  - first:
+      213: -2057766814486638337
+    second: rokkimimmi_tanssi_1_89
+  - first:
+      213: 6522250787116245493
+    second: rokkimimmi_tanssi_1_90
+  - first:
+      213: -6656080907536554076
+    second: rokkimimmi_tanssi_1_91
+  - first:
+      213: 2559114558547960914
+    second: rokkimimmi_tanssi_1_92
+  - first:
+      213: 5655618431177792505
+    second: rokkimimmi_tanssi_1_93
+  - first:
+      213: 5164219657183843405
+    second: rokkimimmi_tanssi_1_94
+  - first:
+      213: 4009013749511707665
+    second: rokkimimmi_tanssi_1_95
+  - first:
+      213: 1477735812874100339
+    second: rokkimimmi_tanssi_1_96
+  - first:
+      213: 8927849186717253770
+    second: rokkimimmi_tanssi_1_97
+  - first:
+      213: 6536690477203179247
+    second: rokkimimmi_tanssi_1_98
+  - first:
+      213: 3001925230766676350
+    second: rokkimimmi_tanssi_1_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52decfcf0b062bdd0800000000000000
+      internalID: -2471806932198036187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd590af5ced0391e0800000000000000
+      internalID: -2192393284731496996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b1c960b58101700800000000000000
+      internalID: 508933537124850438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad26550876a71b010800000000000000
+      internalID: 1202877160437932762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb51c3a485a76fe00800000000000000
+      internalID: 1078183680422974911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_15
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264f2b5c745996b90800000000000000
+      internalID: -7248097989784046494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_16
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e458ea4ce1bed710800000000000000
+      internalID: 1720007736129246433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_17
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13844274f6ac8820800000000000000
+      internalID: 2921893827075932957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_18
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e74e12ceb1afe70800000000000000
+      internalID: 9149656293951438351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14db3e68ed0188b40800000000000000
+      internalID: 5442618697609100609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a29bc4db8962f140800000000000000
+      internalID: 4751976606120776361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a55b5767d6bdb90800000000000000
+      internalID: -7216053622382699893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdebdb38db212750800000000000000
+      internalID: 6278347563248381430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ddbee3d7fd041e80800000000000000
+      internalID: -8208920862725849642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c03154cc316984d0800000000000000
+      internalID: -3131865152239882043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afe4e4eb11e630e0800000000000000
+      internalID: -2290395850550743130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e19798d6985454f0800000000000000
+      internalID: -840949825509289500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_27
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab67325ba228b2780800000000000000
+      internalID: -8706722334651484486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8058d09fb226e9c0800000000000000
+      internalID: -3898390221278392178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_29
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e67054ebb4dbffc0800000000000000
+      internalID: -3459937985249642781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0382de84ba4ba40800000000000000
+      internalID: 5383115784319414486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_31
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2c9141def4648e0800000000000000
+      internalID: -1709591128877448487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_32
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edc85323a74b0130800000000000000
+      internalID: 3533997098600549857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca9bb6b6182b9f90800000000000000
+      internalID: -6945913922268718385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: decfc6542bfc54730800000000000000
+      internalID: 3982817810054970605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_35
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5f1aee8f9c8ab00800000000000000
+      internalID: 840143401497261509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_36
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7055565e8ba8814f0800000000000000
+      internalID: -857783202286840569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_37
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098fd199c9188be50800000000000000
+      internalID: 6825347744863746192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_38
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2433ea08cc5f2730800000000000000
+      internalID: 3976499010237314091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_39
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d38eb1bcf30f640800000000000000
+      internalID: 5111655718644628800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63bc546b8b3eb6560800000000000000
+      internalID: 7308185202810276662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3d2d36f2d3363e0800000000000000
+      internalID: -2061736930658036824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ec2bd01d8f4a130800000000000000
+      internalID: 3577257580800691774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_43
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220ea8880082eef80800000000000000
+      internalID: -8075473099072806878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_44
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57649708d495138e0800000000000000
+      internalID: -1715491793648662923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_45
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0ed90e759eb9cd0800000000000000
+      internalID: -2550188200335384346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_46
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af5f0838fd4f809b0800000000000000
+      internalID: -5113568136058046982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_47
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef08909861fe30580800000000000000
+      internalID: -8861976761667583746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_48
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a037ffd7a683a11a0800000000000000
+      internalID: -6838091054177094902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_49
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2000
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93034fa2e7af1940800000000000000
+      internalID: 5269114681091621789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3e6fcaff71a7860800000000000000
+      internalID: 7528356113989165999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ea41808adcdb7a0800000000000000
+      internalID: -6359700977203499491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_52
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5f538de301027b0800000000000000
+      internalID: -5251179303412566585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7f9825937bbfce0800000000000000
+      internalID: -1370300204778391583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_54
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5daaa369e56f5670800000000000000
+      internalID: 8529648272336923997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_55
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17aad4a0fd07b970800000000000000
+      internalID: 8770494126536435482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_56
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f857f24b3d10210800000000000000
+      internalID: 1297550938503221106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_57
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b53e07c1b141d7a0800000000000000
+      internalID: -6354225367438445132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_58
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfbbc9f8d5918650800000000000000
+      internalID: 6233428118393831350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_59
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cba92bf7402a22e0800000000000000
+      internalID: -2149870378587411512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aeb1748db55f5240800000000000000
+      internalID: 4782635601749982883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2aaeeeec8975150800000000000000
+      internalID: 5861321454585029304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_62
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9dbde4e885e7bb80800000000000000
+      internalID: -8378976205580419681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2adafe1404bdc9680800000000000000
+      internalID: -8746875307229729374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_64
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2b7b6d816ad5490800000000000000
+      internalID: -7755860357650337043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_65
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049f4789661afae40800000000000000
+      internalID: 5669927917899282752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_66
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c0eb74215454180800000000000000
+      internalID: -9131816724608447414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_67
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c240ca70a23b370800000000000000
+      internalID: 8337053547632012351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_68
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c62fa3b0ce458240800000000000000
+      internalID: 4793323967961048775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_69
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1200
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8798876a596add610800000000000000
+      internalID: 1647656200360724856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cf3fa208fbe8b70800000000000000
+      internalID: 8903264070555401354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_71
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca715b4e167475280800000000000000
+      internalID: -9054690040030619732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_72
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad57b1e779e9d810800000000000000
+      internalID: 1790719027953753506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_73
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778f43a196cad8fb0800000000000000
+      internalID: -4643866073337890697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_74
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9005776aa76b2a0800000000000000
+      internalID: -6722050538418992697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_75
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8228a39a9659220800000000000000
+      internalID: 2492014144371435687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_76
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acc4a097ba163a80800000000000000
+      internalID: -8487567072025064288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_77
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ffbf043124d593d0800000000000000
+      internalID: -3200418721104412685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_78
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10586eba224f32d0800000000000000
+      internalID: -3296843650861346788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_79
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e27ff252f34e440800000000000000
+      internalID: 4964162118220197418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8096d040d1d697a30800000000000000
+      internalID: 4213518897771276552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_81
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea2b4dfc7a868090800000000000000
+      internalID: -8032580615938561301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_82
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b53856f232722ac0800000000000000
+      internalID: -3881414365633038927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_83
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385e09db583db2400800000000000000
+      internalID: 300566371514770819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_84
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b350459e0129ca7f0800000000000000
+      internalID: -599944049015388869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_85
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf79cec028f33ea50800000000000000
+      internalID: 6549148110921963516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_86
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca58ea2cf464d8010800000000000000
+      internalID: 1192686784705627564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_87
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07deb2df002968c0800000000000000
+      internalID: -4005635141237025014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_88
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a80a1fd2f2f3a40800000000000000
+      internalID: 5350046756713302637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_89
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff0dfe71cf75173e0800000000000000
+      internalID: -2057766814486638337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f16316d880b38a50800000000000000
+      internalID: 6522250787116245493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_91
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a726061ea9d0a3a0800000000000000
+      internalID: -6656080907536554076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_92
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25428c9d12dc38320800000000000000
+      internalID: 2559114558547960914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_93
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb11879ffacc7e40800000000000000
+      internalID: 5655618431177792505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_94
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d445880ca6efaa740800000000000000
+      internalID: 5164219657183843405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_95
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c5d47b3c0e2a730800000000000000
+      internalID: 4009013749511707665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_96
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37edb3674e8f18410800000000000000
+      internalID: 1477735812874100339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_97
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80ca86988716eb70800000000000000
+      internalID: 8927849186717253770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_98
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6cf5c2b5df6ba50800000000000000
+      internalID: 6536690477203179247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_99
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79512ea71bf8a920800000000000000
+      internalID: 3001925230766676350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fdeff355b31ff4aaca76c3e972df31
+      internalID: -862314846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_01
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742ae79c3ec8c3f4caf353f43aeeba02
+      internalID: -613756665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_02
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7199538f5a7080f4a8ef6a7c55b2b11f
+      internalID: -726384551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_03
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950c5b2c3f9535546ac29455ec2e7665
+      internalID: -1179343818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_04
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405ed4d167955d44cb87584928e77e2a
+      internalID: -744032724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_05
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe86d3cbcca6914d8344d357835dae2
+      internalID: -1472412462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_06
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba1385e2224b39408d828e3de1090da
+      internalID: -1927846327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_07
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9ddddf15179654a98191106b0e181e
+      internalID: -1793179426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_08
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba243987ca949f644bd9e2effb66ae06
+      internalID: -881658552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rokkimimmi_tanssi_1_09
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3600
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1124eb6dc2c3f44b52845ca287a7a0
+      internalID: 244133955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2e3587ef360abac4b868beb6a2b953bb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rokkimimmi_tanssi_1_00: -862314846
+      rokkimimmi_tanssi_1_01: -613756665
+      rokkimimmi_tanssi_1_02: -726384551
+      rokkimimmi_tanssi_1_03: -1179343818
+      rokkimimmi_tanssi_1_04: -744032724
+      rokkimimmi_tanssi_1_05: -1472412462
+      rokkimimmi_tanssi_1_06: -1927846327
+      rokkimimmi_tanssi_1_07: -1793179426
+      rokkimimmi_tanssi_1_08: -881658552
+      rokkimimmi_tanssi_1_09: 244133955
+      rokkimimmi_tanssi_1_10: -2471806932198036187
+      rokkimimmi_tanssi_1_11: -2192393284731496996
+      rokkimimmi_tanssi_1_12: 508933537124850438
+      rokkimimmi_tanssi_1_13: 1202877160437932762
+      rokkimimmi_tanssi_1_14: 1078183680422974911
+      rokkimimmi_tanssi_1_15: -7248097989784046494
+      rokkimimmi_tanssi_1_16: 1720007736129246433
+      rokkimimmi_tanssi_1_17: 2921893827075932957
+      rokkimimmi_tanssi_1_18: 9149656293951438351
+      rokkimimmi_tanssi_1_19: 5442618697609100609
+      rokkimimmi_tanssi_1_20: 4751976606120776361
+      rokkimimmi_tanssi_1_21: -7216053622382699893
+      rokkimimmi_tanssi_1_22: 6278347563248381430
+      rokkimimmi_tanssi_1_23: -8208920862725849642
+      rokkimimmi_tanssi_1_24: -3131865152239882043
+      rokkimimmi_tanssi_1_25: -2290395850550743130
+      rokkimimmi_tanssi_1_26: -840949825509289500
+      rokkimimmi_tanssi_1_27: -8706722334651484486
+      rokkimimmi_tanssi_1_28: -3898390221278392178
+      rokkimimmi_tanssi_1_29: -3459937985249642781
+      rokkimimmi_tanssi_1_30: 5383115784319414486
+      rokkimimmi_tanssi_1_31: -1709591128877448487
+      rokkimimmi_tanssi_1_32: 3533997098600549857
+      rokkimimmi_tanssi_1_33: -6945913922268718385
+      rokkimimmi_tanssi_1_34: 3982817810054970605
+      rokkimimmi_tanssi_1_35: 840143401497261509
+      rokkimimmi_tanssi_1_36: -857783202286840569
+      rokkimimmi_tanssi_1_37: 6825347744863746192
+      rokkimimmi_tanssi_1_38: 3976499010237314091
+      rokkimimmi_tanssi_1_39: 5111655718644628800
+      rokkimimmi_tanssi_1_40: 7308185202810276662
+      rokkimimmi_tanssi_1_41: -2061736930658036824
+      rokkimimmi_tanssi_1_42: 3577257580800691774
+      rokkimimmi_tanssi_1_43: -8075473099072806878
+      rokkimimmi_tanssi_1_44: -1715491793648662923
+      rokkimimmi_tanssi_1_45: -2550188200335384346
+      rokkimimmi_tanssi_1_46: -5113568136058046982
+      rokkimimmi_tanssi_1_47: -8861976761667583746
+      rokkimimmi_tanssi_1_48: -6838091054177094902
+      rokkimimmi_tanssi_1_49: 5269114681091621789
+      rokkimimmi_tanssi_1_50: 7528356113989165999
+      rokkimimmi_tanssi_1_51: -6359700977203499491
+      rokkimimmi_tanssi_1_52: -5251179303412566585
+      rokkimimmi_tanssi_1_53: -1370300204778391583
+      rokkimimmi_tanssi_1_54: 8529648272336923997
+      rokkimimmi_tanssi_1_55: 8770494126536435482
+      rokkimimmi_tanssi_1_56: 1297550938503221106
+      rokkimimmi_tanssi_1_57: -6354225367438445132
+      rokkimimmi_tanssi_1_58: 6233428118393831350
+      rokkimimmi_tanssi_1_59: -2149870378587411512
+      rokkimimmi_tanssi_1_60: 4782635601749982883
+      rokkimimmi_tanssi_1_61: 5861321454585029304
+      rokkimimmi_tanssi_1_62: -8378976205580419681
+      rokkimimmi_tanssi_1_63: -8746875307229729374
+      rokkimimmi_tanssi_1_64: -7755860357650337043
+      rokkimimmi_tanssi_1_65: 5669927917899282752
+      rokkimimmi_tanssi_1_66: -9131816724608447414
+      rokkimimmi_tanssi_1_67: 8337053547632012351
+      rokkimimmi_tanssi_1_68: 4793323967961048775
+      rokkimimmi_tanssi_1_69: 1647656200360724856
+      rokkimimmi_tanssi_1_70: 8903264070555401354
+      rokkimimmi_tanssi_1_71: -9054690040030619732
+      rokkimimmi_tanssi_1_72: 1790719027953753506
+      rokkimimmi_tanssi_1_73: -4643866073337890697
+      rokkimimmi_tanssi_1_74: -6722050538418992697
+      rokkimimmi_tanssi_1_75: 2492014144371435687
+      rokkimimmi_tanssi_1_76: -8487567072025064288
+      rokkimimmi_tanssi_1_77: -3200418721104412685
+      rokkimimmi_tanssi_1_78: -3296843650861346788
+      rokkimimmi_tanssi_1_79: 4964162118220197418
+      rokkimimmi_tanssi_1_80: 4213518897771276552
+      rokkimimmi_tanssi_1_81: -8032580615938561301
+      rokkimimmi_tanssi_1_82: -3881414365633038927
+      rokkimimmi_tanssi_1_83: 300566371514770819
+      rokkimimmi_tanssi_1_84: -599944049015388869
+      rokkimimmi_tanssi_1_85: 6549148110921963516
+      rokkimimmi_tanssi_1_86: 1192686784705627564
+      rokkimimmi_tanssi_1_87: -4005635141237025014
+      rokkimimmi_tanssi_1_88: 5350046756713302637
+      rokkimimmi_tanssi_1_89: -2057766814486638337
+      rokkimimmi_tanssi_1_90: 6522250787116245493
+      rokkimimmi_tanssi_1_91: -6656080907536554076
+      rokkimimmi_tanssi_1_92: 2559114558547960914
+      rokkimimmi_tanssi_1_93: 5655618431177792505
+      rokkimimmi_tanssi_1_94: 5164219657183843405
+      rokkimimmi_tanssi_1_95: 4009013749511707665
+      rokkimimmi_tanssi_1_96: 1477735812874100339
+      rokkimimmi_tanssi_1_97: 8927849186717253770
+      rokkimimmi_tanssi_1_98: 6536690477203179247
+      rokkimimmi_tanssi_1_99: 3001925230766676350
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

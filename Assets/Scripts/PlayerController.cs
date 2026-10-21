@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return;
         }
         if (staminaRest > 0f) { staminaRest -= dt; return; }
-        stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * dt);
+        stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * (Clues.Has(CandiTraining.TrainedId) ? 1.1f : 1f) * dt);
     }
     [Tooltip("Ei käytössä: elämät poistettiin, vain yksi energiapalkki. Kun energia loppuu, peli päättyy.")]
     public int lives = 1;
@@ -3263,6 +3263,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     /// Katsooko pelaaja oikealle (viholliset kiertävät selän taakse).
     public bool FacingRight => facingRight;
+    /// Kääntyy katsomaan annettua x-paikkaa kohti (esim. Candin treeni).
+    public void FaceTowards(float x) { facingRight = x >= transform.position.x; }
     /// Ohjattu liike (esim. kävely Auroran luo): napit eivät toimi, liike tulee ScriptedMove-arvosta.
     public bool Scripted { get; set; }
     public Vector2 ScriptedMove { get; set; }
