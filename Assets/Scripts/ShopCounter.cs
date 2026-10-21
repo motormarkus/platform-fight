@@ -24,9 +24,15 @@ public class ShopCounter : MonoBehaviour
         public string takeaway = "";
         [Tooltip("Ääni ostettaessa (Assets/Audio/sfx).")]
         public AudioClip sound;
+        [Tooltip("Ostettu esine: pannu = paistinpannu lattialle, lauta = rullalauta lattialle, esine = tavara tapauskansioon (käyttö myöhemmin). Tyhjä = tavallinen ruoka/juoma.")]
+        public string give = "";
     }
 
     public static bool IsOpen;
+    [Tooltip("Rullalauta ilmestyy tähän (kaupan piha), jos hasBoardAt.")]
+    public Vector2 boardAt; public bool hasBoardAt;
+    [Tooltip("Vain tiskin omat tuotteet (ei automaattisia eväitä eikä Böönia): panttilainaamo.")]
+    public bool ownItemsOnly;
 
     public string title = "S-CLUB  BAARI";
     [Tooltip("Myyjän nimi (näkyy vastauksissa).")]
@@ -85,7 +91,8 @@ public class ShopCounter : MonoBehaviour
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
-        // Sohvi on jokaisella tiskillä
+        // Sohvi on jokaisella tiskillä (Helvi ym. muut myyjät eivät käytä Sohvin ääniä)
+        if (npcName == "Sohvi")
         {
             voiceSource = gameObject.AddComponent<AudioSource>();
             voiceSource.playOnAwake = false; voiceSource.spatialBlend = 0f;
@@ -124,7 +131,7 @@ public class ShopCounter : MonoBehaviour
             foreach (var it in items)
                 if (it != null && it.name == "Kossupaukku") { it.name = "Rommi"; it.price = 12; it.heal = 50; it.stamina = 999; it.comment = "Merimieskänni!"; }
         // eväät kotipakettiin: menevät taskuun (yksi paikka, yhteinen Böönin kanssa), syödään pitämällä E / toimintanappi pohjassa
-        if (items != null && System.Array.FindIndex(items, x => x != null && x.takeaway == "hotdog") < 0)
+        if (!ownItemsOnly && items != null && System.Array.FindIndex(items, x => x != null && x.takeaway == "hotdog") < 0)
         {
             var l = new System.Collections.Generic.List<Item>(items);
             l.Add(new Item { name = HodariName, price = 5, takeaway = "hotdog", comment = "Sinappia ja ketsuppia." });
@@ -133,7 +140,7 @@ public class ShopCounter : MonoBehaviour
             items = l.ToArray();
         }
         // Bööni (termospullo) kaikille tiskeille: taskuun, juodaan tarvittaessa
-        if (items != null && System.Array.FindIndex(items, x => x != null && x.name == "Bööni") < 0)
+        if (!ownItemsOnly && items != null && System.Array.FindIndex(items, x => x != null && x.name == "Bööni") < 0)
         {
             var l = new System.Collections.Generic.List<Item>(items);
             l.Add(new Item { name = "Bööni", price = BooniPrice, heal = 0, stamina = 0, comment = "Taskuun pahan päivän varalle." });
@@ -242,6 +249,26 @@ public class ShopCounter : MonoBehaviour
 
     void Buy(Item it)
     {
+        if (!string.IsNullOrEmpty(it.give))
+        {
+            if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
+            Vector3 at = pc.transform.position + Vector3.right * (pc.FacingRight ? 1.4f : -1.4f);
+            if (it.give == "pannu") { pc.money -= it.price; Pan.SpawnDropped(at); Say(Loc.T("Pannu putosi lattialle edessäsi. Poimi se.")); }
+            else if (it.give == "lauta")
+            {
+                if (pc.boardSprite == null) { Say(Loc.T("Lautaa ei ole tällä hetkellä saatavilla.")); return; }
+                pc.money -= it.price; LooseBoard.Spawn(pc.boardSprite, hasBoardAt ? new Vector3(boardAt.x, boardAt.y, 0f) : at, 0f, null); Say(Loc.T(hasBoardAt ? "Lauta odottaa kaupan pihalla. Astu päälle." : "Lauta on lattialla edessäsi. Astu päälle."));
+            }
+            else
+            {
+                pc.money -= it.price;
+                Clues.Add("esine_" + it.name, it.name, Loc.T("Ostettu panttilainaamosta. Käyttö selviää myöhemmin."), null, false);
+                Say(Loc.T("Ostit: ") + Loc.T(it.name) + ". " + Loc.T("Se on tapauskansiossa."));
+            }
+            Speak(purchaseLines);
+            HitFx.PlayPickup(false);
+            return;
+        }
         if (!string.IsNullOrEmpty(it.takeaway))
         {
             if (pc.PocketFoodFull) { Say(Loc.T("Tasku on täynnä: siihen mahtuu kaksi evästä ja Bööni.")); return; }

@@ -23,12 +23,12 @@ public static class Clues
     public static int IndexOf(string id) => All.FindIndex(c => c.id == id);
 
     /// Lisää vihjeen, jos sitä ei vielä ole. Palauttaa true, jos se oli uusi.
-    public static bool Add(string id, string title, string text, string art = null)
+    public static bool Add(string id, string title, string text, string art = null, bool notify = true)
     {
         if (string.IsNullOrEmpty(id) || Has(id)) return false;
         var c = new Clue { id = id, title = title, text = text, art = art };
         All.Add(c);
-        Latest = c; LatestTime = Time.unscaledTime;
+        if (notify) { Latest = c; LatestTime = Time.unscaledTime; }
         return true;
     }
 }

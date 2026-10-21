@@ -16019,4 +16019,206 @@ public static class BeatEmUpSetup
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
+
+    // ---------------- Uccopulcon ulkokahvilan terassi: pöydät ja tuolit ----------------
+    // Terassi on kadun uuden vasemman osan toisessa kuvassa (kuvan x 620-1520, jalat rivillä ~512). Pöydät ja tuolit kopioidaan El Loipparin pöydistä ja tuoleista (hero voi nostaa ja heittää).
+    [MenuItem("Beat em up/226. Uccopulcon ulkokahvila: pöydät ja tuolit terassille")]
+    static void AddCafeTerrace()
+    {
+        if (PlayModeBlocked()) return;
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var streetBg = Object.FindObjectsByType<SpriteRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(r => r.gameObject.name == "Uccopulco" && r.gameObject.scene == scene);
+            var tableT = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+                .FirstOrDefault(c => c.gameObject.scene == scene && c.name == "P" + (char)0xF6 + "yt" + (char)0xE4 && c.transform.parent != null && c.transform.parent.name.StartsWith("El Loipparin"));
+            var chairT = Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene);
+            if (streetBg == null || tableT == null || chairT == null) { Info("Tarvitaan Uccopulcon katu sekä El Loipparin pöytä ja tuoli mallina (UccoLaivan scene)."); return; }
+            foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.name == "Uccopulcon ulkokahvila" && t.gameObject.scene == scene).ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+            var root = new GameObject("Uccopulcon ulkokahvila");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Ulkokahvila");
+            float ppu = streetBg.sprite.pixelsPerUnit, left = streetBg.bounds.min.x, topY = streetBg.bounds.max.y;
+            float y = topY - 512f / ppu;                       // terassin etureunan kohta
+            float[] tablePx = { 800f, 1110f, 1420f };           // kolme pöytää terassilla
+            int n = 0, pies = 0;
+            foreach (float px in tablePx)
+            {
+                float x = left + px / ppu;
+                var tg = Object.Instantiate(tableT.gameObject, root.transform);
+                tg.name = "Kahvilan pöytä " + (++n);
+                tg.transform.position = new Vector3(x, y, 0f);
+                var tcrate = tg.GetComponent<Crate>();
+                if (tcrate != null && MakePie(root.transform, tcrate, 0.62f * TableScale, 1.28f * TableScale - 0.04f) != null) pies++;   // kermapiirakka pöydälle: poimittava ja heitettävä
+                for (int k = 0; k < 2; k++)
+                {
+                    var cg = Object.Instantiate(chairT.gameObject, root.transform);
+                    cg.name = "Kahvilan tuoli " + n + (k == 0 ? "a" : "b");
+                    cg.transform.position = new Vector3(x + (k == 0 ? -1.25f : 1.25f), y - 0.05f, 0f);
+                    var vis = cg.GetComponentInChildren<SpriteRenderer>(); if (vis != null) vis.flipX = k == 1;
+                }
+            }
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Ulkokahvilan terassille lisätty " + n + " pöytää, " + (n * 2) + " tuolia ja " + pies + " kermapiirakkaa (x " + (left + tablePx[0] / ppu).ToString("0.0") + "…" + (left + tablePx[n - 1] / ppu).ToString("0.0") + "). UccoLaivan scene tallennettu." + "\n\nJos paikat eivät osu terassin kohdalle, siirrä olioita Unityssä (juuri 'Uccopulcon ulkokahvila').");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Sohvi Uccopulcon ulkokahvilaan: myyjä terassilla kahvilan ikkunan edessä ----------------
+    [MenuItem("Beat em up/227. Uccopulcon ulkokahvila: Sohvi myyjänä (kahvi, voileipä, limsa)")]
+    static void AddCafeSohvi()
+    {
+        if (PlayModeBlocked()) return;
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var street = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco" && a.gameObject.scene == scene);
+            var streetBg = Object.FindObjectsByType<SpriteRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(r => r.gameObject.name == "Uccopulco" && r.gameObject.scene == scene);
+            var counterT = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name == "El Loipparin tiski");
+            var sohviT = Object.FindObjectsByType<Dancer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name == "El Loipparin Sohvi");
+            if (street == null || streetBg == null || counterT == null || sohviT == null) { Info("Tarvitaan Uccopulcon katu sekä El Loipparin tiski ja Sohvi mallina (UccoLaivan scene)."); return; }
+            foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && (t.name == "Kahvilan tiski" || t.name == "Kahvilan Sohvi") && t.gameObject.scene == scene).ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+            float ppu = streetBg.sprite.pixelsPerUnit, left = streetBg.bounds.min.x, topY = streetBg.bounds.max.y;
+            float cx = left + 1195f / ppu;                      // kahvilan ikkunan keskikohta (kuvan x 1195)
+            var cg = Object.Instantiate(counterT.gameObject); cg.name = "Kahvilan tiski";
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cg, scene);
+            Undo.RegisterCreatedObjectUndo(cg, "Kahvilan tiski");
+            cg.transform.position = new Vector3(cx, street.maxDepthY, 0f);
+            var sc = cg.GetComponent<ShopCounter>();
+            sc.here = street; sc.title = "KAHVILA"; sc.npcName = "Sohvi"; sc.prompt = "Puhu Sohville";
+            sc.halfWidth = 2.6f; sc.maxDistanceFromWall = 1.4f;
+            sc.items = new[]
+            {
+                new ShopCounter.Item { name = "Kahvi", price = 4, heal = 0, stamina = 60, comment = "Kuumaa ja vahvaa.", sound = null },
+                new ShopCounter.Item { name = "Voileipä", price = 6, heal = 45, stamina = 0, comment = "Tuore ja täyttävä.", sound = null },
+                new ShopCounter.Item { name = "Limsa", price = 3, heal = 15, stamina = 25, comment = "Kylmää ja kuplivaa.", sound = null },
+            };
+            var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Kahvilan Sohvi";
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene);
+            Undo.RegisterCreatedObjectUndo(sg, "Kahvilan Sohvi");
+            sg.transform.position = new Vector3(cx, topY - 485f / ppu, 0f);   // terassin lattialla ikkunan edessä
+            // seisovat idle-kuvat (Assets/Sprites/Sohvi): idle kolme kertaa, sitten hiusten sipaisu
+            var idleS = SliceAerobicsSheet("Assets/Sprites/Sohvi/sohvi_seisoo_idle.png"); var hairS = SliceAerobicsSheet("Assets/Sprites/Sohvi/sohvi_seisoo_hiukset.png");
+            if (idleS != null && hairS != null && idleS.Length >= 20 && hairS.Length >= 30)
+            {
+                var seqS = new List<Sprite>();
+                for (int r = 0; r < 3; r++) seqS.AddRange(idleS.Take(20));
+                seqS.AddRange(hairS.Take(30));
+                var dS = sg.GetComponent<Dancer>(); var rS = sg.GetComponentInChildren<SpriteRenderer>();
+                if (dS != null && rS != null)
+                {
+                    Undo.RecordObject(dS, "Sohvi seisoo"); Undo.RecordObject(rS, "Sohvi seisoo");
+                    dS.sprites = seqS.ToArray(); dS.frameTime = 0.1f; dS.keepOrder = true; dS.startFrame = 0; dS.flipX = false;
+                    rS.sprite = seqS[0]; rS.flipX = false; rS.sortingOrder = Mathf.RoundToInt(-sg.transform.position.y * 100f);
+                    sg.transform.localScale = Vector3.one;   // sama koko kuin hero (300 px = 3 yksikköä)
+                }
+            }
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Sohvi lisätty ulkokahvilan terassille (x " + cx.ToString("0.0") + ") ja kahvilan tiski avautuu hänen kohdallaan: kahvi (stamina), voileipä (energia) ja limsa (vähän kumpaakin). Bööni ja taskueväät tulevat tiskille automaattisesti." + "\n\nJos hän seisoo väärässä kohdassa, siirrä olioita 'Kahvilan Sohvi' ja 'Kahvilan tiski' Unityssä. UccoLaivan scene tallennettu.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Helvi, panttilainaamon myyjä: seisoo tiskin takana (tiski omana spritenä hänen edessään) ----------------
+    // Kuvat: Assets/Sprites/Helvi/helvi_idle (24), helvi_hiukset (35), helvi_kaanto (19), helvi_kavely (28); ruutu 320 x 400 (Tools/HelviAssets).
+    // Tiski: Assets/Sprites/Taustat/pantti_tiski.png (leikattu pantti_sisa.png:stä, x 540-1702, y 556-814).
+    const string HelviDir = "Assets/Sprites/Helvi/";
+    const string PawnCounterPath = "Assets/Sprites/Taustat/pantti_tiski.png";
+    const float HelviScale = 1.25f, PawnCounterX0 = 540f, PawnCounterY0 = 556f, PawnCounterFrontPx = 812f, PawnHeroLimitPx = 835f, PawnHelviXPx = 1100f, PawnHelviFeetPx = 790f;
+    [MenuItem("Beat em up/228. Helvi: panttilainaamon myyjä tiskin takana (tiski-sprite) ja tiski")]
+    static void AddHelvi()
+    {
+        if (PlayModeBlocked()) return;
+        var seq = new List<Sprite>();
+        Sprite[] Sheet(string n, int count)
+        {
+            var sp = SliceAerobicsSheet(HelviDir + n + ".png");
+            if (sp == null || sp.Length < count) return null;
+            return sp.Take(count).ToArray();
+        }
+        var idle = Sheet("helvi_idle", 24); var hair = Sheet("helvi_hiukset", 35);
+        if (idle == null || hair == null) { Info("Puuttuu helvi_idle.png tai helvi_hiukset.png kansiosta " + HelviDir); return; }
+        // idle kolme kertaa, sitten hiusten sipaisu
+        for (int i = 0; i < 3; i++) seq.AddRange(idle);
+        seq.AddRange(hair);
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Panttilainaamo" && a.gameObject.scene == scene);
+            var bg = Object.FindObjectsByType<SpriteRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(r => r.gameObject.name == "Panttilainaamo (kuva)" && r.gameObject.scene == scene);
+            var counterT = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name == "El Loipparin tiski");
+            if (area == null || bg == null) { Info("Aja ensin valikko 225 (panttilainaamo)."); return; }
+            if (counterT == null) { Info("El Loipparin tiski puuttuu mallina (UccoLaivan scene)."); return; }
+            foreach (var n in new[] { "Panttilainaamon tiski (etu)", "Helvi", "Panttilainaamon tiski" })
+                foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.name == n && t.gameObject.scene == scene).ToArray())
+                    Undo.DestroyObjectImmediate(old.gameObject);
+            float ppu = bg.sprite.pixelsPerUnit, left = bg.bounds.min.x, top = bg.bounds.max.y;
+            // tiski-sprite
+            var tiPath = PawnCounterPath;
+            var cti = AssetImporter.GetAtPath(tiPath) as TextureImporter;
+            if (cti == null) { Info("Puuttuu " + tiPath); return; }
+            cti.textureType = TextureImporterType.Sprite; cti.spriteImportMode = SpriteImportMode.Single;
+            cti.spritePixelsPerUnit = ppu; cti.filterMode = FilterMode.Bilinear; cti.mipmapEnabled = false; cti.alphaIsTransparency = true;
+            cti.textureCompression = TextureImporterCompression.CompressedHQ; cti.maxTextureSize = 4096;
+            var cst = new TextureImporterSettings(); cti.ReadTextureSettings(cst);
+            cst.spriteMeshType = SpriteMeshType.FullRect; cst.spriteAlignment = (int)SpriteAlignment.Center; cti.SetTextureSettings(cst);
+            cti.SaveAndReimport();
+            var cSprite = AssetDatabase.LoadAssetAtPath<Sprite>(tiPath);
+            float cw = cSprite.rect.width, ch = cSprite.rect.height;
+            var cgo = new GameObject("Panttilainaamon tiski (etu)");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cgo, scene);
+            Undo.RegisterCreatedObjectUndo(cgo, "Tiski");
+            cgo.transform.position = new Vector3(left + (PawnCounterX0 + cw * 0.5f) / ppu, top - (PawnCounterY0 + ch * 0.5f) / ppu, 0f);
+            var csr = cgo.AddComponent<SpriteRenderer>(); csr.sprite = cSprite;
+            float frontY = top - PawnCounterFrontPx / ppu;
+            csr.sortingOrder = Mathf.RoundToInt(-frontY * 100f);   // hero tiskin edessä (alempana) piirtyy päälle, Helvi (ylempänä) taakse
+            // hero pysyy tiskin edessä
+            Undo.RecordObject(area, "Panttilainaamon takaraja");
+            area.maxDepthY = top - PawnHeroLimitPx / ppu;
+            EditorUtility.SetDirty(area);
+            // Helvi
+            float hy = top - PawnHelviFeetPx / ppu, hx = left + PawnHelviXPx / ppu;
+            var h = new GameObject("Helvi");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(h, scene);
+            Undo.RegisterCreatedObjectUndo(h, "Helvi");
+            h.transform.position = new Vector3(hx, hy, 0f);
+            h.transform.localScale = Vector3.one * HelviScale;
+            var hsr = h.AddComponent<SpriteRenderer>(); hsr.sprite = seq[0]; hsr.sortingOrder = Mathf.RoundToInt(-hy * 100f);
+            var dancer = h.AddComponent<Dancer>(); dancer.sprites = seq.ToArray(); dancer.frameTime = 0.1f; dancer.keepOrder = true;
+            // tiski (kauppa)
+            var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Panttilainaamon tiski";
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(shopGo, scene);
+            Undo.RegisterCreatedObjectUndo(shopGo, "Panttilainaamon tiski");
+            shopGo.transform.position = new Vector3(hx, area.maxDepthY, 0f);
+            var sc = shopGo.GetComponent<ShopCounter>();
+            sc.here = area; sc.title = "PANTTILAINAAMO"; sc.npcName = "Helvi"; sc.prompt = "Puhu Helville";
+            sc.halfWidth = 2.6f; sc.maxDistanceFromWall = 1.2f;
+            sc.ownItemsOnly = true;
+            var streetA = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco" && a.gameObject.scene == scene);
+            var streetDoor = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d.name == "Panttilainaamon ovi" && d.gameObject.scene == scene);
+            if (streetA != null && streetDoor != null) { sc.hasBoardAt = true; sc.boardAt = new Vector2(streetDoor.transform.position.x + 2.2f, Mathf.Lerp(streetA.maxDepthY, streetA.minDepthY, 0.25f)); }   // lauta ilmestyy kaupan pihalle kadulle
+            sc.items = new[]
+            {
+                new ShopCounter.Item { name = "Paistinpannu", price = 40, give = "pannu", comment = "Raskas valurautapannu." },
+                new ShopCounter.Item { name = "Rullalauta", price = 80, give = "lauta", comment = "Hyvässä kunnossa." },
+                new ShopCounter.Item { name = "Kaulakoru", price = 250, give = "esine", comment = "Kultainen ketju." },
+                new ShopCounter.Item { name = "Sormus", price = 180, give = "esine", comment = "Pieni mutta arvokas." },
+                new ShopCounter.Item { name = "Kitara", price = 400, give = "esine", comment = "Käytetty akustinen." },
+            };
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Helvi lisätty panttilainaamoon: hän seisoo tiskin takana (" + seq.Count + " kuvaa, koko " + HelviScale + "x) ja tiski on oma spritensä hänen edessään. Hero pysyy tiskin edessä (takaraja siirretty). Tiskillä myydään paistinpannu, rullalauta, kaulakoru, sormus ja kitara." + "\n\nSäädä tarvittaessa Helvin paikkaa (x " + hx.ToString("0.0") + ") ja kokoa (Scale) Unityssä. UccoLaivan scene tallennettu.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
 }

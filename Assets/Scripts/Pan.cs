@@ -43,6 +43,17 @@ public class Pan : MonoBehaviour
         if (body != null) { body.transform.localScale = Vector3.one * artScale; if (spinSprites.Length > 0) body.sprite = spinSprites[0]; }
     }
     static int Number(Sprite sprite) { int.TryParse(sprite.name.Substring(sprite.name.LastIndexOf('_') + 1), out int n); return n; }
+    /// Uusi pannu putoaa lattialle annettuun kohtaan (ostettu pannu): poimittavissa kuten pöydältä.
+    public static Pan SpawnDropped(Vector3 pos)
+    {
+        var go = new GameObject("Paistinpannu");
+        go.transform.position = pos;
+        var vis = new GameObject("Visual"); vis.transform.SetParent(go.transform, false);
+        vis.AddComponent<SpriteRenderer>();
+        var pan = go.AddComponent<Pan>();
+        pan.dropped = true; pan.Launch(pos, 1.4f, 0f, 1f);
+        return pan;
+    }
     public static bool TryPickUp(PlayerController player)
     {
         if (HeldBy(player) != null) return false;
