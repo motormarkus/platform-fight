@@ -53,6 +53,12 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     [Tooltip("Deacon's Den: Tom pysyy rauhassa, kunnes hero on ollut huoneessa näin kauan (s) tai joku aloittaa tappelun (wakeOnFight). 0 = herää heti, kun joku on lähellä (hotelli).")]
     public float wakeAfterSeconds = 0f;
     public bool wakeOnFight;
+    [Tooltip("Ei rauhoitu, vaikka kohde olisi kaukana (Salsafestin tappelu: Tom tulee ruudun ulkopuolelta heroa kohti).")]
+    public bool noRest;
+    [Tooltip("Rauhassa tallustelee tällä x-välillä (0 = pysyy paikallaan). Salsafest.")]
+    public float wanderMinX, wanderMaxX;
+    public float wanderSpeed = 1.1f;
+    float strollTarget, strollPause;
     float calmTimer;
     public int foeDamageBonus = 6;   // iskut muihin vihuihin (kaataa aina)
 
@@ -97,11 +103,21 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     static bool Has(Sprite[] a) => a != null && a.Length > 0;
 
     /// Tomin ääni (puhe, kiljahdus, juonti): ei päällekkäin muiden puheäänten kanssa, ellei force.
+    /// Ruudun ulkopuolella huutaessa ääni vaimenee (muuten kovaääninen huuto säröytyy muiden äänten päällä).
+    float OffscreenGain()
+    {
+        var cam = Camera.main;
+        if (cam == null) return 1f;
+        float halfW = cam.orthographicSize * cam.aspect;
+        float d = Mathf.Abs(transform.position.x - cam.transform.position.x) - halfW;
+        return d <= 0f ? 1f : Mathf.Lerp(1f, 0.3f, Mathf.Clamp01(d / 18f));
+    }
+
     void Voice(AudioClip c, float volume = 1f, bool force = true)
     {
         if (c == null || e == null || e.Audio == null) return;
         if (!force && Time.time < voiceBusyUntil) return;
-        e.Audio.PlayOneShot(c, volume);
+        e.Audio.PlayOneShot(c, volume * OffscreenGain());
         voiceBusyUntil = Time.time + c.length;
     }
 
@@ -116,7 +132,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     {
         if (clips == null || clips.Length == 0 || e == null || e.Audio == null) return;
         var c = clips[Random.Range(0, clips.Length)];
-        if (c != null) e.Audio.PlayOneShot(c, volume);
+        if (c != null) e.Audio.PlayOneShot(c, volume * OffscreenGain());
     }
 
     void Awake()
@@ -132,6 +148,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
 
     public void Tick(float dt)
     {
+        e.damageTakenMul = berserk ? 0.5f : 1f;   // berserkissä kestää osumia 50 % paremmin (ei ehdi olla siinä kauaa)
         var hero = e.Hero;
         if (hero == null) return;
         if (Time.time - lastTick > 0.25f) AbortAction();
@@ -143,7 +160,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         if (mode == Mode.Dormant)
         {
             e.BrainPhaseSet(Enemy.BrainPhase.Idle);
-            DormantSprite();
+            if (!(wanderMaxX > wanderMinX && !e.IsAwake && Stroll(dt))) DormantSprite();
             if (Time.time >= nextSpeakAt) { if (Mathf.Abs(dx) < 22f) VoiceRandom(speakLines, 0.9f, false); nextSpeakAt = Time.time + Random.Range(5f, 10f); }   // jorisee rauhassakin silloin tällöin
             if (Mathf.Abs(dx) < 30f) calmTimer += dt;   // aika, jonka hero on ollut huoneessa
             bool sees = attacksEveryone && Mathf.Abs(dx) <= foeRange && Mathf.Abs(hp.y - me.y) < 4f;   // hotellin Tom huomaa kenet tahansa
@@ -157,7 +174,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
             return;
         }
         // kohde lähti kauas: takaisin rauhaan, energia täyteen
-        if (!berserk && (Mathf.Abs(dx) > 20f || Mathf.Abs(hp.y - me.y) > 7f)) { Rest(); return; }   // berserkinä ei rauhoitu: jahtaa loppuun asti
+        if (!berserk && !noRest && (Mathf.Abs(dx) > 20f || Mathf.Abs(hp.y - me.y) > 7f)) { Rest(); return; }   // berserkinä ei rauhoitu: jahtaa loppuun asti
         if (berserk) berserkT += dt;
         stamina = Mathf.Min(staminaMax, stamina + staminaRegen * dt * (mode == Mode.Tired ? 1.6f : 1f) * (berserk ? 3f : 1f));
 
@@ -188,6 +205,20 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     public bool InterceptHit(int damage, float attackerX, bool knockdown) => Invulnerable;
 
     // ---------------- rauha: seisoo, välillä lihasposeeraus ----------------
+
+    /// Rauhassa tallustelu (wanderMinX..wanderMaxX): kävelee, pysähtyy välillä. Palauttaa true, kun kävelee tässä ruudussa.
+    bool Stroll(float dt)
+    {
+        if (strollPause > 0f) { strollPause -= dt; return false; }
+        Vector3 me = transform.position;
+        if (strollTarget < wanderMinX || strollTarget > wanderMaxX) strollTarget = Random.Range(wanderMinX, wanderMaxX);
+        float dx = strollTarget - me.x;
+        if (Mathf.Abs(dx) < 0.15f) { strollPause = Random.Range(2f, 5f); strollTarget = Random.Range(wanderMinX, wanderMaxX); return false; }
+        e.FacingRight = dx > 0f;
+        e.BrainMove(new Vector2(Mathf.Sign(dx) * wanderSpeed * dt, 0f));
+        CurrentSprite = Has(walk) ? Loop(walk, walkFrameTime * walkSpeed / Mathf.Max(0.1f, wanderSpeed)) : Ping(idle, idleFrameTime);
+        return true;
+    }
 
     void DormantSprite()
     {

@@ -107,6 +107,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Kombot")]
     [Tooltip("Iskusarjat peräkkäin: J = lyönti, S = toinen isku (suora), P = vaihtoehtoinen (polvi), K = kolmas (kierrepotku). Esim. \"JSJ\".")]
     public string[] combos;
+    [Header("Lakinheitto (C) + suora (X)")] public Sprite[] capSprites, capCrossSprites;
+    public int capImpactFrame = 2, capCrossImpactFrame = 1, capDamage = 4, capCrossDamage = 12;
+    public float capWindupTime = 0.3f, capRecoverTime = 0.2f, capReach = 4.5f, capCrossWindup = 0.1f, capCrossRecover = 0.45f;
+    bool usingCap, usingCapCross;
     [Range(0f, 1f)] public float comboChance = 0f;
     [Tooltip("Kombon seuraavien iskujen vetoaika suhteessa normaaliin.")]
     public float comboWindupScale = 0.55f;
@@ -253,6 +257,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Header("Pullot (punkkari)")]
     [Tooltip("punk_pullo.png: 13 kuvaa (ThrowPose: 1–5 nosto, 6–7 veto, 9 heitto, 10–12 paluu). Tyhjä = ei hae pulloja.")]
     public Sprite[] bottleSprites;
+    [Tooltip("Oma käden paikka kuvissa (x, y yksikköä jalkojen keskeltä, kallistus, w = 1 kun esine kädessä); 13 alkiota. Tyhjä = punkkarin oletukset (ThrowPose).")]
+    public Vector4[] bottleGrips;
     [Tooltip("Kuinka usein (1/s) lähdetään hakemaan lattialla olevaa ehjää pulloa, kun pelaaja ei ole aivan vieressä.")]
     public float bottleRate = 0.3f;
     Bottle targetBottle, heldBottle;
@@ -677,6 +683,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
     }
     public bool IsDead => state == State.Dead;
+    [Tooltip("Otetun vahingon kerroin (aivo voi muuttaa: Tom berserkissä 0,5).")]
+    public float damageTakenMul = 1f;
+    int Dmg(int d) => damageTakenMul == 1f ? d : Mathf.Max(1, Mathf.RoundToInt(d * damageTakenMul));
     /// Vihu on kesken hyökkäystä (valmistelu, isku tai palautus): pelaajan counter-isku (suojaus + lyönti) voi katkaista sen.
     /// Anteeksiantava: myös 0,25 s hyökkäystilan jälkeen (sarjan askelten väli, aivopomojen siirtymät), kun vihu on vielä perustilassa.
     public bool InAttack => !waitingToAppear && (state == State.Windup || state == State.Punch || state == State.Recover
@@ -690,7 +699,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!InAttack) return false;
         comboSeq = null; counterActive = false;
         awake = true;
-        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage, isBoss));
+        health = Mathf.Max(0, health - Dmg(GameSettings.ScaleToEnemy(damage, isBoss)));
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;
@@ -2077,6 +2086,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             rot = dir * cg.z;
             return true;
         }
+        if (body != null && (state == State.BottlePick || state == State.BottleThrow) && bottleGrips != null && bottleGrips.Length >= 13)
+        {
+            Vector4 cg = bottleGrips[BottleFrame()];
+            if (cg.w <= 0f) { hand = Vector3.zero; rot = 0f; return false; }   // esine vielä lattialla
+            hand = body.transform.position + new Vector3(dir * cg.x * visualScale, cg.y * visualScale, 0f);
+            rot = dir * cg.z;
+            return true;
+        }
         if (body == null || (state != State.BottlePick && state != State.BottleThrow)
             || !ThrowPose.Punk.TryGetValue(BottleFrame(), out var g)) { hand = Vector3.zero; rot = 0f; return false; }
         hand = body.transform.position + new Vector3(dir * g.hand.x, g.hand.y, 0f);
@@ -2338,7 +2355,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     targetBarrel = null;
                     moving = false;
                     attackRolled = false;
-                    usingAlt = false; usingPunch3 = false; usingUppercut = false; comboSeq = null;
+                    usingAlt = false; usingCap = false; usingCapCross = false; usingPunch3 = false; usingUppercut = false; comboSeq = null;
                     usingPunch2 = Has(punch2Sprites);
                     Enter(State.Windup);
                     return;
@@ -2879,6 +2896,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     void SetAttack(char c)
     {
         usingDoubleKick = false;
+        usingCap = c == 'C' && Has(capSprites); usingCapCross = c == 'X' && Has(capCrossSprites);
         usingAlt = c == 'P' && Has(altAttackSprites);
         usingPunch2 = c == 'S' && Has(punch2Sprites);
         usingPunch3 = c == 'K' && Has(punch3Sprites);
@@ -2968,6 +2986,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f) return false;
         if (Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (player.AirHeight > 0.9f) return false;   // hypyllä voi väistää
+        if (usingCap) return player.TakeHit(capDamage, me.x, this, false);   // lakki silmille: torjuttavissa; osuessaan jättää heron osumatilaan
+        if (usingCapCross) return player.TakeHit(capCrossDamage, me.x, this, true);   // suora lakin perään: osuu osumatilassa olevaan (ei torjuntaa eikä counteria)
         if (usingDoubleKick)
             return player.TakeKnockdown(doubleKickDamage, me.x, doubleKickLaunchX, doubleKickLaunchUp, this); // torjuttavissa
         bool mid = ComboContinues;   // kombon keskellä ei kaadeta (seuraava isku tulee perään)
@@ -3069,7 +3089,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             // renkaassa ei voi torjua: iskut uppoavat, kolmas (tai kaatava) isku kaataa renkaan kanssa
             awake = true;
-            health = Mathf.Max(0, health - damage);
+            health = Mathf.Max(0, health - Dmg(damage));
             LastHit = this; LastHitTime = Time.time;
             JustBlocked = false;
             flashTimer = 0.1f;
@@ -3139,7 +3159,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         awake = true;
         comboHits++; lastHitTime = Time.time;
         if (player != null && player.InPunchChain && !breaksCombos) comboHits = 0;   // hero on kombossa: vastaisku koskee vain irrallisia, ajoitettuja lyöntejä
-        health = Mathf.Max(0, health - damage);
+        health = Mathf.Max(0, health - Dmg(damage));
         if (sparring && health <= 0) { knockdown = true; sparKO = true; health = 1; Clues.WinBelt(); }
         else if (undying && health <= 0) { knockdown = true; undyingFallen = true; health = 1; }   // uusiutuva pomo: ei kuole, kaatuu ja aivo ajaa pakoon   // sparraus: nollasta kaatuu kanveesiin (ei kuole) ja jää makaamaan, kunnes hero lähtee kehästä
         LastHit = this; LastHitTime = Time.time;
@@ -3163,7 +3183,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             comboHits = 0;
             knockVel = Vector2.zero;
             moving = false; attackRolled = false;
-            usingAlt = false; usingPunch3 = false; usingUppercut = false; usingPunch2 = false;
+            usingAlt = false; usingCap = false; usingCapCross = false; usingPunch3 = false; usingUppercut = false; usingPunch2 = false;
             comboSeq = null;
             Enter(State.Windup);
             counterActive = true;
@@ -3344,7 +3364,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         artSet = null; artThrow = false; flightArt = false; thrownByPlayer = false; launched = false;
         spinRot = 0f; heldPose = -1;
         awake = true;
-        health = Mathf.Max(0, health - GameSettings.ScaleToEnemy(damage, isBoss));
+        health = Mathf.Max(0, health - Dmg(GameSettings.ScaleToEnemy(damage, isBoss)));
         LastHit = this; LastHitTime = Time.time;
         bool fromLeft = attackerX < transform.position.x;
         facingRight = !fromLeft;
@@ -3362,7 +3382,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (state != State.Held) return;
         awake = true;
-        health = Mathf.Max(1, health - GameSettings.ScaleToEnemy(damage, isBoss));
+        health = Mathf.Max(1, health - Dmg(GameSettings.ScaleToEnemy(damage, isBoss)));
         flashTimer = 0.1f;
         LastHit = this; LastHitTime = Time.time;
     }
@@ -3372,7 +3392,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (state != State.Held) return;
         awake = true;
-        health = Mathf.Max(0, health - damage);
+        health = Mathf.Max(0, health - Dmg(damage));
         LastHit = this; LastHitTime = Time.time;
         knockVel = new Vector2(vx * Clues.LaunchMul, 0f);
         verticalVel = up;
@@ -3882,12 +3902,12 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     bool usingAlt;   // onko käynnissä toinen hyökkäys (pusku)
-    Sprite[] AtkSprites => usingDoubleKick ? doubleKickSprites : usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
-    int PunchImpact => Mathf.Clamp(usingDoubleKick ? doubleKickImpactFrame : usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
-    float CurrentWindup => (usingDoubleKick ? Mathf.Max(0.1f, doubleKickImpactFrame * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, altImpactFrame * altAnimationFrameTime) : (windupTime + altExtraWindup) * altTimeScale) : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
+    Sprite[] AtkSprites => usingCap ? capSprites : usingCapCross ? capCrossSprites : usingDoubleKick ? doubleKickSprites : usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
+    int PunchImpact => Mathf.Clamp(usingCap ? capImpactFrame : usingCapCross ? capCrossImpactFrame : usingDoubleKick ? doubleKickImpactFrame : usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
+    float CurrentWindup => (usingCap ? capWindupTime : usingCapCross ? capCrossWindup : usingDoubleKick ? Mathf.Max(0.1f, doubleKickImpactFrame * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, altImpactFrame * altAnimationFrameTime) : (windupTime + altExtraWindup) * altTimeScale) : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
                            * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
-    float CurrentRecover => usingDoubleKick ? Mathf.Max(0.1f, (doubleKickSprites.Length - doubleKickImpactFrame) * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, (altAttackSprites.Length - altImpactFrame) * altAnimationFrameTime) : punchRecoverTime * altTimeScale) : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
-    float CurrentReach => usingDoubleKick ? doubleKickReach : usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
+    float CurrentRecover => usingCap ? capRecoverTime : usingCapCross ? capCrossRecover : usingDoubleKick ? Mathf.Max(0.1f, (doubleKickSprites.Length - doubleKickImpactFrame) * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, (altAttackSprites.Length - altImpactFrame) * altAnimationFrameTime) : punchRecoverTime * altTimeScale) : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
+    float CurrentReach => usingCap ? capReach : usingCapCross ? attackRange + 0.4f : usingDoubleKick ? doubleKickReach : usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
 
 
     // ---------------- Ulkoinen aivo (Deacon) ----------------

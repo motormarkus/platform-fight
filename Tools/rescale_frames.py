@@ -13,6 +13,7 @@ def main(path, cw, ch, factors):
         if abs(f - 1.0) < 1e-3: continue
         r, c = divmod(i, cols)
         cell = im[r * ch:(r + 1) * ch, c * cw:(c + 1) * cw].astype(np.float32)
+        if (cell[..., 3] > 128).sum() < 50: continue   # tyhjä ruutu
         cell[..., :3] *= cell[..., 3:4] / 255.0
         M = np.array([[f, 0, cw * 0.5 * (1 - f)], [0, f, ch * (1 - f)]], np.float32)
         w = cv2.warpAffine(cell, M, (cw, ch), flags=cv2.INTER_CUBIC, borderValue=(0, 0, 0, 0))

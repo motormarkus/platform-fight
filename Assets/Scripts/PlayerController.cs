@@ -3151,7 +3151,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             {
                 if (skateHit >= SkateLaunchMinSpeed && kd && !e.JustBlocked && !IsDrunk) e.Launch(side * SkateLaunchX(e, skateHit), drunkLaunchUp * (0.7f + 0.3f * Mathf.Min(1.6f, skateHit / skateSpeedX)));
                 // merimieskänni: kaatunut vihu lentää ruudun poikki ja kaataa matkalla muita
-                if (IsDrunk && kd && !e.JustBlocked) e.Launch(side * drunkLaunchX * UnityEngine.Random.Range(0.85f, 1.15f), drunkLaunchUp);
+                if (IsDrunk && kd && !e.JustBlocked) e.Launch(side * drunkLaunchX * UnityEngine.Random.Range(0.85f, 1.15f) * (knockdown && UnityEngine.Random.value < drunkFarChance ? 1.9f : 1f), drunkLaunchUp);   // kaatava isku (alakoukku) lennättää välillä paljon kauemmas
                 any = true;
                 // torjuttu isku: sinertävä pieni läiskä
                 HitSpark.Spawn(new Vector3(p.x - side * 0.35f, p.y + sparkHeight, 0f), knockdown && !e.JustBlocked, Mathf.RoundToInt(-p.y * 100f) + 5, e.JustBlocked);
@@ -4374,6 +4374,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void StartComboHit(int index)
     {
+        if (index == 0 && DrunkTrip()) return;
         if (index == 0) comboScissorQueued = false;   // uusi lyöntisarja
         punchFromRun = index == 0 && state == State.Ground && running;
         attackHit = false;
@@ -4397,6 +4398,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void StartQuickUppercut()
     {
+        if (DrunkTrip()) return;
         attackHit = false;
         kneeStrikeQueued = false; bigHookQueued = false;
         PlayGrunt();
@@ -4645,7 +4647,32 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Kännissä kaatavat iskut lennättävät vihut ruudun poikki (kaatavat matkalla muitakin).")]
     public float drunkLaunchX = 15f, drunkLaunchUp = 8f;
     [Range(0f, 1f)] public float drunkKnockChance = 0.35f;   // tavallinen lyönti muuttuu kaatavaksi
-    [Range(0f, 1f)] public float drunkDamageTaken = 0.6f;    // humala turruttaa
+    [Range(0f, 1f)] public float drunkDamageTaken = 0.5f;    // humala turruttaa
+    [Range(0f, 1f)] public float drunkFarChance = 0.3f;     // kaatava isku lentää kauemmas (x1,9)
+    [Range(0f, 1f)] public float drunkTripChance = 0.25f;   // lyöntiä yrittäessä kaatuu itse
+    [Range(0f, 1f)] public float drunkRunTripChance = 0.55f;   // juostessa kallistuu yhä enemmän eteenpäin ja kaatuu
+    float drunkRunT, drunkRunAt, drunkLeanNow, drunkLeanTime = -10f;
+    /// Kännissä juostessa: kallistuu eteenpäin yhä enemmän (0,9 s) ja kaatuu kasvoilleen.
+    void DrunkRun(float dt)
+    {
+        if (!IsDrunk || !running || !moving || state != State.Ground) { drunkRunT = 0f; drunkRunAt = 0f; return; }
+        if (drunkRunAt <= 0f) drunkRunAt = UnityEngine.Random.value < drunkRunTripChance ? UnityEngine.Random.Range(1.5f, 4f) : 9999f;
+        drunkRunT += dt;
+        drunkLeanNow = Mathf.Clamp01((drunkRunT - (drunkRunAt - 0.9f)) / 0.9f); drunkLeanTime = Time.time;
+        if (drunkRunT >= drunkRunAt)
+        {
+            drunkRunT = 0f; drunkRunAt = 0f; drunkLeanNow = 0f;
+            float side = facingRight ? 1f : -1f;
+            TakeKnockdown(0, transform.position.x - side, 4.5f, 3.5f, null, true);   // hyökkääjä takana: lentää eteenpäin
+        }
+    }
+    /// Kännissä lyöntiä aloittaessa hero voi kompastua ja kaatua selälleen.
+    bool DrunkTrip()
+    {
+        if (!IsDrunk || UnityEngine.Random.value >= drunkTripChance) return false;
+        float side = facingRight ? 1f : -1f;
+        return TakeKnockdown(0, transform.position.x + side, 3.5f, 4.5f, null, true);
+    }
     float drunkUntil, drunkStart;
     public bool IsDrunk => Time.time < drunkUntil && !GameOver;
     public float DrunkLeft => Mathf.Max(0f, drunkUntil - Time.time);
@@ -4662,7 +4689,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (!IsDrunk) return 0f;
         float t = Time.time - drunkStart;
-        return (Mathf.Sin(t * 2.1f) * 5f + Mathf.Sin(t * 0.9f) * 3f) * (moving ? 1.4f : 1f);
+        float lean = Time.time - drunkLeanTime < 0.2f ? drunkLeanNow * 30f * (facingRight ? -1f : 1f) : 0f;   // eteenkumara ennen kaatumista
+        return (Mathf.Sin(t * 2.1f) * 5f + Mathf.Sin(t * 0.9f) * 3f) * (moving ? 1.4f : 1f) + lean;
     }
 
     void Walk(Vector2 move, float dt)
@@ -4670,6 +4698,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         move = DrunkSway(move);
         moving = move.sqrMagnitude > 0.01f;
         running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
+        DrunkRun(dt);
         if (!moving) return;
         if (Mathf.Abs(move.x) > 0.1f) { bool nf = move.x > 0; if (nf != facingRight) lastTurnTime = Time.time; facingRight = nf; }
         // Ruby etenee hieman pidemmälle samalla askelsyklillä, jotta jalat eivät polje paikallaan.

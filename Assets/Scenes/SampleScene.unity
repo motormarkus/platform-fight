@@ -414,6 +414,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -532,6 +543,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -727,6 +739,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -1914,6 +1927,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -2008,6 +2032,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -2210,6 +2235,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -5177,6 +5203,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -5286,6 +5323,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -5490,6 +5528,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -5958,6 +5997,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -6076,6 +6126,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -6271,6 +6322,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -6453,6 +6505,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -6547,6 +6610,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -6749,6 +6813,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -7194,6 +7259,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -7312,6 +7388,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -7507,6 +7584,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -10048,6 +10126,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -10166,6 +10255,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -10361,6 +10451,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -10749,6 +10840,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -10867,6 +10969,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -11062,6 +11165,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -11399,6 +11503,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -11507,6 +11622,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -11711,6 +11827,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -12068,6 +12185,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -12176,6 +12304,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -12380,6 +12509,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -13834,6 +13964,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -13952,6 +14093,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -14147,6 +14289,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -14725,6 +14868,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -14834,6 +14988,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -15038,6 +15193,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -15221,6 +15377,17 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -15330,6 +15497,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
@@ -15527,6 +15695,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -16941,6 +17110,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -17050,6 +17230,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -17254,6 +17435,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -17502,6 +17684,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -17620,6 +17813,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -17815,6 +18009,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -18074,6 +18269,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -18183,6 +18389,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -18387,6 +18594,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -18653,6 +18861,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -18761,6 +18980,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -18965,6 +19185,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -21466,6 +21687,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -21584,6 +21816,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -21779,6 +22012,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -23675,6 +23909,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -23793,6 +24038,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -23988,6 +24234,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -24896,6 +25143,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -24990,6 +25248,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -25192,6 +25451,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -27586,6 +27846,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -27680,6 +27951,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -27882,6 +28154,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -30424,6 +30697,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -30550,6 +30834,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -30754,6 +31039,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -30971,6 +31257,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -31080,6 +31377,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -31284,6 +31582,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -34334,6 +34633,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -34428,6 +34738,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -34630,6 +34941,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -37443,6 +37755,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -37554,6 +37877,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -37810,6 +38134,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -37971,6 +38296,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -38089,6 +38425,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -38284,6 +38621,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -40398,6 +40736,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -40516,6 +40865,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -40711,6 +41061,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -41564,6 +41915,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -41682,6 +42044,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -41877,6 +42240,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -42467,6 +42831,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -42578,6 +42953,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -42826,6 +43202,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -43092,6 +43469,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -43200,6 +43588,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -43404,6 +43793,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -43579,6 +43969,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -43687,6 +44088,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -43891,6 +44293,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -46084,6 +46487,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -46195,6 +46609,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -46443,6 +46858,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -46687,6 +47103,17 @@ MonoBehaviour:
   - JS
   - JU
   - JJK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -46792,6 +47219,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.3
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -46997,6 +47425,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -47602,6 +48031,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -47720,6 +48160,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -47915,6 +48356,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -49070,6 +49512,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -49164,6 +49617,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -49366,6 +49820,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -50394,6 +50849,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -50520,6 +50986,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -50724,6 +51191,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -52679,6 +53147,17 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -52788,6 +53267,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -52985,6 +53465,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -53241,6 +53722,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -53359,6 +53851,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -53554,6 +54047,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -54208,6 +54702,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -54334,6 +54839,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -54538,6 +55044,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -55217,6 +55724,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -55311,6 +55829,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -55513,6 +56032,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -57475,6 +57995,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -57569,6 +58100,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -57771,6 +58303,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -58191,6 +58724,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -58299,6 +58843,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -58503,6 +59048,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -58760,6 +59306,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -58869,6 +59426,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -59073,6 +59631,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -60293,6 +60852,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -60419,6 +60989,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -60623,6 +61194,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -62173,6 +62745,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -62282,6 +62865,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -62486,6 +63070,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -63166,6 +63751,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -63274,6 +63870,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -63478,6 +64075,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -63922,6 +64520,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -64016,6 +64625,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -64218,6 +64828,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -65801,6 +66412,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -65909,6 +66531,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -66113,6 +66736,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -67107,6 +67731,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -67201,6 +67836,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -67403,6 +68039,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -67585,6 +68222,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -67679,6 +68327,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -67881,6 +68530,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -68245,6 +68895,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -68356,6 +69017,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -68612,6 +69274,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -69005,6 +69668,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -69127,6 +69801,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -69330,6 +70005,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -69691,6 +70367,17 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -69800,6 +70487,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -69997,6 +70685,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -70476,6 +71165,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -70570,6 +71270,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -70772,6 +71473,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -71398,7 +72100,7 @@ MonoBehaviour:
     windupTime: 0.05
     frame: 8
     duration: 0.2
-    lunge: 0.22
+    lunge: 0.18
     damage: 10
     reach: 1.8
     knockdown: 0
@@ -71420,7 +72122,7 @@ MonoBehaviour:
     windupTime: 0.05
     frame: 8
     duration: 0.2
-    lunge: 0.45
+    lunge: 0.3
     damage: 12
     reach: 1.95
     knockdown: 0
@@ -74075,6 +74777,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -74169,6 +74882,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -74371,6 +75085,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -74735,6 +75450,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -74853,6 +75579,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -75048,6 +75775,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -75554,6 +76282,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -75665,6 +76404,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -75921,6 +76661,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -76872,6 +77613,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -76981,6 +77733,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -77185,6 +77938,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -77471,6 +78225,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -77565,6 +78330,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -77767,6 +78533,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -77962,6 +78729,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -78080,6 +78858,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -78275,6 +79054,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -78900,6 +79680,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -79022,6 +79813,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -79225,6 +80017,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -81429,6 +82222,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -81537,6 +82341,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -81741,6 +82546,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -83839,6 +84645,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -83933,6 +84750,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -84135,6 +84953,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -84475,6 +85294,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -84597,6 +85427,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -84800,6 +85631,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -85797,6 +86629,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -85892,6 +86735,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -86089,6 +86933,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -88420,6 +89265,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -88528,6 +89384,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -88732,6 +89589,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -88907,6 +89765,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -89015,6 +89884,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -89219,6 +90089,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -90281,6 +91152,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -90399,6 +91281,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -90594,6 +91477,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -90786,6 +91670,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -90894,6 +91789,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -91098,6 +91994,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -91367,6 +92264,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -91461,6 +92369,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -91663,6 +92572,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -92736,6 +93646,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -92830,6 +93751,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -93032,6 +93954,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -93415,6 +94338,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -93526,6 +94460,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -93782,6 +94717,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -94893,6 +95829,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -95011,6 +95958,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -95206,6 +96154,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -95726,6 +96675,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -95852,6 +96812,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -96056,6 +97017,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -99350,6 +100312,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -99461,6 +100434,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -99709,6 +100683,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -100990,6 +101965,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -101108,6 +102094,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -101303,6 +102290,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -101903,6 +102891,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -102014,6 +103013,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -102262,6 +103262,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -103227,6 +104228,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -103345,6 +104357,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -103540,6 +104553,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -103822,6 +104836,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -103940,6 +104965,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -104135,6 +105161,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -104835,6 +105862,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -104929,6 +105967,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -105131,6 +106170,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -106003,6 +107043,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -106097,6 +107148,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -106299,6 +107351,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -109207,6 +110260,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -109325,6 +110389,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -109520,6 +110585,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -109943,6 +111009,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -110061,6 +111138,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -110256,6 +111334,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -110905,6 +111984,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -111027,6 +112117,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -111230,6 +112321,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -113704,6 +114796,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -113822,6 +114925,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -114017,6 +115121,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -114216,6 +115321,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -114310,6 +115426,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -114512,6 +115629,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -115305,6 +116423,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -115423,6 +116552,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -115618,6 +116748,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -116306,6 +117437,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -116428,6 +117570,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -116631,6 +117774,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -117715,6 +118859,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -117809,6 +118964,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -118011,6 +119167,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -119262,6 +120419,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -119380,6 +120548,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -119575,6 +120744,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -120430,6 +121600,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -120548,6 +121729,7 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -120743,6 +121925,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -121559,6 +122742,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -121667,6 +122861,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -121871,6 +123066,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -123419,6 +124615,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -123545,6 +124752,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -123749,6 +124957,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -124434,6 +125643,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -124543,6 +125763,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -124747,6 +125968,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -125431,6 +126653,17 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -125540,6 +126773,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -125744,6 +126978,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -126240,6 +127475,17 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -126362,6 +127608,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
@@ -126565,6 +127812,7 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
