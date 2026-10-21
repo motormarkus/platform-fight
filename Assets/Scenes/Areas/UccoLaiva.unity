@@ -9720,7 +9720,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 96.44125, y: 15.753847}
+  m_Size: {x: 150.13221, y: 15.753847}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9734,7 +9734,7 @@ Transform:
   m_GameObject: {fileID: 171882571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9048.221, y: 3.2769237, z: 0}
+  m_LocalPosition: {x: 9021.3755, y: 3.2769237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77326,8 +77326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnchoredParallax
   speed: 0.15
-  anchor: {x: 9094.771, y: 3.2587185}
-  camRef: {x: 9094.771, y: 1.4}
+  anchor: {x: 9067.927, y: 3.2587185}
+  camRef: {x: 9067.927, y: 1.4}
 --- !u!212 &1421152671
 SpriteRenderer:
   serializedVersion: 2
@@ -77396,7 +77396,7 @@ Transform:
   m_GameObject: {fileID: 1421152669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9094.771, y: 3.2587185, z: 0}
+  m_LocalPosition: {x: 9067.927, y: 3.2587185, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92320,12 +92320,12 @@ MonoBehaviour:
   turnBikeLeft: 0
   returnOnFoot: 0
   preventParkedRide: 0
-  spawnPoint: {x: 9004, y: -0.5500756}
+  spawnPoint: {x: 8950.309, y: -0.5500756}
   title: Uccopulco
   fadeTime: 0.4
   titleTime: 1.6
   parkBike: 1
-  parkPoint: {x: 9006, y: 1.6998742}
+  parkPoint: {x: 8952.309, y: 1.6998742}
   triggerWidth: 15
 --- !u!4 &1695536477
 Transform:
@@ -108316,7 +108316,7 @@ MonoBehaviour:
   depthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
-  camMinX: 9010.667
+  camMinX: 8956.976
   camMaxX: 9178.877
   walkMaxX: 9180.596
   walkMinX: 0

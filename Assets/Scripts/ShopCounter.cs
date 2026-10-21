@@ -57,6 +57,9 @@ public class ShopCounter : MonoBehaviour
     [Range(0f, 1f)] public float soundVolume = 0.9f;
 
     AudioSource audioSource, voiceSource;
+    // tarina: Kadun baarin tiskillä Sohvi antaa ensimmäisellä kerralla kirjeen (Rexin kirje Rubylle, Chrissyn kirje Roccolle)
+    const string LetterId = "kirje_kadun_baari";
+    bool readLetterAfterClose;
     AudioClip[] welcomeLines, purchaseLines, byeLines;   // Sohvin repliikit (Resources/Sfx/sohvi): tiskille, oston jälkeen, poistuessa
     PlayerController pc;
     bool near, open;
@@ -69,6 +72,11 @@ public class ShopCounter : MonoBehaviour
     void Load(Sess x) { pc = x.pc; sel = x.sel; msg = x.msg; msgTime = x.msgTime; }
     void Save(Sess x) { x.sel = sel; x.msg = msg; x.msgTime = msgTime; }
     float oldTimeScale = 1f;
+
+    // [LUONNOS] kirjeiden tekstit; muokkaa vapaasti (tarinaluonnos: STORY-DRAFT.md)
+    const string LetterText = "Hei Rocco tai Ruby,\n\njos saat tämän kirjeen, kaikki meni mönkään. Lokin porukka lavasti meidät, kuten arvelin. Heillä on todennäköisesti myös Chrissy.\n\nHorhe Uccopulcossa orkestroi koko homman. Pyydän yhtä asiaa: etsi Chrissy ja pelasta hänet.\n\nVanhojen aikojen muistoksi.\n– Rex";
+    const string LetterRuby = "Ruby,\n\nJos saat tämän, älä tule perääni. Autoin erästä kaveria, eikä se ollutkaan pieni juttu. Nyt minua etsivät väärät ihmiset.\n\nSatamassa tiedetään enemmän. Älä luota ketään, joka puhuu lokista.\n\n– Rex";
+    const string LetterRocco = "Rocco,\n\nRex ei ole vastannut kahteen päivään. Lähden hänen perässään. Jos en ole palannut viikonloppuun mennessä, älä odota minua.\n\nTiedän, että tulet joka tapauksessa. Satamassa tiedetään enemmän.\n\n– Chrissy";
 
     void Awake()
     {
@@ -206,6 +214,13 @@ public class ShopCounter : MonoBehaviour
         if (sessions.Count == 0) return;
         open = true; IsOpen = true; near = false;
         Speak(welcomeLines);
+        if (here != null && here.areaName == "Kadun baari" && !Clues.Has(LetterId))
+        {
+            // Sohvi ojentaa kirjeen: se menee tapauskansioon ja avautuu luettavaksi tiskin sulkeuduttua
+            Clues.Add(LetterId, "Kirje", LetterText, "Kirjeet/kirje_rex");   // sama kirje kummallekin: Rexin käsin kirjoittama
+            readLetterAfterClose = true;
+            foreach (var sx in sessions) sx.msg = npcName + ": " + Loc.T("Hei, sulle on jätetty kirje. Tässä.");
+        }
         foreach (var sx in sessions) sx.pc.enabled = false;
         oldTimeScale = Time.timeScale;
         Time.timeScale = 0f;
@@ -221,6 +236,7 @@ public class ShopCounter : MonoBehaviour
             Speak(byeLines);
             open = false; IsOpen = false;
             Time.timeScale = oldTimeScale <= 0.05f ? 1f : oldTimeScale;
+            if (readLetterAfterClose) { readLetterAfterClose = false; GameMenu.ReadClue(LetterId); }
         }
     }
 

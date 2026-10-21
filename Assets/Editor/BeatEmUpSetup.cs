@@ -3220,6 +3220,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Uccopulco (valtatien jälkeen) ----------------
+    // HUOM 21.10.2026: kuvaa jatkettiin vasemmalle (parkkipaikka + ulkokahvila + panttilainaamo): nyt 8453 x 887, vanha kuva alkaa x = 3023 px. Scenen oliot on siirretty käsin; valikot 44 ja muut, jotka laskevat paikkoja kuvan vasemmasta reunasta (UccoX0 + px), antaisivat nyt väärät paikat: älä aja niitä uudelleen ilman px-lukujen korjausta (+3023).
     const string UccoPath = "Assets/Sprites/Taustat/uccopulco_katu.png";   // 4 kuvaa yhdistettynä, 5430 × 887
     const string UccoHarborPath = "Assets/Sprites/Taustat/uccopulco_satama.png";   // satamaosuus (3 Gemini-jatkokuvaa kohdistettuina kadun perään, vihreä tausta läpinäkyväksi)
     const string UccoSeaPath = "Assets/Sprites/Taustat/uccopulco_meri.png";
@@ -15933,6 +15934,88 @@ public static class BeatEmUpSetup
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
             Info("Tom lisätty Deacon's Deniin (x ≈ " + x.ToString("0.0") + ") ja Aavikon scene tallennettu. Hän käy kaikkien kimppuun (hero, muut vihut ja baarin väki), hakkaa lähimmän ja juo shakerin energian ollessa 25 % (berserk).\n\nTarkista Console.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Panttilainaamo (Uccopulcon uusi katuosa, sisätila) ----------------
+    // pantti_sisa.png: kaksi kuvaa yhdistettynä (2610 x 1055): vasen (kitarat, rullalaudat) ja oikea (ovi, kassakaappi, hyllyt).
+    const string UccoLaivaScenePath = "Assets/Scenes/Areas/UccoLaiva.unity";
+    const string PawnPath = "Assets/Sprites/Taustat/pantti_sisa.png";
+    const float PawnX0 = 19000f, PawnFloorPx = 800f, PawnDoorPx = 1779f;   // sisäoven (oikea kuva) keskikohta kuvassa
+    const float PawnStreetDoorPx = 2134f;                                    // myymälän oven keskikohta Uccopulcon yhdistetyssä katukuvassa (8453 px)
+    [MenuItem("Beat em up/225. Panttilainaamo: sisätila ja ovet Uccopulcon kadulta")]
+    static void CreatePawnShop()
+    {
+        if (PlayModeBlocked()) return;
+        var ti = AssetImporter.GetAtPath(PawnPath) as TextureImporter;
+        if (ti == null) { Info("Puuttuu " + PawnPath); return; }
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var street = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco" && a.gameObject.scene == scene);
+            var streetBg = Object.FindObjectsByType<SpriteRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(r => r.gameObject.name == "Uccopulco" && r.gameObject.scene == scene);
+            if (street == null || streetBg == null) { Info("Uccopulcon katua ei löydy UccoLaivan scenestä."); return; }
+            foreach (var n in new[] { "Panttilainaamo (kuva)", "Alue: Panttilainaamo", "Panttilainaamon ovet" })
+                foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.name == n && t.gameObject.scene == scene).ToArray())
+                    Undo.DestroyObjectImmediate(old.gameObject);
+            ti.GetSourceTextureWidthAndHeight(out int srcW, out int srcH);
+            float ppu = srcH / (2f * CamHalf);   // koko kuva ruudun korkuiseksi
+            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+            ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false;
+            ti.textureCompression = TextureImporterCompression.CompressedHQ; ti.maxTextureSize = 4096;
+            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+            st.spriteMeshType = SpriteMeshType.FullRect; st.spriteAlignment = (int)SpriteAlignment.Center; ti.SetTextureSettings(st);
+            ti.SaveAndReimport();
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(PawnPath);
+            float wU = sprite.rect.width / ppu, hU = sprite.rect.height / ppu;
+
+            var bg = new GameObject("Panttilainaamo (kuva)");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bg, scene);
+            var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = sprite; sr.sortingOrder = -10000;
+            float cy = CamY;
+            bg.transform.position = new Vector3(PawnX0 + wU * 0.5f, cy, 0f);
+            Undo.RegisterCreatedObjectUndo(bg, "Panttilainaamo");
+            float top = cy + hU * 0.5f;
+            float halfW = CamHalf * 16f / 9f;
+            var area = new GameObject("Alue: Panttilainaamo").AddComponent<Area>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(area.gameObject, scene);
+            area.areaName = "Panttilainaamo";
+            area.music = street.music;
+            area.useSidewalk = false;
+            area.maxDepthY = top - PawnFloorPx / ppu;
+            area.minDepthY = CamY - CamHalf + 1.2f;
+            area.camMinX = PawnX0 + halfW;
+            area.camMaxX = PawnX0 + wU - halfW;
+            Undo.RegisterCreatedObjectUndo(area.gameObject, "Alue");
+
+            var doors = new GameObject("Panttilainaamon ovet");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doors, scene);
+            Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+            float streetPpu = streetBg.sprite.pixelsPerUnit;
+            float doorX = streetBg.bounds.min.x + PawnStreetDoorPx / streetPpu;
+            float innerX = PawnX0 + PawnDoorPx / ppu;
+            var inDoor = new GameObject("Panttilainaamon ovi").AddComponent<Door>();
+            inDoor.transform.SetParent(doors.transform, false);
+            inDoor.transform.position = new Vector3(doorX, street.maxDepthY - 0.25f, 0f);
+            inDoor.prompt = "Mene panttilainaamoon";
+            inDoor.here = street; inDoor.target = area;
+            inDoor.spawnPoint = new Vector2(innerX, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f));
+            inDoor.halfWidth = 1.5f; inDoor.maxDistanceFromWall = 0.9f;
+            var outDoor = new GameObject("Panttilainaamon uloskäynti").AddComponent<Door>();
+            outDoor.transform.SetParent(doors.transform, false);
+            outDoor.transform.position = new Vector3(innerX, area.maxDepthY, 0f);
+            outDoor.prompt = "Ulos kadulle";
+            outDoor.here = area; outDoor.target = street; outDoor.returnToLastDoor = true;
+            outDoor.halfWidth = 1.4f; outDoor.maxDistanceFromWall = 1.5f;
+            // aluelista (scenejaon aluetiedosto)
+            string listPath = UccoLaivaScenePath.Replace(".unity", ".areas.txt");
+            if (File.Exists(listPath) && !File.ReadAllLines(listPath).Contains("Panttilainaamo")) File.AppendAllText(listPath, "Panttilainaamo" + System.Environment.NewLine);
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Panttilainaamo lisätty: sisätila (" + wU.ToString("0.0") + " yksikköä leveä) ja ovet Uccopulcon kadulta (x " + doorX.ToString("0.0") + ") ja takaisin. UccoLaivan scene tallennettu.\n\nSisällä ei ole vielä hahmoja eikä tiskiä. Sijoita ne myöhemmin.");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }

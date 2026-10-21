@@ -105,4 +105,60 @@ public static class PokerWorldTablesSetup
         if (component == null) throw new System.InvalidOperationException("Komponentin luonti epäonnistui: " + go.name + " / " + typeof(T).Name);
         return component;
     }
+
+    // ---------------- Pokeripöytä Thaitownin hotellin aulaan vasemmalle ----------------
+    [MenuItem("Beat em up/224. Pokeripöytä: Thaitownin hotellin aulaan vasemmalle")]
+    static void PlaceThaitownTable()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) { EditorUtility.DisplayDialog("Pokeripöytä", "Paina ensin Stop.", "OK"); return; }
+        const string scenePath = "Assets/Scenes/Areas/Thaitown.unity";
+        const string id = "ThaitownAula";
+        var defaults = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(Folder + "/DefaultPoker.asset");
+        var clip = AssetDatabase.LoadAssetAtPath<VideoClip>(VideoPath);
+        var sprite = AssetDatabase.LoadAllAssetsAtPath(FramePath).OfType<Sprite>().FirstOrDefault() ?? AssetDatabase.LoadAssetAtPath<Sprite>(Folder + "/TableFirstFrame.asset");
+        var material = AssetDatabase.LoadAssetAtPath<Material>(Folder + "/GreenKeyWorld.mat");
+        if (defaults == null || clip == null || sprite == null || material == null)
+        { EditorUtility.DisplayDialog("Pokeripöytä", "Pokeriasetukset, video, pöydän kuva tai materiaali puuttuu. Aja ensin valikko 193 (se luo ne).", "OK"); return; }
+        var scene = EditorSceneManager.GetSceneByPath(scenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown hotelli aula 1" && a.gameObject.scene == scene);
+            if (area == null) { EditorUtility.DisplayDialog("Pokeripöytä", "Aluetta 'Thaitown hotelli aula 1' ei löydy Thaitownin scenestä.", "OK"); return; }
+            float width = 6.8f;
+            float x = area.walkMinX + width * .5f + 2.1f, y = area.minDepthY + 1.1f;   // aulan vasen laita, alhaalla
+            string name = "Oma pokeripöytä · " + id;
+            var go = Object.FindObjectsByType<PokerTableEntry>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(t => t.name == name && t.gameObject.scene == scene)?.gameObject;
+            if (go == null)
+            {
+                go = new GameObject(name); Undo.RegisterCreatedObjectUndo(go, "Oma pokeripöytä");
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+            }
+            Undo.RecordObject(go.transform, "Pokeripöydän sijainti"); go.transform.position = new Vector3(x, y, 0);
+            var entry = EnsureComponent<PokerTableEntry>(go);
+            string path = Folder + "/Table-" + id + ".asset";
+            var settings = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(path);
+            if (settings == null) { settings = Object.Instantiate(defaults); AssetDatabase.CreateAsset(settings, path); }
+            EditorUtility.SetDirty(settings);
+            Undo.RecordObject(entry, "Pöydän liittyminen"); entry.settings = settings; entry.here = area; entry.rangeX = width * .5f + .7f; entry.rangeY = .9f;
+            var visual = go.transform.Find("Visual");
+            if (visual == null) { var child = new GameObject("Visual"); Undo.RegisterCreatedObjectUndo(child, "Videopöytä"); child.transform.SetParent(go.transform, false); visual = child.transform; }
+            Undo.RecordObject(visual, "Pöydän mittakaava"); visual.localPosition = Vector3.zero; visual.localScale = Vector3.one * (width / 6.8f);
+            var body = EnsureComponent<SpriteRenderer>(visual.gameObject);
+            Undo.RecordObject(body, "Pöydän kuva"); body.sprite = sprite; body.sharedMaterial = material; body.sortingOrder = Mathf.RoundToInt(-(y + .55f) * 100);
+            var video = EnsureComponent<VideoPlayer>(visual.gameObject);
+            Undo.RecordObject(video, "Pöydän video"); video.clip = clip; video.playOnAwake = false; video.isLooping = true; video.audioOutputMode = VideoAudioOutputMode.None;
+            var loop = EnsureComponent<PokerTableVideo>(visual.gameObject);
+            Undo.RecordObject(loop, "Videon alue"); loop.area = area; loop.clip = clip;
+            var obstacle = EnsureComponent<Obstacle>(go);
+            Undo.RecordObject(obstacle, "Pöydän este"); obstacle.body = body; obstacle.halfWidth = width * .46f; obstacle.depth = 1.1f; obstacle.maxHealth = 0;
+            EditorUtility.SetDirty(entry); EditorUtility.SetDirty(body); EditorUtility.SetDirty(video); EditorUtility.SetDirty(loop); EditorUtility.SetDirty(obstacle);
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            AssetDatabase.SaveAssets();
+            EditorUtility.DisplayDialog("Pokeripöytä", "Pokeripöytä lisätty hotellin aulan vasempaan laitaan (x " + x.ToString("0.0") + ", y " + y.ToString("0.00") + ") ja Thaitownin scene tallennettu.\n\nE / toimintanappi avaa pokerin. Jos paikka ei ole oikea, siirrä oliota 'Oma pokeripöytä · ThaitownAula' Unityssä.", "OK");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
 }

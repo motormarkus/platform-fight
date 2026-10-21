@@ -48,7 +48,17 @@ public class GameMenu : MonoBehaviour
         "#Responsible for everything\n{0}\n\n\n" +
         "#Thank you for playing!";
 
-    enum Page { None, Title, Character, Difficulty, Pause, Options, Credits, ConfirmQuit }
+    enum Page { None, Title, Character, Difficulty, Pause, Options, Credits, ConfirmQuit, Case }
+    static GameMenu instance;
+    float caseOpenedAt = -9f;
+    /// Avaa tapauskansion suoraan tietyn vihjeen kohdalle (esim. kirjeen saatuaan). Peli pysähtyy, Esc sulkee.
+    public static void ReadClue(string id)
+    {
+        if (instance == null) return;
+        int i = Clues.IndexOf(id); if (i < 0) return;
+        instance.Open(Page.Case); instance.back = Page.None; instance.sel = i; instance.caseOpenedAt = Time.unscaledTime;
+    }
+
     Page page = Page.None, back = Page.None;
     /// Asetusten alivalikko: -1 = asetusten päävalikko, 0 = ääni, 1 = video, 2 = peli.
     int optSection = -1;
@@ -81,6 +91,8 @@ public class GameMenu : MonoBehaviour
         new GameObject("Valikot").AddComponent<GameMenu>();
     }
 
+    void Awake() { instance = this; }
+
     void Start()
     {
         if (SkipTitleOnce) { SkipTitleOnce = false; return; }
@@ -111,9 +123,18 @@ public class GameMenu : MonoBehaviour
             case Page.Pause:
             {
                 var pc0 = Players.Primary;
-                return pc0 != null && pc0.HasBooni
-                    ? new[] { "Jatka", "Juo Bööni", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" }
-                    : new[] { "Jatka", "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" };
+                var list = new System.Collections.Generic.List<string> { "Jatka" };
+                if (pc0 != null && pc0.HasBooni) list.Add("Juo Bööni");
+                if (Clues.All.Count > 0) list.Add("Tapauskansio");
+                list.AddRange(new[] { "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" });
+                return list.ToArray();
+            }
+            case Page.Case:
+            {
+                var l = new string[Clues.All.Count + 1];
+                for (int c = 0; c < Clues.All.Count; c++) l[c] = Clues.All[c].title;
+                l[Clues.All.Count] = "Takaisin";
+                return l;
             }
             case Page.Options:
             {
@@ -159,6 +180,7 @@ public class GameMenu : MonoBehaviour
             if (PausePressed() && !ShopCounter.IsOpen && !shopJustClosed && (pc == null || !pc.GameOver)) Open(Page.Pause);
             return;
         }
+        if (page == Page.Case && Time.unscaledTime - caseOpenedAt < 0.3f) return;   // kirjeen avanneen painalluksen ei pidä sulkea sitä heti
         if (page == Page.Credits)
         {
             creditsT += Time.unscaledDeltaTime;
@@ -177,6 +199,7 @@ public class GameMenu : MonoBehaviour
         else if (BackPressed())
         {
             if (page == Page.Pause) Close();
+            else if (page == Page.Case) { if (back == Page.Pause) { page = Page.Pause; sel = 0; } else Close(); }
             else if (page == Page.Title) { }
             else if (page == Page.Character) { page = Page.Title; sel = 0; }
             else if (page == Page.Difficulty) { page = Page.Character; sel = GameSettings.Character; }
@@ -258,6 +281,7 @@ public class GameMenu : MonoBehaviour
                     var pcb = Players.Primary;
                     if (pcb != null) pcb.UseBooni();
                 }
+                else if (lbl == "Tapauskansio") { back = Page.Pause; page = Page.Case; sel = Mathf.Max(0, Clues.All.Count - 1); }
                 else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; optSection = -1; sel = 0; }
                 else if (lbl == "Aloita alusta") { SkipTitleOnce = true; Restart(); }
                 else if (lbl == "Päävalikkoon") Restart();
@@ -287,6 +311,9 @@ public class GameMenu : MonoBehaviour
                 else if (i == 10) GameSettings.Difficulty = (GameSettings.Level)(((int)GameSettings.Difficulty + 1) % 3);   // elämät vaihtuvat seuraavassa pelissä
                 else { page = back; sel = 0; }
                 break;
+            case Page.Case:
+                if (i >= Clues.All.Count) { if (back == Page.Pause) { page = Page.Pause; sel = 0; } else Close(); }
+                break;
             case Page.ConfirmQuit:
                 if (i == 0) Quit();
                 else { page = back; sel = 0; }
@@ -296,6 +323,7 @@ public class GameMenu : MonoBehaviour
 
     void Restart()
     {
+        Clues.Clear();   // uusi peli: vihjeet nollaan
         open = false; Time.timeScale = 1f; AudioListener.pause = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -582,12 +610,14 @@ public class GameMenu : MonoBehaviour
         if (page == Page.Character) { DrawCharacters(w, h, s, gold); return; }
 
         string head = page == Page.Title || page == Page.Difficulty ? gameTitle
+                    : page == Page.Case ? Loc.T("TAPAUSKANSIO")
                     : page == Page.Pause ? Loc.T("TAUKO") : page == Page.Options ? Loc.T(optSection >= 0 ? OptSectionHeads[optSection] : "ASETUKSET") : Loc.T("Lopetetaanko peli?");
         if (head != gameTitle || Logo(w, h * (page == Page.Difficulty ? 0.08f : 0.10f), w * 0.36f) <= 0f)
             Title(new Rect(0, h * 0.14f, w, 130 * s), head, page == Page.ConfirmQuit ? itemStyle : titleStyle);
         if (page == Page.Difficulty) Shadowed(new Rect(0, h * 0.27f, w, 60 * s), Loc.T("Valitse vaikeustaso"), headStyle, Color.white);
 
         if (page == Page.Options && optSection == 3) { DrawControls(w, h, s, gold); return; }
+        if (page == Page.Case && sel < Clues.All.Count && DrawClueArt(w, h, s, Clues.All[sel])) return;   // kirje kuvana koko ruudulle
         var items = Items();
         float y0 = h * 0.38f, step = 66 * s;
         for (int i = 0; i < items.Length; i++)
@@ -604,8 +634,41 @@ public class GameMenu : MonoBehaviour
                 "Viholliset lyövät kovempaa ja kestävät enemmän. Energiaa 150." };
             Shadowed(new Rect(0, y0 + items.Length * step + 20 * s, w, 50 * s), Loc.T(info[sel]), smallStyle, Color.white);
         }
+        if (page == Page.Case && sel < Clues.All.Count) DrawClueText(w, h, s, y0 + items.Length * step + 16 * s, Clues.All[sel]);
         string help = page == Page.Options ? "Ylös / alas valitse   Vasen / oikea säädä   Enter / A muuta   Esc / B takaisin" : "Ylös / alas valitse   Enter / A hyväksy   Esc / B takaisin";
         Shadowed(new Rect(0, h - 70 * s, w, 50 * s), Loc.T(help), smallStyle, new Color(1f, 1f, 1f, 0.7f));
+    }
+
+    System.Collections.Generic.Dictionary<string, Texture2D> clueArt = new System.Collections.Generic.Dictionary<string, Texture2D>();
+    /// Vihjeen kuva (esim. kirje) keskellä, korkeus ~86 % ruudusta. Palauttaa false, jos vihjeellä ei ole kuvaa.
+    bool DrawClueArt(float w, float h, float s, Clues.Clue c)
+    {
+        if (string.IsNullOrEmpty(c.art)) return false;
+        if (!clueArt.TryGetValue(c.art, out var tex)) { tex = Resources.Load<Texture2D>(c.art); clueArt[c.art] = tex; }
+        if (tex == null) return false;
+        float ih = h * 0.86f, iw = ih * tex.width / tex.height;
+        float x = (w - iw) * 0.5f, y = h * 0.04f;
+        GUI.color = new Color(0f, 0f, 0f, 0.35f); GUI.DrawTexture(new Rect(x + 10 * s, y + 12 * s, iw, ih), white);   // varjo
+        GUI.color = Color.white; GUI.DrawTexture(new Rect(x, y, iw, ih), tex, ScaleMode.ScaleToFit);
+        Shadowed(new Rect(0, h - 56 * s, w, 44 * s), Loc.T("Esc / B = sulje"), smallStyle, new Color(1f, 1f, 1f, 0.8f));
+        return true;
+    }
+
+    GUIStyle clueStyle;
+    /// Vihjeen teksti paperimaisessa laatikossa listan alla.
+    void DrawClueText(float w, float h, float s, float top, Clues.Clue c)
+    {
+        if (clueStyle == null)
+        {
+            clueStyle = new GUIStyle(smallStyle) { alignment = TextAnchor.UpperLeft, wordWrap = true, richText = false };
+            clueStyle.normal.textColor = new Color(0.16f, 0.1f, 0.05f);
+        }
+        clueStyle.fontSize = Mathf.RoundToInt(32 * s);
+        float bw = Mathf.Min(w * 0.7f, 1100 * s), bh = Mathf.Max(h - top - 90 * s, 200 * s), bx = (w - bw) * 0.5f;
+        GUI.color = new Color(0.93f, 0.87f, 0.72f, 0.96f); GUI.DrawTexture(new Rect(bx, top, bw, bh), white);
+        GUI.color = new Color(0.35f, 0.22f, 0.1f, 1f); GUI.DrawTexture(new Rect(bx, top, bw, 4 * s), white); GUI.DrawTexture(new Rect(bx, top + bh - 4 * s, bw, 4 * s), white);
+        GUI.color = Color.white;
+        GUI.Label(new Rect(bx + 28 * s, top + 18 * s, bw - 56 * s, bh - 36 * s), c.text, clueStyle);
     }
 
     /// Alkuvalikon taustakuva (Resources/Valikko/alkuvalikko.png) koko ruudulle, alaosaan tumma liukuma tekstien taakse.

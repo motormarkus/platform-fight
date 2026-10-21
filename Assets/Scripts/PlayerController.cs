@@ -3322,7 +3322,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public float mayhemDuration = 3f, mayhemSpeedX = 6.5f, mayhemSpeedY = 3.2f, mayhemReach = 3.6f, mayhemTick = 0.18f;
     public int mayhemDamage = 16;
     [Tooltip("Sama vihu voi saada osuman tästä liikkeestä korkeintaan tämän välein (s); pomoilla pidempi.")]
-    public float mayhemRehit = 0.9f, mayhemBossRehit = 1.8f;
+    public float mayhemHitGap = 0.3f, mayhemBossRehit = 1.8f;
     [Tooltip("Pomoihin osuva vahinko on tämän osuus (eikä pomo kaadu liikkeestä).")]
     [Range(0f, 1f)] public float mayhemBossDamage = 0.4f;
     readonly System.Collections.Generic.Dictionary<Enemy, float> mayhemLastHit = new System.Collections.Generic.Dictionary<Enemy, float>();
@@ -3378,17 +3378,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool any = false;
         foreach (var e in Enemy.All.ToArray())
         {
-            if (e == null || e.IsDead || e.IsDownOrDead || e.IsAirborneNow) continue;   // ei ilmassa olevia eikä maassa makaavia: ei jatkoiskuja
+            if (e == null || e.IsDead || e.IsDownOrDead) continue;   // maassa makaavaan ei osu; ilmassa olevaan osuu (enintään 3 iskua / vihu / liike)
             Vector3 p = e.transform.position;
             if (Mathf.Abs(p.x - me.x) > mayhemReach || Mathf.Abs(p.y - me.y) > depth) continue;
-            if (mayhemLastHit.TryGetValue(e, out float lastT) && Time.time - lastT < (e.isBoss ? mayhemBossRehit : mayhemRehit)) continue;   // sama vihu ei jauhu uudestaan heti
+            if (mayhemLastHit.TryGetValue(e, out float lastT) && Time.time - lastT < (e.isBoss ? mayhemBossRehit : mayhemHitGap)) continue;   // sama vihu ei jauhu uudestaan heti
             mayhemHitCount.TryGetValue(e, out int hitsSoFar);
             if (hitsSoFar >= mayhemMaxHitsPerFoe) continue;   // enintään 3 osumaa / vihu / liike
             bool boss = e.isBoss;
             if (!e.TakeHit(boss ? Mathf.Max(1, Mathf.RoundToInt(mayhemDamage * mayhemBossDamage)) : mayhemDamage, me.x, !boss)) continue;   // pomo ei kaadu
             mayhemLastHit[e] = Time.time; mayhemHitCount[e] = hitsSoFar + 1;
             any = true;
-            if (!boss && !HeavyForHook(e)) e.Launch((p.x >= me.x ? 1f : -1f) * 6.5f, 11f);   // lentää kauas ja kaataa matkalla muut
+            if (!boss && !HeavyForHook(e)) e.Launch((p.x >= me.x ? 1f : -1f) * 3.2f, 14.5f);   // lentää korkealle (pysyy ulottuvilla, joten kolme osumaa ehtii ilmassa)
         }
         foreach (var c in Crate.All.ToArray())
         {

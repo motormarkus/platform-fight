@@ -126,6 +126,11 @@ public class GameHUD : MonoBehaviour
             Shadowed(new Rect(sp.x - 150 * s, Screen.height - sp.y - 25 * s, 300 * s, 50 * s), pops[i].text, popupStyle, c);
         }
 
+        if (Clues.Latest != null && Time.unscaledTime - Clues.LatestTime < 4f)
+        {
+            float ca = Mathf.Clamp01(Mathf.Min((Time.unscaledTime - Clues.LatestTime) * 4f, (4f - (Time.unscaledTime - Clues.LatestTime)) * 2f));
+            Shadowed(new Rect(0, Screen.height * 0.17f, Screen.width, Screen.height * 0.06f), Loc.T("UUSI VIHJE") + ": " + Clues.Latest.title, popupStyle, new Color(1f, 0.85f, 0.25f, ca));
+        }
         if (Time.unscaledTime - langShown < 2f)
             Shadowed(new Rect(0, Screen.height * 0.12f, Screen.width, Screen.height * 0.06f), Loc.T("Kieli: Suomi"), popupStyle, Color.white);
 
