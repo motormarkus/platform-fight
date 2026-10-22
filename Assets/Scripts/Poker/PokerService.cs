@@ -70,7 +70,7 @@ public sealed class PokerService : MonoBehaviour
         catch (Exception e) { Fail("Pokerin tallennusta ei voitu avata. Tiedosto säilytetty: " + e.Message); }
     }
 
-    public bool Open(PokerPresentationSettings settings, bool demo = false)
+    public bool Open(PokerPresentationSettings settings, bool demo = false, PokerVariant variant = PokerVariant.Holdem)
     {
         if (Visible || BlocksCombat || GameMenu.IsOpen || ShopCounter.IsOpen) return false;
         if (Demo != demo)
@@ -86,7 +86,8 @@ public sealed class PokerService : MonoBehaviour
         if (settings == null) { Error = "Pokerin asetukset puuttuvat."; return false; }
         if (!Demo && attached == null) { Error = "Pelaajaa ei löytynyt."; return false; }
         int wallet = Demo ? (Cash.WalletInitialized ? Cash.Wallet : 10000) : attached.money;
-        if (!Cash.Join(settings.buyIn, settings.smallBlind, settings.bigBlind, wallet)) { Error = "Sisäänostoon tarvitaan " + settings.buyIn + " mk."; return false; }
+        int buyIn = settings.BuyInFor(variant);
+        if (!Cash.Join(buyIn, settings.smallBlind, settings.bigBlind, wallet, variant)) { Error = "Sisäänostoon tarvitaan " + buyIn + " mk."; return false; }
         Error = null;
         if (!Commit()) return false;
         ApplyWallet(); Visible = true; oldTimeScale = Time.timeScale; Time.timeScale = 0;
@@ -98,7 +99,7 @@ public sealed class PokerService : MonoBehaviour
         }
         foreach (var p in Players.All) if (p != null && p.enabled) { disabledPlayers.Add(p); p.enabled = false; }
         foreach (var hud in FindObjectsByType<GameHUD>(FindObjectsSortMode.None)) if (hud.enabled) { disabledHuds.Add(hud); hud.enabled = false; }
-        var go = new GameObject("Texas Hold'em · UI"); go.transform.SetParent(transform);
+        var go = new GameObject(Cash.Table.Variant == PokerVariant.Omaha ? "Pot Limit Omaha · UI" : "Texas Hold'em · UI"); go.transform.SetParent(transform);
         view = go.AddComponent<PokerView>(); view.Build(this, settings);
         Changed?.Invoke(); return true;
     }
@@ -124,7 +125,7 @@ public sealed class PokerService : MonoBehaviour
     public void Rebuy()
     {
         if (!Visible || faulted) return;
-        if (Cash.Rebuy(Settings.buyIn)) PersistAndNotify();
+        if (Cash.Rebuy(Settings.BuyInFor(Cash.Table.Variant))) PersistAndNotify();
     }
     public void Act(PokerAction action, int amount, int revision)
     {

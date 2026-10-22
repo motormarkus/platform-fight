@@ -139,7 +139,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
         e.IsAwake = true;
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
         decisionTimer = 0.6f; specialCd = Random.Range(3f, 6f); runningFor = 0f;
-        if (welcome != null && e.Audio != null) e.Audio.PlayOneShot(welcome, welcomeVolume);   // tervetuloa, kun hänet nähdään
+        if (welcome != null && e.Audio != null) e.Audio.PlayOneShotLeveled(welcome, welcomeVolume);   // tervetuloa, kun hänet nähdään
         nextSpeak = Time.time + (welcome != null ? welcome.length : 0f) + Random.Range(speakInterval.x * 0.5f, speakInterval.y * 0.5f);
     }
 
@@ -280,7 +280,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
         var a = atks[cur.kind];
         float scale = (planPos > 0 || comboRunning) ? comboWindupScale : 1f;
         tWind = a.impact * a.ft * scale;
-        if (cur.kind == Kind.Tornado || cur.kind == Kind.Overhead) { if (specialSound != null && e.Audio != null) e.Audio.PlayOneShot(specialSound, specialVolume); }
+        if (cur.kind == Kind.Tornado || cur.kind == Kind.Overhead) { if (specialSound != null && e.Audio != null) e.Audio.PlayOneShotLeveled(specialSound, specialVolume); }
         else PlayPunchSound();
         tHold = impactHold;
         tRecFrame = recoverFrameTime * (cur.finisher ? 1.2f : 1f);
@@ -373,7 +373,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
         lastSpeak = i;
         if (speak[i] != null)
         {
-            e.Audio.PlayOneShot(speak[i], speakVolume);
+            e.Audio.PlayOneShotLeveled(speak[i], speakVolume);
             nextSpeak = Time.time + speak[i].length + Random.Range(speakInterval.x, speakInterval.y);
         }
         else nextSpeak = Time.time + 5f;
@@ -385,7 +385,7 @@ public class PierreBoss : MonoBehaviour, IEnemyBrain
         if (Time.time - lastPunchSound < 0.25f || Random.value > 0.8f) return;   // nopeassa sarjassa ei joka lyönnistä
         lastPunchSound = Time.time;
         var c = punchSounds[Random.Range(0, punchSounds.Length)];
-        if (c != null) e.Audio.PlayOneShot(c, punchVolume);
+        if (c != null) e.Audio.PlayOneShotLeveled(c, punchVolume);
     }
 
     // ---------------- apu ----------------

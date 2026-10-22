@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: efaec977b53f3ec46a0868fcbf9bd4d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2446934572441651109
+    second: juoksu_alkuperainen_0
+  - first:
+      213: 266830110764385589
+    second: juoksu_alkuperainen_1
+  - first:
+      213: 7444409006118430648
+    second: juoksu_alkuperainen_2
+  - first:
+      213: 975469580421074941
+    second: juoksu_alkuperainen_3
+  - first:
+      213: -6411153304698659400
+    second: juoksu_alkuperainen_4
+  - first:
+      213: 8188110728637058938
+    second: juoksu_alkuperainen_5
+  - first:
+      213: -6913340247073121698
+    second: juoksu_alkuperainen_6
+  - first:
+      213: 7219765557721222271
+    second: juoksu_alkuperainen_7
+  - first:
+      213: -434535801900918556
+    second: juoksu_alkuperainen_8
+  - first:
+      213: 8595831500708582251
+    second: juoksu_alkuperainen_9
+  - first:
+      213: -4239477724479842660
+    second: juoksu_alkuperainen_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_0
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 778
+        width: 209
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b583ef488fdba0ed0800000000000000
+      internalID: -2446934572441651109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_1
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 777
+        width: 202
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5354d7f6298f3b300800000000000000
+      internalID: 266830110764385589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_2
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 778
+        width: 219
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b768648c8adf4760800000000000000
+      internalID: 7444409006118430648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_3
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 780
+        width: 227
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff82364a60998d00800000000000000
+      internalID: 975469580421074941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 404
+        width: 232
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd5dd089020707a0800000000000000
+      internalID: -6411153304698659400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_5
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 391
+        width: 215
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f0af1435302a170800000000000000
+      internalID: 8188110728637058938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_6
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 390
+        width: 188
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a9bc97ca1ee00a0800000000000000
+      internalID: -6913340247073121698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_7
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 391
+        width: 171
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7cc295d582c13460800000000000000
+      internalID: 7219765557721222271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 8
+        width: 194
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8918d8df738f9f0800000000000000
+      internalID: -434535801900918556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_9
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 33
+        width: 240
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6319dc05378a4770800000000000000
+      internalID: 8595831500708582251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: juoksu_alkuperainen_10
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 13
+        width: 232
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c969237a8795a25c0800000000000000
+      internalID: -4239477724479842660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      juoksu_alkuperainen_0: -2446934572441651109
+      juoksu_alkuperainen_1: 266830110764385589
+      juoksu_alkuperainen_10: -4239477724479842660
+      juoksu_alkuperainen_2: 7444409006118430648
+      juoksu_alkuperainen_3: 975469580421074941
+      juoksu_alkuperainen_4: -6411153304698659400
+      juoksu_alkuperainen_5: 8188110728637058938
+      juoksu_alkuperainen_6: -6913340247073121698
+      juoksu_alkuperainen_7: 7219765557721222271
+      juoksu_alkuperainen_8: -434535801900918556
+      juoksu_alkuperainen_9: 8595831500708582251
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

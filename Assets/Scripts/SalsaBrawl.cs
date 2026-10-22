@@ -52,6 +52,12 @@ public class SalsaBrawl : MonoBehaviour
         {
             if (e == null || e.IsDead) continue;
             e.fightsEveryone = true;
+            if (string.IsNullOrEmpty(e.brawlGroup))
+            {
+                // puolet: punkkari ja kovis sekä tanya ja jakuza eivät tappele keskenään; muut (pensalenkkari, puliukko, Tom, rekkamies, Betty…) kaikkia vastaan
+                if (e.displayName == "Punkkari" || e.displayName == "Kovis") e.brawlGroup = "punkkari_kovis";
+                else if (e.displayName == "Tanya" || e.displayName == "Jakuza") e.brawlGroup = "tanya_jakuza";
+            }
             var tb = e.GetComponent<TomBrain>(); if (tb != null) tb.noRest = true;   // Tom tulee kauempaakin mukaan, ei palaa rauhaan
             e.WakeUp();
         }

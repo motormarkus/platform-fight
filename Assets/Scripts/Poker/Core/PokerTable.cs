@@ -5,6 +5,8 @@ using System.Linq;
 namespace TotalFist.Poker
 {
     public enum PokerStreet { BetweenHands, Preflop, Flop, Turn, River, Complete }
+    // Holdem: no-limit, 2 omaa korttia. Omaha: pot limit, 4 omaa korttia, käteen täsmälleen kaksi niistä.
+    public enum PokerVariant { Holdem, Omaha }
     public enum PokerAction { Fold, Check, Call, RaiseTo, AllIn }
 
     [Serializable]
@@ -36,6 +38,7 @@ namespace TotalFist.Poker
     public sealed class PokerTable
     {
         public PokerSeat[] Seats;
+        public PokerVariant Variant;
         public int SmallBlind = 25, BigBlind = 50;
         public int Dealer = -1, SmallBlindSeat = -1, BigBlindSeat = -1, Actor = -1;
         public PokerStreet Street;
@@ -52,8 +55,9 @@ namespace TotalFist.Poker
         [field: NonSerialized] public event Action Changed;
 
         public PokerTable() { }
-        public PokerTable(int[] stacks, int smallBlind = 25, int bigBlind = 50)
+        public PokerTable(int[] stacks, int smallBlind = 25, int bigBlind = 50, PokerVariant variant = PokerVariant.Holdem)
         {
+            Variant = variant;
             if (stacks == null || stacks.Length < 2 || stacks.Length > 5 || stacks.Any(x => x < 0)) throw new ArgumentException("2–5 nonnegative stacks required");
             if (smallBlind <= 0 || bigBlind < smallBlind || bigBlind > 100000000) throw new ArgumentException("Invalid blinds");
             if (stacks.Sum(x => (long)x) > int.MaxValue / 2) throw new ArgumentException("Table too large");
@@ -61,6 +65,10 @@ namespace TotalFist.Poker
             Seats = stacks.Select((x, i) => new PokerSeat { Name = i == 0 ? "Sinä" : "Botti " + i, Stack = x }).ToArray();
         }
 
+        public int HoleCount => Variant == PokerVariant.Omaha ? 4 : 2;
+        public bool PotLimit => Variant == PokerVariant.Omaha;
+        public long HandValue(int seat) => Variant == PokerVariant.Omaha ? PokerCards.EvaluateOmaha(Seats[seat].Hole, Board) : PokerCards.Evaluate(Seats[seat].Hole.Concat(Board).ToArray());
+        public int[] BestFive(int seat) => Variant == PokerVariant.Omaha ? PokerCards.BestFiveOmaha(Seats[seat].Hole, Board) : PokerCards.BestFive(Seats[seat].Hole.Concat(Board).ToArray());
         public bool Running => Street != PokerStreet.BetweenHands && Street != PokerStreet.Complete;
         public int Pot => Seats.Sum(x => x.Committed);
         public long Total => Seats.Sum(x => (long)x.Stack + x.Committed);
@@ -81,7 +89,7 @@ namespace TotalFist.Poker
             if (nextDeck.Length != 52 || nextDeck.Distinct().Count() != 52 || nextDeck.Any(c => c < 0 || c >= 52)) throw new ArgumentException("Deck must be a 52-card permutation");
             if (fixedDeck == null && random == null) throw new ArgumentNullException(nameof(random));
             HandTotal = Total; RemovedThisHand = 0; HandNumber++; Board.Clear(); Awards.Clear(); Showdown = false;
-            foreach (var s in Seats) { s.InHand = s.Stack > 0; s.Folded = !s.InHand; s.Bet = s.Committed = s.ActedAtBet = 0; s.Acted = false; s.Hole = new[] { -1, -1 }; s.LastAction = ""; }
+            foreach (var s in Seats) { s.InHand = s.Stack > 0; s.Folded = !s.InHand; s.Bet = s.Committed = s.ActedAtBet = 0; s.Acted = false; s.Hole = Enumerable.Repeat(-1, HoleCount).ToArray(); s.LastAction = ""; }
             bool headsUp = Seats.Count(s => s.InHand) == 2;
             if (headsUp && LastHandPlayers > 2 && BigBlindSeat >= 0)
             {
@@ -96,7 +104,7 @@ namespace TotalFist.Poker
             Deck = nextDeck;
             if (fixedDeck == null) for (int i = 51; i > 0; i--) { int j = random.Next(i + 1); int t = Deck[i]; Deck[i] = Deck[j]; Deck[j] = t; }
             DeckIndex = 0;
-            for (int round = 0; round < 2; round++)
+            for (int round = 0; round < HoleCount; round++)
             {
                 int seat = Dealer;
                 for (int n = 0; n < Seats.Count(s => s.InHand); n++) { seat = Next(seat, s => s.InHand); Seats[seat].Hole[round] = Draw(); }
@@ -127,8 +135,11 @@ namespace TotalFist.Poker
             l.Fold = true; l.Check = due == 0; l.Call = due > 0; l.CallAmount = Math.Min(due, s.Stack);
             l.MinimumRaiseTo = checked(CurrentBet + LastFullRaise);
             l.MaximumRaiseTo = checked(s.Bet + s.Stack);
+            // Pot limit: korotus korkeintaan potin kokoiseksi (pottiin lasketaan oma maksu), kasa yli sen ei käy all-iniksi.
+            bool capped = PotLimit && checked(CurrentBet + Pot + due) < l.MaximumRaiseTo;
+            if (capped) l.MaximumRaiseTo = CurrentBet + Pot + due;
             l.Raise = reopen && opponent && l.MaximumRaiseTo >= l.MinimumRaiseTo;
-            l.AllIn = l.MaximumRaiseTo <= CurrentBet || (reopen && opponent);
+            l.AllIn = !capped && (l.MaximumRaiseTo <= CurrentBet || (reopen && opponent));
             return l;
         }
 
@@ -231,8 +242,8 @@ namespace TotalFist.Poker
                 int amount = checked((level - previous) * Seats.Count(s => s.Committed >= level)); previous = level;
                 var eligible = Enumerable.Range(0, Seats.Length).Where(i => Live(Seats[i]) && Seats[i].Committed >= level).ToArray();
                 if (eligible.Length == 0) throw new InvalidOperationException("Pot without eligible player");
-                long best = showdown ? eligible.Max(i => PokerCards.Evaluate(Seats[i].Hole.Concat(Board).ToArray())) : 0;
-                int[] winners = eligible.Where(i => !showdown || PokerCards.Evaluate(Seats[i].Hole.Concat(Board).ToArray()) == best).ToArray();
+                long best = showdown ? eligible.Max(i => HandValue(i)) : 0;
+                int[] winners = eligible.Where(i => !showdown || HandValue(i) == best).ToArray();
                 foreach (int i in winners) Seats[i].Stack += amount / winners.Length;
                 int odd = amount % winners.Length;
                 for (int step = 1; odd > 0 && step <= Seats.Length; step++)

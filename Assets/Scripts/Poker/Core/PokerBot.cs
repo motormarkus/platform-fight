@@ -10,6 +10,7 @@ namespace TotalFist.Poker
     public sealed class PokerObservation
     {
         public int[] Hole, Board;
+        public PokerVariant Variant;
         public int Pot, Stack, Bet, Opponents, BigBlind;
         public LegalActions Legal;
         // Public betting context: street, 0 (acts first) .. 1 (acts last) among live players,
@@ -45,10 +46,31 @@ namespace TotalFist.Poker
                 var o = table.Seats[i]; string a = o.LastAction ?? "";
                 if (i != seat && o.InHand && !o.Folded && (a.StartsWith("Korotti") || a.StartsWith("All-in"))) aggressors++;
             }
-            return new PokerObservation { Hole = (int[])s.Hole.Clone(), Board = table.Board.ToArray(), Pot = table.Pot,
+            return new PokerObservation { Variant = table.Variant, Hole = (int[])s.Hole.Clone(), Board = table.Board.ToArray(), Pot = table.Pot,
                 Stack = s.Stack, Bet = s.Bet, BigBlind = table.BigBlind,
                 Opponents = table.Seats.Count(x => x.InHand && !x.Folded) - 1, Legal = table.Legal(seat),
                 Street = table.Street, Position = live > 1 ? before / (double)(live - 1) : .5, Aggressors = aggressors };
+        }
+
+        // Omaha-aloituskäsi 0..1: kuuden kahden kortin parin paras puolikas + värit, suoramahdollisuus, ei kolmosia/neloseja.
+        public static double OmahaPreflopStrength(int[] hole)
+        {
+            var pairs = new List<double>();
+            for (int a = 0; a < 3; a++) for (int b = a + 1; b < 4; b++) pairs.Add(PreflopStrength(new[] { hole[a], hole[b] }));
+            pairs.Sort(); pairs.Reverse();
+            double score = .55 * pairs[0] + .3 * pairs[1] + .15 * pairs[2];
+            var suitCounts = hole.GroupBy(PokerCards.Suit).Select(g => g.Count()).OrderByDescending(x => x).ToArray();
+            if (suitCounts[0] == 2 && suitCounts.Length > 1 && suitCounts[1] == 2) score += .08;       // kaksi värimahdollisuutta
+            else if (suitCounts[0] == 2) score += .03;
+            else if (suitCounts[0] >= 3) score -= .06;                                                   // 3+ samaa maata: huono
+            var ranks = hole.Select(PokerCards.Rank).OrderBy(x => x).ToArray();
+            var rankGroups = ranks.GroupBy(x => x).Select(g => g.Count()).OrderByDescending(x => x).ToArray();
+            if (rankGroups[0] >= 3) score -= .2;                                                          // kolmoset/neloset kädessä
+            else if (rankGroups[0] == 2 && rankGroups.Length == 2) score += .02;                          // kaksi paria
+            else if (rankGroups[0] == 1 && ranks[3] - ranks[0] <= 4) score += .08;                       // rundown / suoramahdollisuus
+            else if (rankGroups[0] == 1 && ranks[3] - ranks[0] >= 9 && ranks[0] < 8) score -= .05;       // hajanainen
+            if (ranks[3] == 14 && (rankGroups[0] == 2 && ranks.Count(x => x == 14) == 2)) score += .08;  // pari ässiä
+            return Math.Max(0, Math.Min(1, score));
         }
 
         // Rough 0..1 preflop strength (Chen-style): high card, pairs, suitedness, connectedness.
@@ -91,7 +113,7 @@ namespace TotalFist.Poker
             if (preflop)
             {
                 // Random-hand equity underrates good starting hands in multiway pots: blend in the table.
-                double strength = PreflopStrength(view.Hole);
+                double strength = view.Variant == PokerVariant.Omaha ? OmahaPreflopStrength(view.Hole) : PreflopStrength(view.Hole);
                 strength += (view.Position - .5) * .12;
                 if (l.CallAmount > view.BigBlind) strength -= .08 * respect * Math.Max(1, view.Aggressors);
                 equity = .5 * equity + .5 * Math.Min(.85, strength + .1);
@@ -114,12 +136,13 @@ namespace TotalFist.Poker
                 int target = view.Bet + l.CallAmount + Math.Max(view.BigBlind, (int)((view.Pot + l.CallAmount) * big * (.8 + .4 * rng.NextDouble())));
                 if (preflop && !facingBet) target = Math.Max(target, view.BigBlind * (2 + (rng.NextDouble() < .5 ? 1 : 0)));
                 target = Math.Max(l.MinimumRaiseTo, Math.Min(l.MaximumRaiseTo, target));
-                bool shove = target >= l.MaximumRaiseTo - view.BigBlind || !l.Raise;
+                bool shove = target >= view.Bet + view.Stack - view.BigBlind || !l.Raise;
                 if (shove)
                 {
                     // Shoving is for strong hands or short stacks, never a casual bluff.
                     if (l.AllIn && (equity > .72 || (bluff && view.Stack <= view.Pot && rng.NextDouble() < .3)))
                         return new PokerDecision(PokerAction.AllIn);
+                    if (!l.AllIn && l.Raise) return new PokerDecision(PokerAction.RaiseTo, target);   // pot limit: potin kokoinen korotus, ei shovea
                 }
                 else return new PokerDecision(PokerAction.RaiseTo, target);
             }
@@ -131,24 +154,26 @@ namespace TotalFist.Poker
         public static double Equity(PokerObservation view, Random rng, int samples)
         {
             if (view.Opponents <= 0) return 1;
+            bool omaha = view.Variant == PokerVariant.Omaha; int holeN = omaha ? 4 : 2;
             var known = new HashSet<int>(view.Hole.Concat(view.Board));
             int[] remaining = Enumerable.Range(0, 52).Where(c => !known.Contains(c)).ToArray();
             double score = 0;
             samples = Math.Max(1, Math.Min(128, samples));
-            var board = new int[5]; var hand = new int[7];
+            var board = new int[5]; var hand = new int[7]; var oppHole = new int[4];
             for (int trial = 0; trial < samples; trial++)
             {
-                int needed = 5 - view.Board.Length + view.Opponents * 2;
+                int needed = 5 - view.Board.Length + view.Opponents * holeN;
                 for (int i = 0; i < needed; i++) { int j = rng.Next(i, remaining.Length); int c = remaining[i]; remaining[i] = remaining[j]; remaining[j] = c; }
                 for (int i = 0; i < view.Board.Length; i++) board[i] = view.Board[i];
                 int cursor = 0;
                 for (int i = view.Board.Length; i < 5; i++) board[i] = remaining[cursor++];
                 Array.Copy(board, 0, hand, 2, 5); hand[0] = view.Hole[0]; hand[1] = view.Hole[1];
-                long mine = PokerCards.Evaluate(hand); int ties = 1; bool lose = false;
+                long mine = omaha ? PokerCards.EvaluateOmaha(view.Hole, board) : PokerCards.Evaluate(hand); int ties = 1; bool lose = false;
                 for (int n = 0; n < view.Opponents; n++)
                 {
-                    hand[0] = remaining[cursor++]; hand[1] = remaining[cursor++];
-                    long theirs = PokerCards.Evaluate(hand);
+                    long theirs;
+                    if (omaha) { for (int h = 0; h < 4; h++) oppHole[h] = remaining[cursor++]; theirs = PokerCards.EvaluateOmaha(oppHole, board); }
+                    else { hand[0] = remaining[cursor++]; hand[1] = remaining[cursor++]; theirs = PokerCards.Evaluate(hand); }
                     if (theirs > mine) { lose = true; break; }
                     if (theirs == mine) ties++;
                 }

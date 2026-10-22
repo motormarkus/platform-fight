@@ -87,3 +87,12 @@ Käyttäjän toimittama paketti löytyi Downloads/PokerSet/PokerSet-kansiosta. S
 Avaa `PokerTest.unity` ja käynnistä Play itse. Tarkista kortin etu-/selkäpuoli, korttien suunta, kaikki maat, merkkien numerot/värit, animaatiot ja perspektiivi. 3D-esityksen varavaihtoehto on tyhjentää `cardPrefab`-kenttä: samoja alkuperäisiä korttikuvia käytetään tällöin UI-spriteinä. Uuden tuonti-/esityskoodin C#-käännös on tarkistettu Unityä käynnistämättä. 52 korttitiedoston SHA-256 vastaa toimitettuja lähteitä, ja kaikkien erotettujen mallien indeksit, UV-rajat sekä normalisoidut mitat on tarkistettu. Unityn Play- tai valikkoajoa ei ole tehty agentin toimesta.
 
 Jakajan nappi: alkuperäinen läpinäkyvä PNG on Assets/ArtSources/Poker/dealer-button.png. Valikko 195 liittää rajatun spriten kaikkiin pokeriasetuksiin; myös 194 tekee tämän. Kuvan pikseleitä ei muokata. Avaa pokerinäkymä uudelleen asetusten päivityksen jälkeen.
+
+## Pot Limit Omaha (El Loipparin pöytä)
+
+`PokerPresentationSettings.offerOmaha` + `omahaBuyIn` (oletus 100 mk). Päällä `Table-ElLoippari.asset`-asetuksessa: pöydässä E avaa valinnan Hold'em / Pot Limit Omaha (vasen/oikea, E aloittaa, hyppy peruu). Muut pöydät pelaavat vain Hold'emia.
+- `PokerTable.Variant` (`PokerVariant`): Omaha jakaa 4 korttia, käsi muodostuu täsmälleen 2 oman + 3 pöydän kortista (`PokerCards.EvaluateOmaha`/`BestFiveOmaha`), korotus enintään potin kokoinen (`Legal`: `CurrentBet + Pot + maksettava`), eikä all-in-nappi ole käytössä jos kasa on potin ylärajaa isompi.
+- Botit: `OmahaPreflopStrength` (värit, rundownit, ei kolmosia), equity-arvio Omaha-säännöillä, pot limit -kokoiset korotukset.
+- Tallenne säilyttää variantin; vanhat Hold'em-tallenteet latautuvat entiseen tapaan.
+- Testit: `OmahaMustUseExactlyTwoHoleAndThreeBoardCards`, `OmahaDealsFourCardsAndPotLimitCapsRaise`, `OmahaBotsPlayCompleteLegalHandsAndShortStackCanGoAllIn`.
+

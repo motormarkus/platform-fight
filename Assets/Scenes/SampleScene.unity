@@ -247,7 +247,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 1614515671}
   shadow: {fileID: 661954117}
   rollSprites: []
@@ -549,6 +551,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -767,6 +771,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -2038,6 +2044,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -2263,6 +2271,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -3289,7 +3299,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 51629751}
   shadow: {fileID: 607585855}
   rollSprites: []
@@ -4256,7 +4268,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 1101242248}
   shadow: {fileID: 1174106270}
   rollSprites: []
@@ -5331,6 +5345,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -5556,6 +5572,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -6132,6 +6150,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -6350,6 +6370,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -6616,6 +6638,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -6841,6 +6865,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -7075,7 +7101,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 785986598}
   shadow: {fileID: 1313007412}
   rollSprites: []
@@ -7394,6 +7422,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -7612,6 +7642,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -8362,7 +8394,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 485152279}
   shadow: {fileID: 29070986}
   rollSprites: []
@@ -8402,54 +8436,6 @@ Transform:
   - {fileID: 485152280}
   - {fileID: 29070987}
   m_Father: {fileID: 489638170}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &115770751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 115770753}
-  - component: {fileID: 115770752}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &115770752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115770751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 9004, y: -0.07508819}
-  areaName: Uccopulco
-  sceneName: UccoLaiva
---- !u!4 &115770753
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115770751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116903026
 GameObject:
@@ -10261,6 +10247,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -10479,6 +10467,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -10975,6 +10965,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -11193,6 +11185,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -11628,6 +11622,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -11855,6 +11851,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -12310,6 +12308,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -12537,6 +12537,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -14099,6 +14101,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -14317,6 +14321,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -14996,6 +15002,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -15221,6 +15229,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -15503,6 +15513,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -15736,6 +15748,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17238,6 +17252,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -17463,6 +17479,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17819,6 +17837,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -18037,6 +18057,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -18397,6 +18419,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -18622,6 +18646,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -18986,6 +19012,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -19213,6 +19241,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -21822,6 +21852,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -22040,6 +22072,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -22988,7 +23022,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 2012740649}
   shadow: {fileID: 1030215669}
   rollSprites: []
@@ -24044,6 +24080,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -24262,6 +24300,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -25254,6 +25294,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -25479,6 +25521,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -25978,7 +26022,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 819910039}
   shadow: {fileID: 1087691595}
   rollSprites: []
@@ -27957,6 +28003,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -28182,6 +28230,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -30841,6 +30891,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -31080,6 +31132,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -31385,6 +31439,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -31610,6 +31666,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -34744,6 +34802,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -34969,6 +35029,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -37043,7 +37105,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 381254522}
   shadow: {fileID: 1583860258}
   rollSprites: []
@@ -37212,7 +37276,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 279181176}
   shadow: {fileID: 1292453692}
   rollSprites: []
@@ -37883,6 +37949,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -38162,6 +38230,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -38431,6 +38501,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -38649,6 +38721,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -38796,6 +38870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: BAARI
   npcName: Sohvi
@@ -40871,6 +40946,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -41089,6 +41166,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -42050,6 +42129,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -42268,6 +42349,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -42959,6 +43042,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -43230,6 +43315,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -43594,6 +43681,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -43821,6 +43910,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -44094,6 +44185,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -44321,6 +44414,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -44346,6 +44441,88 @@ Transform:
   - {fileID: 2128841042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &766498987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766498988}
+  - component: {fileID: 766498989}
+  m_Layer: 0
+  m_Name: Telkkari 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766498988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766498987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.36231, y: -1.1034616, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1546472189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766498989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766498987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14dacf0783c6f234d926bc4d9f925afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TvSet
+  sprites:
+  - {fileID: -7235242493955551698, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 4072512435245387066, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -2445460067666575996, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 6151746899633455309, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 4088713191137961286, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -2938490774997687751, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1331181409, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1022922614, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1871875127, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 967981440, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1171084276, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 171972539, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 197255239, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 858170272, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -906278234, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 260131922, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -855050098, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 876736896, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1875994014, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1248074907, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 68627442, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  showFrames: 10
+  showFrameTime: 0.35
+  breakFrameTime: 0.08
+  table: {fileID: 0}
+  onGround: 1
+  screenOff: 1
+  groundOffset: 0.42307693
+  tableTop: 0
+  scale: 1.3
+  breakSounds:
+  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
+  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
+  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
+  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
+  throwDamage: 22
+  flyDamage: 10
 --- !u!1 &770074603
 GameObject:
   m_ObjectHideFlags: 0
@@ -46615,6 +46792,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -46886,6 +47065,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -47225,6 +47406,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -47453,6 +47636,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -48166,6 +48351,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -48384,6 +48571,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -49623,6 +49812,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -49848,6 +50039,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -50073,7 +50266,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 836944644}
   shadow: {fileID: 1842645557}
   rollSprites: []
@@ -50993,6 +51188,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -51232,6 +51429,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53273,6 +53472,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -53506,6 +53707,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53857,6 +54060,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -54075,6 +54280,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -54846,6 +55053,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -55085,6 +55294,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -55835,6 +56046,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -56060,6 +56273,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -58106,6 +58321,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -58331,6 +58548,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -58601,6 +58820,88 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &1051833669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1051833670}
+  - component: {fileID: 1051833671}
+  m_Layer: 0
+  m_Name: Telkkari 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1051833670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051833669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 156.72768, y: -1.1034616, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1546472189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051833671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051833669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14dacf0783c6f234d926bc4d9f925afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TvSet
+  sprites:
+  - {fileID: -7235242493955551698, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 4072512435245387066, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -2445460067666575996, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 6151746899633455309, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 4088713191137961286, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -2938490774997687751, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1331181409, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1022922614, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1871875127, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 967981440, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 1171084276, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 171972539, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 197255239, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 858170272, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -906278234, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 260131922, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -855050098, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 876736896, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1875994014, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: -1248074907, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  - {fileID: 68627442, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
+  showFrames: 10
+  showFrameTime: 0.35
+  breakFrameTime: 0.08
+  table: {fileID: 0}
+  onGround: 1
+  screenOff: 1
+  groundOffset: 0.42307693
+  tableTop: 0
+  scale: 1.3
+  breakSounds:
+  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
+  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
+  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
+  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
+  throwDamage: 22
+  flyDamage: 10
 --- !u!1 &1053718105
 GameObject:
   m_ObjectHideFlags: 0
@@ -58849,6 +59150,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -59076,6 +59379,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -59434,6 +59739,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -59659,6 +59966,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -60996,6 +61305,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -61235,6 +61546,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -61569,88 +61882,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &1097850760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1097850761}
-  - component: {fileID: 1097850762}
-  m_Layer: 0
-  m_Name: Telkkari 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1097850761
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097850760}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.36231, y: -1.1034616, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1273610092}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1097850762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097850760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14dacf0783c6f234d926bc4d9f925afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TvSet
-  sprites:
-  - {fileID: -7235242493955551698, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 4072512435245387066, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -2445460067666575996, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 6151746899633455309, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 4088713191137961286, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -2938490774997687751, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1331181409, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1022922614, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1871875127, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 967981440, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1171084276, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 171972539, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 197255239, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 858170272, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -906278234, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 260131922, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -855050098, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 876736896, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1875994014, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1248074907, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 68627442, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  showFrames: 10
-  showFrameTime: 0.35
-  breakFrameTime: 0.08
-  table: {fileID: 0}
-  onGround: 1
-  screenOff: 1
-  groundOffset: 0.42307693
-  tableTop: 0
-  scale: 1.3
-  breakSounds:
-  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
-  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
-  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
-  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
-  throwDamage: 22
-  flyDamage: 10
 --- !u!1 &1098506124
 GameObject:
   m_ObjectHideFlags: 0
@@ -62873,6 +63104,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -63098,6 +63331,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -63876,6 +64111,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -64103,6 +64340,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -64631,6 +64870,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -64856,6 +65097,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -66537,6 +66780,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -66764,6 +67009,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -67842,6 +68089,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -68067,6 +68316,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -68333,6 +68584,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -68558,6 +68811,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -69023,6 +69278,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -69302,6 +69559,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -69807,6 +70066,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -70046,6 +70307,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -70493,6 +70756,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -70726,6 +70991,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -71276,6 +71543,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -71501,6 +71770,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -73595,6 +73866,11 @@ MonoBehaviour:
   drunkLaunchUp: 8
   drunkKnockChance: 0.35
   drunkDamageTaken: 0.6
+  drunkFarChance: 0.3
+  drunkTripChance: 0.25
+  drunkRunTripChance: 0.55
+  drunkSpecialFailChance: 0.7
+  drunkIdleFallRate: 0.07
 --- !u!4 &1266612347
 Transform:
   m_ObjectHideFlags: 0
@@ -73688,39 +73964,6 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
---- !u!1 &1273610091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1273610092}
-  m_Layer: 0
-  m_Name: Kadun telkkarit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1273610092
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273610091}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1097850761}
-  - {fileID: 1512651619}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1277454966
 GameObject:
   m_ObjectHideFlags: 0
@@ -74888,6 +75131,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -75113,6 +75358,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -75585,6 +75832,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -75803,6 +76052,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -76410,6 +76661,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -76689,6 +76942,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -77741,6 +77996,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -77966,6 +78223,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -78336,6 +78595,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -78561,6 +78822,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -78864,6 +79127,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -79082,6 +79347,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -79819,6 +80086,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -80058,6 +80327,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -82347,6 +82618,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -82574,6 +82847,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84756,6 +85031,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -84981,6 +85258,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -85433,6 +85712,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -85672,6 +85953,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -86241,7 +86524,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 1154111134}
   shadow: {fileID: 226138979}
   rollSprites: []
@@ -86741,6 +87026,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -86961,6 +87248,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -88684,88 +88973,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1512651618
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1512651619}
-  - component: {fileID: 1512651620}
-  m_Layer: 0
-  m_Name: Telkkari 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1512651619
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512651618}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.72769, y: -1.1034616, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1273610092}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1512651620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512651618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14dacf0783c6f234d926bc4d9f925afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TvSet
-  sprites:
-  - {fileID: -7235242493955551698, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 4072512435245387066, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -2445460067666575996, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 6151746899633455309, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 4088713191137961286, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -2938490774997687751, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1331181409, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1022922614, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1871875127, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 967981440, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 1171084276, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 171972539, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 197255239, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 858170272, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -906278234, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 260131922, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -855050098, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 876736896, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1875994014, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: -1248074907, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  - {fileID: 68627442, guid: 317bd2be7f5533346a6ffaaaf87cb301, type: 3}
-  showFrames: 10
-  showFrameTime: 0.35
-  breakFrameTime: 0.08
-  table: {fileID: 0}
-  onGround: 1
-  screenOff: 1
-  groundOffset: 0.42307693
-  tableTop: 0
-  scale: 1.3
-  breakSounds:
-  - {fileID: 8300000, guid: a3de31ede9d6ef74f92cb2bac97ea09f, type: 3}
-  - {fileID: 8300000, guid: caeba4e450dca944cb204c6ba3a9573a, type: 3}
-  - {fileID: 8300000, guid: a2b63bd777a7c8e4c9c679437249787e, type: 3}
-  - {fileID: 8300000, guid: d04bc6cd5e0786544acb11fe90fd2709, type: 3}
-  throwDamage: 22
-  flyDamage: 10
 --- !u!1 &1514204621
 GameObject:
   m_ObjectHideFlags: 0
@@ -89390,6 +89597,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -89617,6 +89826,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -89890,6 +90101,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -90117,6 +90330,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -90588,6 +90803,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1546472188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546472189}
+  m_Layer: 0
+  m_Name: Kadun telkkarit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1546472189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546472188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 766498988}
+  - {fileID: 1051833670}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547398730
 GameObject:
   m_ObjectHideFlags: 0
@@ -91287,6 +91535,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -91505,6 +91755,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -91795,6 +92047,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -92022,6 +92276,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -92375,6 +92631,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -92600,6 +92858,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -93757,6 +94017,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -93982,6 +94244,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -94466,6 +94730,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -94745,6 +95011,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -95964,6 +96232,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -96182,6 +96452,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -96819,6 +97091,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -97058,6 +97332,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -98471,6 +98747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: S-CLUB  BAARI
   npcName: Sohvi
@@ -100440,6 +100717,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -100711,6 +100990,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -100964,7 +101245,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 1259360178}
   shadow: {fileID: 33666446}
   rollSprites: []
@@ -102100,6 +102383,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -102318,6 +102603,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -103019,6 +103306,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -103290,6 +103579,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -103845,7 +104136,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 255269365}
   shadow: {fileID: 1834290700}
   rollSprites: []
@@ -104363,6 +104656,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -104581,6 +104876,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -104652,7 +104949,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 1897669781}
   shadow: {fileID: 435181729}
   rollSprites: []
@@ -104971,6 +105270,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -105189,6 +105490,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -105973,6 +106276,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -106198,6 +106503,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -107154,6 +107461,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -107379,6 +107688,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -110395,6 +110706,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -110613,6 +110926,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -111144,6 +111459,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -111362,6 +111679,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -112123,6 +112442,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -112362,6 +112683,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -114931,6 +115254,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -115149,6 +115474,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -115432,6 +115759,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -115657,6 +115986,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -116558,6 +116889,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -116776,6 +117109,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -117576,6 +117911,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -117815,6 +118152,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -118970,6 +119309,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -119195,6 +119536,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -120554,6 +120897,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -120772,6 +121117,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -121735,6 +122082,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -121953,6 +122302,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -122115,7 +122466,9 @@ MonoBehaviour:
   plowThrough: 1
   stackedOn: {fileID: 0}
   stackHeight: 1.5
-  breakSounds: []
+  breakSounds:
+  - {fileID: 8300000, guid: f92e6bbdad31ec441a8ffb1ff561dc3f, type: 3}
+  - {fileID: 8300000, guid: d613a486c0edbcd40bb2b4980fd3802a, type: 3}
   body: {fileID: 472659128}
   shadow: {fileID: 2064744506}
   rollSprites: []
@@ -122867,6 +123220,8 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -123094,6 +123449,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -123687,6 +124044,54 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &2097021048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097021050}
+  - component: {fileID: 2097021049}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2097021049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097021048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 9004, y: -0.07508819}
+  areaName: Uccopulco
+  sceneName: UccoLaiva
+--- !u!4 &2097021050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097021048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097766392
 GameObject:
   m_ObjectHideFlags: 0
@@ -124759,6 +125164,8 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -124998,6 +125405,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -125771,6 +126180,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -125996,6 +126407,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -126781,6 +127194,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -127006,6 +127421,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -127614,6 +128031,8 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -127853,6 +128272,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -128570,7 +128991,6 @@ SceneRoots:
   - {fileID: 1179670905}
   - {fileID: 913247427}
   - {fileID: 1348992923}
-  - {fileID: 1273610092}
   - {fileID: 106984165}
   - {fileID: 49118625}
   - {fileID: 908796108}
@@ -128611,4 +129031,5 @@ SceneRoots:
   - {fileID: 270872287}
   - {fileID: 50513859}
   - {fileID: 1889188337}
-  - {fileID: 115770753}
+  - {fileID: 1546472189}
+  - {fileID: 2097021050}

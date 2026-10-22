@@ -54,7 +54,7 @@ public class EnemyBike : MonoBehaviour
         {
             // oma lähde, jotta ääni soi loppuun vaikka pyörä poistuu
             var snd = new GameObject("Kiskaisun ääni").AddComponent<AudioSource>();
-            snd.spatialBlend = 0f; snd.PlayOneShot(yankSound, yankVolume);
+            snd.spatialBlend = 0f; snd.PlayOneShotLeveled(yankSound, yankVolume);
             Destroy(snd.gameObject, yankSound.length + 0.1f);
         }
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.1f, 0.2f);

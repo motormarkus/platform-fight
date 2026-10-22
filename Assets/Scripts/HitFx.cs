@@ -103,7 +103,7 @@ public class HitFx : MonoBehaviour
         var fx = Instance;
         if (clip == null || fx == null || fx.source == null) return;
         fx.source.pitch = 1f;
-        fx.source.PlayOneShot(clip, volume);
+        fx.source.PlayOneShotLeveled(clip, volume);
     }
 
     public static void PlayPickup(bool rare)
@@ -111,7 +111,7 @@ public class HitFx : MonoBehaviour
         var fx = Instance;
         if (fx.pickupSound == null) return;
         fx.source.pitch = rare ? 0.9f : Random.Range(0.97f, 1.05f);
-        fx.source.PlayOneShot(fx.pickupSound, rare ? 1f : fx.pickupVolume);
+        fx.source.PlayOneShotLeveled(fx.pickupSound, rare ? 1f : fx.pickupVolume);
     }
 
     float stopUntil;
@@ -148,6 +148,6 @@ public class HitFx : MonoBehaviour
         lastSound = i;
         if (impactSounds[i] == null) return;
         source.pitch = Random.Range(0.93f, 1.07f);
-        source.PlayOneShot(impactSounds[i], impactVolume);
+        source.PlayOneShotLeveled(impactSounds[i], impactVolume);
     }
 }

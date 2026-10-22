@@ -16618,9 +16618,7 @@ public static class BeatEmUpSetup
             EditorUtility.SetDirty(ev);
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
-            Info("Valtatielle lisätty tapahtumat: rahalinja, saarto (3 vihuprätkää kerralla) ja hiekkamyrsky. Tulevat 16-28 s välein, ensimmäinen 14 s kohdalla. UccoLaivan scene tallennettu." + "
-
-Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount, stormTime).");
+            Info("Valtatielle lisätty tapahtumat: rahalinja, saarto (3 vihuprätkää kerralla) ja hiekkamyrsky. Tulevat 16-28 s välein, ensimmäinen 14 s kohdalla. UccoLaivan scene tallennettu." + "\n\nSäädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount, stormTime).");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
@@ -16628,7 +16626,28 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
     // ---------------- Thaitownin katu jatkuu asemalta vasemmalle: kerrostalo, klubi, panttikonttori, ulkokahvila ----------------
     // Uudet kuvat (1672 x 941) asemakadun (valikko 164, X0 = 108000) vasemmalle puolelle, asemalta lukien: 1 kerrostalo, 2 klubi (neon), 3 panttikonttori, 4 ulkokahvila.
     // Panttikonttorin sisätila on kaksi peräkkäistä kuvaa (x 140000), ovi kadulta kuvassa 3 (x ≈ 565 px).
-    const float ThaiLeftStreetX0 = 108000f, ThaiPawnX0 = 140000f, ThaiPawnStreetDoorPx = 565f, ThaiPawnInnerDoorPx = 1207f, ThaiPawnFloorPx = 650f;
+    // Asema ja kaikki siitä vasemmalle: kuvat katkaistaan kynnyksen kohdalta (rivi 622). Rakennus (ylä) suurennetaan 25 %, maa (ala) venytetään vain vaakasuunnassa.
+    const float ThaiStreetScale = 1.25f, ThaiStreetCutRow = 622f, ThaiStreetCurbRow = 668f, ThaiStreetRaisePx = 36f;   // jalkakäytävän kaista 622-668; rakennukset nousevat 36 px
+    /// Katukuvan rivi (0 = ylhäällä) -> maailman y suurennetussa kadussa (rakennus, jalkakäytävä, katu).
+    static float StreetRowToY(float row)
+    {
+        float ppu = 941f / (2f * CamHalf), top = CamY + 941f / ppu * 0.5f;
+        float yCut = top - ThaiStreetCutRow / ppu, raise = ThaiStreetRaisePx / ppu, yBase = yCut + raise, yCurb = yCut - (ThaiStreetCurbRow - ThaiStreetCutRow) / ppu;
+        if (row <= ThaiStreetCutRow) return yBase + (ThaiStreetCutRow - row) * ThaiStreetScale / ppu;
+        if (row <= ThaiStreetCurbRow) return Mathf.Lerp(yBase, yCurb, (row - ThaiStreetCutRow) / (ThaiStreetCurbRow - ThaiStreetCutRow));
+        return yCurb - (row - ThaiStreetCurbRow) / ppu;
+    }
+    static float StreetNewPpu => 941f / (2f * CamHalf) / ThaiStreetScale;
+    /// Kadun osan k vasen reuna (k = 0 asema, 1-4 sen vasemmalla olevat kuvat); aseman oikea reuna (X0 + yksi vanha kuva) pysyy paikallaan.
+    // Limitykset (kuvapikseliä) aseman vasemmalla puolella: piece[k-1] (oikea) ja piece[k] (vasen) limittyvät o[k] px (sisältö täsmää, tolpat osuvat päällekkäin). Mitattu kuvista; häivytys: Tools/LenkkariAssets/blend_seams.py.
+    static readonly float[] StreetOverlapPx = { 0f, 22f, 102f, 186f, 0f };
+    static float StreetPieceLeft(int k)
+    {
+        float segU = 1672f / (941f / (2f * CamHalf)), ppuN = StreetNewPpu, left = ThaiLeftStreetX0 + segU - (k + 1) * (1672f / ppuN);
+        for (int j = 1; j <= k && j < StreetOverlapPx.Length; j++) left += StreetOverlapPx[j] / ppuN;   // limitys siirtää osaa oikealle (aseman suuntaan)
+        return left;
+    }
+    const float ThaiLeftStreetX0 = 108000f, ThaiPawnX0 = 118000f, ThaiPawnStreetDoorPx = 565f, ThaiPawnInnerDoorPx = 1207f, ThaiPawnFloorPx = 650f;
     [MenuItem("Beat em up/246. Thaitown: katu jatkuu asemalta vasemmalle (klubi, panttikonttori + sisätila, ulkokahvila)")]
     static void ExtendThaitownStreetLeft()
     {
@@ -16649,45 +16668,99 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             float X0 = ThaiLeftStreetX0;
             float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, halfW = CamHalf * 16f / 9f;
             float segU = 1672f / ppu;
-            float newX0 = X0 - 4f * segU;
-            // vanhat vasemmat osat pois (uudelleenajo)
-            foreach (var old in root.GetComponentsInChildren<Transform>(true).Where(t => t != null && t.name.StartsWith("Thaitownin kadun tausta vasen")).ToArray())
-                Undo.DestroyObjectImmediate(old.gameObject);
-            for (int i = 0; i < 4; i++)
+            float ppuN = StreetNewPpu, segN = 1672f / ppuN, yCut = top - ThaiStreetCutRow / ppu;   // suurennetun osan mittakaava ja kynnyksen korkeus
+            float newX0 = StreetPieceLeft(4);
+            // ---- 1) koko katu suurennetaan 25 %: oliot aseman oikean reunan (Xr) ympäriltä, vain kerran (merkkiolio) ----
+            float Xr = X0 + segU;
+            float oldRightEdge = X0 + 7f * segU;
+            string markerName = "Thaitownin kadun suurennus (25 %)";
+            int moved = 0;
+            if (!scene.GetRootGameObjects().Any(g => g.name == markerName))
             {
-                var sprite = ImportShipSprite(left[i], ppu, false, SpriteAlignment.Center);
-                if (sprite == null) { Info("Kuvan tuonti epäonnistui: " + left[i]); return; }
-                var bg = new GameObject("Thaitownin kadun tausta vasen " + (i + 1)).AddComponent<SpriteRenderer>();
-                bg.transform.SetParent(root.transform, false);
-                bg.sprite = sprite; bg.sortingOrder = -10000;
-                bg.transform.position = new Vector3(X0 - segU * (i + 0.5f), CamY, 0f);
+                float Scl(float x) => Xr + (x - Xr) * ThaiStreetScale;
+                var skipRoots = new HashSet<Transform>(new[] { root.transform });
+                foreach (var t in scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).ToArray())
+                {
+                    if (t == null || skipRoots.Contains(t) || t.IsChildOf(root.transform)) continue;   // kadun taustat ja kerrokset käsitellään erikseen
+                    float tx = t.position.x;
+                    if (tx < X0 || tx > oldRightEdge + 1f) continue;
+                    if (t.parent != null && t.parent.position.x >= X0 && t.parent.position.x <= oldRightEdge + 1f) continue;   // lapsi seuraa vanhempaansa
+                    Undo.RecordObject(t, "Kadun suurennus");
+                    t.position = new Vector3(Scl(tx), t.position.y, t.position.z);
+                    moved++;
+                }
+                foreach (var d in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(d => d != null && d.gameObject.scene == scene))
+                    if (d.spawnPoint.x >= X0 && d.spawnPoint.x <= oldRightEdge + 1f) { Undo.RecordObject(d, "Kadun suurennus"); d.spawnPoint = new Vector2(Scl(d.spawnPoint.x), d.spawnPoint.y); EditorUtility.SetDirty(d); }
+                foreach (var en in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.gameObject.scene == scene))
+                    if (en.wanderMaxX > en.wanderMinX && en.wanderMinX >= X0 && en.wanderMaxX <= oldRightEdge + 1f) { Undo.RecordObject(en, "Kadun suurennus"); en.wanderMinX = Scl(en.wanderMinX); en.wanderMaxX = Scl(en.wanderMaxX); EditorUtility.SetDirty(en); }
+                var mk = new GameObject(markerName);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(mk, scene);
+                Undo.RegisterCreatedObjectUndo(mk, markerName);
             }
-            // yötaivas, alueen rajat ja kaukaiset kerrokset laajenevat vasemmalle
-            float oldMinX = street.walkMinX;
-            float oldRight = street.walkMaxX + 0.5f;
+
+            // ---- 2) kadun kuvat: rakennus (ylä, +25 %), jalkakäytävä (kävely, +25 % vaaka ja nosto) ja katu (ala, vain vaaka) ----
+            foreach (var old in root.GetComponentsInChildren<Transform>(true).Where(t => t != null && (t.name.StartsWith("Thaitownin kadun tausta vasen") || t.name.StartsWith("Thaitownin kadun osa "))).ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+            foreach (var o in root.GetComponentsInChildren<Transform>(true).Where(t => t != null && System.Text.RegularExpressions.Regex.IsMatch(t.name, "^Thaitownin kadun tausta [1-7]$")).ToArray())
+                o.gameObject.SetActive(false);   // vanhat kokokuvat pois, tilalle katkaistut osat
+            float seamGrow = 1f + 4f / 1672f;   // osat leveämmiksi 4 px: ei mustaa rakoa saumaan
+            float raise = ThaiStreetRaisePx / ppu;                       // rakennukset nostetaan hieman: jalkakäytävälle enemmän tilaa
+            float yBase = yCut + raise;                                  // rakennuksen alareuna
+            float yCurb = yCut - (ThaiStreetCurbRow - ThaiStreetCutRow) / ppu;   // reunakiven korkeus pysyy paikallaan
+            float walkH = (ThaiStreetCurbRow - ThaiStreetCutRow), walkScaleY = (walkH / ppu + raise) / (walkH / ppu);
+            var pieceBases = new string[11]; var pieceLeft = new float[11];
+            for (int k = 0; k < 5; k++) { pieceBases[k] = k == 0 ? "thaitown_katu1" : "thaitown_katu_vasen_" + k; pieceLeft[k] = StreetPieceLeft(k); }
+            for (int i = 2; i <= 7; i++) { pieceBases[3 + i] = "thaitown_katu" + i; pieceLeft[3 + i] = Xr + (i - 2) * segN; }
+            for (int k = 0; k < 11; k++)
+            {
+                string basePath = "Assets/Sprites/Taustat/" + pieceBases[k];
+                if (!File.Exists(basePath + "_yla.png") || !File.Exists(basePath + "_kav.png") || !File.Exists(basePath + "_ala.png")) { Info("Puuttuu katkaistu kuva: " + basePath + "_yla/_kav/_ala.png (aja python Tools/LenkkariAssets/split_street.py)."); return; }
+                var upper = ImportShipSprite(basePath + "_yla.png", ppu, false, SpriteAlignment.Center);
+                var walk = ImportShipSprite(basePath + "_kav.png", ppu, false, SpriteAlignment.Center);
+                var ground = ImportShipSprite(basePath + "_ala.png", ppu, false, SpriteAlignment.Center);
+                if (upper == null || walk == null || ground == null) { Info("Kuvan tuonti epäonnistui: " + basePath); return; }
+                float cx = pieceLeft[k] + segN * 0.5f;
+                string nm = "Thaitownin kadun osa " + k;
+                SpriteRenderer Mk(string suffix, Sprite sp, Vector3 scale, float cy)
+                {
+                    var r = new GameObject(nm + suffix).AddComponent<SpriteRenderer>();
+                    r.transform.SetParent(root.transform, false);
+                    r.sprite = sp; r.sortingOrder = k < 5 ? -10000 - k : -10000;   // asemaa lähempi osa päällimmäiseksi (limitys)
+                    r.transform.localScale = scale; r.transform.position = new Vector3(cx, cy, 0f);
+                    return r;
+                }
+                Mk(" ylä", upper, new Vector3(ThaiStreetScale * seamGrow, ThaiStreetScale, 1f), yBase + ThaiStreetCutRow * ThaiStreetScale / ppu * 0.5f);
+                Mk(" kävely", walk, new Vector3(ThaiStreetScale * seamGrow, walkScaleY, 1f), (yBase + yCurb) * 0.5f);
+                Mk(" ala", ground, new Vector3(ThaiStreetScale * seamGrow, 1f, 1f), yCurb - (941f - ThaiStreetCurbRow) / ppu * 0.5f);
+            }
+            // aseman pääovi (kuvan x 620 px suurennetussa asemassa), absoluuttinen paikka
+            var stationDoor = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d.gameObject.scene == scene && d.name == "Thaitown: Kadulta asemalle");
+            if (stationDoor != null) { Undo.RecordObject(stationDoor.transform, "Aseman ovi"); stationDoor.transform.position = new Vector3(StreetPieceLeft(0) + 620f / ppuN, stationDoor.transform.position.y, 0f); }
+
+            // ---- 3) taivas, alueen rajat ja kaukaiset kerrokset (kaikki absoluuttisia) ----
+            float newRight = Xr + 6f * segN;
             var sky = root.GetComponentsInChildren<SpriteRenderer>(true).FirstOrDefault(r => r.name == "Thaitownin kadun yotaivas");
             if (sky != null)
             {
-                float total = oldRight - newX0;
+                float total = newRight - newX0;
                 sky.transform.position = new Vector3(newX0 + total * 0.5f, sky.transform.position.y, 0f);
                 sky.transform.localScale = new Vector3(total * 1.2f / sky.sprite.bounds.size.x, sky.transform.localScale.y, 1f);
             }
-            Undo.RecordObject(street, "Thaitown katu vasemmalle");
-            float extra = oldMinX - (newX0 + 0.5f);   // kuinka paljon katu kasvaa vasemmalle
-            if (extra > 0.01f)
+            Undo.RecordObject(street, "Thaitown katu suurennettuna");
+            street.walkMinX = newX0 + 0.5f; street.walkMaxX = newRight - 0.5f;
+            street.camMinX = newX0 + halfW; street.camMaxX = newRight - halfW;
+            street.maxDepthY = top - (630f - ThaiStreetRaisePx) / ppu;   // takaraja nousee: jalkakäytävälle enemmän tilaa
+            foreach (var par in root.GetComponentsInChildren<ParallaxLayer>(true))
             {
-                street.walkMinX = newX0 + 0.5f;
-                street.camMinX = newX0 + halfW;
-                foreach (var par in root.GetComponentsInChildren<ParallaxLayer>(true))
-                {
-                    var psr = par.GetComponent<SpriteRenderer>();
-                    float k = Mathf.Abs(par.transform.localScale.x);
-                    if (psr != null && psr.drawMode == SpriteDrawMode.Tiled && k > 0.0001f) psr.size = new Vector2(psr.size.x + extra * par.factor / k, psr.size.y);
-                    par.minX = newX0; par.startCamX = street.camMinX;
-                }
+                var psr = par.GetComponent<SpriteRenderer>();
+                float kk = Mathf.Abs(par.transform.localScale.x);
+                if (psr != null && psr.drawMode == SpriteDrawMode.Tiled && kk > 0.0001f) psr.size = new Vector2((2f * halfW + (street.camMaxX - street.camMinX) * par.factor + 4f) / kk, psr.size.y);
+                par.minX = newX0; par.maxX = newRight; par.startCamX = street.camMinX;
             }
+            // aseman/kadun ovet ja kojut nousevat uuden takarajan mukaan
+            foreach (var d in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(d => d != null && d.gameObject.scene == scene && d.here == street))
+            { Undo.RecordObject(d.transform, "Oven korkeus"); d.transform.position = new Vector3(d.transform.position.x, street.maxDepthY, 0f); }
             EditorUtility.SetDirty(street);
-
             // ---- panttikonttorin sisätila (2 kuvaa) ----
             foreach (var n in new[] { "Thaitownin panttikonttori", "Alue: Thaitown panttikonttori", "Thaitownin panttikonttorin ovet" })
             {
@@ -16715,7 +16788,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             var doors = new GameObject("Thaitownin panttikonttorin ovet");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doors, scene);
             Undo.RegisterCreatedObjectUndo(doors, "Ovet");
-            float streetDoorX = X0 - 3f * segU + ThaiPawnStreetDoorPx / ppu;     // kuva 3 (asemalta kolmas)
+            float streetDoorX = StreetPieceLeft(3) + ThaiPawnStreetDoorPx / ppuN;     // kuva 3 (asemalta kolmas)
             float innerEnterX = ThaiPawnX0 + 450f / ppu;
             float innerExitX = ThaiPawnX0 + segU + ThaiPawnInnerDoorPx / ppu;     // 2. kuvan ovi
             var inDoor = new GameObject("Thaitown: Panttikonttorin ovi").AddComponent<Door>();
@@ -16764,6 +16837,8 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             if (street == null || pawn == null) { Info("Aja ensin valikko 246 (katu jatkuu vasemmalle ja panttikonttori)."); return; }
             if (counterT == null) { Info("Aseman kanttiini puuttuu tiskin mallina (valikko 163)."); return; }
             float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, segU = 1672f / ppu;
+            float ppuN = StreetNewPpu, segN = 1672f / ppuN, yCut = top - ThaiStreetCutRow / ppu;
+            float SY(float row) => StreetRowToY(row);   // kadun uuden mittakaavan rivi -> maailman y
             foreach (var n in new[] { "Thaitownin panttikonttorin tiski (etu)", "Thaitownin Helvi", "Thaitownin panttikonttorin tiski", "Thaitownin ulkokahvila", "Thaitownin kahvilan tiski", "Thaitownin kahvilan Sohvi" })
                 foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.name == n && t.gameObject.scene == scene).ToArray())
                     Undo.DestroyObjectImmediate(old.gameObject);
@@ -16806,7 +16881,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 sc.halfWidth = 2.6f; sc.maxDistanceFromWall = 1.2f; sc.keeperHalfWidth = 0f; sc.ownItemsOnly = true;
                 sc.hasBoardAt = true;   // rullalauta ilmestyy kaupan eteen kadulle
                 var pawnDoor = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d.name == "Thaitown: Panttikonttorin ovi" && d.gameObject.scene == scene);
-                sc.boardAt = new Vector2((pawnDoor != null ? pawnDoor.transform.position.x : hx) + 2.2f, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.25f));
+                sc.boardAt = new Vector2((pawnDoor != null ? pawnDoor.transform.position.x : hx) + 2.2f, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.25f));   sc.boardDoor = pawnDoor;   // lauta ilmestyy oven ulkopuolelle ostohetkellä (seuraa oven paikkaa)
                 sc.items = new[]
                 {
                     new ShopCounter.Item { name = "Paistinpannu", price = 40, give = "pannu", comment = "Raskas valurautapannu." },
@@ -16820,7 +16895,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             else report.Add("Helvin kuvat puuttuvat (Assets/Sprites/Helvi)");
 
             // ---- ulkokahvila: kuva 4 asemalta (x X0-4*segU ... X0-3*segU) ----
-            float cafeLeft = ThaiLeftStreetX0 - 4f * segU;
+            float cafeLeft = StreetPieceLeft(4);
             var tableT = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .FirstOrDefault(c => c.gameObject.scene == ucco && c.name == "P" + (char)0xF6 + "yt" + (char)0xE4 && c.transform.parent != null && c.transform.parent.name.StartsWith("El Loipparin"));
             var chairT = Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == ucco);
@@ -16829,12 +16904,12 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 var root = new GameObject("Thaitownin ulkokahvila");
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
                 Undo.RegisterCreatedObjectUndo(root, "Ulkokahvila");
-                float y = top - 625f / ppu;
+                float y = SY(625f);
                 float[] tablePx = { 330f, 560f, 900f };
                 int n = 0, pies = 0;
                 foreach (float px in tablePx)
                 {
-                    float x = cafeLeft + px / ppu;
+                    float x = cafeLeft + px / ppuN;
                     var tg = Object.Instantiate(tableT.gameObject, root.transform);
                     tg.name = "Kahvilan pöytä " + (++n);
                     tg.transform.position = new Vector3(x, y, 0f);
@@ -16857,7 +16932,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 ?? Object.FindObjectsByType<Dancer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == ucco && c.name == "El Loipparin Sohvi");
             if (sohviT != null && counterT != null)
             {
-                float cx = cafeLeft + 700f / ppu;   // kahvilan oven kohta
+                float cx = cafeLeft + 700f / ppuN;   // kahvilan oven kohta
                 var cg = Object.Instantiate(counterT.gameObject); cg.name = "Thaitownin kahvilan tiski";
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cg, scene);
                 Undo.RegisterCreatedObjectUndo(cg, "Kahvilan tiski");
@@ -16874,7 +16949,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Thaitownin kahvilan Sohvi";
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene);
                 Undo.RegisterCreatedObjectUndo(sg, "Kahvilan Sohvi");
-                sg.transform.position = new Vector3(cx, top - 595f / ppu, 0f);
+                sg.transform.position = new Vector3(cx, SY(595f), 0f);
                 var idleS = SliceAerobicsSheet("Assets/Sprites/Sohvi/sohvi_seisoo_idle.png"); var hairS = SliceAerobicsSheet("Assets/Sprites/Sohvi/sohvi_seisoo_hiukset.png");
                 if (idleS != null && hairS != null && idleS.Length >= 20 && hairS.Length >= 30)
                 {
@@ -16906,9 +16981,14 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
     // ---------------- Thaitown: klubin sisätila (3 kuvaa), pöydät, Sohvi baaritiskillä ----------------
     // Kuvat (1672 x 941): klubi_1 = sisäänkäynti oikealla (naulakko), klubi_2 = baari + tanssilava (aitiot), klubi_3 = vasen pää (lava ja kaiuttimet, ovi). Kulku vasemmalle.
     // Maailmassa vasemmalta oikealle: klubi_3, klubi_2, klubi_1. Ovi kadulta: katukuvan 2 (asemalta toinen) ovi, x ≈ 375 px.
-    const float ThaiClubX0 = 150000f, ThaiClubFloorPx = 560f, ThaiClubStreetDoorPx = 375f, ThaiClubEnterPx = 1330f, ThaiClubExitDoorPx = 1500f;
+    const float ThaiClubScale = 1.1f, ClubSpriteScale = 0.68f, ClubOverlapPx = 48f;   // klubin maailma suurennetaan (kuvat näkyvät rajattuna ylhäältä), jotta huone on Roccoon nähden isompi
+    static float ClubPpu => 941f / (2f * CamHalf) / ThaiClubScale;
+    /// Klubin kuvien limitys (48 px): kuva img (0 = vasen pää, 1 = keski, 2 = sisäänkäynti) ja x kuvan sisällä -> maailman x.
+    static float ClubX(int img, float px) { float ppu = ClubPpu; return ThaiClubX0 + img * (1672f - ClubOverlapPx) / ppu + px / ppu; }
+    static float ClubXCombined(float px) { int img = Mathf.Clamp((int)(px / 1672f), 0, 2); return ClubX(img, px - img * 1672f); }
+    const float ThaiClubX0 = 112000f, ThaiClubFloorPx = 560f, ThaiClubStreetDoorPx = 375f, ThaiClubEnterPx = 1330f, ThaiClubExitDoorPx = 1500f;
     // pöytäpaikat yhdistetyssä kuvassa (x px 0 = klubi_3:n vasen reuna, korkeus 0 = takaseinä ... 1 = edessä); viimeisen (vasemman) lavan edusta x 150-1100 jää tyhjäksi
-    static readonly Vector2[] ClubTableSpots = { new Vector2(1350f, 0.8f), new Vector2(2000f, 0.9f), new Vector2(2550f, 0.75f), new Vector2(3000f, 0.95f), new Vector2(3450f, 0.8f), new Vector2(3850f, 0.9f), new Vector2(4250f, 0.75f) };
+    static readonly Vector2[] ClubTableSpots = { new Vector2(420f, 0.88f), new Vector2(860f, 0.95f), new Vector2(1060f, 0.72f), new Vector2(1700f, 0.62f), new Vector2(2300f, 0.95f), new Vector2(3250f, 0.62f), new Vector2(4600f, 0.9f), new Vector2(1350f, 0.8f), new Vector2(2000f, 0.9f), new Vector2(2550f, 0.75f), new Vector2(3000f, 0.95f), new Vector2(3450f, 0.8f), new Vector2(3850f, 0.9f), new Vector2(4250f, 0.75f) };
     [MenuItem("Beat em up/248. Thaitown: klubin sisätila, pöydät ja Sohvi baaritiskille (sisään oikealta, kulku vasemmalle)")]
     static void AddThaitownClub()
     {
@@ -16930,8 +17010,8 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 ?? Object.FindObjectsByType<Dancer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == ucco && c.name == "El Loipparin Sohvi");
             if (street == null) { Info("Aja ensin valikko 164 ja 246 (Thaitownin katu)."); return; }
             if (counterT == null) { Info("Aseman kanttiini puuttuu tiskin mallina (valikko 163)."); return; }
-            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, halfW = CamHalf * 16f / 9f, segU = 1672f / ppu;
-            foreach (var n in new[] { "Thaitownin klubi", "Alue: Thaitown klubi", "Thaitownin klubin ovet", "Thaitownin klubin pöydät", "Thaitownin klubin tiski", "Thaitownin klubin Sohvi" })
+            float ppu = ClubPpu, hU = 941f / ppu, top = CamY - CamHalf + hU, halfW = CamHalf * 16f / 9f, segU = 1672f / ppu;
+            foreach (var n in new[] { "Thaitownin klubi", "Alue: Thaitown klubi", "Thaitownin klubin ovet", "Thaitownin klubin pöydät", "Thaitownin klubin tiski", "Thaitownin klubin tiski (etu)", "Thaitownin klubin Sohvi" })
                 foreach (var old in scene.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(old);
             var root = new GameObject("Thaitownin klubi");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
@@ -16941,24 +17021,24 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 var sp = ImportShipSprite(imgs[i], ppu, false, SpriteAlignment.Center);
                 var bg = new GameObject("Klubin tausta " + (i + 1)).AddComponent<SpriteRenderer>();
                 bg.transform.SetParent(root.transform, false);
-                bg.sprite = sp; bg.sortingOrder = -10000;
-                bg.transform.position = new Vector3(ThaiClubX0 + segU * (i + 0.5f), CamY, 0f);
+                bg.sprite = sp; bg.sortingOrder = -10000 + i;
+                bg.transform.position = new Vector3(ClubX(i, 836f), top - hU * 0.5f, 0f);
             }
             var area = ReuseArea("Alue: Thaitown klubi");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(area.gameObject, scene);
             area.areaName = "Thaitown klubi"; area.useSidewalk = false; area.music = street.music;
-            area.maxDepthY = top - ThaiClubFloorPx / ppu; area.minDepthY = CamY - hU * 0.5f + 0.9f;
-            area.walkMinX = ThaiClubX0 + 1.5f; area.walkMaxX = ThaiClubX0 + 3f * segU - 1.5f;
-            area.camMinX = ThaiClubX0 + halfW; area.camMaxX = ThaiClubX0 + 3f * segU - halfW;
+            area.maxDepthY = top - ThaiClubFloorPx / ppu; area.minDepthY = CamY - CamHalf + 0.9f;
+            area.walkMinX = ThaiClubX0 + 1.5f; area.walkMaxX = ClubX(2, 1672f) - 1.5f;
+            area.camMinX = ThaiClubX0 + halfW; area.camMaxX = ClubX(2, 1672f) - halfW;
             area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f; area.depthLimits = new Vector2[0];
 
             // ---- ovet ----
             var doors = new GameObject("Thaitownin klubin ovet");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doors, scene);
             Undo.RegisterCreatedObjectUndo(doors, "Ovet");
-            float streetDoorX = ThaiLeftStreetX0 - 2f * segU + ThaiClubStreetDoorPx / ppu;   // katukuva 2 (asemalta toinen)
-            float innerEnterX = ThaiClubX0 + 2f * segU + ThaiClubEnterPx / ppu;
-            float innerExitX = ThaiClubX0 + 2f * segU + ThaiClubExitDoorPx / ppu;
+            float streetDoorX = StreetPieceLeft(2) + ThaiClubStreetDoorPx / StreetNewPpu;   // katukuva 2 (asemalta toinen)
+            float innerEnterX = ClubX(2, ThaiClubEnterPx);
+            float innerExitX = ClubX(2, ThaiClubExitDoorPx);
             var inDoor = new GameObject("Thaitown: Klubin ovi").AddComponent<Door>();
             inDoor.transform.SetParent(doors.transform, false);
             inDoor.transform.position = new Vector3(streetDoorX, street.maxDepthY, 0f);
@@ -16988,7 +17068,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 foreach (var spot in ClubTableSpots)
                 {
                     var src = tables[rnd.Next(tables.Count)];
-                    float x = ThaiClubX0 + spot.x / ppu, y = Mathf.Lerp(area.maxDepthY, area.minDepthY, spot.y);
+                    float x = ClubXCombined(spot.x), y = Mathf.Lerp(area.maxDepthY, area.minDepthY, spot.y);
                     var tgo = Object.Instantiate(src.gameObject, tRoot.transform);
                     tgo.name = "Pöytä"; tgo.transform.position = new Vector3(x, y, 0f);
                     var nc = tgo.GetComponent<Crate>(); nT++;
@@ -17019,9 +17099,9 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 var bgo = new GameObject("Thaitownin klubin tiski (etu)");
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bgo, scene);
                 Undo.RegisterCreatedObjectUndo(bgo, "Baaritiski");
-                bgo.transform.position = new Vector3(ThaiClubX0 + segU + (barX0px + bs.rect.width * 0.5f) / ppu, top - (barTopPx + bs.rect.height * 0.5f) / ppu, 0f);
+                bgo.transform.position = new Vector3(ClubX(1, barX0px + bs.rect.width * 0.5f), top - (barTopPx + bs.rect.height * 0.5f) / ppu, 0f);
                 var bsr = bgo.AddComponent<SpriteRenderer>(); bsr.sprite = bs; bsr.sortingOrder = Mathf.RoundToInt(-frontY * 100f);
-                float cx = ThaiClubX0 + segU + (barX0px + bs.rect.width * 0.5f) / ppu, feetY = top - 515f / ppu;
+                float cx = ClubX(1, barX0px + bs.rect.width * 0.5f), feetY = top - 515f / ppu;
                 var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Thaitownin klubin Sohvi";
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene);
                 Undo.RegisterCreatedObjectUndo(sg, "Klubin Sohvi");
@@ -17037,7 +17117,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                     {
                         dS.sprites = seqS.ToArray(); dS.frameTime = 0.1f; dS.keepOrder = true; dS.startFrame = 0; dS.flipX = false;
                         rS.sprite = seqS[0]; rS.flipX = false; rS.sortingOrder = Mathf.RoundToInt(-feetY * 100f);
-                        sg.transform.localScale = Vector3.one;
+                        sg.transform.localScale = Vector3.one * 1.15f;   // tiskin takana 15 % isompi
                     }
                 }
                 var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Thaitownin klubin tiski";
@@ -17098,25 +17178,17 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             {
                 string path = "Assets/Sprites/Bandi/bandi_klubi_" + i.ToString("00") + ".png";
                 if (!File.Exists(path)) break;
-                var ti = (TextureImporter)AssetImporter.GetAtPath(path);
-                if (ti == null) { AssetDatabase.ImportAsset(path); ti = (TextureImporter)AssetImporter.GetAtPath(path); }
-                if (ti.textureType != TextureImporterType.Sprite || ti.spritePixelsPerUnit != 100f)
-                {
-                    ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100f;
-                    ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
-                    var st = new TextureImporterSettings(); ti.ReadTextureSettings(st); st.spriteAlignment = (int)SpriteAlignment.BottomCenter; ti.SetTextureSettings(st);
-                    ti.SaveAndReimport();
-                }
+                EnsureBottomPivotSprite(path, ClubPpu / ClubSpriteScale);
                 frames.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
             }
             if (frames.Count < 2) { Info("Bändin kuvia (Assets/Sprites/Bandi/bandi_klubi_NN.png) ei löytynyt."); return; }
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Thaitownin klubin bändi").ToArray()) Undo.DestroyObjectImmediate(old);
-            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f;
+            float ppu = ClubPpu, hU = 941f / ppu, top = CamY - CamHalf + hU;
             var go = new GameObject("Thaitownin klubin bändi");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
             Undo.RegisterCreatedObjectUndo(go, "Klubin bändi");
-            float y = top - 465f / ppu;
-            go.transform.position = new Vector3(ThaiClubX0 + 640f / ppu, y, 0f);
+            float y = top - 485f / ppu;   // lavan lattia: vähän taaemmas kuin 505 (rumpali ei leiju)
+            go.transform.position = new Vector3(ClubX(0, 640f), y, 0f);
             go.transform.localScale = Vector3.one;
             var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = -9000;
             var pingPong = new List<Sprite>(frames);   // edestakainen silmukka: eteen ja takaisin (päätykuvat vain kerran), ei saumaa
@@ -17173,18 +17245,19 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             var rockT = Find(ucco, e => e.displayName == "Rokkimimmi");
             var punkT = Find(sample, e => e.displayName == "Punkkari" && !e.gameObject.name.Contains("Katto") && !e.gameObject.name.Contains("Viem")) ?? Find(desert, e => e.displayName == "Punkkari");
             var puliT = Find(scene, e => e.displayName == "Puliukko");
+            var kovisT = Find(sample, e => e.displayName == "Kovis" && !e.gameObject.name.Contains("per")) ?? Find(ucco, e => e.displayName == "Kovis");
             var bouncerT = Find(scene, e => e.displayName == "Portsari");
             var truckT = Find(desert, e => e.displayName == "Rekkamies" && e.gameObject.name == "Rekkamies") ?? Find(desert, e => e.displayName == "Rekkamies");
 
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Thaitownin klubin väki" || g.name == "Thaitownin klubin tappelu").ToArray()) Undo.DestroyObjectImmediate(old);
-            float ppu = 941f / (2f * CamHalf);
+            float ppu = ClubPpu;
             var root = new GameObject("Thaitownin klubin väki");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
             Undo.RegisterCreatedObjectUndo(root, "Klubin väki");
             var made = new List<Enemy>(); var report = new List<string>();
             void Calm(Enemy e, float px, float depth)
             {
-                float x = ThaiClubX0 + px / ppu;
+                float x = ClubXCombined(px);
                 e.wakeDistance = -1f; e.wakeOnFightRadius = 0f; e.joinsFightWhenSquadComes = false; e.fightsEveryone = true; e.ally = false;
                 if (e.calmIdleSprites == null || e.calmIdleSprites.Length == 0) e.calmIdleSprites = e.idleSprites;
                 if (e.calmWalkSprites == null || e.calmWalkSprites.Length == 0) { e.calmWalkSprites = e.walkSprites; e.calmWalkFrameTime = e.walkFrameTime; }
@@ -17221,12 +17294,24 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             Make(bettyT != null ? bettyT.gameObject : null, "Betty (klubi)", 3000f, 0.75f);
             Make(puliT != null ? puliT.gameObject : null, "Puliukko (klubi 1)", 1700f, 0.6f);
             Make(puliT != null ? puliT.gameObject : null, "Puliukko (klubi 2)", 3500f, 0.75f);
+            Make(kovisT != null ? kovisT.gameObject : null, "Kovis (klubi 1)", 900f, 0.8f);
+            Make(kovisT != null ? kovisT.gameObject : null, "Kovis (klubi 2)", 2650f, 0.8f);
+            Make(kovisT != null ? kovisT.gameObject : null, "Kovis (klubi 3)", 4300f, 0.6f);
+            Make(kovisT != null ? kovisT.gameObject : null, "Kovis (klubi 4)", 3400f, 0.95f);
+            Make(jakuzaT != null ? jakuzaT.gameObject : null, "Jakuza (klubi 3)", 600f, 0.9f);
+            Make(jakuzaT != null ? jakuzaT.gameObject : null, "Jakuza (klubi 4)", 3900f, 0.9f);
+            Make(punkT != null ? punkT.gameObject : null, "Punkkari (klubi 3)", 1350f, 0.7f);
+            Make(punkT != null ? punkT.gameObject : null, "Punkkari (klubi 4)", 2000f, 0.55f);
+            Make(rockT != null ? rockT.gameObject : null, "Rokkimimmi (klubi 3)", 1100f, 0.95f);
+            Make(motoT != null ? motoT.gameObject : null, "Prätkäjätkä (klubi 3)", 4500f, 0.8f);
+            Make(tanyaPrefab, "Tanya (klubi 3)", 2900f, 0.9f);
+
             // Tom rakennetaan kuten Salsafestissä
             var tgo = BuildTom(sheets, scene, "Tom (klubi)");
             tgo.transform.SetParent(root.transform, true);
             var te = tgo.GetComponent<Enemy>(); var tb = tgo.GetComponent<TomBrain>();
             tb.attacksEveryone = true; tb.foeRange = 11f; tb.wakeAfterSeconds = 999999f; tb.wakeOnFight = true;
-            float tx = ThaiClubX0 + 2400f / ppu;
+            float tx = ClubXCombined(2400f);
             tb.wanderMinX = tx - 4f; tb.wanderMaxX = tx + 4f; tb.wanderSpeed = 1.1f;
             te.fightsEveryone = true; te.ally = false; te.brawlsWithOthers = false;
             tgo.transform.position = new Vector3(tx, Mathf.Lerp(club.maxDepthY, club.minDepthY, 0.6f), 0f);
@@ -17253,7 +17338,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                     bo.name = "Portsari (klubi " + (i + 1) + ")";
                     var be = bo.GetComponent<Enemy>();
                     be.wakeDistance = 100f; be.fightsEveryone = true; be.joinsFightWhenSquadComes = false; be.ally = false;
-                    bo.transform.position = new Vector3(ThaiClubX0 + 2500f / ppu, Mathf.Lerp(club.maxDepthY, club.minDepthY, 0.3f + 0.12f * i), 0f);
+                    bo.transform.position = new Vector3(ClubXCombined(2500f), Mathf.Lerp(club.maxDepthY, club.minDepthY, 0.3f + 0.12f * i), 0f);
                     squad.bouncers[i] = be;
                     bo.SetActive(false);
                 }
@@ -17286,10 +17371,10 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
         {
             var club = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown klubi" && a.gameObject.scene == scene);
             if (club == null) { Info("Aja ensin valikko 248 (klubin sisätila)."); return; }
-            float ppu = 941f / (2f * CamHalf), hU = 941f / ppu, top = CamY + hU * 0.5f, segU = 1672f / ppu;
+            float ppu = ClubPpu, hU = 941f / ppu, top = CamY - CamHalf + hU, segU = 1672f / ppu;
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Thaitownin klubin Liz" || g.name == "Thaitownin klubin Candi").ToArray()) Undo.DestroyObjectImmediate(old);
             var report = new List<string>();
-            void Dancer2(string goName, string folder, string prefix, int[] clips, float poleX)
+            void Dancer2(string goName, string folder, string prefix, int[] clips, float poleX, float sizeMul)
             {
                 var frames = new List<Sprite>();
                 foreach (int c in clips)
@@ -17299,16 +17384,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                     {
                         string path = "Assets/Sprites/" + folder + "/" + prefix + "_" + c + "_" + i.ToString("00") + ".png";
                         if (!File.Exists(path)) break;
-                        var ti = (TextureImporter)AssetImporter.GetAtPath(path);
-                        if (ti == null) { AssetDatabase.ImportAsset(path); ti = (TextureImporter)AssetImporter.GetAtPath(path); }
-                        if (ti.textureType != TextureImporterType.Sprite || ti.spritePixelsPerUnit != 100f)
-                        {
-                            ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100f;
-                            ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
-                            ti.textureCompression = TextureImporterCompression.CompressedHQ;
-                            var st = new TextureImporterSettings(); ti.ReadTextureSettings(st); st.spriteAlignment = (int)SpriteAlignment.BottomCenter; ti.SetTextureSettings(st);
-                            ti.SaveAndReimport();
-                        }
+                        EnsureBottomPivotSprite(path, ClubPpu / (ClubSpriteScale * sizeMul));   // tanssijat: sizeMul 1,1 = 10 % isompi kuin bändi
                         clip.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
                     }
                     // kelataan takaisin lähtöasentoon: eteen ja takaisin, jolloin jokainen tanssi päättyy samaan asentoon kuin alkaa (ei nykäisyä)
@@ -17319,16 +17395,52 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
                 var go = new GameObject(goName);
                 UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
                 Undo.RegisterCreatedObjectUndo(go, goName);
-                go.transform.position = new Vector3(ThaiClubX0 + segU + poleX / ppu, top - ThaiClubPoleBasePx / ppu, 0f);
+                go.transform.position = new Vector3(ClubX(1, poleX), top - ThaiClubPoleBasePx / ppu, 0f);
                 var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = -9000;
                 var loop = go.AddComponent<SpriteLoop>(); loop.frames = frames.ToArray(); loop.fps = 7.5f;
                 report.Add(goName + ": " + frames.Count + " kuvaa (x " + go.transform.position.x.ToString("0.0") + ")");
             }
-            Dancer2("Thaitownin klubin Candi", "Candi", "candi", new[] { 0, 1, 2, 3, 4, 5 }, ThaiClubPole1Px);   // vasen tanko
-            Dancer2("Thaitownin klubin Liz", "Liz", "liz", new[] { 0, 1, 3, 4, 5, 6 }, ThaiClubPole2Px);       // oikea tanko (klippi 2 pois: tehostetausta)
+            Dancer2("Thaitownin klubin Candi", "Candi", "candi", new[] { 0, 1, 2, 3, 4, 5 }, ThaiClubPole1Px, 0.99f);   // Candi 10 % pienempi kuin Liz   // vasen tanko
+            Dancer2("Thaitownin klubin Liz", "Liz", "liz", new[] { 0, 1, 3, 4, 5, 6 }, ThaiClubPole2Px, 1.1f);       // oikea tanko (klippi 2 pois: tehostetausta)
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
             Info("Tankotanssijat klubin keskilavalla:\n- " + string.Join("\n- ", report) + "\n\nThaitownin scene tallennettu. Tarkista, että videoiden tangot osuvat lavan tankojen päälle; jos eivät, siirrä oliota sivusuunnassa. Jokainen tanssi kelataan takaisin lähtöasentoon, joten tanssien välillä ei ole nykäisyä.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Thaitown: wok-koju (thaikioski) klubin vasempaan nurkkaan bändin viereen ----------------
+    [MenuItem("Beat em up/252. Thaitown: wok-koju klubin nurkkaan (bändin viereen, ei lavan eteen)")]
+    static void AddThaitownClubWok()
+    {
+        if (PlayModeBlocked()) return;
+        var scene = EditorSceneManager.GetSceneByPath(ThaitownScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(ThaitownScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var club = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown klubi" && a.gameObject.scene == scene);
+            if (club == null) { Info("Aja ensin valikko 248 (klubin sisätila)."); return; }
+            var src = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name.StartsWith("Thaikioski") && c.transform.parent != null && c.transform.parent.name == "Thaikioskit");
+            if (src == null) { Info("Thaikioskia ei löytynyt mallina (valikko 189, Thaitownin scene)."); return; }
+            foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Thaitownin klubin wok-koju").ToArray()) Undo.DestroyObjectImmediate(old);
+            var root = new GameObject("Thaitownin klubin wok-koju");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Wok-koju");
+            float x = ClubX(0, 170f), y = Mathf.Lerp(club.maxDepthY - 0.2f, club.minDepthY + 0.3f, 0.3f);   // vasen nurkka, lavan vasemmalla puolella
+            var kgo = Object.Instantiate(src.gameObject, root.transform);
+            kgo.name = "Thaikioski (klubi)"; kgo.transform.position = new Vector3(x, y, 0f);
+            var nc = kgo.GetComponent<Crate>();
+            int n = 0;
+            foreach (var f in Object.FindObjectsByType<FishPlate>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(f => f.gameObject.scene == scene && f.table == src).ToArray())
+            { var g = Object.Instantiate(f.gameObject, root.transform); g.name = f.gameObject.name; g.transform.position = kgo.transform.position; g.GetComponent<FishPlate>().table = nc; n++; }
+            foreach (var bt in Object.FindObjectsByType<Bottle>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(bt => bt.gameObject.scene == scene && bt.table == src).ToArray())
+            { var g = Object.Instantiate(bt.gameObject, root.transform); g.name = bt.gameObject.name; g.transform.position = kgo.transform.position; g.GetComponent<Bottle>().table = nc; n++; }
+            foreach (var pn in Object.FindObjectsByType<Pan>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(pn => pn.gameObject.scene == scene && pn.table == src).ToArray())
+            { var g = Object.Instantiate(pn.gameObject, root.transform); g.name = pn.gameObject.name; g.transform.position = kgo.transform.position; g.GetComponent<Pan>().table = nc; n++; }
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Wok-koju (thaikioski annoksineen, pulloineen ja pannuineen: " + n + " esinettä) lisätty klubin vasempaan nurkkaan (x " + x.ToString("0.0") + "), lavan vasemmalle puolelle. Viisi osumaa rikkoo kojun, kuten kadulla. Thaitownin scene tallennettu.");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
@@ -17370,9 +17482,7 @@ Säädöt: olion '" + spn.name + "' komponentti HighwayEvents (gap, ambushCount,
             Undo.RecordObject(bg, "Yösävy"); bg.color = SalsaNightTint; EditorUtility.SetDirty(bg);
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
-            Info("Salsafestin taakse tuli yötaivas, kuu ja meri (parallaksi), ja taustakuva sinertää hieman. Päivämeri on piilotettu (olio 'Salsafest meri' pois päältä). UccoLaivan scene tallennettu." + "
-
-Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jos horisontti ei osu taustan mereen, siirrä oliota 'Salsafest yömeri' pystysuunnassa (AnchoredParallax anchor y).");
+            Info("Salsafestin taakse tuli yötaivas, kuu ja meri (parallaksi), ja taustakuva sinertää hieman. Päivämeri on piilotettu (olio 'Salsafest meri' pois päältä). UccoLaivan scene tallennettu." + "\n\nSäädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jos horisontti ei osu taustan mereen, siirrä oliota 'Salsafest yömeri' pystysuunnassa (AnchoredParallax anchor y).");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
@@ -17605,6 +17715,24 @@ Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jo
     // ---------------- Pensalenkkari: lippalakkinen nyrkkeilijä (lyönnit, potkut, pyörähdyspotku) ----------------
     // Kuvat: Assets/Sprites/Viholliset/lenkkari_*.png (Tools/LenkkariAssets). Ylösnousukuvia ei vielä ole: nousee makuuasennoista.
     // ---------------- Mama ja Pablo: myyjat Salsafestin kojuille ----------------
+    /// Tuo yksittäisen kuvan spriteksi: tukipiste alareunan keskellä (jalat tai tangon tyvi), annettu px/yksikkö.
+    static void EnsureBottomPivotSprite(string path, float ppu)
+    {
+        var ti = (TextureImporter)AssetImporter.GetAtPath(path);
+        if (ti == null) { AssetDatabase.ImportAsset(path); ti = (TextureImporter)AssetImporter.GetAtPath(path); }
+        if (ti == null) return;
+        var st = new TextureImporterSettings(); ti.ReadTextureSettings(st);
+        bool ok = ti.textureType == TextureImporterType.Sprite && ti.spriteImportMode == SpriteImportMode.Single && Mathf.Abs(ti.spritePixelsPerUnit - ppu) < 0.01f
+                  && st.spriteAlignment == (int)SpriteAlignment.Custom && Mathf.Abs(ti.spritePivot.x - 0.5f) < 0.001f && Mathf.Abs(ti.spritePivot.y) < 0.001f;
+        if (ok) return;
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = ppu;
+        ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
+        ti.textureCompression = TextureImporterCompression.CompressedHQ;
+        ti.ReadTextureSettings(st); st.spriteAlignment = (int)SpriteAlignment.Custom; ti.SetTextureSettings(st);
+        ti.spritePivot = new Vector2(0.5f, 0f);
+        ti.SaveAndReimport();
+    }
+
     static Sprite[] LoadSellerFrames(string prefix)
     {
         var frames = new System.Collections.Generic.List<Sprite>();
@@ -17612,15 +17740,7 @@ Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jo
         {
             string path = "Assets/Sprites/Myyjat/" + prefix + "_" + i.ToString("00") + ".png";
             if (!File.Exists(path)) break;
-            var ti = (TextureImporter)AssetImporter.GetAtPath(path);
-            if (ti == null) { AssetDatabase.ImportAsset(path); ti = (TextureImporter)AssetImporter.GetAtPath(path); }
-            if (ti.textureType != TextureImporterType.Sprite || ti.spritePixelsPerUnit != 100f)
-            {
-                ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100f;
-                ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
-                var st = new TextureImporterSettings(); ti.ReadTextureSettings(st); st.spriteAlignment = (int)SpriteAlignment.BottomCenter; ti.SetTextureSettings(st);
-                ti.SaveAndReimport();
-            }
+            EnsureBottomPivotSprite(path, 100f);
             frames.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
         }
         return frames.ToArray();
@@ -17642,8 +17762,7 @@ Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jo
             {
                 var shop = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name.StartsWith(shopPrefix));
                 var frames = LoadSellerFrames(prefix);
-                if (shop == null || frames.Length < 2) { report += "
-" + goName + ": koju (valikko 238) tai kuvat puuttuvat."; return; }
+                if (shop == null || frames.Length < 2) { report += "\n" + goName + ": koju (valikko 238) tai kuvat puuttuvat."; return; }
                 foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.gameObject.scene == scene && t.name == goName).ToArray())
                     Undo.DestroyObjectImmediate(old.gameObject);
                 var go = new GameObject(goName);
@@ -17655,25 +17774,21 @@ Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jo
                 var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = Mathf.RoundToInt(-y * 100f);
                 var loop = go.AddComponent<SpriteLoop>(); loop.frames = frames; loop.fps = fps;
                 Undo.RecordObject(shop, goName); shop.npcName = npcName; EditorUtility.SetDirty(shop);
-                report += "
-" + goName + " (" + frames.Length + " kuvaa) x " + shop.transform.position.x.ToString("0.0");
+                report += "\n" + goName + " (" + frames.Length + " kuvaa) x " + shop.transform.position.x.ToString("0.0");
             }
-            Seller("Mama (myyja)", "Mama", "Salsafestin koju 2", "mama_myyja", 0.95f, 6f);
-            Seller("Pablo (myyja)", "Pablo", "Salsafestin koju 3", "pablo_idle", 1f, 6f);
+            Seller("Mama (myyja)", "Mama", "Salsafestin koju 2", "mama_myyja", 1.1f, 6f);
+            Seller("Pablo (myyja)", "Pablo", "Salsafestin koju 3", "pablo_idle", 1.25f, 6f);
             var pabloGo = Object.FindObjectsByType<SpriteLoop>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(l => l.gameObject.scene == scene && l.name == "Pablo (myyja)");
             if (pabloGo != null)
             {
                 var rpd = pabloGo.GetComponent<RubyPabloDance>() ?? Undo.AddComponent<RubyPabloDance>(pabloGo.gameObject);
                 rpd.dance = LoadSellerFrames("ruby_pablo_tanssi"); rpd.kiss = LoadSellerFrames("ruby_pablo_suudelma");
                 EditorUtility.SetDirty(rpd);
-                report += "
-Ruby tanssii Pablon kanssa (E Pablon luona): tanssikuvia " + rpd.dance.Length + ", suudelmakuvia " + rpd.kiss.Length;
+                report += "\nRuby tanssii Pablon kanssa (E Pablon luona): tanssikuvia " + rpd.dance.Length + ", suudelmakuvia " + rpd.kiss.Length;
             }
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
-            Info("Myyjät kojuilla:" + report + "
-
-UccoLaivan scene tallennettu. Jos koko tai paikka ei täsmää, muuta olion Scalea tai paikkaa.");
+            Info("Myyjät kojuilla:" + report + "\n\nUccoLaivan scene tallennettu. Jos koko tai paikka ei täsmää, muuta olion Scalea tai paikkaa.");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }

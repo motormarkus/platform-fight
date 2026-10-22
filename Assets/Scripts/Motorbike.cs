@@ -427,7 +427,7 @@ public class Motorbike : MonoBehaviour
         {
             boostT = 0f;
             if (SkaterHitch.Attached != null) SkaterHitch.Attached.ShakeOff(Dir);   // kiihdytys repäisee perässä roikkujan irti
-            if (boostSound != null) audioSrc.PlayOneShot(boostSound, boostVolume);
+            if (boostSound != null) audioSrc.PlayOneShotLeveled(boostSound, boostVolume);
         }
         bool boosting = boostT >= 0f && boostT < boostTime;
         if (boostT >= 0f) { boostT += dt; if (boostT >= boostTime) boostT = -1f; }

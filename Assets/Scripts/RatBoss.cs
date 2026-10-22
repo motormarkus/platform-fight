@@ -168,7 +168,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
         e.IsAwake = true;
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
         decisionTimer = 0.5f;
-        if (welcome != null && e.Audio != null) e.Audio.PlayOneShot(welcome, welcomeVolume);
+        if (welcome != null && e.Audio != null) e.Audio.PlayOneShotLeveled(welcome, welcomeVolume);
         nextSpeak = Time.time + (welcome != null ? welcome.length : 0f) + Random.Range(speakInterval.x, speakInterval.y);
     }
 
@@ -419,7 +419,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
             {
                 whistleDone = true;
                 whistles++; lastWhistleTime = Time.time;
-                if (whistleSound != null && e.Audio != null) e.Audio.PlayOneShot(whistleSound, whistleVolume);
+                if (whistleSound != null && e.Audio != null) e.Audio.PlayOneShotLeveled(whistleSound, whistleVolume);
                 Summon();
             }
             if (wi < 0) EndPlan();
@@ -443,7 +443,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
         if (cur.kind == Kind.Annoyed)
         {
             e.FacingRight = hp.x > me.x;
-            if (t <= dt * 1.5f && frustrated != null && e.Audio != null) e.Audio.PlayOneShot(frustrated, frustratedVolume);
+            if (t <= dt * 1.5f && frustrated != null && e.Audio != null) e.Audio.PlayOneShotLeveled(frustrated, frustratedVolume);
             int ai = ThrowPose.Index(AnnoyedTimes, t);
             CurrentSprite = annoyed[Mathf.Min(ai < 0 ? annoyed.Length - 1 : ai, annoyed.Length - 1)];
             if (ai < 0) EndPlan();
@@ -550,7 +550,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
         lastSpeak = i;
         if (speak[i] != null)
         {
-            e.Audio.PlayOneShot(speak[i], speakVolume);
+            e.Audio.PlayOneShotLeveled(speak[i], speakVolume);
             nextSpeak = Time.time + speak[i].length + Random.Range(speakInterval.x, speakInterval.y);
         }
         else nextSpeak = Time.time + 5f;
@@ -562,7 +562,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
         if (Time.time - lastPunchSound < 0.25f || Random.value > 0.8f) return;   // nopeassa sarjassa ei joka lyönnistä
         lastPunchSound = Time.time;
         var c = punchSounds[Random.Range(0, punchSounds.Length)];
-        if (c != null) e.Audio.PlayOneShot(c, punchVolume);
+        if (c != null) e.Audio.PlayOneShotLeveled(c, punchVolume);
     }
 
     // ---------------- apu ----------------

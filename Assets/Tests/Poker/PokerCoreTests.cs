@@ -261,4 +261,49 @@ public class PokerCoreTests
             Assert.That(guard,Is.GreaterThan(0));
         }
     }
+
+    [Test] public void OmahaMustUseExactlyTwoHoleAndThreeBoardCards()
+    {
+        // Pöydässä neljä pataa, kädessä yksi pata: väriä ei synny (tarvitaan kaksi patakorttia kädestä).
+        var hole = new[] { C(14,3), C(2), C(3,1), C(4,2) };
+        var board = new[] { C(13,3), C(9,3), C(8,3), C(7,3), C(5,1) };
+        Assert.That(PokerCards.HandName(PokerCards.EvaluateOmaha(hole, board)), Is.Not.EqualTo("Väri"));
+        Assert.That(PokerCards.HandName(PokerCards.Evaluate(new[] { hole[0] }.Concat(board).ToArray())), Is.EqualTo("Väri"));   // Hold'emissa väri syntyisi
+        // Kaksi patakorttia kädessä: väri.
+        var hole2 = new[] { C(14,3), C(12,3), C(3,1), C(4,2) };
+        Assert.That(PokerCards.HandName(PokerCards.EvaluateOmaha(hole2, board)), Is.EqualTo("Väri"));
+        Assert.That(PokerCards.BestFiveOmaha(hole2, board).Count(c => hole2.Contains(c)), Is.EqualTo(2));
+    }
+
+    [Test] public void OmahaDealsFourCardsAndPotLimitCapsRaise()
+    {
+        var t = new PokerTable(new[] { 1000, 1000, 1000 }, 1, 2, PokerVariant.Omaha); t.StartHand(new Random(11));
+        foreach (var s in t.Seats) { Assert.That(s.Hole.Length, Is.EqualTo(4)); Assert.That(s.Hole.All(c => c >= 0), Is.True); }
+        Assert.That(t.Seats.SelectMany(s => s.Hole).Distinct().Count(), Is.EqualTo(12));
+        // Blindit 1/2, potti 3, ensimmäinen toimija maksaa 2: korotus korkeintaan 2 + 3 + 2 = 7.
+        var l = t.Legal(t.Actor);
+        Assert.That(l.MaximumRaiseTo, Is.EqualTo(7)); Assert.That(l.AllIn, Is.False);
+        Assert.That(t.Act(t.Actor, PokerAction.RaiseTo, 8), Is.False);
+        Assert.That(t.Act(t.Actor, PokerAction.RaiseTo, 7), Is.True);
+        t.AssertConserved();
+    }
+
+    [Test] public void OmahaBotsPlayCompleteLegalHandsAndShortStackCanGoAllIn()
+    {
+        var rng = new Random(31);
+        for (int n = 0; n < 10; n++)
+        {
+            var t = new PokerTable(new[] { 2000, 2000, 2000, 2000, n % 2 == 0 ? 30 : 2000 }, 1, 2, PokerVariant.Omaha); t.StartHand(rng); int guard = 600;
+            while (t.Running && guard-- > 0)
+            {
+                int actor = t.Actor; var l = t.Legal(actor);
+                var d = PokerBot.Decide(PokerBot.Observe(t, actor), (PokerStyle)(actor % 4), rng, 8);
+                if (d.Action == PokerAction.RaiseTo) Assert.That(d.RaiseTo, Is.LessThanOrEqualTo(l.MaximumRaiseTo));
+                Assert.That(t.Act(actor, d.Action, d.RaiseTo), Is.True); t.AssertConserved();
+            }
+            Assert.That(guard, Is.GreaterThan(0));
+        }
+        var s = new PokerCashSession(); Assert.That(s.Join(100, 1, 2, 500, PokerVariant.Omaha), Is.True);
+        Assert.That(s.Table.Variant, Is.EqualTo(PokerVariant.Omaha));
+    }
 }

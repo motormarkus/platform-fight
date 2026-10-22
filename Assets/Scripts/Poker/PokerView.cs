@@ -141,7 +141,7 @@ public sealed class PokerView : MonoBehaviour
         }
         if (art.originalLogo != null) Raw(root, new Rect(25, 10, 290, 95), art.originalLogo, null);
         else Label(root, new Rect(25, 10, 290, 65), "TOTAL FIST", 48, Gold);
-        Label(root, new Rect(35, 98, 285, 25), "TEXAS HOLD'EM", 21, Gold);
+        Label(root, new Rect(35, 98, 285, 25), host.Cash.Table.Variant == PokerVariant.Omaha ? "POT LIMIT OMAHA" : "TEXAS HOLD'EM", 21, Gold);
         Box(root, new Rect(1100, 15, 165, 37));
         Label(root, new Rect(1102, 16, 161, 35), "BLINDIT " + settings.smallBlind + " / " + settings.bigBlind, 20, Color.white);
         leave = Button(new Rect(1070, 62, 195, 38), "Poistu pöydästä", 0, host.Leave);
@@ -398,7 +398,12 @@ public sealed class PokerView : MonoBehaviour
         if (lastHand != t.HandNumber) { lastHand = t.HandNumber; lastCards.Clear(); Array.Clear(lastBets, 0, lastBets.Length); }
         for (int i = 0; i < 5; i++)
             if (t.Seats[i].InHand && !t.Seats[i].Folded)
-                    for (int k = 0; k < 2; k++) MakeCard("hole" + i + ":" + k, t.Seats[i].Hole[k], i == 0 || t.Showdown, new Rect(HolePos[i].x + k * (i == 0 ? 72 : 45), HolePos[i].y, i == 0 ? 68 : 43, i == 0 ? 84 : 56), i == 0 ? 8 : 0);
+                    for (int k = 0; k < t.HoleCount; k++)
+                    {
+                        bool four = t.HoleCount > 2;   // Omaha: neljä korttia limittäin
+                        float stepX = i == 0 ? (four ? 52 : 72) : (four ? 24 : 45);
+                        MakeCard("hole" + i + ":" + k, t.Seats[i].Hole[k], i == 0 || t.Showdown, new Rect(HolePos[i].x + k * stepX - (four && i == 0 ? 50 : 0), HolePos[i].y, i == 0 ? 68 : 43, i == 0 ? 84 : 56), i == 0 ? 8 : 0);
+                    }
         for (int i = 0; i < 5; i++)
         {
             Rect r = new Rect(454 + i * 78, 356, 70, 87);

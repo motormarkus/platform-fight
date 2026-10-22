@@ -2718,7 +2718,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var c = set[UnityEngine.Random.Range(0, set.Length)];
         if (c == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
-        audioSource.PlayOneShot(c, gruntVolume * VoiceVolume);
+        audioSource.PlayOneShotLeveled(c, gruntVolume * VoiceVolume);
     }
 
     /// Soittaa satunnaisen gruntin (ei samaa kahdesti peräkkäin) pienellä sävelkorkeuden vaihtelulla.
@@ -2736,7 +2736,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         lastGrunt = i;
         if (attackGrunts[i] == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-gruntPitchVariation, gruntPitchVariation);
-        audioSource.PlayOneShot(attackGrunts[i], gruntVolume * VoiceVolume);
+        audioSource.PlayOneShotLeveled(attackGrunts[i], gruntVolume * VoiceVolume);
     }
 
     // ---------------- Taistelu ----------------
@@ -3620,7 +3620,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (c == null) return;
         if (skateSfx == null) skateSfx = MakeSkateSource("SkateSfx", false);
         skateSfx.pitch = 1f; skateSfx.volume = 1f;   // PlayOneShot kertoo lähteen voimakkuudella (aiemmin 0)
-        skateSfx.PlayOneShot(c, vol * GameSettings.SfxVolume);
+        skateSfx.PlayOneShotLeveled(c, vol * GameSettings.SfxVolume);
     }
 
     /// Vieriminen soi, kun lauta liikkuu maassa; ilmassa se häivytetään pois ja alastulon jälkeen takaisin.
@@ -3881,7 +3881,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         var c = clips[UnityEngine.Random.Range(0, clips.Length)];
         if (c == null) return;
         audioSource.pitch = 1f + UnityEngine.Random.Range(-0.05f, 0.05f);
-        audioSource.PlayOneShot(c, 0.9f * VoiceVolume);
+        audioSource.PlayOneShotLeveled(c, 0.9f * VoiceVolume);
     }
 
     bool HasPush => pushSprites != null && pushSprites.Length > 0;
@@ -4695,7 +4695,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             var tex = Resources.Load<Texture2D>("Kanni/" + key + "_" + k.ToString("00"));
             if (tex == null) break;
-            l.Add(Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0f), 100f));
+            l.Add(Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0f), who == "rocco" && kind == "nousu" ? 115f : 100f));   // Roccon kännin ylösnousukuvat olivat vähän liian isot: 15 % pienemmiksi
         }
         var arr = l.Count >= min ? l.ToArray() : null;
         drunkArt[key] = arr;

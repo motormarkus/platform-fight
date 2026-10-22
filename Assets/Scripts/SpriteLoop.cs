@@ -146,7 +146,7 @@ public class SpriteLoop : MonoBehaviour
         {
             var a = gameObject.AddComponent<AudioSource>();
             a.playOnAwake = false; a.spatialBlend = 0f;
-            a.PlayOneShot(finaleSound, finaleVolume);
+            a.PlayOneShotLeveled(finaleSound, finaleVolume);
         }
     }
 

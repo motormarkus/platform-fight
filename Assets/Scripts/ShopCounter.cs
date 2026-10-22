@@ -31,6 +31,8 @@ public class ShopCounter : MonoBehaviour
     public static bool IsOpen;
     [Tooltip("Rullalauta ilmestyy tähän (kaupan piha), jos hasBoardAt.")]
     public Vector2 boardAt; public bool hasBoardAt;
+    [Tooltip("Jos annettu: rullalauta ilmestyy tämän oven ulkopuolelle (oven alueen puolelle) ostohetkellä, vaikka ovi olisi siirtynyt. Ohittaa boardAt:n.")]
+    public Door boardDoor;
     [Tooltip("Vain tiskin omat tuotteet (ei automaattisia eväitä eikä Böönia): panttilainaamo.")]
     public bool ownItemsOnly;
 
@@ -107,7 +109,7 @@ public class ShopCounter : MonoBehaviour
     {
         if (voiceSource == null || lines == null || lines.Length == 0) return;
         voiceSource.Stop();
-        voiceSource.PlayOneShot(lines[Random.Range(0, lines.Length)], soundVolume);
+        voiceSource.PlayOneShotLeveled(lines[Random.Range(0, lines.Length)], soundVolume);
     }
 
     /// Baarin hinnat (markkoina): asetetaan myös sceneen tallennetuille tiskeille.
@@ -150,6 +152,7 @@ public class ShopCounter : MonoBehaviour
 
     void Update()
     {
+        if (pendingBoard != null) SpawnPendingBoard();
         if (PokerService.BlocksCombat) return;
         if (sessions.Count == 0)
         {
@@ -175,6 +178,25 @@ public class ShopCounter : MonoBehaviour
             else if (Pressed(Btn.Close)) CloseOne(sx);
             else Save(sx);
         }
+    }
+
+    Sprite pendingBoard; Vector3 pendingFallback;
+    /// Ostettu lauta ilmestyy oven ulkopuolelle heti, kun se on pelaajan alueella (kaupan sisällä oleva pelaaja ei näe kadun lautaa).
+    void SpawnPendingBoard()
+    {
+        if (pendingBoard == null) return;
+        Vector3 bp = BoardSpawnPoint(pendingFallback);
+        if (!Area.IsHere(bp, 2f)) return;
+        LooseBoard.Spawn(pendingBoard, bp, 0f, null);
+        pendingBoard = null;
+    }
+
+    /// Mihin rullalauta ilmestyy: oven (boardDoor) ulkopuolelle, annettuun paikkaan (boardAt) tai ostajan eteen.
+    Vector3 BoardSpawnPoint(Vector3 fallback)
+    {
+        if (boardDoor != null && boardDoor.here != null)
+            return new Vector3(boardDoor.transform.position.x + 2.2f, Mathf.Lerp(boardDoor.here.maxDepthY, boardDoor.here.minDepthY, 0.25f), 0f);
+        return hasBoardAt ? new Vector3(boardAt.x, boardAt.y, 0f) : fallback;
     }
 
     Transform keeper; float nextKeeperSearch;
@@ -257,7 +279,11 @@ public class ShopCounter : MonoBehaviour
             else if (it.give == "lauta")
             {
                 if (pc.boardSprite == null) { Say(Loc.T("Lautaa ei ole tällä hetkellä saatavilla.")); return; }
-                pc.money -= it.price; LooseBoard.Spawn(pc.boardSprite, hasBoardAt ? new Vector3(boardAt.x, boardAt.y, 0f) : at, 0f, null); Say(Loc.T(hasBoardAt ? "Lauta odottaa kaupan pihalla. Astu päälle." : "Lauta on lattialla edessäsi. Astu päälle."));
+                pc.money -= it.price;
+                bool outside = hasBoardAt || boardDoor != null;
+                if (outside) { pendingBoard = pc.boardSprite; pendingFallback = at; }   // ilmestyy vasta, kun pelaaja astuu ulos (toisen alueen laudan peli poistaisi heti)
+                else LooseBoard.Spawn(pc.boardSprite, at, 0f, null);
+                Say(Loc.T(outside ? "Lauta odottaa kaupan pihalla. Astu päälle." : "Lauta on lattialla edessäsi. Astu päälle."));
             }
             else
             {
@@ -304,10 +330,10 @@ public class ShopCounter : MonoBehaviour
             // Ruby juo: oma nielaisu, perään "aah"
             var g = pc.heroine.gulpSounds[Random.Range(0, pc.heroine.gulpSounds.Length)];
             audioSource.Stop();
-            if (g != null) audioSource.PlayOneShot(g, soundVolume * pc.VoiceVolume);
+            if (g != null) audioSource.PlayOneShotLeveled(g, soundVolume * pc.VoiceVolume);
             if (pc.heroine.aahSound != null) StartCoroutine(PlayLater(pc.heroine.aahSound, g != null ? g.length : 0.3f));
         }
-        else if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShot(it.sound, soundVolume); }
+        else if (it.sound != null) { audioSource.Stop(); audioSource.PlayOneShotLeveled(it.sound, soundVolume); }
         Say(Loc.F("{0}: +{1} energiaa, +{3} staminaa. {2}", Loc.T(it.name), got, Loc.T(it.comment), st));
     }
 
@@ -322,7 +348,7 @@ public class ShopCounter : MonoBehaviour
     System.Collections.IEnumerator PlayLater(AudioClip c, float delay)
     {
         yield return new WaitForSecondsRealtime(delay);   // kauppa pysäyttää ajan: odotetaan oikeaa aikaa
-        if (audioSource != null && c != null) audioSource.PlayOneShot(c, soundVolume * (pc != null ? pc.VoiceVolume : 1f));
+        if (audioSource != null && c != null) audioSource.PlayOneShotLeveled(c, soundVolume * (pc != null ? pc.VoiceVolume : 1f));
     }
 
     void Say(string s) { msg = s; msgTime = Time.unscaledTime; }

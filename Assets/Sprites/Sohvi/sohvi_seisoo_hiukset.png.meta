@@ -159,10 +159,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -213,235 +213,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_0
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 814
-        width: 96
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82d314faa1e584590800000000000000
-      internalID: -7689792895032672984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_1
-      rect:
-        serializedVersion: 2
-        x: 431
-        y: 814
-        width: 97
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c579d913d19f41430800000000000000
-      internalID: 3752898293288245084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_2
-      rect:
-        serializedVersion: 2
-        x: 751
-        y: 814
-        width: 98
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3dd533d8ed569b690800000000000000
-      internalID: -7585920090802790957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_3
-      rect:
-        serializedVersion: 2
-        x: 1071
-        y: 814
-        width: 99
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e8bc1163164d53cd0800000000000000
-      internalID: -2578921697615688818
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_4
-      rect:
-        serializedVersion: 2
-        x: 1391
-        y: 814
-        width: 101
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 425afa359758e4020800000000000000
-      internalID: 2327944813538682148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_5
-      rect:
-        serializedVersion: 2
-        x: 1711
-        y: 814
-        width: 102
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8b9d84a101d3c000800000000000000
-      internalID: 55117425444494220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_6
-      rect:
-        serializedVersion: 2
-        x: 2031
-        y: 814
-        width: 106
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7357c3ae0c1b5c660800000000000000
-      internalID: 7405520604402316599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_7
-      rect:
-        serializedVersion: 2
-        x: 2351
-        y: 814
-        width: 107
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a7319676688fc4a0800000000000000
-      internalID: -6570883357652994135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_8
-      rect:
-        serializedVersion: 2
-        x: 2671
-        y: 814
-        width: 109
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed8d7100b8a7678f0800000000000000
-      internalID: -543111967630960418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sohvi_seisoo_hiukset_9
-      rect:
-        serializedVersion: 2
-        x: 2991
-        y: 814
-        width: 111
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f77bd094f4f8ee7c0800000000000000
-      internalID: -4040134245013932161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sohvi_seisoo_hiukset_10
       rect:
         serializedVersion: 2
-        x: 111
-        y: 414
-        width: 111
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -458,12 +238,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_11
       rect:
         serializedVersion: 2
-        x: 430
-        y: 414
-        width: 112
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -480,12 +260,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_12
       rect:
         serializedVersion: 2
-        x: 750
-        y: 414
-        width: 111
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,12 +282,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_13
       rect:
         serializedVersion: 2
-        x: 1069
-        y: 414
-        width: 112
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -524,12 +304,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_14
       rect:
         serializedVersion: 2
-        x: 1389
-        y: 414
-        width: 111
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -546,12 +326,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_15
       rect:
         serializedVersion: 2
-        x: 1709
-        y: 414
-        width: 111
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1600
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -568,12 +348,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_16
       rect:
         serializedVersion: 2
-        x: 2030
-        y: 414
-        width: 111
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -590,12 +370,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_17
       rect:
         serializedVersion: 2
-        x: 2350
-        y: 414
-        width: 111
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2240
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -612,12 +392,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_18
       rect:
         serializedVersion: 2
-        x: 2670
-        y: 414
-        width: 112
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -634,12 +414,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_19
       rect:
         serializedVersion: 2
-        x: 2990
-        y: 414
-        width: 113
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2880
+        y: 400
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -656,12 +436,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_20
       rect:
         serializedVersion: 2
-        x: 110
-        y: 14
-        width: 114
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -678,12 +458,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_21
       rect:
         serializedVersion: 2
-        x: 431
-        y: 14
-        width: 114
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -700,12 +480,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_22
       rect:
         serializedVersion: 2
-        x: 751
-        y: 14
-        width: 114
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -722,12 +502,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_23
       rect:
         serializedVersion: 2
-        x: 1071
-        y: 14
-        width: 115
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -744,12 +524,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_24
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 14
-        width: 115
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -766,12 +546,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_25
       rect:
         serializedVersion: 2
-        x: 1711
-        y: 14
-        width: 116
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1600
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -788,12 +568,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_26
       rect:
         serializedVersion: 2
-        x: 2031
-        y: 14
-        width: 117
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -810,12 +590,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_27
       rect:
         serializedVersion: 2
-        x: 2351
-        y: 14
-        width: 117
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2240
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -832,12 +612,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_28
       rect:
         serializedVersion: 2
-        x: 2671
-        y: 14
-        width: 117
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -854,12 +634,12 @@ TextureImporter:
       name: sohvi_seisoo_hiukset_29
       rect:
         serializedVersion: 2
-        x: 2991
-        y: 14
-        width: 118
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2880
+        y: 0
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -872,11 +652,231 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bebf939fa4b4a49b3ea6395ab2796f
+      internalID: -1352456392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_01
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e17277123666ab45987440401e54dc9
+      internalID: -1693957707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_02
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0973cabc5fd95439288a8bd21e87e9
+      internalID: 2081456353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_03
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64163c3683fba8c4ab6ad70f20316e72
+      internalID: -105188938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_04
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8a26e9d57026b459a848b2a2051941
+      internalID: -1567622869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_05
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0190db102850a498ac6b14c832d093
+      internalID: -1878056545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_06
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c631c62dbba2dc4f8bb50bec594b393
+      internalID: -2129235353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_07
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f046cff62fcb641b46edfa80de75e5
+      internalID: 167789771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_08
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aae49b143355274c93ab90a60170fb7
+      internalID: -933660636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sohvi_seisoo_hiukset_09
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 800
+        width: 320
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acd25aac8e86464a920eda7912f6e8f
+      internalID: 219550159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d6ad18b4c49f11d4bb838b215c52f162
     internalID: 0
     vertices: []
     indices: 
@@ -886,8 +886,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sohvi_seisoo_hiukset_0: -7689792895032672984
-      sohvi_seisoo_hiukset_1: 3752898293288245084
+      sohvi_seisoo_hiukset_00: -1352456392
+      sohvi_seisoo_hiukset_01: -1693957707
+      sohvi_seisoo_hiukset_02: 2081456353
+      sohvi_seisoo_hiukset_03: -105188938
+      sohvi_seisoo_hiukset_04: -1567622869
+      sohvi_seisoo_hiukset_05: -1878056545
+      sohvi_seisoo_hiukset_06: -2129235353
+      sohvi_seisoo_hiukset_07: 167789771
+      sohvi_seisoo_hiukset_08: -933660636
+      sohvi_seisoo_hiukset_09: 219550159
       sohvi_seisoo_hiukset_10: -5004659291310470064
       sohvi_seisoo_hiukset_11: -4100689375620635784
       sohvi_seisoo_hiukset_12: 8134100666284322653
@@ -898,7 +906,6 @@ TextureImporter:
       sohvi_seisoo_hiukset_17: -7788967660951842617
       sohvi_seisoo_hiukset_18: -196404965396854418
       sohvi_seisoo_hiukset_19: -8290359892676799200
-      sohvi_seisoo_hiukset_2: -7585920090802790957
       sohvi_seisoo_hiukset_20: -3519466423658365009
       sohvi_seisoo_hiukset_21: 1324193733122189
       sohvi_seisoo_hiukset_22: 2137069677944777474
@@ -909,13 +916,6 @@ TextureImporter:
       sohvi_seisoo_hiukset_27: 3716801140318806511
       sohvi_seisoo_hiukset_28: 7768475994879430326
       sohvi_seisoo_hiukset_29: -1626070841529812719
-      sohvi_seisoo_hiukset_3: -2578921697615688818
-      sohvi_seisoo_hiukset_4: 2327944813538682148
-      sohvi_seisoo_hiukset_5: 55117425444494220
-      sohvi_seisoo_hiukset_6: 7405520604402316599
-      sohvi_seisoo_hiukset_7: -6570883357652994135
-      sohvi_seisoo_hiukset_8: -543111967630960418
-      sohvi_seisoo_hiukset_9: -4040134245013932161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

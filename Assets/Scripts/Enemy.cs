@@ -1009,6 +1009,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
             for (int i = 1; i <= 3; i++) { var c = Resources.Load<AudioClip>("Sfx/puliukko/puliukko_speak" + i); if (c != null) sp.Add(c); }
             if (sp.Count > 0) { tauntSounds = sp.ToArray(); tauntVolume = Mathf.Max(tauntVolume, 1f); tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; }
         }
+        if (displayName == "Pensalenkkari")
+        {
+            // äänet Resources/Sfx/pensalenkkari: puheet, kipuäänet, iskuhuudot ja kaatumishuuto (ei vaadi valikon uudelleenajoa)
+            System.Func<string[], AudioClip[]> load = names => { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var n in names) { var c = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_" + n); if (c != null) l.Add(c); } return l.ToArray(); };
+            if (tauntSounds == null || tauntSounds.Length == 0) { var sp = load(new[] { "welcome", "speak1", "speak2", "fight_speak1" }); if (sp.Length > 0) { tauntSounds = sp; tauntPause = new Vector2(5f, 10f); tauntNoRepeat = true; tauntOnWakeChance = 0.7f; } }
+            tauntVolume = 0.8f;   // puhe oli kovalla: 20 % hiljaisemmaksi
+            if (hurtSounds == null || hurtSounds.Length == 0) { var pn = load(new[] { "pain1", "pain2", "pain3" }); if (pn.Length > 0) { hurtSounds = pn; hurtVolume = 1f; } }
+            if (attackSounds == null || attackSounds.Length == 0) { var ly = load(new[] { "lyo1", "lyo2", "lyo3" }); if (ly.Length > 0) { attackSounds = ly; attackSoundChance = 1f; } }
+            if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
+            talksWhenCalm = true;
+        }
         if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
@@ -1196,7 +1207,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Idle:
                 moving = false;
                 if (!awake && wanderMaxX > wanderMinX) Wander(dt);
-                if (!awake && talksWhenCalm) MaybeTaunt();   // rauhassakin puhuu välillä (esim. Pensalenkkari)
+                if (!awake && talksWhenCalm && OnScreenX()) MaybeTaunt();   // rauhassakin puhuu välillä (esim. Pensalenkkari)
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
                 {
                     awake = true;
@@ -1360,7 +1371,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (!bellyLaughed && stateTime >= BellyPumpTime)
                 {
                     bellyLaughed = true;
-                    if (laughSound != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShot(laughSound, laughVolume); }
+                    if (laughSound != null && audioSource != null) { audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(laughSound, laughVolume); }
                 }
                 if (stateTime >= BellyTotalTime)
                 {
@@ -1864,14 +1875,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 && Mathf.Abs(player.transform.position.x - transform.position.x) < 12f && audioSource != null)
             {
                 nextHeroLaugh = Time.time + 6f;
-                audioSource.PlayOneShot(heroDownLaugh, 1f);
+                audioSource.PlayOneShotLeveled(heroDownLaugh, 1f);
             }
             heroWasFloored = floored;
         }
         if (helpShout != null && !helpCalled && health > 0 && health <= maxHealth / 3)
         {
             helpCalled = true;
-            if (audioSource != null) audioSource.PlayOneShot(helpShout, 1f);
+            if (audioSource != null) audioSource.PlayOneShotLeveled(helpShout, 1f);
             CallBouncers();
         }
     }
@@ -2211,9 +2222,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Slaps) rushAfterBar = false;
         if (s == State.BarThrow) { barReleased = false; nextBarThrow = Time.time + (usingTireThrow ? tireThrowCooldown : barThrowCooldown); }
         if (s == State.Airborne && state != State.Airborne) PickFallVariant();
-        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShot(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume);
-        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShot(deathVoice, deathVoiceVolume); }
-        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShot(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f);
+        if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShotLeveled(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume);
+        if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(deathVoice, deathVoiceVolume); }
+        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShotLeveled(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f);
         if (s == State.Slaps)
         {
             slapsDone = 0;
@@ -2289,6 +2300,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (SpeakByName("speak2")) nextRetortAt = Time.time + 25f;
     }
 
+    /// Onko hahmo kameran näkyvissä (vaakasuunnassa).
+    bool OnScreenX()
+    {
+        var cam = Camera.main;
+        if (cam == null) return true;
+        return Mathf.Abs(transform.position.x - cam.transform.position.x) <= cam.orthographicSize * cam.aspect + 0.5f;
+    }
+
     /// Onko tämä se samanlaisista (sama displayName) ruudulla olevista hahmoista, joka saa puhua: pienin instanssinumero voittaa.
     bool IsKindSpeaker()
     {
@@ -2319,7 +2338,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (clip == null || !clip.name.ToLowerInvariant().Contains(part.ToLowerInvariant())) continue;
             lastTaunt = i;
             audioSource.pitch = 1f;
-            audioSource.PlayOneShot(clip, tauntVolume);
+            audioSource.PlayOneShotLeveled(clip, tauntVolume);
             talkUntil = Time.time + clip.length;
             NoteSpeech(this, clip.length);
             nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
@@ -2338,7 +2357,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (clip == null) return;
         lastTaunt = i;
         audioSource.pitch = 1f;
-        audioSource.PlayOneShot(clip, tauntVolume);
+        audioSource.PlayOneShotLeveled(clip, tauntVolume);
         talkUntil = Time.time + clip.length;
         NoteSpeech(this, clip.length);
         nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
@@ -2728,7 +2747,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         stompTimer -= dt;
         if (stompTimer > 0f) return;
         stompTimer = stompInterval * Random.Range(0.9f, 1.1f);
-        if (hasStomp && audioSource != null) audioSource.PlayOneShot(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
+        if (hasStomp && audioSource != null) audioSource.PlayOneShotLeveled(stompSounds[Random.Range(0, stompSounds.Length)], stompVolume);
         if (stompShake > 0f && enemyTarget == null && CameraFollow.Instance != null) CameraFollow.Shake(stompShake, 0.1f);   // ei vihujen keskinäisessä tappelussa
     }
 
@@ -2811,6 +2830,27 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool TargetDown(Enemy e) => e.state == State.Down || e.state == State.GetUp || e.state == State.Dead || e.state == State.Held;
 
     /// Valitsee kohteen: portsari lähimmän (pelaaja tai muu kuin portsari), muut vain kostavat lyöjälleen hetken.
+    [Tooltip("Tappelun voimakkuus kohteen valinnassa (0 = automaattinen: elämäpisteet; Tom, Rekkamies ja Betty ovat paljon vahvempia).")]
+    public float fightWeight;
+    float FightWeight
+    {
+        get
+        {
+            if (fightWeight > 0f) return fightWeight;
+            float w = Mathf.Max(30f, maxHealth);
+            if (bigBody) w *= 1.25f;
+            if (displayName == "Tom" || displayName == "Rekkamies" || displayName == "Betty") w *= 1.8f;
+            return w;
+        }
+    }
+
+    /// Kohteen "etäisyys" kun kaikki tappelevat kaikkia vastaan: pienemmät vihut hakeutuvat ensisijaisesti isompien kimppuun (isompi näyttää lähempänä).
+    float TargetScore(Enemy e, float dist)
+    {
+        float mine = FightWeight, theirs = e.FightWeight;
+        return dist * Mathf.Clamp(Mathf.Pow(mine / theirs, 0.6f), 0.4f, 2f);
+    }
+
     bool UpdateEnemyTarget()
     {
         if (enemyTarget != null && (!VisibleFighter(enemyTarget) || TargetDown(enemyTarget) || (!string.IsNullOrEmpty(brawlGroup) && enemyTarget.brawlGroup == brawlGroup) || (!fightsEveryone && !ally && Time.time > grudgeUntil)))
@@ -2829,7 +2869,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     if (brawlGroup.Length > 0 && e.brawlGroup == brawlGroup) continue;   // oma ryhmä ei lyö toisiaan
                     Vector3 q = e.transform.position;
                     if (Mathf.Abs(q.x - me.x) > 14f) continue;
-                    float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                    float d = TargetScore(e, Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f);
                     if (d < best) { best = d; pick = e; }
                 }
                 enemyTarget = pick != null && heroD > brawlHeroPriority ? pick : null;
@@ -2887,10 +2927,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
             foreach (var e in All)
             {
                 if (e == this || (e.fightsEveryone && e.displayName == displayName) || !VisibleFighter(e) || TargetDown(e)) continue;   // samannimiset (puliukot) eivät tappele keskenään
+                if (!string.IsNullOrEmpty(brawlGroup) && e.brawlGroup == brawlGroup) continue;   // samalla puolella (esim. punkkari ja kovis, tanya ja jakuza)
                 if (piratesNear && !e.IsPirate) continue;
                 Vector3 q = e.transform.position;
                 if (Mathf.Abs(q.x - me.x) > 12f) continue;
-                float d = Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f;
+                float d = TargetScore(e, Mathf.Abs(q.x - me.x) + Mathf.Abs(q.y - me.y) * 2f);
                 if (d < best - 0.5f) { best = d; pick = e; }
             }
             if (Time.time > grudgeUntil || enemyTarget == null) enemyTarget = pick;
@@ -3412,7 +3453,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void Launch(float vx, float up)
     {
         if (state != State.Airborne) return;
-        if (launchVoice != null && audioSource != null && VoiceGate("launch")) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShot(launchVoice, launchVoiceVolume); }
+        if (launchVoice != null && audioSource != null && VoiceGate("launch")) { audioSource.Stop(); audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(launchVoice, launchVoiceVolume); }
         if (lightweight) up *= lightLaunchMul;
         knockVel = new Vector2(vx * Clues.LaunchMul, 0f);
         verticalVel = up;
@@ -3483,7 +3524,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         var c = clips[Random.Range(0, clips.Length)];
         if (c == null) return null;
         audioSource.pitch = 1f;   // ei sävelkorkeuden vaihtelua: pituus pysyy (veto ajoitetaan äänen mukaan)
-        audioSource.PlayOneShot(c, volume);
+        audioSource.PlayOneShotLeveled(c, volume);
         return c;
     }
 
@@ -3506,7 +3547,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         lastAttackSound = i;
         if (attackSounds[i] == null) return;
         audioSource.pitch = Random.Range(0.95f, 1.05f);
-        audioSource.PlayOneShot(attackSounds[i], attackVolume);
+        audioSource.PlayOneShotLeveled(attackSounds[i], attackVolume);
     }
 
     void PlayHurtSound()
@@ -3517,7 +3558,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         lastSound = i;
         if (hurtSounds[i] == null) return;
         audioSource.pitch = Random.Range(0.95f, 1.05f);
-        audioSource.PlayOneShot(hurtSounds[i], hurtVolume);
+        audioSource.PlayOneShotLeveled(hurtSounds[i], hurtVolume);
     }
 
     // ---------------- Liike ja maa ----------------

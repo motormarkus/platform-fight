@@ -5,6 +5,11 @@ using UnityEngine;
 public sealed class PokerPresentationSettings : ScriptableObject
 {
     [Min(1)] public int smallBlind = 1, bigBlind = 2, buyIn = 50;
+    [Tooltip("Pöydässä voi valita myös Pot Limit Omahan (4 omaa korttia, pot limit).")]
+    public bool offerOmaha;
+    [Tooltip("Pot Limit Omahan sisäänosto; 0 = sama kuin buyIn.")]
+    [Min(0)] public int omahaBuyIn = 100;
+    public int BuyInFor(TotalFist.Poker.PokerVariant variant) => variant == TotalFist.Poker.PokerVariant.Omaha && omahaBuyIn > 0 ? omahaBuyIn : buyIn;
     public Texture2D barBackground;
     [Tooltip("User-supplied 1280x720 empty table + four opponents. White removed by material, source kept intact.")]
     public Texture2D tableAndOpponents;

@@ -171,7 +171,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain
                 if (!welcomeStarted)
                 {
                     welcomeStarted = true;
-                    if (welcome != null && e.Audio != null) e.Audio.PlayOneShot(welcome, welcomeVolume);
+                    if (welcome != null && e.Audio != null) e.Audio.PlayOneShotLeveled(welcome, welcomeVolume);
                 }
                 if (modeTime >= (welcome != null ? welcome.length + 0.3f : 0.8f)) { mode = Mode.IntroThrow; modeTime = 0f; released = false; }
                 break;
@@ -219,7 +219,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain
         {
             released = true;
             DeaconCigar.Spawn(transform.position + new Vector3(e.FacingRight ? 1.1f : -1.1f, 0f, 0f), 2.4f, hero, e, cigarDamage, cigarSpeed);
-            if (cigarThrowSound != null && e.Audio != null) e.Audio.PlayOneShot(cigarThrowSound, cigarVolume);
+            if (cigarThrowSound != null && e.Audio != null) e.Audio.PlayOneShotLeveled(cigarThrowSound, cigarVolume);
         }
         if (i >= introEndFrame) StartFight();
     }
@@ -469,14 +469,14 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain
         lastPunchSound = Time.time;
         int i = Random.Range(0, punchSounds.Length);
         float gain = punchGains != null && i < punchGains.Length ? punchGains[i] : 1f;
-        e.Audio.PlayOneShot(punchSounds[i], gain);
+        e.Audio.PlayOneShotLeveled(punchSounds[i], gain);
     }
 
     void SpeakMaybe()
     {
         if (speak == null || e.Audio == null || nextSpeak < 0f || Time.time < nextSpeak) return;
         if (mode == Mode.Act) return;
-        e.Audio.PlayOneShot(speak, speakVolume);
+        e.Audio.PlayOneShotLeveled(speak, speakVolume);
         nextSpeak = Time.time + speak.length + Random.Range(speakInterval.x, speakInterval.y);
     }
 

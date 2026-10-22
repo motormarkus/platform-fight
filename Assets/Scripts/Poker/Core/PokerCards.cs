@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TotalFist.Poker
 {
@@ -54,6 +55,37 @@ namespace TotalFist.Poker
                 if (v > best) { best = v; Array.Copy(five, result, 5); }
             }
             return result;
+        }
+
+        // Omaha: täsmälleen kaksi omaa korttia ja kolme pöydän korttia (4 + 5 korttia, 60 yhdistelmää).
+        public static long EvaluateOmaha(IList<int> hole, IList<int> board)
+        {
+            long best = -1; BestOmaha(hole, board, ref best, null); return best;
+        }
+        public static int[] BestFiveOmaha(IList<int> hole, IList<int> board)
+        {
+            long best = -1; var result = new int[5]; BestOmaha(hole, board, ref best, result); return result;
+        }
+        static void BestOmaha(IList<int> hole, IList<int> board, ref long best, int[] result)
+        {
+            if (hole == null || hole.Count != 4 || board == null || board.Count != 5) throw new ArgumentException("Omaha needs 4 hole and 5 board cards");
+            ulong seen = 0;
+            foreach (int c in hole.Concat(board))
+            {
+                if (c < 0 || c >= 52 || (seen & (1UL << c)) != 0) throw new ArgumentException("Invalid/duplicate card");
+                seen |= 1UL << c;
+            }
+            var five = new int[5];
+            for (int a = 0; a < 3; a++)
+            for (int b = a + 1; b < 4; b++)
+            for (int c = 0; c < 3; c++)
+            for (int d = c + 1; d < 4; d++)
+            for (int e = d + 1; e < 5; e++)
+            {
+                five[0] = hole[a]; five[1] = hole[b]; five[2] = board[c]; five[3] = board[d]; five[4] = board[e];
+                long v = Five(five);
+                if (v > best) { best = v; if (result != null) Array.Copy(five, result, 5); }
+            }
         }
 
         static long Pack(int category, params int[] ranks)

@@ -117,7 +117,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     {
         if (c == null || e == null || e.Audio == null) return;
         if (!force && Time.time < voiceBusyUntil) return;
-        e.Audio.PlayOneShot(c, volume * OffscreenGain());
+        e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain());
         voiceBusyUntil = Time.time + c.length;
         if (speakLines != null && System.Array.IndexOf(speakLines, c) >= 0) Enemy.NoteSpeech(e, c.length);   // Puliukko voi huutaa perään
     }
@@ -133,7 +133,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     {
         if (clips == null || clips.Length == 0 || e == null || e.Audio == null) return;
         var c = clips[Random.Range(0, clips.Length)];
-        if (c != null) e.Audio.PlayOneShot(c, volume * OffscreenGain());
+        if (c != null) e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain());
     }
 
     void Awake()
@@ -335,7 +335,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         bool front = e.FacingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > a.reach + 0.2f) return;
         if (Mathf.Abs(hp.y - me.y) > e.depthTolerance + 0.1f) return;
-        if (foe != null) { foe.TakeHit(a.damage + foeDamageBonus, me.x, true); return; }   // muut viholliset kaatuvat iskuun
+        if (foe != null) { if (foe.TakeHit(a.damage + foeDamageBonus, me.x, true)) HitFx.OnHitQuiet(); return; }   // muut viholliset kaatuvat iskuun (osumaääni ilman tärähdystä)
         if (hero.AirHeight > 0.9f) return;
         if (!hero.TakeKnockdown(a.damage, me.x, 5.5f, 5.5f, e)) hero.TakeHit(a.damage, me.x, e, false);   // jokainen lyönti kaataa (suojaus torjuu)
     }
@@ -380,7 +380,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
                 if (grabFoe != null)
                 {
                     if (!grabFoe.isActiveAndEnabled || !grabFoe.CanBeGrabbed) { grabFoe = null; EndAct(); return; }   // vihu ehti pois: huti
-                    grabFoe.BeginHeldByPlayer(me.x);
+                    grabFoe.BeginHeldByPlayer(me.x, grabFoe.HasFlipArt);   // omat heittokuvat (kuperkeikka), jos on; muuten niskalenkki tai pyörähdys
                     holdingFoe = true; grabPhase = 1; grabT = 0f;
                 }
                 else
@@ -398,7 +398,13 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
             CurrentSprite = grab[Mathf.Min(si, grab.Length - 1)];
             float lift = grabPhase == 1 ? Mathf.Lerp(0.3f, 2.6f, u) : 2.6f;
             float x = me.x + face * (grabPhase == 1 ? Mathf.Lerp(1.0f, 0.2f, u) : Mathf.Lerp(0.2f, -0.5f, u));
-            if (grabFoe != null) grabFoe.SetHeldByPlayer(new Vector3(x, me.y - 0.02f, 0f), lift, 0f, -1);
+            if (grabFoe != null)
+            {
+                // heitettävän vihun kuvat: omat otekuvat (pose 1 = napattu, 2 = kierähdys), tai jos kuvia ei ole, kierto kuten pelaajan heitossa (ei jää seisoma-asentoon)
+                bool foeArt = grabFoe.HasFlipArt || grabFoe.HasHeadlockArt;
+                float spin = foeArt ? 0f : face * Mathf.Lerp(grabPhase == 1 ? 0f : 40f, grabPhase == 1 ? 40f : 130f, u);
+                grabFoe.SetHeldByPlayer(new Vector3(x, me.y - 0.02f, 0f), lift, spin, foeArt ? (grabPhase == 1 ? 1 : 2) : -1);
+            }
             else hero.SetHeld(new Vector3(x, me.y - 0.02f, 0f), lift, 0f, 0);
             if (grabT >= dur[grabPhase]) { grabT = 0f; grabPhase++; }
         }

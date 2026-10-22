@@ -784,7 +784,7 @@ public class GameMenu : MonoBehaviour
         if (!f.grunt || clips == null || clips.Length == 0) return;
         if (menuAudio == null) { menuAudio = gameObject.AddComponent<AudioSource>(); menuAudio.playOnAwake = false; menuAudio.spatialBlend = 0f; menuAudio.ignoreListenerPause = true; }
         var c = clips[Random.Range(0, clips.Length)];
-        if (c != null) { menuAudio.pitch = Random.Range(0.96f, 1.04f); menuAudio.PlayOneShot(c, 0.9f); }
+        if (c != null) { menuAudio.pitch = Random.Range(0.96f, 1.04f); menuAudio.PlayOneShotLeveled(c, 0.9f); }
     }
 
 

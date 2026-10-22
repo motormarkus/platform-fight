@@ -64,7 +64,7 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         {
             win = new HashSet<int>();
             foreach (var award in table.Awards) foreach (int w in award.Winners)
-                foreach (int c in PokerCards.BestFive(System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(table.Seats[w].Hole, table.Board)))) win.Add(c);
+                foreach (int c in table.BestFive(w)) win.Add(c);
         }
         var wanted = new HashSet<string>();
         for (int i = 0; i < boardCount; i++)
@@ -74,11 +74,15 @@ public sealed class PokerCardWorldLayer : MonoBehaviour
         }
         for (int i = 0; i < table.Seats.Length; i++)
             if (table.Seats[i].InHand && !table.Seats[i].Folded)
-                for (int k = 0; k < 2; k++)
+                for (int k = 0; k < table.HoleCount; k++)
                 {
                     string slot = "hole" + i + ":" + k; wanted.Add(slot);
+                    // Omaha: neljä korttia viuhkana (kortit limittäin), Hold'em: kaksi kuten ennen.
+                    bool four = table.HoleCount > 2; float mid = (table.HoleCount - 1) / 2f;
+                    float step = i == 0 ? (four ? 46 : 68) : (four ? 17 : 28);
+                    float turnK = four ? (k - mid) * (i == 0 ? 5 : 4) : (i == 0 ? (k == 0 ? 6 : -6) : (k == 0 ? -6 : 6));
                     PutCard(slot, table.Seats[i].Hole[k], i == 0 || table.Showdown,
-                        Holes[i] + new Vector2(k * (i == 0 ? 68 : 28), 0), i == 0 ? 60 : 43, i == 0 ? (k == 0 ? 6 : -6) : (k == 0 ? -6 : 6),
+                        Holes[i] + new Vector2(k * step - (four && i == 0 ? 36 : four && i == 4 ? 75 : 0), 0), four ? (i == 0 ? 54 : 38) : (i == 0 ? 60 : 43), four ? -turnK : turnK,
                         win == null ? 0 : win.Contains(table.Seats[i].Hole[k]) ? 1 : -1,
                         (k * 5 + (i - table.Dealer - 1 + 10) % 5) * .09f);
                 }
