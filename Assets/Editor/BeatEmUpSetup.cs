@@ -16598,6 +16598,50 @@ public static class BeatEmUpSetup
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 
+    // ---------------- Salsafestin yömeri: laivan yötaivas ja meri (kuutamo) parallaksina, taustakuva sinertää ----------------
+    const string SalsaNightSeaPath = "Assets/Sprites/Taustat/salsafest_yomeri.png";   // laiva_meri_kauko_yo laajennettuna peilaamalla (3320 x 707), Tools: ks. NEXT-SESSION-BRIEF
+    static readonly Color SalsaNightTint = new Color(0.72f, 0.80f, 1f, 1f);
+    [MenuItem("Beat em up/243. Salsafest: yömeri ja kuutamo (laivan yötaivas parallaksina, kuva sinertää)")]
+    static void AddSalsaNightSea()
+    {
+        if (PlayModeBlocked()) return;
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Salsafest" && a.gameObject.scene == scene);
+            var bg = Object.FindObjectsByType<SpriteRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(r => r.gameObject.name == "Salsafest (kuva)" && r.gameObject.scene == scene);
+            var day = Object.FindObjectsByType<AnchoredParallax>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.gameObject.name == "Salsafest meri" && a.gameObject.scene == scene);
+            if (area == null || bg == null || day == null) { Info("Aja ensin valikot 232 ja 236 (Salsafest ja meri)."); return; }
+            if (!File.Exists(SalsaNightSeaPath)) { Info("Kuva " + SalsaNightSeaPath + " puuttuu."); return; }
+            const float seaScale = 887f / 707f;   // yökuvan korkeus = Salsafestin taustan korkeus: horisontti osuu taustan mereen
+            float bgPpu = bg.sprite.pixelsPerUnit;
+            var sea = ImportBg(SalsaNightSeaPath, bgPpu / seaScale);
+            foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.name == "Salsafest yömeri" && t.gameObject.scene == scene).ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+            var go = new GameObject("Salsafest yömeri");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+            Undo.RegisterCreatedObjectUndo(go, "Salsafest yömeri");
+            var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = sea;
+            var daySr = day.GetComponentInChildren<SpriteRenderer>();
+            sr.sortingLayerID = daySr != null ? daySr.sortingLayerID : 0; sr.sortingOrder = daySr != null ? daySr.sortingOrder : -10100;
+            var ap = go.AddComponent<AnchoredParallax>();
+            ap.speed = day.speed; ap.camRef = day.camRef;
+            ap.anchor = new Vector2(day.anchor.x, bg.bounds.center.y);
+            go.transform.position = new Vector3(ap.anchor.x, ap.anchor.y, day.transform.position.z);
+            go.SetActive(true);
+            Undo.RecordObject(day.gameObject, "Päivämeri pois"); day.gameObject.SetActive(false);
+            Undo.RecordObject(bg, "Yösävy"); bg.color = SalsaNightTint; EditorUtility.SetDirty(bg);
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Salsafestin taakse tuli yötaivas, kuu ja meri (parallaksi), ja taustakuva sinertää hieman. Päivämeri on piilotettu (olio 'Salsafest meri' pois päältä). UccoLaivan scene tallennettu." + "
+
+Säädöt Unityssä: sävy = olion 'Salsafest (kuva)' SpriteRendererin Color; jos horisontti ei osu taustan mereen, siirrä oliota 'Salsafest yömeri' pystysuunnassa (AnchoredParallax anchor y).");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
     // ---------------- Salsafestin rokkimimmit: kevyt tanssi-idle, rauhassa kunnes tappelu alkaa ----------------
     // Assets/Sprites/Rokkimimmi/rokkimimmi_tanssi_1.png (100 kuvaa, 10 kuvaa/s) ja _2.png (80 kuvaa, 8 kuvaa/s): ruutu 320 x 400, Tools/RokkiAssets.
     [MenuItem("Beat em up/237. Salsafest: kaksi rokkimimmiä rannalle (tanssivat rauhassa, mukaan tappeluun)")]
@@ -16825,6 +16869,80 @@ public static class BeatEmUpSetup
 
     // ---------------- Pensalenkkari: lippalakkinen nyrkkeilijä (lyönnit, potkut, pyörähdyspotku) ----------------
     // Kuvat: Assets/Sprites/Viholliset/lenkkari_*.png (Tools/LenkkariAssets). Ylösnousukuvia ei vielä ole: nousee makuuasennoista.
+    // ---------------- Mama ja Pablo: myyjat Salsafestin kojuille ----------------
+    static Sprite[] LoadSellerFrames(string prefix)
+    {
+        var frames = new System.Collections.Generic.List<Sprite>();
+        for (int i = 0; ; i++)
+        {
+            string path = "Assets/Sprites/Myyjat/" + prefix + "_" + i.ToString("00") + ".png";
+            if (!File.Exists(path)) break;
+            var ti = (TextureImporter)AssetImporter.GetAtPath(path);
+            if (ti == null) { AssetDatabase.ImportAsset(path); ti = (TextureImporter)AssetImporter.GetAtPath(path); }
+            if (ti.textureType != TextureImporterType.Sprite || ti.spritePixelsPerUnit != 100f)
+            {
+                ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single; ti.spritePixelsPerUnit = 100f;
+                ti.filterMode = FilterMode.Bilinear; ti.mipmapEnabled = false; ti.alphaIsTransparency = true;
+                var st = new TextureImporterSettings(); ti.ReadTextureSettings(st); st.spriteAlignment = (int)SpriteAlignment.BottomCenter; ti.SetTextureSettings(st);
+                ti.SaveAndReimport();
+            }
+            frames.Add(AssetDatabase.LoadAssetAtPath<Sprite>(path));
+        }
+        return frames.ToArray();
+    }
+
+    [MenuItem("Beat em up/242. Salsafest: Mama (ruokakoju) ja Pablo (cocktail-koju) myyjiksi")]
+    static void AddSalsaSellers()
+    {
+        if (PlayModeBlocked()) return;
+        var scene = EditorSceneManager.GetSceneByPath(UccoLaivaScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(UccoLaivaScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Salsafest" && a.gameObject.scene == scene);
+            if (area == null) { Info("Aja ensin valikko 232 (Salsafest)."); return; }
+            var report = "";
+            void Seller(string goName, string npcName, string shopPrefix, string prefix, float scale, float fps)
+            {
+                var shop = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == scene && c.name.StartsWith(shopPrefix));
+                var frames = LoadSellerFrames(prefix);
+                if (shop == null || frames.Length < 2) { report += "
+" + goName + ": koju (valikko 238) tai kuvat puuttuvat."; return; }
+                foreach (var old in Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => t != null && t.gameObject.scene == scene && t.name == goName).ToArray())
+                    Undo.DestroyObjectImmediate(old.gameObject);
+                var go = new GameObject(goName);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+                Undo.RegisterCreatedObjectUndo(go, goName);
+                float y = area.maxDepthY + 0.35f;   // tiskin takana
+                go.transform.position = new Vector3(shop.transform.position.x, y, 0f);
+                go.transform.localScale = Vector3.one * scale;
+                var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = frames[0]; sr.sortingOrder = Mathf.RoundToInt(-y * 100f);
+                var loop = go.AddComponent<SpriteLoop>(); loop.frames = frames; loop.fps = fps;
+                Undo.RecordObject(shop, goName); shop.npcName = npcName; EditorUtility.SetDirty(shop);
+                report += "
+" + goName + " (" + frames.Length + " kuvaa) x " + shop.transform.position.x.ToString("0.0");
+            }
+            Seller("Mama (myyja)", "Mama", "Salsafestin koju 2", "mama_myyja", 0.95f, 6f);
+            Seller("Pablo (myyja)", "Pablo", "Salsafestin koju 3", "pablo_idle", 1f, 6f);
+            var pabloGo = Object.FindObjectsByType<SpriteLoop>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(l => l.gameObject.scene == scene && l.name == "Pablo (myyja)");
+            if (pabloGo != null)
+            {
+                var rpd = pabloGo.GetComponent<RubyPabloDance>() ?? Undo.AddComponent<RubyPabloDance>(pabloGo.gameObject);
+                rpd.dance = LoadSellerFrames("ruby_pablo_tanssi"); rpd.kiss = LoadSellerFrames("ruby_pablo_suudelma");
+                EditorUtility.SetDirty(rpd);
+                report += "
+Ruby tanssii Pablon kanssa (E Pablon luona): tanssikuvia " + rpd.dance.Length + ", suudelmakuvia " + rpd.kiss.Length;
+            }
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Myyjät kojuilla:" + report + "
+
+UccoLaivan scene tallennettu. Jos koko tai paikka ei täsmää, muuta olion Scalea tai paikkaa.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
     [MenuItem("Beat em up/240. Pensalenkkari: uusi vihu Uccopulcon kadulle (jab, suora, potku, pyörähdyspotku)")]
     static void AddPensaLenkkari()
     {
@@ -16855,6 +16973,13 @@ public static class BeatEmUpSetup
             e.body = visual; e.shadow = shadow; visual.sprite = idle[0];
             e.displayName = "Pensalenkkari";
             e.visualScale = 1.1f;   // kasvatettu hieman (säädä tästä ja aja 240 / 241)
+            // äänet (Assets/Audio/pensalenkkari): kipu, isku, puhe ja tervehdys, kaatuminen
+            AudioClip PC(string n) => AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/pensalenkkari/pensalenkkari_" + n + ".mp3");
+            AudioClip[] PCs(params string[] ns) => ns.Select(PC).Where(c => c != null).ToArray();
+            var lpain = PCs("pain1", "pain2", "pain3"); if (lpain.Length > 0) { e.hurtSounds = lpain; e.hurtVolume = 1f; }
+            var lhit = PCs("lyo1", "lyo2", "lyo3"); if (lhit.Length > 0) { e.attackSounds = lhit; e.attackSoundChance = 1f; }
+            var lspeak = PCs("welcome", "speak1", "speak2", "fight_speak1"); if (lspeak.Length > 0) { e.tauntSounds = lspeak; e.tauntOnWakeChance = 0.7f; }
+            if (PC("fall") != null) { e.fallVoice = PC("fall"); }
             e.idleSprites = idle; e.idleFrameTime = 0.1f;
             e.walkSprites = sheets["lenkkari_kavely"]; e.walkFrameTime = 0.04f;   // 28 ruudun askelsilmukka
             e.maxHealth = 150; e.moveSpeedX = 2.5f; e.moveSpeedY = 1.4f; e.attackRange = 1.9f; e.attackCooldown = 0.45f;   // nopea ja kevyt kuin Rusty

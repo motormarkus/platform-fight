@@ -3128,7 +3128,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
         if (Time.time - lastHitTime > 0.9f) comboHits = 0;
-        bool unblockable = player != null && player.Boosted && !isBoss;   // pärinä: heron iskuja ei voi torjua (pomot torjuvat silti)
+        bool unblockable = player != null && (player.Boosted || player.IsDrunk) && !isBoss;   // pärinä ja merimieskänni: heron iskuja ei voi torjua (pomot torjuvat silti)
         if (!unblockable && bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && state == State.Hurt && !knockdown
             && comboHits >= bellyCounterAfterHits && Random.value < bellyCounterChance)
         {
@@ -3175,6 +3175,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             verticalVel = 7f;
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
+            if (player != null && !thrownByEnemy && player.DrunkLaunch(out float dlx, out float dlu)) Launch((fromLeft ? 1f : -1f) * dlx, dlu);   // merimieskänni: kaikki heron kaatavat iskut lennättävät kauas
         }
         else if (brain == null && !unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain && !breaksCombos) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
                  && !(PieWar.Active || pieOnly))
