@@ -275,6 +275,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
     public AudioClip[] tauntSounds;
+    [Tooltip("Puhuu repliikkejään (tauntSounds) myös rauhassa, ennen kuin tappelu alkaa.")]
+    public bool talksWhenCalm;
+    [Tooltip("Jos ruudulla on useita samanlaisia hahmoja (sama displayName), vain yksi niistä puhuu omia repliikkejään.")]
+    public bool oneSpeakerPerKind = true;
     [HideInInspector] public bool tauntNoRepeat = true;   // Horhe: repliikit täysin satunnaisesti
     [Tooltip("Avokämmenläimäys: soi, kun tämän vihun isku osuu tai torjutaan (puliukko, Horhen läpsyt).")]
     public AudioClip[] slapSounds;
@@ -1164,6 +1168,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Update()
     {
+        if (displayName == "Puliukko") TryRetort();
         // toisella alueella olevat viholliset eivät pidä ääntä (äänet eivät jää edellisestä ruudusta kuulumaan)
         if (audioSource != null) { bool here = Area.IsHere(transform.position); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
         if (audioSource != null && panVoices) audioSource.panStereo = VoicePan();
@@ -1191,6 +1196,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Idle:
                 moving = false;
                 if (!awake && wanderMaxX > wanderMinX) Wander(dt);
+                if (!awake && talksWhenCalm) MaybeTaunt();   // rauhassakin puhuu välillä (esim. Pensalenkkari)
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
                 {
                     awake = true;
@@ -2250,13 +2256,77 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return;
         }
         if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < nextTauntTime) return;
-        if (Random.value > 0.5f * Time.deltaTime) return;   // ei heti ensimmäisellä mahdollisella hetkellä
+        if (Random.value > 0.5f * Time.deltaTime) return;
+        if (oneSpeakerPerKind && !IsKindSpeaker()) return;   // ei heti ensimmäisellä mahdollisella hetkellä
         if (tauntMinDistance > 0f && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) < tauntMinDistance) return;
         SayTaunt();
     }
 
+    // Puliukon "turpa kiinni" (speak2): hän huutaa sen välillä toisen puhujan perään (rekkamies, Tom, pensalenkkari)
+    static Enemy lastSpeaker; static float lastSpeechEnd = -99f; static int lastSpeechId, retortChecked;
+    float nextRetortAt;
+    [Tooltip("Puliukko: todennäköisyys, että hän sanoo speak2:n (turpa kiinni) rekkamiehen, Tomin tai pensalenkkarin repliikin perään.")]
+    [Range(0f, 1f)] public float retortChance = 0.35f;
+
+    /// Kirjaa, että joku puhui (loppuu length sekunnin päästä).
+    public static void NoteSpeech(Enemy who, float length)
+    {
+        lastSpeaker = who; lastSpeechEnd = Time.time + length; lastSpeechId++;
+    }
+
+    void TryRetort()
+    {
+        if (retortChance <= 0f || lastSpeaker == null || lastSpeaker == this || lastSpeechId == retortChecked) return;
+        string k = lastSpeaker.displayName;
+        if (k != "Rekkamies" && k != "Tom" && k != "Pensalenkkari") { retortChecked = lastSpeechId; return; }
+        float since = Time.time - lastSpeechEnd;
+        if (since < 0.35f) return;                                  // odottaa, että toinen lopettaa
+        retortChecked = lastSpeechId;                               // arvonta kerran per repliikki
+        if (since > 1.5f || Time.time < nextRetortAt || IsDead || !isActiveAndEnabled) return;
+        var cam = Camera.main;
+        if (cam != null && Mathf.Abs(transform.position.x - cam.transform.position.x) > cam.orthographicSize * cam.aspect + 1f) return;   // vain ruudulla
+        if (Random.value > retortChance) return;
+        if (SpeakByName("speak2")) nextRetortAt = Time.time + 25f;
+    }
+
+    /// Onko tämä se samanlaisista (sama displayName) ruudulla olevista hahmoista, joka saa puhua: pienin instanssinumero voittaa.
+    bool IsKindSpeaker()
+    {
+        var cam = Camera.main;
+        if (cam == null) return true;
+        float halfW = cam.orthographicSize * cam.aspect + 1f, cx = cam.transform.position.x;
+        int mine = GetInstanceID();
+        foreach (var o in All)
+        {
+            if (o == null || o == this || o.IsDead || !o.isActiveAndEnabled || o.displayName != displayName) continue;
+            if (o.tauntSounds == null || o.tauntSounds.Length == 0) continue;
+            if (Mathf.Abs(o.transform.position.x - cx) > halfW) continue;
+            if (o.GetInstanceID() < mine) return false;
+        }
+        return true;
+    }
+
     /// Sanoo repliikin (esim. Salsafestin Puliukko vittuilee Tomille).
     public void Speak() { SayTaunt(); }
+
+    /// Sanoo tietyn repliikin (tiedoston nimessä esiintyvä teksti, esim. "speak3") heti, vaikka toinen vihu juuri puhuisi. Palauttaa false, jos repliikkiä ei löydy.
+    public bool SpeakByName(string part)
+    {
+        if (tauntSounds == null || audioSource == null || string.IsNullOrEmpty(part)) return false;
+        for (int i = 0; i < tauntSounds.Length; i++)
+        {
+            var clip = tauntSounds[i];
+            if (clip == null || !clip.name.ToLowerInvariant().Contains(part.ToLowerInvariant())) continue;
+            lastTaunt = i;
+            audioSource.pitch = 1f;
+            audioSource.PlayOneShot(clip, tauntVolume);
+            talkUntil = Time.time + clip.length;
+            NoteSpeech(this, clip.length);
+            nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
+            return true;
+        }
+        return false;
+    }
 
     /// Soittaa yhden huudon (vain yksi vihu kerrallaan, tauko seuraavaan).
     void SayTaunt()
@@ -2270,6 +2340,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         audioSource.pitch = 1f;
         audioSource.PlayOneShot(clip, tauntVolume);
         talkUntil = Time.time + clip.length;
+        NoteSpeech(this, clip.length);
         nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
     }
 

@@ -29,6 +29,17 @@ public class EnemyBikeSpawner : MonoBehaviour
         float dn = Mathf.Max(1f, density * 0.7f);   // 30 % vähemmän kuin density sanoo (5 -> 3,5)
         timer = Random.Range(interval.x, interval.y) / dn;
         if (FindObjectsByType<EnemyBike>(FindObjectsSortMode.None).Length >= Mathf.RoundToInt(maxAlive * Mathf.Min(dn, 3f))) return;
+        SpawnOne(pc);
+    }
+
+    /// Yksi vihuprätkä takaa (myös tapahtumat kutsuvat: saarto).
+    public void SpawnOne(PlayerController pc = null)
+    {
+        var cam = Camera.main;
+        if (template == null || cam == null) return;
+        if (pc == null) { var mb = Motorbike.Current; pc = mb != null && mb.Rider != null ? mb.Rider : Players.Primary; }
+        if (pc == null) return;
+        float dn = Mathf.Max(1f, density * 0.7f);
         float halfW = cam.orthographicSize * cam.aspect;
         var go = Instantiate(template.gameObject);
         go.SetActive(true);

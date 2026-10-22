@@ -11,6 +11,8 @@ public class SalsaBrawl : MonoBehaviour
     [Tooltip("Vittuilija (Puliukko): sanoo repliikkejään, kun rauha on kestänyt calmSeconds.")]
     public Enemy instigator;
     public float calmSeconds = 120f;
+    [Tooltip("Repliikki (tiedoston nimessä oleva teksti), jonka vittuilija sanoo aina juuri ennen tappelua. Tyhjä = satunnainen repliikki.")]
+    public string finalLine = "speak3";
     [Tooltip("Rosvot (BouncerSquad): tulevat vasemmalta mukaan, kun tappelu alkaa.")]
     public BouncerSquad rogues;
     [Tooltip("Seilorit (heron puolella): tulevat oikealta mukaan, kun tappelu alkaa.")]
@@ -31,7 +33,12 @@ public class SalsaBrawl : MonoBehaviour
         calm += Time.deltaTime;
         if (nextChatter < 0f) nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y);
         if (instigator != null && Time.time >= nextChatter && tauntAt < 0f) { instigator.Speak(); nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); }   // Puliukko ei muuten puhu rauhassa (taunt vain jahdissa)
-        if (calm >= calmSeconds && tauntAt < 0f) { tauntAt = Time.time; if (instigator != null) instigator.Speak(); }
+        if (calm >= calmSeconds && tauntAt < 0f)
+        {
+            tauntAt = Time.time;
+            if (instigator != null && !(finalLine != "" && instigator.SpeakByName(finalLine))) instigator.Speak();   // viimeinen vittuilu: aina sama repliikki, jos se löytyy
+            if (finalLine != "") secondTaunt = true;   // muuten toinen satunnainen repliikki kolmen sekunnin päästä
+        }
         if (tauntAt >= 0f && !secondTaunt && Time.time - tauntAt > 3.5f) { secondTaunt = true; if (instigator != null) instigator.Speak(); }
         if (tauntAt >= 0f && Time.time - tauntAt > 6f) Begin();
     }

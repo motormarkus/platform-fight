@@ -119,6 +119,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         if (!force && Time.time < voiceBusyUntil) return;
         e.Audio.PlayOneShot(c, volume * OffscreenGain());
         voiceBusyUntil = Time.time + c.length;
+        if (speakLines != null && System.Array.IndexOf(speakLines, c) >= 0) Enemy.NoteSpeech(e, c.length);   // Puliukko voi huutaa perään
     }
 
     void VoiceRandom(AudioClip[] cs, float volume = 1f, bool force = true)

@@ -180,9 +180,9 @@ public class Pickup : MonoBehaviour
         return null;
     }
 
-    public static void SpawnMoney(Vector3 pos, int value, bool rare)
+    public static Pickup SpawnMoney(Vector3 pos, int value, bool rare)
     {
-        if (value <= 0) return;
+        if (value <= 0) return null;
         pos = ClampToReach(pos);
         var go = new GameObject((rare ? "Setelitukku " : "Seteli ") + value + " mk");
         go.transform.position = pos;
@@ -190,6 +190,7 @@ public class Pickup : MonoBehaviour
         p.value = value;
         p.rare = rare;
         p.SetSprite();
+        return p;
     }
 
     /// Energiajuoma maahan (esim. hajonneesta laatikosta).
