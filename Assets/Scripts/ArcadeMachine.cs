@@ -6,9 +6,11 @@ using UnityEngine;
 /// </summary>
 public class ArcadeMachine : MonoBehaviour
 {
-    public enum Game { StarShooter, ComingSoon }
+    public enum Game { StarShooter, Karate, ComingSoon }
     public Game game = Game.ComingSoon;
     public string spriteName = "";
+    [Tooltip("Ei piirrä ruutua seinälle (kone on jo oma kuvansa, esim. Turpaan Vaan -kaappi).")]
+    public bool noScreen;
     public string machineName = "Pelikone";
     [Tooltip("Koneen korkeus yksikköinä (kuvan korkeus skaalataan tähän).")]
     public float height = 3.1f;
@@ -18,8 +20,12 @@ public class ArcadeMachine : MonoBehaviour
     bool near; float msgAt = -9f; string blockedMsg;
     GUIStyle box;
 
+    Crate crate;
+
     void Start()
     {
+        crate = GetComponent<Crate>();
+        if (noScreen) return;
         if (!string.IsNullOrEmpty(spriteName))
         {
             var t = Resources.Load<Texture2D>("Pelihalli/" + spriteName);
@@ -49,26 +55,28 @@ public class ArcadeMachine : MonoBehaviour
     void Update()
     {
         near = false;
-        if (StarShooter.Active || PokerService.BlocksCombat || GameMenu.IsOpen || ShopCounter.IsOpen) return;
+        if (StarShooter.Active || KarateGame.Active || PokerService.BlocksCombat || GameMenu.IsOpen || ShopCounter.IsOpen) return;
+        if (crate != null && !crate.Intact) return;   // rikottu kone ei toimi
         var q = Players.Nearest(transform.position);
         if (q == null || q.GameOver || !q.enabled || !q.IsFree) return;
         Vector3 p = q.transform.position, me = transform.position;
         if (Mathf.Abs(p.x - me.x) > useHalfWidth || Mathf.Abs(p.y - me.y) > useDepth) return;
         near = true;
         if (!CoopInput.Pick(q.playerIndex)) return;
-        if (game == Game.StarShooter)
+        if (game == Game.StarShooter || game == Game.Karate)
         {
             foreach (var b in FindObjectsByType<SalsaBrawl>(FindObjectsSortMode.None))
                 if (b != null && b.Started && b.area == Area.Current) { blockedMsg = "Nyt ei ole aikaa pelata: hallissa on tappelu!"; msgAt = Time.unscaledTime; return; }
             blockedMsg = null;
-            StarShooter.Begin(q);
+            if (game == Game.Karate) KarateGame.Begin(q); else StarShooter.Begin(q);
         }
         else { blockedMsg = null; msgAt = Time.unscaledTime; }
     }
 
     void OnGUI()
     {
-        if (StarShooter.Active) return;
+        if (StarShooter.Active || KarateGame.Active) return;
+        if (crate != null && !crate.Intact) return;
         bool msg = Time.unscaledTime - msgAt < 2.2f;
         if (!near && !msg) return;
         if (box == null)

@@ -18064,6 +18064,7 @@ public static class BeatEmUpSetup
             c.hitRadiusX = 1.3f; c.throwDamage = 26;
             c.moneyChance = 0.3f; c.energyChance = 0f; c.foodChance = 0f; c.thermosChance = 0f;   // ruokaa vain kaupasta
             c.anchored = true; c.immune = true;   // koskemattomia, kunnes hallin tappelu alkaa (valikko 255)
+            if (sp.id == "turpaan") AttachKarate(go);
         }
         // Tähtipyssy-kone (E käynnistää pelin; oma kaappikuva puuttuu, joten ruutu seinällä)
         var sgo = new GameObject("Kone: Tähtipyssy");
@@ -18074,6 +18075,26 @@ public static class BeatEmUpSetup
         EditorSceneManager.MarkSceneDirty(root.scene);
         Selection.activeGameObject = root;
         Info("Pelihalliin lisätty koneet: Turpaan Vaan, Turboralli ja Flipper Flapper (ehjiä ja koskemattomia, kunnes hallin tappelu alkaa; sitten ne rikkoutuvat kolmesta iskusta, ja Rekkamies, Kovis ja Tom voivat heittää niitä) sekä Tähtipyssy (E käynnistää pelin).\n\n" + (report.Count > 0 ? string.Join("\n", report) + "\n\n" : "") + "Aja seuraavaksi 255 (väki ja tappelu). Tallenna scene (Ctrl+S).");
+    }
+
+    /// Turpaan Vaan -kaappi käynnistää karatepelin (E koneen edessä); kone on oma kuvansa, joten ruutua ei piirretä seinälle.
+    static void AttachKarate(GameObject machine)
+    {
+        var am = machine.GetComponent<ArcadeMachine>() ?? machine.AddComponent<ArcadeMachine>();
+        am.game = ArcadeMachine.Game.Karate; am.noScreen = true; am.machineName = "Turpaan Vaan";
+        EditorUtility.SetDirty(am);
+    }
+
+    [MenuItem("Beat em up/259. Pelihalli: Turpaan Vaan -kone käynnistää karatepelin (ei vaadi 254:n uudelleenajoa)")]
+    static void AddKarateToMachine()
+    {
+        if (PlayModeBlocked()) return;
+        var crate = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.name == "Kone: Turpaan Vaan");
+        if (crate == null) { Info("Koneelta 'Kone: Turpaan Vaan' ei löytynyt. Aja ensin valikko 254."); return; }
+        AttachKarate(crate.gameObject);
+        EditorSceneManager.MarkSceneDirty(crate.gameObject.scene);
+        Selection.activeGameObject = crate.gameObject;
+        Info("Turpaan Vaan -kone käynnistää nyt karatepelin (E koneen edessä). Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/255. Pelihalli: väki (Kovis, Rekkamies, Tom ym.) ja tappelu: koneet vapautuvat rikottaviksi")]

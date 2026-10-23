@@ -103,3 +103,8 @@ Testaamatta: katujen saumat (aseman vasen puoli, kaikki 4–5 saumaa; klubin vas
 - Pomo 2 TUHOAJA (950 hp, `UpdateBoss2`): viuhka isoja luoteja, pulssikiekot, droonit, pyyhkivä luotisuihku (vaihe 2+), liekkisäde (vaihe 2+) ja vaiheessa 3 syöksyrynnäkkö (varoitusviiva -> syöksy ruudun yli). Kuvat `Assets/Resources/TahtiPyssy/boss2_0..2.png` (leikattu `Tools/SpaceGame/slice_boss2.py`:llä, lähde `Tools/SpaceGame/src/boss2_sheet.webp`); leveys pelissä 5,6 yks., osumalaatikko 2,5 x 1,2, aseet/säde `bossMuz`-etäisyydeltä. Kentän 2 tausta `stars2.png` häivytetään ristiin (ks. StartStarCrossfade).
 - Ei kokeiltu Unityssä; vaikeus/aikataulut arvioita.
 - Tuhoajan ammukset (käyttäjän kuvat, `Tools/SpaceGame/slice_boss2_shots.py`, lähteet `src/boss2_shots/`): `e2s` tulipallot (virta), `e2b` salamanuolet (viuhka), `e2arc` kasvava kaari (EnemyShot-tyyppi 4, skaalaa 0,5 -> 1,9 kahdessa sekunnissa, vaihe 2+), `e2ball` iso hidas plasmapallo (tyyppi 5, vaiheessa 3 kaksi), `e2beam` vihreä liekkisäde (värjätty Kurittajan säteestä).
+
+## Turpaan Vaan: pikselikarate (23.10.2026)
+- Pelikoneen "Turpaan Vaan" E-näppäin käynnistää `KarateGame` (Assets/Scripts/KarateGame.cs): Rocco/Gustav, 6 vastustajaa, 3 kierroksen ottelut. Ohjaus J isku, K potku, L erikoispotku, I torjunta, Esc poistuu.
+- Kuvat: `python Tools/KarateAssets/make_karate.py` -> Assets/Resources/Karate (pikselöity pelin omista kuvista; valmiina).
+- Unityssä: odota kuvien tuonti, aja valikko **259** (liittää pelin Turpaan Vaan -koneeseen), tallenna scene. KÄÄNNETTY MUTTA AJAMATTA: tasapaino ja tuntuma testaamatta.

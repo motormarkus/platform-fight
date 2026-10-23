@@ -8,8 +8,17 @@ public class StarShooterImport : AssetPostprocessor
     {
         string ap = assetPath.Replace('\\', '/');
         bool sini = ap.StartsWith("Assets/Resources/Sini/") || ap.StartsWith("Assets/Resources/Dina/");
-        if (!sini && !ap.StartsWith("Assets/Resources/TahtiPyssy/") && !ap.StartsWith("Assets/Resources/Pelihalli/")) return;
+        bool karate = ap.StartsWith("Assets/Resources/Karate/");
+        if (!sini && !karate && !ap.StartsWith("Assets/Resources/TahtiPyssy/") && !ap.StartsWith("Assets/Resources/Pelihalli/")) return;
         var ti = (TextureImporter)assetImporter;
+        if (karate)
+        {
+            // pikselikuvat: terävä suodatus, ei pakkausta
+            ti.textureType = TextureImporterType.Default; ti.alphaIsTransparency = true; ti.mipmapEnabled = false;
+            ti.filterMode = FilterMode.Point; ti.wrapMode = TextureWrapMode.Clamp; ti.npotScale = TextureImporterNPOTScale.None;
+            ti.isReadable = false; ti.textureCompression = TextureImporterCompression.Uncompressed;
+            return;
+        }
         ti.textureType = TextureImporterType.Default;
         ti.alphaIsTransparency = true;
         ti.mipmapEnabled = false;

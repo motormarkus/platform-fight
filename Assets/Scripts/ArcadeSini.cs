@@ -362,7 +362,7 @@ public class ArcadeSini : MonoBehaviour
     {
         near = false;
         if (state == S.Chat || state == S.Hide || state == S.Kiss || state == S.ToCounter || state == S.FromCounter) return;
-        if (StarShooter.Active || PokerService.BlocksCombat || GameMenu.IsOpen || ShopCounter.IsOpen) return;
+        if ((StarShooter.Active || KarateGame.Active) || PokerService.BlocksCombat || GameMenu.IsOpen || ShopCounter.IsOpen) return;
         var q = Players.Nearest(p);
         if (q == null || q.GameOver || !q.enabled || !q.IsFree) return;
         Vector3 hp = q.transform.position;
@@ -521,7 +521,7 @@ public class ArcadeSini : MonoBehaviour
     // ---------- piirto ----------
     void OnGUI()
     {
-        if (StarShooter.Active || body == null || (area != null && Area.Current != area)) return;
+        if ((StarShooter.Active || KarateGame.Active) || body == null || (area != null && Area.Current != area)) return;
         if (box == null)
         {
             int fs = Mathf.RoundToInt(Screen.height * 0.032f);
