@@ -17920,4 +17920,394 @@ public static class BeatEmUpSetup
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
+
+    // ---------------- Pelihalli (ensimmäisen kadun jatko) ----------------
+    // pelihalli_sisa.png: vasen pääty + oikea kanttiinipääty yhdistettynä (Tools/ArcadeAssets/stitch_pelihalli.py), 3545 x 819.
+    const string ArcadePath = "Assets/Sprites/Taustat/pelihalli_sisa.png";
+    const float ArcadeWalkMinPx = 230f, ArcadeWalkMaxPx = 3330f;       // lattia kuvassa: seinät/ovet jäävät rajan ulkopuolelle
+    const float ArcadeX0 = 56000f, ArcadeScale = 1.1f;                 // maailma suurennetaan kuten klubissa (katto jää osin kuvan ulkopuolelle)
+    const float ArcadeFloorPx = 585f, ArcadeExitPx = 130f, ArcadeEnterPx = 400f;   // takaseinän juuri, vasen ovi (ulos), sisääntulopaikka
+    const float ArcadeCounterPx = 2530f, ArcadeCounterHalfPx = 620f, ArcadeCounterTopPx = 490f;   // kanttiinin tiski (keskikohta, puolileveys, yläreuna)
+    const float ArcadeDoorStreetPx = 4150f;                            // katu_jatko: pelihallin neon-sisäänkäynti
+
+    [MenuItem("Beat em up/253. Pelihalli: sisätila (neon-ovesta sisään, kanttiini ja Sohvi tiskille)")]
+    static void CreateArcadeInterior()
+    {
+        if (PlayModeBlocked()) return;
+        var street = GameObject.Find("Tausta");
+        var streetArea = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katu");
+        var ti = AssetImporter.GetAtPath(ArcadePath) as TextureImporter;
+        if (street == null || streetArea == null || ti == null) { Info("Tarvitaan katutausta ja katualue (kohdat 4 ja 10) sekä " + ArcadePath); return; }
+        foreach (var n in new[] { "Pelihalli", "Pelihallin ovet", "Pelihallin Sohvi", "Pelihallin kanttiini" })
+        {
+            var o = GameObject.Find(n);
+            if (o != null) Undo.DestroyObjectImmediate(o);
+        }
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf) / ArcadeScale;
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.maxTextureSize = 4096;
+        ti.mipmapEnabled = false; ti.SaveAndReimport();
+        var spr = AssetDatabase.LoadAssetAtPath<Sprite>(ArcadePath);
+        float wU = w / ppu, hU = h / ppu, halfW = CamHalf * 16f / 9f;
+        float top = CamY - CamHalf + hU;   // kuvan alareuna ruudun alareunassa
+        float X(float px) => ArcadeX0 + px / ppu;
+        float Y(float row) => top - row / ppu;
+
+        var bg = new GameObject("Pelihalli");
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = spr; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(ArcadeX0 + wU * 0.5f, top - hU * 0.5f, 0f);
+        Undo.RegisterCreatedObjectUndo(bg, "Pelihalli");
+
+        var area = ReuseArea("Alue: Pelihalli");
+        area.areaName = "Pelihalli";
+        area.useSidewalk = false;
+        area.maxDepthY = Y(ArcadeFloorPx);
+        area.minDepthY = CamY - CamHalf + 0.9f;
+        area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f;
+        area.camMinX = ArcadeX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, ArcadeX0 + wU - halfW);
+        area.walkMinX = X(ArcadeWalkMinPx); area.walkMaxX = X(ArcadeWalkMaxPx);
+        area.depthLimits = new Vector2[0];
+
+        // kanttiini ja Sohvi tiskin taakse (kopiot S-Clubin Sohvista ja baaritiskistä)
+        var clubSohvi = GameObject.Find("Sohvi");
+        var clubShop = GameObject.Find("Baaritiski");
+        if (clubSohvi != null)
+        {
+            var s2 = Object.Instantiate(clubSohvi);
+            s2.name = "Pelihallin Sohvi";
+            s2.transform.position = new Vector3(X(ArcadeCounterPx), Y(ArcadeCounterTopPx), 0f);
+            s2.transform.localScale = clubSohvi.transform.localScale * 0.85f;
+            var s2sr = s2.GetComponent<SpriteRenderer>(); if (s2sr != null) s2sr.sortingOrder = -9500;
+            Undo.RegisterCreatedObjectUndo(s2, "Sohvi");
+        }
+        if (clubShop != null)
+        {
+            var sh2 = Object.Instantiate(clubShop);
+            sh2.name = "Pelihallin kanttiini";
+            sh2.transform.position = new Vector3(X(ArcadeCounterPx), area.maxDepthY, 0f);
+            var counter = sh2.GetComponent<ShopCounter>();
+            if (counter != null) { counter.here = area; counter.halfWidth = ArcadeCounterHalfPx / ppu; counter.title = "KANTTIINI"; }
+            Undo.RegisterCreatedObjectUndo(sh2, "Kanttiini");
+        }
+
+        // ovet: neon-sisäänkäynti kadulla ja paluuovi sisäkuvan vasemmassa ovessa
+        var doors = new GameObject("Pelihallin ovet");
+        Undo.RegisterCreatedObjectUndo(doors, "Ovet");
+        var ssr = street.GetComponent<SpriteRenderer>();
+        float streetDoorX = street.transform.position.x + ssr.size.x * 0.5f + ArcadeDoorStreetPx / BackgroundPPU;
+        var inDoor = new GameObject("Pelihalliin").AddComponent<Door>();
+        inDoor.transform.SetParent(doors.transform, false);
+        inDoor.transform.position = new Vector3(streetDoorX, streetArea.maxDepthY - 0.25f, 0f);
+        inDoor.prompt = "Mene pelihalliin";
+        inDoor.here = streetArea; inDoor.target = area;
+        inDoor.spawnPoint = new Vector2(X(ArcadeEnterPx), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f));
+        inDoor.halfWidth = 1.5f; inDoor.maxDistanceFromWall = 1.2f;
+        var exit = new GameObject("Pelihallista kadulle").AddComponent<Door>();
+        exit.transform.SetParent(doors.transform, false);
+        exit.transform.position = new Vector3(X(ArcadeExitPx), area.maxDepthY, 0f);
+        exit.prompt = "Ulos kadulle";
+        exit.here = area; exit.target = streetArea;
+        exit.returnToLastDoor = true;
+        exit.halfWidth = 1.6f; exit.maxDistanceFromWall = 1.5f;
+        exit.spawnPoint = new Vector2(streetDoorX, streetArea.maxDepthY - 0.25f);
+        EditorSceneManager.MarkSceneDirty(bg.scene);
+        Selection.activeGameObject = bg;
+        Info($"Pelihalli luotu ({wU:0} yksikköä leveä, x {ArcadeX0:0}…): neon-ovesta kadun lopussa (E) sisään, vasemmasta ovesta ulos.\nKanttiini ja Sohvi oikealla ({(clubShop != null ? "tiski mukana" : "tiskin mallia ei löytynyt")}). Halli on vielä tyhjä: ei pelikoneita eikä väkeä.\n\nTallenna scene (Ctrl+S).");
+    }
+
+    // ---------------- Pelihallin koneet (rikkoutuvat, heitettävät) ja väki ----------------
+    static readonly (string name, string id, float px, float ppu)[] ArcadeMachineSpecs =
+    {
+        ("Turpaan Vaan", "turpaan", 520f, 61.5f), ("Turboralli", "ralli", 960f, 60f), ("Flipper Flapper", "flipper", 1400f, 67.7f),   // 30 % isommat kuin ensimmäinen versio (ppu / 1,3), väliä lisätty
+    };
+
+    [MenuItem("Beat em up/254. Pelihalli: pelikoneet (Turpaan Vaan, Turboralli, Flipper Flapper rikkoutuvat ja ovat heitettäviä tappelussa; Tähtipyssy-kone)")]
+    static void CreateArcadeMachines()
+    {
+        if (PlayModeBlocked()) return;
+        var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        if (area == null) { Info("Aja ensin valikko 253 (pelihallin sisätila)."); return; }
+        foreach (var old in Object.FindObjectsByType<ArcadeMachine>(FindObjectsInactive.Include, FindObjectsSortMode.None)) Undo.DestroyObjectImmediate(old.gameObject);
+        var oldRoot = GameObject.Find("Pelihallin pelikoneet");
+        if (oldRoot != null) Undo.DestroyObjectImmediate(oldRoot);
+        float ppu = 819f / (2f * CamHalf) / ArcadeScale;
+        var root = new GameObject("Pelihallin pelikoneet");
+        Undo.RegisterCreatedObjectUndo(root, "Pelikoneet");
+        var report = new List<string>();
+        foreach (var sp in ArcadeMachineSpecs)
+        {
+            var frames = new Sprite[6];
+            for (int k = 0; k < 6; k++)
+            {
+                string path = "Assets/Sprites/Pelihalli/kone_" + sp.id + "_" + k + ".png";
+                if (!File.Exists(path)) { report.Add(sp.name + ": puuttuu " + path); break; }
+                EnsureBottomPivotSprite(path, sp.ppu);
+                frames[k] = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            }
+            if (frames.Any(f => f == null)) continue;
+            var go = new GameObject("Kone: " + sp.name);
+            go.transform.SetParent(root.transform, false);
+            go.transform.position = new Vector3(ArcadeX0 + sp.px / ppu, area.maxDepthY - 0.3f, 0f);
+            var vis = new GameObject("Visual").AddComponent<SpriteRenderer>(); vis.transform.SetParent(go.transform, false);
+            var sh = new GameObject("Shadow").AddComponent<SpriteRenderer>(); sh.transform.SetParent(go.transform, false);
+            sh.color = new Color(0f, 0f, 0f, 0.35f);
+            var c = go.AddComponent<Crate>();
+            c.body = vis; c.shadow = sh; vis.sprite = frames[0];
+            c.sprites = new[] { frames[0], frames[1], frames[2] };          // ehjä, halkeaa, pahasti rikki
+            c.breakSprites = new[] { frames[3], frames[4], frames[5] };      // hajoaa, romuaa, romukasa
+            c.breakable = true; c.hitsToBreak = 3; c.breakFrameTime = 0.13f; c.debrisTime = 12f;
+            c.visualScale = 1f; c.footOffset = 0.02f; c.shadowWidth = 2.8f;
+            c.carryLower = frames[0].rect.height / sp.ppu * 0.45f; c.plowThrough = true;   // heitettynä kaataa kaikki tieltään
+            c.hitRadiusX = 1.3f; c.throwDamage = 26;
+            c.moneyChance = 0.3f; c.energyChance = 0f; c.foodChance = 0f; c.thermosChance = 0f;   // ruokaa vain kaupasta
+            c.anchored = true; c.immune = true;   // koskemattomia, kunnes hallin tappelu alkaa (valikko 255)
+        }
+        // Tähtipyssy-kone (E käynnistää pelin; oma kaappikuva puuttuu, joten ruutu seinällä)
+        var sgo = new GameObject("Kone: Tähtipyssy");
+        sgo.transform.SetParent(root.transform, false);
+        sgo.transform.position = new Vector3(ArcadeX0 + 1830f / ppu, area.maxDepthY - 0.3f, 0f);
+        var am = sgo.AddComponent<ArcadeMachine>();
+        am.game = ArcadeMachine.Game.StarShooter; am.spriteName = ""; am.machineName = "Tähtipyssy"; am.screenLift = 2.7f;
+        EditorSceneManager.MarkSceneDirty(root.scene);
+        Selection.activeGameObject = root;
+        Info("Pelihalliin lisätty koneet: Turpaan Vaan, Turboralli ja Flipper Flapper (ehjiä ja koskemattomia, kunnes hallin tappelu alkaa; sitten ne rikkoutuvat kolmesta iskusta, ja Rekkamies, Kovis ja Tom voivat heittää niitä) sekä Tähtipyssy (E käynnistää pelin).\n\n" + (report.Count > 0 ? string.Join("\n", report) + "\n\n" : "") + "Aja seuraavaksi 255 (väki ja tappelu). Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/255. Pelihalli: väki (Kovis, Rekkamies, Tom ym.) ja tappelu: koneet vapautuvat rikottaviksi")]
+    static void AddArcadeCrowd()
+    {
+        if (PlayModeBlocked()) return;
+        var tanyaPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/Enemies/Tanya.prefab");
+        var sheets = new Dictionary<string, Sprite[]>();
+        foreach (var n in TomSheetNames)
+        {
+            var sp = LoadWalkerSprites(n);
+            if (sp == null || sp.Length == 0) { Info("Puuttuu tai ei leikkaudu: " + n + ".png (Assets/Sprites/Viholliset)."); return; }
+            sheets[n] = sp;
+        }
+        var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        if (hall == null) { Info("Aja ensin valikot 253 ja 254."); return; }
+        var scene = hall.gameObject.scene;
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Src(string path)
+        {
+            var s = EditorSceneManager.GetSceneByPath(path);
+            if (!s.IsValid() || !s.isLoaded) { s = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(s); }
+            return s;
+        }
+        try
+        {
+            var thai = Src(ThaitownScenePath); var ucco = Src(UccoLaivaScenePath); var desert = Src("Assets/Scenes/Areas/Aavikko.unity");
+            Enemy Find(UnityEngine.SceneManagement.Scene s, System.Func<Enemy, bool> pred) => Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.scene == s && pred(en));
+            var jakuzaT = Find(thai, e => e.displayName == "Jakuza");
+            var bettyT = Find(thai, e => e.displayName == "Betty" && e.gameObject.name == "Betty");
+            var motoT = Find(thai, e => e.displayName == "Prätkäjätkä");
+            var puliT = Find(thai, e => e.displayName == "Puliukko");
+            var bouncerT = Find(thai, e => e.displayName == "Portsari");
+            var lenkT = Find(ucco, e => e.gameObject.name == "Pensalenkkari");
+            var rockT = Find(ucco, e => e.displayName == "Rokkimimmi");
+            var punkT = Find(scene, e => e.displayName == "Punkkari" && !e.gameObject.name.Contains("Katto") && !e.gameObject.name.Contains("Viem")) ?? Find(desert, e => e.displayName == "Punkkari");
+            var kovisT = Find(scene, e => e.displayName == "Kovis" && !e.gameObject.name.Contains("per")) ?? Find(ucco, e => e.displayName == "Kovis");
+            var truckT = Find(desert, e => e.displayName == "Rekkamies" && e.gameObject.name == "Rekkamies") ?? Find(desert, e => e.displayName == "Rekkamies");
+
+            foreach (var n in new[] { "Pelihallin väki", "Pelihallin tappelu", "Pelihallin portsarit", "Pelihallin koneiden lukitus" })
+                foreach (var old in scene.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(old);
+            float ppu = 819f / (2f * CamHalf) / ArcadeScale;
+            float halfW = CamHalf * 16f / 9f;
+            var root = new GameObject("Pelihallin väki");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Pelihallin väki");
+            var made = new List<Enemy>(); var report = new List<string>();
+            void Calm(Enemy e, float px, float depth)
+            {
+                float x = ArcadeX0 + px / ppu;
+                e.wakeDistance = -1f; e.wakeOnFightRadius = 0f; e.joinsFightWhenSquadComes = false; e.fightsEveryone = true; e.ally = false;
+                if (e.calmIdleSprites == null || e.calmIdleSprites.Length == 0) e.calmIdleSprites = e.idleSprites;
+                if (e.calmWalkSprites == null || e.calmWalkSprites.Length == 0) { e.calmWalkSprites = e.walkSprites; e.calmWalkFrameTime = e.walkFrameTime; }
+                e.wanderMinX = x - 150f / ppu; e.wanderMaxX = x + 150f / ppu;
+                if (e.displayName == "Pensalenkkari") { e.talksWhenCalm = true; e.tauntPause = new Vector2(5f, 10f); }
+                if (e.displayName == "Puliukko") e.wakeOnFightRadius = 9f;
+                if ((e.displayName == "Kovis" || e.displayName == "Prätkäjätkä" || e.displayName == "Rekkamies") && e.grabSprites != null && e.grabSprites.Length >= 8)
+                { e.throwsTables = true; e.tableRange = 7f; e.barrelThrowSpeed = 24.2f; e.barrelThrowUp = 1.5f; }   // Kovis, Prätkäjätkä ja Rekkamies heittävät koneita nosto- ja heittokuvillaan
+                e.transform.position = new Vector3(x, Mathf.Lerp(hall.maxDepthY, hall.minDepthY, depth), 0f);
+                made.Add(e);
+            }
+            void Make(GameObject template, string name, float px, float depth)
+            {
+                if (template == null) { report.Add(name + ": mallia ei löytynyt"); return; }
+                var go = Object.Instantiate(template, root.transform);
+                go.name = name;
+                go.transform.SetParent(root.transform, false);
+                go.SetActive(true);
+                var e = go.GetComponent<Enemy>();
+                if (e == null) { Object.DestroyImmediate(go); report.Add(name + ": ei Enemy-komponenttia"); return; }
+                Calm(e, px, depth);
+            }
+            GameObject G(Enemy t) => t != null ? t.gameObject : null;
+            Make(G(kovisT), "Kovis (halli 1)", 1500f, 0.8f);
+            Make(G(kovisT), "Kovis (halli 2)", 2200f, 0.9f);
+            Make(G(kovisT), "Kovis (halli 3)", 2900f, 0.7f);
+            Make(G(truckT), "Rekkamies (halli)", 1900f, 0.6f);
+            Make(G(punkT), "Punkkari (halli 1)", 1100f, 0.85f);
+            Make(G(punkT), "Punkkari (halli 2)", 2500f, 0.55f);
+            Make(G(jakuzaT), "Jakuza (halli 1)", 800f, 0.9f);
+            Make(G(jakuzaT), "Jakuza (halli 2)", 3000f, 0.9f);
+            Make(tanyaPrefab, "Tanya (halli 1)", 1700f, 0.95f);
+            Make(tanyaPrefab, "Tanya (halli 2)", 2700f, 0.5f);
+            Make(G(lenkT), "Pensalenkkari (halli)", 1300f, 0.5f);
+            Make(G(puliT), "Puliukko (halli 1)", 2050f, 0.85f);
+            Make(G(puliT), "Puliukko (halli 2)", 3050f, 0.7f);
+            Make(G(motoT), "Prätkäjätkä (halli 1)", 1000f, 0.6f);
+            Make(G(motoT), "Prätkäjätkä (halli 2)", 2350f, 0.95f);
+            Make(G(rockT), "Rokkimimmi (halli 1)", 1600f, 0.7f);
+            Make(G(rockT), "Rokkimimmi (halli 2)", 3150f, 0.5f);
+            Make(G(bettyT), "Betty (halli)", 2600f, 0.85f);
+
+            var tgo = BuildTom(sheets, scene, "Tom (halli)");
+            tgo.transform.SetParent(root.transform, true);
+            var te = tgo.GetComponent<Enemy>(); var tb = tgo.GetComponent<TomBrain>();
+            tb.attacksEveryone = true; tb.foeRange = 11f; tb.wakeAfterSeconds = 999999f; tb.wakeOnFight = true;
+            float tx = ArcadeX0 + 2100f / ppu;
+            tb.wanderMinX = tx - 4f; tb.wanderMaxX = tx + 4f; tb.wanderSpeed = 1.1f;
+            te.fightsEveryone = true; te.ally = false; te.brawlsWithOthers = false;
+            tgo.transform.position = new Vector3(tx, Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.6f), 0f);
+            made.Add(te);
+
+            var bgo = new GameObject("Pelihallin tappelu");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bgo, scene);
+            Undo.RegisterCreatedObjectUndo(bgo, "Pelihallin tappelu");
+            var brawl = bgo.AddComponent<SalsaBrawl>();
+            BouncerSquad squad = null;
+            if (bouncerT != null)
+            {
+                var pgo = new GameObject("Pelihallin portsarit");
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(pgo, scene);
+                Undo.RegisterCreatedObjectUndo(pgo, "Pelihallin portsarit");
+                squad = pgo.AddComponent<BouncerSquad>();
+                squad.area = hall; squad.bothSides = true; squad.fromCurrentScreenEdges = true; squad.firstDelay = 0.8f; squad.spawnInterval = 0.7f;
+                squad.bouncers = new Enemy[6];
+                for (int i = 0; i < 6; i++)
+                {
+                    var bo = Object.Instantiate(bouncerT.gameObject, pgo.transform);
+                    bo.name = "Portsari (halli " + (i + 1) + ")";
+                    var be = bo.GetComponent<Enemy>();
+                    be.wakeDistance = 100f; be.fightsEveryone = true; be.joinsFightWhenSquadComes = false; be.ally = false;
+                    bo.transform.position = new Vector3(ArcadeX0 + 2000f / ppu, Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.3f + 0.12f * i), 0f);
+                    squad.bouncers[i] = be;
+                    bo.SetActive(false);
+                }
+            }
+            else report.Add("Portsarin mallia ei löytynyt (Thaitownin scene)");
+            brawl.area = hall; brawl.instigator = made.FirstOrDefault(m => m != null && m.displayName == "Puliukko"); brawl.calmSeconds = 114f; brawl.crowd = made.ToArray(); brawl.rogues = squad;
+            EditorUtility.SetDirty(brawl);
+
+            // koneet vapautuvat rikottaviksi, kun tappelu alkaa
+            var machinesRoot = GameObject.Find("Pelihallin pelikoneet");
+            var crates = machinesRoot != null ? machinesRoot.GetComponentsInChildren<Crate>(true) : new Crate[0];
+            var ago = new GameObject("Pelihallin koneiden lukitus");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(ago, scene);
+            Undo.RegisterCreatedObjectUndo(ago, "Koneiden lukitus");
+            var arm = ago.AddComponent<ArcadeBrawlArm>(); arm.brawl = brawl; arm.machines = crates;
+            EditorUtility.SetDirty(arm);
+            if (crates.Length == 0) report.Add("Koneita ei löytynyt: aja valikko 254");
+            EditorSceneManager.MarkSceneDirty(scene);
+            Info("Pelihalliin lisätty " + made.Count + " hahmoa rauhassa (Kovis, Rekkamies, Tom, punkkarit ym.) ja 6 portsaria odottamaan. Tappelu alkaa kahden minuutin kuluttua hallille tulosta tai heti, kun joku lyö jotakuta; silloin " + crates.Length + " konetta vapautuu: ne hajoavat kolmesta iskusta, ja Rekkamies, Kovis ja Tom voivat heittää niitä.\n\n" + (report.Count > 0 ? string.Join("\n", report) + "\n\n" : "") + "Tallenna scene (Ctrl+S).");
+        }
+        finally
+        {
+            foreach (var s in opened) EditorSceneManager.CloseScene(s, true);
+        }
+    }
+
+    [MenuItem("Beat em up/256. Pelihalli: Sini (kävelee, käy tiskillä, tanssii, juttelee; E: piristä häntä)")]
+    static void AddArcadeSini()
+    {
+        if (PlayModeBlocked()) return;
+        var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        if (hall == null) { Info("Aja ensin valikko 253 (pelihallin sisätila)."); return; }
+        if (Resources.Load<Texture2D>("Sini/walk_00") == null) { Info("Puuttuu Assets/Resources/Sini/ (Sinin kuvat)."); return; }
+        var scene = hall.gameObject.scene;
+        foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Pelihallin Sini").ToArray()) Undo.DestroyObjectImmediate(old);
+        float ppu = 819f / (2f * CamHalf) / ArcadeScale;
+        float X(float px) => ArcadeX0 + px / ppu;
+        var go = new GameObject("Pelihallin Sini");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+        Undo.RegisterCreatedObjectUndo(go, "Sini");
+        var s = go.AddComponent<ArcadeSini>();
+        s.area = hall;
+        s.brawl = Object.FindObjectsByType<SalsaBrawl>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(b => b.area == hall);
+        s.laneMinX = X(500f); s.laneMaxX = X(4000f);
+        s.counterXs = new[] { X(2250f), X(2530f), X(2810f) };
+        go.transform.position = new Vector3(X(1500f), hall.maxDepthY - 1.4f, 0f);
+        var dina = Object.FindObjectsByType<ArcadeSini>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a != s && a.persona == ArcadeSini.Persona.Dina);
+        if (dina != null) { s.friend = dina; dina.friend = s; EditorUtility.SetDirty(dina); }
+        EditorUtility.SetDirty(s);
+        EditorSceneManager.MarkSceneDirty(scene);
+        Selection.activeGameObject = go;
+        Info("Sini lisätty halliin: hän seisoskelee, kävelee, käy kanttiinin tiskillä, tanssii ja pysähtyy juttelemaan hallin muiden kanssa. E lähellä aloittaa jutun: kolme vastausta, joilla hänen mielialaansa nostetaan; jos onnistuu, hän antaa lentosuukon ja tanssahtaa. Tappelun alkaessa hän väistää vasemmalle." + (s.brawl == null ? "\n\nHuom: hallin tappelua (255) ei löytynyt, joten hän ei vielä väistä tappelua." : "") + "\n\nKokoa ja paikkaa voi säätää (Height, Lane, Counter Xs). Tallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/257. Pelihalli: Dina (kävelee, tiskillä, tanssii, juttelee Sinin kanssa; kertoo Tähtipyssy-ennätyksestään)")]
+    static void AddArcadeDina()
+    {
+        if (PlayModeBlocked()) return;
+        var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        if (hall == null) { Info("Aja ensin valikko 253 (pelihallin sisätila)."); return; }
+        if (Resources.Load<Texture2D>("Dina/walk_00") == null) { Info("Puuttuu Assets/Resources/Dina/ (Dinan kuvat)."); return; }
+        var scene = hall.gameObject.scene;
+        foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Pelihallin Dina").ToArray()) Undo.DestroyObjectImmediate(old);
+        float ppu = 819f / (2f * CamHalf) / ArcadeScale;
+        float X(float px) => ArcadeX0 + px / ppu;
+        var go = new GameObject("Pelihallin Dina");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+        Undo.RegisterCreatedObjectUndo(go, "Dina");
+        var d = go.AddComponent<ArcadeSini>();
+        d.persona = ArcadeSini.Persona.Dina; d.folder = "Dina"; d.npcName = "Dina";
+        d.area = hall;
+        d.brawl = Object.FindObjectsByType<SalsaBrawl>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(b => b.area == hall);
+        d.laneMinX = X(500f); d.laneMaxX = X(4000f);
+        d.counterXs = new[] { X(2250f), X(2530f), X(2810f) };
+        d.idleFrameTime = 0.33f; d.walkFrameTime = 0.119f; d.talkFrameTime = 0.2f; d.danceFrameTime = 0.2f; d.toCounterFrameTime = 0.1f; d.counterFrameTime = 0.267f;
+        d.counterChance = 0.25f; d.danceChance = 0.22f; d.talkChance = 0.25f;
+        go.transform.position = new Vector3(X(3300f), hall.maxDepthY - 1.8f, 0f);
+        var sini = Object.FindObjectsByType<ArcadeSini>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a != d && a.persona == ArcadeSini.Persona.Sini);
+        if (sini != null) { sini.friend = d; d.friend = sini; EditorUtility.SetDirty(sini); }
+        EditorUtility.SetDirty(d);
+        EditorSceneManager.MarkSceneDirty(scene);
+        Selection.activeGameObject = go;
+        Info("Dina lisätty halliin: hän kävelee, käy kanttiinin tiskillä, tanssii ja juttelee Sinin ja muiden kanssa. E lähellä: hän kertoo Tähtipyssy-ennätyksestään (Dina Record = 30000, säädä Inspectorissa; pelin pisteet eivät ole vielä tiedossa). Kun pelaajan paras tulos ylittää sen, Dina antaa palkinnon (Reward Money, nyt 0: palkinto on vielä päättämättä; ArcadeSini.RecordBeaten-tapahtumaan voi kytkeä mitä vain)." + (sini == null ? "\n\nSiniä ei löytynyt (valikko 256): he eivät vielä jutele keskenään. Aja 256 ja sen jälkeen 257 uudestaan." : "\n\nSini ja Dina on yhdistetty juttelemaan keskenään.") + "\n\nTallenna scene (Ctrl+S).");
+    }
+
+    [MenuItem("Beat em up/258. Pelihalli: rajaa päädyt (ei kävelyä seinien yli; väki ja Sini/Dina sisään)")]
+    static void ClampArcadeEnds()
+    {
+        if (PlayModeBlocked()) return;
+        var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        if (hall == null) { Info("Aja ensin valikko 253."); return; }
+        float ppu = 819f / (2f * CamHalf) / ArcadeScale;
+        float lo = ArcadeX0 + ArcadeWalkMinPx / ppu, hi = ArcadeX0 + ArcadeWalkMaxPx / ppu;
+        hall.walkMinX = lo; hall.walkMaxX = hi; EditorUtility.SetDirty(hall);
+        int moved = 0;
+        foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (e == null || e.transform.position.x < ArcadeX0 - 5f || e.transform.position.x > ArcadeX0 + 4000f / ppu + 50f) continue;
+            if (e.wanderMinX != 0f || e.wanderMaxX != 0f) { e.wanderMinX = Mathf.Max(e.wanderMinX, lo + 0.5f); e.wanderMaxX = Mathf.Min(e.wanderMaxX, hi - 0.5f); }
+            var pp = e.transform.position;
+            if (pp.x < lo + 0.5f || pp.x > hi - 0.5f) { pp.x = Mathf.Clamp(pp.x, lo + 0.5f, hi - 0.5f); e.transform.position = pp; moved++; }
+            EditorUtility.SetDirty(e);
+        }
+        foreach (var tb in Object.FindObjectsByType<TomBrain>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (tb.transform.position.x > ArcadeX0 - 5f && tb.transform.position.x < ArcadeX0 + 4000f / ppu) { tb.wanderMinX = Mathf.Max(tb.wanderMinX, lo + 0.5f); tb.wanderMaxX = Mathf.Min(tb.wanderMaxX, hi - 0.5f); EditorUtility.SetDirty(tb); }
+        foreach (var n in Object.FindObjectsByType<ArcadeSini>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            n.laneMinX = lo + 1.5f; n.laneMaxX = hi - 1.5f;
+            var pp = n.transform.position; pp.x = Mathf.Clamp(pp.x, n.laneMinX, n.laneMaxX); n.transform.position = pp;
+            EditorUtility.SetDirty(n);
+        }
+        EditorSceneManager.MarkSceneDirty(hall.gameObject.scene);
+        Info("Hallin kävelyrajat: pelkkä lattia (x kuvassa " + ArcadeWalkMinPx + "–" + ArcadeWalkMaxPx + " px). " + moved + " hahmoa siirrettiin sisään; väen kuljeskelualueet, Tomin alue sekä Sinin ja Dinan kaista rajattiin samalla. Vasen poistumisovi toimii edelleen.\n\nTallenna scene (Ctrl+S).");
+    }
 }

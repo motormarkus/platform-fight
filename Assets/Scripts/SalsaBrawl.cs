@@ -22,6 +22,8 @@ public class SalsaBrawl : MonoBehaviour
     public Vector2 chatterEvery = new Vector2(7f, 14f);
     float calm, tauntAt = -1f, nextChatter = -1f;
     bool started, secondTaunt;
+    /// Tappelu on alkanut.
+    public bool Started => started;
 
     void Update()
     {

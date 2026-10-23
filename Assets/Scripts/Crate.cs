@@ -119,7 +119,7 @@ public class Crate : MonoBehaviour
     /// Voiko laatikon nostaa (ehjä ja maassa).
     public bool anchored;
     public float impactRadiusX = 1.2f;
-    public bool CanPickUp => !anchored && state == State.Idle;
+    public bool CanPickUp => !anchored && !immune && state == State.Idle;
     /// Pöytä (rikkoutuva, läpi kulkeva): vihollinen voi nostaa ja heittää sen (Rekkamies).
     public bool IsTable => breakable && plowThrough;
 
@@ -132,7 +132,9 @@ public class Crate : MonoBehaviour
         return hit;
     }
     /// Voiko laatikkoon lyödä.
-    public bool CanBeHit => state == State.Idle;
+    /// Koskematon: ei hajoa iskuista eikä lähde käsiin (pelihallin koneet ennen tappelun alkua).
+    public bool immune;
+    public bool CanBeHit => state == State.Idle && !immune;
 
     // ---- vihollisen (Rottakeisari) tynnyrityö ----
     /// Tynnyri (vierii): ei hajoa.

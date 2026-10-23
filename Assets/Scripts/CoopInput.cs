@@ -101,6 +101,7 @@ public static class CoopInput
     public static bool Jump(int i) => Pressed(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, Act.Jump);
     public static bool JumpHeld(int i) => Held(i, Key.Space, Key.None, Key.Numpad0, Key.RightCtrl, Act.Jump);
     public static bool Punch(int i) => Pressed(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
+    public static bool PunchHeld(int i) => Held(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
     public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
     public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, Act.Special);
     public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, Act.Push);
