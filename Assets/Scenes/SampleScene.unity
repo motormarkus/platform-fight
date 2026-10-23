@@ -31676,6 +31676,54 @@ MonoBehaviour:
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
+--- !u!1 &508566413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508566415}
+  - component: {fileID: 508566414}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508566414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508566413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 1989243883}
+  position: {x: 3025.3076, y: -1.0034616}
+  areaName: 
+  sceneName: 
+--- !u!4 &508566415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508566413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512178939
 GameObject:
   m_ObjectHideFlags: 0
@@ -124044,54 +124092,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &2097021048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2097021050}
-  - component: {fileID: 2097021049}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2097021049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097021048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 9004, y: -0.07508819}
-  areaName: Uccopulco
-  sceneName: UccoLaiva
---- !u!4 &2097021050
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097021048}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097766392
 GameObject:
   m_ObjectHideFlags: 0
@@ -129032,4 +129032,4 @@ SceneRoots:
   - {fileID: 50513859}
   - {fileID: 1889188337}
   - {fileID: 1546472189}
-  - {fileID: 2097021050}
+  - {fileID: 508566415}
