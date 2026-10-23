@@ -14,28 +14,33 @@ TARGET_H = 76          # seisovan hahmon korkeus pikseleina
 PALETTE = 28           # varia / hahmo
 OUTLINE = (18, 14, 24)
 
-# anim -> (tiedosto, valinta). valinta: None = kaikki kuvat, lista = vain nama indeksit
+# anim -> kuvasarja. Arvo: "tiedosto" | ("tiedosto", [indeksit]) | [useita edellisia perakkain]
+# punch/punch2/punch3 = iskuketju (J), kick/kick2/kick3 = potkuketju (K), special = hahmon oma erikoisliike (L),
+# air = ilmaisku, jump = hyppykuvat (puuttuessa kaytetaan idlea)
+def ev(n, k=2): return list(range(0, n, k))
+
 F = {
-    "rocco": dict(idle="idle", walk="kavely", punch="jab", kick="korkea_potku", special="kiertopotku",
-                  hurt=("hahmo_spritesheet", [9]), fall="hero_heitetty", getup="hero_kipup"),
-    "gustav": dict(idle="gustav_idle", walk="gustav_kavely", punch="gustav_jab", kick="gustav_etupotku",
-                   special="gustav_kiertopotku", hurt="gustav_osuma", fall="gustav_kaatuminen",
-                   getup="gustav_ylosnousu", block="gustav_suoja"),
-    "lippis": dict(idle="lippis_idle", walk="lippis_kavely", punch="lippis_lyonti", kick="lippis_potku",
-                   special="lippis_potku", hurt="lippis_osuma", fall="lippis_kaatuminen",
-                   getup="lippis_ylosnousu", block="lippis_torjunta"),
-    "lenkkari": dict(idle="lenkkari_idle", walk="lenkkari_kavely", punch="lenkkari_jab", kick="lenkkari_potku",
-                     special="lenkkari_suora", hurt="lenkkari_osuma", fall="lenkkari_kaatuminen",
-                     getup="lenkkari_ylosnousu", block="lenkkari_torjunta"),
-    "horhe": dict(idle="horhe_idle", walk="horhe_kavely", punch="horhe_koukku", kick="horhe_potkut",
-                  special="horhe_takakoukku", hurt="horhe_osuma", fall="horhe_kaatuminen",
+    "rocco": dict(idle="idle", walk="kavely", punch="jab", punch2="rocco_etukoukku", punch3="rocco_takasivukoukku",
+                  kick="korkea_potku", kick2="kiertopotku", special=("erikoispotku", ev(18)), air=("pudotuspotku", [0, 1, 2, 3, 4]),
+                  jump=("hahmo_spritesheet", [5, 6, 7]), hurt=("hahmo_spritesheet", [9]), fall="hero_heitetty", getup="hero_kipup",
+                  block=("suojaus", [0, 1, 3, 2])),
+    "gustav": dict(idle="gustav_idle", walk="gustav_kavely", punch="gustav_jab", punch2="gustav_takasuora", punch3="gustav_uppercut",
+                   kick="gustav_etupotku", kick2="gustav_kiertopotku", kick3="gustav_kirvespotku", special="gustav_hiekka",
+                   air="gustav_hyppypotku", hurt="gustav_osuma", fall="gustav_kaatuminen", getup="gustav_ylosnousu", block="gustav_suoja"),
+    "lippis": dict(idle="lippis_idle", walk="lippis_kavely", punch="lippis_lyonti", kick="lippis_potku", special=["lippis_lyonti", "lippis_potku"],
+                   hurt="lippis_osuma", fall="lippis_kaatuminen", getup="lippis_ylosnousu", block="lippis_torjunta"),
+    "lenkkari": dict(idle="lenkkari_idle", walk="lenkkari_kavely", punch="lenkkari_jab", punch2="lenkkari_suora", punch3="lenkkari_lyonti2",
+                     kick="lenkkari_potku", special=["lenkkari_lakki_nosto", "lenkkari_lakki_suora"],
+                     hurt="lenkkari_osuma", fall="lenkkari_kaatuminen", getup="lenkkari_ylosnousu", block="lenkkari_torjunta"),
+    "horhe": dict(idle="horhe_idle", walk="horhe_kavely", punch="horhe_koukku", punch2="horhe_takakoukku", punch3="horhe_harkko",
+                  kick="horhe_potkut", special="horhe_lapsy", hurt="horhe_osuma", fall="horhe_kaatuminen",
                   getup="horhe_ylosnousu", block="horhe_torjunta"),
-    "marcus": dict(idle="marcus_idle", walk="marcus_kavely", punch="marcus_lyonti1", kick="marcus_koukku",
-                   special="marcus_suora", hurt="marcus_osuma", fall="marcus_kaatuminen1",
-                   getup="marcus_ylosnousu1", block="marcus_suoja"),
-    "deacon": dict(idle="deacon_idle", walk="deacon_kavely", punch="deacon_suorat", kick="deacon_koukut",
-                   special="deacon_vartalokoukut", hurt="deacon_osuma", fall="deacon_heitetty",
-                   getup="deacon_nousu", block="deacon_suoja"),
+    "marcus": dict(idle="marcus_idle", walk="marcus_kavely", punch="marcus_lyonti1", punch2="marcus_lyonti2", punch3="marcus_koukku",
+                   kick="marcus_suora", special=[("marcus_vaisto", ev(16)), "marcus_suora"], hurt="marcus_osuma",
+                   fall="marcus_kaatuminen1", getup="marcus_ylosnousu1", block="marcus_suoja"),
+    "deacon": dict(idle="deacon_idle", walk="deacon_kavely", punch="deacon_suorat", punch2="deacon_koukut", punch3="deacon_vartalokoukut",
+                   kick="deacon_alakoukut", special=[("deacon_vaisto", ev(36, 4)), "deacon_suorat"], hurt="deacon_osuma",
+                   fall="deacon_heitetty", getup="deacon_nousu", block="deacon_suoja"),
 }
 
 
@@ -71,12 +76,16 @@ def alpha_bbox(a, thr=40):
 def build(fname, anims):
     frames = {}
     for anim, spec in anims.items():
-        sel = None
-        if isinstance(spec, tuple):
-            spec, sel = spec
-        cs = cells(spec)
-        if sel is not None:
-            cs = [cs[i] for i in sel]
+        items = spec if isinstance(spec, list) else [spec]
+        cs = []
+        for it in items:
+            sel = None
+            if isinstance(it, tuple):
+                it, sel = it
+            c = cells(it)
+            if sel is not None:
+                c = [c[i] for i in sel]
+            cs += c
         frames[anim] = cs
     # mittakaava: idlen 1. kuvan korkeus
     idle0 = np.array(frames["idle"][0])

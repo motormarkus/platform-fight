@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Turpaan Vaan: pikselikarate pelihallin koneessa. 1v1-turnaus: valitaan Rocco tai Gustav, vastustajia kuusi (kolmen kierroksen otteluita,
-/// kaksi voittoa riittää). Kuvat ovat pelin omia liikekuvia pikseloituna (Tools/KarateAssets/make_karate.py -> Resources/Karate).
+/// Turpaan Vaan: pikselikarate pelihallin koneessa. 1v1-turnaus: valitaan seitsemästä taistelijasta yksi, vastustajia kuusi (kolmen kierroksen otteluita,
+/// kaksi voittoa riittää). Liikkeet: isku- ja potkuketjut (J, K), hyppy (väli) ja ilmaisku, hahmon oma erikoisliike (L). Kuvat ovat pelin omia liikekuvia pikseloituna (Tools/KarateAssets/make_karate.py -> Resources/Karate).
 /// Rakenne kuten Tähtipyssyssä: oma kamera ja maailma kaukana (y 6000), maailma jäätyy (timeScale 0) ja kaikki pyörii skaalaamattomalla ajalla.
-/// Ohjaus: liike nuolet/WASD/tatti, isku J, potku K, erikoispotku L (latautuu), torjunta I (pohjassa), Esc/Q poistuu.
+/// Ohjaus: liike nuolet/WASD/tatti, isku J (ketju J-J-J), potku K (ketju K-K), hyppy välilyönti, erikoisliike L (latautuu), torjunta I (pohjassa), Esc/Q poistuu.
 /// </summary>
 public class KarateGame : MonoBehaviour
 {
@@ -100,43 +100,91 @@ public class KarateGame : MonoBehaviour
     }
 
     // ---------------------------------------------------------------- hahmot
-    enum S { Idle, Walk, Punch, Kick, Special, Hurt, Fall, GetUp, Block }
+    enum S { Idle, Walk, Punch, Kick, Special, Air, Jump, Hurt, Fall, GetUp, Block }
 
-    class Atk { public string anim; public float dur, hs, he, reach, dmg, stun, push; public bool kd; public AudioClip hitSfx; }
-    static readonly Atk APunch = new Atk { anim = "punch", dur = 0.38f, hs = 0.35f, he = 0.62f, reach = 48f, dmg = 7f, stun = 0.30f, push = 55f };
-    static readonly Atk AKick = new Atk { anim = "kick", dur = 0.58f, hs = 0.36f, he = 0.64f, reach = 60f, dmg = 11f, stun = 0.42f, push = 85f };
-    static readonly Atk ASpecial = new Atk { anim = "special", dur = 0.85f, hs = 0.38f, he = 0.72f, reach = 68f, dmg = 18f, stun = 0.5f, push = 170f, kd = true };
+    /// kind: 'p' isku, 'k' potku, 's' erikoisliike, 'a' ilmaisku. hits = osumia (erikoisliikkeissä monta), dodge = osuma-ajan murto-osa, jonka ajan väistetään
+    class Atk
+    {
+        public string anim; public char kind; public int idx;
+        public float dur, hs, he, reach, dmg, stun, push, lunge, dodge, cd; public bool kd, sand, feint; public int hits = 1;
+    }
+    static Atk At(string anim, char kind, int idx, float dur, float hs, float he, float reach, float dmg, float stun, float push, bool kd = false)
+        => new Atk { anim = anim, kind = kind, idx = idx, dur = dur, hs = hs, he = he, reach = reach, dmg = dmg, stun = stun, push = push, kd = kd };
+    static readonly Atk[] Punches =
+    {
+        At("punch",  'p', 0, 0.32f, 0.30f, 0.60f, 46f, 5f, 0.26f, 45f),
+        At("punch2", 'p', 1, 0.38f, 0.30f, 0.60f, 50f, 7f, 0.30f, 60f),
+        At("punch3", 'p', 2, 0.50f, 0.35f, 0.65f, 52f, 10f, 0.45f, 120f),
+    };
+    static readonly Atk[] Kicks =
+    {
+        At("kick",  'k', 0, 0.50f, 0.36f, 0.64f, 58f, 9f, 0.40f, 80f),
+        At("kick2", 'k', 1, 0.62f, 0.36f, 0.66f, 64f, 12f, 0.45f, 110f),
+        At("kick3", 'k', 2, 0.60f, 0.36f, 0.66f, 62f, 14f, 0.50f, 150f, true),
+    };
+    static readonly Atk AAir = At("air", 'a', 0, 0.45f, 0.08f, 0.95f, 52f, 9f, 0.4f, 90f, true);
     const float FallDur = 0.85f, GetUpDur = 0.7f;
+    const float JumpV = 235f, Grav = 640f;
+
+    /// Hahmon oma erikoisliike (L).
+    static Atk Sp(float dur, float hs, float he, float reach, float dmg, float stun, float push, bool kd, int hits = 1, float cd = 4f)
+        => new Atk { anim = "special", kind = 's', dur = dur, hs = hs, he = he, reach = reach, dmg = dmg, stun = stun, push = push, kd = kd, hits = hits, cd = cd };
+    static Atk SpecialOf(string key)
+    {
+        switch (key)
+        {
+            case "rocco":    return Sp(0.78f, 0.18f, 0.82f, 64f, 21f, 0.25f, 150f, true, 3, 4f);                       // tullimylly: pyörivä potkusarja
+            case "gustav":   { var a = Sp(0.80f, 0.42f, 0.50f, 135f, 0f, 1.8f, 0f, false, 1, 6f); a.sand = true; return a; }   // hiekanheitto: lamauttaa
+            case "lippis":   return null;                                                                               // Lippiksellä ei ole erikoisliikettä
+            case "lenkkari": { var a = Sp(0.85f, 0.52f, 0.78f, 62f, 15f, 0.5f, 120f, true, 1, 4f); a.feint = true; return a; }  // lippishämäys: ei torjuttavissa
+            case "horhe":    return Sp(1.0f, 0.22f, 0.92f, 54f, 24f, 0.2f, 70f, true, 8, 5f);                        // läpsykombo
+            case "marcus":   { var a = Sp(0.95f, 0.55f, 0.82f, 72f, 17f, 0.5f, 150f, true, 1, 4f); a.dodge = 0.5f; a.lunge = 105f; return a; }
+            default:         { var a = Sp(1.0f, 0.60f, 0.86f, 74f, 20f, 0.5f, 160f, true, 1, 4f); a.dodge = 0.45f; a.lunge = 100f; return a; }   // deacon
+        }
+    }
+    static readonly Dictionary<string, Atk> specCache = new Dictionary<string, Atk>();
+    static Atk SpecialFor(string key) { if (!specCache.TryGetValue(key, out var a)) specCache[key] = a = SpecialOf(key); return a; }
+
+    static readonly string[] Roster = { "rocco", "gustav", "lippis", "lenkkari", "horhe", "marcus", "deacon" };
+    static readonly string[] RosterNames = { "ROCCO", "GUSTAV", "LIPPIS", "LENKKARI", "HORHE", "MARCUS", "DEACON" };
+    static readonly string[] SpecialNames = { "TULLIMYLLY", "HIEKANHEITTO", "", "LIPPISHÄMÄYS", "LÄPSYKOMBO", "VÄISTÖISKU", "VÄISTÖKOUKKU" };
+    // vastustajien järjestys (heikoimmasta vahvimpaan); pelaajan oma hahmo jätetään pois
+    static readonly string[] Rank = { "lippis", "lenkkari", "horhe", "marcus", "gustav", "rocco", "deacon" };
 
     class Fg
     {
         public string key, name; public bool player;
         public Transform tr; public SpriteRenderer sr, shadow;
-        public float x, vx, hp = 100f, shownHp = 100f;
+        public float x, vx, y, vy, hp = 100f, shownHp = 100f;
         public int face = 1;
         public S s; public float t, stunT;
-        public Atk atk; public bool hit; public int atkId;
+        public Atk atk; public int hitIdx, atkId, queue; public bool aiRolled;
         public bool stayDown; public int comboN; public float comboAt;
-        public float specialCd, spMax = 3f;
+        public float specialCd, spMax = 4f;
         public float dmgMul = 1f, speed = 95f;
         // tekoäly
-        public float thinkT, moveT, blockT, thinkMin = 0.8f, thinkMax = 1.3f, blockChance, specialChance;
+        public float thinkT, moveT, blockT, thinkMin = 0.8f, thinkMax = 1.3f, blockChance, specialChance, chainChance;
         public int moveDir, seenAtk; public bool moveAway;
-        public bool IsAtk => s == S.Punch || s == S.Kick || s == S.Special;
+        public bool IsAtk => s == S.Punch || s == S.Kick || s == S.Special || s == S.Air;
         public bool Grounded => s != S.Fall && s != S.GetUp;
+        public bool Airborne => y > 0.5f;
     }
 
-    struct Opp { public string key, name; public float speed, dmg, tMin, tMax, block, special; }
-    static Opp O(string key, string name, float speed, float dmg, float tMin, float tMax, float block, float special) { return new Opp { key = key, name = name, speed = speed, dmg = dmg, tMin = tMin, tMax = tMax, block = block, special = special }; }
-    static readonly Opp[] Table =
+    struct Opp { public float speed, dmg, tMin, tMax, block, special, chain; }
+    static Opp O(float speed, float dmg, float tMin, float tMax, float block, float special, float chain) { return new Opp { speed = speed, dmg = dmg, tMin = tMin, tMax = tMax, block = block, special = special, chain = chain }; }
+    static Opp StatsOf(string key)
     {
-        O("lippis",   "LIPPIS",   70f, 0.75f, 0.95f, 1.5f, 0.05f, 0.05f),
-        O("lenkkari", "LENKKARI", 80f, 0.85f, 0.85f, 1.35f, 0.12f, 0.08f),
-        O("horhe",    "HORHE",    85f, 0.95f, 0.75f, 1.2f, 0.18f, 0.12f),
-        O("marcus",   "MARCUS",   95f, 1.0f, 0.6f, 1.0f, 0.26f, 0.12f),
-        O("",         "",        100f, 1.1f, 0.5f, 0.85f, 0.32f, 0.2f),   // toinen sankareista (täytetään valinnan mukaan)
-        O("deacon",   "DEACON",  105f, 1.2f, 0.4f, 0.75f, 0.42f, 0.22f),
-    };
+        switch (key)
+        {
+            case "lippis":   return O(70f, 0.75f, 0.95f, 1.5f, 0.05f, 0.05f, 0.10f);
+            case "lenkkari": return O(80f, 0.85f, 0.85f, 1.35f, 0.12f, 0.08f, 0.20f);
+            case "horhe":    return O(85f, 0.95f, 0.75f, 1.2f, 0.18f, 0.12f, 0.25f);
+            case "marcus":   return O(95f, 1.0f, 0.6f, 1.0f, 0.26f, 0.12f, 0.35f);
+            case "gustav":   return O(100f, 1.1f, 0.5f, 0.85f, 0.32f, 0.2f, 0.4f);
+            case "rocco":    return O(100f, 1.1f, 0.5f, 0.85f, 0.32f, 0.22f, 0.4f);
+            default:         return O(105f, 1.2f, 0.4f, 0.75f, 0.42f, 0.22f, 0.5f);   // deacon
+        }
+    }
 
     class Pt { public Transform tr; public SpriteRenderer sr; public Vector2 v; public float life, max; public Color c; }
 
@@ -153,15 +201,17 @@ public class KarateGame : MonoBehaviour
     Fg P, E;
     readonly List<Pt> pts = new List<Pt>();
     readonly List<GameObject> bgObjs = new List<GameObject>();
-    int sel;                   // 0 = Rocco, 1 = Gustav
+    int sel;                   // valittu taistelija (Roster)
+    string[] opps;             // vastustajat järjestyksessä
     int bout, round, winsP, winsE;
     float roundT; string banner, bannerSub;
     int score, hiScore, atkCounter;
-    float hitStop, shake, flashT, lastMx, koFlash;
+    float hitStop, shake, flashT;
     bool playerWonRound, timeOut;
-    Fg[] selFg = new Fg[2];
+    readonly Fg[] selFg = new Fg[7];
     GUIStyle gs, big, mid;
     float lastSelDir;
+    string heroKey;
 
     // ---------------------------------------------------------------- alku ja loppu
     void Init(PlayerController who)
@@ -214,20 +264,15 @@ public class KarateGame : MonoBehaviour
     {
         float W = 520f;
         Quad(0, 0, W * 2f, HalfH * 2f, new Color(0.13f, 0.10f, 0.19f), -100, "seinä");
-        // pystylankut
         for (float x = -W; x < W; x += 24f)
             Quad(x, 14f, 2f, 150f, new Color(0.09f, 0.07f, 0.14f), -99, "lankku");
-        // iso ikkuna ja kuu
         Quad(0, 28f, 170f, 78f, new Color(0.07f, 0.06f, 0.11f), -98, "ikkunakehys");
         Quad(0, 28f, 162f, 70f, new Color(0.17f, 0.22f, 0.42f), -97, "yötaivas");
         var moon = new GameObject("kuu"); moon.transform.SetParent(root, false); moon.transform.localPosition = new Vector3(34f, 38f, 0f);
         var ms = moon.AddComponent<SpriteRenderer>(); ms.sprite = CircleSprite(12, new Color(1f, 0.93f, 0.62f)); ms.sortingOrder = -96; bgObjs.Add(moon);
         for (int i = 0; i < 14; i++) Quad(-75f + (i * 37 % 150), 8f + (i * 53 % 54), 1.5f, 1.5f, new Color(0.9f, 0.9f, 1f, 0.8f), -96, "tähti");
-        // vuoren siluetti
         Quad(-30f, 4f, 56f, 8f, new Color(0.09f, 0.1f, 0.2f), -95); Quad(-30f, 10f, 34f, 6f, new Color(0.09f, 0.1f, 0.2f), -95); Quad(-30f, 15f, 14f, 6f, new Color(0.09f, 0.1f, 0.2f), -95);
-        // ikkunan ristikko
         Quad(0, 28f, 3f, 70f, new Color(0.07f, 0.06f, 0.11f), -94, "ristikko"); Quad(0, 28f, 162f, 3f, new Color(0.07f, 0.06f, 0.11f), -94, "ristikko");
-        // sivujen paperiovet
         for (int side = -1; side <= 1; side += 2)
             for (int k = 0; k < 2; k++)
             {
@@ -236,7 +281,6 @@ public class KarateGame : MonoBehaviour
                 Quad(cx, 22f, 50f, 2f, new Color(0.3f, 0.2f, 0.12f), -97, "ovi"); Quad(cx, -10f, 50f, 2f, new Color(0.3f, 0.2f, 0.12f), -97, "ovi");
                 Quad(cx, 22f, 2f, 100f, new Color(0.3f, 0.2f, 0.12f), -97, "ovi"); Quad(cx, 58f, 50f, 2f, new Color(0.3f, 0.2f, 0.12f), -97, "ovi");
             }
-        // lyhdyt
         for (int side = -1; side <= 1; side += 2)
         {
             float lx = side * 100f;
@@ -245,7 +289,6 @@ public class KarateGame : MonoBehaviour
             Quad(lx, 58f, 9f, 14f, new Color(1f, 0.78f, 0.3f, 0.9f), -91, "lyhty");
             Quad(lx, 68f, 17f, 2f, new Color(0.15f, 0.1f, 0.08f), -91, "lyhty"); Quad(lx, 48f, 17f, 2f, new Color(0.15f, 0.1f, 0.08f), -91, "lyhty");
         }
-        // lattia
         float floorTop = -34f;
         Quad(0, (floorTop - HalfH) * 0.5f, W * 2f, floorTop + HalfH, new Color(0.50f, 0.32f, 0.18f), -90, "lattia");
         Quad(0, floorTop, W * 2f, 3f, new Color(0.28f, 0.17f, 0.10f), -89, "lattiaraja");
@@ -259,15 +302,16 @@ public class KarateGame : MonoBehaviour
     }
 
     // ---------------------------------------------------------------- hahmot ja kuvat
-    Fg MakeFighter(string key, string name, bool player, float x, int face)
+    static string NameOf(string key) { int i = System.Array.IndexOf(Roster, key); return i >= 0 ? RosterNames[i] : key.ToUpperInvariant(); }
+
+    Fg MakeFighter(string key, bool player, float x, int face)
     {
-        var f = new Fg { key = key, name = name, player = player, x = x, face = face };
-        var go = new GameObject(name); go.transform.SetParent(root, false); f.tr = go.transform;
+        var f = new Fg { key = key, name = NameOf(key), player = player, x = x, face = face };
+        var go = new GameObject(f.name); go.transform.SetParent(root, false); f.tr = go.transform;
         f.sr = go.AddComponent<SpriteRenderer>(); f.sr.sortingOrder = player ? 12 : 11;
         var sh = new GameObject("varjo"); sh.transform.SetParent(go.transform, false);
-        sh.transform.localPosition = new Vector3(0f, 1f, 0f); sh.transform.localScale = new Vector3(34f, 7f, 1f);
-        f.shadow = sh.AddComponent<SpriteRenderer>(); f.shadow.sprite = CircleSprite(8, Color.white); f.shadow.color = new Color(0f, 0f, 0f, 0.4f); f.shadow.sortingOrder = 5;
         sh.transform.localScale = new Vector3(2.2f, 0.45f, 1f);
+        f.shadow = sh.AddComponent<SpriteRenderer>(); f.shadow.sprite = CircleSprite(8, Color.white); f.shadow.color = new Color(0f, 0f, 0f, 0.4f); f.shadow.sortingOrder = 5;
         Show(f);
         return f;
     }
@@ -288,94 +332,100 @@ public class KarateGame : MonoBehaviour
 
     void Show(Fg f)
     {
-        Sprite sp;
-        f.sr.color = Color.white;
+        Sprite sp; Color col = Color.white;
         switch (f.s)
         {
-            case S.Punch: case S.Kick: case S.Special: sp = Frame(f, f.atk.anim, f.t, f.atk.dur, false); break;
-            case S.Hurt: sp = Frame(f, "hurt", f.t, Mathf.Max(0.2f, f.stunT), false); break;
+            case S.Punch: case S.Kick: sp = Frame(f, f.atk.anim, f.t, f.atk.dur, false); break;
+            case S.Special:
+                sp = Frame(f, "special", f.t, f.atk.dur, false);
+                if (f.atk.dodge > 0f && f.t / f.atk.dur < f.atk.dodge) col = new Color(1f, 1f, 1f, 0.55f);   // väistö
+                break;
+            case S.Air: sp = Frame(f, Load(f.key, "air") != null ? "air" : "kick", f.t, f.atk.dur, false); break;
+            case S.Jump:
+                {
+                    var j = Load(f.key, "jump");
+                    if (j != null) sp = j[Mathf.Min(j.Length - 1, f.vy > 70f ? 0 : f.vy > -70f ? 1 : 2)];
+                    else sp = Frame(f, "idle", 0f, 1f, false);
+                    break;
+                }
+            case S.Hurt:
+                sp = Frame(f, "hurt", f.t, Mathf.Max(0.2f, Mathf.Min(f.stunT, 0.5f)), false);
+                if (f.stunT > 1f) col = new Color(1f, 0.9f, 0.55f);   // hiekka silmissä
+                break;
             case S.Fall: sp = Frame(f, "fall", f.t, FallDur, false); break;
             case S.GetUp: sp = Frame(f, "getup", f.t, GetUpDur, false); break;
             case S.Block:
                 if (Load(f.key, "block") != null) sp = Frame(f, "block", Mathf.Min(f.t, 0.15f), 0.15f, false);
-                else { sp = Frame(f, "idle", 0f, 1f, false); f.sr.color = new Color(0.75f, 0.85f, 1f); }
+                else { sp = Frame(f, "idle", 0f, 1f, false); col = new Color(0.75f, 0.85f, 1f); }
                 break;
             case S.Walk: { var a = Load(f.key, "walk"); sp = Frame(f, "walk", Time.unscaledTime, Mathf.Clamp((a != null ? a.Length : 8) * 0.07f, 0.5f, 0.9f), true, f.moveAway); break; }
             default: { var a = Load(f.key, "idle"); sp = Frame(f, "idle", Time.unscaledTime, Mathf.Clamp((a != null ? a.Length : 6) * 0.1f, 0.6f, 1.6f), true); break; }
         }
-        f.sr.sprite = sp;
+        f.sr.sprite = sp; f.sr.color = col;
         f.sr.flipX = f.face < 0;
-        float lift = 0f;
-        f.tr.localPosition = new Vector3(f.x, GroundY + lift, 0f);
-        f.shadow.enabled = f.s != S.Fall || f.t < FallDur;
+        f.tr.localPosition = new Vector3(f.x, GroundY + f.y, 0f);
+        f.shadow.transform.localPosition = new Vector3(0f, 1f - f.y, 0f);   // varjo pysyy maassa
+        f.shadow.color = new Color(0f, 0f, 0f, 0.4f * Mathf.Clamp01(1f - f.y / 90f));
     }
 
     // ---------------------------------------------------------------- valintaruutu
     void BuildSelect()
     {
-        string[] keys = { "rocco", "gustav" };
-        for (int i = 0; i < 2; i++)
-        {
-            selFg[i] = MakeFighter(keys[i], keys[i] == "rocco" ? "ROCCO" : "GUSTAV", i == 0, i == 0 ? -62f : 62f, 1);
-        }
+        for (int i = 0; i < Roster.Length; i++) selFg[i] = MakeFighter(Roster[i], i == 0, 0f, 1);
         sel = 0;
     }
 
     void ClearSelect()
     {
-        for (int i = 0; i < 2; i++) if (selFg[i] != null && selFg[i].tr != null) Destroy(selFg[i].tr.gameObject);
-        selFg[0] = selFg[1] = null;
+        for (int i = 0; i < selFg.Length; i++) { if (selFg[i] != null && selFg[i].tr != null) Destroy(selFg[i].tr.gameObject); selFg[i] = null; }
     }
 
     void UpdateSelect(float dt)
     {
         float mx = CoopInput.Move(pi).x;
         int dir = mx > 0.5f ? 1 : mx < -0.5f ? -1 : 0;
-        if (dir != 0 && lastSelDir == 0) { sel = dir > 0 ? 1 : 0; Play(Sfx.Blip, 0.8f); }
+        if (dir != 0 && lastSelDir == 0) { sel = (sel + dir + Roster.Length) % Roster.Length; Play(Sfx.Blip, 0.8f); }
         lastSelDir = dir;
-        for (int i = 0; i < 2; i++)
+        float sp = Mathf.Min(46f, (halfW - 18f) / 3f);
+        for (int i = 0; i < Roster.Length; i++)
         {
             var f = selFg[i]; if (f == null) continue;
             bool on = i == sel;
-            f.s = S.Idle; f.face = i == 0 ? 1 : -1;
+            f.s = S.Idle; f.face = 1; f.x = (i - 3) * sp;
             Show(f);
-            f.sr.color = on ? Color.white : new Color(0.45f, 0.45f, 0.5f);
-            f.tr.localScale = Vector3.one * (on ? 1.15f : 0.95f);
+            f.sr.color = on ? Color.white : new Color(0.42f, 0.42f, 0.48f);
+            f.tr.localScale = Vector3.one * (on ? 1.3f : 0.8f);
             f.sr.sortingOrder = on ? 13 : 11;
         }
         if (stT > 0.3f && (CoopInput.Punch(pi) || CoopInput.Pick(pi) || CoopInput.Special(pi)))
         {
             Play(Sfx.Bell, 0.7f);
-            string k = sel == 0 ? "rocco" : "gustav";
+            string k = Roster[sel];
             ClearSelect();
             StartTournament(k);
         }
     }
 
     // ---------------------------------------------------------------- turnaus
-    string heroKey;
-
     void StartTournament(string key)
     {
         heroKey = key;
+        var l = new List<string>();
+        foreach (var k in Rank) if (k != key) l.Add(k);
+        opps = l.ToArray();
         bout = 0; score = 0;
         SetupBout();
-    }
-
-    Opp BoutOpp()
-    {
-        var o = Table[bout];
-        if (string.IsNullOrEmpty(o.key)) { o.key = heroKey == "rocco" ? "gustav" : "rocco"; o.name = heroKey == "rocco" ? "GUSTAV" : "ROCCO"; }
-        return o;
     }
 
     void SetupBout()
     {
         DestroyFighter(ref P); DestroyFighter(ref E);
-        var o = BoutOpp();
-        P = MakeFighter(heroKey, heroKey == "rocco" ? "ROCCO" : "GUSTAV", true, -70f, 1);
-        E = MakeFighter(o.key, o.name, false, 70f, -1);
-        E.speed = o.speed; E.dmgMul = o.dmg; E.thinkMin = o.tMin; E.thinkMax = o.tMax; E.blockChance = o.block; E.specialChance = o.special;
+        string ok = opps[bout];
+        var o = StatsOf(ok);
+        P = MakeFighter(heroKey, true, -70f, 1);
+        P.spMax = SpecialFor(heroKey)?.cd ?? 4f;
+        E = MakeFighter(ok, false, 70f, -1);
+        E.speed = o.speed; E.dmgMul = o.dmg; E.thinkMin = o.tMin; E.thinkMax = o.tMax; E.blockChance = o.block; E.specialChance = o.special; E.chainChance = o.chain;
         winsP = winsE = 0; round = 1;
         StartRound();
     }
@@ -384,7 +434,7 @@ public class KarateGame : MonoBehaviour
     {
         foreach (var f in new[] { P, E })
         {
-            f.hp = f.shownHp = 100f; f.s = S.Idle; f.t = 0f; f.vx = 0f; f.stayDown = false; f.comboN = 0; f.specialCd = 0f;
+            f.hp = f.shownHp = 100f; f.s = S.Idle; f.t = 0f; f.vx = 0f; f.y = 0f; f.vy = 0f; f.stayDown = false; f.comboN = 0; f.specialCd = 0f; f.queue = 0;
             f.thinkT = Random.Range(0.6f, 1.2f); f.moveT = 0f; f.blockT = 0f;
         }
         P.x = -70f; E.x = 70f; P.face = 1; E.face = -1;
@@ -392,7 +442,7 @@ public class KarateGame : MonoBehaviour
         roundT = 60f;
         st = St.Intro; stT = 0f;
         banner = Loc.T("KIERROS") + " " + round;
-        bannerSub = "VS  " + E.name + "   ( " + (bout + 1) + " / " + Table.Length + " )";
+        bannerSub = "VS  " + E.name + "   ( " + (bout + 1) + " / " + opps.Length + " )";
         Play(Sfx.Bell, 0.6f);
         Show(P); Show(E);
     }
@@ -418,7 +468,8 @@ public class KarateGame : MonoBehaviour
                 return;
             case St.Over:
             case St.Win:
-                P.s = st == St.Win ? S.Idle : P.s; Show(P); Show(E);
+                if (st == St.Win) P.s = S.Idle;
+                Show(P); Show(E);
                 if (esc || CoopInput.Kick(pi)) { End(); return; }
                 if (stT > 1.6f && (CoopInput.Punch(pi) || CoopInput.Pick(pi))) { StartTournament(heroKey); }
                 return;
@@ -469,7 +520,7 @@ public class KarateGame : MonoBehaviour
             {
                 score += 1000 * (bout + 1);
                 bout++;
-                if (bout >= Table.Length) { st = St.Win; stT = 0f; Play(Sfx.Win, 0.9f); Hi(); }
+                if (bout >= opps.Length) { st = St.Win; stT = 0f; Play(Sfx.Win, 0.9f); Hi(); }
                 else SetupBout();
             }
             else if (winsE >= 2) { st = St.Over; stT = 0f; Play(Sfx.Lose, 0.9f); Hi(); }
@@ -482,22 +533,58 @@ public class KarateGame : MonoBehaviour
         if (score > hiScore) { hiScore = score; PlayerPrefs.SetInt(HiKey, hiScore); PlayerPrefs.Save(); }
     }
 
-    // ---------------------------------------------------------------- pelaaja
+    // ---------------------------------------------------------------- hyökkäysten aloitus
     bool Free(Fg f) => f.s == S.Idle || f.s == S.Walk || f.s == S.Block;
+
+    static int ChainLen(string key, char kind)
+    {
+        string b = kind == 'p' ? "punch" : "kick";
+        return Load(key, b + "3") != null ? 3 : Load(key, b + "2") != null ? 2 : 1;
+    }
 
     void StartAtk(Fg f, Atk a)
     {
-        f.atk = a; f.s = a == APunch ? S.Punch : a == AKick ? S.Kick : S.Special;
-        f.t = 0f; f.hit = false; f.atkId = ++atkCounter;
-        Play(Sfx.Whoosh, 0.5f, a == ASpecial ? 0.75f : a == AKick ? 0.9f : 1.15f);
+        f.atk = a; f.t = 0f; f.hitIdx = 0; f.atkId = ++atkCounter; f.queue = 0; f.aiRolled = false;
+        f.s = a.kind == 'p' ? S.Punch : a.kind == 'k' ? S.Kick : a.kind == 's' ? S.Special : S.Air;
+        Play(Sfx.Whoosh, 0.5f, a.kind == 's' ? 0.75f : a.kind == 'k' ? 0.9f : 1.15f);
     }
 
+    void ChainNext(Fg f)
+    {
+        int q = f.queue; f.queue = 0;
+        Atk n;
+        if (q == 1) n = f.atk.kind == 'p' && f.atk.idx + 1 < ChainLen(f.key, 'p') ? Punches[f.atk.idx + 1] : Punches[0];
+        else n = f.atk.kind == 'k' && f.atk.idx + 1 < ChainLen(f.key, 'k') ? Kicks[f.atk.idx + 1] : Kicks[0];
+        StartAtk(f, n);
+    }
+
+    void Jump(Fg f)
+    {
+        f.s = S.Jump; f.t = 0f; f.vy = JumpV;
+    }
+
+    // ---------------------------------------------------------------- pelaaja
     void UpdatePlayer(float dt)
     {
         P.specialCd = Mathf.Max(0f, P.specialCd - dt);
-        if (!Free(P)) return;
         Vector2 m = CoopInput.Move(pi);
         float mx = Mathf.Abs(m.x) > 0.3f ? Mathf.Sign(m.x) : 0f;
+        // ketjuisku: seuraava nappi vastauksena iskun aikana
+        if ((P.s == S.Punch || P.s == S.Kick) && P.t / P.atk.dur > 0.2f)
+        {
+            if (CoopInput.Punch(pi)) P.queue = 1;
+            else if (CoopInput.Kick(pi)) P.queue = 2;
+            return;
+        }
+        if (P.s == S.Jump)
+        {
+            P.face = E.x >= P.x ? 1 : -1;
+            P.x += mx * P.speed * 0.85f * dt;
+            if (CoopInput.Punch(pi) || CoopInput.Kick(pi)) StartAtk(P, AAir);
+            return;
+        }
+        if (P.s == S.Air) { P.x += mx * P.speed * 0.6f * dt; return; }
+        if (!Free(P)) return;
         P.face = E.x >= P.x ? 1 : -1;
         if (CoopInput.Block(pi))
         {
@@ -505,9 +592,10 @@ public class KarateGame : MonoBehaviour
             return;
         }
         if (P.s == S.Block) { P.s = S.Idle; P.t = 0f; }
-        if (CoopInput.Special(pi) && P.specialCd <= 0f) { StartAtk(P, ASpecial); P.specialCd = P.spMax; return; }
-        if (CoopInput.Kick(pi)) { StartAtk(P, AKick); return; }
-        if (CoopInput.Punch(pi)) { StartAtk(P, APunch); return; }
+        if (CoopInput.Jump(pi)) { Jump(P); return; }
+        if (CoopInput.Special(pi) && P.specialCd <= 0f && SpecialFor(heroKey) != null) { var sp = SpecialFor(heroKey); StartAtk(P, sp); P.specialCd = sp.cd; return; }
+        if (CoopInput.Kick(pi)) { StartAtk(P, Kicks[0]); return; }
+        if (CoopInput.Punch(pi)) { StartAtk(P, Punches[0]); return; }
         P.moveAway = mx != 0f && Mathf.Sign(mx) != P.face;
         if (mx != 0f) { P.x += mx * P.speed * dt; P.s = S.Walk; } else P.s = S.Idle;
     }
@@ -517,13 +605,21 @@ public class KarateGame : MonoBehaviour
     {
         var e = E;
         e.specialCd = Mathf.Max(0f, e.specialCd - dt);
-        if (!Free(e)) return;
         float d = Mathf.Abs(P.x - e.x);
+        if (e.s == S.Jump)
+        {
+            e.face = P.x >= e.x ? 1 : -1;
+            e.x += e.face * e.speed * 0.8f * dt;
+            if (d < 54f && Random.value < 4f * dt) StartAtk(e, AAir);
+            return;
+        }
+        if (e.s == S.Air) { e.x += e.face * e.speed * 0.5f * dt; return; }
+        if (!Free(e)) return;
         e.face = P.x >= e.x ? 1 : -1;
         if (P.IsAtk && P.atkId != e.seenAtk)
         {
             e.seenAtk = P.atkId;
-            if (d < P.atk.reach + 22f && Random.value < e.blockChance) { e.s = S.Block; e.t = 0f; e.blockT = Random.Range(0.35f, 0.7f); }
+            if (d < P.atk.reach + 22f && !P.Airborne && Random.value < e.blockChance) { e.s = S.Block; e.t = 0f; e.blockT = Random.Range(0.35f, 0.7f); }
         }
         if (e.s == S.Block)
         {
@@ -545,11 +641,14 @@ public class KarateGame : MonoBehaviour
         if (e.thinkT > 0f) return;
         // päätös
         float r = Random.value;
-        Atk pick = (e.specialCd <= 0f && r < e.specialChance) ? ASpecial : (r < 0.5f ? AKick : APunch);
+        if (d > 80f && d < 150f && Random.value < 0.08f) { Jump(e); e.thinkT = 0.8f; return; }
+        Atk pick;
+        if (e.specialCd <= 0f && r < e.specialChance && SpecialFor(e.key) != null) pick = SpecialFor(e.key);
+        else pick = Random.value < 0.55f ? Punches[0] : Kicks[0];
         if (d > pick.reach - 4f) { e.moveDir = e.face; e.moveT = Random.Range(0.25f, 0.6f); e.thinkT = 0.05f; return; }
         if (Random.value < 0.14f) { e.moveDir = -e.face; e.moveT = Random.Range(0.3f, 0.6f); e.thinkT = Random.Range(0.1f, 0.3f); return; }
         StartAtk(e, pick);
-        if (pick == ASpecial) e.specialCd = 5f;
+        if (pick.kind == 's') e.specialCd = pick.cd + 2f;
         e.thinkT = Random.Range(e.thinkMin, e.thinkMax);
     }
 
@@ -558,19 +657,50 @@ public class KarateGame : MonoBehaviour
     {
         f.t += dt;
         f.x += f.vx * dt; f.vx = Mathf.MoveTowards(f.vx, 0f, 420f * dt);
+        if (f.s == S.Special && f.atk.lunge > 0f)
+        {
+            float lu = f.t / f.atk.dur;
+            if (lu >= f.atk.hs - 0.25f && lu < f.atk.hs + 0.08f && Mathf.Abs(o.x - f.x) > 30f) f.x += f.face * f.atk.lunge * dt;
+        }
+        if (f.y > 0f || f.vy > 0f)
+        {
+            f.vy -= Grav * dt; f.y += f.vy * dt;
+            if (f.y <= 0f)
+            {
+                f.y = 0f; f.vy = 0f;
+                if (f.s == S.Jump || f.s == S.Air) { f.s = S.Idle; f.t = 0f; }
+            }
+        }
         f.x = Mathf.Clamp(f.x, -ArenaX, ArenaX);
         switch (f.s)
         {
-            case S.Punch: case S.Kick: case S.Special:
-                float u = f.t / f.atk.dur;
-                if (!f.hit && u >= f.atk.hs && u <= f.atk.he && st == St.Fight) TryHit(f, o);
-                if (u >= 1f) { f.s = S.Idle; f.t = 0f; }
-                break;
+            case S.Punch: case S.Kick: case S.Special: case S.Air:
+                {
+                    var a = f.atk;
+                    float u = f.t / a.dur;
+                    if (st == St.Fight)
+                    {
+                        int due = u < a.hs ? 0 : u >= a.he ? a.hits : Mathf.Min(a.hits, (int)((u - a.hs) / (a.he - a.hs) * a.hits) + 1);
+                        while (f.hitIdx < due) { Strike(f, o, f.hitIdx); f.hitIdx++; }
+                    }
+                    if (!f.player && !f.aiRolled && u >= a.he && (a.kind == 'p' || a.kind == 'k'))
+                    {
+                        f.aiRolled = true;
+                        if (Random.value < f.chainChance) f.queue = a.kind == 'p' ? 1 : 2;
+                    }
+                    if (u >= a.he && f.queue != 0 && (a.kind == 'p' || a.kind == 'k')) { ChainNext(f); break; }
+                    if (u >= 1f)
+                    {
+                        if (f.s == S.Air) f.t = a.dur;           // ilmassa kunnes laskeutuu
+                        else { f.s = S.Idle; f.t = 0f; f.queue = 0; }
+                    }
+                    break;
+                }
             case S.Hurt:
                 if (f.t >= f.stunT) { f.s = S.Idle; f.t = 0f; }
                 break;
             case S.Fall:
-                if (f.t >= FallDur) { if (f.stayDown) f.t = FallDur; else { f.s = S.GetUp; f.t = 0f; } }
+                if (f.t >= FallDur && f.y <= 0.5f) { if (f.stayDown) f.t = FallDur; else { f.s = S.GetUp; f.t = 0f; } }
                 break;
             case S.GetUp:
                 if (f.t >= GetUpDur) { f.s = S.Idle; f.t = 0f; }
@@ -578,38 +708,54 @@ public class KarateGame : MonoBehaviour
         }
     }
 
-    void TryHit(Fg a, Fg o)
+    void Strike(Fg a, Fg o, int idx)
     {
+        var at = a.atk;
+        bool last = idx >= at.hits - 1;
         float dx = (o.x - a.x) * a.face;
-        if (dx < -6f || dx > a.atk.reach) return;
+        if (dx < -6f || dx > at.reach) return;
+        if (Mathf.Abs(a.y - o.y) > (at.kind == 'a' ? 46f : 24f)) return;
         if (!o.Grounded) return;
-        a.hit = true;
-        float dmg = a.atk.dmg * (a.player ? 1f : a.dmgMul);
-        Vector2 at = new Vector2((a.x + o.x) * 0.5f + a.face * 6f, GroundY + 34f);
-        bool blocked = o.s == S.Block && o.face == -a.face;
+        if (o.s == S.Special && o.atk.dodge > 0f && o.t / o.atk.dur < o.atk.dodge) return;   // väistää
+        bool blocked = o.s == S.Block && o.face == -a.face && !at.feint;
+        if (at.sand) { SandThrow(a, o, blocked); return; }
+        float dmg = at.dmg / at.hits * (a.player ? 1f : a.dmgMul);
+        Vector2 sp = new Vector2((a.x + o.x) * 0.5f + a.face * 6f, GroundY + 34f + (a.y + o.y) * 0.5f);
+        bool mid = at.hits > 1 && !last;
         if (blocked)
         {
             o.hp = Mathf.Max(0.01f, o.hp - dmg * 0.15f);
-            o.vx = a.face * a.atk.push * 0.45f;
-            Play(Sfx.Block, 0.8f); Spark(at, new Color(0.6f, 0.85f, 1f), 5);
-            hitStop = 0.04f;
+            o.vx = a.face * at.push * 0.45f;
+            Play(Sfx.Block, 0.8f); Spark(sp, new Color(0.6f, 0.85f, 1f), 5);
+            hitStop = Mathf.Max(hitStop, 0.04f);
             return;
         }
         o.hp = Mathf.Max(0f, o.hp - dmg);
-        Play(a.atk == APunch ? Sfx.Punch : Sfx.Kick, 1f, Random.Range(0.92f, 1.08f));
-        Spark(at, a.atk == ASpecial ? new Color(1f, 0.6f, 0.2f) : new Color(1f, 0.95f, 0.5f), a.atk == ASpecial ? 12 : 7);
-        o.comboN = Time.unscaledTime - o.comboAt < 1.6f ? o.comboN + 1 : 1; o.comboAt = Time.unscaledTime;
-        bool kd = a.atk.kd || o.hp <= 0f || o.comboN >= 3;
-        o.vx = a.face * a.atk.push * (kd ? 1.5f : 1f);
-        hitStop = o.hp <= 0f ? 0.28f : a.atk == ASpecial ? 0.12f : 0.06f;
-        shake = o.hp <= 0f ? 3f : a.atk == ASpecial ? 2f : 0.8f;
+        Play(at.kind == 'p' || mid ? Sfx.Punch : Sfx.Kick, mid ? 0.7f : 1f, mid ? Random.Range(1.2f, 1.45f) : Random.Range(0.92f, 1.08f));
+        Spark(sp, at.kind == 's' ? new Color(1f, 0.6f, 0.2f) : new Color(1f, 0.95f, 0.5f), mid ? 4 : at.kind == 's' ? 12 : 7);
+        if (!mid) { o.comboN = Time.unscaledTime - o.comboAt < 1.6f ? o.comboN + 1 : 1; o.comboAt = Time.unscaledTime; }
+        bool kd = (at.kd && last) || o.hp <= 0f || (!mid && o.comboN >= 3) || o.Airborne;
+        o.vx = a.face * at.push * (kd ? 1.5f : mid ? 0.15f : 1f);
+        o.queue = 0;
+        hitStop = o.hp <= 0f ? 0.28f : mid ? 0.025f : at.kind == 's' ? 0.12f : 0.06f;
+        shake = Mathf.Max(shake, o.hp <= 0f ? 3f : mid ? 0.4f : at.kind == 's' ? 2f : 0.8f);
         if (kd) { o.s = S.Fall; o.t = 0f; o.stayDown = o.hp <= 0f; o.comboN = 0; }
-        else { o.s = S.Hurt; o.t = 0f; o.stunT = a.atk.stun; }
+        else { o.s = S.Hurt; o.t = 0f; o.stunT = at.stun; }
+    }
+
+    /// Gustavin hiekanheitto: ei vahinkoa, mutta lamauttaa (ellei vastustaja torju).
+    void SandThrow(Fg a, Fg o, bool blocked)
+    {
+        for (int i = 0; i < 22; i++)
+            Puff(new Vector2(a.x + a.face * 18f, GroundY + 40f + a.y), new Color(0.86f, 0.74f, 0.46f), new Vector2(a.face * Random.Range(130f, 280f), Random.Range(-25f, 35f)), 0.55f);
+        Play(Sfx.Whoosh, 0.6f, 1.6f);
+        if (blocked) { Play(Sfx.Block, 0.6f); return; }
+        o.s = S.Hurt; o.t = 0f; o.stunT = a.atk.stun; o.vx = a.face * 15f; o.queue = 0;
     }
 
     void Separate()
     {
-        if (!P.Grounded || !E.Grounded) return;
+        if (!P.Grounded || !E.Grounded || P.Airborne || E.Airborne) return;
         float d = E.x - P.x, min = 24f;
         if (Mathf.Abs(d) < min)
         {
@@ -623,13 +769,18 @@ public class KarateGame : MonoBehaviour
     {
         for (int i = 0; i < n; i++)
         {
-            var go = new GameObject("kipinä"); go.transform.SetParent(root, false);
-            go.transform.localPosition = new Vector3(p.x, p.y, 0f);
-            float sz = Random.Range(2f, 4f); go.transform.localScale = new Vector3(sz, sz, 1f);
-            var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = White(); sr.color = c; sr.sortingOrder = 30;
             float ang = Random.Range(0f, Mathf.PI * 2f), sp = Random.Range(60f, 170f);
-            pts.Add(new Pt { tr = go.transform, sr = sr, v = new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)) * sp, life = 0.28f, max = 0.28f, c = c });
+            Puff(p, c, new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)) * sp, 0.28f);
         }
+    }
+
+    void Puff(Vector2 p, Color c, Vector2 v, float life)
+    {
+        var go = new GameObject("kipinä"); go.transform.SetParent(root, false);
+        go.transform.localPosition = new Vector3(p.x, p.y, 0f);
+        float sz = Random.Range(2f, 4f); go.transform.localScale = new Vector3(sz, sz, 1f);
+        var sr = go.AddComponent<SpriteRenderer>(); sr.sprite = White(); sr.color = c; sr.sortingOrder = 30;
+        pts.Add(new Pt { tr = go.transform, sr = sr, v = v, life = life, max = life, c = c });
     }
 
     void UpdateParticles(float dt)
@@ -662,21 +813,24 @@ public class KarateGame : MonoBehaviour
             GUI.Label(new Rect(0, H * 0.04f, W, H * 0.16f), "TURPAAN VAAN", big);
             mid.normal.textColor = Color.white;
             GUI.Label(new Rect(0, H * 0.20f, W, H * 0.07f), Loc.T("VALITSE TAISTELIJA"), mid);
-            for (int i = 0; i < 2; i++)
+            gs.alignment = TextAnchor.MiddleCenter; gs.fontSize = Mathf.RoundToInt(22 * s);
+            for (int i = 0; i < selFg.Length; i++)
             {
                 if (selFg[i] == null) continue;
                 Vector3 sp = cam.WorldToScreenPoint(selFg[i].tr.position);
-                mid.normal.textColor = i == sel ? new Color(1f, 0.9f, 0.3f) : new Color(0.7f, 0.7f, 0.75f);
-                GUI.Label(new Rect(sp.x - W * 0.2f, H - sp.y + H * 0.05f, W * 0.4f, H * 0.07f), selFg[i].name, mid);
+                gs.normal.textColor = i == sel ? new Color(1f, 0.9f, 0.3f) : new Color(0.7f, 0.7f, 0.75f);
+                GUI.Label(new Rect(sp.x - W * 0.07f, H - sp.y + H * 0.03f, W * 0.14f, H * 0.04f), selFg[i].name, gs);
             }
-            mid.normal.textColor = Color.white;
+            gs.normal.textColor = Color.white; gs.fontSize = Mathf.RoundToInt(34 * s);
+            mid.normal.textColor = new Color(1f, 0.6f, 0.2f);
+            GUI.Label(new Rect(0, H * 0.70f, W, H * 0.07f), SpecialNames[sel].Length > 0 ? Loc.T("ERIKOISLIIKE") + ":  " + Loc.T(SpecialNames[sel]) : Loc.T("Ei erikoisliikettä"), mid);
             float blink = 0.55f + 0.45f * Mathf.Sin(Time.unscaledTime * 5f);
             mid.normal.textColor = new Color(1f, 0.9f, 0.3f, blink);
-            GUI.Label(new Rect(0, H * 0.80f, W, H * 0.07f), "[J]  " + Loc.T("ALOITA"), mid);
+            GUI.Label(new Rect(0, H * 0.79f, W, H * 0.07f), "[J]  " + Loc.T("ALOITA"), mid);
             mid.normal.textColor = Color.white;
-            gs.alignment = TextAnchor.MiddleCenter; gs.fontSize = Mathf.RoundToInt(26 * s);
-            GUI.Label(new Rect(0, H * 0.88f, W, H * 0.05f), Loc.T("Valitse: vasen / oikea     Isku: J     Potku: K     Erikoispotku: L     Torjunta: I     Poistu: Esc"), gs);
-            GUI.Label(new Rect(0, H * 0.93f, W, H * 0.05f), Loc.T("Paras tulos") + ": " + hiScore.ToString("D6"), gs);
+            gs.fontSize = Mathf.RoundToInt(24 * s);
+            GUI.Label(new Rect(0, H * 0.87f, W, H * 0.05f), Loc.T("Valitse: vasen / oikea     Isku: J (J-J-J)     Potku: K (K-K)     Hyppy: välilyönti     Erikoisliike: L     Torjunta: I     Poistu: Esc"), gs);
+            GUI.Label(new Rect(0, H * 0.92f, W, H * 0.05f), Loc.T("Paras tulos") + ": " + hiScore.ToString("D6"), gs);
             gs.alignment = TextAnchor.UpperLeft; gs.fontSize = Mathf.RoundToInt(34 * s);
             return;
         }
@@ -689,7 +843,6 @@ public class KarateGame : MonoBehaviour
         gs.fontSize = Mathf.RoundToInt(30 * s);
         gs.alignment = TextAnchor.UpperLeft; GUI.Label(new Rect(m, by + bh + 6 * s, bw, 40 * s), P.name, gs);
         gs.alignment = TextAnchor.UpperRight; GUI.Label(new Rect(W - m - bw, by + bh + 6 * s, bw, 40 * s), E.name, gs);
-        // kierrospisteet
         for (int i = 0; i < 2; i++)
         {
             GUI.color = i < winsP ? new Color(1f, 0.85f, 0.2f) : new Color(0f, 0f, 0f, 0.55f);
@@ -704,6 +857,8 @@ public class KarateGame : MonoBehaviour
         GUI.Label(new Rect(W * 0.35f, m * 0.4f + 76 * s, W * 0.3f, 40 * s), Loc.T("PISTEET") + "  " + score.ToString("D6"), gs);
         gs.alignment = TextAnchor.UpperLeft; gs.fontSize = Mathf.RoundToInt(34 * s);
         // erikoismittari
+        if (SpecialFor(heroKey) != null)
+        {
         float sw = 300 * s, sh2 = 20 * s, sx = m, sy = H - m - sh2;
         GUI.color = new Color(0, 0, 0, 0.6f); GUI.DrawTexture(new Rect(sx - 4, sy - 4, sw + 8, sh2 + 8), white);
         bool ready = P.specialCd <= 0f;
@@ -711,8 +866,10 @@ public class KarateGame : MonoBehaviour
         GUI.DrawTexture(new Rect(sx, sy, sw * Mathf.Clamp01(1f - P.specialCd / P.spMax), sh2), white);
         GUI.color = Color.white;
         gs.fontSize = Mathf.RoundToInt(22 * s);
-        GUI.Label(new Rect(sx, sy - 30 * s, sw, 28 * s), ready ? "[L]  " + Loc.T("ERIKOISPOTKU VALMIS") : Loc.T("ERIKOISPOTKU"), gs);
+        string spn = Loc.T(SpecialNames[System.Array.IndexOf(Roster, heroKey)]);
+        GUI.Label(new Rect(sx, sy - 30 * s, sw * 1.6f, 28 * s), ready ? "[L]  " + spn : spn, gs);
         gs.fontSize = Mathf.RoundToInt(34 * s);
+        }
         // tekstit
         if (st == St.Intro)
         {

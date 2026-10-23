@@ -1,9 +1,14 @@
-size=128x85
+size=128x96
 idle=12
 walk=10
 punch=9
+punch2=9
+punch3=14
 kick=11
-special=6
+kick2=6
+kick3=6
+special=8
+air=10
 hurt=4
 fall=14
 getup=13
