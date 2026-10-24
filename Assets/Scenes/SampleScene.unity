@@ -271,6 +271,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -934,6 +937,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -2580,6 +2586,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -3850,6 +3859,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -6655,6 +6667,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -7544,6 +7559,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -8056,6 +8074,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -8817,6 +8838,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -9804,6 +9828,10 @@ MonoBehaviour:
   danceFrameTime: 0.167
   talkHalfWidth: 2.1
   talkDepth: 1.7
+  hasSofa: 0
+  sofaY: 0
+  sofaRoccoX: 0
+  sofaSiniX: 0
 --- !u!4 &103890002
 Transform:
   m_ObjectHideFlags: 0
@@ -9814,83 +9842,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56024.176, y: -2.2285714, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &105862371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105862373}
-  - component: {fileID: 105862372}
-  m_Layer: 0
-  m_Name: "Pelihallin yl\xE4kerran ovi"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &105862372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105862371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Door
-  prompt: "Mene yl\xE4kertaan"
-  here: {fileID: 1977842070}
-  target: {fileID: 791941354}
-  targetName: 
-  targetScene: 
-  spawnPoint: {x: 64003.61, y: 0.029156063}
-  returnToLastDoor: 0
-  faceLeftOnArrival: 0
-  atFront: 0
-  autoTrigger: 0
-  needsJunkyardKey: 0
-  guards: []
-  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
-  confirmText: 
-  requiredClue: sini_kutsu
-  lockedClueText: "Ovi on lukossa. Yl\xE4kerrassa asuu joku, mutta sinua ei ole viel\xE4
-    kutsuttu."
-  halfWidth: 2.6
-  maxDistanceFromWall: 4
-  fadeTime: 0.25
-  climbHeight: 0
-  climbTime: 0.8
-  anim: {fileID: 0}
-  animWait: 0.7
-  blockedDuringFight: 0
-  fightBlockRange: 20
-  onGround: 0
-  groundHalfDepth: 0.9
-  manhole: {fileID: 0}
-  manholeWait: 0.55
-  emergeManhole: {fileID: 0}
-  arrivalOffsetY: 0
-  arrivalTime: 0.7
---- !u!4 &105862373
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105862371}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56055.203, y: -0.82857144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10288,6 +10239,97 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &114871032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114871033}
+  - component: {fileID: 114871034}
+  m_Layer: 0
+  m_Name: Makkarin tausta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114871033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114871032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64505.863, y: 1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2121510303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &114871034
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114871032}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10000
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 555a06459e2b8c04f87f54fd507d2357, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 11.727098, y: 6.6}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &116903026
 GameObject:
@@ -11966,6 +12008,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -12942,6 +12987,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -13609,6 +13657,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -14386,6 +14437,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -14763,84 +14817,6 @@ Transform:
   m_Children:
   - {fileID: 340267014}
   - {fileID: 1180361309}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &180860093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 180860095}
-  - component: {fileID: 180860094}
-  m_Layer: 0
-  m_Name: "K\xE4mp\xE4n Sini"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &180860094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180860093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c471ab2ad4a060446903a91b203ae7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArcadeSini
-  persona: 0
-  folder: Sini
-  npcName: Sini
-  friend: {fileID: 0}
-  dinaRecord: 30000
-  rewardMoney: 0
-  area: {fileID: 791941354}
-  brawl: {fileID: 0}
-  home: 1
-  height: 3
-  sizeMul: 1.2
-  speed: 1.4
-  laneMinX: 64004.594
-  laneMaxX: 64033.305
-  counterXs:
-  - 64024.42
-  - 64025.953
-  - 64027.484
-  waitRange: {x: 2, y: 6}
-  counterStay: {x: 8, y: 16}
-  danceTime: {x: 9, y: 18}
-  talkTime: {x: 9, y: 16}
-  counterChance: 0.28
-  danceChance: 0.22
-  talkChance: 0.22
-  idleFrameTime: 0.3
-  walkFrameTime: 0.114
-  talkFrameTime: 0.167
-  toCounterFrameTime: 0.1
-  counterFrameTime: 0.25
-  kissFrameTime: 0.133
-  danceFrameTime: 0.167
-  talkHalfWidth: 2.1
-  talkDepth: 1.7
---- !u!4 &180860095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180860093}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64025.953, y: -0.07360613, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182514549
@@ -15399,39 +15375,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1232186558}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &197203246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 197203247}
-  m_Layer: 0
-  m_Name: Makkari
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &197203247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197203246}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1261962221}
-  - {fileID: 354634234}
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197571508
 GameObject:
@@ -16280,6 +16223,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -17189,6 +17135,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -17702,6 +17651,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -18358,40 +18310,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 76541059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &232984741
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 232984742}
-  m_Layer: 0
-  m_Name: "K\xE4mpp\xE4"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &232984742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232984741}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 715634594}
-  - {fileID: 1446185417}
-  - {fileID: 976633849}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235850274
 GameObject:
   m_ObjectHideFlags: 0
@@ -18966,6 +18884,82 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &245668390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245668392}
+  - component: {fileID: 245668391}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4lt\xE4 halliin"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &245668391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245668390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene alas halliin
+  here: {fileID: 791941354}
+  target: {fileID: 1977842070}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 56052.945, y: -2.0285716}
+  returnToLastDoor: 1
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &245668392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245668390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64001.695, y: 1.3263938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &248322968
 GameObject:
   m_ObjectHideFlags: 0
@@ -19476,6 +19470,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -20054,6 +20051,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -20643,6 +20643,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -21239,6 +21242,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -24270,6 +24276,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -25043,114 +25052,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &354634233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 354634234}
-  - component: {fileID: 354634236}
-  - component: {fileID: 354634235}
-  m_Layer: 0
-  m_Name: "Y\xF6kaupunki makkari"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &354634234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354634233}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64506.906, y: 6.195384, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 197203247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354634235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354634233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9785049e6544c2a8a983b6c79e1cd73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteriorWindowParallax
-  area: {fileID: 414920887}
-  anchor: {x: 64506.906, y: 6.195384}
-  cameraReference: {x: 64509.137, y: 1.4}
-  factor: 0.9
---- !u!212 &354634236
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354634233}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -10200
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6a3e69937587ac1418049eaae075dde6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 11.893467, y: 6.6962295}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &357850165
 GameObject:
   m_ObjectHideFlags: 0
@@ -25998,6 +25899,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 976346246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &368864206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368864208}
+  - component: {fileID: 368864207}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4n kissa"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &368864207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368864206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d99a92b696df74f99170f169928f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KampaKissa
+  area: {fileID: 791941354}
+  laneMinX: 64005.473
+  laneMaxX: 64017.2
+  speed: 1.6
+  waitRange: {x: 8, y: 22}
+  catHeight: 0.96
+--- !u!4 &368864208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368864206}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64009.848, y: 0.32639384, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &369283641
 GameObject:
   m_ObjectHideFlags: 0
@@ -26247,6 +26198,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -26786,6 +26740,82 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &380508873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380508875}
+  - component: {fileID: 380508874}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4lt\xE4 halliin"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &380508874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380508873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene alas halliin
+  here: {fileID: 791941354}
+  target: {fileID: 1977842070}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 56052.945, y: -2.0285716}
+  returnToLastDoor: 1
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &380508875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380508873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64001.695, y: 1.3263938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381134791
 GameObject:
   m_ObjectHideFlags: 0
@@ -27145,6 +27175,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -28386,6 +28419,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -28972,6 +29008,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -30150,6 +30189,9 @@ MonoBehaviour:
   - JSK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -31296,19 +31338,19 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
-  minDepthY: -2.3799999
-  maxDepthY: -1.7372407
+  minDepthY: -0.70000005
+  maxDepthY: -0.611052
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
   depthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
-  camMinX: 64508.32
-  camMaxX: 64509.973
-  walkMaxX: 64516.98
-  walkMinX: 64501.312
-  camSize: 4.68
+  camMinX: 64505.332
+  camMaxX: 64506.395
+  walkMaxX: 64510.887
+  walkMinX: 64500.84
+  camSize: 3
   camRiseY: 0
   camOffsetY: 0
 --- !u!4 &414920888
@@ -32647,6 +32689,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -34131,6 +34176,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -35171,82 +35219,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 111973821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &485511566
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 485511568}
-  - component: {fileID: 485511567}
-  m_Layer: 0
-  m_Name: Makkarista olohuoneeseen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &485511567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485511566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Door
-  prompt: Mene olohuoneeseen
-  here: {fileID: 414920887}
-  target: {fileID: 791941354}
-  targetName: 
-  targetScene: 
-  spawnPoint: {x: 64021.17, y: 0.029156063}
-  returnToLastDoor: 1
-  faceLeftOnArrival: 0
-  atFront: 0
-  autoTrigger: 0
-  needsJunkyardKey: 0
-  guards: []
-  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
-  confirmText: 
-  requiredClue: 
-  lockedClueText: Ovi on lukossa.
-  halfWidth: 2.6
-  maxDistanceFromWall: 4
-  fadeTime: 0.25
-  climbHeight: 0
-  climbTime: 0.8
-  anim: {fileID: 0}
-  animWait: 0.7
-  blockedDuringFight: 0
-  fightBlockRange: 20
-  onGround: 0
-  groundHalfDepth: 0.9
-  manhole: {fileID: 0}
-  manholeWait: 0.55
-  emergeManhole: {fileID: 0}
-  arrivalOffsetY: 0
-  arrivalTime: 0.7
---- !u!4 &485511568
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485511566}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64501.64, y: -1.7372407, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489124774
 GameObject:
   m_ObjectHideFlags: 0
@@ -36103,6 +36075,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -36667,6 +36642,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -37030,54 +37008,6 @@ MonoBehaviour:
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
---- !u!1 &508566413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 508566415}
-  - component: {fileID: 508566414}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &508566414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508566413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 1989243883}
-  position: {x: 3025.3076, y: -1.0034616}
-  areaName: 
-  sceneName: 
---- !u!4 &508566415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508566413}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509050999
 GameObject:
   m_ObjectHideFlags: 0
@@ -37225,6 +37155,7 @@ MonoBehaviour:
   useDepth: 1.9
   screenWidth: 3.4
   screenLift: 2.7
+  pinballLower: 0.45
 --- !u!114 &511908231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38905,6 +38836,40 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &548749031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548749032}
+  m_Layer: 0
+  m_Name: "K\xE4mpp\xE4"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548749032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548749031}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1800735140}
+  - {fileID: 830569601}
+  - {fileID: 1461669113}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556083450
 GameObject:
   m_ObjectHideFlags: 0
@@ -40372,6 +40337,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -43686,6 +43654,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -44318,6 +44289,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -46430,97 +46404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 395868342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &715634593
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 715634594}
-  - component: {fileID: 715634595}
-  m_Layer: 0
-  m_Name: "K\xE4mp\xE4n tausta"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &715634594
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715634593}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64018.293, y: 1.8680005, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 232984742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &715634595
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715634593}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -10000
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: bfc67b6ae721662458425d0d2960d8ab, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 36.58855, y: 10.2960005}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &721693938
 GameObject:
   m_ObjectHideFlags: 0
@@ -47092,6 +46975,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -47566,6 +47452,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -48840,6 +48729,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -49761,6 +49653,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -50403,6 +50298,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -50907,6 +50805,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -52991,6 +52892,9 @@ MonoBehaviour:
   - JJSJJK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -53747,6 +53651,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -55415,6 +55322,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -56035,6 +55945,9 @@ MonoBehaviour:
   - JJK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -56395,6 +56308,82 @@ MonoBehaviour:
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
+--- !u!1 &826560123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826560125}
+  - component: {fileID: 826560124}
+  m_Layer: 0
+  m_Name: Olohuoneesta makkariin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &826560124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826560123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene makuuhuoneeseen
+  here: {fileID: 791941354}
+  target: {fileID: 414920887}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 64505.855, y: -0.6377364}
+  returnToLastDoor: 0
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &826560125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826560123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64021.17, y: 1.3263938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828794322
 GameObject:
   m_ObjectHideFlags: 0
@@ -56467,6 +56456,114 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &830569600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830569601}
+  - component: {fileID: 830569603}
+  - component: {fileID: 830569602}
+  m_Layer: 0
+  m_Name: "Y\xF6kaupunki"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830569601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830569600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64030.855, y: 3.2192824, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548749032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &830569602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830569600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9785049e6544c2a8a983b6c79e1cd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteriorWindowParallax
+  area: {fileID: 791941354}
+  anchor: {x: 64030.855, y: 3.2192824}
+  cameraReference: {x: 64033.48, y: 1.4}
+  factor: 0.9
+--- !u!212 &830569603
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830569600}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10200
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 6a3e69937587ac1418049eaae075dde6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 11.893467, y: 6.6962295}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &833239704
 GameObject:
   m_ObjectHideFlags: 0
@@ -57004,6 +57101,82 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &840874162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 840874164}
+  - component: {fileID: 840874163}
+  m_Layer: 0
+  m_Name: Makkarista olohuoneeseen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &840874163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840874162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene olohuoneeseen
+  here: {fileID: 414920887}
+  target: {fileID: 791941354}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 64021.17, y: 0.029156063}
+  returnToLastDoor: 1
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &840874164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840874162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64501.05, y: -0.611052, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &841474348
 GameObject:
   m_ObjectHideFlags: 0
@@ -57149,6 +57322,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -58465,6 +58641,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -59150,6 +59329,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -60585,6 +60767,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -62980,6 +63165,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -63349,82 +63537,6 @@ MonoBehaviour:
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
---- !u!1 &959249708
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 959249710}
-  - component: {fileID: 959249709}
-  m_Layer: 0
-  m_Name: Olohuoneesta makkariin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &959249709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959249708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Door
-  prompt: Mene makuuhuoneeseen
-  here: {fileID: 791941354}
-  target: {fileID: 414920887}
-  targetName: 
-  targetScene: 
-  spawnPoint: {x: 64509.137, y: -1.9300685}
-  returnToLastDoor: 0
-  faceLeftOnArrival: 0
-  atFront: 0
-  autoTrigger: 0
-  needsJunkyardKey: 0
-  guards: []
-  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
-  confirmText: 
-  requiredClue: 
-  lockedClueText: Ovi on lukossa.
-  halfWidth: 2.6
-  maxDistanceFromWall: 4
-  fadeTime: 0.25
-  climbHeight: 0
-  climbTime: 0.8
-  anim: {fileID: 0}
-  animWait: 0.7
-  blockedDuringFight: 0
-  fightBlockRange: 20
-  onGround: 0
-  groundHalfDepth: 0.9
-  manhole: {fileID: 0}
-  manholeWait: 0.55
-  emergeManhole: {fileID: 0}
-  arrivalOffsetY: 0
-  arrivalTime: 0.7
---- !u!4 &959249710
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959249708}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64021.17, y: 1.3263938, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960863533
 GameObject:
   m_ObjectHideFlags: 0
@@ -63635,6 +63747,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -64362,6 +64477,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -65361,6 +65479,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -66180,6 +66301,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -67206,6 +67330,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -67569,97 +67696,6 @@ Transform:
   - {fileID: 367120567}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &976633848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 976633849}
-  - component: {fileID: 976633850}
-  m_Layer: 0
-  m_Name: Sohva
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &976633849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976633848}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64009.355, y: 1.173212, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 232984742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &976633850
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976633848}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -117
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 206738f23fb472745bf72ffb6679ade9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6.783762, y: 2.5730128}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &977656687
 GameObject:
   m_ObjectHideFlags: 0
@@ -69756,6 +69792,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -70662,6 +70701,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -71339,6 +71381,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -72528,6 +72573,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -73365,6 +73413,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -74174,6 +74225,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -75147,6 +75201,114 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &1103372634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1103372635}
+  - component: {fileID: 1103372637}
+  - component: {fileID: 1103372636}
+  m_Layer: 0
+  m_Name: "Y\xF6kaupunki makkari"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1103372635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103372634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64504.426, y: 4.4739637, z: 0}
+  m_LocalScale: {x: 0.6410256, y: 0.6410256, z: 0.6410256}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2121510303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103372636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103372634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9785049e6544c2a8a983b6c79e1cd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteriorWindowParallax
+  area: {fileID: 414920887}
+  anchor: {x: 64504.426, y: 4.4739637}
+  cameraReference: {x: 64505.855, y: 1.4}
+  factor: 0.9
+--- !u!212 &1103372637
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103372634}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10200
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 6a3e69937587ac1418049eaae075dde6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 11.893467, y: 6.6962295}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1104298169
 GameObject:
   m_ObjectHideFlags: 0
@@ -76017,6 +76179,9 @@ MonoBehaviour:
   - JJSJJK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -76939,6 +77104,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -77950,6 +78118,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -78905,6 +79076,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -80895,6 +81069,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -81519,6 +81696,10 @@ MonoBehaviour:
   danceFrameTime: 0.2
   talkHalfWidth: 2.1
   talkDepth: 1.7
+  hasSofa: 0
+  sofaY: 0
+  sofaRoccoX: 0
+  sofaSiniX: 0
 --- !u!4 &1175371531
 Transform:
   m_ObjectHideFlags: 0
@@ -82479,6 +82660,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -83007,6 +83191,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -83502,6 +83689,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -84179,6 +84369,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -84956,6 +85149,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -85659,6 +85855,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -86644,6 +86843,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -87344,97 +87546,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1261962220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1261962221}
-  - component: {fileID: 1261962222}
-  m_Layer: 0
-  m_Name: Makkarin tausta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1261962221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261962220}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64509.15, y: 1.8680005, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 197203247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1261962222
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261962220}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -10000
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 555a06459e2b8c04f87f54fd507d2357, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 18.294275, y: 10.2960005}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &1264552710
 GameObject:
@@ -88323,6 +88434,12 @@ MonoBehaviour:
   bigHookLaunchUp: 17
   bigHookLaunchX: 2.5
   bigHookSlide: 3
+  elbowDamage: 9
+  spinDamage: 17
+  elbowReach: 1.7
+  spinReach: 2.1
+  elbowSlide: 2.2
+  spinLunge: 0.4
   pendulumSprites: []
   pendulumDamage: 18
   pendulumReach: 2.5
@@ -90414,6 +90531,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -91092,6 +91212,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -91929,6 +92052,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -93264,6 +93390,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -93788,6 +93917,7 @@ MonoBehaviour:
   useDepth: 1.9
   screenWidth: 3.4
   screenLift: 2.7
+  pinballLower: 0.45
 --- !u!114 &1338872774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93990,6 +94120,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -94498,6 +94631,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -95453,6 +95589,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -98274,6 +98413,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -100869,6 +101011,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -101323,114 +101468,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1605654587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1446185416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1446185417}
-  - component: {fileID: 1446185419}
-  - component: {fileID: 1446185418}
-  m_Layer: 0
-  m_Name: "Y\xF6kaupunki"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1446185417
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446185416}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64031.25, y: 3.2192824, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 232984742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1446185418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446185416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9785049e6544c2a8a983b6c79e1cd73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteriorWindowParallax
-  area: {fileID: 791941354}
-  anchor: {x: 64031.25, y: 3.2192824}
-  cameraReference: {x: 64033.48, y: 1.4}
-  factor: 0.9
---- !u!212 &1446185419
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446185416}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -10200
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6a3e69937587ac1418049eaae075dde6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 11.893467, y: 6.6962295}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1447069820
 GameObject:
   m_ObjectHideFlags: 0
@@ -101630,6 +101667,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -102361,6 +102401,83 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &1457622510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457622512}
+  - component: {fileID: 1457622511}
+  m_Layer: 0
+  m_Name: "Pelihallin yl\xE4kerran ovi"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1457622511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457622510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: "Mene yl\xE4kertaan"
+  here: {fileID: 1977842070}
+  target: {fileID: 791941354}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 64003.61, y: 0.029156063}
+  returnToLastDoor: 0
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: sini_kutsu
+  lockedClueText: "Ovi on lukossa. Yl\xE4kerrassa asuu joku, mutta sinua ei ole viel\xE4
+    kutsuttu."
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &1457622512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457622510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56055.203, y: -0.82857144, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458117716
 GameObject:
   m_ObjectHideFlags: 0
@@ -102973,6 +103090,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -103423,6 +103543,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 501022471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1461669112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1461669113}
+  - component: {fileID: 1461669114}
+  m_Layer: 0
+  m_Name: Sohva
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1461669113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461669112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64009.355, y: 1.173212, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548749032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1461669114
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461669112}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -117
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 206738f23fb472745bf72ffb6679ade9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.783762, y: 2.5730128}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1463693471
 GameObject:
   m_ObjectHideFlags: 0
@@ -105905,6 +106116,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -106672,6 +106886,9 @@ MonoBehaviour:
   - JU
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -107167,6 +107384,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -107671,6 +107891,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -109096,6 +109319,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -109618,6 +109844,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -110217,6 +110446,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -110980,6 +111212,9 @@ MonoBehaviour:
   - {fileID: -1943762250733947379, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4788261762824935573, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4494645979837831903, guid: e311304932940a341ad81c95696c9410, type: 3}
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -112311,6 +112546,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -113007,6 +113245,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -114426,6 +114667,9 @@ MonoBehaviour:
   - JSU
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -115344,6 +115588,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -116195,6 +116442,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -118411,6 +118661,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -120620,6 +120873,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -122463,6 +122719,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -123078,6 +123337,7 @@ MonoBehaviour:
   useDepth: 1.9
   screenWidth: 3.4
   screenLift: 2.7
+  pinballLower: 0.45
 --- !u!1 &1730177200
 GameObject:
   m_ObjectHideFlags: 0
@@ -123446,6 +123706,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -124981,6 +125244,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -125596,6 +125862,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -126713,6 +126982,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -127074,6 +127346,82 @@ Transform:
   m_Children:
   - {fileID: 287262427}
   - {fileID: 2045172663}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1782840036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1782840038}
+  - component: {fileID: 1782840037}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4lt\xE4 halliin"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1782840037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782840036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene alas halliin
+  here: {fileID: 791941354}
+  target: {fileID: 1977842070}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 56052.945, y: -2.0285716}
+  returnToLastDoor: 1
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &1782840038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782840036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64001.695, y: 1.3263938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1783064082
@@ -127898,6 +128246,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -128244,6 +128595,97 @@ MonoBehaviour:
   counterAfterHits: 2
   LastBlockTime: -99
   LastGetUpTime: -99
+--- !u!1 &1800735139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800735140}
+  - component: {fileID: 1800735141}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4n tausta"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800735140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800735139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64018.293, y: 1.8680005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548749032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1800735141
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800735139}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10000
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: bfc67b6ae721662458425d0d2960d8ab, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 36.58855, y: 10.2960005}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1800962621
 GameObject:
   m_ObjectHideFlags: 0
@@ -129103,6 +129545,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -131908,6 +132353,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -132661,6 +133109,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -133501,6 +133952,9 @@ MonoBehaviour:
   - JSU
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -134026,6 +134480,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 755781307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1886293625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886293627}
+  - component: {fileID: 1886293626}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4lt\xE4 halliin"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1886293626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886293625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680bd71042773c4cb9b273ef7650a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  prompt: Mene alas halliin
+  here: {fileID: 791941354}
+  target: {fileID: 1977842070}
+  targetName: 
+  targetScene: 
+  spawnPoint: {x: 56052.945, y: -2.0285716}
+  returnToLastDoor: 1
+  faceLeftOnArrival: 0
+  atFront: 0
+  autoTrigger: 0
+  needsJunkyardKey: 0
+  guards: []
+  guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
+  confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
+  halfWidth: 2.6
+  maxDistanceFromWall: 4
+  fadeTime: 0.25
+  climbHeight: 0
+  climbTime: 0.8
+  anim: {fileID: 0}
+  animWait: 0.7
+  blockedDuringFight: 0
+  fightBlockRange: 20
+  onGround: 0
+  groundHalfDepth: 0.9
+  manhole: {fileID: 0}
+  manholeWait: 0.55
+  emergeManhole: {fileID: 0}
+  arrivalOffsetY: 0
+  arrivalTime: 0.7
+--- !u!4 &1886293627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886293625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64001.695, y: 1.3263938, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1887212857
 GameObject:
   m_ObjectHideFlags: 0
@@ -134208,6 +134738,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -135703,6 +136236,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -137543,6 +138079,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -138072,6 +138611,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -139179,6 +139721,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -140262,6 +140807,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -140666,6 +141214,88 @@ Transform:
   - {fileID: 447684642}
   - {fileID: 1149461452}
   m_Father: {fileID: 2141175953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1988111282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988111284}
+  - component: {fileID: 1988111283}
+  m_Layer: 0
+  m_Name: "K\xE4mp\xE4n Sini"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1988111283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988111282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c471ab2ad4a060446903a91b203ae7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArcadeSini
+  persona: 0
+  folder: Sini
+  npcName: Sini
+  friend: {fileID: 0}
+  dinaRecord: 30000
+  rewardMoney: 0
+  area: {fileID: 791941354}
+  brawl: {fileID: 0}
+  home: 1
+  height: 3
+  sizeMul: 1.2
+  speed: 1.4
+  laneMinX: 64004.594
+  laneMaxX: 64033.305
+  counterXs:
+  - 64024.42
+  - 64025.953
+  - 64027.484
+  waitRange: {x: 2, y: 6}
+  counterStay: {x: 8, y: 16}
+  danceTime: {x: 9, y: 18}
+  talkTime: {x: 9, y: 16}
+  counterChance: 0.28
+  danceChance: 0.22
+  talkChance: 0.22
+  idleFrameTime: 0.3
+  walkFrameTime: 0.114
+  talkFrameTime: 0.167
+  toCounterFrameTime: 0.1
+  counterFrameTime: 0.25
+  kissFrameTime: 0.133
+  danceFrameTime: 0.167
+  talkHalfWidth: 2.1
+  talkDepth: 1.7
+  hasSofa: 1
+  sofaY: 0.97321206
+  sofaRoccoX: 64008.254
+  sofaSiniX: 64010.457
+--- !u!4 &1988111284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988111282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64025.953, y: -0.07360613, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989243882
 GameObject:
@@ -141688,6 +142318,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -143343,6 +143976,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -144620,6 +145256,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -145226,6 +145865,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -146375,6 +147017,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -148254,6 +148899,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -149060,6 +149708,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 64223494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2121510302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121510303}
+  m_Layer: 0
+  m_Name: Makkari
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121510303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121510302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 114871033}
+  - {fileID: 1103372635}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122986015
 GameObject:
   m_ObjectHideFlags: 0
@@ -149373,6 +150054,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -150388,6 +151072,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -151214,6 +151901,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -152352,7 +153042,6 @@ SceneRoots:
   - {fileID: 50513859}
   - {fileID: 1889188337}
   - {fileID: 1546472189}
-  - {fileID: 508566415}
   - {fileID: 1977842071}
   - {fileID: 161012952}
   - {fileID: 1741019922}
@@ -152368,11 +153057,16 @@ SceneRoots:
   - {fileID: 791941355}
   - {fileID: 102351313}
   - {fileID: 559691874}
-  - {fileID: 232984742}
-  - {fileID: 105862373}
   - {fileID: 162310320}
-  - {fileID: 180860095}
-  - {fileID: 197203247}
   - {fileID: 414920888}
-  - {fileID: 959249710}
-  - {fileID: 485511568}
+  - {fileID: 1782840038}
+  - {fileID: 1886293627}
+  - {fileID: 245668392}
+  - {fileID: 548749032}
+  - {fileID: 1457622512}
+  - {fileID: 380508875}
+  - {fileID: 1988111284}
+  - {fileID: 368864208}
+  - {fileID: 2121510303}
+  - {fileID: 826560125}
+  - {fileID: 840874164}

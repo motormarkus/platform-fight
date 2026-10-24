@@ -631,6 +631,9 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
     }
 
+    /// Enemy kutsuu, kun Tom joutuu osuman, kaatumisen tai kuoleman takia pois toiminnasta: ote vapautetaan heti (ei odoteta aivojen seuraavaa tikkiä, jolloin heitettävä jäisi ilmaan).
+    public void Interrupt() { AbortAction(); }
+
     void AbortAction()
     {
         if (holding && e.Hero != null) e.Hero.ReleaseGrab();

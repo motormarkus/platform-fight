@@ -163,7 +163,7 @@ public class HitFx : MonoBehaviour
 
     void Hitstop(float duration)
     {
-        if (duration <= 0f) return;
+        if (duration <= 0f || Players.Count > 1) return;   // kaksinpelissä ei osumapysäytystä: kuva ei saa pätkiä
         stopUntil = Mathf.Max(stopUntil, Time.unscaledTime + duration);
         if (!stopping) StartCoroutine(HitstopRoutine());
     }
@@ -176,6 +176,56 @@ public class HitFx : MonoBehaviour
         while (Time.unscaledTime < stopUntil) yield return null;
         Time.timeScale = old <= 0.05f ? 1f : old;
         stopping = false;
+    }
+
+    // ---------------- Kombon lopetus: välähdys, hidastus ja teksti ----------------
+    float flashUntil, textUntil; string finisherText; GUIStyle finisherStyle; Texture2D whiteTex;
+    const float FlashLen = 0.28f, TextLen = 1.7f;
+
+    /// Kymmenen iskun kombon viimeinen isku: valkoinen välähdys, teksti ja (osuessa) hidastus. hit = osui johonkin.
+    public static void FinisherFx(string text, bool hit)
+    {
+        var fx = Instance;
+        if (fx == null) return;
+        fx.finisherText = text;
+        fx.flashUntil = Time.unscaledTime + FlashLen;
+        fx.textUntil = Time.unscaledTime + TextLen;
+        if (!hit || Players.Count > 1) return;   // kaksinpelissä ei hidastusta eikä pysäytystä
+        fx.Hitstop(0.2f);
+        fx.StartCoroutine(fx.SlowMoRoutine(0.28f, 0.9f));
+    }
+
+    IEnumerator SlowMoRoutine(float scale, float dur)
+    {
+        while (stopping) yield return null;
+        float t0 = Time.unscaledTime;
+        while (Time.unscaledTime - t0 < dur)
+        {
+            float k = (Time.unscaledTime - t0) / dur;
+            if (Time.timeScale > 0.001f && !stopping) Time.timeScale = Mathf.Lerp(scale, 1f, Mathf.Clamp01((k - 0.5f) / 0.5f));   // hidas alku, palaa normaaliksi loppua kohti
+            yield return null;
+        }
+        if (Time.timeScale > 0.001f && !stopping) Time.timeScale = 1f;
+    }
+
+    void OnGUI()
+    {
+        float now = Time.unscaledTime;
+        if (now >= textUntil && now >= flashUntil) return;
+        if (whiteTex == null) { whiteTex = new Texture2D(1, 1); whiteTex.SetPixel(0, 0, Color.white); whiteTex.Apply(); }
+        var old = GUI.color;
+        if (now < flashUntil) { GUI.color = new Color(1f, 1f, 1f, 0.75f * (flashUntil - now) / FlashLen); GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), whiteTex); }
+        if (now < textUntil && !string.IsNullOrEmpty(finisherText))
+        {
+            if (finisherStyle == null) finisherStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+            float k = (now - (textUntil - TextLen)) / TextLen;
+            finisherStyle.fontSize = Mathf.RoundToInt(Screen.height * (0.11f + 0.04f * Mathf.Max(0f, 1f - k * 6f)));   // pamahtaa alussa
+            var r = new Rect(0, Screen.height * 0.18f, Screen.width, Screen.height * 0.2f);
+            float a = Mathf.Clamp01((1f - k) * 2f);
+            GUI.color = new Color(0f, 0f, 0f, a); GUI.Label(new Rect(r.x + 4, r.y + 4, r.width, r.height), finisherText, finisherStyle);
+            GUI.color = new Color(1f, 0.85f, 0.2f, a); GUI.Label(r, finisherText, finisherStyle);
+        }
+        GUI.color = old;
     }
 
     void PlayImpact()

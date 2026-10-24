@@ -576,6 +576,189 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float bigHookAirDrift;          // Ruby: liike eteen ilmassa (yksikköä)
     float[] CurBigHookTimes => bigHookTimesOverride ?? BigHookTimes;
 
+    // ---------------- Kyynärpää ja pyörähdyslyönti (eteen, eteen + lyönti / kombossa taakse, taakse + lyönti) ----------------
+    [Header("Kyynärpää (eteen, eteen + lyönti) ja pyörähdyslyönti (kombossa taakse, taakse + lyönti)")]
+    public int elbowDamage = 9, spinDamage = 17;
+    public float elbowReach = 1.7f, spinReach = 2.1f, elbowSlide = 2.2f, spinLunge = 0.4f;   // elbowSlide: liuku eteen yksikköä
+    // Resources/Rocco/elbow_00..03, spin_00..08 (Tools/RoccoAssets/make_rocco_moves.py); nopeat: kyynärpää ~0,3 s, pyörähdys ~0,47 s
+    static readonly float[] ElbowTimes = { 0.03f, 0.035f, 0.05f, 0.12f, 0.07f };
+    static readonly int[] ElbowFrames = { 0, 1, 2, 3, 1 };
+    static readonly float[] SpinTimes = { 0.03f, 0.03f, 0.03f, 0.03f, 0.035f, 0.035f, 0.12f, 0.08f, 0.09f };
+    const int ElbowImpact = 3, SpinImpact = 6;
+    static Sprite[] elbowSprites, spinSprites; static bool moveArtTried;
+    bool moveHit, elbowQueued, spinQueued;
+
+    static Sprite[] LoadMoveSprites(string prefix)
+    {
+        var l = new System.Collections.Generic.List<Sprite>();
+        for (int i = 0; ; i++)
+        {
+            var tx = Resources.Load<Texture2D>("Rocco/" + prefix + "_" + i.ToString("00"));
+            if (tx == null) break;
+            l.Add(Sprite.Create(tx, new Rect(0, 0, tx.width, tx.height), new Vector2(0.5f, 0f), 100f, 0, SpriteMeshType.FullRect));
+        }
+        return l.ToArray();
+    }
+
+    bool HasMoveArt
+    {
+        get
+        {
+            if (AppliedCharacter == 1) return false;   // Ruby: omat liikkeet
+            if (!moveArtTried) { moveArtTried = true; elbowSprites = LoadMoveSprites("elbow"); spinSprites = LoadMoveSprites("spin"); }
+            return elbowSprites != null && elbowSprites.Length >= 4 && spinSprites != null && spinSprites.Length >= 9;
+        }
+    }
+
+    void StartElbow()
+    {
+        moveHit = false; attackHit = false; elbowQueued = false; spinQueued = false; dashArmedUntil = -9f;
+        PlayGrunt();
+        Enter(State.Elbow);
+    }
+
+    void StartSpinPunch()
+    {
+        moveHit = false; attackHit = false; elbowQueued = false; spinQueued = false; dashArmedUntil = -9f;
+        attackLunge = ChaseLunge(spinLunge, spinReach);
+        PlayGruntSpecial();
+        Enter(State.SpinPunch);
+    }
+
+    /// Uppercut = iso koukku (alas, eteen + lyönti): kevyet vihut lentävät korkealle, isot kaatuvat. Kombosta se alkaa syvästä kyykystä, joten tulee nopeasti.
+    void FinisherUppercut()
+    {
+        if (HasBigHook) { downFwdDir = facingRight ? 1f : -1f; StartBigHook(true); }
+        else if (HasQuickUppercut) StartQuickUppercut();
+        else StartComboHit(punchCombo.Length - 1);
+    }
+
+    /// Kyynärpään tai pyörähdyksen jälkeen lyönti jatkaa kombon päätökseen (uppercut).
+    bool MoveFinisher(bool punchPressedNow, float impactEnd)
+    {
+        if (!punchPressedNow || stateTime < impactEnd || punchCombo.Length < 4) return false;
+        FinisherUppercut();
+        return true;
+    }
+
+    // Kombon aikana hahmo ei liu'u vihun läpi: eteenpäin liikkuessa pysähdytään vihun eteen (jäävät muuten selän taakse ja iskut menevät ohi).
+    float chainPrevX; bool chainPrevValid;
+    const float ChainGap = 0.8f;
+
+    void LateUpdate()
+    {
+        if (Enemy.ChainJuggle && megaOwner)
+        {
+            float dir = facingRight ? 1f : -1f;
+            Vector3 pos = transform.position;
+            float moved = (pos.x - chainPrevX) * dir;
+            if (chainPrevValid && moved > 0.0001f)
+            {
+                float nearest = float.MaxValue;
+                foreach (var e in Enemy.All)
+                {
+                    if (e == null || e.IsDead || !e.isActiveAndEnabled) continue;
+                    float dxPrev = (e.transform.position.x - chainPrevX) * dir;
+                    if (dxPrev < -0.2f || dxPrev > 6f || Mathf.Abs(e.transform.position.y - pos.y) > attackDepth + 0.3f) continue;
+                    nearest = Mathf.Min(nearest, dxPrev);
+                }
+                if (nearest != float.MaxValue)
+                {
+                    float allowed = Mathf.Max(0f, nearest - ChainGap);
+                    if (moved > allowed) { pos.x = chainPrevX + dir * allowed; transform.position = pos; }
+                }
+            }
+        }
+        chainPrevX = transform.position.x; chainPrevValid = true;
+    }
+
+    // ---------------- Kymmenen iskun kombo: L L K K L K L L K K L ----------------
+    // jab, takasuora, etupotku, alapotku, kyynärpää, polvi, jab, rystylyönti, saksipotku (K K), uppercut. Pelkät napit, ei suuntia.
+    // L = lyönti, K = potku. Kaksi ensimmäistä iskua menevät tavallisen kombon kautta; siitä eteenpäin painallukset ohjataan tähän jonoon,
+    // ja jokainen isku alkaa heti edellisen osuman jälkeen. Väärä nappi tai tauko palauttaa tavalliseen kombon käsittelyyn.
+    const string MegaPattern = "LLKKLKLLKKL";
+    int megaPos; float megaLastTime = -9f; bool megaOwner;
+    readonly System.Collections.Generic.List<int> megaQueue = new System.Collections.Generic.List<int>();
+    float megaQueuedAt;
+
+    bool MegaChainState => state == State.Punch || state == State.Kick || state == State.SideKick || state == State.KneeStrike
+        || state == State.Elbow || state == State.SpinPunch || state == State.Landing || (state == State.Air && scissor);
+
+    void MegaFilter(ref bool punchP, ref bool kickP)
+    {
+        if (state == State.Ground && Time.time - megaLastTime > 0.6f) { megaPos = 0; megaQueue.Clear(); }
+        if (!punchP && !kickP) return;
+        if (!HasMoveArt) return;   // Ruby ja kuvattomat: tavallinen kombo
+        if (state != State.Ground && !MegaChainState) { megaPos = 0; megaQueue.Clear(); return; }
+        if (Time.time - megaLastTime > (megaPos >= 9 ? 2.4f : 1.2f)) { megaPos = 0; megaQueue.Clear(); }   // saksipotku kestää yli sekunnin: uppercutin saa painaa vielä laskeutuessa
+        megaLastTime = Time.time;
+        char t = punchP ? 'L' : 'K';
+        if (megaPos < MegaPattern.Length && MegaPattern[megaPos] == t)
+        {
+            int p = megaPos++;
+            if (p >= 2 && (MegaChainState || (p == 10 && state == State.Ground)))   // uppercut kelpaa myös heti saksipotkun laskeuduttua
+            {
+                if (p != 9) { megaQueue.Add(p); megaQueuedAt = Time.time; }   // 9 = saksipotkun toinen K: nielaistaan, saksi tekee molemmat potkut itse
+                punchP = false; kickP = false;
+            }
+        }
+        else { megaPos = t == 'L' ? 1 : 0; megaQueue.Clear(); }   // uusi alku
+    }
+
+    bool MegaReady()
+    {
+        switch (state)
+        {
+            case State.Punch: return stateTime >= CurHit.ImpactTime + flurryCancelAfterImpact;
+            case State.SideKick: return stateTime >= sideKickImpactFrame * sideKickFrameTime + 0.06f;
+            case State.Kick: return stateTime >= 0.07f + flurryCancelAfterImpact;
+            case State.KneeStrike: return stateTime >= ThrowPose.Start(KneeStrikeTimes, KneeStrikeImpact) + KneeStrikeTimes[KneeStrikeImpact];
+            case State.Elbow: return stateTime >= ThrowPose.Start(ElbowTimes, ElbowImpact) + ElbowTimes[ElbowImpact];
+            case State.SpinPunch: return stateTime >= ThrowPose.Start(SpinTimes, SpinImpact) + SpinTimes[SpinImpact];
+        }
+        return true;
+    }
+
+    void StartKneeChain()
+    {
+        attackHit = false;
+        attackLunge = ChaseLunge(kneeStrikeLunge, kneeStrikeReach);
+        PlayGrunt();
+        duckKnee = false;
+        Enter(State.KneeStrike);
+    }
+
+    void MegaExecute()
+    {
+        if (megaQueue.Count == 0) return;
+        if (Time.time - megaQueuedAt > 1.8f) { megaQueue.Clear(); megaPos = 0; return; }   // saksipotku kestää ilmassa yli sekunnin
+        int p = megaQueue[0];
+        bool go = false;
+        switch (p)
+        {
+            case 2: go = state == State.Punch && comboIndex == 1 && MegaReady(); if (go) { flurry = false; StartKick(1); } break;                 // etupotku
+            case 3: go = state == State.SideKick && MegaReady(); if (go) { flurry = false; StartKick(0); } break;                                   // alapotku
+            case 4: go = state == State.Kick && MegaReady(); if (go) StartElbow(); break;                                                         // kyynärpää
+            case 5: go = state == State.Elbow && MegaReady(); if (go) StartKneeChain(); break;                                                    // polvi
+            case 6: go = state == State.KneeStrike && MegaReady(); if (go) StartComboHit(0); break;                                              // jab
+            case 7: go = state == State.Punch && comboIndex == 0 && MegaReady(); if (go) StartSpinPunch(); break;                                // rystylyönti
+            case 8: go = state == State.SpinPunch && MegaReady(); if (go) { if (!TryComboScissor()) { megaQueue.Clear(); megaPos = 0; return; } } break;   // saksipotku
+            case 10:   // uppercut (iso koukku): viimeistelee jo saksipotkun aikana, kun toinen potku on osunut
+                {
+                    bool airOk = state == State.Air && scissor && scissorTime >= ScissorKick2Start + scissorKickHold * 0.5f;
+                    go = (airOk || state == State.Landing || state == State.Ground) && punchCombo.Length > 0;
+                    if (go)
+                    {
+                        if (airOk) { height = 0f; verticalVel = 0f; scissor = false; comboScissor = false; comboFinisherQueued = false; landedFromScissor = false; Dust(0.8f); }
+                        FinisherUppercut();
+                    }
+                    break;
+                }
+            default: megaQueue.RemoveAt(0); return;
+        }
+        if (go) { megaQueue.RemoveAt(0); megaQueuedAt = Time.time; }
+    }
+
     // ---------------- Heiluripotku (Ruby: alas, eteen + potku) ----------------
     [HideInInspector] public Sprite[] pendulumSprites;
     [Header("Heiluripotku (Ruby)")]
@@ -1459,7 +1642,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         };
     }
 
-    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch, PanPick, PanHold, PanSwing, PanThrow, Duck, Counter }
+    enum State { Ground, JumpSquat, Air, Landing, Punch, Kick, Recovery, Hurt, Special, SideKick, Grabbed, Thrown, Down, KipUp, Push, Block, Catch, CounterThrow, Lift, Carry, CrateThrow, HiKick, SmallPick, SmallThrow, KneeStrike, KneeDash, DropKick, ChairPick, ChairHold, ChairSwing, ChairSmash, ChairThrow, RingTake, RingPick, RingHold, RingThrow, RingSmash, BigHook, Pummel, SoloKick, Pendulum, CuePick, CueHold, CueThrow, CueSwingA, CueSwingB, Drink, WhipCatch, PieHit, HeadCrush, Eat, LidPick, LidHold, LidThrow, SplitKick, SkatePunch, PanPick, PanHold, PanSwing, PanThrow, Duck, Counter, Elbow, SpinPunch }
 
     int comboIndex;
     /// Hero on kesken nyrkkikombon: myöhemmästä iskusta (indeksi 1+) tai jonossa on jo seuraava isku. Vihu ei vastaiskulla katkaise tällaista sarjaa.
@@ -1469,7 +1652,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     int chainLinks;
     static bool IsAttackState(State s) =>
         s == State.Punch || s == State.Kick || s == State.SideKick || s == State.HiKick || s == State.KneeStrike || s == State.KneeDash
-        || s == State.DropKick || s == State.BigHook || s == State.Pummel || s == State.SoloKick || s == State.Pendulum || s == State.Special;
+        || s == State.DropKick || s == State.BigHook || s == State.Pummel || s == State.SoloKick || s == State.Pendulum || s == State.Special || s == State.Elbow || s == State.SpinPunch;
     bool comboQueued;
 
     State state = State.Ground;
@@ -1586,6 +1769,20 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool dropKickInput = HasDropKick && Mathf.Abs(lastPunchPressTime - lastJumpPressTime) <= 0.12f && (punchPressed || jumpPressed);
         bool kickPressed = !Scripted && KickPressed();
         if (kickPressed) lastKickPressTime = Time.time;
+        MegaFilter(ref punchPressed, ref kickPressed);   // kymmenen iskun kombo (L L K K L K L L K K L)
+        {
+            // ketjun aikana: ilmaosumat sallittu ja kaatuminen pehmeä; lopetusliike (uppercut) lennättää kunnolla; saksipotku nostaa korkealle
+            bool megaOn = HasMoveArt && megaPos >= 3 && Time.time - megaLastTime < 2.2f;
+            bool finisher = (state == State.BigHook || (state == State.Punch && comboIndex == punchCombo.Length - 1)) && megaPos >= MegaPattern.Length;
+            if (megaOn)
+            {
+                Enemy.ChainJuggle = true; megaOwner = true;
+                Enemy.ChainSoft = !finisher;
+                Enemy.ChainUp = state == State.Air && scissor ? 7.4f : 6.2f;   // saksipotku nostaa vain vähän
+            }
+            else if (megaOwner) { Enemy.ChainJuggle = false; Enemy.ChainSoft = false; megaOwner = false; }   // vain ketjun aloittanut pelaaja nollaa (kaksinpeli)
+        }
+        MegaExecute();
         bool pendulumInput = HasPendulum && kickPressed && Time.time - downFwdTime <= 0.3f;   // Ruby: alas, eteen + potku
         bool specialPressed = !Scripted && SpecialPressed();
         bool pushPressed = !Scripted && PushPressed();
@@ -1697,6 +1894,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     break;
                 }
                 if (Skating && HasSkatePunch && punchPressed) { StartSkatePunch(); break; }   // laudalta omat lyönnit
+                if (punchPressed && Time.time <= dashArmedUntil && HasMoveArt && Bottle.HeldBy(this) == null && carried == null) { StartElbow(); break; }   // eteen, eteen + lyönti: kyynärpää
                 if (punchPressed && punchCombo.Length > 0) { StartComboHit(0); break; }
                 if (kickPressed && Time.time <= dashArmedUntil && HasKneeStrikeArt && UseStamina(pushStamina))
                 {
@@ -1796,7 +1994,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         scissorHit1 = AttackEnemies(scissorReach, scissorDamage1, false, 2.6f);
                     if (!scissorHit2 && scissorTime >= k2 && scissorTime <= k2 + scissorKickHold)
                     {
-                        if (AttackEnemies(scissorReach, scissorDamage2, !comboScissor, 2.6f)) { scissorHit2 = true; PlayGrunt(); }   // kombossa ei kaada: viimeinen potku kaataa
+                        if (AttackEnemies(scissorReach, scissorDamage2, true, 2.6f)) { scissorHit2 = true; PlayGrunt(); }   // toinen potku kaataa myös kombossa
                     }
                 }
                 if (jumpKick)
@@ -1848,6 +2046,10 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (attackHit && hit.name == "Uppercut")
                         foreach (var e in lastHitEnemies)
                             if (e != null && e.lightweight && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * e.lightUppercutX, e.lightUppercutUp / e.lightLaunchMul);   // kevyt vihu lentää korkealle
+                    // kymmenen iskun kombon lopetus: uppercut lennättää ilmaan nostetun vihun kunnolla (isot kaatuvat)
+                    if (attackHit && hit.name == "Uppercut" && Enemy.ChainJuggle && megaPos >= MegaPattern.Length)
+                        foreach (var e in lastHitEnemies)
+                            if (e != null && !e.JustBlocked && !HeavyForHook(e)) e.Launch((facingRight ? 1f : -1f) * bigHookLaunchX, bigHookLaunchUp * 0.85f);
                 }
 
                 // jab–takasuora–jab + (alas, eteen, lyönti): neljäs isku on iso koukku, nopeasti
@@ -1864,7 +2066,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (bigHookQueued && stateTime >= hit.ImpactTime + flurryCancelAfterImpact) { StartBigHook(true); break; }
                 // seuraava painallus puskuriin, kun isku on tarpeeksi pitkällä
-                if (punchPressed && !bigHookQueued && pummelQueued == 0 && pummelDir == 0 && stateTime >= total * comboInputFrom) comboQueued = true;
+                if (punchPressed && !bigHookQueued && pummelQueued == 0 && pummelDir == 0 && stateTime >= total * comboInputFrom && !(Time.time <= dashArmedUntil && HasMoveArt) && !(HasMoveArt && comboIndex >= 1 && (facingRight ? move.x < -0.5f : move.x > 0.5f))) comboQueued = true;
                 // lyöntien jälkeen eteen-ylös + potku: saksipotku (kuten iso koukku alas-eteen + lyönti)
                 if (ScissorMotion(kickPressed) && comboIndex >= 1 && stateTime >= total * comboInputFrom) comboScissorQueued = true;
                 // flurry: potku lyönnin aikana (toisesta lyönnistä alkaen) ketjuttaa matalaan potkuun
@@ -1873,6 +2075,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 else if (kickPressed && comboIndex >= flurryFromPunch && stateTime >= total * comboInputFrom) flurryKickQueued = true;
                 // jab + potku: polvi-isku (ote ja polvi ylös)
                 if (kickPressed && comboIndex == 0 && (HasKnee || HasKneeStrikeArt) && stateTime >= total * comboInputFrom) kneeStrikeQueued = true;
+                // kombon aikana eteen,eteen + lyönti: kyynärpää; taakse,taakse + lyönti: pyörähdyslyönti (kaataa)
+                bool backPunch = punchPressed && HasMoveArt && comboIndex >= 1 && (facingRight ? move.x < -0.5f : move.x > 0.5f);   // taakse + lyönti toisesta iskusta alkaen: rystylyönti (kombon lopetus)
+                if ((punchPressed && Time.time <= dashArmedUntil && HasMoveArt || backPunch) && stateTime >= total * comboInputFrom)
+                {
+                    bool fwdTap = !backPunch && (dashDir >= 0f) == facingRight;
+                    if (fwdTap) elbowQueued = true; else spinQueued = true;
+                    comboQueued = false; dashArmedUntil = -9f;
+                }
+                // kombon aikana eteen, eteen + potku (kuten iso koukku alas-eteen + lyönti): kaatava polvipotku
+                if (kickPressed && Time.time <= dashArmedUntil && (HasKnee || HasKneeStrikeArt) && !ScissorMotion(kickPressed) && stateTime >= total * comboInputFrom)
+                { kneeStrikeQueued = true; dashKneeQueued = true; flurryKickQueued = false; backKickQueued = false; dashArmedUntil = -9f; }
 
                 // ketjussa isku katkaistaan heti osuman jälkeen, palautusta ei odoteta
                 float cancelAt = hit.ImpactTime + flurryCancelAfterImpact;
@@ -1881,9 +2094,12 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     attackHit = false;
                     attackLunge = ChaseLunge(kneeStrikeLunge, kneeStrikeReach);
                     PlayGrunt();
+                    duckKnee = dashKneeQueued; dashKneeQueued = false;   // eteen-eteen-potku kombossa kaataa
                     Enter(State.KneeStrike);
                     break;
                 }
+                if (elbowQueued && stateTime >= cancelAt) { StartElbow(); break; }
+                if (spinQueued && stateTime >= cancelAt) { StartSpinPunch(); break; }
                 if (comboScissorQueued && stateTime >= cancelAt) { comboScissorQueued = false; if (TryComboScissor()) break; }
                 if (backKickQueued && stateTime >= cancelAt) { backKickQueued = false; StartSoloKick(true, facingRight ? 1 : -1); break; }
                 if (flurryKickQueued && stateTime >= cancelAt)
@@ -1958,6 +2174,40 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                         MoveOnGround(new Vector2(dir * bigHookAirDrift / Mathf.Max(airEnd - impact, 0.01f) * 2f * (1f - ka) * dt, 0f));
                 }
                 if (ThrowPose.Index(bt, stateTime) < 0) { if (bigHookAir > 0f) height = 0f; Enter(State.Ground); }
+                break;
+            }
+
+            case State.Elbow:
+            {
+                float imp = ThrowPose.Start(ElbowTimes, ElbowImpact);
+                // liuku eteen osumahetkestä osuman loppuun asti (hidastuen)
+                float slideEnd = imp + ElbowTimes[ElbowImpact];
+                if (stateTime - dt < slideEnd)
+                {
+                    float a0 = Mathf.Clamp01((stateTime - dt) / slideEnd), a1 = Mathf.Clamp01(stateTime / slideEnd);
+                    float e0 = 1f - (1f - a0) * (1f - a0), e1 = 1f - (1f - a1) * (1f - a1);
+                    MoveOnGround(new Vector2((facingRight ? 1f : -1f) * elbowSlide * (e1 - e0), 0f));
+                }
+                if (!moveHit && stateTime >= imp && stateTime <= imp + ElbowTimes[ElbowImpact])
+                {
+                    moveHit = AttackEnemies(elbowReach, elbowDamage, true, 2.5f);   // kyynärpää kaataa
+                    if (moveHit) { HitFx.Freeze(0.05f); if (CameraFollow.Instance != null) CameraFollow.Shake(0.08f, 0.1f); }
+                }
+                if (MoveFinisher(punchPressed, imp)) break;
+                if (ThrowPose.Index(ElbowTimes, stateTime) < 0) Enter(State.Ground);
+                break;
+            }
+
+            case State.SpinPunch:
+            {
+                float imp = ThrowPose.Start(SpinTimes, SpinImpact);
+                Lunge(attackLunge, imp, dt);
+                if (!moveHit && stateTime >= imp && stateTime <= imp + SpinTimes[SpinImpact] + SpinTimes[SpinImpact + 1])
+                {
+                    moveHit = AttackEnemies(spinReach, spinDamage, true, 2.8f);
+                    if (moveHit) { HitFx.Freeze(0.09f); if (CameraFollow.Instance != null) CameraFollow.Shake(0.16f, 0.16f); }
+                }
+                if (ThrowPose.Index(SpinTimes, stateTime) < 0) Enter(State.Ground);
                 break;
             }
 
@@ -2668,9 +2918,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         chainLinks = IsAttackState(s) && IsAttackState(state) ? chainLinks + 1 : 0;   // isku alkaa suoraan toisesta iskusta = ketju
         state = s;
         stateTime = 0f;
-        if (s == State.Punch || s == State.Kick || s == State.SideKick || s == State.HiKick || s == State.SoloKick || s == State.KneeStrike || s == State.KneeDash || s == State.DropKick || s == State.BigHook || s == State.SkatePunch) HitFx.PlayWhoosh();   // viuhahdus aina kun isku tai potku heilahtaa
+        if (s == State.Punch || s == State.Kick || s == State.SideKick || s == State.HiKick || s == State.SoloKick || s == State.KneeStrike || s == State.KneeDash || s == State.DropKick || s == State.BigHook || s == State.SkatePunch || s == State.Elbow || s == State.SpinPunch) HitFx.PlayWhoosh();   // viuhahdus aina kun isku tai potku heilahtaa
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
-        if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; backKickQueued = false; }
+        if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; dashKneeQueued = false; backKickQueued = false; elbowQueued = false; spinQueued = false; }
         if (s != State.KneeStrike) { headbuttQueued = false; kneeKickPresses = 0; }
         if (s != State.Push) headbuttFinisher = false;
         if (s != State.Punch && s != State.Kick && s != State.SideKick) pendulumQueued = false;
@@ -3073,13 +3323,19 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void BigHookImpact()
     {
         float dir = facingRight ? 1f : -1f;
-        if (!AttackEnemies(bigHookReach, bigHookDamage, true, 3.0f)) return;
+        bool megaFinish = megaPos >= MegaPattern.Length && Time.time - megaLastTime < 3f;   // kymmenen iskun kombo meni läpi
+        if (!AttackEnemies(bigHookReach, bigHookDamage, true, 3.0f)) { if (megaFinish) { HitFx.FinisherFx("KOMBO!", false); CameraFollow.Shake(0.3f, 0.3f); } return; }
         bool any = false;
         foreach (var e in lastHitEnemies)
         {
             if (e == null) continue;
             any = true;
             if (!HeavyForHook(e)) e.Launch(dir * bigHookLaunchX, bigHookLaunchUp);   // lentää korkealle
+        }
+        if (any && megaFinish)
+        {
+            HitFx.FinisherFx("KOMBO!", true);
+            if (CameraFollow.Instance != null) CameraFollow.Shake(0.5f, 0.55f);
         }
         if (any)
         {
@@ -4034,7 +4290,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         Crate best = null; float bestD = float.MaxValue;
         foreach (var c in Crate.All)
         {
-            if (c == null || !c.CanPickUp) continue;
+            if (c == null || !c.CanPickUp || ArcadeMachine.LiftBlocked(c)) continue;
             Vector3 p = c.transform.position;
             float dx = p.x - me.x;
             float edge = c.body != null ? Mathf.Max(0f, c.body.bounds.extents.x - 0.9f) : 0f;   // leveä esine (levytanko): mitataan reunasta, ei keskikohdasta
@@ -4273,7 +4529,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Kuinka kauan kyykyssä pysyminen suojaa iskuilta (s); sen jälkeen kyykky on haavoittuva.")]
     public float duckHoldSafeTime = 1.0f;
     float nextDuckTime, duckHoldTime, duckEndedAt = -9f;
-    bool duckKnee;   // polviisku väistöstä: kaataa
+    bool duckKnee;   // polviisku väistöstä tai kombon eteen-eteen-potkusta: kaataa
+    bool dashKneeQueued;   // kombon aikana kaksi kertaa eteen + potku: kaatava polvipotku
     bool duckReady = true;
     bool HasDuck => DuckArt != null && DuckArt.Length >= 6;
     float DuckTotal => HasDuck ? duckFrameTime * DuckArt.Length : 0.6f;
@@ -4387,7 +4644,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (index == 0) comboScissorQueued = false;   // uusi lyöntisarja
         punchFromRun = index == 0 && state == State.Ground && running;
         attackHit = false;
-        kneeStrikeQueued = false; bigHookQueued = false;
+        kneeStrikeQueued = false; dashKneeQueued = false; bigHookQueued = false;
         PlayGrunt();
         comboIndex = index;
         comboQueued = false;
@@ -4409,7 +4666,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (DrunkTrip()) return;
         attackHit = false;
-        kneeStrikeQueued = false; bigHookQueued = false;
+        kneeStrikeQueued = false; dashKneeQueued = false; bigHookQueued = false;
         PlayGrunt();
         quickPunchActive = true;
         comboIndex = Mathf.Max(0, punchCombo.Length - 1);
@@ -4431,16 +4688,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         Vector3 me = transform.position;
         float best = float.MaxValue;
+        float cap = Enemy.ChainJuggle ? maxChaseLunge * 1.8f : maxChaseLunge;   // kymmenen iskun ketjussa hahmo seuraa vihua pidemmälle
         foreach (var e in Enemy.All)
         {
             if (e == null || e.IsDead) continue;
             Vector3 p = e.transform.position;
             float dx = (p.x - me.x) * (facingRight ? 1f : -1f);
-            if (dx < -0.3f || dx > reach + maxChaseLunge + 0.5f || Mathf.Abs(p.y - me.y) > attackDepth) continue;
+            if (dx < -0.3f || dx > reach + cap + 0.5f || Mathf.Abs(p.y - me.y) > attackDepth) continue;
             best = Mathf.Min(best, dx);
         }
         if (best == float.MaxValue) return baseLunge;
-        return Mathf.Clamp(best - reach * chaseReachFactor, baseLunge, Mathf.Max(baseLunge, maxChaseLunge));
+        return Mathf.Clamp(best - reach * chaseReachFactor, baseLunge, Mathf.Max(baseLunge, cap));
     }
 
     bool running;
@@ -5153,6 +5411,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 int i = ThrowPose.Index(CurBigHookTimes, stateTime);
                 return bigHookSprites[i < 0 ? bigHookSprites.Length - 1 : Mathf.Min(i, bigHookSprites.Length - 1)];
             }
+            case State.Elbow:
+            {
+                int i = ThrowPose.Index(ElbowTimes, stateTime);
+                return elbowSprites[ElbowFrames[i < 0 ? ElbowFrames.Length - 1 : i]];
+            }
+            case State.SpinPunch:
+            {
+                int i = ThrowPose.Index(SpinTimes, stateTime);
+                return spinSprites[i < 0 ? spinSprites.Length - 1 : Mathf.Min(i, spinSprites.Length - 1)];
+            }
             case State.DropKick:
             {
                 int i = ThrowPose.Index(CurDropKickTimes, stateTime);
@@ -5337,7 +5605,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     /// Lyöntinappi (J / ohjaimen vasen nappi), P1:n, myös muiden skriptien käyttöön (esim. prätkä).
     public static bool PunchInput() => CoopInput.Punch(0);
 
-    bool RunHeld() => !Scripted && CoopInput.Run(playerIndex);
+    // Juoksunapin pitoaika: ohjain voi välkyttää nappia (turbo / huono kontakti), jolloin juoksu pätkii; napin katkon alle 0,12 s ohitetaan.
+    float runHeldUntil;
+    bool RunHeld()
+    {
+        if (Scripted) return false;
+        if (CoopInput.Run(playerIndex)) runHeldUntil = Time.unscaledTime + 0.12f;
+        return Time.unscaledTime < runHeldUntil;
+    }
 
     bool KickPressed() => CoopInput.Kick(playerIndex);
 

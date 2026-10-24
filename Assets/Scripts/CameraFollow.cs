@@ -123,7 +123,17 @@ public class CameraFollow : MonoBehaviour
         if (target != null)
         {
             float tx = target.position.x;
-            if (Players.Count > 1 && Players.LivingBounds(out float lx, out float hx, out float ay)) tx = (lx + hx) * 0.5f;   // kaksinpeli: keskikohta
+            if (Players.Count > 1 && Players.LivingBounds(out float lx, out float hx, out float ay))
+            {
+                tx = (lx + hx) * 0.5f;   // kaksinpeli: keskikohta
+                // edellä juokseva ei törmää ruudun reunaan (KeepPlayersOnScreen pysäyttäisi hänet): kamera menee mukaan, kun hän on lähellä reunaa
+                var cc = GetComponent<Camera>();
+                if (cc != null && cc.orthographic)
+                {
+                    float lim = cc.orthographicSize * cc.aspect - 3.0f;
+                    if (lim > 0f && hx - lx <= 2f * lim) tx = Mathf.Clamp(tx, hx - lim, lx + lim);
+                }
+            }
             // prätkällä ajaessa kamera menee edelle: pyörä ei karkaa ruudun oikeaan reunaan (vain kun hero ajaa prätkällä)
             float dtl = Time.deltaTime;
             var rider = target.GetComponent<PlayerController>();

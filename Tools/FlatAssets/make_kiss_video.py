@@ -3,7 +3,9 @@
 Taustat vaihtelevat (vihreä, harmaa vinjetti, värivälähdykset), joten tausta poistetaan alueen täytöllä reunoilta
 (floodFill), ei yhdellä avainvärillä. Makuuhuone (yökaupunki ikkunoissa) himmenee, kun toinen video alkaa.
 
-Ajo: python Tools/FlatAssets/make_kiss_video.py <1.mov> <2.mov> <3.mov> [--test]
+Uusi tanssivideo (vihreä tausta, hidastettu; tekee suudelma_1 ja silmukkaversion suudelma_3, lähikuva _2 säilyy):
+  python Tools/FlatAssets/make_kiss_video.py --dance <tanssi.mov> [--test]
+Vanha ajo: python Tools/FlatAssets/make_kiss_video.py <1.mov> <2.mov> <3.mov> [--test]
 Tulos: Assets/StreamingAssets/Kampa/suudelma_1.mp4, _2, _3 (H.264 + AAC); --test tallentaa vain esikatselukuvat scratchpadiin.
 """
 import sys, os
@@ -164,7 +166,67 @@ def test(srcs, scratch):
         sheet.save(os.path.join(scratch, "key_test_%d.png" % (i + 1)))
 
 
+# ---- vihreä tausta (tanssivideo, 1280x720): avainnus + hidastus + ping-pong ----
+DANCE_SLOW = 1.4                        # hidastuskerroin (kuvien välinen sekoitus)
+DANCE_SCALE, DANCE_FEET_X, DANCE_FEET_Y = 0.92, 982.0, 925.0   # lähdekuva 1280x720 -> sänkyjen väliin
+DANCE_SRC_X, DANCE_SRC_Y = 640.0, 715.0
+
+
+def green_alpha(rgb):
+    f = rgb.astype(np.float32)
+    d = f[..., 1] - np.maximum(f[..., 0], f[..., 2])
+    a = np.clip(1.0 - (d - 30.0) / 60.0, 0.0, 1.0)
+    a = cv2.erode(a, np.ones((3, 3), np.uint8))
+    return cv2.GaussianBlur(a, (3, 3), 0)[..., None]
+
+
+def compose_dance(rgb, bgimg, k):
+    a = green_alpha(rgb)
+    f = rgb.astype(np.float32)
+    f[..., 1] = np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 4.0)   # vihreä heijastus pois
+    M = np.array([[DANCE_SCALE, 0, DANCE_FEET_X - DANCE_SCALE * DANCE_SRC_X], [0, DANCE_SCALE, DANCE_FEET_Y - DANCE_SCALE * DANCE_SRC_Y]], np.float32)
+    fa = cv2.warpAffine(np.concatenate([f * a, a], 2), M, (W, H), flags=cv2.INTER_AREA)
+    return fa[..., :3] + bgimg * k * (1 - fa[..., 3:4])
+
+
+def slowed_frames(src):
+    c = av.open(src)
+    fr = [f.to_ndarray(format="rgb24").astype(np.float32) for f in c.decode(video=0)]
+    n_out = int(len(fr) * DANCE_SLOW)
+    for i in range(n_out):
+        x = i / DANCE_SLOW
+        j = min(int(x), len(fr) - 1); j2 = min(j + 1, len(fr) - 1); t = x - j
+        yield fr[j] * (1 - t) + fr[j2] * t
+
+
+def make_dance(src, scratch=None):
+    room_img = room(1.5)
+    frames = []
+    for rgb in slowed_frames(src):
+        frames.append(np.clip(compose_dance(rgb, room_img, BRIGHT[0]), 0, 255).astype(np.uint8))
+    if scratch:
+        sheet = Image.new("RGB", (4 * 480, 2 * 270))
+        for k, j in enumerate(np.linspace(0, len(frames) - 1, 8).astype(int)):
+            sheet.paste(Image.fromarray(frames[j]).resize((480, 270)), ((k % 4) * 480, (k // 4) * 270))
+        sheet.save(os.path.join(scratch, "dance_test.png")); return
+    for name, seq, k_to in (("suudelma_1.mp4", frames, None), ("suudelma_3.mp4", frames + frames[-2:0:-1], None)):
+        out = av.open(os.path.join(OUTDIR, name), "w")
+        vs = out.add_stream("libx264", rate=24)
+        vs.width, vs.height, vs.pix_fmt = W, H, "yuv420p"
+        vs.options = {"crf": "22", "preset": "medium"}
+        for arr in seq:
+            for pk in vs.encode(av.VideoFrame.from_ndarray(arr, format="rgb24").reformat(format="yuv420p")):
+                out.mux(pk)
+        for pk in vs.encode():
+            out.mux(pk)
+        out.close()
+        print(name, len(seq), "kuvaa")
+
+
 if __name__ == "__main__":
+    if "--dance" in sys.argv:
+        make_dance([a for a in sys.argv[1:] if not a.startswith("--")][0], os.environ.get("SCRATCH") if "--test" in sys.argv else None)
+        sys.exit()
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--test" in sys.argv:
         test(args, os.environ["SCRATCH"])

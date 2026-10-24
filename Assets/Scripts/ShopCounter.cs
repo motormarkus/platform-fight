@@ -324,7 +324,7 @@ public class ShopCounter : MonoBehaviour
         Speak(purchaseLines);
         int got = pc.Heal(it.heal);
         int st = pc.AddStamina(it.stamina);
-        if (rum) pc.StartDrunk(pc.drunkDuration);
+        if (rum) { pc.StartDrunk(pc.drunkDuration); foreach (var other in Players.All) if (other != null && other != pc && !other.GameOver) other.StartDrunk(other.drunkDuration); }   // kaksinpeli: kun toinen ottaa rommin, molemmat menevät känniin
         if (IsDrink(it) && pc.AppliedCharacter == 1 && pc.heroine != null && pc.heroine.gulpSounds != null && pc.heroine.gulpSounds.Length > 0)
         {
             // Ruby juo: oma nielaisu, perään "aah"

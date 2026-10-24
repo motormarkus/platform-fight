@@ -144,7 +144,7 @@ Testaamatta: katujen saumat (aseman vasen puoli, kaikki 4–5 saumaa; klubin vas
 - Odottaa: "löhikuvaversio" (käyttäjä lähettää myöhemmin).
 
 ### Päivitys: makuuhuonekohtaus = kolme videota peräkkäin
-- `Assets/StreamingAssets/Kampa/suudelma_1..3.mp4`: 1 koko vartalo, 2 lähikuva, 3 tanssi + suutelu. Taustat leikattu pois (`Tools/FlatAssets/make_kiss_video.py`: floodFill reunoilta, roskaikonit pois) ja pari on sumennetun makuuhuoneen (yökaupunki ikkunoissa) edessä; tausta himmenee videon 2 alussa.
+- `Assets/StreamingAssets/Kampa/suudelma_1..3.mp4`: 1 uusi tanssivideo (vihreä tausta, hidastettu 1,4x, kerran), 2 lähikuva, 3 sama tanssivideo ping-pong-silmukkana (`make_kiss_video.py --dance <mov>`; 2 säilyy vanhasta ajosta). Vanha kuvaus: 1 koko vartalo, 2 lähikuva, 3 tanssi + suutelu. Taustat leikattu pois (`Tools/FlatAssets/make_kiss_video.py`: floodFill reunoilta, roskaikonit pois) ja pari on sumennetun makuuhuoneen (yökaupunki ikkunoissa) edessä; tausta himmenee videon 2 alussa.
 - Mikä tahansa nappi (E/lyönti/potku/Start) lopettaa kesken ja vie suoraan pelihalliin (`Door.GoNow`, kämpän ovi `returnToLastDoor`). Kahvi (lepo) annetaan lopussa.
 - Vanha suudelma.mp4 poistettu.
 
@@ -152,3 +152,18 @@ Testaamatta: katujen saumat (aseman vasen puoli, kaikki 4–5 saumaa; klubin vas
 - Videot 1 ja 3 (koko vartalo) pieninä sänkyjen välissä terävää makuuhuonetta vasten, video 2 (lähikuva) täysikokoisena sumean huoneen edessä; video 3 pyörii edestakaisin kunnes musiikki (Resources/Music/rocco_ja_sini) loppuu tai pelaaja keskeyttää.
 - Kohtauksen jälkeen peli jatkuu makkarista (Alue: Makkari, `kampa_makuuhuone.png`, yökaupunki ikkunassa). Ovet: "Olohuoneesta makkariin" (olohuoneen harmaa ovi, px 1935) ja "Makkarista olohuoneeseen" (makkarin vasen reuna; ovea ei ole piirretty kuvaan). Sisältö odottaa käyttäjän ideoita.
 - Kämpän koko FlatZoom 0,78 (BeatEmUpSetup); Dina ei ole kämpässä; Sini kävelee hallin ovelle sanottuaan "seuraa mua" (S.ToDoor/AtDoor).
+
+## Kämpän kissa (24.10.2026)
+- `Assets/Scripts/KampaKissa.cs`: istuu ja nuolee tassua (idle), nousee (start), kävelee satunnaiseen kohtaan (walk, paikallaan-kävely), istahtaa (stop). Kuvat `Assets/Resources/Kissa/` (196 kpl, 0,3-mittakaava), tehty vihreätaustaisista videoista `Tools/FlatAssets/make_cat_frames.py`. Menu 261 luo "Kämpän kissa" -objektin olohuoneeseen; ajamatta, kokoa säädetään `catHeight` (0,96).
+
+## Sohvalle istuminen (24.10.2026)
+- Sinin kahvipuun solmu 0 ("Istu vaikka sohvalle"): pelaaja kävelee itse sohvalle (ruudulla "Kävele sohvalle"; 25 s jälkeen ohjataan perille) ja Rocco istuu, Sini kävelee perässä ja istuu peilattuna (vastakkain), sitten dialogi jatkuu solmusta 1. Lopussa (ei suudelmahaara) molemmat nousevat videot takaperin. E/Kick keskeyttää.
+- Koodi: `ArcadeSini.cs` (`StartSit/UpdateSit/SitCleanup`, kentät `hasSofa, sofaY, sofaRoccoX, sofaSiniX`, Inspectorissa säädettävissä "Kämpän Sini" -oliosta). Menu 261 asettaa arvot sohvan (X(855)) mukaan.
+- Kuvat `Assets/Resources/Kampa/sini_sit_00..60`, `rocco_sit_00..48` (`Tools/FlatAssets/make_sofa_frames.py`, vihreä tausta; Sini 8 fps lähteestä -> toistetaan 12 fps).
+- Ajamatta: istumiskorkeus sohvaan nähden, X-offsetit (±1,1) ja järjestys tarkistettava pelissä.
+
+## Roccon uudet iskut: kyynärpää ja pyörähdyslyönti (24.10.2026)
+- Kuvat: `Tools/RoccoAssets/new_moves/*.png` (läpinäkyvät nauhat) -> `Tools/RoccoAssets/make_rocco_moves.py` -> `Assets/Resources/Rocco/elbow_00..02`, `spin_00..08` (ladataan ajonaikana, ei valikkoa).
+- `PlayerController.cs`: tilat `Elbow`, `SpinPunch`. Kyynärpää: eteen, eteen + lyönti (maasta tai kombon aikana). Pyörähdyslyönti (rystylyönti): kombon aikana (2. iskusta alkaen) taakse + lyönti tai taakse, taakse + lyönti (kaataa, kombon lopetus). Molempien jälkeen lyönti jatkaa uppercutiin (kombon viimeinen isku). Ruby ei saa näitä.
+- Säädöt: `ElbowTimes`, `SpinTimes` (nopeus), `elbowDamage/spinDamage`, `elbowReach/spinReach`, lunge-arvot. Ajamatta pelissä.
+- **Kymmenen iskun kombo** (Rocco): L L K K L K L L K K L = jab, takasuora, etupotku (SideKick), alapotku, kyynärpää, polvi, jab, rystylyönti, saksipotku (K K), uppercut. `PlayerController.MegaFilter/MegaExecute`: painallukset 3. alkaen ohjataan jonoon, jokainen isku alkaa edellisen osuman jälkeen (`MegaReady`). Väärä nappi tai tauko -> tavallinen kombo. Ajamatta pelissä.

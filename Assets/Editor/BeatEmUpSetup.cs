@@ -18346,7 +18346,7 @@ public static class BeatEmUpSetup
         if (Resources.Load<Texture2D>("Sini/walk_00") == null ) { Info("Puuttuu Assets/Resources/Sini tai Dina (hahmojen kuvat)."); return; }
         var scene = hall.gameObject.scene;
         // vanhat pois
-        foreach (var n in new[] { "Kämppä", "Pelihallin yläkerran ovi", "Kämpän Sini", "Kämpän Dina", "Makkari", "Olohuoneesta makkariin", "Makkarista olohuoneeseen" })
+        foreach (var n in new[] { "Kämppä", "Pelihallin yläkerran ovi", "Kämpän Sini", "Kämpän Dina", "Kämpän kissa", "Makkari", "Olohuoneesta makkariin", "Makkarista olohuoneeseen" })
             foreach (var o in scene.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
 
         ti.GetSourceTextureWidthAndHeight(out int w, out int h);
@@ -18451,11 +18451,21 @@ public static class BeatEmUpSetup
         sini.area = area; sini.home = true;
         sini.laneMinX = X(420f); sini.laneMaxX = X(w - 300f);
         sini.counterXs = kitchenSpots;
+        sini.hasSofa = true; sini.sofaY = Y(534f) - 0.2f; sini.sofaRoccoX = X(855f) - 1.1f; sini.sofaSiniX = X(855f) + 1.1f;   // sohvakohtaus: istuvat vastakkain
         sGo.transform.position = new Vector3(X(1672f + 700f), area.maxDepthY - 1.4f, 0f);
         EditorUtility.SetDirty(sini);
 
+        // kämpän kissa (istuu, nuolee tassua, kävelee välillä)
+        var catGo = new GameObject("Kämpän kissa");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(catGo, scene);
+        Undo.RegisterCreatedObjectUndo(catGo, "Kissa");
+        var cat = catGo.AddComponent<KampaKissa>();
+        cat.area = area; cat.laneMinX = X(500f); cat.laneMaxX = X(1672f - 100f);
+        catGo.transform.position = new Vector3(X(900f), area.maxDepthY - 1.0f, 0f);
+        EditorUtility.SetDirty(cat);
+
         // ---- makkari: oma alue (kohtauksen jälkeen peli jatkuu täältä), ovi olohuoneen harmaasta ovesta ----
-        const float BedZoom = 0.62f;   // makkari: kamera vielä lähempää (huone pienempi, hahmot isompia)
+        const float BedZoom = 0.50f;   // makkari: kamera vielä lähempää (huone pienempi, hahmot isompia)
         float ppuB = h / (2f * CamHalf) / ArcadeScale / BedZoom, camSB = CamHalf * BedZoom;
         float hUB = h / ppuB, halfWB = camSB * 16f / 9f, topB = CamY - camSB + hUB;
         float YB(float row) => topB - row / ppuB;

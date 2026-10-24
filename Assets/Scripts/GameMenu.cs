@@ -125,6 +125,7 @@ public class GameMenu : MonoBehaviour
                 var pc0 = Players.Primary;
                 var list = new System.Collections.Generic.List<string> { "Jatka" };
                 if (pc0 != null && pc0.HasBooni) list.Add("Juo Bööni");
+                foreach (var pp in Players.All) if (pp != null && pp != pc0 && pp.HasBooni) list.Add("Juo Bööni (P" + (pp.playerIndex + 1) + ")");   // kaksinpeli: toisen pelaajan oma Bööni
                 if (Clues.All.Count > 0) list.Add("Tapauskansio");
                 list.AddRange(new[] { "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" });
                 return list.ToArray();
@@ -280,6 +281,11 @@ public class GameMenu : MonoBehaviour
                     Close();
                     var pcb = Players.Primary;
                     if (pcb != null) pcb.UseBooni();
+                }
+                else if (lbl.StartsWith("Juo Bööni (P"))
+                {
+                    Close();
+                    foreach (var pp in Players.All) if (pp != null && lbl == "Juo Bööni (P" + (pp.playerIndex + 1) + ")") pp.UseBooni();
                 }
                 else if (lbl == "Tapauskansio") { back = Page.Pause; page = Page.Case; sel = Mathf.Max(0, Clues.All.Count - 1); }
                 else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; optSection = -1; sel = 0; }

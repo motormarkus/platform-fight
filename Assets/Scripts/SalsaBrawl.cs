@@ -24,6 +24,21 @@ public class SalsaBrawl : MonoBehaviour
     bool started, secondTaunt;
     /// Tappelu on alkanut.
     public bool Started => started;
+    /// Tappelu on käynnissä: alkanut, ja alueella on vielä hereillä oleva vihollinen (kun kaikki on pieksetty, tappelu on ohi ja koneilla voi taas pelata).
+    public bool Ongoing
+    {
+        get
+        {
+            if (!started) return false;
+            foreach (var o in Enemy.All)
+            {
+                if (o == null || o.IsDead || o.ally || !o.isActiveAndEnabled || !o.IsAwake) continue;
+                if (area != null && (o.transform.position.x < area.camMinX - 30f || o.transform.position.x > area.camMaxX + 30f)) continue;
+                return true;
+            }
+            return false;
+        }
+    }
 
     void Update()
     {

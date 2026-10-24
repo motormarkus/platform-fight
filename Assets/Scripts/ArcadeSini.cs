@@ -33,6 +33,7 @@ public class ArcadeSini : MonoBehaviour
     Texture2D fadeTex, kissTex;
     UnityEngine.Video.VideoPlayer kissVp; RenderTexture kissRt; AudioSource kissAudio; bool kissDone, kissVideo;
     static int coffeeVisits;
+    static bool afterKiss;   // makkarikohtaus nähty: kämpän Sini antaa lentosuukon
     [Tooltip("Hahmon korkeus yksikköinä.")]
     public float height = 3.0f;
     [Tooltip("Koon kerroin (1.2 = 20 % isompi). Uusi kenttä: vanhoissa scene-olioissa saa oletuksen.")]
@@ -49,6 +50,14 @@ public class ArcadeSini : MonoBehaviour
                  counterFrameTime = 0.25f, kissFrameTime = 0.133f, danceFrameTime = 0.167f;
     [Tooltip("Pelaajan etäisyys, jolta E aloittaa juttelun.")]
     public float talkHalfWidth = 2.1f, talkDepth = 1.7f;
+
+    [Header("Sohva (kämpän kahvikohtaus: Rocco ja Sini istuvat vastakkain)")]
+    public bool hasSofa;
+    public float sofaY, sofaRoccoX, sofaSiniX;
+    int sitPhase;                       // 0 ei, 1 Rocco kävelee, 2 Rocco istuu, 3 Sini kävelee, 4 Sini istuu, 5 istuvat (dialogi), 6 nousevat
+    float sitT; SpriteRenderer sitterR, sitterS; Sprite[] sitR, sitS; PlayerController sitPc;
+    const float SitSiniFt = 1f / 12f, SitRoccoFt = 1f / 12f;
+    public static float SitRoccoScale = 1.18f;   // videon Rocco on Siniä pienempi; kerroin isontaa hänet (jalat pysyvät paikallaan)
 
     const float PadPx = 24f, CharPx = 360f;
     enum S { Idle, Walk, ToCounter, AtCounter, FromCounter, Dance, TalkNpc, Listen, Chat, Kiss, Hide, ToDoor, AtDoor }
@@ -137,7 +146,113 @@ public class ArcadeSini : MonoBehaviour
 
     void OnDisable() { ReleaseHero(); }
     void OnDestroy() { ReleaseHero(); All.Remove(this); FreeCounter(); }
-    void ReleaseHero() { if (chatPc != null) chatPc.enabled = true; chatPc = null; }
+    void ReleaseHero() { SitCleanup(); if (chatPc != null) chatPc.enabled = true; chatPc = null; }
+
+    // ---------- istuminen sohvalle (videoista: Resources/Kampa/sini_sit_NN, rocco_sit_NN; Tools/FlatAssets/make_sofa_frames.py) ----------
+    Sprite[] LoadSit(string prefix, Vector2 pivot, float scale = 1f)
+    {
+        var l = new List<Sprite>();
+        for (int i = 0; ; i++)
+        {
+            var tx = Resources.Load<Texture2D>("Kampa/" + prefix + "_sit_" + i.ToString("00"));
+            if (tx == null) break;
+            l.Add(Sprite.Create(tx, new Rect(0, 0, tx.width, tx.height), pivot, CharPx / (height * sizeMul) / scale, 0, SpriteMeshType.FullRect));
+        }
+        return l.ToArray();
+    }
+
+    SpriteRenderer MakeSitter(string n, float x, bool flip, float lift = 0f)
+    {
+        var go = new GameObject(n);
+        var sr = go.AddComponent<SpriteRenderer>();
+        go.transform.position = new Vector3(x, sofaY + lift, 0f);
+        sr.flipX = flip; sr.sortingOrder = Mathf.RoundToInt(-sofaY * 100f) + 1;
+        return sr;
+    }
+
+    bool StartSit()
+    {
+        if (!hasSofa || chatPc == null) return false;
+        if (sitS == null) sitS = LoadSit("sini", new Vector2(0.5377f, 0.0127f));
+        if (sitR == null) sitR = LoadSit("rocco", new Vector2(0.5881f, 0.0318f), SitRoccoScale);
+        if (sitS.Length == 0 || sitR.Length == 0) return false;
+        sitPc = chatPc; sitPc.enabled = true; sitPc.Scripted = false;   // pelaaja kävelee itse sohvalle
+        sitPhase = 1; sitT = 0f;
+        return true;
+    }
+
+    void SitCleanup()
+    {
+        if (sitterR != null) Destroy(sitterR.gameObject);
+        if (sitterS != null) Destroy(sitterS.gameObject);
+        sitterR = sitterS = null;
+        if (sitPc != null)
+        {
+            sitPc.Scripted = false; sitPc.ScriptedMove = Vector2.zero;
+            if (sitPc.BodyRenderer != null) sitPc.BodyRenderer.enabled = true;
+            if (sitPc.shadow != null) sitPc.shadow.enabled = true;
+            sitPc = null;
+        }
+        if (sitPhase != 0 && body != null) { body.enabled = true; shadow.enabled = true; }
+        sitPhase = 0;
+    }
+
+    static Sprite Hold(Sprite[] s, float t, float ft, bool reverse)
+    {
+        int i = Mathf.Min(s.Length - 1, (int)(t / ft));
+        return s[reverse ? s.Length - 1 - i : i];
+    }
+
+    /// Rocco kävelee sohvalle ja istuu, sitten Sini tulee perässä; sitten dialogi jatkuu (solmu 1).
+    void UpdateSit(Vector3 p, int pi)
+    {
+        sitT += Time.deltaTime;
+        if (sitPhase != 6 && sitPhase != 1 && CoopInput.Kick(pi)) { SitCleanup(); treeMode = false; EndChat("Nähdään!", false); return; }
+        switch (sitPhase)
+        {
+            case 1:
+            {
+                Vector2 d = new Vector2(sofaRoccoX, sofaY) - (Vector2)sitPc.transform.position;
+                if (Has(idle)) body.sprite = PingPong(idle, t, idleFrameTime);
+                if (sitT > 25f) { sitPc.Scripted = true; sitPc.ScriptedMove = d.normalized; sitPc.Face(d.x >= 0f); }   // jos ei löydä: ohjataan perille
+                if ((Mathf.Abs(d.x) < 1.0f && Mathf.Abs(d.y) < 0.9f) || sitT > 40f)
+                {
+                    sitPc.Scripted = false; sitPc.ScriptedMove = Vector2.zero; sitPc.enabled = false;
+                    sitPc.transform.position = new Vector3(sofaRoccoX, sofaY, sitPc.transform.position.z);
+                    if (sitPc.BodyRenderer != null) sitPc.BodyRenderer.enabled = false;
+                    if (sitPc.shadow != null) sitPc.shadow.enabled = false;
+                    sitterR = MakeSitter("Rocco sohvalla", sofaRoccoX, false, 0.15f);
+                    sitterR.sprite = sitR[0];
+                    sitPhase = 2; sitT = 0f;
+                }
+                break;
+            }
+            case 2:
+                sitterR.sprite = Hold(sitR, sitT, SitRoccoFt, false);
+                if (sitT > sitR.Length * SitRoccoFt + 0.3f) { goal = new Vector2(sofaSiniX, sofaY); sitPhase = 3; sitT = 0f; }
+                break;
+            case 3:
+                if (Has(walk)) body.sprite = Loop(walk, sitT, walkFrameTime);
+                if (MoveToGoal(p, Time.deltaTime, speed * 1.2f) || sitT > 12f)
+                {
+                    transform.position = new Vector3(sofaSiniX, sofaY, 0f);
+                    body.enabled = false; shadow.enabled = false;
+                    sitterS = MakeSitter("Sini sohvalla", sofaSiniX, true);   // peilattu: istuvat vastakkain
+                    sitterS.sprite = sitS[0];
+                    sitPhase = 4; sitT = 0f;
+                }
+                break;
+            case 4:
+                sitterS.sprite = Hold(sitS, sitT, SitSiniFt, false);
+                if (sitT > sitS.Length * SitSiniFt + 0.4f) { sitPhase = 5; GoNode(1); }
+                break;
+            case 6:
+                sitterR.sprite = Hold(sitR, sitT, SitRoccoFt, true);
+                sitterS.sprite = Hold(sitS, sitT, SitSiniFt, true);
+                if (sitT > Mathf.Max(sitR.Length * SitRoccoFt, sitS.Length * SitSiniFt) + 0.3f) { SitCleanup(); FinishTree(); }
+                break;
+        }
+    }
 
     float Limit(float x) => area != null ? area.MaxDepthAtX(x, area.maxDepthY) : -1f;
     static bool Has(Sprite[] s) => s != null && s.Length > 0;
@@ -463,11 +578,10 @@ public class ArcadeSini : MonoBehaviour
         if (chatCooldown > 0f) return;
         near = true;
         if (!CoopInput.Pick(q.playerIndex)) return;
-        if (persona == Persona.Sini && !home && cheered && Time.time < cheeredUntil)
+        if (persona == Persona.Sini && home && afterKiss && Time.time >= nextGift)
         {
-            // hyvällä tuulella: vielä yksi lentosuukko tapaamisen kunniaksi (ei useammin kuin 40 s välein)
-            if (Time.time >= nextGift) { flipped = hp.x < p.x; nextGift = Time.time + 40f; Say("Sinä taas! Tässä sulle.", 1.6f); Set(S.Kiss); }
-            else Say("Hei! Mulla menee tosi hyvin.", 1.8f);
+            // makkariepisodin jälkeen kämpässä: lentosuukko (ei useammin kuin 40 s välein); hallissa Sini juttelee normaalisti
+            flipped = hp.x < p.x; nextGift = Time.time + 40f; Say("Sinä taas! Tässä sulle.", 1.6f); Set(S.Kiss);
             return;
         }
         StartChat(q);
@@ -548,7 +662,8 @@ public class ArcadeSini : MonoBehaviour
 
     void GoNode(int n)
     {
-        if (n == -2) { treeFade = true; phaseT = 0f; treeChoose = false; StartKiss(); return; }
+        if (n < 0 && n != -2 && sitPhase == 5) { sitPhase = 6; sitT = 0f; treeChoose = false; return; }   // nousevat ylös ennen lähtöä
+        if (n == -2) { SitCleanup(); treeFade = true; phaseT = 0f; treeChoose = false; StartKiss(); return; }
         if (n < 0 || Tree[n] == null) { FinishTree(); return; }
         node = n; treeChoose = false; phaseT = 0f; treeSel = 0;
         if (inviteTree && n == 1) inviteAccepted = true;   // "Kiva, seuraa mua!"
@@ -611,6 +726,7 @@ public class ArcadeSini : MonoBehaviour
     {
         StopKiss();
         bool invite = inviteTree, fromKiss = treeFade;
+        if (fromKiss) afterKiss = true;
         var pc = chatPc;
         treeMode = false; treeFade = false;
         if (invite) { EndChat(null, true); return; }
@@ -630,6 +746,12 @@ public class ArcadeSini : MonoBehaviour
     {
         if (chatPc == null) { treeMode = false; Set(S.Idle); return; }
         int i = chatPc.playerIndex;
+        if (sitPhase != 0 && sitPhase != 5) { UpdateSit(p, i); return; }
+        if (sitPhase == 5)
+        {
+            sitterS.sprite = sitS[sitS.Length - 1]; sitterR.sprite = sitR[sitR.Length - 1];
+            if (CoopInput.Kick(i)) { SitCleanup(); treeMode = false; EndChat("Nähdään!", false); return; }
+        }
         if (treeFade)
         {
             if (Has(idle)) body.sprite = PingPong(idle, t, idleFrameTime);
@@ -654,6 +776,7 @@ public class ArcadeSini : MonoBehaviour
             if (phaseT > dur || skip)
             {
                 if (nd.opts != null) { treeChoose = true; phaseT = 0f; treeSel = 0; treeLastY = 0f; }
+                else if (!inviteTree && node == 0 && sitPhase == 0 && StartSit()) { }   // "istu sohvalle": kävellään istumaan, dialogi jatkuu sen jälkeen
                 else GoNode(nd.auto);
             }
         }
@@ -693,6 +816,8 @@ public class ArcadeSini : MonoBehaviour
             GUI.color = old;
             return;
         }
+        if (sitPhase == 1) { GUI.Box(new Rect(W * 0.3f, H * 0.86f, W * 0.4f, H * 0.06f), Loc.T("Kävele sohvalle"), box); return; }
+        if (sitPhase != 0 && sitPhase != 5) return;   // istuminen: ei puhekuplaa
         var nd = Tree[node];
         float w = H * 1.15f, x = (W - w) * 0.5f, lh = H * 0.075f, y = H * 0.56f;
         GUI.Box(new Rect(x, y, w, lh * 1.5f), npcName + ": " + Loc.T(nd.line), box);

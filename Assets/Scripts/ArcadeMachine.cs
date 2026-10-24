@@ -22,6 +22,14 @@ public class ArcadeMachine : MonoBehaviour
 
     Crate crate;
 
+    [Tooltip("Flipperi seisoo muita koneita alempana (yksikköä alaspäin; otetaan käyttöön kerran, kun kohtaus käynnistyy).")]
+    public float pinballLower = 0.45f;
+
+    void Awake()
+    {
+        if (game == Game.Pinball && pinballLower != 0f) transform.position += Vector3.down * pinballLower;
+    }
+
     void Start()
     {
         crate = GetComponent<Crate>();
@@ -52,6 +60,15 @@ public class ArcadeMachine : MonoBehaviour
         sr2.sortingOrder = -9399;
     }
 
+    /// Pelikonetta ei nosteta E:llä (sama nappi pelaa); nosto sallitaan vain hallin tappelun aikana (koneilla heitetään).
+    public static bool LiftBlocked(Crate c)
+    {
+        if (c == null || c.GetComponent<ArcadeMachine>() == null) return false;
+        foreach (var b in FindObjectsByType<SalsaBrawl>(FindObjectsSortMode.None))
+            if (b != null && b.Ongoing && b.area == Area.Current) return false;
+        return true;
+    }
+
     void Update()
     {
         near = false;
@@ -66,7 +83,7 @@ public class ArcadeMachine : MonoBehaviour
         if (game == Game.StarShooter || game == Game.Karate || game == Game.Pinball)
         {
             foreach (var b in FindObjectsByType<SalsaBrawl>(FindObjectsSortMode.None))
-                if (b != null && b.Started && b.area == Area.Current) { blockedMsg = "Nyt ei ole aikaa pelata: hallissa on tappelu!"; msgAt = Time.unscaledTime; return; }
+                if (b != null && b.Ongoing && b.area == Area.Current) { blockedMsg = "Nyt ei ole aikaa pelata: hallissa on tappelu!"; msgAt = Time.unscaledTime; return; }
             blockedMsg = null;
             if (game == Game.Karate) KarateGame.Begin(q); else if (game == Game.Pinball) FlipperGame.Begin(q); else StarShooter.Begin(q);
         }
