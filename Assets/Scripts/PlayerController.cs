@@ -2668,6 +2668,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         chainLinks = IsAttackState(s) && IsAttackState(state) ? chainLinks + 1 : 0;   // isku alkaa suoraan toisesta iskusta = ketju
         state = s;
         stateTime = 0f;
+        if (s == State.Punch || s == State.Kick || s == State.SideKick || s == State.HiKick || s == State.SoloKick || s == State.KneeStrike || s == State.KneeDash || s == State.DropKick || s == State.BigHook || s == State.SkatePunch) HitFx.PlayWhoosh();   // viuhahdus aina kun isku tai potku heilahtaa
         if (s != State.Punch && s != State.Kick && s != State.HiKick && s != State.SideKick) flurry = false;
         if (s != State.Punch) { flurryKickQueued = false; kneeStrikeQueued = false; backKickQueued = false; }
         if (s != State.KneeStrike) { headbuttQueued = false; kneeKickPresses = 0; }

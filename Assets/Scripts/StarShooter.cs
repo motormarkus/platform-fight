@@ -416,7 +416,7 @@ public class StarShooter : MonoBehaviour
         shake = Mathf.Max(0f, shake - dt * 2.2f);
         whiteFlash = Mathf.Max(0f, whiteFlash - dt * 2.5f);
 
-        bool esc = Keyboard_EscOrQ();
+        bool esc = Keyboard_EscOrQ() || CoopInput.StartPressed(pi);
         if (Time.unscaledTime - openedAt < 0.35f) return;
         if (st == St.Title)
         {
@@ -1345,7 +1345,7 @@ public class StarShooter : MonoBehaviour
             mid.normal.textColor = new Color(1f, 0.9f, 0.3f, blink);
             GUI.Label(new Rect(0, H * 0.79f, W, H * 0.08f), "[J]  " + Loc.T("ALOITA PELI"), mid);
             mid.normal.textColor = Color.white;
-            string hint = Loc.T("Liiku: nuolet / WASD     Ammu: J (pohjassa)     Erikoisase: L     Poistu: Esc");
+            string hint = Loc.T("Liiku: nuolet / WASD     Ammu: J (pohjassa)     Erikoisase: L     Poistu: Esc / Start");
             gs.alignment = TextAnchor.MiddleCenter; GUI.Label(new Rect(0, H * 0.88f, W, H * 0.05f), hint, gs);
             GUI.Label(new Rect(0, H * 0.93f, W, H * 0.05f), Loc.T("Paras tulos") + ": " + hiScore.ToString("D7"), gs);
             gs.alignment = TextAnchor.UpperLeft;
@@ -1434,7 +1434,7 @@ public class StarShooter : MonoBehaviour
             GUI.Label(new Rect(0, H * 0.3f, W, H * 0.16f), st == St.Win ? Loc.T("VOITTO!") : Loc.T("PELI OHI"), big);
             big.normal.textColor = Color.white;
             GUI.Label(new Rect(0, H * 0.47f, W, H * 0.08f), Loc.T("Pisteet") + ": " + score.ToString("D7") + (score >= hiScore && score > 0 ? "   " + Loc.T("UUSI ENNÄTYS!") : ""), mid);
-            if (stT > 1.2f) GUI.Label(new Rect(0, H * 0.58f, W, H * 0.07f), "[J] " + Loc.T("Uudestaan") + "     [Esc/K] " + Loc.T("Poistu"), mid);
+            if (stT > 1.2f) GUI.Label(new Rect(0, H * 0.58f, W, H * 0.07f), "[J] " + Loc.T("Uudestaan") + "     [Esc/Start/K] " + Loc.T("Poistu"), mid);
         }
     }
 }

@@ -36,6 +36,7 @@ public class HitFx : MonoBehaviour
     public float heavyShake = 0.22f;
 
     AudioSource source;
+    AudioSource[] pool; int poolIdx;
     bool stopping;
     int lastSound = -1;
 
@@ -46,6 +47,43 @@ public class HitFx : MonoBehaviour
         if (source == null) source = gameObject.AddComponent<AudioSource>();
         source.playOnAwake = false;
         source.spatialBlend = 0f;
+        pool = new AudioSource[8];
+        for (int i = 0; i < pool.Length; i++)
+        {
+            pool[i] = gameObject.AddComponent<AudioSource>();
+            pool[i].playOnAwake = false; pool[i].spatialBlend = 0f;
+        }
+    }
+
+    static AudioClip[] whooshClips; int lastWhoosh = -1;
+
+    /// Viuhahdus joka kerta, kun pelaaja heilauttaa iskun tai potkun (osui tai ei). Viisi ääntä, ei samaa kahdesti peräkkäin; ei sävelkorkeuden vaihtelua.
+    public static void PlayWhoosh()
+    {
+        var fx = Instance;
+        if (fx == null || fx.pool == null) return;
+        if (whooshClips == null)
+        {
+            var l = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 5; i++) { var c = Resources.Load<AudioClip>("Sfx/Hit/viuh_" + i); if (c != null) l.Add(c); }
+            whooshClips = l.ToArray();
+        }
+        if (whooshClips.Length == 0) return;
+        int k = Random.Range(0, whooshClips.Length);
+        if (whooshClips.Length > 1 && k == fx.lastWhoosh) k = (k + 1) % whooshClips.Length;
+        fx.lastWhoosh = k;
+        PlayPitched(whooshClips[k], 0.85f, 1f);
+    }
+
+    /// Soittaa äänen omalla äänilähteellään omalla sävelkorkeudellaan (jaettu lähde muuttaisi myös jo soivien äänten sävelkorkeutta: sinkoilua ja säröä).
+    public static void PlayPitched(AudioClip clip, float volume, float pitch)
+    {
+        var fx = Instance;
+        if (clip == null || fx == null || fx.pool == null) return;
+        var src = fx.pool[fx.poolIdx]; fx.poolIdx = (fx.poolIdx + 1) % fx.pool.Length;
+        src.Stop();
+        src.clip = clip; src.pitch = pitch; src.volume = Mathf.Clamp01(volume * AudioLevels.Gain(clip));
+        src.Play();
     }
 
     /// Kutsutaan, kun isku osuu. heavy = kaatava isku (pidempi pysähdys, isompi tärähdys).

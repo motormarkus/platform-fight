@@ -191,6 +191,14 @@ public class Door : MonoBehaviour
         }
     }
 
+    /// Käyttää oven suoraan (ilman nappia): ohjelmallinen siirtymä, esim. kohtauksen jälkeen takaisin.
+    public void GoNow(PlayerController who)
+    {
+        if (busy || who == null) return;
+        pc = who;
+        ScreenFader.Host.StartCoroutine(Go());
+    }
+
     IEnumerator Go()
     {
         busy = true;

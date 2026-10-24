@@ -103,6 +103,9 @@ public static class CoopInput
     public static bool Punch(int i) => Pressed(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
     public static bool PunchHeld(int i) => Held(i, Key.J, Key.None, Key.Numpad1, Key.Comma, Act.Punch);
     public static bool Kick(int i) => Pressed(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
+    /// Ohjaimen Start-nappi (minipelien poistuminen).
+    public static bool StartPressed(int i) { var g = PadFor(i); return g != null && g.startButton.wasPressedThisFrame; }
+    public static bool KickHeld(int i) => Held(i, Key.K, Key.None, Key.Numpad2, Key.Period, Act.Kick);
     public static bool Special(int i) => Pressed(i, Key.L, Key.None, Key.Numpad3, Key.Slash, Act.Special);
     public static bool Push(int i) => Pressed(i, Key.U, Key.None, Key.Numpad4, Key.Semicolon, Act.Push);
     /// E / toimintanappi: ei toimi, kun pelaaja on kaatuneen kumppanin vieressä (silloin E nostaa kumppanin ja ohittaa kaiken muun: ovet, tiski, kansi, poiminta).

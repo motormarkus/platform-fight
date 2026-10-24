@@ -10,7 +10,7 @@ import slice_sprites as S
 OUT = os.path.join(HERE, "..", "..", "Assets", "Sprites", "Pelihalli")
 os.makedirs(OUT, exist_ok=True)
 SCALE = 0.5
-for name in ("flipper", "turpaan", "ralli"):
+for name in ("flipper", "turpaan", "ralli", "chasedrift", "daccle"):
     img = cv2.imread(os.path.join(HERE, "src", "hajoaa_" + name + ".png"), cv2.IMREAD_COLOR)
     H, W = img.shape[:2]
     rgba = S.key(img)

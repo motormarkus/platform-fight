@@ -108,3 +108,47 @@ Testaamatta: katujen saumat (aseman vasen puoli, kaikki 4–5 saumaa; klubin vas
 - Pelikoneen "Turpaan Vaan" E-näppäin käynnistää `KarateGame` (Assets/Scripts/KarateGame.cs): Rocco/Gustav, 6 vastustajaa, 3 kierroksen ottelut. Ohjaus J isku, K potku, L erikoispotku, I torjunta, Esc poistuu.
 - Kuvat: `python Tools/KarateAssets/make_karate.py` -> Assets/Resources/Karate (pikselöity pelin omista kuvista; valmiina).
 - Unityssä: odota kuvien tuonti, aja valikko **259** (liittää pelin Turpaan Vaan -koneeseen), tallenna scene. KÄÄNNETTY MUTTA AJAMATTA: tasapaino ja tuntuma testaamatta.
+
+## Flipper Flapper (23.10.2026)
+- `FlipperGame.cs`: oma fysiikka (pallo, janat, pomppijat, 2 mailaa, linkoparit, 3 maalitaulua, 3 ohitusvaloa, kerroin, pallonsäästö). Vasen maila nuoli vasen/A/J, oikea nuoli oikea/D/K, laukaisu välilyönti pohjassa+vapautus, Esc poistuu. Hi-score `flipper_hi`.
+- Kuvat valinnaisia: Assets/Resources/Flipper/{pohja,pallo,maila,pompp_0,pompp_1,pompp_2}.png (puuttuessa piirretään koodilla). Seinät, linkoparit ja maalitaulut piirretään aina koodilla.
+- Unityssä: valikko **260** liittää pelin "Kone: Flipper Flapper" -koneeseen (254 tekee saman uudelleenajettaessa). Käännetty, geometria simuloitu Pythonilla (pallo pääsee kaistalta pöytään), ajamatta Unityssä.
+
+## Pelihalli: Chasedr1ft ja Daccle (23.10.2026)
+- Kaksi uutta ei-pelattavaa konetta (kuvat Tools/ArcadeAssets/src, viipaloitu slice_machine_break.py -> Assets/Sprites/Pelihalli/kone_chasedrift_*, kone_daccle_*). Kaikki koneet kestävät nyt 10 iskua; kuusi konetta tasavälein (380, 670, 960, 1250, 1540, Tähtipyssy 1830).
+- Unityssä: odota kuvien tuonti, aja 254 (rakentaa koneet + liittää Turpaan Vaan- ja Flipper-pelit) ja 255 (väki), tallenna scene.
+
+## Uudet osumaäänet (23.10.2026)
+- Resources/Sfx/Hit/*.wav (Tools/AudioLevels/make_hit_sounds.py, lähde Lataukset): hit_punch_a/b, hit_kick, hit_swoosh_a/b, voice_small_a/b, voice_big_a/b. Alun hiljaisuus leikattu, mono, taso tasattu vanhoihin osumiin.
+- HitFx: pelaajan lyönti/potku käyttää uusia osumaääniä (HitFx.OnHit(heavy, kick)), ohi menevä isku soittaa huitaisuäänen (PlayWhiff, kerran per isku), maahan iskeytyminen käyttää vanhoja. Sävelkorkeus vaihtelee joka kerralla.
+- Enemy.ApplyGenericVoice: jos vihulla ei ole omia iskuääniä, se saa yleisen iskuäänen (pienet/isot, sävelkorkeus vaihtelee reilusti). Poikkeukset: naiset ja pomot joilla omat äänet. Punkkarin omien iskuäänten todennäköisyys nostettu. Testaamatta Unityssä.
+- KORJAUS (23.10.2026): pelaajan osumaäänet (lyönti/potku/huitaisu) palautettiin vanhoiksi, uudet hit_*.wav poistettu. Jäljellä vain vihujen yleiset iskuäänet (Resources/Sfx/Hit/voice_*, Enemy.ApplyGenericVoice) ja punkkarin iskuäänten tiheämpi soitto.
+- Viuhahdukset (hitviuh1-5.wav -> Resources/Sfx/Hit/viuh_1-5.wav, rms nostettu 0,07): HitFx.PlayWhoosh soi PlayerController.Enter:ssä joka kerta kun isku/potku alkaa (osui tai ei), ei sävelkorkeuden vaihtelua, ei samaa kahdesti peräkkäin. Testaamatta.
+
+## Sinin ja Dinan kämppä (24.10.2026)
+- Kuvat Assets/Sprites/Taustat/kampa_olohuone.png + kampa_keittio.png, yhdistetty kampa.png:ksi (sauma sulautettu). Valikko **Total Fist / Luo kämppä pelihallin yläkertaan** (= Beat em up/261): luo alueen "Kämppä" (x 64000), oven hallin oikeaan reunaan (px 3425, lukossa kunnes Clues "sini_kutsu"), paluuoven (kämpän vasen ovi) ja Sinin ja Dinan kotiin (ArcadeSini.home = true).
+- Kutsu: kun Sinin piristys hallissa onnistuu, Clues.Add("sini_kutsu") + Sini sanoo kutsun. Kämpässä Sini (E): kahvikohtaus sivuina (ArcadeSini.BuildCoffeePages), ensimmäinen kerta täysi lepo (Heal + stamina), myöhemmin +40. Dina: ennätyspuhe kuten hallissa.
+- Repliikit: Tools/SiniAssets/kahvikohtaus_repliikit.md ja sini_repliikit_halli.md (käyttäjä äänittää; äänien kytkentä koodiin kesken).
+- Poistumisovi hallista (vasen) korjattu: ArcadeHallFix.cs (ajaa itsensä).
+- Testaamatta Unityssä; hallin oikean oven paikka (px 3425) on arvio kuvasta.
+
+## Kämpän yökaupunki (ikkunoiden parallax)
+- `Tools/FlatAssets/make_night_city.py` tekee kolme kerrosta (`kampa_yo_taivas/kaukana/lahella.png`, Assets/Sprites/Taustat) ja leikkaa olohuoneen ikkunalasit läpinäkyviksi `kampa.png`:hen (alkuperäinen `Tools/FlatAssets/orig/kampa.png`).
+- `BeatEmUpSetup.CreateFlat` (valikko Total Fist → kämppä) luo kerrokset taustan taakse (`InteriorWindowParallax`, tekijät 0,97 / 0,93 / 0,86). Ajettava uudelleen, jotta kerrokset tulevat sceneen.
+- `kampa_makuuhuone.png` (läpinäkyvät ikkunat) on valmiina, mutta makuuhuonetta ei ole vielä rakennettu; sen kamera ei liiku, joten parallax olisi staattinen.
+
+## Kämpän makuuhuonekohtaus (suudelmavideo)
+- Valinta "Täältä mää tuun." Sinin puhepuussa (ArcadeSini.cs, CoffeeTree) himmentää ruudun ja toistaa `Assets/StreamingAssets/Kampa/suudelma.mp4` (VideoPlayer → RenderTexture, OnGUI). E ohittaa 1,5 s jälkeen.
+- Video tehty `Tools/FlatAssets/make_kiss_video.py <lähde.mov>`: vihreä tausta avattu, tilalle sumennettu makuuhuone + yökaupunki, häivytykset, H.264 + AAC. Lähde oli lähikuva (toinen lähetetyistä; koko vartalon versio jäi käyttämättä: harmaa tausta ja generaattorin roskaa kuvassa).
+- Jos videota ei ole, käytetään `Resources/Kampa/suudelma.png` -kuvaa tai pelkkää mustaa ruutua.
+- Odottaa: "löhikuvaversio" (käyttäjä lähettää myöhemmin).
+
+### Päivitys: makuuhuonekohtaus = kolme videota peräkkäin
+- `Assets/StreamingAssets/Kampa/suudelma_1..3.mp4`: 1 koko vartalo, 2 lähikuva, 3 tanssi + suutelu. Taustat leikattu pois (`Tools/FlatAssets/make_kiss_video.py`: floodFill reunoilta, roskaikonit pois) ja pari on sumennetun makuuhuoneen (yökaupunki ikkunoissa) edessä; tausta himmenee videon 2 alussa.
+- Mikä tahansa nappi (E/lyönti/potku/Start) lopettaa kesken ja vie suoraan pelihalliin (`Door.GoNow`, kämpän ovi `returnToLastDoor`). Kahvi (lepo) annetaan lopussa.
+- Vanha suudelma.mp4 poistettu.
+
+### Makkari ja kohtauksen päätös
+- Videot 1 ja 3 (koko vartalo) pieninä sänkyjen välissä terävää makuuhuonetta vasten, video 2 (lähikuva) täysikokoisena sumean huoneen edessä; video 3 pyörii edestakaisin kunnes musiikki (Resources/Music/rocco_ja_sini) loppuu tai pelaaja keskeyttää.
+- Kohtauksen jälkeen peli jatkuu makkarista (Alue: Makkari, `kampa_makuuhuone.png`, yökaupunki ikkunassa). Ovet: "Olohuoneesta makkariin" (olohuoneen harmaa ovi, px 1935) ja "Makkarista olohuoneeseen" (makkarin vasen reuna; ovea ei ole piirretty kuvaan). Sisältö odottaa käyttäjän ideoita.
+- Kämpän koko FlatZoom 0,78 (BeatEmUpSetup); Dina ei ole kämpässä; Sini kävelee hallin ovelle sanottuaan "seuraa mua" (S.ToDoor/AtDoor).

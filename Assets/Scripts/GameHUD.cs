@@ -74,7 +74,7 @@ public class GameHUD : MonoBehaviour
 
     void OnGUI()
     {
-        if ((StarShooter.Active || KarateGame.Active)) return;
+        if ((StarShooter.Active || KarateGame.Active || FlipperGame.Active)) return;
         if (white == null) { white = new Texture2D(1, 1); white.SetPixel(0, 0, Color.white); white.Apply(); }
         // mittakaava 1920x1080-ruudun mukaan, mutta niin että kapeammallakin ruudulla (esim. editorin Game-ikkuna) kaikki mahtuu
         float s = Mathf.Min(Screen.height / 1080f, Screen.width / 1920f);

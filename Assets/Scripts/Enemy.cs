@@ -1099,6 +1099,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Start()
     {
+        ApplyGenericVoice();
         playerCache = Players.Primary;
         groundHeight = TargetGround();
         if (idleFacing != 0) facingRight = idleFacing > 0;
@@ -3539,6 +3540,29 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return true;
     }
 
+    // yleiset iskuäänet (Resources/Sfx/Hit/voice_*), niille joilta omat puuttuvat; sävelkorkeus vaihtelee reilusti
+    bool genericVoice, genericBig;
+    static readonly string[] NoGenericVoice = { "Tanya", "Betty", "Rokkimimmi", "Pierre", "Deacon", "Horhe", "Puliukko", "Tom", "Gustav", "Pomo" };
+
+    void ApplyGenericVoice()
+    {
+        if (displayName == "Punkkari" && attackSounds != null && attackSounds.Length > 0) { attackSoundChance = Mathf.Max(attackSoundChance, 0.85f); attackVolume = Mathf.Max(attackVolume, 0.85f); }   // punkkarin omat iskuäänet kuuluivat liian harvoin
+        if (attackSounds != null && attackSounds.Length > 0) return;
+        if (slapSounds != null && slapSounds.Length > 0) return;
+        string n = string.IsNullOrEmpty(displayName) ? gameObject.name : displayName;
+        foreach (var x in NoGenericVoice) if (n.Contains(x)) return;
+        genericBig = IsHeavyweight(this) || n.Contains("Rekkamies") || n.Contains("Prätkä");
+        var a = Resources.Load<AudioClip>(genericBig ? "Sfx/Hit/voice_big_a" : "Sfx/Hit/voice_small_a");
+        var b = Resources.Load<AudioClip>(genericBig ? "Sfx/Hit/voice_big_b" : "Sfx/Hit/voice_small_b");
+        var l = new System.Collections.Generic.List<AudioClip>();
+        if (a != null) l.Add(a);
+        if (b != null) l.Add(b);
+        if (l.Count == 0) return;
+        attackSounds = l.ToArray(); genericVoice = true;
+        attackSoundChance = Mathf.Max(attackSoundChance, 0.55f);
+        attackVolume = Mathf.Min(attackVolume, 0.85f);
+    }
+
     void PlayAttackSound()
     {
         if (attackSounds == null || attackSounds.Length == 0 || audioSource == null || !VoiceGate("attack")) return;
@@ -3546,6 +3570,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (attackSounds.Length > 1 && i == lastAttackSound) i = (i + 1) % attackSounds.Length;
         lastAttackSound = i;
         if (attackSounds[i] == null) return;
+        if (genericVoice) { HitFx.PlayPitched(attackSounds[i], attackVolume, genericBig ? Random.Range(0.88f, 1.0f) : Random.Range(0.95f, 1.12f)); return; }
         audioSource.pitch = Random.Range(0.95f, 1.05f);
         audioSource.PlayOneShotLeveled(attackSounds[i], attackVolume);
     }

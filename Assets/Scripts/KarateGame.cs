@@ -106,7 +106,7 @@ public class KarateGame : MonoBehaviour
     class Atk
     {
         public string anim; public char kind; public int idx;
-        public float dur, hs, he, reach, dmg, stun, push, lunge, dodge, cd; public bool kd, sand, feint; public int hits = 1;
+        public float dur, hs, he, reach, dmg, stun, push, lunge, lungeEnd, dodge, cd; public bool kd, sand, feint; public int hits = 1;
     }
     static Atk At(string anim, char kind, int idx, float dur, float hs, float he, float reach, float dmg, float stun, float push, bool kd = false)
         => new Atk { anim = anim, kind = kind, idx = idx, dur = dur, hs = hs, he = he, reach = reach, dmg = dmg, stun = stun, push = push, kd = kd };
@@ -135,7 +135,7 @@ public class KarateGame : MonoBehaviour
         {
             case "rocco":    return Sp(0.78f, 0.18f, 0.82f, 64f, 21f, 0.25f, 150f, true, 3, 4f);                       // tullimylly: pyörivä potkusarja
             case "gustav":   { var a = Sp(0.80f, 0.42f, 0.50f, 135f, 0f, 1.8f, 0f, false, 1, 6f); a.sand = true; return a; }   // hiekanheitto: lamauttaa
-            case "lippis":   return null;                                                                               // Lippiksellä ei ole erikoisliikettä
+            case "kapteeni": { var a = Sp(0.95f, 0.40f, 0.75f, 74f, 16f, 0.5f, 160f, true, 1, 4f); a.lunge = 150f; a.lungeEnd = 0.8f; return a; }                       // liuku: syöksyy matalana eteen
             case "lenkkari": { var a = Sp(0.85f, 0.52f, 0.78f, 62f, 15f, 0.5f, 120f, true, 1, 4f); a.feint = true; return a; }  // lippishämäys: ei torjuttavissa
             case "horhe":    return Sp(1.0f, 0.22f, 0.92f, 54f, 24f, 0.2f, 70f, true, 8, 5f);                        // läpsykombo
             case "marcus":   { var a = Sp(0.95f, 0.55f, 0.82f, 72f, 17f, 0.5f, 150f, true, 1, 4f); a.dodge = 0.5f; a.lunge = 105f; return a; }
@@ -145,11 +145,11 @@ public class KarateGame : MonoBehaviour
     static readonly Dictionary<string, Atk> specCache = new Dictionary<string, Atk>();
     static Atk SpecialFor(string key) { if (!specCache.TryGetValue(key, out var a)) specCache[key] = a = SpecialOf(key); return a; }
 
-    static readonly string[] Roster = { "rocco", "gustav", "lippis", "lenkkari", "horhe", "marcus", "deacon" };
-    static readonly string[] RosterNames = { "ROCCO", "GUSTAV", "LIPPIS", "LENKKARI", "HORHE", "MARCUS", "DEACON" };
-    static readonly string[] SpecialNames = { "TULLIMYLLY", "HIEKANHEITTO", "", "LIPPISHÄMÄYS", "LÄPSYKOMBO", "VÄISTÖISKU", "VÄISTÖKOUKKU" };
+    static readonly string[] Roster = { "rocco", "gustav", "kapteeni", "lenkkari", "horhe", "marcus", "deacon" };
+    static readonly string[] RosterNames = { "ROCCO", "GUSTAV", "KAPTEENI", "LENKKARI", "HORHE", "MARCUS", "DEACON" };
+    static readonly string[] SpecialNames = { "TULLIMYLLY", "HIEKANHEITTO", "LIUKU", "LIPPISHÄMÄYS", "LÄPSYKOMBO", "VÄISTÖISKU", "VÄISTÖKOUKKU" };
     // vastustajien järjestys (heikoimmasta vahvimpaan); pelaajan oma hahmo jätetään pois
-    static readonly string[] Rank = { "lippis", "lenkkari", "horhe", "marcus", "gustav", "rocco", "deacon" };
+    static readonly string[] Rank = { "lenkkari", "horhe", "kapteeni", "marcus", "gustav", "rocco", "deacon" };
 
     class Fg
     {
@@ -176,9 +176,9 @@ public class KarateGame : MonoBehaviour
     {
         switch (key)
         {
-            case "lippis":   return O(70f, 0.75f, 0.95f, 1.5f, 0.05f, 0.05f, 0.10f);
-            case "lenkkari": return O(80f, 0.85f, 0.85f, 1.35f, 0.12f, 0.08f, 0.20f);
-            case "horhe":    return O(85f, 0.95f, 0.75f, 1.2f, 0.18f, 0.12f, 0.25f);
+            case "lenkkari": return O(70f, 0.75f, 0.95f, 1.5f, 0.05f, 0.06f, 0.10f);
+            case "horhe":    return O(82f, 0.85f, 0.85f, 1.35f, 0.12f, 0.10f, 0.20f);
+            case "kapteeni": return O(88f, 0.95f, 0.75f, 1.2f, 0.18f, 0.14f, 0.25f);
             case "marcus":   return O(95f, 1.0f, 0.6f, 1.0f, 0.26f, 0.12f, 0.35f);
             case "gustav":   return O(100f, 1.1f, 0.5f, 0.85f, 0.32f, 0.2f, 0.4f);
             case "rocco":    return O(100f, 1.1f, 0.5f, 0.85f, 0.32f, 0.22f, 0.4f);
@@ -394,7 +394,7 @@ public class KarateGame : MonoBehaviour
             f.s = S.Idle; f.face = 1; f.x = (i - 3) * sp;
             Show(f);
             f.sr.color = on ? Color.white : new Color(0.42f, 0.42f, 0.48f);
-            f.tr.localScale = Vector3.one * (on ? 1.3f : 0.8f);
+            f.tr.localScale = Vector3.one * (on ? 1.1f : 0.78f);
             f.sr.sortingOrder = on ? 13 : 11;
         }
         if (stT > 0.3f && (CoopInput.Punch(pi) || CoopInput.Pick(pi) || CoopInput.Special(pi)))
@@ -458,7 +458,7 @@ public class KarateGame : MonoBehaviour
         UpdateParticles(dt);
 
         var k = UnityEngine.InputSystem.Keyboard.current;
-        bool esc = k != null && (k.escapeKey.wasPressedThisFrame || k.qKey.wasPressedThisFrame);
+        bool esc = (k != null && (k.escapeKey.wasPressedThisFrame || k.qKey.wasPressedThisFrame)) || CoopInput.StartPressed(pi);
         if (Time.unscaledTime - openedAt < 0.35f) return;
         switch (st)
         {
@@ -660,7 +660,7 @@ public class KarateGame : MonoBehaviour
         if (f.s == S.Special && f.atk.lunge > 0f)
         {
             float lu = f.t / f.atk.dur;
-            if (lu >= f.atk.hs - 0.25f && lu < f.atk.hs + 0.08f && Mathf.Abs(o.x - f.x) > 30f) f.x += f.face * f.atk.lunge * dt;
+            if (lu >= f.atk.hs - 0.25f && lu < (f.atk.lungeEnd > 0f ? f.atk.lungeEnd : f.atk.hs + 0.08f) && Mathf.Abs(o.x - f.x) > 30f) f.x += f.face * f.atk.lunge * dt;
         }
         if (f.y > 0f || f.vy > 0f)
         {
@@ -809,28 +809,30 @@ public class KarateGame : MonoBehaviour
         var white = Texture2D.whiteTexture;
         if (st == St.Select)
         {
-            big.fontSize = Mathf.RoundToInt(110 * s); big.normal.textColor = new Color(1f, 0.85f, 0.25f);
-            GUI.Label(new Rect(0, H * 0.04f, W, H * 0.16f), "TURPAAN VAAN", big);
-            mid.normal.textColor = Color.white;
-            GUI.Label(new Rect(0, H * 0.20f, W, H * 0.07f), Loc.T("VALITSE TAISTELIJA"), mid);
-            gs.alignment = TextAnchor.MiddleCenter; gs.fontSize = Mathf.RoundToInt(22 * s);
+            // ylhäältä alas: otsikko, valitun nimi ja erikoisliike; hahmot keskellä; pikkunimet, aloitus ja ohjeet alhaalla
+            big.fontSize = Mathf.RoundToInt(84 * s); big.normal.textColor = new Color(1f, 0.85f, 0.25f);
+            GUI.Label(new Rect(0, H * 0.015f, W, H * 0.12f), "TURPAAN VAAN", big);
+            mid.fontSize = Mathf.RoundToInt(30 * s); mid.normal.textColor = new Color(0.85f, 0.85f, 0.9f);
+            GUI.Label(new Rect(0, H * 0.135f, W, H * 0.05f), Loc.T("VALITSE TAISTELIJA"), mid);
+            big.fontSize = Mathf.RoundToInt(70 * s); big.normal.textColor = Color.white;
+            GUI.Label(new Rect(0, H * 0.19f, W, H * 0.11f), RosterNames[sel], big);
+            mid.fontSize = Mathf.RoundToInt(34 * s); mid.normal.textColor = new Color(1f, 0.6f, 0.2f);
+            GUI.Label(new Rect(0, H * 0.30f, W, H * 0.06f), SpecialNames[sel].Length > 0 ? Loc.T("ERIKOISLIIKE") + ":  " + Loc.T(SpecialNames[sel]) : Loc.T("Ei erikoisliikettä"), mid);
+            gs.alignment = TextAnchor.MiddleCenter; gs.fontSize = Mathf.RoundToInt(20 * s);
             for (int i = 0; i < selFg.Length; i++)
             {
                 if (selFg[i] == null) continue;
                 Vector3 sp = cam.WorldToScreenPoint(selFg[i].tr.position);
                 gs.normal.textColor = i == sel ? new Color(1f, 0.9f, 0.3f) : new Color(0.7f, 0.7f, 0.75f);
-                GUI.Label(new Rect(sp.x - W * 0.07f, H - sp.y + H * 0.03f, W * 0.14f, H * 0.04f), selFg[i].name, gs);
+                GUI.Label(new Rect(sp.x - W * 0.06f, H * 0.855f, W * 0.12f, H * 0.04f), selFg[i].name, gs);
             }
-            gs.normal.textColor = Color.white; gs.fontSize = Mathf.RoundToInt(34 * s);
-            mid.normal.textColor = new Color(1f, 0.6f, 0.2f);
-            GUI.Label(new Rect(0, H * 0.70f, W, H * 0.07f), SpecialNames[sel].Length > 0 ? Loc.T("ERIKOISLIIKE") + ":  " + Loc.T(SpecialNames[sel]) : Loc.T("Ei erikoisliikettä"), mid);
+            gs.normal.textColor = Color.white;
             float blink = 0.55f + 0.45f * Mathf.Sin(Time.unscaledTime * 5f);
-            mid.normal.textColor = new Color(1f, 0.9f, 0.3f, blink);
-            GUI.Label(new Rect(0, H * 0.79f, W, H * 0.07f), "[J]  " + Loc.T("ALOITA"), mid);
-            mid.normal.textColor = Color.white;
-            gs.fontSize = Mathf.RoundToInt(24 * s);
-            GUI.Label(new Rect(0, H * 0.87f, W, H * 0.05f), Loc.T("Valitse: vasen / oikea     Isku: J (J-J-J)     Potku: K (K-K)     Hyppy: välilyönti     Erikoisliike: L     Torjunta: I     Poistu: Esc"), gs);
-            GUI.Label(new Rect(0, H * 0.92f, W, H * 0.05f), Loc.T("Paras tulos") + ": " + hiScore.ToString("D6"), gs);
+            mid.fontSize = Mathf.RoundToInt(38 * s); mid.normal.textColor = new Color(1f, 0.9f, 0.3f, blink);
+            GUI.Label(new Rect(0, H * 0.895f, W, H * 0.055f), "[J]  " + Loc.T("ALOITA"), mid);
+            mid.normal.textColor = Color.white; mid.fontSize = Mathf.RoundToInt(44 * s);
+            gs.fontSize = Mathf.RoundToInt(20 * s);
+            GUI.Label(new Rect(0, H * 0.95f, W, H * 0.04f), Loc.T("Valitse: vasen / oikea   Isku J   Potku K   Hyppy välilyönti   Erikoisliike L   Torjunta I   Poistu: Esc / Start   Paras: ") + hiScore.ToString("D6"), gs);
             gs.alignment = TextAnchor.UpperLeft; gs.fontSize = Mathf.RoundToInt(34 * s);
             return;
         }

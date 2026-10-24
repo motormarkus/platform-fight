@@ -25,13 +25,17 @@ public class MusicPlayer : MonoBehaviour
     float overMix, overTarget, overFade = 1f;
 
     /// Soita kappale muun musiikin tilalle (häivytys fade sekunnissa).
-    public static void PlayOverride(AudioClip clip, float fade = 1.5f)
+    public static void PlayOverride(AudioClip clip, float fade = 1.5f, bool loop = true)
     {
         if (Instance == null || clip == null) return;
         var m = Instance;
+        m.overSource.loop = loop;
         m.overSource.clip = clip; m.overSource.time = 0f; m.overSource.Play();
         m.overTarget = 1f; m.overFade = Mathf.Max(0.01f, fade);
     }
+
+    /// Soiko erillinen kappale (PlayOverride) vielä? Silmukatta soitettu kappale päättyy itsestään.
+    public static bool OverridePlaying => Instance != null && Instance.overSource.isPlaying;
 
     /// Häivytä erillinen kappale pois (fade sekunnissa), kenttämusiikki palaa.
     public static void StopOverride(float fade = 3f)

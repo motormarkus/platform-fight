@@ -2203,6 +2203,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -3542,6 +3543,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -4334,6 +4336,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -4983,6 +4986,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -5328,6 +5332,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &66782300
 Transform:
   m_ObjectHideFlags: 0
@@ -5432,6 +5437,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &70000872
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,6 +6164,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -7277,6 +7284,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -7372,6 +7380,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &108637698
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,6 +7468,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &111409870
 GameObject:
   m_ObjectHideFlags: 0
@@ -8209,6 +8219,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -8931,6 +8942,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -10668,6 +10680,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -10839,6 +10852,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &157968227
 Transform:
   m_ObjectHideFlags: 0
@@ -11628,6 +11642,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -11814,6 +11829,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &159684770
 Transform:
   m_ObjectHideFlags: 0
@@ -13306,6 +13322,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -13582,6 +13599,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &194437103
 Transform:
   m_ObjectHideFlags: 0
@@ -14094,6 +14112,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -14525,6 +14544,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &199093743
 GameObject:
   m_ObjectHideFlags: 0
@@ -14794,6 +14814,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &200486188
 GameObject:
   m_ObjectHideFlags: 0
@@ -14881,6 +14902,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &205689919
 GameObject:
   m_ObjectHideFlags: 0
@@ -15386,6 +15408,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &208618845
 GameObject:
   m_ObjectHideFlags: 0
@@ -15976,6 +15999,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17798,6 +17822,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17969,6 +17994,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &243288598
 Transform:
   m_ObjectHideFlags: 0
@@ -19306,6 +19332,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -19401,6 +19428,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &279527939
 GameObject:
   m_ObjectHideFlags: 0
@@ -19652,6 +19680,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &284482693
 GameObject:
   m_ObjectHideFlags: 0
@@ -20423,6 +20452,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -21368,6 +21398,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -21880,6 +21911,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -23082,6 +23114,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -23756,6 +23789,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -25992,6 +26026,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -26587,6 +26622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: EL LOIPPARI
   npcName: Sohvi
@@ -27255,6 +27291,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -27367,6 +27404,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &371053374
 GameObject:
   m_ObjectHideFlags: 0
@@ -27856,6 +27894,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -28712,6 +28751,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -29113,6 +29153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 1
   title: TIKI-BAARI
   npcName: Barmaani
@@ -29735,6 +29776,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -30526,6 +30568,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &404313895
 Transform:
   m_ObjectHideFlags: 0
@@ -30903,6 +30946,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &415378644
 GameObject:
   m_ObjectHideFlags: 0
@@ -32189,6 +32233,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -32269,6 +32314,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &426826704
 Transform:
   m_ObjectHideFlags: 0
@@ -32802,6 +32848,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -33748,6 +33795,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -34412,6 +34460,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -34932,6 +34981,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -35889,6 +35939,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -35984,6 +36035,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &472749327
 GameObject:
   m_ObjectHideFlags: 0
@@ -36147,6 +36199,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &474585135
 Transform:
   m_ObjectHideFlags: 0
@@ -36650,6 +36703,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -37361,6 +37415,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -38552,6 +38607,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -39623,6 +39679,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -40472,6 +40529,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -40771,6 +40829,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &542521997
 Transform:
   m_ObjectHideFlags: 0
@@ -43902,6 +43961,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -44723,6 +44783,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -47397,6 +47458,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &631027142
 Transform:
   m_ObjectHideFlags: 0
@@ -47909,6 +47971,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -48603,6 +48666,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -50423,6 +50487,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -50919,6 +50984,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &673947071
 GameObject:
   m_ObjectHideFlags: 0
@@ -51812,6 +51878,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -52501,6 +52568,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53180,6 +53248,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53292,6 +53361,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &693739918
 GameObject:
   m_ObjectHideFlags: 0
@@ -55133,6 +55203,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -56008,6 +56079,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -56179,6 +56251,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &737579329
 GameObject:
   m_ObjectHideFlags: 0
@@ -56673,6 +56746,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &743067298
 Transform:
   m_ObjectHideFlags: 0
@@ -56965,6 +57039,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &747773124
 GameObject:
   m_ObjectHideFlags: 0
@@ -57674,6 +57749,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -58446,6 +58522,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -59475,6 +59552,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -60181,6 +60259,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -60418,6 +60497,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &792399901
 Transform:
   m_ObjectHideFlags: 0
@@ -61573,6 +61653,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &821615160
 Transform:
   m_ObjectHideFlags: 0
@@ -61859,6 +61940,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &826437592
 GameObject:
   m_ObjectHideFlags: 0
@@ -62437,6 +62519,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -62640,6 +62723,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &835195521
 GameObject:
   m_ObjectHideFlags: 0
@@ -63681,6 +63765,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -63779,6 +63864,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &861026372
 Transform:
   m_ObjectHideFlags: 0
@@ -64640,6 +64726,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &875972297
 Transform:
   m_ObjectHideFlags: 0
@@ -65230,6 +65317,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &894259241
 Transform:
   m_ObjectHideFlags: 0
@@ -65406,6 +65494,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &901886298
 Transform:
   m_ObjectHideFlags: 0
@@ -66872,6 +66961,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -67991,6 +68081,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -68639,6 +68730,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -69719,6 +69811,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -69996,6 +70089,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &948927756
 GameObject:
   m_ObjectHideFlags: 0
@@ -70075,6 +70169,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &948927758
 Transform:
   m_ObjectHideFlags: 0
@@ -70866,6 +70961,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -71439,6 +71535,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -72069,6 +72166,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -72428,6 +72526,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &978644855
 GameObject:
   m_ObjectHideFlags: 0
@@ -72825,6 +72924,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &991606431
 Transform:
   m_ObjectHideFlags: 0
@@ -73794,6 +73894,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -74440,6 +74541,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -75137,6 +75239,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -75977,6 +76080,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1041497362
 Transform:
   m_ObjectHideFlags: 0
@@ -76562,6 +76666,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -77067,6 +77172,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1065261839
 Transform:
   m_ObjectHideFlags: 0
@@ -78102,6 +78208,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -78514,6 +78621,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1080875009
 Transform:
   m_ObjectHideFlags: 0
@@ -78686,6 +78794,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1083422720
 Transform:
   m_ObjectHideFlags: 0
@@ -79105,6 +79214,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1087626672
 Transform:
   m_ObjectHideFlags: 0
@@ -82374,6 +82484,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -83176,6 +83287,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1166283934
 Transform:
   m_ObjectHideFlags: 0
@@ -83837,6 +83949,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84617,6 +84730,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84789,6 +84903,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1178451008
 Transform:
   m_ObjectHideFlags: 0
@@ -85127,6 +85242,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1184582323
 Transform:
   m_ObjectHideFlags: 0
@@ -85714,6 +85830,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1200903211
 GameObject:
   m_ObjectHideFlags: 0
@@ -86141,6 +86258,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1206308363
 Transform:
   m_ObjectHideFlags: 0
@@ -86362,6 +86480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 1
   title: COCKTAIL-KOJU
   npcName: Pablo
@@ -86688,6 +86807,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1215152186
 GameObject:
   m_ObjectHideFlags: 0
@@ -86953,6 +87073,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1222051124
 GameObject:
   m_ObjectHideFlags: 0
@@ -87491,6 +87612,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1239363374
 Transform:
   m_ObjectHideFlags: 0
@@ -88639,6 +88761,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -89441,6 +89564,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -89837,6 +89961,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1278710742
 Transform:
   m_ObjectHideFlags: 0
@@ -92140,6 +92265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 8986.411, y: 0.37553543}
   hasBoardAt: 1
+  boardDoor: {fileID: 0}
   ownItemsOnly: 1
   title: PANTTILAINAAMO
   npcName: Helvi
@@ -93584,6 +93710,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -94798,6 +94925,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1408846752
 Transform:
   m_ObjectHideFlags: 0
@@ -94887,6 +95015,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1409664448
 Transform:
   m_ObjectHideFlags: 0
@@ -95513,6 +95642,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1420272789
 Transform:
   m_ObjectHideFlags: 0
@@ -95791,6 +95921,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1424989682
 Transform:
   m_ObjectHideFlags: 0
@@ -96275,6 +96406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: SALONGIN BAARI
   npcName: Sohvi
@@ -96934,6 +97066,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -97515,6 +97648,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -98810,6 +98944,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -100519,6 +100654,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -100969,6 +101105,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1502347559
 GameObject:
   m_ObjectHideFlags: 0
@@ -101597,6 +101734,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -103018,6 +103156,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1540655461
 Transform:
   m_ObjectHideFlags: 0
@@ -103107,6 +103246,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1543841450
 Transform:
   m_ObjectHideFlags: 0
@@ -103709,6 +103849,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -104122,6 +104263,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1557275342
 Transform:
   m_ObjectHideFlags: 0
@@ -104652,6 +104794,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -104838,6 +104981,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1560784442
 Transform:
   m_ObjectHideFlags: 0
@@ -105723,6 +105867,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -107760,6 +107905,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -108409,6 +108555,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -108933,6 +109080,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -109604,6 +109752,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1613815596
 Transform:
   m_ObjectHideFlags: 0
@@ -110350,6 +110499,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1631118199
 GameObject:
   m_ObjectHideFlags: 0
@@ -110708,6 +110858,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1646475011
 Transform:
   m_ObjectHideFlags: 0
@@ -111782,6 +111933,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -112475,6 +112627,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -113360,6 +113513,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -113773,6 +113927,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1686539288
 Transform:
   m_ObjectHideFlags: 0
@@ -115171,6 +115326,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -115975,6 +116131,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1717926109
 Transform:
   m_ObjectHideFlags: 0
@@ -116064,6 +116221,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1717965527
 Transform:
   m_ObjectHideFlags: 0
@@ -116127,6 +116285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: LAIVAN BAARI
   npcName: Sohvi
@@ -116900,6 +117059,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -117086,6 +117246,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1731682140
 GameObject:
   m_ObjectHideFlags: 0
@@ -117255,6 +117416,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1737289036
 GameObject:
   m_ObjectHideFlags: 0
@@ -117327,6 +117489,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1737289038
 Transform:
   m_ObjectHideFlags: 0
@@ -117505,6 +117668,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1741680298
 Transform:
   m_ObjectHideFlags: 0
@@ -117776,6 +117940,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1751370908
 Transform:
   m_ObjectHideFlags: 0
@@ -118823,6 +118988,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -119341,6 +119507,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -119942,6 +120109,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1779458684
 GameObject:
   m_ObjectHideFlags: 0
@@ -120369,6 +120537,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1782963275
 Transform:
   m_ObjectHideFlags: 0
@@ -121214,6 +121383,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -121807,6 +121977,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -123360,6 +123531,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -123992,6 +124164,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -124506,6 +124679,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -124601,6 +124775,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1833729557
 Transform:
   m_ObjectHideFlags: 0
@@ -126350,6 +126525,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -128209,6 +128385,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -129210,6 +129387,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1913575934
 GameObject:
   m_ObjectHideFlags: 0
@@ -131633,6 +131811,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -132353,6 +132532,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -132999,6 +133179,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -133627,6 +133808,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -134823,6 +135005,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2010397540
 Transform:
   m_ObjectHideFlags: 0
@@ -135192,6 +135375,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2032017994
 Transform:
   m_ObjectHideFlags: 0
@@ -136222,6 +136406,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -136760,6 +136945,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -137690,6 +137876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
   boardAt: {x: 0, y: 0}
   hasBoardAt: 0
+  boardDoor: {fileID: 0}
   ownItemsOnly: 0
   title: RUOKAKOJU
   npcName: Mama
@@ -138298,6 +138485,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -138822,6 +139010,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -139308,6 +139497,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2075715632
 Transform:
   m_ObjectHideFlags: 0
@@ -139929,6 +140119,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -140550,6 +140741,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -141062,6 +141254,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -142496,6 +142689,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -143020,6 +143214,7 @@ MonoBehaviour:
   pieOnly: 0
   pieFightRate: 0.05
   retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -143568,6 +143763,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2124199984
 Transform:
   m_ObjectHideFlags: 0

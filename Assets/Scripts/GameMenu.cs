@@ -171,7 +171,7 @@ public class GameMenu : MonoBehaviour
 
     void Update()
     {
-        if (PokerService.BlocksCombat || (StarShooter.Active || KarateGame.Active)) return;
+        if (PokerService.BlocksCombat || (StarShooter.Active || KarateGame.Active || FlipperGame.Active)) return;
         if (page == Page.None)
         {
             var pc = Players.Primary;

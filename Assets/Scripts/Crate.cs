@@ -543,6 +543,6 @@ public class Crate : MonoBehaviour
             return breakSprites[Mathf.Min((int)(stateTime / breakFrameTime), breakSprites.Length - 1)];
         if (state == State.Breaking)
             return sprites[Mathf.Min(stateTime < 0.12f ? 3 : 4, sprites.Length - 1)];
-        return sprites[Mathf.Min(hits, Mathf.Min(2, sprites.Length - 1))];
+        return sprites[Mathf.Min(hits * 3 / Mathf.Max(1, hitsToBreak), Mathf.Min(2, sprites.Length - 1))];   // vaurioaste jakautuu iskumäärän yli (3 iskua: 0,1,2; 10 iskua: n. 0-3, 4-6, 7-9)
     }
 }

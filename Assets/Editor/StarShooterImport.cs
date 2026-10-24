@@ -9,6 +9,14 @@ public class StarShooterImport : AssetPostprocessor
         string ap = assetPath.Replace('\\', '/');
         bool sini = ap.StartsWith("Assets/Resources/Sini/") || ap.StartsWith("Assets/Resources/Dina/");
         bool karate = ap.StartsWith("Assets/Resources/Karate/");
+        if (ap.StartsWith("Assets/Resources/Flipper/"))
+        {
+            var fi = (TextureImporter)assetImporter;
+            fi.textureType = TextureImporterType.Default; fi.alphaIsTransparency = true; fi.mipmapEnabled = false;
+            fi.filterMode = FilterMode.Bilinear; fi.wrapMode = TextureWrapMode.Clamp; fi.npotScale = TextureImporterNPOTScale.None;
+            fi.isReadable = false; fi.maxTextureSize = 2048; fi.textureCompression = TextureImporterCompression.Uncompressed;
+            return;
+        }
         if (!sini && !karate && !ap.StartsWith("Assets/Resources/TahtiPyssy/") && !ap.StartsWith("Assets/Resources/Pelihalli/")) return;
         var ti = (TextureImporter)assetImporter;
         if (karate)

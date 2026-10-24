@@ -17924,7 +17924,7 @@ public static class BeatEmUpSetup
     // ---------------- Pelihalli (ensimmäisen kadun jatko) ----------------
     // pelihalli_sisa.png: vasen pääty + oikea kanttiinipääty yhdistettynä (Tools/ArcadeAssets/stitch_pelihalli.py), 3545 x 819.
     const string ArcadePath = "Assets/Sprites/Taustat/pelihalli_sisa.png";
-    const float ArcadeWalkMinPx = 230f, ArcadeWalkMaxPx = 3330f;       // lattia kuvassa: seinät/ovet jäävät rajan ulkopuolelle
+    const float ArcadeWalkMinPx = 110f, ArcadeWalkMaxPx = 3330f;       // lattia kuvassa: seinät/ovet jäävät rajan ulkopuolelle
     const float ArcadeX0 = 56000f, ArcadeScale = 1.1f;                 // maailma suurennetaan kuten klubissa (katto jää osin kuvan ulkopuolelle)
     const float ArcadeFloorPx = 585f, ArcadeExitPx = 130f, ArcadeEnterPx = 400f;   // takaseinän juuri, vasen ovi (ulos), sisääntulopaikka
     const float ArcadeCounterPx = 2530f, ArcadeCounterHalfPx = 620f, ArcadeCounterTopPx = 490f;   // kanttiinin tiski (keskikohta, puolileveys, yläreuna)
@@ -18021,7 +18021,8 @@ public static class BeatEmUpSetup
     // ---------------- Pelihallin koneet (rikkoutuvat, heitettävät) ja väki ----------------
     static readonly (string name, string id, float px, float ppu)[] ArcadeMachineSpecs =
     {
-        ("Turpaan Vaan", "turpaan", 520f, 61.5f), ("Turboralli", "ralli", 960f, 60f), ("Flipper Flapper", "flipper", 1400f, 67.7f),   // 30 % isommat kuin ensimmäinen versio (ppu / 1,3), väliä lisätty
+        ("Turpaan Vaan", "turpaan", 380f, 61.5f), ("Turboralli", "ralli", 670f, 60f), ("Flipper Flapper", "flipper", 960f, 67.7f),   // 30 % isommat kuin ensimmäinen versio (ppu / 1,3)
+        ("Chasedr1ft", "chasedrift", 1250f, 0f), ("Daccle", "daccle", 1540f, 0f),   // ppu 0 = korkeus lasketaan kuvasta (sama korkeus kuin Turpaan Vaanilla); Tähtipyssy on 1830
     };
 
     [MenuItem("Beat em up/254. Pelihalli: pelikoneet (Turpaan Vaan, Turboralli, Flipper Flapper rikkoutuvat ja ovat heitettäviä tappelussa; Tähtipyssy-kone)")]
@@ -18037,8 +18038,15 @@ public static class BeatEmUpSetup
         var root = new GameObject("Pelihallin pelikoneet");
         Undo.RegisterCreatedObjectUndo(root, "Pelikoneet");
         var report = new List<string>();
-        foreach (var sp in ArcadeMachineSpecs)
+        foreach (var spec in ArcadeMachineSpecs)
         {
+            var sp = spec;
+            if (sp.ppu <= 0f)
+            {
+                var t0 = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Sprites/Pelihalli/kone_" + sp.id + "_0.png");
+                if (t0 == null) { report.Add(sp.name + ": puuttuu kone_" + sp.id + "_0.png (aja Tools/ArcadeAssets/slice_machine_break.py)"); continue; }
+                sp.ppu = t0.height / 3.97f;   // sama korkeus kuin Turpaan Vaan -koneella (244 px / 61,5)
+            }
             var frames = new Sprite[6];
             for (int k = 0; k < 6; k++)
             {
@@ -18058,13 +18066,14 @@ public static class BeatEmUpSetup
             c.body = vis; c.shadow = sh; vis.sprite = frames[0];
             c.sprites = new[] { frames[0], frames[1], frames[2] };          // ehjä, halkeaa, pahasti rikki
             c.breakSprites = new[] { frames[3], frames[4], frames[5] };      // hajoaa, romuaa, romukasa
-            c.breakable = true; c.hitsToBreak = 3; c.breakFrameTime = 0.13f; c.debrisTime = 12f;
+            c.breakable = true; c.hitsToBreak = 10; c.breakFrameTime = 0.13f; c.debrisTime = 12f;   // kone kestää kymmenkunta osumaa
             c.visualScale = 1f; c.footOffset = 0.02f; c.shadowWidth = 2.8f;
             c.carryLower = frames[0].rect.height / sp.ppu * 0.45f; c.plowThrough = true;   // heitettynä kaataa kaikki tieltään
             c.hitRadiusX = 1.3f; c.throwDamage = 26;
             c.moneyChance = 0.3f; c.energyChance = 0f; c.foodChance = 0f; c.thermosChance = 0f;   // ruokaa vain kaupasta
             c.anchored = true; c.immune = true;   // koskemattomia, kunnes hallin tappelu alkaa (valikko 255)
             if (sp.id == "turpaan") AttachKarate(go);
+            if (sp.id == "flipper") AttachPinball(go);
         }
         // Tähtipyssy-kone (E käynnistää pelin; oma kaappikuva puuttuu, joten ruutu seinällä)
         var sgo = new GameObject("Kone: Tähtipyssy");
@@ -18083,6 +18092,25 @@ public static class BeatEmUpSetup
         var am = machine.GetComponent<ArcadeMachine>() ?? machine.AddComponent<ArcadeMachine>();
         am.game = ArcadeMachine.Game.Karate; am.noScreen = true; am.machineName = "Turpaan Vaan";
         EditorUtility.SetDirty(am);
+    }
+
+    static void AttachPinball(GameObject machine)
+    {
+        var am = machine.GetComponent<ArcadeMachine>() ?? machine.AddComponent<ArcadeMachine>();
+        am.game = ArcadeMachine.Game.Pinball; am.noScreen = true; am.machineName = "Flipper Flapper";
+        EditorUtility.SetDirty(am);
+    }
+
+    [MenuItem("Beat em up/260. Pelihalli: Flipper Flapper -kone käynnistää flipperin")]
+    static void AddPinballToMachine()
+    {
+        if (PlayModeBlocked()) return;
+        var crate = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.name == "Kone: Flipper Flapper");
+        if (crate == null) { Info("Koneelta 'Kone: Flipper Flapper' ei löytynyt. Aja ensin valikko 254."); return; }
+        AttachPinball(crate.gameObject);
+        EditorSceneManager.MarkSceneDirty(crate.gameObject.scene);
+        Selection.activeGameObject = crate.gameObject;
+        Info("Flipper Flapper -kone käynnistää nyt flipperin (E koneen edessä). Tallenna scene (Ctrl+S).");
     }
 
     [MenuItem("Beat em up/259. Pelihalli: Turpaan Vaan -kone käynnistää karatepelin (ei vaadi 254:n uudelleenajoa)")]
@@ -18302,6 +18330,204 @@ public static class BeatEmUpSetup
         Info("Dina lisätty halliin: hän kävelee, käy kanttiinin tiskillä, tanssii ja juttelee Sinin ja muiden kanssa. E lähellä: hän kertoo Tähtipyssy-ennätyksestään (Dina Record = 30000, säädä Inspectorissa; pelin pisteet eivät ole vielä tiedossa). Kun pelaajan paras tulos ylittää sen, Dina antaa palkinnon (Reward Money, nyt 0: palkinto on vielä päättämättä; ArcadeSini.RecordBeaten-tapahtumaan voi kytkeä mitä vain)." + (sini == null ? "\n\nSiniä ei löytynyt (valikko 256): he eivät vielä jutele keskenään. Aja 256 ja sen jälkeen 257 uudestaan." : "\n\nSini ja Dina on yhdistetty juttelemaan keskenään.") + "\n\nTallenna scene (Ctrl+S).");
     }
 
+    // ---------------- Sinin ja Dinan kämppä (pelihallin yläkerta) ----------------
+    const float FlatZoom = 0.78f;   // kämpän koko: 22 % pienempi kuin ennen
+    const float FlatX0 = 64000f, FlatFloorPx = 520f, FlatDoorPx = 155f, HallFlatDoorPx = 3425f;
+    const string FlatPath = "Assets/Sprites/Taustat/kampa.png";
+    static readonly Vector2 FlatWindowPx = new Vector2(3060f, 250f);   // olohuoneen ikkunoiden keskikohta kampa.png:ssä (x, rivi)
+
+    [MenuItem("Beat em up/261. Pelihalli: Sinin ja Dinan kämppä yläkerrassa (ovi hallin oikeassa reunassa, lukossa kunnes Sini kutsuu; Sini ja Dina kotona)")]
+    public static void CreateFlat()
+    {
+        if (PlayModeBlocked()) return;
+        var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Pelihalli");
+        var ti = AssetImporter.GetAtPath(FlatPath) as TextureImporter;
+        if (hall == null || ti == null) { Info("Tarvitaan pelihalli (valikko 253) ja " + FlatPath + " (kämpän taustakuva)."); return; }
+        if (Resources.Load<Texture2D>("Sini/walk_00") == null ) { Info("Puuttuu Assets/Resources/Sini tai Dina (hahmojen kuvat)."); return; }
+        var scene = hall.gameObject.scene;
+        // vanhat pois
+        foreach (var n in new[] { "Kämppä", "Pelihallin yläkerran ovi", "Kämpän Sini", "Kämpän Dina", "Makkari", "Olohuoneesta makkariin", "Makkarista olohuoneeseen" })
+            foreach (var o in scene.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
+
+        ti.GetSourceTextureWidthAndHeight(out int w, out int h);
+        float ppu = h / (2f * CamHalf) / ArcadeScale / FlatZoom;   // huone pienempi: kamera lähempää, hahmot suhteessa isompia
+        ti.textureType = TextureImporterType.Sprite; ti.spriteImportMode = SpriteImportMode.Single;
+        ti.spritePixelsPerUnit = ppu; ti.filterMode = FilterMode.Bilinear;
+        ti.textureCompression = TextureImporterCompression.Uncompressed; ti.maxTextureSize = 4096;
+        ti.mipmapEnabled = false; ti.alphaIsTransparency = true; ti.SaveAndReimport();   // ikkunalasit ovat läpinäkyviä
+        var spr = AssetDatabase.LoadAssetAtPath<Sprite>(FlatPath);
+        float camS = CamHalf * FlatZoom;
+        float wU = w / ppu, hU = h / ppu, halfW = camS * 16f / 9f;
+        float top = CamY - camS + hU;
+        float X(float px) => FlatX0 + px / ppu;
+        float Y(float row) => top - row / ppu;
+
+        var root = new GameObject("Kämppä");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+        Undo.RegisterCreatedObjectUndo(root, "Kämppä");
+        var bg = new GameObject("Kämpän tausta"); bg.transform.SetParent(root.transform, false);
+        var sr = bg.AddComponent<SpriteRenderer>(); sr.sprite = spr; sr.sortingOrder = -10000;
+        bg.transform.position = new Vector3(FlatX0 + wU * 0.5f, top - hU * 0.5f, 0f);
+
+        var area = ReuseArea("Alue: Kämppä");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(area.gameObject, scene);
+        area.areaName = "Kämppä";
+        area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Sini ja Dinan asunto.mp3");   // asunnon oma musiikki
+
+        // yökaupunki olohuoneen ikkunoiden takana (lasit ovat taustakuvassa läpinäkyviä); liikkuu hitaasti kameraa vasten
+        const string cityPath = "Assets/Sprites/Taustat/kampa_yo_kaupunki.png";
+        var winCenter = new Vector2(X(FlatWindowPx.x), Y(FlatWindowPx.y));
+        var cityTi = AssetImporter.GetAtPath(cityPath) as TextureImporter;
+        if (cityTi != null)
+        {
+            cityTi.textureType = TextureImporterType.Sprite; cityTi.spriteImportMode = SpriteImportMode.Single;
+            cityTi.spritePixelsPerUnit = ppu; cityTi.filterMode = FilterMode.Bilinear;
+            cityTi.textureCompression = TextureImporterCompression.Uncompressed; cityTi.mipmapEnabled = false; cityTi.SaveAndReimport();
+            var cg = new GameObject("Yökaupunki"); cg.transform.SetParent(root.transform, false);
+            var csr = cg.AddComponent<SpriteRenderer>(); csr.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(cityPath); csr.sortingOrder = -10200;
+            // kuva siirretty niin, että kuu ja siluetti osuvat ikkunoihin (px: vasemmalle 240, alas 97)
+            var cityAnchor = winCenter + new Vector2(-240f, -97f) / ppu;
+            cg.transform.position = new Vector3(cityAnchor.x, cityAnchor.y, 0f);
+            var fx = cg.AddComponent<InteriorWindowParallax>();
+            fx.area = area; fx.anchor = cityAnchor; fx.cameraReference = new Vector2(winCenter.x, CamY); fx.factor = 0.9f;
+        }
+
+        // sohva omana esineenään taustan sohvan päällä: hahmot kulkevat sen edestä tai takaa syvyyden mukaan
+        const string sofaPath = "Assets/Sprites/Taustat/kampa_sohva.png";
+        var sofaTi = AssetImporter.GetAtPath(sofaPath) as TextureImporter;
+        if (sofaTi != null)
+        {
+            sofaTi.GetSourceTextureWidthAndHeight(out int sofaW, out int sofaH);
+            EnsureBottomPivotSprite(sofaPath, sofaW / (620f / ppu));   // taustan sohva on noin 620 px leveä
+            var sofaSprite = AssetDatabase.LoadAssetAtPath<Sprite>(sofaPath);
+            if (sofaSprite != null)
+            {
+                var sofa = new GameObject("Sohva"); sofa.transform.SetParent(root.transform, false);
+                sofa.transform.position = new Vector3(X(855f), Y(534f), 0f);
+                var sofaSr = sofa.AddComponent<SpriteRenderer>(); sofaSr.sprite = sofaSprite;
+                sofaSr.sortingOrder = Mathf.RoundToInt(-sofa.transform.position.y * 100f);
+            }
+        }
+
+        area.useSidewalk = false;
+        area.maxDepthY = Y(FlatFloorPx);
+        area.minDepthY = CamY - camS + 0.9f;
+        area.camSize = camS; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f;
+        area.camMinX = FlatX0 + halfW;
+        area.camMaxX = Mathf.Max(area.camMinX, FlatX0 + wU - halfW);
+        area.walkMinX = X(90f); area.walkMaxX = X(w - 90f);
+        area.depthLimits = new Vector2[0];
+        EditorUtility.SetDirty(area);
+
+        // ovet: hallin oikea reuna -> kämppä (lukossa kunnes Sini on kutsunut) ja kämpän etuovi -> halliin
+        float hallPpu = 819f / (2f * CamHalf) / ArcadeScale;
+        float HX(float px) => ArcadeX0 + px / hallPpu;
+        var up = new GameObject("Pelihallin yläkerran ovi").AddComponent<Door>();
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(up.gameObject, scene);
+        Undo.RegisterCreatedObjectUndo(up.gameObject, "Ovi");
+        up.transform.position = new Vector3(HX(HallFlatDoorPx), hall.maxDepthY, 0f);
+        up.prompt = "Mene yläkertaan";
+        up.here = hall; up.target = area;
+        up.spawnPoint = new Vector2(X(330f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f));
+        up.halfWidth = 2.6f; up.maxDistanceFromWall = 4f;
+        up.requiredClue = ArcadeSini.InviteClue;
+        up.lockedClueText = "Ovi on lukossa. Yläkerrassa asuu joku, mutta sinua ei ole vielä kutsuttu.";
+        var down = new GameObject("Kämpältä halliin").AddComponent<Door>();
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(down.gameObject, scene);
+        Undo.RegisterCreatedObjectUndo(down.gameObject, "Ovi");
+        down.transform.position = new Vector3(X(FlatDoorPx), area.maxDepthY, 0f);
+        down.prompt = "Mene alas halliin";
+        down.here = area; down.target = hall;
+        down.returnToLastDoor = true;
+        down.spawnPoint = new Vector2(HX(HallFlatDoorPx - 140f), hall.maxDepthY - 1.2f);
+        down.halfWidth = 2.6f; down.maxDistanceFromWall = 4f;
+
+        // Sini ja Dina kotona (keittiön tason luona kahvit)
+        var kitchenSpots = new[] { X(1672f + 560f), X(1672f + 700f), X(1672f + 840f) };
+        var sGo = new GameObject("Kämpän Sini");
+        UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sGo, scene);
+        Undo.RegisterCreatedObjectUndo(sGo, "Sini");
+        var sini = sGo.AddComponent<ArcadeSini>();
+        sini.area = area; sini.home = true;
+        sini.laneMinX = X(420f); sini.laneMaxX = X(w - 300f);
+        sini.counterXs = kitchenSpots;
+        sGo.transform.position = new Vector3(X(1672f + 700f), area.maxDepthY - 1.4f, 0f);
+        EditorUtility.SetDirty(sini);
+
+        // ---- makkari: oma alue (kohtauksen jälkeen peli jatkuu täältä), ovi olohuoneen harmaasta ovesta ----
+        const float BedZoom = 0.62f;   // makkari: kamera vielä lähempää (huone pienempi, hahmot isompia)
+        float ppuB = h / (2f * CamHalf) / ArcadeScale / BedZoom, camSB = CamHalf * BedZoom;
+        float hUB = h / ppuB, halfWB = camSB * 16f / 9f, topB = CamY - camSB + hUB;
+        float YB(float row) => topB - row / ppuB;
+        const string bedPath = "Assets/Sprites/Taustat/kampa_makuuhuone.png";
+        const float BedDX = 500f, BedW = 1672f, BedWindowX = 835f, BedWindowRow = 222f;
+        var bedTi = AssetImporter.GetAtPath(bedPath) as TextureImporter;
+        if (bedTi != null)
+        {
+            bedTi.textureType = TextureImporterType.Sprite; bedTi.spriteImportMode = SpriteImportMode.Single;
+            bedTi.spritePixelsPerUnit = ppuB; bedTi.filterMode = FilterMode.Bilinear; bedTi.alphaIsTransparency = true;
+            bedTi.textureCompression = TextureImporterCompression.Uncompressed; bedTi.mipmapEnabled = false; bedTi.SaveAndReimport();
+            float BX(float px) => FlatX0 + BedDX + px / ppuB;
+            float bedWU = BedW / ppuB;
+            var bedRoot = new GameObject("Makkari");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bedRoot, scene);
+            Undo.RegisterCreatedObjectUndo(bedRoot, "Makkari");
+            var bedBg = new GameObject("Makkarin tausta"); bedBg.transform.SetParent(bedRoot.transform, false);
+            var bedSr = bedBg.AddComponent<SpriteRenderer>(); bedSr.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(bedPath); bedSr.sortingOrder = -10000;
+            bedBg.transform.position = new Vector3(FlatX0 + BedDX + bedWU * 0.5f, topB - hUB * 0.5f, 0f);
+
+            var bedArea = ReuseArea("Alue: Makkari");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bedArea.gameObject, scene);
+            bedArea.areaName = "Makkari";
+            bedArea.music = area.music;
+            bedArea.useSidewalk = false;
+            bedArea.maxDepthY = YB(800f);
+            bedArea.minDepthY = CamY - camSB + 0.9f;
+            bedArea.camSize = camSB; bedArea.camRiseY = 0f; bedArea.camOffsetY = 0f; bedArea.backScale = 1f;
+            bedArea.camMinX = FlatX0 + BedDX + halfWB;
+            bedArea.camMaxX = Mathf.Max(bedArea.camMinX, FlatX0 + BedDX + bedWU - halfWB);
+            bedArea.walkMinX = BX(120f); bedArea.walkMaxX = BX(BedW - 120f);
+            bedArea.depthLimits = new Vector2[0];
+            EditorUtility.SetDirty(bedArea);
+
+            // yökaupunki makkarin ikkunan taakse (kuu ikkunassa)
+            if (cityTi != null)
+            {
+                var bcg = new GameObject("Yökaupunki makkari"); bcg.transform.SetParent(bedRoot.transform, false);
+                var bcs = bcg.AddComponent<SpriteRenderer>(); bcs.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(cityPath); bcs.sortingOrder = -10200;
+                var bWin = new Vector2(BX(BedWindowX), YB(BedWindowRow));
+                var bAnchor = bWin + new Vector2(-204f, 147f) / ppuB;
+                bcg.transform.position = new Vector3(bAnchor.x, bAnchor.y, 0f);
+                bcg.transform.localScale = Vector3.one * (ppu / ppuB);   // kaupungin kuva on tuotu olohuoneen mittakaavassa
+                var bfx = bcg.AddComponent<InteriorWindowParallax>();
+                bfx.area = bedArea; bfx.anchor = bAnchor; bfx.cameraReference = new Vector2(bWin.x, CamY); bfx.factor = 0.9f;
+            }
+
+            // olohuoneen harmaa ovi -> makkari; makkarin vasen reuna -> takaisin
+            var toBed = new GameObject("Olohuoneesta makkariin").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(toBed.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(toBed.gameObject, "Ovi");
+            toBed.transform.position = new Vector3(X(1935f), area.maxDepthY, 0f);
+            toBed.prompt = "Mene makuuhuoneeseen";
+            toBed.here = area; toBed.target = bedArea;
+            toBed.spawnPoint = new Vector2(BX(BedWindowX), Mathf.Lerp(bedArea.maxDepthY, bedArea.minDepthY, 0.3f));
+            toBed.halfWidth = 2.6f; toBed.maxDistanceFromWall = 4f;
+            var fromBed = new GameObject("Makkarista olohuoneeseen").AddComponent<Door>();
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(fromBed.gameObject, scene);
+            Undo.RegisterCreatedObjectUndo(fromBed.gameObject, "Ovi");
+            fromBed.transform.position = new Vector3(BX(150f), bedArea.maxDepthY, 0f);
+            fromBed.prompt = "Mene olohuoneeseen";
+            fromBed.here = bedArea; fromBed.target = area;
+            fromBed.returnToLastDoor = true;
+            fromBed.spawnPoint = new Vector2(X(1935f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f));
+            fromBed.halfWidth = 2.6f; fromBed.maxDistanceFromWall = 4f;
+        }
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        Selection.activeGameObject = root;
+        Info("Kämppä luotu hallin yläkertaan (olohuone ja keittiö, x " + FlatX0 + "…). Ovi hallin oikeassa reunassa on lukossa, kunnes Sini on kutsunut sinut kahville (onnistunut piristys hallissa). Sisällä Sini keittää kahvit (E: täysi lepo ensimmäisellä kerralla) (Dina ei ole kotona).\n\nTallenna scene (Ctrl+S).");
+    }
+
     [MenuItem("Beat em up/258. Pelihalli: rajaa päädyt (ei kävelyä seinien yli; väki ja Sini/Dina sisään)")]
     static void ClampArcadeEnds()
     {
@@ -18328,6 +18554,9 @@ public static class BeatEmUpSetup
             var pp = n.transform.position; pp.x = Mathf.Clamp(pp.x, n.laneMinX, n.laneMaxX); n.transform.position = pp;
             EditorUtility.SetDirty(n);
         }
+        // ulosmenovi (vasen ovi): ulottuu koko lattian syvyyteen ja ovi-aukon leveydelle, jotta ovelle pääsee mistä tahansa edestä
+        foreach (var dr in Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (dr.name == "Pelihallista kadulle") { dr.halfWidth = 2.6f; dr.maxDistanceFromWall = 4f; EditorUtility.SetDirty(dr); }
         EditorSceneManager.MarkSceneDirty(hall.gameObject.scene);
         Info("Hallin kävelyrajat: pelkkä lattia (x kuvassa " + ArcadeWalkMinPx + "–" + ArcadeWalkMaxPx + " px). " + moved + " hahmoa siirrettiin sisään; väen kuljeskelualueet, Tomin alue sekä Sinin ja Dinan kaista rajattiin samalla. Vasen poistumisovi toimii edelleen.\n\nTallenna scene (Ctrl+S).");
     }
