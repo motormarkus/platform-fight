@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: f80e48fb6c0c21744a8e9d9e59583ccf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8616999729790836196
+    second: thaitown_lentokentta_katu_3_yla_0
+  - first:
+      213: 832199939037836576
+    second: thaitown_lentokentta_katu_3_yla_1
+  - first:
+      213: -4614022804643920171
+    second: thaitown_lentokentta_katu_3_yla_2
+  - first:
+      213: -4261112262341593003
+    second: thaitown_lentokentta_katu_3_yla_3
+  - first:
+      213: 6856709289057221612
+    second: thaitown_lentokentta_katu_3_yla_4
+  - first:
+      213: -3070147141169824553
+    second: thaitown_lentokentta_katu_3_yla_5
+  - first:
+      213: 950087654363366169
+    second: thaitown_lentokentta_katu_3_yla_6
+  - first:
+      213: -4740455183579592958
+    second: thaitown_lentokentta_katu_3_yla_7
+  - first:
+      213: -1012039919361724244
+    second: thaitown_lentokentta_katu_3_yla_8
+  - first:
+      213: 327151119786308327
+    second: thaitown_lentokentta_katu_3_yla_9
+  - first:
+      213: 8039881402713117805
+    second: thaitown_lentokentta_katu_3_yla_10
+  - first:
+      213: 3689759018984352480
+    second: thaitown_lentokentta_katu_3_yla_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 78.416664
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_0
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 617
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4edd1d3799bb59770800000000000000
+      internalID: 8616999729790836196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025b3747f619c8b00800000000000000
+      internalID: 832199939037836576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 559
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d6c5af84b2b7ffb0800000000000000
+      internalID: -4614022804643920171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 566
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558711749fc7dd4c0800000000000000
+      internalID: -4261112262341593003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 564
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb706e15cce72f50800000000000000
+      internalID: 6856709289057221612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_5
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 580
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc34620175a465d0800000000000000
+      internalID: -3070147141169824553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 582
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91300d710b36f2d00800000000000000
+      internalID: 950087654363366169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_7
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 584
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20744156025863eb0800000000000000
+      internalID: -4740455183579592958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 580
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0fdeb2e0384f1f0800000000000000
+      internalID: -1012039919361724244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_9
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 577
+        width: 61
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2fbbac5364a8400800000000000000
+      internalID: 327151119786308327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_10
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 580
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d641cf4e985639f60800000000000000
+      internalID: 8039881402713117805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_lentokentta_katu_3_yla_11
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 579
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea2b515748a43330800000000000000
+      internalID: 3689759018984352480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thaitown_lentokentta_katu_3_yla_0: 8616999729790836196
+      thaitown_lentokentta_katu_3_yla_1: 832199939037836576
+      thaitown_lentokentta_katu_3_yla_10: 8039881402713117805
+      thaitown_lentokentta_katu_3_yla_11: 3689759018984352480
+      thaitown_lentokentta_katu_3_yla_2: -4614022804643920171
+      thaitown_lentokentta_katu_3_yla_3: -4261112262341593003
+      thaitown_lentokentta_katu_3_yla_4: 6856709289057221612
+      thaitown_lentokentta_katu_3_yla_5: -3070147141169824553
+      thaitown_lentokentta_katu_3_yla_6: 950087654363366169
+      thaitown_lentokentta_katu_3_yla_7: -4740455183579592958
+      thaitown_lentokentta_katu_3_yla_8: -1012039919361724244
+      thaitown_lentokentta_katu_3_yla_9: 327151119786308327
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

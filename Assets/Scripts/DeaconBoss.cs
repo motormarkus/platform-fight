@@ -10,7 +10,7 @@ using UnityEngine;
 /// Kuvat katsovat oikealle. Kuvajärjestykset tulevat editorivalikosta (146).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class DeaconBoss : MonoBehaviour, IEnemyBrain
+public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 {
     [Header("Kuvat (editori täyttää)")]
     public Sprite[] cigarIdle;      // sikari suussa, seisoo
@@ -191,6 +191,17 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain
         }
 
         if (mode >= Mode.Fight) SpeakMaybe();
+    }
+
+    /// Nurkkapurkaus (pomo ajettu nurkkaan): vimmattu sarja, jota ei voi keskeyttää.
+    public void CornerBurst()
+    {
+        if ((mode != Mode.Fight && mode != Mode.Act) || e.Hero == null) return;
+        plan = new List<Step> { new Step(Kind.Jab), new Step(Kind.Jab), new Step(Kind.Cross), new Step(Kind.Jab), new Step(Kind.HookF), new Step(Kind.HookR), new Step(Kind.UpperR, true) };
+        plan.RemoveAll(s => !CanDo(s.kind));
+        if (plan.Count == 0) return;
+        planPos = 0; reactivePlan = false; comboRunning = plan.Count > 1; fastStep = true; dodging = false;
+        StartStep(e.Hero);
     }
 
     /// Enemy.TakeHit kutsuu tätä ensimmäisenä: true = isku ohi (väistö).

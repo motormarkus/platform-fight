@@ -10,7 +10,7 @@ using UnityEngine;
 /// Kuvat katsovat oikealle. Kuvajärjestykset tulevat editorivalikosta (212).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class GustavBrain : MonoBehaviour, IEnemyBrain
+public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 {
     [Header("Kuvat (editori täyttää)")]
     public Sprite[] idle, walk, run;
@@ -137,10 +137,22 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain
         else ActUpdate(dt, hero);
     }
 
+    /// Nurkkapurkaus (pomo ajettu nurkkaan): kirves ja takapotku (selkä kameraan), jota ei voi keskeyttää.
+    public void CornerBurst()
+    {
+        if (mode == Mode.Dormant || mode == Mode.Flee || e.Hero == null || !atks.ContainsKey(Kind.Axe)) return;
+        plan = new List<Step> { new Step(Kind.Axe) };
+        if (atks.ContainsKey(Kind.Spin)) plan.Add(new Step(Kind.Spin, true));
+        planPos = 0; comboRunning = plan.Count > 1; fastStep = false;
+        lastTick = Time.time;
+        StartStep(e.Hero);
+    }
+
     /// Enemy.TakeHit kutsuu tätä ensimmäisenä: true = isku ohi.
     public bool InterceptHit(int damage, float attackerX, bool knockdown)
     {
         if (mode == Mode.Dormant) return false;
+        if (scriptedRun) return true;   // kopteriin juoksevaan ei osu
         if (e.Hero != null && mode != Mode.Flee)
         {
             float now = Time.time;
@@ -477,20 +489,39 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain
         e.IsAwake = false;
     }
 
+    // Katon kohtaus (ThaiFinale): Gustav juoksee kopteriin eikä vahingoitu matkalla
+    bool scriptedRun; float runTargetX;
+
+    public void RunTo(Vector3 from, float targetX)
+    {
+        gameObject.SetActive(true);
+        transform.position = from;
+        e.ClearUndyingFallen();
+        plan.Clear(); comboRunning = false; holding = false;
+        mode = Mode.Flee; fleeT = 0f; scriptedRun = true; runTargetX = targetX;
+        e.IsAwake = false;
+    }
+
     void FleeUpdate(float dt, PlayerController hero)
     {
         fleeT += dt;
+        if (scriptedRun) fleeDir = Mathf.Sign(runTargetX - transform.position.x);
         e.FacingRight = fleeDir > 0f;
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
         Vector3 before = transform.position;
         e.BrainMove(new Vector2(fleeDir * fleeSpeed * dt, 0f));
         CurrentSprite = Loop(Has(run) ? run : walk, runFrameTime);
+        if (scriptedRun)
+        {
+            if (Mathf.Abs(transform.position.x - runTargetX) < 0.5f || fleeT > 15f) { scriptedRun = false; Vanish(); ThaiFinale.OnGustavBoarded(); }
+            return;
+        }
         bool stuck = Mathf.Abs(transform.position.x - before.x) < 0.2f * fleeSpeed * dt && fleeT > 0.6f;
         if (fleeT >= fleeMaxTime || stuck || Mathf.Abs(transform.position.x - hero.transform.position.x) > 18f) Vanish();
     }
 
     /// Gustav poistuu näkyvistä (seuraava kohtaaminen laukaistaan muualla: Appear).
-    void Vanish() { gameObject.SetActive(false); }
+    void Vanish() { gameObject.SetActive(false); ThaiFinale.OnGustavVanished(this); }
 
     /// Uusi kohtaaminen: energia täyteen (hp) ja takaisin taistelutilaan.
     public void Appear(Vector3 pos, int hp)

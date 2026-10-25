@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: fbccb0b95490b1d4c878975482400a84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1481729992086707709
+    second: lentokapteeni_polvi_0
+  - first:
+      213: -1761291709473714516
+    second: lentokapteeni_polvi_1
+  - first:
+      213: 7524416891815848747
+    second: lentokapteeni_polvi_2
+  - first:
+      213: -9149473406317068751
+    second: lentokapteeni_polvi_3
+  - first:
+      213: -1862883315936192308
+    second: lentokapteeni_polvi_4
+  - first:
+      213: 7665646741554081741
+    second: lentokapteeni_polvi_5
+  - first:
+      213: -3689888449220699193
+    second: lentokapteeni_polvi_6
+  - first:
+      213: -1794113593223555990
+    second: lentokapteeni_polvi_7
+  - first:
+      213: -873050634835022489
+    second: lentokapteeni_polvi_8
+  - first:
+      213: -1395862134190149784
+    second: lentokapteeni_polvi_9
+  - first:
+      213: 1695200883064319181
+    second: lentokapteeni_polvi_10
+  - first:
+      213: -9193386276441092389
+    second: lentokapteeni_polvi_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_0
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 906
+        width: 162
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30221a83c66df6be0800000000000000
+      internalID: -1481729992086707709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_1
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 913
+        width: 143
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae8afe9582ae87e0800000000000000
+      internalID: -1761291709473714516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_2
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 913
+        width: 136
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2be1aa0c491c6860800000000000000
+      internalID: 7524416891815848747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_3
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 912
+        width: 142
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e7696b96a860180800000000000000
+      internalID: -9149473406317068751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 464
+        width: 179
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc81f9f7e75b526e0800000000000000
+      internalID: -1862883315936192308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_5
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 464
+        width: 208
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf26fbd819d16a60800000000000000
+      internalID: 7665646741554081741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_6
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 464
+        width: 213
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb126b5102eaccc0800000000000000
+      internalID: -3689888449220699193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_7
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 464
+        width: 205
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64d53d41370a17e0800000000000000
+      internalID: -1794113593223555990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 16
+        width: 181
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76daabfb21d42e3f0800000000000000
+      internalID: -873050634835022489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_9
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 16
+        width: 143
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f6d28d8c6e0ace0800000000000000
+      internalID: -1395862134190149784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_10
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 15
+        width: 132
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc2af9b830968710800000000000000
+      internalID: 1695200883064319181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentokapteeni_polvi_11
+      rect:
+        serializedVersion: 2
+        x: 2613
+        y: 10
+        width: 154
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde07c5e3e78a6080800000000000000
+      internalID: -9193386276441092389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lentokapteeni_polvi_0: -1481729992086707709
+      lentokapteeni_polvi_1: -1761291709473714516
+      lentokapteeni_polvi_10: 1695200883064319181
+      lentokapteeni_polvi_11: -9193386276441092389
+      lentokapteeni_polvi_2: 7524416891815848747
+      lentokapteeni_polvi_3: -9149473406317068751
+      lentokapteeni_polvi_4: -1862883315936192308
+      lentokapteeni_polvi_5: 7665646741554081741
+      lentokapteeni_polvi_6: -3689888449220699193
+      lentokapteeni_polvi_7: -1794113593223555990
+      lentokapteeni_polvi_8: -873050634835022489
+      lentokapteeni_polvi_9: -1395862134190149784
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
