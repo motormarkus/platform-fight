@@ -161,9 +161,13 @@ public class HitFx : MonoBehaviour
         if (fx != null) fx.Hitstop(duration);
     }
 
-    void Hitstop(float duration)
+    const float HitstopWindow = 2f;   // osumapysäytys enintään kerran kahdessa sekunnissa (väkijoukossa muuten pätkii koko ajan)
+    float nextStopAllowed;
+    void Hitstop(float duration, bool force = false)
     {
         if (duration <= 0f || Players.Count > 1) return;   // kaksinpelissä ei osumapysäytystä: kuva ei saa pätkiä
+        if (!stopping && !force && Time.unscaledTime < nextStopAllowed) return;
+        if (!stopping) nextStopAllowed = Time.unscaledTime + HitstopWindow;
         stopUntil = Mathf.Max(stopUntil, Time.unscaledTime + duration);
         if (!stopping) StartCoroutine(HitstopRoutine());
     }
@@ -191,7 +195,7 @@ public class HitFx : MonoBehaviour
         fx.flashUntil = Time.unscaledTime + FlashLen;
         fx.textUntil = Time.unscaledTime + TextLen;
         if (!hit || Players.Count > 1) return;   // kaksinpelissä ei hidastusta eikä pysäytystä
-        fx.Hitstop(0.2f);
+        fx.Hitstop(0.2f, true);   // kombon lopetus aina
         fx.StartCoroutine(fx.SlowMoRoutine(0.28f, 0.9f));
     }
 

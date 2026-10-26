@@ -15,6 +15,8 @@ MonoBehaviour:
   smallBlind: 1
   bigBlind: 2
   buyIn: 50
+  offerOmaha: 1
+  omahaBuyIn: 100
   barBackground: {fileID: 2800000, guid: 26c473c103161674196070d58eecefef, type: 3}
   tableAndOpponents: {fileID: 2800000, guid: a204f897c24f4414b2717727846f3ca1, type: 3}
   whiteKeyMaterial: {fileID: 2100000, guid: fcb12327a3074bf9b41e9daa086cb073, type: 2}

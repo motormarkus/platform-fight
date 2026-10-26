@@ -335,7 +335,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         bool front = e.FacingRight ? dx >= -0.2f : dx <= 0.2f;
         if (!front || Mathf.Abs(dx) > a.reach + 0.2f) return;
         if (Mathf.Abs(hp.y - me.y) > e.depthTolerance + 0.1f) return;
-        if (foe != null) { if (foe.TakeHit(a.damage + foeDamageBonus, me.x, true)) HitFx.OnHitQuiet(); return; }   // muut viholliset kaatuvat iskuun (osumaääni ilman tärähdystä)
+        if (foe != null) { if (Enemy.EnemyHits(foe, a.damage + foeDamageBonus, me.x, true)) HitFx.OnHitQuiet(); return; }   // muut viholliset kaatuvat iskuun (osumaääni ilman tärähdystä)
         if (hero.AirHeight > 0.9f) return;
         if (!hero.TakeKnockdown(a.damage, me.x, 5.5f, 5.5f, e)) hero.TakeHit(a.damage, me.x, e, false);   // jokainen lyönti kaataa (suojaus torjuu)
     }
@@ -466,6 +466,14 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     static bool LiftableCrate(Crate c) => c != null && c.isActiveAndEnabled && c.stackedOn == null
         && (c.CanPickUp || (c.anchored && c.Intact && c.gameObject.name.StartsWith("Thaikioski")));
 
+    /// Onko piste ruudulla (esineitä haetaan vain näkyvistä: raivossa ei lähdetä ruudun ulkopuolelle).
+    static bool OnScreen(Vector3 p)
+    {
+        var cam = Camera.main;
+        if (cam == null) return true;
+        return Mathf.Abs(p.x - cam.transform.position.x) <= cam.orthographicSize * cam.aspect - 0.3f;
+    }
+
     /// Hakee lähimmän nostettavan: koju/pöytä/laatikko tai (liftsWeights) painopallo. Pullot, ruoka ym. eivät kelpaa.
     bool FindLiftable()
     {
@@ -475,7 +483,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         {
             if (!LiftableCrate(c)) continue;
             float dx = Mathf.Abs(c.transform.position.x - me.x), dy = Mathf.Abs(c.transform.position.y - me.y);
-            if (dx > fetchRange || dy > 5f) continue;
+            if (dx > fetchRange || dy > 5f || !OnScreen(c.transform.position)) continue;
             float d = dx + dy * 2f;
             if (d < bd) { bd = d; fetchCrate = c; fetchTarget = null; }
         }
@@ -484,7 +492,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
             {
                 if (b == null || !b.isActiveAndEnabled || !b.CanPickUp || !b.ball) continue;
                 float dx = Mathf.Abs(b.transform.position.x - me.x), dy = Mathf.Abs(b.transform.position.y - me.y);
-                if (dx > fetchRange || dy > 5f) continue;
+                if (dx > fetchRange || dy > 5f || !OnScreen(b.transform.position)) continue;
                 float d = dx + dy * 2f;
                 if (d < bd) { bd = d; fetchTarget = b; fetchCrate = null; }
             }
@@ -496,6 +504,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         bool gone = fetchCrate != null ? !LiftableCrate(fetchCrate) : (fetchTarget == null || !fetchTarget.CanPickUp);
         if (gone) { mode = Mode.Fight; nextFetchTime = Time.time + 0.5f; return; }
         Vector3 me = transform.position, tp = fetchCrate != null ? fetchCrate.transform.position : fetchTarget.transform.position;
+        if (!OnScreen(tp) || !OnScreen(me)) { fetchTarget = null; fetchCrate = null; mode = Mode.Fight; nextFetchTime = Time.time + 1f; return; }   // esine tai Tom ruudun ulkopuolella: käy vihujen kimppuun
         float dx = tp.x - me.x, dy = tp.y - me.y, adx = Mathf.Abs(dx);
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
         e.FacingRight = dx > 0f;

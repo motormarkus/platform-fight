@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 5f61a5db0fd9f1847b31d168546c8fed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4055433580740711460
+    second: rocco_lauta_alastulo_0
+  - first:
+      213: 8138697383884780871
+    second: rocco_lauta_alastulo_1
+  - first:
+      213: -217369696181669568
+    second: rocco_lauta_alastulo_2
+  - first:
+      213: -6480530082097403143
+    second: rocco_lauta_alastulo_3
+  - first:
+      213: 1855784128038795996
+    second: rocco_lauta_alastulo_4
+  - first:
+      213: 4839089290544708976
+    second: rocco_lauta_alastulo_5
+  - first:
+      213: -815514205004996855
+    second: rocco_lauta_alastulo_6
+  - first:
+      213: 8469055493310488717
+    second: rocco_lauta_alastulo_7
+  - first:
+      213: 5351976098760106429
+    second: rocco_lauta_alastulo_8
+  - first:
+      213: -5405178464137302833
+    second: rocco_lauta_alastulo_9
+  - first:
+      213: 2939579905648286504
+    second: rocco_lauta_alastulo_10
+  - first:
+      213: 3599995479544448694
+    second: rocco_lauta_alastulo_11
+  - first:
+      213: -8125496777036974398
+    second: rocco_lauta_alastulo_12
+  - first:
+      213: -2616622294158348234
+    second: rocco_lauta_alastulo_13
+  - first:
+      213: 2214083288764152063
+    second: rocco_lauta_alastulo_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_0
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1415
+        width: 269
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4249d36ea5bc74830800000000000000
+      internalID: 4055433580740711460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_1
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1427
+        width: 289
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7457ad4662672f070800000000000000
+      internalID: 8138697383884780871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_2
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 1417
+        width: 290
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041382ab96fbbfcf0800000000000000
+      internalID: -217369696181669568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_3
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 1404
+        width: 289
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fae954c9388016a0800000000000000
+      internalID: -6480530082097403143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 947
+        width: 289
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda7f8305d111c910800000000000000
+      internalID: 1855784128038795996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_5
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 935
+        width: 290
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d70573216e72340800000000000000
+      internalID: 4839089290544708976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_6
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 927
+        width: 290
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f546db626bea4f0800000000000000
+      internalID: -815514205004996855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_7
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 915
+        width: 291
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80a7d5a911288570800000000000000
+      internalID: 8469055493310488717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_8
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 458
+        width: 290
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db12af4e7e9064a40800000000000000
+      internalID: 5351976098760106429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_9
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 455
+        width: 290
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc218123d2fcf4b0800000000000000
+      internalID: -5405178464137302833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_10
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 455
+        width: 290
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82bda01895c7bc820800000000000000
+      internalID: 2939579905648286504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_11
+      rect:
+        serializedVersion: 2
+        x: 2543
+        y: 454
+        width: 291
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b64247a0d0c5f130800000000000000
+      internalID: 3599995479544448694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_12
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 6
+        width: 290
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c631256bbf6c3f80800000000000000
+      internalID: -8125496777036974398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_13
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 6
+        width: 290
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630f25d03e3efabd0800000000000000
+      internalID: -2616622294158348234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_alastulo_14
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 6
+        width: 290
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff87ae935010abe10800000000000000
+      internalID: 2214083288764152063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rocco_lauta_alastulo_0: 4055433580740711460
+      rocco_lauta_alastulo_1: 8138697383884780871
+      rocco_lauta_alastulo_10: 2939579905648286504
+      rocco_lauta_alastulo_11: 3599995479544448694
+      rocco_lauta_alastulo_12: -8125496777036974398
+      rocco_lauta_alastulo_13: -2616622294158348234
+      rocco_lauta_alastulo_14: 2214083288764152063
+      rocco_lauta_alastulo_2: -217369696181669568
+      rocco_lauta_alastulo_3: -6480530082097403143
+      rocco_lauta_alastulo_4: 1855784128038795996
+      rocco_lauta_alastulo_5: 4839089290544708976
+      rocco_lauta_alastulo_6: -815514205004996855
+      rocco_lauta_alastulo_7: 8469055493310488717
+      rocco_lauta_alastulo_8: 5351976098760106429
+      rocco_lauta_alastulo_9: -5405178464137302833
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

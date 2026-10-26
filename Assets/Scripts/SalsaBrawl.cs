@@ -20,6 +20,14 @@ public class SalsaBrawl : MonoBehaviour
 
     [Tooltip("Rauhassa Puliukko mutisee silloin tällöin (sekuntia väliin).")]
     public Vector2 chatterEvery = new Vector2(7f, 14f);
+    [Tooltip("Myöhässä tuleva pomo (Joulupukki): tulee lateComerDelay sekunnin kuluttua tappelun alkamisesta; silloin kaikki pysähtyvät idleen hänen repliikkinsä ajaksi.")]
+    public SantaBrain lateComer;
+    public float lateComerDelay = 7f;
+    [Tooltip("Vahvistus (merirosvot): tulevat, kun tappelusta on pudonnut pois reinforceAfterDown hahmoa.")]
+    public BouncerSquad reinforcements;
+    public int reinforceAfterDown = 6;
+    bool reinforced;
+    float lateT; bool lateDone;
     float calm, tauntAt = -1f, nextChatter = -1f;
     bool started, secondTaunt;
     /// Tappelu on alkanut.
@@ -42,14 +50,29 @@ public class SalsaBrawl : MonoBehaviour
 
     void Update()
     {
-        if (started) return;
+        if (started)
+        {
+            if (reinforcements != null && !reinforced)
+            {
+                int down = 0;
+                foreach (var c in crowd) if (c == null || c.IsDead) down++;
+                if (rogues != null && rogues.bouncers != null) foreach (var b in rogues.bouncers) if (b == null || b.IsDead) down++;
+                if (down >= reinforceAfterDown) { reinforced = true; reinforcements.forceFight = true; }
+            }
+            if (lateComer != null && !lateDone)
+            {
+                lateT += Time.deltaTime;
+                if (lateT >= lateComerDelay) { lateDone = true; lateComer.Enter(lateComer.transform.position); }
+            }
+            return;
+        }
         // hero (tai kukaan) lyö jotakuta alueella: tappelu alkaa heti
         if (Enemy.LastHit != null && Time.time - Enemy.LastHitTime < 1f)
-            if (Enemy.LastHit.isActiveAndEnabled && ((area != null && Area.Current == area) || System.Array.IndexOf(crowd, Enemy.LastHit) >= 0)) { Begin(); return; }   // kenen tahansa lyöminen alueella aloittaa tappelun: kaikki herätetään mukaan
+            if (Enemy.LastHit.isActiveAndEnabled && ((area != null && Area.Current == area && Enemy.LastHit.transform.position.x >= area.camMinX - 30f && Enemy.LastHit.transform.position.x <= area.camMaxX + 30f) || System.Array.IndexOf(crowd, Enemy.LastHit) >= 0)) { Begin(); return; }   // kenen tahansa lyöminen alueella aloittaa tappelun: kaikki herätetään mukaan
         if (area == null || Area.Current != area || PokerService.BlocksCombat) return;
         calm += Time.deltaTime;
         if (nextChatter < 0f) nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y);
-        if (instigator != null && Time.time >= nextChatter && tauntAt < 0f) { instigator.Speak(); nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); }   // Puliukko ei muuten puhu rauhassa (taunt vain jahdissa)
+        if (instigator != null && Time.time >= nextChatter && tauntAt < 0f) { instigator.Speak(); nextChatter = Time.time + Random.Range(chatterEvery.x, chatterEvery.y); Debug.Log("[Baari] " + instigator.name + " mutisee (aktiivinen " + instigator.isActiveAndEnabled + ", puheita " + (instigator.tauntSounds == null ? 0 : instigator.tauntSounds.Length) + ")"); }   // Puliukko ei muuten puhu rauhassa (taunt vain jahdissa)
         if (calm >= calmSeconds && tauntAt < 0f)
         {
             tauntAt = Time.time;

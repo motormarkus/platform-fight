@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 5dbdd352c5a1a7f4aa27d7dc8b312fb2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -681572303758018089
+    second: pukki_juoksu_0
+  - first:
+      213: 6565924907954421864
+    second: pukki_juoksu_1
+  - first:
+      213: 3393348945686052717
+    second: pukki_juoksu_2
+  - first:
+      213: -80131844759514181
+    second: pukki_juoksu_3
+  - first:
+      213: -1075982702168186595
+    second: pukki_juoksu_4
+  - first:
+      213: 7128667834505211866
+    second: pukki_juoksu_5
+  - first:
+      213: 7851202312462020321
+    second: pukki_juoksu_6
+  - first:
+      213: 2358150227446228529
+    second: pukki_juoksu_7
+  - first:
+      213: 6710938357910889698
+    second: pukki_juoksu_8
+  - first:
+      213: -7460502191706262667
+    second: pukki_juoksu_9
+  - first:
+      213: 7065001944940133201
+    second: pukki_juoksu_10
+  - first:
+      213: 8694810499109238669
+    second: pukki_juoksu_11
+  - first:
+      213: 8234766620101228696
+    second: pukki_juoksu_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pukki_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d932c1d9919a86f0800000000000000
+      internalID: -681572303758018089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86043808ae9de1b50800000000000000
+      internalID: 6565924907954421864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f309a23e8971f20800000000000000
+      internalID: 3393348945686052717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb399e1038053eef0800000000000000
+      internalID: -80131844759514181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11ecc4ee675111f0800000000000000
+      internalID: -1075982702168186595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adfaf6d40ad1ee260800000000000000
+      internalID: 7128667834505211866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 3552
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee260ed7e215fc60800000000000000
+      internalID: 7851202312462020321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 4144
+        y: 507
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13660f94325d9b020800000000000000
+      internalID: 2358150227446228529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e462d461ea022d50800000000000000
+      internalID: 6710938357910889698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_9
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 0
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5733359b8c8f67890800000000000000
+      internalID: -7460502191706262667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 0
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bb99146ddeb0260800000000000000
+      internalID: 7065001944940133201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_11
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 0
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d873eb4f41c2aa870800000000000000
+      internalID: 8694810499109238669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoksu_12
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 0
+        width: 592
+        height: 507
+      alignment: 9
+      pivot: {x: 0.49, y: -0.021696253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898b06f7c94c74270800000000000000
+      internalID: 8234766620101228696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e95c65b0d4def804ab16e1b407fb46e7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pukki_juoksu_0: -681572303758018089
+      pukki_juoksu_1: 6565924907954421864
+      pukki_juoksu_10: 7065001944940133201
+      pukki_juoksu_11: 8694810499109238669
+      pukki_juoksu_12: 8234766620101228696
+      pukki_juoksu_2: 3393348945686052717
+      pukki_juoksu_3: -80131844759514181
+      pukki_juoksu_4: -1075982702168186595
+      pukki_juoksu_5: 7128667834505211866
+      pukki_juoksu_6: 7851202312462020321
+      pukki_juoksu_7: 2358150227446228529
+      pukki_juoksu_8: 6710938357910889698
+      pukki_juoksu_9: -7460502191706262667
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -288,7 +288,7 @@ public class ShopCounter : MonoBehaviour
             else
             {
                 pc.money -= it.price;
-                Clues.Add("esine_" + it.name, it.name, Loc.T("Ostettu panttilainaamosta. Käyttö selviää myöhemmin."), null, false);
+                Clues.Add("esine_" + it.name, it.name, it.name == "Lumilauta" ? Loc.T("Lumilauta. Gondoli vie nyt lumirinteelle.") : Loc.T("Ostettu panttilainaamosta. Käyttö selviää myöhemmin."), null, false);
                 Say(Loc.T("Ostit: ") + Loc.T(it.name) + ". " + Loc.T("Se on tapauskansiossa."));
             }
             Speak(purchaseLines);

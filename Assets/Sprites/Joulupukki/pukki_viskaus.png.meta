@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: f3648936ba687a345a033aa79d608fc2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6744570508518640294
+    second: pukki_viskaus_0
+  - first:
+      213: 8368997150596550627
+    second: pukki_viskaus_1
+  - first:
+      213: 2254159297971163992
+    second: pukki_viskaus_2
+  - first:
+      213: 5528766397348040209
+    second: pukki_viskaus_3
+  - first:
+      213: -3756669072847169733
+    second: pukki_viskaus_4
+  - first:
+      213: -7469889193996881754
+    second: pukki_viskaus_5
+  - first:
+      213: -1969471810995329160
+    second: pukki_viskaus_6
+  - first:
+      213: 7899195217818157296
+    second: pukki_viskaus_7
+  - first:
+      213: -423869932520266644
+    second: pukki_viskaus_8
+  - first:
+      213: 8202570753996595848
+    second: pukki_viskaus_9
+  - first:
+      213: -7352540639714328390
+    second: pukki_viskaus_10
+  - first:
+      213: -7273504859853754446
+    second: pukki_viskaus_11
+  - first:
+      213: 941575017383936955
+    second: pukki_viskaus_12
+  - first:
+      213: 223854013263456770
+    second: pukki_viskaus_13
+  - first:
+      213: -1156980597831422207
+    second: pukki_viskaus_14
+  - first:
+      213: 4571064461962504358
+    second: pukki_viskaus_15
+  - first:
+      213: 3662656891478812099
+    second: pukki_viskaus_16
+  - first:
+      213: -3150944020424143431
+    second: pukki_viskaus_17
+  - first:
+      213: 3500849500235140443
+    second: pukki_viskaus_18
+  - first:
+      213: -554462115495538168
+    second: pukki_viskaus_19
+  - first:
+      213: 6419241570316193408
+    second: pukki_viskaus_20
+  - first:
+      213: 2319009989392410119
+    second: pukki_viskaus_21
+  - first:
+      213: -2519977728520632072
+    second: pukki_viskaus_22
+  - first:
+      213: 5898963417011450600
+    second: pukki_viskaus_23
+  - first:
+      213: -6039795991053345403
+    second: pukki_viskaus_24
+  - first:
+      213: 158346567656146985
+    second: pukki_viskaus_25
+  - first:
+      213: 4353715717609587486
+    second: pukki_viskaus_26
+  - first:
+      213: 8509314677862438100
+    second: pukki_viskaus_27
+  - first:
+      213: -1197817392626911796
+    second: pukki_viskaus_28
+  - first:
+      213: -7672471012926671004
+    second: pukki_viskaus_29
+  - first:
+      213: 1402529189069979985
+    second: pukki_viskaus_30
+  - first:
+      213: 2232120047348089813
+    second: pukki_viskaus_31
+  - first:
+      213: -4308787382324134152
+    second: pukki_viskaus_32
+  - first:
+      213: -3664583534916992768
+    second: pukki_viskaus_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pukki_viskaus_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa44daa427899d50800000000000000
+      internalID: 6744570508518640294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_1
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef409f4196a42470800000000000000
+      internalID: 8368997150596550627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_2
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85317be30f1684f10800000000000000
+      internalID: 2254159297971163992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_3
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ecb08eebf1abc40800000000000000
+      internalID: 5528766397348040209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_4
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b379f36c161addbc0800000000000000
+      internalID: -3756669072847169733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_5
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a07940fa5f955890800000000000000
+      internalID: -7469889193996881754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_6
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8776a7692d70ba4e0800000000000000
+      internalID: -1969471810995329160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_7
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f00489e2349f9d60800000000000000
+      internalID: 7899195217818157296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c642929ca8c1e1af0800000000000000
+      internalID: -423869932520266644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_9
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882a9f444a265d170800000000000000
+      internalID: 8202570753996595848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_10
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0443d5e3786f990800000000000000
+      internalID: -7352540639714328390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_11
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfe65cddd15f0b90800000000000000
+      internalID: -7273504859853754446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_12
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb34d885d75211d00800000000000000
+      internalID: 941575017383936955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_13
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a2d1ef90a4b1300800000000000000
+      internalID: 223854013263456770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_14
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f2d36b64491ffe0800000000000000
+      internalID: -1156980597831422207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_15
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8efacd8eeaf6f30800000000000000
+      internalID: 4571064461962504358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c52bb6890f54d230800000000000000
+      internalID: 3662656891478812099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_17
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd4a7b9b199544d0800000000000000
+      internalID: -3150944020424143431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_18
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d8e997214859030800000000000000
+      internalID: 3500849500235140443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_19
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8021a74c4a72e48f0800000000000000
+      internalID: -554462115495538168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_20
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e0e16923ab51950800000000000000
+      internalID: 6419241570316193408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_21
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70621587c47ce2020800000000000000
+      internalID: 2319009989392410119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_22
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8c1a97b9d370dd0800000000000000
+      internalID: -2519977728520632072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_23
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2fdf549f35dd150800000000000000
+      internalID: 5898963417011450600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ddf6ddb855e2ca0800000000000000
+      internalID: -6039795991053345403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_25
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9280c844d5f823200800000000000000
+      internalID: 158346567656146985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_26
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e138721d0618b6c30800000000000000
+      internalID: 4353715717609587486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_27
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d412008d98271670800000000000000
+      internalID: 8509314677862438100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_28
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc530be7d6f706fe0800000000000000
+      internalID: -1197817392626911796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_29
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4673605a348e58590800000000000000
+      internalID: -7672471012926671004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_30
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15102a5ddd8c67310800000000000000
+      internalID: 1402529189069979985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_31
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d306365b551afe10800000000000000
+      internalID: 2232120047348089813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe72e764bc1434c0800000000000000
+      internalID: -4308787382324134152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_viskaus_33
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0010787d0b8c42dc0800000000000000
+      internalID: -3664583534916992768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6094b8994ea99564999aa4182e8fac7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pukki_viskaus_0: 6744570508518640294
+      pukki_viskaus_1: 8368997150596550627
+      pukki_viskaus_10: -7352540639714328390
+      pukki_viskaus_11: -7273504859853754446
+      pukki_viskaus_12: 941575017383936955
+      pukki_viskaus_13: 223854013263456770
+      pukki_viskaus_14: -1156980597831422207
+      pukki_viskaus_15: 4571064461962504358
+      pukki_viskaus_16: 3662656891478812099
+      pukki_viskaus_17: -3150944020424143431
+      pukki_viskaus_18: 3500849500235140443
+      pukki_viskaus_19: -554462115495538168
+      pukki_viskaus_2: 2254159297971163992
+      pukki_viskaus_20: 6419241570316193408
+      pukki_viskaus_21: 2319009989392410119
+      pukki_viskaus_22: -2519977728520632072
+      pukki_viskaus_23: 5898963417011450600
+      pukki_viskaus_24: -6039795991053345403
+      pukki_viskaus_25: 158346567656146985
+      pukki_viskaus_26: 4353715717609587486
+      pukki_viskaus_27: 8509314677862438100
+      pukki_viskaus_28: -1197817392626911796
+      pukki_viskaus_29: -7672471012926671004
+      pukki_viskaus_3: 5528766397348040209
+      pukki_viskaus_30: 1402529189069979985
+      pukki_viskaus_31: 2232120047348089813
+      pukki_viskaus_32: -4308787382324134152
+      pukki_viskaus_33: -3664583534916992768
+      pukki_viskaus_4: -3756669072847169733
+      pukki_viskaus_5: -7469889193996881754
+      pukki_viskaus_6: -1969471810995329160
+      pukki_viskaus_7: 7899195217818157296
+      pukki_viskaus_8: -423869932520266644
+      pukki_viskaus_9: 8202570753996595848
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

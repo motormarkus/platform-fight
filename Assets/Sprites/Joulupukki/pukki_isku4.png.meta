@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: ef13d1a7f335f3148a6ccc4f756e4b27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7450794579722078232
+    second: pukki_isku4_0
+  - first:
+      213: -8140721635071746329
+    second: pukki_isku4_1
+  - first:
+      213: 8438546027624641388
+    second: pukki_isku4_2
+  - first:
+      213: -8442384620224538114
+    second: pukki_isku4_3
+  - first:
+      213: 2875363538529424942
+    second: pukki_isku4_4
+  - first:
+      213: 9222976936676192930
+    second: pukki_isku4_5
+  - first:
+      213: 5946392105732256781
+    second: pukki_isku4_6
+  - first:
+      213: 8085138368076330012
+    second: pukki_isku4_7
+  - first:
+      213: 8685664650925885186
+    second: pukki_isku4_8
+  - first:
+      213: -8999673243968901645
+    second: pukki_isku4_9
+  - first:
+      213: -6410571029664950861
+    second: pukki_isku4_10
+  - first:
+      213: 1125571196931223773
+    second: pukki_isku4_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pukki_isku4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8188dbab13a866760800000000000000
+      internalID: 7450794579722078232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_1
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee1636edc8560f80800000000000000
+      internalID: -8140721635071746329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_2
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63b95d17ecbb1570800000000000000
+      internalID: 8438546027624641388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_3
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef99b46eaef96da80800000000000000
+      internalID: -8442384620224538114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_4
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26182a67e757e720800000000000000
+      internalID: 2875363538529424942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_5
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2743298a89eff70800000000000000
+      internalID: 9222976936676192930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_6
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04bb556d14d58250800000000000000
+      internalID: 5946392105732256781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_7
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 492
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c143215428e243070800000000000000
+      internalID: 8085138368076330012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207ca9c3bfda98870800000000000000
+      internalID: 8685664650925885186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd65aeeddcba1380800000000000000
+      internalID: -8999673243968901645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_10
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b51969fc931907a0800000000000000
+      internalID: -6410571029664950861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_isku4_11
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 0
+        width: 540
+        height: 492
+      alignment: 9
+      pivot: {x: 0.44, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd03f724a05de9f00800000000000000
+      internalID: 1125571196931223773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9c3831ccb919a4a4591d13e2c3f5e057
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pukki_isku4_0: 7450794579722078232
+      pukki_isku4_1: -8140721635071746329
+      pukki_isku4_10: -6410571029664950861
+      pukki_isku4_11: 1125571196931223773
+      pukki_isku4_2: 8438546027624641388
+      pukki_isku4_3: -8442384620224538114
+      pukki_isku4_4: 2875363538529424942
+      pukki_isku4_5: 9222976936676192930
+      pukki_isku4_6: 5946392105732256781
+      pukki_isku4_7: 8085138368076330012
+      pukki_isku4_8: 8685664650925885186
+      pukki_isku4_9: -8999673243968901645
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

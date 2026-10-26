@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 45c98d7157945594bbbd125022caf627
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5846861171523363391
+    second: muori_kavely_0
+  - first:
+      213: 8709594318044924759
+    second: muori_kavely_1
+  - first:
+      213: -2785520639253724992
+    second: muori_kavely_2
+  - first:
+      213: -2398748861853106682
+    second: muori_kavely_3
+  - first:
+      213: -6852139982101726452
+    second: muori_kavely_4
+  - first:
+      213: -8574466124596949101
+    second: muori_kavely_5
+  - first:
+      213: -2831796719801895443
+    second: muori_kavely_6
+  - first:
+      213: -7468274156572521850
+    second: muori_kavely_7
+  - first:
+      213: 8585358097957905356
+    second: muori_kavely_8
+  - first:
+      213: -5747133132155717564
+    second: muori_kavely_9
+  - first:
+      213: 1838863753434687326
+    second: muori_kavely_10
+  - first:
+      213: -7073210281690100212
+    second: muori_kavely_11
+  - first:
+      213: -228656720410842344
+    second: muori_kavely_12
+  - first:
+      213: 7849465659048089808
+    second: muori_kavely_13
+  - first:
+      213: -8619413249591533900
+    second: muori_kavely_14
+  - first:
+      213: -8049306527562118751
+    second: muori_kavely_15
+  - first:
+      213: 6466248532897228976
+    second: muori_kavely_16
+  - first:
+      213: 4124912329562087207
+    second: muori_kavely_17
+  - first:
+      213: -3440242171185202922
+    second: muori_kavely_18
+  - first:
+      213: 1859871965152935482
+    second: muori_kavely_19
+  - first:
+      213: -3654339779365929552
+    second: muori_kavely_20
+  - first:
+      213: 468384449977444575
+    second: muori_kavely_21
+  - first:
+      213: 3734710435954845152
+    second: muori_kavely_22
+  - first:
+      213: 8638762758032315546
+    second: muori_kavely_23
+  - first:
+      213: -5341714066824453501
+    second: muori_kavely_24
+  - first:
+      213: -901155432962805866
+    second: muori_kavely_25
+  - first:
+      213: -8960965099276697108
+    second: muori_kavely_26
+  - first:
+      213: 6922694093844972294
+    second: muori_kavely_27
+  - first:
+      213: 4369738732119648027
+    second: muori_kavely_28
+  - first:
+      213: 2029109800567681103
+    second: muori_kavely_29
+  - first:
+      213: 2577271932741905746
+    second: muori_kavely_30
+  - first:
+      213: 7697305005901687748
+    second: muori_kavely_31
+  - first:
+      213: 7841795925303583869
+    second: muori_kavely_32
+  - first:
+      213: -2987070021107152874
+    second: muori_kavely_33
+  - first:
+      213: 1165621970536151178
+    second: muori_kavely_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: muori_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32acabe149342150800000000000000
+      internalID: 5846861171523363391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b04d803e1bed870800000000000000
+      internalID: 8709594318044924759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c043c6acb7d759d0800000000000000
+      internalID: -2785520639253724992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e7fd78e9ee5bed0800000000000000
+      internalID: -2398748861853106682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b339f8dfe48e0a0800000000000000
+      internalID: -6852139982101726452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f47c83d70610980800000000000000
+      internalID: -8574466124596949101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de5771803ef63b8d0800000000000000
+      internalID: -2831796719801895443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ac344293c5b5890800000000000000
+      internalID: -7468274156572521850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3ed42f3b1552770800000000000000
+      internalID: 8585358097957905356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1266
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448fafcadd41e30b0800000000000000
+      internalID: -5747133132155717564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57e0dd47d4f48910800000000000000
+      internalID: 1838863753434687326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e883a69b8e6dd90800000000000000
+      internalID: -7073210281690100212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81be76c9ce5a3dcf0800000000000000
+      internalID: -228656720410842344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8503cbd67eeec60800000000000000
+      internalID: 7849465659048089808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be1dcd2151b16880800000000000000
+      internalID: -8619413249591533900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a94d683c5e1b4090800000000000000
+      internalID: -8049306527562118751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8eab0f7cabcb950800000000000000
+      internalID: 6466248532897228976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f5d25b8e1ae3930800000000000000
+      internalID: 4124912329562087207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619ff25f8fdc140d0800000000000000
+      internalID: -3440242171185202922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 844
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ef5a2c2b79fc910800000000000000
+      internalID: 1859871965152935482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd705a055d294dc0800000000000000
+      internalID: -3654339779365929552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8e837fc29008600800000000000000
+      internalID: 468384449977444575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5680aaa5b54d330800000000000000
+      internalID: 3734710435954845152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94d36355fc03e770800000000000000
+      internalID: 8638762758032315546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382a83b9b5b6ed5b0800000000000000
+      internalID: -5341714066824453501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69fa6d288e37e73f0800000000000000
+      internalID: -901155432962805866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce180fc28b144a380800000000000000
+      internalID: -8960965099276697108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6030350b999521060800000000000000
+      internalID: 6922694093844972294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17e149993e64ac30800000000000000
+      internalID: 4369738732119648027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_29
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 422
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40b919ec98d82c10800000000000000
+      internalID: 2029109800567681103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d6aa8fa2f44c320800000000000000
+      internalID: 2577271932741905746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_31
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb2b9cee1252da60800000000000000
+      internalID: 7697305005901687748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_32
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7463d0b8d7a3dc60800000000000000
+      internalID: 7841795925303583869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_33
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61880b854abcb86d0800000000000000
+      internalID: -2987070021107152874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muori_kavely_34
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 230
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: -0.009478673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88b238a10f1d2010800000000000000
+      internalID: 1165621970536151178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cfeead9a18829c94a96b986fd1c2598e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      muori_kavely_0: 5846861171523363391
+      muori_kavely_1: 8709594318044924759
+      muori_kavely_10: 1838863753434687326
+      muori_kavely_11: -7073210281690100212
+      muori_kavely_12: -228656720410842344
+      muori_kavely_13: 7849465659048089808
+      muori_kavely_14: -8619413249591533900
+      muori_kavely_15: -8049306527562118751
+      muori_kavely_16: 6466248532897228976
+      muori_kavely_17: 4124912329562087207
+      muori_kavely_18: -3440242171185202922
+      muori_kavely_19: 1859871965152935482
+      muori_kavely_2: -2785520639253724992
+      muori_kavely_20: -3654339779365929552
+      muori_kavely_21: 468384449977444575
+      muori_kavely_22: 3734710435954845152
+      muori_kavely_23: 8638762758032315546
+      muori_kavely_24: -5341714066824453501
+      muori_kavely_25: -901155432962805866
+      muori_kavely_26: -8960965099276697108
+      muori_kavely_27: 6922694093844972294
+      muori_kavely_28: 4369738732119648027
+      muori_kavely_29: 2029109800567681103
+      muori_kavely_3: -2398748861853106682
+      muori_kavely_30: 2577271932741905746
+      muori_kavely_31: 7697305005901687748
+      muori_kavely_32: 7841795925303583869
+      muori_kavely_33: -2987070021107152874
+      muori_kavely_34: 1165621970536151178
+      muori_kavely_4: -6852139982101726452
+      muori_kavely_5: -8574466124596949101
+      muori_kavely_6: -2831796719801895443
+      muori_kavely_7: -7468274156572521850
+      muori_kavely_8: 8585358097957905356
+      muori_kavely_9: -5747133132155717564
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: ee298a78ead9e5749a57189bbe7ebfcd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3558407906749428544
+    second: thaitown_kiitotie_3_0
+  - first:
+      213: -6973127886614864737
+    second: thaitown_kiitotie_3_1
+  - first:
+      213: -3253275770081093173
+    second: thaitown_kiitotie_3_2
+  - first:
+      213: -3196547005018276742
+    second: thaitown_kiitotie_3_3
+  - first:
+      213: -7248584043523161001
+    second: thaitown_kiitotie_3_4
+  - first:
+      213: -58289106888019779
+    second: thaitown_kiitotie_3_5
+  - first:
+      213: 5255386297627550839
+    second: thaitown_kiitotie_3_6
+  - first:
+      213: 4237190535395391559
+    second: thaitown_kiitotie_3_7
+  - first:
+      213: 3917282070588970459
+    second: thaitown_kiitotie_3_8
+  - first:
+      213: 8330212628496114479
+    second: thaitown_kiitotie_3_9
+  - first:
+      213: 2284722405129841337
+    second: thaitown_kiitotie_3_10
+  - first:
+      213: -3196141250322445546
+    second: thaitown_kiitotie_3_11
+  - first:
+      213: -8931131162749315188
+    second: thaitown_kiitotie_3_12
+  - first:
+      213: -5437786106920366698
+    second: thaitown_kiitotie_3_13
+  - first:
+      213: -4372314940852444441
+    second: thaitown_kiitotie_3_14
+  - first:
+      213: 3522353464249208479
+    second: thaitown_kiitotie_3_15
+  - first:
+      213: 1866780683975915653
+    second: thaitown_kiitotie_3_16
+  - first:
+      213: 3271299668996528089
+    second: thaitown_kiitotie_3_17
+  - first:
+      213: -6017524717679389479
+    second: thaitown_kiitotie_3_18
+  - first:
+      213: 3011194678063302498
+    second: thaitown_kiitotie_3_19
+  - first:
+      213: 5575448462612304388
+    second: thaitown_kiitotie_3_20
+  - first:
+      213: -7669933830849852287
+    second: thaitown_kiitotie_3_21
+  - first:
+      213: 3560915211106075475
+    second: thaitown_kiitotie_3_22
+  - first:
+      213: -3608658872914375987
+    second: thaitown_kiitotie_3_23
+  - first:
+      213: 8603197574596217219
+    second: thaitown_kiitotie_3_24
+  - first:
+      213: 6425881103130820303
+    second: thaitown_kiitotie_3_25
+  - first:
+      213: 4316591031356165154
+    second: thaitown_kiitotie_3_26
+  - first:
+      213: 8016876208062334317
+    second: thaitown_kiitotie_3_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 62.733334
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_0
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 439
+        width: 67
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043bdbf4321026130800000000000000
+      internalID: 3558407906749428544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_1
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 504
+        width: 40
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c53f0e1297a3f90800000000000000
+      internalID: -6973127886614864737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_2
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 405
+        width: 186
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc95ee77cea0ad2d0800000000000000
+      internalID: -3253275770081093173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 472
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cfb0a5f6593a3d0800000000000000
+      internalID: -3196547005018276742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_4
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 413
+        width: 108
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754cc31973bd76b90800000000000000
+      internalID: -7248584043523161001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_5
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 480
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db03aa9bd5ae03ff0800000000000000
+      internalID: -58289106888019779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_6
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 439
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774ab835ef1eee840800000000000000
+      internalID: 5255386297627550839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_7
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 464
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748b3e3a7568dca30800000000000000
+      internalID: 4237190535395391559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_8
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 423
+        width: 57
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5567ed94bfc5630800000000000000
+      internalID: 3917282070588970459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_9
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 405
+        width: 158
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23ebf0104cda9370800000000000000
+      internalID: 8330212628496114479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_10
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 455
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bae3282ce6f4bf10800000000000000
+      internalID: 2284722405129841337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 437
+        width: 66
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61bce8a777605a3d0800000000000000
+      internalID: -3196141250322445546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_12
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 426
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87d7e1d68f3e0480800000000000000
+      internalID: -8931131162749315188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_13
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 427
+        width: 47
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d057ca85a1984b0800000000000000
+      internalID: -5437786106920366698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_14
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 456
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e26b501aba6253c0800000000000000
+      internalID: -4372314940852444441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_15
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 459
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ec0f140d9e1e030800000000000000
+      internalID: 3522353464249208479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_16
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 439
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588f1f5342328e910800000000000000
+      internalID: 1866780683975915653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_17
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 427
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7146487bdf56d20800000000000000
+      internalID: 3271299668996528089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_18
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 429
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d45697c6257d7ca0800000000000000
+      internalID: -6017524717679389479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_19
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 441
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267828f0b99e9c920800000000000000
+      internalID: 3011194678063302498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_20
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 439
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402118536d8ff5d40800000000000000
+      internalID: 5575448462612304388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_21
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 442
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c817161dbee8590800000000000000
+      internalID: -7669933830849852287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_22
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 439
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35343499489ea6130800000000000000
+      internalID: 3560915211106075475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca8064efd77bedc0800000000000000
+      internalID: -3608658872914375987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_24
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 393
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3894f46cc92b46770800000000000000
+      internalID: 8603197574596217219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_25
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 402
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcef10941d05d2950800000000000000
+      internalID: 6425881103130820303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_26
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 391
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c0f983cac97eb30800000000000000
+      internalID: 4316591031356165154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thaitown_kiitotie_3_27
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 393
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6506dd9f6aa14f60800000000000000
+      internalID: 8016876208062334317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thaitown_kiitotie_3_0: 3558407906749428544
+      thaitown_kiitotie_3_1: -6973127886614864737
+      thaitown_kiitotie_3_10: 2284722405129841337
+      thaitown_kiitotie_3_11: -3196141250322445546
+      thaitown_kiitotie_3_12: -8931131162749315188
+      thaitown_kiitotie_3_13: -5437786106920366698
+      thaitown_kiitotie_3_14: -4372314940852444441
+      thaitown_kiitotie_3_15: 3522353464249208479
+      thaitown_kiitotie_3_16: 1866780683975915653
+      thaitown_kiitotie_3_17: 3271299668996528089
+      thaitown_kiitotie_3_18: -6017524717679389479
+      thaitown_kiitotie_3_19: 3011194678063302498
+      thaitown_kiitotie_3_2: -3253275770081093173
+      thaitown_kiitotie_3_20: 5575448462612304388
+      thaitown_kiitotie_3_21: -7669933830849852287
+      thaitown_kiitotie_3_22: 3560915211106075475
+      thaitown_kiitotie_3_23: -3608658872914375987
+      thaitown_kiitotie_3_24: 8603197574596217219
+      thaitown_kiitotie_3_25: 6425881103130820303
+      thaitown_kiitotie_3_26: 4316591031356165154
+      thaitown_kiitotie_3_27: 8016876208062334317
+      thaitown_kiitotie_3_3: -3196547005018276742
+      thaitown_kiitotie_3_4: -7248584043523161001
+      thaitown_kiitotie_3_5: -58289106888019779
+      thaitown_kiitotie_3_6: 5255386297627550839
+      thaitown_kiitotie_3_7: 4237190535395391559
+      thaitown_kiitotie_3_8: 3917282070588970459
+      thaitown_kiitotie_3_9: 8330212628496114479
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

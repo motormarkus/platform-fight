@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool UseStamina(float cost)
     {
         if (Boosted || PieWar.Active || Skating) return true;   // pärinä, piirakkasota ja lauta: stamina ei kulu
+        if (ChainArmor) return true;   // käynnissä olevan kombon liikkeet eivät kuluta staminaa (kombo pääsee läpi, vaikka stamina olisi vähissä)
         if (stamina < cost) { StaminaEmptyTime = Time.time; return false; }
         stamina -= cost;
         staminaRest = staminaRegenWait;
@@ -799,16 +800,17 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float megaQueuedAt;
 
     bool MegaChainState => state == State.Punch || state == State.Kick || state == State.SideKick || state == State.KneeStrike
-        || state == State.Elbow || state == State.SpinPunch || state == State.Landing || (state == State.Air && scissor);
+        || state == State.Elbow || state == State.SpinPunch || state == State.Landing || (state == State.Air && (scissor || comboScissor))
+        || (state == State.JumpSquat && comboScissor);   // saksipotkun kyykky: nopea K K L ei saa katkaista kombaa (painallus kyykyn aikana nollasi ketjun)
 
     void MegaFilter(ref bool punchP, ref bool kickP)
     {
         if (AppliedCharacter == 1) { RubyFilter(ref punchP, ref kickP); return; }
-        if (state == State.Ground && Time.time - megaLastTime > 0.6f) { megaPos = 0; megaQueue.Clear(); }
+        if (state == State.Ground && Time.time - megaLastTime > (megaPos >= 9 ? 4f : 0.6f)) { megaPos = 0; megaQueue.Clear(); }   // saksipotkun jälkeen uppercutille jää aikaa (saksi kestää yli sekunnin, eikä jono saa tyhjentyä laskeutuessa)
         if (!punchP && !kickP) return;
         if (!HasMoveArt) return;   // Ruby ja kuvattomat: tavallinen kombo
         if (state != State.Ground && !MegaChainState) { megaPos = 0; megaQueue.Clear(); return; }
-        if (Time.time - megaLastTime > (megaPos >= 9 ? 2.4f : 1.2f)) { megaPos = 0; megaQueue.Clear(); }   // saksipotku kestää yli sekunnin: uppercutin saa painaa vielä laskeutuessa
+        if (Time.time - megaLastTime > (megaPos >= 9 ? 4f : 1.2f)) { megaPos = 0; megaQueue.Clear(); }   // saksipotku kestää yli sekunnin: uppercutin saa painaa vielä laskeutuessa
         megaLastTime = Time.time;
         char t = punchP ? 'L' : 'K';
         if (megaPos < MegaPattern.Length && MegaPattern[megaPos] == t)
@@ -850,7 +852,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     {
         if (AppliedCharacter == 1) { RubyExecute(); return; }
         if (megaQueue.Count == 0) return;
-        if (Time.time - megaQueuedAt > 1.8f) { megaQueue.Clear(); megaPos = 0; return; }   // saksipotku kestää ilmassa yli sekunnin
+        if (Time.time - megaQueuedAt > 4f) { megaQueue.Clear(); megaPos = 0; return; }   // saksipotku kestää ilmassa yli sekunnin
         int p = megaQueue[0];
         bool go = false;
         switch (p)
@@ -1907,7 +1909,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         MegaFilter(ref punchPressed, ref kickPressed);   // kymmenen iskun kombo (L L K K L K L L K K L)
         {
             // ketjun aikana: ilmaosumat sallittu ja kaatuminen pehmeä; lopetusliike (uppercut) lennättää kunnolla; saksipotku nostaa korkealle
-            bool megaOn = ChainArt && megaPos >= (AppliedCharacter == 1 ? 2 : 3) && Time.time - megaLastTime < (AppliedCharacter == 1 ? 3f : 2.2f);
+            bool megaOn = ChainArt && megaPos >= (AppliedCharacter == 1 ? 2 : 3) && Time.time - megaLastTime < (AppliedCharacter == 1 ? 3f : 3.5f);
             bool finisher = AppliedCharacter == 1 ? state == State.Pendulum && megaPos > RubyPattern.Length
                 : (state == State.BigHook || (state == State.Punch && comboIndex == punchCombo.Length - 1)) && megaPos >= MegaPattern.Length;
             if (megaOn)
@@ -3046,6 +3048,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Hurt:
+                // kombon rikkoja: osuman aikana suojaus + lyönti (tai jo pidetty suojaus + lyönti) katkaisee vihun sarjan, jos sarja on yhä käynnissä
+                if (height <= 0f && HasBlock && blockHeld && (punchPressed || Time.time < counterBufferUntil) && StartCounterIfPossible()) break;
                 MoveOnGround(hurtVel * dt);
                 hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
                 if (height > 0f)   // osuma ilmassa: pudotaan maahan
@@ -3441,7 +3445,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public int counterDamage = 14, counterBossDamage = 10;
     [Tooltip("Vihun horjahdus (s): tavallinen vihu / pomo (pomoilla vain sarja katkeaa).")]
     public float counterStun = 0.8f, counterBossStun = 0.35f;
-    public float counterCooldown = 1.2f, counterLunge = 0.9f, counterRange = 2.6f;
+    public float counterCooldown = 0.7f, counterLunge = 0.9f, counterRange = 2.6f;
     const float CounterFrameTime = 0.035f;                    // nopea: vihu ei ehdi reagoida
     const float CounterImpactTime = 3f * CounterFrameTime;    // lyönti osuu kuvan 4 alkaessa
     const float CounterTotal = 5f * CounterFrameTime + 0.12f;
@@ -3546,7 +3550,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (AttackEnemies(bigHookReach, bigHookDamage, true, 3.0f)) { HitFx.Freeze(0.12f); if (CameraFollow.Instance != null) CameraFollow.Shake(0.22f, 0.22f); }
             return;
         }
-        bool megaFinish = megaPos >= MegaPattern.Length && Time.time - megaLastTime < 3f;   // kymmenen iskun kombo meni läpi
+        bool megaFinish = megaPos >= MegaPattern.Length && Time.time - megaLastTime < 4f;   // kymmenen iskun kombo meni läpi
         if (!AttackEnemies(bigHookReach, bigHookDamage, true, 3.0f)) { if (megaFinish) { HitFx.FinisherFx("KOMBO!", false); CameraFollow.Shake(0.3f, 0.3f); } return; }
         bool any = false;
         foreach (var e in lastHitEnemies)

@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 7b95af0e862822a4bb5af78343c6bb63
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7043836668547124831
+    second: pukki_kavely_0
+  - first:
+      213: 32026421395684165
+    second: pukki_kavely_1
+  - first:
+      213: 7856855130942093301
+    second: pukki_kavely_2
+  - first:
+      213: -4836010170681093461
+    second: pukki_kavely_3
+  - first:
+      213: -8787269342029587029
+    second: pukki_kavely_4
+  - first:
+      213: 157972648751944094
+    second: pukki_kavely_5
+  - first:
+      213: -6413242448987647453
+    second: pukki_kavely_6
+  - first:
+      213: -3851606594380464959
+    second: pukki_kavely_7
+  - first:
+      213: 4779397843387298567
+    second: pukki_kavely_8
+  - first:
+      213: -1665573827667646946
+    second: pukki_kavely_9
+  - first:
+      213: -3708564064610246261
+    second: pukki_kavely_10
+  - first:
+      213: -8418277047302040245
+    second: pukki_kavely_11
+  - first:
+      213: -8041003898063110883
+    second: pukki_kavely_12
+  - first:
+      213: 9030476650044658604
+    second: pukki_kavely_13
+  - first:
+      213: -1270219782925345426
+    second: pukki_kavely_14
+  - first:
+      213: -3391133864308448705
+    second: pukki_kavely_15
+  - first:
+      213: 1525696147060113605
+    second: pukki_kavely_16
+  - first:
+      213: -1203973814380740412
+    second: pukki_kavely_17
+  - first:
+      213: -1007980131955508509
+    second: pukki_kavely_18
+  - first:
+      213: 8473501364635157468
+    second: pukki_kavely_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pukki_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1b06baed34f3e90800000000000000
+      internalID: -7043836668547124831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b77be4cd7c17000800000000000000
+      internalID: 32026421395684165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7328b3d18290d60800000000000000
+      internalID: 7856855130942093301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2906e3f5a03ecb0800000000000000
+      internalID: -4836010170681093461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad55a227195d0680800000000000000
+      internalID: -8787269342029587029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91561d794b313200800000000000000
+      internalID: 157972648751944094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 2436
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32292a1b8f59ff6a0800000000000000
+      internalID: -6413242448987647453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc766785385c8ac0800000000000000
+      internalID: -3851606594380464959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 3248
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7033e572405d35240800000000000000
+      internalID: 4779397843387298567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 497
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16aea6ad61b2e8e0800000000000000
+      internalID: -1665573827667646946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81a02ec1a8888cc0800000000000000
+      internalID: -3708564064610246261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b45dcbe90a54c2b80800000000000000
+      internalID: -8418277047302040245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1dba6ace8d986090800000000000000
+      internalID: -8041003898063110883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca31f5eeaa2b25d70800000000000000
+      internalID: 9030476650044658604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d9f0c56d54f5ee0800000000000000
+      internalID: -1270219782925345426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32e818a7b540f0d0800000000000000
+      internalID: -3391133864308448705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 2436
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c043b0ff8c5c2510800000000000000
+      internalID: 1525696147060113605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0c6fad130aa4fe0800000000000000
+      internalID: -1203973814380740412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 3248
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eaf326196fe202f0800000000000000
+      internalID: -1007980131955508509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 0
+        width: 406
+        height: 497
+      alignment: 9
+      pivot: {x: 0.512, y: -0.008048289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3cddab89ce79570800000000000000
+      internalID: 8473501364635157468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b1d9e44840b494f48a9b9827264beb93
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pukki_kavely_0: -7043836668547124831
+      pukki_kavely_1: 32026421395684165
+      pukki_kavely_10: -3708564064610246261
+      pukki_kavely_11: -8418277047302040245
+      pukki_kavely_12: -8041003898063110883
+      pukki_kavely_13: 9030476650044658604
+      pukki_kavely_14: -1270219782925345426
+      pukki_kavely_15: -3391133864308448705
+      pukki_kavely_16: 1525696147060113605
+      pukki_kavely_17: -1203973814380740412
+      pukki_kavely_18: -1007980131955508509
+      pukki_kavely_19: 8473501364635157468
+      pukki_kavely_2: 7856855130942093301
+      pukki_kavely_3: -4836010170681093461
+      pukki_kavely_4: -8787269342029587029
+      pukki_kavely_5: 157972648751944094
+      pukki_kavely_6: -6413242448987647453
+      pukki_kavely_7: -3851606594380464959
+      pukki_kavely_8: 4779397843387298567
+      pukki_kavely_9: -1665573827667646946
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

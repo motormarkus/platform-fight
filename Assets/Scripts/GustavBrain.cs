@@ -416,7 +416,7 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
             if (grabT >= dur[grabPhase])
             {
                 grabT = 0f; grabPhase++;
-                if (grabPhase == 4) { hero.Throw(-face * 8.5f, 7.5f, throwDamage); holding = false; }
+                if (grabPhase == 4) { hero.Throw(-face * 14f, 8f, throwDamage, true); holding = false; }
             }
         }
         else if (grabPhase == 4)

@@ -744,7 +744,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Vihu on kesken hyökkäystä (valmistelu, isku tai palautus): pelaajan counter-isku (suojaus + lyönti) voi katkaista sen.
     /// Anteeksiantava: myös 0,25 s hyökkäystilan jälkeen (sarjan askelten väli, aivopomojen siirtymät), kun vihu on vielä perustilassa.
     public bool InAttack => !waitingToAppear && (state == State.Windup || state == State.Punch || state == State.Recover
-        || ((state == State.Chase || state == State.Idle) && Time.time - lastAttackStateTime < 0.25f));
+        || (comboSeq != null && (state == State.Chase || state == State.Idle || state == State.Block))   // kesken pitkää kombon askelta: counter katkaisee
+        || ((state == State.Chase || state == State.Idle) && Time.time - lastAttackStateTime < 0.45f));
     float lastAttackStateTime = -9f;
     float hurtOverride;
 
@@ -779,6 +780,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     /// Maassa, nousemassa, otteessa, kuollut tai piilossa odottava: ei kelpaa kohteeksi (Tom).
     public bool IsDownOrDead => TargetDown(this) || waitingToAppear;
+    public bool IsHeldNow => state == State.Held;   // pelaajan kantama
     /// Lennossa (kaatuu / lentää): ei kelpaa jatkoiskujen kohteeksi (mayhem ei lyö ilmassa olevaa).
     int airHits;
     /// Enintään näin monta iskua osuu ilmassa olevaan (yhden lennon aikana).
@@ -799,6 +801,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
     /// Vihujen kellon kerroin (heron pärinä hidastaa vihuja).
     public static float TimeScale = 1f;
+    /// Pysäyttää kaikki (paitsi ignoreFreeze) viholliset idleen: esim. pukin sisääntulon repliikin ajaksi.
+    public static bool FreezeToIdle;
+    [System.NonSerialized] public bool ignoreFreeze;
 
     [Tooltip("Kevyt hahmo (Rusty): heron uppercut ja kaikki lennättävät iskut singoavat korkealle.")]
     public bool lightweight;
@@ -1084,7 +1089,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
             talksWhenCalm = true;
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1255,6 +1260,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Vector3 frameStart = transform.position;
         running = false;
         float dt = Time.deltaTime * TimeScale;
+        if (FreezeToIdle && !ignoreFreeze && (state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch || state == State.Recover || state == State.Block || state == State.Hurt))
+        { if (state != State.Idle) Enter(State.Idle); dt = 0f; }   // idleen ja pysähtyy
         stateTime += dt;
         animClock += dt;
         cooldown -= dt;
@@ -3133,13 +3140,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!front || Mathf.Abs(dx) > CurrentReach + 0.2f || Mathf.Abs(p.y - me.y) > depthTolerance) return false;
         if (usingDoubleKick)
         {
-            if (!e.TakeHit(doubleKickDamage, me.x, true)) return false;
+            if (!EnemyHits(e, doubleKickDamage, me.x, true)) return false;
             if (!e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * doubleKickLaunchX, doubleKickLaunchUp);
             e.GotHitBy(this); return true;
         }
         bool upper = usingUppercut && !usingAlt;
         bool kd = upper || (!ComboContinues && !(usingAlt && altKnockdownLightOnly && IsHeavyweight(e)) && (usingAlt ? altKnockdown : usingPunch3 ? punch3Knockdown : usingPunch2 ? punch2Knockdown : punchKnockdown));
-        if (!e.TakeHit(upper ? uppercutDamage : usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
+        if (!EnemyHits(e, upper ? uppercutDamage : usingAlt ? altDamage : usingPunch3 ? punch3Damage : usingPunch2 ? punch2Damage : punchDamage, me.x, kd)) return false;
         if (upper && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * uppercutLaunchX, uppercutLaunchUp);   // alakoukku: ruudun yläreunaan
         if (usingPunch3 && punch3LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch3LaunchX, punch3LaunchUp);
         if (usingPunch2 && punch2LaunchUp > 0f && !e.JustBlocked) e.Launch((facingRight ? 1f : -1f) * punch2LaunchX, punch2LaunchUp);   // yläkoukku lennättää
@@ -3176,13 +3183,22 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (Mathf.Abs(q.x - me.x) > 1.1f || Mathf.Abs(q.y - me.y) > 0.55f || height > 2.6f) continue;
             bowled.Add(e);
             float from = knockVel.x != 0f ? q.x - Mathf.Sign(knockVel.x) : me.x;   // kaatuu lentosuuntaan
-            if (e.TakeHit(bowlDamage, from, true))
+            if (EnemyHits(e, bowlDamage, from, true))
             {
                 if (thrownByEnemy) e.thrownByEnemy = true;   // vihun heittämän kaatama: hiljainen alastulo
                 HitFx.OnHitQuiet();   // heitetty vihu kaataa muita: vain osumaääni, ei tärähdystä eikä pysäytystä (monen osuessa peli nykisi)
                 HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
             }
         }
+    }
+
+    /// Vihun isku toiseen viholliseen: merimieskännin superlyönti koskee vain heron iskuja, ei vihujen keskinäisiä.
+    public static bool EnemyStrike;
+    public static bool EnemyHits(Enemy target, int damage, float fromX, bool knockdown)
+    {
+        EnemyStrike = true;
+        try { return target.TakeHit(damage, fromX, knockdown); }
+        finally { EnemyStrike = false; }
     }
 
     bool TryHitPlayer(bool comboFollow = false)
@@ -3402,7 +3418,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             chainHover = ChainSoft;
             height = Mathf.Max(height, 0.05f);
             Enter(State.Airborne);
-            if (player != null && !thrownByEnemy && player.DrunkLaunch(out float dlx, out float dlu)) Launch((fromLeft ? 1f : -1f) * dlx, dlu);   // merimieskänni: kaikki heron kaatavat iskut lennättävät kauas
+            if (player != null && !thrownByEnemy && !EnemyStrike && player.DrunkLaunch(out float dlx, out float dlu)) Launch((fromLeft ? 1f : -1f) * dlx, dlu);   // merimieskänni: kaikki heron kaatavat iskut lennättävät kauas
         }
         else if (brain == null && !unblockable && comboHits >= counterAfterHits && comboSeq == null && !counterActive && !isHeld() && !(player != null && player.InPunchChain && !breaksCombos) && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block)
                  && !(PieWar.Active || pieOnly))

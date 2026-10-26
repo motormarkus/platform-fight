@@ -14,6 +14,7 @@ VID = {"A": "5718e81e", "B": "70e8cc9f", "C": "62bfd445"}
 FLIP_FROM, FLIP_TO = 41, 157          # videon C ruudut, jotka peilataan
 KB = TARGET_H / 590.0                 # B/C (720p): seisova hahmo n. 590 px -> 300 px; A (360p) on puolet pienempi -> 2 x
 
+NEW_WIDEN = {'idle': 1.07, 'kavely': 1.13}
 def R(a, b, s=1): return list(range(a, b, s))
 # (nimi, lähde, ruudut, ankkuri)   ankkuri: low = jalat, torso = vartalo (kävely), com = painopiste (kaatuminen)
 ANIMS = [
@@ -91,7 +92,10 @@ def build(folder, guard_path, out):
             crop = im[y0:y1, x0:x1]
             if flip: crop = crop[:, ::-1].copy()
             floor = (y1 if key == "A" else v.floor)
-            items.append((resize_premult(crop, v.k), anchor_x(crop, mode) * v.k, (floor - y0) * v.k))
+            r = resize_premult(crop, v.k); ax = anchor_x(crop, mode) * v.k
+            if key == "N":   # uuden videon (idle, kävely) hahmo on piirretty ohuemmaksi kuin B/C-videoiden: levennetään vaakaan (leveyden mittaus: torso 67-76 px vs 75-80 px)
+                kx = NEW_WIDEN[name]; r = cv2.resize(r, (round(r.shape[1] * kx), r.shape[0]), interpolation=cv2.INTER_CUBIC); ax *= kx
+            items.append((r, ax, (floor - y0) * v.k))
         below = max(r.shape[0] - foot for r, _, foot in items)
         lift = max(0, int(np.ceil(below - FOOT_MARGIN + 2)))
         save_sheet(items, lift, f"{out}/lentoperamies_{name}.png")

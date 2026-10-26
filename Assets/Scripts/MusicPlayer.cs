@@ -22,14 +22,14 @@ public class MusicPlayer : MonoBehaviour
     AudioClip areaClip;
     // erillinen kappale muun päälle (esim. tanssi): oma häivytys sisään ja ulos, kenttämusiikki jatkuu taustalla
     AudioSource overSource;
-    float overMix, overTarget, overFade = 1f;
+    float overMix, overTarget, overFade = 1f, overGain = 1f;
 
     /// Soita kappale muun musiikin tilalle (häivytys fade sekunnissa).
-    public static void PlayOverride(AudioClip clip, float fade = 1.5f, bool loop = true)
+    public static void PlayOverride(AudioClip clip, float fade = 1.5f, bool loop = true, float gain = 1f)
     {
         if (Instance == null || clip == null) return;
         var m = Instance;
-        m.overSource.loop = loop;
+        m.overSource.loop = loop; m.overGain = gain;
         m.overSource.clip = clip; m.overSource.time = 0f; m.overSource.Play();
         m.overTarget = 1f; m.overFade = Mathf.Max(0.01f, fade);
     }
@@ -100,7 +100,7 @@ public class MusicPlayer : MonoBehaviour
         float rest = 1f - overMix;
         source.volume = master * (1f - areaMix) * rest;
         areaSource.volume = Mathf.Clamp01(master * areaMix * rest * areaGain);
-        overSource.volume = master * overMix;
+        overSource.volume = Mathf.Clamp01(master * overMix * overGain);
         if (overTarget <= 0f && overMix <= 0f && overSource.isPlaying) overSource.Stop();
         if (areaClip == null && areaMix <= 0f && areaSource.isPlaying) areaSource.Stop();
     }

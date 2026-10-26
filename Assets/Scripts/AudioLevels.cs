@@ -47,11 +47,32 @@ public static class AudioLevels
         return Mathf.Lerp(1f, best, Mathf.Clamp01(Strength));
     }
 
+    // Väkijoukon äänten rajoitus: kun moni vihu soittaa saman äänen yhtä aikaa, äänet summautuvat samassa vaiheessa ja voimistuvat (+6 dB per kaksinkertaistus).
+    // Siksi vihujen ääniä vaimennetaan sen mukaan, montako samaa (tai mitä tahansa) ääntä on juuri soinut, ja samaa ääntä soittavien sävelkorkeus vaihtelee hieman.
+    struct Played { public float time; public AudioClip clip; }
+    static readonly List<Played> recent = new List<Played>();
+    /// Vihujen äänet vaimenevat tämän verran (0-1), kun taustamusiikki (esim. pukin biisi) soi erillisenä kappaleena.
+    public static float MusicDuck = 0.55f;
+    public static bool CrowdLimiter = true;
+
     /// AudioSource.PlayOneShot tasatulla voimakkuudella.
     public static void PlayOneShotLeveled(this AudioSource source, AudioClip clip, float volume = 1f)
     {
         if (source == null || clip == null) return;
-        source.PlayOneShot(clip, volume * Gain(clip));
+        float v = volume * Gain(clip);
+        if (CrowdLimiter && source.GetComponent<Enemy>() != null && source.GetComponent<SantaBrain>() == null)   // heron ja pukin äänet eivät rajoitu
+        {
+            float now = Time.unscaledTime;
+            recent.RemoveAll(p => now - p.time > 0.3f);
+            int nSame = 0, nAll = 0;
+            foreach (var p in recent) { if (now - p.time <= 0.25f) nAll++; if (p.clip == clip && now - p.time <= 0.12f) nSame++; }
+            if (nSame >= 3) return;                                   // sama ääni kolmannen kerran heti: jätetään soittamatta
+            v *= 1f / (1f + 0.7f * nSame) / Mathf.Sqrt(1f + 0.2f * nAll);
+            if (nSame > 0) source.pitch = Random.Range(0.94f, 1.06f); // eri sävelkorkeus: ei summaudu samassa vaiheessa
+            if (MusicPlayer.OverridePlaying) v *= MusicDuck;           // erillinen kappale soi (pukin biisi): väkijoukko hiljemmalle
+            recent.Add(new Played { time = now, clip = clip });
+        }
+        source.PlayOneShot(clip, v);
     }
 
     /// Lataa taulukon uudelleen (esim. tiedoston päivityksen jälkeen editorissa).

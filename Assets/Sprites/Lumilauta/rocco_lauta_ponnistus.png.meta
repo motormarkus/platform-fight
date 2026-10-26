@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 09ae154b0856d734ca0acaa3642b8df8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6326455912941222230
+    second: rocco_lauta_ponnistus_0
+  - first:
+      213: -1693415495803335796
+    second: rocco_lauta_ponnistus_1
+  - first:
+      213: -7507069615937944647
+    second: rocco_lauta_ponnistus_2
+  - first:
+      213: -4125456353369114107
+    second: rocco_lauta_ponnistus_3
+  - first:
+      213: 1369439285418436030
+    second: rocco_lauta_ponnistus_4
+  - first:
+      213: -6159202854899493604
+    second: rocco_lauta_ponnistus_5
+  - first:
+      213: 962934868795808489
+    second: rocco_lauta_ponnistus_6
+  - first:
+      213: 3107016686873911581
+    second: rocco_lauta_ponnistus_7
+  - first:
+      213: 9218207618070790986
+    second: rocco_lauta_ponnistus_8
+  - first:
+      213: -1216620303750006990
+    second: rocco_lauta_ponnistus_9
+  - first:
+      213: -4101469067170062584
+    second: rocco_lauta_ponnistus_10
+  - first:
+      213: -8021654231067116389
+    second: rocco_lauta_ponnistus_11
+  - first:
+      213: 7979051290750156302
+    second: rocco_lauta_ponnistus_12
+  - first:
+      213: 2676870848131009759
+    second: rocco_lauta_ponnistus_13
+  - first:
+      213: 8930005417014446733
+    second: rocco_lauta_ponnistus_14
+  - first:
+      213: -4156031177543222864
+    second: rocco_lauta_ponnistus_15
+  - first:
+      213: 7410540053669377029
+    second: rocco_lauta_ponnistus_16
+  - first:
+      213: -3553646465413312703
+    second: rocco_lauta_ponnistus_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_0
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1807
+        width: 290
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa608fdbdd9e338a0800000000000000
+      internalID: -6326455912941222230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_1
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1808
+        width: 291
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b00832497cf78e0800000000000000
+      internalID: -1693415495803335796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_2
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 1806
+        width: 290
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b304ed55f781d790800000000000000
+      internalID: -7507069615937944647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_3
+      rect:
+        serializedVersion: 2
+        x: 2549
+        y: 1797
+        width: 286
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a3e01ed4f6fb6c0800000000000000
+      internalID: -4125456353369114107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_4
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1346
+        width: 288
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5a4d446c9310310800000000000000
+      internalID: 1369439285418436030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_5
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 1361
+        width: 290
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15d426e2ad168aa0800000000000000
+      internalID: -6159202854899493604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_6
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 1370
+        width: 290
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea596c49280d5d00800000000000000
+      internalID: 962934868795808489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_7
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 1383
+        width: 289
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11a45c07375e1b20800000000000000
+      internalID: 3107016686873911581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 944
+        width: 288
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43c8ec0df6adef70800000000000000
+      internalID: 9218207618070790986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_9
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 955
+        width: 291
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237f3789742bd1fe0800000000000000
+      internalID: -1216620303750006990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_10
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 963
+        width: 294
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f531a2d97a417c0800000000000000
+      internalID: -4101469067170062584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_11
+      rect:
+        serializedVersion: 2
+        x: 2542
+        y: 963
+        width: 292
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c3c363afb5da090800000000000000
+      internalID: -8021654231067116389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 512
+        width: 291
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ef8c5cfd84bbe60800000000000000
+      internalID: 7979051290750156302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_13
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 506
+        width: 286
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc827c8ad7262520800000000000000
+      internalID: 2676870848131009759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_14
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 501
+        width: 287
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ac5731d90cdeb70800000000000000
+      internalID: 8930005417014446733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_15
+      rect:
+        serializedVersion: 2
+        x: 2548
+        y: 491
+        width: 286
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b97613e9afc256c0800000000000000
+      internalID: -4156031177543222864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_16
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 34
+        width: 287
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50474c48ae687d660800000000000000
+      internalID: 7410540053669377029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocco_lauta_ponnistus_17
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 17
+        width: 287
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f87b32e59eeaec0800000000000000
+      internalID: -3553646465413312703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rocco_lauta_ponnistus_0: -6326455912941222230
+      rocco_lauta_ponnistus_1: -1693415495803335796
+      rocco_lauta_ponnistus_10: -4101469067170062584
+      rocco_lauta_ponnistus_11: -8021654231067116389
+      rocco_lauta_ponnistus_12: 7979051290750156302
+      rocco_lauta_ponnistus_13: 2676870848131009759
+      rocco_lauta_ponnistus_14: 8930005417014446733
+      rocco_lauta_ponnistus_15: -4156031177543222864
+      rocco_lauta_ponnistus_16: 7410540053669377029
+      rocco_lauta_ponnistus_17: -3553646465413312703
+      rocco_lauta_ponnistus_2: -7507069615937944647
+      rocco_lauta_ponnistus_3: -4125456353369114107
+      rocco_lauta_ponnistus_4: 1369439285418436030
+      rocco_lauta_ponnistus_5: -6159202854899493604
+      rocco_lauta_ponnistus_6: 962934868795808489
+      rocco_lauta_ponnistus_7: 3107016686873911581
+      rocco_lauta_ponnistus_8: 9218207618070790986
+      rocco_lauta_ponnistus_9: -1216620303750006990
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

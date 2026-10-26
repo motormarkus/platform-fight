@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 1f20b7c6c5ca4a8438af4194a9a9bb42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5445539871548267078
+    second: lentoemanta_idle_0
+  - first:
+      213: 5436429883660753211
+    second: lentoemanta_idle_1
+  - first:
+      213: -6996137836716115852
+    second: lentoemanta_idle_2
+  - first:
+      213: 674125057667720738
+    second: lentoemanta_idle_3
+  - first:
+      213: -5337021218132574866
+    second: lentoemanta_idle_4
+  - first:
+      213: 7175273221923582961
+    second: lentoemanta_idle_5
+  - first:
+      213: 4037132304308749541
+    second: lentoemanta_idle_6
+  - first:
+      213: 5969083194094019977
+    second: lentoemanta_idle_7
+  - first:
+      213: -6208372768849539261
+    second: lentoemanta_idle_8
+  - first:
+      213: -1348217295450160379
+    second: lentoemanta_idle_9
+  - first:
+      213: -7411520150902396217
+    second: lentoemanta_idle_10
+  - first:
+      213: 4810025679256108753
+    second: lentoemanta_idle_11
+  - first:
+      213: -7980586948358361170
+    second: lentoemanta_idle_12
+  - first:
+      213: 8557724638140666761
+    second: lentoemanta_idle_13
+  - first:
+      213: 3666968822137092940
+    second: lentoemanta_idle_14
+  - first:
+      213: -5389416982986592104
+    second: lentoemanta_idle_15
+  - first:
+      213: 731209788930842887
+    second: lentoemanta_idle_16
+  - first:
+      213: -934210318988436317
+    second: lentoemanta_idle_17
+  - first:
+      213: -301197846769675142
+    second: lentoemanta_idle_18
+  - first:
+      213: -8324835134744225993
+    second: lentoemanta_idle_19
+  - first:
+      213: 244477688291771716
+    second: lentoemanta_idle_20
+  - first:
+      213: 2939598811407591831
+    second: lentoemanta_idle_21
+  - first:
+      213: 8108989142465000523
+    second: lentoemanta_idle_22
+  - first:
+      213: 763053574442755361
+    second: lentoemanta_idle_23
+  - first:
+      213: -314934570814467684
+    second: lentoemanta_idle_24
+  - first:
+      213: -2607666266950073680
+    second: lentoemanta_idle_25
+  - first:
+      213: 2929012163358894810
+    second: lentoemanta_idle_26
+  - first:
+      213: 961946215149225679
+    second: lentoemanta_idle_27
+  - first:
+      213: -2400595075078312844
+    second: lentoemanta_idle_28
+  - first:
+      213: -4790213185860144385
+    second: lentoemanta_idle_29
+  - first:
+      213: -2691962228472984964
+    second: lentoemanta_idle_30
+  - first:
+      213: -8144500118142521618
+    second: lentoemanta_idle_31
+  - first:
+      213: 7027691104295917317
+    second: lentoemanta_idle_32
+  - first:
+      213: 9056822262341820544
+    second: lentoemanta_idle_33
+  - first:
+      213: 4566523407889973842
+    second: lentoemanta_idle_34
+  - first:
+      213: 7025616963143718528
+    second: lentoemanta_idle_35
+  - first:
+      213: -2439508681786041333
+    second: lentoemanta_idle_36
+  - first:
+      213: -3794230558616868671
+    second: lentoemanta_idle_37
+  - first:
+      213: 6066721361373964080
+    second: lentoemanta_idle_38
+  - first:
+      213: -1843259568026674789
+    second: lentoemanta_idle_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lentoemanta_idle_0
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 4039
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a5cd559a1729b40800000000000000
+      internalID: 5445539871548267078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 4039
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39daedfc24127b40800000000000000
+      internalID: 5436429883660753211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 4039
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478bdd264b9b8ee90800000000000000
+      internalID: -6996137836716115852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_3
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 4039
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22669741b29fa5900800000000000000
+      internalID: 674125057667720738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 3591
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d3c769a771fe5b0800000000000000
+      internalID: -5337021218132574866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 3591
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f3b027aaf0b39360800000000000000
+      internalID: 7175273221923582961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 3591
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4c39de076c60830800000000000000
+      internalID: 4037132304308749541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 3591
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9856aba1a8176d250800000000000000
+      internalID: 5969083194094019977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_8
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 3143
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34fc38f2cdd67d9a0800000000000000
+      internalID: -6208372768849539261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_9
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 3143
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503c7a0538b2a4de0800000000000000
+      internalID: -1348217295450160379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_10
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 3143
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca20dfc0bdf42990800000000000000
+      internalID: -7411520150902396217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_11
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 3143
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de3194eed4a0c240800000000000000
+      internalID: 4810025679256108753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_12
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 2695
+        width: 108
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf2bf314724f3190800000000000000
+      internalID: -7980586948358361170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 2695
+        width: 109
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9839bf5b73523c670800000000000000
+      internalID: 8557724638140666761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 2695
+        width: 109
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bf9ed17b0b3e230800000000000000
+      internalID: 3666968822137092940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_15
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 2695
+        width: 110
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89070aeeec1f435b0800000000000000
+      internalID: -5389416982986592104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_16
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 2247
+        width: 111
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701e28dcd67c52a00800000000000000
+      internalID: 731209788930842887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_17
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 2247
+        width: 112
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac903f1aa40903f0800000000000000
+      internalID: -934210318988436317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_18
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 2247
+        width: 114
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a745e28772ee1dbf0800000000000000
+      internalID: -301197846769675142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_19
+      rect:
+        serializedVersion: 2
+        x: 2631
+        y: 2247
+        width: 115
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73711e34d8e387c80800000000000000
+      internalID: -8324835134744225993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_20
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1799
+        width: 116
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445c326892f846300800000000000000
+      internalID: 244477688291771716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_21
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 1799
+        width: 115
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7992c185b8d8bc820800000000000000
+      internalID: 2939598811407591831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_22
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 1799
+        width: 114
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44302c69aae88070800000000000000
+      internalID: 8108989142465000523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_23
+      rect:
+        serializedVersion: 2
+        x: 2634
+        y: 1799
+        width: 112
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125a041ee29e69a00800000000000000
+      internalID: 763053574442755361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_24
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1351
+        width: 111
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c911d1b2da021abf0800000000000000
+      internalID: -314934570814467684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_25
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1351
+        width: 110
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b20ca1a855bfcbd0800000000000000
+      internalID: -2607666266950073680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_26
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 1351
+        width: 109
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada2ec34b01f5a820800000000000000
+      internalID: 2929012163358894810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_27
+      rect:
+        serializedVersion: 2
+        x: 2636
+        y: 1351
+        width: 109
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6400f6cf4895d00800000000000000
+      internalID: 961946215149225679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_28
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 903
+        width: 108
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ca7648f7f5faed0800000000000000
+      internalID: -2400595075078312844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_29
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 903
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2f962bc7eb58db0800000000000000
+      internalID: -4790213185860144385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_30
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 903
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a4917ad9a34aad0800000000000000
+      internalID: -2691962228472984964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_31
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 903
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeeecf04b4ce8fe80800000000000000
+      internalID: -8144500118142521618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_32
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 455
+        width: 107
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5071bb633df578160800000000000000
+      internalID: 7027691104295917317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_33
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 455
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080ebbcccdb40bd70800000000000000
+      internalID: 9056822262341820544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_34
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 455
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252c9c158dc8f5f30800000000000000
+      internalID: 4566523407889973842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_35
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 455
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086d3289761008160800000000000000
+      internalID: 7025616963143718528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_36
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 7
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0c59ab67cf152ed0800000000000000
+      internalID: -2439508681786041333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_37
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 7
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c8a5bdd86f285bc0800000000000000
+      internalID: -3794230558616868671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_38
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 7
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03728ff6fe2513450800000000000000
+      internalID: 6066721361373964080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_idle_39
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 7
+        width: 106
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b991eea503d6b66e0800000000000000
+      internalID: -1843259568026674789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lentoemanta_idle_0: 5445539871548267078
+      lentoemanta_idle_1: 5436429883660753211
+      lentoemanta_idle_10: -7411520150902396217
+      lentoemanta_idle_11: 4810025679256108753
+      lentoemanta_idle_12: -7980586948358361170
+      lentoemanta_idle_13: 8557724638140666761
+      lentoemanta_idle_14: 3666968822137092940
+      lentoemanta_idle_15: -5389416982986592104
+      lentoemanta_idle_16: 731209788930842887
+      lentoemanta_idle_17: -934210318988436317
+      lentoemanta_idle_18: -301197846769675142
+      lentoemanta_idle_19: -8324835134744225993
+      lentoemanta_idle_2: -6996137836716115852
+      lentoemanta_idle_20: 244477688291771716
+      lentoemanta_idle_21: 2939598811407591831
+      lentoemanta_idle_22: 8108989142465000523
+      lentoemanta_idle_23: 763053574442755361
+      lentoemanta_idle_24: -314934570814467684
+      lentoemanta_idle_25: -2607666266950073680
+      lentoemanta_idle_26: 2929012163358894810
+      lentoemanta_idle_27: 961946215149225679
+      lentoemanta_idle_28: -2400595075078312844
+      lentoemanta_idle_29: -4790213185860144385
+      lentoemanta_idle_3: 674125057667720738
+      lentoemanta_idle_30: -2691962228472984964
+      lentoemanta_idle_31: -8144500118142521618
+      lentoemanta_idle_32: 7027691104295917317
+      lentoemanta_idle_33: 9056822262341820544
+      lentoemanta_idle_34: 4566523407889973842
+      lentoemanta_idle_35: 7025616963143718528
+      lentoemanta_idle_36: -2439508681786041333
+      lentoemanta_idle_37: -3794230558616868671
+      lentoemanta_idle_38: 6066721361373964080
+      lentoemanta_idle_39: -1843259568026674789
+      lentoemanta_idle_4: -5337021218132574866
+      lentoemanta_idle_5: 7175273221923582961
+      lentoemanta_idle_6: 4037132304308749541
+      lentoemanta_idle_7: 5969083194094019977
+      lentoemanta_idle_8: -6208372768849539261
+      lentoemanta_idle_9: -1348217295450160379
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

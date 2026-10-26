@@ -35,6 +35,8 @@ public class BouncerSquad : MonoBehaviour
     bool helpersSent;
     [Tooltip("Ulkoa käynnistetty tappelu (esim. BarBrawl): portsarit tulevat, vaikka kukaan ei olisi saanut osumaa.")]
     public bool forceFight;
+    [Tooltip("Tulee vain ulkoa käynnistettynä (forceFight), ei heron osumasta eikä vihujen vaurioista.")]
+    public bool onlyForced;
     float lastSpawnTime = -99f;
 
     PlayerController pc;
@@ -75,8 +77,8 @@ public class BouncerSquad : MonoBehaviour
             if (area == null || Area.Current != area) { heroHealthAtEnter = -1; return; }
             if (pc == null) return;
             if (heroHealthAtEnter < 0) heroHealthAtEnter = pc.health;
-            bool fight = forceFight || pc.health < heroHealthAtEnter || (triggerX > -9000f && pc.transform.position.x >= triggerX);
-            if (!fight)
+            bool fight = forceFight || (!onlyForced && pc.health < heroHealthAtEnter || (triggerX > -9000f && pc.transform.position.x >= triggerX));
+            if (!fight && !onlyForced)
                 foreach (var e in Enemy.All)
                 {
                     if (e == null || e.fightsEveryone) continue;

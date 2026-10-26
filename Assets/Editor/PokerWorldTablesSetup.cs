@@ -70,6 +70,7 @@ public static class PokerWorldTablesSetup
             string path = Folder + "/Table-" + id + ".asset";
             var settings = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(path);
             if (settings == null) { settings = Object.Instantiate(defaults); AssetDatabase.CreateAsset(settings, path); }
+            settings.offerOmaha = true; if (settings.omahaBuyIn <= 0) settings.omahaBuyIn = 100;   // jokaisessa pöydässä voi valita Hold'em / Pot Limit Omaha
             // Bar-specific poker backgrounds will be supplied later. Keep the shared placeholder
             // from defaults (or a background already assigned manually to this settings asset).
             EditorUtility.SetDirty(settings);
@@ -140,6 +141,7 @@ public static class PokerWorldTablesSetup
             string path = Folder + "/Table-" + id + ".asset";
             var settings = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(path);
             if (settings == null) { settings = Object.Instantiate(defaults); AssetDatabase.CreateAsset(settings, path); }
+            settings.offerOmaha = true; if (settings.omahaBuyIn <= 0) settings.omahaBuyIn = 100;
             EditorUtility.SetDirty(settings);
             Undo.RecordObject(entry, "Pöydän liittyminen"); entry.settings = settings; entry.here = area; entry.rangeX = width * .5f + .7f; entry.rangeY = .9f;
             var visual = go.transform.Find("Visual");
@@ -160,5 +162,45 @@ public static class PokerWorldTablesSetup
             EditorUtility.DisplayDialog("Pokeripöytä", "Pokeripöytä lisätty hotellin aulan vasempaan laitaan (x " + x.ToString("0.0") + ", y " + y.ToString("0.00") + ") ja Thaitownin scene tallennettu.\n\nE / toimintanappi avaa pokerin. Jos paikka ei ole oikea, siirrä oliota 'Oma pokeripöytä · ThaitownAula' Unityssä.", "OK");
         }
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    /// <summary>Asettaa pokeripöydän annettuun alueeseen annettuun kohtaan (sama pöytä kuin valikko 224). Palauttaa raportin.</summary>
+    public static string PlaceTableInArea(UnityEngine.SceneManagement.Scene scene, Area area, float x, float y, string id)
+    {
+        var defaults = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(Folder + "/DefaultPoker.asset");
+        var clip = AssetDatabase.LoadAssetAtPath<VideoClip>(VideoPath);
+        var sprite = AssetDatabase.LoadAllAssetsAtPath(FramePath).OfType<Sprite>().FirstOrDefault() ?? AssetDatabase.LoadAssetAtPath<Sprite>(Folder + "/TableFirstFrame.asset");
+        var material = AssetDatabase.LoadAssetAtPath<Material>(Folder + "/GreenKeyWorld.mat");
+        if (defaults == null || clip == null || sprite == null || material == null) return "Pokeripöytää ei lisätty: aja ensin valikko 193 (pokeriasetukset, video ja materiaali puuttuvat).";
+        const float width = 6.8f;
+        string name = "Oma pokeripöytä · " + id;
+        var go = Object.FindObjectsByType<PokerTableEntry>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(t => t.name == name && t.gameObject.scene == scene)?.gameObject;
+        if (go == null)
+        {
+            go = new GameObject(name); Undo.RegisterCreatedObjectUndo(go, "Oma pokeripöytä");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+        }
+        Undo.RecordObject(go.transform, "Pokeripöydän sijainti"); go.transform.position = new Vector3(x, y, 0);
+        var entry = EnsureComponent<PokerTableEntry>(go);
+        string path = Folder + "/Table-" + id + ".asset";
+        var settings = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(path);
+        if (settings == null) { settings = Object.Instantiate(defaults); AssetDatabase.CreateAsset(settings, path); }
+        settings.offerOmaha = true; if (settings.omahaBuyIn <= 0) settings.omahaBuyIn = 100;
+        EditorUtility.SetDirty(settings);
+        Undo.RecordObject(entry, "Pöydän liittyminen"); entry.settings = settings; entry.here = area; entry.rangeX = width * .5f + .7f; entry.rangeY = .9f;
+        var visual = go.transform.Find("Visual");
+        if (visual == null) { var child = new GameObject("Visual"); Undo.RegisterCreatedObjectUndo(child, "Videopöytä"); child.transform.SetParent(go.transform, false); visual = child.transform; }
+        Undo.RecordObject(visual, "Pöydän mittakaava"); visual.localPosition = Vector3.zero; visual.localScale = Vector3.one * (width / 6.8f);
+        var body = EnsureComponent<SpriteRenderer>(visual.gameObject);
+        Undo.RecordObject(body, "Pöydän kuva"); body.sprite = sprite; body.sharedMaterial = material; body.sortingOrder = Mathf.RoundToInt(-(y + .55f) * 100);
+        var video = EnsureComponent<VideoPlayer>(visual.gameObject);
+        Undo.RecordObject(video, "Pöydän video"); video.clip = clip; video.playOnAwake = false; video.isLooping = true; video.audioOutputMode = VideoAudioOutputMode.None;
+        var loop = EnsureComponent<PokerTableVideo>(visual.gameObject);
+        Undo.RecordObject(loop, "Videon alue"); loop.area = area; loop.clip = clip;
+        var obstacle = EnsureComponent<Obstacle>(go);
+        Undo.RecordObject(obstacle, "Pöydän este"); obstacle.body = body; obstacle.halfWidth = width * .46f; obstacle.depth = 1.1f; obstacle.maxHealth = 0;
+        EditorUtility.SetDirty(entry); EditorUtility.SetDirty(body); EditorUtility.SetDirty(video); EditorUtility.SetDirty(loop); EditorUtility.SetDirty(obstacle);
+        AssetDatabase.SaveAssets();
+        return "Pokeripöytä lisätty (x " + x.ToString("0.0") + ", y " + y.ToString("0.00") + "; E avaa pokerin, pelimuoto valittavissa).";
     }
 }

@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 13cfd1a8a2bba2a48bef4933bed95262
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 435768377465233199
+    second: lentoemanta_kavely_0
+  - first:
+      213: 1195541044507157040
+    second: lentoemanta_kavely_1
+  - first:
+      213: 6291808349602926109
+    second: lentoemanta_kavely_2
+  - first:
+      213: -6643226455297499960
+    second: lentoemanta_kavely_3
+  - first:
+      213: -6274482299929459212
+    second: lentoemanta_kavely_4
+  - first:
+      213: -2222075855637524257
+    second: lentoemanta_kavely_5
+  - first:
+      213: -9185321528548936551
+    second: lentoemanta_kavely_6
+  - first:
+      213: 4553349101857871004
+    second: lentoemanta_kavely_7
+  - first:
+      213: -7252352870535853990
+    second: lentoemanta_kavely_8
+  - first:
+      213: 8586386444628333140
+    second: lentoemanta_kavely_9
+  - first:
+      213: -5034386008527169032
+    second: lentoemanta_kavely_10
+  - first:
+      213: -6646533576256996345
+    second: lentoemanta_kavely_11
+  - first:
+      213: 5654157682587274678
+    second: lentoemanta_kavely_12
+  - first:
+      213: -8152992027740841944
+    second: lentoemanta_kavely_13
+  - first:
+      213: -3609348164257635253
+    second: lentoemanta_kavely_14
+  - first:
+      213: -2203285995016532022
+    second: lentoemanta_kavely_15
+  - first:
+      213: -7916712439946044162
+    second: lentoemanta_kavely_16
+  - first:
+      213: -6461746544685378756
+    second: lentoemanta_kavely_17
+  - first:
+      213: 6472045013754829068
+    second: lentoemanta_kavely_18
+  - first:
+      213: -1620696930983340322
+    second: lentoemanta_kavely_19
+  - first:
+      213: 646928000883649284
+    second: lentoemanta_kavely_20
+  - first:
+      213: -8950939362080764106
+    second: lentoemanta_kavely_21
+  - first:
+      213: 8928127279681912641
+    second: lentoemanta_kavely_22
+  - first:
+      213: -8606638572595245863
+    second: lentoemanta_kavely_23
+  - first:
+      213: 6794763893082766494
+    second: lentoemanta_kavely_24
+  - first:
+      213: -6733445166767006351
+    second: lentoemanta_kavely_25
+  - first:
+      213: -8058823393547591670
+    second: lentoemanta_kavely_26
+  - first:
+      213: -7161539836903155188
+    second: lentoemanta_kavely_27
+  - first:
+      213: -770842483294088754
+    second: lentoemanta_kavely_28
+  - first:
+      213: 1853333754282383228
+    second: lentoemanta_kavely_29
+  - first:
+      213: -5198509702636761269
+    second: lentoemanta_kavely_30
+  - first:
+      213: 719634088222957517
+    second: lentoemanta_kavely_31
+  - first:
+      213: -747740807159125933
+    second: lentoemanta_kavely_32
+  - first:
+      213: -1520234700410260536
+    second: lentoemanta_kavely_33
+  - first:
+      213: -8594424079787342510
+    second: lentoemanta_kavely_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lentoemanta_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 3594
+        width: 132
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fd92fc7092c0600800000000000000
+      internalID: 435768377465233199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 3593
+        width: 132
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032af38ee3a679010800000000000000
+      internalID: 1195541044507157040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 3592
+        width: 133
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e4be8cb5ef05750800000000000000
+      internalID: 6291808349602926109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 2625
+        y: 3590
+        width: 132
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ccd3897cb48ec3a0800000000000000
+      internalID: -6643226455297499960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 3141
+        width: 131
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f58a33879f8ce8a0800000000000000
+      internalID: -6274482299929459212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 3142
+        width: 130
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd0d0c848c99921e0800000000000000
+      internalID: -2222075855637524257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 3142
+        width: 126
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994b7175cbe278080800000000000000
+      internalID: -9185321528548936551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2618
+        y: 3142
+        width: 119
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94159a22eeb03f30800000000000000
+      internalID: 4553349101857871004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 2694
+        width: 110
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a580de52d777a5b90800000000000000
+      internalID: -7252352870535853990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 2694
+        width: 98
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4521d409af8f82770800000000000000
+      internalID: 8586386444628333140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 2694
+        width: 84
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f99a8b3994422ab0800000000000000
+      internalID: -5034386008527169032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 2695
+        width: 75
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70cbe7f5de4c2c3a0800000000000000
+      internalID: -6646533576256996345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 2247
+        width: 76
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd09ae847a977e40800000000000000
+      internalID: 5654157682587274678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 2247
+        width: 77
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8285ae972f0cade80800000000000000
+      internalID: -8152992027740841944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 2247
+        width: 88
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4427beb7f409edc0800000000000000
+      internalID: -3609348164257635253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 2247
+        width: 108
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf4270af0b5c61e0800000000000000
+      internalID: -2203285995016532022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1799
+        width: 125
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc991cfaff222290800000000000000
+      internalID: -7916712439946044162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1800
+        width: 135
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c339b6fd0c34356a0800000000000000
+      internalID: -6461746544685378756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 1800
+        width: 139
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09d13f46a251d950800000000000000
+      internalID: 6472045013754829068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 2630
+        y: 1800
+        width: 140
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed61c246ab02289e0800000000000000
+      internalID: -1620696930983340322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1352
+        width: 140
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b6ce7d6995af800800000000000000
+      internalID: 646928000883649284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 1352
+        width: 137
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f4d150310e7c380800000000000000
+      internalID: -8950939362080764106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 1352
+        width: 136
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f3ae6257417eb70800000000000000
+      internalID: 8928127279681912641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 1352
+        width: 133
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc094271d31f8880800000000000000
+      internalID: -8606638572595245863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 904
+        width: 127
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c39d3b2c9db4e50800000000000000
+      internalID: 6794763893082766494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 904
+        width: 118
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d1840db4ffd82a0800000000000000
+      internalID: -6733445166767006351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 904
+        width: 108
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00ecff22de492090800000000000000
+      internalID: -8058823393547591670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 2628
+        y: 905
+        width: 100
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a149836791d9c90800000000000000
+      internalID: -7161539836903155188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 457
+        width: 96
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1d97578da6d45f0800000000000000
+      internalID: -770842483294088754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_29
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 457
+        width: 87
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c771e3aea3d58b910800000000000000
+      internalID: 1853333754282383228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_30
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 457
+        width: 95
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f0ae4e7fe2bd7b0800000000000000
+      internalID: -5198509702636761269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_31
+      rect:
+        serializedVersion: 2
+        x: 2646
+        y: 457
+        width: 102
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf9ac4f367acf900800000000000000
+      internalID: 719634088222957517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_32
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 9
+        width: 108
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 358673592bd7f95f0800000000000000
+      internalID: -747740807159125933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_33
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 10
+        width: 117
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3f2d2389a07eae0800000000000000
+      internalID: -1520234700410260536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_kavely_34
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 10
+        width: 129
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255463ba5d87ab880800000000000000
+      internalID: -8594424079787342510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lentoemanta_kavely_0: 435768377465233199
+      lentoemanta_kavely_1: 1195541044507157040
+      lentoemanta_kavely_10: -5034386008527169032
+      lentoemanta_kavely_11: -6646533576256996345
+      lentoemanta_kavely_12: 5654157682587274678
+      lentoemanta_kavely_13: -8152992027740841944
+      lentoemanta_kavely_14: -3609348164257635253
+      lentoemanta_kavely_15: -2203285995016532022
+      lentoemanta_kavely_16: -7916712439946044162
+      lentoemanta_kavely_17: -6461746544685378756
+      lentoemanta_kavely_18: 6472045013754829068
+      lentoemanta_kavely_19: -1620696930983340322
+      lentoemanta_kavely_2: 6291808349602926109
+      lentoemanta_kavely_20: 646928000883649284
+      lentoemanta_kavely_21: -8950939362080764106
+      lentoemanta_kavely_22: 8928127279681912641
+      lentoemanta_kavely_23: -8606638572595245863
+      lentoemanta_kavely_24: 6794763893082766494
+      lentoemanta_kavely_25: -6733445166767006351
+      lentoemanta_kavely_26: -8058823393547591670
+      lentoemanta_kavely_27: -7161539836903155188
+      lentoemanta_kavely_28: -770842483294088754
+      lentoemanta_kavely_29: 1853333754282383228
+      lentoemanta_kavely_3: -6643226455297499960
+      lentoemanta_kavely_30: -5198509702636761269
+      lentoemanta_kavely_31: 719634088222957517
+      lentoemanta_kavely_32: -747740807159125933
+      lentoemanta_kavely_33: -1520234700410260536
+      lentoemanta_kavely_34: -8594424079787342510
+      lentoemanta_kavely_4: -6274482299929459212
+      lentoemanta_kavely_5: -2222075855637524257
+      lentoemanta_kavely_6: -9185321528548936551
+      lentoemanta_kavely_7: 4553349101857871004
+      lentoemanta_kavely_8: -7252352870535853990
+      lentoemanta_kavely_9: 8586386444628333140
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: a77d42a1d7ef5ce4f8c9f1c2c5b4fdf8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7490357966671820005
+    second: pukki_juoma_0
+  - first:
+      213: -233798943920464563
+    second: pukki_juoma_1
+  - first:
+      213: -6448741176391862810
+    second: pukki_juoma_2
+  - first:
+      213: 8835115393625288147
+    second: pukki_juoma_3
+  - first:
+      213: 1712633073437665009
+    second: pukki_juoma_4
+  - first:
+      213: -4166851116086856839
+    second: pukki_juoma_5
+  - first:
+      213: -1033106727228930283
+    second: pukki_juoma_6
+  - first:
+      213: -1245200142983089038
+    second: pukki_juoma_7
+  - first:
+      213: -4839233201612372175
+    second: pukki_juoma_8
+  - first:
+      213: -6033708352561337322
+    second: pukki_juoma_9
+  - first:
+      213: -4590156289184818248
+    second: pukki_juoma_10
+  - first:
+      213: -4634924779255541486
+    second: pukki_juoma_11
+  - first:
+      213: 8565689856308198421
+    second: pukki_juoma_12
+  - first:
+      213: -651194628701116933
+    second: pukki_juoma_13
+  - first:
+      213: 4796014107718791541
+    second: pukki_juoma_14
+  - first:
+      213: 1753171002014568658
+    second: pukki_juoma_15
+  - first:
+      213: 6253644488395637359
+    second: pukki_juoma_16
+  - first:
+      213: -2871877227819286533
+    second: pukki_juoma_17
+  - first:
+      213: -3338494965398666519
+    second: pukki_juoma_18
+  - first:
+      213: -5422575887359855461
+    second: pukki_juoma_19
+  - first:
+      213: -8157575228160510770
+    second: pukki_juoma_20
+  - first:
+      213: -808006417605530997
+    second: pukki_juoma_21
+  - first:
+      213: -322236231572835595
+    second: pukki_juoma_22
+  - first:
+      213: -2178676654987878018
+    second: pukki_juoma_23
+  - first:
+      213: 7674112288795388114
+    second: pukki_juoma_24
+  - first:
+      213: 3690228886633997246
+    second: pukki_juoma_25
+  - first:
+      213: 3972360317093357452
+    second: pukki_juoma_26
+  - first:
+      213: -2756767301672045770
+    second: pukki_juoma_27
+  - first:
+      213: 1386609865235454800
+    second: pukki_juoma_28
+  - first:
+      213: 48307963450425910
+    second: pukki_juoma_29
+  - first:
+      213: 3324366214545698490
+    second: pukki_juoma_30
+  - first:
+      213: -6783949665982261339
+    second: pukki_juoma_31
+  - first:
+      213: -6775702995956312870
+    second: pukki_juoma_32
+  - first:
+      213: -8784913324470503596
+    second: pukki_juoma_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pukki_juoma_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4bdf392e813f760800000000000000
+      internalID: 7490357966671820005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_1
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d52c6691161ccf0800000000000000
+      internalID: -233798943920464563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_2
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e57ab421187186a0800000000000000
+      internalID: -6448741176391862810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_3
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ddee9ad3a2ac9a70800000000000000
+      internalID: 8835115393625288147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_4
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f666d4d4be74c710800000000000000
+      internalID: 1712633073437665009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_5
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973f3b1acfe5c26c0800000000000000
+      internalID: -4166851116086856839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_6
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 517047cb7eaa9a1f0800000000000000
+      internalID: -1033106727228930283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_7
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 2140
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2743a3b311928bee0800000000000000
+      internalID: -1245200142983089038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1374e90ea0797dcb0800000000000000
+      internalID: -4839233201612372175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_9
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c2647a836f34ca0800000000000000
+      internalID: -6033708352561337322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_10
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb1d97bc2d7c40c0800000000000000
+      internalID: -4590156289184818248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_11
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21151db58707dafb0800000000000000
+      internalID: -4634924779255541486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_12
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cba659a817fd670800000000000000
+      internalID: 8565689856308198421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_13
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5a0a47fed76f6f0800000000000000
+      internalID: -651194628701116933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_14
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 571375cab6dde8240800000000000000
+      internalID: 4796014107718791541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_15
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 1605
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d01895dcb3845810800000000000000
+      internalID: 1753171002014568658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62c66a678869c650800000000000000
+      internalID: 6253644488395637359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_17
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff3c4d80ea0528d0800000000000000
+      internalID: -2871877227819286533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_18
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e28bfe54884ba1d0800000000000000
+      internalID: -3338494965398666519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_19
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b943152e5f32fb4b0800000000000000
+      internalID: -5422575887359855461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_20
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec477f8fc887ace80800000000000000
+      internalID: -8157575228160510770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_21
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ae266b17269c4f0800000000000000
+      internalID: -808006417605530997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_22
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2375bcadf278bf0800000000000000
+      internalID: -322236231572835595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_23
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 1070
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e71e20b1029c3c1e0800000000000000
+      internalID: -2178676654987878018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8eb1ca77cef7a60800000000000000
+      internalID: 7674112288795388114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_25
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb364b7ee93563330800000000000000
+      internalID: 3690228886633997246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_26
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87253479a8a02730800000000000000
+      internalID: 3972360317093357452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_27
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633fc6fbebefdb9d0800000000000000
+      internalID: -2756767301672045770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_28
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b596b635a3e3310800000000000000
+      internalID: 1386609865235454800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_29
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632094936df9ba000800000000000000
+      internalID: 48307963450425910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_30
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe6e497575822e20800000000000000
+      internalID: 3324366214545698490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_31
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 535
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a75ff0c8b19ad1a0800000000000000
+      internalID: -6783949665982261339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4597e360ed7f1a0800000000000000
+      internalID: -6775702995956312870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pukki_juoma_33
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 545
+        height: 535
+      alignment: 9
+      pivot: {x: 0.446, y: -0.0149532715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457f65830e7b51680800000000000000
+      internalID: -8784913324470503596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 507b53d2919fffb4e8c3181113d56c4b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pukki_juoma_0: 7490357966671820005
+      pukki_juoma_1: -233798943920464563
+      pukki_juoma_10: -4590156289184818248
+      pukki_juoma_11: -4634924779255541486
+      pukki_juoma_12: 8565689856308198421
+      pukki_juoma_13: -651194628701116933
+      pukki_juoma_14: 4796014107718791541
+      pukki_juoma_15: 1753171002014568658
+      pukki_juoma_16: 6253644488395637359
+      pukki_juoma_17: -2871877227819286533
+      pukki_juoma_18: -3338494965398666519
+      pukki_juoma_19: -5422575887359855461
+      pukki_juoma_2: -6448741176391862810
+      pukki_juoma_20: -8157575228160510770
+      pukki_juoma_21: -808006417605530997
+      pukki_juoma_22: -322236231572835595
+      pukki_juoma_23: -2178676654987878018
+      pukki_juoma_24: 7674112288795388114
+      pukki_juoma_25: 3690228886633997246
+      pukki_juoma_26: 3972360317093357452
+      pukki_juoma_27: -2756767301672045770
+      pukki_juoma_28: 1386609865235454800
+      pukki_juoma_29: 48307963450425910
+      pukki_juoma_3: 8835115393625288147
+      pukki_juoma_30: 3324366214545698490
+      pukki_juoma_31: -6783949665982261339
+      pukki_juoma_32: -6775702995956312870
+      pukki_juoma_33: -8784913324470503596
+      pukki_juoma_4: 1712633073437665009
+      pukki_juoma_5: -4166851116086856839
+      pukki_juoma_6: -1033106727228930283
+      pukki_juoma_7: -1245200142983089038
+      pukki_juoma_8: -4839233201612372175
+      pukki_juoma_9: -6033708352561337322
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

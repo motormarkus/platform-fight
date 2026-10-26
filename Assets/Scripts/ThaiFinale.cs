@@ -77,19 +77,19 @@ public class ThaiFinale : MonoBehaviour
     void UpdateHeliSound(Area cur)
     {
         if (heliObj == null && Time.time >= heliFindAt) { heliObj = GameObject.Find("Thaitown katon kopteri"); heliFindAt = Time.time + 1f; }
-        if (heliObj == null || !heliObj.activeInHierarchy) { if (heliSrc != null) heliSrc.volume = 0f; return; }
+        if (heliObj == null || !heliObj.activeInHierarchy) { if (heliSrc != null) { heliSrc.volume = 0f; heliSrc.Pause(); } return; }
         if (heliSrc == null)
         {
             heliSrc = heliObj.AddComponent<AudioSource>();
             heliSrc.clip = Resources.Load<AudioClip>("Sfx/kopteri_katto");
-            heliSrc.loop = true; heliSrc.playOnAwake = false; heliSrc.spatialBlend = 0f;
-            if (heliSrc.clip != null) heliSrc.Play();
+            heliSrc.loop = true; heliSrc.playOnAwake = false; heliSrc.spatialBlend = 0f; heliSrc.volume = 0f;   // alkaa hiljaa (oletus 1 kuului muissa alueissa)
         }
         float v = 0f;
         var p = Players.Primary;
         if (p != null && cur.areaName == "Thaitown katto")
             v = Mathf.Clamp01(1f - Vector2.Distance(heliObj.transform.position, p.transform.position) / 30f) * (0.45f + 0.4f * heliBoost);
         heliSrc.volume = Mathf.MoveTowards(heliSrc.volume, v, Time.deltaTime * 2f);
+        if (heliSrc.clip != null) { if (heliSrc.volume > 0.001f && !heliSrc.isPlaying) heliSrc.Play(); else if (heliSrc.volume <= 0.001f && heliSrc.isPlaying) heliSrc.Pause(); }
         heliSrc.pitch = 1f + 0.3f * heliBoost;
     }
 
