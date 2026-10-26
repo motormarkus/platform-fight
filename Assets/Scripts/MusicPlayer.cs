@@ -34,6 +34,9 @@ public class MusicPlayer : MonoBehaviour
         m.overTarget = 1f; m.overFade = Mathf.Max(0.01f, fade);
     }
 
+    /// Muuttaa erillisen kappaleen vahvistusta kesken soiton (esim. musiikki hiljenee tappelun loppua kohden).
+    public static void SetOverrideGain(float g) { if (Instance != null) Instance.overGain = g; }
+
     /// Soiko erillinen kappale (PlayOverride) vielä? Silmukatta soitettu kappale päättyy itsestään.
     public static bool OverridePlaying => Instance != null && Instance.overSource.isPlaying;
 

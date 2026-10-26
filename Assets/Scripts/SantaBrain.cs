@@ -30,7 +30,13 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     public AudioClip[] punchSounds;
     [Tooltip("Koukun isku (koukku ja alakoukku), tuplakoukun alku (koukkukombo), mahatörmäyksen jälkeinen, osuman jälkeinen (joka toinen kaatava osuma heroon tai vihuun) ja taistelun aikana silloin tällöin puhuttava repliikki.")]
     public AudioClip hookSound, doubleHookSound, bumpAfterSound, hitSound, speakSound;
+    [Tooltip("Heron liukumatka heiton jälkeen (1 = kapteenin liuku; liukuu muuten ruudun seinään asti).")]
+    public float slideDistance = 0.67f;
     [Range(0f, 1f)] public float voiceVolume = 1f;
+    int lastTickFrame;
+    float nextMusicGainAt; int peakAlive;
+    const float MusicGain0 = 0.89f;   // musiikin alkutaso -1 dB
+    const float VoiceBoost = 1.0f;   // pukin äänet: +1,5 dB oli liikaa (särki), takaisin perustasoon
 
     [Header("Kestävyys")]
     [Tooltip("Muiden vihujen iskuista tämän osuus (0-1) menee ohi (pukki on kova ja pysyy pystyssä väkijoukossa); berserkinä enemmän.")]
@@ -161,8 +167,9 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     {
         var hero = e.Hero;
         if (hero == null) return;
-        if (Time.time - lastTick > 0.25f) AbortAction();   // väliin tuli osuma, kaatuminen tms.
-        lastTick = Time.time;
+        // väliin tuli osuma, kaatuminen tms. (aikaero JA kuvien määrä: yksittäinen pitkä kuva, esim. musiikin latauksen nykäys ryypyn alussa, ei keskeytä)
+        if (Time.time - lastTick > 0.25f && Time.frameCount - lastTickFrame > 6) AbortAction();
+        lastTick = Time.time; lastTickFrame = Time.frameCount;
         if (berserk)
         {
             berserkT += dt;
@@ -210,7 +217,8 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     /// Enemy.TakeHit kutsuu tätä ensimmäisenä: true = isku ohi.
     public bool InterceptHit(int damage, float attackerX, bool knockdown)
     {
-        if (mode == Mode.Dormant || mode == Mode.Entrance) return false;
+        if (mode == Mode.Entrance || introDrink || (mode == Mode.Act && cur.kind == Kind.Drink)) return true;   // ryypyn aikana (myös myöhemmin) ei osu mikään   // sisääntulon ja ryypyn aikana ei keskeydy mistään osumasta (ei ohita ryyppyä)
+        if (mode == Mode.Dormant) return false;
         if (Enemy.EnemyStrike && Random.value < (berserk ? foeHitIgnoreBerserk : foeHitIgnore)) return true;   // muiden vihujen iskuista osa menee ohi: kovempi
         if (!Enemy.EnemyStrike) heroPriorityUntil = Time.time + 3f;   // hero löi: hän on taas kohde
         if (e.Hero != null)
@@ -538,14 +546,14 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     {
         if (vkind == VKind.Hero && e.Hero != null)
         {
-            e.Hero.Throw(face * throwSpeed, throwUp, throwDamage, true);
+            e.Hero.Throw(face * throwSpeed, throwUp, throwDamage, true, slideDistance);
             bowlHero = e.Hero; bowlUntil = Time.time + 1.6f; bowled.Clear();
         }
         else if (vkind == VKind.Prop && vCrate != null) { vCrate.Throw(face * propThrowSpeed, 3.5f, e, throwDamage); vCrate = null; }
         else if (vkind == VKind.Foe && vFoe != null)
         {
             vFoe.thrownBy = e; vFoe.thrownByEnemy = true;
-            vFoe.ReleaseThrow(face * propThrowSpeed * 1.1f, 4f, 18); vFoe = null;
+            vFoe.ReleaseThrow(face * propThrowSpeed * 1.1f, 4f, 18, true, slideDistance); vFoe = null;
         }
         holding = false; thrown = true;
     }
@@ -575,7 +583,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
             else if (vkind == VKind.Foe && vFoe != null) vFoe.ReleaseThrow(0f, 2f, 0);
         }
         holding = false; shockFx = false;
-        if (introDrink) EndIntro();
+        if (introDrink) { Debug.Log("[Pukki] ryyppy keskeytyi (AbortAction)"); EndIntro(); }
         if (mode == Mode.Act) mode = Mode.Fight;
         comboRunning = false;
         plan = new List<Step>(); planPos = 0;
@@ -683,7 +691,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
         if (entranceSound != null)
         {
             entranceTime = Mathf.Max(entranceTime, entranceSound.length + 0.4f);   // kaikki pysyvät paikallaan koko repliikin ajan
-            if (e.Audio != null) { e.Audio.mute = false; e.Audio.spatialBlend = 0f; e.Audio.PlayOneShot(entranceSound, voiceVolume); } else AudioSource.PlayClipAtPoint(entranceSound, Camera.main != null ? Camera.main.transform.position : transform.position, voiceVolume);
+            if (e.Audio != null) { e.Audio.mute = false; e.Audio.spatialBlend = 0f; e.Audio.PlayOneShot(entranceSound, voiceVolume * VoiceBoost); } else AudioSource.PlayClipAtPoint(entranceSound, Camera.main != null ? Camera.main.transform.position : transform.position, voiceVolume * VoiceBoost);
             Debug.Log("[Pukki] sisääntulo: repliikki " + entranceSound.name + " (" + entranceSound.length.ToString("0.0") + " s), musiikki " + (fightMusic != null ? fightMusic.name : "puuttuu"));
         }
         else if (!string.IsNullOrEmpty(entranceLine))
@@ -719,7 +727,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     void StartFightMusic()
     {
         if (fightMusic == null || musicOn) return;
-        MusicPlayer.PlayOverride(fightMusic, 0.6f, true, 1.2f); musicOn = true;
+        MusicPlayer.PlayOverride(fightMusic, 0.6f, true, MusicGain0); musicOn = true;
         Debug.Log("[Pukki] tappelumusiikki alkaa: " + fightMusic.name + (MusicPlayer.Instance == null ? " (VAROITUS: MusicPlayer puuttuu scenestä)" : ""));
     }
 
@@ -754,6 +762,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
         {
             if (bubble != null) { Destroy(bubble); bubble = null; }
             mode = Mode.Fight; decisionTimer = 0.3f;
+            Debug.Log("[Pukki] repliikki loppu, ryyppy: " + (Has(drink) ? drink.Length + " kuvaa" : "EI KUVIA (aja valikko 282)"));
             if (Has(drink)) { introDrink = true; plan = new List<Step> { new Step(Kind.Drink) }; planPos = 0; comboRunning = false; StartStep(hero); }   // repliikin perään ryyppy
             else EndIntro();
         }
@@ -866,7 +875,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     {
         if (c == null || Time.time < voiceBusyUntil) return;
         voiceBusyUntil = Time.time + Mathf.Min(c.length, 1.2f);
-        if (e != null && e.Audio != null) { e.Audio.mute = false; e.Audio.spatialBlend = 0f; e.Audio.PlayOneShot(c, voiceVolume); } else AudioSource.PlayClipAtPoint(c, Camera.main != null ? Camera.main.transform.position : transform.position, voiceVolume);
+        if (e != null && e.Audio != null) { e.Audio.mute = false; e.Audio.spatialBlend = 0f; e.Audio.PlayOneShot(c, voiceVolume * VoiceBoost); } else AudioSource.PlayClipAtPoint(c, Camera.main != null ? Camera.main.transform.position : transform.position, voiceVolume * VoiceBoost);
     }
 
     void Later(AudioClip c, float delay) { if (c == null) return; pendingClip = c; pendingAt = Time.time + delay; }

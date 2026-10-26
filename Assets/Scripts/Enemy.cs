@@ -1083,7 +1083,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             // äänet Resources/Sfx/pensalenkkari: puheet, kipuäänet, iskuhuudot ja kaatumishuuto (ei vaadi valikon uudelleenajoa)
             System.Func<string[], AudioClip[]> load = names => { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var n in names) { var c = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_" + n); if (c != null) l.Add(c); } return l.ToArray(); };
             if (tauntSounds == null || tauntSounds.Length == 0) { var sp = load(new[] { "welcome", "speak1", "speak2", "fight_speak1" }); if (sp.Length > 0) { tauntSounds = sp; tauntPause = new Vector2(5f, 10f); tauntNoRepeat = true; tauntOnWakeChance = 0.7f; } }
-            tauntVolume = 0.8f;   // puhe oli kovalla: 20 % hiljaisemmaksi
+            tauntVolume = 0.5f;   // puhe oli kovalla (ensin 20 %, sitten vielä −4 dB): muita puhujia hiljaisemmaksi
             if (hurtSounds == null || hurtSounds.Length == 0) { var pn = load(new[] { "pain1", "pain2", "pain3" }); if (pn.Length > 0) { hurtSounds = pn; hurtVolume = 1f; } }
             if (attackSounds == null || attackSounds.Length == 0) { var ly = load(new[] { "lyo1", "lyo2", "lyo3" }); if (ly.Length > 0) { attackSounds = ly; attackSoundChance = 1f; } }
             if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
@@ -1561,7 +1561,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         thrownByPlayer = false;
                         PlayHurtSound();
                         if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
-                        if (slideLand) { knockVel *= 1.35f; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
+                        if (slideLand) { knockVel *= 1.35f * slideScaleE; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
                         else knockVel = Vector2.zero;
                     }
                     Enter(State.Down);
@@ -1571,8 +1571,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Down:
                 if (slamLanded || slideLand)
                 {
+                    float x0 = transform.position.x;
                     Move(knockVel * dt);
-                    if (slideLand && Mathf.Abs(knockVel.x) > 1.5f) BowlOthers();   // liukuva heitetty kaataa tielle osuneet
+                    if (slideLand && Mathf.Abs(knockVel.x) > 1.5f)
+                    {
+                        BowlOthers();   // liukuva heitetty kaataa tielle osuneet
+                        SlideSmash();
+                        if (Mathf.Abs(transform.position.x - x0) < Mathf.Abs(knockVel.x * dt) * 0.3f) knockVel = Vector2.zero;   // törmäsi päätyyn: liuku loppuu heti, pääsee ylös
+                    }
                     knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, (slideLand ? 7.5f : 9f) * dt);
                     if (slideLand && knockVel.sqrMagnitude < 0.01f) slideLand = false;
                 }
@@ -1771,6 +1777,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     const float ThrowSwing = 0.13f;
     /// Noston eteneminen 0..1: rauhallinen alku, vauhti keskellä, pieni pysähdys pään yllä ennen heilautusta.
     float LiftEase { get { float t = Mathf.Clamp01(stateTime / grabLiftTime); return slideThrow ? t * t : t * t * (3f - 2f * t); } }
+    float slideScaleE = 1f;
     bool slideLand;   // tämä vihu heitettiin liukuheitolla: lattialla liukuu
     bool thrown;
     Enemy grabbedEnemy;     // heitettävä toinen vihu (esim. Kovis heittää seilorin)
@@ -2442,7 +2449,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (clip == null || !clip.name.ToLowerInvariant().Contains(part.ToLowerInvariant())) continue;
             lastTaunt = i;
             audioSource.pitch = 1f;
-            audioSource.PlayOneShotLeveled(clip, tauntVolume);
+            audioSource.PlayOneShotLeveled(clip, tauntVolume, true);
             talkUntil = Time.time + clip.length;
             NoteSpeech(this, clip.length);
             nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
@@ -2461,7 +2468,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (clip == null) return;
         lastTaunt = i;
         audioSource.pitch = 1f;
-        audioSource.PlayOneShotLeveled(clip, tauntVolume);
+        audioSource.PlayOneShotLeveled(clip, tauntVolume, true);
         talkUntil = Time.time + clip.length;
         NoteSpeech(this, clip.length);
         nextTauntTime = Time.time + clip.length + Random.Range(tauntPause.x, tauntPause.y);
@@ -3793,6 +3800,32 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Pelaaja heittää: lento vaakanopeudella vx, ylös up; vahinko heti, tärähdys maahan osuessa.
+    /// Liukuheitto: vihu liukuu lattiaa pitkin (slideDist 1 = kapteenin liuku), kaataa muut ja rikkoo pöydät tieltään.
+    public void ReleaseThrow(float vx, float up, int damage, bool slide, float slideDist = 1f)
+    {
+        if (state != State.Held) return;
+        slideLand = slide; slideScaleE = Mathf.Sqrt(Mathf.Max(0.05f, slideDist));
+        ReleaseThrow(vx, up, damage);
+    }
+
+    void SlideSmash()
+    {
+        Vector3 me = transform.position;
+        for (int ci = Crate.All.Count - 1; ci >= 0; ci--)
+        {
+            var c = Crate.All[ci];
+            if (c == null || !c.breakable || !c.CanBeHit || c.breakSprites == null || c.breakSprites.Length == 0) continue;
+            Vector3 q = c.transform.position;
+            if (Mathf.Abs(q.x - me.x) < c.impactRadiusX && Mathf.Abs(q.y - me.y) < 0.6f) c.Smash();
+        }
+        foreach (var ch in Chair.All.ToArray())
+        {
+            if (ch == null || !ch.CanBeHit) continue;
+            Vector3 q = ch.transform.position;
+            if (Mathf.Abs(q.x - me.x) < 1.1f && Mathf.Abs(q.y - me.y) < 0.6f) ch.Knock(me.x - Mathf.Sign(knockVel.x), false);
+        }
+    }
+
     public void ReleaseThrow(float vx, float up, int damage)
     {
         if (state != State.Held) return;

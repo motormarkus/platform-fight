@@ -63,6 +63,8 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     public int foeDamageBonus = 6;   // iskut muihin vihuihin (kaataa aina)
 
     enum Mode { Dormant, Fight, Act, Tired, Fetch }
+    [Tooltip("Heron liukumatka Tomin heiton jälkeen (1 = kapteenin liuku).")]
+    public float slideDistance = 0.67f;
     enum Kind { Jab, Cross, Power, Grab, Drink, Lift }
     class Atk { public Sprite[] frames; public int impact; public float reach, lunge; public int damage; public float cost, windScale; }
 
@@ -117,7 +119,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     {
         if (c == null || e == null || e.Audio == null) return;
         if (!force && Time.time < voiceBusyUntil) return;
-        e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain());
+        e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain(), true);   // puhe: ei vaimene pukin musiikin alla
         voiceBusyUntil = Time.time + c.length;
         if (speakLines != null && System.Array.IndexOf(speakLines, c) >= 0) Enemy.NoteSpeech(e, c.length);   // Puliukko voi huutaa perään
     }
@@ -414,10 +416,10 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
             {
                 grabFoe.thrownByEnemy = true;   // ei kameran tärähdystä (vihun heitto)
                 grabFoe.thrownBy = e;           // heitetty vihu ei kaada heittäjää itseään
-                grabFoe.ReleaseThrow(face * throwSpeed * (berserk ? 1.15f : 1f), throwUp, foeThrowDamage);   // lentää kauas ja kaataa muut tieltään
+                grabFoe.ReleaseThrow(face * throwSpeed * (berserk ? 1.15f : 1f), throwUp, foeThrowDamage, true, slideDistance);   // lentää kauas ja kaataa muut tieltään
                 holdingFoe = false; grabFoe = null;
             }
-            else if (grabT <= dt + 0.0001f && grabFoe == null && hero.IsGrabbed) { hero.Throw(face * throwSpeed * (berserk ? 1.15f : 1f), throwUp, throwDamage); holding = false; }
+            else if (grabT <= dt + 0.0001f && grabFoe == null && hero.IsGrabbed) { hero.Throw(face * throwSpeed * (berserk ? 1.15f : 1f), throwUp, throwDamage, true, slideDistance); holding = false; }
             CurrentSprite = grab[Mathf.Min(grabT < dur[3] * 0.5f ? 5 : 6, grab.Length - 1)];
             if (grabT >= dur[3]) { grabT = 0f; grabPhase = 4; }
         }

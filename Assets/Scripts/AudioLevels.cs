@@ -56,11 +56,12 @@ public static class AudioLevels
     public static bool CrowdLimiter = true;
 
     /// AudioSource.PlayOneShot tasatulla voimakkuudella.
-    public static void PlayOneShotLeveled(this AudioSource source, AudioClip clip, float volume = 1f)
+    public static void PlayOneShotLeveled(this AudioSource source, AudioClip clip, float volume = 1f, bool speech = false)
     {
         if (source == null || clip == null) return;
         float v = volume * Gain(clip);
-        if (CrowdLimiter && source.GetComponent<Enemy>() != null && source.GetComponent<SantaBrain>() == null)   // heron ja pukin äänet eivät rajoitu
+        if (CrowdLimiter && !speech &&   // puheet (speech) eivät vaimene väkijoukon rajoittimessa eikä pukin musiikin alla
+ source.GetComponent<Enemy>() != null && source.GetComponent<SantaBrain>() == null)   // heron ja pukin äänet eivät rajoitu
         {
             float now = Time.unscaledTime;
             recent.RemoveAll(p => now - p.time > 0.3f);

@@ -2992,7 +2992,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (slideOnLand) HitFx.OnHitQuiet();   // liukuheitto: ei pysäytystä maahan osuessa, liuku alkaa heti
                     else { HitFx.OnHit(true); if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.25f); }
                     ApplyDamage(pendingDamage);
-                    slideVel = slideOnLand ? airVel * 1.35f : Vector2.zero; slideOnLand = false;
+                    slideVel = slideOnLand ? airVel * (1.35f * slideScale) : Vector2.zero; slideOnLand = false;
                     if (slideVel != Vector2.zero) DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
                     Enter(State.Down);
                 }
@@ -3009,8 +3009,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Down:
                 if (slideVel.sqrMagnitude > 0.01f)
                 {
+                    float sx0 = transform.position.x;
                     MoveOnGround(slideVel * dt);
-                    if (Mathf.Abs(slideVel.x) > 1.5f) SlideBowl();   // liukuva hero kaataa tielle osuneet vihut
+                    if (Mathf.Abs(slideVel.x) > 1.5f)
+                    {
+                        SlideBowl();
+                        if (Mathf.Abs(transform.position.x - sx0) < Mathf.Abs(slideVel.x * dt) * 0.3f) slideVel = Vector2.zero;   // törmäsi päätyyn: liuku loppuu heti, pääsee ylös
+                    }   // liukuva hero kaataa tielle osuneet vihut
                     slideVel = Vector2.MoveTowards(slideVel, Vector2.zero, 7.5f * dt);
                 }
                 if (stateTime >= thrownDownTime && slideVel.sqrMagnitude < 0.01f)   // liuku loppuun ennen ylösnousua
@@ -3283,12 +3288,26 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             slideBowled.Add(e);
             if (e.TakeHit(10, q.x - Mathf.Sign(slideVel.x), true)) HitSpark.Spawn(new Vector3(q.x, q.y + 1.8f, 0f), true, Mathf.RoundToInt(-q.y * 100f) + 5);
         }
+        // liukuva hero rikkoo pöydät ja kaataa tuolit tieltään
+        for (int ci = Crate.All.Count - 1; ci >= 0; ci--)
+        {
+            var c = Crate.All[ci];
+            if (c == null || !c.breakable || !c.CanBeHit || c.breakSprites == null || c.breakSprites.Length == 0) continue;
+            Vector3 q = c.transform.position;
+            if (Mathf.Abs(q.x - me.x) < c.impactRadiusX && Mathf.Abs(q.y - me.y) < 0.6f) c.Smash();
+        }
+        foreach (var ch in Chair.All.ToArray())
+        {
+            if (ch == null || !ch.CanBeHit) continue;
+            Vector3 q = ch.transform.position;
+            if (Mathf.Abs(q.x - me.x) < 1.1f && Mathf.Abs(q.y - me.y) < 0.6f) ch.Knock(me.x - Mathf.Sign(slideVel.x), false);
+        }
     }
-    Vector2 slideVel; bool slideOnLand;   // liukuheitto (kapteeni): lattialla liukuu heittäjästä poispäin
-    public void Throw(float vx, float up, int damage, bool slide = false)
+    Vector2 slideVel; bool slideOnLand; float slideScale = 1f;   // liukuheitto (kapteeni): lattialla liukuu heittäjästä poispäin
+    public void Throw(float vx, float up, int damage, bool slide = false, float slideDist = 1f)
     {
         if (state != State.Grabbed) return;
-        slideOnLand = slide; slideVel = Vector2.zero;
+        slideScale = Mathf.Sqrt(Mathf.Max(0.05f, slideDist)); slideOnLand = slide; slideVel = Vector2.zero;
         airVel = new Vector2(vx, 0f);
         verticalVel = up;
         pendingDamage = damage;
