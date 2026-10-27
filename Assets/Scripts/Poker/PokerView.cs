@@ -175,8 +175,9 @@ public sealed class PokerView : MonoBehaviour
         else { Panel(dealer, new Rect(0, 0, 32, 32), new Color(.95f, .89f, .72f)); Label(dealer, new Rect(0, 0, 32, 32), "D", 25, Color.black); }
         message = Label(root, new Rect(392, 570, 168, 30), "", 18, Color.white);
         // Tapahtumahistoria vasemmalla alhaalla: viimeisimmät toiminnot, uusin alimpana.
-        Panel(root, new Rect(18, 468, 372, 134), new Color(0, 0, 0, .42f));
+        Panel(root, new Rect(18, 468, 372, 134), new Color(0, 0, 0, .82f));   // tumma pohja: teksti pysyy luettavana pöydän päällä
         logText = Label(root, new Rect(26, 470, 358, 130), "", 16, Color.white);
+        var logOutline = logText.gameObject.AddComponent<Outline>(); logOutline.effectColor = new Color(0, 0, 0, .9f); logOutline.effectDistance = new Vector2(1.2f, -1.2f);
         logText.alignment = TextAnchor.LowerLeft; logText.supportRichText = true; logText.horizontalOverflow = HorizontalWrapMode.Wrap;
         Panel(root, new Rect(0, 606, 1280, 114), new Color(.025f, .025f, .025f, .98f));
         status = Label(root, new Rect(18, 620, 265, 60), "", 30, Gold);
@@ -379,7 +380,7 @@ public sealed class PokerView : MonoBehaviour
         }
         if (!t.Running && !runoutActive && t.Street == PokerStreet.Complete && logResultHand != t.HandNumber)
         {
-            logResultHand = t.HandNumber; AddLog("<color=#ffffff><b>" + t.Message + "</b></color>");
+            logResultHand = t.HandNumber; AddLog("<color=#ffffff>" + t.Message + "</color>");
         }
         int from = Math.Max(0, log.Count - 6); var sb = new System.Text.StringBuilder();
         for (int i = from; i < log.Count; i++)

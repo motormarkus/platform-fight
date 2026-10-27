@@ -157,7 +157,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 8192
   textureSettings:
     serializedVersion: 2
     filterMode: 1
@@ -174,7 +174,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -195,10 +195,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -208,10 +208,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -221,10 +221,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -234,10 +234,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: iOS
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -252,12 +252,12 @@ TextureImporter:
       name: lentoemanta_puhe_0
       rect:
         serializedVersion: 2
-        x: 334
-        y: 4487
-        width: 106
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: lentoemanta_puhe_1
       rect:
         serializedVersion: 2
-        x: 1102
-        y: 4487
-        width: 106
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: lentoemanta_puhe_2
       rect:
         serializedVersion: 2
-        x: 1869
-        y: 4487
-        width: 107
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -318,12 +318,12 @@ TextureImporter:
       name: lentoemanta_puhe_3
       rect:
         serializedVersion: 2
-        x: 2635
-        y: 4487
-        width: 120
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -340,12 +340,12 @@ TextureImporter:
       name: lentoemanta_puhe_4
       rect:
         serializedVersion: 2
-        x: 331
-        y: 4039
-        width: 151
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -362,12 +362,12 @@ TextureImporter:
       name: lentoemanta_puhe_5
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 4039
-        width: 159
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -384,12 +384,12 @@ TextureImporter:
       name: lentoemanta_puhe_6
       rect:
         serializedVersion: 2
-        x: 1869
-        y: 4039
-        width: 155
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -406,12 +406,12 @@ TextureImporter:
       name: lentoemanta_puhe_7
       rect:
         serializedVersion: 2
-        x: 2641
-        y: 4039
-        width: 141
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 3840
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -428,12 +428,12 @@ TextureImporter:
       name: lentoemanta_puhe_8
       rect:
         serializedVersion: 2
-        x: 339
-        y: 3591
-        width: 109
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -450,12 +450,12 @@ TextureImporter:
       name: lentoemanta_puhe_9
       rect:
         serializedVersion: 2
-        x: 1108
-        y: 3591
-        width: 101
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -472,12 +472,12 @@ TextureImporter:
       name: lentoemanta_puhe_10
       rect:
         serializedVersion: 2
-        x: 1875
-        y: 3591
-        width: 102
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -494,12 +494,12 @@ TextureImporter:
       name: lentoemanta_puhe_11
       rect:
         serializedVersion: 2
-        x: 2643
-        y: 3591
-        width: 102
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -516,12 +516,12 @@ TextureImporter:
       name: lentoemanta_puhe_12
       rect:
         serializedVersion: 2
-        x: 339
-        y: 3143
-        width: 102
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -538,12 +538,12 @@ TextureImporter:
       name: lentoemanta_puhe_13
       rect:
         serializedVersion: 2
-        x: 1106
-        y: 3143
-        width: 119
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -560,12 +560,12 @@ TextureImporter:
       name: lentoemanta_puhe_14
       rect:
         serializedVersion: 2
-        x: 1873
-        y: 3143
-        width: 138
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: lentoemanta_puhe_15
       rect:
         serializedVersion: 2
-        x: 2641
-        y: 3143
-        width: 127
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 3200
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -604,12 +604,12 @@ TextureImporter:
       name: lentoemanta_puhe_16
       rect:
         serializedVersion: 2
-        x: 337
-        y: 2695
-        width: 113
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -626,12 +626,12 @@ TextureImporter:
       name: lentoemanta_puhe_17
       rect:
         serializedVersion: 2
-        x: 1106
-        y: 2695
-        width: 103
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -648,12 +648,12 @@ TextureImporter:
       name: lentoemanta_puhe_18
       rect:
         serializedVersion: 2
-        x: 1874
-        y: 2695
-        width: 103
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -670,12 +670,12 @@ TextureImporter:
       name: lentoemanta_puhe_19
       rect:
         serializedVersion: 2
-        x: 2642
-        y: 2695
-        width: 103
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -692,12 +692,12 @@ TextureImporter:
       name: lentoemanta_puhe_20
       rect:
         serializedVersion: 2
-        x: 338
-        y: 2247
-        width: 103
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -714,12 +714,12 @@ TextureImporter:
       name: lentoemanta_puhe_21
       rect:
         serializedVersion: 2
-        x: 1105
-        y: 2247
-        width: 104
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -736,12 +736,12 @@ TextureImporter:
       name: lentoemanta_puhe_22
       rect:
         serializedVersion: 2
-        x: 1873
-        y: 2247
-        width: 104
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -758,12 +758,12 @@ TextureImporter:
       name: lentoemanta_puhe_23
       rect:
         serializedVersion: 2
-        x: 2642
-        y: 2247
-        width: 103
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -780,12 +780,12 @@ TextureImporter:
       name: lentoemanta_puhe_24
       rect:
         serializedVersion: 2
-        x: 342
-        y: 1799
-        width: 99
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -802,12 +802,12 @@ TextureImporter:
       name: lentoemanta_puhe_25
       rect:
         serializedVersion: 2
-        x: 1108
-        y: 1799
-        width: 104
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -824,12 +824,12 @@ TextureImporter:
       name: lentoemanta_puhe_26
       rect:
         serializedVersion: 2
-        x: 1876
-        y: 1799
-        width: 120
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -846,12 +846,12 @@ TextureImporter:
       name: lentoemanta_puhe_27
       rect:
         serializedVersion: 2
-        x: 2644
-        y: 1799
-        width: 126
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -868,12 +868,12 @@ TextureImporter:
       name: lentoemanta_puhe_28
       rect:
         serializedVersion: 2
-        x: 340
-        y: 1351
-        width: 127
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -890,12 +890,12 @@ TextureImporter:
       name: lentoemanta_puhe_29
       rect:
         serializedVersion: 2
-        x: 1109
-        y: 1351
-        width: 127
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -912,12 +912,12 @@ TextureImporter:
       name: lentoemanta_puhe_30
       rect:
         serializedVersion: 2
-        x: 1878
-        y: 1351
-        width: 120
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -934,12 +934,12 @@ TextureImporter:
       name: lentoemanta_puhe_31
       rect:
         serializedVersion: 2
-        x: 2646
-        y: 1351
-        width: 103
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -956,12 +956,12 @@ TextureImporter:
       name: lentoemanta_puhe_32
       rect:
         serializedVersion: 2
-        x: 341
-        y: 903
-        width: 100
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -978,12 +978,12 @@ TextureImporter:
       name: lentoemanta_puhe_33
       rect:
         serializedVersion: 2
-        x: 1109
-        y: 903
-        width: 100
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1000,12 +1000,12 @@ TextureImporter:
       name: lentoemanta_puhe_34
       rect:
         serializedVersion: 2
-        x: 1877
-        y: 903
-        width: 100
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1022,12 +1022,12 @@ TextureImporter:
       name: lentoemanta_puhe_35
       rect:
         serializedVersion: 2
-        x: 2645
-        y: 903
-        width: 100
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1044,12 +1044,12 @@ TextureImporter:
       name: lentoemanta_puhe_36
       rect:
         serializedVersion: 2
-        x: 340
-        y: 455
-        width: 101
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1066,12 +1066,12 @@ TextureImporter:
       name: lentoemanta_puhe_37
       rect:
         serializedVersion: 2
-        x: 1107
-        y: 455
-        width: 102
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1088,12 +1088,12 @@ TextureImporter:
       name: lentoemanta_puhe_38
       rect:
         serializedVersion: 2
-        x: 1875
-        y: 455
-        width: 102
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1110,12 +1110,12 @@ TextureImporter:
       name: lentoemanta_puhe_39
       rect:
         serializedVersion: 2
-        x: 2643
-        y: 455
-        width: 102
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1132,12 +1132,12 @@ TextureImporter:
       name: lentoemanta_puhe_40
       rect:
         serializedVersion: 2
-        x: 339
-        y: 7
-        width: 102
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1154,12 +1154,12 @@ TextureImporter:
       name: lentoemanta_puhe_41
       rect:
         serializedVersion: 2
-        x: 1107
-        y: 7
-        width: 102
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1172,11 +1172,319 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_42
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c9677c2224dd9146aba1dbfdc698b1d
+      internalID: 2066238774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_43
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f82ed43d93b7d4d9a1ab884ade1af1
+      internalID: -1318858901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_44
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db3ede51965629408e7b0b9b0cc14b0
+      internalID: 819807864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_45
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d850b44e7466c7641bac7b7444ab5ed6
+      internalID: -618547009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_46
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6c356b57baed24bb752b806345363d
+      internalID: -672252985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_47
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2629cf017e7ca584bae8495f2249ba85
+      internalID: -341035256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bb568f04a6cc644aa40d488353003a
+      internalID: 1796634487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_49
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d1e3d763ea43745aceb8a587286515
+      internalID: 674329828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_50
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a75226094a70d8468ada2fcd4e1f504
+      internalID: -1638377989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_51
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1646d4ce6c3a64b844fbb1f9fb16b0
+      internalID: 25537291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_52
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6878094fb9df8744b80772a42efd3152
+      internalID: -1432465808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_53
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda1bf586c0b49340921530f8d8f60be
+      internalID: -1614192120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_54
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dcc5c22081d0394db0499bb4a23461e
+      internalID: -221909680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lentoemanta_puhe_55
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a46ba96aba5a5549a50d653e3b4997d
+      internalID: 133181582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 95bacff46ff950340a1a2f63050b7ce3
     internalID: 0
     vertices: []
     indices: 
@@ -1223,7 +1531,21 @@ TextureImporter:
       lentoemanta_puhe_4: 4131755432281602531
       lentoemanta_puhe_40: -7699075766088664158
       lentoemanta_puhe_41: 8224598054442077505
+      lentoemanta_puhe_42: 2066238774
+      lentoemanta_puhe_43: -1318858901
+      lentoemanta_puhe_44: 819807864
+      lentoemanta_puhe_45: -618547009
+      lentoemanta_puhe_46: -672252985
+      lentoemanta_puhe_47: -341035256
+      lentoemanta_puhe_48: 1796634487
+      lentoemanta_puhe_49: 674329828
       lentoemanta_puhe_5: -8330394250972334996
+      lentoemanta_puhe_50: -1638377989
+      lentoemanta_puhe_51: 25537291
+      lentoemanta_puhe_52: -1432465808
+      lentoemanta_puhe_53: -1614192120
+      lentoemanta_puhe_54: -221909680
+      lentoemanta_puhe_55: 133181582
       lentoemanta_puhe_6: -7790522655664015645
       lentoemanta_puhe_7: -5845566677615705845
       lentoemanta_puhe_8: 1703536415948351018

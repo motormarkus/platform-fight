@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 56e2734ef34b51d42970c0d3f7774a50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5456344315282129337
+    second: yakuzapomo_juoksualku_0
+  - first:
+      213: 4114285029794636860
+    second: yakuzapomo_juoksualku_1
+  - first:
+      213: -9109711844499530167
+    second: yakuzapomo_juoksualku_2
+  - first:
+      213: -2247827931717289623
+    second: yakuzapomo_juoksualku_3
+  - first:
+      213: 8121336495100448509
+    second: yakuzapomo_juoksualku_4
+  - first:
+      213: 8701485791888908287
+    second: yakuzapomo_juoksualku_5
+  - first:
+      213: -8994688394058116814
+    second: yakuzapomo_juoksualku_6
+  - first:
+      213: -4037547341390806759
+    second: yakuzapomo_juoksualku_7
+  - first:
+      213: -3062811755772072601
+    second: yakuzapomo_juoksualku_8
+  - first:
+      213: -3866173053275824343
+    second: yakuzapomo_juoksualku_9
+  - first:
+      213: 1432925332705463910
+    second: yakuzapomo_juoksualku_10
+  - first:
+      213: -367612190058198838
+    second: yakuzapomo_juoksualku_11
+  - first:
+      213: -6681808793379176171
+    second: yakuzapomo_juoksualku_12
+  - first:
+      213: 8104971910799774313
+    second: yakuzapomo_juoksualku_13
+  - first:
+      213: 3902107716474239593
+    second: yakuzapomo_juoksualku_14
+  - first:
+      213: 2898018788948341575
+    second: yakuzapomo_juoksualku_15
+  - first:
+      213: -8430887918306781614
+    second: yakuzapomo_juoksualku_16
+  - first:
+      213: -8697542859481167170
+    second: yakuzapomo_juoksualku_17
+  - first:
+      213: -9092143031053251071
+    second: yakuzapomo_juoksualku_18
+  - first:
+      213: -5395688902002266929
+    second: yakuzapomo_juoksualku_19
+  - first:
+      213: -754710225436854490
+    second: yakuzapomo_juoksualku_20
+  - first:
+      213: -7798906109618081131
+    second: yakuzapomo_juoksualku_21
+  - first:
+      213: 8100390862800554121
+    second: yakuzapomo_juoksualku_22
+  - first:
+      213: 268016032815492055
+    second: yakuzapomo_juoksualku_23
+  - first:
+      213: 7055007936841094679
+    second: yakuzapomo_juoksualku_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b10d9cee34d8bb40800000000000000
+      internalID: 5456344315282129337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34ed99af60e81930800000000000000
+      internalID: 4114285029794636860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94edf6eb75dc39180800000000000000
+      internalID: -9109711844499530167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9693ac5d76c1ec0e0800000000000000
+      internalID: -2247827931717289623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfec0eb7388c4b070800000000000000
+      internalID: 8121336495100448509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2816
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff95aba933e1c870800000000000000
+      internalID: 8701485791888908287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23156debf827c2380800000000000000
+      internalID: -8994688394058116814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9110498b510c7f7c0800000000000000
+      internalID: -4037547341390806759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76da0538fe4be75d0800000000000000
+      internalID: -3062811755772072601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f9e478718985ac0800000000000000
+      internalID: -3866173053275824343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e41958ff5c2e310800000000000000
+      internalID: 1432925332705463910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2112
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac84a7c29aaf5eaf0800000000000000
+      internalID: -367612190058198838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5118d8ddd427543a0800000000000000
+      internalID: -6681808793379176171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9625db9c205aa7070800000000000000
+      internalID: 8104971910799774313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96af1cb3b42172630800000000000000
+      internalID: 3902107716474239593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7437ca3fbb4d73820800000000000000
+      internalID: 2898018788948341575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_16
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25611386b187ffa80800000000000000
+      internalID: -8430887918306781614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_17
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1408
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebac3e1d9de1c4780800000000000000
+      internalID: -8697542859481167170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e0703e51832d180800000000000000
+      internalID: -9092143031053251071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_19
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc23adf789ae15b0800000000000000
+      internalID: -5395688902002266929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6273b707c0bb685f0800000000000000
+      internalID: -754710225436854490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5923793b638b4c390800000000000000
+      internalID: -7798906109618081131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_22
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9880c0f629e5a6070800000000000000
+      internalID: 8100390862800554121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_23
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 704
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dba31e692f28b300800000000000000
+      internalID: 268016032815492055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_juoksualku_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71699fae65c68e160800000000000000
+      internalID: 7055007936841094679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d86d0704a19cf8f4eb4ba6816b21d4a4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuzapomo_juoksualku_0: 5456344315282129337
+      yakuzapomo_juoksualku_1: 4114285029794636860
+      yakuzapomo_juoksualku_10: 1432925332705463910
+      yakuzapomo_juoksualku_11: -367612190058198838
+      yakuzapomo_juoksualku_12: -6681808793379176171
+      yakuzapomo_juoksualku_13: 8104971910799774313
+      yakuzapomo_juoksualku_14: 3902107716474239593
+      yakuzapomo_juoksualku_15: 2898018788948341575
+      yakuzapomo_juoksualku_16: -8430887918306781614
+      yakuzapomo_juoksualku_17: -8697542859481167170
+      yakuzapomo_juoksualku_18: -9092143031053251071
+      yakuzapomo_juoksualku_19: -5395688902002266929
+      yakuzapomo_juoksualku_2: -9109711844499530167
+      yakuzapomo_juoksualku_20: -754710225436854490
+      yakuzapomo_juoksualku_21: -7798906109618081131
+      yakuzapomo_juoksualku_22: 8100390862800554121
+      yakuzapomo_juoksualku_23: 268016032815492055
+      yakuzapomo_juoksualku_24: 7055007936841094679
+      yakuzapomo_juoksualku_3: -2247827931717289623
+      yakuzapomo_juoksualku_4: 8121336495100448509
+      yakuzapomo_juoksualku_5: 8701485791888908287
+      yakuzapomo_juoksualku_6: -8994688394058116814
+      yakuzapomo_juoksualku_7: -4037547341390806759
+      yakuzapomo_juoksualku_8: -3062811755772072601
+      yakuzapomo_juoksualku_9: -3866173053275824343
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

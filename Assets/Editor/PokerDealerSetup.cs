@@ -7,7 +7,7 @@ public static class PokerDealerSetup
     const string Source = "Assets/ArtSources/Poker/dealer-button.png";
     const string Target = "Assets/Resources/Poker/DealerButton.asset";
 
-    [MenuItem("Beat em up/195. Holdem: ota jakajan nappi käyttöön")]
+    [MenuItem("Beat em up/195. Holdem: ota jakajan nappi käyttöön", false, 195)]
     static void Install()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode)

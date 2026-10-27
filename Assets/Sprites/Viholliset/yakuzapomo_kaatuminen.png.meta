@@ -1,0 +1,724 @@
+fileFormatVersion: 2
+guid: a23bf8aa1563f2940add357b988a1135
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4707567158177326578
+    second: yakuzapomo_kaatuminen_0
+  - first:
+      213: -4246442161890555962
+    second: yakuzapomo_kaatuminen_1
+  - first:
+      213: -4241930395627847270
+    second: yakuzapomo_kaatuminen_2
+  - first:
+      213: 4285418134998180009
+    second: yakuzapomo_kaatuminen_3
+  - first:
+      213: 8435571461072665289
+    second: yakuzapomo_kaatuminen_4
+  - first:
+      213: -7792942793804081564
+    second: yakuzapomo_kaatuminen_5
+  - first:
+      213: 7679223332618246243
+    second: yakuzapomo_kaatuminen_6
+  - first:
+      213: 4298456472655277119
+    second: yakuzapomo_kaatuminen_7
+  - first:
+      213: 4169401705363488789
+    second: yakuzapomo_kaatuminen_8
+  - first:
+      213: -7179698448312344779
+    second: yakuzapomo_kaatuminen_9
+  - first:
+      213: 7571497751178329603
+    second: yakuzapomo_kaatuminen_10
+  - first:
+      213: 6604726265480408828
+    second: yakuzapomo_kaatuminen_11
+  - first:
+      213: -6954862407159437558
+    second: yakuzapomo_kaatuminen_12
+  - first:
+      213: 2726128378958275774
+    second: yakuzapomo_kaatuminen_13
+  - first:
+      213: 540387134437436711
+    second: yakuzapomo_kaatuminen_14
+  - first:
+      213: -5331214502069209561
+    second: yakuzapomo_kaatuminen_15
+  - first:
+      213: -795673822170501758
+    second: yakuzapomo_kaatuminen_16
+  - first:
+      213: 1165732055176545585
+    second: yakuzapomo_kaatuminen_17
+  - first:
+      213: 5808430360790612800
+    second: yakuzapomo_kaatuminen_18
+  - first:
+      213: 1448333570623414713
+    second: yakuzapomo_kaatuminen_19
+  - first:
+      213: -4351242832504096435
+    second: yakuzapomo_kaatuminen_20
+  - first:
+      213: -7489778764473825487
+    second: yakuzapomo_kaatuminen_21
+  - first:
+      213: -6205926094759076412
+    second: yakuzapomo_kaatuminen_22
+  - first:
+      213: -5313536580424298437
+    second: yakuzapomo_kaatuminen_23
+  - first:
+      213: 5303699986698628398
+    second: yakuzapomo_kaatuminen_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3680
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5647b7363a45140800000000000000
+      internalID: 4707567158177326578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3680
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c785453a5b9115c0800000000000000
+      internalID: -4246442161890555962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3680
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a918ba6a7c2a125c0800000000000000
+      internalID: -4241930395627847270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3680
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a06592b61dd87b30800000000000000
+      internalID: 4285418134998180009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2944
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cab8aedc8b211570800000000000000
+      internalID: 8435571461072665289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2944
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4661e5c51d7e9d390800000000000000
+      internalID: -7792942793804081564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2944
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3681a9b4fe4129a60800000000000000
+      internalID: 7679223332618246243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2944
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ca81f336f27ab30800000000000000
+      internalID: 4298456472655277119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2208
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5104916b2c0bcd930800000000000000
+      internalID: 4169401705363488789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2208
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f5be90d469c5c90800000000000000
+      internalID: -7179698448312344779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2208
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e37a4d61d531960800000000000000
+      internalID: 7571497751178329603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2208
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfee6ac8b83b8ab50800000000000000
+      internalID: 6604726265480408828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a072b873d7d5b7f90800000000000000
+      internalID: -6954862407159437558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb46be7215725d520800000000000000
+      internalID: 2726128378958275774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72da5555c37df7700800000000000000
+      internalID: 540387134437436711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726f0c608a8b306b0800000000000000
+      internalID: -5331214502069209561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d2378dfd235f4f0800000000000000
+      internalID: -795673822170501758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 135851cb0238d2010800000000000000
+      internalID: 1165732055176545585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bb48583a0bb9050800000000000000
+      internalID: 5808430360790612800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1284975b3891410800000000000000
+      internalID: 1448333570623414713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49f02d92b74d93c0800000000000000
+      internalID: -4351242832504096435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_kaatuminen_21
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137064175e5fe0890800000000000000
+      internalID: -7489778764473825487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b39fd8ad9ea9dd14cb4f1832ad9f2c7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuzapomo_kaatuminen_0: 4707567158177326578
+      yakuzapomo_kaatuminen_1: -4246442161890555962
+      yakuzapomo_kaatuminen_10: 7571497751178329603
+      yakuzapomo_kaatuminen_11: 6604726265480408828
+      yakuzapomo_kaatuminen_12: -6954862407159437558
+      yakuzapomo_kaatuminen_13: 2726128378958275774
+      yakuzapomo_kaatuminen_14: 540387134437436711
+      yakuzapomo_kaatuminen_15: -5331214502069209561
+      yakuzapomo_kaatuminen_16: -795673822170501758
+      yakuzapomo_kaatuminen_17: 1165732055176545585
+      yakuzapomo_kaatuminen_18: 5808430360790612800
+      yakuzapomo_kaatuminen_19: 1448333570623414713
+      yakuzapomo_kaatuminen_2: -4241930395627847270
+      yakuzapomo_kaatuminen_20: -4351242832504096435
+      yakuzapomo_kaatuminen_21: -7489778764473825487
+      yakuzapomo_kaatuminen_3: 4285418134998180009
+      yakuzapomo_kaatuminen_4: 8435571461072665289
+      yakuzapomo_kaatuminen_5: -7792942793804081564
+      yakuzapomo_kaatuminen_6: 7679223332618246243
+      yakuzapomo_kaatuminen_7: 4298456472655277119
+      yakuzapomo_kaatuminen_8: 4169401705363488789
+      yakuzapomo_kaatuminen_9: -7179698448312344779
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

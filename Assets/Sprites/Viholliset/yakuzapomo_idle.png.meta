@@ -1,0 +1,1287 @@
+fileFormatVersion: 2
+guid: be2df7d2792ac614d9a8a0e3c1797f51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3356779809985033996
+    second: yakuzapomo_idle_0
+  - first:
+      213: 8124147369665060390
+    second: yakuzapomo_idle_1
+  - first:
+      213: -7596686409413655057
+    second: yakuzapomo_idle_2
+  - first:
+      213: 776031341011712022
+    second: yakuzapomo_idle_3
+  - first:
+      213: -5878148385088970702
+    second: yakuzapomo_idle_4
+  - first:
+      213: -310984746371259193
+    second: yakuzapomo_idle_5
+  - first:
+      213: 6716547878043710536
+    second: yakuzapomo_idle_6
+  - first:
+      213: 8934680976991672243
+    second: yakuzapomo_idle_7
+  - first:
+      213: -1379304350748884525
+    second: yakuzapomo_idle_8
+  - first:
+      213: -6441628602116687700
+    second: yakuzapomo_idle_9
+  - first:
+      213: 4290810717490458400
+    second: yakuzapomo_idle_10
+  - first:
+      213: 2243475519348410736
+    second: yakuzapomo_idle_11
+  - first:
+      213: -3003342167718915706
+    second: yakuzapomo_idle_12
+  - first:
+      213: 8830953340262035235
+    second: yakuzapomo_idle_13
+  - first:
+      213: -2405537352638975160
+    second: yakuzapomo_idle_14
+  - first:
+      213: -6108095237809019404
+    second: yakuzapomo_idle_15
+  - first:
+      213: -7762789163493341266
+    second: yakuzapomo_idle_16
+  - first:
+      213: -2102366086527994535
+    second: yakuzapomo_idle_17
+  - first:
+      213: 1440692680088689440
+    second: yakuzapomo_idle_18
+  - first:
+      213: 2421389964799178654
+    second: yakuzapomo_idle_19
+  - first:
+      213: 1069560033460385315
+    second: yakuzapomo_idle_20
+  - first:
+      213: 1193707921075592688
+    second: yakuzapomo_idle_21
+  - first:
+      213: -1411868658171825772
+    second: yakuzapomo_idle_22
+  - first:
+      213: 3008851298008013394
+    second: yakuzapomo_idle_23
+  - first:
+      213: 7315841533063843250
+    second: yakuzapomo_idle_24
+  - first:
+      213: -4665460807520824447
+    second: yakuzapomo_idle_25
+  - first:
+      213: 8745112522563020648
+    second: yakuzapomo_idle_26
+  - first:
+      213: 8271255755356851544
+    second: yakuzapomo_idle_27
+  - first:
+      213: -3079502677209757496
+    second: yakuzapomo_idle_28
+  - first:
+      213: 1353334243974741818
+    second: yakuzapomo_idle_29
+  - first:
+      213: 5454318227160698207
+    second: yakuzapomo_idle_30
+  - first:
+      213: -7100341788298001488
+    second: yakuzapomo_idle_31
+  - first:
+      213: 8176640722137776185
+    second: yakuzapomo_idle_32
+  - first:
+      213: -2215072718043667565
+    second: yakuzapomo_idle_33
+  - first:
+      213: 31788491886762382
+    second: yakuzapomo_idle_34
+  - first:
+      213: 6577572003229157588
+    second: yakuzapomo_idle_35
+  - first:
+      213: -8916266636488106354
+    second: yakuzapomo_idle_36
+  - first:
+      213: 7431866815113006693
+    second: yakuzapomo_idle_37
+  - first:
+      213: -503252025196713346
+    second: yakuzapomo_idle_38
+  - first:
+      213: 8399097851841829341
+    second: yakuzapomo_idle_39
+  - first:
+      213: -4006465752180552624
+    second: yakuzapomo_idle_40
+  - first:
+      213: 7909606727384625322
+    second: yakuzapomo_idle_41
+  - first:
+      213: -4968465138682053393
+    second: yakuzapomo_idle_42
+  - first:
+      213: 4828861124020645449
+    second: yakuzapomo_idle_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuzapomo_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c077c53c37da59e20800000000000000
+      internalID: 3356779809985033996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e5fc73df4ceb070800000000000000
+      internalID: 8124147369665060390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe58cd8a5f5239690800000000000000
+      internalID: -7596686409413655057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618b29f946405ca00800000000000000
+      internalID: 776031341011712022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2306cb1003f9c6ea0800000000000000
+      internalID: -5878148385088970702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4e9f555092fabf0800000000000000
+      internalID: -310984746371259193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844f2b395b8f53d50800000000000000
+      internalID: 6716547878043710536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3520
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b75707b20d5efb70800000000000000
+      internalID: 8934680976991672243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d14678300abbdce0800000000000000
+      internalID: -1379304350748884525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca8b6d36aecba96a0800000000000000
+      internalID: -6441628602116687700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f25762d950c8b30800000000000000
+      internalID: 4290810717490458400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0790c01391d622f10800000000000000
+      internalID: 2243475519348410736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_12
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681992af53cf156d0800000000000000
+      internalID: -3003342167718915706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_13
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f2e5a4649dd8a70800000000000000
+      internalID: 8830953340262035235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843350ad580dd9ed0800000000000000
+      internalID: -2405537352638975160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_15
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2816
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f563284ebfab3ba0800000000000000
+      internalID: -6108095237809019404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea74ab38268054490800000000000000
+      internalID: -7762789163493341266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 955bba0ee25e2d2e0800000000000000
+      internalID: -2102366086527994535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b11330c5e5ef310800000000000000
+      internalID: 1440692680088689440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_19
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e97fc8a08518a9120800000000000000
+      internalID: 2421389964799178654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_20
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3267c540f27d7de00800000000000000
+      internalID: 1069560033460385315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_21
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdd7499707e09010800000000000000
+      internalID: 1193707921075592688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49139209fe8086ce0800000000000000
+      internalID: -1411868658171825772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_23
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2112
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a9dbf505691c920800000000000000
+      internalID: 3008851298008013394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bdc1530d17178560800000000000000
+      internalID: 7315841533063843250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_25
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183d63e3d14f04fb0800000000000000
+      internalID: -4665460807520824447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_26
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86760347181ec5970800000000000000
+      internalID: 8745112522563020648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d4378594769c270800000000000000
+      internalID: 8271255755356851544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_28
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c84c0881a86345d0800000000000000
+      internalID: -3079502677209757496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_29
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f7c7a135208c210800000000000000
+      internalID: 1353334243974741818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_30
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5d0ad58781a1bb40800000000000000
+      internalID: 5454318227160698207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_31
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1408
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b3c2a443c4867d90800000000000000
+      internalID: -7100341788298001488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93004034a63497170800000000000000
+      internalID: 8176640722137776185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_33
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3932951591b7241e0800000000000000
+      internalID: -2215072718043667565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_34
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e891bd6077fe07000800000000000000
+      internalID: 31788491886762382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_35
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8470133ea384b50800000000000000
+      internalID: 6577572003229157588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_36
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8e95790cbe034480800000000000000
+      internalID: -8916266636488106354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_37
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e03dc1e7b432760800000000000000
+      internalID: 7431866815113006693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_38
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a67ad03f61409f0800000000000000
+      internalID: -503252025196713346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_39
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 704
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd957c4fef69f8470800000000000000
+      internalID: 8399097851841829341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c828420ac2668c0800000000000000
+      internalID: -4006465752180552624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_41
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0fcc2696194cd60800000000000000
+      internalID: 7909606727384625322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_42
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fecb1f9c7477c0bb0800000000000000
+      internalID: -4968465138682053393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_idle_43
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ea1fe9b9f830340800000000000000
+      internalID: 4828861124020645449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dedd4d139da169841aa83370170c425b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuzapomo_idle_0: 3356779809985033996
+      yakuzapomo_idle_1: 8124147369665060390
+      yakuzapomo_idle_10: 4290810717490458400
+      yakuzapomo_idle_11: 2243475519348410736
+      yakuzapomo_idle_12: -3003342167718915706
+      yakuzapomo_idle_13: 8830953340262035235
+      yakuzapomo_idle_14: -2405537352638975160
+      yakuzapomo_idle_15: -6108095237809019404
+      yakuzapomo_idle_16: -7762789163493341266
+      yakuzapomo_idle_17: -2102366086527994535
+      yakuzapomo_idle_18: 1440692680088689440
+      yakuzapomo_idle_19: 2421389964799178654
+      yakuzapomo_idle_2: -7596686409413655057
+      yakuzapomo_idle_20: 1069560033460385315
+      yakuzapomo_idle_21: 1193707921075592688
+      yakuzapomo_idle_22: -1411868658171825772
+      yakuzapomo_idle_23: 3008851298008013394
+      yakuzapomo_idle_24: 7315841533063843250
+      yakuzapomo_idle_25: -4665460807520824447
+      yakuzapomo_idle_26: 8745112522563020648
+      yakuzapomo_idle_27: 8271255755356851544
+      yakuzapomo_idle_28: -3079502677209757496
+      yakuzapomo_idle_29: 1353334243974741818
+      yakuzapomo_idle_3: 776031341011712022
+      yakuzapomo_idle_30: 5454318227160698207
+      yakuzapomo_idle_31: -7100341788298001488
+      yakuzapomo_idle_32: 8176640722137776185
+      yakuzapomo_idle_33: -2215072718043667565
+      yakuzapomo_idle_34: 31788491886762382
+      yakuzapomo_idle_35: 6577572003229157588
+      yakuzapomo_idle_36: -8916266636488106354
+      yakuzapomo_idle_37: 7431866815113006693
+      yakuzapomo_idle_38: -503252025196713346
+      yakuzapomo_idle_39: 8399097851841829341
+      yakuzapomo_idle_4: -5878148385088970702
+      yakuzapomo_idle_40: -4006465752180552624
+      yakuzapomo_idle_41: 7909606727384625322
+      yakuzapomo_idle_42: -4968465138682053393
+      yakuzapomo_idle_43: 4828861124020645449
+      yakuzapomo_idle_5: -310984746371259193
+      yakuzapomo_idle_6: 6716547878043710536
+      yakuzapomo_idle_7: 8934680976991672243
+      yakuzapomo_idle_8: -1379304350748884525
+      yakuzapomo_idle_9: -6441628602116687700
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

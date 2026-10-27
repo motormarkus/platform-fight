@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Areas/Aavikko.unity
     guid: 8e0e37e7d6677924bbce8c497f60702a
+  - enabled: 1
+    path: Assets/Scenes/Areas/Alppikyla.unity
+    guid: 6cb33f616013bfb4e87172d790842ddc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

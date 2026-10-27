@@ -1844,6 +1844,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -2084,6 +2087,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -2170,6 +2174,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -2374,6 +2380,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &37909019
 Transform:
   m_ObjectHideFlags: 0
@@ -2675,6 +2682,10 @@ MonoBehaviour:
   rogues: {fileID: 964033976}
   sailors: {fileID: 1338657724}
   chatterEvery: {x: 7, y: 14}
+  lateComer: {fileID: 0}
+  lateComerDelay: 7
+  reinforcements: {fileID: 0}
+  reinforceAfterDown: 6
 --- !u!4 &43092740
 Transform:
   m_ObjectHideFlags: 0
@@ -3175,6 +3186,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -3426,6 +3440,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -3510,6 +3525,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -3968,6 +3985,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -4219,6 +4239,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -4303,6 +4324,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -4627,6 +4650,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -4867,6 +4893,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -4953,6 +4980,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -5756,6 +5785,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -5991,6 +6023,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -6131,6 +6164,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -6876,6 +6911,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -7111,6 +7149,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -7251,6 +7290,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -7863,6 +7904,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -8105,6 +8149,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -8186,6 +8231,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -8588,6 +8635,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -8831,6 +8881,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -8909,6 +8960,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -9719,6 +9772,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &147907021
 Transform:
   m_ObjectHideFlags: 0
@@ -10320,6 +10374,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -10553,6 +10610,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -10634,6 +10692,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -11256,6 +11316,9 @@ MonoBehaviour:
   - {fileID: -1943762250733947379, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4788261762824935573, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4494645979837831903, guid: e311304932940a341ad81c95696c9410, type: 3}
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -11531,6 +11594,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -11609,6 +11673,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -12976,6 +13042,9 @@ MonoBehaviour:
   - JJS
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -13211,6 +13280,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -13289,6 +13359,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -13759,6 +13831,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -14001,6 +14076,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -14079,6 +14155,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -15639,6 +15717,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -15872,6 +15953,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -15953,6 +16035,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -17454,6 +17538,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -17705,6 +17792,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -17789,6 +17877,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -18979,6 +19069,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -19221,6 +19314,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -19299,6 +19393,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -20084,6 +20180,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -20335,6 +20434,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -20419,6 +20519,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -21030,6 +21132,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -21281,6 +21386,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -21365,6 +21471,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -21555,6 +21663,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -21797,6 +21908,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -21878,6 +21990,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -22706,6 +22820,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -22941,6 +23058,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -23081,6 +23199,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -23436,6 +23556,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -23678,6 +23801,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -23756,6 +23880,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -25618,6 +25744,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -25853,6 +25982,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -25993,6 +26123,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -26923,6 +27055,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -27174,6 +27309,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -27258,6 +27394,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -27540,6 +27678,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -27783,6 +27924,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -27861,6 +28003,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -28372,6 +28516,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -28626,6 +28773,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -28705,6 +28853,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -29408,6 +29558,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -29659,6 +29812,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -29743,6 +29897,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -31880,6 +32036,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -32122,6 +32281,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -32200,6 +32360,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -32489,6 +32651,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -32729,6 +32894,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -32815,6 +32981,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -33387,6 +33555,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -33622,6 +33793,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -33762,6 +33934,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -34092,6 +34266,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -34343,6 +34520,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -34427,6 +34605,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -34628,6 +34808,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -34870,6 +35053,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -34948,6 +35132,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -35602,6 +35788,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -35828,6 +36017,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -35906,6 +36096,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -36366,6 +36558,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -36592,6 +36787,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -36670,6 +36866,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -37047,6 +37245,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -37298,6 +37499,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -37382,6 +37584,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -38251,6 +38455,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -38493,6 +38700,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -38574,6 +38782,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -39311,6 +39521,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -39562,6 +39775,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -39646,6 +39860,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -40176,6 +40392,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -40418,6 +40637,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -40496,6 +40716,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -43605,6 +43827,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -43847,6 +44072,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -43928,6 +44154,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -44446,6 +44674,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -44672,6 +44903,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -44750,6 +44982,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -47618,6 +47852,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -47860,6 +48097,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -47938,6 +48176,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -48298,6 +48538,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -48549,6 +48792,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -48633,6 +48877,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -50106,6 +50352,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -50376,6 +50625,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -50454,6 +50704,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -51510,6 +51762,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -51761,6 +52016,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -51845,6 +52101,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -52200,6 +52458,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -52451,6 +52712,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -52535,6 +52797,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -52894,6 +53158,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -53137,6 +53404,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -53215,6 +53483,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -54850,6 +55120,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -55092,6 +55365,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -55170,6 +55444,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -55720,6 +55996,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -55960,6 +56239,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -56046,6 +56326,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -57390,6 +57672,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -57630,6 +57915,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -57716,6 +58002,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -58154,6 +58442,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -58405,6 +58696,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -58489,6 +58781,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -59215,6 +59509,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -59441,6 +59738,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -59519,6 +59817,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -59873,6 +60173,9 @@ MonoBehaviour:
   - {fileID: -1943762250733947379, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4788261762824935573, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4494645979837831903, guid: e311304932940a341ad81c95696c9410, type: 3}
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -60148,6 +60451,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -60226,6 +60530,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -62163,6 +62469,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -62405,6 +62714,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -62486,6 +62796,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -63428,6 +63740,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -63654,6 +63969,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -63732,6 +64048,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -66582,6 +66900,9 @@ MonoBehaviour:
   - JK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -66836,6 +67157,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -66915,6 +67237,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -67386,6 +67710,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!1 &924356162
 GameObject:
   m_ObjectHideFlags: 0
@@ -67713,6 +68038,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -67964,6 +68292,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -68048,6 +68377,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -68344,6 +68675,9 @@ MonoBehaviour:
   - {fileID: -1943762250733947379, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4788261762824935573, guid: e311304932940a341ad81c95696c9410, type: 3}
   - {fileID: 4494645979837831903, guid: e311304932940a341ad81c95696c9410, type: 3}
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -68619,6 +68953,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -68697,6 +69032,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -69443,6 +69780,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -69694,6 +70034,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -69778,6 +70119,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -70601,6 +70944,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -70834,6 +71180,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -70915,6 +71262,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -71167,6 +71516,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -71418,6 +71770,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -71502,6 +71855,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -71613,6 +71968,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &964033977
 Transform:
   m_ObjectHideFlags: 0
@@ -71798,6 +72154,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -72049,6 +72408,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -72133,6 +72493,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -73535,6 +73897,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -73775,6 +74140,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -73861,6 +74227,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -74173,6 +74541,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -74424,6 +74795,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -74508,6 +74880,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -74880,6 +75254,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -75120,6 +75497,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -75206,6 +75584,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -76329,6 +76709,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -76555,6 +76938,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -76633,6 +77017,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -77840,6 +78226,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -78091,6 +78480,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -78175,6 +78565,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -82124,6 +82516,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -82357,6 +82752,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -82438,6 +82834,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -83581,6 +83979,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -83832,6 +84233,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -83916,6 +84318,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -84362,6 +84766,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -84613,6 +85020,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -84697,6 +85105,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -88424,6 +88834,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -88650,6 +89063,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -88728,6 +89142,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -89208,6 +89624,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -89450,6 +89869,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -89531,6 +89951,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -91604,6 +92026,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &1338657725
 Transform:
   m_ObjectHideFlags: 0
@@ -93342,6 +93765,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -93593,6 +94019,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -93677,6 +94104,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -96713,6 +97142,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -96955,6 +97387,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -97033,6 +97466,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -97321,6 +97756,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -97536,6 +97974,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -97615,6 +98054,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.25
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -97844,6 +98285,7 @@ MonoBehaviour:
   wanderMaxX: 24057.498
   wanderSpeed: 1.1
   foeDamageBonus: 6
+  slideDistance: 0.67
   speakLines:
   - {fileID: 8300000, guid: 2f6da33205027604e85c8d7e5b04739e, type: 3}
   - {fileID: 8300000, guid: 5a0fe7cee25c22a47ad503b887542d07, type: 3}
@@ -98012,6 +98454,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &1443371945
 Transform:
   m_ObjectHideFlags: 0
@@ -98576,6 +99019,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -98827,6 +99273,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -98911,6 +99358,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -100295,6 +100744,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -100535,6 +100987,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -100621,6 +101074,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -101380,6 +101835,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -101623,6 +102081,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -101701,6 +102160,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -103490,6 +103951,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -103730,6 +104194,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -103816,6 +104281,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -104426,6 +104893,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -104677,6 +105147,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -104761,6 +105232,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -105499,6 +105972,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -105750,6 +106226,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -105834,6 +106311,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -107537,6 +108016,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -107788,6 +108270,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -107872,6 +108355,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -108196,6 +108681,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -108436,6 +108924,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -108522,6 +109011,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -108721,6 +109212,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -108961,6 +109455,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -109047,6 +109542,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -110391,6 +110888,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &1627037414
 Transform:
   m_ObjectHideFlags: 0
@@ -111577,6 +112075,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -111819,6 +112320,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -111900,6 +112402,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -112290,6 +112794,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -112516,6 +113023,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -112594,6 +113102,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -113159,6 +113669,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -113402,6 +113915,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -113480,6 +113994,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -114967,6 +115483,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -115207,6 +115726,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -115293,6 +115813,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -116700,6 +117222,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -116940,6 +117465,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -117026,6 +117552,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -118634,6 +119162,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -118877,6 +119408,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -118955,6 +119487,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -119147,6 +119681,9 @@ MonoBehaviour:
   - JPK
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -119380,6 +119917,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -119461,6 +119999,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -121030,6 +121570,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -121272,6 +121815,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -121350,6 +121894,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -121618,6 +122164,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -121858,6 +122407,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -121944,6 +122494,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -123194,6 +123746,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -123420,6 +123975,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -123498,6 +124054,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -123796,6 +124354,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -124047,6 +124608,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -124131,6 +124693,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -124323,6 +124887,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -124565,6 +125132,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -124646,6 +125214,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -126157,6 +126727,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -126408,6 +126981,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -126492,6 +127066,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -128026,6 +128602,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -128266,6 +128845,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -128352,6 +128932,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -130954,6 +131536,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &1947124472
 Transform:
   m_ObjectHideFlags: 0
@@ -131443,6 +132026,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -131694,6 +132280,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -131778,6 +132365,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -132164,6 +132753,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -132415,6 +133007,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -132499,6 +133092,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -132811,6 +133406,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -133062,6 +133660,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -133146,6 +133745,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -133440,6 +134041,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -133691,6 +134295,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -133775,6 +134380,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -136038,6 +136645,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -136289,6 +136899,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -136373,6 +136984,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -136577,6 +137190,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -136828,6 +137444,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -136912,6 +137529,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -138077,6 +138696,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -138312,6 +138934,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -138452,6 +139075,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -138651,6 +139276,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -138891,6 +139519,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -138977,6 +139606,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -139751,6 +140382,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -140002,6 +140636,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -140086,6 +140721,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -140373,6 +141010,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -140624,6 +141264,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -140708,6 +141349,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -140898,6 +141541,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -141140,6 +141786,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -141221,6 +141868,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -142321,6 +142970,9 @@ MonoBehaviour:
   - JSP
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -142572,6 +143224,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -142656,6 +143309,8 @@ MonoBehaviour:
   attackSoundChance: 1
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
@@ -142855,6 +143510,9 @@ MonoBehaviour:
   combos: []
   capSprites: []
   capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
   capImpactFrame: 2
   capCrossImpactFrame: 1
   capDamage: 4
@@ -143095,6 +143753,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -143181,6 +143840,8 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1

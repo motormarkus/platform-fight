@@ -10,12 +10,13 @@ public class NpcStroller : MonoBehaviour
     public SpriteRenderer body, shadow;
     public Sprite[] idleSprites, walkSprites, talkSprites;
     [Tooltip("Todennäköisyys, että seisomisen jälkeen hän puhuu (puhekuvat kerran läpi) kävelyn sijaan.")]
-    public float talkChance = 0.4f, talkFrameTime = 0.09f;
-    public float idleFrameTime = 0.1f, walkFrameTime = 0.045f, speed = 1.3f;
+    public float talkChance = 0.25f, talkFrameTime = 0.125f;
+    public float idleFrameTime = 0.167f, walkFrameTime = 0.06f, speed = 1.9f;   // nopeampi: hidas vauhti näytti paikallaan kävelyltä
     public float laneMinX, laneMaxX;
-    public Vector2 idleSeconds = new Vector2(3f, 8f), walkDistance = new Vector2(3f, 10f);
+    public Vector2 idleSeconds = new Vector2(1.5f, 4f), walkDistance = new Vector2(5f, 14f);   // kävelee usein ja pitkään
     bool walking, talking, faceRight = true;
     float t, until, target;
+    double px;   // tarkka x (kone on x ≈ 170000: float ei erota pientä askelta, joten kävely jäi paikalleen ja kuvat värähtelivät)
 
     void Awake()
     {
@@ -49,15 +50,17 @@ public class NpcStroller : MonoBehaviour
                 float d = Mathf.Min(Random.Range(walkDistance.x, walkDistance.y), goLeft ? left : right);
                 if (d < 1f) { goLeft = !goLeft; d = Mathf.Min(Random.Range(walkDistance.x, walkDistance.y), goLeft ? left : right); }
                 faceRight = !goLeft; target = p.x + (goLeft ? -d : d);
-                walking = true; t = 0f;
+                walking = true; t = 0f; px = p.x;
             }
         }
         else
         {
             body.sprite = walkSprites[(int)(t / walkFrameTime) % walkSprites.Length];
             float step = speed * Time.deltaTime;
-            p.x = Mathf.MoveTowards(p.x, target, step);
-            if (Mathf.Abs(p.x - target) < 0.01f) { walking = false; t = 0f; until = Random.Range(idleSeconds.x, idleSeconds.y); }
+            double stepD = speed * (double)Time.deltaTime, diff = target - px;
+            px = System.Math.Abs(diff) <= stepD ? target : px + System.Math.Sign(diff) * stepD;
+            p.x = (float)px;
+            if (System.Math.Abs(px - target) < 0.01) { walking = false; t = 0f; until = Random.Range(idleSeconds.x, idleSeconds.y); }
         }
         p.x = Mathf.Clamp(p.x, laneMinX, laneMaxX);
         transform.position = p;

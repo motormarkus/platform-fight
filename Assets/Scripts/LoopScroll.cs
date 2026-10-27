@@ -8,12 +8,22 @@ using UnityEngine;
 public class LoopScroll : MonoBehaviour
 {
     public float speed = 1f, parallax = 0.1f, tileWidth = 20f, startCamX;
+    [Tooltip("Jos asetettu, kerros näkyy vain tässä alueessa (muuten se seuraisi kameraa kaikkialla).")]
+    public Area onlyIn;
     float scroll;
+    bool shown = true;
 
     void LateUpdate()
     {
         var cam = Camera.main;
         if (cam == null || tileWidth < 0.1f) return;
+        bool near = Mathf.Abs(cam.transform.position.x - startCamX) < 300f;   // alueet ovat tuhansien yksiköiden päässä toisistaan: kerros näkyy vain omalla alueellaan (ei tarvita valikon uudelleenajoa)
+        // näkyvyys joka kuvassa (myös uudelleen näkyviin tullessa)
+        {
+            bool show = near && (onlyIn == null || Area.Current == onlyIn);
+            if (show != shown) { foreach (var r in GetComponentsInChildren<SpriteRenderer>(true)) r.enabled = show; shown = show; }
+            if (!show) return;
+        }
         scroll = (scroll + speed * Time.deltaTime) % tileWidth;
         float cx = cam.transform.position.x;
         float baseX = cx - (cx - startCamX) * parallax - scroll;   // pysyy ruudulla, valuu vain osan kameran liikkeestä

@@ -22,6 +22,7 @@ public class ThaiFinale : MonoBehaviour
     readonly Dictionary<string, Door> doors = new Dictionary<string, Door>();
     readonly List<Enemy> wave = new List<Enemy>();
     readonly List<Enemy> roofWave = new List<Enemy>();
+    readonly List<Enemy> roofYakuza = new List<Enemy>();   // katon Jakuzat: viimeinen kaatuva pudottaa klubin kutsun
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void ResetStatics() { WaveSpawned = GustavFled = RoofDone = false; gustav = null; inst = null; }
@@ -37,7 +38,7 @@ public class ThaiFinale : MonoBehaviour
         {
             if (mode != LoadSceneMode.Single || inst == null) return;
             WaveSpawned = GustavFled = RoofDone = false; gustav = null;   // uusi peli
-            inst.StopAllCoroutines(); inst.roofRunning = false; inst.wave.Clear(); inst.roofWave.Clear(); inst.doors.Clear();
+            inst.StopAllCoroutines(); inst.roofRunning = false; inst.wave.Clear(); inst.roofWave.Clear(); inst.roofYakuza.Clear(); inst.doors.Clear();
         };
     }
 
@@ -69,6 +70,7 @@ public class ThaiFinale : MonoBehaviour
         // 1) käytävän vartijat ennen sviittiä
         if (!WaveSpawned && !GustavFled && cur.areaName == "Thaitown kattohuoneisto") SpawnWave(cur);
         UpdateHeliSound(cur);
+        CheckInviteDrop();
         // 3) katon pako
         if (GustavFled && !RoofDone && !roofRunning && cur.areaName == "Thaitown katto") StartCoroutine(RoofEscape(cur));
     }
@@ -132,7 +134,7 @@ public class ThaiFinale : MonoBehaviour
 
     void SpawnRoofWave(Area roof, GameObject heli)
     {
-        roofWave.Clear();
+        roofWave.Clear(); roofYakuza.Clear();
         var cam = Camera.main;
         float half = cam != null ? cam.orthographicSize * cam.aspect : 9f;
         float cx = cam != null ? cam.transform.position.x : (roof.walkMinX + roof.walkMaxX) * 0.5f;
@@ -146,10 +148,18 @@ public class ThaiFinale : MonoBehaviour
             float y = Mathf.Lerp(roof.maxDepthY, roof.minDepthY, ys[i]);
             float x = Mathf.Clamp(xs[i], roof.walkMinX + 0.5f, roof.walkMaxX - 0.5f);
             var e = Enemy.SpawnHelper(types[i], new Vector3(x, y, 0f), types[i] + " (katon vartija " + (i + 1) + ")");
-            if (e != null) roofWave.Add(e);
+            if (e != null) { roofWave.Add(e); if (types[i] == "Jakuza") roofYakuza.Add(e); }
         }
         var door = FindDoor("Thaitown: Katolta käytävälle");
         if (door != null && roofWave.Count > 0) { door.guards = roofWave.ToArray(); door.guardsLockedText = "Ovi on lukossa. Voita ensin vartijat."; }
+    }
+
+    /// Viimeinen katon Jakuza pudottaa kutsun Thaitownin klubille (klubin ovi aukeaa sillä).
+    void CheckInviteDrop()
+    {
+        if (roofYakuza.Count == 0 || Clues.Has(Clues.ClubInvite)) return;
+        foreach (var e in roofYakuza) if (e != null && !e.IsDead) return;
+        Clues.Add(Clues.ClubInvite, "Kutsu klubille", "Viimeisen yakuzan taskusta löytyi kutsu Thaitownin klubille. Ovimiehet päästävät sillä sisään, ja yläkerrassa odottaa yakuza-pomo.");
     }
 
     bool RoofGuardsAlive { get { foreach (var e in roofWave) if (e != null && !e.IsDead) return true; return false; } }

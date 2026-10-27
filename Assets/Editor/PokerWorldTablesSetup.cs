@@ -10,7 +10,7 @@ public static class PokerWorldTablesSetup
     const string VideoPath = "Assets/ArtSources/Poker/poker-table-idle.mov";
     const string FramePath = "Assets/ArtSources/Poker/poker-table-idle-first-frame.png";
 
-    [MenuItem("Beat em up/193. Holdem: omat videopöydät neljään paikkaan")]
+    [MenuItem("Beat em up/193. Holdem: omat videopöydät neljään paikkaan", false, 193)]
     static void PlaceTables()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) { EditorUtility.DisplayDialog("Pokeripöydät", "Paina ensin Stop.", "OK"); return; }
@@ -108,7 +108,7 @@ public static class PokerWorldTablesSetup
     }
 
     // ---------------- Pokeripöytä Thaitownin hotellin aulaan vasemmalle ----------------
-    [MenuItem("Beat em up/224. Pokeripöytä: Thaitownin hotellin aulaan vasemmalle")]
+    [MenuItem("Beat em up/224. Pokeripöytä: Thaitownin hotellin aulaan vasemmalle", false, 224)]
     static void PlaceThaitownTable()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) { EditorUtility.DisplayDialog("Pokeripöytä", "Paina ensin Stop.", "OK"); return; }

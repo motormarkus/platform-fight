@@ -42,13 +42,14 @@ public static class Clues
     public static float LaunchMul => Has(Belt) ? 1.15f : 1f;
     public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 15 % pidemmälle."); }
 
-    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva";
+    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi";
 
     /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu.
     public static void BossDown(string boss)
     {
         if (boss == "Metsuri") Add(BikeKey, "Moottoripyörän avaimet", "Metsurin taskusta löytyi moottoripyörän avaimet. Nyt pääset ajamaan.");
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
+        else if (boss == "Yakuza-pomo") Add(PlaneTicket, "Lentolippu", "Yakuza-pomon taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 
     /// Lisää vihjeen, jos sitä ei vielä ole. Palauttaa true, jos se oli uusi.

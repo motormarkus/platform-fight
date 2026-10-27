@@ -16,7 +16,7 @@ public static class PokerSetSetup
     static readonly int[] Values = { 1, 2, 5, 10, 20, 25, 50 };
     static readonly string[] Suits = { "clubs", "diamonds", "hearts", "spades" };
 
-    [MenuItem("Beat em up/194. Holdem: ota PokerSetin kortit ja 3D-merkit käyttöön")]
+    [MenuItem("Beat em up/194. Holdem: ota PokerSetin kortit ja 3D-merkit käyttöön", false, 194)]
     static void Install()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) { EditorUtility.DisplayDialog("PokerSet", "Paina ensin Stop.", "OK"); return; }

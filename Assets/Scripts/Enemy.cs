@@ -592,6 +592,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Kierähdys maassa kaatumisen jälkeen (viimeinen = makaa).")]
     public Sprite[] landSprites;
     public float landFrameTime = 0.08f;
+    [Tooltip("Pölypilvi maahan mätkähtäessä (0 = ei; pomon makuukuvien siisti peitto).")] public float landDustSize = 0f;
+    void LandDust() { if (landDustSize > 0f) DustPuff.Spawn(transform.position + new Vector3(facingRight ? -0.5f : 0.5f, 0f, 0f), Mathf.RoundToInt(-transform.position.y * 100f) + 2, landDustSize); }
+    [Tooltip("Kaatumisen ilmakuvien kuva-aika (s).")] public float airFrameTime = 0.1f;
     [Tooltip("Ilman lautaa (noustua): idle/tappeluasento, kävely, lyönti, osuma. Tyhjät korvataan tappeluasennolla.")]
     public Sprite[] footIdleSprites, footWalkSprites, footPunchSprites, footHurtSprites;
     public int footPunchImpactFrame = 3;
@@ -693,6 +696,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     Vector2 knockVel;
     bool punchLanded;
     float flashTimer;
+    /// Aivo pyytää voimakasta punaista välähdystä (esim. pomon purkauksen lataus).
+    public bool redFlash;
     float groundHeight;
     AudioSource audioSource;
     int lastSound = -1;
@@ -1089,7 +1094,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
             talksWhenCalm = true;
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Yakuza-pomo" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1550,6 +1555,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         HitFx.PlayClip(SlamSound, 1f);
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
                         knockVel *= 0.35f;   // liukuu vähän iskun jälkeen
+                        LandDust();
                         Enter(State.Down);
                         break;
                     }
@@ -1564,6 +1570,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         if (slideLand) { knockVel *= 1.35f * slideScaleE; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
                         else knockVel = Vector2.zero;
                     }
+                    LandDust();
                     Enter(State.Down);
                 }
                 break;
@@ -3297,11 +3304,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
         ringItem = null;
     }
 
+    /// Vianetsintä: Yakuza-pomon osumien tulokset Consoleen ([Pomo]).
+    void PomoLog(string s) { if (displayName == "Yakuza-pomo") Debug.Log("[Pomo] " + s + " | tila=" + state + " torjunta=" + blockChance.ToString("0.00") + " putki=" + blocksInRow + "/" + maxBlocksInRow + " komboLukko=" + ChainJuggle); }
+
     public bool TakeHit(int damage, float attackerX, bool knockdown)
     {
+        PomoLog("osuma tuli (kaatava=" + knockdown + ")");
         if (PieWar.Active && !PieWar.PieDamage) return false;   // piirakkasodassa vain piirakka osuu
         if (waitingToAppear) return false;   // piilossa odottava pomo
-        if (brain != null && brain.enabled && brain.InterceptHit(damage, attackerX, knockdown)) return false;   // Deacon väistää
+        if (brain != null && brain.enabled && brain.InterceptHit(damage, attackerX, knockdown)) { PomoLog("VÄISTI/aivo ohitti iskun"); return false; }   // Deacon väistää
         // nurkkapurkaus: sen aikana iskut uppoavat (puolet vahingosta) mutta eivät keskeytä
         if (isBoss && Time.time < breakoutUntil && state != State.Down && state != State.GetUp && state != State.Dead && state != State.Held && state != State.Ringed)
         {
@@ -3323,6 +3334,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!chainLock && ((comboArmor && comboSeq != null) || counterActive || (brain != null && brain.ArmorNow)) && !knockdown && health > damage
             && (state == State.Windup || state == State.Punch || state == State.Recover))
         {
+            PomoLog("iskusarjan panssari: isku uppoaa, ei torjuntaa");
             awake = true;
             health -= damage;
             LastHit = this; LastHitTime = Time.time;
@@ -3393,6 +3405,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (!unblockable && blockChance > 0f && facingAttacker && guardState && blocksInRow < maxBlocksInRow
             && (state == State.Block || Random.value < blockChance))
         {
+            PomoLog("TORJUI");
             blocksInRow++;
             LastBlockTime = Time.time;
             JustBlocked = true;
@@ -3401,6 +3414,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             Enter(State.Block);
             return true;
         }
+        PomoLog("EI TORJUNTAA: ei-torjuttava=" + unblockable + " (komboLukko=" + chainLock + ") edestä=" + facingAttacker + " suojatila=" + guardState);
         JustBlocked = false;
         blocksInRow = 0;
 
@@ -3454,6 +3468,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
     // Kapteeni kierrepotku, Romuukko erikoisisku, Deacon vimmattu sarja (aivo), Gustav kirves + takapotku (aivo).
     float bossPressure, bossPressureAt = -9f, breakoutUntil, breakoutCd;
     public bool CornerBurstOn => Time.time < breakoutUntil;
+
+    /// Aivo käynnistää purkauksen itse (ei nurkassa): iskut lennättävät heron sivuun dur sekunnin ajan.
+    public void BeginBurstWindow(float dur)
+    {
+        breakoutUntil = Time.time + dur; breakoutCd = Time.time + 9f; bossPressure = 0f;
+        knockVel = Vector2.zero; moving = false; flashTimer = 0.3f;
+        if (CameraFollow.Instance != null) CameraFollow.Shake(0.3f, 0.25f);
+    }
 
     bool NearEdge(float range)
     {
@@ -3529,7 +3551,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             dur = 2.2f + 0.9f * seq.Length;
             Enter(State.Windup);
         }
-        breakoutUntil = Time.time + dur;
+        if (!(brain is ISelfTimedBurst)) breakoutUntil = Time.time + dur;   // oma-ajoitteinen aivo avaa ikkunan itse (BeginBurstWindow)
         if (CameraFollow.Instance != null) CameraFollow.Shake(0.3f, 0.25f);
         return true;
     }
@@ -4125,7 +4147,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             body.transform.localPosition += c - q * c;
         }
 
-        body.color = flashTimer > 0f ? new Color(1f, 0.55f, 0.55f) : Color.white;
+        body.color = redFlash && state != State.Dead && state != State.Down && state != State.Hurt && state != State.Airborne ? new Color(1f, 0.12f, 0.12f) : flashTimer > 0f ? new Color(1f, 0.55f, 0.55f) : Color.white;
 
         int order = Mathf.RoundToInt(-transform.position.y * 100f);
         body.sortingOrder = order;
@@ -4273,7 +4295,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (Has(knockdownSprites))
                 {
                     int airFrames = Mathf.Max(1, knockdownSprites.Length - 1);
-                    return knockdownSprites[Mathf.Min((int)(stateTime / 0.1f), airFrames - 1)];
+                    return knockdownSprites[Mathf.Min((int)(stateTime / airFrameTime), airFrames - 1)];
                 }
                 rot = Mathf.Lerp(20f, 80f, Mathf.Clamp01(stateTime / 0.35f));
                 return FirstIdle();
@@ -4443,6 +4465,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
 /// Ulkoinen aivo (Deacon, Rottakeisari): ohjaa Enemyn liikettä, iskuja ja kuvia, kun Enemy on perustilassa.
 /// Aivo, joka osaa nurkkapurkauksen (pomo ajettu nurkkaan): aloittaa oman keskeyttämättömän erikoissarjansa.
 public interface ICornerBurstBrain { void CornerBurst(); }
+/// Purkausaivo, joka avaa heron sivuunlennätysikkunan (Enemy.BeginBurstWindow) itse oikealla hetkellä.
+public interface ISelfTimedBurst { }
 
 public interface IEnemyBrain
 {

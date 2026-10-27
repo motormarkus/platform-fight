@@ -40,7 +40,7 @@ public static class PokerSetup
         }
     }
 
-    [MenuItem("Beat em up/191. Holdem: valmistele testiscene ja asetukset")]
+    [MenuItem("Beat em up/191. Holdem: valmistele testiscene ja asetukset", false, 191)]
     public static void Prepare()
     {
         if (Blocked()) return;
@@ -85,7 +85,7 @@ public static class PokerSetup
         EditorUtility.DisplayDialog("Texas Hold'em", "Avaa Assets/Scenes/PokerTest.unity ja käynnistä Play itse. Testissä on 10 000 mk erillistä testirahaa.\n\nAsetukset: " + SettingsPath + "\n\nLiittyminen omaan erilliseen pöytään: valitse pöytä ja aja valikko 192. Kentän scene ei muuttunut.", "OK");
     }
 
-    [MenuItem("Beat em up/192. Holdem: liitä liittyminen valittuun omaan pöytään")]
+    [MenuItem("Beat em up/192. Holdem: liitä liittyminen valittuun omaan pöytään", false, 192)]
     static void InstallTable()
     {
         if (Blocked()) return;

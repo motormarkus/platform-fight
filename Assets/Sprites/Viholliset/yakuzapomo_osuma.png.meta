@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: f5085f976b4f28545bc01dcb5c29ad78
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3943358905412210924
+    second: yakuzapomo_osuma_0
+  - first:
+      213: -9128575199836107885
+    second: yakuzapomo_osuma_1
+  - first:
+      213: -5294671859509682869
+    second: yakuzapomo_osuma_2
+  - first:
+      213: -9077090381017546082
+    second: yakuzapomo_osuma_3
+  - first:
+      213: 7799476169914230507
+    second: yakuzapomo_osuma_4
+  - first:
+      213: -3273923434178863455
+    second: yakuzapomo_osuma_5
+  - first:
+      213: -1297121894800969359
+    second: yakuzapomo_osuma_6
+  - first:
+      213: 3768835197171898551
+    second: yakuzapomo_osuma_7
+  - first:
+      213: 4868145134227773917
+    second: yakuzapomo_osuma_8
+  - first:
+      213: -6558989879153918981
+    second: yakuzapomo_osuma_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f2805e7ff5649c0800000000000000
+      internalID: -3943358905412210924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b04549839c05180800000000000000
+      internalID: -9128575199836107885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d1ba30ffb8586b0800000000000000
+      internalID: -5294671859509682869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1472
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9285551462b70280800000000000000
+      internalID: -9077090381017546082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6acddc04e4d3c60800000000000000
+      internalID: 7799476169914230507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae11fb8bffa092d0800000000000000
+      internalID: -3273923434178863455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 171b1065282bffde0800000000000000
+      internalID: -1297121894800969359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 736
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b89b68c4a79d4430800000000000000
+      internalID: 3768835197171898551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd951b005302f8340800000000000000
+      internalID: 4868145134227773917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_osuma_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 736
+      alignment: 9
+      pivot: {x: 0.546875, y: 0.02173913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfbf5a7b479c9f4a0800000000000000
+      internalID: -6558989879153918981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1f418914cda45b74991b86fe6dbe61bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuzapomo_osuma_0: -3943358905412210924
+      yakuzapomo_osuma_1: -9128575199836107885
+      yakuzapomo_osuma_2: -5294671859509682869
+      yakuzapomo_osuma_3: -9077090381017546082
+      yakuzapomo_osuma_4: 7799476169914230507
+      yakuzapomo_osuma_5: -3273923434178863455
+      yakuzapomo_osuma_6: -1297121894800969359
+      yakuzapomo_osuma_7: 3768835197171898551
+      yakuzapomo_osuma_8: 4868145134227773917
+      yakuzapomo_osuma_9: -6558989879153918981
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

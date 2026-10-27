@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: ee6cc893917090b4e9befc4116636d33
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5676914279170767313
+    second: yakuzapomo_tonaisy_0
+  - first:
+      213: 114289579605693223
+    second: yakuzapomo_tonaisy_1
+  - first:
+      213: 4707321246867349869
+    second: yakuzapomo_tonaisy_2
+  - first:
+      213: 2572872246662746310
+    second: yakuzapomo_tonaisy_3
+  - first:
+      213: -8214939035466898918
+    second: yakuzapomo_tonaisy_4
+  - first:
+      213: -8050039095855686001
+    second: yakuzapomo_tonaisy_5
+  - first:
+      213: -7079883641594695109
+    second: yakuzapomo_tonaisy_6
+  - first:
+      213: 8684939271354414562
+    second: yakuzapomo_tonaisy_7
+  - first:
+      213: 8996072838330086088
+    second: yakuzapomo_tonaisy_8
+  - first:
+      213: 2161075010302302297
+    second: yakuzapomo_tonaisy_9
+  - first:
+      213: 5742987565597695721
+    second: yakuzapomo_tonaisy_10
+  - first:
+      213: -3359216388810839318
+    second: yakuzapomo_tonaisy_11
+  - first:
+      213: -8470408206367584622
+    second: yakuzapomo_tonaisy_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9f056957378ce40800000000000000
+      internalID: 5676914279170767313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2112
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7231de164c9069100800000000000000
+      internalID: 114289579605693223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_2
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2112
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d616d2bcbb3c35140800000000000000
+      internalID: 4707321246867349869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_3
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2112
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c05bca3dada4b320800000000000000
+      internalID: 2572872246662746310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12618bc87caefd80800000000000000
+      internalID: -8214939035466898918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_5
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1408
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ed38fd714884090800000000000000
+      internalID: -8050039095855686001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_6
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1408
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3236abb6533fbd90800000000000000
+      internalID: -7079883641594695109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1408
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e57be4a04a178870800000000000000
+      internalID: 8684939271354414562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2743e459878dc70800000000000000
+      internalID: 8996072838330086088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_9
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 704
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958da02a54eadfd10800000000000000
+      internalID: 2161075010302302297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_10
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 704
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee9fe463c033bf40800000000000000
+      internalID: 5742987565597695721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_11
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 704
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea62450e7aa161d0800000000000000
+      internalID: -3359216388810839318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yakuzapomo_tonaisy_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 896
+        height: 704
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e08ec4d90137a80800000000000000
+      internalID: -8470408206367584622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6f15c57b7a7fac94ca97ef31b9c69647
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      yakuzapomo_tonaisy_0: 5676914279170767313
+      yakuzapomo_tonaisy_1: 114289579605693223
+      yakuzapomo_tonaisy_10: 5742987565597695721
+      yakuzapomo_tonaisy_11: -3359216388810839318
+      yakuzapomo_tonaisy_12: -8470408206367584622
+      yakuzapomo_tonaisy_2: 4707321246867349869
+      yakuzapomo_tonaisy_3: 2572872246662746310
+      yakuzapomo_tonaisy_4: -8214939035466898918
+      yakuzapomo_tonaisy_5: -8050039095855686001
+      yakuzapomo_tonaisy_6: -7079883641594695109
+      yakuzapomo_tonaisy_7: 8684939271354414562
+      yakuzapomo_tonaisy_8: 8996072838330086088
+      yakuzapomo_tonaisy_9: 2161075010302302297
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

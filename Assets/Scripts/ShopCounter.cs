@@ -187,7 +187,10 @@ public class ShopCounter : MonoBehaviour
         if (pendingBoard == null) return;
         Vector3 bp = BoardSpawnPoint(pendingFallback);
         if (!Area.IsHere(bp, 2f)) return;
-        LooseBoard.Spawn(pendingBoard, bp, 0f, null);
+        var spawned = LooseBoard.Spawn(pendingBoard, bp, 0f, null);
+        var spr = pendingBoard;
+        if (spawned != null) spawned.persistent = true;   // ei haalistu pois (omistajaton lauta haalistui ja ei ollut noustavissa)
+        if (spawned != null) spawned.onGone = wasTaken => { if (!wasTaken && this != null) pendingBoard = spr; };   // ostettu lauta ei katoa: jos pelaaja meni sisään ennen kuin nousi sille, se ilmestyy uudestaan ulos tultaessa
         pendingBoard = null;
     }
 
@@ -195,7 +198,7 @@ public class ShopCounter : MonoBehaviour
     Vector3 BoardSpawnPoint(Vector3 fallback)
     {
         if (boardDoor != null && boardDoor.here != null)
-            return new Vector3(boardDoor.transform.position.x + 2.2f, Mathf.Lerp(boardDoor.here.maxDepthY, boardDoor.here.minDepthY, 0.25f), 0f);
+            return new Vector3(boardDoor.transform.position.x + 3.4f, Mathf.Lerp(boardDoor.here.maxDepthY, boardDoor.here.minDepthY, 0.25f), 0f);
         return hasBoardAt ? new Vector3(boardAt.x, boardAt.y, 0f) : fallback;
     }
 
@@ -224,7 +227,7 @@ public class ShopCounter : MonoBehaviour
         float hw = k != null ? Mathf.Min(keeperHalfWidth, halfWidth) : halfWidth;
         return !q.GameOver && q.enabled
             && Mathf.Abs(p.x - cx) <= hw
-            && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall)   // viisto tai porrastettu takaraja (laivan sali)
+            && (here == null || p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - (maxDistanceFromWall >= 50f ? maxDistanceFromWall : Mathf.Min(maxDistanceFromWall, 1.0f)))   // tiskiin pitää mennä kiinni; viisto tai porrastettu takaraja (laivan sali)
             && q.AirHeight <= 0.05f
             && !PieWar.LinseyPrompt
             && !PieWar.Active;   // piirakkasodan aikana ei voi puhua Sohville   // Linseyn puhe (piirakkasota) menee edelle, kun hän on lähellä

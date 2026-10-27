@@ -1475,6 +1475,7 @@ MonoBehaviour:
   footOffset: 0
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &866624701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,6 +4566,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -4660,11 +4675,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -4780,6 +4798,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -4860,10 +4879,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.2
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -4891,6 +4913,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 1
   knockdownAltSprites:
@@ -5364,7 +5388,12 @@ MonoBehaviour:
   foeRange: 10
   wakeAfterSeconds: 0
   wakeOnFight: 0
+  noRest: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  wanderSpeed: 1.1
   foeDamageBonus: 6
+  slideDistance: 0.67
   speakLines:
   - {fileID: 8300000, guid: 2f6da33205027604e85c8d7e5b04739e, type: 3}
   - {fileID: 8300000, guid: 5a0fe7cee25c22a47ad503b887542d07, type: 3}
@@ -5519,6 +5548,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -5610,11 +5653,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -5722,6 +5768,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -5801,10 +5848,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.25
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -5832,6 +5882,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []

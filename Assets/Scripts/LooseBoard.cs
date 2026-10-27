@@ -29,7 +29,11 @@ public class LooseBoard : MonoBehaviour
     }
 
     /// Pelaaja nousi laudalle: lauta häviää (kuvat sisältävät laudan).
-    public void Take() { Destroy(gameObject); }
+    public void Take() { taken = true; Destroy(gameObject); }
+    public bool taken;
+    /// Kutsutaan kun lauta poistuu (parametri: pelaaja nousi sille). Kauppa palauttaa ostetun laudan, jos pelaaja ei ehtinyt nousta.
+    public System.Action<bool> onGone;
+    void OnDestroy() { onGone?.Invoke(taken); }
 
     public static LooseBoard Spawn(Sprite sprite, Vector3 pos, float vx, Enemy owner)
     {

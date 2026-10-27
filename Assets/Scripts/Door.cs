@@ -49,6 +49,8 @@ public class Door : MonoBehaviour
     void Awake()
     {
         if (string.IsNullOrEmpty(requiredClue) && name == "Varaston ovi laivaan") { requiredClue = Clues.ShipTicket; lockedClueText = "Tarvitset laivalipun."; }
+        if (name == "Thaitown: Klubin ovi") { requiredClue = Clues.ClubInvite; lockedClueText = "Ovimiehet eivät päästä sisään. Tarvitset kutsun."; }   // kutsun pudottaa katon viimeinen yakuza (ThaiFinale.CheckInviteDrop)
+        if (name == "Thaitown: Nouse koneeseen") { requiredClue = Clues.PlaneTicket; lockedClueText = "Tarvitset lentolipun."; }   // lippu tulee klubin yläkerran yakuza-pomolta
     }
     bool ClueLocked => !string.IsNullOrEmpty(requiredClue) && !Clues.Open(requiredClue);
 
@@ -161,8 +163,9 @@ public class Door : MonoBehaviour
     bool NearOk(PlayerController q)
     {
         Vector3 p = q.transform.position;
+        float reach = maxDistanceFromWall >= 50f ? maxDistanceFromWall : Mathf.Min(maxDistanceFromWall, 1.0f);   // oveen pitää mennä kiinni (ei prompteja kadun toiselta puolelta)
         return !q.Riding && !q.HoldingLid && Mathf.Abs(p.x - transform.position.x) <= halfWidth
-            && (here == null || (onGround ? Mathf.Abs(p.y - transform.position.y) <= groundHalfDepth : atFront ? p.y <= here.minDepthY + maxDistanceFromWall : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - maxDistanceFromWall))   // porrastettu takaraja (esim. kadun baari) tai etureuna
+            && (here == null || (onGround ? Mathf.Abs(p.y - transform.position.y) <= groundHalfDepth : atFront ? p.y <= here.minDepthY + reach : p.y >= here.MaxDepthAtX(p.x, here.maxDepthY) - reach))   // porrastettu takaraja (esim. kadun baari) tai etureuna
             && q.AirHeight <= 0.05f;
     }
 

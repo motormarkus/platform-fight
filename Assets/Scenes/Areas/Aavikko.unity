@@ -1093,6 +1093,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -1202,6 +1216,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -1209,6 +1224,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -1324,6 +1341,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -1402,10 +1420,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -1433,6 +1454,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -1565,6 +1588,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &13784466
 Transform:
   m_ObjectHideFlags: 0
@@ -2233,6 +2257,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -2344,11 +2382,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -2456,6 +2497,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -2596,10 +2638,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -2627,6 +2672,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -4785,6 +4832,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &50395995
 Transform:
   m_ObjectHideFlags: 0
@@ -6269,6 +6317,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -6391,11 +6453,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -6511,6 +6576,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -6590,10 +6656,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -6634,6 +6703,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -7847,6 +7918,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -7956,6 +8041,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -7963,6 +8049,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -8078,6 +8166,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -8156,10 +8245,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -8187,6 +8279,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -9022,6 +9116,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.1
   maxDistanceFromWall: 1.5
   fadeTime: 0.25
@@ -9828,6 +9924,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -9954,12 +10064,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -10075,6 +10188,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -10154,10 +10268,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -10198,6 +10315,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -10593,6 +10712,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -10703,6 +10836,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -10710,6 +10844,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -10817,6 +10953,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -10896,10 +11033,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -10956,6 +11096,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -11142,6 +11284,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &114024101
 GameObject:
   m_ObjectHideFlags: 0
@@ -11975,6 +12118,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -12085,6 +12242,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -12092,6 +12250,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -12199,6 +12359,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -12278,10 +12439,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -12338,6 +12502,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -12759,6 +12925,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -14260,6 +14428,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &147792413
 GameObject:
   m_ObjectHideFlags: 0
@@ -15674,6 +15843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: RAVINTOLAVAUNU
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -15685,6 +15858,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -15692,6 +15866,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -15699,6 +15874,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -15706,6 +15882,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -15713,6 +15890,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -15720,6 +15898,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 2061075208}
   halfWidth: 3.1953125
   maxDistanceFromWall: 1.2
@@ -15853,6 +16032,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &166429083
 Transform:
   m_ObjectHideFlags: 0
@@ -16065,6 +16245,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -16191,12 +16385,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -16312,6 +16509,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -16391,10 +16589,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -16435,6 +16636,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -16606,6 +16809,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &168542846
 Transform:
   m_ObjectHideFlags: 0
@@ -17919,6 +18123,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.4
   fadeTime: 0.25
@@ -18184,6 +18390,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -18302,11 +18522,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -18414,6 +18637,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -18493,10 +18717,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -18524,6 +18751,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -19754,6 +19983,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -21485,6 +21716,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &229292990
 Transform:
   m_ObjectHideFlags: 0
@@ -22261,6 +22493,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -22383,11 +22629,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -22503,6 +22752,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -22582,10 +22832,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -22626,6 +22879,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -22837,6 +23092,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &236506205
 Transform:
   m_ObjectHideFlags: 0
@@ -23592,6 +23848,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 0.6
   maxDistanceFromWall: 0.9
   fadeTime: 0.7
@@ -23984,6 +24242,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &250913229
 Transform:
   m_ObjectHideFlags: 0
@@ -24172,6 +24431,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -24282,6 +24555,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -24289,6 +24563,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -24396,6 +24672,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -24475,10 +24752,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -24535,6 +24815,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -24874,6 +25156,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -25373,6 +25657,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -25499,12 +25797,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -25620,6 +25921,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -25699,10 +26001,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -25743,6 +26048,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -27137,6 +27444,20 @@ MonoBehaviour:
   - JSU
   - JJSU
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.6
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -27269,11 +27590,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -27399,6 +27723,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -27477,10 +27802,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -27535,6 +27863,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -27586,6 +27916,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.1
   maxDistanceFromWall: 2
   fadeTime: 0.25
@@ -30130,6 +30462,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &313526117
 GameObject:
   m_ObjectHideFlags: 0
@@ -30721,6 +31054,7 @@ MonoBehaviour:
   doorCloseDelay: 1.6
   lastWaveHelpers: []
   forceFight: 0
+  onlyForced: 0
 --- !u!4 &325242950
 Transform:
   m_ObjectHideFlags: 0
@@ -31511,6 +31845,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -31633,11 +31981,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -31753,6 +32104,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -31832,10 +32184,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -31876,6 +32231,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -32798,6 +33155,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &352071714
 GameObject:
   m_ObjectHideFlags: 0
@@ -33263,6 +33621,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 2.4
   maxDistanceFromWall: 2
   fadeTime: 0.25
@@ -34215,6 +34575,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -34337,11 +34711,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -34457,6 +34834,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -34536,10 +34914,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -34580,6 +34961,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -35114,6 +35497,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: Nouse junaan ja matkusta Thaitowniin?
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -36235,6 +36620,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -36361,12 +36760,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -36482,6 +36884,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -36561,10 +36964,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -36605,6 +37011,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -37239,6 +37647,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -37347,11 +37769,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -37469,6 +37894,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -37547,10 +37973,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -37578,6 +38007,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -38597,6 +39028,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -38706,11 +39151,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -38818,6 +39266,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -38899,10 +39348,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -38943,6 +39395,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -39630,6 +40084,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.7
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -40429,6 +40885,20 @@ MonoBehaviour:
   - JPK
   - JJK
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.55
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -40537,11 +41007,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -40655,6 +41128,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -40730,10 +41204,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -40761,6 +41238,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -41026,6 +41505,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -43013,6 +43494,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &489505461
 Transform:
   m_ObjectHideFlags: 0
@@ -43461,6 +43943,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -43583,11 +44079,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -43703,6 +44202,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -43782,10 +44282,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -43826,6 +44329,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 1
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -44035,6 +44540,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.3
   maxDistanceFromWall: 0.9
   fadeTime: 0.25
@@ -46216,6 +46723,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -46325,11 +46846,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -46437,6 +46961,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -46518,10 +47043,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -46562,6 +47090,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -48216,6 +48746,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &542912256
 Transform:
   m_ObjectHideFlags: 0
@@ -48703,6 +49234,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &547072163
 Transform:
   m_ObjectHideFlags: 0
@@ -49802,6 +50334,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &561293019
 Transform:
   m_ObjectHideFlags: 0
@@ -50819,6 +51352,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -50928,11 +51475,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -51040,6 +51590,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -51121,10 +51672,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -51165,6 +51719,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -51398,6 +51954,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -53108,6 +53666,20 @@ MonoBehaviour:
   - JSU
   - JJSU
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.6
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -53240,11 +53812,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -53370,6 +53945,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -53448,10 +54024,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -53506,6 +54085,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53709,6 +54290,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.8
   fadeTime: 0.35
@@ -54138,6 +54721,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &608581861
 Transform:
   m_ObjectHideFlags: 0
@@ -54298,6 +54882,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -54416,11 +55014,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -54528,6 +55129,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -54607,10 +55209,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -54638,6 +55243,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -55469,6 +56076,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -55595,12 +56216,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -55716,6 +56340,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -55795,10 +56420,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -55839,6 +56467,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -56881,6 +57511,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &644690740
 Transform:
   m_ObjectHideFlags: 0
@@ -57041,6 +57672,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -57159,11 +57804,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -57271,6 +57919,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -57350,10 +57999,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -57381,6 +58033,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -58550,6 +59204,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &657049643
 Transform:
   m_ObjectHideFlags: 0
@@ -59907,6 +60562,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -60017,6 +60686,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -60024,6 +60694,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -60131,6 +60803,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -60210,10 +60883,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -60270,6 +60946,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -60456,6 +61134,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &673524706
 GameObject:
   m_ObjectHideFlags: 0
@@ -61276,6 +61955,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -61387,11 +62080,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -61499,6 +62195,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -61639,10 +62336,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -61670,6 +62370,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -63035,6 +63737,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -63161,12 +63877,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -63282,6 +64001,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -63361,10 +64081,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -63405,6 +64128,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -63776,6 +64501,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &703936019
 Transform:
   m_ObjectHideFlags: 0
@@ -64709,6 +65435,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -64835,12 +65575,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -64956,6 +65699,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -65035,10 +65779,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -65079,6 +65826,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -66253,6 +67002,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -66363,6 +67126,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -66370,6 +67134,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -66477,6 +67243,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -66556,10 +67323,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -66616,6 +67386,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -66983,6 +67755,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -67109,12 +67895,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -67230,6 +68019,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -67309,10 +68099,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -67353,6 +68146,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -67719,6 +68514,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -67845,12 +68654,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -67966,6 +68778,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -68045,10 +68858,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -68089,6 +68905,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -68413,6 +69231,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -68535,11 +69367,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -68655,6 +69490,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -68734,10 +69570,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -68778,6 +69617,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -69318,6 +70159,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 2.6
   maxDistanceFromWall: 1.2
   fadeTime: 0.25
@@ -70861,6 +71704,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -70979,11 +71836,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -71091,6 +71951,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -71170,10 +72031,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -71201,6 +72065,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -71428,6 +72294,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &775678119
 Transform:
   m_ObjectHideFlags: 0
@@ -71709,6 +72576,20 @@ MonoBehaviour:
   - JSU
   - JJSU
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.6
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -71841,11 +72722,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -71971,6 +72855,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -72049,10 +72934,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -72107,6 +72995,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -72734,6 +73624,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -73043,6 +73935,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &796751428
 GameObject:
   m_ObjectHideFlags: 0
@@ -73673,6 +74566,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -73783,6 +74690,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -73790,6 +74698,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -73897,6 +74807,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -73976,10 +74887,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -74036,6 +74950,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -74116,6 +75032,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &805639054
 Transform:
   m_ObjectHideFlags: 0
@@ -74328,6 +75245,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -74454,12 +75385,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -74575,6 +75509,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -74654,10 +75589,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -74698,6 +75636,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -75717,6 +76657,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &823743074
 Transform:
   m_ObjectHideFlags: 0
@@ -75804,6 +76745,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &826494206
 Transform:
   m_ObjectHideFlags: 0
@@ -76681,6 +77623,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -77157,6 +78101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: RAVINTOLAVAUNU
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -77168,6 +78116,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -77175,6 +78124,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -77182,6 +78132,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -77189,6 +78140,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -77196,6 +78148,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -77203,6 +78156,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 0}
   halfWidth: 3.1953125
   maxDistanceFromWall: 1.2
@@ -77371,6 +78325,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &840928222
 Transform:
   m_ObjectHideFlags: 0
@@ -78178,6 +79133,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -78287,6 +79256,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -78294,6 +79264,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -78409,6 +79381,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -78487,10 +79460,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -78518,6 +79494,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -79034,6 +80012,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.3
   maxDistanceFromWall: 1
   fadeTime: 0.25
@@ -79392,6 +80372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: RAVINTOLAVAUNU
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -79403,6 +80387,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -79410,6 +80395,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -79417,6 +80403,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -79424,6 +80411,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -79431,6 +80419,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -79438,6 +80427,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 0}
   halfWidth: 3.1953125
   maxDistanceFromWall: 1.2
@@ -79574,6 +80564,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -79683,11 +80687,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -79795,6 +80802,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -79876,10 +80884,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -79920,6 +80931,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -80557,6 +81570,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &878111605
 GameObject:
   m_ObjectHideFlags: 0
@@ -80990,6 +82004,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &883271292
 GameObject:
   m_ObjectHideFlags: 0
@@ -81574,6 +82589,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &891857266
 GameObject:
   m_ObjectHideFlags: 0
@@ -83684,6 +84700,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &921375494
 Transform:
   m_ObjectHideFlags: 0
@@ -84015,6 +85032,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -84125,6 +85156,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -84132,6 +85164,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -84239,6 +85273,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -84318,10 +85353,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -84378,6 +85416,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84671,6 +85711,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &930327724
 GameObject:
   m_ObjectHideFlags: 0
@@ -86081,6 +87122,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -86190,11 +87245,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -86302,6 +87360,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -86383,10 +87442,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -86427,6 +87489,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -87525,6 +88589,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -87643,11 +88721,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -87755,6 +88836,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -87834,10 +88916,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -87865,6 +88950,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -88555,6 +89642,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &970476346
 Transform:
   m_ObjectHideFlags: 0
@@ -90349,6 +91437,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1007930193
 Transform:
   m_ObjectHideFlags: 0
@@ -90537,6 +91626,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -90647,6 +91750,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -90654,6 +91758,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -90761,6 +91867,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -90840,10 +91947,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -90900,6 +92010,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -91461,6 +92573,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -91571,6 +92697,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -91578,6 +92705,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -91685,6 +92814,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -91764,10 +92894,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -91824,6 +92957,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -92557,6 +93692,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -92679,11 +93828,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -92799,6 +93951,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -92878,10 +94031,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -92922,6 +94078,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -93073,6 +94231,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -93191,11 +94363,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -93303,6 +94478,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -93382,10 +94558,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -93413,6 +94592,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -93798,6 +94979,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -93916,11 +95111,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -94028,6 +95226,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -94107,10 +95306,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -94138,6 +95340,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -95537,6 +96741,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1053379860
 Transform:
   m_ObjectHideFlags: 0
@@ -95823,6 +97028,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -95949,12 +97168,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -96070,6 +97292,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -96149,10 +97372,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -96193,6 +97419,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -99789,6 +101017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: DINERIN TISKI
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -99800,6 +101032,7 @@ MonoBehaviour:
     comment: Vahvaa ja mustaa.
     takeaway: 
     sound: {fileID: 0}
+    give: 
   - name: "Voileip\xE4"
     price: 5
     heal: 40
@@ -99807,6 +101040,7 @@ MonoBehaviour:
     comment: Tuoretta.
     takeaway: 
     sound: {fileID: 0}
+    give: 
   - name: Kermapiirakka
     price: 6
     heal: 30
@@ -99814,6 +101048,7 @@ MonoBehaviour:
     comment: "Kerma edell\xE4!"
     takeaway: 
     sound: {fileID: 0}
+    give: 
   - name: Aamiaislautanen
     price: 9
     heal: 70
@@ -99821,6 +101056,7 @@ MonoBehaviour:
     comment: "Pekonia, kananmuna ja paahtoleip\xE4."
     takeaway: 
     sound: {fileID: 0}
+    give: 
   - name: Dinerin erikoinen
     price: 15
     heal: 999
@@ -99828,6 +101064,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 0}
+    give: 
   here: {fileID: 991025764}
   halfWidth: 3.3
   maxDistanceFromWall: 1.1
@@ -103949,6 +105186,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1202346147
 GameObject:
   m_ObjectHideFlags: 0
@@ -104666,6 +105904,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -104792,12 +106044,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -104913,6 +106168,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -104992,10 +106248,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -105036,6 +106295,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -105531,6 +106792,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -105641,6 +106916,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -105648,6 +106924,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -105755,6 +107033,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -105834,10 +107113,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -105894,6 +107176,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -105989,6 +107273,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1218151247
 GameObject:
   m_ObjectHideFlags: 0
@@ -106214,6 +107499,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -106332,11 +107631,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -106444,6 +107746,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -106523,10 +107826,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -106554,6 +107860,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -107561,6 +108869,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -109413,6 +110723,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -109539,12 +110863,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -109660,6 +110987,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -109739,10 +111067,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -109783,6 +111114,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -111606,6 +112939,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -111728,11 +113075,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -111848,6 +113198,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -111927,10 +113278,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -111971,6 +113325,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -112621,6 +113977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: PELTIHALLIN BAARI
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -112632,6 +113992,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -112639,6 +114000,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -112646,6 +114008,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -112653,6 +114016,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -112660,6 +114024,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -112667,6 +114032,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 1264368157}
   halfWidth: 3.3
   maxDistanceFromWall: 1.1
@@ -113412,6 +114778,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -113521,11 +114901,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -113633,6 +115016,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -113714,10 +115098,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -113758,6 +115145,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -114199,6 +115588,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.6
   maxDistanceFromWall: 1.4
   fadeTime: 0.25
@@ -114903,6 +116294,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -115370,6 +116763,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1347167830
 GameObject:
   m_ObjectHideFlags: 0
@@ -116481,6 +117875,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -116591,6 +117999,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
@@ -116598,6 +118007,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -116705,6 +118116,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -116784,10 +118196,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -116844,6 +118259,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -117818,6 +119235,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1374196575
 GameObject:
   m_ObjectHideFlags: 0
@@ -117905,6 +119323,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1375264849
 GameObject:
   m_ObjectHideFlags: 0
@@ -118650,6 +120069,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1382014546
 GameObject:
   m_ObjectHideFlags: 0
@@ -120019,6 +121439,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1397190412
 Transform:
   m_ObjectHideFlags: 0
@@ -120309,6 +121730,20 @@ MonoBehaviour:
   - JSU
   - JJSU
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.6
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -120441,11 +121876,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -120571,6 +122009,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -120649,10 +122088,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -120707,6 +122149,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -120893,6 +122337,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -121004,11 +122462,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -121116,6 +122577,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -121256,10 +122718,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -121287,6 +122752,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -121502,6 +122969,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: BAARIN TISKI
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -121513,6 +122984,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -121520,6 +122992,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -121527,6 +123000,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -121534,6 +123008,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -121541,6 +123016,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -121548,6 +123024,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 883631401}
   halfWidth: 4.5
   maxDistanceFromWall: 1.1
@@ -122051,6 +123528,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1411569023
 GameObject:
   m_ObjectHideFlags: 0
@@ -122199,6 +123677,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -122308,11 +123800,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -122420,6 +123915,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -122501,10 +123997,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -122545,6 +124044,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -122917,6 +124418,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -123026,11 +124541,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -123138,6 +124656,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -123219,10 +124738,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -123263,6 +124785,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -123540,6 +125064,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1423735366
 GameObject:
   m_ObjectHideFlags: 0
@@ -124813,6 +126338,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.7
   maxDistanceFromWall: 0.9
   fadeTime: 0.35
@@ -125269,6 +126796,8 @@ MonoBehaviour:
   - {fileID: 775711188}
   guardsLockedText: 'Ovi on lukossa. Voita ensin pihan vartijat: Rusty ja rekkamies.'
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 1.4
   fadeTime: 0.25
@@ -125976,6 +127505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac810e2c04988c48b5c0a4f6c8bc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopCounter
+  boardAt: {x: 0, y: 0}
+  hasBoardAt: 0
+  boardDoor: {fileID: 0}
+  ownItemsOnly: 0
   title: RAVINTOLAVAUNU
   npcName: Sohvi
   prompt: Puhu Sohville
@@ -125987,6 +127520,7 @@ MonoBehaviour:
     comment: Rapsakka.
     takeaway: 
     sound: {fileID: 8300000, guid: e0877b3e41d8feb48a452a07d405d488, type: 3}
+    give: 
   - name: Grillimakkara
     price: 2
     heal: 20
@@ -125994,6 +127528,7 @@ MonoBehaviour:
     comment: Sinapilla.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Lonkero
     price: 3
     heal: 30
@@ -126001,6 +127536,7 @@ MonoBehaviour:
     comment: "Kylm\xE4 ja kirpe\xE4."
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Makkaraperunat
     price: 5
     heal: 50
@@ -126008,6 +127544,7 @@ MonoBehaviour:
     comment: Kunnon annos.
     takeaway: 
     sound: {fileID: 8300000, guid: c1171ba620289d947a0d39f4b3441346, type: 3}
+    give: 
   - name: Tuoppi
     price: 6
     heal: 60
@@ -126015,6 +127552,7 @@ MonoBehaviour:
     comment: Hanasta.
     takeaway: 
     sound: {fileID: 8300000, guid: ed335eaf898674a408f1ff49de84ceb6, type: 3}
+    give: 
   - name: Kossupaukku
     price: 15
     heal: 999
@@ -126022,6 +127560,7 @@ MonoBehaviour:
     comment: "T\xE4ydet voimat!"
     takeaway: 
     sound: {fileID: 8300000, guid: a9a7eb7072aaafb4e99e38b0ab515dba, type: 3}
+    give: 
   here: {fileID: 0}
   halfWidth: 3.1953125
   maxDistanceFromWall: 1.2
@@ -126510,6 +128049,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1463248078
 Transform:
   m_ObjectHideFlags: 0
@@ -126742,6 +128282,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1466624659
 Transform:
   m_ObjectHideFlags: 0
@@ -128501,6 +130042,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -128619,11 +130174,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -128731,6 +130289,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -128810,10 +130369,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -128841,6 +130403,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -129544,6 +131108,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -129653,11 +131231,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -129765,6 +131346,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -129846,10 +131428,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -129890,6 +131475,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -130913,6 +132500,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1518887470
 Transform:
   m_ObjectHideFlags: 0
@@ -131093,6 +132681,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1520040901
 Transform:
   m_ObjectHideFlags: 0
@@ -131728,6 +133317,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -131822,11 +133425,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -131942,6 +133548,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -132020,10 +133627,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -132051,6 +133661,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -132362,6 +133974,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -132488,12 +134114,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -132609,6 +134238,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -132688,10 +134318,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -132732,6 +134365,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -132979,6 +134614,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JPK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
@@ -133088,11 +134737,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -133200,6 +134852,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -133281,10 +134934,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -133325,6 +134981,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -133816,6 +135474,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -133934,11 +135606,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -134046,6 +135721,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -134125,10 +135801,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -134156,6 +135835,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -135693,6 +137374,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -135819,12 +137514,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -135940,6 +137638,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -136019,10 +137718,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -136063,6 +137765,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -136241,6 +137945,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -137733,6 +139439,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -137859,12 +139579,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -137980,6 +139703,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -138059,10 +139783,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -138103,6 +139830,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -138183,6 +139912,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1587931011
 Transform:
   m_ObjectHideFlags: 0
@@ -139331,6 +141061,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1599316031
 GameObject:
   m_ObjectHideFlags: 0
@@ -139546,6 +141277,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1601046864
 Transform:
   m_ObjectHideFlags: 0
@@ -139706,6 +141438,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -139824,11 +141570,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -139936,6 +141685,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -140015,10 +141765,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -140046,6 +141799,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -140351,6 +142106,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -140461,6 +142230,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
@@ -140468,6 +142238,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -140575,6 +142347,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -140654,10 +142427,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -140714,6 +142490,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -141823,6 +143601,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -141949,12 +143741,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -142070,6 +143865,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -142149,10 +143945,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -142193,6 +143992,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -142522,6 +144323,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1626430992
 GameObject:
   m_ObjectHideFlags: 0
@@ -142963,6 +144765,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -143089,12 +144905,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -143210,6 +145029,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -143289,10 +145109,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -143333,6 +145156,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -144103,6 +145928,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -144191,6 +146018,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1637634920
 Transform:
   m_ObjectHideFlags: 0
@@ -144635,6 +146463,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1640006822
 Transform:
   m_ObjectHideFlags: 0
@@ -147647,6 +149476,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -147756,6 +149599,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -147763,6 +149607,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -147878,6 +149724,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -147956,10 +149803,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -147987,6 +149837,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -148135,6 +149987,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1696445966
 GameObject:
   m_ObjectHideFlags: 0
@@ -148673,6 +150526,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.5
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -149555,6 +151410,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1719079217
 GameObject:
   m_ObjectHideFlags: 0
@@ -149627,6 +151483,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1719079219
 Transform:
   m_ObjectHideFlags: 0
@@ -150553,6 +152410,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1727962129
 Transform:
   m_ObjectHideFlags: 0
@@ -152174,6 +154032,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1753531172
 GameObject:
   m_ObjectHideFlags: 0
@@ -152495,6 +154354,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -152613,11 +154486,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -152725,6 +154601,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -152804,10 +154681,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -152835,6 +154715,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -153982,6 +155864,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 1.6
   fadeTime: 0.25
@@ -154301,6 +156185,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1771604043
 GameObject:
   m_ObjectHideFlags: 0
@@ -154626,6 +156511,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1776749325
 Transform:
   m_ObjectHideFlags: 0
@@ -155279,6 +157165,20 @@ MonoBehaviour:
   - JJSKP
   - JJSKP
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.45
   comboWindupScale: 0.55
   comboGap: 0.05
@@ -155404,11 +157304,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -155582,6 +157485,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -155664,10 +157568,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -155695,6 +157602,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -157065,6 +158974,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -157191,12 +159114,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -157312,6 +159238,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -157391,10 +159318,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -157435,6 +159365,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -157612,6 +159544,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1798871384
 GameObject:
   m_ObjectHideFlags: 0
@@ -157783,6 +159716,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -157893,6 +159840,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -157900,6 +159848,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -158007,6 +159957,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -158086,10 +160037,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -158146,6 +160100,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -159006,6 +160962,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -159100,11 +161070,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -159220,6 +161193,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -159298,10 +161272,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -159329,6 +161306,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -159978,6 +161957,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1827341469
 Transform:
   m_ObjectHideFlags: 0
@@ -160277,6 +162257,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1836120582
 GameObject:
   m_ObjectHideFlags: 0
@@ -161260,6 +163241,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -161386,12 +163381,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -161507,6 +163505,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -161586,10 +163585,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -161630,6 +163632,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -162007,6 +164011,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1859194682
 Transform:
   m_ObjectHideFlags: 0
@@ -162796,6 +164801,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1868807212
 Transform:
   m_ObjectHideFlags: 0
@@ -162984,6 +164990,20 @@ MonoBehaviour:
   uppercutChargeKnockUp: 13
   combos:
   - JSK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.3
   comboWindupScale: 0.75
   comboGap: 0.1
@@ -163094,6 +165114,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
@@ -163101,6 +165122,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 30e8c133471344e4ca2aa6033cb84900, type: 3}
   - {fileID: 8300000, guid: e00bf39fed99f39469811f183461ba94, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -163208,6 +165231,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -163287,10 +165311,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 1
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -163347,6 +165374,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -163859,6 +165888,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -163981,11 +166024,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -164101,6 +166147,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -164180,10 +166227,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -164224,6 +166274,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -164989,6 +167041,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -165107,11 +167173,14 @@ MonoBehaviour:
   - {fileID: 424274936374514949, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: 3938002409654881941, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
   - {fileID: -1826613701597751870, guid: 8735a2cb837c2514cac69e0d8da15c99, type: 3}
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -165219,6 +167288,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -165298,10 +167368,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -165329,6 +167402,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -166059,6 +168134,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -166181,11 +168270,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -166301,6 +168393,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -166380,10 +168473,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -166424,6 +168520,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -166679,6 +168777,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -166805,12 +168917,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -166926,6 +169041,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -167005,10 +169121,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -167049,6 +169168,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -167563,6 +169684,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1904978268
 GameObject:
   m_ObjectHideFlags: 0
@@ -167929,6 +170051,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1906737915
 GameObject:
   m_ObjectHideFlags: 0
@@ -168035,6 +170158,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1908114248
 Transform:
   m_ObjectHideFlags: 0
@@ -168903,6 +171027,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -168992,11 +171130,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -169114,6 +171255,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -169192,10 +171334,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -169223,6 +171368,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -169510,6 +171657,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1922766928
 Transform:
   m_ObjectHideFlags: 0
@@ -170243,6 +172391,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -170337,11 +172499,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -170457,6 +172622,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.22
   grabLiftTime: 0.55
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -170535,10 +172701,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -170566,6 +172735,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -171055,6 +173226,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -171164,6 +173349,7 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
@@ -171171,6 +173357,8 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -171286,6 +173474,7 @@ MonoBehaviour:
   grabRange: 1.4
   grabReachTime: 0.25
   grabLiftTime: 0.6
+  slideThrow: 0
   throwDamage: 16
   throwForward: 0
   throwFlip: 0
@@ -171364,10 +173553,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -171395,6 +173587,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -171680,6 +173874,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -171859,6 +174055,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1937032305
 Transform:
   m_ObjectHideFlags: 0
@@ -172269,6 +174466,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.8
   maxDistanceFromWall: 1.1
   fadeTime: 0.25
@@ -173843,6 +176042,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -173954,11 +176167,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -174066,6 +176282,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -174206,10 +176423,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -174237,6 +176457,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -175131,6 +177353,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &1980288359
 Transform:
   m_ObjectHideFlags: 0
@@ -176094,6 +178317,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &1999000001
 GameObject:
   m_ObjectHideFlags: 0
@@ -176152,6 +178376,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 2.2
   maxDistanceFromWall: 3
   fadeTime: 0.25
@@ -176715,7 +178941,12 @@ MonoBehaviour:
   foeRange: 11
   wakeAfterSeconds: 120
   wakeOnFight: 1
+  noRest: 0
+  wanderMinX: 0
+  wanderMaxX: 0
+  wanderSpeed: 1.1
   foeDamageBonus: 6
+  slideDistance: 0.67
   speakLines:
   - {fileID: 8300000, guid: 2f6da33205027604e85c8d7e5b04739e, type: 3}
   - {fileID: 8300000, guid: 5a0fe7cee25c22a47ad503b887542d07, type: 3}
@@ -176870,6 +179101,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -176961,11 +179206,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -177073,6 +179321,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -177152,10 +179401,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1.25
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -177183,6 +179435,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -177639,6 +179893,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &2010623105
 GameObject:
   m_ObjectHideFlags: 0
@@ -177893,6 +180148,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2011679424
 Transform:
   m_ObjectHideFlags: 0
@@ -178525,6 +180781,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -179019,6 +181277,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 0.8
   fadeTime: 0.35
@@ -179467,6 +181727,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -179593,12 +181867,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 1
   huntsBrawlers: 1
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -179714,6 +181991,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -179793,10 +182071,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -179837,6 +182118,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -180148,6 +182431,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -180274,12 +182571,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -180395,6 +182695,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -180474,10 +182775,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -180518,6 +182822,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -181356,6 +183662,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2052637904
 Transform:
   m_ObjectHideFlags: 0
@@ -182193,6 +184500,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &2063183864
 GameObject:
   m_ObjectHideFlags: 0
@@ -182576,6 +184884,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.2
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -182726,6 +185036,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.4
   maxDistanceFromWall: 2.4
   fadeTime: 0.25
@@ -183275,6 +185587,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2083283526
 Transform:
   m_ObjectHideFlags: 0
@@ -184815,6 +187128,20 @@ MonoBehaviour:
   combos:
   - JSK
   - JK
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
@@ -184937,11 +187264,14 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -185057,6 +187387,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 0
   throwFlip: 0
@@ -185136,10 +187467,13 @@ MonoBehaviour:
   attackSoundChance: 0.6
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -185180,6 +187514,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -185526,6 +187862,20 @@ MonoBehaviour:
   uppercutChargeKnockX: 28
   uppercutChargeKnockUp: 13
   combos: []
+  capSprites: []
+  capCrossSprites: []
+  capPickFrameTime: 0.17
+  capSpeed: 24
+  capRange: 9
+  capImpactFrame: 2
+  capCrossImpactFrame: 1
+  capDamage: 4
+  capCrossDamage: 12
+  capWindupTime: 0.3
+  capRecoverTime: 0.2
+  capReach: 4.5
+  capCrossWindup: 0.1
+  capCrossRecover: 0.45
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
@@ -185652,12 +188002,15 @@ MonoBehaviour:
   barrelDamage: 20
   barrelRate: 0.35
   bottleSprites: []
+  bottleGrips: []
   bottleRate: 0.3
   fightsEveryone: 0
   huntsBrawlers: 0
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  talksWhenCalm: 0
+  oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
@@ -185773,6 +188126,7 @@ MonoBehaviour:
   grabRange: 1.3
   grabReachTime: 0.3
   grabLiftTime: 0.8
+  slideThrow: 0
   throwDamage: 18
   throwForward: 1
   throwFlip: 0
@@ -185852,10 +188206,13 @@ MonoBehaviour:
   attackSoundChance: 0.8
   footOffset: 0.08
   visualScale: 1
+  hoverHurtPose: 0
+  visualWidth: 1
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
   isBoss: 0
+  damageTakenMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -185896,6 +188253,8 @@ MonoBehaviour:
   panMax: 0.95
   pieOnly: 0
   pieFightRate: 0.05
+  retortChance: 0.35
+  fightWeight: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -185991,6 +188350,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &2105405842
 GameObject:
   m_ObjectHideFlags: 0
@@ -186706,6 +189066,8 @@ MonoBehaviour:
   guards: []
   guardsLockedText: Ovi on lukossa. Voita ensin pihan vartijat.
   confirmText: 
+  requiredClue: 
+  lockedClueText: Ovi on lukossa.
   halfWidth: 1.7
   maxDistanceFromWall: 0.9
   fadeTime: 0.35
@@ -186925,6 +189287,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2121086599
 Transform:
   m_ObjectHideFlags: 0
@@ -187148,6 +189511,7 @@ MonoBehaviour:
   footOffset: 0.04
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!4 &2124365183
 Transform:
   m_ObjectHideFlags: 0
@@ -188156,6 +190520,7 @@ MonoBehaviour:
   footOffset: 0.05
   anchored: 0
   impactRadiusX: 1.2
+  immune: 0
 --- !u!1 &2140716136
 GameObject:
   m_ObjectHideFlags: 0

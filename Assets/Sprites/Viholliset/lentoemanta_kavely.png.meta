@@ -136,7 +136,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 1
@@ -153,7 +153,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -174,10 +174,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -187,10 +187,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -200,10 +200,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -213,10 +213,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: iOS
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -231,12 +231,12 @@ TextureImporter:
       name: lentoemanta_kavely_0
       rect:
         serializedVersion: 2
-        x: 334
-        y: 3594
-        width: 132
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: lentoemanta_kavely_1
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 3593
-        width: 132
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: lentoemanta_kavely_2
       rect:
         serializedVersion: 2
-        x: 1862
-        y: 3592
-        width: 133
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: lentoemanta_kavely_3
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 3590
-        width: 132
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: lentoemanta_kavely_4
       rect:
         serializedVersion: 2
-        x: 316
-        y: 3141
-        width: 131
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: lentoemanta_kavely_5
       rect:
         serializedVersion: 2
-        x: 1081
-        y: 3142
-        width: 130
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,12 +363,12 @@ TextureImporter:
       name: lentoemanta_kavely_6
       rect:
         serializedVersion: 2
-        x: 1848
-        y: 3142
-        width: 126
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,12 +385,12 @@ TextureImporter:
       name: lentoemanta_kavely_7
       rect:
         serializedVersion: 2
-        x: 2618
-        y: 3142
-        width: 119
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 2560
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: lentoemanta_kavely_8
       rect:
         serializedVersion: 2
-        x: 319
-        y: 2694
-        width: 110
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,12 +429,12 @@ TextureImporter:
       name: lentoemanta_kavely_9
       rect:
         serializedVersion: 2
-        x: 1095
-        y: 2694
-        width: 98
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,12 +451,12 @@ TextureImporter:
       name: lentoemanta_kavely_10
       rect:
         serializedVersion: 2
-        x: 1873
-        y: 2694
-        width: 84
-        height: 309
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -473,12 +473,12 @@ TextureImporter:
       name: lentoemanta_kavely_11
       rect:
         serializedVersion: 2
-        x: 2654
-        y: 2695
-        width: 75
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -495,12 +495,12 @@ TextureImporter:
       name: lentoemanta_kavely_12
       rect:
         serializedVersion: 2
-        x: 351
-        y: 2247
-        width: 76
-        height: 309
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -517,12 +517,12 @@ TextureImporter:
       name: lentoemanta_kavely_13
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 2247
-        width: 77
-        height: 309
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -539,12 +539,12 @@ TextureImporter:
       name: lentoemanta_kavely_14
       rect:
         serializedVersion: 2
-        x: 1886
-        y: 2247
-        width: 88
-        height: 309
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: lentoemanta_kavely_15
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 2247
-        width: 108
-        height: 309
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 1920
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -583,12 +583,12 @@ TextureImporter:
       name: lentoemanta_kavely_16
       rect:
         serializedVersion: 2
-        x: 343
-        y: 1799
-        width: 125
-        height: 308
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -605,12 +605,12 @@ TextureImporter:
       name: lentoemanta_kavely_17
       rect:
         serializedVersion: 2
-        x: 1105
-        y: 1800
-        width: 135
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -627,12 +627,12 @@ TextureImporter:
       name: lentoemanta_kavely_18
       rect:
         serializedVersion: 2
-        x: 1868
-        y: 1800
-        width: 139
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -649,12 +649,12 @@ TextureImporter:
       name: lentoemanta_kavely_19
       rect:
         serializedVersion: 2
-        x: 2630
-        y: 1800
-        width: 140
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -671,12 +671,12 @@ TextureImporter:
       name: lentoemanta_kavely_20
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1352
-        width: 140
-        height: 302
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -693,12 +693,12 @@ TextureImporter:
       name: lentoemanta_kavely_21
       rect:
         serializedVersion: 2
-        x: 1083
-        y: 1352
-        width: 137
-        height: 302
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -715,12 +715,12 @@ TextureImporter:
       name: lentoemanta_kavely_22
       rect:
         serializedVersion: 2
-        x: 1846
-        y: 1352
-        width: 136
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -737,12 +737,12 @@ TextureImporter:
       name: lentoemanta_kavely_23
       rect:
         serializedVersion: 2
-        x: 2610
-        y: 1352
-        width: 133
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 1280
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -759,12 +759,12 @@ TextureImporter:
       name: lentoemanta_kavely_24
       rect:
         serializedVersion: 2
-        x: 306
-        y: 904
-        width: 127
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -781,12 +781,12 @@ TextureImporter:
       name: lentoemanta_kavely_25
       rect:
         serializedVersion: 2
-        x: 1077
-        y: 904
-        width: 118
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -803,12 +803,12 @@ TextureImporter:
       name: lentoemanta_kavely_26
       rect:
         serializedVersion: 2
-        x: 1851
-        y: 904
-        width: 108
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -825,12 +825,12 @@ TextureImporter:
       name: lentoemanta_kavely_27
       rect:
         serializedVersion: 2
-        x: 2628
-        y: 905
-        width: 100
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1536
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -847,12 +847,12 @@ TextureImporter:
       name: lentoemanta_kavely_28
       rect:
         serializedVersion: 2
-        x: 334
-        y: 457
-        width: 96
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2048
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -869,12 +869,12 @@ TextureImporter:
       name: lentoemanta_kavely_29
       rect:
         serializedVersion: 2
-        x: 1115
-        y: 457
-        width: 87
-        height: 306
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2560
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -891,12 +891,12 @@ TextureImporter:
       name: lentoemanta_kavely_30
       rect:
         serializedVersion: 2
-        x: 1881
-        y: 457
-        width: 95
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3072
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -913,12 +913,12 @@ TextureImporter:
       name: lentoemanta_kavely_31
       rect:
         serializedVersion: 2
-        x: 2646
-        y: 457
-        width: 102
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3584
+        y: 640
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -935,12 +935,12 @@ TextureImporter:
       name: lentoemanta_kavely_32
       rect:
         serializedVersion: 2
-        x: 340
-        y: 9
-        width: 108
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -957,12 +957,12 @@ TextureImporter:
       name: lentoemanta_kavely_33
       rect:
         serializedVersion: 2
-        x: 1104
-        y: 10
-        width: 117
-        height: 305
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -979,12 +979,12 @@ TextureImporter:
       name: lentoemanta_kavely_34
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 10
-        width: 129
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 0
+        width: 512
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1001,7 +1001,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e5610854adedc3e42a24883b9f616b1d
     internalID: 0
     vertices: []
     indices: 
