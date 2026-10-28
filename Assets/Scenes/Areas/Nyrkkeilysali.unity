@@ -4838,6 +4838,8 @@ MonoBehaviour:
   - {fileID: 4823985101585613838, guid: 49a9147db9f3fc747b1911fb121ce38d, type: 3}
   - {fileID: -2882536909167875530, guid: 49a9147db9f3fc747b1911fb121ce38d, type: 3}
   landFrameTime: 0.1
+  landDustSize: 0
+  airFrameTime: 0.1
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -4884,6 +4886,7 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  redFlash: 0
   isBoss: 0
   damageTakenMul: 1
   lightweight: 0
@@ -5803,6 +5806,8 @@ MonoBehaviour:
   - {fileID: 8954153204494748464, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
   - {fileID: -4756924363449200529, guid: 4af3953845f43a348936c44f1ecd6b9d, type: 3}
   landFrameTime: 0.12
+  landDustSize: 0
+  airFrameTime: 0.1
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -5853,6 +5858,7 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  redFlash: 0
   isBoss: 0
   damageTakenMul: 1
   lightweight: 0

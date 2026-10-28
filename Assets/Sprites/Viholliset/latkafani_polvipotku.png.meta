@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 6fc1987edd60bad49b018a2bc2ec7628
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3815453378435223565
+    second: latkafani_polvipotku_0
+  - first:
+      213: 5332778730142797484
+    second: latkafani_polvipotku_1
+  - first:
+      213: -7817643565795346749
+    second: latkafani_polvipotku_2
+  - first:
+      213: -6833577306488515627
+    second: latkafani_polvipotku_3
+  - first:
+      213: -4929705619558900479
+    second: latkafani_polvipotku_4
+  - first:
+      213: 8929024675176851795
+    second: latkafani_polvipotku_5
+  - first:
+      213: -5800251906439968585
+    second: latkafani_polvipotku_6
+  - first:
+      213: 8330578928862622135
+    second: latkafani_polvipotku_7
+  - first:
+      213: 2674854880630782020
+    second: latkafani_polvipotku_8
+  - first:
+      213: -7173819371285369229
+    second: latkafani_polvipotku_9
+  - first:
+      213: -7919135655711285296
+    second: latkafani_polvipotku_10
+  - first:
+      213: -6925414673143792981
+    second: latkafani_polvipotku_11
+  - first:
+      213: -5049497340864097686
+    second: latkafani_polvipotku_12
+  - first:
+      213: -1150774207751259826
+    second: latkafani_polvipotku_13
+  - first:
+      213: 5308806549286192854
+    second: latkafani_polvipotku_14
+  - first:
+      213: 6876389919262679998
+    second: latkafani_polvipotku_15
+  - first:
+      213: -1117104833120458146
+    second: latkafani_polvipotku_16
+  - first:
+      213: 4885909469521821267
+    second: latkafani_polvipotku_17
+  - first:
+      213: 5211006420976881401
+    second: latkafani_polvipotku_18
+  - first:
+      213: -2988359561301899990
+    second: latkafani_polvipotku_19
+  - first:
+      213: -5901468419107603571
+    second: latkafani_polvipotku_20
+  - first:
+      213: -4787380737970593917
+    second: latkafani_polvipotku_21
+  - first:
+      213: 5919877671994276928
+    second: latkafani_polvipotku_22
+  - first:
+      213: -2209254871038159369
+    second: latkafani_polvipotku_23
+  - first:
+      213: -4695053557834691621
+    second: latkafani_polvipotku_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_polvipotku_0
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 6
+        width: 488
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0012bee1a633f430800000000000000
+      internalID: 3815453378435223565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_1
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 6
+        width: 504
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 110, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae8be33006d10a40800000000000000
+      internalID: 5332778730142797484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_2
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 6
+        width: 510
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 107, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c67628b896228390800000000000000
+      internalID: -7817643565795346749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 510
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 106, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3d49545a14a21a0800000000000000
+      internalID: -6833577306488515627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_4
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 657
+        width: 506
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10dd1f29bda269bb0800000000000000
+      internalID: -4929705619558900479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 644
+        width: 474
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 95, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3592d9252a44aeb70800000000000000
+      internalID: 8929024675176851795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_6
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 631
+        width: 420
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 72, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b80dd44f9d518fa0800000000000000
+      internalID: -5800251906439968585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_7
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 631
+        width: 420
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 72, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1f53406692c9370800000000000000
+      internalID: 8330578928862622135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1292
+        width: 284
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448b7b9875efe1520800000000000000
+      internalID: 2674854880630782020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1292
+        width: 314
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 30, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e28b35a49717c90800000000000000
+      internalID: -7173819371285369229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1292
+        width: 330
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 36, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfd2391414991290800000000000000
+      internalID: -7919135655711285296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_11
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1292
+        width: 350
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa7cf41c0cf3ef90800000000000000
+      internalID: -6925414673143792981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_12
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 1292
+        width: 350
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62148ffbe49ce9b0800000000000000
+      internalID: -5049497340864097686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_13
+      rect:
+        serializedVersion: 2
+        x: 3664
+        y: 1293
+        width: 368
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49fd4284f0a700f0800000000000000
+      internalID: -1150774207751259826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 629
+        width: 372
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d68877ed6baca940800000000000000
+      internalID: 5308806549286192854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_15
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 629
+        width: 372
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3aabae238dd6f50800000000000000
+      internalID: 6876389919262679998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_16
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 629
+        width: 372
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5aabfca21f3f70f0800000000000000
+      internalID: -1117104833120458146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_17
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1292
+        width: 368
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35eb09f96cc3ec340800000000000000
+      internalID: 4885909469521821267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_18
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 1292
+        width: 350
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe4b941bb6315840800000000000000
+      internalID: 5211006420976881401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_19
+      rect:
+        serializedVersion: 2
+        x: 2384
+        y: 1292
+        width: 330
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 36, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25457fdfc63786d0800000000000000
+      internalID: -2988359561301899990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_20
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1292
+        width: 330
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 36, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8bb7e97db5c91ea0800000000000000
+      internalID: -5901468419107603571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_21
+      rect:
+        serializedVersion: 2
+        x: 3056
+        y: 1292
+        width: 314
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 30, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f17bc559ecf8db0800000000000000
+      internalID: -4787380737970593917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_22
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 1292
+        width: 284
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 27, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c3cf8b061a72250800000000000000
+      internalID: 5919877671994276928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_23
+      rect:
+        serializedVersion: 2
+        x: 1976
+        y: 631
+        width: 420
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 72, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5187166662751e0800000000000000
+      internalID: -2209254871038159369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_polvipotku_24
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 644
+        width: 474
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 95, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb44d32aa1d7deb0800000000000000
+      internalID: -4695053557834691621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5756e13ac83083b4b8413ab2c6b93c55
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_polvipotku_0: 3815453378435223565
+      latkafani_polvipotku_1: 5332778730142797484
+      latkafani_polvipotku_10: -7919135655711285296
+      latkafani_polvipotku_11: -6925414673143792981
+      latkafani_polvipotku_12: -5049497340864097686
+      latkafani_polvipotku_13: -1150774207751259826
+      latkafani_polvipotku_14: 5308806549286192854
+      latkafani_polvipotku_15: 6876389919262679998
+      latkafani_polvipotku_16: -1117104833120458146
+      latkafani_polvipotku_17: 4885909469521821267
+      latkafani_polvipotku_18: 5211006420976881401
+      latkafani_polvipotku_19: -2988359561301899990
+      latkafani_polvipotku_2: -7817643565795346749
+      latkafani_polvipotku_20: -5901468419107603571
+      latkafani_polvipotku_21: -4787380737970593917
+      latkafani_polvipotku_22: 5919877671994276928
+      latkafani_polvipotku_23: -2209254871038159369
+      latkafani_polvipotku_24: -4695053557834691621
+      latkafani_polvipotku_3: -6833577306488515627
+      latkafani_polvipotku_4: -4929705619558900479
+      latkafani_polvipotku_5: 8929024675176851795
+      latkafani_polvipotku_6: -5800251906439968585
+      latkafani_polvipotku_7: 8330578928862622135
+      latkafani_polvipotku_8: 2674854880630782020
+      latkafani_polvipotku_9: -7173819371285369229
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

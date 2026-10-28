@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: da4cb1ef9bb027f4fac190e0e6096722
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8963670632771600903
+    second: latkafani_kavely_0
+  - first:
+      213: 4456328135561393683
+    second: latkafani_kavely_1
+  - first:
+      213: 4397381606420021795
+    second: latkafani_kavely_2
+  - first:
+      213: 5036399916069392330
+    second: latkafani_kavely_3
+  - first:
+      213: 2121153412105927894
+    second: latkafani_kavely_4
+  - first:
+      213: -6252052898114563714
+    second: latkafani_kavely_5
+  - first:
+      213: -3885661014741502482
+    second: latkafani_kavely_6
+  - first:
+      213: 2527471898605251357
+    second: latkafani_kavely_7
+  - first:
+      213: -7150703519646524030
+    second: latkafani_kavely_8
+  - first:
+      213: 5684524585460877859
+    second: latkafani_kavely_9
+  - first:
+      213: 8265410242323059405
+    second: latkafani_kavely_10
+  - first:
+      213: -6967733091359867114
+    second: latkafani_kavely_11
+  - first:
+      213: 7750860042321636420
+    second: latkafani_kavely_12
+  - first:
+      213: -3950898943801119240
+    second: latkafani_kavely_13
+  - first:
+      213: 8361302325208010132
+    second: latkafani_kavely_14
+  - first:
+      213: -5690174409775367101
+    second: latkafani_kavely_15
+  - first:
+      213: -7364734089225180048
+    second: latkafani_kavely_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 650
+        width: 218
+        height: 658
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 2, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702c3fde2fa556c70800000000000000
+      internalID: 8963670632771600903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 645
+        width: 228
+        height: 663
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 17, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31637b224de08dd30800000000000000
+      internalID: 4456328135561393683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 646
+        width: 304
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 27, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3228080d543a60d30800000000000000
+      internalID: 4397381606420021795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 654
+        width: 400
+        height: 654
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 43, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf8f182a03e4e540800000000000000
+      internalID: 5036399916069392330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 665
+        width: 442
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 30, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc7eaa3ac9df6d10800000000000000
+      internalID: 2121153412105927894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 6
+        width: 460
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 3, y: 7, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e711ee2930f3c39a0800000000000000
+      internalID: -6252052898114563714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 9
+        width: 446
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 22, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5bfbae4eb531ac0800000000000000
+      internalID: -3885661014741502482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 8
+        width: 392
+        height: 632
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 10, z: 30, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1be528fc42631320800000000000000
+      internalID: 2527471898605251357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 10
+        width: 318
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 20, z: 29, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d5551f80993cc90800000000000000
+      internalID: -7150703519646524030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 3436
+        y: 670
+        width: 286
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 20, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ace591efc73ee40800000000000000
+      internalID: 5684524585460877859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 662
+        width: 320
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 21, y: 16, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc29a88c2d2a4b270800000000000000
+      internalID: 8265410242323059405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 3728
+        y: 670
+        width: 352
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 29, y: 22, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fb2c78ba3ad4f90800000000000000
+      internalID: -6967733091359867114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 669
+        width: 386
+        height: 639
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 42, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ca9568426909b60800000000000000
+      internalID: 7750860042321636420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 414
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 27, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fda447e7569b29c0800000000000000
+      internalID: -3950898943801119240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 669
+        width: 414
+        height: 639
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 5, z: 4, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49dcba92a20590470800000000000000
+      internalID: 8361302325208010132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 664
+        width: 374
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 15, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c325ba5807801b0800000000000000
+      internalID: -5690174409775367101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 656
+        width: 298
+        height: 652
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 13, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ce58aad553bc990800000000000000
+      internalID: -7364734089225180048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5471d72325ae2974c9ac98b018b08735
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_kavely_0: 8963670632771600903
+      latkafani_kavely_1: 4456328135561393683
+      latkafani_kavely_10: 8265410242323059405
+      latkafani_kavely_11: -6967733091359867114
+      latkafani_kavely_12: 7750860042321636420
+      latkafani_kavely_13: -3950898943801119240
+      latkafani_kavely_14: 8361302325208010132
+      latkafani_kavely_15: -5690174409775367101
+      latkafani_kavely_16: -7364734089225180048
+      latkafani_kavely_2: 4397381606420021795
+      latkafani_kavely_3: 5036399916069392330
+      latkafani_kavely_4: 2121153412105927894
+      latkafani_kavely_5: -6252052898114563714
+      latkafani_kavely_6: -3885661014741502482
+      latkafani_kavely_7: 2527471898605251357
+      latkafani_kavely_8: -7150703519646524030
+      latkafani_kavely_9: 5684524585460877859
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

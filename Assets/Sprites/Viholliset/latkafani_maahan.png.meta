@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 9b4ff694db937394486ec0445c968de0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1643355624626862588
+    second: latkafani_maahan_0
+  - first:
+      213: 7871041689160302201
+    second: latkafani_maahan_1
+  - first:
+      213: 1851883708219450419
+    second: latkafani_maahan_2
+  - first:
+      213: 25316439602396480
+    second: latkafani_maahan_3
+  - first:
+      213: -9205932334229538597
+    second: latkafani_maahan_4
+  - first:
+      213: 8938799234691054427
+    second: latkafani_maahan_5
+  - first:
+      213: -6461620115710516743
+    second: latkafani_maahan_6
+  - first:
+      213: 7184190717718376996
+    second: latkafani_maahan_7
+  - first:
+      213: 8479610264100381956
+    second: latkafani_maahan_8
+  - first:
+      213: 6153682949113282113
+    second: latkafani_maahan_9
+  - first:
+      213: 7626744690180794688
+    second: latkafani_maahan_10
+  - first:
+      213: 5694539867835385271
+    second: latkafani_maahan_11
+  - first:
+      213: -7926839770663832217
+    second: latkafani_maahan_12
+  - first:
+      213: -1463833176112027510
+    second: latkafani_maahan_13
+  - first:
+      213: 5389544225687996192
+    second: latkafani_maahan_14
+  - first:
+      213: -186578735676415564
+    second: latkafani_maahan_15
+  - first:
+      213: 697778880165278310
+    second: latkafani_maahan_16
+  - first:
+      213: -8820810283849331095
+    second: latkafani_maahan_17
+  - first:
+      213: -599958259423961039
+    second: latkafani_maahan_18
+  - first:
+      213: -7248272888384722569
+    second: latkafani_maahan_19
+  - first:
+      213: -1017111440441345048
+    second: latkafani_maahan_20
+  - first:
+      213: -4178727391943554563
+    second: latkafani_maahan_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_maahan_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 814
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 14, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406c97a24c0a139e0800000000000000
+      internalID: -1643355624626862588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_1
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 232
+        width: 820
+        height: 216
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97eb0b6b6be8b3d60800000000000000
+      internalID: 7871041689160302201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_2
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 232
+        width: 820
+        height: 216
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334e0c1cb6633b910800000000000000
+      internalID: 1851883708219450419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_3
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 230
+        width: 824
+        height: 218
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d7a7dea21f95000800000000000000
+      internalID: 25316439602396480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 227
+        width: 828
+        height: 221
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd837ff2155fd3080800000000000000
+      internalID: -9205932334229538597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_5
+      rect:
+        serializedVersion: 2
+        x: 2504
+        y: 455
+        width: 832
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5b3b4e4b8efc0c70800000000000000
+      internalID: 8938799234691054427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_6
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 686
+        width: 832
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f16e896db6b356a0800000000000000
+      internalID: -6461620115710516743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 454
+        width: 832
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4223340f46f53b360800000000000000
+      internalID: 7184190717718376996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_8
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 454
+        width: 832
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 14, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405a579bb90ada570800000000000000
+      internalID: 8479610264100381956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 917
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e7642e906466550800000000000000
+      internalID: 6153682949113282113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_10
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 917
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049a2d233e3a7d960800000000000000
+      internalID: 7626744690180794688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_11
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 917
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5c0adb6d1170f40800000000000000
+      internalID: 5694539867835385271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_12
+      rect:
+        serializedVersion: 2
+        x: 2508
+        y: 917
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765b42e0a353ef190800000000000000
+      internalID: -7926839770663832217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 685
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 15, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8829676b7b6fabe0800000000000000
+      internalID: -1463833176112027510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_14
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 685
+        width: 832
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 16, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02704611be18bca40800000000000000
+      internalID: 5389544225687996192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_15
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 454
+        width: 826
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 18, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1ad51e0a3296df0800000000000000
+      internalID: -186578735676415564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_16
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 685
+        width: 814
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 24, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662750cc1320fa900800000000000000
+      internalID: 697778880165278310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_17
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 1240
+        width: 808
+        height: 244
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e4c0018cf269580800000000000000
+      internalID: -8820810283849331095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_18
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 1206
+        width: 788
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 39, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13029fa44258ca7f0800000000000000
+      internalID: -599958259423961039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_19
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1189
+        width: 776
+        height: 295
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 50, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779ebb40636f86b90800000000000000
+      internalID: -7248272888384722569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_20
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1161
+        width: 760
+        height: 323
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 58, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebf187a88e72e1f0800000000000000
+      internalID: -1017111440441345048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_maahan_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1149
+        width: 740
+        height: 335
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 63, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9820ea39d2206c0800000000000000
+      internalID: -4178727391943554563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4d7f1ae667b49ad4285f4e71c421ed10
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_maahan_0: -1643355624626862588
+      latkafani_maahan_1: 7871041689160302201
+      latkafani_maahan_10: 7626744690180794688
+      latkafani_maahan_11: 5694539867835385271
+      latkafani_maahan_12: -7926839770663832217
+      latkafani_maahan_13: -1463833176112027510
+      latkafani_maahan_14: 5389544225687996192
+      latkafani_maahan_15: -186578735676415564
+      latkafani_maahan_16: 697778880165278310
+      latkafani_maahan_17: -8820810283849331095
+      latkafani_maahan_18: -599958259423961039
+      latkafani_maahan_19: -7248272888384722569
+      latkafani_maahan_2: 1851883708219450419
+      latkafani_maahan_20: -1017111440441345048
+      latkafani_maahan_21: -4178727391943554563
+      latkafani_maahan_3: 25316439602396480
+      latkafani_maahan_4: -9205932334229538597
+      latkafani_maahan_5: 8938799234691054427
+      latkafani_maahan_6: -6461620115710516743
+      latkafani_maahan_7: 7184190717718376996
+      latkafani_maahan_8: 8479610264100381956
+      latkafani_maahan_9: 6153682949113282113
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

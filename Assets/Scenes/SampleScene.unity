@@ -220,6 +220,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -286,6 +288,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -338,6 +341,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -400,12 +405,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -635,6 +642,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -892,6 +900,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -958,6 +968,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -1004,6 +1015,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -1079,12 +1092,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -1307,6 +1322,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -2520,6 +2536,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -2613,6 +2631,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -2656,6 +2675,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -2710,12 +2731,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -2945,6 +2968,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -3821,6 +3845,8 @@ MonoBehaviour:
   - {fileID: 1139457559, guid: f01b87c98e577ef428887014e061e650, type: 3}
   - {fileID: -1971257543, guid: f01b87c98e577ef428887014e061e650, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -3892,6 +3918,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -3932,6 +3959,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -3986,12 +4015,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 8300000, guid: 26021e2d82e621d4591114fb1e492ace, type: 3}
   getUpVoiceAlt: {fileID: 0}
@@ -4214,6 +4245,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -5566,6 +5598,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -0.76153046
   useSidewalk: 0
@@ -6641,6 +6676,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -6707,6 +6744,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -6759,6 +6797,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -6821,12 +6861,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -7056,6 +7098,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -7539,6 +7582,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -7605,6 +7650,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -7651,6 +7697,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -7726,12 +7774,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -7954,6 +8004,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -8033,6 +8084,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -8126,6 +8179,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -8169,6 +8223,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -8223,12 +8279,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -8458,6 +8516,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -8830,6 +8889,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -8896,6 +8957,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -8942,6 +9004,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -9017,12 +9081,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -9245,6 +9311,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -11808,6 +11875,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -4.2
   maxDepthY: -0.8030769
   useSidewalk: 1
@@ -12006,6 +12076,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -12072,6 +12144,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -12118,6 +12191,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -12193,12 +12268,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -12421,6 +12498,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -12991,6 +13069,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -13057,6 +13137,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -13103,6 +13184,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -13178,12 +13261,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -13406,6 +13491,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -13667,6 +13753,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -13733,6 +13821,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -13781,6 +13870,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -13844,12 +13935,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -14081,6 +14174,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -14453,6 +14547,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -14519,6 +14615,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -14567,6 +14664,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -14630,12 +14729,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -14867,6 +14968,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -16336,6 +16438,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -16402,6 +16506,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -16448,6 +16553,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -16523,12 +16630,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -16751,6 +16860,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17254,6 +17364,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -17320,6 +17432,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -17372,6 +17485,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -17434,12 +17549,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -17669,6 +17786,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -17767,6 +17885,8 @@ MonoBehaviour:
   - {fileID: 2990002656204344109, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -7147724119789929435, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -17842,6 +17962,7 @@ MonoBehaviour:
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -17892,6 +18013,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 5
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6327796785382337458, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
   - {fileID: 3436121016715343620, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
@@ -17954,12 +18077,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -18197,6 +18322,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -19601,6 +19727,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -19667,6 +19795,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -19719,6 +19848,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -19781,12 +19912,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -20016,6 +20149,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -20188,6 +20322,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -20254,6 +20390,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -20300,6 +20437,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -20375,12 +20514,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -20603,6 +20744,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -20786,6 +20928,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -20852,6 +20996,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -20904,6 +21049,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -20966,12 +21113,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -21201,6 +21350,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -21391,6 +21541,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -21457,6 +21609,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -21505,6 +21658,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -21568,12 +21723,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -21805,6 +21962,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -24431,6 +24589,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -24497,6 +24657,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -24543,6 +24704,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -24618,12 +24781,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -24846,6 +25011,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -26350,6 +26516,8 @@ MonoBehaviour:
   - {fileID: 2990002656204344109, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -7147724119789929435, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -26425,6 +26593,7 @@ MonoBehaviour:
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -26475,6 +26644,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 5
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6327796785382337458, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
   - {fileID: 3436121016715343620, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
@@ -26537,12 +26708,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -26780,6 +26953,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -27342,6 +27516,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -27408,6 +27584,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -27454,6 +27631,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -27529,12 +27708,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -27757,6 +27938,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -28565,6 +28747,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -28658,6 +28842,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -28701,6 +28886,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -28755,12 +28942,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -28990,6 +29179,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -29166,6 +29356,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -29253,6 +29445,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -29304,6 +29497,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -29383,12 +29578,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -29632,6 +29829,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -30336,6 +30534,8 @@ MonoBehaviour:
   - {fileID: -4377000298740005808, guid: 034b27afd00546e40a290de9bd07e8f1, type: 3}
   - {fileID: 2296922310266060329, guid: 034b27afd00546e40a290de9bd07e8f1, type: 3}
   - {fileID: -7885440186908365057, guid: 034b27afd00546e40a290de9bd07e8f1, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.042
   punch2Sprites:
   - {fileID: 3790680875973028466, guid: bf80835500136d14286d63745a9ec522, type: 3}
@@ -30440,6 +30640,7 @@ MonoBehaviour:
   comboChance: 0.6
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -30486,6 +30687,8 @@ MonoBehaviour:
   punchImpactFrame: 2
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -471958082940581128, guid: bf80835500136d14286d63745a9ec522, type: 3}
   - {fileID: -5565643138768194329, guid: bf80835500136d14286d63745a9ec522, type: 3}
@@ -30575,12 +30778,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -30847,6 +31052,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -31580,6 +31786,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -0.70000005
   maxDepthY: -0.611052
   useSidewalk: 0
@@ -32853,6 +33062,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -32946,6 +33157,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -32989,6 +33201,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -33043,12 +33257,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -33278,6 +33494,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -34373,6 +34590,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -34439,6 +34658,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -34485,6 +34705,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -34560,12 +34782,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -34788,6 +35012,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -36257,6 +36482,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -36344,6 +36571,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -36395,6 +36623,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -36474,12 +36704,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -36723,6 +36955,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -36851,6 +37084,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -36917,6 +37152,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -36969,6 +37205,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -37031,12 +37269,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -37266,6 +37506,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -40527,6 +40768,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -40620,6 +40863,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -40663,6 +40907,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -40717,12 +40963,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -40952,6 +41200,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -43877,6 +44126,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -43943,6 +44194,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -43995,6 +44247,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -44057,12 +44311,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -44346,6 +44602,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -44520,6 +44777,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -44586,6 +44845,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -44632,6 +44892,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -44707,12 +44969,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -44935,6 +45199,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -47185,6 +47450,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -47278,6 +47545,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -47321,6 +47589,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -47375,12 +47645,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -47610,6 +47882,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -47695,6 +47968,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -47761,6 +48036,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -47807,6 +48083,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -47882,12 +48160,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -48110,6 +48390,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -48978,6 +49259,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -49044,6 +49327,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -49090,6 +49374,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -49165,12 +49451,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -49393,6 +49681,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -49908,6 +50197,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -49974,6 +50265,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -50026,6 +50318,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -50088,12 +50382,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -50369,6 +50665,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -50559,6 +50856,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -50625,6 +50924,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -50673,6 +50973,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -50736,12 +51038,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -50973,6 +51277,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -51072,6 +51377,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -51138,6 +51445,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -51186,6 +51494,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -51249,12 +51559,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -51486,6 +51798,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -52770,6 +53083,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -2.3799999
   maxDepthY: 1.3263938
   useSidewalk: 0
@@ -53098,6 +53414,8 @@ MonoBehaviour:
   - {fileID: -4776816476003420755, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
   - {fileID: 6224300322017907430, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
   - {fileID: 4387503633267524238, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -5768788280379236198, guid: 588dd11db1984394997d9dba713b8e49, type: 3}
@@ -53231,6 +53549,7 @@ MonoBehaviour:
   comboChance: 0.5
   comboWindupScale: 0.8
   comboGap: 0.06
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -53308,6 +53627,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -1141141879459637295, guid: be1b53b792f0a1945a462ccfa153acf1, type: 3}
   - {fileID: 7098911111932208056, guid: be1b53b792f0a1945a462ccfa153acf1, type: 3}
@@ -53407,12 +53728,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -53659,6 +53982,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -53909,6 +54233,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -53996,6 +54322,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -54047,6 +54374,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -54126,12 +54455,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -54375,6 +54706,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -55607,6 +55939,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -55673,6 +56007,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -55725,6 +56060,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -55787,12 +56124,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -56068,6 +56407,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -56193,6 +56533,8 @@ MonoBehaviour:
   - {fileID: 1785327533664609962, guid: ef9ee1f3441712f4aa51043e1ac55825, type: 3}
   - {fileID: -5216697990418843203, guid: ef9ee1f3441712f4aa51043e1ac55825, type: 3}
   - {fileID: -8301578514616924865, guid: ef9ee1f3441712f4aa51043e1ac55825, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.06
   punch2Sprites:
   - {fileID: 4528362684870425513, guid: dbd8c184a9e0fa34390a759fac86bbab, type: 3}
@@ -56302,6 +56644,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -56346,6 +56689,8 @@ MonoBehaviour:
   punchImpactFrame: 4
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6198468599271488519, guid: d927ec5c8cab89f4191460bc9b69cb39, type: 3}
   - {fileID: -9223177786034025643, guid: d927ec5c8cab89f4191460bc9b69cb39, type: 3}
@@ -56410,12 +56755,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -56648,6 +56995,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -57619,6 +57967,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -57685,6 +58035,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -57731,6 +58082,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -57806,12 +58159,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -58034,6 +58389,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -58944,6 +59300,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -59010,6 +59368,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -59062,6 +59421,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -59124,12 +59485,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -59359,6 +59722,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -59611,6 +59975,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -59704,6 +60070,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -59747,6 +60114,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -59801,12 +60170,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -60036,6 +60407,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -61061,6 +61433,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -61148,6 +61522,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -61199,6 +61574,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -61278,12 +61655,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -61527,6 +61906,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -63478,6 +63858,8 @@ MonoBehaviour:
   - {fileID: 2990002656204344109, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -7147724119789929435, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -63553,6 +63935,7 @@ MonoBehaviour:
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -63603,6 +63986,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 5
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6327796785382337458, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
   - {fileID: 3436121016715343620, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
@@ -63665,12 +64050,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -63908,6 +64295,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -64075,6 +64463,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -64141,6 +64531,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -64187,6 +64578,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -64262,12 +64655,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -64490,6 +64885,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -64779,6 +65175,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -64877,6 +65275,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -64931,6 +65330,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -65002,12 +65403,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -65251,6 +65654,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -65787,6 +66191,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -65885,6 +66291,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -65939,6 +66346,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -66010,12 +66419,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -66259,6 +66670,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -66626,6 +67038,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -66713,6 +67127,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -66764,6 +67179,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -66843,12 +67260,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -67092,6 +67511,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -67655,6 +68075,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -67748,6 +68170,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -67791,6 +68214,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -67845,12 +68270,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -68080,6 +68507,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -70032,6 +70460,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -70125,6 +70555,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -70168,6 +70599,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -70222,12 +70655,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -70457,6 +70892,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -70974,6 +71410,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -71040,6 +71478,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -71088,6 +71527,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -71151,12 +71592,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -71388,6 +71831,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -71660,6 +72104,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -71726,6 +72172,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -71778,6 +72225,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -71840,12 +72289,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -72075,6 +72526,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -72858,6 +73310,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -72924,6 +73378,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -72976,6 +73431,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -73038,12 +73495,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -73273,6 +73732,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -73695,6 +74155,8 @@ MonoBehaviour:
   - {fileID: 2990002656204344109, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -7147724119789929435, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -73770,6 +74232,7 @@ MonoBehaviour:
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -73820,6 +74283,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 5
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6327796785382337458, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
   - {fileID: 3436121016715343620, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
@@ -73882,12 +74347,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -74125,6 +74592,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -74501,6 +74969,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -74588,6 +75058,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -74639,6 +75110,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -74718,12 +75191,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -74967,6 +75442,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -76415,6 +76891,8 @@ MonoBehaviour:
   - {fileID: -4776816476003420755, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
   - {fileID: 6224300322017907430, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
   - {fileID: 4387503633267524238, guid: 83d7a43296aa5f74a8e720995f98a24b, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -5768788280379236198, guid: 588dd11db1984394997d9dba713b8e49, type: 3}
@@ -76548,6 +77026,7 @@ MonoBehaviour:
   comboChance: 0.5
   comboWindupScale: 0.8
   comboGap: 0.06
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -76625,6 +77104,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -1141141879459637295, guid: be1b53b792f0a1945a462ccfa153acf1, type: 3}
   - {fileID: 7098911111932208056, guid: be1b53b792f0a1945a462ccfa153acf1, type: 3}
@@ -76724,12 +77205,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -76976,6 +77459,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -77413,6 +77897,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -77479,6 +77965,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -77531,6 +78018,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -77593,12 +78082,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -77828,6 +78319,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -78433,6 +78925,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -78499,6 +78993,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -78547,6 +79042,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -78610,12 +79107,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -78847,6 +79346,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -79370,6 +79870,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -79463,6 +79965,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -79506,6 +80009,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -79560,12 +80065,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -79795,6 +80302,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -81396,6 +81904,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -81462,6 +81972,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -81510,6 +82021,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -81573,12 +82086,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -81810,6 +82325,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -82403,6 +82919,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.6705884
   useSidewalk: 0
@@ -82966,6 +83485,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -83059,6 +83580,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -83102,6 +83624,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -83156,12 +83680,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -83391,6 +83917,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -83503,6 +84030,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -83596,6 +84125,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -83639,6 +84169,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -83693,12 +84225,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -83928,6 +84462,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84007,6 +84542,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -84100,6 +84637,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -84143,6 +84681,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -84197,12 +84737,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -84432,6 +84974,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -84720,6 +85263,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -84786,6 +85331,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -84838,6 +85384,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -84900,12 +85448,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -85189,6 +85739,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -85474,6 +86025,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -85572,6 +86125,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -85626,6 +86180,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -85697,12 +86253,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -85946,6 +86504,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -86209,6 +86768,8 @@ MonoBehaviour:
   - {fileID: 2990002656204344109, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   - {fileID: -7147724119789929435, guid: df70a68789b535d4f9372e2e9a6e54da, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -86284,6 +86845,7 @@ MonoBehaviour:
   comboChance: 0.3
   comboWindupScale: 0.8
   comboGap: 0.12
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -86334,6 +86896,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 5
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -6327796785382337458, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
   - {fileID: 3436121016715343620, guid: 4b7b07795caa383428ecec5b5c74160c, type: 3}
@@ -86396,12 +86960,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -86639,6 +87205,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -87185,6 +87752,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -87278,6 +87847,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -87321,6 +87891,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -87375,12 +87947,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -87610,6 +88184,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -90883,6 +91458,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -90976,6 +91553,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -91019,6 +91597,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -91073,12 +91653,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -91308,6 +91890,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -91597,6 +92180,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -91663,6 +92248,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -91709,6 +92295,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -91784,12 +92372,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -92012,6 +92602,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -92142,6 +92733,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -3.2380953
   maxDepthY: 2.9238093
   useSidewalk: 0
@@ -92443,6 +93037,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -92509,6 +93105,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -92561,6 +93158,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -92623,12 +93222,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -92912,6 +93513,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -93582,6 +94184,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -0.39999962
   useSidewalk: 0
@@ -93787,6 +94392,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -93853,6 +94460,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -93905,6 +94513,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -93967,12 +94577,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -94202,6 +94814,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -94498,6 +95111,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -94591,6 +95206,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -94634,6 +95250,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -94688,12 +95306,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -94923,6 +95543,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -95042,6 +95663,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -95108,6 +95731,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -95154,6 +95778,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -95229,12 +95855,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -95457,6 +96085,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -95974,6 +96603,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -96072,6 +96703,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -96126,6 +96758,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -96197,12 +96831,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -96446,6 +97082,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -98058,6 +98695,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -7.6634417
   maxDepthY: 1.2637994
   useSidewalk: 0
@@ -98836,6 +99476,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -98902,6 +99544,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -98950,6 +99593,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -99013,12 +99658,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -99250,6 +99897,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -101413,6 +102061,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -101506,6 +102156,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -101549,6 +102200,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -101603,12 +102256,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -101838,6 +102493,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -102070,6 +102726,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -102168,6 +102826,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -102222,6 +102881,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -102293,12 +102954,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -102542,6 +103205,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -103531,6 +104195,8 @@ MonoBehaviour:
   - {fileID: -4147846741133332452, guid: 92bc3df70171db44f834b4892ce543cf, type: 3}
   - {fileID: -2253174706759159411, guid: 92bc3df70171db44f834b4892ce543cf, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -103597,6 +104263,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -103641,6 +104308,8 @@ MonoBehaviour:
   punchImpactFrame: 2
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -103695,12 +104364,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
   getUpVoice: {fileID: 8300000, guid: a9dfd9fa4a6e4f940a146250154a19b8, type: 3}
   getUpVoiceAlt: {fileID: 8300000, guid: 10a77ac3d6b13694db594fa46ad0e8db, type: 3}
@@ -103925,6 +104596,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -106563,6 +107235,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -106629,6 +107303,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -106675,6 +107350,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -106750,12 +107427,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -106978,6 +107657,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -107289,6 +107969,8 @@ MonoBehaviour:
   - {fileID: 2895198887511715144, guid: e9951cba0f0549c4eaa7d716fab01d02, type: 3}
   - {fileID: 4770492976465204891, guid: e9951cba0f0549c4eaa7d716fab01d02, type: 3}
   - {fileID: 4486148040609673256, guid: e9951cba0f0549c4eaa7d716fab01d02, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -7673660376924846849, guid: b57de6a9b0086e943bca6dee541b0a15, type: 3}
@@ -107405,6 +108087,7 @@ MonoBehaviour:
   comboChance: 0.5
   comboWindupScale: 0.55
   comboGap: 0.06
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -107456,6 +108139,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -7408233914564696571, guid: 85af6d782ca851a48864fdd89f713051, type: 3}
   - {fileID: -6534764781792444359, guid: 85af6d782ca851a48864fdd89f713051, type: 3}
@@ -107523,12 +108208,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -107761,6 +108448,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -107843,6 +108531,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -107909,6 +108599,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -107957,6 +108648,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -108020,12 +108713,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -108257,6 +108952,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -108356,6 +109052,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -108422,6 +109120,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -108470,6 +109169,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -108533,12 +109234,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -108770,6 +109473,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -109790,6 +110494,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -109856,6 +110562,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -109902,6 +110609,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -109977,12 +110686,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -110205,6 +110916,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -110321,6 +111033,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -110387,6 +111101,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -110435,6 +111150,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -110498,12 +111215,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -110735,6 +111454,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -110902,6 +111622,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -110995,6 +111717,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -111038,6 +111761,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -111092,12 +111817,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -111327,6 +112054,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -111656,6 +112384,8 @@ MonoBehaviour:
   - {fileID: -6453962523789380291, guid: e6c227af452d0de4a9a1fe84ac38b5a2, type: 3}
   - {fileID: 2643132890989312010, guid: e6c227af452d0de4a9a1fe84ac38b5a2, type: 3}
   - {fileID: 4344623537344423876, guid: e6c227af452d0de4a9a1fe84ac38b5a2, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.027777778
   punch2Sprites:
   - {fileID: -5000028791507454514, guid: 4fe50bdd684eea74c80ad3a415a693f7, type: 3}
@@ -111767,6 +112497,7 @@ MonoBehaviour:
   comboChance: 0.45
   comboWindupScale: 0.4
   comboGap: 0.04
+  comboRecoverFraction: 0
   holdGround: 1
   comboArmor: 1
   debugCombos: 0
@@ -111819,6 +112550,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 7265722684715954504, guid: af6ebdaebb954f34ebe956c98dcaa423, type: 3}
   - {fileID: -5497324196298671444, guid: af6ebdaebb954f34ebe956c98dcaa423, type: 3}
@@ -111915,12 +112648,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 1
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -112148,6 +112883,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -113014,6 +113750,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -113107,6 +113845,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -113150,6 +113889,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -113204,12 +113945,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -113439,6 +114182,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -113746,6 +114490,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -113812,6 +114558,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -113864,6 +114611,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -113926,12 +114675,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -114215,6 +114966,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -115148,6 +115900,8 @@ MonoBehaviour:
   - {fileID: 1680150973199334290, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
   - {fileID: 8673659251100374989, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
   - {fileID: -4435689852425752828, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -8573098726714412159, guid: 7762a1c4d3330bf41a0b42a7edff7ea9, type: 3}
@@ -115240,6 +115994,7 @@ MonoBehaviour:
   comboChance: 0.6
   comboWindupScale: 0.5
   comboGap: 0.05
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -115286,6 +116041,8 @@ MonoBehaviour:
   punchImpactFrame: 2
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 106185211588840531, guid: 7ee0a517cef75d142892f82b9842d4b8, type: 3}
   - {fileID: -6332910357193695831, guid: 7ee0a517cef75d142892f82b9842d4b8, type: 3}
@@ -115353,12 +116110,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -115588,6 +116347,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -116101,6 +116861,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -116167,6 +116929,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -116213,6 +116976,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -116288,12 +117053,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -116516,6 +117283,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -116940,6 +117708,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -117027,6 +117797,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -117078,6 +117849,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -117157,12 +117930,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -117406,6 +118181,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -119163,6 +119939,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -119256,6 +120034,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -119299,6 +120078,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -119353,12 +120134,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -119588,6 +120371,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -121408,6 +122192,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -121474,6 +122260,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -121526,6 +122313,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -121588,12 +122377,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -121869,6 +122660,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -123260,6 +124052,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -123326,6 +124120,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -123372,6 +124167,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -123447,12 +124244,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -123675,6 +124474,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -124253,6 +125053,8 @@ MonoBehaviour:
   - {fileID: 5361719532545503327, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   - {fileID: -4860519791394894278, guid: 79ad5bba3f83aa545a8ee2b47f4529b9, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -124319,6 +125121,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -124371,6 +125174,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5817070043108898721, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
   - {fileID: -2363507109346526264, guid: 5a23fb6b6fd993a49a3a3a2a1f0cf899, type: 3}
@@ -124433,12 +125238,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -124714,6 +125521,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -125798,6 +126606,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -125864,6 +126674,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -125910,6 +126721,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -125985,12 +126798,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -126213,6 +127028,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -126422,6 +127238,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -126488,6 +127306,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -126534,6 +127353,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -126609,12 +127430,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -126837,6 +127660,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -127523,6 +128347,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -127616,6 +128442,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -127659,6 +128486,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -127713,12 +128542,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -127948,6 +128779,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -128793,6 +129625,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -128886,6 +129720,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -128929,6 +129764,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -128983,12 +129820,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -129218,6 +130057,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -130125,6 +130965,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -130191,6 +131033,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -130243,6 +131086,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -130305,12 +131150,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -130540,6 +131387,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -132987,6 +133835,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -133053,6 +133903,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -133099,6 +133950,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -133174,12 +134027,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -133402,6 +134257,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -133749,6 +134605,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -133815,6 +134673,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -133861,6 +134720,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -133936,12 +134797,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -134164,6 +135027,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -134572,6 +135436,8 @@ MonoBehaviour:
   - {fileID: 1680150973199334290, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
   - {fileID: 8673659251100374989, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
   - {fileID: -4435689852425752828, guid: 820fd2f2617c58b4bbd4415e54890a44, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -8573098726714412159, guid: 7762a1c4d3330bf41a0b42a7edff7ea9, type: 3}
@@ -134664,6 +135530,7 @@ MonoBehaviour:
   comboChance: 0.6
   comboWindupScale: 0.5
   comboGap: 0.05
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -134710,6 +135577,8 @@ MonoBehaviour:
   punchImpactFrame: 2
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 106185211588840531, guid: 7ee0a517cef75d142892f82b9842d4b8, type: 3}
   - {fileID: -6332910357193695831, guid: 7ee0a517cef75d142892f82b9842d4b8, type: 3}
@@ -134777,12 +135646,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -135012,6 +135883,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -135358,6 +136230,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -135456,6 +136330,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -135510,6 +136385,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -135581,12 +136458,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -135830,6 +136709,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -136894,6 +137774,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -136960,6 +137842,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -137012,6 +137895,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -137074,12 +137959,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -137309,6 +138196,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -138743,6 +139631,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -138809,6 +139699,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -138855,6 +139746,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -138930,12 +139823,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -139158,6 +140053,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -139254,6 +140150,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -139347,6 +140245,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -139390,6 +140289,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -139444,12 +140345,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -139679,6 +140582,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -140397,6 +141301,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -140463,6 +141369,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -140509,6 +141416,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -140584,12 +141493,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -140812,6 +141723,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -141083,6 +141995,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -3.7
   maxDepthY: -0.82857144
   useSidewalk: 0
@@ -141457,6 +142372,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -141555,6 +142472,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -141609,6 +142527,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -141680,12 +142600,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -141929,6 +142851,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -142070,6 +142993,9 @@ MonoBehaviour:
   musicGain: 1
   ambience: {fileID: 0}
   ambienceVolume: 1
+  slippery: 0
+  iceAccel: 9
+  iceGlide: 3.5
   minDepthY: -4.2
   maxDepthY: -0.8030769
   useSidewalk: 1
@@ -142979,6 +143905,8 @@ MonoBehaviour:
   - {fileID: -227275300, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   - {fileID: 207814910, guid: f450867e17fd5604a86eb4d228698597, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -143072,6 +144000,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -143115,6 +144044,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites: []
   altImpactFrame: 4
   altDamage: 12
@@ -143169,12 +144100,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -143404,6 +144337,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -144670,6 +145604,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -144736,6 +145672,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -144782,6 +145719,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -144857,12 +145796,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -145085,6 +146026,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -145956,6 +146898,8 @@ MonoBehaviour:
   - {fileID: -7307309914716535396, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   - {fileID: -5610871526884898941, guid: 3aed81d387e254746ad77f57dab7cdf0, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -146022,6 +146966,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -146068,6 +147013,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 1493108893966309215, guid: d003d09e41677964ead8ece17066a060, type: 3}
   - {fileID: 3531355697544503054, guid: d003d09e41677964ead8ece17066a060, type: 3}
@@ -146143,12 +147090,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -146371,6 +147320,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -146571,6 +147521,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -146637,6 +147589,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -146689,6 +147642,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -146751,12 +147706,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -146986,6 +147943,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -147729,6 +148687,8 @@ MonoBehaviour:
   - {fileID: 7630387643177472578, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   - {fileID: -7680377383716198674, guid: 0ea5af51c0b267740920a6b468fb2cd8, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -147795,6 +148755,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -147843,6 +148804,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 2965387481945978080, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
   - {fileID: 6589476224605216127, guid: 68a0c6e609fdebe48912d37d7d2b39fd, type: 3}
@@ -147906,12 +148869,14 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -148143,6 +149108,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -149596,6 +150562,8 @@ MonoBehaviour:
   - {fileID: -8365244080460541800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: -4622837147752105800, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
   - {fileID: 6816690607598556692, guid: 8b47fe15e582f12458a83fa532cec670, type: 3}
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.033333335
   punch2Sprites:
   - {fileID: -416764472109952276, guid: 9baad7499b623ae4daede6dfd104bf14, type: 3}
@@ -149683,6 +150651,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -149734,6 +150703,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: -1
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 4693268664655237081, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
   - {fileID: 2371716320214728527, guid: 5221c57ead0419a42a0f78a42aa734bd, type: 3}
@@ -149813,12 +150784,14 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -150062,6 +151035,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -150780,6 +151754,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -150846,6 +151822,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -150898,6 +151875,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -150960,12 +151939,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -151195,6 +152176,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -151804,6 +152786,8 @@ MonoBehaviour:
   - {fileID: 3878562024365843053, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   - {fileID: -1185356859598053584, guid: c2af6fe6f15ca3f4287d0635b01db1b5, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites: []
   doubleKickSprites: []
@@ -151870,6 +152854,7 @@ MonoBehaviour:
   comboChance: 0
   comboWindupScale: 0.55
   comboGap: 0.07
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
   debugCombos: 0
@@ -151922,6 +152907,8 @@ MonoBehaviour:
   punchImpactFrame: 3
   secondImpactFrame: 7
   secondImpactPunchOnly: 0
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: -8896564684887596901, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
   - {fileID: 3071632318888418467, guid: 69d12305b20de1c49bd55428f7da23c4, type: 3}
@@ -151984,12 +152971,14 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -152219,6 +153208,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []
@@ -152607,6 +153597,8 @@ MonoBehaviour:
   - {fileID: -5500683716564896972, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   - {fileID: -4380159810546365466, guid: 7bb9ffcc97241c14293ded03633afa09, type: 3}
   runSprites: []
+  breathSprites: []
+  breathFrameTime: 0.05
   runFrameTime: 0.066
   punch2Sprites:
   - {fileID: -6755192832224609523, guid: 994579cd78d6b9348962079e34154725, type: 3}
@@ -152705,6 +153697,7 @@ MonoBehaviour:
   comboChance: 0.4
   comboWindupScale: 0.7
   comboGap: 0.08
+  comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
   debugCombos: 0
@@ -152759,6 +153752,8 @@ MonoBehaviour:
   punchImpactFrame: 5
   secondImpactFrame: 9
   secondImpactPunchOnly: 1
+  punch2SecondImpactFrame: -1
+  altVariants: []
   altAttackSprites:
   - {fileID: 5312358065765894146, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
   - {fileID: -6277434908606880826, guid: ab322f26f1ac3714699e70c05d9d2512, type: 3}
@@ -152830,12 +153825,14 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
   tauntNoRepeat: 1
   slapSounds: []
   punchesAreSlaps: 0
   hammerArt: 0
+  shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
   getUpVoiceAlt: {fileID: 0}
@@ -153079,6 +154076,7 @@ MonoBehaviour:
   pieFightRate: 0.05
   retortChance: 0.35
   fightWeight: 0
+  knockdownShoutChance: 0
   undying: 0
   sparring: 0
   knockdownAltSprites: []

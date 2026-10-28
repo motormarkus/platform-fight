@@ -40,6 +40,7 @@ public static class AudioLevels
     public static float Gain(AudioClip clip)
     {
         if (!Enabled || clip == null) return 1f;
+        if (clip.name.StartsWith("latkafani_")) return clip.name.StartsWith("latkafani_puhe") || clip.name.StartsWith("latkafani_voitto") ? 1.2f : 0.5f;   // vain puheet täydellä; kaikki muu (isku, kipu, heitto, voitonhuuto) puoleen: olivat liian kovia
         if (table == null) Load();
         if (!table.TryGetValue(clip.name, out var l) || l.Count == 0) return 1f;
         float best = 1f, bestD = 0.2f;   // samannimisistä valitaan lähin kesto (enintään 0,2 s ero)
@@ -54,12 +55,15 @@ public static class AudioLevels
     /// Vihujen äänet vaimenevat tämän verran (0-1), kun taustamusiikki (esim. pukin biisi) soi erillisenä kappaleena.
     public static float MusicDuck = 0.55f;
     public static bool CrowdLimiter = true;
+    /// Vihujen puheiden (ja puheena merkittyjen huutojen) lisävahvistus; PlayOneShotin voimakkuus saa ylittää 1:n.
+    public static float SpeechBoost = 1.6f;
 
     /// AudioSource.PlayOneShot tasatulla voimakkuudella.
     public static void PlayOneShotLeveled(this AudioSource source, AudioClip clip, float volume = 1f, bool speech = false)
     {
         if (source == null || clip == null) return;
         float v = volume * Gain(clip);
+        if (speech && !clip.name.StartsWith("latkafani_") && source.GetComponent<Enemy>() != null && source.GetComponent<SantaBrain>() == null) v *= SpeechBoost;   // vihujen puheet kuuluvat paremmin
         if (CrowdLimiter && !speech &&   // puheet (speech) eivät vaimene väkijoukon rajoittimessa eikä pukin musiikin alla
  source.GetComponent<Enemy>() != null && source.GetComponent<SantaBrain>() == null)   // heron ja pukin äänet eivät rajoitu
         {

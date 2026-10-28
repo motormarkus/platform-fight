@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 14c7e6123626c72458678b7dc4ca5a8f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5733679461765184280
+    second: latkafani_vartalokoukku_0
+  - first:
+      213: 7271449581221690928
+    second: latkafani_vartalokoukku_1
+  - first:
+      213: 6076900363857032889
+    second: latkafani_vartalokoukku_2
+  - first:
+      213: 7962044868370197551
+    second: latkafani_vartalokoukku_3
+  - first:
+      213: -5250920099751636627
+    second: latkafani_vartalokoukku_4
+  - first:
+      213: 1084171635183570078
+    second: latkafani_vartalokoukku_5
+  - first:
+      213: -862354767591051703
+    second: latkafani_vartalokoukku_6
+  - first:
+      213: -8384316332019161100
+    second: latkafani_vartalokoukku_7
+  - first:
+      213: -5853534574861649258
+    second: latkafani_vartalokoukku_8
+  - first:
+      213: 5403034405267187691
+    second: latkafani_vartalokoukku_9
+  - first:
+      213: 7926348354207268081
+    second: latkafani_vartalokoukku_10
+  - first:
+      213: 4202435227260635951
+    second: latkafani_vartalokoukku_11
+  - first:
+      213: -8582197564339541484
+    second: latkafani_vartalokoukku_12
+  - first:
+      213: 7678821508665410193
+    second: latkafani_vartalokoukku_13
+  - first:
+      213: 341098461767933600
+    second: latkafani_vartalokoukku_14
+  - first:
+      213: -3656947500912983242
+    second: latkafani_vartalokoukku_15
+  - first:
+      213: 4110135289749088698
+    second: latkafani_vartalokoukku_16
+  - first:
+      213: 8017211744278691173
+    second: latkafani_vartalokoukku_17
+  - first:
+      213: 191458839954199515
+    second: latkafani_vartalokoukku_18
+  - first:
+      213: -7399260751378045378
+    second: latkafani_vartalokoukku_19
+  - first:
+      213: 3242346333565013186
+    second: latkafani_vartalokoukku_20
+  - first:
+      213: 7318041159441957110
+    second: latkafani_vartalokoukku_21
+  - first:
+      213: -823290612190329582
+    second: latkafani_vartalokoukku_22
+  - first:
+      213: 2206816888772005552
+    second: latkafani_vartalokoukku_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1198
+        width: 460
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 101, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4888968e0ed60b0800000000000000
+      internalID: -5733679461765184280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_1
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1199
+        width: 460
+        height: 637
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 101, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03eb1ea4ed069e460800000000000000
+      internalID: 7271449581221690928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_2
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 1210
+        width: 460
+        height: 626
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 101, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6f3232fac755450800000000000000
+      internalID: 6076900363857032889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_3
+      rect:
+        serializedVersion: 2
+        x: 3248
+        y: 1222
+        width: 458
+        height: 614
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c6de08f9dde7e60800000000000000
+      internalID: 7962044868370197551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_4
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 589
+        width: 458
+        height: 603
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6158566dfbf027b0800000000000000
+      internalID: -5250920099751636627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_5
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 602
+        width: 458
+        height: 590
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ccba6ab50cb0f00800000000000000
+      internalID: 1084171635183570078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_6
+      rect:
+        serializedVersion: 2
+        x: 2804
+        y: 613
+        width: 458
+        height: 579
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94eee5768ec4804f0800000000000000
+      internalID: -862354767591051703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 458
+        height: 569
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7ed71d7bce4ab80800000000000000
+      internalID: -8384316332019161100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_8
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 15
+        width: 458
+        height: 561
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a77e8415114cea0800000000000000
+      internalID: -5853534574861649258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_9
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 20
+        width: 462
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 105, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be72a234a2f6bfa40800000000000000
+      internalID: 5403034405267187691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_10
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 23
+        width: 458
+        height: 553
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fcb68225db000e60800000000000000
+      internalID: 7926348354207268081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_11
+      rect:
+        serializedVersion: 2
+        x: 2804
+        y: 21
+        width: 460
+        height: 555
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b4570e29c025a30800000000000000
+      internalID: 4202435227260635951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_12
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 19
+        width: 460
+        height: 557
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41aa15129c8e5e880800000000000000
+      internalID: -8582197564339541484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_13
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 16
+        width: 462
+        height: 560
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 104, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19281ad5a77a09a60800000000000000
+      internalID: 7678821508665410193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_14
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 11
+        width: 470
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 107, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae1c176e33dbb400800000000000000
+      internalID: 341098461767933600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_15
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 620
+        width: 470
+        height: 572
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 108, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63344dd8f99ef3dc0800000000000000
+      internalID: -3656947500912983242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_16
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 612
+        width: 470
+        height: 580
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 106, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9aa4405422a0930800000000000000
+      internalID: 4110135289749088698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_17
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 605
+        width: 466
+        height: 587
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 105, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d32daba9bd24f60800000000000000
+      internalID: 8017211744278691173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_18
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 588
+        width: 460
+        height: 604
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd31490fcc238a200800000000000000
+      internalID: 191458839954199515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 582
+        width: 460
+        height: 610
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e362f91bc8b805990800000000000000
+      internalID: -7399260751378045378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_20
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 1219
+        width: 460
+        height: 617
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 102, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ccceeacfc02ffc20800000000000000
+      internalID: 3242346333565013186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_21
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 1213
+        width: 460
+        height: 623
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0c93079a7ee8560800000000000000
+      internalID: 7318041159441957110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_22
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1209
+        width: 460
+        height: 627
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2154b79dc851394f0800000000000000
+      internalID: -823290612190329582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_vartalokoukku_23
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1205
+        width: 460
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be8693a44030ae10800000000000000
+      internalID: 2206816888772005552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1c0541b7603c3bc46afc3603a57f6251
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_vartalokoukku_0: -5733679461765184280
+      latkafani_vartalokoukku_1: 7271449581221690928
+      latkafani_vartalokoukku_10: 7926348354207268081
+      latkafani_vartalokoukku_11: 4202435227260635951
+      latkafani_vartalokoukku_12: -8582197564339541484
+      latkafani_vartalokoukku_13: 7678821508665410193
+      latkafani_vartalokoukku_14: 341098461767933600
+      latkafani_vartalokoukku_15: -3656947500912983242
+      latkafani_vartalokoukku_16: 4110135289749088698
+      latkafani_vartalokoukku_17: 8017211744278691173
+      latkafani_vartalokoukku_18: 191458839954199515
+      latkafani_vartalokoukku_19: -7399260751378045378
+      latkafani_vartalokoukku_2: 6076900363857032889
+      latkafani_vartalokoukku_20: 3242346333565013186
+      latkafani_vartalokoukku_21: 7318041159441957110
+      latkafani_vartalokoukku_22: -823290612190329582
+      latkafani_vartalokoukku_23: 2206816888772005552
+      latkafani_vartalokoukku_3: 7962044868370197551
+      latkafani_vartalokoukku_4: -5250920099751636627
+      latkafani_vartalokoukku_5: 1084171635183570078
+      latkafani_vartalokoukku_6: -862354767591051703
+      latkafani_vartalokoukku_7: -8384316332019161100
+      latkafani_vartalokoukku_8: -5853534574861649258
+      latkafani_vartalokoukku_9: 5403034405267187691
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

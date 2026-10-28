@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: ba333d6bc9c8cfb44a33697ad3187e68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3858417558112019730
+    second: latkafani_jab_0
+  - first:
+      213: -2696393305870539688
+    second: latkafani_jab_1
+  - first:
+      213: 3540870329198038864
+    second: latkafani_jab_2
+  - first:
+      213: -2502014357969736805
+    second: latkafani_jab_3
+  - first:
+      213: 2776451874668373040
+    second: latkafani_jab_4
+  - first:
+      213: -2496570961664792366
+    second: latkafani_jab_5
+  - first:
+      213: -549792717664480309
+    second: latkafani_jab_6
+  - first:
+      213: 6486927699501588963
+    second: latkafani_jab_7
+  - first:
+      213: -7500253107658308226
+    second: latkafani_jab_8
+  - first:
+      213: -4955758930089138087
+    second: latkafani_jab_9
+  - first:
+      213: 7053839911793757439
+    second: latkafani_jab_10
+  - first:
+      213: 6636662173196010
+    second: latkafani_jab_11
+  - first:
+      213: 6778712253269855142
+    second: latkafani_jab_12
+  - first:
+      213: 5802250840395219260
+    second: latkafani_jab_13
+  - first:
+      213: 1650458119199589475
+    second: latkafani_jab_14
+  - first:
+      213: -7357118087312549874
+    second: latkafani_jab_15
+  - first:
+      213: 7529299798035034671
+    second: latkafani_jab_16
+  - first:
+      213: -3197847256091731106
+    second: latkafani_jab_17
+  - first:
+      213: -5801105427287715056
+    second: latkafani_jab_18
+  - first:
+      213: 5824729126449585786
+    second: latkafani_jab_19
+  - first:
+      213: 757549524747217349
+    second: latkafani_jab_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_jab_0
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 642
+        width: 472
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 94, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea5a957ca5247ac0800000000000000
+      internalID: -3858417558112019730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_1
+      rect:
+        serializedVersion: 2
+        x: 3340
+        y: 642
+        width: 458
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 101, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85468dc039c749ad0800000000000000
+      internalID: -2696393305870539688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 640
+        width: 456
+        height: 620
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fc197ddc2b32130800000000000000
+      internalID: 3540870329198038864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_3
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 639
+        width: 464
+        height: 621
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 106, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b694a923f074dd0800000000000000
+      internalID: -2502014357969736805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_4
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 640
+        width: 476
+        height: 620
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 112, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034639d0540f78620800000000000000
+      internalID: 2776451874668373040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 530
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 92, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d82a6110f56a5dd0800000000000000
+      internalID: -2496570961664792366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_6
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 6
+        width: 608
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 54, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc3138baf6ebe58f0800000000000000
+      internalID: -549792717664480309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_7
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 7
+        width: 626
+        height: 617
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 46, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e12f6c9f52360a50800000000000000
+      internalID: 6486927699501588963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_8
+      rect:
+        serializedVersion: 2
+        x: 1780
+        y: 9
+        width: 626
+        height: 615
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 46, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75c180698fb9e790800000000000000
+      internalID: -7500253107658308226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_9
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 9
+        width: 580
+        height: 615
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 65, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9582193828b993bb0800000000000000
+      internalID: -4955758930089138087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_10
+      rect:
+        serializedVersion: 2
+        x: 2996
+        y: 9
+        width: 534
+        height: 615
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 83, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc80f4e60644e160800000000000000
+      internalID: 7053839911793757439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_11
+      rect:
+        serializedVersion: 2
+        x: 2380
+        y: 641
+        width: 478
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 103, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeed3535204971000800000000000000
+      internalID: 6636662173196010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_12
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 636
+        width: 476
+        height: 624
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 94, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abccb211e2d21e50800000000000000
+      internalID: 6778712253269855142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 486
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 86, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31087fc56cb58050800000000000000
+      internalID: 5802250840395219260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_14
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 1272
+        width: 498
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 81, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3640d873aea97e610800000000000000
+      internalID: 1650458119199589475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_15
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1267
+        width: 514
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 74, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08522b441446e990800000000000000
+      internalID: -7357118087312549874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1266
+        width: 526
+        height: 642
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 68, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f227c4d36427d7860800000000000000
+      internalID: 7529299798035034671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_17
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1270
+        width: 586
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 38, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bd1be0dd6fe93d0800000000000000
+      internalID: -3197847256091731106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_18
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 1273
+        width: 590
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 36, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 013dce579555e7fa0800000000000000
+      internalID: -5801105427287715056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_19
+      rect:
+        serializedVersion: 2
+        x: 2744
+        y: 1275
+        width: 572
+        height: 633
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 45, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e16ee974895d050800000000000000
+      internalID: 5824729126449585786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_jab_20
+      rect:
+        serializedVersion: 2
+        x: 3320
+        y: 1277
+        width: 542
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 60, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9e252774b538a00800000000000000
+      internalID: 757549524747217349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e3af5a04423cf11439626778bd7af7d6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_jab_0: -3858417558112019730
+      latkafani_jab_1: -2696393305870539688
+      latkafani_jab_10: 7053839911793757439
+      latkafani_jab_11: 6636662173196010
+      latkafani_jab_12: 6778712253269855142
+      latkafani_jab_13: 5802250840395219260
+      latkafani_jab_14: 1650458119199589475
+      latkafani_jab_15: -7357118087312549874
+      latkafani_jab_16: 7529299798035034671
+      latkafani_jab_17: -3197847256091731106
+      latkafani_jab_18: -5801105427287715056
+      latkafani_jab_19: 5824729126449585786
+      latkafani_jab_2: 3540870329198038864
+      latkafani_jab_20: 757549524747217349
+      latkafani_jab_3: -2502014357969736805
+      latkafani_jab_4: 2776451874668373040
+      latkafani_jab_5: -2496570961664792366
+      latkafani_jab_6: -549792717664480309
+      latkafani_jab_7: 6486927699501588963
+      latkafani_jab_8: -7500253107658308226
+      latkafani_jab_9: -4955758930089138087
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

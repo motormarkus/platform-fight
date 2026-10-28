@@ -72,6 +72,14 @@ public class Area : MonoBehaviour
         return p.x >= lo - margin && p.x <= hi + margin;
     }
 
+    [Header("Liukas pinta (jää)")]
+    [Tooltip("Hero ja vihut liukuvat: vauhti kasvaa ja hiipuu hitaasti.")]
+    public bool slippery;
+    [Tooltip("Kiihtyvyys jäällä (yksikköä/s²). Pienempi = liukkaampi.")]
+    public float iceAccel = 9f;
+    [Tooltip("Hidastuvuus, kun ei liikuta (yksikköä/s²).")]
+    public float iceGlide = 3.5f;
+
     [Header("Kävelyalue (y = syvyys)")]
     public float minDepthY = -4.3f;
     public float maxDepthY = -0.8f;

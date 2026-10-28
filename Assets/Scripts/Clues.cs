@@ -42,14 +42,15 @@ public static class Clues
     public static float LaunchMul => Has(Belt) ? 1.15f : 1f;
     public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 15 % pidemmälle."); }
 
-    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi";
+    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko";
 
-    /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu.
+    /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu, Joulupukki -> viidakkolippu.
     public static void BossDown(string boss)
     {
         if (boss == "Metsuri") Add(BikeKey, "Moottoripyörän avaimet", "Metsurin taskusta löytyi moottoripyörän avaimet. Nyt pääset ajamaan.");
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
-        else if (boss == "Yakuza-pomo") Add(PlaneTicket, "Lentolippu", "Yakuza-pomon taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
+        else if (boss == "Joulupukki") Add(JungleTicket, "Viidakkolippu", "Joulupukin säkistä löytyi lentolippu viidakkoon. Alppikylän kiitotiellä kone vie sinne.");
+        else if (boss == "Yakuza-pomo" || boss == "Don Kurinai") Add(PlaneTicket, "Lentolippu", "Don Kurinain taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 
     /// Lisää vihjeen, jos sitä ei vielä ole. Palauttaa true, jos se oli uusi.

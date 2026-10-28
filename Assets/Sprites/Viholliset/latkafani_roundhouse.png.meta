@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 16aa435d1231418439121a8b59470d7a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6210019873266350924
+    second: latkafani_roundhouse_0
+  - first:
+      213: -6557901399013189814
+    second: latkafani_roundhouse_1
+  - first:
+      213: 4116586324491505648
+    second: latkafani_roundhouse_2
+  - first:
+      213: -3531176981796422884
+    second: latkafani_roundhouse_3
+  - first:
+      213: -4838108799311707571
+    second: latkafani_roundhouse_4
+  - first:
+      213: -5400458729938325616
+    second: latkafani_roundhouse_5
+  - first:
+      213: -7906673524902439314
+    second: latkafani_roundhouse_6
+  - first:
+      213: -6590456821985689750
+    second: latkafani_roundhouse_7
+  - first:
+      213: 6186527460292255920
+    second: latkafani_roundhouse_8
+  - first:
+      213: -7540099202030388871
+    second: latkafani_roundhouse_9
+  - first:
+      213: 4645083022509125982
+    second: latkafani_roundhouse_10
+  - first:
+      213: 541560088384662498
+    second: latkafani_roundhouse_11
+  - first:
+      213: 6839396398645214197
+    second: latkafani_roundhouse_12
+  - first:
+      213: -1962505770628602778
+    second: latkafani_roundhouse_13
+  - first:
+      213: -4779166064991650548
+    second: latkafani_roundhouse_14
+  - first:
+      213: 4650960703198501845
+    second: latkafani_roundhouse_15
+  - first:
+      213: 2319446803047776910
+    second: latkafani_roundhouse_16
+  - first:
+      213: -4994534923650125836
+    second: latkafani_roundhouse_17
+  - first:
+      213: 1589001242121535294
+    second: latkafani_roundhouse_18
+  - first:
+      213: 6234603662928719547
+    second: latkafani_roundhouse_19
+  - first:
+      213: -965516731931929898
+    second: latkafani_roundhouse_20
+  - first:
+      213: -1014049308591564088
+    second: latkafani_roundhouse_21
+  - first:
+      213: 6470157097908631302
+    second: latkafani_roundhouse_22
+  - first:
+      213: 4143672535507683276
+    second: latkafani_roundhouse_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_roundhouse_0
+      rect:
+        serializedVersion: 2
+        x: 3088
+        y: 1342
+        width: 488
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4c7ddc3d391d9a0800000000000000
+      internalID: -6210019873266350924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_1
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1341
+        width: 488
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4718cf3c67adf4a0800000000000000
+      internalID: -6557901399013189814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_2
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1341
+        width: 488
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff0c86937d012930800000000000000
+      internalID: 4116586324491505648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_3
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1341
+        width: 290
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 84, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1bfcf87e3dbefec0800000000000000
+      internalID: -3531176981796422884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_4
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 1341
+        width: 384
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 58, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4285503ea59bdcb0800000000000000
+      internalID: -4838108799311707571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_5
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 1341
+        width: 384
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 58, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f6ed1e567bd05b0800000000000000
+      internalID: -5400458729938325616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_6
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 6
+        width: 688
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 26, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e665439025ad54290800000000000000
+      internalID: -7906673524902439314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_7
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 9
+        width: 686
+        height: 647
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 26, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f3ef9207ef984a0800000000000000
+      internalID: -6590456821985689750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_8
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 8
+        width: 686
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 26, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b06bef82f5fad550800000000000000
+      internalID: 6186527460292255920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 670
+        height: 651
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979b5c399bf2c5790800000000000000
+      internalID: -7540099202030388871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_10
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 5
+        width: 670
+        height: 651
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51bad4f566a67040800000000000000
+      internalID: 4645083022509125982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_11
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 672
+        width: 510
+        height: 664
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 16, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb62b4f702048700800000000000000
+      internalID: 541560088384662498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_12
+      rect:
+        serializedVersion: 2
+        x: 3316
+        y: 672
+        width: 510
+        height: 664
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 16, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb7553b9ca6aee50800000000000000
+      internalID: 6839396398645214197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_13
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 663
+        width: 352
+        height: 673
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 65, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66427004667c3c4e0800000000000000
+      internalID: -1962505770628602778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_14
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 663
+        width: 312
+        height: 673
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 73, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d3295f8cdfcadb0800000000000000
+      internalID: -4779166064991650548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_15
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 663
+        width: 312
+        height: 673
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 73, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db92722e188b8040800000000000000
+      internalID: 4650960703198501845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1340
+        width: 338
+        height: 676
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 89, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8204131494503020800000000000000
+      internalID: 2319446803047776910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_17
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1340
+        width: 338
+        height: 676
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 89, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff2d89f2f8dfaab0800000000000000
+      internalID: -4994534923650125836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_18
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1340
+        width: 338
+        height: 676
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 89, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ffe48f5344d0610800000000000000
+      internalID: 1589001242121535294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_19
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 1342
+        width: 332
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 85, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe2734cff2c58650800000000000000
+      internalID: 6234603662928719547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 662
+        width: 332
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 85, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d25088d5abc992f0800000000000000
+      internalID: -965516731931929898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 662
+        width: 488
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca5ba8c68f5de1f0800000000000000
+      internalID: -1014049308591564088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_22
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 662
+        width: 488
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607f0d5a99d9ac950800000000000000
+      internalID: 6470157097908631302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_roundhouse_23
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 662
+        width: 488
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 120, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc74a788738418930800000000000000
+      internalID: 4143672535507683276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4fa2b6207cc067642a8c2c785b02454c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_roundhouse_0: -6210019873266350924
+      latkafani_roundhouse_1: -6557901399013189814
+      latkafani_roundhouse_10: 4645083022509125982
+      latkafani_roundhouse_11: 541560088384662498
+      latkafani_roundhouse_12: 6839396398645214197
+      latkafani_roundhouse_13: -1962505770628602778
+      latkafani_roundhouse_14: -4779166064991650548
+      latkafani_roundhouse_15: 4650960703198501845
+      latkafani_roundhouse_16: 2319446803047776910
+      latkafani_roundhouse_17: -4994534923650125836
+      latkafani_roundhouse_18: 1589001242121535294
+      latkafani_roundhouse_19: 6234603662928719547
+      latkafani_roundhouse_2: 4116586324491505648
+      latkafani_roundhouse_20: -965516731931929898
+      latkafani_roundhouse_21: -1014049308591564088
+      latkafani_roundhouse_22: 6470157097908631302
+      latkafani_roundhouse_23: 4143672535507683276
+      latkafani_roundhouse_3: -3531176981796422884
+      latkafani_roundhouse_4: -4838108799311707571
+      latkafani_roundhouse_5: -5400458729938325616
+      latkafani_roundhouse_6: -7906673524902439314
+      latkafani_roundhouse_7: -6590456821985689750
+      latkafani_roundhouse_8: 6186527460292255920
+      latkafani_roundhouse_9: -7540099202030388871
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

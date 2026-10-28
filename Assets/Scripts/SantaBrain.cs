@@ -630,7 +630,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
             case Hit.Knock: if (!hero.TakeKnockdown(dmg, me.x, a.knockSpeed, a.knockUp, e, cur.kind == Kind.Bump)) hero.TakeHit(dmg, me.x, e, follow); break;
             case Hit.Upper:
                 // lennättää ruudun poikki; lentävä hero kaataa muut matkallaan (Update)
-                if (hero.TakeKnockdown(dmg, me.x, upperLaunchX, upperLaunchUp, e)) { bowlHero = hero; bowlUntil = Time.time + 1.6f; bowled.Clear(); }
+                if (hero.TakeKnockdown(dmg, me.x, Mathf.Max(upperLaunchX, 34f), Mathf.Max(upperLaunchUp, 8.5f), e)) { bowlHero = hero; bowlUntil = Time.time + 2.4f; bowled.Clear(); }   // moukarilyönti lennättää hirvittävän kauas (scenen arvot 17/6,5 olivat liian pienet)
                 break;
         }
     }
@@ -650,7 +650,16 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
             if (f.IsDownOrDead) continue;
             foesHit.Add(f);
             Enemy.EnemyHits(f, dmg, me.x, true);
+            LaunchFoe(f, a, me.x);
         }
+    }
+
+    /// Moukarilyönti (alakoukku) lennättää vihun yhtä kauas kuin heron.
+    void LaunchFoe(Enemy f, Atk a, float meX)
+    {
+        if (f == null || a.hit != Hit.Upper) return;
+        float dir = f.transform.position.x >= meX ? 1f : -1f;
+        f.Launch(dir * Mathf.Max(upperLaunchX, 34f), Mathf.Max(upperLaunchUp, 8.5f));
     }
 
     void TryHitFoe(Atk a)
@@ -663,6 +672,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
         heroHit = true;
         int dmg = a.damage + (cur.finisher ? finisherBonus : 0);
         Enemy.EnemyHits(foe, dmg, me.x, a.hit != Hit.Normal);
+        LaunchFoe(foe, a, me.x);
         if (a.hit != Hit.Normal && (++hitVoiceCount % 2) == 0) Say(hitSound);   // joka toinen kaatava osuma (vihuun)
     }
 

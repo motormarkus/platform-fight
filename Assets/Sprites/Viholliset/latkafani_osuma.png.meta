@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 87bea9bdd0ab6f841851a786658f11a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3983889990021963045
+    second: latkafani_osuma_0
+  - first:
+      213: -4816367470145073421
+    second: latkafani_osuma_1
+  - first:
+      213: -2424262770823713320
+    second: latkafani_osuma_2
+  - first:
+      213: -6752249232757129519
+    second: latkafani_osuma_3
+  - first:
+      213: 2034335730737955609
+    second: latkafani_osuma_4
+  - first:
+      213: -2634908622506984557
+    second: latkafani_osuma_5
+  - first:
+      213: -8733659319493329779
+    second: latkafani_osuma_6
+  - first:
+      213: -4509066051326553036
+    second: latkafani_osuma_7
+  - first:
+      213: 9063735748596510723
+    second: latkafani_osuma_8
+  - first:
+      213: -3104116170893602723
+    second: latkafani_osuma_9
+  - first:
+      213: 6268935847549175312
+    second: latkafani_osuma_10
+  - first:
+      213: 5914646265798985389
+    second: latkafani_osuma_11
+  - first:
+      213: 6416229656614194818
+    second: latkafani_osuma_12
+  - first:
+      213: 5038915420819689872
+    second: latkafani_osuma_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_osuma_0
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 18
+        width: 512
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 42, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d5e7f96de994730800000000000000
+      internalID: 3983889990021963045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_1
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 18
+        width: 512
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 42, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe814add43d82db0800000000000000
+      internalID: -4816367470145073421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_2
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 6
+        width: 504
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 38, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd29deaad94b5ed0800000000000000
+      internalID: -2424262770823713320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_3
+      rect:
+        serializedVersion: 2
+        x: 2284
+        y: 648
+        width: 494
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 33, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de7b9609113b42a0800000000000000
+      internalID: -6752249232757129519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_4
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 643
+        width: 466
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 19, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913458891996b3c10800000000000000
+      internalID: 2034335730737955609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 642
+        width: 450
+        height: 642
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b7bd3719cee6bd0800000000000000
+      internalID: -2634908622506984557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_6
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 643
+        width: 448
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 10, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cf1503f1fcbc680800000000000000
+      internalID: -8733659319493329779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_7
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 644
+        width: 448
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 10, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43458edf0549c61c0800000000000000
+      internalID: -4509066051326553036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_8
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 646
+        width: 448
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 10, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300ba1144abd8cd70800000000000000
+      internalID: 9063735748596510723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_9
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 648
+        width: 448
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 10, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d505754f9c6fbe4d0800000000000000
+      internalID: -3104116170893602723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_10
+      rect:
+        serializedVersion: 2
+        x: 3236
+        y: 650
+        width: 456
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01681e860fbbff650800000000000000
+      internalID: 6268935847549175312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 464
+        height: 632
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 2, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da60a0d017b051250800000000000000
+      internalID: 5914646265798985389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_12
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 10
+        width: 478
+        height: 626
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 6, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ec0d7c0e60b0950800000000000000
+      internalID: 6416229656614194818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_osuma_13
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 14
+        width: 490
+        height: 622
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 13, z: 11, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091123fb0e2dde540800000000000000
+      internalID: 5038915420819689872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 45ea25f8845c0ef459063e5e6d99d6ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_osuma_0: 3983889990021963045
+      latkafani_osuma_1: -4816367470145073421
+      latkafani_osuma_10: 6268935847549175312
+      latkafani_osuma_11: 5914646265798985389
+      latkafani_osuma_12: 6416229656614194818
+      latkafani_osuma_13: 5038915420819689872
+      latkafani_osuma_2: -2424262770823713320
+      latkafani_osuma_3: -6752249232757129519
+      latkafani_osuma_4: 2034335730737955609
+      latkafani_osuma_5: -2634908622506984557
+      latkafani_osuma_6: -8733659319493329779
+      latkafani_osuma_7: -4509066051326553036
+      latkafani_osuma_8: 9063735748596510723
+      latkafani_osuma_9: -3104116170893602723
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

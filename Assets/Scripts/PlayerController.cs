@@ -1853,6 +1853,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     void Update()
     {
+#if UNITY_EDITOR
+        if (playerIndex == 0 && Keyboard.current != null && Keyboard.current.f9Key.wasPressedThisFrame) money += 1000;   // testausta varten: F9 = +1000 mk (vain editorissa)
+#endif
         if (PokerService.BlocksCombat) return;
         float dt = Time.deltaTime * (Boosted ? boostHeroSpeed : 1f);   // pärinä: kaikki liikkeet nopeutuvat
         heroDt = dt;
@@ -2992,7 +2995,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     if (slideOnLand) HitFx.OnHitQuiet();   // liukuheitto: ei pysäytystä maahan osuessa, liuku alkaa heti
                     else { HitFx.OnHit(true); if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.25f); }
                     ApplyDamage(pendingDamage);
-                    slideVel = slideOnLand ? airVel * (1.35f * slideScale) : Vector2.zero; slideOnLand = false;
+                    slideVel = slideOnLand ? airVel * (1.35f * slideScale) : SoftSlide(airVel); slideOnLand = false;
                     if (slideVel != Vector2.zero) DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
                     Enter(State.Down);
                 }
@@ -3303,6 +3306,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (Mathf.Abs(q.x - me.x) < 1.1f && Mathf.Abs(q.y - me.y) < 0.6f) ch.Knock(me.x - Mathf.Sign(slideVel.x), false);
         }
     }
+    /// Kulmassa maahan tullessa liukuu vähän: pienestä iskusta pari askelta, kovasta (alakoukku) pitkälle.
+    static Vector2 SoftSlide(Vector2 v)
+    {
+        float sp = Mathf.Abs(v.x);
+        if (sp < 2.5f) return Vector2.zero;
+        return new Vector2(v.x, 0f) * Mathf.Lerp(0.3f, 0.5f, Mathf.InverseLerp(6f, 30f, sp));
+    }
     Vector2 slideVel; bool slideOnLand; float slideScale = 1f;   // liukuheitto (kapteeni): lattialla liukuu heittäjästä poispäin
     public void Throw(float vx, float up, int damage, bool slide = false, float slideDist = 1f)
     {
@@ -3420,6 +3430,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     }
 
     public void AddMoney(int amount) { money += amount; }
+    [ContextMenu("Lisää 1000 mk")] void Add1000Marks() { money += 1000; }   // testausta varten: Playssa hahmon (Player) komponentin kolmen pisteen valikosta
     int healthBoost;
     public const int MaxHealthCap = 400;
     /// Voimakuvake: energiapalkki pitenee (ja täyttyy saman verran).
@@ -5317,6 +5328,9 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return (Mathf.Sin(t * 2.1f) * 5f + Mathf.Sin(t * 0.9f) * 3f) * (moving ? 1.4f : 1f) + lean;
     }
 
+    Vector2 iceVel; float iceStamp = -99f;   // liukas pinta (Area.slippery): nykyinen vauhti
+    bool OnIce => Area.Current != null && Area.Current.slippery;
+
     void Walk(Vector2 move, float dt)
     {
         move = DrunkSway(move);
@@ -5324,13 +5338,33 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         running = moving && RunHeld() && Mathf.Abs(move.x) > 0.1f && stamina > 0f;   // stamina loppu: kävellään
         DrunkRun(dt);
         DrunkIdle(dt);
-        if (!moving) return;
+        bool ice = OnIce;
+        if (!ice || Time.time - iceStamp > 0.25f) iceVel = Vector2.zero;   // tauko muissa tiloissa: vauhti nollataan
+        if (ice) iceStamp = Time.time;
+        if (!moving)
+        {
+            if (ice && iceVel.sqrMagnitude > 0.0004f)
+            {
+                iceVel = Vector2.MoveTowards(iceVel, Vector2.zero, Area.Current.iceGlide * dt);
+                Vector3 b0 = transform.position;
+                MoveOnGround(iceVel * dt);
+                if (Mathf.Abs(transform.position.x - b0.x) < Mathf.Abs(iceVel.x * dt) * 0.3f) iceVel.x = 0f;   // seinä: vauhti loppuu
+                if (Mathf.Abs(transform.position.y - b0.y) < Mathf.Abs(iceVel.y * dt) * 0.3f) iceVel.y = 0f;
+                moving = iceVel.sqrMagnitude > 0.04f;   // liukuessa kävelykuvat
+            }
+            return;
+        }
         if (Mathf.Abs(move.x) > 0.1f) { bool nf = move.x > 0; if (nf != facingRight) lastTurnTime = Time.time; facingRight = nf; }
         // Ruby etenee hieman pidemmälle samalla askelsyklillä, jotta jalat eivät polje paikallaan.
         float walkPace = AppliedCharacter == 1 && !running ? 1.12f : 1f;
         float sx = moveSpeedX * (running ? runSpeedMultiplier : walkPace);
         float sy = moveSpeedY * (running ? runDepthMultiplier : walkPace);
         lastGroundVel = new Vector2(move.x * sx, move.y * sy);
+        if (ice)
+        {
+            iceVel = Vector2.MoveTowards(iceVel, lastGroundVel, Area.Current.iceAccel * dt);
+            lastGroundVel = iceVel;
+        }
         Vector3 beforeMove = transform.position;
         MoveOnGround(lastGroundVel * dt);
         if (AppliedCharacter == 1 && !running)

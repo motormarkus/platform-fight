@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: dc006cabcf878444ba2342db625638c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8699489381332789916
+    second: latkafani_hengitys_0
+  - first:
+      213: -3508015811715132512
+    second: latkafani_hengitys_1
+  - first:
+      213: -431673729102814287
+    second: latkafani_hengitys_2
+  - first:
+      213: 7408210232846439400
+    second: latkafani_hengitys_3
+  - first:
+      213: -9148382836978141826
+    second: latkafani_hengitys_4
+  - first:
+      213: 3418974607572401928
+    second: latkafani_hengitys_5
+  - first:
+      213: -7148616905371663688
+    second: latkafani_hengitys_6
+  - first:
+      213: -2085195635650650866
+    second: latkafani_hengitys_7
+  - first:
+      213: -393351419005063554
+    second: latkafani_hengitys_8
+  - first:
+      213: -3632615906367216564
+    second: latkafani_hengitys_9
+  - first:
+      213: -8728389959646173913
+    second: latkafani_hengitys_10
+  - first:
+      213: -1830252807780392182
+    second: latkafani_hengitys_11
+  - first:
+      213: 4413955969140419719
+    second: latkafani_hengitys_12
+  - first:
+      213: 5837995209795792348
+    second: latkafani_hengitys_13
+  - first:
+      213: 3404832953266467969
+    second: latkafani_hengitys_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: latkafani_hengitys_0
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 14
+        width: 510
+        height: 618
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 42, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9aaf9d108bcab870800000000000000
+      internalID: 8699489381332789916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_1
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 13
+        width: 508
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 41, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3144c9436015fc0800000000000000
+      internalID: -3508015811715132512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_2
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 9
+        width: 500
+        height: 623
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 37, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b365fdc703620af0800000000000000
+      internalID: -431673729102814287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 490
+        height: 627
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 32, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e3d936d4ff3fc660800000000000000
+      internalID: 7408210232846439400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_4
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 654
+        width: 476
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 25, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7533aca74a6a0180800000000000000
+      internalID: -9148382836978141826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_5
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 647
+        width: 464
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 19, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ffe648a43a27f20800000000000000
+      internalID: 3418974607572401928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_6
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 641
+        width: 460
+        height: 647
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 17, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b248ffacc20bcc90800000000000000
+      internalID: -7148616905371663688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 638
+        width: 458
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 16, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d19d10e95ef03e0800000000000000
+      internalID: -2085195635650650866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 637
+        width: 464
+        height: 651
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 19, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7eae4ee7f88a8af0800000000000000
+      internalID: -393351419005063554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_9
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 640
+        width: 474
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 24, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c446c8f541b569dc0800000000000000
+      internalID: -3632615906367216564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_10
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 648
+        width: 482
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 28, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7252432a3978ed680800000000000000
+      internalID: -8728389959646173913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_11
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 655
+        width: 490
+        height: 633
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 32, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03a617b4c2a996e0800000000000000
+      internalID: -1830252807780392182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_12
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 6
+        width: 496
+        height: 626
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 35, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c64da5195814d30800000000000000
+      internalID: 4413955969140419719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 10
+        width: 494
+        height: 622
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 34, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd6f4856b9b40150800000000000000
+      internalID: 5837995209795792348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: latkafani_hengitys_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 10
+        width: 488
+        height: 622
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184fdfa0885604f20800000000000000
+      internalID: 3404832953266467969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e579f4ad4840dba4187d45f68260f2c5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      latkafani_hengitys_0: 8699489381332789916
+      latkafani_hengitys_1: -3508015811715132512
+      latkafani_hengitys_10: -8728389959646173913
+      latkafani_hengitys_11: -1830252807780392182
+      latkafani_hengitys_12: 4413955969140419719
+      latkafani_hengitys_13: 5837995209795792348
+      latkafani_hengitys_14: 3404832953266467969
+      latkafani_hengitys_2: -431673729102814287
+      latkafani_hengitys_3: 7408210232846439400
+      latkafani_hengitys_4: -9148382836978141826
+      latkafani_hengitys_5: 3418974607572401928
+      latkafani_hengitys_6: -7148616905371663688
+      latkafani_hengitys_7: -2085195635650650866
+      latkafani_hengitys_8: -393351419005063554
+      latkafani_hengitys_9: -3632615906367216564
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
