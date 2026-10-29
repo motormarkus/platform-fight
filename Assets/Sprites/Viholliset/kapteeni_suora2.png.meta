@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 1f0675b2b90e1a44daee1dd83a5aa5ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1581051863833212974
+    second: kapteeni_suora2_0
+  - first:
+      213: 9107180184342467389
+    second: kapteeni_suora2_1
+  - first:
+      213: -6980976710898046160
+    second: kapteeni_suora2_2
+  - first:
+      213: 9006610305501372314
+    second: kapteeni_suora2_3
+  - first:
+      213: -6065887579794113091
+    second: kapteeni_suora2_4
+  - first:
+      213: 1278651115528393802
+    second: kapteeni_suora2_5
+  - first:
+      213: -3665721101468212244
+    second: kapteeni_suora2_6
+  - first:
+      213: 5980809507473088622
+    second: kapteeni_suora2_7
+  - first:
+      213: 8966114801426732037
+    second: kapteeni_suora2_8
+  - first:
+      213: -2301767597974317114
+    second: kapteeni_suora2_9
+  - first:
+      213: 5411491159909655382
+    second: kapteeni_suora2_10
+  - first:
+      213: 5012509450183187087
+    second: kapteeni_suora2_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kapteeni_suora2_0
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 658
+        width: 540
+        height: 658
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 27, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e287f3b1b4601f510800000000000000
+      internalID: 1581051863833212974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_1
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 660
+        width: 518
+        height: 656
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 12, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3395313024336e70800000000000000
+      internalID: 9107180184342467389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_2
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 664
+        width: 526
+        height: 652
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ba5a11ba69e1f90800000000000000
+      internalID: -6980976710898046160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_3
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 667
+        width: 538
+        height: 649
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f18c19a58edfc70800000000000000
+      internalID: 9006610305501372314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 636
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 47, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdfae67263a1dba0800000000000000
+      internalID: -6065887579794113091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_5
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 11
+        width: 666
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 57, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a441abc3a6eaeb110800000000000000
+      internalID: 1278651115528393802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_6
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 14
+        width: 658
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 51, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3655d741eb02dc0800000000000000
+      internalID: -3665721101468212244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_7
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 15
+        width: 620
+        height: 637
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 35, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6066323f8a100350800000000000000
+      internalID: 5980809507473088622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 9
+        width: 562
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504996a48e90e6c70800000000000000
+      internalID: 8966114801426732037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_9
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 666
+        width: 544
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 2, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c79c3f909a7e00e0800000000000000
+      internalID: -2301767597974317114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_10
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 658
+        width: 538
+        height: 658
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653e493e98a791b40800000000000000
+      internalID: 5411491159909655382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_suora2_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 656
+        width: 564
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 25, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a157b99c2009540800000000000000
+      internalID: 5012509450183187087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 14d82c50f74c50a46a630e8183892fff
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kapteeni_suora2_0: 1581051863833212974
+      kapteeni_suora2_1: 9107180184342467389
+      kapteeni_suora2_10: 5411491159909655382
+      kapteeni_suora2_11: 5012509450183187087
+      kapteeni_suora2_2: -6980976710898046160
+      kapteeni_suora2_3: 9006610305501372314
+      kapteeni_suora2_4: -6065887579794113091
+      kapteeni_suora2_5: 1278651115528393802
+      kapteeni_suora2_6: -3665721101468212244
+      kapteeni_suora2_7: 5980809507473088622
+      kapteeni_suora2_8: 8966114801426732037
+      kapteeni_suora2_9: -2301767597974317114
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

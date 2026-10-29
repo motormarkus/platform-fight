@@ -139,6 +139,19 @@ public class Crate : MonoBehaviour
     // ---- vihollisen (Rottakeisari) tynnyrityö ----
     /// Tynnyri (vierii): ei hajoa.
     public bool IsBarrel => HasRoll;
+
+    static AudioClip[] barrelClips; static int lastBarrelClip = -1;
+    /// Tynnyrin kolme metalliääntä (Resources/Sfx/Barrel): potkusta, iskusta, heitosta ja osumasta viholliseen.
+    void PlayBarrel()
+    {
+        if (!HasRoll || breakable) return;
+        if (barrelClips == null) barrelClips = Resources.LoadAll<AudioClip>("Sfx/Barrel");
+        if (barrelClips.Length == 0) return;
+        int i = Random.Range(0, barrelClips.Length);
+        if (barrelClips.Length > 1 && i == lastBarrelClip) i = (i + 1) % barrelClips.Length;
+        lastBarrelClip = i;
+        HitFx.PlayClip(barrelClips[i], Random.Range(0.8f, 0.95f));
+    }
     /// Tynnyri seisoo paikallaan ja sen voi potkaista liikkeelle.
     public bool IsKickable => HasRoll && state == State.Idle && stackedOn == null;
     /// Pelaajan potkaisema tai heittämä tynnyri liikkuu (lentää tai vierii).
@@ -155,6 +168,7 @@ public class Crate : MonoBehaviour
         alreadyHit.Clear(); alreadyHitLinsey.Clear(); alreadyHitPlayer = false;
         state = State.Rolling; stateTime = 0f;
         Disturb++; shakeTimer = 0.15f;
+        PlayBarrel();
         return true;
     }
 
@@ -197,6 +211,7 @@ public class Crate : MonoBehaviour
                 alreadyHit.Clear(); alreadyHitLinsey.Clear();
                 state = State.Rolling;
                 stateTime = 0f;
+                PlayBarrel();
             }
             return true;
         }
@@ -249,6 +264,7 @@ public class Crate : MonoBehaviour
         if (carryLower > 0f && !carryUpsideDown && by == null) height = Mathf.Max(1.2f, height - 0.6f);
         state = State.Flying;
         stateTime = 0f;
+        PlayBarrel();
     }
 
     /// Pelaaja pudottaa laatikon (esim. saa osuman): putoaa ehjänä maahan.
@@ -364,6 +380,7 @@ public class Crate : MonoBehaviour
                         // tynnyri pomppaa kerran ja vierii vähän
                         verticalVel = -verticalVel * 0.3f;
                         vel.x *= 0.5f;
+                        PlayBarrel();
                         shakeTimer = 0.1f;
                         if (CameraFollow.Instance != null) CameraFollow.Shake(0.06f, 0.1f);
                     }
@@ -432,6 +449,7 @@ public class Crate : MonoBehaviour
         }
         if (any)
         {
+            PlayBarrel();
             if (firstHit) HitFx.OnHit(true);
             else HitFx.OnHitQuiet();   // joukon läpi lentäessä seuraavat osumat vain äänenä, ettei peli nykisi
         }
@@ -447,6 +465,7 @@ public class Crate : MonoBehaviour
         if (player.AirHeight > height + 1.2f) return false;   // hypyllä yli
         if (!player.TakeKnockdown(enemyDamage, me.x - Mathf.Sign(vel.x), 7f, 5f)) return false;
         alreadyHitPlayer = true;
+        PlayBarrel();
         return true;
     }
     bool alreadyHitPlayer;

@@ -2151,11 +2151,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 // kombon saksipotku: potku ilmassa (ensimmäisen potkun jälkeen) jonoon -> viimeinen korkea potku alastulon jälkeen
                 if (scissor && comboScissor && kickPressed && scissorTime >= ScissorKick1Start) comboFinisherQueued = true;
-                if (height <= 0f) { height = 0f; landedFromScissor = scissor; scissor = false; Enter(State.Landing); }
+                if (height <= 0f) { height = 0f; landedFromScissor = scissor; scissor = false; if (OnIce && !Skating) { iceVel = airVel * 1.25f; iceStamp = Time.time; } Enter(State.Landing); }
                 break;
 
             case State.Landing:
                 if (Skating) MoveOnGround(skateVel * dt);   // laudalla vauhti jatkuu alastulossa (ei jämähdä paikalleen)
+                else if (OnIce && iceVel.sqrMagnitude > 0.0004f)
+                {   // jäällä alastulo liukuu: hyppyvauhti jatkuu hiipuen
+                    iceVel = Vector2.MoveTowards(iceVel, Vector2.zero, Area.Current.GlideNow * dt); iceStamp = Time.time;
+                    MoveOnGround(iceVel * dt);
+                }
                 if (comboScissor && landedFromScissor && stateTime >= landingTime * 0.4f)
                 {
                     comboScissor = false;
@@ -2408,11 +2413,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     float k = stateTime / airEnd;
                     height = Mathf.Sin(k * Mathf.PI) * dropKickHeight;
                     MoveOnGround(new Vector2(dir * dropKickSpeed * (1f - 0.5f * k) * dt, 0f));
+                    dkSlide = dir * dropKickSpeed * (1f - 0.5f * k);
                 }
                 else
                 {
                     height = 0f;
-                    if (!dropKickLandsOnFeet) MoveOnGround(new Vector2(dir * dropKickSpeed * 0.25f * Mathf.Max(0f, 1f - (stateTime - airEnd) * 4f) * dt, 0f));   // liukuu selällään
+                    if (!dropKickLandsOnFeet && OnIce)
+                    {   // jäällä selällään liukuminen jatkuu pitkälle (myös ylösnousun aikana)
+                        dkSlide = Mathf.MoveTowards(dkSlide, 0f, 2.5f * dt); MoveOnGround(new Vector2(dkSlide * dt, 0f));
+                    }
+                    else if (!dropKickLandsOnFeet) MoveOnGround(new Vector2(dir * dropKickSpeed * 0.25f * Mathf.Max(0f, 1f - (stateTime - airEnd) * 4f) * dt, 0f));   // liukuu selällään
                 }
                 float hitFrom = ThrowPose.Start(dkt, 1), hitTo = dropKickLandsOnFeet ? ThrowPose.Start(dkt, 4) : airEnd;
                 if (!dropKickHit && stateTime >= hitFrom && stateTime <= hitTo)
@@ -3040,6 +3050,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 break;
 
             case State.KipUp:
+                if (kipUpAfterOwnThrow && OnIce && Mathf.Abs(dkSlide) > 0.05f) { dkSlide = Mathf.MoveTowards(dkSlide, 0f, 2.5f * dt); MoveOnGround(new Vector2(dkSlide * dt, 0f)); }
                 if (getupSweep && kipUpTimes != null && !kipUpAfterOwnThrow && !drunkGetUp)
                 {
                     // jalat pyörivät kuvissa 8–23: osuu niiden aikana
@@ -5328,6 +5339,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return (Mathf.Sin(t * 2.1f) * 5f + Mathf.Sin(t * 0.9f) * 3f) * (moving ? 1.4f : 1f) + lean;
     }
 
+    float dkSlide;   // tuplapotkun liuku jäällä
     Vector2 iceVel; float iceStamp = -99f;   // liukas pinta (Area.slippery): nykyinen vauhti
     bool OnIce => Area.Current != null && Area.Current.slippery;
 
@@ -5345,7 +5357,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         {
             if (ice && iceVel.sqrMagnitude > 0.0004f)
             {
-                iceVel = Vector2.MoveTowards(iceVel, Vector2.zero, Area.Current.iceGlide * dt);
+                iceVel = Vector2.MoveTowards(iceVel, Vector2.zero, Area.Current.GlideNow * dt);
                 Vector3 b0 = transform.position;
                 MoveOnGround(iceVel * dt);
                 if (Mathf.Abs(transform.position.x - b0.x) < Mathf.Abs(iceVel.x * dt) * 0.3f) iceVel.x = 0f;   // seinä: vauhti loppuu
@@ -5362,7 +5374,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         lastGroundVel = new Vector2(move.x * sx, move.y * sy);
         if (ice)
         {
-            iceVel = Vector2.MoveTowards(iceVel, lastGroundVel, Area.Current.iceAccel * dt);
+            iceVel = Vector2.MoveTowards(iceVel, lastGroundVel, Area.Current.AccelNow * dt);
             lastGroundVel = iceVel;
         }
         Vector3 beforeMove = transform.position;

@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 992f3ac4494aeba4383bc57695bcef09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2487239260434405828
+    second: apuri_nyrkki_suora2_0
+  - first:
+      213: 8349026106780416449
+    second: apuri_nyrkki_suora2_1
+  - first:
+      213: -3825711952466396808
+    second: apuri_nyrkki_suora2_2
+  - first:
+      213: -1622612934658751689
+    second: apuri_nyrkki_suora2_3
+  - first:
+      213: -3346074124640588044
+    second: apuri_nyrkki_suora2_4
+  - first:
+      213: -7259532740061442989
+    second: apuri_nyrkki_suora2_5
+  - first:
+      213: -5174170952883336521
+    second: apuri_nyrkki_suora2_6
+  - first:
+      213: -8322138248277167336
+    second: apuri_nyrkki_suora2_7
+  - first:
+      213: 2562455597326300259
+    second: apuri_nyrkki_suora2_8
+  - first:
+      213: 1306308931582330246
+    second: apuri_nyrkki_suora2_9
+  - first:
+      213: -6972843250546087559
+    second: apuri_nyrkki_suora2_10
+  - first:
+      213: -5061226878910863922
+    second: apuri_nyrkki_suora2_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 560
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 55, y: 14, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36e662121d8b7dd0800000000000000
+      internalID: -2487239260434405828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_1
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 641
+        width: 508
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 29, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c9fb135203bdd370800000000000000
+      internalID: 8349026106780416449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_2
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 641
+        width: 640
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 95, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879364caf3758eac0800000000000000
+      internalID: -3825711952466396808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_3
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 642
+        width: 646
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 99, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73306b502225b79e0800000000000000
+      internalID: -1622612934658751689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_4
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 643
+        width: 644
+        height: 633
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 97, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4feeba8df4b5091d0800000000000000
+      internalID: -3346074124640588044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 640
+        height: 632
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 95, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35cc1518f65f04b90800000000000000
+      internalID: -7259532740061442989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_6
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 5
+        width: 638
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 93, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba8e3aaee6a138b0800000000000000
+      internalID: -5174170952883336521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_7
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 5
+        width: 640
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 93, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8137fb31b53d18c80800000000000000
+      internalID: -8322138248277167336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_8
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 7
+        width: 612
+        height: 629
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 79, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364785f0acbaf8320800000000000000
+      internalID: 2562455597326300259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_9
+      rect:
+        serializedVersion: 2
+        x: 2548
+        y: 8
+        width: 598
+        height: 628
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 72, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68582e95d01f02210800000000000000
+      internalID: 1306308931582330246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_10
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 8
+        width: 598
+        height: 628
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 72, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97968b0e10c7b3f90800000000000000
+      internalID: -6972843250546087559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_suora2_11
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 643
+        width: 500
+        height: 633
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 24, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5ebda18f8e2c9b0800000000000000
+      internalID: -5061226878910863922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 787ffd56057e3c14288d2e65c423772d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apuri_nyrkki_suora2_0: -2487239260434405828
+      apuri_nyrkki_suora2_1: 8349026106780416449
+      apuri_nyrkki_suora2_10: -6972843250546087559
+      apuri_nyrkki_suora2_11: -5061226878910863922
+      apuri_nyrkki_suora2_2: -3825711952466396808
+      apuri_nyrkki_suora2_3: -1622612934658751689
+      apuri_nyrkki_suora2_4: -3346074124640588044
+      apuri_nyrkki_suora2_5: -7259532740061442989
+      apuri_nyrkki_suora2_6: -5174170952883336521
+      apuri_nyrkki_suora2_7: -8322138248277167336
+      apuri_nyrkki_suora2_8: 2562455597326300259
+      apuri_nyrkki_suora2_9: 1306308931582330246
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

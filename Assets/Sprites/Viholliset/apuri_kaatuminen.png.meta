@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 2183eb5f1a5b8694bb9f4582736a1b44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2362890925506710851
+    second: apuri_kaatuminen_0
+  - first:
+      213: -2170389538797475412
+    second: apuri_kaatuminen_1
+  - first:
+      213: 8616476397303496621
+    second: apuri_kaatuminen_2
+  - first:
+      213: 1490477954508376843
+    second: apuri_kaatuminen_3
+  - first:
+      213: -7567348601145474070
+    second: apuri_kaatuminen_4
+  - first:
+      213: -3228940014675104324
+    second: apuri_kaatuminen_5
+  - first:
+      213: -8666180223638537424
+    second: apuri_kaatuminen_6
+  - first:
+      213: 1278071281898600748
+    second: apuri_kaatuminen_7
+  - first:
+      213: 7877119360078249799
+    second: apuri_kaatuminen_8
+  - first:
+      213: 8704311500623409584
+    second: apuri_kaatuminen_9
+  - first:
+      213: 5173353641115510387
+    second: apuri_kaatuminen_10
+  - first:
+      213: 1926466763565524954
+    second: apuri_kaatuminen_11
+  - first:
+      213: -7174787159076925255
+    second: apuri_kaatuminen_12
+  - first:
+      213: 8941877566409873755
+    second: apuri_kaatuminen_13
+  - first:
+      213: 8872236937165738873
+    second: apuri_kaatuminen_14
+  - first:
+      213: 8966157301744993000
+    second: apuri_kaatuminen_15
+  - first:
+      213: 1885064228927615317
+    second: apuri_kaatuminen_16
+  - first:
+      213: -5066201214186074875
+    second: apuri_kaatuminen_17
+  - first:
+      213: -6950659935343759002
+    second: apuri_kaatuminen_18
+  - first:
+      213: -2372996638877280680
+    second: apuri_kaatuminen_19
+  - first:
+      213: -3631679054167545617
+    second: apuri_kaatuminen_20
+  - first:
+      213: -6233474263296178631
+    second: apuri_kaatuminen_21
+  - first:
+      213: 4840823426331054746
+    second: apuri_kaatuminen_22
+  - first:
+      213: -1949252817272573082
+    second: apuri_kaatuminen_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apuri_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1771
+        width: 732
+        height: 669
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 75, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d42d117ccaac020800000000000000
+      internalID: 2362890925506710851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1780
+        width: 742
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 62, y: 9, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9a0c3b63a31e1e0800000000000000
+      internalID: -2170389538797475412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 1794
+        width: 752
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 50, y: 9, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafffcc91afd39770800000000000000
+      internalID: 8616476397303496621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1806
+        width: 758
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 40, y: 8, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bc5008dcd3fa410800000000000000
+      internalID: 1490477954508376843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 1840
+        width: 776
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 26, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae3cc217a806bf690800000000000000
+      internalID: -7567348601145474070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1189
+        width: 786
+        height: 575
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 20, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdee301a208033d0800000000000000
+      internalID: -3228940014675104324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1276
+        width: 784
+        height: 488
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 20, z: 9, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b7282800b8bb780800000000000000
+      internalID: -8666180223638537424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1231
+        width: 726
+        height: 533
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 29, z: 75, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c29b1333f0f9cb110800000000000000
+      internalID: 1278071281898600748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 345
+        width: 676
+        height: 359
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 23, z: 141, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ff0deb256215d60800000000000000
+      internalID: 7877119360078249799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1233
+        width: 712
+        height: 531
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 158, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b17101413debc870800000000000000
+      internalID: 8704311500623409584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 738
+        width: 752
+        height: 446
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 18, z: 151, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376e92c1ab17bc740800000000000000
+      internalID: 5173353641115510387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 310
+        width: 768
+        height: 394
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 149, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad76be9805f2cba10800000000000000
+      internalID: 1926466763565524954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 3112
+        y: 743
+        width: 790
+        height: 441
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 20, z: 148, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b09f2ca7190e6c90800000000000000
+      internalID: -7174787159076925255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 723
+        width: 788
+        height: 461
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 154, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5915e2454ee71c70800000000000000
+      internalID: 8941877566409873755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 1290
+        width: 780
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 163, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9731ddabc74802b70800000000000000
+      internalID: 8872236937165738873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 711
+        width: 780
+        height: 473
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 165, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e209caaf803e6c70800000000000000
+      internalID: 8966157301744993000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 727
+        width: 774
+        height: 457
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 10, z: 168, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 551b600cde7192a10800000000000000
+      internalID: 1885064228927615317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 750
+        height: 424
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 9, z: 181, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d49cb66dc31b9b0800000000000000
+      internalID: -5066201214186074875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_18
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 305
+        width: 728
+        height: 399
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 9, z: 192, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661bb4f6d9b4a8f90800000000000000
+      internalID: -6950659935343759002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_19
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 378
+        width: 712
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 202, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856168e212c611fd0800000000000000
+      internalID: -2372996638877280680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 714
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 201, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8ed16442fa99dc0800000000000000
+      internalID: -3631679054167545617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_21
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 76
+        width: 722
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 197, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93601b31f204e79a0800000000000000
+      internalID: -6233474263296178631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_22
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 76
+        width: 724
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 196, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a921ada224f0e2340800000000000000
+      internalID: 4840823426331054746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_kaatuminen_23
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 76
+        width: 724
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 196, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663f909e3ecd2f4e0800000000000000
+      internalID: -1949252817272573082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9261b49c6098b114d9a64f29049fdaed
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apuri_kaatuminen_0: 2362890925506710851
+      apuri_kaatuminen_1: -2170389538797475412
+      apuri_kaatuminen_10: 5173353641115510387
+      apuri_kaatuminen_11: 1926466763565524954
+      apuri_kaatuminen_12: -7174787159076925255
+      apuri_kaatuminen_13: 8941877566409873755
+      apuri_kaatuminen_14: 8872236937165738873
+      apuri_kaatuminen_15: 8966157301744993000
+      apuri_kaatuminen_16: 1885064228927615317
+      apuri_kaatuminen_17: -5066201214186074875
+      apuri_kaatuminen_18: -6950659935343759002
+      apuri_kaatuminen_19: -2372996638877280680
+      apuri_kaatuminen_2: 8616476397303496621
+      apuri_kaatuminen_20: -3631679054167545617
+      apuri_kaatuminen_21: -6233474263296178631
+      apuri_kaatuminen_22: 4840823426331054746
+      apuri_kaatuminen_23: -1949252817272573082
+      apuri_kaatuminen_3: 1490477954508376843
+      apuri_kaatuminen_4: -7567348601145474070
+      apuri_kaatuminen_5: -3228940014675104324
+      apuri_kaatuminen_6: -8666180223638537424
+      apuri_kaatuminen_7: 1278071281898600748
+      apuri_kaatuminen_8: 7877119360078249799
+      apuri_kaatuminen_9: 8704311500623409584
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

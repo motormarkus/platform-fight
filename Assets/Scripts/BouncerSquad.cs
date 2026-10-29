@@ -22,6 +22,8 @@ public class BouncerSquad : MonoBehaviour
     [Tooltip("Aallot: montako tulee kerralla (esim. 3, 3, 2). Seuraava aalto, kun edellisistä on pystyssä enää waveNextAt. Tyhjä = kaikki peräkkäin.")]
     public int[] waves;
     public int waveNextAt = 1;
+    [Tooltip("Tauko (s) edellisen aallon viimeisestä portsarista seuraavan aallon alkuun.")]
+    public float wavePause = 0f;
     [Tooltip("Tulevat ruudun vasemmasta reunasta (esim. laivan keulan puolelta), eivät omista paikoistaan.")]
     public bool fromLeftEdge;
     [Tooltip("Tulevat taustakuvan oikeasta reunasta (esim. salin perältä).")]
@@ -107,6 +109,7 @@ public class BouncerSquad : MonoBehaviour
                 int up = 0;
                 for (int i = 0; i < next; i++) if (bouncers[i] != null && !bouncers[i].IsDead) up++;
                 if (up > waveNextAt) return;
+                if (Time.time < lastSpawnTime + wavePause) return;
                 waveIndex++;
                 waveLeft = waves[Mathf.Min(waveIndex, waves.Length - 1)];
                 if (waveIndex >= waves.Length - 1) SendHelpers();

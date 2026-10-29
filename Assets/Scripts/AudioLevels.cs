@@ -56,7 +56,7 @@ public static class AudioLevels
     public static float MusicDuck = 0.55f;
     public static bool CrowdLimiter = true;
     /// Vihujen puheiden (ja puheena merkittyjen huutojen) lisävahvistus; PlayOneShotin voimakkuus saa ylittää 1:n.
-    public static float SpeechBoost = 1.6f;
+    public static float SpeechBoost = 1.3f;
 
     /// AudioSource.PlayOneShot tasatulla voimakkuudella.
     public static void PlayOneShotLeveled(this AudioSource source, AudioClip clip, float volume = 1f, bool speech = false)

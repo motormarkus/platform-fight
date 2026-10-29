@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 26e9199ed30f8e541addf19d14493a55
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5651011109506428676
+    second: kapteeni_maahan_0
+  - first:
+      213: 4421291743442182169
+    second: kapteeni_maahan_1
+  - first:
+      213: -6806516128810088205
+    second: kapteeni_maahan_2
+  - first:
+      213: -5720852901622095174
+    second: kapteeni_maahan_3
+  - first:
+      213: 4322431779521820612
+    second: kapteeni_maahan_4
+  - first:
+      213: -2477348396698766815
+    second: kapteeni_maahan_5
+  - first:
+      213: -3151184331561826394
+    second: kapteeni_maahan_6
+  - first:
+      213: 1678427160122722771
+    second: kapteeni_maahan_7
+  - first:
+      213: -129769120265742323
+    second: kapteeni_maahan_8
+  - first:
+      213: 1004052513114496160
+    second: kapteeni_maahan_9
+  - first:
+      213: -2395629954779291483
+    second: kapteeni_maahan_10
+  - first:
+      213: -9169247249432261754
+    second: kapteeni_maahan_11
+  - first:
+      213: -8859452821673100103
+    second: kapteeni_maahan_12
+  - first:
+      213: -2956266920852867149
+    second: kapteeni_maahan_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kapteeni_maahan_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 958
+        height: 299
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 29, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40faaebe9ac6c6e40800000000000000
+      internalID: 5651011109506428676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_1
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 793
+        width: 984
+        height: 271
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 20, y: 29, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9102d386a659b5d30800000000000000
+      internalID: 4421291743442182169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 509
+        width: 1018
+        height: 251
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 27, y: 29, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8ce40b4a56a81a0800000000000000
+      internalID: -6806516128810088205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_3
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 509
+        width: 1044
+        height: 251
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 36, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab26d8aa8927b90b0800000000000000
+      internalID: -5720852901622095174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_4
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 512
+        width: 1050
+        height: 248
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 32, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7f1406dcc5cfb30800000000000000
+      internalID: 4322431779521820612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 258
+        width: 1022
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 48, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122f2ed32c0be9dd0800000000000000
+      internalID: -2477348396698766815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_6
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 258
+        width: 1002
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 58, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a70b7fcb8eb444d0800000000000000
+      internalID: -3151184331561826394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_7
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 258
+        width: 986
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 64, y: 8, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d98b740c98fa4710800000000000000
+      internalID: 1678427160122722771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_8
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 258
+        width: 972
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 68, y: 8, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08deb33ca7f23ef0800000000000000
+      internalID: -129769120265742323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 970
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 72, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac1704e07c1fed00800000000000000
+      internalID: 1004052513114496160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_10
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 6
+        width: 968
+        height: 246
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 74, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0681caf3301ced0800000000000000
+      internalID: -2395629954779291483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_11
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 8
+        width: 966
+        height: 244
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 75, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bccd7153a40c080800000000000000
+      internalID: -9169247249432261754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_12
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 808
+        width: 954
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 81, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcb7db1996ec0580800000000000000
+      internalID: -8859452821673100103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_maahan_13
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 787
+        width: 926
+        height: 277
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 95, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b7b35106ea39f6d0800000000000000
+      internalID: -2956266920852867149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 897a2c53e95dd74468a169d0251ca30b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kapteeni_maahan_0: 5651011109506428676
+      kapteeni_maahan_1: 4421291743442182169
+      kapteeni_maahan_10: -2395629954779291483
+      kapteeni_maahan_11: -9169247249432261754
+      kapteeni_maahan_12: -8859452821673100103
+      kapteeni_maahan_13: -2956266920852867149
+      kapteeni_maahan_2: -6806516128810088205
+      kapteeni_maahan_3: -5720852901622095174
+      kapteeni_maahan_4: 4322431779521820612
+      kapteeni_maahan_5: -2477348396698766815
+      kapteeni_maahan_6: -3151184331561826394
+      kapteeni_maahan_7: 1678427160122722771
+      kapteeni_maahan_8: -129769120265742323
+      kapteeni_maahan_9: 1004052513114496160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -52,6 +52,15 @@ public class MusicPlayer : MonoBehaviour
     {
         if (Instance != null) { Instance.areaGain = gain; Instance.SetArea(clip); }
     }
+    // Taustamusiikin tasaus: kappaleiden RMS mitattu (dBFS), kaikki vaimennetaan samalle tasolle (hiljaisimmat jäävät ennalleen). Mittaus: PyAV, mono-keskiarvo.
+    const float MusicTargetDb = -16.0f;   // yhteinen taso (dBFS RMS); -14 vastasi Uccopulcoa ennen, mutta säröytti hiljaisemmat kappaleet nostettaessa, joten 2 dB alemmas
+    static readonly System.Collections.Generic.Dictionary<string, float> MusicRms = new System.Collections.Generic.Dictionary<string, float>
+    {
+        { "Aavikko", -16.3f }, { "Aavikkobaari", -17.4f }, { "Blade Anthem", -16.4f }, { "S-Club", -15.8f }, { "Shadows in the Neon", -18.1f }, { "Sini ja Dinan asunto", -18.2f },
+        { "Thaitown", -16.7f }, { "Turpaan vaan", -16.4f }, { "Uccopulco", -14.0f }, { "Viemari", -19.7f }, { "tanssi_tausta", -17.8f }, { "Alppikyla", -19.3f },
+    };
+    static float ClipGain(AudioClip c) => c != null && MusicRms.TryGetValue(c.name, out float db) ? Mathf.Pow(10f, (MusicTargetDb - db) / 20f) : 1f;
+    MusicBoost mainBoost, areaBoost;
     float areaGain = 1f;   // alueen musiikin vahvistus (1 = kappaleen oma taso; 1,334 = +2,5 dB)
 
     void Awake()
@@ -62,13 +71,16 @@ public class MusicPlayer : MonoBehaviour
         source.loop = true;
         source.spatialBlend = 0f;
         source.clip = music;
+        mainBoost = gameObject.AddComponent<MusicBoost>();   // vain tämän olion äänilähteet (alue- ja erillinen kappale ovat omissa lapsioliossaan)
         source.volume = fadeInTime > 0f ? 0f : volume;
-        areaSource = gameObject.AddComponent<AudioSource>();
+        var areaGo = new GameObject("Alueen musiikki"); areaGo.transform.SetParent(transform, false);
+        areaSource = areaGo.AddComponent<AudioSource>(); areaBoost = areaGo.AddComponent<MusicBoost>();
         areaSource.playOnAwake = false;
         areaSource.loop = true;
         areaSource.spatialBlend = 0f;
         areaSource.volume = 0f;
-        overSource = gameObject.AddComponent<AudioSource>();
+        var overGo = new GameObject("Erillinen kappale"); overGo.transform.SetParent(transform, false);
+        overSource = overGo.AddComponent<AudioSource>();
         overSource.playOnAwake = false;
         overSource.loop = true;
         overSource.spatialBlend = 0f;
@@ -101,10 +113,26 @@ public class MusicPlayer : MonoBehaviour
         areaMix = Mathf.MoveTowards(areaMix, target, dt / Mathf.Max(0.01f, crossfadeTime));
         overMix = Mathf.MoveTowards(overMix, overTarget, dt / overFade);
         float rest = 1f - overMix;
-        source.volume = master * (1f - areaMix) * rest;
-        areaSource.volume = Mathf.Clamp01(master * areaMix * rest * areaGain);
+        source.volume = master * (1f - areaMix) * rest; mainBoost.gain = ClipGain(source.clip);
+        areaSource.volume = Mathf.Clamp01(master * areaMix * rest * areaGain); areaBoost.gain = ClipGain(areaSource.clip);
         overSource.volume = Mathf.Clamp01(master * overMix * overGain);
         if (overTarget <= 0f && overMix <= 0f && overSource.isPlaying) overSource.Stop();
         if (areaClip == null && areaMix <= 0f && areaSource.isPlaying) areaSource.Stop();
+    }
+}
+
+/// Musiikin vahvistus yli 1:n (AudioSource.volume ei ylitä 1:tä): kertoo ja rajoittaa pehmeästi.
+public class MusicBoost : MonoBehaviour
+{
+    public volatile float gain = 1f;
+    void OnAudioFilterRead(float[] data, int channels)
+    {
+        float g = gain;
+        if (Mathf.Abs(g - 1f) < 0.001f) return;
+        for (int i = 0; i < data.Length; i++)
+        {
+            float x = data[i] * g, a = Mathf.Abs(x);
+            data[i] = a <= 0.7f ? x : Mathf.Sign(x) * (0.7f + 0.3f * (float)System.Math.Tanh((a - 0.7f) / 0.3f));
+        }
     }
 }

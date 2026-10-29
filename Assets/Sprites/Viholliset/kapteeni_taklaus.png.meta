@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 68ec8389024d53e438e9249d623e8cf5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4230953602063287157
+    second: kapteeni_taklaus_0
+  - first:
+      213: -2574428009587705684
+    second: kapteeni_taklaus_1
+  - first:
+      213: -549408321797249749
+    second: kapteeni_taklaus_2
+  - first:
+      213: -184775129558970914
+    second: kapteeni_taklaus_3
+  - first:
+      213: 6679169906606555675
+    second: kapteeni_taklaus_4
+  - first:
+      213: 5226333711446549404
+    second: kapteeni_taklaus_5
+  - first:
+      213: 2134427914761033886
+    second: kapteeni_taklaus_6
+  - first:
+      213: -4701201153175259791
+    second: kapteeni_taklaus_7
+  - first:
+      213: -4361219575331829754
+    second: kapteeni_taklaus_8
+  - first:
+      213: 6377283440549874191
+    second: kapteeni_taklaus_9
+  - first:
+      213: 6336315907573388828
+    second: kapteeni_taklaus_10
+  - first:
+      213: 4913294449646818662
+    second: kapteeni_taklaus_11
+  - first:
+      213: -3065487265940896918
+    second: kapteeni_taklaus_12
+  - first:
+      213: 5260471970402971893
+    second: kapteeni_taklaus_13
+  - first:
+      213: -1029396029967813446
+    second: kapteeni_taklaus_14
+  - first:
+      213: 2922250480292823445
+    second: kapteeni_taklaus_15
+  - first:
+      213: -5171260101064025586
+    second: kapteeni_taklaus_16
+  - first:
+      213: -8167483079019162165
+    second: kapteeni_taklaus_17
+  - first:
+      213: 8948832374747800970
+    second: kapteeni_taklaus_18
+  - first:
+      213: 4109411849761455361
+    second: kapteeni_taklaus_19
+  - first:
+      213: -414735373656938036
+    second: kapteeni_taklaus_20
+  - first:
+      213: 5079048202618451796
+    second: kapteeni_taklaus_21
+  - first:
+      213: -3736153752300275600
+    second: kapteeni_taklaus_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kapteeni_taklaus_0
+      rect:
+        serializedVersion: 2
+        x: 2584
+        y: 1889
+        width: 544
+        height: 655
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 19, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573442072ed57ba30800000000000000
+      internalID: 4230953602063287157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_1
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 1898
+        width: 574
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 43, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca875bc7d5bc54cd0800000000000000
+      internalID: -2574428009587705684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_2
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1194
+        width: 616
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 56, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25a1aeca0c1068f0800000000000000
+      internalID: -549408321797249749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_3
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1204
+        width: 564
+        height: 624
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 6, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd8f47affb8f6df0800000000000000
+      internalID: -184775129558970914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_4
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 1196
+        width: 540
+        height: 632
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 12, z: 22, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1243cd64ad21bc50800000000000000
+      internalID: 6679169906606555675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1194
+        width: 652
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 3, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c93ab6cf1daa78840800000000000000
+      internalID: 5226333711446549404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_6
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 1209
+        width: 572
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 24, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98520a31e20f9d10800000000000000
+      internalID: 2134427914761033886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 530
+        height: 609
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 51, y: 24, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175f45f857af1ceb0800000000000000
+      internalID: -4701201153175259791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 587
+        width: 558
+        height: 597
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 7, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608cdd827e5d973c0800000000000000
+      internalID: -4361219575331829754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_9
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 609
+        width: 638
+        height: 575
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 4, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ac4f93089a08850800000000000000
+      internalID: 6377283440549874191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_10
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 14
+        width: 668
+        height: 554
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 29, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1691972fbd1fe750800000000000000
+      internalID: 6336315907573388828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 664
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 9, z: 31, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665d81c25478f2440800000000000000
+      internalID: 4913294449646818662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_12
+      rect:
+        serializedVersion: 2
+        x: 2396
+        y: 607
+        width: 660
+        height: 577
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 41, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a630c12c2933575d0800000000000000
+      internalID: -3065487265940896918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_13
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 597
+        width: 650
+        height: 587
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 53, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f0b4cac263f00940800000000000000
+      internalID: 5260471970402971893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_14
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 588
+        width: 634
+        height: 596
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab43294c3c9d6b1f0800000000000000
+      internalID: -1029396029967813446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_15
+      rect:
+        serializedVersion: 2
+        x: 3496
+        y: 1216
+        width: 592
+        height: 612
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 66, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591819e345bed8820800000000000000
+      internalID: 2922250480292823445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1191
+        width: 526
+        height: 637
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 37, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a9dea265efb38b0800000000000000
+      internalID: -5171260101064025586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_17
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 1865
+        width: 428
+        height: 679
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 7, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc59c0ea96547ae80800000000000000
+      internalID: -8167483079019162165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_18
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 1844
+        width: 376
+        height: 700
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 5, z: 27, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85ab53c1a3a03c70800000000000000
+      internalID: 8948832374747800970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_19
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1834
+        width: 456
+        height: 710
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 5, z: 32, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10dffc40e40970930800000000000000
+      internalID: 4109411849761455361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_20
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1839
+        width: 436
+        height: 705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 7, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9a36100609e3af0800000000000000
+      internalID: -414735373656938036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_21
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1834
+        width: 436
+        height: 710
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 11, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457b82a2e676c7640800000000000000
+      internalID: 5079048202618451796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_taklaus_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1832
+        width: 428
+        height: 712
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 7, z: 15, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07836ef05f3862cc0800000000000000
+      internalID: -3736153752300275600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8b95829a18900cc47a8dd60ca94df7d7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kapteeni_taklaus_0: 4230953602063287157
+      kapteeni_taklaus_1: -2574428009587705684
+      kapteeni_taklaus_10: 6336315907573388828
+      kapteeni_taklaus_11: 4913294449646818662
+      kapteeni_taklaus_12: -3065487265940896918
+      kapteeni_taklaus_13: 5260471970402971893
+      kapteeni_taklaus_14: -1029396029967813446
+      kapteeni_taklaus_15: 2922250480292823445
+      kapteeni_taklaus_16: -5171260101064025586
+      kapteeni_taklaus_17: -8167483079019162165
+      kapteeni_taklaus_18: 8948832374747800970
+      kapteeni_taklaus_19: 4109411849761455361
+      kapteeni_taklaus_2: -549408321797249749
+      kapteeni_taklaus_20: -414735373656938036
+      kapteeni_taklaus_21: 5079048202618451796
+      kapteeni_taklaus_22: -3736153752300275600
+      kapteeni_taklaus_3: -184775129558970914
+      kapteeni_taklaus_4: 6679169906606555675
+      kapteeni_taklaus_5: 5226333711446549404
+      kapteeni_taklaus_6: 2134427914761033886
+      kapteeni_taklaus_7: -4701201153175259791
+      kapteeni_taklaus_8: -4361219575331829754
+      kapteeni_taklaus_9: 6377283440549874191
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

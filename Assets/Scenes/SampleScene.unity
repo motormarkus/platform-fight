@@ -405,6 +405,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -542,6 +543,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -590,6 +592,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -1092,6 +1095,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -1221,6 +1225,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -1269,6 +1274,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -2731,6 +2737,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -2868,6 +2875,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -2916,6 +2924,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -4015,6 +4024,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -4144,6 +4154,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -4195,6 +4206,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -6861,6 +6873,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -6998,6 +7011,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -7046,6 +7060,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -7774,6 +7789,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -7903,6 +7919,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -7951,6 +7968,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -8279,6 +8297,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -8416,6 +8435,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -8464,6 +8484,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -9081,6 +9102,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -9210,6 +9232,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -9258,6 +9281,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -12268,6 +12292,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -12397,6 +12422,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -12445,6 +12471,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -13261,6 +13288,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -13390,6 +13418,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -13438,6 +13467,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -13935,6 +13965,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -14074,6 +14105,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -14122,6 +14154,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -14729,6 +14762,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -14868,6 +14902,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -14916,6 +14951,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -15276,6 +15312,54 @@ Transform:
   m_Children:
   - {fileID: 158214799}
   - {fileID: 1874914101}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185145606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185145608}
+  - component: {fileID: 185145607}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185145607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185145606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 101011.96, y: -0.7577047}
+  areaName: Junan katto
+  sceneName: Aavikko
+--- !u!4 &185145608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185145606}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187907786
@@ -16630,6 +16714,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -16759,6 +16844,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -16807,6 +16893,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -17549,6 +17636,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -17686,6 +17774,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -17734,6 +17823,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -18077,6 +18167,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -18206,6 +18297,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -18257,6 +18349,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -19912,6 +20005,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -20049,6 +20143,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -20097,6 +20192,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -20514,6 +20610,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -20643,6 +20740,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -20691,6 +20789,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -21113,6 +21212,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -21250,6 +21350,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -21298,6 +21399,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -21723,6 +21825,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -21862,6 +21965,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -21910,6 +22014,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -24781,6 +24886,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -24910,6 +25016,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -24958,6 +25065,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -26708,6 +26816,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -26837,6 +26946,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -26888,6 +26998,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -27708,6 +27819,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -27837,6 +27949,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -27885,6 +27998,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -28942,6 +29056,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -29079,6 +29194,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -29127,6 +29243,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -29578,6 +29695,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -29715,6 +29833,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -29766,6 +29885,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -30778,6 +30898,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -30925,6 +31046,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -30973,6 +31095,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -33257,6 +33380,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -33394,6 +33518,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -33442,6 +33567,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -34782,6 +34908,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -34911,6 +35038,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -34959,6 +35087,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -36704,6 +36833,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -36841,6 +36971,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -36892,6 +37023,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -37269,6 +37401,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -37406,6 +37539,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -37454,6 +37588,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -40963,6 +41098,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -41100,6 +41236,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -41148,6 +41285,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -44311,6 +44449,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -44440,6 +44579,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -44550,6 +44690,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -44969,6 +45110,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -45098,6 +45240,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -45146,6 +45289,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -47645,6 +47789,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -47782,6 +47927,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -47830,6 +47976,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -48160,6 +48307,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -48289,6 +48437,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -48337,6 +48486,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -49451,6 +49601,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -49580,6 +49731,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -49628,6 +49780,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -50382,6 +50535,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -50511,6 +50665,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -50613,6 +50768,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -51038,6 +51194,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -51177,6 +51334,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -51225,6 +51383,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -51559,6 +51718,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -51698,6 +51858,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -51746,6 +51907,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -53728,6 +53890,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -53875,6 +54038,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -53930,6 +54094,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -54455,6 +54620,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -54592,6 +54758,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -54643,6 +54810,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -56124,6 +56292,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -56253,6 +56422,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -56355,6 +56525,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -56755,6 +56926,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -56892,6 +57064,7 @@ MonoBehaviour:
   bellyRange: 1.7
   bellyCounterChance: 0.85
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -56943,6 +57116,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -58159,6 +58333,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -58288,6 +58463,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -58336,6 +58512,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -59485,6 +59662,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -59622,6 +59800,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -59670,6 +59849,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -60170,6 +60350,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -60307,6 +60488,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -60355,6 +60537,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -61655,6 +61838,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -61792,6 +61976,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -61843,6 +62028,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -63479,6 +63665,7 @@ MonoBehaviour:
   triggerX: -99999
   waves: 
   waveNextAt: 1
+  wavePause: 0
   fromLeftEdge: 0
   fromRightEdge: 0
   door: {fileID: 0}
@@ -64050,6 +64237,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -64179,6 +64367,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -64230,6 +64419,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -64655,6 +64845,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -64784,6 +64975,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -64832,6 +65024,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -65403,6 +65596,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -65540,6 +65734,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -65595,6 +65790,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -66419,6 +66615,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -66556,6 +66753,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -66611,6 +66809,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -67260,6 +67459,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -67397,6 +67597,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -67448,6 +67649,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -68270,6 +68472,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -68407,6 +68610,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -68455,6 +68659,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -70137,7 +70342,7 @@ Transform:
   m_GameObject: {fileID: 1031392278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2307701, y: -1.0034616, z: 0}
+  m_LocalPosition: {x: -2.3, y: -1.0034616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70655,6 +70860,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -70792,6 +70998,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -70840,6 +71047,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -71592,6 +71800,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -71731,6 +71940,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -71779,6 +71989,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -72289,6 +72500,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -72426,6 +72638,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -72474,6 +72687,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -73495,6 +73709,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -73632,6 +73847,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -73680,6 +73896,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -74347,6 +74564,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -74476,6 +74694,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -74527,6 +74746,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -75191,6 +75411,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -75328,6 +75549,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -75379,6 +75601,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -77205,6 +77428,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -77352,6 +77576,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -77407,6 +77632,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -78082,6 +78308,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -78219,6 +78446,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -78267,6 +78495,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -79107,6 +79336,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -79246,6 +79476,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -79294,6 +79525,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -80065,6 +80297,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -80202,6 +80435,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -80250,6 +80484,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -82086,6 +82321,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -82225,6 +82461,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -82273,6 +82510,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -83680,6 +83918,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -83817,6 +84056,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -83865,6 +84105,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -84225,6 +84466,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -84362,6 +84604,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -84410,6 +84653,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -84737,6 +84981,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -84874,6 +85119,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -84922,6 +85168,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -85448,6 +85695,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -85577,6 +85825,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -85687,6 +85936,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -86253,6 +86503,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -86390,6 +86641,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -86445,6 +86697,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -86960,6 +87213,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -87089,6 +87343,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -87140,6 +87395,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -87947,6 +88203,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -88084,6 +88341,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -88132,6 +88390,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -91653,6 +91912,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -91790,6 +92050,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -91838,6 +92099,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -92372,6 +92634,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -92501,6 +92764,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -92549,6 +92813,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -93222,6 +93487,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -93351,6 +93617,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -93461,6 +93728,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -94577,6 +94845,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -94714,6 +94983,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -94762,6 +95032,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -95306,6 +95577,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -95443,6 +95715,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -95491,6 +95764,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -95855,6 +96129,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -95984,6 +96259,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -96032,6 +96308,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -96831,6 +97108,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -96968,6 +97246,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -97023,6 +97302,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -99658,6 +99938,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -99797,6 +100078,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -99845,6 +100127,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -102256,6 +102539,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -102393,6 +102677,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -102441,6 +102726,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -102954,6 +103240,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -103091,6 +103378,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -103146,6 +103434,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -104364,6 +104653,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -104499,6 +104789,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -104547,6 +104838,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -107427,6 +107719,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -107556,6 +107849,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -107604,6 +107898,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -108208,6 +108503,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -108344,6 +108640,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -108396,6 +108693,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -108713,6 +109011,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -108852,6 +109151,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -108900,6 +109200,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -109234,6 +109535,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -109373,6 +109675,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -109421,6 +109724,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -110686,6 +110990,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -110815,6 +111120,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -110863,6 +111169,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -111215,6 +111522,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -111354,6 +111662,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -111402,6 +111711,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -111817,6 +112127,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -111954,6 +112265,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -112002,6 +112314,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -112648,6 +112961,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 1
   oneSpeakerPerKind: 1
@@ -112783,6 +113097,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -112837,6 +113152,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -113945,6 +114261,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -114082,6 +114399,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -114130,6 +114448,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -114675,6 +114994,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -114804,6 +115124,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -114914,6 +115235,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -116110,6 +116432,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -116244,6 +116567,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -116295,6 +116619,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -117053,6 +117378,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -117182,6 +117508,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -117230,6 +117557,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -117930,6 +118258,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -118067,6 +118396,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -118118,6 +118448,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -120134,6 +120465,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -120271,6 +120603,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -120319,6 +120652,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -122377,6 +122711,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -122506,6 +122841,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -122608,6 +122944,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -124244,6 +124581,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -124373,6 +124711,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -124421,6 +124760,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -125238,6 +125578,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -125367,6 +125708,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -125469,6 +125811,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -126337,6 +126680,7 @@ MonoBehaviour:
   triggerX: -99999
   waves: 
   waveNextAt: 1
+  wavePause: 0
   fromLeftEdge: 0
   fromRightEdge: 0
   door: {fileID: 0}
@@ -126798,6 +127142,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -126927,6 +127272,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -126975,6 +127321,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -127430,6 +127777,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -127559,6 +127907,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -127607,6 +127956,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -128542,6 +128892,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -128679,6 +129030,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -128727,6 +129079,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -129820,6 +130173,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -129957,6 +130311,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -130005,6 +130360,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -131150,6 +131506,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -131287,6 +131644,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -131335,6 +131693,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -131833,54 +132192,6 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
---- !u!1 &1831322347
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1831322349}
-  - component: {fileID: 1831322348}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1831322348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831322347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 50087.625, y: -2.0824382}
-  areaName: "Alppikyl\xE4n katu"
-  sceneName: Alppikyla
---- !u!4 &1831322349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831322347}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831331304
 GameObject:
   m_ObjectHideFlags: 0
@@ -134027,6 +134338,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -134156,6 +134468,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -134204,6 +134517,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -134797,6 +135111,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -134926,6 +135241,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -134974,6 +135290,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -135646,6 +135963,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -135780,6 +136098,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -135831,6 +136150,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -136458,6 +136778,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -136595,6 +136916,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -136650,6 +136972,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -137959,6 +138282,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -138096,6 +138420,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -138144,6 +138469,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -139823,6 +140149,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -139952,6 +140279,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -140000,6 +140328,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -140345,6 +140674,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -140482,6 +140812,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -140530,6 +140861,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -140898,7 +141230,7 @@ Transform:
   m_GameObject: {fileID: 1955053166}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3107702, y: -1.0234616, z: 0}
+  m_LocalPosition: {x: -2.22, y: -1.0234616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -141493,6 +141825,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -141622,6 +141955,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -141670,6 +142004,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -142600,6 +142935,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -142737,6 +143073,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -142792,6 +143129,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -144100,6 +144438,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -144237,6 +144576,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -144285,6 +144625,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -145796,6 +146137,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -145925,6 +146267,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -145973,6 +146316,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -147090,6 +147434,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -147219,6 +147564,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -147267,6 +147613,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -147706,6 +148053,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -147843,6 +148191,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -147891,6 +148240,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -148869,6 +149219,7 @@ MonoBehaviour:
   huntsBrawlers: 0
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -149008,6 +149359,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -149056,6 +149408,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -150784,6 +151137,7 @@ MonoBehaviour:
   ally: 0
   tauntSounds:
   - {fileID: 8300000, guid: e074fba84fdaf9742888c689250fb104, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -150921,6 +151275,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -150972,6 +151327,7 @@ MonoBehaviour:
   altSwingSounds: []
   altWindupSounds:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -151939,6 +152295,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -152076,6 +152433,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -152124,6 +152482,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -152971,6 +153330,7 @@ MonoBehaviour:
   tauntSounds:
   - {fileID: 8300000, guid: 304a016074fba9d49a89fd385f031fb3, type: 3}
   - {fileID: 8300000, guid: ff294728ab1300f489683e7189fa79f3, type: 3}
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -153108,6 +153468,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -153156,6 +153517,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds:
@@ -153825,6 +154187,7 @@ MonoBehaviour:
   huntsBrawlers: 1
   ally: 0
   tauntSounds: []
+  calmTauntSounds: []
   throwSounds: []
   talksWhenCalm: 0
   oneSpeakerPerKind: 1
@@ -153962,6 +154325,7 @@ MonoBehaviour:
   bellyRange: 1.6
   bellyCounterChance: 0
   bellyCounterAfterHits: 2
+  bellyBlockChance: 0
   bellyDamage: 14
   bellyKnockSpeed: 14
   bellyKnockUp: 5.5
@@ -154017,6 +154381,7 @@ MonoBehaviour:
   stackChance: 0.04
   altSwingSounds: []
   altWindupSounds: []
+  doubleKickSounds: []
   deathVoice: {fileID: 0}
   launchVoice: {fileID: 0}
   hurtSounds: []
@@ -154863,4 +155228,4 @@ SceneRoots:
   - {fileID: 826560125}
   - {fileID: 840874164}
   - {fileID: 192042734}
-  - {fileID: 1831322349}
+  - {fileID: 185145608}

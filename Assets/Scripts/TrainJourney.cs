@@ -19,11 +19,13 @@ public static class TrainJourney
     }
 
     /// Vaiheen läpinäkyvyys: ensimmäinen aina täysi, seuraavat häivytetään päälle edellisen yli.
-    public static float Alpha(int group, int phase)
+    public static float Alpha(int group, int phase) => Alpha(group, phase, Progress);
+
+    public static float Alpha(int group, int phase, float progress)
     {
         int count = Counts[Mathf.Clamp(group, 0, Counts.Length - 1)];
         if (phase <= 0 || count <= 1) return 1f;
-        float p = Progress * (count - 1);
+        float p = progress * (count - 1);
         return Mathf.Clamp01(p - (phase - 1));
     }
 }

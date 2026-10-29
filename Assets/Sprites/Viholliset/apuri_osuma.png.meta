@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: ddb193691f492054cbfdcfc00719141b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7866550183534355115
+    second: apuri_osuma_0
+  - first:
+      213: -4167688030707606203
+    second: apuri_osuma_1
+  - first:
+      213: -6489084091357626144
+    second: apuri_osuma_2
+  - first:
+      213: -7207134214914611224
+    second: apuri_osuma_3
+  - first:
+      213: 9138373008456186763
+    second: apuri_osuma_4
+  - first:
+      213: -7424009651538716533
+    second: apuri_osuma_5
+  - first:
+      213: 7371142497867003462
+    second: apuri_osuma_6
+  - first:
+      213: 3834480571093397592
+    second: apuri_osuma_7
+  - first:
+      213: 1268272414637005430
+    second: apuri_osuma_8
+  - first:
+      213: 330270393303532805
+    second: apuri_osuma_9
+  - first:
+      213: 2580157658022392553
+    second: apuri_osuma_10
+  - first:
+      213: -8972941181866224991
+    second: apuri_osuma_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apuri_osuma_0
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 7
+        width: 678
+        height: 617
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 33, y: 17, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2695196b99b2d60800000000000000
+      internalID: 7866550183534355115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 682
+        height: 620
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 34, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54d960341d56926c0800000000000000
+      internalID: -4167688030707606203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_2
+      rect:
+        serializedVersion: 2
+        x: 2236
+        y: 631
+        width: 714
+        height: 689
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 62, y: 8, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e08df8466422f5a0800000000000000
+      internalID: -6489084091357626144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1327
+        width: 738
+        height: 697
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 82, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e76377dd9d1bfb90800000000000000
+      internalID: -7207134214914611224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_4
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1331
+        width: 748
+        height: 693
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 90, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b7c0285d502de70800000000000000
+      internalID: 9138373008456186763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_5
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 1331
+        width: 748
+        height: 693
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 90, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8896f65e8e98f890800000000000000
+      internalID: -7424009651538716533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_6
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 1333
+        width: 746
+        height: 691
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 94, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646f52e3c0f8b4660800000000000000
+      internalID: 7371142497867003462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_7
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1334
+        width: 746
+        height: 690
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 95, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 850b82273cfc63530800000000000000
+      internalID: 3834480571093397592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 742
+        height: 690
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 96, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a9dd0aa0fc99110800000000000000
+      internalID: 1268272414637005430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_9
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 630
+        width: 740
+        height: 690
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 98, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5058fa04c2b559400800000000000000
+      internalID: 330270393303532805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_10
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 630
+        width: 740
+        height: 690
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 98, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2bdee38bf8ec320800000000000000
+      internalID: 2580157658022392553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_osuma_11
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 632
+        width: 736
+        height: 688
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 99, y: 12, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2d3682985b97380800000000000000
+      internalID: -8972941181866224991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5a944f0d6f985d34bb7b4e2b699bde49
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apuri_osuma_0: 7866550183534355115
+      apuri_osuma_1: -4167688030707606203
+      apuri_osuma_10: 2580157658022392553
+      apuri_osuma_11: -8972941181866224991
+      apuri_osuma_2: -6489084091357626144
+      apuri_osuma_3: -7207134214914611224
+      apuri_osuma_4: 9138373008456186763
+      apuri_osuma_5: -7424009651538716533
+      apuri_osuma_6: 7371142497867003462
+      apuri_osuma_7: 3834480571093397592
+      apuri_osuma_8: 1268272414637005430
+      apuri_osuma_9: 330270393303532805
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

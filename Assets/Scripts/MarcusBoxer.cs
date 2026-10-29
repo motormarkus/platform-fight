@@ -31,23 +31,23 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
     [Header("Iskut (sparraus: kevyet)")]
     public float windupFrameTime = 0.032f, impactHold = 0.035f, recoverFrameTime = 0.036f;
     public float comboWindupScale = 0.5f, flurryWindupScale = 0.35f;
-    public int jabDamage = 4, jab2Damage = 4, crossDamage = 7, hookDamage = 9;
+    public int jabDamage = 7, jab2Damage = 7, crossDamage = 11, hookDamage = 14;
     [Tooltip("Kombon viimeisen iskun lisävahinko.")]
-    public int finisherBonus = 3;
-    [Range(0f, 1f)] public float comboChance = 0.8f;
+    public int finisherBonus = 4;
+    [Range(0f, 1f)] public float comboChance = 0.92f;
     [Tooltip("Tauko toimintojen välillä (s).")]
-    public Vector2 decisionPause = new Vector2(0.08f, 0.35f);
+    public Vector2 decisionPause = new Vector2(0.05f, 0.2f);
 
     [Header("Torjunnan vastaisku")]
     [Tooltip("Torjuttuaan iskun vastaa jabilla näin pienellä viiveellä (s).")]
     public float counterWindow = 1.1f;
 
     [Header("Väistö")]
-    [Range(0f, 1f)] public float reactiveDodgeChance = 0.4f;
-    public float dodgeCooldown = 1.0f;
+    [Range(0f, 1f)] public float reactiveDodgeChance = 0.55f;
+    public float dodgeCooldown = 0.8f;
     public float dodgeFrameTime = 0.032f;
     [Tooltip("Väistön jälkeen vastaisku heti (ehtii ennen kuin hero toipuu), todennäköisyys.")]
-    [Range(0f, 1f)] public float counterAfterDodge = 0.85f;
+    [Range(0f, 1f)] public float counterAfterDodge = 0.9f;
 
     enum Mode { Dormant, Fight, Act }
     enum Kind { Jab, Jab2, Cross, Hook, Dodge }
@@ -209,7 +209,7 @@ public class MarcusBoxer : MonoBehaviour, IEnemyBrain
 
     [Header("Putken katkaisu")]
     [Tooltip("Kolmas osuma 1,1 sekunnin sisällä: Marcus väistää ja vastaa heti sarjalla (ei jää pelkäksi säkiksi). Väli (s):")]
-    public float breakerCooldown = 2.2f;
+    public float breakerCooldown = 1.6f;
     readonly List<float> hitTimes = new List<float>();
     float nextBreakerTime;
 

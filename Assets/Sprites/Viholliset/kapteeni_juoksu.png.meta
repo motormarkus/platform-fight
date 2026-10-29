@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: b95d383bcf4d57843bcb4b3b3b9edd3d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4867841382557085604
+    second: kapteeni_juoksu_0
+  - first:
+      213: -2424523578038719774
+    second: kapteeni_juoksu_1
+  - first:
+      213: 9000292230797732990
+    second: kapteeni_juoksu_2
+  - first:
+      213: 7002620519887323843
+    second: kapteeni_juoksu_3
+  - first:
+      213: 3047268633555057390
+    second: kapteeni_juoksu_4
+  - first:
+      213: 4032219394625467346
+    second: kapteeni_juoksu_5
+  - first:
+      213: 7798528748527580753
+    second: kapteeni_juoksu_6
+  - first:
+      213: -1831665897018029089
+    second: kapteeni_juoksu_7
+  - first:
+      213: -7362417584648431253
+    second: kapteeni_juoksu_8
+  - first:
+      213: -5311700859724099743
+    second: kapteeni_juoksu_9
+  - first:
+      213: 510814495129503502
+    second: kapteeni_juoksu_10
+  - first:
+      213: 6000874549057582451
+    second: kapteeni_juoksu_11
+  - first:
+      213: -8338573615039670947
+    second: kapteeni_juoksu_12
+  - first:
+      213: 5993915819933948337
+    second: kapteeni_juoksu_13
+  - first:
+      213: -2012422717822394988
+    second: kapteeni_juoksu_14
+  - first:
+      213: 8972082047343523209
+    second: kapteeni_juoksu_15
+  - first:
+      213: -6607839237137363041
+    second: kapteeni_juoksu_16
+  - first:
+      213: -4202622244341520042
+    second: kapteeni_juoksu_17
+  - first:
+      213: 6751586808172775459
+    second: kapteeni_juoksu_18
+  - first:
+      213: 266245244261161732
+    second: kapteeni_juoksu_19
+  - first:
+      213: 646020375001184159
+    second: kapteeni_juoksu_20
+  - first:
+      213: -7638502639813571863
+    second: kapteeni_juoksu_21
+  - first:
+      213: 8331743672575712907
+    second: kapteeni_juoksu_22
+  - first:
+      213: 5892341930104729227
+    second: kapteeni_juoksu_23
+  - first:
+      213: 6669174848336224311
+    second: kapteeni_juoksu_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kapteeni_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 679
+        width: 458
+        height: 653
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 60, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c501db1bd04f17cb0800000000000000
+      internalID: -4867841382557085604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 452
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 24, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea6175c6ac5a5ed0800000000000000
+      internalID: -2424523578038719774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 4
+        width: 444
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 21, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c286b291677ec70800000000000000
+      internalID: 9000292230797732990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 3404
+        y: 682
+        width: 430
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 27, y: 21, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2ceb8e24e4e2160800000000000000
+      internalID: 7002620519887323843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 675
+        width: 478
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 5, y: 21, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea3d365da21a4a20800000000000000
+      internalID: 3047268633555057390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 667
+        width: 512
+        height: 665
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 23, z: 14, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d377110d2255f730800000000000000
+      internalID: 4032219394625467346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 661
+        width: 536
+        height: 671
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 24, z: 27, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15678a21490f93c60800000000000000
+      internalID: 7798528748527580753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 2636
+        y: 1349
+        width: 552
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 25, z: 37, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb0b0d329d9496e0800000000000000
+      internalID: -1831665897018029089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1338
+        width: 556
+        height: 686
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 41, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69d0fae63073d990800000000000000
+      internalID: -7362417584648431253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_9
+      rect:
+        serializedVersion: 2
+        x: 2196
+        y: 2037
+        width: 544
+        height: 691
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 6, z: 39, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f020fe53c0946b0800000000000000
+      internalID: -5311700859724099743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 2744
+        y: 2040
+        width: 530
+        height: 688
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 35, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e078050b317c61700800000000000000
+      internalID: 510814495129503502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_11
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1342
+        width: 488
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 25, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375724ebb93674350800000000000000
+      internalID: 6000874549057582451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_12
+      rect:
+        serializedVersion: 2
+        x: 3192
+        y: 1349
+        width: 418
+        height: 675
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 3, z: 12, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d559d1e0a7f674c80800000000000000
+      internalID: -8338573615039670947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 659
+        width: 348
+        height: 673
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 6, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9d1cc5eaaae2350800000000000000
+      internalID: 5993915819933948337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_14
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 1350
+        width: 330
+        height: 674
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 4, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d154e43307214e0800000000000000
+      internalID: -2012422717822394988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_15
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1343
+        width: 390
+        height: 681
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 16, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985f19ff51d338c70800000000000000
+      internalID: 8972082047343523209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_16
+      rect:
+        serializedVersion: 2
+        x: 3280
+        y: 2040
+        width: 446
+        height: 688
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 32, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f0a81493d3c44a0800000000000000
+      internalID: -6607839237137363041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_17
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 2034
+        width: 482
+        height: 694
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 6, z: 49, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6596ed0d5594da5c0800000000000000
+      internalID: -4202622244341520042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2030
+        width: 520
+        height: 698
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 6, z: 55, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3280a5b3e6472bd50800000000000000
+      internalID: 6751586808172775459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_19
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 2030
+        width: 574
+        height: 698
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 9, z: 45, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bd25793a4e1b300800000000000000
+      internalID: 266245244261161732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_20
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 2035
+        width: 598
+        height: 693
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 14, z: 44, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f973c99bb1027f800800000000000000
+      internalID: 646020375001184159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_21
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1340
+        width: 596
+        height: 684
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 20, z: 46, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea4702d1569ef590800000000000000
+      internalID: -7638502639813571863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_22
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1345
+        width: 582
+        height: 679
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 56, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8edb7b0abc40a370800000000000000
+      internalID: 8331743672575712907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_23
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 661
+        width: 548
+        height: 671
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 72, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8e280734cdc5c150800000000000000
+      internalID: 5892341930104729227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_juoksu_24
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 665
+        width: 490
+        height: 667
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 18, z: 79, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730ec04903bad8c50800000000000000
+      internalID: 6669174848336224311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3f19250eefe4dc847857d991188bdc0a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kapteeni_juoksu_0: -4867841382557085604
+      kapteeni_juoksu_1: -2424523578038719774
+      kapteeni_juoksu_10: 510814495129503502
+      kapteeni_juoksu_11: 6000874549057582451
+      kapteeni_juoksu_12: -8338573615039670947
+      kapteeni_juoksu_13: 5993915819933948337
+      kapteeni_juoksu_14: -2012422717822394988
+      kapteeni_juoksu_15: 8972082047343523209
+      kapteeni_juoksu_16: -6607839237137363041
+      kapteeni_juoksu_17: -4202622244341520042
+      kapteeni_juoksu_18: 6751586808172775459
+      kapteeni_juoksu_19: 266245244261161732
+      kapteeni_juoksu_2: 9000292230797732990
+      kapteeni_juoksu_20: 646020375001184159
+      kapteeni_juoksu_21: -7638502639813571863
+      kapteeni_juoksu_22: 8331743672575712907
+      kapteeni_juoksu_23: 5892341930104729227
+      kapteeni_juoksu_24: 6669174848336224311
+      kapteeni_juoksu_3: 7002620519887323843
+      kapteeni_juoksu_4: 3047268633555057390
+      kapteeni_juoksu_5: 4032219394625467346
+      kapteeni_juoksu_6: 7798528748527580753
+      kapteeni_juoksu_7: -1831665897018029089
+      kapteeni_juoksu_8: -7362417584648431253
+      kapteeni_juoksu_9: -5311700859724099743
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

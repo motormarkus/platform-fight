@@ -47,11 +47,19 @@ public class HitFx : MonoBehaviour
         if (source == null) source = gameObject.AddComponent<AudioSource>();
         source.playOnAwake = false;
         source.spatialBlend = 0f;
+        source.priority = 16;   // osumaäänet eivät jää pois, kun tappelussa soi paljon ääniä (Unityn äänikanavaraja 32)
+        // jos HitFx luotiin koodista (esim. kenttä käynnistetty yksin ilman pääsceneä), ääniä ei ole asetettu: ladataan oletukset Resourcesista
+        if (impactSounds == null || impactSounds.Length == 0 || System.Array.TrueForAll(impactSounds, c => c == null))
+        {
+            var l = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 3; i++) { var c = Resources.Load<AudioClip>("Sfx/Hit/hit" + i); if (c != null) l.Add(c); }
+            impactSounds = l.ToArray();
+        }
         pool = new AudioSource[8];
         for (int i = 0; i < pool.Length; i++)
         {
             pool[i] = gameObject.AddComponent<AudioSource>();
-            pool[i].playOnAwake = false; pool[i].spatialBlend = 0f;
+            pool[i].playOnAwake = false; pool[i].spatialBlend = 0f; pool[i].priority = 16;
         }
     }
 
@@ -232,9 +240,10 @@ public class HitFx : MonoBehaviour
         GUI.color = old;
     }
 
+    bool warnedNoImpact;
     void PlayImpact()
     {
-        if (impactSounds == null || impactSounds.Length == 0) return;
+        if (impactSounds == null || impactSounds.Length == 0) { if (!warnedNoImpact) { warnedNoImpact = true; Debug.LogWarning("[HitFx] ei osumaääniä (impactSounds tyhjä)"); } return; }
         int i = Random.Range(0, impactSounds.Length);
         if (impactSounds.Length > 1 && i == lastSound) i = (i + 1) % impactSounds.Length;
         lastSound = i;

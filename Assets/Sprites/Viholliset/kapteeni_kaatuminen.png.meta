@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -151,12 +151,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 640
-        height: 448
+        y: 1365
+        width: 572
+        height: 703
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 8, z: 32, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -172,13 +172,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 448
-        width: 640
-        height: 448
+        x: 576
+        y: 1366
+        width: 520
+        height: 702
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 8, z: 28, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -194,13 +194,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_2
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 448
-        width: 640
-        height: 448
+        x: 1100
+        y: 1371
+        width: 488
+        height: 697
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 8, z: 22, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -216,13 +216,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 448
-        width: 640
-        height: 448
+        x: 1592
+        y: 1373
+        width: 500
+        height: 695
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 8, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -238,13 +238,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 448
+        x: 2096
+        y: 1373
+        width: 530
+        height: 695
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 8, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -260,13 +260,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 640
-        height: 448
+        x: 2632
+        y: 1377
+        width: 562
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 41, y: 8, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -282,13 +282,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_6
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 640
-        height: 448
+        x: 3200
+        y: 1385
+        width: 582
+        height: 683
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 53, y: 8, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -304,13 +304,13 @@ TextureImporter:
       name: kapteeni_kaatuminen_7
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 640
-        height: 448
+        x: 0
+        y: 690
+        width: 592
+        height: 670
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 53, y: 8, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -318,6 +318,226 @@ TextureImporter:
       bones: []
       spriteID: 27ad5dce3f8f67ac0800000000000000
       internalID: -3857622304262071694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 708
+        width: 606
+        height: 652
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 44, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc79c709d638a647814b97a4e381815
+      internalID: -367858983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 740
+        width: 616
+        height: 620
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 32, y: 5, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f674849541f7c479ebbbe9c81d7139
+      internalID: -1080926638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 792
+        width: 610
+        height: 568
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e99e57cd905c654b89fadb921ce67af
+      internalID: 1165934189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 824
+        width: 684
+        height: 536
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 40, y: 8, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afff74162773a3844b4e45c42cef3ed6
+      internalID: 2000937766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 871
+        width: 752
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 65, y: 6, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3816e62897289514c89c6355d49a5ec5
+      internalID: -2135614065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 269
+        width: 784
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 69, y: 4, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15f99719d71a7f44915b6f123148b27
+      internalID: -1035498602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 377
+        width: 886
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 51, y: 17, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be830860063ab4b4b91c568e6dde77c8
+      internalID: 1808443438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 968
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 10, y: 32, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74cfecca2346854295fb563e10dac66
+      internalID: -397140078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 384
+        width: 952
+        height: 300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 29, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3187362bf84def3468ce1cad3d3a4363
+      internalID: 351049813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_kaatuminen_17
+      rect:
+        serializedVersion: 2
+        x: 2636
+        y: 385
+        width: 958
+        height: 299
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 13, y: 29, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbc7fbff9baa764eaafb986d5c39b78
+      internalID: -1178583188
       vertices: []
       indices: 
       edges: []
@@ -338,12 +558,22 @@ TextureImporter:
     nameFileIdTable:
       kapteeni_kaatuminen_0: 4894312172684719054
       kapteeni_kaatuminen_1: -3093312565659668837
+      kapteeni_kaatuminen_10: 1165934189
+      kapteeni_kaatuminen_11: 2000937766
+      kapteeni_kaatuminen_12: -2135614065
+      kapteeni_kaatuminen_13: -1035498602
+      kapteeni_kaatuminen_14: 1808443438
+      kapteeni_kaatuminen_15: -397140078
+      kapteeni_kaatuminen_16: 351049813
+      kapteeni_kaatuminen_17: -1178583188
       kapteeni_kaatuminen_2: -4836635328841465200
       kapteeni_kaatuminen_3: 4370370562264681440
       kapteeni_kaatuminen_4: -6636282893408165253
       kapteeni_kaatuminen_5: 96332503893933897
       kapteeni_kaatuminen_6: 1792016334888704177
       kapteeni_kaatuminen_7: -3857622304262071694
+      kapteeni_kaatuminen_8: -367858983
+      kapteeni_kaatuminen_9: -1080926638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

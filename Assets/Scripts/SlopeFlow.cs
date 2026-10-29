@@ -20,6 +20,7 @@ public class SlopeFlow : MonoBehaviour
 
     class Item { public Transform t; public SpriteRenderer sr; public float s, d, k; }
     Item[] items;
+    bool shown = true;
     float total;
 
     void Start()
@@ -52,6 +53,9 @@ public class SlopeFlow : MonoBehaviour
     void LateUpdate()
     {
         if (items == null) return;
+        bool here = Area.Current != null && Area.Current.areaName == "Lumirinne";   // vain lumirinteen alueella
+        if (here != shown) { shown = here; foreach (var r in GetComponentsInChildren<SpriteRenderer>(true)) r.enabled = here; }
+        if (!here) return;
         float a = angleDeg * Mathf.Deg2Rad, ca = Mathf.Cos(a), sa = Mathf.Sin(a), dt = Time.deltaTime;
         float xl = lineLeftX - margin;
         foreach (var it in items)

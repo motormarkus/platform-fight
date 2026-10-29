@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 2810a1e91d615a84e977dd9451b53796
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -634374082395329036
+    second: kapteeni_osuma_0
+  - first:
+      213: 3053672819725756531
+    second: kapteeni_osuma_1
+  - first:
+      213: 4643218403144747080
+    second: kapteeni_osuma_2
+  - first:
+      213: 2590540728547593615
+    second: kapteeni_osuma_3
+  - first:
+      213: 440172043235200822
+    second: kapteeni_osuma_4
+  - first:
+      213: 8573681287848162133
+    second: kapteeni_osuma_5
+  - first:
+      213: -4116209534077148490
+    second: kapteeni_osuma_6
+  - first:
+      213: -8099787245596571522
+    second: kapteeni_osuma_7
+  - first:
+      213: -7430442996129651231
+    second: kapteeni_osuma_8
+  - first:
+      213: -7773778738487873984
+    second: kapteeni_osuma_9
+  - first:
+      213: 6057267947979050097
+    second: kapteeni_osuma_10
+  - first:
+      213: 8497845666020828655
+    second: kapteeni_osuma_11
+  - first:
+      213: -4393706093797344903
+    second: kapteeni_osuma_12
+  - first:
+      213: -3830524164305481239
+    second: kapteeni_osuma_13
+  - first:
+      213: 3179199538147817768
+    second: kapteeni_osuma_14
+  - first:
+      213: -8094504879191574134
+    second: kapteeni_osuma_15
+  - first:
+      213: -2441498595013030079
+    second: kapteeni_osuma_16
+  - first:
+      213: 4751328787869434593
+    second: kapteeni_osuma_17
+  - first:
+      213: 8586738447748096443
+    second: kapteeni_osuma_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kapteeni_osuma_0
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 62
+        width: 536
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 7, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fdac1412204237f0800000000000000
+      internalID: -634374082395329036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_1
+      rect:
+        serializedVersion: 2
+        x: 2820
+        y: 55
+        width: 534
+        height: 653
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378e4002043d06a20800000000000000
+      internalID: 3053672819725756531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_2
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 45
+        width: 534
+        height: 663
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848cffd6986007040800000000000000
+      internalID: 4643218403144747080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_3
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 36
+        width: 534
+        height: 672
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8dc24d311373f320800000000000000
+      internalID: 2590540728547593615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 24
+        width: 534
+        height: 684
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f8715242ecb1600800000000000000
+      internalID: 440172043235200822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_5
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 15
+        width: 536
+        height: 693
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 9, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5537a9bb4b5dbf670800000000000000
+      internalID: 8573681287848162133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_6
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 717
+        width: 534
+        height: 703
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 8, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b26144cc3940e6c0800000000000000
+      internalID: -4116209534077148490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_7
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1434
+        width: 532
+        height: 710
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 7, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e780af52a66c79f80800000000000000
+      internalID: -8099787245596571522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_8
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1431
+        width: 542
+        height: 713
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 12, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e527e39673c1e890800000000000000
+      internalID: -7430442996129651231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1429
+        width: 562
+        height: 715
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 17, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e22f1bc6dfd1490800000000000000
+      internalID: -7773778738487873984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1427
+        width: 596
+        height: 717
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 20, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c86ac1b1dbf0450800000000000000
+      internalID: 6057267947979050097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_11
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 1429
+        width: 626
+        height: 715
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 25, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5a3471c996ee570800000000000000
+      internalID: 8497845666020828655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_12
+      rect:
+        serializedVersion: 2
+        x: 2348
+        y: 1432
+        width: 646
+        height: 712
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 31, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9797db7269b6603c0800000000000000
+      internalID: -4393706093797344903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_13
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 715
+        width: 656
+        height: 705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 33, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1950b419e37dac0800000000000000
+      internalID: -3830524164305481239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_14
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 718
+        width: 660
+        height: 702
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 26, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829f265c229ce1c20800000000000000
+      internalID: 3179199538147817768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 656
+        height: 702
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 7, y: 10, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89be1be2ba8aaf80800000000000000
+      internalID: -8094504879191574134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_16
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 717
+        width: 634
+        height: 703
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 11, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f02a4a6fd0e1ed0800000000000000
+      internalID: -2441498595013030079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 714
+        width: 600
+        height: 706
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 5, z: 26, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e28b04eb5c10f140800000000000000
+      internalID: 4751328787869434593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_osuma_18
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 717
+        width: 572
+        height: 703
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 32, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1e63daf193a2770800000000000000
+      internalID: 8586738447748096443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b810743c40a82a242983f82e07dd6d98
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kapteeni_osuma_0: -634374082395329036
+      kapteeni_osuma_1: 3053672819725756531
+      kapteeni_osuma_10: 6057267947979050097
+      kapteeni_osuma_11: 8497845666020828655
+      kapteeni_osuma_12: -4393706093797344903
+      kapteeni_osuma_13: -3830524164305481239
+      kapteeni_osuma_14: 3179199538147817768
+      kapteeni_osuma_15: -8094504879191574134
+      kapteeni_osuma_16: -2441498595013030079
+      kapteeni_osuma_17: 4751328787869434593
+      kapteeni_osuma_18: 8586738447748096443
+      kapteeni_osuma_2: 4643218403144747080
+      kapteeni_osuma_3: 2590540728547593615
+      kapteeni_osuma_4: 440172043235200822
+      kapteeni_osuma_5: 8573681287848162133
+      kapteeni_osuma_6: -4116209534077148490
+      kapteeni_osuma_7: -8099787245596571522
+      kapteeni_osuma_8: -7430442996129651231
+      kapteeni_osuma_9: -7773778738487873984
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

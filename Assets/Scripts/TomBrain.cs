@@ -106,6 +106,9 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
 
     /// Tomin ääni (puhe, kiljahdus, juonti): ei päällekkäin muiden puheäänten kanssa, ellei force.
     /// Ruudun ulkopuolella huutaessa ääni vaimenee (muuten kovaääninen huuto säröytyy muiden äänten päällä).
+    /// Tom on sillä alueella, jossa hero nyt on (muiden alueiden Tom ei kuulu, vaikka scene tai x-etäisyys osuisi päällekkäin). Ruudulla ei tarvitse olla.
+    bool InHeroArea() => e == null || e.CanSpeakNow();
+
     float OffscreenGain()
     {
         var cam = Camera.main;
@@ -117,7 +120,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
 
     void Voice(AudioClip c, float volume = 1f, bool force = true)
     {
-        if (c == null || e == null || e.Audio == null) return;
+        if (c == null || e == null || e.Audio == null || !InHeroArea()) return;
         if (!force && Time.time < voiceBusyUntil) return;
         e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain(), true);   // puhe: ei vaimene pukin musiikin alla
         voiceBusyUntil = Time.time + c.length;
@@ -133,7 +136,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
     /// Satunnainen ääni annetuista (Enemyn Kovis-äänet): hyökkäys-, veto- ja heilautusäänet.
     void Say(AudioClip[] clips, float volume)
     {
-        if (clips == null || clips.Length == 0 || e == null || e.Audio == null) return;
+        if (clips == null || clips.Length == 0 || e == null || e.Audio == null || !InHeroArea()) return;
         var c = clips[Random.Range(0, clips.Length)];
         if (c != null) e.Audio.PlayOneShotLeveled(c, volume * OffscreenGain());
     }

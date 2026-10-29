@@ -123,6 +123,11 @@ public class ArcadeSini : MonoBehaviour
         shadow.transform.localScale = new Vector3(1.3f, 0.42f, 1f);
         idle = Load("idle"); walk = Load("walk"); talk = Load("talk"); toCounter = Load("toCounter");
         atCounter = Load("counter"); kiss = Load("kiss"); dance = Load("dance");
+        if (persona == Persona.Dina && walk.Length >= 16)   // Dinan kävelyn neljä ensimmäistä kuvaa ovat käännös kameraan päin: ne saavat jalat liukumaan, joten silmukka alkaa sivuprofiilista
+        {
+            var w = new Sprite[walk.Length - 4]; System.Array.Copy(walk, 4, w, 0, w.Length); walk = w;
+            walkFrameTime = Mathf.Max(walkFrameTime, 0.15f);   // askel vastaa kävelyvauhtia (1,4)
+        }
         if (idle.Length > 0) body.sprite = idle[0];
         else Debug.LogWarning("ArcadeSini (" + npcName + "): kuvia ei löytynyt kansiosta Resources/" + folder + " (tuonti kesken tai kansio puuttuu?).", this);
         body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f);

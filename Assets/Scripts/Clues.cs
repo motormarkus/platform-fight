@@ -38,9 +38,9 @@ public static class Clues
     public static bool Open(string id) => string.IsNullOrEmpty(id) || !GatesOn || Has(id);
 
     public const string Belt = "mestaruusvyo";
-    /// Mestaruusvyö: vihujen lentomatka (sivusuunta) pitenee 15 %.
-    public static float LaunchMul => Has(Belt) ? 1.15f : 1f;
-    public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 15 % pidemmälle."); }
+    /// Mestaruusvyö: vihujen lentomatka (sivusuunta) pitenee 50 %.
+    public static float LaunchMul => Has(Belt) ? 1.5f : 1f;
+    public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 50 % pidemmälle."); }
 
     public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko";
 

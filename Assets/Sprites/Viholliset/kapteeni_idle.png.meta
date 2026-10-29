@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,7 +87,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -144,13 +144,13 @@ TextureImporter:
       name: kapteeni_idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 512
-        height: 384
+        x: 1064
+        y: 1332
+        width: 526
+        height: 660
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -166,13 +166,13 @@ TextureImporter:
       name: kapteeni_idle_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
-        width: 512
-        height: 384
+        x: 0
+        y: 667
+        width: 526
+        height: 657
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -188,13 +188,13 @@ TextureImporter:
       name: kapteeni_idle_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 384
-        width: 512
-        height: 384
+        x: 1596
+        y: 669
+        width: 526
+        height: 655
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -210,13 +210,13 @@ TextureImporter:
       name: kapteeni_idle_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 384
-        width: 512
-        height: 384
+        x: 2660
+        y: 671
+        width: 526
+        height: 653
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -232,13 +232,13 @@ TextureImporter:
       name: kapteeni_idle_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 384
+        x: 3192
+        y: 671
+        width: 526
+        height: 653
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -254,13 +254,13 @@ TextureImporter:
       name: kapteeni_idle_5
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 384
+        x: 1064
+        y: 10
+        width: 526
+        height: 650
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -268,6 +268,314 @@ TextureImporter:
       bones: []
       spriteID: b4de297e784ae65d0800000000000000
       internalID: -3067333392580022965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 10
+        width: 526
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d1918e502bf5f74a82a5df542988759
+      internalID: -531643995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 10
+        width: 526
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834105766db1838468add710fae2ec24
+      internalID: -1913713441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_8
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 10
+        width: 526
+        height: 650
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e21e835b5ec504c8c33defaca9b2c2
+      internalID: -827795157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_9
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 8
+        width: 526
+        height: 652
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b99553da613714aaf2b4d5407f1457
+      internalID: -1150303509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 526
+        height: 653
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e499f03c4c0a1934aa7c5d40afe0bcbf
+      internalID: 1589653594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_11
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 669
+        width: 526
+        height: 655
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e7228f3338f8b4f882c978f039392c
+      internalID: 2071638953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_12
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 667
+        width: 526
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd7617fe0656204a8e509189f161fcc
+      internalID: -841705069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 667
+        width: 526
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c13a1127c2009459b94e70003c8f9d
+      internalID: -267929987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1332
+        width: 526
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6705b578292ae924eba74994f53ce724
+      internalID: 2083175045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_15
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 1332
+        width: 526
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5245a574e6a801041855afea538869a2
+      internalID: 1199063023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1330
+        width: 526
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295fb6d92bffb164099e4a274a917fbb
+      internalID: 683684332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_17
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1330
+        width: 526
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56aaca87a8d4884b937a98df43a967e
+      internalID: -1046817743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_18
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 1332
+        width: 526
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63e04f330dfcc9478ece3da73da9c17
+      internalID: -1917272919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kapteeni_idle_19
+      rect:
+        serializedVersion: 2
+        x: 3192
+        y: 1332
+        width: 526
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 11, y: 13, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebac0014d0c69fa47bbc62fed86c0e3b
+      internalID: 700886837
       vertices: []
       indices: 
       edges: []
@@ -288,10 +596,24 @@ TextureImporter:
     nameFileIdTable:
       kapteeni_idle_0: -4313602054734619006
       kapteeni_idle_1: 3339579615526817160
+      kapteeni_idle_10: 1589653594
+      kapteeni_idle_11: 2071638953
+      kapteeni_idle_12: -841705069
+      kapteeni_idle_13: -267929987
+      kapteeni_idle_14: 2083175045
+      kapteeni_idle_15: 1199063023
+      kapteeni_idle_16: 683684332
+      kapteeni_idle_17: -1046817743
+      kapteeni_idle_18: -1917272919
+      kapteeni_idle_19: 700886837
       kapteeni_idle_2: 6505934014122250266
       kapteeni_idle_3: -3826942091690797608
       kapteeni_idle_4: 8580639219551204593
       kapteeni_idle_5: -3067333392580022965
+      kapteeni_idle_6: -531643995
+      kapteeni_idle_7: -1913713441
+      kapteeni_idle_8: -827795157
+      kapteeni_idle_9: -1150303509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

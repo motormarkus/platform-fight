@@ -7,9 +7,14 @@ import os, sys, glob
 import numpy as np
 from PIL import Image
 PAD, ALIGN = 2, 4
+STEP = {"apuri_luistelu": 2, "apuri_jarrutus": 2, "apuri_pudotus": 2, "apuri_osuma": 2, "apuri_kaatuminen": 2, "apuri_maahan": 2, "apuri_nousu": 2, "apuri_nyrkki_idle": 2, "apuri_nyrkki_horjunta": 2, "apuri_nyrkki_maahan": 2, "apuri_nyrkki_nousu": 2, "kapteeni_idle": 2, "kapteeni_kavely": 2, "kapteeni_kaatuminen": 2, "kapteeni_nousu": 2, "kapteeni_taklaus": 2}   # apuri: harvennus (kuvaa joka n:s)
+CENTER = ("latkafani_osuma", "latkafani_kaatuminen", "latkafani_maahan")   # lento- ja kaatumiskuvat: hahmon massakeskipiste ruudun keskelle joka kuvassa (ei sivuttaista sätkimistä)
 HALVE = ("latkafani_idle", "latkafani_hengitys", "latkafani_kavely")
 
 def cell_size(n):
+    if n in ("apuri_osuma", "apuri_kaatuminen", "apuri_maahan", "apuri_nousu", "apuri_pudotus") or n.startswith("apuri_nyrkki_"): return 1280, 768
+    if n.startswith("kapteeni_"): return 1280, 768
+    if n.startswith("apuri_"): return 1280, 704
     if n in ("latkafani_idle", "latkafani_hengitys"): return 640, 704   # leveämpi ruutu: käsi ei leikkaudu
     if n in ("latkafani_kavely", "latkafani_suoja"): return 512, 704
     if n == "latkafani_juoksu": return 768, 704
@@ -28,6 +33,14 @@ def pack(src, outdir):
             cell = a[r * ch:(r + 1) * ch, c * cw:(c + 1) * cw]
             if cell[..., 3].max() > 0: frames.append(cell)
     if n in HALVE: frames = frames[::2]
+    if n in STEP: frames = frames[::STEP[n]]
+    if n in CENTER:
+        fixed = []
+        for cell in frames:
+            al = (cell[..., 3] > 8).astype(np.float64); xs = np.where(al.any(0))[0]
+            cx = (al.sum(0) * np.arange(cw)).sum() / max(al.sum(), 1.0); sh = int(round(cw / 2 - cx)); sh = max(-xs.min() + 3, min(cw - 4 - xs.max(), sh))
+            fixed.append(np.roll(cell, sh, axis=1))
+        frames = fixed
     crops = []
     for cell in frames:
         al = cell[..., 3] > 8; ys, xs = np.where(al)
@@ -58,7 +71,7 @@ def pack(src, outdir):
 
 def main():
     src, out = sys.argv[1:3]; os.makedirs(out, exist_ok=True); t0 = t1 = 0
-    for f in sorted(glob.glob(os.path.join(src, "latkafani_*.png"))):
+    for f in sorted(glob.glob(os.path.join(src, sys.argv[3] if len(sys.argv) > 3 else "latkafani_*.png"))):
         a, b = pack(f, out); t0 += a; t1 += b
     print(f"yhteensä {t0/1e6:.1f} Mpx -> {t1/1e6:.1f} Mpx")
 main()

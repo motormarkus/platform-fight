@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 36da8fabd4e8b624587a41d66a9ab68d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2001123004381136456
+    second: apuri_nyrkki_kaatuminen_0
+  - first:
+      213: 6716630897148910004
+    second: apuri_nyrkki_kaatuminen_1
+  - first:
+      213: -2646794562959981141
+    second: apuri_nyrkki_kaatuminen_2
+  - first:
+      213: -293938385859402161
+    second: apuri_nyrkki_kaatuminen_3
+  - first:
+      213: -1134155830346452092
+    second: apuri_nyrkki_kaatuminen_4
+  - first:
+      213: 7934506029596477193
+    second: apuri_nyrkki_kaatuminen_5
+  - first:
+      213: -3257522972284163030
+    second: apuri_nyrkki_kaatuminen_6
+  - first:
+      213: -287109877675080604
+    second: apuri_nyrkki_kaatuminen_7
+  - first:
+      213: -8774691830540687956
+    second: apuri_nyrkki_kaatuminen_8
+  - first:
+      213: 6663105821838251119
+    second: apuri_nyrkki_kaatuminen_9
+  - first:
+      213: -3434563174273045143
+    second: apuri_nyrkki_kaatuminen_10
+  - first:
+      213: 4753505808804319866
+    second: apuri_nyrkki_kaatuminen_11
+  - first:
+      213: 6696740968195594441
+    second: apuri_nyrkki_kaatuminen_12
+  - first:
+      213: -8018049789723182429
+    second: apuri_nyrkki_kaatuminen_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 562
+        height: 576
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b9fffbda359a34e0800000000000000
+      internalID: -2001123004381136456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 672
+        width: 562
+        height: 576
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b959f7f634463d50800000000000000
+      internalID: 6716630897148910004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 705
+        width: 622
+        height: 543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 6, z: 60, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba5c5594e52b44bd0800000000000000
+      internalID: -2646794562959981141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 734
+        width: 664
+        height: 514
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 22, z: 60, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46affc6898bbebf0800000000000000
+      internalID: -293938385859402161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 734
+        width: 662
+        height: 514
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 22, z: 60, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483f244084ba240f0800000000000000
+      internalID: -1134155830346452092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 776
+        width: 696
+        height: 472
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 57, z: 54, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9070b42f1370d1e60800000000000000
+      internalID: 7934506029596477193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 249
+        width: 694
+        height: 419
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 34, z: 46, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ce355ad14fac2d0800000000000000
+      internalID: -3257522972284163030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 249
+        width: 694
+        height: 419
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 34, z: 46, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464cba1661bf30cf0800000000000000
+      internalID: -287109877675080604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 305
+        width: 736
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 34, z: 42, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5a91b35480a3680800000000000000
+      internalID: -8774691830540687956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 2980
+        y: 395
+        width: 836
+        height: 273
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 34, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64918b317b187c50800000000000000
+      internalID: 6663105821838251119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 394
+        width: 836
+        height: 274
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 33, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d21d67dfaf550d0800000000000000
+      internalID: -3434563174273045143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 25
+        width: 894
+        height: 219
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 30, z: 55, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7299831958d7f140800000000000000
+      internalID: 4753505808804319866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 908
+        height: 237
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 49, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c89a120e6a9fec50800000000000000
+      internalID: 6696740968195594441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_nyrkki_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 7
+        width: 908
+        height: 237
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 4, z: 49, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa772c923a2ab090800000000000000
+      internalID: -8018049789723182429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a3dbc67c12bc3e34885b38d3a4250d46
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apuri_nyrkki_kaatuminen_0: -2001123004381136456
+      apuri_nyrkki_kaatuminen_1: 6716630897148910004
+      apuri_nyrkki_kaatuminen_10: -3434563174273045143
+      apuri_nyrkki_kaatuminen_11: 4753505808804319866
+      apuri_nyrkki_kaatuminen_12: 6696740968195594441
+      apuri_nyrkki_kaatuminen_13: -8018049789723182429
+      apuri_nyrkki_kaatuminen_2: -2646794562959981141
+      apuri_nyrkki_kaatuminen_3: -293938385859402161
+      apuri_nyrkki_kaatuminen_4: -1134155830346452092
+      apuri_nyrkki_kaatuminen_5: 7934506029596477193
+      apuri_nyrkki_kaatuminen_6: -3257522972284163030
+      apuri_nyrkki_kaatuminen_7: -287109877675080604
+      apuri_nyrkki_kaatuminen_8: -8774691830540687956
+      apuri_nyrkki_kaatuminen_9: 6663105821838251119
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

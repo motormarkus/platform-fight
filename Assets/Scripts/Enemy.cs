@@ -374,6 +374,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool ally;
     [Tooltip("Huudot (portsari: poke1, poke2), joita sanotaan välillä tappelun aikana. Vain yksi kerrallaan koko pelissä.")]
     public AudioClip[] tauntSounds;
+    [Tooltip("Repliikit, joita sanotaan vain rauhassa ennen tappelua (idlessä), ei tappelun aikana.")]
+    public AudioClip[] calmTauntSounds;
     [Tooltip("Heiton ääni (hönkäys): soi, kun vihu alkaa nostaa kohdetta heitettäväksi.")]
     public AudioClip[] throwSounds;
     [Tooltip("Puhuu repliikkejään (tauntSounds) myös rauhassa, ennen kuin tappelu alkaa.")]
@@ -627,6 +629,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [Tooltip("Kombon keskellä: torjuu iskun ja vastaa töytäisyllä (todennäköisyys per isku, kun kombossa on jo bellyCounterAfterHits osumaa).")]
     [Range(0f, 1f)] public float bellyCounterChance = 0f;
     public int bellyCounterAfterHits = 2;
+    [Tooltip("Suojaus vatsatöytäisyllä: edestä tuleva isku torjutaan töytäisyn latauksella ja vastataan töytäisyllä (todennäköisyys per isku).")]
+    [Range(0f, 1f)] public float bellyBlockChance = 0f;
+    float bellyBlockCd;
     public int bellyDamage = 14;
     [Tooltip("Pelaaja lentää kauas.")]
     public float bellyKnockSpeed = 14f, bellyKnockUp = 5.5f;
@@ -715,6 +720,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public AudioClip[] altSwingSounds;
     [Tooltip("Toisen hyökkäyksen (esim. hyppylyönti) latausääni: soi veto alkaessa.")]
     public AudioClip[] altWindupSounds;
+    [Tooltip("Tuplapotkun alun huuto (Tanya).")]
+    public AudioClip[] doubleKickSounds;
     [Tooltip("Ääni, kun vihu kaatuu eikä nouse enää.")]
     public AudioClip deathVoice;
     [Tooltip("Ääni, kun vihu lennätetään korkealle (uppercut, potku, tuplanyrkki): korvaa tavallisen kaatumisäänen.")]
@@ -774,6 +781,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int blocksInRow;
     int comboHits; float lastHitTime;   // pelaajan kombo (vatsatöytäisyn vastaisku)
     bool bellyHit, bellyLaughed;
+    bool burstTackle, tackleAfterBelly;   // purkaus: vatsatöytäisyn jälkeen heti pysäyttämätön taklausjuoksu
+    float bellyPressure, bellyPressureAt, bellyBurstCd;   // osumapaine: tarpeeksi monta osumaa -> vatsatöytäisy
     static readonly int[] BellyPump = { 0, 1, 2, 3, 4 }, BellyLaugh = { 5, 6, 5, 6, 7 };
     float BellyImpactTime => 3f * bellyPumpFrameTime;
     float BellyPumpTime => BellyPump.Length * bellyPumpFrameTime;
@@ -1191,19 +1200,61 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (hv != null) kickComboSounds = new[] { hv };   // potkuihin sama ääni kuin tuplanyrkkivasaraan
             if (runSprites != null && runSprites.Length >= 8) { runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 2.1f); runFrameTime = 0.055f; }
         }
+        if (displayName == "Tanya")   // äänet Resources/Sfx/Tanya: kipu, iskut, erikoisliikkeiden huuto (heitto, tuplapotku, käsinseisontapotku), puhe, taisteluhuuto ja voitto; sama kaikissa sceneissä
+        {
+            var tn = Resources.LoadAll<AudioClip>("Sfx/Tanya");
+            AudioClip[] TV(params string[] pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in tn) if (c != null) foreach (var pf in pre) if (c.name.StartsWith(pf)) { l.Add(c); break; } return l.ToArray(); }
+            var tnPain = TV("pain"); if (tnPain.Length > 0) { hurtSounds = tnPain; hurtVolume = 1f; fallVoice = tnPain[tnPain.Length - 1]; }
+            var tnHit = TV("hit"); if (tnHit.Length > 0) { attackSounds = tnHit; attackSoundChance = 0.85f; }
+            var tnSpecial = TV("special"); if (tnSpecial.Length > 0) { throwSounds = tnSpecial; altWindupSounds = tnSpecial; doubleKickSounds = tnSpecial; }
+            var tnTalk = TV("speak", "fightspeak"); if (tnTalk.Length > 0) { tauntSounds = tnTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
+            var tnWin = TV("voitto"); if (tnWin.Length > 0) { heroDownLaugh = tnWin[0]; knockdownShoutChance = 0.3f; }
+        }
+        if (displayName == "Prätkäjätkä")   // puheet Resources/Sfx/Motoristi (speak0 = vanha, speak1–4 uudet): puhuu sekä rauhassa että tapellessa kaikissa sceneissä
+        {
+            var mo = Resources.LoadAll<AudioClip>("Sfx/Motoristi");
+            if (mo.Length > 0)
+            {
+                tauntSounds = mo; tauntVolume = 0.708f; tauntNoRepeat = true;
+                tauntPause = new Vector2(7f, 14f); tauntMinDistance = 2f; tauntOnWakeChance = 0.5f; talksWhenCalm = true; ownTauntTimer = true;
+            }
+        }
+        if (displayName == "Rokkimimmi")   // äänet Resources/Sfx/Rokkimimmi: kipu, iskut, potku, lento, ylösnousu ja puhe; sama kaikissa sceneissä
+        {
+            var rk = Resources.LoadAll<AudioClip>("Sfx/Rokkimimmi");
+            AudioClip[] RV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in rk) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var rkPain = RV("pain"); if (rkPain.Length > 0) { hurtSounds = rkPain; hurtVolume = 1f; fallVoice = rkPain[rkPain.Length - 1]; }
+            var rkHit = RV("hit"); if (rkHit.Length > 0) { attackSounds = rkHit; attackSoundChance = 0.85f; }
+            var rkKick = RV("potku"); if (rkKick.Length > 0) { altWindupSounds = rkKick; altSwingSounds = rkKick; }
+            var rkFly = RV("lento"); if (rkFly.Length > 0) launchVoice = rkFly[0];
+            var rkUp = RV("nousu"); if (rkUp.Length > 0) getUpVoice = rkUp[0];
+            var rkCalm = RV("calm"); if (rkCalm.Length > 0) calmTauntSounds = rkCalm;   // speak3 ja speak4: vain idlessä ennen tappelua
+            var rkTalk = RV("speak"); if (rkTalk.Length > 0) { tauntSounds = rkTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
+        }
+        if (displayName == "Lippis")   // äänet Resources/Sfx/Lippis: kipu (pain), iskuäänet (hit), puhe (speak) ja ylösnousu (nousu); sama kaikissa sceneissä
+        {
+            var lp = Resources.LoadAll<AudioClip>("Sfx/Lippis");
+            AudioClip[] LV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in lp) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var lpPain = LV("pain"); if (lpPain.Length > 0) { hurtSounds = lpPain; hurtVolume = 1f; if (lpPain.Length > 2) fallVoice = lpPain[2]; }
+            var lpHit = LV("hit"); if (lpHit.Length > 0) { attackSounds = lpHit; attackSoundChance = 0.9f; }
+            var lpTalk = LV("speak"); if (lpTalk.Length > 0) { tauntSounds = lpTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }   // puhuu sekä rauhassa että tapellessa
+            var lpUp = LV("nousu"); if (lpUp.Length > 0) getUpVoice = lpUp[0];
+        }
         if (displayName == "Metsuri")
         {
             appearAfterOthers = true;   // katon pomo tulee vasta, kun muut on voitettu (myös vanhoissa sceneissä)
             // taklausjuoksu ruudun päästä päähän on pääliike: vähemmän kävelyä
-            chargeToEdge = true; chargeRange = 24f; chargeMinRange = 1.8f; altChance = Mathf.Max(altChance, 0.9f);
+            chargeToEdge = true; chargeRange = 24f; chargeMinRange = 3.6f; altChance = Mathf.Max(altChance, 0.9f);   // taklaus vain kauempaa: lähellä lyö nyrkein
             // juoksee lähes koko ajan (kävelykuvat vain aivan lähellä) ja taklaa useammin, varsinkin kun pelaaja on ahdistettu nurkkaan
             if (!HasLocomotion(runSprites) && HasLocomotion(walkSprites)) runSprites = walkSprites;
             runSpeedMultiplier = Mathf.Max(runSpeedMultiplier, 1.9f); runFrameTime = 0.055f;
             runDistance = 1.6f; corneredRange = 3.4f;
             breaksCombos = true;                                                   // katkaisee pelaajan kombon (vatsatöytäisy), ei hakattavissa nurkkaan
+            bellyBlockChance = Mathf.Max(bellyBlockChance, 0.4f);   // suojaa vatsatöytäisy-liikkeellä
             bellyCounterChance = Mathf.Max(bellyCounterChance, 0.85f); bellyCounterAfterHits = Mathf.Min(Mathf.Max(bellyCounterAfterHits, 1), 2);
             attackRange = Mathf.Max(attackRange, 2.1f); punchActiveTime = Mathf.Max(punchActiveTime, 0.18f);   // iskut yltävät ja osuvat paremmin
-            altNearChance = Mathf.Max(altNearChance, 0.3f);
+            altNearChance = Mathf.Min(Mathf.Max(altNearChance, 0.2f), 0.2f); bellyChance = Mathf.Min(bellyChance, 0.15f);   // lähellä enimmäkseen nyrkit (suora, yläisku, koukku, kombot)
+            comboChance = Mathf.Max(comboChance, 0.55f);
             attackCooldown = Mathf.Min(attackCooldown, 0.6f);
             altTimeScale = Mathf.Min(altTimeScale, 1.2f);
         }
@@ -1320,11 +1371,37 @@ public class Enemy : MonoBehaviour, IBottleHolder
         return Mathf.Sign(u) * k * panMax;
     }
 
+    /// Onko tämä vihu samalla alueella kuin hero (äänet kuuluvat vaikka vihu ei olisi ruudulla, mutta eivät toiselta alueelta).
+    /// Toisessa scenessä (esim. salin scene, kun hero on kadulla) oleva vihu on aina "muualla": x-koordinaatit voivat osua päällekkäin.
+    public bool AudibleHere()
+    {
+        var cur = Area.Effective;
+        if (cur != null)
+        {
+            var es = gameObject.scene;
+            if (es != cur.gameObject.scene)
+            {
+                var pl = Players.Primary;
+                if (pl == null || es != pl.gameObject.scene) return false;   // toisen alueen oma scene
+            }
+        }
+        return Area.IsHere(transform.position);
+    }
+
+    /// Saako puhua: samalla alueella kuin hero; leveällä ulkoalueella (katu) vain ruudulla olevat, sisätiloissa (baari, klubi, halli) myös ruudun ulkopuolella olevat.
+    public bool CanSpeakNow()
+    {
+        if (!AudibleHere()) return false;
+        var cur = Area.Effective;
+        bool indoor = cur != null && cur.camMaxX > cur.camMinX && (cur.camMaxX - cur.camMinX) < 60f;
+        return indoor || OnScreenX();
+    }
+
     void Update()
     {
         if (displayName == "Puliukko") TryRetort();
         // toisella alueella olevat viholliset eivät pidä ääntä (äänet eivät jää edellisestä ruudusta kuulumaan)
-        if (audioSource != null) { bool here = Area.IsHere(transform.position); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
+        if (audioSource != null) { bool here = AudibleHere(); audioSource.mute = !here; if (!here && audioSource.isPlaying) audioSource.Stop(); }
         if (audioSource != null && panVoices) audioSource.panStereo = VoicePan();
         if (OutsideHeroArea()) { moving = false; return; }   // toisella alueella: ei päivitetä (muuten liike rajautuisi heron alueen syvyyteen ja vihut siirtyisivät väärään kohtaan)
         if (appearAfterOthers && !awake && WaitToAppear()) return;
@@ -1352,7 +1429,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             case State.Idle:
                 moving = false;
                 if (!awake && wanderMaxX > wanderMinX) Wander(dt);
-                if (!awake && talksWhenCalm && OnScreenX()) MaybeTaunt();   // rauhassakin puhuu välillä (esim. Pensalenkkari)
+                if (!awake && talksWhenCalm && CanSpeakNow()) MaybeTaunt();   // rauhassakin puhuu välillä (esim. Pensalenkkari)
                 if (!awake && player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= wakeDistance)
                 {
                     awake = true;
@@ -1540,6 +1617,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 }
                 if (stateTime >= BellyTotalTime)
                 {
+                    if (tackleAfterBelly && Has(altAttackSprites) && player != null)
+                    {
+                        tackleAfterBelly = false; burstTackle = true;   // purkaus jatkuu heti taklausjuoksulla, jota ei voi katkaista
+                        facingRight = player.transform.position.x > transform.position.x;
+                        attackRolled = false; usingAlt = true; usingPunch2 = usingPunch3 = usingUppercut = false;
+                        Enter(State.Windup);
+                        break;
+                    }
+                    tackleAfterBelly = false;
                     cooldown = attackCooldown * Random.Range(0.8f, 1.2f);
                     Enter(State.Idle);
                 }
@@ -1626,6 +1712,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f);
                         if (SlideDiagnostics && Mathf.Abs(knockVel.x) > 2.5f) Debug.Log("[Liuku] kova: " + name + " vauhti " + knockVel.x.ToString("0.0") + ", kuva " + (body != null && body.sprite != null ? body.sprite.name : "?"));
                         if (Mathf.Abs(knockVel.x) > 2.5f) { slideLand = true; softSlide = false; knockVel *= Mathf.Lerp(0.6f, 0.9f, Mathf.InverseLerp(6f, 30f, Mathf.Abs(knockVel.x))); }   // kova isku (pukin moukari): liukuu pitkälle
+                                else if (OnIceNow) { slideLand = true; softSlide = true; knockVel *= 0.9f; }   // jäällä lyhytkin lento liukuu
+                        else if (Mathf.Abs(knockVel.x) > 0.8f) { slideLand = true; softSlide = true; knockVel *= 0.8f; }   // hiekassakin liukuu vähän
                         else knockVel *= 0.3f;   // liukuu vähän
                     }
                     else if (!thrownByPlayer && Mathf.Abs(knockVel.x) > 2.5f)
@@ -1644,7 +1732,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
                         HitFx.PlayClip(SlamSound, 1f);
                         DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.3f);
-                        knockVel *= 0.35f;   // liukuu vähän iskun jälkeen
+                        knockVel *= OnIceNow ? 0.8f : 0.55f;   // liukuu vähän iskun jälkeen (jäällä pitkälle)
+                        if (OnIceNow) { slideLand = true; softSlide = true; }
                         LandDust();
                         Enter(State.Down);
                         break;
@@ -1658,6 +1747,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         PlayHurtSound();
                         if (thrownByEnemy) HitFx.OnHitQuiet(); else HitFx.OnLand();
                         if (slideLand) { knockVel *= 1.35f * slideScaleE; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // liukuu lattiaa pitkin
+                        else if (OnIceNow && Mathf.Abs(knockVel.x) > 0.5f) { slideLand = true; softSlide = false; knockVel *= 1.3f; DustPuff.Spawn(transform.position, Mathf.RoundToInt(-transform.position.y * 100f) + 2, 1.2f); }   // Roccon heitto jäällä: vihu liukuu pitkälle
                         else knockVel = Vector2.zero;
                     }
                     LandDust();
@@ -1676,10 +1766,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
                         SlideSmash();
                         if (Mathf.Abs(transform.position.x - x0) < Mathf.Abs(knockVel.x * dt) * 0.3f) knockVel = Vector2.zero;   // törmäsi päätyyn: liuku loppuu heti, pääsee ylös
                     }
-                    knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, (softSlide ? 16f : slideLand ? 7.5f : 9f) * dt);   // pieni liuku sammuu nopeasti
+                    knockVel = Vector2.MoveTowards(knockVel, Vector2.zero, (OnIceNow && slideLand ? Mathf.Min(3.4f, Area.Current.GlideNow + 2f) : softSlide ? 11f : slideLand ? 7.5f : 9f) * dt);   // pieni liuku sammuu nopeasti
                     if (slideLand && knockVel.sqrMagnitude < 0.01f) { slideLand = false; softSlide = false; }
                 }
-                if (stateTime >= downTime + (ringFall ? 0.6f : 0f) && !sparKO && !slideLand)   // liuku loppuun ennen ylösnousua
+                if (stateTime >= downTime + (ringFall ? 0.6f : 0f) && !sparKO && !(slideLand && !(OnIceNow && knockVel.magnitude < 2.5f)))   // liuku loppuun ennen ylösnousua
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0 && undying) { health = 1; undyingFallen = true; }   // muu kuolemantie (heitto, ote): sama kuin iskussa
@@ -2416,9 +2506,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
     {
         if (s == State.Airborne && state != State.Airborne) airHits = 0;   // uusi lento: ilmaosumien laskuri nollaan
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
+        if (s != State.Windup && s != State.Punch && s != State.Recover) burstTackle = false;   // pysäyttämätön taklaus päättyy
         if (s != State.Hurt) hurtOverride = 0f;   // counter-iskun pidennetty horjahdus päättyy aina tilan vaihtuessa
         if (s == State.Windup && usingAlt && altVariants != null && altVariants.Length > 0) ApplyAltVariant();   // valitaan potkun variantti ennen latausta
         if (s == State.Windup && usingAlt && altWindupSounds != null && altWindupSounds.Length > 0) PlayClipFrom(altWindupSounds, altWindupVolume);
+        if (s == State.Windup && usingDoubleKick && doubleKickSounds != null && doubleKickSounds.Length > 0) PlayClipFrom(doubleKickSounds, 1f);
         if (s == State.Windup && usingPunch3)
         {
             // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu
@@ -2478,6 +2570,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Huuto välillä: vain yksi vihu kerrallaan, ja seuraava vasta edellisen loputtua ja tauon jälkeen.
     void MaybeTaunt()
     {
+        if (!CanSpeakNow()) return;   // kadulla vain ruudulla olevat puhuvat
         if (NextTaunt > Time.time + 60f) NextTaunt = 0f;   // uusi pelikerta editorissa (staattinen jäi edellisestä)
         bool silent = (tauntSounds == null || tauntSounds.Length == 0) && Has(walkTalkSprites);
         if (silent)
@@ -2540,7 +2633,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         foreach (var o in All)
         {
             if (o == null || o == this || o.IsDead || !o.isActiveAndEnabled || o.displayName != displayName) continue;
-            if (o.tauntSounds == null || o.tauntSounds.Length == 0) continue;
+            if (o.tauntSounds == null || o.tauntSounds.Length == 0 || o.waitingToAppear) continue;   // piilossa odottava ei estä muita puhumasta
             if (Mathf.Abs(o.transform.position.x - cx) > halfW) continue;
             if (o.GetInstanceID() < mine) return false;
         }
@@ -2572,12 +2665,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
     /// Soittaa yhden huudon (vain yksi vihu kerrallaan, tauko seuraavaan).
     void SayTaunt()
     {
-        if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < NextTaunt) return;
-        int i = Random.Range(0, tauntSounds.Length);
-        if (tauntSounds.Length > 1 && i == lastTaunt && tauntNoRepeat) i = (i + 1) % tauntSounds.Length;
-        var clip = tauntSounds[i];
+        if (tauntSounds == null || tauntSounds.Length == 0 || audioSource == null || Time.time < NextTaunt || !CanSpeakNow()) return;
+        var pool = tauntSounds;
+        if (!awake && calmTauntSounds != null && calmTauntSounds.Length > 0)   // rauhassa mukana myös vain idleen tarkoitetut repliikit
+        {
+            pool = new AudioClip[tauntSounds.Length + calmTauntSounds.Length];
+            tauntSounds.CopyTo(pool, 0); calmTauntSounds.CopyTo(pool, tauntSounds.Length);
+        }
+        int i = Random.Range(0, pool.Length);
+        if (pool.Length > 1 && i == lastTaunt && tauntNoRepeat) i = (i + 1) % pool.Length;
+        var clip = pool[i];
         if (clip == null) return;
         lastTaunt = i;
+        if (SlideDiagnostics) Debug.Log("[Puhe] " + name + " (" + displayName + "): " + clip.name + " / " + pool.Length + " repliikkiä");
         audioSource.pitch = 1f;
         audioSource.PlayOneShotLeveled(clip, tauntVolume, true);
         talkUntil = Time.time + clip.length;
@@ -3021,7 +3121,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool front = facingRight ? dx >= -0.3f : dx <= 0.3f;
         if (!front || Mathf.Abs(dx) > bellyRange + 0.3f || Mathf.Abs(p.y - me.y) > depthTolerance) return;
         if (player.AirHeight > 0.9f) return;
-        player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this);
+        player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this, true);   // vatsatöytäisyä ei voi torjua
     }
 
     // ---------------- Vihut toisiaan vastaan ----------------
@@ -3443,6 +3543,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
         bool chainLock = ChainJuggle && (!isBoss || Random.value > 0.06f);
         thrownByEnemy = false;   // pelaajan (tai esineen) isku: normaali pysäytys; vihun isku merkitsee tämän heti perään
         damage = GameSettings.ScaleToEnemy(damage, isBoss);   // vaikeustaso
+        // purkauksen taklausjuoksu: mikään isku ei katkaise sitä (vahinko menee läpi)
+        if (burstTackle && usingAlt && health > damage && (state == State.Windup || state == State.Punch || state == State.Recover))
+        {
+            awake = true; health -= damage; LastHit = this; LastHitTime = Time.time; JustBlocked = false;
+            flashTimer = 0.1f; shakeUntil = HitFx.ShakeUntil(false); PlayHurtSound();
+            return true;
+        }
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (!chainLock && ((comboArmor && comboSeq != null) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && !knockdown && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
             && (state == State.Windup || state == State.Punch || state == State.Recover))
@@ -3498,6 +3605,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
             shakeUntil = HitFx.ShakeUntil(false);
             return true;
         }
+        // töytäisyn loppuosa (isku ja nauru): iskut vähentävät energiaa, mutta eivät keskeytä liikettä
+        if (state == State.Belly && health > damage)
+        {
+            awake = true; health -= Dmg(damage); LastHit = this; LastHitTime = Time.time; JustBlocked = false;
+            flashTimer = 0.1f; shakeUntil = HitFx.ShakeUntil(false); PlayHurtSound();
+            return true;
+        }
         // kombon keskellä: torjuu ja vastaa vatsatöytäisyllä
         if (Time.time - lastHitTime > 0.9f || chainLock) comboHits = 0;
         bool unblockable = chainLock || (player != null && (player.Boosted || player.IsDrunk) && !isBoss);   // pärinä ja merimieskänni: heron iskuja ei voi torjua (pomot torjuvat silti)
@@ -3506,6 +3620,35 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             comboHits = 0;
             JustBlocked = true;
+            shakeUntil = HitFx.ShakeUntil(false);
+            StartBelly(true);
+            return true;
+        }
+        // purkaus: kun osumia tulee paljon (5 alle 2,2 s välein), vatsatöytäisy lennättää pelaajan pois (ei voi torjua); toistuu muutaman kerran (väli 3,5 s)
+        if (bellyCounterChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && !knockdown && state != State.Belly
+            && (state == State.Hurt || state == State.Chase || state == State.Idle || state == State.Recover || state == State.Block || state == State.Windup || state == State.Punch))
+        {
+            if (Time.time - bellyPressureAt > 2.2f) bellyPressure = 0;
+            bellyPressureAt = Time.time; bellyPressure++;
+            bool pinned = SelfCornered() || NearEdge(2.6f);   // ahdistettu nurkkaan: purkaus paljon aiemmin
+            if (bellyPressure >= (chainLock ? (pinned ? 6 : 9) : (pinned ? 3 : 5)) && Time.time >= (pinned ? bellyBurstCd - 1f : bellyBurstCd))   // kymmenen iskun ketjussa vasta lähes lopussa
+            {
+                bellyPressure = 0; bellyBurstCd = Time.time + 3.5f; comboHits = 0; tackleAfterBelly = Has(altAttackSprites);
+                Debug.Log("[Purkaus] " + displayName + ": vatsatöytäisy + taklaus" + (tackleAfterBelly ? "" : " (ei taklauskuvia)"));
+                JustBlocked = true;
+                shakeUntil = HitFx.ShakeUntil(false);
+                StartBelly(true);
+                return true;
+            }
+        }
+        // suojaus vatsatöytäisyllä: edestä tuleva isku uppoaa mahaan ja töytäisy vastaa heti
+        if (!unblockable && bellyBlockChance > 0f && Has(bellySprites) && bellySprites.Length >= 8 && !knockdown && Time.time >= bellyBlockCd
+            && (attackerX > transform.position.x) == facingRight
+            && (state == State.Chase || state == State.Recover || state == State.Block || (state == State.Idle && awake))
+            && Random.value < bellyBlockChance)
+        {
+            bellyBlockCd = Time.time + 1.4f;
+            JustBlocked = true; LastBlockTime = Time.time;
             shakeUntil = HitFx.ShakeUntil(false);
             StartBelly(true);
             return true;
@@ -4055,6 +4198,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (sprite.name.StartsWith("tanya_")) return;
             break;
         }
+        // Eri sheeteistä koottu sarja (esim. osuma + kaatuminen + maahan) on jo oikeassa järjestyksessä: numerojärjestys sekoittaisi sen (lennon sätkiminen)
+        string prefix = null;
+        foreach (var sprite in sprites)
+        {
+            if (sprite == null) continue;
+            int u = sprite.name.LastIndexOf('_'); string p = u >= 0 ? sprite.name.Substring(0, u) : sprite.name;
+            if (prefix == null) prefix = p; else if (p != prefix) return;
+        }
         PlayerController.SortByFrameNumber(sprites);
     }
 
@@ -4108,6 +4259,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     float xCarry;   // Move: x-askeleen pyöristysjäännös (float-tarkkuus suurilla x-arvoilla)
+    static bool OnIceNow => Area.Current != null && Area.Current.slippery;
     Vector2 iceVel; int iceFrame = -1;   // liukas pinta (Area.slippery): nykyinen vauhti
     void Move(Vector2 delta)
     {
@@ -4117,7 +4269,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (locomotion && !skating && iceArea != null && iceArea.slippery && Time.deltaTime > 0f)
         {
             // jäällä vauhti kasvaa ja hiipuu hitaasti; pysähdys liukuu (Update jatkaa liukua, kun Movea ei kutsuta)
-            iceVel = Vector2.MoveTowards(iceVel, delta / Time.deltaTime, (delta.sqrMagnitude < 1e-8f ? iceArea.iceGlide : iceArea.iceAccel) * Time.deltaTime);
+            iceVel = Vector2.MoveTowards(iceVel, delta / Time.deltaTime, (delta.sqrMagnitude < 1e-8f ? iceArea.GlideNow : iceArea.AccelNow) * Time.deltaTime);
             delta = iceVel * Time.deltaTime; iceFrame = Time.frameCount;
         }
         if (locomotion && !skating)

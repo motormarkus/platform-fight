@@ -61,15 +61,36 @@ public class Area : MonoBehaviour
     /// Onko piste pelaajan nykyisellä alueella (alueet ovat eri kohdissa x-akselia). Muualla olevien vihollisten äänet mykistetään.
     public static bool IsHere(Vector3 p, float margin = 8f)
     {
-        if (Current == null) return true;
-        float lo = Current.walkMinX, hi = Current.walkMaxX;
-        if (!(hi > lo))
+        var cur = Effective;
+        if (cur == null) return true;
+        return Spans(cur, out float lo, out float hi) ? p.x >= lo - margin && p.x <= hi + margin : true;
+    }
+
+    /// Alueen x-väli: kävelyrajat, tai (jos niitä ei ole, esim. katu) kameran rajat reunoineen. False = ei rajausta.
+    static bool Spans(Area a, out float lo, out float hi)
+    {
+        lo = a.walkMinX; hi = a.walkMaxX;
+        if (hi > lo) return true;
+        if (a.camMaxX > a.camMinX) { lo = a.camMinX - 20f; hi = a.camMaxX + 20f; return true; }
+        return false;
+    }
+
+    static Area effCache; static int effFrame = -1;
+    /// Nykyinen alue. Pelin alussa (ennen ensimmäistä ovea) Current on tyhjä: silloin alue päätellään heron paikasta (muuten kaikki alueet kuuluisivat kadulle).
+    public static Area Effective
+    {
+        get
         {
-            // kävelyrajoja ei ole annettu (esim. katu: 0 = ei rajaa): käytetään kameran rajoja, muuten ei rajausta (muuten kaikkien vihujen äänet mykistyisivät alueelle siirryttäessä)
-            if (Current.camMaxX > Current.camMinX) { lo = Current.camMinX - 20f; hi = Current.camMaxX + 20f; }
-            else return true;
+            if (Current != null) return Current;
+            if (effFrame == Time.frameCount) return effCache;
+            effFrame = Time.frameCount; effCache = null;
+            var pl = Players.Primary;
+            if (pl == null) return null;
+            float x = pl.transform.position.x;
+            foreach (var a in registry.Values)
+                if (a != null && Spans(a, out float lo, out float hi) && x >= lo && x <= hi) { effCache = a; break; }
+            return effCache;
         }
-        return p.x >= lo - margin && p.x <= hi + margin;
     }
 
     [Header("Liukas pinta (jää)")]
@@ -79,6 +100,9 @@ public class Area : MonoBehaviour
     public float iceAccel = 9f;
     [Tooltip("Hidastuvuus, kun ei liikuta (yksikköä/s²).")]
     public float iceGlide = 3.5f;
+    /// Käytössä oleva kiihtyvyys ja hidastuvuus: jää on liukkaampi kuin vanhaan scene-arvoon on tallennettu (min).
+    public float AccelNow => Mathf.Min(iceAccel, 5f);
+    public float GlideNow => Mathf.Min(iceGlide, 1.4f);
 
     [Header("Kävelyalue (y = syvyys)")]
     public float minDepthY = -4.3f;

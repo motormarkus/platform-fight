@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: c0456854cf5ecc54984cb07f85934e9f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6612483194993831188
+    second: apuri_jarrutus_0
+  - first:
+      213: -8218111581113705303
+    second: apuri_jarrutus_1
+  - first:
+      213: 5666214292136815300
+    second: apuri_jarrutus_2
+  - first:
+      213: 3436977818947323964
+    second: apuri_jarrutus_3
+  - first:
+      213: 224857012768795524
+    second: apuri_jarrutus_4
+  - first:
+      213: -4515981152177589452
+    second: apuri_jarrutus_5
+  - first:
+      213: 3028142243952898550
+    second: apuri_jarrutus_6
+  - first:
+      213: -2882793381162417904
+    second: apuri_jarrutus_7
+  - first:
+      213: -3417851694021367872
+    second: apuri_jarrutus_8
+  - first:
+      213: 7520320030270918328
+    second: apuri_jarrutus_9
+  - first:
+      213: 7806154090881653821
+    second: apuri_jarrutus_10
+  - first:
+      213: -7627544388469042809
+    second: apuri_jarrutus_11
+  - first:
+      213: -5429299301452408418
+    second: apuri_jarrutus_12
+  - first:
+      213: 6685795758591357468
+    second: apuri_jarrutus_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apuri_jarrutus_0
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 10
+        width: 522
+        height: 590
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 96, y: 15, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2172f819dbb34a0800000000000000
+      internalID: -6612483194993831188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_1
+      rect:
+        serializedVersion: 2
+        x: 2268
+        y: 624
+        width: 432
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 64, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ac9133fe0763fd80800000000000000
+      internalID: -8218111581113705303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 9
+        width: 534
+        height: 591
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 18, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca6e08b0ef62ae40800000000000000
+      internalID: 5666214292136815300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_3
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 10
+        width: 742
+        height: 590
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 11, z: 10, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38804fcd1992bf20800000000000000
+      internalID: 3436977818947323964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 764
+        height: 594
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 65, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48be653034ade1300800000000000000
+      internalID: 224857012768795524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_5
+      rect:
+        serializedVersion: 2
+        x: 2704
+        y: 624
+        width: 714
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 120, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433781c91130451c0800000000000000
+      internalID: -4515981152177589452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_6
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 615
+        width: 716
+        height: 609
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 106, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1ba2cb35f160a20800000000000000
+      internalID: 3028142243952898550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 609
+        width: 758
+        height: 615
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 78, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01187fa81b24ef7d0800000000000000
+      internalID: -2882793381162417904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 607
+        width: 780
+        height: 617
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 64, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7a3ea2ef95190d0800000000000000
+      internalID: -3417851694021367872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1229
+        width: 694
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 107, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be8d81293b8d5860800000000000000
+      internalID: 7520320030270918328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_10
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1229
+        width: 696
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 104, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c96f079c7055c60800000000000000
+      internalID: 7806154090881653821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_11
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1229
+        width: 694
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 104, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78157c88ac4852690800000000000000
+      internalID: -7627544388469042809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_12
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1229
+        width: 696
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 105, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9917ad0d0147a4b0800000000000000
+      internalID: -5429299301452408418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apuri_jarrutus_13
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1229
+        width: 696
+        height: 619
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 105, y: 11, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12b6afc1d7b8cc50800000000000000
+      internalID: 6685795758591357468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5ef190abc424b6348b5c37d219451849
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apuri_jarrutus_0: -6612483194993831188
+      apuri_jarrutus_1: -8218111581113705303
+      apuri_jarrutus_10: 7806154090881653821
+      apuri_jarrutus_11: -7627544388469042809
+      apuri_jarrutus_12: -5429299301452408418
+      apuri_jarrutus_13: 6685795758591357468
+      apuri_jarrutus_2: 5666214292136815300
+      apuri_jarrutus_3: 3436977818947323964
+      apuri_jarrutus_4: 224857012768795524
+      apuri_jarrutus_5: -4515981152177589452
+      apuri_jarrutus_6: 3028142243952898550
+      apuri_jarrutus_7: -2882793381162417904
+      apuri_jarrutus_8: -3417851694021367872
+      apuri_jarrutus_9: 7520320030270918328
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
