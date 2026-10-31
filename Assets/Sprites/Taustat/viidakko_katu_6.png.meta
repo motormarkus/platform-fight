@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: d2d3155467fe46d4797d1db362fa19c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4580477571557746026
+    second: viidakko_katu_6_0
+  - first:
+      213: -1852370799741322303
+    second: viidakko_katu_6_1
+  - first:
+      213: 887395856617470775
+    second: viidakko_katu_6_2
+  - first:
+      213: -6732923035046613261
+    second: viidakko_katu_6_3
+  - first:
+      213: -3831968090967133077
+    second: viidakko_katu_6_4
+  - first:
+      213: -7106076440478202578
+    second: viidakko_katu_6_5
+  - first:
+      213: 1287982811669884195
+    second: viidakko_katu_6_6
+  - first:
+      213: -2930861992549313466
+    second: viidakko_katu_6_7
+  - first:
+      213: 6270898609720249163
+    second: viidakko_katu_6_8
+  - first:
+      213: -5162563122305004808
+    second: viidakko_katu_6_9
+  - first:
+      213: -1467137651272880964
+    second: viidakko_katu_6_10
+  - first:
+      213: -732115480121135664
+    second: viidakko_katu_6_11
+  - first:
+      213: -778061661358823099
+    second: viidakko_katu_6_12
+  - first:
+      213: 4500795760508108514
+    second: viidakko_katu_6_13
+  - first:
+      213: 3069262803259201579
+    second: viidakko_katu_6_14
+  - first:
+      213: -1846484634488120051
+    second: viidakko_katu_6_15
+  - first:
+      213: 8516021290072998535
+    second: viidakko_katu_6_16
+  - first:
+      213: -7891591666942462937
+    second: viidakko_katu_6_17
+  - first:
+      213: -8503214798910442933
+    second: viidakko_katu_6_18
+  - first:
+      213: -5610142371298623707
+    second: viidakko_katu_6_19
+  - first:
+      213: -4249772038566313413
+    second: viidakko_katu_6_20
+  - first:
+      213: -593439326871043279
+    second: viidakko_katu_6_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 78.416664
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: viidakko_katu_6_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 415
+        width: 156
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65e75a3510219f30800000000000000
+      internalID: 4580477571557746026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 471
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbbc19629e0b46e0800000000000000
+      internalID: -1852370799741322303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 398
+        width: 704
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b76d874d9a05c00800000000000000
+      internalID: 887395856617470775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_3
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 473
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe60041c2adf82a0800000000000000
+      internalID: -6732923035046613261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_4
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 437
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64b54be25d12dac0800000000000000
+      internalID: -3831968090967133077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 472
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2546828025226d90800000000000000
+      internalID: -7106076440478202578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_6
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 453
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d646e0b85dfd110800000000000000
+      internalID: 1287982811669884195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_7
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 494
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6449760db8c7357d0800000000000000
+      internalID: -2930861992549313466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_8
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 487
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bcdd69f05b60750800000000000000
+      internalID: 6270898609720249163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_9
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 510
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa8a745134ea58b0800000000000000
+      internalID: -5162563122305004808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_10
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 489
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc6743541ea3abe0800000000000000
+      internalID: -1467137651272880964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_11
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 401
+        width: 497
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dda0d889d007d5f0800000000000000
+      internalID: -732115480121135664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_12
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 421
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5496b559a05c335f0800000000000000
+      internalID: -778061661358823099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_13
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 443
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee7bafd5e9067e30800000000000000
+      internalID: 4500795760508108514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_14
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 435
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2895960246389a20800000000000000
+      internalID: 3069262803259201579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_15
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 484
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d5e1e0208ff56e0800000000000000
+      internalID: -1846484634488120051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_16
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 490
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78207765e3cfe2670800000000000000
+      internalID: 8516021290072998535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_17
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 486
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724367bb03f6b7290800000000000000
+      internalID: -7891591666942462937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_18
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 469
+        width: 47
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42391e31338ef980800000000000000
+      internalID: -8503214798910442933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_19
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 485
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fb063bc35c422b0800000000000000
+      internalID: -5610142371298623707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_20
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 486
+        width: 14
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b320ed0e8d6c505c0800000000000000
+      internalID: -4249772038566313413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_katu_6_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133ca1e831ea3c7f0800000000000000
+      internalID: -593439326871043279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      viidakko_katu_6_0: 4580477571557746026
+      viidakko_katu_6_1: -1852370799741322303
+      viidakko_katu_6_10: -1467137651272880964
+      viidakko_katu_6_11: -732115480121135664
+      viidakko_katu_6_12: -778061661358823099
+      viidakko_katu_6_13: 4500795760508108514
+      viidakko_katu_6_14: 3069262803259201579
+      viidakko_katu_6_15: -1846484634488120051
+      viidakko_katu_6_16: 8516021290072998535
+      viidakko_katu_6_17: -7891591666942462937
+      viidakko_katu_6_18: -8503214798910442933
+      viidakko_katu_6_19: -5610142371298623707
+      viidakko_katu_6_2: 887395856617470775
+      viidakko_katu_6_20: -4249772038566313413
+      viidakko_katu_6_21: -593439326871043279
+      viidakko_katu_6_3: -6732923035046613261
+      viidakko_katu_6_4: -3831968090967133077
+      viidakko_katu_6_5: -7106076440478202578
+      viidakko_katu_6_6: 1287982811669884195
+      viidakko_katu_6_7: -2930861992549313466
+      viidakko_katu_6_8: 6270898609720249163
+      viidakko_katu_6_9: -5162563122305004808
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

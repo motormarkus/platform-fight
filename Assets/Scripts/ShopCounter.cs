@@ -141,6 +141,34 @@ public class ShopCounter : MonoBehaviour
             l.Add(new Item { name = PizzaName, price = 50, takeaway = "pizza", comment = "Koko laatikollinen." });
             items = l.ToArray();
         }
+        // Rommi vaihtoehtona kaikilla tiskeillä, joilla Sohvi myy (ei jos jo on)
+        if (!ownItemsOnly && items != null && npcName == "Sohvi" && System.Array.FindIndex(items, x => x != null && x.name == "Rommi") < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = "Rommi", price = 12, heal = 50, stamina = 999, comment = "Merimieskänni!" });
+            items = l.ToArray();
+        }
+        // Turbokengät kaikkiin panttikonttoreihin (Helvin tiskit): juoksu ei kuluta staminaa
+        if (ownItemsOnly && items != null && npcName == "Helvi" && System.Array.FindIndex(items, x => x != null && x.name == TurboName) < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = TurboName, price = 2000, give = "esine", comment = "Stamina ei kulu juostessa." });
+            items = l.ToArray();
+        }
+        // Tulitikut (Helvin tiskit): sytyttävät jerrygallonan poimintanapilla
+        if (ownItemsOnly && items != null && npcName == "Helvi" && System.Array.FindIndex(items, x => x != null && x.name == MatchesName) < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = MatchesName, price = 40, give = "esine", comment = "Varo, että pidät etäisyyttä." });
+            items = l.ToArray();
+        }
+        // Amazon-otsapanta (Helvin tiskit): anna amatsonille (E), niin hän taistelee rinnallasi
+        if (ownItemsOnly && items != null && npcName == "Helvi" && System.Array.FindIndex(items, x => x != null && x.name == AmazonBrain.HeadbandName) < 0)
+        {
+            var l = new System.Collections.Generic.List<Item>(items);
+            l.Add(new Item { name = AmazonBrain.HeadbandName, price = 300, give = "esine", comment = "Amatsonit kunnioittavat sitä." });
+            items = l.ToArray();
+        }
         // Bööni (termospullo) kaikille tiskeille: taskuun, juodaan tarvittaessa
         if (!ownItemsOnly && items != null && System.Array.FindIndex(items, x => x != null && x.name == "Bööni") < 0)
         {
@@ -272,8 +300,14 @@ public class ShopCounter : MonoBehaviour
         }
     }
 
+    public const string TurboName = "Turbokengät", TurboClueId = "esine_Turbokengät";
+    public const string MatchesName = "Tulitikut", MatchesClueId = "esine_Tulitikut";
+
     void Buy(Item it)
     {
+        if (it.name == TurboName && Clues.Has(TurboClueId)) { Say(Loc.T("Sinulla on jo turbokengät.")); return; }
+        if (it.name == MatchesName && Clues.Has(MatchesClueId)) { Say(Loc.T("Sinulla on jo tulitikut.")); return; }
+        if (it.name == AmazonBrain.HeadbandName && Clues.Has(AmazonBrain.HeadbandId)) { Say(Loc.T("Sinulla on jo otsapanta.")); return; }
         if (!string.IsNullOrEmpty(it.give))
         {
             if (pc.money < it.price) { Say(Loc.T("Ei riitä markat!")); return; }
@@ -291,7 +325,7 @@ public class ShopCounter : MonoBehaviour
             else
             {
                 pc.money -= it.price;
-                Clues.Add("esine_" + it.name, it.name, it.name == "Lumilauta" ? Loc.T("Lumilauta. Gondoli vie nyt lumirinteelle.") : Loc.T("Ostettu panttilainaamosta. Käyttö selviää myöhemmin."), null, false);
+                Clues.Add("esine_" + it.name, it.name, it.name == "Lumilauta" ? Loc.T("Lumilauta. Gondoli vie nyt lumirinteelle.") : it.name == TurboName ? Loc.T("Turbokengät. Juokseminen ei enää kuluta staminaa.") : it.name == AmazonBrain.HeadbandName ? Loc.T("Amazon-otsapanta. Mene amatsonin viereen ja paina E, niin hän taistelee rinnallasi.") : it.name == MatchesName ? Loc.T("Tulitikut. Pidä poimintanappia pohjassa jerrygallonan vieressä, niin se syttyy. Sen jälkeen aikaa on 3 sekuntia.") : Loc.T("Ostettu panttilainaamosta. Käyttö selviää myöhemmin."), it.name == AmazonBrain.HeadbandName ? "Kirjeet/amazon_otsapanta" : null, false);
                 Say(Loc.T("Ostit: ") + Loc.T(it.name) + ". " + Loc.T("Se on tapauskansiossa."));
             }
             Speak(purchaseLines);

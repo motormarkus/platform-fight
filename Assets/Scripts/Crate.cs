@@ -140,6 +140,21 @@ public class Crate : MonoBehaviour
     /// Tynnyri (vierii): ei hajoa.
     public bool IsBarrel => HasRoll;
 
+    [Header("Potkulento (jerrygallona)")]
+    [Tooltip("Isku (lyönti tai potku) heittää esineen ilmaan heiton tavoin pään korkeudelta eikä vain vieritä sitä.")]
+    public bool kickLaunch;
+    public float kickFlySpeed = 11f, kickFlyUp = 3f;
+    /// Esine lähtee lentoon iskun suuntaan kuin heitettynä (sama kaari ja matka kuin pään päältä heitto).
+    public void LaunchByKick(float dir)
+    {
+        if (state == State.Carried || state == State.Breaking) return;
+        Disturb++;
+        if (HasRoll) { lying = true; rollDist = 0f; }
+        height = 1.6f;
+        state = State.Carried;
+        Throw(Mathf.Sign(dir) * kickFlySpeed, kickFlyUp);
+    }
+
     static AudioClip[] barrelClips; static int lastBarrelClip = -1;
     /// Tynnyrin kolme metalliääntä (Resources/Sfx/Barrel): potkusta, iskusta, heitosta ja osumasta viholliseen.
     void PlayBarrel()
@@ -199,6 +214,7 @@ public class Crate : MonoBehaviour
         LastViolent = LastHitKick;
         shakeTimer = 0.15f;
         shakeUntil = HitFx.ShakeUntil(false);
+        if (!breakable && kickLaunch && !float.IsNaN(attackerX)) { LaunchByKick(transform.position.x >= attackerX ? 1f : -1f); return true; }
         if (!breakable)
         {
             // tynnyri kaatuu kyljelleen ja lähtee vierimään iskun suuntaan, kaataa vihut tieltään

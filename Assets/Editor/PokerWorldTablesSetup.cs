@@ -142,6 +142,7 @@ public static class PokerWorldTablesSetup
             var settings = AssetDatabase.LoadAssetAtPath<PokerPresentationSettings>(path);
             if (settings == null) { settings = Object.Instantiate(defaults); AssetDatabase.CreateAsset(settings, path); }
             settings.offerOmaha = true; if (settings.omahaBuyIn <= 0) settings.omahaBuyIn = 100;
+            settings.smallBlind = 5; settings.bigBlind = 10; settings.buyIn = 250; settings.omahaBuyIn = 500;   // hotellin pöytä: blindit 5/10
             EditorUtility.SetDirty(settings);
             Undo.RecordObject(entry, "Pöydän liittyminen"); entry.settings = settings; entry.here = area; entry.rangeX = width * .5f + .7f; entry.rangeY = .9f;
             var visual = go.transform.Find("Visual");

@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: 058f2e87c433a8045972e648319f3d3b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1111659450547341765
+    second: amatsoni_osuma_0
+  - first:
+      213: -1305795589938886903
+    second: amatsoni_osuma_1
+  - first:
+      213: 663986328762861826
+    second: amatsoni_osuma_2
+  - first:
+      213: 2684248567955827681
+    second: amatsoni_osuma_3
+  - first:
+      213: 8347549045324239416
+    second: amatsoni_osuma_4
+  - first:
+      213: -5905503424495261581
+    second: amatsoni_osuma_5
+  - first:
+      213: -738215631325514335
+    second: amatsoni_osuma_6
+  - first:
+      213: -7357197329336174683
+    second: amatsoni_osuma_7
+  - first:
+      213: -6691215685242544027
+    second: amatsoni_osuma_8
+  - first:
+      213: 358862712438686423
+    second: amatsoni_osuma_9
+  - first:
+      213: -1667378940176821574
+    second: amatsoni_osuma_10
+  - first:
+      213: 2598334517577443686
+    second: amatsoni_osuma_11
+  - first:
+      213: -6935945137600799800
+    second: amatsoni_osuma_12
+  - first:
+      213: -7807576410951355214
+    second: amatsoni_osuma_13
+  - first:
+      213: 8190583393820057983
+    second: amatsoni_osuma_14
+  - first:
+      213: -6563090938243985619
+    second: amatsoni_osuma_15
+  - first:
+      213: -2462993699331756955
+    second: amatsoni_osuma_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: amatsoni_osuma_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9841561686d6f00800000000000000
+      internalID: 1111659450547341765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907cb6054d1e0ede0800000000000000
+      internalID: -1305795589938886903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20940ad4c04f63900800000000000000
+      internalID: 663986328762861826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ebabddc9dd504520800000000000000
+      internalID: 2684248567955827681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832d3b721a378d370800000000000000
+      internalID: 8347549045324239416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3786b139cef6b0ea0800000000000000
+      internalID: -5905503424495261581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5b3376bc451c5f0800000000000000
+      internalID: -738215631325514335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7f672520cf5e990800000000000000
+      internalID: -7357197329336174683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_8
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560a89d29c60423a0800000000000000
+      internalID: -6691215685242544027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_osuma_9
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d28a025cbfeaf400800000000000000
+      internalID: 358862712438686423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b9ac3fc44d9aa14799257e546684701
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      amatsoni_osuma_0: 1111659450547341765
+      amatsoni_osuma_1: -1305795589938886903
+      amatsoni_osuma_2: 663986328762861826
+      amatsoni_osuma_3: 2684248567955827681
+      amatsoni_osuma_4: 8347549045324239416
+      amatsoni_osuma_5: -5905503424495261581
+      amatsoni_osuma_6: -738215631325514335
+      amatsoni_osuma_7: -7357197329336174683
+      amatsoni_osuma_8: -6691215685242544027
+      amatsoni_osuma_9: 358862712438686423
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

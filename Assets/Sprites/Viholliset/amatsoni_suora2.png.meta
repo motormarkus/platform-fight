@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 1f28a712ec0642341a211a6b2a8767d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1466742363746187808
+    second: amatsoni_suora2_0
+  - first:
+      213: 2495588296695974570
+    second: amatsoni_suora2_1
+  - first:
+      213: -7385700703745772322
+    second: amatsoni_suora2_2
+  - first:
+      213: 4619111116704167688
+    second: amatsoni_suora2_3
+  - first:
+      213: 7395310453969269793
+    second: amatsoni_suora2_4
+  - first:
+      213: -4150566711167801288
+    second: amatsoni_suora2_5
+  - first:
+      213: -5916502682602093063
+    second: amatsoni_suora2_6
+  - first:
+      213: -9103739324296007965
+    second: amatsoni_suora2_7
+  - first:
+      213: 4761008975276123566
+    second: amatsoni_suora2_8
+  - first:
+      213: 3531825268778106174
+    second: amatsoni_suora2_9
+  - first:
+      213: -4945244371992504744
+    second: amatsoni_suora2_10
+  - first:
+      213: -6251408869270538459
+    second: amatsoni_suora2_11
+  - first:
+      213: -1377839245335447663
+    second: amatsoni_suora2_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: amatsoni_suora2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02abb10a86aea5410800000000000000
+      internalID: 1466742363746187808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa8f2a655c12a220800000000000000
+      internalID: 2495588296695974570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed471ef4758b08990800000000000000
+      internalID: -7385700703745772322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807b53966116a1040800000000000000
+      internalID: 4619111116704167688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12432940dab61a660800000000000000
+      internalID: 7395310453969269793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838284c11993666c0800000000000000
+      internalID: -4150566711167801288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f54bda382c54eda0800000000000000
+      internalID: -5916502682602093063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_7
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eee497715509a180800000000000000
+      internalID: -9103739324296007965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5a7c72070821240800000000000000
+      internalID: 4761008975276123566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d744a9e50930130800000000000000
+      internalID: 3531825268778106174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85613e7d176fe5bb0800000000000000
+      internalID: -4945244371992504744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527376931c88e39a0800000000000000
+      internalID: -6251408869270538459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_suora2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1973038a18ee0ece0800000000000000
+      internalID: -1377839245335447663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 53478a3927175464587d679f222131c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      amatsoni_suora2_0: 1466742363746187808
+      amatsoni_suora2_1: 2495588296695974570
+      amatsoni_suora2_10: -4945244371992504744
+      amatsoni_suora2_11: -6251408869270538459
+      amatsoni_suora2_12: -1377839245335447663
+      amatsoni_suora2_2: -7385700703745772322
+      amatsoni_suora2_3: 4619111116704167688
+      amatsoni_suora2_4: 7395310453969269793
+      amatsoni_suora2_5: -4150566711167801288
+      amatsoni_suora2_6: -5916502682602093063
+      amatsoni_suora2_7: -9103739324296007965
+      amatsoni_suora2_8: 4761008975276123566
+      amatsoni_suora2_9: 3531825268778106174
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

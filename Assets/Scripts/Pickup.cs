@@ -144,7 +144,7 @@ public class Pickup : MonoBehaviour
             SpawnFood(pos + new Vector3(0.6f, -0.05f, 0f), true, "pizza");   // pomo pudottaa aina pizzan (täysi lataus) ja voimakuvakkeen
             return;
         }
-        if (enemyName == "Rekkamies" || enemyName == "Betty") { SpawnFood(pos + new Vector3(0.4f, -0.05f, 0f), true, "pizza"); return; }   // rekkamies ja Betty pudottavat aina palkintopizzan
+        if (enemyName == "Rekkamies" || enemyName == "Betty" || enemyName == "Amatsoni") { SpawnFood(pos + new Vector3(0.4f, -0.05f, 0f), true, "pizza"); return; }   // rekkamies ja Betty pudottavat aina palkintopizzan
         float r = Random.value;
         if (r < 0.16f) SpawnFood(pos + new Vector3(0f, -0.05f, 0f), r < 0.04f);   // 4 % iso, 12 % pieni
     }

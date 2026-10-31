@@ -71,7 +71,8 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     Step cur;
     bool hitDone, comboRunning, fastStep;
     float nextSandTime = 3f, nextJumpTime = 2f, lastCounterBlockStamp = -99f, nextBreakerTime, fleeT, fleeDir;
-    bool counterUsed;
+    bool counterUsed, runLatch;
+    float pinnedT, nextPinBurst;
     float stepLunge, stepTravelTime;
     readonly List<float> hitTimes = new List<float>();
 
@@ -190,7 +191,7 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
             if (adx > 1.9f || Mathf.Abs(dy) > e.depthTolerance + 0.2f)
             {
                 MoveToward(dt, dir, dy, adx, true);
-                CurrentSprite = Loop(Has(run) ? run : walk, runFrameTime);
+                CurrentSprite = LocoLoop(Has(run) ? run : walk, runFrameTime);
                 return;
             }
             sandHitStamp = -99f;
@@ -208,10 +209,14 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
             if (atks.ContainsKey(k)) { plan = new List<Step> { new Step(k) }; planPos = 0; comboRunning = false; fastStep = k != Kind.Upper; StartStep(hero); return; }
         }
 
-        bool moving = false, running = false;
+        bool moving = false;
+        // juoksu alkaa kaukaa ja loppuu vasta lähempänä (ei värähtelyä kävelyn ja juoksun rajalla)
+        if (adx > 6.8f) runLatch = true; else if (adx < 4.2f) runLatch = false;
+        bool running = runLatch;
+        bool pinned = adx < rangeMax + 0.6f && e.AtEdge(1.8f);   // Gustav on ajettu seinää vasten
+        pinnedT = pinned ? pinnedT + dt : 0f;
         if (adx > rangeMax + 0.9f)
         {
-            running = adx > 6f;
             MoveToward(dt, dir, dy, adx, running);
             moving = true;
         }
@@ -219,11 +224,22 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         {
             float dyMove = Mathf.Abs(dy) > e.depthTolerance * 0.8f ? Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), DepthFollow * dt) : 0f;
             float dxMove = 0f;
-            if (adx > rangeMax) dxMove = dir * walkSpeed * 0.8f * dt;
-            else if (adx < rangeMin) { dxMove = -dir * shuffleSpeed * dt; moving = true; }
+            if (adx > rangeMax) { dxMove = dir * walkSpeed * 0.8f * dt; moving = true; running = false; }
+            else if (adx < rangeMin)
+            {
+                if (pinned) decisionTimer = Mathf.Min(decisionTimer, 0.08f);   // seinää vasten ei peräännytä: lyödään heti
+                else { dxMove = -dir * shuffleSpeed * dt; moving = true; running = false; }
+            }
             if (dxMove != 0f || dyMove != 0f) e.BrainMove(new Vector2(dxMove, dyMove));
         }
-        CurrentSprite = moving ? Loop(running && Has(run) ? run : (Has(walk) ? walk : idle), running ? runFrameTime : walkFrameTime) : Ping(idle, idleFrameTime);
+        // nurkkaan ahdistettu: purkaus (kirves + takapotku) hetken kuluttua
+        if (pinnedT > 0.7f && Time.time >= nextPinBurst && !hero.IsFloored && atks.ContainsKey(Kind.Axe))
+        {
+            nextPinBurst = Time.time + 5f; pinnedT = 0f;
+            CornerBurst();
+            return;
+        }
+        CurrentSprite = moving ? LocoLoop(running && Has(run) ? run : (Has(walk) ? walk : idle), running ? runFrameTime : walkFrameTime) : Ping(idle, idleFrameTime);
 
         if (decisionTimer > 0f || hero.IsFloored) return;
         // pitkän matkan liike: hiekka tai hyppypotku
@@ -510,7 +526,7 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
         e.BrainPhaseSet(Enemy.BrainPhase.Chase);
         Vector3 before = transform.position;
         e.BrainMove(new Vector2(fleeDir * fleeSpeed * dt, 0f));
-        CurrentSprite = Loop(Has(run) ? run : walk, runFrameTime);
+        CurrentSprite = LocoLoop(Has(run) ? run : walk, runFrameTime);
         if (scriptedRun)
         {
             if (Mathf.Abs(transform.position.x - runTargetX) < 0.5f || fleeT > 15f) { scriptedRun = false; Vanish(); ThaiFinale.OnGustavBoarded(); }
@@ -547,5 +563,14 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
     {
         if (!Has(a)) return CurrentSprite;
         return a[(int)(animClock / Mathf.Max(0.001f, ft)) % a.Length];
+    }
+
+    // juoksu/kävely: vaihe kasvaa tasaisesti, joten kuvasarjan tai kuvanopeuden vaihto ei hypi kuvasta toiseen (tökkiminen)
+    float locoPhase; int locoFrame = -1;
+    Sprite LocoLoop(Sprite[] a, float ft)
+    {
+        if (!Has(a)) return CurrentSprite;
+        if (locoFrame != Time.frameCount) { locoFrame = Time.frameCount; locoPhase += Time.deltaTime / Mathf.Max(0.001f, ft); }
+        return a[(int)locoPhase % a.Length];
     }
 }

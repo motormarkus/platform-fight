@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: f89705d5f3d3d6f4e9e19afe561716d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8952361099373720084
+    second: amatsoni_koukku_0
+  - first:
+      213: -7515277551130716634
+    second: amatsoni_koukku_1
+  - first:
+      213: -2888642388882571579
+    second: amatsoni_koukku_2
+  - first:
+      213: -3999675993718209829
+    second: amatsoni_koukku_3
+  - first:
+      213: 2733948366696005331
+    second: amatsoni_koukku_4
+  - first:
+      213: -9124862344151220620
+    second: amatsoni_koukku_5
+  - first:
+      213: -755280965008145076
+    second: amatsoni_koukku_6
+  - first:
+      213: 8394491877658600152
+    second: amatsoni_koukku_7
+  - first:
+      213: 6034030005978787142
+    second: amatsoni_koukku_8
+  - first:
+      213: 8903635363388333838
+    second: amatsoni_koukku_9
+  - first:
+      213: -5947336668451251655
+    second: amatsoni_koukku_10
+  - first:
+      213: -4867611815706312022
+    second: amatsoni_koukku_11
+  - first:
+      213: 503353158989132042
+    second: amatsoni_koukku_12
+  - first:
+      213: 5988236515440901784
+    second: amatsoni_koukku_13
+  - first:
+      213: 4910293575563712734
+    second: amatsoni_koukku_14
+  - first:
+      213: -5281019049868792151
+    second: amatsoni_koukku_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: amatsoni_koukku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedcdc20303d2c380800000000000000
+      internalID: -8952361099373720084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626d26882ee54b790800000000000000
+      internalID: -7515277551130716634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ceb48f4d0b79e7d0800000000000000
+      internalID: -2888642388882571579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2c4c9ffdb4e78c0800000000000000
+      internalID: -3999675993718209829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3debc2fed8fe0f520800000000000000
+      internalID: 2733948366696005331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e37882b0afd5180800000000000000
+      internalID: -9124862344151220620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c454317c6f3b485f0800000000000000
+      internalID: -755280965008145076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_7
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d22eb503e93f7470800000000000000
+      internalID: 8394491877658600152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64de96e125e2db350800000000000000
+      internalID: 6034030005978787142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0f1e548031109b70800000000000000
+      internalID: 8903635363388333838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ade457fc0d67da0800000000000000
+      internalID: -5947336668451251655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2c454e7d4c27cb0800000000000000
+      internalID: -4867611815706312022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a013e1ef7054cf600800000000000000
+      internalID: 503353158989132042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89eb0ed326d7a1350800000000000000
+      internalID: 5988236515440901784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed89b5abdfdd42440800000000000000
+      internalID: 4910293575563712734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_koukku_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aeef78772d06b6b0800000000000000
+      internalID: -5281019049868792151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1aba14baa544bea499fff6fb5beb148f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      amatsoni_koukku_0: -8952361099373720084
+      amatsoni_koukku_1: -7515277551130716634
+      amatsoni_koukku_10: -5947336668451251655
+      amatsoni_koukku_11: -4867611815706312022
+      amatsoni_koukku_12: 503353158989132042
+      amatsoni_koukku_13: 5988236515440901784
+      amatsoni_koukku_14: 4910293575563712734
+      amatsoni_koukku_15: -5281019049868792151
+      amatsoni_koukku_2: -2888642388882571579
+      amatsoni_koukku_3: -3999675993718209829
+      amatsoni_koukku_4: 2733948366696005331
+      amatsoni_koukku_5: -9124862344151220620
+      amatsoni_koukku_6: -755280965008145076
+      amatsoni_koukku_7: 8394491877658600152
+      amatsoni_koukku_8: 6034030005978787142
+      amatsoni_koukku_9: 8903635363388333838
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

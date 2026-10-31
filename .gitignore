@@ -50,3 +50,6 @@ desktop.ini
 
 # Cubasen automaattiset varmuuskopiot (vaihtuvat joka tallennuksella)
 *.bak
+
+# Työvaiheiden välitiedostot (monta Gt)
+*.pkl

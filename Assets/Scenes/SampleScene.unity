@@ -355,6 +355,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -809,6 +810,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &3883284
 Transform:
   m_ObjectHideFlags: 0
@@ -1034,6 +1038,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -1950,6 +1955,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &22096071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,6 +2697,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -3976,6 +3985,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -4840,6 +4850,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &50354169
 Transform:
   m_ObjectHideFlags: 0
@@ -5625,6 +5638,7 @@ MonoBehaviour:
   - {x: 98522.484, y: -0.76153046}
   - {x: 98525.29, y: -2.0622745}
   - {x: 98527.93, y: -3.3120089}
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 98410.664
@@ -5813,6 +5827,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &59891587
 Transform:
   m_ObjectHideFlags: 0
@@ -6414,6 +6431,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &64223494
 Transform:
   m_ObjectHideFlags: 0
@@ -6823,6 +6843,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -7728,6 +7749,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -8249,6 +8271,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -8799,6 +8822,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &88489866
 Transform:
   m_ObjectHideFlags: 0
@@ -9041,6 +9067,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -9686,6 +9713,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &100545050
 GameObject:
   m_ObjectHideFlags: 0
@@ -10272,6 +10302,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &111973821
 Transform:
   m_ObjectHideFlags: 0
@@ -11908,6 +11941,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42307693
   curbDepthY: -1.2038462
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: -33.641026
@@ -12231,6 +12265,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -13227,6 +13262,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -13917,6 +13953,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -14714,6 +14751,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -15312,54 +15350,6 @@ Transform:
   m_Children:
   - {fileID: 158214799}
   - {fileID: 1874914101}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &185145606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 185145608}
-  - component: {fileID: 185145607}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &185145607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185145606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 101011.96, y: -0.7577047}
-  areaName: Junan katto
-  sceneName: Aavikko
---- !u!4 &185145608
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185145606}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187907786
@@ -16653,6 +16643,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -17295,6 +17286,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &223124904
 GameObject:
   m_ObjectHideFlags: 0
@@ -17586,6 +17580,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -18119,6 +18114,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -18620,6 +18616,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &232243322
 GameObject:
   m_ObjectHideFlags: 0
@@ -19449,6 +19448,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &255092683
 GameObject:
   m_ObjectHideFlags: 0
@@ -19702,6 +19704,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &256480217
 Transform:
   m_ObjectHideFlags: 0
@@ -19955,6 +19960,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -20549,6 +20555,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -21162,6 +21169,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -21777,6 +21785,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -24264,6 +24273,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &343531834
 GameObject:
   m_ObjectHideFlags: 0
@@ -24825,6 +24837,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -26095,6 +26108,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &362069538
 Transform:
   m_ObjectHideFlags: 0
@@ -26768,6 +26784,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -27161,6 +27178,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &379479536
 GameObject:
   m_ObjectHideFlags: 0
@@ -27758,6 +27778,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -28231,6 +28252,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &384393884
 GameObject:
   m_ObjectHideFlags: 0
@@ -28702,6 +28726,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &395212738
 GameObject:
   m_ObjectHideFlags: 0
@@ -28790,6 +28817,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &395868340
 GameObject:
   m_ObjectHideFlags: 0
@@ -29008,6 +29038,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -29631,6 +29662,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -30029,6 +30061,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &399806008
 Transform:
   m_ObjectHideFlags: 0
@@ -30460,6 +30495,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &406506470
 Transform:
   m_ObjectHideFlags: 0
@@ -30822,6 +30860,7 @@ MonoBehaviour:
   altChance: 0
   altExtraWindup: 0.05
   altReach: 3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -31918,6 +31957,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42
   curbDepthY: -1.2
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 64505.332
@@ -32759,6 +32799,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &444175608
 GameObject:
   m_ObjectHideFlags: 0
@@ -33332,6 +33375,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -34847,6 +34891,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -35411,6 +35456,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &472659127
 GameObject:
   m_ObjectHideFlags: 0
@@ -36769,6 +36817,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -37351,6 +37400,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -37741,6 +37791,110 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!1 &510467429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510467432}
+  - component: {fileID: 510467431}
+  - component: {fileID: 510467430}
+  m_Layer: 0
+  m_Name: Jerrygallona
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &510467430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510467429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f8b8ca3f93b1440bda7718617a24c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Jerrycan
+  sprites: []
+  fuse: 3
+  blastRadiusX: 3.2
+  blastRadiusY: 1.6
+  blastDamage: 40
+  heroDamage: 25
+  bossDamage: 12
+  ignitePickRange: 1.3
+  artScale: 0.8
+--- !u!114 &510467431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510467429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cebc93f6ed13e34b8b02e6e7d9ad07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Crate
+  sprites: []
+  burstSprite: {fileID: 0}
+  breakSprites: []
+  breakFrameTime: 0.09
+  shadowWidth: 1.4
+  carryLower: 0
+  carryUpsideDown: 0
+  plowThrough: 0
+  stackedOn: {fileID: 0}
+  stackHeight: 1.5
+  breakSounds: []
+  body: {fileID: 0}
+  shadow: {fileID: 0}
+  rollSprites: []
+  standUpChance: 0.2
+  rollFriction: 5
+  kickRollSpeed: 9
+  breakable: 1
+  hitsToBreak: 3
+  throwDamage: 16
+  hitRadiusX: 0.9
+  hitRadiusY: 0.5
+  tableDepthFactor: 1.6
+  debrisTime: 1.5
+  burstTime: 0.35
+  moneyChance: 0.5
+  energyChance: 0.3
+  foodChance: 0.15
+  thermosChance: 0.06
+  energyStamina: 40
+  visualScale: 1
+  footOffset: 0.05
+  anchored: 0
+  impactRadiusX: 1.2
+  immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
+--- !u!4 &510467432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510467429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6004.058, y: 5.070979, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511908228
 GameObject:
   m_ObjectHideFlags: 0
@@ -37853,6 +38007,9 @@ MonoBehaviour:
   anchored: 1
   impactRadiusX: 1.2
   immune: 1
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &512178939
 GameObject:
   m_ObjectHideFlags: 0
@@ -40316,6 +40473,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &594157434
 GameObject:
   m_ObjectHideFlags: 0
@@ -41050,6 +41210,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -43622,6 +43783,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &644653618
 Transform:
   m_ObjectHideFlags: 0
@@ -43794,6 +43958,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &647358465
 Transform:
   m_ObjectHideFlags: 0
@@ -44401,6 +44568,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -44841,6 +45009,9 @@ MonoBehaviour:
   anchored: 1
   impactRadiusX: 1.2
   immune: 1
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &657987351
 GameObject:
   m_ObjectHideFlags: 0
@@ -45049,6 +45220,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -46266,6 +46438,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &695234192
 Transform:
   m_ObjectHideFlags: 0
@@ -46447,6 +46622,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &702198383
 Transform:
   m_ObjectHideFlags: 0
@@ -47741,6 +47919,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -48246,6 +48425,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -49540,6 +49720,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -49931,6 +50112,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &748057561
 GameObject:
   m_ObjectHideFlags: 0
@@ -50487,6 +50671,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -51146,6 +51331,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -51670,6 +51856,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -52484,6 +52671,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &776079602
 Transform:
   m_ObjectHideFlags: 0
@@ -53254,6 +53444,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42
   curbDepthY: -1.2
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 64008.32
@@ -53842,6 +54033,7 @@ MonoBehaviour:
   altChance: 0.18
   altExtraWindup: 0.45
   altReach: 2.8
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0
   altJumpHeight: 0
@@ -54556,6 +54748,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -55396,6 +55589,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &805960686
 GameObject:
   m_ObjectHideFlags: 0
@@ -56244,6 +56440,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -56878,6 +57075,7 @@ MonoBehaviour:
   altChance: 0.9
   altExtraWindup: 0.1
   altReach: 1.6
+  strikeStep: 0
   altLungeSpeed: 17
   altLungeTime: 0.75
   altJumpHeight: 0
@@ -58272,6 +58470,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -58936,6 +59135,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &847810093
 GameObject:
   m_ObjectHideFlags: 0
@@ -59612,6 +59814,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -60302,6 +60505,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -60843,6 +61047,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &874409006
 Transform:
   m_ObjectHideFlags: 0
@@ -61774,6 +61981,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -63458,6 +63666,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &947955778
 GameObject:
   m_ObjectHideFlags: 0
@@ -63864,6 +64075,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &954424023
 GameObject:
   m_ObjectHideFlags: 0
@@ -64189,6 +64403,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -64784,6 +64999,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -65548,6 +65764,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -66567,6 +66784,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -67395,6 +67613,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -68424,6 +68643,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -69190,6 +69410,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &994337807
 GameObject:
   m_ObjectHideFlags: 0
@@ -70333,6 +70556,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1031392280
 Transform:
   m_ObjectHideFlags: 0
@@ -70812,6 +71038,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -71752,6 +71979,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -72450,6 +72678,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -73659,6 +73888,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -74516,6 +74746,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -75347,6 +75578,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -76617,6 +76849,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1105144723
 Transform:
   m_ObjectHideFlags: 0
@@ -77380,6 +77615,7 @@ MonoBehaviour:
   altChance: 0.18
   altExtraWindup: 0.45
   altReach: 2.8
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0
   altJumpHeight: 0
@@ -78258,6 +78494,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -79063,6 +79300,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1132628585
 Transform:
   m_ObjectHideFlags: 0
@@ -79288,6 +79528,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -80249,6 +80490,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -81370,6 +81612,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1163110870
 GameObject:
   m_ObjectHideFlags: 0
@@ -81788,6 +82033,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1166845477
 Transform:
   m_ObjectHideFlags: 0
@@ -81984,6 +82232,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1169225754
 GameObject:
   m_ObjectHideFlags: 0
@@ -82273,6 +82524,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -83106,6 +83358,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1179093184
 Transform:
   m_ObjectHideFlags: 0
@@ -83174,6 +83429,7 @@ MonoBehaviour:
   - {x: 2033.4353, y: -0.5958716}
   - {x: 2034.7294, y: -2.0148609}
   - {x: 2035.9059, y: -3.3048503}
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 2010.6666
@@ -83870,6 +84126,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -84418,6 +84675,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -84933,6 +85191,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -85647,6 +85906,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -86455,6 +86715,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -87165,6 +87426,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -87829,6 +88091,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1251981149
 GameObject:
   m_ObjectHideFlags: 0
@@ -88155,6 +88420,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -91864,6 +92130,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -92266,6 +92533,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1298884668
 GameObject:
   m_ObjectHideFlags: 0
@@ -92573,6 +92843,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -92964,6 +93235,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1302233298
 GameObject:
   m_ObjectHideFlags: 0
@@ -93014,6 +93288,7 @@ MonoBehaviour:
   - {x: 40016.477, y: 2.8285713}
   - {x: 40028.477, y: 2.9238093}
   - {x: 40034.23, y: 1.0190475}
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 40010.668
@@ -93439,6 +93714,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -94461,6 +94737,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42
   curbDepthY: -1.2
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 1010.6667
@@ -94795,6 +95072,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -95199,6 +95477,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1338872771
 GameObject:
   m_ObjectHideFlags: 0
@@ -95311,6 +95592,9 @@ MonoBehaviour:
   anchored: 1
   impactRadiusX: 1.2
   immune: 1
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1339792845
 GameObject:
   m_ObjectHideFlags: 0
@@ -95529,6 +95813,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -96068,6 +96353,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -97060,6 +97346,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -97634,6 +97921,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1358098491
 Transform:
   m_ObjectHideFlags: 0
@@ -98994,6 +99284,7 @@ MonoBehaviour:
   - {x: 50017.547, y: 1.2637994}
   - {x: 50020.56, y: 1.2637994}
   - {x: 50023.65, y: -0.42078844}
+  minDepthLimits: []
   backScale: 0.85
   depthLimitsExceedMax: 0
   camMinX: 50010.668
@@ -99574,6 +99865,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1396024012
 Transform:
   m_ObjectHideFlags: 0
@@ -99890,6 +100184,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -101352,6 +101647,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1428400863
 GameObject:
   m_ObjectHideFlags: 0
@@ -102491,6 +102789,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -103192,6 +103491,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -103656,6 +103956,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1450426678
 Transform:
   m_ObjectHideFlags: 0
@@ -104169,6 +104472,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1458561329
 Transform:
   m_ObjectHideFlags: 0
@@ -104605,6 +104911,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -105706,6 +106013,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1468618713
 Transform:
   m_ObjectHideFlags: 0
@@ -107658,6 +107968,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -108455,6 +108766,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.2
   altReach: 2.8
+  strikeStep: 0
   altLungeSpeed: 10
   altLungeTime: 0.5
   altJumpHeight: 0
@@ -108963,6 +109275,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -109487,6 +109800,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -110067,6 +110381,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1542883359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542883361}
+  - component: {fileID: 1542883360}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1542883360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542883359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 109019.81, y: -1.3801515}
+  areaName: Thaitown hotelli aula 1
+  sceneName: Thaitown
+--- !u!4 &1542883361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542883359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544310998
 GameObject:
   m_ObjectHideFlags: 0
@@ -110721,6 +111083,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1551687395
 GameObject:
   m_ObjectHideFlags: 0
@@ -110929,6 +111294,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -111474,6 +111840,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -111861,6 +112228,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1555148314
 GameObject:
   m_ObjectHideFlags: 0
@@ -112079,6 +112449,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -112481,6 +112852,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1555867139
 GameObject:
   m_ObjectHideFlags: 0
@@ -112887,6 +113261,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -114213,6 +114588,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -114946,6 +115322,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -116384,6 +116761,7 @@ MonoBehaviour:
   altChance: 0.2
   altExtraWindup: 0.15
   altReach: 2.6
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.4
   altJumpHeight: 0
@@ -116860,6 +117238,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1593464312
 GameObject:
   m_ObjectHideFlags: 0
@@ -117317,6 +117698,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -117725,6 +118107,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1609598756
 GameObject:
   m_ObjectHideFlags: 0
@@ -118194,6 +118579,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -120417,6 +120803,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -121196,6 +121583,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1657125177
 GameObject:
   m_ObjectHideFlags: 0
@@ -121974,6 +122364,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1674036186
 GameObject:
   m_ObjectHideFlags: 0
@@ -122663,6 +123056,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -123278,6 +123672,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1692218473
 Transform:
   m_ObjectHideFlags: 0
@@ -123784,6 +124181,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1706943689
 GameObject:
   m_ObjectHideFlags: 0
@@ -124520,6 +124920,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -125530,6 +125931,7 @@ MonoBehaviour:
   altChance: 0.5
   altExtraWindup: 0.05
   altReach: 2.2
+  strikeStep: 0
   altLungeSpeed: 12
   altLungeTime: 0.35
   altJumpHeight: 0
@@ -126331,6 +126733,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1749291219
 GameObject:
   m_ObjectHideFlags: 0
@@ -126567,6 +126972,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1756888716
 Transform:
   m_ObjectHideFlags: 0
@@ -127081,6 +127489,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -127474,6 +127883,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1766881125
 Transform:
   m_ObjectHideFlags: 0
@@ -127716,6 +128128,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -128108,6 +128521,9 @@ MonoBehaviour:
   anchored: 1
   impactRadiusX: 1.2
   immune: 1
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1773728584
 GameObject:
   m_ObjectHideFlags: 0
@@ -128844,6 +129260,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -130125,6 +130542,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -130584,6 +131002,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1800962623
 Transform:
   m_ObjectHideFlags: 0
@@ -131456,6 +131877,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -134277,6 +134699,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -135050,6 +135473,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -135915,6 +136339,7 @@ MonoBehaviour:
   altChance: 0.2
   altExtraWindup: 0.15
   altReach: 2.6
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.4
   altJumpHeight: 0
@@ -136730,6 +137155,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -137254,6 +137680,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &1895010934
 Transform:
   m_ObjectHideFlags: 0
@@ -137541,6 +137970,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1902812937
 GameObject:
   m_ObjectHideFlags: 0
@@ -137629,6 +138061,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1905573043
 GameObject:
   m_ObjectHideFlags: 0
@@ -138232,6 +138667,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -139352,6 +139788,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1930594573
 GameObject:
   m_ObjectHideFlags: 0
@@ -140088,6 +140527,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -140626,6 +141066,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -141292,6 +141733,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1959031065
 GameObject:
   m_ObjectHideFlags: 0
@@ -141764,6 +142208,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -142296,6 +142741,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &1977842069
 GameObject:
   m_ObjectHideFlags: 0
@@ -142339,6 +142787,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42
   curbDepthY: -1.2
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 56010.668
@@ -142887,6 +143336,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -143340,6 +143790,7 @@ MonoBehaviour:
   sidewalkHeight: 0.42307693
   curbDepthY: -1.2038462
   depthLimits: []
+  minDepthLimits: []
   backScale: 1
   depthLimitsExceedMax: 0
   camMinX: 3010.6667
@@ -144390,6 +144841,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -146076,6 +146528,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -146484,6 +146937,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &2045172661
 GameObject:
   m_ObjectHideFlags: 0
@@ -147373,6 +147829,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 1.4
+  strikeStep: 0
   altLungeSpeed: 8
   altLungeTime: 0.28
   altJumpHeight: 0
@@ -148003,6 +148460,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -148392,6 +148850,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &2072105725
 Transform:
   m_ObjectHideFlags: 0
@@ -149171,6 +149632,7 @@ MonoBehaviour:
   altChance: 0.4
   altExtraWindup: 0.15
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 7
   altLungeTime: 0.22
   altJumpHeight: 0
@@ -149816,6 +150278,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &2092094214
 GameObject:
   m_ObjectHideFlags: 0
@@ -150300,6 +150765,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!4 &2104548011
 Transform:
   m_ObjectHideFlags: 0
@@ -151073,6 +151541,7 @@ MonoBehaviour:
   altChance: 0.3
   altExtraWindup: 0.12
   altReach: 2.3
+  strikeStep: 0
   altLungeSpeed: 14
   altLungeTime: 0.38
   altJumpHeight: 0.3
@@ -152026,6 +152495,9 @@ MonoBehaviour:
   anchored: 1
   impactRadiusX: 1.2
   immune: 1
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &2126867576
 GameObject:
   m_ObjectHideFlags: 0
@@ -152245,6 +152717,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -152889,6 +153362,9 @@ MonoBehaviour:
   anchored: 0
   impactRadiusX: 1.2
   immune: 0
+  kickLaunch: 0
+  kickFlySpeed: 11
+  kickFlyUp: 3
 --- !u!1 &2130434827
 GameObject:
   m_ObjectHideFlags: 0
@@ -153280,6 +153756,7 @@ MonoBehaviour:
   altChance: 0.35
   altExtraWindup: 0.15
   altReach: 2.5
+  strikeStep: 0
   altLungeSpeed: 0
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -154139,6 +154616,7 @@ MonoBehaviour:
   altChance: 0.25
   altExtraWindup: 0.3
   altReach: 2.4
+  strikeStep: 0
   altLungeSpeed: 5
   altLungeTime: 0.25
   altJumpHeight: 0
@@ -155228,4 +155706,5 @@ SceneRoots:
   - {fileID: 826560125}
   - {fileID: 840874164}
   - {fileID: 192042734}
-  - {fileID: 185145608}
+  - {fileID: 1542883361}
+  - {fileID: 510467432}

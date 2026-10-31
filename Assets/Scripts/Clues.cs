@@ -49,7 +49,7 @@ public static class Clues
     {
         if (boss == "Metsuri") Add(BikeKey, "Moottoripyörän avaimet", "Metsurin taskusta löytyi moottoripyörän avaimet. Nyt pääset ajamaan.");
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
-        else if (boss == "Joulupukki") Add(JungleTicket, "Viidakkolippu", "Joulupukin säkistä löytyi lentolippu viidakkoon. Alppikylän kiitotiellä kone vie sinne.");
+        else if (boss == "Joulupukki") Add(JungleTicket, "Eldoraaton lippu", "Joulupukin säkistä löytyi lentolippu Eldoraatoon. Korvatunturin kiitotiellä kone vie sinne.");
         else if (boss == "Yakuza-pomo" || boss == "Don Kurinai") Add(PlaneTicket, "Lentolippu", "Don Kurinain taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 

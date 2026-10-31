@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 051e9f7ec8c4b8c4790fafd30ff12587
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3269388431789013038
+    second: amatsoni_vaisto_0
+  - first:
+      213: -5532182676641660970
+    second: amatsoni_vaisto_1
+  - first:
+      213: 6593951429001735448
+    second: amatsoni_vaisto_2
+  - first:
+      213: -8409377142706777072
+    second: amatsoni_vaisto_3
+  - first:
+      213: -9119197209842407668
+    second: amatsoni_vaisto_4
+  - first:
+      213: -5586798263055226321
+    second: amatsoni_vaisto_5
+  - first:
+      213: 2138390988262328240
+    second: amatsoni_vaisto_6
+  - first:
+      213: 7192385076685546953
+    second: amatsoni_vaisto_7
+  - first:
+      213: 4325299287289338788
+    second: amatsoni_vaisto_8
+  - first:
+      213: -8872931314974311212
+    second: amatsoni_vaisto_9
+  - first:
+      213: -5774625832995328227
+    second: amatsoni_vaisto_10
+  - first:
+      213: 3347610785901852321
+    second: amatsoni_vaisto_11
+  - first:
+      213: -4076202879707763768
+    second: amatsoni_vaisto_12
+  - first:
+      213: 918926787588059349
+    second: amatsoni_vaisto_13
+  - first:
+      213: 3284371627119042034
+    second: amatsoni_vaisto_14
+  - first:
+      213: 7952242681278223882
+    second: amatsoni_vaisto_15
+  - first:
+      213: 1118398399778684704
+    second: amatsoni_vaisto_16
+  - first:
+      213: -7317122773732847452
+    second: amatsoni_vaisto_17
+  - first:
+      213: -5158970055939798717
+    second: amatsoni_vaisto_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: amatsoni_vaisto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e283e8de4733f5d20800000000000000
+      internalID: 3269388431789013038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3072
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df34369a2db933b0800000000000000
+      internalID: -5532182676641660970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81de3df63eb628b50800000000000000
+      internalID: 6593951429001735448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3072
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0145ca22b04eb4b80800000000000000
+      internalID: -8409377142706777072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c072c96047a127180800000000000000
+      internalID: -9119197209842407668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ae2d27494b772b0800000000000000
+      internalID: -5586798263055226321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7c54e26471dad10800000000000000
+      internalID: 2138390988262328240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_7
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2304
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5a9afce1c70d360800000000000000
+      internalID: 7192385076685546953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab912e09cc860c30800000000000000
+      internalID: 4325299287289338788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc3486daf30dd480800000000000000
+      internalID: -8872931314974311212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fe48176686cdfa0800000000000000
+      internalID: -5774625832995328227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a632fbf54a157e20800000000000000
+      internalID: 3347610785901852321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb289ad31b6e67c0800000000000000
+      internalID: -4076202879707763768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0f6cc6b0fa0cc00800000000000000
+      internalID: 918926787588059349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd5dc0f79e649d20800000000000000
+      internalID: 3284371627119042034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06d949f59a0c5e60800000000000000
+      internalID: 7952242681278223882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f7c284b69558f00800000000000000
+      internalID: 1118398399778684704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a09bb5ea9b547a90800000000000000
+      internalID: -7317122773732847452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_vaisto_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.34375, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349c4d84118a768b0800000000000000
+      internalID: -5158970055939798717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a9f9ed25fb61c974899bd11f3585f752
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      amatsoni_vaisto_0: 3269388431789013038
+      amatsoni_vaisto_1: -5532182676641660970
+      amatsoni_vaisto_10: -5774625832995328227
+      amatsoni_vaisto_11: 3347610785901852321
+      amatsoni_vaisto_12: -4076202879707763768
+      amatsoni_vaisto_13: 918926787588059349
+      amatsoni_vaisto_14: 3284371627119042034
+      amatsoni_vaisto_15: 7952242681278223882
+      amatsoni_vaisto_16: 1118398399778684704
+      amatsoni_vaisto_17: -7317122773732847452
+      amatsoni_vaisto_18: -5158970055939798717
+      amatsoni_vaisto_2: 6593951429001735448
+      amatsoni_vaisto_3: -8409377142706777072
+      amatsoni_vaisto_4: -9119197209842407668
+      amatsoni_vaisto_5: -5586798263055226321
+      amatsoni_vaisto_6: 2138390988262328240
+      amatsoni_vaisto_7: 7192385076685546953
+      amatsoni_vaisto_8: 4325299287289338788
+      amatsoni_vaisto_9: -8872931314974311212
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

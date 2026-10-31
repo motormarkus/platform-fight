@@ -1,0 +1,513 @@
+fileFormatVersion: 2
+guid: eb89c7b2af15df2428168dfa32781a3c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5690623437981820848
+    second: amatsoni_kaatuminen_0
+  - first:
+      213: 2533437922619475853
+    second: amatsoni_kaatuminen_1
+  - first:
+      213: 1559847927491286121
+    second: amatsoni_kaatuminen_2
+  - first:
+      213: -7417222801235868514
+    second: amatsoni_kaatuminen_3
+  - first:
+      213: 3847301088899281929
+    second: amatsoni_kaatuminen_4
+  - first:
+      213: -8768299530635281782
+    second: amatsoni_kaatuminen_5
+  - first:
+      213: 5878836029020324005
+    second: amatsoni_kaatuminen_6
+  - first:
+      213: -2151794072622796091
+    second: amatsoni_kaatuminen_7
+  - first:
+      213: -6684247292480011561
+    second: amatsoni_kaatuminen_8
+  - first:
+      213: -5866240834714604300
+    second: amatsoni_kaatuminen_9
+  - first:
+      213: 4757143635832209514
+    second: amatsoni_kaatuminen_10
+  - first:
+      213: 3509050384126370201
+    second: amatsoni_kaatuminen_11
+  - first:
+      213: -5135745833428352452
+    second: amatsoni_kaatuminen_12
+  - first:
+      213: 4004442778293520460
+    second: amatsoni_kaatuminen_13
+  - first:
+      213: -558918040049459533
+    second: amatsoni_kaatuminen_14
+  - first:
+      213: -4802181730698091416
+    second: amatsoni_kaatuminen_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b72b6bddd729fe40800000000000000
+      internalID: 5690623437981820848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d87cc3e2e54982320800000000000000
+      internalID: 2533437922619475853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9645fb5fc61b5a510800000000000000
+      internalID: 1559847927491286121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e948860192bb01990800000000000000
+      internalID: -7417222801235868514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1536
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904b0dbd4fb546530800000000000000
+      internalID: 3847301088899281929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a7248880eb05680800000000000000
+      internalID: -8768299530635281782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a046829832d59150800000000000000
+      internalID: 5878836029020324005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c2f68f01ba4322e0800000000000000
+      internalID: -2151794072622796091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2ccdc8088cc33a0800000000000000
+      internalID: -6684247292480011561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fce1ff9a0de69ea0800000000000000
+      internalID: -5866240834714604300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a600a4faee4c40240800000000000000
+      internalID: 4757143635832209514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 991eccc8bb6a2b030800000000000000
+      internalID: 3509050384126370201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c328fc5ff5a2ab8b0800000000000000
+      internalID: -5135745833428352452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: amatsoni_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 960
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48409b8d73a29730800000000000000
+      internalID: 4004442778293520460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4816074e1199229479ea89b69e45b48e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      amatsoni_kaatuminen_0: 5690623437981820848
+      amatsoni_kaatuminen_1: 2533437922619475853
+      amatsoni_kaatuminen_10: 4757143635832209514
+      amatsoni_kaatuminen_11: 3509050384126370201
+      amatsoni_kaatuminen_12: -5135745833428352452
+      amatsoni_kaatuminen_13: 4004442778293520460
+      amatsoni_kaatuminen_2: 1559847927491286121
+      amatsoni_kaatuminen_3: -7417222801235868514
+      amatsoni_kaatuminen_4: 3847301088899281929
+      amatsoni_kaatuminen_5: -8768299530635281782
+      amatsoni_kaatuminen_6: 5878836029020324005
+      amatsoni_kaatuminen_7: -2151794072622796091
+      amatsoni_kaatuminen_8: -6684247292480011561
+      amatsoni_kaatuminen_9: -5866240834714604300
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

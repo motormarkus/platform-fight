@@ -15,6 +15,9 @@ public class PlaneDestination : MonoBehaviour
     public Door toThaitown;
     [Tooltip("Reitti viidakkoon. Tyhjä = viidakkoa ei ole vielä tehty.")]
     public Door toJungle;
+    [Tooltip("Mukautettu määränpäälista (esim. Eldoraaton kone: Korvatunturi, Thaitown, Pysy Eldoraatossa). Viimeinen rivi on aina \"pysy\". Tyhjä = Korvatunturin oletuslista.")]
+    public string[] customNames;
+    public Door[] customRoutes;
     public float halfWidth = 1.8f, maxDistanceFromWall = 2.5f;
 
     bool open; int sel; int openedFrame;
@@ -22,7 +25,9 @@ public class PlaneDestination : MonoBehaviour
     PlayerController pc;
     GUIStyle box, line;
 
-    static readonly string[] Names = { "Viidakko", "Thaitown", "Pysy Alppikylässä" };
+    static readonly string[] DefaultNames = { "Eldoraato", "Thaitown", "Pysy Korvatunturilla" };
+    bool Custom => customNames != null && customNames.Length >= 2 && customRoutes != null;
+    string[] Names => Custom ? customNames : DefaultNames;
 
     void Update()
     {
@@ -58,10 +63,10 @@ public class PlaneDestination : MonoBehaviour
         if (Dir() != 0) sel = (sel + Dir() + Names.Length) % Names.Length;
         if (Cancel()) { Close(); return; }
         if (!(Confirm() || (pc != null && CoopInput.Pick(pc.playerIndex)))) return;
-        if (sel == 2) { Close(); return; }
-        Door route = sel == 0 ? toJungle : toThaitown;
-        if (sel == 0 && !Clues.Open(Clues.JungleTicket)) { Say("Tarvitset viidakkolipun."); return; }
-        if (route == null) { Say("Viidakko ei ole vielä kartalla."); return; }
+        if (sel == Names.Length - 1) { Close(); return; }
+        Door route = Custom ? (sel < customRoutes.Length ? customRoutes[sel] : null) : (sel == 0 ? toJungle : toThaitown);
+        if (!Custom && sel == 0 && !Clues.Open(Clues.JungleTicket)) { Say("Tarvitset Eldoraaton lipun."); return; }
+        if (route == null) { Say(Custom ? "Reittiä ei ole vielä tehty." : "Eldoraato ei ole vielä kartalla."); return; }
         open = false;
         route.GoNow(pc);   // Go() palauttaa pelaajien ohjauksen perillä
     }
@@ -123,7 +128,7 @@ public class PlaneDestination : MonoBehaviour
         for (int i = 0; i < Names.Length; i++)
         {
             string t = (i == sel ? "▶  " : "    ") + Loc.T(Names[i]);
-            if (i == 0 && !Clues.Open(Clues.JungleTicket)) t += "  (lukossa)";
+            if (!Custom && i == 0 && !Clues.Open(Clues.JungleTicket)) t += "  (lukossa)";
             GUI.Label(new Rect(x + 40f * s, y + 10f * s + rowH * (i + 1), w - 60f * s, rowH), t, line);
         }
         if (Time.unscaledTime < msgUntil)

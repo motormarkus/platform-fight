@@ -116,6 +116,9 @@ public class Area : MonoBehaviour
     [Tooltip("Takaraja kohdittain (x maailmassa, suurin syvyys y), esim. terassin kaide. Tyhjä = maxDepthY kaikkialla. Välissä lineaarisesti.")]
     public Vector2[] depthLimits;
 
+    [Tooltip("Etuosan raja kohdittain (x maailmassa, pienin sallittu syvyys y), esim. sillan alla oleva kuilu. Tyhjä = ei rajaa. Välissä lineaarisesti; alueen minDepthY ei mene ylitetyksi alaspäin.")]
+    public Vector2[] minDepthLimits;
+
     [Tooltip("Perspektiivi: hahmojen koko takaseinällä (maxDepthY) suhteessa eteen (minDepthY). 1 = ei perspektiiviä (esim. syvä pokerihuone 0.85).")]
     [Range(0.5f, 1f)] public float backScale = 1f;
 
@@ -139,6 +142,23 @@ public class Area : MonoBehaviour
     public bool depthLimitsExceedMax;
 
     float Cap(float fallback, float limit) => depthLimitsExceedMax ? limit : Mathf.Min(fallback, limit);
+
+    /// Pienin sallittu syvyys kohdassa x nykyisellä alueella (minDepthLimits, esim. sillan kuilu).
+    public static float MinDepthAt(float x, float fallback)
+    {
+        var a = Current;
+        return a == null ? fallback : a.MinDepthAtX(x, fallback);
+    }
+
+    public float MinDepthAtX(float x, float fallback)
+    {
+        var d = minDepthLimits;
+        if (d == null || d.Length == 0) return fallback;
+        if (x <= d[0].x) return Mathf.Max(fallback, d[0].y);
+        for (int i = 1; i < d.Length; i++)
+            if (x <= d[i].x) return Mathf.Max(fallback, Mathf.Lerp(d[i - 1].y, d[i].y, (x - d[i - 1].x) / Mathf.Max(0.001f, d[i].x - d[i - 1].x)));
+        return Mathf.Max(fallback, d[d.Length - 1].y);
+    }
 
     public float MaxDepthAtX(float x, float fallback)
     {

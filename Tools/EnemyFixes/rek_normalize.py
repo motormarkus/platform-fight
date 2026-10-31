@@ -5,9 +5,9 @@ import os, glob
 import numpy as np, cv2
 SRC = 'Tools/EnemyFixes/orig_rekkamies/'; DST = 'Assets/Sprites/Viholliset/'
 CW, CH = 512, 448
-SCALE = {   # sheetti: kerroin kaikille ruuduille (ankkuri: ruudun alakeskikohta)
-    'calm': 1.04, 'taistelu': 0.93, 'iskut': 1.055, 'poyta': 1.13, 'juoksu': 1.0, 'alakoukku': 1.0, 'kaatuminen': 0.99,
-    'piirakkakavely': 0.99, 'ylosnousu': 0.97, 'kavely': 0.965, 'taklaus': 0.95, 'heitto': 0.95, 'heitetty': 0.88,
+SCALE = {   # sheetti: kerroin kaikille ruuduille (ankkuri: ruudun alakeskikohta). Pystyasennot (calm, taistelu, iskut, kavely, piirakkakavely, ylosnousu loppu, alakoukku loppu) mitoitettu kokonaiskorkeuteen ~380 px, koska hahmon pää/lippis eri sheeteissä ei ole keskenään vertailukelpoinen
+    'calm': 1.01, 'taistelu': 1.02, 'iskut': 1.045, 'poyta': 1.0, 'juoksu': 1.06, 'alakoukku': 0.97, 'kaatuminen': 0.96,
+    'piirakkakavely': 1.025, 'ylosnousu': 1.0, 'kavely': 0.99, 'taklaus': 1.05, 'heitto': 0.95, 'heitetty': 0.88,
 }
 def scale_cell(cell, f):
     if abs(f - 1) < 1e-3: return cell

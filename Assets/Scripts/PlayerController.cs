@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     void UpdateStamina(float dt)
     {
         if (Skating) { stamina = Mathf.Min(maxStamina, stamina + staminaRegenPerSecond * dt); staminaRest = 0f; return; }   // laudalla stamina palautuu eikä kulu
+        if (running && Clues.Has(ShopCounter.TurboClueId)) return;   // Turbokengät (panttikonttori, 2000 mk): juoksu ei kuluta staminaa
         if (running && (Boosted || PieWar.Active)) return;   // piirakkasodassa juoksu ei kuluta staminaa (ehtii hakea piirakoita)
         if (running)
         {
@@ -1991,6 +1992,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                     pickBufferUntil = 0f;
                     if (canCarry && TvSet.TryPickUp(this)) { Enter(State.Lift); break; }   // telkkari pöydältä: nosto pään yli
                     if (canCarry && Bottle.TryPickUpFromTable(this)) { facingRight = Bottle.HeldBy(this).transform.position.x >= transform.position.x; if (HasSmallItem) Enter(State.SmallPick); break; }   // piirakka pöydältä suoraan käteen
+                    if (Jerrycan.BeginHold(this)) break;                    // tulitikut + gallona vieressä: pito sytyttää, lyhyt painallus nostaa (Jerrycan hoitaa)
                     Crate c = canCarry ? NearbyCrate() : null;
                     if (c != null) { StartLift(c); break; }                 // laatikko vieressä: nosto
                     if (Lid.Held == null && LidArt != null)
@@ -3673,7 +3675,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         bool drunkKnock = IsDrunk && !knockdown && UnityEngine.Random.value < drunkKnockChance;   // kännissä heilautus kaataa
         foreach (var e in Enemy.All.ToArray())
         {
-            if (e == null || e.IsDead) continue;
+            if (e == null || e.IsDead || e.ally) continue;   // liittolaiseen ei osu
             Vector3 p = e.transform.position;
             float dx = p.x - me.x;
             bool inFront = facingRight ? dx >= -0.3f && dx <= reach : dx <= 0.3f && dx >= -reach;
@@ -4606,6 +4608,16 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         return best;
     }
 
+    /// Jerrygallonan lyhyt painallus (tulitikut taskussa): nosta lähin esine, jos hero on edelleen valmis nostamaan.
+    public bool TryLiftNearby()
+    {
+        if (state != State.Ground || carried != null || Scripted || GameOver || Bottle.HeldBy(this) != null) return false;
+        Crate c = NearbyCrate();
+        if (c == null) return false;
+        StartLift(c);
+        return true;
+    }
+
     void StartLift(Crate c)
     {
         carried = c;
@@ -5296,7 +5308,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     float drunkIdleFallAt = -1f;
     void DrunkIdle(float dt)
     {
-        if (!IsDrunk || state != State.Ground || moving) { drunkIdleFallAt = -1f; return; }
+        if (!IsDrunk || state != State.Ground || moving || Scripted) { drunkIdleFallAt = -1f; return; }   // ei kaadu kesken ohjatun kohtauksen (suudelma, sytytys)
         if (drunkIdleFallAt < 0f) { if (UnityEngine.Random.value < drunkIdleFallRate * dt) drunkIdleFallAt = Time.time + 1.3f; return; }
         drunkStaggerTime = Time.time; MoveOnGround(new Vector2((facingRight ? 1f : -1f) * 1.1f * dt, 0f));   // ottaa muutaman horjuvan askeleen eteenpäin
         drunkLeanNow = Mathf.Clamp01(1f - (drunkIdleFallAt - Time.time) / 0.8f); drunkLeanTime = Time.time;   // keinahtaa eteenpäin ennen kaatumista
@@ -5403,7 +5415,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             if (Area.Current != null && Area.Current.walkMaxX != 0f) p.x = Mathf.Min(p.x, Area.Current.walkMaxX);   // esim. laiturin reuna
             if (Area.Current != null && Area.Current.walkMinX != 0f) p.x = Mathf.Max(p.x, Area.Current.walkMinX);   // esim. laivan keula
         }
-        p.y = Mathf.Clamp(p.y + delta.y, minDepthY, Area.MaxDepthAt(p.x, maxDepthY));   // esim. terassin kaide
+        { float hiY = Area.MaxDepthAt(p.x, maxDepthY); p.y = Mathf.Clamp(p.y + delta.y, Mathf.Min(Area.MinDepthAt(p.x, minDepthY), hiY), hiY); }   // esim. terassin kaide, sillan kuilu
         if (height < 1.2f)
         {
             // heitettynä tai osumasta pöytää vasten: pallot kalisevat

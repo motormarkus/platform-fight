@@ -30,8 +30,10 @@ public static class BeatEmUpSetup
         return true;
     }
 
+    static readonly List<string> batchLog = new List<string>();
     static void Info(string msg)
     {
+        if (batch) batchLog.Add(msg);
         if (batch) Debug.Log("Beat em up: " + msg.Replace("\n", " "));
         else EditorUtility.DisplayDialog("Beat em up", msg, "OK");
     }
@@ -95,7 +97,7 @@ public static class BeatEmUpSetup
         Info("Koko katu rakennettu: talo, baari, S-Club ja kadun jatko, ovet, moottoripyörät, laatikot ja viholliset.\nYksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/1. Aseta ja leikkaa kaikki spritet", false, 1)]
+    [MenuItem("Beat em up/Yksittäiset valikot/1. Aseta ja leikkaa kaikki spritet", false, 1)]
     static void FixImportSettings()
     {
         var report = new List<string>();
@@ -144,14 +146,14 @@ public static class BeatEmUpSetup
         string atlasFile = Path.ChangeExtension(path, ".atlas.txt");
         if ((baseName0.StartsWith("latkafani_") || baseName0.StartsWith("apuri_") || baseName0.StartsWith("kapteeni_")) && File.Exists(atlasFile)) { Object.DestroyImmediate(tex); return SliceLatkaAtlas(path, atlasFile, w, h); }   // tiukka atlas (Tools/LatkaAssets/pack_latka_atlas.py)
         // tanssijan kuvat ovat kapeampia (256 × 384), muut 512 × 384
-        int CellW = baseName0.StartsWith("latkafani_") ? (LatkaKickSheet(baseName0) ? 896 : baseName0 == "latkafani_juoksu" ? 640 : LatkaCentered(baseName0) ? 512 : 1024) : baseName0.StartsWith("rocco_lautailu_") ? 768 : baseName0.StartsWith("yakuzapomo_") ? (baseName0 == "yakuzapomo_idle" || baseName0 == "yakuzapomo_kavely" ? 512 : baseName0 == "yakuzapomo_juoksu" || baseName0 == "yakuzapomo_juoksualku" ? 640 : YakuzaBossReactionSheet(baseName0) ? 1024 : 896) : baseName0.StartsWith("lentoemanta_") ? 512 : (baseName0 == "rocco_pannu_heitto" || baseName0 == "rocco_pannu_isku" || (baseName0 == "ruby_pannu_isku" || baseName0 == "ruby_pannu_heitto")) ? 640 : baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("marcus_") || baseName0.StartsWith("gustav_") || baseName0.StartsWith("tom_") || baseName0.StartsWith("lenkkari_") || baseName0.StartsWith("lentoperamies_") || baseName0.StartsWith("lentokapteeni_") || baseName0.StartsWith("ruby_spagaatti") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
+        int CellW = baseName0.StartsWith("amatsoni_") ? AmatsoniCellW(baseName0) : baseName0.StartsWith("latkafani_") ? (LatkaKickSheet(baseName0) ? 896 : baseName0 == "latkafani_juoksu" ? 640 : LatkaCentered(baseName0) ? 512 : 1024) : baseName0.StartsWith("rocco_lautailu_") ? 768 : baseName0.StartsWith("yakuzapomo_") ? (baseName0 == "yakuzapomo_idle" || baseName0 == "yakuzapomo_kavely" ? 512 : baseName0 == "yakuzapomo_juoksu" || baseName0 == "yakuzapomo_juoksualku" ? 640 : YakuzaBossReactionSheet(baseName0) ? 1024 : 896) : baseName0.StartsWith("lentoemanta_") ? 512 : (baseName0 == "rocco_pannu_heitto" || baseName0 == "rocco_pannu_isku" || (baseName0 == "ruby_pannu_isku" || baseName0 == "ruby_pannu_heitto")) ? 640 : baseName0 == "puhelinkoppi" ? 455 : baseName0 == "deacon_heitetty" ? 448 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("marcus_") || baseName0.StartsWith("gustav_") || baseName0.StartsWith("tom_") || baseName0.StartsWith("lenkkari_") || baseName0.StartsWith("lentoperamies_") || baseName0.StartsWith("lentokapteeni_") || baseName0.StartsWith("ruby_spagaatti") ? 768 : baseName0.StartsWith("deacon_") ? 384 : baseName0.StartsWith("john_") || baseName0.StartsWith("jade_") || baseName0.StartsWith("meredith_") || baseName0.StartsWith("violet_") || baseName0.StartsWith("devo_") ? 256 : baseName0.StartsWith("romuukko_") ? 768 : baseName0.StartsWith("rekkamies_") ? 512 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 384 : baseName0.StartsWith("linsey_piirakka") || baseName0.StartsWith("linsey_heitto") ? 384 : baseName0.StartsWith("linsey_") ? 320 : baseName0.StartsWith("rusty_lyonti") || baseName0.StartsWith("rusty_syoksy") || baseName0.StartsWith("rusty_potku") ? 640 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 640 : baseName0.StartsWith("rusty_nykaisy") ? 2048 : baseName0.StartsWith("rusty_ruoska") ? 1664 : baseName0.StartsWith("horhe_potkut") ? 1024 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 640 : baseName0.StartsWith("kapteeni_iskut") || baseName0.StartsWith("kapteeni_liuku") ? 768 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0 == "rosvokapteeni_kaatuminen" || baseName0.StartsWith("kapteeni_ylosnousu") ? 640 : baseName0.StartsWith("horhe_ote") || baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_lapsy") || baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 640 : baseName0.StartsWith("vihu_haymaker") || baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("portsari_heittaa") || baseName0.StartsWith("sankaritar_pudotuspotku") ? 768 : baseName0.StartsWith("sankaritar_keppi_lyonti") || baseName0.StartsWith("sankaritar_keppi_heitto") ? 1024 : baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_tuolilyonti") || baseName0.StartsWith("tuolilyonti") ? 1024 : baseName0.StartsWith("baarinainen_suudelma") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_heiluripotku") ? 768 : baseName0.StartsWith("motoristi_potku") ? 640 : baseName0.StartsWith("baari_poker_loppu") ? 854 : baseName0.StartsWith("baari_poker_idle") ? 896 : baseName0.StartsWith("katu_bar_ovi") ? 360 : baseName0.StartsWith("skeittari_") ? 640 : baseName0.StartsWith("keppi_lyonti") || baseName0.StartsWith("keppi_heitto") ? 1024 : baseName0.StartsWith("laiva_kaytava_ovi") ? 330 : baseName0.StartsWith("laiva_ovi") ? 372 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_tanssi") ? 384 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("rengas_") ? 768 : baseName0.StartsWith("klubitanssija_b3") ? 512 : baseName0.StartsWith("tanssija") || baseName0.StartsWith("klubitanssija") ? 256 : baseName0.StartsWith("pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 768
                   : baseName0.StartsWith("poyta") ? 448 : baseName0.StartsWith("pullo_") ? 128 : baseName0.StartsWith("telkkari") ? 256 : BeatEmUpSetup.CellW;
         // saksipotkun ilmakuvat ja pomon nyrkki pään yllä tarvitsevat enemmän korkeutta (512 × 512)
-        int CellH = baseName0.StartsWith("latkafani_") ? 704 : baseName0.StartsWith("rocco_lautailu_") ? 448 : baseName0.StartsWith("yakuzapomo_") ? (YakuzaBossReactionSheet(baseName0) ? 736 : 704) : baseName0.StartsWith("lentoemanta_") ? 640 : baseName0 == "ruby_pannu_isku" ? 448 : baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("marcus_") || baseName0.StartsWith("gustav_") || baseName0.StartsWith("tom_") || baseName0.StartsWith("lenkkari_") || baseName0.StartsWith("lentoperamies_") || baseName0.StartsWith("lentokapteeni_") || baseName0.StartsWith("ruby_spagaatti") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
+        int CellH = baseName0.StartsWith("amatsoni_") ? (baseName0 == "amatsoni_hyppy" || baseName0 == "amatsoni_heitto" || baseName0 == "amatsoni_heitetty" ? 832 : 768) : baseName0.StartsWith("latkafani_") ? 704 : baseName0.StartsWith("rocco_lautailu_") ? 448 : baseName0.StartsWith("yakuzapomo_") ? (YakuzaBossReactionSheet(baseName0) ? 736 : 704) : baseName0.StartsWith("lentoemanta_") ? 640 : baseName0 == "ruby_pannu_isku" ? 448 : baseName0 == "puhelinkoppi" ? 431 : baseName0 == "rottakeisari_patonki" ? 256 : baseName0.StartsWith("deacon_") || baseName0.StartsWith("rottakeisari_") || baseName0.StartsWith("pierre_") || baseName0.StartsWith("metsuri_") || baseName0.StartsWith("yakuza_") || baseName0.StartsWith("betty_") || baseName0.StartsWith("marcus_") || baseName0.StartsWith("gustav_") || baseName0.StartsWith("tom_") || baseName0.StartsWith("lenkkari_") || baseName0.StartsWith("lentoperamies_") || baseName0.StartsWith("lentokapteeni_") || baseName0.StartsWith("ruby_spagaatti") ? 448 : baseName0.StartsWith("romuukko_") || baseName0.StartsWith("motoristi_poyta") || baseName0.StartsWith("motoristi_kanto") ? 448 : baseName0.StartsWith("rekkamies_kanto") ? 512 : baseName0.StartsWith("rekkamies_") ? 448 : baseName0.StartsWith("elaine_") || baseName0.StartsWith("shanice_") ? 448 : baseName0.StartsWith("linsey_") ? 384 : baseName0.StartsWith("rusty_kaatuminen") || baseName0.StartsWith("rusty_ylosnousu") || baseName0.StartsWith("rusty_heitetty") || baseName0.StartsWith("rusty_piirakka") || baseName0.StartsWith("rusty_heitto") ? 448 : baseName0 == "horhe_heitetty" || baseName0 == "kapteeni_heitetty" ? 448 : baseName0.StartsWith("horhe_takakoukku") || baseName0.StartsWith("kapteeni_iskut") ? 512 : baseName0.StartsWith("kapteeni_kaatuminen") || baseName0 == "rosvokapteeni_kaatuminen" || baseName0.StartsWith("kapteeni_ylosnousu") || baseName0.StartsWith("kapteeni_liuku") ? 448 : baseName0.StartsWith("horhe_vasara") || baseName0.StartsWith("horhe_koukku") || baseName0.StartsWith("horhe_potkut") || baseName0.StartsWith("horhe_juoksu") || baseName0.StartsWith("horhe_harkko") || baseName0.StartsWith("horhe_osuma") || baseName0.StartsWith("horhe_kaatuminen") || baseName0.StartsWith("horhe_ylosnousu") ? 448 : baseName0.StartsWith("rokkari2_") || baseName0.StartsWith("sankaritar_keppi") ? 512 : baseName0.StartsWith("sankaritar_heitto") || baseName0.StartsWith("sankaritar_ylosnousu") || baseName0.StartsWith("sankaritar_pullonosto") || baseName0.StartsWith("sankaritar_iso") || baseName0.StartsWith("sankaritar_rinnus_iso") || baseName0.StartsWith("sankaritar_voimalyonti") || baseName0.StartsWith("sankaritar_heiluripotku") ? 512 : baseName0.StartsWith("baari_poker_loppu") ? 506 : baseName0.StartsWith("baari_poker_idle") ? 504 : baseName0.StartsWith("katu_bar_ovi") ? 600 : baseName0.StartsWith("laiva_kaytava_ovi") ? 445 : baseName0.StartsWith("laiva_ovi") ? 600 : baseName0.StartsWith("rengas_kuvat") ? 192 : baseName0.StartsWith("turisti_aurora") ? 768 : baseName0.StartsWith("tuoli_") || baseName0.StartsWith("tuolilyonti") || baseName0.StartsWith("sankaritar_tuoli") || baseName0.StartsWith("rengas_") || baseName0.StartsWith("turisti_") ? 512 : baseName0.StartsWith("saksipotku") || baseName0.StartsWith("koukku_iso") || baseName0.StartsWith("pomo_lyonti") || baseName0.StartsWith("vihu_lento") ? 512
                   : baseName0.StartsWith("vihu_pyora_kaatuu") ? 640 : baseName0.StartsWith("skeittari_") || baseName0.StartsWith("pratka") || baseName0.StartsWith("sankaritar_pratka") || baseName0.StartsWith("vihu_pratka") || baseName0.StartsWith("vihu_pyora") || baseName0.StartsWith("bandi") ? 448
                   : baseName0.StartsWith("poyta") ? 256 : baseName0.StartsWith("pullo_") ? 96 : baseName0.StartsWith("telkkari") ? 192 : BeatEmUpSetup.CellH;   // prätkä: 768 × 448
         // myyjä on piirretty tarkemmin (kaksinkertainen resoluutio)
-        int ppu = baseName0.StartsWith("lentoemanta_") || baseName0.StartsWith("yakuzapomo_") || baseName0.StartsWith("latkafani_") ? 200 : baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
+        int ppu = baseName0.StartsWith("amatsoni_") || baseName0.StartsWith("lentoemanta_") || baseName0.StartsWith("yakuzapomo_") || baseName0.StartsWith("latkafani_") ? 200 : baseName0.StartsWith("myyja") || baseName0.StartsWith("laatikko") || baseName0.StartsWith("tynnyri") ? 200 : 100;
         if (w % CellW != 0 || h % CellH != 0) { Object.DestroyImmediate(tex); return -1; }
 
         var ti = (TextureImporter)AssetImporter.GetAtPath(path);
@@ -185,8 +187,8 @@ public static class BeatEmUpSetup
                 {
                     name = n,
                     rect = new Rect(x, y, CellW, CellH),
-                    alignment = baseName == "pannu_kuvakulmat" ? SpriteAlignment.Center : YakuzaBossPivotX(baseName) >= 0f ? SpriteAlignment.Custom : SpriteAlignment.BottomCenter,
-                    pivot = baseName == "pannu_kuvakulmat" ? new Vector2(0.5f, 0.5f) : YakuzaBossPivotX(baseName) >= 0f ? new Vector2(YakuzaBossPivotX(baseName), YakuzaBossReactionSheet(baseName) ? 16f / 736f : 0f) : new Vector2(0.5f, 0f),
+                    alignment = baseName == "pannu_kuvakulmat" ? SpriteAlignment.Center : baseName.StartsWith("amatsoni_") || YakuzaBossPivotX(baseName) >= 0f ? SpriteAlignment.Custom : SpriteAlignment.BottomCenter,
+                    pivot = baseName == "pannu_kuvakulmat" ? new Vector2(0.5f, 0.5f) : baseName.StartsWith("amatsoni_") ? new Vector2(AmatsoniPivotX(baseName), 16f / (baseName == "amatsoni_hyppy" || baseName == "amatsoni_heitto" || baseName == "amatsoni_heitetty" ? 832f : 768f)) : YakuzaBossPivotX(baseName) >= 0f ? new Vector2(YakuzaBossPivotX(baseName), YakuzaBossReactionSheet(baseName) ? 16f / 736f : 0f) : new Vector2(0.5f, 0f),
                     spriteID = oldIds.TryGetValue(n, out GUID id) ? id : GUID.Generate(),
                 });
             }
@@ -268,6 +270,11 @@ public static class BeatEmUpSetup
     static bool LatkaKickSheet(string n) => n == "latkafani_polvipotku" || n == "latkafani_etupotku" || n == "latkafani_roundhouse";   // 896 px leveät ruudut, jalkojen keskikohta 300 px vasemmalta
     static bool LatkaCentered(string n) => n == "latkafani_idle" || n == "latkafani_hengitys" || n == "latkafani_kavely" || n == "latkafani_juoksu" || n == "latkafani_suoja";
 
+    // Amatsoni (Tools/AmazonAssets/make_amazon_sheets.py): ruutu 768 px korkea, jalat 16 px ylhäällä; leveydet ja jalkojen keskikohta (pivot x) arkeittain
+    static int AmatsoniCellW(string n) => n == "amatsoni_idle" || n == "amatsoni_suoja" ? 512 : n == "amatsoni_kavely" || n == "amatsoni_juoksu" ? 768 : n == "amatsoni_potku" ? 900 : n == "amatsoni_hyppy" || n == "amatsoni_heitto" ? 1000 : n == "amatsoni_heitetty" ? 1024 : 960;
+    static float AmatsoniPivotX(string n) => n == "amatsoni_idle" || n == "amatsoni_suoja" || n == "amatsoni_heitetty" ? 0.5f : n == "amatsoni_kavely" || n == "amatsoni_juoksu" ? 0.5f : n == "amatsoni_potku" ? 270f / 900f : n == "amatsoni_hyppy" || n == "amatsoni_heitto" ? 330f / 1000f : AmatsoniStrike(n) ? 330f / 960f : 560f / 960f;
+    static bool AmatsoniStrike(string n) => n == "amatsoni_jabi" || n == "amatsoni_suora2" || n == "amatsoni_koukku" || n == "amatsoni_vaisto";   // lyönnit ja väistö: jalkojen keskikohta 330 px vasemmalta
+
     static float YakuzaBossPivotX(string n)
     {
         if (n.StartsWith("latkafani_")) return LatkaCentered(n) ? -1f : LatkaKickSheet(n) ? 300f / 896f : 400f / 1024f;
@@ -296,7 +303,7 @@ public static class BeatEmUpSetup
     // Mitattu kuvasta: jalkakäytävän pinta riveillä 592–615, kynnyksen etureuna 615–637.
     const float CurbTopRow = 615f, CurbBottomRow = 637f, WallBaseRow = 590f;
 
-    [MenuItem("Beat em up/4. Aseta katutausta", false, 4)]
+    [MenuItem("Beat em up/Yksittäiset valikot/4. Aseta katutausta", false, 4)]
     static void SetupBackground()
     {
         var ti = AssetImporter.GetAtPath(BackgroundPath) as TextureImporter;
@@ -383,7 +390,7 @@ public static class BeatEmUpSetup
             $"Tausta lisätty ({BackgroundRepeats} × {wU:0.0} yksikköä). Testikatu piilotettu.\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/5. Päivitä kävely ja juoksu", false, 5)]
+    [MenuItem("Beat em up/Yksittäiset valikot/5. Päivitä kävely ja juoksu", false, 5)]
     static void UpdateWalk()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -407,7 +414,7 @@ public static class BeatEmUpSetup
         Info( $"Kävely: {walk.Length} kuvaa ({pc.walkFrameTime:0.000} s/kuva)\nJuoksu: {run.Length} kuvaa ({pc.runSpriteFrameTime:0.000} s/kuva) (Shift)\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/6. Päivitä äänet", false, 6)]
+    [MenuItem("Beat em up/Yksittäiset valikot/6. Päivitä äänet", false, 6)]
     static void UpdateSounds()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -430,7 +437,7 @@ public static class BeatEmUpSetup
     // Pelin taustamusiikki (tiedostonimi ilman päätettä kansiossa Assets/Audio/Musiikki)
     const string MusicName = "Turpaan vaan";
 
-    [MenuItem("Beat em up/7. Aseta taustamusiikki", false, 7)]
+    [MenuItem("Beat em up/Yksittäiset valikot/7. Aseta taustamusiikki", false, 7)]
     static void SetupMusic()
     {
         var paths = AssetDatabase.FindAssets("t:AudioClip", new[] { "Assets/Audio/Musiikki" })
@@ -469,7 +476,7 @@ public static class BeatEmUpSetup
             $"Taustamusiikki: {Path.GetFileName(path)}\nSoitetaan silmukkana, voimakkuus 1.0 (säädä Musiikki-objektista).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/70. Toinen pelattava hahmo (Ruby)", false, 70)]
+    [MenuItem("Beat em up/Yksittäiset valikot/70. Toinen pelattava hahmo (Ruby)", false, 70)]
     static void SetupHeroine()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -527,7 +534,7 @@ public static class BeatEmUpSetup
              "\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/3. Päivitä lyöntikombo", false, 3)]
+    [MenuItem("Beat em up/Yksittäiset valikot/3. Päivitä lyöntikombo", false, 3)]
     static void UpdateCombo()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -582,7 +589,7 @@ public static class BeatEmUpSetup
         };
     }
 
-    [MenuItem("Beat em up/2. Luo pelaaja ja testikatu sceneen", false, 2)]
+    [MenuItem("Beat em up/Yksittäiset valikot/2. Luo pelaaja ja testikatu sceneen", false, 2)]
     static void CreateScene()
     {
         Sprite[] idle = LoadSprites(IdleName);
@@ -638,7 +645,7 @@ public static class BeatEmUpSetup
 
     const string EnemyFolder = "Assets/Sprites/Viholliset";
 
-    [MenuItem("Beat em up/8. Lisää vihollinen (Kovis)", false, 8)]
+    [MenuItem("Beat em up/Yksittäiset valikot/8. Lisää vihollinen (Kovis)", false, 8)]
     static void AddEnemy()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -739,7 +746,7 @@ public static class BeatEmUpSetup
         new Vector2(160f, -2.0f), new Vector2(163f, -3.3f), new Vector2(166f, -2.6f), // pelihalli: kadun loppu
     };
 
-    [MenuItem("Beat em up/9. Lisää Koviksia kadulle", false, 9)]
+    [MenuItem("Beat em up/Yksittäiset valikot/9. Lisää Koviksia kadulle", false, 9)]
     static void AddKovisGroups()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -786,7 +793,7 @@ public static class BeatEmUpSetup
     // Kadun kuvasarjassa S-Clubin oven keskikohta (pikseleinä sarjan vasemmasta reunasta) ja sarjan leveys
     const float ClubDoorPx = 2992f + 777f, StreetSetPx = 4488f;
 
-    [MenuItem("Beat em up/10. Luo S-Club sisätila ja ovet", false, 10)]
+    [MenuItem("Beat em up/Yksittäiset valikot/10. Luo S-Club sisätila ja ovet", false, 10)]
     static void CreateClub()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -899,7 +906,7 @@ public static class BeatEmUpSetup
     // toinen lava (lisätty taustakuvaan looshin kohdalle): bändi lavan keskellä
     const float BandStagePx = 1641f;
 
-    [MenuItem("Beat em up/40. S-Clubin toinen lava: bändi", false, 40)]
+    [MenuItem("Beat em up/Yksittäiset valikot/40. S-Clubin toinen lava: bändi", false, 40)]
     static void AddBand()
     {
         var club = GameObject.Find("S-Club sisä");
@@ -934,7 +941,7 @@ public static class BeatEmUpSetup
     const float ClubDancerPx = 690f;
     const float ClubDancer2Px = 860f;   // toinen tanssija tangon oikealla puolella
 
-    [MenuItem("Beat em up/11. Lisää tanssija S-Clubin lavalle", false, 11)]
+    [MenuItem("Beat em up/Yksittäiset valikot/11. Lisää tanssija S-Clubin lavalle", false, 11)]
     static void AddDancers()
     {
         var club = GameObject.Find("S-Club sisä");
@@ -1014,7 +1021,7 @@ public static class BeatEmUpSetup
         return sp;
     }
 
-    [MenuItem("Beat em up/12. Lisää Punkkarit (katu ja S-Club)", false, 12)]
+    [MenuItem("Beat em up/Yksittäiset valikot/12. Lisää Punkkarit (katu ja S-Club)", false, 12)]
     static void AddPunks()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1096,7 +1103,7 @@ public static class BeatEmUpSetup
             "\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/13. Päivitä erikoisliike (pyörähdyspotku)", false, 13)]
+    [MenuItem("Beat em up/Yksittäiset valikot/13. Päivitä erikoisliike (pyörähdyspotku)", false, 13)]
     static void UpdateSpecial()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1116,7 +1123,7 @@ public static class BeatEmUpSetup
             $"Pyörähdyspotku: {sp.Length} kuvaa ({sp.Length * 0.045f:0.00} s).\nNäppäin L, ohjaimessa LB. Osuu molempiin suuntiin ja kaataa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/38. Erikoisliike: tuulimylly", false, 38)]
+    [MenuItem("Beat em up/Yksittäiset valikot/38. Erikoisliike: tuulimylly", false, 38)]
     static void UpdateWindmill()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1143,7 +1150,7 @@ public static class BeatEmUpSetup
     const float BarCounterPx = 2155f + 1740f, BarCounterHalfPx = 410f;   // + kahden lisätyn lavajakson leveys taustakuvaan
     const float CounterTopRow = 402f;   // tiskin yläreuna sisäkuvassa
 
-    [MenuItem("Beat em up/14. Luo baaritiski (kauppa) S-Clubiin", false, 14)]
+    [MenuItem("Beat em up/Yksittäiset valikot/14. Luo baaritiski (kauppa) S-Clubiin", false, 14)]
     static void CreateShop()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -1206,7 +1213,7 @@ public static class BeatEmUpSetup
             sohviInfo + "\n" + $"Baaritiski luotu S-Clubin oikealle puolelle ({soundCount}/{shop.items.Length} tuotteella ääni).\nMene tiskin eteen ja paina E: juomat ja snackit maksavat markkoja,\njoita putoaa kaatuneista vihollisista.\n\nValikoimaa ja hintoja voi muuttaa Baaritiski-objektista.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/15. Aseta rahapudotusten ja energiajuoman kuvat", false, 15)]
+    [MenuItem("Beat em up/Yksittäiset valikot/15. Aseta rahapudotusten ja energiajuoman kuvat", false, 15)]
     static void SetupPickups()
     {
         var report = new List<string>();
@@ -1259,7 +1266,7 @@ public static class BeatEmUpSetup
         (3769f - 330f, true),  (3769f + 320f, false),    // S-Clubin edessä
     };
 
-    [MenuItem("Beat em up/16. Lisää moottoripyörät jalkakäytävälle", false, 16)]
+    [MenuItem("Beat em up/Yksittäiset valikot/16. Lisää moottoripyörät jalkakäytävälle", false, 16)]
     static void AddBikes()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1372,7 +1379,7 @@ public static class BeatEmUpSetup
             $"Ajettavat: ajokuvat {ride.Length}, nousukuvat {mount.Length}, käynnistysääni {(startClip != null ? "OK" : "puuttuu")}.\nPyörän vieressä E: nouse kyytiin.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/17. Päivitä sivupotku", false, 17)]
+    [MenuItem("Beat em up/Yksittäiset valikot/17. Päivitä sivupotku", false, 17)]
     static void UpdateSideKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1426,7 +1433,7 @@ public static class BeatEmUpSetup
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
 
-    [MenuItem("Beat em up/18. Päivitä heron heittokuvat", false, 18)]
+    [MenuItem("Beat em up/Yksittäiset valikot/18. Päivitä heron heittokuvat", false, 18)]
     static void UpdateHeroThrown()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1443,7 +1450,7 @@ public static class BeatEmUpSetup
         Info( $"Heron heittokuvat: {sp.Length} kuvaa.\nKip-up-nousu: {pc.kipUpSprites.Length} kuvaa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/19. Päivitä pusku ja suojaus", false, 19)]
+    [MenuItem("Beat em up/Yksittäiset valikot/19. Päivitä pusku ja suojaus", false, 19)]
     static void UpdatePushAndBlock()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1470,7 +1477,7 @@ public static class BeatEmUpSetup
             $"Suojaus: {block.Length} kuvaa (pidä I, ohjaimessa LT). Torjuu edestä tulevat lyönnit, ei heittoja.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/118. Romuttamo: alue ja portti Aavikkokadulta (avain tulee piirakkasodan voitosta)", false, 118)]
+    [MenuItem("Beat em up/Yksittäiset valikot/118. Romuttamo: alue ja portti Aavikkokadulta (avain tulee piirakkasodan voitosta)", false, 118)]
     static void CreateJunkyard()
     {
         if (PlayModeBlocked()) return;
@@ -1564,7 +1571,7 @@ public static class BeatEmUpSetup
         Info("Romuttamo lisätty. Portti Aavikkokadulla (jatkokuva 3, JUNKYARD-kyltti) on lukossa, kunnes piirakkasota on voitettu: sen jälkeen Linsey antaa avaimen ja E avaa portin. Sisällä ulos pääsee vasemmasta portista.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/117. Roccon päät yhteen (O + U, vihut molemmin puolin)", false, 117)]
+    [MenuItem("Beat em up/Yksittäiset valikot/117. Roccon päät yhteen (O + U, vihut molemmin puolin)", false, 117)]
     static void SetupHeadCrush()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1582,7 +1589,7 @@ public static class BeatEmUpSetup
         Info("Päät yhteen (Rocco): " + sp.Length + " kuvaa.\nPaina O + U yhtä aikaa (ohjaimella LT + RT). Kun vihut ovat molemmin puolin lähellä, Rocco ottaa kiinni ja kolauttaa päät yhteen. Ilman vihuja liike jää tyhjäksi.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/20. Päivitä vastaheitto", false, 20)]
+    [MenuItem("Beat em up/Yksittäiset valikot/20. Päivitä vastaheitto", false, 20)]
     static void UpdateCounterThrow()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1599,7 +1606,7 @@ public static class BeatEmUpSetup
             "ukko nappaa kädestä, vetää olan yli ja heittää selän taakse.\nOhi mennyt kurotus jättää hetkeksi alttiiksi.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/21. Päivitä vastaheitot (Kovis kuperkeikka, Punkkari niskalenkki)", false, 21)]
+    [MenuItem("Beat em up/Yksittäiset valikot/21. Päivitä vastaheitot (Kovis kuperkeikka, Punkkari niskalenkki)", false, 21)]
     static void UpdateMonkeyFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1633,7 +1640,7 @@ public static class BeatEmUpSetup
             "Sama nappi O: ohjelma valitsee heiton vastuksen koon mukaan.\nIson vastuksen voi merkitä myös käsin Enemy-komponentin Big Body -ruudulla.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/22. Päivitä hyppy ja heittojen lento", false, 22)]
+    [MenuItem("Beat em up/Yksittäiset valikot/22. Päivitä hyppy ja heittojen lento", false, 22)]
     static void UpdateJumpAndFlip()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1657,7 +1664,7 @@ public static class BeatEmUpSetup
     const string CrateBurstPath = "Assets/Sprites/Rekvisiitta/laatikko_sirpaleet.png";
     const float CrateSpacing = 9f;   // laatikoiden väli kävelykadulla (yksikköä)
 
-    [MenuItem("Beat em up/23. Lisää puulaatikot kävelykadulle", false, 23)]
+    [MenuItem("Beat em up/Yksittäiset valikot/23. Lisää puulaatikot kävelykadulle", false, 23)]
     static void AddCrates()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1771,7 +1778,7 @@ public static class BeatEmUpSetup
             "O laatikon vieressä nostaa, lyönti/potku heittää. Kolme iskua hajottaa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/24. Päivitä potkukombo (matala, etupotku, korkea)", false, 24)]
+    [MenuItem("Beat em up/Yksittäiset valikot/24. Päivitä potkukombo (matala, etupotku, korkea)", false, 24)]
     static void UpdateKickCombo()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1793,7 +1800,7 @@ public static class BeatEmUpSetup
             $"Korkea potku: {sp.Length} kuvaa.\nHakkaa K: matala potku → etupotku → korkea potku (kaataa).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/25. Päivitä iskujen tuntuma", false, 25)]
+    [MenuItem("Beat em up/Yksittäiset valikot/25. Päivitä iskujen tuntuma", false, 25)]
     static void UpdateHitFeel()
     {
         var fx = Object.FindFirstObjectByType<HitFx>();
@@ -1818,7 +1825,7 @@ public static class BeatEmUpSetup
             "Osumapysäytys: kevyt 0.08 s, raskas 0.16 s.\nTärähdys: kevyt 0.08, raskas 0.22.\nLyöntikombon liuku: 0.18 / 0.26 / 0.18 / 0.30.\nPotkujen liuku ja osumaläiskät ovat koodissa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/26. Päivitä saksipotku (eteen-ylös + K)", false, 26)]
+    [MenuItem("Beat em up/Yksittäiset valikot/26. Päivitä saksipotku (eteen-ylös + K)", false, 26)]
     static void UpdateScissorKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1840,7 +1847,7 @@ public static class BeatEmUpSetup
     // Kadulla (x pelaajan aloituskohdasta, syvyys y)
     static readonly Vector2[] LippisStreet = { new Vector2(26f, -2.6f), new Vector2(50f, -3.1f), new Vector2(80f, -2.2f), new Vector2(105f, -3.0f), new Vector2(125f, -2.0f), new Vector2(155f, -2.8f) };
 
-    [MenuItem("Beat em up/27. Lisää Lippikset (uusi vihollinen)", false, 27)]
+    [MenuItem("Beat em up/Yksittäiset valikot/27. Lisää Lippikset (uusi vihollinen)", false, 27)]
     static void AddLippis()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -1926,7 +1933,7 @@ public static class BeatEmUpSetup
         e.collarThrow = true;              // rinnuksista, ei nostoa pään yli: viskaa olan yli taakse
     }
 
-    [MenuItem("Beat em up/74. Portsarin heitto kaikille portsareille", false, 74)]
+    [MenuItem("Beat em up/Yksittäiset valikot/74. Portsarin heitto kaikille portsareille", false, 74)]
     static void BouncerThrowAll()
     {
         var report = new List<string>();
@@ -1943,7 +1950,7 @@ public static class BeatEmUpSetup
     }
     const int BouncerCount = 6;   // tulevat molemmista suunnista (ovelta ja oikeasta reunasta), kun klubissa alkaa ensimmäinen tappelu
 
-    [MenuItem("Beat em up/43. Portsarit S-Clubiin", false, 43)]
+    [MenuItem("Beat em up/Yksittäiset valikot/43. Portsarit S-Clubiin", false, 43)]
     static void AddBouncers()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -2054,7 +2061,7 @@ public static class BeatEmUpSetup
     const float TableScale = 1.3f;   // suorakaidepöytä 30 % isompi, pullot 5 % (Bottle.scale)
     const float TvTableScale = 1.3f; // pyöreä telkkaripöytä 30 % isompi, telkkari myös (TvSet.scale)
 
-    [MenuItem("Beat em up/41. S-Clubin baaripöydät, pullot ja snookerpöydät", false, 41)]
+    [MenuItem("Beat em up/Yksittäiset valikot/41. S-Clubin baaripöydät, pullot ja snookerpöydät", false, 41)]
     static void AddBarProps()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -2229,7 +2236,7 @@ public static class BeatEmUpSetup
     // ---------------- Kadun telkkarit ----------------
     static readonly float[] StreetTvX = { 0.14f, 0.37f, 0.61f, 0.86f };   // osuus kadun pituudesta
 
-    [MenuItem("Beat em up/42. Telkkareita kadulle (ruutu pimeänä)", false, 42)]
+    [MenuItem("Beat em up/Yksittäiset valikot/42. Telkkareita kadulle (ruutu pimeänä)", false, 42)]
     static void AddStreetTvs()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -2392,7 +2399,7 @@ public static class BeatEmUpSetup
     // Liikkuu rullalaudalla: potkii vauhtia ja liukuu, lyö laudalta ja syöksyy kauempaa lyönti edellä.
     static readonly Vector2[] SkaterStreet = { new Vector2(38f, -2.9f), new Vector2(68f, -2.1f), new Vector2(98f, -3.3f), new Vector2(140f, -2.5f) };
 
-    [MenuItem("Beat em up/39. Lisää Skettarit (uusi vihollinen)", false, 39)]
+    [MenuItem("Beat em up/Yksittäiset valikot/39. Lisää Skettarit (uusi vihollinen)", false, 39)]
     static void AddSkaters()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -2424,7 +2431,7 @@ public static class BeatEmUpSetup
     // Sama korkeus (1024 px) ja mittakaava kuin katu_sarja.png: seinän juuri rivillä 590, reunakivi 615–637.
     const string StreetExtPath = "Assets/Sprites/Taustat/katu_jatko.png";
 
-    [MenuItem("Beat em up/28. Lisää kadun jatko (liikerakennus ja pelihalli)", false, 28)]
+    [MenuItem("Beat em up/Yksittäiset valikot/28. Lisää kadun jatko (liikerakennus ja pelihalli)", false, 28)]
     static void AddStreetExtension()
     {
         var street = GameObject.Find("Tausta");
@@ -2490,7 +2497,7 @@ public static class BeatEmUpSetup
     };
     const float RoofBossX = 31f;
 
-    [MenuItem("Beat em up/30. Palotikkaat ja katto (viholliset ja pomo)", false, 30)]
+    [MenuItem("Beat em up/Yksittäiset valikot/30. Palotikkaat ja katto (viholliset ja pomo)", false, 30)]
     static void CreateRoof()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -2740,7 +2747,7 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(roof);
     }
 
-    [MenuItem("Beat em up/30c. Katon seinärajat (ei seinän sisään; ei muuta kattoa)", false, 30)]
+    [MenuItem("Beat em up/Yksittäiset valikot/30c. Katon seinärajat (ei seinän sisään; ei muuta kattoa)", false, 30)]
     static void RoofWallLimitsOnly()
     {
         var roof = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Katto");
@@ -2751,7 +2758,7 @@ public static class BeatEmUpSetup
         Info("Katon seinärajat asetettu (" + roof.depthLimits.Length + " pistettä): takaraja laskee vinoseinien kohdalla. Hero, vihut ja pudotetut esineet pysyvät lattialla.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/30b. Kadun katon viholliset ja Metsuri uudelleen (ei muuta kattoa)", false, 30)]
+    [MenuItem("Beat em up/Yksittäiset valikot/30b. Kadun katon viholliset ja Metsuri uudelleen (ei muuta kattoa)", false, 30)]
     static void RebuildRoofEnemiesOnly()
     {
         if (PlayModeBlocked()) return;
@@ -2766,7 +2773,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Vihujen taktiikka ----------------
-    [MenuItem("Beat em up/31. Vihujen taktiikka (juoksu, kiertäminen, torjunta)", false, 31)]
+    [MenuItem("Beat em up/Yksittäiset valikot/31. Vihujen taktiikka (juoksu, kiertäminen, torjunta)", false, 31)]
     static void SetEnemyTactics()
     {
         var report = new List<string>();
@@ -2829,7 +2836,7 @@ public static class BeatEmUpSetup
     // katolla: (x katon vasemmasta reunasta, syvyys 0 = takareuna … 1 = etureuna)
     static readonly Vector2[] RoofBarrels = { new Vector2(8f, 0.15f), new Vector2(15f, 0.6f), new Vector2(24f, 0.2f), new Vector2(27.5f, 0.75f), new Vector2(33f, 0.3f) };
 
-    [MenuItem("Beat em up/32. Tynnyrit (katto ja katu)", false, 32)]
+    [MenuItem("Beat em up/Yksittäiset valikot/32. Tynnyrit (katto ja katu)", false, 32)]
     static void AddBarrels()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -2920,7 +2927,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- S-Clubin NPC ----------------
-    [MenuItem("Beat em up/33. NPC baaritiskille (S-Club)", false, 33)]
+    [MenuItem("Beat em up/Yksittäiset valikot/33. NPC baaritiskille (S-Club)", false, 33)]
     static void AddClubNpc()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -3005,7 +3012,7 @@ public static class BeatEmUpSetup
     const float AlleyX0 = 3000f;
     const float AlleyLadderPx = 285f, AlleyBikePx = 1446f;   // palotikkaiden juuri ja prätkän parkkiruutu kuvassa
 
-    [MenuItem("Beat em up/34. Takakuja ja prätkä (katolta alas)", false, 34)]
+    [MenuItem("Beat em up/Yksittäiset valikot/34. Takakuja ja prätkä (katolta alas)", false, 34)]
     static void CreateBackAlley()
     {
         var street = GameObject.Find("Tausta");
@@ -3144,7 +3151,7 @@ public static class BeatEmUpSetup
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
 
-    [MenuItem("Beat em up/35. Valtatie (kujan lopusta prätkällä)", false, 35)]
+    [MenuItem("Beat em up/Yksittäiset valikot/35. Valtatie (kujan lopusta prätkällä)", false, 35)]
     static void CreateHighway()
     {
         var cam = Camera.main;
@@ -3252,7 +3259,7 @@ public static class BeatEmUpSetup
              $"Maisema liikkuu {px.factor * 100:0} % tien vauhdista.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/71. Valtatie: skeittari roikkuu vihuprätkän perässä", false, 71)]
+    [MenuItem("Beat em up/Yksittäiset valikot/71. Valtatie: skeittari roikkuu vihuprätkän perässä", false, 71)]
     static void AddSkaterHitchMenu()
     {
         var spn = Object.FindFirstObjectByType<EnemyBikeSpawner>(FindObjectsInactive.Include);
@@ -3320,7 +3327,7 @@ public static class BeatEmUpSetup
     // kuvan rivit: jalkakäytävän pinta seinän vieressä, reunakiven alareuna (ajotien taso), ajotien alareuna
     const float UccoWallPx = 506f, UccoCurbPx = 552f, UccoBottomPx = 860f, UccoKerbPx = 30f;
 
-    [MenuItem("Beat em up/44. Uccopulco (valtatien jälkeen)", false, 44)]
+    [MenuItem("Beat em up/Yksittäiset valikot/44. Uccopulco (valtatien jälkeen)", false, 44)]
     static void CreateUccopulco()
     {
         var street = GameObject.Find("Tausta");
@@ -3473,7 +3480,7 @@ public static class BeatEmUpSetup
         new Vector2(700f, 0.55f), new Vector2(920f, 0.5f), new Vector2(1280f, 0.85f), new Vector2(1640f, 0.6f),
         new Vector2(2700f, 0.85f), new Vector2(3260f, 0.5f), new Vector2(3400f, 0.85f) };
 
-    [MenuItem("Beat em up/57. Laivan kannelle pöydät, kala-annokset, pullot ja tuolit", false, 57)]
+    [MenuItem("Beat em up/Yksittäiset valikot/57. Laivan kannelle pöydät, kala-annokset, pullot ja tuolit", false, 57)]
     static void AddShipProps()
     {
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
@@ -3542,7 +3549,7 @@ public static class BeatEmUpSetup
     // sali (laiva_sali.png 2584 × 941): baaritiski 0–690 (etureuna rivillä 472), seinän juuri 420, oikea seinä viistoon
     const float SalonBarEndPx = 690f, SalonBarFrontPx = 474f, SalonWallPx = 420f, SalonCornerPx = 1890f, SalonRightBottomPx = 812f, SalonHorizonPx = 190f;
 
-    [MenuItem("Beat em up/60. Laivan sisätilat: käytävä, hytti ja sali", false, 60)]
+    [MenuItem("Beat em up/Yksittäiset valikot/60. Laivan sisätilat: käytävä, hytti ja sali", false, 60)]
     static void CreateShipInterior()
     {
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
@@ -3706,7 +3713,7 @@ public static class BeatEmUpSetup
     const float SalonStairsJoinPx = 767f, SalonStairsDoorPx = 520f, SalonStairsFrontPx = 495f;
     const string BridgeAreaName = "Komentosilta";
 
-    [MenuItem("Beat em up/83. Laivan saliin portaat komentosillalle (vasen jatke)", false, 83)]
+    [MenuItem("Beat em up/Yksittäiset valikot/83. Laivan saliin portaat komentosillalle (vasen jatke)", false, 83)]
     static void AddSalonStairs()
     {
         const string path = "Assets/Sprites/Taustat/laiva_sali_portaat.png";
@@ -3798,7 +3805,7 @@ public static class BeatEmUpSetup
         new Vector2(1320f, 505f), new Vector2(1345f, 555f), new Vector2(1840f, 555f), new Vector2(1880f, 515f), new Vector2(1950f, 505f),
         new Vector2(2240f, 690f) };
 
-    [MenuItem("Beat em up/84. Laivan komentosilta (salin portaista ylös)", false, 84)]
+    [MenuItem("Beat em up/Yksittäiset valikot/84. Laivan komentosilta (salin portaista ylös)", false, 84)]
     static void CreateShipBridge()
     {
         const string path = "Assets/Sprites/Taustat/laiva_komentosilta.png";
@@ -3871,19 +3878,19 @@ public static class BeatEmUpSetup
     // ---------------- Merirosvokapteeni (komentosillan pomo) ----------------
     // kapteeni_iskut.png (768 × 512, 34 kuvaa videosta): 0–3 jab, 4–8 suora, 9–13 sivupotku,
     // 14–33 kombon lopetus (pyörähdys, hyppy ja korkea potku alas; isku kuvassa 26 = sarjan 12.)
-    [MenuItem("Beat em up/85. Merirosvokapteeni ja rosvot komentosillalle", false, 85)]
+    [MenuItem("Beat em up/Yksittäiset valikot/85. Merirosvokapteeni ja rosvot komentosillalle", false, 85)]
     static void CreateShipCaptain()
     {
         var bridge = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == BridgeAreaName);
         var bridgeBg = GameObject.Find(BridgeAreaName);
         if (bridge == null || bridgeBg == null) { Info("Tee ensin komentosilta (kohta 84)."); return; }
-        foreach (var n in new[] { "kapteeni_idle", "kapteeni_iskut", "kapteeni_kavely", "kapteeni_kaatuminen", "kapteeni_ylosnousu", "kapteeni_liuku", "kapteeni_heitetty" })
+        foreach (var n in new[] { "rosvokapteeni_idle", "kapteeni_iskut", "rosvokapteeni_kavely", "rosvokapteeni_kaatuminen", "kapteeni_ylosnousu", "kapteeni_liuku", "kapteeni_heitetty" })
         {
             string path = FindTexture(n);
             if (path != null) SetupAndSlice(path);
         }
         var report = new List<string>();
-        var idle = EnemySheet("kapteeni_idle", report);
+        var idle = EnemySheet("rosvokapteeni_idle", report);
         var atk = EnemySheet("kapteeni_iskut", report);
         if (idle.Length < 6 || atk.Length < 34) { Info("kapteeni_idle.png (6 kuvaa) ja kapteeni_iskut.png (34 kuvaa) tarvitaan.\n\n" + string.Join("\n", report)); return; }
         foreach (var n in new[] { "Kapteeni", "Komentosillan rosvot" })
@@ -3904,10 +3911,10 @@ public static class BeatEmUpSetup
         t.displayName = "Kapteeni";
         t.visualScale = 1f; t.attackArtScale = 1f; t.knockArtScale = 1f; t.walkArtScale = 1f;
         t.idleSprites = idle; t.idleFrameTime = 0.13f;
-        var walk = EnemySheet("kapteeni_kavely", report);
+        var walk = EnemySheet("rosvokapteeni_kavely", report);
         t.walkSprites = walk.Length > 0 ? walk : idle; t.walkFrameTime = 0.07f;   // 16 kuvaa = kaksi askelta
         // osuma (kaatumissarjan 1. kuva), kaatuminen 8 kuvaa (0–6 ilmassa, 7 makaa), ylösnousu 6 kuvaa
-        var fall = EnemySheet("kapteeni_kaatuminen", report);
+        var fall = EnemySheet("rosvokapteeni_kaatuminen", report);
         var rise = EnemySheet("kapteeni_ylosnousu", report);
         if (fall.Length >= 8) { t.hurtSprites = new[] { fall[0] }; t.knockdownSprites = fall.Take(8).ToArray(); }
         if (rise.Length >= 6) { t.getUpSprites = rise.Take(6).ToArray(); t.getUpTime = 1.0f; }
@@ -3965,7 +3972,7 @@ public static class BeatEmUpSetup
              string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/85b. Kapteenin juoksu ja hyökkäykset nopeammiksi", false, 85)]
+    [MenuItem("Beat em up/Yksittäiset valikot/85b. Kapteenin juoksu ja hyökkäykset nopeammiksi", false, 85)]
     static void TuneShipCaptain()
     {
         if (PlayModeBlocked()) return;
@@ -3981,7 +3988,7 @@ public static class BeatEmUpSetup
         Info("Kapteenin juoksu 50 % nopeammaksi ja hyökkäykset useammiksi.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/91. Böönin juontikuvat molemmille hahmoille", false, 91)]
+    [MenuItem("Beat em up/Yksittäiset valikot/91. Böönin juontikuvat molemmille hahmoille", false, 91)]
     static void SetupBooniArt()
     {
         if (PlayModeBlocked()) return;
@@ -4046,7 +4053,7 @@ public static class BeatEmUpSetup
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
 
-    [MenuItem("Beat em up/87. Laivan katto: chinook, kuunvalotaivas ja tikkaat komentosillalta (kapteenin jälkeen)", false, 87)]
+    [MenuItem("Beat em up/Yksittäiset valikot/87. Laivan katto: chinook, kuunvalotaivas ja tikkaat komentosillalta (kapteenin jälkeen)", false, 87)]
     static void CreateShipRoof()
     {
         if (PlayModeBlocked()) return;
@@ -4237,7 +4244,7 @@ public static class BeatEmUpSetup
     const float HeliInteriorX0 = 76000f;
     static Vector2 HeliSpawnPoint() => new Vector2(HeliInteriorX0 + 3f, CamY - 2f);
 
-    [MenuItem("Beat em up/89. Kopterin sisätila, ohjaamo ja kaksi aaltoa", false, 89)]
+    [MenuItem("Beat em up/Yksittäiset valikot/89. Kopterin sisätila, ohjaamo ja kaksi aaltoa", false, 89)]
     static void CreateHeliInterior()
     {
         if (PlayModeBlocked()) return;
@@ -4406,7 +4413,7 @@ public static class BeatEmUpSetup
         Info("Kopterin sisätila ja ohjaamo luotu: 6 puulaatikkoa, ensin 3 rosvoa + 2 kovista, ohjaamossa 2 rosvoa + 1 kovis.\nOhjaamon toisesta ovesta E vie Aavikkoon, kun molemmat aallot on voitettu.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/90. Aavikko: Chinookin ulkopuoli ja parallaxit", false, 90)]
+    [MenuItem("Beat em up/Yksittäiset valikot/90. Aavikko: Chinookin ulkopuoli ja parallaxit", false, 90)]
     static void CreateDesert()
     {
         if (PlayModeBlocked()) return;
@@ -4493,7 +4500,7 @@ public static class BeatEmUpSetup
         Info("Aavikko korjattu: yhtenäinen panoraama ja kaksi parallax-kerrosta. Chinookin ovi vie lastausrampin eteen. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/91. Peltihalli: ikkunaparallax, tappelijat ja baaripoydat", false, 91)]
+    [MenuItem("Beat em up/Yksittäiset valikot/91. Peltihalli: ikkunaparallax, tappelijat ja baaripoydat", false, 91)]
     static void CreateMetalHall()
     {
         if (PlayModeBlocked()) return;
@@ -4630,7 +4637,7 @@ public static class BeatEmUpSetup
         Info("Peltihalli lisätty: E-sisäänkäynti Aavikon vasemmalla, ikkunaparallax, 3 motorista, 3 rokkimimmiä, 2 baaripöytää pulloineen ja snookerpöytä. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/93. Aavikkotie ja ajosiirtyma Aavikon oikealta reunalta", false, 93)]
+    [MenuItem("Beat em up/Yksittäiset valikot/93. Aavikkotie ja ajosiirtyma Aavikon oikealta reunalta", false, 93)]
     static void CreateDesertRoad()
     {
         if (PlayModeBlocked()) return;
@@ -4690,7 +4697,7 @@ public static class BeatEmUpSetup
         Info("Aavikkotie lisätty: Aavikon oikealta reunalta musta häivytys vain prätkällä, sama musiikki ja tuuli, nopeasti vierivät parallaxit. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/94. Aavikkotie: motoristi ja rokkimimmi heron pyoralla", false, 94)]
+    [MenuItem("Beat em up/Yksittäiset valikot/94. Aavikkotie: motoristi ja rokkimimmi heron pyoralla", false, 94)]
     static void AddDesertPairs()
     {
         if (PlayModeBlocked()) return;
@@ -4752,7 +4759,7 @@ public static class BeatEmUpSetup
         return list.ToArray();
     }
 
-    [MenuItem("Beat em up/102. Risupallojen hajoaminen kolmannessa osumassa (kaikille sceneen)", false, 102)]
+    [MenuItem("Beat em up/Yksittäiset valikot/102. Risupallojen hajoaminen kolmannessa osumassa (kaikille sceneen)", false, 102)]
     static void UpdateTumbleweedBreak()
     {
         var sprites = LoadTumbleweedBreakSprites();
@@ -4823,7 +4830,7 @@ public static class BeatEmUpSetup
         ("rekkamies_", "rekkamies_heitto", new[] { Vector3.zero, new Vector3(0.62f, 1.78f, 0f), new Vector3(-1.22f, 2.85f, 0f), new Vector3(1.42f, 2.75f, 0f), Vector3.zero }),
     };
 
-    [MenuItem("Beat em up/106. Linsey dineriin (kävelee ja pysähtyy tiskille)", false, 106)]
+    [MenuItem("Beat em up/Yksittäiset valikot/106. Linsey dineriin (kävelee ja pysähtyy tiskille)", false, 106)]
     static void AddLinsey()
     {
         var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
@@ -4869,7 +4876,7 @@ public static class BeatEmUpSetup
              + l.pieHit.Length + " piirakkakuvaa, heittokuvat " + l.pieThrow.Length + ", äänet " + (l.hitSounds.Length + l.speakSounds.Length + (l.throwSound != null ? 1 : 0)) + " kpl. Heittää piirakoita vihuihin ja osuu piirakasta. Hän ei ole taistelija eikä lyötävissä: kävelee lattialla ja pysähtyy välillä tiskille nojaamaan.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/105. Piirakka naamaan: Rusty ja rokkimimmi (kaikille sceneen)", false, 105)]
+    [MenuItem("Beat em up/Yksittäiset valikot/105. Piirakka naamaan: Rusty ja rokkimimmi (kaikille sceneen)", false, 105)]
     static void AssignPieHits()
     {
         var report = new List<string>();
@@ -4932,7 +4939,7 @@ public static class BeatEmUpSetup
         Info("Piirakka naamaan: Rocco " + (hero != null && rocco.Length >= 3 ? "kyllä" : "ei") + ", Ruby " + (hero != null && rubyPie.Length >= 3 ? "kyllä" : "ei") + ", " + nr + " Rustya, " + nk + " rokkimimmiä, " + nb + " motoristia ja " + nd + " puliukkoa, piirakan heitto " + nt + " vihulle, osumaääni " + ns + " piirakalle (muut ja Ruby läsäyttävät piirakan omilla kuvillaan). Heitetty piirakka katoaa osumahetkellä ja vihun oma sarja soi.\n" + rep + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/104. Diner: pöydät, tuolit, olutpullot ja snookerpöytä oikeaan päätyyn", false, 104)]
+    [MenuItem("Beat em up/Yksittäiset valikot/104. Diner: pöydät, tuolit, olutpullot ja snookerpöytä oikeaan päätyyn", false, 104)]
     static void AddDinerFurniture()
     {
         var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
@@ -5064,7 +5071,7 @@ public static class BeatEmUpSetup
                           new Vector2(450f, -5.5f), new Vector2(1250f, -6.0f), new Vector2(2050f, -5.4f), new Vector2(2850f, -6.0f), new Vector2(3450f, -5.5f) };
         return raw.Select(v => DinerClamp(d, new Vector3(left + v.x / ppu, v.y, 0f), 1.6f)).ToArray();
     }
-    [MenuItem("Beat em up/103. Diner: sisätila (3 kuvaa) ja E-ovi Aavikkokadulta", false, 103)]
+    [MenuItem("Beat em up/Yksittäiset valikot/103. Diner: sisätila (3 kuvaa) ja E-ovi Aavikkokadulta", false, 103)]
     static void CreateDiner()
     {
         if (PlayModeBlocked()) return;
@@ -5156,7 +5163,7 @@ public static class BeatEmUpSetup
     }
     static float BarWx(float oldPx) => BarPx(oldPx) / BarPpu;   // x-etäisyys panoraaman vasemmasta reunasta (yksikköä)
 
-    [MenuItem("Beat em up/110. Aavikkobaari: sisätila (3 kuvaa), ovi kadulta ja portaat yläkertaan", false, 110)]
+    [MenuItem("Beat em up/Yksittäiset valikot/110. Aavikkobaari: sisätila (3 kuvaa), ovi kadulta ja portaat yläkertaan", false, 110)]
     static void CreateDesertBar()
     {
         if (PlayModeBlocked()) return;
@@ -5227,7 +5234,7 @@ public static class BeatEmUpSetup
         Info("Aavikkobaari lisätty: E-ovi Aavikkokadun viimeisen kuvan pariovesta sisään, ulos sisäoven kohdalta. Tiski ja portaat estävät kävelyn takaa.\n" + stairInfo + "\nAja ensin 95 (katu pitenee), sitten tämä. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/111. Aavikkobaari: pöydät, tuolit, pullot ja kaksi snookerpöytää (tanssitila lavan edessä)", false, 111)]
+    [MenuItem("Beat em up/Yksittäiset valikot/111. Aavikkobaari: pöydät, tuolit, pullot ja kaksi snookerpöytää (tanssitila lavan edessä)", false, 111)]
     static void AddDesertBarFurniture()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
@@ -5308,7 +5315,7 @@ public static class BeatEmUpSetup
         Info($"Baariin {tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia, {plates} pekoniannosta), {info.chairs + extraChairs} tuolia ja {snooker} snookerpöytää (pari pöytää myös lavan edessä). Lavan edessä on tyhjää tanssitilaa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/112. Elaine baariin (seisoskelee, kävelee, nojaa tiskiin ja tanssii lavan edessä)", false, 112)]
+    [MenuItem("Beat em up/Yksittäiset valikot/112. Elaine baariin (seisoskelee, kävelee, nojaa tiskiin ja tanssii lavan edessä)", false, 112)]
     static void AddElaine()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
@@ -5345,7 +5352,7 @@ public static class BeatEmUpSetup
         Info("Elaine baariin: " + e.idle.Length + " idle-, " + e.walk.Length + " kävely-, " + e.toCounter.Length + " tiskille-, " + e.atCounter.Length + " tiskillä- ja " + e.dance.Length + " tanssikuvaa. Hän seisoskelee, kävelee, nojaa välillä tiskiin ja tanssii lavan edessä. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/113. Aavikkobaari: bändi soittaa lavalla (silmukka)", false, 113)]
+    [MenuItem("Beat em up/Yksittäiset valikot/113. Aavikkobaari: bändi soittaa lavalla (silmukka)", false, 113)]
     static void AddDesertBarBand()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
@@ -5372,7 +5379,7 @@ public static class BeatEmUpSetup
         Info($"Bändi soittaa lavalla: {sprites.Length} kuvaa silmukkana.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/114. Shanice baariin (kävelee, juttelee Elainen kanssa, kuuntelee ja tanssii lavan edessä)", false, 114)]
+    [MenuItem("Beat em up/Yksittäiset valikot/114. Shanice baariin (kävelee, juttelee Elainen kanssa, kuuntelee ja tanssii lavan edessä)", false, 114)]
     static void AddShanice()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
@@ -5416,7 +5423,7 @@ public static class BeatEmUpSetup
     // rekkamies_calm (12 kuvaa, rauhallinen idle), rekkamies_taistelu (6, kamppailuidle), rekkamies_juoksu (15, silmukka), rekkamies_kavely (21, silmukka),
     // rekkamies_taklaus (6: 0 juoksuasento, 1-5 olkataklaus), rekkamies_kaatuminen (6: 0 osuma, 1-4 ilmassa, 5 makaa),
     // rekkamies_ylosnousu (6), rekkamies_alakoukku (6), rekkamies_heitetty (8: 0-1 ote, 2 nosto, 3-4 lento, 5 alastulo, 6-7 makaa) ja rekkamies_iskut (36): 0-6 jab, 7-13 suora, 14-20 potku, 21-35 korkea potku.
-    [MenuItem("Beat em up/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)", false, 115)]
+    [MenuItem("Beat em up/Yksittäiset valikot/115. Rekkamies: kombo, juoksu ja torjumaton taklaus (kaikkia vastaan)", false, 115)]
     static void CreateTrucker()
     {
         AssetDatabase.Refresh();   // kuvat siirrettiin Viholliset-kansioon: päivitä tietokanta, ettei vanha polku jää voimaan
@@ -5510,7 +5517,7 @@ public static class BeatEmUpSetup
         Info("Rekkamies luotu " + (bar != null ? "Aavikkobaariin" : "origoon (Aavikkobaaria ei löytynyt: siirrä hänet käsin)") + ". Rauhallinen idle, kamppailuasento, kombot (jab, suora, etupotku, korkea potku, alakoukku), osuma, kaatuminen ja ylösnousu sekä juoksu ja torjumaton olkataklaus (hyppy väistää). Tappelee kaikkien kanssa, 520 elämää.\nPuuttuu vielä: torjunta. Alakoukku lennättää heron kattoon ja muut vihut ruudun yläreunaan (kevyet yli ruudun).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/116. Aavikkobaari: väki (3 motoristia, 3 rokkimimmiä, 2 Rustya, puliukko, rekkamies), Sohvi ja tiski, tappelu 2 min jälkeen", false, 116)]
+    [MenuItem("Beat em up/Yksittäiset valikot/116. Aavikkobaari: väki (3 motoristia, 3 rokkimimmiä, 2 Rustya, puliukko, rekkamies), Sohvi ja tiski, tappelu 2 min jälkeen", false, 116)]
     static void AddDesertBarCrowd()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Aavikkobaari");
@@ -5664,7 +5671,7 @@ public static class BeatEmUpSetup
              + "Elaine tanssii tanssilattialla Rekkamiehen kanssa, kunnes tappelu alkaa. Shanice (114) kävelee ja juttelee ei-taistelijana.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit", false, 95)]
+    [MenuItem("Beat em up/Yksittäiset valikot/95. Aavikkokatu: kuusi kuvaa ja aavikon parallaxit", false, 95)]
     public static void CreateDesertStreet()
     {
         if (PlayModeBlocked()) return;
@@ -5867,7 +5874,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Puliukko (laivan käytävä) ----------------
-    [MenuItem("Beat em up/61. Puliukko laivan käytävään (tulee hyttiovesta)", false, 61)]
+    [MenuItem("Beat em up/Yksittäiset valikot/61. Puliukko laivan käytävään (tulee hyttiovesta)", false, 61)]
     static void AddDrunk()
     {
         var cor = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan käytävä");
@@ -5988,7 +5995,7 @@ public static class BeatEmUpSetup
                                                      new Vector2(1050f, 0.95f), new Vector2(1750f, 0.85f), new Vector2(2400f, 0.9f),
                                                      new Vector2(480f, 0.62f), new Vector2(1400f, 0.99f) };   // kaksi viimeistä: kala-annos ja olutta   // lavan eteen ei pöytää
 
-    [MenuItem("Beat em up/62. Laivan salin pöydät (hummeri ja shamppanja)", false, 62)]
+    [MenuItem("Beat em up/Yksittäiset valikot/62. Laivan salin pöydät (hummeri ja shamppanja)", false, 62)]
     static void AddSalonTables()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -6155,7 +6162,7 @@ public static class BeatEmUpSetup
     // ---------------- Salin naiset ja Sohvi ----------------
     const float SalonCounterTopPx = 345f, SalonSohviPx = 330f;
 
-    [MenuItem("Beat em up/63. Salin naiset (kolme, keskustelevat ja käyvät Sohvin luona)", false, 63)]
+    [MenuItem("Beat em up/Yksittäiset valikot/63. Salin naiset (kolme, keskustelevat ja käyvät Sohvin luona)", false, 63)]
     static void AddSalonLadies()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -6266,7 +6273,7 @@ public static class BeatEmUpSetup
     static readonly Vector2[] StreetBarDepthPx = { new Vector2(0f, 612f), new Vector2(515f, 612f), new Vector2(530f, 640f), new Vector2(1712f, 640f),
                                                    new Vector2(1730f, 500f), new Vector2(2990f, 490f), new Vector2(3594f, 690f) };
 
-    [MenuItem("Beat em up/65. Kadun baari (BAR-ovesta sisään)", false, 65)]
+    [MenuItem("Beat em up/Yksittäiset valikot/65. Kadun baari (BAR-ovesta sisään)", false, 65)]
     static void CreateStreetBar()
     {
         var street = GameObject.Find("Tausta");
@@ -6403,7 +6410,7 @@ public static class BeatEmUpSetup
         e.punch3Reach = 2.6f;            // syöksyy eteen
     }
 
-    [MenuItem("Beat em up/75. Kolmas puliukko (apuri) kannen rosvojen viimeiseen aaltoon", false, 75)]
+    [MenuItem("Beat em up/Yksittäiset valikot/75. Kolmas puliukko (apuri) kannen rosvojen viimeiseen aaltoon", false, 75)]
     static void AddLastWaveDrunk()
     {
         var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -6433,7 +6440,7 @@ public static class BeatEmUpSetup
     // salin pöytä ylösalaisin: kansi (kuvan alareuna käännettynä) käsien korkeudelle pään yläpuolelle (ennen 1,95: kansi rinnan kohdalla)
     const float SalonTableCarryLower = 0.4f;
 
-    [MenuItem("Beat em up/76. Laivan salin pöydät: kanto pään yläpuolella", false, 76)]
+    [MenuItem("Beat em up/Yksittäiset valikot/76. Laivan salin pöydät: kanto pään yläpuolella", false, 76)]
     static void SalonTablesCarryHigher()
     {
         int n = 0;
@@ -6449,7 +6456,7 @@ public static class BeatEmUpSetup
         Info(n > 0 ? $"{n} salin pöytää: kannetaan nyt pään yläpuolella.\n\nTallenna scene (Ctrl+S)." : "Salin pöytiä ei löytynyt (tee ensin kohta 62).");
     }
 
-    [MenuItem("Beat em up/72. Koviksen uusi kävely ja haymaker kaikille Koviksille", false, 72)]
+    [MenuItem("Beat em up/Yksittäiset valikot/72. Koviksen uusi kävely ja haymaker kaikille Koviksille", false, 72)]
     static void KovisNewWalk()
     {
         string path = FindTexture("vihu_kavely");
@@ -6476,7 +6483,7 @@ public static class BeatEmUpSetup
         Info($"Koviksen kävely ja haymaker päivitetty {n} Kovikselle.\n\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/69. S-Clubiin prätkäjätkät, rokkimimmit ja puliukko (skeittarit pois sisältä)", false, 69)]
+    [MenuItem("Beat em up/Yksittäiset valikot/69. S-Clubiin prätkäjätkät, rokkimimmit ja puliukko (skeittarit pois sisältä)", false, 69)]
     static void AddClubBikers()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -6677,7 +6684,7 @@ public static class BeatEmUpSetup
         return (bottles, glassN, chairs);
     }
 
-    [MenuItem("Beat em up/68. Kadun baari: pöydät, snookerpöydät, kyltit ja tappelijat", false, 68)]
+    [MenuItem("Beat em up/Yksittäiset valikot/68. Kadun baari: pöydät, snookerpöydät, kyltit ja tappelijat", false, 68)]
     static void AddStreetBarFurniture()
     {
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
@@ -6853,7 +6860,7 @@ public static class BeatEmUpSetup
     static readonly int[] SalonPirateWaves = { 5, 5 }, SalonSailorWaves = { 3, 3 };   // rosvoaalloissa 4 rosvoa + Kovis
     const float SalonFightTriggerPx = 900f;   // salin kuvan x: tästä eteenpäin tappelu alkaa
 
-    [MenuItem("Beat em up/64. Salin tappelu: 8 rosvoa ja 2 Kovista (5 + 5), 6 seiloria (3 + 3)", false, 64)]
+    [MenuItem("Beat em up/Yksittäiset valikot/64. Salin tappelu: 8 rosvoa ja 2 Kovista (5 + 5), 6 seiloria (3 + 3)", false, 64)]
     static void AddSalonFight()
     {
         var sal = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan sali");
@@ -6931,7 +6938,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Heron iso koukku ----------------
-    [MenuItem("Beat em up/59. Heron iso koukku (alas, eteen + lyönti)", false, 59)]
+    [MenuItem("Beat em up/Yksittäiset valikot/59. Heron iso koukku (alas, eteen + lyönti)", false, 59)]
     static void SetupBigHook()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -6951,7 +6958,7 @@ public static class BeatEmUpSetup
     // Uccopulcon satamakuvan x (px), kaiteen vieressä (ei laivan aukon kohdalla)
     static readonly float[] UccoRingStandPx = { 900f, 2250f };
 
-    [MenuItem("Beat em up/58. Pelastusrenkaat: telineet laivalle ja satamaan, lyönti, heitto, skeittari renkaassa", false, 58)]
+    [MenuItem("Beat em up/Yksittäiset valikot/58. Pelastusrenkaat: telineet laivalle ja satamaan, lyönti, heitto, skeittari renkaassa", false, 58)]
     static void AddRingStands()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -7057,7 +7064,7 @@ public static class BeatEmUpSetup
     const float BarDoorCenterPx = 2260f, BarDoorBottomPx = 900f, BarDoorFps = 15f;
     const string BarDoorSoundPath = "Assets/Audio/sfx/baarin_ovi.wav";
 
-    [MenuItem("Beat em up/66. Baarin avautuva ovi (kadulla)", false, 66)]
+    [MenuItem("Beat em up/Yksittäiset valikot/66. Baarin avautuva ovi (kadulla)", false, 66)]
     static void AddBarDoor()
     {
         var street = GameObject.Find("Tausta");
@@ -7134,7 +7141,7 @@ public static class BeatEmUpSetup
         e.altExtraWindup = 0.12f; e.altTimeScale = 0.85f; e.altKnockSpeed = 9f; e.altKnockUp = 6f;
     }
 
-    [MenuItem("Beat em up/78. Prätkäjätkän uusi rynnäkkölyönti kaikille prätkäjätkille", false, 78)]
+    [MenuItem("Beat em up/Yksittäiset valikot/78. Prätkäjätkän uusi rynnäkkölyönti kaikille prätkäjätkille", false, 78)]
     static void UpdateBikerCharge()
     {
         var report = new List<string>();
@@ -7360,7 +7367,7 @@ public static class BeatEmUpSetup
         return e;
     }
 
-    [MenuItem("Beat em up/119. Romuttamon pomo Romuukko (kopin eteen)", false, 119)]
+    [MenuItem("Beat em up/Yksittäiset valikot/119. Romuttamon pomo Romuukko (kopin eteen)", false, 119)]
     static void CreateJunkBoss()
     {
         if (PlayModeBlocked()) return;
@@ -7384,7 +7391,7 @@ public static class BeatEmUpSetup
     const bool JunkyardTruckerGuard = false;   // väliaikaisesti pois: pihan vartijana vain Rusty (testataan Romuukon taistelua)
     static string JunkyardGuardNames => JunkyardTruckerGuard ? "Rusty ja rekkamies" : "Rusty";
 
-    [MenuItem("Beat em up/121. Romuttamon piha: renkaat, risupallot, vartijoiksi Rusty ja rekkamies (konttorin ovi lukossa kunnes voitettu)", false, 121)]
+    [MenuItem("Beat em up/Yksittäiset valikot/121. Romuttamon piha: renkaat, risupallot, vartijoiksi Rusty ja rekkamies (konttorin ovi lukossa kunnes voitettu)", false, 121)]
     static void AddJunkyardGuards()
     {
         if (PlayModeBlocked()) return;
@@ -7462,7 +7469,7 @@ public static class BeatEmUpSetup
              (door != null ? "\nKonttorin ovi on lukossa, kunnes molemmat vartijat on voitettu." : "\nKonttorin ovea ei vielä ole: aja 120 (se liittää vartijat oveen).") + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/120. Romuukon konttori: pomotaistelu, ovi romuttamon kopista, renkaat päädyissä", false, 120)]
+    [MenuItem("Beat em up/Yksittäiset valikot/120. Romuukon konttori: pomotaistelu, ovi romuttamon kopista, renkaat päädyissä", false, 120)]
     static void CreateJunkOffice()
     {
         if (PlayModeBlocked()) return;
@@ -7568,7 +7575,7 @@ public static class BeatEmUpSetup
              "Pomo Romuukko odottaa konttorin vasemmassa laidassa (herää 13 yksikön päästä); päädyissä on 2 + 2 poimittavaa rengasta ja keskellä 3 pöytää (hän heittää niitä välillä, samoin heron ja kevyitä vihuja).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/123. Juna-asema: sisätila ja ovi Aavikkokadun aseman pääovesta (vasemmalta sisään)", false, 123)]
+    [MenuItem("Beat em up/Yksittäiset valikot/123. Juna-asema: sisätila ja ovi Aavikkokadun aseman pääovesta (vasemmalta sisään)", false, 123)]
     static void CreateTrainStation()
     {
         if (PlayModeBlocked()) return;
@@ -7653,7 +7660,7 @@ public static class BeatEmUpSetup
              "Oikean pään ovi (pihalle ja junaan) puuttuu vielä: sen paikka on x ≈ " + PX(wU * ppu - 115f).ToString("0") + ".\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/124. Junapiha: laituri ja juna (ikkunoista näkyy aavikon taivas ja hiekka parallaxina), ovi aseman oikeasta päästä", false, 124)]
+    [MenuItem("Beat em up/Yksittäiset valikot/124. Junapiha: laituri ja juna (ikkunoista näkyy aavikon taivas ja hiekka parallaxina), ovi aseman oikeasta päästä", false, 124)]
     static void CreateTrainYard()
     {
         if (PlayModeBlocked()) return;
@@ -7809,7 +7816,7 @@ public static class BeatEmUpSetup
 
     const int TrainCarCount = 4;   // vaunujen määrä: vaunu 1 on takaparvekkeen puolella, vaunu 4 veturin vieressä
 
-    [MenuItem("Beat em up/130. Junan vaunut (4): käytävä kahdesti peräkkäin ja päädyt, ovet vaunusta toiseen (siirtymä), ikkunoista aavikko", false, 130)]
+    [MenuItem("Beat em up/Yksittäiset valikot/130. Junan vaunut (4): käytävä kahdesti peräkkäin ja päädyt, ovet vaunusta toiseen (siirtymä), ikkunoista aavikko", false, 130)]
     static void CreateTrainCar()
     {
         if (PlayModeBlocked()) return;
@@ -7920,7 +7927,7 @@ public static class BeatEmUpSetup
         Info($"Junan vaunut luotu ({TrainCarCount} kpl, kukin {wU:0} yksikköä leveä, alueet \"Junan vaunu 1\" … \"Junan vaunu {TrainCarCount}\"). Vaunujen väliset ovet (E) siirtävät seuraavaan tai edelliseen vaunuun. Vaunu 1:n vasen ovi (takaparveke, 132) ja vaunu {TrainCarCount}:n oikea ovi (veturi, 131) tehdään niissä valikoissa.\nIkkunoista näkyy aavikko, ja 134 tekee matkan taustavaiheet.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/131. Veturin ohjaamo: sisätila ja ovi junan vaunun oikeasta päädystä (ikkunoista aavikko)", false, 131)]
+    [MenuItem("Beat em up/Yksittäiset valikot/131. Veturin ohjaamo: sisätila ja ovi junan vaunun oikeasta päädystä (ikkunoista aavikko)", false, 131)]
     static void CreateTrainCab()
     {
         if (PlayModeBlocked()) return;
@@ -8026,7 +8033,7 @@ public static class BeatEmUpSetup
         Info($"Veturin ohjaamo luotu (x = {X0:0}, leveys {wU:0} yksikköä). {doorInfo}\nTakaisin pihalle ei pääse junan lähdettyä. Ikkunoista näkyy aavikko.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/132. Junan takaparveke: vaunun takaovi ja tikkaat katolle (taivas ja maasto vierivät taustalla)", false, 132)]
+    [MenuItem("Beat em up/Yksittäiset valikot/132. Junan takaparveke: vaunun takaovi ja tikkaat katolle (taivas ja maasto vierivät taustalla)", false, 132)]
     static void CreateTrainRearPlatform()
     {
         if (PlayModeBlocked()) return;
@@ -8124,7 +8131,7 @@ public static class BeatEmUpSetup
         Info($"Junan takaparveke luotu (x = {X0:0}, leveys {wU:0} yksikköä). Vaunun vasemmasta päädystä (E) pääsee parvekkeelle ja parvekkeen ovesta takaisin vaunuun. {roofInfo}\nTaivas ja maasto vierivät, kun juna on liikkeessä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/133. Junan katto: vasen pääty, vaunut, väli, veturiliitos ja veturin katto (tikkaat takaparvekkeelta, taivas ja maasto vierivät)", false, 133)]
+    [MenuItem("Beat em up/Yksittäiset valikot/133. Junan katto: vasen pääty, vaunut, väli, veturiliitos ja veturin katto (tikkaat takaparvekkeelta, taivas ja maasto vierivät)", false, 133)]
     static void CreateTrainRoof()
     {
         if (PlayModeBlocked()) return;
@@ -8232,7 +8239,7 @@ public static class BeatEmUpSetup
         Info($"Junan katto luotu (x = {X0:0}, leveys {wU:0} yksikköä, {files.Length} kuvaa). {ladderInfo}\nKatolla kävellään kapealla kaistalla; taivas ja maasto vierivät, kun juna on liikkeessä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/134. Junamatkan taustavaiheet: aavikosta yölliseen kaupunkiin (korvaa junan alueiden taivas ja maasto, aja 130–133 jälkeen)", false, 134)]
+    [MenuItem("Beat em up/Yksittäiset valikot/134. Junamatkan taustavaiheet: aavikosta yölliseen kaupunkiin (korvaa junan alueiden taivas ja maasto, aja 130–133 jälkeen)", false, 134)]
     static void CreateJourneyBackdrop()
     {
         if (PlayModeBlocked()) return;
@@ -8352,7 +8359,7 @@ public static class BeatEmUpSetup
              "\nMatka etenee junan liikkeessä (oletus 240 s): aavikko häipyy vaihe vaiheelta kohti kaupunkia. Lisää vaiheita nimillä junamatka_vaihe6.png, ... ja aja tämä uudelleen.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/135. Ravintolavaunu (vaunu 3): tiski, Sohvi tiskin takana, pullot hyllyyn, pöydät ja pullot", false, 135)]
+    [MenuItem("Beat em up/Yksittäiset valikot/135. Ravintolavaunu (vaunu 3): tiski, Sohvi tiskin takana, pullot hyllyyn, pöydät ja pullot", false, 135)]
     static void CreateDiningCar()
     {
         if (PlayModeBlocked()) return;
@@ -8477,7 +8484,7 @@ public static class BeatEmUpSetup
         Info($"Ravintolavaunu (vaunu 3) valmis: tiski vaunun keskellä, {bottleCount} pulloa hyllyillä, {shopInfo}.\n{tables.Length} pöytää ({info.bottles} pulloa, {info.glasses} lasia) ja {info.chairs} tuolia lattialla.\nTiskin eteen E avaa kaupan. Tiski estää kävelyn sen taakse.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/136. Junaketju kerralla: asema, piha, vaunut, veturi, takaparveke, katto, taustat, ravintolavaunu ja viholliset (123–145)", false, 136)]
+    [MenuItem("Beat em up/Yksittäiset valikot/136. Junaketju kerralla: asema, piha, vaunut, veturi, takaparveke, katto, taustat, ravintolavaunu ja viholliset (123–145)", false, 136)]
     static void RebuildTrainChain()
     {
         if (PlayModeBlocked()) return;
@@ -8539,22 +8546,22 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt: " + label + ". Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/137. Aloita peli junasta: vaunu 4 (veturin puolelta)", false, 137)]
+    [MenuItem("Beat em up/Yksittäiset valikot/137. Aloita peli junasta: vaunu 4 (veturin puolelta)", false, 137)]
     static void StartInTrainCar4() { WithLevelScenes(StartInTrainCar4Impl); }
 
     static void StartInTrainCar4Impl() { StartInTrainArea("Junan vaunu 4", 0.92f, 0.5f, "junan vaunu 4 (oikea pääty, veturin ovi vieressä)"); }
 
-    [MenuItem("Beat em up/138. Aloita peli junasta: ravintolavaunu (vaunu 3, tiskin vasemmalta puolelta)", false, 138)]
+    [MenuItem("Beat em up/Yksittäiset valikot/138. Aloita peli junasta: ravintolavaunu (vaunu 3, tiskin vasemmalta puolelta)", false, 138)]
     static void StartInTrainCar3() { WithLevelScenes(StartInTrainCar3Impl); }
 
     static void StartInTrainCar3Impl() { StartInTrainArea("Junan vaunu 3", 0.3f, 0.45f, "ravintolavaunu (vaunu 3)"); }
 
-    [MenuItem("Beat em up/139. Aloita peli junan katolta (vasen pääty, tikkaiden luota)", false, 139)]
+    [MenuItem("Beat em up/Yksittäiset valikot/139. Aloita peli junan katolta (vasen pääty, tikkaiden luota)", false, 139)]
     static void StartOnTrainRoof() { WithLevelScenes(StartOnTrainRoofImpl); }
 
     static void StartOnTrainRoofImpl() { StartInTrainArea("Junan katto", 0.02f, 0.4f, "junan katto"); }
 
-    [MenuItem("Beat em up/140. Viholliset junan vaunuihin (ravintolavaunussa kaikki: puliukot, motoristit, rekkamies, rokkimimmi, Rusty)", false, 140)]
+    [MenuItem("Beat em up/Yksittäiset valikot/140. Viholliset junan vaunuihin (ravintolavaunussa kaikki: puliukot, motoristit, rekkamies, rokkimimmi, Rusty)", false, 140)]
     static void AddTrainEnemies()
     {
         if (PlayModeBlocked()) return;
@@ -8645,7 +8652,7 @@ public static class BeatEmUpSetup
         return LoadSprites(name).OrderBy(sp => int.TryParse(sp.name.Substring(sp.name.LastIndexOf('_') + 1), out int k) ? k : 0).ToArray();
     }
 
-    [MenuItem("Beat em up/141. John junalaiturille ja vaunuihin (seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 141)]
+    [MenuItem("Beat em up/Yksittäiset valikot/141. John junalaiturille ja vaunuihin (seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 141)]
     static void AddJohn()
     {
         if (PlayModeBlocked()) return;
@@ -8674,7 +8681,7 @@ public static class BeatEmUpSetup
         Info("John lisätty: " + string.Join(", ", names) + ". Hän seisoo (kello), lähtee kävelemään, pysähtyy ja toistaa. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/142. Jade juna-asemalle ja vaunuihin (ei pihalle; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 142)]
+    [MenuItem("Beat em up/Yksittäiset valikot/142. Jade juna-asemalle ja vaunuihin (ei pihalle; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 142)]
     static void AddJade()
     {
         if (PlayModeBlocked()) return;
@@ -8701,7 +8708,7 @@ public static class BeatEmUpSetup
         Info("Jade lisätty: " + string.Join(", ", names) + ". Pihalla häntä ei ole. Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/143. Meredith ratapihalle ja vaunuihin (seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 143)]
+    [MenuItem("Beat em up/Yksittäiset valikot/143. Meredith ratapihalle ja vaunuihin (seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 143)]
     static void AddMeredith()
     {
         if (PlayModeBlocked()) return;
@@ -8728,7 +8735,7 @@ public static class BeatEmUpSetup
         Info("Meredith lisätty: " + string.Join(", ", names) + ". Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/144. Violet juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 144)]
+    [MenuItem("Beat em up/Yksittäiset valikot/144. Violet juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 144)]
     static void AddViolet()
     {
         if (PlayModeBlocked()) return;
@@ -8748,7 +8755,7 @@ public static class BeatEmUpSetup
         Info("Violet lisätty juna-asemalle ja ratapihalle (ei junaan). Ei taistelija eikä lyötävissä.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/145. Devo juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 145)]
+    [MenuItem("Beat em up/Yksittäiset valikot/145. Devo juna-asemalle ja ratapihalle (ei junaan; seisoo, kävelee, pysähtyy ja jatkaa; ei taistele)", false, 145)]
     static void AddDevo()
     {
         if (PlayModeBlocked()) return;
@@ -8776,7 +8783,7 @@ public static class BeatEmUpSetup
 
     static AudioClip DeaconClip(string file) => AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/deacon/" + file);
 
-    [MenuItem("Beat em up/146. Deacon, entinen nyrkkeilijä: pomo Aavikkobaarin yläkertaan (pöydän viereen)", false, 146)]
+    [MenuItem("Beat em up/Yksittäiset valikot/146. Deacon, entinen nyrkkeilijä: pomo Aavikkobaarin yläkertaan (pöydän viereen)", false, 146)]
     static void CreateDeacon()
     {
         if (PlayModeBlocked()) return;
@@ -8850,7 +8857,7 @@ public static class BeatEmUpSetup
              "Tallenna scene (Ctrl+S). Tarkista Console.");
     }
 
-    [MenuItem("Beat em up/147. Aavikkobaarin edustan kyltit: Deacon's Den oven yläpuolelle, bändin juliste ja neonkyltti ikkunoihin", false, 147)]
+    [MenuItem("Beat em up/Yksittäiset valikot/147. Aavikkobaarin edustan kyltit: Deacon's Den oven yläpuolelle, bändin juliste ja neonkyltti ikkunoihin", false, 147)]
     static void AddDesertBarSigns()
     {
         if (PlayModeBlocked()) return;
@@ -8906,7 +8913,7 @@ public static class BeatEmUpSetup
         ("Junan veturi", new[] { 0.5f }, new float[0]),
     };
 
-    [MenuItem("Beat em up/148. Poista irtonaiset ruoat ja voimakuvakkeet pelialueilta (ruokaa saa vain Sohvin kaupasta)", false, 148)]
+    [MenuItem("Beat em up/Yksittäiset valikot/148. Poista irtonaiset ruoat ja voimakuvakkeet pelialueilta (ruokaa saa vain Sohvin kaupasta)", false, 148)]
     static void AddEnergyPickups()
     {
         if (PlayModeBlocked()) return;
@@ -8924,7 +8931,7 @@ public static class BeatEmUpSetup
         Info("Poistettu " + removed + " irtonaista ruokaa tai voimakuvaketta. Pelissä ruoka ei enää putoa vihuilta eikä laatikoista: hodarit, lihikset ja pizzat saa vain Sohvin kaupasta taskuun.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/152. Aavikkokatu: laatikoita jalkakäytävälle (muutama pino päällekkäin); poistaa puhelinkopit", false, 152)]
+    [MenuItem("Beat em up/Yksittäiset valikot/152. Aavikkokatu: laatikoita jalkakäytävälle (muutama pino päällekkäin); poistaa puhelinkopit", false, 152)]
     static void AddDesertStreetCrates()
     {
         if (PlayModeBlocked()) return;
@@ -8978,7 +8985,7 @@ public static class BeatEmUpSetup
         Info("Aavikkokadulle lisätty " + count + " laatikkoa (" + stacks + " pinoa, kaksi päällekkäin) jalkakäytävälle 13–19 yksikön välein. Puhelinkopit on poistettu.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/153. Viemäri: kannet Aavikkokadulle (romuttamon ja tallin edessä), viemäriosuus ja vesiparallax", false, 153)]
+    [MenuItem("Beat em up/Yksittäiset valikot/153. Viemäri: kannet Aavikkokadulle (romuttamon ja tallin edessä), viemäriosuus ja vesiparallax", false, 153)]
     static void CreateSewer()
     {
         if (PlayModeBlocked()) return;
@@ -9147,7 +9154,7 @@ public static class BeatEmUpSetup
         atArcade = right + 4150f / BackgroundPPU;                                  // katu_jatko: pelihallin neon-sisäänkäynti (kuvan x ≈ 4150), palotikkaat vasta x 5362
     }
 
-    [MenuItem("Beat em up/156. Viemäri ensimmäiselle kadulle (Katu): kansi S-Clubin jälkeen, ulostulo pelihallin kohdalla; väki ja tavarat mukana", false, 156)]
+    [MenuItem("Beat em up/Yksittäiset valikot/156. Viemäri ensimmäiselle kadulle (Katu): kansi S-Clubin jälkeen, ulostulo pelihallin kohdalla; väki ja tavarat mukana", false, 156)]
     static void CreateStreetSewer()
     {
         if (PlayModeBlocked()) return;
@@ -9164,7 +9171,7 @@ public static class BeatEmUpSetup
         Info("Katujen viemäri valmis: kansi S-Clubin jälkeen ja ulostulo pelihallin kohdalla (ennen palotikkaita ja Metsuria). Mukana 8 punkkaria, 4 skeittaria, laatikoita ja tynnyreitä; ritilöiden ja uran takana virtaa vesi. Yksityiskohdat Console-ikkunassa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/154. Viemäri: 8 punkkaria ja 4 skeittaria (rullalaudoilla) pitkin viemäriä", false, 154)]
+    [MenuItem("Beat em up/Yksittäiset valikot/154. Viemäri: 8 punkkaria ja 4 skeittaria (rullalaudoilla) pitkin viemäriä", false, 154)]
     static void AddSewerPunks()
     {
         if (PlayModeBlocked()) return;
@@ -9223,7 +9230,7 @@ public static class BeatEmUpSetup
              (skater == null ? "\nSkeittareita ei löytynyt scenestä: aja vihujen kohta 39 (Lisää Skettarit)." : "") + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/155. Viemäri: laatikoita (muutama pino) ja tynnyreitä", false, 155)]
+    [MenuItem("Beat em up/Yksittäiset valikot/155. Viemäri: laatikoita (muutama pino) ja tynnyreitä", false, 155)]
     static void AddSewerProps()
     {
         if (PlayModeBlocked()) return;
@@ -9299,7 +9306,7 @@ public static class BeatEmUpSetup
         Info("Viemäriin lisätty " + crates + " laatikkoa (" + stacks + " pinoa) ja " + barrels + " tynnyriä pitkin matkaa. Laatikot hajoavat, tynnyrit heitetään ja vieritetään.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/157. Rottakeisari: viemärin minibossi (idle, taisteluasento, 3 lyöntiä, potku, kaatuminen, ylösnousu)", false, 157)]
+    [MenuItem("Beat em up/Yksittäiset valikot/157. Rottakeisari: viemärin minibossi (idle, taisteluasento, 3 lyöntiä, potku, kaatuminen, ylösnousu)", false, 157)]
     static void CreateRatEmperor()
     {
         if (PlayModeBlocked()) return;
@@ -9421,7 +9428,7 @@ public static class BeatEmUpSetup
     const float SewerMusicGain = 1.57f;   // +3,9 dB: Viemari.mp3 on mitattu -19,7 dBFS (RMS), muu musiikki n. -16 dBFS; sama arvo Area.SewerDefaultGain
     static AudioClip SewerMusic() => AssetDatabase.LoadAssetAtPath<AudioClip>(SewerMusicPath);
 
-    [MenuItem("Beat em up/158. Viemärin musiikki (Viemari.mp3) viemäreille", false, 158)]
+    [MenuItem("Beat em up/Yksittäiset valikot/158. Viemärin musiikki (Viemari.mp3) viemäreille", false, 158)]
     static void ApplySewerMusic()
     {
         if (PlayModeBlocked()) return;
@@ -9440,7 +9447,7 @@ public static class BeatEmUpSetup
         Info("Viemärin musiikki asetettu " + n + " alueelle. Se soi koko viemärissä ja siis myös Rottakeisarin taistelussa.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/160. Toiset prätkät kaksinpeliä varten (jokaiselle ajettavalle pyörälle pari viereen)", false, 160)]
+    [MenuItem("Beat em up/Yksittäiset valikot/160. Toiset prätkät kaksinpeliä varten (jokaiselle ajettavalle pyörälle pari viereen)", false, 160)]
     static void AddSecondBikes()
     {
         if (PlayModeBlocked()) return;
@@ -9465,7 +9472,7 @@ public static class BeatEmUpSetup
         Info("Kaksinpeli: " + added + " uutta prätkää (jokaisen ajettavan viereen vasemmalle)."+"\n"+string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S). Ajon aikana kumpikin pelaaja nousee omalle pyörälleen E:llä.");
     }
 
-    [MenuItem("Beat em up/161. Thaitown 1: juna-aseman laituri (junasta tultaessa; keskikuva + vasen ja oikea jatko)", false, 161)]
+    [MenuItem("Beat em up/Yksittäiset valikot/161. Thaitown 1: juna-aseman laituri (junasta tultaessa; keskikuva + vasen ja oikea jatko)", false, 161)]
     static void CreateThaitownPlatform()
     {
         if (PlayModeBlocked()) return;
@@ -9600,7 +9607,7 @@ public static class BeatEmUpSetup
         Info($"Thaitownin laituri luotu (x = {X0:0}, leveys {wU:0} yksikköä, 3 kuvaa). Ovia ei vielä. Ovien kohdat: aseman vasen ovi x ≈ {PX(140f):0.0}, junan vaunun ovi x ≈ {PX(1100f):0.0}, aseman oikea ovi x ≈ {PX(3344f + 1525f):0.0}. Aloita peli täältä: valikko 162.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/163. Thaitown 2: juna-aseman sisätila (ikkunoista kaupunki) ja ovet laiturilta molemmista päistä", false, 163)]
+    [MenuItem("Beat em up/Yksittäiset valikot/163. Thaitown 2: juna-aseman sisätila (ikkunoista kaupunki) ja ovet laiturilta molemmista päistä", false, 163)]
     static void CreateThaitownStation()
     {
         if (PlayModeBlocked()) return;
@@ -9711,7 +9718,7 @@ public static class BeatEmUpSetup
         Info($"Thaitownin asema luotu (x = {X0:0}, leveys {wU:0} yksikköä). Laiturin oikea ovi vie aseman vasempaan päätyyn (laiturin vasen ovi ei vie mihinkään). {streetInfo}\n{shopInfo}.\nIkkunoista näkyy kaupunki.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/164. Thaitown 3: katu (7 kuvaa oikealle: asema, kerrostalot, hotelli, parkkihalli; vasemmalle ei pääse)", false, 164)]
+    [MenuItem("Beat em up/Yksittäiset valikot/164. Thaitown 3: katu (7 kuvaa oikealle: asema, kerrostalot, hotelli, parkkihalli; vasemmalle ei pääse)", false, 164)]
     static void CreateThaitownStreet()
     {
         if (PlayModeBlocked()) return;
@@ -9793,7 +9800,7 @@ public static class BeatEmUpSetup
         Info($"Thaitownin katu luotu (x = {X0:0}, leveys {wU:0} yksikköä, 7 kuvaa). {doorInfo}\nMuiden ovien kohdat: kerrostalon ovi x ≈ {PX(1672f + 1195f):0.0}, hotellin ovi x ≈ {PX(4f * 1672f + 1170f):0.0}, parkkihalli x ≈ {PX(5f * 1672f + 960f):0.0}, parkkihallin metalliovi x ≈ {PX(5f * 1672f + 1505f):0.0}. Aloita peli täältä: valikko 165.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/165. Aloita peli Thaitownin kadulta (aseman edestä)", false, 165)]
+    [MenuItem("Beat em up/Yksittäiset valikot/165. Aloita peli Thaitownin kadulta (aseman edestä)", false, 165)]
     static void StartInThaitownStreet() { WithLevelScenes(StartInThaitownStreetImpl); }
 
     static void StartInThaitownStreetImpl() { StartInTrainArea("Thaitown katu", 0.04f, 0.5f, "Thaitownin katu"); }
@@ -9865,7 +9872,7 @@ public static class BeatEmUpSetup
         return e;
     }
 
-    [MenuItem("Beat em up/166. Thaitown: jakuzat kadulle (kovia mutta ei pomoja, nopeita lyömään ja potkimaan)", false, 166)]
+    [MenuItem("Beat em up/Yksittäiset valikot/166. Thaitown: jakuzat kadulle (kovia mutta ei pomoja, nopeita lyömään ja potkimaan)", false, 166)]
     static void AddThaitownYakuzas()
     {
         if (PlayModeBlocked()) return;
@@ -9895,7 +9902,7 @@ public static class BeatEmUpSetup
         Info($"Thaitownin kadulle {n} jakuzaa. " + string.Join(", ", report.Distinct()) + "\n\nTallenna scene (Ctrl+S). Tarkista Console.");
     }
 
-    [MenuItem("Beat em up/167. Thaitownin laiturille 2 jakuzaa ja 1 Betty (heti junasta tullessa)", false, 167)]
+    [MenuItem("Beat em up/Yksittäiset valikot/167. Thaitownin laiturille 2 jakuzaa ja 1 Betty (heti junasta tullessa)", false, 167)]
     static void AddYardYakuzas()
     {
         if (PlayModeBlocked()) return;
@@ -9973,7 +9980,7 @@ public static class BeatEmUpSetup
         return clip;
     }
 
-    [MenuItem("Beat em up/168. Thaitown: laatikoita laiturille (muutama pino päällekkäin)", false, 168)]
+    [MenuItem("Beat em up/Yksittäiset valikot/168. Thaitown: laatikoita laiturille (muutama pino päällekkäin)", false, 168)]
     static void AddPlatformCrates()
     {
         if (PlayModeBlocked()) return;
@@ -10083,7 +10090,7 @@ public static class BeatEmUpSetup
         return e;
     }
 
-    [MenuItem("Beat em up/169. Thaitown: Betty kadulle (erittäin vahva; taklaus lennättää kauas)", false, 169)]
+    [MenuItem("Beat em up/Yksittäiset valikot/169. Thaitown: Betty kadulle (erittäin vahva; taklaus lennättää kauas)", false, 169)]
     static void AddThaitownBetty()
     {
         if (PlayModeBlocked()) return;
@@ -10103,12 +10110,12 @@ public static class BeatEmUpSetup
         Info("Betty lisätty Thaitownin kadulle (x ≈ 8000 px). " + string.Join(", ", report) + "\n\nTallenna scene (Ctrl+S). Tarkista Console.");
     }
 
-    [MenuItem("Beat em up/162. Aloita peli Thaitownin laiturilta", false, 162)]
+    [MenuItem("Beat em up/Yksittäiset valikot/162. Aloita peli Thaitownin laiturilta", false, 162)]
     static void StartInThaitownPlatform() { WithLevelScenes(StartInThaitownPlatformImpl); }
 
     static void StartInThaitownPlatformImpl() { StartInTrainArea("Thaitown laituri", 0.3f, 0.5f, "Thaitownin laituri"); }
 
-    [MenuItem("Beat em up/159. Pierre: viemärin toinen minibossi (ensimmäisen kadun viemäri)", false, 159)]
+    [MenuItem("Beat em up/Yksittäiset valikot/159. Pierre: viemärin toinen minibossi (ensimmäisen kadun viemäri)", false, 159)]
     static void CreatePierre()
     {
         if (PlayModeBlocked()) return;
@@ -10212,7 +10219,7 @@ public static class BeatEmUpSetup
              "\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)", false, 129)]
+    [MenuItem("Beat em up/Yksittäiset valikot/129. Aavikkobaarin yläkerta: toimisto, portaat baarista (ikkunasta näkyy aavikon taivas parallaxina)", false, 129)]
     static void CreateBarUpstairs()
     {
         if (PlayModeBlocked()) return;
@@ -10317,7 +10324,7 @@ public static class BeatEmUpSetup
         return v.speak != null && v.speak.Length > 0;
     }
 
-    [MenuItem("Beat em up/126. Baarin rekkamies rauhalliseksi (tanssii, herää vasta tappelun alkaessa) ja mukaan baaritappeluun", false, 126)]
+    [MenuItem("Beat em up/Yksittäiset valikot/126. Baarin rekkamies rauhalliseksi (tanssii, herää vasta tappelun alkaessa) ja mukaan baaritappeluun", false, 126)]
     static void CalmBarTrucker()
     {
         if (PlayModeBlocked()) return;
@@ -10347,7 +10354,7 @@ public static class BeatEmUpSetup
         Info("Baarin rekkamies on rauhallinen (ei herää hero lähellä), " + brawlInfo + ". Tappelu alkaa vasta, kun joku saa osuman tai 2 minuuttia on kulunut.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/127. Aavikkobaari: lisää väkeä alalattialle (3 motoristia, 2 punkkaria) tappeluun mukaan", false, 127)]
+    [MenuItem("Beat em up/Yksittäiset valikot/127. Aavikkobaari: lisää väkeä alalattialle (3 motoristia, 2 punkkaria) tappeluun mukaan", false, 127)]
     static void AddBarLowerCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -10399,7 +10406,7 @@ public static class BeatEmUpSetup
         return "Baarin alalattialle lisätty " + n + " hahmoa (3 motoristia ja punkkareita)" + punkInfo + ". He ovat rauhallisia ja heräävät tappelun mukana. Motoristit saavat piirakkakuvat, heiton ja juoksun automaattisesti.\n\nTallenna scene (Ctrl+S).";
     }
 
-    [MenuItem("Beat em up/125. Rekkamiehen puhe kaikille rekkamiehille (baari, diner, romuttamo)", false, 125)]
+    [MenuItem("Beat em up/Yksittäiset valikot/125. Rekkamiehen puhe kaikille rekkamiehille (baari, diner, romuttamo)", false, 125)]
     static void ApplyTruckerVoices()
     {
         if (PlayModeBlocked()) return;
@@ -10413,7 +10420,7 @@ public static class BeatEmUpSetup
         Info(n + " rekkamiehelle lisätty puhe" + (clips ? "" : " (puheääniä ei löytynyt: Assets/Audio/rekkamies/puhe*.mp3)") + ". He puhuvat 10–20 sekunnin välein, kun hero on samalla alueella.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/98. Roccon ja Rubyn ruoskasta kiinniotto (kuvat pelaajalle)", false, 98)]
+    [MenuItem("Beat em up/Yksittäiset valikot/98. Roccon ja Rubyn ruoskasta kiinniotto (kuvat pelaajalle)", false, 98)]
     static void AssignWhipCatch()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -10476,14 +10483,14 @@ public static class BeatEmUpSetup
         return $"{bikers} motoristia ja {rockers} rokkimimmiä tappelevat keskenään; {drunkInfo}.";
     }
 
-    [MenuItem("Beat em up/101. Peltihalli: tappelu (motoristit, rokkimimmit ja tiskin puliukko)", false, 101)]
+    [MenuItem("Beat em up/Yksittäiset valikot/101. Peltihalli: tappelu (motoristit, rokkimimmit ja tiskin puliukko)", false, 101)]
     static void AddHallBrawl()
     {
         if (PlayModeBlocked()) return;
         Info(SetupHallBrawl() + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/99. Aavikkokatu: Rustyt (6 kpl)", false, 99)]
+    [MenuItem("Beat em up/Yksittäiset valikot/99. Aavikkokatu: Rustyt (6 kpl)", false, 99)]
     static void AddDesertStreetRustys()
     {
         if (PlayModeBlocked()) return;
@@ -10515,7 +10522,7 @@ public static class BeatEmUpSetup
         Info($"Aavikkokadulle lisätty {made} Rustya, jotka heräävät kun hero lähestyy. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/97. Lisää Rusty pelaajan viereen", false, 97)]
+    [MenuItem("Beat em up/Yksittäiset valikot/97. Lisää Rusty pelaajan viereen", false, 97)]
     static void AddRusty()
     {
         if (PlayModeBlocked()) return;
@@ -10564,7 +10571,7 @@ public static class BeatEmUpSetup
         return true;
     }
 
-    [MenuItem("Beat em up/122. Prätkäjätkät heittävät pöytiä ja heroa (kaikille sceneen)", false, 122)]
+    [MenuItem("Beat em up/Yksittäiset valikot/122. Prätkäjätkät heittävät pöytiä ja heroa (kaikille sceneen)", false, 122)]
     static void UpdateBikerThrow()
     {
         if (PlayModeBlocked()) return;
@@ -10581,7 +10588,7 @@ public static class BeatEmUpSetup
         Info($"{n} prätkäjätkää heittää nyt pöytiä (hakee lähimmän ehjän pöydän, kantaa sen pään yllä ja heittää) ja napaten heron (25 % todennäköisyys, heitto eteen). Tappelussa muita vastaan (esim. aavikkobaari) he heittävät myös kevyitä vihuja.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/100. Prätkäjätkien äänet ja nopeampi juoksu (kaikille sceneen)", false, 100)]
+    [MenuItem("Beat em up/Yksittäiset valikot/100. Prätkäjätkien äänet ja nopeampi juoksu (kaikille sceneen)", false, 100)]
     static void UpdateBikerAudio()
     {
         int n = 0;
@@ -10732,7 +10739,7 @@ public static class BeatEmUpSetup
         return true;
     }
 
-    [MenuItem("Beat em up/73. Uusi rokkimimmi kaikille rokkimimmeille", false, 73)]
+    [MenuItem("Beat em up/Yksittäiset valikot/73. Uusi rokkimimmi kaikille rokkimimmeille", false, 73)]
     static void Rocker2All()
     {
         var report = new List<string>();
@@ -10905,7 +10912,7 @@ public static class BeatEmUpSetup
         return pgo;
     }
 
-    [MenuItem("Beat em up/67. Pokerihuone (baarin takahuone)", false, 67)]
+    [MenuItem("Beat em up/Yksittäiset valikot/67. Pokerihuone (baarin takahuone)", false, 67)]
     static void CreateBarRoom()
     {
         var bar = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Kadun baari");
@@ -11215,7 +11222,7 @@ public static class BeatEmUpSetup
         return d;
     }
 
-    [MenuItem("Beat em up/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot", false, 56)]
+    [MenuItem("Beat em up/Yksittäiset valikot/56. Laivan tappelu: seilorit (liittolaiset) ja rosvot", false, 56)]
     static void AddShipFight()
     {
         var deck = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Laivan kansi");
@@ -11423,7 +11430,7 @@ public static class BeatEmUpSetup
     const int DanceMirrorFrom = 48;          // tanssivideon kuva 180° kohdalla: sen peilikuva = alkuasento
     static readonly Vector3[] ShipBikini2Spots = { new Vector3(1830f, 487f, 0f), new Vector3(3473f, 482f, 0f) };   // kansituoli + neljäs aurinkotuoli
 
-    [MenuItem("Beat em up/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri", false, 55)]
+    [MenuItem("Beat em up/Yksittäiset valikot/55. Risteilyaluksen kansi (varaston ovesta), rullaava meri", false, 55)]
     static void CreateShipDeck()
     {
         var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
@@ -11670,7 +11677,7 @@ public static class BeatEmUpSetup
     const float LoipStreetDoorPx = 4551f;    // El Loipparin ovet Uccopulcon katukuvassa
     const float LoipExitPx = 130f;           // sisätilan vasemman reunan heiluriovet (ulos kadulle)
 
-    [MenuItem("Beat em up/45. El Loippari (Uccopulcon baari)", false, 45)]
+    [MenuItem("Beat em up/Yksittäiset valikot/45. El Loippari (Uccopulcon baari)", false, 45)]
     static void CreateLoippari()
     {
         var street = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
@@ -11760,7 +11767,7 @@ public static class BeatEmUpSetup
     const float LoipUpStairPx = 150f;        // portaiden yläpää (kaide vasemmassa reunassa)
     const float LoipStairPx = 1740f;         // portaiden alapää El Loipparin kuvassa (lavan vasemmalla puolella)
 
-    [MenuItem("Beat em up/77. El Loipparin yläkerta ja välipomo Horhe", false, 77)]
+    [MenuItem("Beat em up/Yksittäiset valikot/77. El Loipparin yläkerta ja välipomo Horhe", false, 77)]
     static void CreateLoipparUpstairs()
     {
         var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
@@ -11919,7 +11926,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Aloituskohta ----------------
-    [MenuItem("Beat em up/36. Aloita peli takakujan parkkipaikalta", false, 36)]
+    [MenuItem("Beat em up/Yksittäiset valikot/36. Aloita peli takakujan parkkipaikalta", false, 36)]
     static void StartAtAlley() { WithLevelScenes(StartAtAlleyImpl); }
 
     static void StartAtAlleyImpl()
@@ -11941,7 +11948,7 @@ public static class BeatEmUpSetup
     // ---------------- Samoalainen (Uccopulco) ----------------
     static readonly Vector2[] SamoaUcco = { new Vector2(30f, 0.4f), new Vector2(62f, 0.15f), new Vector2(95f, 0.6f), new Vector2(158f, 0.5f), new Vector2(194f, 0.35f) };   // x kadun alusta (yli 121: satama), syvyys 0 = seinä … 1 = edessä, syvyys 0 = seinä … 1 = edessä
 
-    [MenuItem("Beat em up/47. Samoalaiset Uccopulcoon", false, 47)]
+    [MenuItem("Beat em up/Yksittäiset valikot/47. Samoalaiset Uccopulcoon", false, 47)]
     static void AddSamoans()
     {
         var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
@@ -12026,7 +12033,7 @@ public static class BeatEmUpSetup
              "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/80. El Loipparin alkuun snookerpöytä", false, 80)]
+    [MenuItem("Beat em up/Yksittäiset valikot/80. El Loipparin alkuun snookerpöytä", false, 80)]
     static void AddLoipparSnooker()
     {
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
@@ -12080,7 +12087,7 @@ public static class BeatEmUpSetup
     // pyöreät telkkaripöydät seinän vieressä takarivin pöytien välissä (ei tiskin eteen eikä lavan eteen)
     static readonly float[] LoipTvX = { 25f, 32f, 64.5f, 71.5f, 78.5f, 92f };
 
-    [MenuItem("Beat em up/48. El Loipparin pöydät (kala-annokset, pullot, lasit)", false, 48)]
+    [MenuItem("Beat em up/Yksittäiset valikot/48. El Loipparin pöydät (kala-annokset, pullot, lasit)", false, 48)]
     static void AddLoipparTables()
     {
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
@@ -12233,7 +12240,7 @@ public static class BeatEmUpSetup
     static readonly float[] LoipCrateX = { 7f, 46f, 79f, 96f }, LoipBarrelX = { 9.5f, 49f, 82f };
     const float LoipCounterPx = 865f, LoipCounterHalfPx = 225f, LoipCounterTopRow = 370f;
 
-    [MenuItem("Beat em up/50. Uccopulco: laatikot, tynnyrit ja Sohvi El Loipparin tiskille", false, 50)]
+    [MenuItem("Beat em up/Yksittäiset valikot/50. Uccopulco: laatikot, tynnyrit ja Sohvi El Loipparin tiskille", false, 50)]
     static void AddUccoProps()
     {
         var ucco = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Uccopulco");
@@ -12323,7 +12330,7 @@ public static class BeatEmUpSetup
     static readonly Vector2[] UccoSkettari = { new Vector2(23f, 0.7f), new Vector2(54f, 0.55f), new Vector2(86f, 0.3f), new Vector2(116f, 0.6f), new Vector2(146f, 0.45f), new Vector2(184f, 0.65f) };
     static readonly Vector2[] LoipSamoa = { new Vector2(27f, 0.45f), new Vector2(50f, 0.6f), new Vector2(77f, 0.5f) };
 
-    [MenuItem("Beat em up/51. El Loippariin Lippikset, samoalaiset ja portsarit", false, 51)]
+    [MenuItem("Beat em up/Yksittäiset valikot/51. El Loippariin Lippikset, samoalaiset ja portsarit", false, 51)]
     static void AddLoipparFighters()
     {
         var loip = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "El Loippari");
@@ -12417,7 +12424,7 @@ public static class BeatEmUpSetup
     // ---------------- El Loipparin lava ----------------
     const float LoipStagePx = 2334f, LoipStageHalfPx = 505f, LoipStageFeetRow = 445f;   // lava yhdistetyssä sisäkuvassa (keskikohta, puolileveys, jalkojen rivi)
 
-    [MenuItem("Beat em up/52. El Loipparin lava: mariachi-bändi ja tanssijat", false, 52)]
+    [MenuItem("Beat em up/Yksittäiset valikot/52. El Loipparin lava: mariachi-bändi ja tanssijat", false, 52)]
     static void AddLoipparStage()
     {
         var loipBg = GameObject.Find("El Loippari");
@@ -12459,7 +12466,7 @@ public static class BeatEmUpSetup
         Info("El Loipparin lavalla mariachi-bändi ja tanssijat molemmin puolin.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/54. Heron pudotuspotku (juoksusta lyönti + hyppy)", false, 54)]
+    [MenuItem("Beat em up/Yksittäiset valikot/54. Heron pudotuspotku (juoksusta lyönti + hyppy)", false, 54)]
     static void SetupDropKick()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -12478,7 +12485,7 @@ public static class BeatEmUpSetup
     static readonly Vector2[] LoipChairs = { new Vector2(15f, 0.62f), new Vector2(29.5f, 0.35f), new Vector2(36f, 0.7f), new Vector2(57f, 0.68f),
                                              new Vector2(67f, 0.4f), new Vector2(75f, 0.65f), new Vector2(86f, 0.45f), new Vector2(97f, 0.7f) };
 
-    [MenuItem("Beat em up/53. Tuolit El Loippariin (heron tuolikuvat)", false, 53)]
+    [MenuItem("Beat em up/Yksittäiset valikot/53. Tuolit El Loippariin (heron tuolikuvat)", false, 53)]
     static void AddChairs()
     {
         var pc = Object.FindFirstObjectByType<PlayerController>();
@@ -12534,7 +12541,7 @@ public static class BeatEmUpSetup
              "Kiinniotto: tuoli käteen. Lyönti: lyö (osuessa tuoli hajoaa). Potku: heitto.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/81. Horhen konttoriin snookerpöydät, pöydät, tuolit ja pullot", false, 81)]
+    [MenuItem("Beat em up/Yksittäiset valikot/81. Horhen konttoriin snookerpöydät, pöydät, tuolit ja pullot", false, 81)]
     static void AddLoipparUpstairsProps()
     {
         var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Loipparin yläkerta");
@@ -12601,7 +12608,7 @@ public static class BeatEmUpSetup
         return true;
     }
 
-    [MenuItem("Beat em up/86. Horhen ja kapteenin heitettynä olemisen kuvat", false, 86)]
+    [MenuItem("Beat em up/Yksittäiset valikot/86. Horhen ja kapteenin heitettynä olemisen kuvat", false, 86)]
     static void ApplyBossThrown()
     {
         foreach (var n in new[] { "horhe_heitetty", "kapteeni_heitetty" })
@@ -12639,7 +12646,7 @@ public static class BeatEmUpSetup
     /// Ei toistoja: Enemy.Awake järjestää kuvat numeron mukaan.
     static Sprite[] UppercutFrames(Sprite[] h) => h.Take(5).ToArray();
 
-    [MenuItem("Beat em up/82. Horhen juoksu, potkukombo ja alakoukut", false, 82)]
+    [MenuItem("Beat em up/Yksittäiset valikot/82. Horhen juoksu, potkukombo ja alakoukut", false, 82)]
     static void AddHorheRun()
     {
         string path = FindTexture("horhe_juoksu"), kp = FindTexture("horhe_potkut"), hp = FindTexture("horhe_koukku"), rp = FindTexture("horhe_takakoukku");
@@ -12667,7 +12674,7 @@ public static class BeatEmUpSetup
         Info($"Horhen juoksu ({run.Length} kuvaa) potkukombo ({kicks.Length} kuvaa) alakoukku ({hook.Length} kuvaa) ja takakäden alakoukku ({rear.Length} kuvaa) {n} Horhelle.\n" + string.Join("\n", report) + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/79. Tuolit S-Clubiin (potkittavat ja lyötävät)", false, 79)]
+    [MenuItem("Beat em up/Yksittäiset valikot/79. Tuolit S-Clubiin (potkittavat ja lyötävät)", false, 79)]
     static void AddClubChairs()
     {
         var club = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "S-Club");
@@ -12696,7 +12703,7 @@ public static class BeatEmUpSetup
     }
 
     /// Hajoaville puuesineille (pöydät, laatikot) hajoamisäänet Audio/sfx/puu*.
-    [MenuItem("Beat em up/49. Puun hajoamisäänet pöydille ja laatikoille", false, 49)]
+    [MenuItem("Beat em up/Yksittäiset valikot/49. Puun hajoamisäänet pöydille ja laatikoille", false, 49)]
     static void ApplyWoodBreakSounds()
     {
         var clips = AssetDatabase.FindAssets("t:AudioClip puu", new[] { "Assets/Audio" })
@@ -12716,7 +12723,7 @@ public static class BeatEmUpSetup
         Info($"Hajoamisäänet ({clips.Length} kpl: puu*) {n} pöydälle ja laatikolle." + (clips.Length == 0 ? "\nLaita äänet kansioon Assets/Audio/sfx nimillä puu1, puu2." : "") + "\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/46. Aloita peli Uccopulcosta", false, 46)]
+    [MenuItem("Beat em up/Yksittäiset valikot/46. Aloita peli Uccopulcosta", false, 46)]
     static void StartAtUccopulco() { WithLevelScenes(StartAtUccopulcoImpl); }
 
     static void StartAtUccopulcoImpl()
@@ -12734,7 +12741,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt Uccopulcon kadun alusta.\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/37. Aloita peli taas kadun alusta", false, 37)]
+    [MenuItem("Beat em up/Yksittäiset valikot/37. Aloita peli taas kadun alusta", false, 37)]
     static void StartAtStreet()
     {
         var old = GameObject.Find("Aloituskohta");
@@ -12742,7 +12749,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa taas kadun alusta.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/88. Aloita peli laivan salista (tanssisalista)", false, 88)]
+    [MenuItem("Beat em up/Yksittäiset valikot/88. Aloita peli laivan salista (tanssisalista)", false, 88)]
     static void StartAtShipSalon() { WithLevelScenes(StartAtShipSalonImpl); }
 
     static void StartAtShipSalonImpl()
@@ -12764,7 +12771,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt laivan salista (käytävän oven kohdalta).\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/90. Aloita peli laivan katolta", false, 90)]
+    [MenuItem("Beat em up/Yksittäiset valikot/90. Aloita peli laivan katolta", false, 90)]
     static void StartAtShipRoof() { WithLevelScenes(StartAtShipRoofImpl); }
 
     static void StartAtShipRoofImpl()
@@ -12786,7 +12793,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt laivan katolta.\nTakaisin kadun alkuun: valikko 37.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/92. Aloita peli Aavikolta", false, 92)]
+    [MenuItem("Beat em up/Yksittäiset valikot/92. Aloita peli Aavikolta", false, 92)]
     static void StartAtDesert() { WithLevelScenes(StartAtDesertImpl); }
 
     static void StartAtDesertImpl()
@@ -12865,7 +12872,7 @@ public static class BeatEmUpSetup
         return table;
     }
 
-    [MenuItem("Beat em up/109. Diner: pöydät uusiutuvat (annoksineen ja piirakkoineen)", false, 109)]
+    [MenuItem("Beat em up/Yksittäiset valikot/109. Diner: pöydät uusiutuvat (annoksineen ja piirakkoineen)", false, 109)]
     static void AddDinerTableRespawn()
     {
         var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
@@ -12909,7 +12916,7 @@ public static class BeatEmUpSetup
         Info("Dinerin pöydät uusiutuvat: kun pöytä on rikki tai heitetty kauas, samaan paikkaan tulee 6 sekunnin päästä uusi pöytä annoksineen, piirakkoineen, oluineen ja tuoleineen (enintään 10 pöytää kerrallaan).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/108. Diner: vihut (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota", false, 108)]
+    [MenuItem("Beat em up/Yksittäiset valikot/108. Diner: vihut (Rusty, rokkimimmi, motoristi, puliukko) ja piirakkasota", false, 108)]
     static void AddDinerFoes()
     {
         var diner = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Diner");
@@ -12978,7 +12985,7 @@ public static class BeatEmUpSetup
              + "\nPiirakkasota: mene Linseyn luo ja paina E. Aja sen jälkeen 105, niin vihut saavat piirakkakuvat.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/107. Aloita peli Aavikkokadulta dinerin läheltä", false, 107)]
+    [MenuItem("Beat em up/Yksittäiset valikot/107. Aloita peli Aavikkokadulta dinerin läheltä", false, 107)]
     static void StartAtDiner() { WithLevelScenes(StartAtDinerImpl); }
 
     static void StartAtDinerImpl()
@@ -13000,7 +13007,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt Aavikkokadulta dinerin oven vierestä (5 yksikköä vasemmalla). Takaisin kadun alkuun: valikko 37. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/128. Aloita peli Aavikkokadulta juna-aseman pääoven edestä", false, 128)]
+    [MenuItem("Beat em up/Yksittäiset valikot/128. Aloita peli Aavikkokadulta juna-aseman pääoven edestä", false, 128)]
     static void StartAtStation() { WithLevelScenes(StartAtStationImpl); }
 
     static void StartAtStationImpl()
@@ -13080,7 +13087,7 @@ public static class BeatEmUpSetup
         }
         return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
-    [MenuItem("Beat em up/170. Rullalauta (Rocco ja Ruby: liuku, hyppy, jarrutus; lauta maassa, nousu poimintanapilla)", false, 170)]
+    [MenuItem("Beat em up/Yksittäiset valikot/170. Rullalauta (Rocco ja Ruby: liuku, hyppy, jarrutus; lauta maassa, nousu poimintanapilla)", false, 170)]
     static void SetupRoccoSkateboard()
     {
         if (PlayModeBlocked()) return;
@@ -13134,7 +13141,7 @@ public static class BeatEmUpSetup
         foreach (var bs in Object.FindObjectsByType<BoardSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None)) Undo.DestroyObjectImmediate(bs.gameObject);   // laudat tulevat vain skettareilta
         Info(string.Join("\n", report) + $"\nPelaajia päivitetty: {players.Length}.\n\nLaudan saa skettarilta: kaada skettari, ja hänen lautansa jää maahan. Mene laudan viereen ja paina poimintanappia (E): kuvat vaihtuvat. Juoksunappi = vauhdinpotkut, ilman sitä hiljainen liuku. Hyppy = kickflip, E (poiminta) = hyppää pois. Skettareiden pudottamille laudoille voi astua samoin. Vain Rocco (Ruby saa omat kuvat myöhemmin).\n\nTallenna scene (Ctrl+S).");
     }
-    [MenuItem("Beat em up/171. Thaitownin laiturille skettari (pudottaa laudan, jolla voi ajaa)", false, 171)]
+    [MenuItem("Beat em up/Yksittäiset valikot/171. Thaitownin laiturille skettari (pudottaa laudan, jolla voi ajaa)", false, 171)]
     static void AddYardSkater()
     {
         if (PlayModeBlocked()) return;
@@ -13160,7 +13167,7 @@ public static class BeatEmUpSetup
     }
     const string TestOffMark = " [pois]";
 
-    [MenuItem("Beat em up/172. Testitila: vihollisten ja spawnerien piilotus (aja uudelleen = takaisin)", false, 172)]
+    [MenuItem("Beat em up/Yksittäiset valikot/172. Testitila: vihollisten ja spawnerien piilotus (aja uudelleen = takaisin)", false, 172)]
     static void ToggleEnemiesOff()
     {
         if (PlayModeBlocked()) return;
@@ -13198,7 +13205,7 @@ public static class BeatEmUpSetup
         Info($"Testitila: {n} vihollista ja {ns} spawneria pois päältä (nimessä \"{TestOffMark.Trim()}\").\nAja valikko 172 uudelleen, niin ne palaavat.\n\nÄlä unohda palauttaa ennen kuin tallennat oikeaa peliä.");
     }
 
-    [MenuItem("Beat em up/173. Rubyn spagaattipotku (L2 + R2 tai O + U: potkaisee molemmin puolin, vihut lentävät)", false, 173)]
+    [MenuItem("Beat em up/Yksittäiset valikot/173. Rubyn spagaattipotku (L2 + R2 tai O + U: potkaisee molemmin puolin, vihut lentävät)", false, 173)]
     static void SetupRubySplitKick()
     {
         if (PlayModeBlocked()) return;
@@ -13217,7 +13224,7 @@ public static class BeatEmUpSetup
         }
         Info($"Rubyn spagaattipotku: {c} kuvaa, pelaajia päivitetty: {players.Length}.\n\nRuby: vastaheitto-nappi + pusku yhtä aikaa (näppäimistö O + U, ohjain L2 + R2). Potkaisee molemmille puolille, vihut lentävät (kevyet kauemmas), kuluttaa staminaa 22 ja on loikan ajan lyömätön.\n\nTallenna scene (Ctrl+S).");
     }
-    [MenuItem("Beat em up/174. Palauta viholliset (172:n piilotus pois) ja poista testilaudat (laudat vain skettareilta)", false, 174)]
+    [MenuItem("Beat em up/Yksittäiset valikot/174. Palauta viholliset (172:n piilotus pois) ja poista testilaudat (laudat vain skettareilta)", false, 174)]
     static void RestoreEnemiesAndRemoveTestBoards()
     {
         if (PlayModeBlocked()) return;
@@ -13239,7 +13246,7 @@ public static class BeatEmUpSetup
         if (any != null) EditorSceneManager.MarkSceneDirty(any.gameObject.scene);
         Info($"Takaisin: {marked.Count} vihollista/spawneria. Testilautoja poistettu: {boards}.\n\nLaudat tulevat nyt vain skettareilta (kaadettu skettari pudottaa laudan, jolle nousee poimintanapilla).\n\nTallenna scene (Ctrl+S).");
     }
-    [MenuItem("Beat em up/175. Bettyjen koko samaksi kaikkialla (kadulla ja laiturilla)", false, 175)]
+    [MenuItem("Beat em up/Yksittäiset valikot/175. Bettyjen koko samaksi kaikkialla (kadulla ja laiturilla)", false, 175)]
     static void SyncBettyScale()
     {
         if (PlayModeBlocked()) return;
@@ -13253,7 +13260,7 @@ public static class BeatEmUpSetup
         }
         Info($"Bettyjä päivitetty: {n}. Koko Roccon pituiseksi kaikilla tiloilla (katu ja laituri).\n\nTallenna scene (Ctrl+S).");
     }
-    [MenuItem("Beat em up/176. Korjaa aavikon juna-aseman ovet (Thaitown poisti ne samannimisinä): asema <-> katu ja asema <-> junapiha", false, 176)]
+    [MenuItem("Beat em up/Yksittäiset valikot/176. Korjaa aavikon juna-aseman ovet (Thaitown poisti ne samannimisinä): asema <-> katu ja asema <-> junapiha", false, 176)]
     static void RepairDesertStationDoors()
     {
         if (PlayModeBlocked()) return;
@@ -13328,7 +13335,7 @@ public static class BeatEmUpSetup
         Info($"Thaitownin ovia nimetty uudelleen: {renamed}, kohde liitetty uudelleen: {relinked}. Aavikon aseman ovia luotu: {made}. Kohteettomia ovia poistettu: {dead} (junan katolle pääsy).{camInfo}\n\nAseman oikea ovi vie junapihalle, junapihan vasen ovi takaisin ja aseman vasen ovi kadulle.\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/177. Thaitown: hotellin aula (5 kuvaa) ja ovet kadulta takaisin", false, 177)]
+    [MenuItem("Beat em up/Yksittäiset valikot/177. Thaitown: hotellin aula (5 kuvaa) ja ovet kadulta takaisin", false, 177)]
     static void CreateThaitownHotelLobby()
     {
         if (PlayModeBlocked()) return;
@@ -13483,7 +13490,7 @@ public static class BeatEmUpSetup
         Info("Hotellin aula luotu viidesta kuvasta: vastaanotto, WC-ovet, ravintola, baari ja salin paaty. Ikkunoiden takana kaupungin ja puiston parallaxit. Paallekkaiset hissi- ja seinaosuudet rajattu. Kadun hotellin ovi vie aulaan, ja aulan alareunan keskikohta takaisin kadulle. Hissi ja WC-ovet odottavat seuraavia tiloja. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/178. Hotellin ravintolaan hummeri-shamppanjapoydat ja Sohvi", false, 178)]
+    [MenuItem("Beat em up/Yksittäiset valikot/178. Hotellin ravintolaan hummeri-shamppanjapoydat ja Sohvi", false, 178)]
     static void FurnishThaitownHotel()
     {
         if (PlayModeBlocked()) return;
@@ -13562,7 +13569,7 @@ public static class BeatEmUpSetup
         Info($"Hotellin ravintolaan {count} laivan hummeri-shamppanjapoytaa laseineen ja Sohvi tiskille. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 178 uudelleen.");
     }
 
-    [MenuItem("Beat em up/179. Mary ja tanko hotellin tanssilavalle (5 tanssia)", false, 179)]
+    [MenuItem("Beat em up/Yksittäiset valikot/179. Mary ja tanko hotellin tanssilavalle (5 tanssia)", false, 179)]
     static void AddHotelMary()
     {
         if (PlayModeBlocked()) return;
@@ -13601,7 +13608,7 @@ public static class BeatEmUpSetup
         Info("Mary tankoineen lisatty hotellin tanssilavalle. Viisi tanssia, kukin palaa takaperin alkuun. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 179 uudelleen.");
     }
 
-    [MenuItem("Beat em up/180. Aloita peli hotellista (hissin edesta)", false, 180)]
+    [MenuItem("Beat em up/Yksittäiset valikot/180. Aloita peli hotellista (hissin edesta)", false, 180)]
     static void StartInHotelAtElevator() { WithLevelScenes(StartInHotelAtElevatorImpl); }
 
     static void StartInHotelAtElevatorImpl()
@@ -13624,7 +13631,7 @@ public static class BeatEmUpSetup
         Info("Peli alkaa nyt hotellin hissin edesta. Tallenna scene (Ctrl+S). Takaisin kadun alkuun: valikko 37.");
     }
 
-    [MenuItem("Beat em up/181. Tanyan spritet (kaikki liikkeet)", false, 181)]
+    [MenuItem("Beat em up/Yksittäiset valikot/181. Tanyan spritet (kaikki liikkeet)", false, 181)]
     static void ImportTanyaSprites()
     {
         if (PlayModeBlocked()) return;
@@ -13642,7 +13649,7 @@ public static class BeatEmUpSetup
         Info($"Tanyan {count} spritea tuotu: kavely, potku, paikallaanolo, kombo, tuplapotku, ylosnousu, osumareaktio, nopea ylosnousu, iso osuma/kaatuminen, tappioasento, juoksu ja kasillaseisontapotku, suojaus, heitettyna oleminen ja oma kuperkeikkaheitto. Ruutuaika 0,1 s. Hahmoa ei viela sijoitettu kenttaan.");
     }
 
-    [MenuItem("Beat em up/182. Tanya: luo vihuprefab (2 lyontia, potku, 2 lyontia, kierrepotku)", false, 182)]
+    [MenuItem("Beat em up/Yksittäiset valikot/182. Tanya: luo vihuprefab (2 lyontia, potku, 2 lyontia, kierrepotku)", false, 182)]
     static void CreateTanyaPrefab()
     {
         if (PlayModeBlocked()) return;
@@ -13756,7 +13763,7 @@ public static class BeatEmUpSetup
         finally { Object.DestroyImmediate(enemy.gameObject); }
     }
 
-    [MenuItem("Beat em up/183. Tanya Thaitownin kadulle ja Jakuza-Tanya energia 180", false, 183)]
+    [MenuItem("Beat em up/Yksittäiset valikot/183. Tanya Thaitownin kadulle ja Jakuza-Tanya energia 180", false, 183)]
     static void PlaceThaitownTanya()
     {
         if (PlayModeBlocked()) return;
@@ -13791,7 +13798,7 @@ public static class BeatEmUpSetup
         Info($"Tanya sijoitettu Thaitownin kadulle ennen hotellia. Jakuza: 240 -> 180 (-25 %), Tanya: 180. Paivitetty {yakuzas} jakuzaa. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/184. Korjaa motoristien juoksusilmukka", false, 184)]
+    [MenuItem("Beat em up/Yksittäiset valikot/184. Korjaa motoristien juoksusilmukka", false, 184)]
     static void RepairBikerRun()
     {
         if (PlayModeBlocked()) return;
@@ -13813,7 +13820,7 @@ public static class BeatEmUpSetup
         Info($"{count} motoristin juoksusilmukka korjattu: uusi 27 ruudun askelkierto, 30 kuvaa sekunnissa. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/185. Hotellin ravintolaan 2 Tanyaa, 2 jakuzaa ja 2 puliukkoa", false, 185)]
+    [MenuItem("Beat em up/Yksittäiset valikot/185. Hotellin ravintolaan 2 Tanyaa, 2 jakuzaa ja 2 puliukkoa", false, 185)]
     static void AddHotelRestaurantEnemies()
     {
         if (PlayModeBlocked()) return;
@@ -13864,7 +13871,7 @@ public static class BeatEmUpSetup
         Info("Hotellin ravintolaan lisatty 2 Tanyaa, 2 jakuzaa ja 2 puliukkoa poytien valiseen kaytavaan. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 185.");
     }
 
-    [MenuItem("Beat em up/186. Hotellin baariin 2 motoristia (Tanya ja jakuza samalla puolella)", false, 186)]
+    [MenuItem("Beat em up/Yksittäiset valikot/186. Hotellin baariin 2 motoristia (Tanya ja jakuza samalla puolella)", false, 186)]
     static void AddHotelBikers()
     {
         if (PlayModeBlocked()) return;
@@ -13913,7 +13920,7 @@ public static class BeatEmUpSetup
         Info("Hotellin baariin 2 motoristia. Motoristit taistelevat heroa ja muita ryhmia vastaan. Tanya ja jakuza ovat samalla puolella eivatka lyo toisiaan. Tallenna scene (Ctrl+S). Jos ajat 185 uudelleen, aja sen jalkeen myos 186.");
     }
 
-    [MenuItem("Beat em up/187. Hotellin portsarit (10 s tappelusta, 2 kummaltakin ruudun reunalta)", false, 187)]
+    [MenuItem("Beat em up/Yksittäiset valikot/187. Hotellin portsarit (10 s tappelusta, 2 kummaltakin ruudun reunalta)", false, 187)]
     static void AddHotelBouncerRaid()
     {
         if (PlayModeBlocked()) return;
@@ -13945,7 +13952,7 @@ public static class BeatEmUpSetup
         Info("Hotellin tappelu kutsuu 10 sekunnin kuluttua 4 portsaria: kaksi nykyisen ruudun vasemmalta ja kaksi oikealta. Portsarit taistelevat muita ryhmia vastaan. Tallenna scene (Ctrl+S). Jos ajat 177 uudelleen, aja myos 187.");
     }
 
-    [MenuItem("Beat em up/188. Roccon ja Rubyn pannu (10 osumaa tai 3 heittoa)", false, 188)]
+    [MenuItem("Beat em up/Yksittäiset valikot/188. Roccon ja Rubyn pannu (10 osumaa tai 3 heittoa)", false, 188)]
     static void SetupRoccoPan()
     {
         if (PlayModeBlocked()) return;
@@ -14006,7 +14013,7 @@ public static class BeatEmUpSetup
         Info("Pannu lisatty hotellin hissin viereen (1,5 yksikkoa aloituskohdasta oikealle). Rocco ja Ruby: poimintanappi nostaa, lyonti heilauttaa, potku tai poiminta/kiinniotto heittaa. Kestaa 10 osunutta lyontia tai 3 heittoa. Voi poimia uudelleen; kuluminen sailyy. Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/189. Thaikioskit kadulle ja hotellin ravintolaan", false, 189)]
+    [MenuItem("Beat em up/Yksittäiset valikot/189. Thaikioskit kadulle ja hotellin ravintolaan", false, 189)]
     static void SetupThaiKiosks()
     {
         if (PlayModeBlocked()) return;
@@ -14091,7 +14098,7 @@ public static class BeatEmUpSetup
         Info("Lisatty 4 thaikioskia Thaitownin kadulle ja 4 hotellin ravintolaan (Sohvista lavan oikealle puolelle). Jokaisessa pannu, hummeri, 2 pulloa ja 2 nuudeliannosta. Viisi osumaa rikkoo kojun; siihen lentava vihu romahduttaa heti. Tallenna Ctrl+S.");
     }
 
-    [MenuItem("Beat em up/190. Ravintolan alku vapaaksi (poydat ja vihut Sohvista oikealle)", false, 190)]
+    [MenuItem("Beat em up/Yksittäiset valikot/190. Ravintolan alku vapaaksi (poydat ja vihut Sohvista oikealle)", false, 190)]
     static void ClearHotelRestaurantEntrance()
     {
         if (PlayModeBlocked()) return;
@@ -14153,7 +14160,7 @@ public static class BeatEmUpSetup
     const float GymImageStridePx = 1536f - GymOverlapPx;
     const float GymExitDoorPx = 542f;   // sisäkuvan 2 kaksoisoven keskikohta (px)
 
-    [MenuItem("Beat em up/196. Kadun alku vasemmalle: Boxing & Gym -sali (ikkunaparallax)", false, 196)]
+    [MenuItem("Beat em up/Yksittäiset valikot/196. Kadun alku vasemmalle: Boxing & Gym -sali (ikkunaparallax)", false, 196)]
     static void AddGymStreetAndInterior()
     {
         if (PlayModeBlocked()) return;
@@ -14272,7 +14279,7 @@ public static class BeatEmUpSetup
     const float RingWalkLeftPx = 140f, RingWalkRightPx = 1530f;
     const float RingWindowBottomRow = 360f;                               // ikkunoiden alareuna kehäkuvassa
 
-    [MenuItem("Beat em up/197. Nyrkkeilykehä: portaat salista (kehän sisäkuva)", false, 197)]
+    [MenuItem("Beat em up/Yksittäiset valikot/197. Nyrkkeilykehä: portaat salista (kehän sisäkuva)", false, 197)]
     static void AddBoxingRing()
     {
         if (PlayModeBlocked()) return;
@@ -14401,7 +14408,7 @@ public static class BeatEmUpSetup
             .OrderBy(s => int.Parse(s.name.Substring(s.name.LastIndexOf('_') + 1))).ToArray();
     }
 
-    [MenuItem("Beat em up/198. Jumppatyttö saliin vasemmalle (7 harjoitusliikettä)", false, 198)]
+    [MenuItem("Beat em up/Yksittäiset valikot/198. Jumppatyttö saliin vasemmalle (7 harjoitusliikettä)", false, 198)]
     static void AddAerobicsGirl()
     {
         if (PlayModeBlocked()) return;
@@ -14444,7 +14451,7 @@ public static class BeatEmUpSetup
     // ---------------- Muistin säästö ----------------
     // Scenen sprite-tekstuurit olivat pakkaamattomia (4 tavua/pikseli): arvio n. 4,7 Gt muistia heti käynnistyksessä (Tools/MemoryReport.py).
     // BC7-pakkaus (CompressedHQ) pienentää sen n. neljäsosaan; kuva näyttää piirrostyylille käytännössä samalta.
-    [MenuItem("Beat em up/199. Muistin säästö: pakkaa pakkaamattomat sprite-tekstuurit (BC7)", false, 199)]
+    [MenuItem("Beat em up/Yksittäiset valikot/199. Muistin säästö: pakkaa pakkaamattomat sprite-tekstuurit (BC7)", false, 199)]
     static void CompressSpriteTextures()
     {
         if (PlayModeBlocked()) return;
@@ -14481,7 +14488,7 @@ public static class BeatEmUpSetup
     const string GymScenePath = "Assets/Scenes/Areas/Nyrkkeilysali.unity";
     const string GymSceneName = "Nyrkkeilysali";
 
-    [MenuItem("Beat em up/200. Scenen jako: siirrä sali ja kehä omaan sceneen (ladataan sisään mentäessä)", false, 200)]
+    [MenuItem("Beat em up/Yksittäiset valikot/200. Scenen jako: siirrä sali ja kehä omaan sceneen (ladataan sisään mentäessä)", false, 200)]
     static void MoveGymToOwnScene()
     {
         if (PlayModeBlocked()) return;
@@ -14703,13 +14710,13 @@ public static class BeatEmUpSetup
              "\nKentän muokkaus: avaa " + level + ".unity pääscenen rinnalle (hiiren oikea > Open Scene Additive).");
     }
 
-    [MenuItem("Beat em up/201. Kenttien jako: Thaitown omaan sceneen", false, 201)]
+    [MenuItem("Beat em up/Yksittäiset valikot/201. Kenttien jako: Thaitown omaan sceneen", false, 201)]
     static void MoveLevelThaitown() { MoveLevelToScene("Thaitown"); }
 
-    [MenuItem("Beat em up/202. Kenttien jako: Uccopulco + laiva omaan sceneen", false, 202)]
+    [MenuItem("Beat em up/Yksittäiset valikot/202. Kenttien jako: Uccopulco + laiva omaan sceneen", false, 202)]
     static void MoveLevelUccoLaiva() { MoveLevelToScene("UccoLaiva"); }
 
-    [MenuItem("Beat em up/203. Kenttien jako: Aavikko + junat omaan sceneen", false, 203)]
+    [MenuItem("Beat em up/Yksittäiset valikot/203. Kenttien jako: Aavikko + junat omaan sceneen", false, 203)]
     static void MoveLevelAavikko() { MoveLevelToScene("Aavikko"); }
 
     // Aloitus-valikot etsivät alueen Find-haulla: kenttäscenet avataan hetkeksi pääscenen rinnalle, ja jos aloituskohta osuu kenttäsceneen,
@@ -14743,7 +14750,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Junan katto -> Thaitownin laituri ----------------
     // Kun pelaaja kävelee junan katon aivan oikeaan reunaan, juna saapuu Thaitownin laiturille: Thaitown ladataan, Aavikko puretaan.
-    [MenuItem("Beat em up/204. Junan katon oikea reuna vie Thaitownin laiturille", false, 204)]
+    [MenuItem("Beat em up/Yksittäiset valikot/204. Junan katon oikea reuna vie Thaitownin laiturille", false, 204)]
     static void AddRoofToThaitown()
     {
         if (PlayModeBlocked()) return;
@@ -14811,7 +14818,7 @@ public static class BeatEmUpSetup
         return true;
     }
 
-    [MenuItem("Beat em up/206. Nyrkkeilykehän etuköydet hahmojen eteen", false, 206)]
+    [MenuItem("Beat em up/Yksittäiset valikot/206. Nyrkkeilykehän etuköydet hahmojen eteen", false, 206)]
     static void AddRingFrontRopes()
     {
         if (PlayModeBlocked()) return;
@@ -14831,7 +14838,7 @@ public static class BeatEmUpSetup
     // ---------------- Marcus, sparrauskumppani kehään ----------------
     // Kuvat: Assets/Sprites/Viholliset/marcus_*.png (Tools/MarcusAssets: key_marcus.py + make_marcus_sheets.py, ruutu 768 x 448).
     // Aivo: MarcusBoxer (Deaconin tapaan Enemyn päällä), sparraus: kevyet iskut, kumpikaan ei kuole.
-    [MenuItem("Beat em up/205. Marcus: sparrauskumppani nyrkkeilykehään (jabit, suorat, koukku, väistö, kaksi kaatumista)", false, 205)]
+    [MenuItem("Beat em up/Yksittäiset valikot/205. Marcus: sparrauskumppani nyrkkeilykehään (jabit, suorat, koukku, väistö, kaksi kaatumista)", false, 205)]
     static void AddMarcus()
     {
         if (PlayModeBlocked()) return;
@@ -14958,7 +14965,7 @@ public static class BeatEmUpSetup
         return true;
     }
 
-    [MenuItem("Beat em up/207. Marcus varjonyrkkeilee salin kehässä (näkyy salista ennen kehään menoa)", false, 207)]
+    [MenuItem("Beat em up/Yksittäiset valikot/207. Marcus varjonyrkkeilee salin kehässä (näkyy salista ennen kehään menoa)", false, 207)]
     static void AddGymShadowBoxer()
     {
         if (PlayModeBlocked()) return;
@@ -14983,7 +14990,7 @@ public static class BeatEmUpSetup
     const string ThaitownScenePath = "Assets/Scenes/Areas/Thaitown.unity";
     const float LiftInteriorX0 = 125000f, PenthouseX0 = 126000f, PenthouseOverlapPx = 48f, LobbyLiftPx = 1561f, PenthouseFloorRow = 645f;
 
-    [MenuItem("Beat em up/208. Thaitown: hotellin hissi (E vie ylös) ja kattohuoneistokäytävä (peilikuvana molempiin suuntiin)", false, 208)]
+    [MenuItem("Beat em up/Yksittäiset valikot/208. Thaitown: hotellin hissi (E vie ylös) ja kattohuoneistokäytävä (peilikuvana molempiin suuntiin)", false, 208)]
     static void AddHotelElevatorAndPenthouse()
     {
         if (PlayModeBlocked()) return;
@@ -15112,7 +15119,7 @@ public static class BeatEmUpSetup
     // Kattohuoneistokäytävän (valikko 208) hissistä oikealle toinen eli keskimmäinen ovi (1202) vie tänne; sviitin sisäänkäyntiovi vie takaisin.
     const float SuiteX0 = 128000f, SuiteFloorRow = 612f, SuiteDoorPx = 200f, CorridorMiddleDoorPx = 942f;
 
-    [MenuItem("Beat em up/209. Thaitown: hotellin sviitti (kattohuoneistokäytävän keskimmäinen ovi 1202 vie sinne)", false, 209)]
+    [MenuItem("Beat em up/Yksittäiset valikot/209. Thaitown: hotellin sviitti (kattohuoneistokäytävän keskimmäinen ovi 1202 vie sinne)", false, 209)]
     static void AddHotelSuite()
     {
         if (PlayModeBlocked()) return;
@@ -15221,7 +15228,7 @@ public static class BeatEmUpSetup
     // Kattohuoneistokäytävän kummankin pään leveä ovi (valikko 208) vie katolle oven eteen; katon ovi vie takaisin siihen päähän, josta tultiin.
     const float HotelRoofX0 = 130000f, HotelRoofFloorRow = 612f, HotelRoofDoorPx = 824f, CorridorEndDoorPx = 650f;
 
-    [MenuItem("Beat em up/210. Thaitown: hotellin katto ja helikopterikenttä (käytävän päätyovet vievät katolle)", false, 210)]
+    [MenuItem("Beat em up/Yksittäiset valikot/210. Thaitown: hotellin katto ja helikopterikenttä (käytävän päätyovet vievät katolle)", false, 210)]
     static void AddHotelRoof()
     {
         if (PlayModeBlocked()) return;
@@ -15338,7 +15345,7 @@ public static class BeatEmUpSetup
     // ---------------- Roccon uudet iskut: etukoukku, takakäden sivukoukku ja alasväistö ----------------
     // Kuvat: Tools/RoccoAssets/make_rocco_sheets.py (rocco_etukoukku, rocco_takasivukoukku, rocco_etusivukoukku, rocco_alasvaisto, ruutu 512 x 384).
     // Kombo: jab -> takasuora -> etukoukku -> takakäden sivukoukku -> etukäden sivukoukku (kaataa). Alas + suojaus: alasväistö (iskut menevät yli). rocco_etukoukku ja rocco_takasivukoukku on leikattu valmiiksi (ei käytössä).
-    [MenuItem("Beat em up/211. Rocco: kombo jab, takasuora, etukoukku, takasivukoukku, etusivukoukku ja alasväistö (alas + suojaus)", false, 211)]
+    [MenuItem("Beat em up/Yksittäiset valikot/211. Rocco: kombo jab, takasuora, etukoukku, takasivukoukku, etusivukoukku ja alasväistö (alas + suojaus)", false, 211)]
     static void AddRoccoHooksAndDuck()
     {
         if (PlayModeBlocked()) return;
@@ -15379,7 +15386,7 @@ public static class BeatEmUpSetup
     // Kuvat: Assets/Sprites/Viholliset/gustav_*.png (Tools/GustavAssets: key_gustav.py, split_sheets.py, make_gustav_sheets.py; ruutu 768 x 448).
     // Aivo: GustavBrain (Marcuksen ja Deaconin tapaan Enemyn päällä). Energia lopussa hän ei kuole vaan kaatuu, nousee ja juoksee pois (Enemy.undying).
     const int GustavSuiteHealth = 560;   // sviitin (lopullinen) energia; aiemmat kohtaamiset voivat olla pienempiä (GustavBrain.Appear)
-    [MenuItem("Beat em up/212. Gustav: uusiutuva pomo sviittiin (kombot, hiekka, heitto, pako)", false, 212)]
+    [MenuItem("Beat em up/Yksittäiset valikot/212. Gustav: uusiutuva pomo sviittiin (kombot, hiekka, heitto, pako)", false, 212)]
     static void AddGustav()
     {
         if (PlayModeBlocked()) return;
@@ -15461,7 +15468,7 @@ public static class BeatEmUpSetup
     // Violet = salin jumppatyttö (valikko 198); Candi jumppaa hänen vieressään omalla sarjallaan.
     const float CandiOffsetX = 2.3f;
 
-    [MenuItem("Beat em up/213. Candi: Violetin jumppakaveri saliin (askelhölkkä, kyykky, käsienheilutus ja hypyt)", false, 213)]
+    [MenuItem("Beat em up/Yksittäiset valikot/213. Candi: Violetin jumppakaveri saliin (askelhölkkä, kyykky, käsienheilutus ja hypyt)", false, 213)]
     static void AddCandi()
     {
         if (PlayModeBlocked()) return;
@@ -15516,7 +15523,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Roccon ja Rubyn huumausreaktio (Gustavin hiekka) ----------------
     // rocco_huumaus.png ja ruby_huumaus.png (Tools/GustavAssets/make_hero_daze.py): 3 kuvaa, 512 x 384. PlayerController.Daze näyttää ne hiekan osuessa.
-    [MenuItem("Beat em up/214. Rocco ja Ruby: huumausreaktio hiekasta (vavahdus ja silmien hieronta)", false, 214)]
+    [MenuItem("Beat em up/Yksittäiset valikot/214. Rocco ja Ruby: huumausreaktio hiekasta (vavahdus ja silmien hieronta)", false, 214)]
     static void AddHeroDaze()
     {
         if (PlayModeBlocked()) return;
@@ -15601,7 +15608,7 @@ public static class BeatEmUpSetup
         return go;
     }
 
-    [MenuItem("Beat em up/215. Tom: salin puntti (poseeraa, lyö ja heittää; väsyy nopeasti)", false, 215)]
+    [MenuItem("Beat em up/Yksittäiset valikot/215. Tom: salin puntti (poseeraa, lyö ja heittää; väsyy nopeasti)", false, 215)]
     static void AddTom()
     {
         if (PlayModeBlocked()) return;
@@ -15641,7 +15648,7 @@ public static class BeatEmUpSetup
     // Kiinteät välineet ovat taustakoristeita (piirtojärjestys y:n mukaan, hahmo kulkee niiden edessä ja takana); käsipainot ja levyt ovat Bottle-olioita
     // (ball-tila: poimittavia, heitettäviä, eivät hajoa; lentävät ja osuvat kovaa, kuten snookerpallot).
     const float GymPropScale = 1.2f;   // 1 = oikea koko (hahmo 3 yksikköä = 180 cm); hahmot ovat n. 1,2 × isompia
-    [MenuItem("Beat em up/216. Sali: painoteline, penkit, kyykkyräkki ja levytanko + heitettävät käsipainot ja painolevyt", false, 216)]
+    [MenuItem("Beat em up/Yksittäiset valikot/216. Sali: painoteline, penkit, kyykkyräkki ja levytanko + heitettävät käsipainot ja painolevyt", false, 216)]
     static void AddGymProps()
     {
         if (PlayModeBlocked()) return;
@@ -15732,7 +15739,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Tom Thaitownin hotellin ravintolaan: käy kaikkien kimppuun ----------------
     // Sama Tom kuin salissa (valikko 215), mutta TomBrain.attacksEveryone: huomaa kenet tahansa (hero ja kaikki viholliset) ja hakkaa lähintä; ei odota osumaa.
-    [MenuItem("Beat em up/217. Tom: Thaitownin hotellin ravintolaan (käy kaikkien kimppuun)", false, 217)]
+    [MenuItem("Beat em up/Yksittäiset valikot/217. Tom: Thaitownin hotellin ravintolaan (käy kaikkien kimppuun)", false, 217)]
     static void AddTomToHotelRestaurant()
     {
         if (PlayModeBlocked()) return;
@@ -15776,7 +15783,7 @@ public static class BeatEmUpSetup
     // ---------------- Hotellin hissin ovet: tiukka etäisyys ja korjaus ----------------
     // Aulan ja käytävän hissin ovi (E) toimii vasta, kun hahmo on kiinni ovessa takaseinällä (0,9 yksikköä; aiemmin 2,4 = liian helposti).
     // Tarkistaa samalla ovien viitteet (here/target) ja ElevatorRiden alueet: puuttuva viite on syy siihen, ettei käytävän hissillä pääse takaisin aulaan.
-    [MenuItem("Beat em up/218. Hotellin hissi: ovi toimii vasta kun hahmo on kiinni ovessa + ovien ja alueiden tarkistus ja korjaus", false, 218)]
+    [MenuItem("Beat em up/Yksittäiset valikot/218. Hotellin hissi: ovi toimii vasta kun hahmo on kiinni ovessa + ovien ja alueiden tarkistus ja korjaus", false, 218)]
     static void FixHotelElevatorDoors()
     {
         if (PlayModeBlocked()) return;
@@ -15851,7 +15858,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Counter-isku (suojaus + lyönti kesken vihun hyökkäystä) ----------------
     // rocco_counter.png ja ruby_counter.png (Tools/HeroCounter/make_counter.py): 5 kuvaa, 512 x 384; PlayerController.counterSprites*.
-    [MenuItem("Beat em up/219. Counter-isku: suojaus + lyönti kesken vihun hyökkäystä katkaisee sarjan (Rocco ja Ruby)", false, 219)]
+    [MenuItem("Beat em up/Yksittäiset valikot/219. Counter-isku: suojaus + lyönti kesken vihun hyökkäystä katkaisee sarjan (Rocco ja Ruby)", false, 219)]
     static void AddHeroCounter()
     {
         if (PlayModeBlocked()) return;
@@ -15890,7 +15897,7 @@ public static class BeatEmUpSetup
         px.startCamX = HighwayX0 + halfW;
     }
 
-    [MenuItem("Beat em up/220. Valtatie: kamera kauemmas (tie ja prätkä pienemmiksi, näkee pidemmälle; maisema ennallaan)", false, 220)]
+    [MenuItem("Beat em up/Yksittäiset valikot/220. Valtatie: kamera kauemmas (tie ja prätkä pienemmiksi, näkee pidemmälle; maisema ennallaan)", false, 220)]
     static void HighwayCameraFarther()
     {
         if (PlayModeBlocked()) return;
@@ -15908,7 +15915,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Rubyn alasväistö (kyykky): sama logiikka kuin Roccolla ----------------
     // ruby_alasvaisto.png (Tools/RubyDuck/make_ruby_duck.py): 5 kuvaa, 512 x 384. Alas + suojaus -> kyykky (iskut menevät yli); kyykystä: lyönti = alakoukku, pusku = kärrynpyörä, potku = korkea potku.
-    [MenuItem("Beat em up/221. Ruby: alasväistö (kyykky) + alakoukku, kärrynpyörä tai potku kyykystä", false, 221)]
+    [MenuItem("Beat em up/Yksittäiset valikot/221. Ruby: alasväistö (kyykky) + alakoukku, kärrynpyörä tai potku kyykystä", false, 221)]
     static void AddRubyDuck()
     {
         if (PlayModeBlocked()) return;
@@ -15927,7 +15934,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Deacon's Denin pokeripöytä oven viereen vasemmalle takaseinän lähelle; pöydät ja tuolit raivataan pois ----------------
-    [MenuItem("Beat em up/222. Pokeripöytä (Deacon's Den) oven viereen vasemmalle, pöydät ja tuolit pois tieltä", false, 222)]
+    [MenuItem("Beat em up/Yksittäiset valikot/222. Pokeripöytä (Deacon's Den) oven viereen vasemmalle, pöydät ja tuolit pois tieltä", false, 222)]
     static void MovePokerTableNextToDoor()
     {
         if (PlayModeBlocked()) return;
@@ -15986,7 +15993,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Tom Deacon's Deniin (Aavikkobaari): käy kaikkien kimppuun kuten hotellissa ----------------
     const string DesertScenePath = "Assets/Scenes/Areas/Aavikko.unity";
-    [MenuItem("Beat em up/223. Tom: Deacon's Deniin (Aavikkobaari, käy kaikkien kimppuun)", false, 223)]
+    [MenuItem("Beat em up/Yksittäiset valikot/223. Tom: Deacon's Deniin (Aavikkobaari, käy kaikkien kimppuun)", false, 223)]
     static void AddTomToDeaconsDen()
     {
         if (PlayModeBlocked()) return;
@@ -16027,7 +16034,7 @@ public static class BeatEmUpSetup
     const string PawnPath = "Assets/Sprites/Taustat/pantti_sisa.png";
     const float PawnX0 = 19000f, PawnFloorPx = 800f, PawnDoorPx = 1779f;   // sisäoven (oikea kuva) keskikohta kuvassa
     const float PawnStreetDoorPx = 2134f;                                    // myymälän oven keskikohta Uccopulcon yhdistetyssä katukuvassa (8453 px)
-    [MenuItem("Beat em up/225. Panttilainaamo: sisätila ja ovet Uccopulcon kadulta", false, 225)]
+    [MenuItem("Beat em up/Yksittäiset valikot/225. Panttilainaamo: sisätila ja ovet Uccopulcon kadulta", false, 225)]
     static void CreatePawnShop()
     {
         if (PlayModeBlocked()) return;
@@ -16105,7 +16112,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Uccopulcon ulkokahvilan terassi: pöydät ja tuolit ----------------
     // Terassi on kadun uuden vasemman osan toisessa kuvassa (kuvan x 620-1520, jalat rivillä ~512). Pöydät ja tuolit kopioidaan El Loipparin pöydistä ja tuoleista (hero voi nostaa ja heittää).
-    [MenuItem("Beat em up/226. Uccopulcon ulkokahvila: pöydät ja tuolit terassille", false, 226)]
+    [MenuItem("Beat em up/Yksittäiset valikot/226. Uccopulcon ulkokahvila: pöydät ja tuolit terassille", false, 226)]
     static void AddCafeTerrace()
     {
         if (PlayModeBlocked()) return;
@@ -16152,7 +16159,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Sohvi Uccopulcon ulkokahvilaan: myyjä terassilla kahvilan ikkunan edessä ----------------
-    [MenuItem("Beat em up/227. Uccopulcon ulkokahvila: Sohvi myyjänä (kahvi, voileipä, limsa)", false, 227)]
+    [MenuItem("Beat em up/Yksittäiset valikot/227. Uccopulcon ulkokahvila: Sohvi myyjänä (kahvi, voileipä, limsa)", false, 227)]
     static void AddCafeSohvi()
     {
         if (PlayModeBlocked()) return;
@@ -16215,8 +16222,8 @@ public static class BeatEmUpSetup
     // Tiski: Assets/Sprites/Taustat/pantti_tiski.png (leikattu pantti_sisa.png:stä, x 540-1702, y 556-814).
     const string HelviDir = "Assets/Sprites/Helvi/";
     const string PawnCounterPath = "Assets/Sprites/Taustat/pantti_tiski.png";
-    const float HelviScale = 1.25f, PawnCounterX0 = 540f, PawnCounterY0 = 556f, PawnCounterFrontPx = 812f, PawnHeroLimitPx = 835f, PawnHelviXPx = 1100f, PawnHelviFeetPx = 790f;
-    [MenuItem("Beat em up/228. Helvi: panttilainaamon myyjä tiskin takana (tiski-sprite) ja tiski", false, 228)]
+    const float HelviScale = 1.25f, PawnCounterX0 = 540f, PawnCounterY0 = 556f, PawnCounterFrontPx = 812f, PawnHeroLimitPx = 835f, PawnHelviXPx = 1100f, PawnHelviFeetPx = 745f;
+    [MenuItem("Beat em up/Yksittäiset valikot/228. Helvi: panttilainaamon myyjä tiskin takana (tiski-sprite) ja tiski", false, 228)]
     static void AddHelvi()
     {
         if (PlayModeBlocked()) return;
@@ -16305,7 +16312,7 @@ public static class BeatEmUpSetup
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 
-    [MenuItem("Beat em up/229. Tarinalukot päälle/pois (pyörän avain, laivalippu)", false, 229)]
+    [MenuItem("Beat em up/Yksittäiset valikot/229. Tarinalukot päälle/pois (pyörän avain, laivalippu)", false, 229)]
     static void ToggleStoryGates()
     {
         bool on = !EditorPrefs.GetBool("TotalFist.StoryGates", true);
@@ -16316,7 +16323,7 @@ public static class BeatEmUpSetup
     // ---------------- Candin rytmitreeni: Candi omalle treenipaikalleen, jossa on tilaa (salin x 110033-110040, telineen ja kehän portaiden välissä) ----------------
     // Kuvat: Assets/Sprites/Jumppa/candi_lyonti_1.png ja _2.png (Tools/GymAssets/make_candi_lyonti.py), 100 kuvaa kumpikin.
     const float CandiTrainX = 110034.2f;
-    [MenuItem("Beat em up/230. Candin rytmitreeni (Candi treenipaikalle, E aloittaa)", false, 230)]
+    [MenuItem("Beat em up/Yksittäiset valikot/230. Candin rytmitreeni (Candi treenipaikalle, E aloittaa)", false, 230)]
     static void AddCandiTraining()
     {
         if (PlayModeBlocked()) return;
@@ -16345,7 +16352,7 @@ public static class BeatEmUpSetup
     // ---------------- Helvin tanssi El Loipparissa (paritanssi kaulakorun jälkeen) ----------------
     // Kuvat Assets/Sprites/Helvi/: helvi_tanssi_1..5 (yksin, 320 x 400) ja tanssi_pari_1..4 (Rocco + Helvi, 640 x 400): Tools/HelviAssets.
     // Helvi tanssii Salsafestin lavan edessä hiekalla (aja valikot 232 ja 233 ensin; 231 asettaa paikan: lavan x, keskisyvyys).
-    [MenuItem("Beat em up/231. Helvi tanssii Salsafestin lavan edessä (kaulakoru -> paritanssi)", false, 231)]
+    [MenuItem("Beat em up/Yksittäiset valikot/231. Helvi tanssii Salsafestin lavan edessä (kaulakoru -> paritanssi)", false, 231)]
     static void AddHelviDance()
     {
         if (PlayModeBlocked()) return;
@@ -16393,7 +16400,7 @@ public static class BeatEmUpSetup
     // Sisäänkäynti: Uccopulcon kadun kolmannen ruudun aukko (kuvan x 3023 + 870 = 3893 px).
     const string SalsaPath = "Assets/Sprites/Taustat/salsafest.png";
     const float SalsaX0 = 24000f, SalsaFloorPx = 585f, SalsaEntryPx = 330f, SalsaStreetDoorPx = 3893f;
-    [MenuItem("Beat em up/232. Salsafest: ranta-alue ja kulku Uccopulcon kujalta", false, 232)]
+    [MenuItem("Beat em up/Yksittäiset valikot/232. Salsafest: ranta-alue ja kulku Uccopulcon kujalta", false, 232)]
     static void CreateSalsafest()
     {
         if (PlayModeBlocked()) return;
@@ -16471,7 +16478,7 @@ public static class BeatEmUpSetup
     // ---------------- Salsafestin lava: S-Clubin bändi ja S-Clubin musiikki ----------------
     // Lavan keskikohta: pylväiden (kuvassa 2 x 600 ja 1400) väli = yhdistetyn kuvan x 2472; lavan pinta rivillä ~440.
     const float SalsaStagePx = 2472f, SalsaStageFeetRow = 440f, SalsaGirlScale = 1.12f;   // tytöt hieman isompia (hero on leveä)
-    [MenuItem("Beat em up/233. Salsafest: S-Clubin bändi lavalle ja S-Clubin musiikki alueelle", false, 233)]
+    [MenuItem("Beat em up/Yksittäiset valikot/233. Salsafest: S-Clubin bändi lavalle ja S-Clubin musiikki alueelle", false, 233)]
     static void AddSalsaBand()
     {
         if (PlayModeBlocked()) return;
@@ -16515,7 +16522,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Salsafestin tanssijat: Maria ja Sohvi ----------------
     // Assets/Sprites/Maria/maria_tanssi_1..3.png (80 kuvaa, alkavat ja päättyvät samaan asentoon) ja Assets/Sprites/Sohvi/sohvi_tanssi_1..2.png (100 kuvaa, päättyvät selin: soitetaan eteen ja takaisin).
-    [MenuItem("Beat em up/234. Salsafest: Maria ja Sohvi tanssivat hiekalla", false, 234)]
+    [MenuItem("Beat em up/Yksittäiset valikot/234. Salsafest: Maria ja Sohvi tanssivat hiekalla", false, 234)]
     static void AddSalsaDancers()
     {
         if (PlayModeBlocked()) return;
@@ -16567,7 +16574,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Salsafestin rauhalliset kaverit: Tom ja Puliukko (eivät hyökkää, ellei tappelua aloiteta) ----------------
-    [MenuItem("Beat em up/235. Salsafest: Tom ja Puliukko rannalle (rauhassa, kunnes tappelu alkaa)", false, 235)]
+    [MenuItem("Beat em up/Yksittäiset valikot/235. Salsafest: Tom ja Puliukko rannalle (rauhassa, kunnes tappelu alkaa)", false, 235)]
     static void AddSalsaFoes()
     {
         if (PlayModeBlocked()) return;
@@ -16646,7 +16653,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Salsafestin meri ja taivas parallaksina (sama kuva kuin Uccopulcon meri) ----------------
     // salsafest.png on nyt läpinäkyvä taivaan kohdalta: taustaksi tulee Uccopulcon merikerros (AnchoredParallax 0,15), joka liikkuu ruudulla hitaasti.
-    [MenuItem("Beat em up/236. Salsafest: meri ja taivas parallaksina (Uccopulcon merikuva)", false, 236)]
+    [MenuItem("Beat em up/Yksittäiset valikot/236. Salsafest: meri ja taivas parallaksina (Uccopulcon merikuva)", false, 236)]
     static void AddSalsaSea()
     {
         if (PlayModeBlocked()) return;
@@ -16682,7 +16689,7 @@ public static class BeatEmUpSetup
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 
-    [MenuItem("Beat em up/244. Uccopulco: poista testipyörä kadun vanhalta paikalta (parkkipyörä jää)", false, 244)]
+    [MenuItem("Beat em up/Yksittäiset valikot/244. Uccopulco: poista testipyörä kadun vanhalta paikalta (parkkipyörä jää)", false, 244)]
     static void RemoveUccoTestBike()
     {
         if (PlayModeBlocked()) return;
@@ -16700,7 +16707,7 @@ public static class BeatEmUpSetup
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 
-    [MenuItem("Beat em up/245. Valtatie: tapahtumia (rahalinja, saarto, hiekkamyrsky)", false, 245)]
+    [MenuItem("Beat em up/Yksittäiset valikot/245. Valtatie: tapahtumia (rahalinja, saarto, hiekkamyrsky)", false, 245)]
     static void AddHighwayEvents()
     {
         if (PlayModeBlocked()) return;
@@ -16746,7 +16753,7 @@ public static class BeatEmUpSetup
         return left;
     }
     const float ThaiLeftStreetX0 = 108000f, ThaiPawnX0 = 118000f, ThaiPawnStreetDoorPx = 565f, ThaiPawnInnerDoorPx = 1207f, ThaiPawnFloorPx = 650f;
-    [MenuItem("Beat em up/246. Thaitown: katu jatkuu asemalta vasemmalle (klubi, panttikonttori + sisätila, ulkokahvila)", false, 246)]
+    [MenuItem("Beat em up/Yksittäiset valikot/246. Thaitown: katu jatkuu asemalta vasemmalle (klubi, panttikonttori + sisätila, ulkokahvila)", false, 246)]
     static void ExtendThaitownStreetLeft()
     {
         if (PlayModeBlocked()) return;
@@ -16917,7 +16924,7 @@ public static class BeatEmUpSetup
     // ---------------- Thaitown: Helvi panttikonttorin myyjänä, ulkokahvilan pöydät ja Sohvi myyjänä ----------------
     // Panttikonttorin tiski on kaksi leikettä (thaitown_pantti_tiski_1 = kuvan 1 x 360-1672, _2 = kuvan 2 x 0-1040; rivit 424-648), jotka piirretään Helvin eteen.
     const float ThaiPawnCounterTopPx = 424f, ThaiPawnCounterFrontPx = 646f, ThaiPawnHelviXPx = 1100f, ThaiPawnHelviFeetPx = 600f;
-    [MenuItem("Beat em up/247. Thaitown: Helvi panttikonttorin myyjäksi, ulkokahvilan pöydät ja Sohvi myyjäksi", false, 247)]
+    [MenuItem("Beat em up/Yksittäiset valikot/247. Thaitown: Helvi panttikonttorin myyjäksi, ulkokahvilan pöydät ja Sohvi myyjäksi", false, 247)]
     static void AddThaitownShops()
     {
         if (PlayModeBlocked()) return;
@@ -17089,7 +17096,7 @@ public static class BeatEmUpSetup
     const float ThaiClubX0 = 112000f, ThaiClubFloorPx = 560f, ThaiClubStreetDoorPx = 375f, ThaiClubEnterPx = 1330f, ThaiClubExitDoorPx = 1500f;
     // pöytäpaikat yhdistetyssä kuvassa (x px 0 = klubi_3:n vasen reuna, korkeus 0 = takaseinä ... 1 = edessä); viimeisen (vasemman) lavan edusta x 150-1100 jää tyhjäksi
     static readonly Vector2[] ClubTableSpots = { new Vector2(420f, 0.88f), new Vector2(860f, 0.95f), new Vector2(1060f, 0.72f), new Vector2(1700f, 0.62f), new Vector2(2300f, 0.95f), new Vector2(3250f, 0.62f), new Vector2(4600f, 0.9f), new Vector2(1350f, 0.8f), new Vector2(2000f, 0.9f), new Vector2(2550f, 0.75f), new Vector2(3000f, 0.95f), new Vector2(3450f, 0.8f), new Vector2(3850f, 0.9f), new Vector2(4250f, 0.75f) };
-    [MenuItem("Beat em up/248. Thaitown: klubin sisätila, pöydät ja Sohvi baaritiskille (sisään oikealta, kulku vasemmalle)", false, 248)]
+    [MenuItem("Beat em up/Yksittäiset valikot/248. Thaitown: klubin sisätila, pöydät ja Sohvi baaritiskille (sisään oikealta, kulku vasemmalle)", false, 248)]
     static void AddThaitownClub()
     {
         if (PlayModeBlocked()) return;
@@ -17257,7 +17264,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Thaitown: bändi klubin vasemman päädyn lavalle (klubi_3: lava x 285-990 px, lattia rivillä ~465) ----------------
-    [MenuItem("Beat em up/249. Thaitown: bändi klubin lavalle ja S-Clubin musiikki klubille", false, 249)]
+    [MenuItem("Beat em up/Yksittäiset valikot/249. Thaitown: bändi klubin lavalle ja S-Clubin musiikki klubille", false, 249)]
     static void AddThaitownClubBand()
     {
         if (PlayModeBlocked()) return;
@@ -17309,7 +17316,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Thaitown: klubin väki rauhassa, 2 min kuluttua rähinä ----------------
     // Paikat yhdistetyssä kuvassa (x px 0 = vasen reuna; vasemman lavan edusta 150-1100 jää tyhjäksi), syvyys 0 = takaseinä ... 1 = edessä.
-    [MenuItem("Beat em up/250. Thaitown: klubin väki (Tanya, Jakuza, Punkkari, Pensalenkkari, Rekkamies, Tom, Rokkimimmi, Prätkäjätkä, Betty) ja rähinä 2 min kuluttua", false, 250)]
+    [MenuItem("Beat em up/Yksittäiset valikot/250. Thaitown: klubin väki (Tanya, Jakuza, Punkkari, Pensalenkkari, Rekkamies, Tom, Rokkimimmi, Prätkäjätkä, Betty) ja rähinä 2 min kuluttua", false, 250)]
     static void AddThaitownClubCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -17463,7 +17470,7 @@ public static class BeatEmUpSetup
     // ---------------- Thaitown: tankotanssijat Liz ja Candi klubin keskilavalle (klubi_2: tangot x 245 ja 495 px, lavan lattia rivillä 468) ----------------
     // Videoiden oma tanko osuu lavan tangon päälle (tanko on kuvan keskellä, tukipiste tangon tyvessä).
     const float ThaiClubPole1Px = 245f, ThaiClubPole2Px = 495f, ThaiClubPoleBasePx = 468f;
-    [MenuItem("Beat em up/251. Thaitown: Liz ja Candi tanssivat klubin keskilavan tangoissa", false, 251)]
+    [MenuItem("Beat em up/Yksittäiset valikot/251. Thaitown: Liz ja Candi tanssivat klubin keskilavan tangoissa", false, 251)]
     static void AddThaitownPoleDancers()
     {
         if (PlayModeBlocked()) return;
@@ -17513,7 +17520,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Thaitown: wok-koju (thaikioski) klubin vasempaan nurkkaan bändin viereen ----------------
-    [MenuItem("Beat em up/252. Thaitown: wok-koju klubin nurkkaan (bändin viereen, ei lavan eteen)", false, 252)]
+    [MenuItem("Beat em up/Yksittäiset valikot/252. Thaitown: wok-koju klubin nurkkaan (bändin viereen, ei lavan eteen)", false, 252)]
     static void AddThaitownClubWok()
     {
         if (PlayModeBlocked()) return;
@@ -17551,7 +17558,7 @@ public static class BeatEmUpSetup
     // ---------------- Salsafestin yömeri: laivan yötaivas ja meri (kuutamo) parallaksina, taustakuva sinertää ----------------
     const string SalsaNightSeaPath = "Assets/Sprites/Taustat/salsafest_yomeri.png";   // laiva_meri_kauko_yo laajennettuna peilaamalla (3320 x 707), Tools: ks. NEXT-SESSION-BRIEF
     static readonly Color SalsaNightTint = new Color(0.72f, 0.80f, 1f, 1f);
-    [MenuItem("Beat em up/243. Salsafest: yömeri ja kuutamo (laivan yötaivas parallaksina, kuva sinertää)", false, 243)]
+    [MenuItem("Beat em up/Yksittäiset valikot/243. Salsafest: yömeri ja kuutamo (laivan yötaivas parallaksina, kuva sinertää)", false, 243)]
     static void AddSalsaNightSea()
     {
         if (PlayModeBlocked()) return;
@@ -17592,7 +17599,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Salsafestin rokkimimmit: kevyt tanssi-idle, rauhassa kunnes tappelu alkaa ----------------
     // Assets/Sprites/Rokkimimmi/rokkimimmi_tanssi_1.png (100 kuvaa, 10 kuvaa/s) ja _2.png (80 kuvaa, 8 kuvaa/s): ruutu 320 x 400, Tools/RokkiAssets.
-    [MenuItem("Beat em up/237. Salsafest: kaksi rokkimimmiä rannalle (tanssivat rauhassa, mukaan tappeluun)", false, 237)]
+    [MenuItem("Beat em up/Yksittäiset valikot/237. Salsafest: kaksi rokkimimmiä rannalle (tanssivat rauhassa, mukaan tappeluun)", false, 237)]
     static void AddSalsaRockers()
     {
         if (PlayModeBlocked()) return;
@@ -17646,7 +17653,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Salsafestin kojut: kolme tiskiä (ruoka ja juoma vain kaupasta) ----------------
     // Tiski-pisteet yhdistetyn kuvan x (px): tiki-baari 690, raitakatoksen hedelmäkoju 1240, oikea cocktail-koju 4540.
-    [MenuItem("Beat em up/238. Salsafest: kolme kojua (tiki-baari, hedelmäkoju, cocktail-koju) myyvät ruokaa ja juomaa", false, 238)]
+    [MenuItem("Beat em up/Yksittäiset valikot/238. Salsafest: kolme kojua (tiki-baari, hedelmäkoju, cocktail-koju) myyvät ruokaa ja juomaa", false, 238)]
     static void AddSalsaShops()
     {
         if (PlayModeBlocked()) return;
@@ -17707,7 +17714,7 @@ public static class BeatEmUpSetup
     // ---------------- Salsafestin pöydät, kala-annokset ja pullot sekä neljä rosvoa vasemmalta ----------------
     // Pöydät kopioidaan El Loipparin pöydistä (pulloineen, laseineen ja kala-annoksineen): hero voi lyödä, heittää ja kantaa niitä.
     static readonly Vector2[] SalsaTableSpots = { new Vector2(1050f, 0.82f), new Vector2(1620f, 0.7f), new Vector2(2120f, 0.88f), new Vector2(2900f, 0.88f), new Vector2(3750f, 0.86f), new Vector2(4350f, 0.7f) };
-    [MenuItem("Beat em up/239. Salsafest: pöytiä, kala-annoksia ja pulloja sekä 4 rosvoa vasemmalta tappelun alkaessa", false, 239)]
+    [MenuItem("Beat em up/Yksittäiset valikot/239. Salsafest: pöytiä, kala-annoksia ja pulloja sekä 4 rosvoa vasemmalta tappelun alkaessa", false, 239)]
     static void AddSalsaTablesAndRogues()
     {
         if (PlayModeBlocked()) return;
@@ -17849,7 +17856,7 @@ public static class BeatEmUpSetup
         return frames.ToArray();
     }
 
-    [MenuItem("Beat em up/242. Salsafest: Mama (ruokakoju) ja Pablo (cocktail-koju) myyjiksi", false, 242)]
+    [MenuItem("Beat em up/Yksittäiset valikot/242. Salsafest: Mama (ruokakoju) ja Pablo (cocktail-koju) myyjiksi", false, 242)]
     static void AddSalsaSellers()
     {
         if (PlayModeBlocked()) return;
@@ -17896,7 +17903,7 @@ public static class BeatEmUpSetup
         finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 
-    [MenuItem("Beat em up/240. Pensalenkkari: uusi vihu Uccopulcon kadulle (jab, suora, potku, pyörähdyspotku)", false, 240)]
+    [MenuItem("Beat em up/Yksittäiset valikot/240. Pensalenkkari: uusi vihu Uccopulcon kadulle (jab, suora, potku, pyörähdyspotku)", false, 240)]
     static void AddPensaLenkkari()
     {
         if (PlayModeBlocked()) return;
@@ -17975,7 +17982,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Salsafest: kaksi pensalenkkaria (rauhassa, kunnes tappelu alkaa) ----------------
-    [MenuItem("Beat em up/241. Salsafest: kaksi pensalenkkaria rannalle (rauhassa, mukaan tappeluun)", false, 241)]
+    [MenuItem("Beat em up/Yksittäiset valikot/241. Salsafest: kaksi pensalenkkaria rannalle (rauhassa, mukaan tappeluun)", false, 241)]
     static void AddSalsaLenkkarit()
     {
         if (PlayModeBlocked()) return;
@@ -18033,7 +18040,7 @@ public static class BeatEmUpSetup
     const float ArcadeCounterPx = 2530f, ArcadeCounterHalfPx = 620f, ArcadeCounterTopPx = 490f;   // kanttiinin tiski (keskikohta, puolileveys, yläreuna)
     const float ArcadeDoorStreetPx = 4150f;                            // katu_jatko: pelihallin neon-sisäänkäynti
 
-    [MenuItem("Beat em up/253. Pelihalli: sisätila (neon-ovesta sisään, kanttiini ja Sohvi tiskille)", false, 253)]
+    [MenuItem("Beat em up/Yksittäiset valikot/253. Pelihalli: sisätila (neon-ovesta sisään, kanttiini ja Sohvi tiskille)", false, 253)]
     static void CreateArcadeInterior()
     {
         if (PlayModeBlocked()) return;
@@ -18128,7 +18135,7 @@ public static class BeatEmUpSetup
         ("Chasedr1ft", "chasedrift", 1250f, 0f), ("Daccle", "daccle", 1540f, 0f),   // ppu 0 = korkeus lasketaan kuvasta (sama korkeus kuin Turpaan Vaanilla); Tähtipyssy on 1830
     };
 
-    [MenuItem("Beat em up/254. Pelihalli: pelikoneet (Turpaan Vaan, Turboralli, Flipper Flapper rikkoutuvat ja ovat heitettäviä tappelussa; Tähtipyssy-kone)", false, 254)]
+    [MenuItem("Beat em up/Yksittäiset valikot/254. Pelihalli: pelikoneet (Turpaan Vaan, Turboralli, Flipper Flapper rikkoutuvat ja ovat heitettäviä tappelussa; Tähtipyssy-kone)", false, 254)]
     static void CreateArcadeMachines()
     {
         if (PlayModeBlocked()) return;
@@ -18204,7 +18211,7 @@ public static class BeatEmUpSetup
         EditorUtility.SetDirty(am);
     }
 
-    [MenuItem("Beat em up/260. Pelihalli: Flipper Flapper -kone käynnistää flipperin", false, 260)]
+    [MenuItem("Beat em up/Yksittäiset valikot/260. Pelihalli: Flipper Flapper -kone käynnistää flipperin", false, 260)]
     static void AddPinballToMachine()
     {
         if (PlayModeBlocked()) return;
@@ -18216,7 +18223,7 @@ public static class BeatEmUpSetup
         Info("Flipper Flapper -kone käynnistää nyt flipperin (E koneen edessä). Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/259. Pelihalli: Turpaan Vaan -kone käynnistää karatepelin (ei vaadi 254:n uudelleenajoa)", false, 259)]
+    [MenuItem("Beat em up/Yksittäiset valikot/259. Pelihalli: Turpaan Vaan -kone käynnistää karatepelin (ei vaadi 254:n uudelleenajoa)", false, 259)]
     static void AddKarateToMachine()
     {
         if (PlayModeBlocked()) return;
@@ -18228,7 +18235,7 @@ public static class BeatEmUpSetup
         Info("Turpaan Vaan -kone käynnistää nyt karatepelin (E koneen edessä). Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/255. Pelihalli: väki (Kovis, Rekkamies, Tom ym.) ja tappelu: koneet vapautuvat rikottaviksi", false, 255)]
+    [MenuItem("Beat em up/Yksittäiset valikot/255. Pelihalli: väki (Kovis, Rekkamies, Tom ym.) ja tappelu: koneet vapautuvat rikottaviksi", false, 255)]
     static void AddArcadeCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -18374,7 +18381,7 @@ public static class BeatEmUpSetup
         }
     }
 
-    [MenuItem("Beat em up/256. Pelihalli: Sini (kävelee, käy tiskillä, tanssii, juttelee; E: piristä häntä)", false, 256)]
+    [MenuItem("Beat em up/Yksittäiset valikot/256. Pelihalli: Sini (kävelee, käy tiskillä, tanssii, juttelee; E: piristä häntä)", false, 256)]
     static void AddArcadeSini()
     {
         if (PlayModeBlocked()) return;
@@ -18402,7 +18409,7 @@ public static class BeatEmUpSetup
         Info("Sini lisätty halliin: hän seisoskelee, kävelee, käy kanttiinin tiskillä, tanssii ja pysähtyy juttelemaan hallin muiden kanssa. E lähellä aloittaa jutun: kolme vastausta, joilla hänen mielialaansa nostetaan; jos onnistuu, hän antaa lentosuukon ja tanssahtaa. Tappelun alkaessa hän väistää vasemmalle." + (s.brawl == null ? "\n\nHuom: hallin tappelua (255) ei löytynyt, joten hän ei vielä väistä tappelua." : "") + "\n\nKokoa ja paikkaa voi säätää (Height, Lane, Counter Xs). Tallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/257. Pelihalli: Dina (kävelee, tiskillä, tanssii, juttelee Sinin kanssa; kertoo Tähtipyssy-ennätyksestään)", false, 257)]
+    [MenuItem("Beat em up/Yksittäiset valikot/257. Pelihalli: Dina (kävelee, tiskillä, tanssii, juttelee Sinin kanssa; kertoo Tähtipyssy-ennätyksestään)", false, 257)]
     static void AddArcadeDina()
     {
         if (PlayModeBlocked()) return;
@@ -18439,7 +18446,7 @@ public static class BeatEmUpSetup
     const string FlatPath = "Assets/Sprites/Taustat/kampa.png";
     static readonly Vector2 FlatWindowPx = new Vector2(3060f, 250f);   // olohuoneen ikkunoiden keskikohta kampa.png:ssä (x, rivi)
 
-    [MenuItem("Beat em up/261. Pelihalli: Sinin ja Dinan kämppä yläkerrassa (ovi hallin oikeassa reunassa, lukossa kunnes Sini kutsuu; Sini ja Dina kotona)", false, 261)]
+    [MenuItem("Beat em up/Yksittäiset valikot/261. Pelihalli: Sinin ja Dinan kämppä yläkerrassa (ovi hallin oikeassa reunassa, lukossa kunnes Sini kutsuu; Sini ja Dina kotona)", false, 261)]
     public static void CreateFlat()
     {
         if (PlayModeBlocked()) return;
@@ -18641,7 +18648,7 @@ public static class BeatEmUpSetup
         Info("Kämppä luotu hallin yläkertaan (olohuone ja keittiö, x " + FlatX0 + "…). Ovi hallin oikeassa reunassa on lukossa, kunnes Sini on kutsunut sinut kahville (onnistunut piristys hallissa). Sisällä Sini keittää kahvit (E: täysi lepo ensimmäisellä kerralla) (Dina ei ole kotona).\n\nTallenna scene (Ctrl+S).");
     }
 
-    [MenuItem("Beat em up/258. Pelihalli: rajaa päädyt (ei kävelyä seinien yli; väki ja Sini/Dina sisään)", false, 258)]
+    [MenuItem("Beat em up/Yksittäiset valikot/258. Pelihalli: rajaa päädyt (ei kävelyä seinien yli; väki ja Sini/Dina sisään)", false, 258)]
     static void ClampArcadeEnds()
     {
         if (PlayModeBlocked()) return;
@@ -18677,7 +18684,7 @@ public static class BeatEmUpSetup
     // Sama chinook-kopteri kuin laivan katolla (Assets/Sprites/Rekvisiitta/Kopteri), maassa ja roottorit pyörivät. Gustav juoksee siihen katolla, ja kopteri nousee ilmaan.
     // Paikka on arvaus (katon oikea puoli): vedä "Thaitown katon kopteri" -olio helikopterikentän kohdalle ja skaalaa Transformista; Runko-lapsi tarvitaan (Gustav juoksee rungon etuosaan).
     const float RoofHeliWidth = 10.8f;   // kopterin leveys maailmayksiköinä (roottorista pyrstöön)
-    [MenuItem("Beat em up/262. Thaitown: kopteri hotellin katolle (Gustav pakenee sillä)", false, 262)]
+    [MenuItem("Beat em up/Yksittäiset valikot/262. Thaitown: kopteri hotellin katolle (Gustav pakenee sillä)", false, 262)]
     static void AddRoofHelicopter()
     {
         if (PlayModeBlocked()) return;
@@ -18725,7 +18732,7 @@ public static class BeatEmUpSetup
     // Kuvat: python Tools/AirportAssets/make_airport_images.py (katu 1-3 katkaistuna + ikkunamaskit + leveä sisätilakuva). Katu jatkuu Thaitownin kadun oikeasta päästä
     // (sama mittakaava ja katkaisu kuin valikossa 246). Terminaalin ikkunoiden (ja oven lasin) takana näkyy lentokentän sisätila parallaksina (SpriteMask + ParallaxLayer).
     const string AirportRootName = "Thaitownin lentokenttä";
-    [MenuItem("Beat em up/263. Thaitown: katu jatkuu oikealle lentokentälle (terminaalin ikkunoiden takana sisätila parallaksina)", false, 263)]
+    [MenuItem("Beat em up/Yksittäiset valikot/263. Thaitown: katu jatkuu oikealle lentokentälle (terminaalin ikkunoiden takana sisätila parallaksina)", false, 263)]
     static void ExtendThaitownStreetAirport()
     {
         if (PlayModeBlocked()) return;
@@ -18832,7 +18839,7 @@ public static class BeatEmUpSetup
     const float AirportInnerX0 = 121000f, AirportInnerFloorPx = 604f, AirportDoorPx = 1125f, TerminalScale = 1.2f;
     const float AirportBarX0Px = 665f, AirportBarTopPx = 485f, AirportBarFrontPx = 598f, AirportBarCenterPx = 1040f;   // tiskin etuosa kuvassa 2
     static readonly Vector2[] AirportTableSpots = { new Vector2(330f, 0.8f), new Vector2(700f, 0.93f), new Vector2(1040f, 0.97f), new Vector2(1380f, 0.93f), new Vector2(1600f, 0.78f), new Vector2(520f, 0.6f), new Vector2(880f, 0.56f), new Vector2(1240f, 0.6f), new Vector2(1500f, 0.54f) };   // kuva 2: x px, syvyys (0 takana, 1 edessä)
-    [MenuItem("Beat em up/264. Thaitown: lentokentän terminaali sisältä (ovi kadun viimeisen lentokenttäkuvan ovista; ravintolassa pöydät ja Sohvi)", false, 264)]
+    [MenuItem("Beat em up/Yksittäiset valikot/264. Thaitown: lentokentän terminaali sisältä (ovi kadun viimeisen lentokenttäkuvan ovista; ravintolassa pöydät ja Sohvi)", false, 264)]
     static void AddAirportTerminal()
     {
         if (PlayModeBlocked()) return;
@@ -19007,7 +19014,7 @@ public static class BeatEmUpSetup
     // osuma 8, kaatuminen 12 (5 ilmassa + varakuva, 6 maassa), ylösnousu 13 (viimeinen = idle oikealle), heitetty 15 (3 ote, 6 lento, 6 maa), suoja 4.
     // Terminaalissa kolme perämiestä (valikko 264 ensin): check-in-sali, ravintolan vasen laita ja portin A1 edusta.
     static readonly Vector2[] PilotSpots = { new Vector2(1000f, 0.6f), new Vector2(1672f + 260f, 0.45f), new Vector2(2 * 1672f + 420f, 0.6f) };   // x px yhdistetyssä terminaalissa, syvyys
-    [MenuItem("Beat em up/265. Thaitown: lentoperämiehet terminaaliin (jab, suora, potku, syöksylyönti; torjuu)", false, 265)]
+    [MenuItem("Beat em up/Yksittäiset valikot/265. Thaitown: lentoperämiehet terminaaliin (jab, suora, potku, syöksylyönti; torjuu)", false, 265)]
     static void AddPilots()
     {
         if (PlayModeBlocked()) return;
@@ -19086,7 +19093,7 @@ public static class BeatEmUpSetup
     // osuma 8, kaatuminen 14 (5 ilmassa, 9 maassa), ylösnousu 13 (viimeinen = idle oikealle), heitetty 9 (6 ilmassa, 3 maassa), suoja 4.
     // Terminaalissa yksi kapteeni portin A2 salissa (valikko 264 ensin); vahvempi kuin perämiehet.
     static readonly Vector2[] CaptainSpots = { new Vector2(3 * 1672f + 650f, 0.5f) };   // x px yhdistetyssä terminaalissa, syvyys
-    [MenuItem("Beat em up/266. Thaitown: lentokapteeni terminaalin portille (jab, suora, potku, pitkä syöksylyönti; torjuu)", false, 266)]
+    [MenuItem("Beat em up/Yksittäiset valikot/266. Thaitown: lentokapteeni terminaalin portille (jab, suora, potku, pitkä syöksylyönti; torjuu)", false, 266)]
     static void AddCaptain()
     {
         if (PlayModeBlocked()) return;
@@ -19179,7 +19186,7 @@ public static class BeatEmUpSetup
         ("Rekkamies", 5400f, 0.65f), ("Tom", 3500f, 0.75f), ("Pensalenkkari", 1200f, 0.8f), ("Pensalenkkari", 4700f, 0.85f),
     };
 
-    [MenuItem("Beat em up/267. Thaitown: terminaalin väki (kapteenit, perämiehet, puliukot, lippikset, jakuzat, tanyat, Betty), rosvot ja portsarit rähinässä", false, 267)]
+    [MenuItem("Beat em up/Yksittäiset valikot/267. Thaitown: terminaalin väki (kapteenit, perämiehet, puliukot, lippikset, jakuzat, tanyat, Betty), rosvot ja portsarit rähinässä", false, 267)]
     static void AddTerminalCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -19320,7 +19327,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Thaitown: kapteenit ja perämiehet hotellin ravintolaan ----------------
-    [MenuItem("Beat em up/268. Thaitown: 2 lentokapteenia ja 4 lentoperämiestä hotellin ravintolaan (aja 267 ensin)", false, 268)]
+    [MenuItem("Beat em up/Yksittäiset valikot/268. Thaitown: 2 lentokapteenia ja 4 lentoperämiestä hotellin ravintolaan (aja 267 ensin)", false, 268)]
     static void AddHotelRestaurantAircrew()
     {
         if (PlayModeBlocked()) return;
@@ -19369,7 +19376,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Thaitown: kolme skeittaria kadulle (hotelli, asema, terminaali) ----------------
     // Voitettu skeittari pudottaa rullalautansa (LooseBoard), jolle hero astuu poimintanapilla ja pääsee liikkumaan nopeammin. Mallina Skettari muista sceneistä.
-    [MenuItem("Beat em up/269. Thaitown: skeittari hotellin, aseman ja terminaalin eteen kadulle (voitetun lauta kulkuneuvoksi)", false, 269)]
+    [MenuItem("Beat em up/Yksittäiset valikot/269. Thaitown: skeittari hotellin, aseman ja terminaalin eteen kadulle (voitetun lauta kulkuneuvoksi)", false, 269)]
     static void AddThaitownSkaters()
     {
         if (PlayModeBlocked()) return;
@@ -19427,7 +19434,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Thaitown: pelikoneet terminaaliin (samat kuin pelihallissa) ----------------
     // Turpaan Vaan, Flipper Flapper ja Tähtipyssy (pelattavia) sekä Turboralli, Chasedr1ft ja Daccle (pelaamattomia) portin A1 sivulle seinän viereen. Koneilla voi pelata (E), mutta ne eivät ole ankkuroituja: tappelussa ne rikkoutuvat ja ovat heitettäviä.
-    [MenuItem("Beat em up/270. Thaitown: pelikoneet terminaaliin (Turpaan Vaan, Flipper Flapper, Tähtipyssy; rikkoutuvat ja heitettäviä tappelussa)", false, 270)]
+    [MenuItem("Beat em up/Yksittäiset valikot/270. Thaitown: pelikoneet terminaaliin (Turpaan Vaan, Flipper Flapper, Tähtipyssy; rikkoutuvat ja heitettäviä tappelussa)", false, 270)]
     static void AddTerminalArcadeMachines()
     {
         if (PlayModeBlocked()) return;
@@ -19485,7 +19492,7 @@ public static class BeatEmUpSetup
     // Kolme kuvaa (python Tools/AirportAssets/make_runway_images.py): A2-ovirakennus + hangaarit, hangaarit, tyhjä kiitotie. A2-ovesta terminaalin neljännessä sisäkuvassa tullaan kiitotielle;
     // takaisin pääsee kiitotien A2-ovesta. Taustalla lentävät koneet: kuvat Assets/Sprites/Taustat/kiitotie_kone_1.png, _2.png ... (valinnaisia, läpinäkyvä tausta, kone katsoo oikealle); jokainen liikkuu omaa tahtiaan.
     const float RunwayX0 = 140000f, RunwayFloorPx = 650f, RunwayDoorPx = 270f, TerminalA2DoorPx = 450f;
-    [MenuItem("Beat em up/271. Thaitown: kiitotie (ovi terminaalin A2-portista; taustalla lentokoneita)", false, 271)]
+    [MenuItem("Beat em up/Yksittäiset valikot/271. Thaitown: kiitotie (ovi terminaalin A2-portista; taustalla lentokoneita)", false, 271)]
     static void AddRunway()
     {
         if (PlayModeBlocked()) return;
@@ -19638,7 +19645,7 @@ public static class BeatEmUpSetup
     // Neljä kuvaa vasemmalta oikealle (python Tools/AirportAssets/make_plane_interior.py): takakeittiö ja ovi, käytävä ilman ovea, käytävä ja ovi, ohjaamo. Ikkunoista näkyy yötaivas.
     // Koneen ovi kiitotiellä (valikko 271) vie tänne; sisällä ovi (kuva 3) vie takaisin kiitotielle.
     const float PlaneInnerX0 = 170000f, PlaneFloorPx = 700f, PlaneExitDoorPx = 1060f, PlaneZoom = 1f;   // PlaneZoom: koneen sisätila näytetään pienempänä ja kamera lähempää, jolloin hahmot näyttävät isommilta
-    [MenuItem("Beat em up/272. Thaitown: lentokoneen sisätila (nousu kiitotien koneeseen)", false, 272)]
+    [MenuItem("Beat em up/Yksittäiset valikot/272. Thaitown: lentokoneen sisätila (nousu kiitotien koneeseen)", false, 272)]
     static void AddPlaneInterior()
     {
         if (PlayModeBlocked()) return;
@@ -19760,7 +19767,7 @@ public static class BeatEmUpSetup
     // Terminaalissa neljä (valikko 264 ensin) ja koneessa kolme (valikko 272 ensin). Sijoitus: x = px yhdistetyssä sisäkuvassa, y = syvyys 0 takana … 1 edessä, z = kaistan puolileveys px.
     static readonly Vector3[] AttendantTerminalSpots = { new Vector3(900f, 0.85f, 350f), new Vector3(2300f, 0.9f, 350f), new Vector3(3300f, 0.85f, 300f), new Vector3(5000f, 0.9f, 300f) };
     static readonly Vector3[] AttendantPlaneSpots = { new Vector3(900f, 0.2f, 500f), new Vector3(3300f, 0.2f, 600f), new Vector3(5600f, 0.2f, 450f) };   // y 0.3: käytävän takaosassa, hero kävelee edessä
-    [MenuItem("Beat em up/273. Thaitown: lentoemännät terminaaliin ja koneeseen (NPC, käyskentelevät)", false, 273)]
+    [MenuItem("Beat em up/Yksittäiset valikot/273. Thaitown: lentoemännät terminaaliin ja koneeseen (NPC, käyskentelevät)", false, 273)]
     static void AddAttendants()
     {
         if (PlayModeBlocked()) return;
@@ -19811,7 +19818,7 @@ public static class BeatEmUpSetup
     // Hahmo pysyy paikallaan vinossa rinnekuvassa (kuva ei vaihdu); liike syntyy kerroksista: taivas ja metsä liukuvat vaakasuoraan, lumipinta, lumipöly, puut ja etuparallaksi vinosti rinteen suuntaan
     // (ylös ja vasemmalle, rinne laskee oikealle alas). Kuvat: python Tools/SnowAssets/make_snow_assets.py (lumi_*.png kansiossa Assets/Sprites/Taustat). Nopeudet ja koot ovat tämän valikon alussa.
     const float SnowX0 = 20000f;
-    [MenuItem("Beat em up/274. Lumirinne: vino laskumaisema (parallaksit liukuvat rinteen suuntaan)", false, 274)]
+    [MenuItem("Beat em up/Yksittäiset valikot/274. Lumirinne: vino laskumaisema (parallaksit liukuvat rinteen suuntaan)", false, 274)]
     static void AddSnowSlope()
     {
         if (PlayModeBlocked()) return;
@@ -19977,7 +19984,7 @@ public static class BeatEmUpSetup
     // Kolme ruudun levyistä kuvaa (python Tools/SnowAssets/make_alpine_assets.py): hangaarit (vasen reuna = seinä) + kaksi kiitotiekuvaa (toinen peilattu, sauma täsmää).
     // Taustalla parallaksina vuoristo (hitain) ja kukkulan alppikylä (hieman nopeampi). Oikeasta päästä pääsee lumirinteelle (valikko 274), jos se on tehty.
     const float AlpineX0 = 30000f, AlpineWallPx = 575f, AlpineSideDoorPx = 4801f;   // peilattu: hangaarit oikeassa päässä (kuva 3), sivuovi x = 2 ruutua + (1672 - 215) px
-    [MenuItem("Beat em up/275. Alppikylä: kiitotie ja hangaarit (taustalla vuoret ja kylä)", false, 275)]
+    [MenuItem("Beat em up/Yksittäiset valikot/275. Alppikylä: kiitotie ja hangaarit (taustalla vuoret ja kylä)", false, 275)]
     static void AddAlpineAirfield()
     {
         if (PlayModeBlocked()) return;
@@ -20052,7 +20059,7 @@ public static class BeatEmUpSetup
             if (runway != null)
             {
                 float rx = RunwayX0 + 9f;
-                MakeDoor("Thaitown: Alppikylään (testi)", "Alppikylään (testi)", runway, area, new Vector3(rx, runway.maxDepthY, 0f), new Vector2(X0 + 4f, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f)));
+                MakeDoor("Thaitown: Alppikylään (testi)", "Korvatunturille (testi)", runway, area, new Vector3(rx, runway.maxDepthY, 0f), new Vector2(X0 + 4f, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.35f)));
                 MakeDoor("Alppikylä: takaisin kiitotielle (testi)", "Takaisin Thaitownin kiitotielle", area, runway, new Vector3(X0 + 6f, area.maxDepthY, 0f), new Vector2(rx + 1.5f, Mathf.Lerp(runway.maxDepthY, runway.minDepthY, 0.3f)));
                 report += " Testiovi: Thaitownin kiitotien alusta (x ≈ " + rx.ToString("0") + ") Alppikylään; takaisin testiovesta kiitotien vasemmasta päästä (hangaarin sivuovi on varattu terminaalille, valikko 276).";
             }
@@ -20078,7 +20085,7 @@ public static class BeatEmUpSetup
     // Neljä kuvaa limitetty yhdeksi nauhaksi (python Tools/SnowAssets/make_alpine_terminal.py, SIFT-kohdistus: sama taulu/jakkara ei toistu), vasemmalta oikealle 4, 3, 2, 1: 4 uloskäynti (puuovet kylän kadulle), 3 baaritiski, 2 kahvila, 1 saapuminen (teräsovi hangaariin, matkatavarahihna).
     // Ikkunat ja ovilasit ovat läpinäkyviä: niistä näkyy vuoristo parallaksina.
     const float AlpineTermX0 = 41000f, AlpineTermWallPx = 550f, TermStripPx = 5977f, TermHangarDoorPx = 1320f, TermExitDoorPx = 5802f, TermMountainRaisePx = 220f;   // kuvanauhan leveys ja ovien paikat px:nä (python tulostaa)
-    [MenuItem("Beat em up/276. Alppikylä: terminaali (hangaarista terminaaliin ja kylän kadulle)", false, 276)]
+    [MenuItem("Beat em up/Yksittäiset valikot/276. Alppikylä: terminaali (hangaarista terminaaliin ja kylän kadulle)", false, 276)]
     static void AddAlpineTerminal()
     {
         if (PlayModeBlocked()) return;
@@ -20175,7 +20182,7 @@ public static class BeatEmUpSetup
     const float AlpineStreetX0 = 51000f, AlpineStreetWallPx = 690f, StreetTerminalDoorPx = 235f, StreetMountainRaisePx = 60f, StreetHillRaisePx = 100f;
     // ovien keskikohdat (px) kunkin kuvan sisällä: panttilainaamo (kuva 3), afterski-baari (kuva 4), gondoliasema (kuva 5)
     const float SnowStPawnDoorPx = 1100f, SnowStBarDoorPx = 906f, SnowStGondolaPx = 870f;
-    [MenuItem("Beat em up/277. Alppikylä: katu (terminaalin uloskäynti, taustalla vuoret)", false, 277)]
+    [MenuItem("Beat em up/Yksittäiset valikot/277. Alppikylä: katu (terminaalin uloskäynti, taustalla vuoret)", false, 277)]
     static void AddAlpineStreet()
     {
         if (PlayModeBlocked()) return;
@@ -20310,7 +20317,7 @@ public static class BeatEmUpSetup
     // Tiski on oma kuvansa Helvin edessä (kuten Uccopulcon panttilainaamossa, valikko 228); Helvi seisoo tiskin takana. Gondolin ovi (valikko 277) vaatii täältä ostetun lumilaudan.
     const float AlpinePawnX0 = 60000f, AlpPawnStripPx = 3164f, AlpPawnDoorStripPx = 2476f, AlpPawnCounterXPx = 1480f, AlpPawnCounterYPx = 456f, AlpPawnCounterFrontPx = 668f,
                 AlpPawnHeroLimitPx = 695f, AlpPawnHelviXPx = 1905f, AlpPawnHelviFeetPx = 640f, AlpPawnHelviScale = 1.25f, AlpPawnLumilautaPrice = 100f;
-    [MenuItem("Beat em up/278. Alppikylä: panttilainaamo (Helvi myy lumilaudan)", false, 278)]
+    [MenuItem("Beat em up/Yksittäiset valikot/278. Alppikylä: panttilainaamo (Helvi myy lumilaudan)", false, 278)]
     static void AddAlpinePawn()
     {
         if (PlayModeBlocked()) return;
@@ -20439,7 +20446,7 @@ public static class BeatEmUpSetup
     static readonly Vector2[] AlpBarTableSpots = {
         new Vector2(760f, 0.80f), new Vector2(1150f, 0.35f), new Vector2(1600f, 0.78f), new Vector2(2000f, 0.35f), new Vector2(2300f, 0.82f),
         new Vector2(3050f, 0.40f), new Vector2(3450f, 0.80f), new Vector2(3880f, 0.38f), new Vector2(4300f, 0.78f) };
-    [MenuItem("Beat em up/279. Alppikylä: afterski-baarin alakerta (pöydät, tuolit, portaat yläkertaan)", false, 279)]
+    [MenuItem("Beat em up/Yksittäiset valikot/279. Alppikylä: afterski-baarin alakerta (pöydät, tuolit, portaat yläkertaan)", false, 279)]
     static void AddAlpineBar()
     {
         if (PlayModeBlocked()) return;
@@ -20618,7 +20625,7 @@ public static class BeatEmUpSetup
     const float AlpMuoriPx = 3000f, AlpMuoriStagePx = 4100f;   // joulumuorin paikka baarin kuvassa (px vasemmasta reunasta); lavan edusta 4100
     static readonly bool AlpBarShowAttendants = false;   // lentoemännät pois baarista, kunnes niiden kuvat on hiottu
     static readonly Vector3[] AlpBarAttendantSpots = { new Vector3(2300f, 0.88f, 260f), new Vector3(3500f, 0.9f, 260f) };
-    [MenuItem("Beat em up/280. Alppikylä: afterski-baarin väki (puliukot, prätkäjätkät, Tom, kovikset, punkkarit, rokkimimmit, lenkkarit, kapteenit, lentoemännät) ja rähinä", false, 280)]
+    [MenuItem("Beat em up/Yksittäiset valikot/280. Alppikylä: afterski-baarin väki (puliukot, prätkäjätkät, Tom, kovikset, punkkarit, rokkimimmit, lenkkarit, kapteenit, lentoemännät) ja rähinä", false, 280)]
     static void AddAlpineBarCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -20799,7 +20806,7 @@ public static class BeatEmUpSetup
     {
         ("Lätkäfani", 0.30f, 0.55f), ("Prätkäjätkä", 0.48f, 0.75f), ("Rusty", 0.66f, 0.6f), ("Puliukko", 0.84f, 0.8f),
     };
-    [MenuItem("Beat em up/300. Alppikylä: kadun väki (Pera, prätkäjätkä, Rusty, puliukko)", false, 300)]
+    [MenuItem("Beat em up/Yksittäiset valikot/300. Alppikylä: kadun väki (Pera, prätkäjätkä, Rusty, puliukko)", false, 300)]
     static void AddAlpineStreetCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -20873,7 +20880,7 @@ public static class BeatEmUpSetup
         ("Kovis", 3000f, 0.6f), ("Rekkamies", 3600f, 0.85f), ("Lätkäfani", 2750f, 0.4f), ("Tanya", 2000f, 0.55f),
         ("Lentokapteeni", 4800f, 0.9f), ("Lentoperämies", 2900f, 0.75f),
     };
-    [MenuItem("Beat em up/295. Alppikylä: terminaalin väki (Rustyt, prätkäjätkät, puliukot, rokkimimmit, Betty, samoalainen, lenkkarit, kovis, rekkamies, Lätkäfani, Tanya, kapteeni, perämies) ja rähinä", false, 295)]
+    [MenuItem("Beat em up/Yksittäiset valikot/295. Alppikylä: terminaalin väki (Rustyt, prätkäjätkät, puliukot, rokkimimmit, Betty, samoalainen, lenkkarit, kovis, rekkamies, Lätkäfani, Tanya, kapteeni, perämies) ja rähinä", false, 295)]
     static void AddAlpineTerminalCrowd()
     {
         if (PlayModeBlocked()) return;
@@ -20979,7 +20986,7 @@ public static class BeatEmUpSetup
     // ---------------- Alppikylä: telkkaripöydät terminaaliin ----------------
     // Samat pyöreät telkkaripöydät kuin S-Clubissa (jääkiekko ruudulla; hero voi nostaa ja heittää, pöytä hajoaa). Lätkäfani (295) hääräilee kahden ensimmäisen luona.
     static readonly float[] AlpTermTvPx = { 2250f, 3250f, 4950f };
-    [MenuItem("Beat em up/297. Alppikylä: telkkaripöydät terminaaliin (Lätkäfani hääräilee niiden luona)", false, 297)]
+    [MenuItem("Beat em up/Yksittäiset valikot/297. Alppikylä: telkkaripöydät terminaaliin (Lätkäfani hääräilee niiden luona)", false, 297)]
     static void AddAlpineTerminalTvs()
     {
         if (PlayModeBlocked()) return;
@@ -21040,7 +21047,7 @@ public static class BeatEmUpSetup
     // alppi_kaukalo_koko.png (4936 px): päätymaali vasemmalla (peilattu), keskipiste, päätymaali oikealla; kuvat limitetty 40 px (python-yhdistelmä käyttäjän kahdesta kuvasta).
     // Alue on liukas (Area.slippery): hero ja vihut liukuvat. Lasiovet aulasta (valikko 293) avautuvat tänne; pomo ja passilukitus tulevat myöhemmin.
     const float RinkBoardPx = 640f, RinkGoalPx = 260f, RinkBackDoorPx = 900f;
-    [MenuItem("Beat em up/298. Alppikylä: jäähalli (kaukalo, liukas jää; ovi aulasta)", false, 298)]
+    [MenuItem("Beat em up/Yksittäiset valikot/298. Alppikylä: jäähalli (kaukalo, liukas jää; ovi aulasta)", false, 298)]
     static void AddAlpineRink()
     {
         if (PlayModeBlocked()) return;
@@ -21105,7 +21112,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Alppikylä: terminaalin kameran korjaus (ei taivasta katon yläpuolelle) ----------------
-    [MenuItem("Beat em up/299. Alppikylä: terminaalin kamera lähemmäs (ei taivasta katon yläpuolelle; ei tarvitse ajaa 276 uudelleen)", false, 299)]
+    [MenuItem("Beat em up/Yksittäiset valikot/299. Alppikylä: terminaalin kamera lähemmäs (ei taivasta katon yläpuolelle; ei tarvitse ajaa 276 uudelleen)", false, 299)]
     static void FixAlpineTerminalCamera()
     {
         if (PlayModeBlocked()) return;
@@ -21130,8 +21137,8 @@ public static class BeatEmUpSetup
 
     // ---------------- Alppikylä: Sohvi terminaalin baaritiskille ----------------
     // Tiskin etuosa on leikattu terminaalinauhasta (alppi_terminaali_tiski.png, x 2870-4710, rivit 353-545) ja piirtyy Sohvin eteen; Sohvi seisoo tiskin takana.
-    const float AlpTermCounterXPx = 2870f, AlpTermCounterYPx = 353f, AlpTermCounterFrontPx = 545f, AlpTermSohviXPx = 3780f, AlpTermSohviFeetPx = 480f, AlpTermSohviScale = 1.25f;
-    [MenuItem("Beat em up/296. Alppikylä: Sohvi terminaalin baaritiskille (kahvi, voileipä, limsa; aja 279 ensin)", false, 296)]
+    const float AlpTermCounterXPx = 2870f, AlpTermCounterYPx = 353f, AlpTermCounterFrontPx = 545f, AlpTermSohviXPx = 3780f, AlpTermSohviFeetPx = 520f, AlpTermSohviScale = 1.25f;
+    [MenuItem("Beat em up/Yksittäiset valikot/296. Alppikylä: Sohvi terminaalin baaritiskille (kahvi, voileipä, limsa; aja 279 ensin)", false, 296)]
     static void AddAlpineTerminalSohvi()
     {
         if (PlayModeBlocked()) return;
@@ -21190,7 +21197,7 @@ public static class BeatEmUpSetup
     // Kaksi kuvaa liitetty yhdeksi nauhaksi (python Tools/SnowAssets/make_alpine_upstairs.py): vasemmalla lava, oikeassa päässä portaikko alas baariin.
     // Pokeripöytä keskellä lattiaa. Joulupukki-pomo lisätään myöhemmin (sheetit: Assets/Sprites/Joulupukki).
     const float AlpineUpX0 = 80000f, AlpUpStairsPx = 3072f, AlpUpHeroLimitPx = 600f, AlpUpTablePx = 1850f;
-    [MenuItem("Beat em up/281. Alppikylä: afterski-baarin yläkerta (pokeripöytä, portaat alas)", false, 281)]
+    [MenuItem("Beat em up/Yksittäiset valikot/281. Alppikylä: afterski-baarin yläkerta (pokeripöytä, portaat alas)", false, 281)]
     static void AddAlpineUpstairs()
     {
         if (PlayModeBlocked()) return;
@@ -21335,7 +21342,7 @@ public static class BeatEmUpSetup
         return AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(sp => int.Parse(sp.name.Substring(sp.name.LastIndexOf('_') + 1))).ToArray();
     }
 
-    [MenuItem("Beat em up/282. Alppikylä: yläkerran Joulupukki-pomo, Mary ja Liz tangoissa, pöydät ja snookerpöydät", false, 282)]
+    [MenuItem("Beat em up/Yksittäiset valikot/282. Alppikylä: yläkerran Joulupukki-pomo, Mary ja Liz tangoissa, pöydät ja snookerpöydät", false, 282)]
     static void AddAlpineUpstairsContent()
     {
         if (PlayModeBlocked()) return;
@@ -21504,7 +21511,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Aloita peli Alppikylän afterski-baarin edestä (testaus) ----------------
-    [MenuItem("Beat em up/283. Aloita peli Alppikylän afterski-baarin edestä (testaus: pukki, tappelu)", false, 283)]
+    [MenuItem("Beat em up/Yksittäiset valikot/283. Aloita peli Alppikylän afterski-baarin edestä (testaus: pukki, tappelu)", false, 283)]
     static void StartInAlpineBar() { WithLevelScenes(StartInAlpineBarImpl); }
 
     static void StartInAlpineBarImpl()
@@ -21550,7 +21557,7 @@ public static class BeatEmUpSetup
         return n.Contains("Alppikyl") || n.Contains("AlppiYlakerta") || n == "Joulupukki" || n == "Joulumuori";
     }
 
-    [MenuItem("Beat em up/284. Kenttien jako: Alppikylä omaan sceneensä (pois Thaitownin scenestä)", false, 284)]
+    [MenuItem("Beat em up/Yksittäiset valikot/284. Kenttien jako: Alppikylä omaan sceneensä (pois Thaitownin scenestä)", false, 284)]
     static void MoveAlpineToOwnScene()
     {
         if (PlayModeBlocked()) return;
@@ -21668,7 +21675,7 @@ public static class BeatEmUpSetup
     // Aivo: YakuzaBrain. Pomo pudottaa Lentolipun (Clues.PlaneTicket), joka avaa koneen oven kiitotiellä.
     const int YakuzaBossHealth = 700;
 
-    [MenuItem("Beat em up/285. Thaitown: yakuza-pomo pomon huoneeseen (kolme lyöntiä + kaikki potkut + kierrepotku; pudottaa lentolipun)", false, 285)]
+    [MenuItem("Beat em up/Yksittäiset valikot/285. Thaitown: yakuza-pomo pomon huoneeseen (kolme lyöntiä + kaikki potkut + kierrepotku; pudottaa lentolipun)", false, 285)]
     static void AddYakuzaBoss()
     {
         if (PlayModeBlocked()) return;
@@ -21782,7 +21789,7 @@ public static class BeatEmUpSetup
     const float PomoRoomX0 = 116000f, PomoOverlapPx = 130f, PomoFloorPx = 525f, PomoDoorPx = 170f, ClubBossDoorPx = 1280f;
     static float PomoX(int img, float px) { float ppu = ClubPpu; return PomoRoomX0 + img * (1672f - PomoOverlapPx) / ppu + px / ppu; }
 
-    [MenuItem("Beat em up/286. Thaitown: yakuza-pomon huone (ovi klubin lavan oikealla puolella)", false, 286)]
+    [MenuItem("Beat em up/Yksittäiset valikot/286. Thaitown: yakuza-pomon huone (ovi klubin lavan oikealla puolella)", false, 286)]
     static void AddYakuzaBossRoom()
     {
         if (PlayModeBlocked()) return;
@@ -21860,7 +21867,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Thaitown: klubin saumakorjaus (pilarit kohdalleen) olemassa olevaan kenttään ----------------
-    [MenuItem("Beat em up/287. Thaitown: klubin pilarisauma kohdalleen (siirtää klubin vasenta päätyä 70 px, aja kerran)", false, 287)]
+    [MenuItem("Beat em up/Yksittäiset valikot/287. Thaitown: klubin pilarisauma kohdalleen (siirtää klubin vasenta päätyä 70 px, aja kerran)", false, 287)]
     static void FixClubSeam()
     {
         if (PlayModeBlocked()) return;
@@ -21893,7 +21900,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Alppikylä: terminaali ja katu pois vanhan baarin (x 50000) ja kadun baarin (x 40000) päältä ----------------
-    [MenuItem("Beat em up/288. Alppikylä: terminaali ja katu siirretään 1000 yksikköä (eivät ole enää vanhan baarin päällä; aja kerran)", false, 288)]
+    [MenuItem("Beat em up/Yksittäiset valikot/288. Alppikylä: terminaali ja katu siirretään 1000 yksikköä (eivät ole enää vanhan baarin päällä; aja kerran)", false, 288)]
     static void MoveAlpineTerminalAndStreet()
     {
         if (PlayModeBlocked()) return;
@@ -21952,7 +21959,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Alppikylä: yläkerran Mary ja Liz tankoihin (mallit Thaitownin scenessä) ----------------
-    [MenuItem("Beat em up/289. Alppikylä: yläkerran Mary ja Liz tankoihin (kopiot Thaitownin tanssijoista)", false, 289)]
+    [MenuItem("Beat em up/Yksittäiset valikot/289. Alppikylä: yläkerran Mary ja Liz tankoihin (kopiot Thaitownin tanssijoista)", false, 289)]
     static void AddAlpineUpstairsDancers()
     {
         if (PlayModeBlocked()) return;
@@ -22005,7 +22012,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Lumirinne: lumilautailu (SnowRide) ----------------
-    [MenuItem("Beat em up/290. Lumirinne: lumilautailu (esteet, hyppy, voltti; gondolilta rinteelle)", false, 290)]
+    [MenuItem("Beat em up/Yksittäiset valikot/290. Lumirinne: lumilautailu (esteet, hyppy, voltti; gondolilta rinteelle)", false, 290)]
     static void AddSnowRide()
     {
         if (PlayModeBlocked()) return;
@@ -22046,7 +22053,7 @@ public static class BeatEmUpSetup
     }
 
     // ---------------- Alppikylä: gondolin ovet (katu <-> lumirinne), koska valikko 277 ei tehnyt niitä ----------------
-    [MenuItem("Beat em up/291. Alppikylä: gondoliasemalta lumirinteelle (ovet molempiin suuntiin)", false, 291)]
+    [MenuItem("Beat em up/Yksittäiset valikot/291. Alppikylä: gondoliasemalta lumirinteelle (ovet molempiin suuntiin)", false, 291)]
     static void AddGondolaDoors()
     {
         if (PlayModeBlocked()) return;
@@ -22096,7 +22103,7 @@ public static class BeatEmUpSetup
     // Ulkokuva alppi_katu_6.png jatkaa katua oikealle (gondoliaseman jälkeen); sisällä kolme kuvaa vasemmalta oikealle alppi_stadion_1..3.png (aula, kahvila ja pokaalit, luistimet ja lasiovet jäähallille).
     // Kuvat limittyvät noin 80 px (mitattu kuvista); säätö StadiumOverlapPx. Lasiovet jäähallille ovat toistaiseksi lukossa.
     const float AlpineStadiumX0 = 90000f, AlpineStadiumWallPx = 560f, StadiumOverlapPx = 80f, StadiumStreetDoorPx = 1115f, StadiumInDoorPx = 390f, StadiumRinkDoorPx = 1370f;
-    [MenuItem("Beat em up/293. Alppikylä: alppistadion (kadun päädyssä; aula ja jäähallin ovet sisällä)", false, 293)]
+    [MenuItem("Beat em up/Yksittäiset valikot/293. Alppikylä: alppistadion (kadun päädyssä; aula ja jäähallin ovet sisällä)", false, 293)]
     static void AddAlpineStadium()
     {
         if (PlayModeBlocked()) return;
@@ -22216,7 +22223,7 @@ public static class BeatEmUpSetup
         return list.ToArray();
     }
 
-    [MenuItem("Beat em up/294. Alppikylä: Lätkäfani (kovempi perusvihu stadionin aulaan; iskut, potku, juoksu, huohotus, suoja)", false, 294)]
+    [MenuItem("Beat em up/Yksittäiset valikot/294. Alppikylä: Lätkäfani (kovempi perusvihu stadionin aulaan; iskut, potku, juoksu, huohotus, suoja)", false, 294)]
     static void AddLatkaFani()
     {
         if (PlayModeBlocked()) return;
@@ -22315,7 +22322,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Alppikylä: kaukalon apuri (jääkiekkoilija, kaksi vaihetta) ----------------
     // Kuvat Assets/Sprites/Viholliset/apuri_*.png (Tools/LatkaAssets/make_apuri_*.py + pack_latka_atlas.py, tiukat atlakset, ppu 200). Vaihe 1: luistelu + taklaus mailalla; alle 50 % energiaa: mailan pudotus ja nyrkit (suora1, suora2).
-    [MenuItem("Beat em up/301. Alppikylä: kaukalon apuri (luistelee ja taklaa; alle 50 % pudottaa mailan ja lyö nyrkein)", false, 301)]
+    [MenuItem("Beat em up/Yksittäiset valikot/301. Alppikylä: kaukalon apuri (luistelee ja taklaa; alle 50 % pudottaa mailan ja lyö nyrkein)", false, 301)]
     static void AddRinkHelper()
     {
         if (PlayModeBlocked()) return;
@@ -22388,7 +22395,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Alppikylä: kaukalon pomo, kapteeni (nyrkkeilijä; perusliikkeet) ----------------
     // Kuvat Assets/Sprites/Viholliset/kapteeni_*.png (Tools/LatkaAssets/make_kapteeni_sheets.py + pack_latka_atlas.py). Ei omaa aivoa: tavallinen Enemy (kävely, juoksu, kolme suoraa, kaatuminen ja nousu).
-    [MenuItem("Beat em up/302. Alppikylä: kaukalon pomo Kapteeni (juoksee, lyö suoria, taklaa, alakoukku, suojaa)", false, 302)]
+    [MenuItem("Beat em up/Yksittäiset valikot/302. Alppikylä: kaukalon pomo Kapteeni (juoksee, lyö suoria, taklaa, alakoukku, suojaa)", false, 302)]
     static void AddRinkCaptain()
     {
         if (PlayModeBlocked()) return;
@@ -22478,7 +22485,7 @@ public static class BeatEmUpSetup
         ("Prätkäjätkä", 1200f, 0.9f), ("Prätkäjätkä", 3250f, 0.7f),
     };
     static readonly (float px, float depth, bool fish)[] StadiumTables = { (2650f, 0.30f, false), (3200f, 0.55f, true), (3750f, 0.30f, false), (4300f, 0.55f, true), (4650f, 0.25f, false) };
-    [MenuItem("Beat em up/303. Alppikylä: stadionin ravintola (Sohvi tiskille, hummeri- ja kalapöydät, wok-koju, väki, 12 portsaria)", false, 303)]
+    [MenuItem("Beat em up/Yksittäiset valikot/303. Alppikylä: stadionin ravintola (Sohvi tiskille, hummeri- ja kalapöydät, wok-koju, väki, 12 portsaria)", false, 303)]
     static void AddStadiumRestaurant()
     {
         if (PlayModeBlocked()) return;
@@ -22686,7 +22693,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Alppikylä: taustamusiikki kaikille alueille ----------------
     // Assets/Audio/Musiikki/Alppikyla.mp3 (RMS -17,9 dBFS, samaa tasoa kuin muut kappaleet). Pukin laulu (MusicPlayer.OverridePlaying) peittää sen.
-    [MenuItem("Beat em up/304. Alppikylä: taustamusiikki kaikille alueille (Alppikyla.mp3)", false, 304)]
+    [MenuItem("Beat em up/Yksittäiset valikot/304. Alppikylä: taustamusiikki kaikille alueille (Alppikyla.mp3)", false, 304)]
     static void SetAlpineMusic()
     {
         if (PlayModeBlocked()) return;
@@ -22709,7 +22716,7 @@ public static class BeatEmUpSetup
 
     // ---------------- Alppikylä: kone kiitotielle (E: Viidakko / Thaitown / Pysy Alppikylässä) ----------------
     // Sama iso matkustajakone kuin Thaitownin kiitotiellä (kiitotie_kone_iso.png). Matka tehdään piilotetuilla Door-reiteillä (PlaneDestination). Viidakko vaatii viidakkolipun (Joulupukki).
-    [MenuItem("Beat em up/292. Alppikylä: kone kiitotielle (valinta: Viidakko, Thaitown tai pysy)", false, 292)]
+    [MenuItem("Beat em up/Yksittäiset valikot/292. Alppikylä: kone kiitotielle (valinta: Viidakko, Thaitown tai pysy)", false, 292)]
     static void AddAlpinePlane()
     {
         if (PlayModeBlocked()) return;
@@ -22765,5 +22772,1090 @@ public static class BeatEmUpSetup
             Info("Alppikylän kiitotielle tehty iso kone (ovi x ≈ " + doorX.ToString("0.0") + "). E koneen ovella avaa valikon: Viidakko (lukossa kunnes saat viidakkolipun Joulupukilta; kenttä puuttuu vielä), Thaitown (vie Thaitownin kiitotielle) tai Pysy Alppikylässä. Alppikylän scene tallennettu. Testiin viidakkolipun voi ohittaa kytkemällä tarinalukot pois (valikko 229).");
         }
         finally { if (thaiOpened && thai.IsValid()) EditorSceneManager.CloseScene(thai, true); if (alpOpened && alp.IsValid()) EditorSceneManager.CloseScene(alp, true); }
+    }
+    // ---------------- Viidakko: kiitotie (kaksi pätkää), hangaari oikeassa päässä ja hangaarin sisus ----------------
+    // Kuvat (python Tools/JungleAssets/make_jungle_assets.py): viidakko_kiitotie_1 + peilikuva _2 (sauma täsmää) ja viidakko_hangaari (oikea pää), viidakko_sisa_1..3 (sisätila vasemmalta oikealle, ikkunat läpinäkyviä),
+    // parallaksit viidakko_taka (vuoret, hitain) ja viidakko_etu (palmurivi, hieman nopeampi). Oma scene Assets/Scenes/Areas/Viidakko.unity (luodaan tarvittaessa, lisätään Build Settingsiin).
+    // Alueet: Viidakon kiitotie (x 53000...) ja Viidakon hangaari (x 54000...); hangaarin sivuovi kiitotien oikeassa päässä vie sisälle, sisätilan vasemmasta päästä takaisin.
+    const string JungleScenePath = "Assets/Scenes/Areas/Viidakko.unity";
+    const int JungleStreetTiles = 12;   // katu_1–5 (ravintolan kohdalle asti), katu_6 silta, katu_7–8 raunioita, katu_9 temppelin seinä, katu_10 temppelin sisäänkäynti, katu_11 jatko, katu_12 laguunin ranta (+ vesi ja etukivet omina kerroksinaan)
+    const float JungleLagoonShorePx = 820f;   // viimeisessä ruudussa (katu_12) heron kävelyraja: tästä oikealle on laguunin vesi
+    const float JungleBridgeDeckFrontPx = 695f;   // sillan kannen etureuna (kuvan ylälaidasta), pienin sallittu syvyys sillalla
+    static readonly float[] JungleBridgeRampPx = { 380f, 570f, 1240f, 1420f };   // kuilun rampit: alku, kannen alku, kannen loppu, loppu (kuvapikseliä ruudun vasemmasta reunasta)
+    const float JungleTempleDoorPx = 1135f;   // temppelin oviaukon keskikohta ruudussa katu_10
+    const float JungleRestLeftStairPx = 780f, JungleRestRightStairPx = 600f;   // ravintolan kadun portaat: vasen ruudussa katu_4, oikea ruudussa katu_5
+    const float JungleStreetX0 = 55000f, JungleStreetWallPx = 640f;   // viidakkokatu: oma alue (hallin seinä katkaisee kiitotien, kadulle pääsee vain hallin kautta)
+    const float JungleMusicGain = 1.2f;   // +1,6 dB: Viidakko.mp3 on mitattu -18,1 dBFS (RMS), muu musiikki n. -16,5 dBFS
+    const float JungleRunX0 = 53000f, JungleHangX0 = 54000f, JungleRunWallPx = 612f, JungleHangWallPx = 628f, JungleDoorPx = 1595f;
+    [MenuItem("Beat em up/Yksittäiset valikot/305. Viidakko: kiitotie, hangaari ja hangaarin sisus (oma scene Viidakko)", false, 305)]
+    static void AddJungleAirfield()
+    {
+        if (PlayModeBlocked()) return;
+        const string T = "Assets/Sprites/Taustat/";
+        foreach (var f in new[] { "viidakko_kiitotie_1", "viidakko_kiitotie_2", "viidakko_hangaari", "viidakko_sisa_1", "viidakko_sisa_2", "viidakko_sisa_3", "viidakko_taka", "viidakko_etu", "viidakko_katu_1", "viidakko_katu_2", "viidakko_katu_3", "viidakko_katu_4", "viidakko_katu_5" })
+            if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png: aja python Tools/JungleAssets/make_jungle_assets.py (ohje tiedoston alussa) ja anna Unityn tuoda kuvat."); return; }
+        UnityEngine.SceneManagement.Scene scene;
+        bool openedHere = false;
+        if (File.Exists(JungleScenePath))
+        {
+            scene = EditorSceneManager.GetSceneByPath(JungleScenePath);
+            if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(JungleScenePath, OpenSceneMode.Additive); openedHere = true; }
+        }
+        else
+        {
+            scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+            openedHere = true;
+            if (!EditorSceneManager.SaveScene(scene, JungleScenePath)) { Info("Scenen luonti epäonnistui: " + JungleScenePath); EditorSceneManager.CloseScene(scene, true); return; }
+        }
+        try
+        {
+            foreach (var n in new[] { "Viidakon kiitotie", "Viidakon hangaari", "Viidakon katu", "Viidakon ovet", "Viidakon kone", "Alue: Viidakon kiitotie", "Alue: Viidakon hangaari", "Alue: Viidakon katu" })
+                foreach (var o in scene.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
+
+            float ppu = 941f / (2f * CamHalf), H = 941f / ppu, W = 1672f / ppu;
+            float bottom = CamY - CamHalf, top = bottom + H, cy = CamY;
+            var runRoot = new GameObject("Viidakon kiitotie");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(runRoot, scene);
+            Undo.RegisterCreatedObjectUndo(runRoot, "Viidakko");
+            var hangRoot = new GameObject("Viidakon hangaari");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(hangRoot, scene);
+            Undo.RegisterCreatedObjectUndo(hangRoot, "Viidakko");
+            var streetRoot = new GameObject("Viidakon katu");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(streetRoot, scene);
+            Undo.RegisterCreatedObjectUndo(streetRoot, "Viidakko");
+            var doorRoot = new GameObject("Viidakon ovet");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doorRoot, scene);
+            Undo.RegisterCreatedObjectUndo(doorRoot, "Viidakko");
+
+            SpriteRenderer Put(Transform parent, string name, Sprite sp, Vector3 pos, int order)
+            {
+                var sr = new GameObject(name).AddComponent<SpriteRenderer>();
+                sr.transform.SetParent(parent, false);
+                sr.sprite = sp; sr.sortingOrder = order; sr.transform.position = pos;
+                return sr;
+            }
+            Area MakeArea(string goName, string areaName, float x0, float wallPx, int tiles)
+            {
+                var a = ReuseArea(goName);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(a.gameObject, scene);
+                a.areaName = areaName; a.useSidewalk = false;
+                a.maxDepthY = top - wallPx / ppu; a.minDepthY = bottom + 0.9f;
+                a.walkMinX = x0 + 1.5f; a.walkMaxX = x0 + tiles * W - 1.2f;
+                a.camMinX = x0 + W * 0.5f; a.camMaxX = x0 + tiles * W - W * 0.5f;
+                a.camSize = CamHalf; a.camRiseY = 0f; a.camOffsetY = 0f; a.backScale = 1f; a.depthLimits = new Vector2[0];
+                a.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Viidakko.mp3"); a.musicGain = a.music != null ? JungleMusicGain : 1f;
+                return a;
+            }
+            void Strip(Transform parent, string prefix, string[] files, float x0)
+            {
+                for (int i = 0; i < files.Length; i++)
+                {
+                    var sp = ImportShipSprite(T + files[i] + ".png", ppu, false, SpriteAlignment.Center);
+                    if (sp == null) { Debug.LogWarning("Viidakko: kuvan tuonti epäonnistui: " + files[i]); continue; }
+                    var tile = Put(parent, prefix + (i + 1), sp, new Vector3(x0 + W * (i + 0.5f), cy, 0f), -10000);
+                    tile.transform.localScale = new Vector3(1.0018f, 1f, 1f);   // ~1 px limitys joka reunassa: suurilla x-arvoilla (float-tarkkuus) ruutujen väliin ei jää mustaa rakoa
+                }
+            }
+            void Para(Transform parent, Area area, string name, string file, float factor, int order)
+            {
+                var sp = ImportShipSprite(T + file + ".png", ppu, false, SpriteAlignment.Center);
+                if (sp == null) return;
+                float left = area.camMinX - W * 0.5f;
+                var sr = Put(parent, name, sp, new Vector3(left + sp.bounds.size.x * 0.5f, cy, 0f), order);
+                var pl = sr.gameObject.AddComponent<ParallaxLayer>();
+                pl.factor = factor; pl.startCamX = area.camMinX; pl.minX = area.camMinX - 2f; pl.maxX = area.camMaxX + 2f;
+            }
+
+            // ---- kiitotie: kaksi pätkää (toinen peilikuva) + hangaari oikeassa päässä ----
+            Strip(runRoot.transform, "Viidakon kiitotie ", new[] { "viidakko_kiitotie_1", "viidakko_kiitotie_2", "viidakko_hangaari" }, JungleRunX0);
+            var runway = MakeArea("Alue: Viidakon kiitotie", "Viidakon kiitotie", JungleRunX0, JungleRunWallPx, 3);
+            Para(runRoot.transform, runway, "Viidakon vuoret", "viidakko_taka", 0.04f, -10100);
+            Para(runRoot.transform, runway, "Viidakon palmut", "viidakko_etu", 0.12f, -10050);
+
+
+            // ---- iso matkustajakone Viidakon kiitotielle (kuten Alppikylässä ja Thaitownissa): E koneen ovella -> Alppikylä / Thaitown / pysy ----
+            Vector2 planeDoorSpawn = new Vector2(JungleRunX0 + W * 1.45f, Mathf.Lerp(runway.maxDepthY, runway.minDepthY, 0.3f));
+            const string bigPlanePath = "Assets/Sprites/Taustat/kiitotie_kone_iso.png";
+            float jungleDoorX = JungleRunX0 + W * 1.45f;
+            if (File.Exists(bigPlanePath))
+            {
+                const float BigPlaneScale = 2.1f, BigPlaneBottomMarginPx = 108f;   // samat kuin Alppikylän ja Thaitownin kiitotiellä
+                var bs = ImportShipSprite(bigPlanePath, ppu / BigPlaneScale, false, SpriteAlignment.Center);
+                if (bs != null)
+                {
+                    var planeRoot = new GameObject("Viidakon kone");
+                    UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(planeRoot, scene);
+                    Undo.RegisterCreatedObjectUndo(planeRoot, "Viidakon kone");
+                    float floorY = runway.maxDepthY - 0.4f, bw = bs.bounds.size.x, bh = bs.bounds.size.y, px = JungleRunX0 + W * 1.45f;
+                    var big = new GameObject("Kone (kuva)").AddComponent<SpriteRenderer>();
+                    big.transform.SetParent(planeRoot.transform, false);
+                    big.sprite = bs; big.sortingOrder = Mathf.RoundToInt(-floorY * 100f);
+                    big.transform.position = new Vector3(px, floorY + bh * 0.5f - BigPlaneBottomMarginPx * BigPlaneScale / ppu, 0f);
+                    jungleDoorX = px - bw * 0.5f + bw * (1430f - 15f) / 1635f;   // etumatkustajaovi
+                    planeDoorSpawn = new Vector2(jungleDoorX, Mathf.Lerp(runway.maxDepthY, runway.minDepthY, 0.3f));
+                    // reitit: Alppikylän kone (kiitotie) ja Thaitownin kiitotie; sijainnit luetaan niiden sceneistä, jos ne löytyvät
+                    Vector2 alpSpawn = new Vector2(30004f, -1.25f), thaiSpawn = new Vector2(106006.5f, -2.28f);
+                    var opened2 = new List<UnityEngine.SceneManagement.Scene>();
+                    try
+                    {
+                        foreach (var pth in new[] { AlpineScenePathNow, ThaitownScenePath })
+                        {
+                            if (!File.Exists(pth)) continue;
+                            var sc2 = EditorSceneManager.GetSceneByPath(pth);
+                            if (!sc2.IsValid() || !sc2.isLoaded) { sc2 = EditorSceneManager.OpenScene(pth, OpenSceneMode.Additive); opened2.Add(sc2); }
+                            if (pth == AlpineScenePathNow)
+                            {
+                                var pd = Object.FindObjectsByType<PlaneDestination>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d != null && d.gameObject.scene == sc2);
+                                var ar = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Alppikylän kiitotie" && a.gameObject.scene == sc2);
+                                if (pd != null && ar != null) alpSpawn = new Vector2(pd.transform.position.x, Mathf.Lerp(ar.maxDepthY, ar.minDepthY, 0.3f));
+                                // Alppikylän koneen viidakkoreitti (E koneen ovella: Viidakko)
+                                if (pd != null)
+                                {
+                                    if (pd.toJungle == null)
+                                    {
+                                        var jd = new GameObject("Reitti: Viidakko").AddComponent<Door>();
+                                        jd.transform.SetParent(pd.transform.parent, false); jd.transform.position = pd.transform.position;
+                                        jd.here = pd.here; jd.target = null; jd.targetName = "Viidakon kiitotie"; jd.targetScene = "Viidakko"; jd.enabled = false;
+                                        pd.toJungle = jd;
+                                    }
+                                    pd.toJungle.targetName = "Viidakon kiitotie"; pd.toJungle.targetScene = "Viidakko"; pd.toJungle.spawnPoint = planeDoorSpawn;
+                                    EditorUtility.SetDirty(pd.toJungle); EditorUtility.SetDirty(pd);
+                                    EditorSceneManager.MarkSceneDirty(sc2); EditorSceneManager.SaveScene(sc2);
+                                }
+                            }
+                            else
+                            {
+                                var board = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(d => d != null && d.gameObject.scene == sc2 && d.name == "Thaitown: Nouse koneeseen");
+                                var tr = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Thaitown kiitotie" && a.gameObject.scene == sc2);
+                                if (board != null && tr != null) thaiSpawn = new Vector2(board.transform.position.x, Mathf.Lerp(tr.maxDepthY, tr.minDepthY, 0.3f));
+                            }
+                        }
+                    }
+                    finally { foreach (var sc2 in opened2) if (sc2.IsValid()) EditorSceneManager.CloseScene(sc2, true); }
+                    Door Route(string rn, string tName, string tScene, Vector2 sp)
+                    {
+                        var d = new GameObject(rn).AddComponent<Door>();
+                        d.transform.SetParent(planeRoot.transform, false); d.transform.position = new Vector3(jungleDoorX, runway.maxDepthY, 0f);
+                        d.here = runway; d.target = null; d.targetName = tName; d.targetScene = tScene; d.spawnPoint = sp; d.enabled = false;
+                        return d;
+                    }
+                    var pdest = new GameObject("Viidakon kone: määränpää").AddComponent<PlaneDestination>();
+                    pdest.transform.SetParent(planeRoot.transform, false); pdest.transform.position = new Vector3(jungleDoorX, runway.maxDepthY, 0f);
+                    pdest.here = runway; pdest.prompt = "Nouse koneeseen";
+                    pdest.customNames = new[] { "Korvatunturi", "Thaitown", "Pysy Eldoraatossa" };
+                    pdest.customRoutes = new[] { Route("Reitti: Alppikylä", "Alppikylän kiitotie", "Alppikyla", alpSpawn), Route("Reitti: Thaitown", "Thaitown kiitotie", "Thaitown", thaiSpawn) };
+                }
+            }
+
+            // ---- viidakkokatu (oma alue): tyhjä bambumaja, tyhjä maa, kanikonttori, ravintola viimeisenä; katu_1:n vasemmassa reunassa hallin oikea ovi ----
+            Strip(streetRoot.transform, "Viidakkokatu ", new[] { "viidakko_katu_1", "viidakko_katu_2", "viidakko_katu_3", "viidakko_katu_4", "viidakko_katu_5", "viidakko_katu_6", "viidakko_katu_7", "viidakko_katu_8", "viidakko_katu_9", "viidakko_katu_10", "viidakko_katu_11", "viidakko_katu_12" }, JungleStreetX0);
+            var street = MakeArea("Alue: Viidakon katu", "Viidakon katu", JungleStreetX0, JungleStreetWallPx, JungleStreetTiles);
+            {   // laguuni: vesi alimmaiseksi (rannan kuva peittää sen), liikkuva vesishader; etukivet hahmojen eteen; kävely loppuu rantaan
+                street.walkMaxX = JungleStreetX0 + 11f * W + JungleLagoonShorePx / ppu;
+                var waterShader = Shader.Find("PlatformFight/LagoonWater");
+                Material waterMat = null;
+                if (waterShader != null)
+                {
+                    const string wmPath = "Assets/Shaders/ViidakkoLaguuni.mat";
+                    waterMat = AssetDatabase.LoadAssetAtPath<Material>(wmPath);
+                    if (waterMat == null) { waterMat = new Material(waterShader); AssetDatabase.CreateAsset(waterMat, wmPath); }
+                    EditorUtility.SetDirty(waterMat);
+                }
+                foreach (var (lname, lfile, ltile, lorder, lmat) in new[] { ("Laguunin vesi", "viidakko_katu_12_vesi", 11, -10010, true), ("Etukivet 1", "viidakko_katu_11_etu", 10, 20000, false), ("Etukivet 2", "viidakko_katu_12_etu", 11, 20000, false) })
+                {
+                    var lsp = ImportShipSprite(T + lfile + ".png", ppu, false, SpriteAlignment.Center);
+                    if (lsp == null) continue;
+                    var lsr = Put(streetRoot.transform, lname, lsp, new Vector3(JungleStreetX0 + W * (ltile + 0.5f), cy, 0f), lorder);
+                    lsr.transform.localScale = new Vector3(1.0018f, 1f, 1f);
+                    if (lmat && waterMat != null) lsr.sharedMaterial = waterMat;
+                }
+            }
+            {   // silta (ruutu 6): kuilun päällä kuljetaan vain kannen takaosassa; kuilun reunoilla kaltevat rampit ehjään maahan
+                float bx = JungleStreetX0 + 5f * W, deckY = top - JungleBridgeDeckFrontPx / ppu, low = bottom - 5f;
+                street.minDepthLimits = new[] { new Vector2(bx + JungleBridgeRampPx[0] / ppu, low), new Vector2(bx + JungleBridgeRampPx[1] / ppu, deckY), new Vector2(bx + JungleBridgeRampPx[2] / ppu, deckY), new Vector2(bx + JungleBridgeRampPx[3] / ppu, low) };
+            }
+            Para(streetRoot.transform, street, "Viidakkokadun vuoret", "viidakko_taka", 0.04f, -10100);
+            Para(streetRoot.transform, street, "Viidakkokadun palmut", "viidakko_etu", 0.12f, -10050);
+
+            // ---- hangaarin sisus: kolme kuvaa vasemmalta oikealle, ikkunoista näkyy parallaksi ----
+            Strip(hangRoot.transform, "Hangaarin sisus ", new[] { "viidakko_sisa_1", "viidakko_sisa_2", "viidakko_sisa_3" }, JungleHangX0);
+            var hangar = MakeArea("Alue: Viidakon hangaari", "Viidakon hangaari", JungleHangX0, JungleHangWallPx, 3);
+            Para(hangRoot.transform, hangar, "Hangaarin ikkunoiden vuoret", "viidakko_taka", 0.04f, -10100);
+            Para(hangRoot.transform, hangar, "Hangaarin ikkunoiden palmut", "viidakko_etu", 0.12f, -10050);
+
+            // ---- ovet: hangaarin sivuovi (kiitotien oikea pää) <-> sisätilan vasen pää ----
+            Door LockHallExit(Door d) { d.blockedDuringFight = true; d.fightBlockRange = 3f * W + 2f; return d; }   // hallin uloskäynnit lukossa kunnes hallin viholliset on voitettu
+            Door MakeDoor(string name, string prompt, Area here, Area target, Vector3 pos, Vector2 spawn)
+            {
+                var d = new GameObject(name).AddComponent<Door>();
+                d.transform.SetParent(doorRoot.transform, false); d.transform.position = pos;
+                d.prompt = prompt; d.here = here; d.target = target; d.spawnPoint = spawn; d.halfWidth = 1.6f; d.maxDistanceFromWall = 2.2f;
+                return d;
+            }
+            float outX = JungleRunX0 + 2f * W + JungleDoorPx / ppu;
+            float inX = JungleHangX0 + 2.6f;
+            MakeDoor("Viidakko: hangaariin", "Mene hangaariin", runway, hangar, new Vector3(outX, runway.maxDepthY, 0f), new Vector2(inX + 1.8f, Mathf.Lerp(hangar.maxDepthY, hangar.minDepthY, 0.3f)));
+            LockHallExit(MakeDoor("Viidakko: hangaarista ulos", "Ulos kiitotielle", hangar, runway, new Vector3(inX, hangar.maxDepthY, 0f), new Vector2(outX - 1.8f, Mathf.Lerp(runway.maxDepthY, runway.minDepthY, 0.3f))));
+
+            // hallin oikea pää <-> viidakkokatu (katu_1:n vasemmassa reunassa hallin oikea ovi): ovet molempiin suuntiin, siirtymässä näyttö pimenee kuten muissakin ovissa
+            float streetX = JungleStreetX0 + 1.8f, hallEndX = JungleHangX0 + 3f * W - 1.8f;
+            MakeDoor("Viidakko: halliin (katu)", "Mene halliin", street, hangar, new Vector3(streetX, street.maxDepthY, 0f), new Vector2(hallEndX - 1.8f, Mathf.Lerp(hangar.maxDepthY, hangar.minDepthY, 0.3f)));
+            LockHallExit(MakeDoor("Viidakko: hallista viidakkokadulle", "Ulos Eldoraaton kadulle", hangar, street, new Vector3(hallEndX, hangar.maxDepthY, 0f), new Vector2(streetX + 1.8f, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.3f))));
+
+            {   // temppelin sisäänkäynti kadun päässä: sisätila tehdään myöhemmin
+                var td = MakeDoor("Viidakkokatu: temppeli", "Mene temppeliin", street, null, new Vector3(JungleStreetX0 + 9f * W + JungleTempleDoorPx / ppu, street.maxDepthY, 0f), Vector2.zero);
+                td.requiredClue = "Temppeli (tulossa)"; td.lockedClueText = "Temppelin sisätila tulee seuraavaksi.";
+            }
+
+            File.WriteAllLines(JungleScenePath.Replace(".unity", ".areas.txt"), new[] { "Viidakon kiitotie", "Viidakon hangaari", "Viidakon katu" });
+            EditorUtility.SetDirty(runway); EditorUtility.SetDirty(hangar);
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
+            var list = EditorBuildSettings.scenes.ToList();
+            if (!list.Any(s => s.path == JungleScenePath)) { list.Add(new EditorBuildSettingsScene(JungleScenePath, true)); EditorBuildSettings.scenes = list.ToArray(); }
+            Info("Viidakko luotu (scene " + JungleScenePath + ", lisätty Build Settingsiin).\nKiitotie: x " + JungleRunX0.ToString("0") + "… (kolme ruutua: kaksi kiitotien pätkää, hangaari oikeassa päässä). Hangaarin sivuovi (x ≈ " + outX.ToString("0.0") + ") vie sisätilaan (x " + JungleHangX0.ToString("0") + "…, kolme ruutua), sisätilan vasemmasta päästä (x ≈ " + inX.ToString("0.0") + ") takaisin kiitotielle ja oikeasta päästä (x ≈ " + hallEndX.ToString("0.0") + ") viidakkokadulle (x ≈ " + streetX.ToString("0.0") + ", hallin oikea ovi vie takaisin).\nParallaksit: vuoret (hitain) ja palmut; sisätilan ikkunoista näkyvät samat.\nMaailmanpallo (F8) vie Viidakkoon kiitotien alkuun. Musiikki: Assets/Audio/Musiikki/Viidakko.mp3 (vahvistus 1,2).");
+        }
+        finally { if (openedHere && scene.IsValid()) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Amatsoni (vihollinen): idle, kävely, juoksu, potku, osuma, kaatuminen, ylösnousu ----------------
+    // Kuvat: Assets/Sprites/Viholliset/amatsoni_*.png (Tools/AmazonAssets/make_amazon_sheets.py, ppu 200). Perusvihollinen (Enemy ilman omaa aivoa): lähestyy, juoksee kaukaa, potkaisee.
+    // Sijoitetaan Viidakon kiitotielle (valikko 305). Voimakkuutta ja kokoa säädetään tästä ja ajetaan valikko uudelleen.
+    [MenuItem("Beat em up/Yksittäiset valikot/306. Amatsoni: vihollinen Viidakon kiitotielle (idle, kävely, juoksu, potku, osuma, kaatuminen, nousu)", false, 306)]
+    static void AddAmazon()
+    {
+        if (PlayModeBlocked()) return;
+        if (!File.Exists(JungleScenePath)) { Info("Aja ensin valikko 305 (Viidakko)."); return; }
+        var sheets = new Dictionary<string, Sprite[]>();
+        foreach (var n in new[] { "amatsoni_idle", "amatsoni_kavely", "amatsoni_juoksu", "amatsoni_potku", "amatsoni_osuma", "amatsoni_kaatuminen", "amatsoni_nousu" })
+        {
+            var sp = LoadWalkerSprites(n);
+            if (sp == null || sp.Length == 0) { Info("Puuttuu tai ei leikkaudu: " + n + ".png (Assets/Sprites/Viholliset). Aja python Tools/AmazonAssets/make_amazon_sheets.py."); return; }
+            sheets[n] = sp;
+        }
+        var scene = EditorSceneManager.GetSceneByPath(JungleScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(JungleScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var area = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon kiitotie" && a.gameObject.scene == scene);
+            if (area == null) { Info("Viidakon kiitotietä ei löytynyt: aja valikko 305."); return; }
+            foreach (var old in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.displayName == "Amatsoni" && en.gameObject.scene == scene).ToArray())
+                Undo.DestroyObjectImmediate(old.gameObject);
+
+            var go = new GameObject("Amatsoni");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, scene);
+            Undo.RegisterCreatedObjectUndo(go, "Amatsoni");
+            var visual = new GameObject("Visual").AddComponent<SpriteRenderer>(); visual.transform.SetParent(go.transform, false);
+            var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
+            var e = go.AddComponent<Enemy>();
+            e.body = visual; e.shadow = shadow; visual.sprite = sheets["amatsoni_idle"][0];
+            e.displayName = "Amatsoni";
+            e.visualScale = 1f; e.attackArtScale = 1f; e.knockArtScale = 1f; e.walkArtScale = 1f;
+            e.idleSprites = sheets["amatsoni_idle"]; e.idleFrameTime = 0.1f;
+            e.walkSprites = sheets["amatsoni_kavely"]; e.walkFrameTime = 0.04f;
+            e.runSprites = sheets["amatsoni_juoksu"]; e.runFrameTime = 0.042f; e.runDistance = 2.5f; e.runSpeedMultiplier = 2.4f;   // juoksu selvästi kävelyä nopeampi
+            e.punchSprites = sheets["amatsoni_potku"]; e.punchImpactFrame = 6; e.punchDamage = 26; e.punchKnockdown = true; e.attackRange = 2.3f;
+            e.windupTime = 0.2f; e.punchActiveTime = 0.1f; e.punchRecoverTime = 0.3f; e.attackCooldown = 0.6f;   // aggressiivinen: nopea veto, lyhyt tauko
+            // heitettynä oleminen (13 kuvaa: 0-2 ote, 3-8 lento, 9-12 alastulo): Roccon kuperkeikkaheitto (flip) ja tavallinen heitto suoraan ylös (niskalenkkisarja)
+            var thrownArt = FindTexture("amatsoni_heitetty") != null ? LoadWalkerSprites("amatsoni_heitetty") : null;
+            if (thrownArt != null && thrownArt.Length == 13)
+            {
+                e.flipThrownSprites = thrownArt; e.flipFlightFrames = 6; e.flipFlightFrameTime = 0.07f; e.flipLandFrameTime = 0.12f;
+                e.headlockThrownSprites = new[] { thrownArt[0], thrownArt[0], thrownArt[1], thrownArt[1], thrownArt[2], thrownArt[8], thrownArt[11], thrownArt[12] };
+            }
+            var hit = sheets["amatsoni_osuma"];
+            // suojaus (4 kuvaa): torjuu osan iskuista
+            var guardArt = FindTexture("amatsoni_suoja") != null ? LoadWalkerSprites("amatsoni_suoja") : null;
+            if (guardArt != null && guardArt.Length >= 4) { e.blockSprites = new[] { guardArt[0], guardArt[1], guardArt[2], guardArt[2], guardArt[3] }; e.blockTime = 0.45f; e.blockChance = 0.35f; e.maxBlocksInRow = 3; e.guardWhenHurt = false; }
+            // lyönnit (suorat ja koukut) vaihtoehtoisina iskuina potkun rinnalla
+            Sprite[] Strike(string n) { var sp = FindTexture(n) != null ? LoadWalkerSprites(n) : null; return sp != null && sp.Length > 0 ? sp : null; }
+            var alts = new List<Enemy.AltVariant>();
+            void AddAlt(string n, int impact, int dmg, bool kd, float reach) { var sp = Strike(n); if (sp != null) alts.Add(new Enemy.AltVariant { name = n.Replace("amatsoni_", ""), sprites = sp, impactFrame = impact, frameTime = 0.034f, damage = dmg, reach = reach, knockdown = kd, knockSpeed = kd ? 7f : 0f, knockUp = kd ? 5f : 0f }); }
+            AddAlt("amatsoni_jabi", 3, 12, false, 2.1f);   // jabi: nopea, ei kaada
+            // takasuora (S): kaataa; sama takasuora on väistön vastaisku (AmazonBrain). Koukku (U): lennättää kaikki kattoon. Kombo PSPU = jabi, takasuora, jabi, koukku.
+            var crossArt = Strike("amatsoni_suora2"); var hookArt = Strike("amatsoni_koukku");
+            if (crossArt != null) { e.punch2Sprites = crossArt; e.punch2ImpactFrame = 3; e.punch2Damage = 32; e.punch2Knockdown = true; e.punch2Chance = 0.4f; e.punch2LaunchUp = 0f; }
+            if (hookArt != null)
+            {
+                e.uppercutSprites = hookArt; e.uppercutImpactFrame = 10; e.uppercutDamage = 42; e.uppercutReach = 2.5f; e.uppercutWindupTime = 0.65f; e.uppercutRecoverTime = 0.55f;
+                e.uppercutHeroUp = 24f; e.uppercutLaunchUp = 24f; e.uppercutLaunchX = 1.5f; e.uppercutChance = 0.2f; e.uppercutCharged = false;   // myös yksittäisenä iskuna
+                e.combos = new[] { "PSPU", "PSPU", "PPSU", "PSU" }; e.comboChance = 0.75f; e.comboRecoverFraction = 0.97f; e.comboWindupScale = 0.6f;
+            }
+            if (alts.Count > 0) { e.altVariants = alts.ToArray(); e.altAttackSprites = alts[0].sprites; e.altChance = 0.2f; e.altImpactFrame = alts[0].impactFrame; e.altAnimationFrameTime = 0.034f; }   // lyönnit useammin kuin potku
+            e.hurtSprites = hit.Take(4).ToArray(); e.hurtTime = 0.3f; e.strikeStep = 5f; e.attackRange = 2.3f;   // askel eteenpäin iskuissa, lyhyempi ulottuvuus
+            // kaatuminen: koko sarja ilmassa; viimeiset kuvat makaavat maassa (landSprites)
+            var fall = sheets["amatsoni_kaatuminen"];
+            int air = Mathf.Max(3, fall.Length / 2);
+            e.knockdownSprites = fall.Take(air).ToArray(); e.airFrameTime = 0.05f;
+            e.landSprites = fall.Skip(air).ToArray(); e.landFrameTime = 0.04f;
+            e.getUpSprites = sheets["amatsoni_nousu"]; e.getUpTime = sheets["amatsoni_nousu"].Length * 0.042f;
+            e.maxHealth = 700; e.depthTolerance = 0.4f; e.moveSpeedX = 3.0f; e.moveSpeedY = 1.8f; e.wakeDistance = 14f; e.idleFacing = -1;
+            e.hurtSounds = LoadClips("Assets/Audio/big thug", "gasp"); e.hurtVolume = 0.8f;
+            var dodgeArt = Strike("amatsoni_vaisto"); var counterArt = Strike("amatsoni_suora2"); var leapArt = Strike("amatsoni_hyppy"); var grabArt = Strike("amatsoni_heitto");
+            if (dodgeArt != null && counterArt != null)
+            {   // väistö satunnaisesti kun heroa lyödään, perään takasuora joka kaataa; erikoisliike: tuplakyrkkihyppy kuperkeikalla (ei torjuttavissa, kaataa)
+                var brain = go.AddComponent<AmazonBrain>();
+                brain.dodge = dodgeArt; brain.counter = counterArt; brain.counterDamage = 32; brain.dodgeChance = 0.4f; brain.counterImpactFrame = 3; brain.counterFrameTime = 0.034f;   // uusi takasuora (13 kuvaa), osumahetki kuva 3
+                if (leapArt != null && leapArt.Length == 46) brain.leap = leapArt;
+                if (grabArt != null && grabArt.Length == 50) brain.grab = grabArt;   // oma heitto: hero lentää kauas ja liukuu
+                brain.grabRange = 2.6f; brain.grabCooldown = 4f; brain.grabChancePerSec = 1.5f; brain.grabDamage = 28;   // heittää useammin (aiemmin 2,0 / 8 s / 0,5)
+            }
+            go.transform.position = new Vector3(Mathf.Lerp(area.walkMinX, area.walkMaxX, 0.7f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.4f), 0f);
+            go.SetActive(false);   // malli piilossa: Amatsoni ei ole kiitotiellä, valikko 307 kopioi hallin amatsonit tästä
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Info("Amatsoni-malli tehty Viidakon sceneen (piilossa, ei kiitotiellä; valikko 307 kopioi siitä hallin kaksi amatsonia) ja scene tallennettu. 700 elämää; potku (16 vahinkoa, kaataa), juoksee kun hero on yli 4,5 päässä.\nKuvat: " + string.Join(", ", sheets.Select(kv => kv.Key.Replace("amatsoni_", "") + " " + kv.Value.Length)) + ".\nKoko: hahmo n. 3,3 yksikköä korkea (visualScale 1). Ajamatta Unityssä, tarkista Console.");
+        }
+        finally { if (openedHere && scene.IsValid()) EditorSceneManager.CloseScene(scene, true); }
+    }
+
+    // ---------------- Viidakon halli: 6 rosvoa, rosvokapteeni ja samoalaisia (kaikki voitettava; eivät tappele keskenään) ----------------
+    // Mallit kopioidaan UccoLaivan scenestä (Rosvo, Kapteeni, Samoalainen). Hallin uloskäynnit (valikko 305) ovat lukossa kunnes viholliset on voitettu.
+    [MenuItem("Beat em up/Yksittäiset valikot/307. Viidakon halli: 6 rosvoa, rosvokapteeni ja samoalaisia (uloskäynnit lukossa)", false, 307)]
+    static void AddJungleHallFoes()
+    {
+        if (PlayModeBlocked()) return;
+        const string uccoPath = "Assets/Scenes/Areas/UccoLaiva.unity";
+        if (!File.Exists(JungleScenePath) || !File.Exists(uccoPath)) { Info("Aja ensin valikko 305 (Viidakko); UccoLaivan scene puuttuu."); return; }
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Open(string path)
+        {
+            var sc = EditorSceneManager.GetSceneByPath(path);
+            if (!sc.IsValid() || !sc.isLoaded) { sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(sc); }
+            return sc;
+        }
+        try
+        {
+            var ucco = Open(uccoPath); var jungle = Open(JungleScenePath);
+            Enemy Tmpl(string name) => Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e != null && e.gameObject.scene == ucco && e.displayName == name);
+            var rosvo = Tmpl("Rosvo"); var kapteeni = Tmpl("Kapteeni"); var samoa = Tmpl("Samoalainen");
+            var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon hangaari" && a.gameObject.scene == jungle);
+            if (rosvo == null || kapteeni == null || samoa == null || hall == null)
+            { Info("Mallia ei löytynyt (UccoLaivasta Rosvo " + (rosvo != null) + ", Kapteeni " + (kapteeni != null) + ", Samoalainen " + (samoa != null) + ") tai hallia (" + (hall != null) + ")."); return; }
+            foreach (var old in jungle.GetRootGameObjects().Where(g => g.name == "Viidakon hallin viholliset").ToArray()) Undo.DestroyObjectImmediate(old);
+            var root = new GameObject("Viidakon hallin viholliset");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, jungle);
+            Undo.RegisterCreatedObjectUndo(root, "Hallin viholliset");
+            int n = 0;
+            var made = new List<Enemy>(); var bandits = new List<Enemy>();
+            void Foe(Enemy tmpl, string label, float x01, float depth01, bool boss = false)
+            {
+                var c = Object.Instantiate(tmpl.gameObject);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(c, jungle);
+                c.transform.SetParent(root.transform, false);
+                c.name = label;
+                c.transform.position = new Vector3(Mathf.Lerp(hall.walkMinX + 7f, hall.walkMaxX - 3f, x01), Mathf.Lerp(hall.maxDepthY, hall.minDepthY, depth01), 0f);
+                var e = c.GetComponent<Enemy>();
+                // kaikki vain heroa vastaan: eivät tappele keskenään; valppaina heti
+                e.fightsEveryone = false; e.huntsBrawlers = false; e.ally = false; e.brawlsWithOthers = false; e.joinsFightWhenSquadComes = false;
+                e.wanderMinX = e.wanderMaxX = 0f; e.wakeDistance = 40f; e.idleFacing = -1;
+                c.SetActive(true);
+                n++; made.Add(e); if (tmpl == rosvo) bandits.Add(e);
+            }
+            // 6 rosvoa, 4 samoalaista (järjestys vuorotellen, jotta jonoa ei synny), kapteeni oikeassa päässä uloskäynnin edessä
+            float[] xr = { 0.12f, 0.28f, 0.40f, 0.56f, 0.68f, 0.80f }, dr = { 0.5f, 0.2f, 0.7f, 0.35f, 0.6f, 0.25f };
+            for (int i = 0; i < 6; i++) Foe(rosvo, "Hallin rosvo " + (i + 1), xr[i], dr[i]);
+            float[] xs = { 0.20f, 0.46f, 0.62f, 0.76f }, ds = { 0.35f, 0.55f, 0.25f, 0.7f };
+            for (int i = 0; i < 4; i++) Foe(samoa, "Hallin samoalainen " + (i + 1), xs[i], ds[i]);
+            Foe(kapteeni, "Hallin rosvokapteeni", 0.96f, 0.45f);
+            // amatsoni: yksi, pois käytöstä kunnes kaksi rosvoa on kaatunut (AmazonAmbush); auttavat ensin heroa kaataessaan hallin viholliset, sitten käyvät heron kimppuun
+            var amaTmpl = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(e => e != null && e.gameObject.scene == jungle && e.displayName == "Amatsoni" && e.transform.parent != root.transform);
+            string amaInfo = "Amatsoneja ei lisätty: aja ensin valikko 306 (Amatsoni).";
+            if (amaTmpl != null)
+            {
+                var amas = new List<Enemy>();
+                for (int i = 0; i < 1; i++)   // yksi amatsoni
+                {
+                    var c = Object.Instantiate(amaTmpl.gameObject);
+                    UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(c, jungle);
+                    c.transform.SetParent(root.transform, false); c.name = "Hallin amatsoni " + (i + 1);
+                    c.SetActive(false); amas.Add(c.GetComponent<Enemy>());
+                }
+                var amb = root.AddComponent<AmazonAmbush>();
+                amb.bandits = bandits.ToArray(); amb.foes = made.ToArray(); amb.amazons = amas.ToArray(); amb.triggerCount = 2;
+                amb.entryPoints = new[] { new Vector3(hall.walkMinX + 3.5f, Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.3f), 0f), new Vector3(hall.walkMinX + 3.5f, Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.7f), 0f) };
+                amaInfo = "Kun kaksi rosvoa on kaatunut, amatsoni ilmestyy hallin vasemmasta päästä ja hakkaa hallin vihollisia; kun kaikki on voitettu, hän käy heron kimppuun.";
+            }
+            EditorSceneManager.MarkSceneDirty(jungle); EditorSceneManager.SaveScene(jungle);
+            Info(amaInfo + "\n" + "Viidakon halliin lisätty " + n + " vihollista: 6 rosvoa, 4 samoalaista ja rosvokapteeni oikeaan päähän. Kaikki valppaina heti ja vain heroa vastaan (eivät tappele keskenään). Hallin molemmat uloskäynnit ovat lukossa kunnes viholliset on voitettu (jos ovet eivät lukitu, aja valikko 305 uudelleen). Ajamatta Unityssä.");
+        }
+        finally { foreach (var sc in opened) if (sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
+    }
+
+    // ---------------- Viidakon halli: Sohvi baaritiskille (kuva sisa_1 oikea pää; tiskin etuosa leikattu omaksi kuvaksi) ----------------
+    const float HallCounterXPx = 1250f, HallCounterYPx = 500f, HallCounterW = 422f, HallCounterH = 145f, HallSohviXPx = 1480f, HallSohviFeetPx = 642f;
+    [MenuItem("Beat em up/Yksittäiset valikot/308. Viidakon halli: Sohvi baaritiskille (kahvi, voileipä, limsa; aja 279 ja 305 ensin)", false, 308)]
+    static void AddJungleHallSohvi()
+    {
+        if (PlayModeBlocked()) return;
+        const string alpPath = "Assets/Scenes/Areas/Alppikyla.unity", frontPath = "Assets/Sprites/Taustat/viidakko_halli_tiski.png", srcPath = "Assets/Sprites/Taustat/viidakko_sisa_1.png";
+        if (!File.Exists(JungleScenePath) || !File.Exists(alpPath) || !File.Exists(srcPath)) { Info("Aja ensin valikko 305 (Viidakko) ja 279 (afterski-baari)."); return; }
+        // tiskin etuosa taustakuvasta omaksi kuvaksi (Sohvi seisoo sen takana)
+        {
+            var tex = new Texture2D(2, 2); tex.LoadImage(File.ReadAllBytes(srcPath));
+            int x = (int)HallCounterXPx, w = Mathf.Min((int)HallCounterW, tex.width - x), h = (int)HallCounterH, y = tex.height - (int)HallCounterYPx - h;
+            var crop = new Texture2D(w, h, TextureFormat.RGBA32, false); crop.SetPixels(tex.GetPixels(x, y, w, h)); crop.Apply();
+            File.WriteAllBytes(frontPath, crop.EncodeToPNG()); Object.DestroyImmediate(tex); Object.DestroyImmediate(crop);
+            AssetDatabase.ImportAsset(frontPath, ImportAssetOptions.ForceUpdate);
+        }
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Open(string path)
+        {
+            var sc = EditorSceneManager.GetSceneByPath(path);
+            if (!sc.IsValid() || !sc.isLoaded) { sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(sc); }
+            return sc;
+        }
+        try
+        {
+            var alp = Open(alpPath); var jungle = Open(JungleScenePath);
+            var sohviT = Object.FindObjectsByType<Dancer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == alp && c.name == "Sohvi (afterski-baari)");
+            var counterT = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == alp && c.name == "Afterski-baarin tiski (Sohvi)");
+            var hall = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon hangaari" && a.gameObject.scene == jungle);
+            if (sohviT == null || counterT == null || hall == null) { Info("Mallia tai hallia ei löytynyt: aja valikko 279 (Alppikylän afterski-baari) ja 305."); return; }
+            foreach (var o in jungle.GetRootGameObjects().Where(g => g.name == "Viidakon hallin Sohvi").ToArray()) Undo.DestroyObjectImmediate(o);
+            float ppu = 941f / (2f * CamHalf), top = CamY - CamHalf + 941f / ppu, x0 = JungleHangX0;
+            var root = new GameObject("Viidakon hallin Sohvi");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, jungle);
+            Undo.RegisterCreatedObjectUndo(root, "Hallin Sohvi");
+            float frontY = top - (HallCounterYPx + HallCounterH) / ppu, hx = x0 + HallSohviXPx / ppu, hy = top - HallSohviFeetPx / ppu;
+            var cSpr = ImportShipSprite(frontPath, ppu, false, SpriteAlignment.Center);
+            if (cSpr != null)
+            {
+                var cgo = new GameObject("Hallin baaritiski (etu)").AddComponent<SpriteRenderer>();
+                cgo.transform.SetParent(root.transform, false); cgo.sprite = cSpr;
+                cgo.transform.position = new Vector3(x0 + (HallCounterXPx + cSpr.rect.width * 0.5f) / ppu, top - (HallCounterYPx + cSpr.rect.height * 0.5f) / ppu, 0f);
+                cgo.sortingOrder = Mathf.RoundToInt(-frontY * 100f);
+            }
+            var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Sohvi (halli)";
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, jungle);
+            sg.transform.SetParent(root.transform, false);
+            sg.transform.position = new Vector3(hx, hy, 0f);
+            sg.transform.localScale = Vector3.one * AlpTermSohviScale;
+            var rS = sg.GetComponentInChildren<SpriteRenderer>(); if (rS != null) rS.sortingOrder = Mathf.RoundToInt(-hy * 100f);
+            var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Hallin tiski (Sohvi)";
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(shopGo, jungle);
+            shopGo.transform.SetParent(root.transform, false);
+            shopGo.transform.position = new Vector3(hx, hall.maxDepthY, 0f);
+            var sc = shopGo.GetComponent<ShopCounter>();
+            sc.here = hall; sc.title = "HALLIN BAARI"; sc.npcName = "Sohvi"; sc.prompt = "Puhu Sohville";
+            sc.halfWidth = 3.4f; sc.maxDistanceFromWall = 1.4f; sc.ownItemsOnly = false;
+            sc.items = new[]
+            {
+                new ShopCounter.Item { name = "Kahvi", price = 4, heal = 0, stamina = 60, comment = "Kuumaa ja vahvaa." },
+                new ShopCounter.Item { name = "Voileipä", price = 6, heal = 45, stamina = 0, comment = "Tuore ja täyttävä." },
+                new ShopCounter.Item { name = "Limsa", price = 3, heal = 15, stamina = 25, comment = "Kylmää ja kuplivaa." },
+            };
+            EditorSceneManager.MarkSceneDirty(jungle); EditorSceneManager.SaveScene(jungle);
+            Info("Sohvi seisoo hallin baaritiskin takana (x " + hx.ToString("0.0") + ") ja myy kahvia, voileipiä ja limsaa. Tiskin etuosa on leikattu taustakuvasta (viidakko_halli_tiski.png). Jos paikka tai korkeus ei täsmää, säädä HallSohviXPx / HallSohviFeetPx. Ajamatta Unityssä.");
+        }
+        finally { foreach (var sc in opened) if (sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
+    }
+
+    // ---------------- Rosvokapteenin kuvat takaisin (kaukalon Kapteeni ylikirjoitti kapteeni_idle/kavely/kaatuminen) ----------------
+    // Alkuperäiset kuvat on palautettu nimillä rosvokapteeni_idle/kavely/kaatuminen. Tämä asettaa ne UccoLaivan komentosillan rosvokapteenille ja Viidakon hallin kopiolle.
+    [MenuItem("Beat em up/Yksittäiset valikot/85c. Rosvokapteenin kuvat takaisin (idle, kävely, kaatuminen; ei sekoitu kaukalon Kapteeniin)", false, 85)]
+    static void FixShipCaptainArt()
+    {
+        if (PlayModeBlocked()) return;
+        var report = new List<string>();
+        foreach (var n in new[] { "rosvokapteeni_idle", "rosvokapteeni_kavely", "rosvokapteeni_kaatuminen" }) { var pth = FindTexture(n); if (pth != null) SetupAndSlice(pth); }
+        var idle = EnemySheet("rosvokapteeni_idle", report); var walk = EnemySheet("rosvokapteeni_kavely", report); var fall = EnemySheet("rosvokapteeni_kaatuminen", report);
+        if (idle.Length < 6 || walk.Length == 0 || fall.Length < 8) { Info("Rosvokapteenin kuvat puuttuvat tai eivät leikkaudu (idle " + idle.Length + ", kävely " + walk.Length + ", kaatuminen " + fall.Length + ")."); return; }
+        var opened = new List<UnityEngine.SceneManagement.Scene>(); int fixedN = 0;
+        try
+        {
+            foreach (var path in new[] { "Assets/Scenes/Areas/UccoLaiva.unity", JungleScenePath })
+            {
+                if (!File.Exists(path)) continue;
+                var sc = EditorSceneManager.GetSceneByPath(path);
+                if (!sc.IsValid() || !sc.isLoaded) { sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(sc); }
+                bool dirty = false;
+                foreach (var e in Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                {
+                    if (e == null || e.gameObject.scene != sc || e.displayName != "Kapteeni") continue;
+                    e.idleSprites = idle; e.walkSprites = walk;
+                    e.hurtSprites = new[] { fall[0] }; e.knockdownSprites = fall.Take(8).ToArray();
+                    if (e.body != null) e.body.sprite = idle[0];
+                    EditorUtility.SetDirty(e); dirty = true; fixedN++;
+                }
+                if (dirty) { EditorSceneManager.MarkSceneDirty(sc); EditorSceneManager.SaveScene(sc); }
+            }
+        }
+        finally { foreach (var sc in opened) if (sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
+        Info("Rosvokapteenin kuvat asetettu " + fixedN + " kapteenille (UccoLaivan komentosilta ja Viidakon halli). Jos komentosillan kapteenia ei löytynyt, aja valikko 85.");
+    }
+
+    // ---------------- Viidakkokatu: laatikot, tynnyrit ja väki (rosvot, samoalaiset, lippikset, kovikset, prätkäjätkät) ----------------
+    // Mallit kopioidaan UccoLaivasta (Rosvo, Samoalainen, Lippis, Kovis, laatikko, tynnyri) ja Alppikylästä (Prätkäjätkä). Vain heroa vastaan, eivät tappele keskenään.
+    [MenuItem("Beat em up/Yksittäiset valikot/309. Viidakkokatu: laatikot, tynnyrit ja väki (3 rosvoa, 2 samoalaista, 3 lippistä, 3 koviksia, 2 prätkäjätkää)", false, 309)]
+    static void AddJungleStreetFolk()
+    {
+        if (PlayModeBlocked()) return;
+        const string uccoPath = "Assets/Scenes/Areas/UccoLaiva.unity";
+        if (!File.Exists(JungleScenePath) || !File.Exists(uccoPath)) { Info("Aja ensin valikko 305 (Viidakko); UccoLaivan scene puuttuu."); return; }
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Open(string path)
+        {
+            var sc = EditorSceneManager.GetSceneByPath(path);
+            if (!sc.IsValid() || !sc.isLoaded) { sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(sc); }
+            return sc;
+        }
+        try
+        {
+            var ucco = Open(uccoPath); var jungle = Open(JungleScenePath);
+            UnityEngine.SceneManagement.Scene alp = default; bool hasAlp = File.Exists(AlpineScenePathNow);
+            if (hasAlp) alp = Open(AlpineScenePathNow);
+            var allE = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            Enemy Tmpl(UnityEngine.SceneManagement.Scene sc, string name) => allE.FirstOrDefault(e => e != null && e.gameObject.scene == sc && e.displayName == name);
+            var rosvo = Tmpl(ucco, "Rosvo"); var samoa = Tmpl(ucco, "Samoalainen"); var lippis = Tmpl(ucco, "Lippis"); var kovis = Tmpl(ucco, "Kovis");
+            var prätkä = hasAlp ? Tmpl(alp, "Prätkäjätkä") : null;
+            var street = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon katu" && a.gameObject.scene == jungle);
+            if (street == null) { Info("Viidakon katua ei löytynyt: aja valikko 305."); return; }
+            var crates = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(c => c != null && c.gameObject.scene == ucco).ToArray();
+            var crateT = crates.FirstOrDefault(c => c.breakable && c.stackedOn == null && c.gameObject.name.StartsWith("Laatikko"));
+            var barrelT = crates.FirstOrDefault(c => !c.breakable && c.rollSprites != null && c.rollSprites.Length > 0);
+            string missing = string.Join(", ", new[] { rosvo == null ? "Rosvo" : "", samoa == null ? "Samoalainen" : "", lippis == null ? "Lippis" : "", kovis == null ? "Kovis" : "", prätkä == null ? "Prätkäjätkä (Alppikylästä)" : "", crateT == null ? "laatikko" : "", barrelT == null ? "tynnyri" : "" }.Where(x => x != ""));
+            foreach (var old in jungle.GetRootGameObjects().Where(g => g.name == "Viidakkokadun väki ja rekvisiitta").ToArray()) Undo.DestroyObjectImmediate(old);
+            var root = new GameObject("Viidakkokadun väki ja rekvisiitta");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, jungle);
+            Undo.RegisterCreatedObjectUndo(root, "Viidakkokatu");
+            float xMin = street.walkMinX + 6f, xMax = Mathf.Min(street.walkMaxX - 3f, JungleStreetX0 + 5f * (1672f / (941f / (2f * CamHalf))) - 3f);   // väki vain ravintolan kohdalle asti (uudet ruudut: silta ja temppeli)
+            int nProps = 0, nFoes = 0;
+            T CopyOf<T>(T tmpl, string label, float x01, float depth01) where T : Component
+            {
+                var c = Object.Instantiate(tmpl.gameObject);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(c, jungle);
+                c.transform.SetParent(root.transform, false);
+                c.name = label;
+                c.transform.position = new Vector3(Mathf.Lerp(xMin, xMax, x01), Mathf.Lerp(street.maxDepthY, street.minDepthY, depth01), 0f);
+                c.SetActive(true);
+                return c.GetComponent<T>();
+            }
+            // ravintolan jälkeiset ruudut (silta, rauniot, temppeli): paikat ruudun (0 = katu_1) ja kuvapikselin mukaan
+            float ppuS = 941f / (2f * CamHalf), WS = 1672f / ppuS;
+            T CopyAt<T>(T tmpl, string label, int tile, float px, float depth01) where T : Component
+            {
+                var c = Object.Instantiate(tmpl.gameObject);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(c, jungle);
+                c.transform.SetParent(root.transform, false);
+                c.name = label;
+                c.transform.position = new Vector3(JungleStreetX0 + tile * WS + px / ppuS, Mathf.Lerp(street.maxDepthY, street.minDepthY, depth01), 0f);
+                c.SetActive(true);
+                return c.GetComponent<T>();
+            }
+            // laatikot ja tynnyrit kadun takareunaan (joka toisen päällä toinen laatikko)
+            float[] crateX = { 0.07f, 0.17f, 0.33f, 0.47f, 0.61f, 0.74f }, barrelX = { 0.12f, 0.27f, 0.54f, 0.81f, 0.95f };
+            if (crateT != null)
+                for (int i = 0; i < crateX.Length; i++)
+                {
+                    var b = CopyOf(crateT, "Katulaatikko " + (i + 1), crateX[i], 0.10f + 0.04f * (i % 2)); b.stackedOn = null; nProps++;
+                    if (i % 2 == 0) { var top = CopyOf(crateT, "Katulaatikko " + (i + 1) + " (päällä)", crateX[i] + 0.0045f, 0.10f + 0.04f * (i % 2) + 0.002f); top.stackedOn = b; nProps++; }
+                }
+            if (barrelT != null) for (int i = 0; i < barrelX.Length; i++) { CopyOf(barrelT, "Katutynnyri " + (i + 1), barrelX[i], 0.14f); nProps++; }
+            if (crateT != null)
+            {
+                // ravintolan ohi: ravintolan oikean oven edestä siirretty laatikkopari sekä lisää laatikoita siltaan, raunioille ja temppelille
+                var pairB = CopyAt(crateT, "Katulaatikko ohi 1", 5, 180f, 0.10f); pairB.stackedOn = null; nProps++;
+                var pairT = CopyAt(crateT, "Katulaatikko ohi 1 (päällä)", 5, 180f + 8f, 0.102f); pairT.stackedOn = pairB; nProps++;
+                foreach (var (tl, pxl, dp) in new[] { (6, 300f, 0.12f), (7, 520f, 0.10f), (7, 1250f, 0.14f), (8, 260f, 0.12f), (8, 1300f, 0.10f), (9, 280f, 0.12f) })
+                { var cr = CopyAt(crateT, "Katulaatikko ohi " + (nProps + 1), tl, pxl, dp); cr.stackedOn = null; nProps++; }
+                { var pileB = CopyAt(crateT, "Katulaatikko ohi pino", 8, 700f, 0.11f); pileB.stackedOn = null; nProps++; var pileT = CopyAt(crateT, "Katulaatikko ohi pino (päällä)", 8, 708f, 0.112f); pileT.stackedOn = pileB; nProps++; }
+            }
+            if (barrelT != null) foreach (var (tl, pxl, dp) in new[] { (6, 900f, 0.14f), (7, 1400f, 0.16f), (8, 850f, 0.15f), (9, 1500f, 0.14f) }) { CopyAt(barrelT, "Katutynnyri ohi " + (nProps + 1), tl, pxl, dp); nProps++; }
+            // väki: vain heroa vastaan, eivät tappele keskenään; heräävät kun hero tulee lähelle (katu on pitkä, joten joukko tulee vähitellen)
+            void Foe(Enemy tmpl, string label, float x01, float depth01)
+            {
+                if (tmpl == null) return;
+                var e = CopyOf(tmpl, label, x01, depth01);
+                e.fightsEveryone = false; e.huntsBrawlers = false; e.ally = false; e.brawlsWithOthers = false; e.joinsFightWhenSquadComes = false;
+                e.wanderMinX = e.wanderMaxX = 0f; e.wakeDistance = 12f; e.idleFacing = -1;
+                nFoes++;
+            }
+            Foe(rosvo, "Katurosvo 1", 0.20f, 0.55f); Foe(rosvo, "Katurosvo 2", 0.52f, 0.30f); Foe(rosvo, "Katurosvo 3", 0.86f, 0.65f);
+            Foe(samoa, "Katusamoalainen 1", 0.36f, 0.45f); Foe(samoa, "Katusamoalainen 2", 0.78f, 0.35f);
+            Foe(lippis, "Katulippis 1", 0.15f, 0.30f); Foe(lippis, "Katulippis 2", 0.44f, 0.70f); Foe(lippis, "Katulippis 3", 0.70f, 0.55f);
+            Foe(kovis, "Katukovis 1", 0.26f, 0.70f); Foe(kovis, "Katukovis 2", 0.58f, 0.50f); Foe(kovis, "Katukovis 3", 0.92f, 0.40f);
+            Foe(prätkä, "Katuprätkäjätkä 1", 0.40f, 0.35f); Foe(prätkä, "Katuprätkäjätkä 2", 0.82f, 0.60f);
+            // lisää vihuja ravintolan jälkeen (silta, rauniot, temppeli); sillalla vain kannen takaosassa, joten ei siltaa keskelle
+            void FoeAt(Enemy tmpl, string label, int tile, float px, float depth01)
+            {
+                if (tmpl == null) return;
+                var e = CopyAt(tmpl, label, tile, px, depth01);
+                e.fightsEveryone = false; e.huntsBrawlers = false; e.ally = false; e.brawlsWithOthers = false; e.joinsFightWhenSquadComes = false;
+                e.wanderMinX = e.wanderMaxX = 0f; e.wakeDistance = 12f; e.idleFacing = -1;
+                nFoes++;
+            }
+            FoeAt(rosvo, "Ohirosvo 1", 5, 200f, 0.60f); FoeAt(samoa, "Ohisamoalainen 1", 6, 400f, 0.50f); FoeAt(kovis, "Ohikovis 1", 6, 1100f, 0.70f); FoeAt(lippis, "Ohilippis 1", 6, 1450f, 0.35f);
+            FoeAt(prätkä, "Ohiprätkäjätkä 1", 7, 300f, 0.40f); FoeAt(rosvo, "Ohirosvo 2", 7, 900f, 0.65f); FoeAt(kovis, "Ohikovis 2", 7, 1400f, 0.45f);
+            FoeAt(samoa, "Ohisamoalainen 2", 8, 400f, 0.60f); FoeAt(lippis, "Ohilippis 2", 8, 900f, 0.35f); FoeAt(rosvo, "Ohirosvo 3", 8, 1450f, 0.70f);
+            FoeAt(prätkä, "Ohiprätkäjätkä 2", 9, 350f, 0.50f); FoeAt(kovis, "Ohikovis 3", 9, 800f, 0.65f); FoeAt(samoa, "Ohisamoalainen 3", 9, 1500f, 0.40f);
+            // yksi amatsoni kadulle (malli: Viidakon scenen piilotettu Amatsoni, valikko 306); tavallinen vihollinen, väistö ja erikoisliikkeet aivosta
+            var amaT = allE.FirstOrDefault(e => e != null && e.gameObject.scene == jungle && e.displayName == "Amatsoni" && !e.transform.IsChildOf(root.transform) && e.transform.parent == null);
+            if (amaT != null)
+            {
+                Foe(amaT, "Katuamatsoni", 0.66f, 0.45f);
+                FoeAt(amaT, "Katuamatsoni 2 (temppelillä)", 9, 650f, 0.55f);   // kadun loppuun, temppelin sisäänkäynnin eteen
+                // amatsoni taistelee kaikkia vastaan (heroa ja muita vihuja), kun huomaa heron; muut vihut käyvät hänen kimppuunsa (huntsBrawlers)
+                foreach (var e in root.GetComponentsInChildren<Enemy>(true))
+                {
+                    if (e.name.StartsWith("Katuamatsoni")) e.fightsEveryone = true;
+                    else e.huntsBrawlers = true;
+                }
+            }
+            else missing += (missing.Length > 0 ? ", " : "") + "Amatsoni (aja valikko 306)";
+            EditorSceneManager.MarkSceneDirty(jungle); EditorSceneManager.SaveScene(jungle);
+            Info("Viidakkokadulle lisätty " + nProps + " laatikkoa/tynnyriä ja " + nFoes + " vihollista (rosvoja, samoalaisia, lippiksiä, koviksia ja prätkäjätkiä). Vain heroa vastaan, heräävät kun hero tulee lähelle; Katuamatsoni taistelee kaikkia vastaan ja muut käyvät hänen kimppuunsa." + (missing.Length > 0 ? "\nPuuttuvat mallit (ei lisätty): " + missing : "") + "\nAjamatta Unityssä.");
+        }
+        finally { foreach (var sc in opened) if (sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
+    }
+
+    // ---------------- Viidakkoravintola (kadun päässä): Sohvi tiskillä, pokeripöytä, kalapöydät, telkkarit, väki, tappelu ja portsarit ----------------
+    // Kuvat: viidakko_ravintola_1..3 + tiskin etukaistat (Tools/JungleAssets/make_jungle_restaurant.py). Oma alue x 58000 (56000 on Bricktownin pelihallin). Ovi kadulta (katu_5:n portaat) ja takaisin.
+    // Väki rauhassa, tappelu alkaa minuutin kuluttua tai kun hero aloittaa; portsarit: 2 kummaltakin puolelta tappelun alkaessa, 30 s päästä 2 lisää kummaltakin.
+    const float JungleRestX0 = 58000f, JungleRestWallPx = 600f, JungleRestSohviXPx = 2472f, JungleRestSohviFeetPx = 603f, JungleRestCounterTopPx = 448f;
+    static readonly (string type, float px, float depth)[] JungleRestCrowd = {
+        ("Lätkäfani", 2900f, 0.30f), ("Tom", 3300f, 0.60f), ("Amatsoni", 3650f, 0.55f),
+        ("Puliukko", 1800f, 0.55f), ("Puliukko", 2650f, 0.70f),
+        ("Prätkäjätkä", 1250f, 0.50f), ("Prätkäjätkä", 2200f, 0.35f), ("Prätkäjätkä", 3100f, 0.85f), ("Prätkäjätkä", 4500f, 0.60f),
+        ("Lippis", 1650f, 0.30f), ("Lippis", 3900f, 0.40f),
+        ("Rosvo", 800f, 0.50f), ("Rosvo", 3400f, 0.30f), ("Rosvo", 4000f, 0.85f), ("Rosvo", 4700f, 0.35f),
+        ("Punkkari", 2400f, 0.90f), ("Punkkari", 4300f, 0.70f) };
+    static readonly Vector2[] JungleRestTables = { new Vector2(700f, 0.75f), new Vector2(1450f, 0.45f), new Vector2(2100f, 0.80f), new Vector2(2900f, 0.50f), new Vector2(3500f, 0.80f), new Vector2(4200f, 0.45f) };
+    static readonly Vector2[] JungleRestTvTables = { new Vector2(1600f, 0.12f), new Vector2(3000f, 0.12f), new Vector2(4350f, 0.12f) };
+
+    [MenuItem("Beat em up/Yksittäiset valikot/310. Viidakkoravintola: sisus (Sohvi, pokeripöytä, kalapöydät, telkkarit, väki, tappelu, portsarit) ja ovi kadulta", false, 310)]
+    static void AddJungleRestaurant()
+    {
+        if (PlayModeBlocked()) return;
+        const string T = "Assets/Sprites/Taustat/";
+        foreach (var f in new[] { "viidakko_ravintola_1", "viidakko_ravintola_2", "viidakko_ravintola_3", "viidakko_ravintola_tiski_1", "viidakko_ravintola_tiski_2", "viidakko_ravintola_tiski_3" })
+            if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png: aja python Tools/JungleAssets/make_jungle_restaurant.py <kuva 1> <kuva 2> <kuva 3>."); return; }
+        if (!File.Exists(JungleScenePath)) { Info("Aja ensin valikko 305 (Viidakko)."); return; }
+        var opened = new List<UnityEngine.SceneManagement.Scene>();
+        UnityEngine.SceneManagement.Scene Open(string path)
+        {
+            if (!File.Exists(path)) return default;
+            var sc = EditorSceneManager.GetSceneByPath(path);
+            if (!sc.IsValid() || !sc.isLoaded) { sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive); opened.Add(sc); }
+            return sc;
+        }
+        try
+        {
+            var jungle = Open(JungleScenePath); var ucco = Open(UccoLaivaScenePath); var alp = Open(AlpineScenePathNow); var thai = Open(ThaitownScenePath);
+            var sample = Open("Assets/Scenes/SampleScene.unity"); var desert = Open("Assets/Scenes/Areas/Aavikko.unity");
+            var report = new List<string>();
+            var street = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon katu" && a.gameObject.scene == jungle);
+            if (street == null) { Info("Viidakon katua ei löytynyt: aja valikko 305."); return; }
+            foreach (var n in new[] { "Viidakon ravintola", "Viidakon ravintolan väki", "Viidakon ravintolan portsarit", "Viidakon ravintolan tappelu", "Alue: Viidakon ravintola", "Viidakon ravintolan ovet" })
+                foreach (var o in jungle.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
+
+            float ppu = 941f / (2f * CamHalf), H = 941f / ppu, W = 1672f / ppu, bottom = CamY - CamHalf, top = bottom + H, cy = CamY, X0 = JungleRestX0;
+            var root = new GameObject("Viidakon ravintola");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, jungle);
+            Undo.RegisterCreatedObjectUndo(root, "Viidakon ravintola");
+            // ---- tausta: kolme kuvaa, ~1 px limitys ----
+            var names = new[] { "viidakko_ravintola_1", "viidakko_ravintola_2", "viidakko_ravintola_3" };
+            for (int i = 0; i < 3; i++)
+            {
+                var sp = ImportShipSprite(T + names[i] + ".png", ppu, false, SpriteAlignment.Center);
+                if (sp == null) { Info("Kuvan tuonti epäonnistui: " + names[i]); return; }
+                var sr = new GameObject("Ravintola " + (i + 1)).AddComponent<SpriteRenderer>();
+                sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
+                sr.transform.position = new Vector3(X0 + W * (i + 0.5f), cy, 0f); sr.transform.localScale = new Vector3(1.0018f, 1f, 1f);
+            }
+            var area = ReuseArea("Alue: Viidakon ravintola");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(area.gameObject, jungle);
+            area.areaName = "Viidakon ravintola"; area.useSidewalk = false;
+            area.maxDepthY = top - JungleRestWallPx / ppu; area.minDepthY = bottom + 0.9f;
+            area.walkMinX = X0 + 1.5f; area.walkMaxX = X0 + 3f * W - 1.5f;
+            area.camMinX = X0 + W * 0.5f; area.camMaxX = X0 + 3f * W - W * 0.5f;
+            area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f; area.depthLimits = new Vector2[0];
+            area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Viidakko.mp3"); area.musicGain = area.music != null ? JungleMusicGain : 1f;
+            // parallaksit ikkunoiden ja oviaukkojen taakse
+            foreach (var (nm, file, factor, order) in new[] { ("Ravintolan vuoret", "viidakko_taka", 0.04f, -10100), ("Ravintolan palmut", "viidakko_etu", 0.12f, -10050) })
+            {
+                var psp = ImportShipSprite(T + file + ".png", ppu, false, SpriteAlignment.Center);
+                if (psp == null) continue;
+                var pr = new GameObject(nm).AddComponent<SpriteRenderer>(); pr.transform.SetParent(root.transform, false); pr.sprite = psp; pr.sortingOrder = order;
+                pr.transform.position = new Vector3(area.camMinX - W * 0.5f + psp.bounds.size.x * 0.5f, cy, 0f);
+                var pl = pr.gameObject.AddComponent<ParallaxLayer>(); pl.factor = factor; pl.startCamX = area.camMinX; pl.minX = area.camMinX - 2f; pl.maxX = area.camMaxX + 2f;
+            }
+            float PxX(float px) => X0 + px / ppu;
+            float Y(float depth) => Mathf.Lerp(area.maxDepthY - 0.2f, area.minDepthY + 0.4f, depth);
+
+            // ---- tiskin etuosa (kolme kaistaa) + Sohvi ja kauppa ----
+            float frontY = top - 606f / ppu, hx = PxX(JungleRestSohviXPx), hy = top - JungleRestSohviFeetPx / ppu;
+            int ord = Mathf.RoundToInt(-frontY * 100f);
+            var cuts = new[] { ("viidakko_ravintola_tiski_1", 1070f), ("viidakko_ravintola_tiski_2", 1672f), ("viidakko_ravintola_tiski_3", 3344f) };
+            foreach (var (cn, left) in cuts)
+            {
+                var csp = ImportShipSprite(T + cn + ".png", ppu, false, SpriteAlignment.Center);
+                if (csp == null) continue;
+                var cs = new GameObject("Tiskin etu " + cn.Substring(cn.Length - 1)).AddComponent<SpriteRenderer>(); cs.transform.SetParent(root.transform, false); cs.sprite = csp; cs.sortingOrder = ord;
+                cs.transform.position = new Vector3(X0 + (left + csp.rect.width * 0.5f) / ppu, top - (JungleRestCounterTopPx + csp.rect.height * 0.5f) / ppu, 0f);
+            }
+            var sohviT = Object.FindObjectsByType<Dancer>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => alp.IsValid() && c.gameObject.scene == alp && c.name == "Sohvi (afterski-baari)");
+            var counterT = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => alp.IsValid() && c.gameObject.scene == alp && c.name == "Afterski-baarin tiski (Sohvi)");
+            if (sohviT != null && counterT != null)
+            {
+                var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Sohvi (viidakkoravintola)";
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, jungle); sg.transform.SetParent(root.transform, false);
+                sg.transform.position = new Vector3(hx, hy, 0f); sg.transform.localScale = Vector3.one * AlpTermSohviScale;
+                var rS = sg.GetComponentInChildren<SpriteRenderer>(); if (rS != null) rS.sortingOrder = Mathf.RoundToInt(-hy * 100f);
+                var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Viidakkoravintolan tiski (Sohvi)";
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(shopGo, jungle); shopGo.transform.SetParent(root.transform, false);
+                shopGo.transform.position = new Vector3(hx, area.maxDepthY, 0f);
+                var sc = shopGo.GetComponent<ShopCounter>();
+                sc.here = area; sc.title = "VIIDAKKORAVINTOLA"; sc.npcName = "Sohvi"; sc.prompt = "Puhu Sohville"; sc.halfWidth = 3.6f; sc.maxDistanceFromWall = 1.5f; sc.ownItemsOnly = false;
+                sc.items = new[]
+                {
+                    new ShopCounter.Item { name = "Kalaa", price = 12, heal = 60, stamina = 0, comment = "Grillattua, sitruunalla." },
+                    new ShopCounter.Item { name = "Hummeri", price = 18, heal = 90, stamina = 0, comment = "Päivän tarjous, tuoretta." },
+                    new ShopCounter.Item { name = "Kahvi", price = 4, heal = 0, stamina = 60, comment = "Kuumaa ja vahvaa." },
+                    new ShopCounter.Item { name = "Rommi", price = 12, heal = 50, stamina = 999, comment = "Merimieskänni!" },
+                };
+            }
+            else report.Add("Sohvin malleja ei löytynyt (aja valikko 279)");
+
+            // ---- kalapöydät (stadionin ravintolan pöytä + kala-annos + olut), tuolit (El Loippari) ----
+            var allCrates = Object.FindObjectsByType<Crate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var allFish = Object.FindObjectsByType<FishPlate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var allBottles = Object.FindObjectsByType<Bottle>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var fishT = alp.IsValid() ? allFish.FirstOrDefault(fp => fp != null && fp.gameObject.scene == alp && fp.spriteSet == "Kala" && fp.table != null) : null;
+            var tableT = fishT != null ? fishT.table : (ucco.IsValid() ? allCrates.FirstOrDefault(c => c != null && c.gameObject.scene == ucco && c.name == "P" + (char)0xF6 + "yt" + (char)0xE4 && c.transform.parent != null && c.transform.parent.name.StartsWith("El Loipparin")) : null);
+            var beerT = fishT != null ? allBottles.FirstOrDefault(b => b != null && b.table == fishT.table) : null;
+            var chairT = ucco.IsValid() ? Object.FindObjectsByType<Chair>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == ucco) : null;
+            int nt = 0;
+            if (tableT != null)
+            {
+                var props = new GameObject("Ravintolan pöydät ja tuolit"); props.transform.SetParent(root.transform, false);
+                foreach (var v in JungleRestTables)
+                {
+                    float x = PxX(v.x), y = Y(v.y); nt++;
+                    var tg = Object.Instantiate(tableT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(tg, jungle); tg.transform.SetParent(props.transform, false);
+                    tg.name = "Ravintolapöytä " + nt; tg.transform.position = new Vector3(x, y, 0f); tg.SetActive(true);
+                    var tc = tg.GetComponent<Crate>(); tc.stackedOn = null;
+                    if (fishT != null)
+                    {
+                        var fg = Object.Instantiate(fishT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(fg, jungle); fg.transform.SetParent(props.transform, false);
+                        fg.name = "Kala-annos " + nt; fg.transform.position = tg.transform.position; fg.SetActive(true);
+                        var fp = fg.GetComponent<FishPlate>(); fp.table = tc; fp.tableX = (nt % 2 == 0 ? 0.25f : -0.25f) * 1.5f;
+                        if (beerT != null)
+                        {
+                            var bg = Object.Instantiate(beerT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bg, jungle); bg.transform.SetParent(props.transform, false);
+                            bg.name = "Olut " + nt; bg.transform.position = tg.transform.position; bg.SetActive(true);
+                            var bb = bg.GetComponent<Bottle>(); bb.table = tc; bb.tableX = (nt % 2 == 0 ? -0.6f : 0.6f) * 1.5f;
+                        }
+                    }
+                    if (chairT != null)
+                        for (int k = 0; k < 2; k++)
+                        {
+                            var cg = Object.Instantiate(chairT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(cg, jungle); cg.transform.SetParent(props.transform, false);
+                            cg.name = "Ravintolatuoli " + nt + (k == 0 ? "a" : "b"); cg.transform.position = new Vector3(x + (k == 0 ? -1.7f : 1.7f), y - 0.05f, 0f);
+                            var vis = cg.GetComponentInChildren<SpriteRenderer>(); if (vis != null) vis.flipX = k == 1;
+                        }
+                }
+                if (fishT == null) report.Add("kala-annoksia ei lisätty (aja valikko 303: stadionin ravintolan pöytä on malli)");
+            }
+            else report.Add("pöytämallia ei löytynyt (aja valikko 303 tai 50)");
+
+            // ---- telkkarit pöytineen (S-Clubin mallit) ----
+            var tvT = sample.IsValid() ? Object.FindObjectsByType<TvSet>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(t => t != null && t.gameObject.scene == sample && t.table != null) : null;
+            int ntv = 0;
+            if (tvT != null)
+            {
+                var tvRoot = new GameObject("Ravintolan telkkarit"); tvRoot.transform.SetParent(root.transform, false);
+                foreach (var v in JungleRestTvTables)
+                {
+                    var tg = Object.Instantiate(tvT.table.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(tg, jungle); tg.transform.SetParent(tvRoot.transform, false);
+                    tg.name = "Telkkaripöytä " + (++ntv); tg.transform.position = new Vector3(PxX(v.x), Y(v.y), 0f); tg.SetActive(true);
+                    var tv = Object.Instantiate(tvT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(tv, jungle); tv.transform.SetParent(tvRoot.transform, false);
+                    tv.name = "Telkkari " + ntv; tv.transform.position = tg.transform.position; tv.SetActive(true);
+                    tv.GetComponent<TvSet>().table = tg.GetComponent<Crate>();
+                }
+            }
+            else report.Add("telkkareita ei lisätty (S-Clubin telkkari mallina puuttuu)");
+
+            // ---- pokeripöytä ylös vasemmalle (Deacon's Denin pokeripöytä mallina) ----
+            var pokerT = desert.IsValid() ? Object.FindObjectsByType<PokerTableEntry>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(t => t != null && t.gameObject.scene == desert) : null;
+            if (pokerT != null)
+            {
+                var pg = Object.Instantiate(pokerT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(pg, jungle); pg.transform.SetParent(root.transform, false);
+                pg.name = "Viidakkoravintolan pokeripöytä"; pg.SetActive(true);
+                var pe = pg.GetComponent<PokerTableEntry>(); pe.here = area;
+                var ob = pg.GetComponent<Obstacle>(); float halfW2 = ob != null ? ob.halfWidth : 3.1f, depth = ob != null ? ob.depth : 1.1f;
+                float px = PxX(780f), py = area.maxDepthY - depth - 0.05f;
+                pg.transform.position = new Vector3(px, py, 0f);
+                if (ob != null && ob.body != null) ob.body.sortingOrder = Mathf.RoundToInt(-(py + depth * 0.5f) * 100f);
+            }
+            else report.Add("pokeripöytä puuttuu (aja valikko 193 / Deacon's Denin pokeripöytä on malli Aavikon scenessä)");
+
+            // ---- väki: rauhassa, tappelu alkaa 1 min kuluttua tai kun hero aloittaa ----
+            Enemy Template(string display)
+            {
+                foreach (var sc in new[] { alp, thai, sample, desert, ucco, jungle })
+                {
+                    if (!sc.IsValid()) continue;
+                    var all = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(en => en != null && en.gameObject.scene == sc && en.displayName == display).ToArray();
+                    var pick = all.FirstOrDefault(en => !en.gameObject.name.Contains("(")) ?? all.FirstOrDefault();
+                    if (pick != null) return pick;
+                }
+                return null;
+            }
+            var crowd = new GameObject("Viidakon ravintolan väki"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(crowd, jungle); Undo.RegisterCreatedObjectUndo(crowd, "Ravintolan väki");
+            var made = new List<Enemy>(); var counts = new Dictionary<string, int>(); var tmpls = new Dictionary<string, Enemy>();
+            foreach (var (type, px, depth) in JungleRestCrowd)
+            {
+                if (!tmpls.ContainsKey(type)) tmpls[type] = Template(type);
+                if (tmpls[type] == null) { if (!counts.ContainsKey(type + " (puuttuu)")) { counts[type + " (puuttuu)"] = 1; report.Add(type + ": mallia ei löytynyt"); } continue; }
+                counts[type] = counts.TryGetValue(type, out int c0) ? c0 + 1 : 1;
+                var go = Object.Instantiate(tmpls[type].gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, jungle); go.transform.SetParent(crowd.transform, false);
+                go.name = type + " (viidakkoravintola " + counts[type] + ")"; go.SetActive(true);
+                var e = go.GetComponent<Enemy>(); if (e == null) { Object.DestroyImmediate(go); continue; }
+                float x = PxX(px);
+                e.wakeDistance = -1f; e.wakeOnFightRadius = 0f; e.joinsFightWhenSquadComes = false; e.fightsEveryone = true; e.ally = false; e.brawlsWithOthers = false;
+                if (e.calmIdleSprites == null || e.calmIdleSprites.Length == 0) e.calmIdleSprites = e.idleSprites;
+                if (e.calmWalkSprites == null || e.calmWalkSprites.Length == 0) { e.calmWalkSprites = e.walkSprites; e.calmWalkFrameTime = e.walkFrameTime; }
+                e.wanderMinX = x - 150f / ppu; e.wanderMaxX = x + 150f / ppu;
+                e.transform.position = new Vector3(x, Mathf.Lerp(area.maxDepthY, area.minDepthY, depth), 0f);
+                made.Add(e);
+            }
+            // ---- portsarit: 2 + 2 tappelun alkaessa (molemmilta reunoilta), 30 s päästä 2 + 2 lisää ----
+            var bouncerT = Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(en => en != null && en.gameObject.name == "Portsari");
+            BouncerSquad squad = null;
+            if (bouncerT != null)
+            {
+                var sgo = new GameObject("Viidakon ravintolan portsarit"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sgo, jungle); Undo.RegisterCreatedObjectUndo(sgo, "Ravintolan portsarit");
+                squad = sgo.AddComponent<BouncerSquad>();
+                squad.area = area; squad.bothSides = true; squad.fromCurrentScreenEdges = true; squad.firstDelay = 0.8f; squad.spawnInterval = 0.6f;
+                squad.waves = new[] { 4, 4 }; squad.waveNextAt = 99; squad.wavePause = 30f;
+                squad.bouncers = new Enemy[8];
+                for (int i = 0; i < 8; i++)
+                {
+                    var bo = Object.Instantiate(bouncerT.gameObject); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bo, jungle); bo.transform.SetParent(sgo.transform, false); bo.name = "Portsari (viidakkoravintola " + (i + 1) + ")";
+                    var be = bo.GetComponent<Enemy>(); be.wakeDistance = 100f; be.fightsEveryone = true; be.joinsFightWhenSquadComes = false; be.ally = false;
+                    bo.transform.position = new Vector3(PxX(2500f), Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.25f + 0.07f * i), 0f);
+                    squad.bouncers[i] = be; bo.SetActive(false);
+                }
+                report.Add("8 portsaria (4 + 4, 2 kummaltakin puolelta, 30 s tauko)");
+            }
+            else report.Add("Portsarin mallia ei löytynyt (aja valikko 267 tai 280)");
+            var bgo = new GameObject("Viidakon ravintolan tappelu"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bgo, jungle); Undo.RegisterCreatedObjectUndo(bgo, "Ravintolan tappelu");
+            var brawl = bgo.AddComponent<SalsaBrawl>();
+            brawl.area = area; brawl.instigator = made.FirstOrDefault(m => m != null && m.displayName == "Punkkari") ?? made.FirstOrDefault();
+            brawl.calmSeconds = 60f; brawl.crowd = made.ToArray(); brawl.sailors = null; brawl.rogues = squad;
+            EditorUtility.SetDirty(brawl);
+
+            // ---- ovet: kadun ravintolan portaat <-> ravintolan vasen ovi ----
+            var doors = new GameObject("Viidakon ravintolan ovet"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doors, jungle);
+            // kaksi ovea kadun portaille: vasen portaikko (katu_4) <-> ravintolan vasen ovi, oikea portaikko (katu_5) <-> ravintolan oikea ovi
+            float stairL = JungleStreetX0 + 3f * W + JungleRestLeftStairPx / ppu, stairR = JungleStreetX0 + 4f * W + JungleRestRightStairPx / ppu;
+            float inL = PxX(330f), inR = PxX(4830f);
+            float sy = Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f), stY = Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.3f);
+            Door MakeRestDoor(string nm, string pr, Area here, Area target, float dx, float dy, Vector2 spawn)
+            {
+                var d = new GameObject(nm).AddComponent<Door>();
+                d.transform.SetParent(doors.transform, false); d.transform.position = new Vector3(dx, dy, 0f);
+                d.prompt = pr; d.here = here; d.target = target; d.spawnPoint = spawn; d.halfWidth = 1.8f; d.maxDistanceFromWall = 2.4f;
+                return d;
+            }
+            MakeRestDoor("Viidakkokatu: ravintolaan (vasen)", "Mene ravintolaan", street, area, stairL, street.maxDepthY, new Vector2(inL + 2.5f, sy));
+            MakeRestDoor("Viidakkokatu: ravintolaan (oikea)", "Mene ravintolaan", street, area, stairR, street.maxDepthY, new Vector2(inR - 2.5f, sy));
+            MakeRestDoor("Viidakkoravintola: ulos kadulle (vasen)", "Ulos kadulle", area, street, inL, area.maxDepthY, new Vector2(stairL + 1.8f, stY));
+            MakeRestDoor("Viidakkoravintola: ulos kadulle (oikea)", "Ulos kadulle", area, street, inR, area.maxDepthY, new Vector2(stairR - 1.8f, stY));
+            float streetDoorX = stairR;
+
+            var listPath = JungleScenePath.Replace(".unity", ".areas.txt");
+            var areaNames = File.Exists(listPath) ? File.ReadAllLines(listPath).Select(l => l.Trim()).Where(l => l.Length > 0).ToList() : new List<string>();
+            if (!areaNames.Contains("Viidakon ravintola")) areaNames.Add("Viidakon ravintola");
+            File.WriteAllLines(listPath, areaNames);
+            EditorUtility.SetDirty(area);
+            EditorSceneManager.MarkSceneDirty(jungle); EditorSceneManager.SaveScene(jungle);
+            Info("Viidakkoravintola tehty (x " + X0.ToString("0") + "…, kolme ruutua). Kaksi ovea: kadun vasen portaikko (x ≈ " + stairL.ToString("0.0") + ") vie ravintolan vasempaan päähän ja oikea portaikko (x ≈ " + stairR.ToString("0.0") + ") oikeaan päähän; ulos pääsee kummastakin päästä omalle portaikolleen.\n" +
+                 "Sohvi tiskillä, pokeripöytä ylävasemmalla, " + nt + " kalapöytää tuoleineen, " + ntv + " telkkaripöytää, väki " + made.Count + " (" + string.Join(", ", counts.Select(kv => kv.Value + " " + kv.Key)) + ").\n" +
+                 "Tappelu alkaa minuutin kuluttua tai kun hero aloittaa. " + string.Join("; ", report) + "\nAjamatta Unityssä.");
+        }
+        finally { foreach (var sc in opened) if (sc.IsValid()) EditorSceneManager.CloseScene(sc, true); }
+    }
+
+    // ---------------- Viidakko kerralla: kaikki viidakon valikot yhden valikon takaa ----------------
+    [MenuItem("Beat em up/311. Viidakko kerralla (85c rosvokapteenin kuvat, 305 kenttä, 306 Amatsoni, 307 hallin viholliset, 308 hallin Sohvi, 309 kadun väki, 310 ravintola)", false, 311)]
+    static void BuildWholeJungle()
+    {
+        if (PlayModeBlocked()) return;
+        var steps = new (string name, System.Action run)[]
+        {
+            ("85c Rosvokapteenin kuvat", FixShipCaptainArt), ("305 Viidakon kenttä", AddJungleAirfield), ("306 Amatsoni-malli", AddAmazon),
+            ("307 Hallin viholliset ja amatsoni", AddJungleHallFoes), ("308 Hallin Sohvi", AddJungleHallSohvi), ("309 Kadun väki", AddJungleStreetFolk), ("310 Ravintola", AddJungleRestaurant), ("313 Kanikonttori", AddJunglePawn),
+            ("315 Jerrygallonat", JerrycanSetup.PlaceJungleJerrycans),
+        };
+        var summary = new List<string>();
+        batch = true; batchLog.Clear();
+        try
+        {
+            foreach (var (name, run) in steps)
+            {
+                int before = batchLog.Count;
+                try { run(); }
+                catch (System.Exception ex) { batchLog.Add("VIRHE: " + ex.Message); Debug.LogException(ex); }
+                var lines = batchLog.Skip(before).ToList();
+                string first = lines.Count > 0 ? lines[0].Split('\n')[0] : "(ei ilmoitusta)";
+                summary.Add("• " + name + ": " + (first.Length > 150 ? first.Substring(0, 150) + "…" : first));
+            }
+        }
+        finally { batch = false; }
+        Info("Viidakko valmis (kaikki vaiheet ajettu järjestyksessä). Yhteenveto:\n" + string.Join("\n", summary) + "\n\nTarkemmat ilmoitukset ovat Consolessa (Beat em up: …). Jos jokin vaihe sanoo mallin puuttuvan, aja sen vaatima valikko (279 Sohvi, 303 stadionin ravintola, 267/280 portsari) ja sitten 311 uudelleen.");
+    }
+
+    // ---------------- Alppikylä kerralla: kaikki Alppikylän rakennusvaiheet oikeassa järjestyksessä yhden valikon takaa ----------------
+    // Mukana vain vaiheet, jotka käyttävät Alppikylän omaa scenea (AlpineScenePathNow). Pois jätetty: 274/290 lumirinne ja lumilautailu (käyttävät Thaitownin scenepolkua),
+    // 283 aloituspaikka, 284 scenejako ja 288 siirto (kertaluonteisia), 299 terminaalin kameran korjaus.
+    [MenuItem("Beat em up/312. Alppikylä kerralla (275–282 kenttä, 289 tanssijat, 291–298 gondoli, kone, stadion, väki, jäähalli, 300–304 väki, kaukalon pomo, ravintola, musiikki)", false, 312)]
+    static void BuildWholeAlpine()
+    {
+        if (PlayModeBlocked()) return;
+        RunMenuSteps("Alppikylä", new (string name, System.Action run)[]
+        {
+            ("275 Kiitotie ja hangaarit", AddAlpineAirfield), ("276 Terminaali", AddAlpineTerminal), ("277 Katu", AddAlpineStreet), ("278 Panttilainaamo", AddAlpinePawn),
+            ("279 Afterski-baarin alakerta", AddAlpineBar), ("280 Baarin väki", AddAlpineBarCrowd), ("281 Baarin yläkerta", AddAlpineUpstairs), ("282 Yläkerran pomo ja pöydät", AddAlpineUpstairsContent),
+            ("289 Yläkerran tanssijat", AddAlpineUpstairsDancers), ("291 Gondoliovet", AddGondolaDoors), ("292 Kone kiitotielle", AddAlpinePlane), ("293 Alppistadion", AddAlpineStadium),
+            ("294 Lätkäfani", AddLatkaFani), ("295 Terminaalin väki", AddAlpineTerminalCrowd), ("296 Terminaalin Sohvi", AddAlpineTerminalSohvi), ("297 Terminaalin telkkarit", AddAlpineTerminalTvs),
+            ("298 Jäähalli", AddAlpineRink), ("300 Kadun väki", AddAlpineStreetCrowd), ("301 Kaukalon apuri", AddRinkHelper), ("302 Kaukalon Kapteeni", AddRinkCaptain),
+            ("303 Stadionin ravintola", AddStadiumRestaurant), ("304 Musiikki", SetAlpineMusic),
+        });
+    }
+
+    /// Ajaa valikkovaiheet peräkkäin ilman omia ikkunoita; lopuksi yksi yhteenveto (tarkemmat ilmoitukset Consolessa).
+    static void RunMenuSteps(string title, (string name, System.Action run)[] steps)
+    {
+        var summary = new List<string>();
+        batch = true; batchLog.Clear();
+        try
+        {
+            foreach (var (name, run) in steps)
+            {
+                int before = batchLog.Count;
+                try { run(); }
+                catch (System.Exception ex) { batchLog.Add("VIRHE: " + ex.Message); Debug.LogException(ex); }
+                var lines = batchLog.Skip(before).ToList();
+                string first = lines.Count > 0 ? lines[0].Split('\n')[0] : "(ei ilmoitusta)";
+                summary.Add("• " + name + ": " + (first.Length > 130 ? first.Substring(0, 130) + "…" : first));
+            }
+        }
+        finally { batch = false; }
+        Info(title + " valmis (kaikki vaiheet ajettu järjestyksessä). Yhteenveto:\n" + string.Join("\n", summary) + "\n\nTarkemmat ilmoitukset ovat Consolessa (Beat em up: …).");
+    }
+
+    // ---------------- Viidakkokadun Kanikonttori: sisus (Helvi tiskin takana), ovi vasemmalla (sisään ja ulos) ----------------
+    // Kuvat: viidakko_pantti.png (2659 px, kaksi kuvaa sulatettu) + viidakko_pantti_tiski.png (Tools/JungleAssets/make_jungle_pawn.py). Oma alue x 57000, ovi kadun katu_3:n kanikonttorin ovesta.
+    const float JunglePawnX0 = 57000f, JunglePawnWallPx = 690f, JunglePawnDoorPx = 130f, JunglePawnCounterXPx = 890f, JunglePawnCounterYPx = 462f, JunglePawnCounterFrontPx = 680f,
+                JunglePawnHelviXPx = 1450f, JunglePawnHelviFeetPx = 652f, JunglePawnStreetDoorPx = 620f;
+    [MenuItem("Beat em up/313. Viidakkokatu: Kanikonttorin sisus (Helvi tiskillä, ovi vasemmalla)", false, 313)]
+    static void AddJunglePawn()
+    {
+        if (PlayModeBlocked()) return;
+        const string T = "Assets/Sprites/Taustat/";
+        if (!File.Exists(T + "viidakko_pantti.png") || !File.Exists(T + "viidakko_pantti_tiski.png")) { Info("Puuttuu viidakko_pantti.png / viidakko_pantti_tiski.png: aja python Tools/JungleAssets/make_jungle_pawn.py <kuva 1> <kuva 2>."); return; }
+        if (!File.Exists(JungleScenePath)) { Info("Aja ensin valikko 305 (Viidakko)."); return; }
+        Sprite[] Sheet(string n, int count)
+        {
+            var sp = SliceAerobicsSheet(HelviDir + n + ".png");
+            if (sp == null || sp.Length < count) return null;
+            return sp.Take(count).ToArray();
+        }
+        var idle = Sheet("helvi_idle", 24); var hair = Sheet("helvi_hiukset", 35);
+        if (idle == null || hair == null) { Info("Puuttuu helvi_idle.png tai helvi_hiukset.png kansiosta " + HelviDir); return; }
+        var seq = new List<Sprite>();
+        for (int i = 0; i < 3; i++) seq.AddRange(idle);
+        seq.AddRange(hair);
+        var scene = EditorSceneManager.GetSceneByPath(JungleScenePath);
+        bool openedHere = false;
+        if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(JungleScenePath, OpenSceneMode.Additive); openedHere = true; }
+        try
+        {
+            var street = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == "Viidakon katu" && a.gameObject.scene == scene);
+            if (street == null) { Info("Viidakon katua ei löytynyt: aja valikko 305."); return; }
+            foreach (var nm in new[] { "Kanikonttori", "Alue: Kanikonttori", "Kanikonttorin ovet" })
+                foreach (var o in scene.GetRootGameObjects().Where(g => g.name == nm).ToArray()) Undo.DestroyObjectImmediate(o);
+
+            float ppu = 941f / (2f * CamHalf), H = 941f / ppu, W = 1672f / ppu, halfW = W * 0.5f, bottom = CamY - CamHalf, top = bottom + H, cy = CamY, X0 = JunglePawnX0;
+            var root = new GameObject("Kanikonttori");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+            Undo.RegisterCreatedObjectUndo(root, "Kanikonttori");
+            var bgSpr = ImportShipSprite(T + "viidakko_pantti.png", ppu, false, SpriteAlignment.Center);
+            var cSpr = ImportShipSprite(T + "viidakko_pantti_tiski.png", ppu, false, SpriteAlignment.Center);
+            if (bgSpr == null || cSpr == null) { Info("Kuvan tuonti epäonnistui (viidakko_pantti*)."); return; }
+            var bg = new GameObject("Kanikonttorin tausta").AddComponent<SpriteRenderer>();
+            bg.transform.SetParent(root.transform, false); bg.sprite = bgSpr; bg.sortingOrder = -10000;
+            bg.transform.position = new Vector3(X0 + bgSpr.bounds.size.x * 0.5f, cy, 0f);
+            float stripW = bgSpr.bounds.size.x;
+
+            var area = ReuseArea("Alue: Kanikonttori");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(area.gameObject, scene);
+            area.areaName = "Kanikonttori"; area.useSidewalk = false;
+            area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Viidakko.mp3"); area.musicGain = area.music != null ? JungleMusicGain : 1f;
+            area.maxDepthY = top - JunglePawnWallPx / ppu; area.minDepthY = bottom + 0.9f;   // hero pysyy tiskin edessä
+            area.walkMinX = X0 + 1.5f; area.walkMaxX = X0 + stripW - 1.5f;
+            area.camMinX = X0 + halfW; area.camMaxX = X0 + stripW - halfW;
+            area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f; area.depthLimits = new Vector2[0];
+            // ikkunan ja oviaukon taakse viidakon parallaksit
+            foreach (var (nm, file, factor, order) in new[] { ("Kanikonttorin vuoret", "viidakko_taka", 0.04f, -10100), ("Kanikonttorin palmut", "viidakko_etu", 0.12f, -10050) })
+            {
+                var psp = ImportShipSprite(T + file + ".png", ppu, false, SpriteAlignment.Center);
+                if (psp == null) continue;
+                var pr = new GameObject(nm).AddComponent<SpriteRenderer>(); pr.transform.SetParent(root.transform, false); pr.sprite = psp; pr.sortingOrder = order;
+                pr.transform.position = new Vector3(area.camMinX - halfW + psp.bounds.size.x * 0.5f, cy, 0f);
+                var pl = pr.gameObject.AddComponent<ParallaxLayer>(); pl.factor = factor; pl.startCamX = area.camMinX; pl.minX = area.camMinX - 2f; pl.maxX = area.camMaxX + 2f;
+            }
+
+            // tiskin etuosa Helvin eteen
+            float frontY = top - JunglePawnCounterFrontPx / ppu;
+            var cgo = new GameObject("Kanikonttorin tiski (etu)").AddComponent<SpriteRenderer>();
+            cgo.transform.SetParent(root.transform, false); cgo.sprite = cSpr;
+            cgo.transform.position = new Vector3(X0 + (JunglePawnCounterXPx + cSpr.rect.width * 0.5f) / ppu, top - (JunglePawnCounterYPx + cSpr.rect.height * 0.5f) / ppu, 0f);
+            cgo.sortingOrder = Mathf.RoundToInt(-frontY * 100f);
+            // Helvi tiskin takana
+            float hy = top - JunglePawnHelviFeetPx / ppu, hx = X0 + JunglePawnHelviXPx / ppu;
+            var h = new GameObject("Helvi (Kanikonttori)");
+            h.transform.SetParent(root.transform, false); h.transform.position = new Vector3(hx, hy, 0f); h.transform.localScale = Vector3.one * AlpPawnHelviScale;
+            var hsr = h.AddComponent<SpriteRenderer>(); hsr.sprite = seq[0]; hsr.sortingOrder = Mathf.RoundToInt(-hy * 100f);
+            var dancer = h.AddComponent<Dancer>(); dancer.sprites = seq.ToArray(); dancer.frameTime = 0.1f; dancer.keepOrder = true;
+            // tiski (kauppa)
+            var shopGo = new GameObject("Kanikonttorin tiski (Helvi)");
+            shopGo.transform.SetParent(root.transform, false); shopGo.transform.position = new Vector3(hx, area.maxDepthY, 0f);
+            var sc = shopGo.AddComponent<ShopCounter>();
+            sc.here = area; sc.title = "KANIKONTTORI"; sc.npcName = "Helvi"; sc.prompt = "Puhu Helville";
+            sc.halfWidth = 3.4f; sc.maxDistanceFromWall = 1.4f; sc.ownItemsOnly = true;
+            sc.items = new[]
+            {
+                new ShopCounter.Item { name = "Kaulakoru", price = 250, give = "esine", comment = "Kultainen ketju." },
+                new ShopCounter.Item { name = "Korvakorut", price = 150, give = "esine", comment = "Turkoosit, pari." },
+                new ShopCounter.Item { name = "Kitara", price = 400, give = "esine", comment = "Käytetty akustinen." },
+                new ShopCounter.Item { name = "Rannekello", price = 180, give = "esine", comment = "Kultainen, käy tarkasti." },
+                new ShopCounter.Item { name = "Kiikarit", price = 70, give = "esine", comment = "Näkee kauas." },
+                new ShopCounter.Item { name = "Radio", price = 60, give = "esine", comment = "Vanha, mutta soi." },
+            };
+
+            // ovet: vasemmalla oviaukko (sisään ja ulos samasta)
+            var doors = new GameObject("Kanikonttorin ovet");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doors, scene);
+            Undo.RegisterCreatedObjectUndo(doors, "Kanikonttorin ovet");
+            float inDoorX = X0 + JunglePawnDoorPx / ppu + 0.6f, streetDoorX = JungleStreetX0 + 2f * W + JunglePawnStreetDoorPx / ppu;
+            var dIn = new GameObject("Viidakkokatu: Kanikonttoriin").AddComponent<Door>();
+            dIn.transform.SetParent(doors.transform, false); dIn.transform.position = new Vector3(streetDoorX, street.maxDepthY, 0f);
+            dIn.prompt = "Mene Kanikonttoriin"; dIn.here = street; dIn.target = area; dIn.spawnPoint = new Vector2(inDoorX + 2.2f, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.3f)); dIn.halfWidth = 1.8f; dIn.maxDistanceFromWall = 2.4f;
+            var dOut = new GameObject("Kanikonttori: ulos kadulle").AddComponent<Door>();
+            dOut.transform.SetParent(doors.transform, false); dOut.transform.position = new Vector3(inDoorX, area.maxDepthY, 0f);
+            dOut.prompt = "Ulos kadulle"; dOut.here = area; dOut.target = street; dOut.spawnPoint = new Vector2(streetDoorX + 1.8f, Mathf.Lerp(street.maxDepthY, street.minDepthY, 0.3f)); dOut.halfWidth = 1.8f; dOut.maxDistanceFromWall = 2.4f;
+
+            var listPath = JungleScenePath.Replace(".unity", ".areas.txt");
+            var areaNames = File.Exists(listPath) ? File.ReadAllLines(listPath).Select(l => l.Trim()).Where(l => l.Length > 0).ToList() : new List<string>();
+            if (!areaNames.Contains("Kanikonttori")) areaNames.Add("Kanikonttori");
+            File.WriteAllLines(listPath, areaNames);
+            EditorUtility.SetDirty(area);
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
+            Info("Kanikonttori luotu (x " + X0.ToString("0") + "…, " + (stripW / W).ToString("0.0") + " ruutua leveä). Helvi seisoo tiskin takana (x " + hx.ToString("0.0") + "), tiski myy koruja, kitaran, kellon, kiikarit ja radion. Ovi kadulta katu_3:n kanikonttorin ovesta (x ≈ " + streetDoorX.ToString("0.0") + "), sisällä vasemmalla oviaukko vie takaisin kadulle. Ajamatta Unityssä.");
+        }
+        finally { if (openedHere) EditorSceneManager.CloseScene(scene, true); }
     }
 }
