@@ -48,7 +48,9 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         // TESTAUS: otsapanta heti mukaan kerran peliä kohti (poista tämä kun testaus on ohi; muuten se ostetaan Helvin tiskiltä)
         if (!testGranted) { testGranted = true; Clues.Add(HeadbandId, HeadbandName, "Amazon-otsapanta. Mene amatsonin viereen ja paina E, niin hän taistelee rinnallasi.", "Kirjeet/amazon_otsapanta", false); }
     }
-    void Awake() { e = GetComponent<Enemy>(); shout = Resources.Load<AudioClip>("Sfx/Amatsoni/kaatoisku"); }
+    void Awake() { grabSpeed = 1.75f;   /* heitto 50 % nopeampi (sceneen tallennettu vanha arvo ohitetaan) */
+        kissHealFrac = 1f; kissCooldown = 8f; kissCostFrac = 0.25f;   /* suudelma voi täyttää energian; sceneen tallennetut vanhat arvot ohitetaan */
+        e = GetComponent<Enemy>(); shout = Resources.Load<AudioClip>("Sfx/Amatsoni/kaatoisku"); }
     void Shout() { if (shout != null && e != null && e.Audio != null) e.Audio.PlayOneShot(shout, 1f); }
 
     void Abort()
@@ -69,6 +71,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     [Tooltip("Suukko: liittolaisamatsoni imee heron elämää itselleen (hero maksaa kissCostFrac enimmäiselämistä, amatsoni saa kissHealFrac omistaan). Hero täyttää elämänsä Sohvilla.")]
     public float kissCostFrac = 0.2f, kissHealFrac = 0.4f, kissCooldown = 20f;
     float nextKiss;
+    static bool kissLineFlip;   // repliikit vuorotellen: kumpikin kuuluu
     bool kissNear;
 
     /// Onko heron rinnalla lahjottu amatsoni (silloin muita amatsoneja ei ilmesty ruudulle).
@@ -136,7 +139,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         hero.Scripted = true; hero.ScriptedMove = Vector2.zero; hb.enabled = false;
         e.body.enabled = false;   // amatsonin kuva piiloon: parikuva piirtää molemmat
         kissSr = new GameObject("Suukko").AddComponent<SpriteRenderer>();
-        var speech = Resources.Load<AudioClip>("Sfx/Amatsoni/suudelma");   // amatsonin repliikki suudelman alkaessa
+        var speech = Resources.Load<AudioClip>((kissLineFlip = !kissLineFlip) ? "Sfx/Amatsoni/suudelma" : "Sfx/Amatsoni/suudelma2");   // amatsonin repliikki suudelman alkaessa (kaksi vaihtoehtoa; ei taisteluhuutoa)
         if (speech != null && e.Audio != null) e.Audio.PlayOneShot(speech, 1f);
     }
 
@@ -180,6 +183,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
 
     void KissTick(float dt)
     {
+        if (e != null) e.DelayTaunt(1.5f);   // ei muita repliikkejä suudelman aikana: vain alun suudelmapuhe
         var hero = kissHero; var hb = hero != null ? hero.BodyRenderer : null;
         if (hero == null || hb == null || hero.GameOver || hero.health < kissHeroHealth || e.IsDead) { EndKiss(); return; }   // osuma keskeyttää
         int fi;
@@ -197,6 +201,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             // elämän imeminen tasaisesti kasvojen kohtaamisesta loppuun (KissTicks erää)
             int wantTicks = fi < KissEffectFrame ? 0 : Mathf.Min(KissTicks, 1 + (fi - KissEffectFrame) * KissTicks / Mathf.Max(1, kissSprs.Length - KissEffectFrame));
             while (kissTicksDone < wantTicks) { kissTicksDone++; KissEffect(hero, 1f / KissTicks); kissHeroHealth = hero.health; }
+            if (kissTicksDone > 0 && e.HealthFraction >= 0.995f) { StopKiss(fi); return; }   // energia täynnä: suudelma loppuu, hero ei maksa turhaan
             if (fi >= kissSprs.Length) { while (kissTicksDone < KissTicks) { kissTicksDone++; KissEffect(hero, 1f / KissTicks); } kissHeroHealth = hero.health; StopKiss(kissSprs.Length - 1); return; }
         }
         hero.ScriptedMove = Vector2.zero;
@@ -226,6 +231,9 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             return;
         }
     }
+
+    /// Testialoitus (AmazonStartAlly): amatsoni liittyy heron rinnalle ilman otsapantaa.
+    public void JoinAsAlly(PlayerController p) { if (e != null && !e.ally) Recruit(p); }
 
     void Recruit(PlayerController p)
     {
@@ -290,7 +298,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         if (kissing) { KissTick(Time.deltaTime); return; }
         TryRecruit();
         if (phase != Phase.None && Time.time - lastTick > 0.25f) { Abort(); return; }   // väliin tuli osuma, kaatuminen tms.
-        if (phase == Phase.None && !e.ally && grab != null && grab.Length >= 40 && e != null && e.Hero != null && e.IsAwake && e.BrainNeutral && Time.time >= nextGrab && !e.Hero.IsFloored && !e.Hero.IsGrabbed)
+        if (phase == Phase.None && !e.ally && grab != null && grab.Length >= 40 && e != null && e.Hero != null && e.IsAwake && e.BrainIdleOrChase && Time.time >= nextGrab && !e.Hero.IsFloored && !e.Hero.IsGrabbed)
         {
             float gdx = Mathf.Abs(e.Hero.transform.position.x - transform.position.x), gdy = Mathf.Abs(e.Hero.transform.position.y - transform.position.y);
             if (gdx <= grabRange && gdy <= e.depthTolerance + 0.1f && Random.value < grabChancePerSec * Time.deltaTime)
@@ -304,7 +312,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             }
         }
         // toinen vihu ulottuvilla (kun hän taistelee kaikkia vastaan): napataan ja paiskataan kuin hero
-        if (phase == Phase.None && grab != null && grab.Length >= 40 && e != null && e.IsAwake && e.BrainNeutral && Time.time >= nextGrab)
+        if (phase == Phase.None && grab != null && grab.Length >= 40 && e != null && e.IsAwake && e.BrainIdleOrChase && Time.time >= nextGrab)
         {
             var foe = e.TargetEnemy;
             if (foe != null && !foe.IsDead && foe.CanBeGrabbed && Mathf.Abs(foe.transform.position.x - transform.position.x) <= grabRange && Mathf.Abs(foe.transform.position.y - transform.position.y) <= e.depthTolerance + 0.1f
@@ -351,11 +359,22 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         return true;
     }
 
+    // heitto: nostovaihe (otteesta heittoon) kulkee nopeammin, jotta hän ehtii viedä sen loppuun
+    const float LiftSpeedMul = 2.2f;
+    float GrabFrameTime(int i, float ft) => i >= grabCatchFrame && i < grabThrowFrame ? ft / LiftSpeedMul : ft;
+    int GrabIdx(float time, float ft)
+    {
+        float a = 0f;
+        for (int i = 0; i < grab.Length; i++) { a += GrabFrameTime(i, ft); if (time < a) return i; }
+        return grab.Length - 1;
+    }
+    float GrabDuration(float ft) { float a = 0f; for (int i = 0; i < grab.Length; i++) a += GrabFrameTime(i, ft); return a; }
+
     void GrabUpdate(PlayerController hero)
     {
         e.BrainPhaseSet(Enemy.BrainPhase.Punch);
         float ft = 2f / 30f / grabSpeed;
-        int i = Mathf.Min((int)(t / ft), grab.Length - 1);
+        int i = GrabIdx(t, ft);
         CurrentSprite = grab[i];
         float face = e.FacingRight ? 1f : -1f; Vector3 me = transform.position;
         if (!holding && i < grabThrowFrame && i >= grabCatchFrame && phase == Phase.Grab)
@@ -377,14 +396,14 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             holding = false; Shout();
             hero.Throw(face * throwSpeed, throwUp, grabDamage, true, throwSlide);   // lentää kauas ja liukuu kaataen tiellä olevat
         }
-        if (i >= grab.Length - 1 && t >= grab.Length * ft) { phase = Phase.None; e.BrainPhaseSet(Enemy.BrainPhase.Chase); }
+        if (i >= grab.Length - 1 && t >= GrabDuration(ft)) { phase = Phase.None; e.BrainPhaseSet(Enemy.BrainPhase.Chase); }
     }
 
     void GrabFoeUpdate()
     {
         e.BrainPhaseSet(Enemy.BrainPhase.Punch);
         float ft = 2f / 30f / grabSpeed;
-        int i = Mathf.Min((int)(t / ft), grab.Length - 1);
+        int i = GrabIdx(t, ft);
         CurrentSprite = grab[i];
         float face = e.FacingRight ? 1f : -1f; Vector3 me = transform.position;
         if (grabFoe == null || grabFoe.IsDead) { holding = false; Abort(); e.BrainPhaseSet(Enemy.BrainPhase.Chase); return; }
@@ -404,10 +423,10 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         {
             holding = false; Shout();
             grabFoe.thrownByEnemy = true;
-            grabFoe.ReleaseThrow(face * throwSpeed, throwUp, grabDamage);
+            grabFoe.ReleaseThrow(face * throwSpeed, throwUp, grabDamage, true, throwSlide);   // liukuu maassa kuin hero
             grabFoe = null;
         }
-        if (i >= grab.Length - 1 && t >= grab.Length * ft) { grabFoe = null; phase = Phase.None; e.BrainPhaseSet(Enemy.BrainPhase.Chase); }
+        if (i >= grab.Length - 1 && t >= GrabDuration(ft)) { grabFoe = null; phase = Phase.None; e.BrainPhaseSet(Enemy.BrainPhase.Chase); }
     }
 
     public void Tick(float dt)

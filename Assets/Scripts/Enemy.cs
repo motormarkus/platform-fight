@@ -417,6 +417,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     static float nextTauntTime;
     float ownNextTaunt; bool ownTauntTimer;   // oma puhevuoro (Pera): ei jaa muiden kanssa yhtä aikaa puhuvien vuoroa
     float NextTaunt { get => ownTauntTimer ? ownNextTaunt : nextTauntTime; set { if (ownTauntTimer) ownNextTaunt = value; else nextTauntTime = value; } }
+    /// Siirtää seuraavaa repliikkiä (esim. amatsoni ei puhu taistelupuheitaan suudelman aikana).
+    public void DelayTaunt(float seconds) { NextTaunt = Mathf.Max(NextTaunt, Time.time + seconds); }
     static int lastTaunt = -1;
     Enemy enemyTarget;          // toinen vihu, jota jahdataan (portsari tai kosto)
     public Enemy TargetEnemy => enemyTarget;   // aivot (Amatsoni) voivat napata sen
@@ -1232,6 +1234,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var amKo = AV("kaatoisku"); if (amKo.Length > 0) altWindupSounds = amKo;
             var amFly = AV("ilmalento"); if (amFly.Length > 0) launchVoice = amFly[0];
             var amTalk = AV("speak"); if (amTalk.Length > 0) { tauntSounds = amTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
+        }
+        if (displayName == "Temppelin kuningas")   // äänet Resources/Sfx/Kuningas: kipu, iskut (hit), kaatuminen, ylösnousu, voitto ja puhe (speak); tulipallo, heittohuuto ja tervehdys (welcome) soitetaan KingBrainista
+        {
+            var kn = Resources.LoadAll<AudioClip>("Sfx/Kuningas");
+            AudioClip[] KV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in kn) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var knPain = KV("pain"); if (knPain.Length > 0) { hurtSounds = knPain; hurtVolume = 1f; }
+            var knFall = KV("fall"); if (knFall.Length > 0) fallVoice = knFall[0]; else if (knPain.Length > 0) fallVoice = knPain[knPain.Length - 1];
+            var knHit = KV("hit"); if (knHit.Length > 0) { attackSounds = knHit; attackSoundChance = 1f; attackVolume = 1f; }
+            var knUp = KV("nousu"); if (knUp.Length > 0) getUpVoice = knUp[0];
+            var knWin = KV("voitto"); if (knWin.Length > 0) { heroDownLaugh = knWin[0]; knockdownShoutChance = 0.4f; }
+            var knTalk = KV("speak"); if (knTalk.Length > 0) { tauntSounds = knTalk; tauntPause = new Vector2(7f, 14f); tauntNoRepeat = true; tauntOnWakeChance = 0f; talksWhenCalm = false; ownTauntTimer = true; }
         }
         if (displayName == "Betty")   // äänet Resources/Sfx/Betty: kipu, iskut (hit + polvipotku), taklaus, kaatuminen, ylösnousu, voitto ja puhe; sama kaikissa sceneissä
         {
@@ -2751,7 +2764,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             {
                 moving = true; facingRight = toP.x > 0f;
                 Vector2 dirP = toP.normalized;
-                Move(new Vector2(dirP.x * moveSpeedX, dirP.y * moveSpeedY) * dt);
+                float runP = LocomotionMultiplier(Mathf.Abs(toP.x) > 5f);   // kauempana juoksee heron perässä (muuten kävelee)
+                Move(new Vector2(dirP.x * moveSpeedX, dirP.y * moveSpeedY) * runP * dt);
             }
             else { moving = false; facingRight = pp.x > mm.x; }
             return;
@@ -3605,7 +3619,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             return true;
         }
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
-        if (!chainLock && ((comboArmor && comboSeq != null) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && !knockdown && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
+        if (!chainLock && ((comboArmor && comboSeq != null) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && (!knockdown || (brain is KingBrain kingArmor && kingArmor.Active)) && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
             && (state == State.Windup || state == State.Punch || state == State.Recover))
         {
             awake = true;
@@ -4631,6 +4645,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     int fi = Mathf.Min((int)((stateTime - ArtSpinTime) / Mathf.Max(0.01f, flipFlightFrameTime)), nf - 1);
                     return artSet[Mathf.Min(artFlightPose + fi, artSet.Length - 1)];
                 }
+                if (thrownByPlayer && Has(knockdownSprites))   // heitetty ilman omaa heittokuvaa: lentää kaatumiskuvissa (ei osumakuvassa)
+                    return knockdownSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.02f, airFrameTime)), Mathf.Max(1, knockdownSprites.Length - 1) - 1)];
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (hoverHurtPose && chainHover && !launched && Has(hurtSprites))
                     return hurtSprites[Mathf.Clamp((int)((Time.time - lastHitTime) / 0.07f), 0, hurtSprites.Length - 1)];
@@ -4767,6 +4783,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     [HideInInspector] public float LastGetUpTime = -99f;
     public AudioSource Audio => audioSource;
     /// Enemy on perustilassa (ei osumaa, kaatumista, otetta tms.), jolloin aivo saa ohjata.
+    /// Aivon erikoisliike saa alkaa vain levossa tai takaa-ajossa (ei kesken omaa iskua: muuten isku ja heitto/liike tapahtuvat yhtä aikaa).
+    public bool BrainIdleOrChase => state == State.Idle || state == State.Chase;
     public bool BrainNeutral => state == State.Idle || state == State.Chase || state == State.Windup || state == State.Punch || state == State.Recover;
     public bool BrainDrives => brain != null && brain.enabled && BrainNeutral && (!(brain is IPartialBrain pb) || pb.Active);
     /// Osittainen aivo (Amatsoni) ei ole ulkoinen aivo: tavallinen tekoäly hoitaa liikkeen, kunnes aivo ottaa vuoron (väistö).

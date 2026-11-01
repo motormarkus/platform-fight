@@ -1,0 +1,1010 @@
+fileFormatVersion: 2
+guid: 1465aa1f4623b7144a380fe67feb0a47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1068966783824155553
+    second: kuningas_tulipallo_0
+  - first:
+      213: -6872086678943755556
+    second: kuningas_tulipallo_1
+  - first:
+      213: -4787987681524322898
+    second: kuningas_tulipallo_2
+  - first:
+      213: 3378996142039475399
+    second: kuningas_tulipallo_3
+  - first:
+      213: 2434389229826170798
+    second: kuningas_tulipallo_4
+  - first:
+      213: 7700579455440341218
+    second: kuningas_tulipallo_5
+  - first:
+      213: 4574770362793117372
+    second: kuningas_tulipallo_6
+  - first:
+      213: 6668714171721627252
+    second: kuningas_tulipallo_7
+  - first:
+      213: -6590143567203161395
+    second: kuningas_tulipallo_8
+  - first:
+      213: -5153262012711522163
+    second: kuningas_tulipallo_9
+  - first:
+      213: -3536371167229997887
+    second: kuningas_tulipallo_10
+  - first:
+      213: -5666294569134444072
+    second: kuningas_tulipallo_11
+  - first:
+      213: -6940509404926546735
+    second: kuningas_tulipallo_12
+  - first:
+      213: 6407402236922831233
+    second: kuningas_tulipallo_13
+  - first:
+      213: 36482076908217637
+    second: kuningas_tulipallo_14
+  - first:
+      213: 4505966634101983206
+    second: kuningas_tulipallo_15
+  - first:
+      213: 1448530583259049356
+    second: kuningas_tulipallo_16
+  - first:
+      213: -3142335013954655137
+    second: kuningas_tulipallo_17
+  - first:
+      213: 8641523945287641665
+    second: kuningas_tulipallo_18
+  - first:
+      213: -1013832922318162327
+    second: kuningas_tulipallo_19
+  - first:
+      213: 5843594485589227869
+    second: kuningas_tulipallo_20
+  - first:
+      213: -2078317467928348326
+    second: kuningas_tulipallo_21
+  - first:
+      213: 1280180862893460450
+    second: kuningas_tulipallo_22
+  - first:
+      213: -1712655028820941245
+    second: kuningas_tulipallo_23
+  - first:
+      213: 7626331236092238573
+    second: kuningas_tulipallo_24
+  - first:
+      213: 7561663668560511468
+    second: kuningas_tulipallo_25
+  - first:
+      213: 296115229126763393
+    second: kuningas_tulipallo_26
+  - first:
+      213: -3335322624867361792
+    second: kuningas_tulipallo_27
+  - first:
+      213: 1634480375636464872
+    second: kuningas_tulipallo_28
+  - first:
+      213: -6374769120822876914
+    second: kuningas_tulipallo_29
+  - first:
+      213: -3777098802087898652
+    second: kuningas_tulipallo_30
+  - first:
+      213: 5330640712323430757
+    second: kuningas_tulipallo_31
+  - first:
+      213: -5243540347385429896
+    second: kuningas_tulipallo_32
+  - first:
+      213: -275650965627035949
+    second: kuningas_tulipallo_33
+  - first:
+      213: -908991043793489949
+    second: kuningas_tulipallo_34
+  - first:
+      213: -6098113263494417506
+    second: kuningas_tulipallo_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kuningas_tulipallo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3d78250abb5de00800000000000000
+      internalID: 1068966783824155553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 6144
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd21ddb439171a0a0800000000000000
+      internalID: -6872086678943755556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_2
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 6144
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eadebcd4296ad8db0800000000000000
+      internalID: -4787987681524322898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_3
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 6144
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4ada7a61b94ee20800000000000000
+      internalID: 3378996142039475399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf53d84b10b8c120800000000000000
+      internalID: 2434389229826170798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_5
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 5376
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8413e1734fdda60800000000000000
+      internalID: 7700579455440341218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_6
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 5376
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb6c4432869dc7f30800000000000000
+      internalID: 4574770362793117372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 5376
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476b412f4380c8c50800000000000000
+      internalID: 6668714171721627252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcaa70a775b1b84a0800000000000000
+      internalID: -6590143567203161395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_9
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 4608
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80b0d9a08feb78b0800000000000000
+      internalID: -5153262012711522163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_10
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 4608
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc825fe8294ceec0800000000000000
+      internalID: -3536371167229997887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_11
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 4608
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d134065c174d51b0800000000000000
+      internalID: -5666294569134444072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dc6817f77b5eaf90800000000000000
+      internalID: -6940509404926546735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18124d8f26aabe850800000000000000
+      internalID: 6407402236922831233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52568c2714c918000800000000000000
+      internalID: 36482076908217637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_15
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e74963b7c8688e30800000000000000
+      internalID: 4505966634101983206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8de17d04e63a1410800000000000000
+      internalID: 1448530583259049356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_17
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ce5ff14fe2464d0800000000000000
+      internalID: -3142335013954655137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_18
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ae6e45e3cdce770800000000000000
+      internalID: 8641523945287641665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_19
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96631a324542ee1f0800000000000000
+      internalID: -1013832922318162327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d593af4593e981150800000000000000
+      internalID: 5843594485589227869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_21
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5934a936455823e0800000000000000
+      internalID: -2078317467928348326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_22
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb840d46bd14c110800000000000000
+      internalID: 1280180862893460450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_23
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3466758435d6b38e0800000000000000
+      internalID: -1712655028820941245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea5eba6adb26d960800000000000000
+      internalID: 7626331236092238573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_25
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1c68b0b0d60f860800000000000000
+      internalID: 7561663668560511468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_26
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1832fa46b330c1400800000000000000
+      internalID: 296115229126763393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_27
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c15757ebd86b1d0800000000000000
+      internalID: -3335322624867361792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e49826ed37dea610800000000000000
+      internalID: 1634480375636464872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_29
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e05293472454887a0800000000000000
+      internalID: -6374769120822876914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_30
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e15ff3c6ac059bc0800000000000000
+      internalID: -3777098802087898652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_31
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569f5432c7d3af940800000000000000
+      internalID: 5330640712323430757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuningas_tulipallo_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33482143, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870c9a4e5d33b37b0800000000000000
+      internalID: -5243540347385429896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 71d03ec124d3d4449b2da197248496e7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kuningas_tulipallo_0: 1068966783824155553
+      kuningas_tulipallo_1: -6872086678943755556
+      kuningas_tulipallo_10: -3536371167229997887
+      kuningas_tulipallo_11: -5666294569134444072
+      kuningas_tulipallo_12: -6940509404926546735
+      kuningas_tulipallo_13: 6407402236922831233
+      kuningas_tulipallo_14: 36482076908217637
+      kuningas_tulipallo_15: 4505966634101983206
+      kuningas_tulipallo_16: 1448530583259049356
+      kuningas_tulipallo_17: -3142335013954655137
+      kuningas_tulipallo_18: 8641523945287641665
+      kuningas_tulipallo_19: -1013832922318162327
+      kuningas_tulipallo_2: -4787987681524322898
+      kuningas_tulipallo_20: 5843594485589227869
+      kuningas_tulipallo_21: -2078317467928348326
+      kuningas_tulipallo_22: 1280180862893460450
+      kuningas_tulipallo_23: -1712655028820941245
+      kuningas_tulipallo_24: 7626331236092238573
+      kuningas_tulipallo_25: 7561663668560511468
+      kuningas_tulipallo_26: 296115229126763393
+      kuningas_tulipallo_27: -3335322624867361792
+      kuningas_tulipallo_28: 1634480375636464872
+      kuningas_tulipallo_29: -6374769120822876914
+      kuningas_tulipallo_3: 3378996142039475399
+      kuningas_tulipallo_30: -3777098802087898652
+      kuningas_tulipallo_31: 5330640712323430757
+      kuningas_tulipallo_32: -5243540347385429896
+      kuningas_tulipallo_4: 2434389229826170798
+      kuningas_tulipallo_5: 7700579455440341218
+      kuningas_tulipallo_6: 4574770362793117372
+      kuningas_tulipallo_7: 6668714171721627252
+      kuningas_tulipallo_8: -6590143567203161395
+      kuningas_tulipallo_9: -5153262012711522163
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

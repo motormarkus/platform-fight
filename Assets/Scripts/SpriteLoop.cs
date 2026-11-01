@@ -110,6 +110,7 @@ public class SpriteLoop : MonoBehaviour
                 else { tn = 0f; fadeLeft = crossfade; }
             }
         }
+        if (next != null && next.Length == 0) next = null;   // tyhjä sarja: ei nollalla jakoa
         if (next != null)
         {
             tn += step;

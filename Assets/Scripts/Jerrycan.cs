@@ -272,6 +272,7 @@ public class Jerrycan : MonoBehaviour
 
     void Draw(float dt)
     {
+        if (canSpr == null) { EnsureSprites(); if (crate != null) crate.rollSprites = new Sprite[] { canSpr }; }   // muistinvapautus voi tuhota staattiset kuvat alueen vaihdossa: luodaan uudelleen (ei NullReference)
         bool air = crate != null && crate.Airborne;
         float h = air ? crate.Height : 0f;
         float vx = crate != null ? crate.VelX : 0f;
