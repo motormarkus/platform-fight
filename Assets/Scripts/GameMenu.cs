@@ -126,6 +126,7 @@ public class GameMenu : MonoBehaviour
                 var list = new System.Collections.Generic.List<string> { "Jatka" };
                 if (pc0 != null && pc0.HasBooni) list.Add("Juo Bööni");
                 foreach (var pp in Players.All) if (pp != null && pp != pc0 && pp.HasBooni) list.Add("Juo Bööni (P" + (pp.playerIndex + 1) + ")");   // kaksinpeli: toisen pelaajan oma Bööni
+                if (Clues.Has(CaveDarkness.TorchId) && CaveDarkness.InCave) list.Add(CaveDarkness.TorchLit ? "Sammuta soihtu" : "Sytytä soihtu");
                 if (Clues.All.Count > 0) list.Add("Tapauskansio");
                 list.AddRange(new[] { "Asetukset", "Aloita alusta", "Päävalikkoon", "Lopeta peli" });
                 return list.ToArray();
@@ -287,6 +288,7 @@ public class GameMenu : MonoBehaviour
                     Close();
                     foreach (var pp in Players.All) if (pp != null && lbl == "Juo Bööni (P" + (pp.playerIndex + 1) + ")") pp.UseBooni();
                 }
+                else if (lbl == "Sytytä soihtu" || lbl == "Sammuta soihtu") { CaveDarkness.TorchLit = lbl == "Sytytä soihtu"; Close(); }
                 else if (lbl == "Tapauskansio") { back = Page.Pause; page = Page.Case; sel = Mathf.Max(0, Clues.All.Count - 1); }
                 else if (lbl == "Asetukset") { back = Page.Pause; page = Page.Options; optSection = -1; sel = 0; }
                 else if (lbl == "Aloita alusta") { SkipTitleOnce = true; Restart(); }

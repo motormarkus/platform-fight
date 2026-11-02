@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 2d6c781497ed8264b92cb226c020fe0b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2193028949662730614
+    second: timppa_kavely_0
+  - first:
+      213: -3809705980113119854
+    second: timppa_kavely_1
+  - first:
+      213: 5586080333931217029
+    second: timppa_kavely_2
+  - first:
+      213: 4753550010911392287
+    second: timppa_kavely_3
+  - first:
+      213: 4227193313066284401
+    second: timppa_kavely_4
+  - first:
+      213: 5486324852762077246
+    second: timppa_kavely_5
+  - first:
+      213: -8283211968097968515
+    second: timppa_kavely_6
+  - first:
+      213: -5310763396594762581
+    second: timppa_kavely_7
+  - first:
+      213: 5874260229577727383
+    second: timppa_kavely_8
+  - first:
+      213: 7884744297878912991
+    second: timppa_kavely_9
+  - first:
+      213: 3679027260899680837
+    second: timppa_kavely_10
+  - first:
+      213: -2724365852623664147
+    second: timppa_kavely_11
+  - first:
+      213: 1786149394292700870
+    second: timppa_kavely_12
+  - first:
+      213: 4838560275333894611
+    second: timppa_kavely_13
+  - first:
+      213: -6767684121597316175
+    second: timppa_kavely_14
+  - first:
+      213: -4280563262173207351
+    second: timppa_kavely_15
+  - first:
+      213: 1505076825677119054
+    second: timppa_kavely_16
+  - first:
+      213: 1534719422213731209
+    second: timppa_kavely_17
+  - first:
+      213: 1987744705136741661
+    second: timppa_kavely_18
+  - first:
+      213: 2918939390810669004
+    second: timppa_kavely_19
+  - first:
+      213: -4676705905675239257
+    second: timppa_kavely_20
+  - first:
+      213: -1391024018393858155
+    second: timppa_kavely_21
+  - first:
+      213: -7936300910066172052
+    second: timppa_kavely_22
+  - first:
+      213: 2438073815372205997
+    second: timppa_kavely_23
+  - first:
+      213: -355373537306936434
+    second: timppa_kavely_24
+  - first:
+      213: 6328716553659623837
+    second: timppa_kavely_25
+  - first:
+      213: -1764947536022471149
+    second: timppa_kavely_26
+  - first:
+      213: 5448016436291452584
+    second: timppa_kavely_27
+  - first:
+      213: 5661398945806698987
+    second: timppa_kavely_28
+  - first:
+      213: -6913895735804087282
+    second: timppa_kavely_29
+  - first:
+      213: 3173756923813112617
+    second: timppa_kavely_30
+  - first:
+      213: 7920227034295347477
+    second: timppa_kavely_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: timppa_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6272
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6798bc6e5343f6e10800000000000000
+      internalID: 2193028949662730614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 6272
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2951da48894312bc0800000000000000
+      internalID: -3809705980113119854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 6272
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58004c6a77eb58d40800000000000000
+      internalID: 5586080333931217029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 6272
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f128d6eac8008f140800000000000000
+      internalID: 4753550010911392287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175f83eebe10aaa30800000000000000
+      internalID: 4227193313066284401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 5376
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38e743c267532c40800000000000000
+      internalID: 5486324852762077246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 5376
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e9142f99e1c0d80800000000000000
+      internalID: -8283211968097968515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 5376
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac72d314d06c46b0800000000000000
+      internalID: -5310763396594762581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d5f2e3e80958150800000000000000
+      internalID: 5874260229577727383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 4480
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdffbdbe92d3c6d60800000000000000
+      internalID: 7884744297878912991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4480
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54267ec2dc78e0330800000000000000
+      internalID: 3679027260899680837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4480
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb892cf0bb113ad0800000000000000
+      internalID: -2724365852623664147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c67892296da9c810800000000000000
+      internalID: 1786149394292700870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1d7934fe4062340800000000000000
+      internalID: 4838560275333894611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3f32ce52b5412a0800000000000000
+      internalID: -6767684121597316175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4249774626894c0800000000000000
+      internalID: -4280563262173207351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e3822166b13e410800000000000000
+      internalID: 1505076825677119054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98331f6ee2b6c4510800000000000000
+      internalID: 1534719422213731209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1dc6dd1743e59b10800000000000000
+      internalID: 1987744705136741661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf3a2629e7228820800000000000000
+      internalID: 2918939390810669004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0814dc1c0091fb0800000000000000
+      internalID: -4676705905675239257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ff895760712bce0800000000000000
+      internalID: -1391024018393858155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f75e0ee589cd190800000000000000
+      internalID: -7936300910066172052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf0175b737c5d120800000000000000
+      internalID: 2438073815372205997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bfe3296a5711bf0800000000000000
+      internalID: -355373537306936434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d992401bc2e14d750800000000000000
+      internalID: 6328716553659623837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31efd2c2195a187e0800000000000000
+      internalID: -1764947536022471149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae34af751e3b9b40800000000000000
+      internalID: 5448016436291452584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be944988854519e40800000000000000
+      internalID: 5661398945806698987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e043f4da578ec00a0800000000000000
+      internalID: -6913895735804087282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b215f5b137b0c20800000000000000
+      internalID: 3173756923813112617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_kavely_31
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519ae97468c4aed60800000000000000
+      internalID: 7920227034295347477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c0e89c284192a314494c41fefa1a7c07
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      timppa_kavely_0: 2193028949662730614
+      timppa_kavely_1: -3809705980113119854
+      timppa_kavely_10: 3679027260899680837
+      timppa_kavely_11: -2724365852623664147
+      timppa_kavely_12: 1786149394292700870
+      timppa_kavely_13: 4838560275333894611
+      timppa_kavely_14: -6767684121597316175
+      timppa_kavely_15: -4280563262173207351
+      timppa_kavely_16: 1505076825677119054
+      timppa_kavely_17: 1534719422213731209
+      timppa_kavely_18: 1987744705136741661
+      timppa_kavely_19: 2918939390810669004
+      timppa_kavely_2: 5586080333931217029
+      timppa_kavely_20: -4676705905675239257
+      timppa_kavely_21: -1391024018393858155
+      timppa_kavely_22: -7936300910066172052
+      timppa_kavely_23: 2438073815372205997
+      timppa_kavely_24: -355373537306936434
+      timppa_kavely_25: 6328716553659623837
+      timppa_kavely_26: -1764947536022471149
+      timppa_kavely_27: 5448016436291452584
+      timppa_kavely_28: 5661398945806698987
+      timppa_kavely_29: -6913895735804087282
+      timppa_kavely_3: 4753550010911392287
+      timppa_kavely_30: 3173756923813112617
+      timppa_kavely_31: 7920227034295347477
+      timppa_kavely_4: 4227193313066284401
+      timppa_kavely_5: 5486324852762077246
+      timppa_kavely_6: -8283211968097968515
+      timppa_kavely_7: -5310763396594762581
+      timppa_kavely_8: 5874260229577727383
+      timppa_kavely_9: 7884744297878912991
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -291,6 +291,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -417,6 +418,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -653,6 +656,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &3819781
@@ -978,6 +985,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -1111,6 +1119,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -1340,6 +1350,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &5733206
@@ -2648,6 +2662,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -2757,6 +2772,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -2993,6 +3010,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &26281304
@@ -3939,6 +3960,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -4045,6 +4067,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 8300000, guid: 26021e2d82e621d4591114fb1e492ace, type: 3}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -4274,6 +4298,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &45029874
@@ -6779,6 +6807,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -6905,6 +6934,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -7141,6 +7172,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &68086518
@@ -7689,6 +7724,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -7822,6 +7858,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -8051,6 +8089,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &76541057
@@ -8222,6 +8264,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -8331,6 +8374,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -8567,6 +8612,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &76541059
@@ -9007,6 +9056,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -9140,6 +9190,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -9369,6 +9421,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &91035662
@@ -12205,6 +12261,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -12338,6 +12395,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -12567,6 +12626,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &159963118
@@ -13202,6 +13265,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -13335,6 +13399,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -13564,6 +13630,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &165018173
@@ -13890,6 +13960,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -14013,6 +14084,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -14251,6 +14324,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &167828261
@@ -14688,6 +14765,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -14811,6 +14889,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -15049,6 +15129,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &179551488
@@ -16583,6 +16667,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -16716,6 +16801,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -16945,6 +17032,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &214143007
@@ -17516,6 +17607,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -17642,6 +17734,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -17878,6 +17972,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &223801953
@@ -18050,6 +18148,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -18174,6 +18273,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -18418,6 +18519,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &225589985
@@ -19896,6 +20001,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -20022,6 +20128,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -20258,6 +20366,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &270872285
@@ -20495,6 +20607,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -20628,6 +20741,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -20857,6 +20972,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &279181175
@@ -21105,6 +21224,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -21231,6 +21351,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -21467,6 +21589,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &284237175
@@ -21722,6 +21848,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -21845,6 +21972,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -22083,6 +22212,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &286804803
@@ -24777,6 +24910,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -24910,6 +25044,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -25139,6 +25275,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &351428359
@@ -26720,6 +26860,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -26844,6 +26985,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -27088,6 +27231,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &374755621
@@ -27718,6 +27865,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -27851,6 +27999,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -28080,6 +28230,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &384250020
@@ -28989,6 +29143,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -29098,6 +29253,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -29334,6 +29491,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &395868342
@@ -29596,6 +29757,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -29738,6 +29900,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -29988,6 +30152,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &399806006
@@ -30801,6 +30969,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -30948,6 +31117,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -31221,6 +31392,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &407569488
@@ -33326,6 +33501,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -33435,6 +33611,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -33671,6 +33849,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &447264496
@@ -34831,6 +35013,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -34964,6 +35147,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -35193,6 +35378,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &462168818
@@ -36751,6 +36940,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -36893,6 +37083,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -37143,6 +37335,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &501022471
@@ -37336,6 +37532,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -37462,6 +37659,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -37698,6 +37897,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &509050999
@@ -41161,6 +41364,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -41270,6 +41474,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -41506,6 +41712,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &603330833
@@ -44502,6 +44712,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -44628,6 +44839,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -44918,6 +45131,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &656668693
@@ -45160,6 +45377,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -45293,6 +45511,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -45522,6 +45742,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &657987353
@@ -47870,6 +48094,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -47979,6 +48204,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -48215,6 +48442,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &735491395
@@ -48365,6 +48596,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -48498,6 +48730,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -48727,6 +48961,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &735491397
@@ -49660,6 +49898,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -49793,6 +50032,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -50022,6 +50263,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &746247362
@@ -50605,6 +50850,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -50731,6 +50977,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -51013,6 +51261,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &755781307
@@ -51268,6 +51520,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -51391,6 +51644,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -51629,6 +51884,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &760599755
@@ -51793,6 +52052,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -51916,6 +52176,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -52154,6 +52416,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &762486270
@@ -53905,6 +54171,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -54093,6 +54360,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -54346,6 +54615,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &797582464
@@ -54682,6 +54955,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -54824,6 +55098,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -55074,6 +55350,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &799727812
@@ -56374,6 +56654,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -56500,6 +56781,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -56782,6 +57065,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &824094977
@@ -57015,6 +57302,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -57135,6 +57423,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -57374,6 +57664,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &826560123
@@ -58410,6 +58704,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -58543,6 +58838,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -58772,6 +59069,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &842739731
@@ -59750,6 +60051,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -59876,6 +60178,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -60112,6 +60416,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &854955710
@@ -60456,6 +60764,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -60565,6 +60874,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -60801,6 +61112,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &861546566
@@ -61915,6 +62230,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -62057,6 +62373,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -62307,6 +62625,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &886657363
@@ -64339,6 +64661,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -64463,6 +64786,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -64707,6 +65032,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &960863533
@@ -64939,6 +65268,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -65072,6 +65402,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -65301,6 +65633,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &963294829
@@ -65687,6 +66023,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -65824,6 +66161,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -66074,6 +66413,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &965657460
@@ -66707,6 +67050,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -66844,6 +67188,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -67094,6 +67440,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &967545445
@@ -67547,6 +67897,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -67689,6 +68040,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -67939,6 +68292,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &971367295
@@ -68594,6 +68951,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -68703,6 +69061,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -68939,6 +69299,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &976346246
@@ -70989,6 +71353,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -71098,6 +71463,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -71334,6 +71701,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1035976251
@@ -71916,6 +72287,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -72039,6 +72411,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -72277,6 +72651,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1053718107
@@ -72614,6 +72992,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -72740,6 +73119,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -72976,6 +73357,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1060404002
@@ -73824,6 +74209,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -73950,6 +74336,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -74186,6 +74574,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1072335020
@@ -74682,6 +75074,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -74806,6 +75199,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -75050,6 +75445,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1080942042
@@ -75512,6 +75911,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -75654,6 +76054,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -75904,6 +76306,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1087605352
@@ -77487,6 +77893,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -77675,6 +78082,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -77928,6 +78337,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1113964645
@@ -78430,6 +78843,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -78556,6 +78970,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -78792,6 +79208,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1119661178
@@ -79465,6 +79885,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -79588,6 +80009,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -79826,6 +80249,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1134612373
@@ -80441,6 +80868,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -80550,6 +80978,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -80786,6 +81216,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1146042333
@@ -82461,6 +82895,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -82584,6 +83019,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -82822,6 +83259,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1169240715
@@ -84077,6 +84518,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -84186,6 +84628,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -84422,6 +84866,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1194915788
@@ -84626,6 +85074,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -84735,6 +85184,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -84971,6 +85422,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1199162647
@@ -85142,6 +85597,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -85251,6 +85707,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -85487,6 +85945,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1199162649
@@ -85840,6 +86302,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -85966,6 +86429,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -86256,6 +86721,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1216930188
@@ -86638,6 +87107,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -86775,6 +87245,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -87025,6 +87497,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1228584807
@@ -87362,6 +87838,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -87486,6 +87963,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -87730,6 +88209,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1232186558
@@ -88371,6 +88854,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -88480,6 +88964,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -88716,6 +89202,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1255984835
@@ -90910,6 +91400,7 @@ MonoBehaviour:
   drunkRunTripChance: 0.55
   drunkSpecialFailChance: 0.7
   drunkIdleFallRate: 0.07
+  wadeMul: 1
 --- !u!4 &1266612347
 Transform:
   m_ObjectHideFlags: 0
@@ -92081,6 +92572,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -92190,6 +92682,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -92426,6 +92920,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1297790983
@@ -92783,6 +93281,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -92916,6 +93415,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -93145,6 +93646,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1302114468
@@ -93648,6 +94153,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -93774,6 +94280,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -94064,6 +94572,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1313007411
@@ -95008,6 +95520,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -95134,6 +95647,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -95370,6 +95885,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1336591494
@@ -95764,6 +96283,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -95873,6 +96393,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -96109,6 +96631,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1339792847
@@ -96293,6 +96819,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -96426,6 +96953,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -96655,6 +97184,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1342198806
@@ -97269,6 +97802,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -97406,6 +97940,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -97656,6 +98192,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1354949048
@@ -100121,6 +100661,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -100244,6 +100785,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -100482,6 +101025,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1400635543
@@ -102740,6 +103287,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -102849,6 +103397,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -103085,6 +103635,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1445579930
@@ -103414,6 +103968,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -103551,6 +104106,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -103801,6 +104358,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1447613822
@@ -104861,6 +105422,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -104971,6 +105533,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
   getUpVoice: {fileID: 8300000, guid: a9dfd9fa4a6e4f940a146250154a19b8, type: 3}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 8300000, guid: 10a77ac3d6b13694db594fa46ad0e8db, type: 3}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -105202,6 +105766,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1460571892
@@ -107908,6 +108476,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -108041,6 +108610,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -108270,6 +108841,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1522387198
@@ -108696,6 +109271,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -108826,6 +109402,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -109065,6 +109643,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1526426006
@@ -109212,6 +109794,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -109335,6 +109918,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -109573,6 +110158,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1526426008
@@ -109737,6 +110326,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -109860,6 +110450,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -110098,6 +110690,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1527148098
@@ -111038,6 +111634,67 @@ MonoBehaviour:
   kickLaunch: 0
   kickFlySpeed: 11
   kickFlyUp: 3
+--- !u!1 &1550839862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550839865}
+  - component: {fileID: 1550839864}
+  - component: {fileID: 1550839863}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1550839863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550839862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc0b39a169aa4147a80603dd9fc3f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmazonStartAlly
+--- !u!114 &1550839864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550839862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 55240.383, y: -2.230765}
+  areaName: Viidakon katu
+  sceneName: Viidakko
+--- !u!4 &1550839865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550839862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551687395
 GameObject:
   m_ObjectHideFlags: 0
@@ -111186,6 +111843,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -111319,6 +111977,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -111548,6 +112208,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1551687397
@@ -111729,6 +112393,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -111852,6 +112517,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -112090,6 +112757,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1553969319
@@ -112352,6 +113023,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -112461,6 +113133,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -112697,6 +113371,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1555148316
@@ -113139,6 +113817,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 1
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -113299,6 +113978,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -113533,6 +114214,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 1
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1556952519
@@ -114491,6 +115176,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -114600,6 +115286,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -114836,6 +115524,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1570317535
@@ -115208,6 +115900,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -115334,6 +116027,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -115624,6 +116319,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1577031790
@@ -116648,6 +117347,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -116773,6 +117473,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -117009,6 +117711,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1589574078
@@ -117590,6 +118296,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -117723,6 +118430,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -117952,6 +118661,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1605654587
@@ -118465,6 +119178,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -118607,6 +119321,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -118857,6 +119573,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1613096267
@@ -120706,6 +121426,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -120815,6 +121536,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -121051,6 +121774,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1649333406
@@ -122942,6 +123669,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -123068,6 +123796,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -123350,6 +124080,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1685514492
@@ -124812,6 +125546,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -124945,6 +125680,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -125174,6 +125911,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1715727377
@@ -125817,6 +126558,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -125943,6 +126685,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -126225,6 +126969,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1736444959
@@ -127381,6 +128129,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -127514,6 +128263,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -127743,6 +128494,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1766878369
@@ -128020,6 +128775,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -128153,6 +128909,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -128382,6 +129140,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1772124508
@@ -129163,6 +129925,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -129272,6 +130035,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -129508,6 +130273,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1782580935
@@ -130445,6 +131214,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -130554,6 +131324,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -130790,6 +131562,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1800735139
@@ -131765,6 +132541,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -131891,6 +132668,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -132127,6 +132906,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1813831295
@@ -134591,6 +135374,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -134724,6 +135508,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -134953,6 +135739,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1870846222
@@ -135365,6 +136155,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -135498,6 +136289,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -135727,6 +136520,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1875010334
@@ -136226,6 +137023,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -136351,6 +137149,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -136587,6 +137387,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1882005433
@@ -137030,6 +137834,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -137167,6 +137972,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -137417,6 +138224,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1887212859
@@ -138555,6 +139366,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -138681,6 +139493,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -138917,6 +139731,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1913385442
@@ -140419,6 +141237,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -140552,6 +141371,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -140781,6 +141602,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1946078033
@@ -140969,6 +141794,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -141078,6 +141904,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -141314,6 +142142,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1947958421
@@ -142100,6 +142932,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -142233,6 +143066,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -142462,6 +143297,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1964495884
@@ -143211,6 +144050,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -143348,6 +144188,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -143598,6 +144440,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1987418608
@@ -144744,6 +145590,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -144853,6 +145700,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -145089,6 +145938,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2015364024
@@ -146420,6 +147273,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -146553,6 +147407,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -146782,6 +147638,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2043689655
@@ -147165,67 +148025,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!1 &2059571803
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2059571806}
-  - component: {fileID: 2059571805}
-  - component: {fileID: 2059571804}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2059571804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059571803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc0b39a169aa4147a80603dd9fc3f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AmazonStartAlly
---- !u!114 &2059571805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059571803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 55066.914, y: -2.230765}
-  areaName: Viidakon katu
-  sceneName: Viidakko
---- !u!4 &2059571806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059571803}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060418006
 GameObject:
   m_ObjectHideFlags: 0
@@ -147782,6 +148581,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -147915,6 +148715,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -148144,6 +148946,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2065003164
@@ -148409,6 +149215,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -148535,6 +149342,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -148771,6 +149580,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2072062572
@@ -149582,6 +150395,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -149705,6 +150519,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -149943,6 +150759,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &2087688249
@@ -151488,6 +152308,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -151630,6 +152451,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 8300000, guid: 2f174f37764472246aa7982a44c16263, type: 3}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -151880,6 +152703,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2112440618
@@ -152666,6 +153493,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -152792,6 +153620,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -153028,6 +153858,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2126867578
@@ -153705,6 +154539,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -153831,6 +154666,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -154067,6 +154904,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2134041344
@@ -154552,6 +155393,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
   talkDuration: 1.6
@@ -154689,6 +155531,8 @@ MonoBehaviour:
   shoutsAsSpeech: 0
   fallVoice: {fileID: 0}
   getUpVoice: {fileID: 0}
+  getUpVoiceChance: 1
+  getUpVoiceGap: 0
   getUpVoiceAlt: {fileID: 0}
   fallVoiceAlt: {fileID: 0}
   fallVoiceVolume: 1
@@ -154939,6 +155783,10 @@ MonoBehaviour:
   landAltSprites: []
   getUpAltSprites: []
   counterAfterHits: 2
+  burstSprites: []
+  burstFrameTime: 0.09
+  burstHold: 1.4
+  burstSounds: []
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2139989617
@@ -155720,4 +156568,4 @@ SceneRoots:
   - {fileID: 840874164}
   - {fileID: 192042734}
   - {fileID: 510467432}
-  - {fileID: 2059571806}
+  - {fileID: 1550839865}

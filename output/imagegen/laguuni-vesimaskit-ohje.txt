@@ -1,0 +1,11 @@
+VESIMASKIT / vain kuvat, ei Unity-muutoksia
+
+Molemmat PNG-kuvat 1672x941. Valkoinen = valovareily, musta = ei vaikutusta. Harmaa = vaimennus.
+01-maskin lahde on laguuni-taso-1-vesi.png. Kayta sita erillisella vesitasolla; ranta ja etukivet peittavat veden paalle ulottuvan varan. Ei sellaisenaan yhdistetyn maisemakuvan maskiksi.
+02-maskin lahde on totalfist-laguuni-02-luola-v2.png (ei venetta tai vesiputousta).
+Maskit on tehty sisaisella image_gen-kuvanluonnilla. Rajat ovat pehmeita arvioita, eivat pikselintarkkoja segmentointeja. Soveltuvat hillittyyn valovareilyyn, eivat geometrian tai koko kuvan liikuttamiseen. Tarkista kohdistus pelissa.
+
+Prompts:
+Produce flat opaque grayscale WATER MASK for this extracted water-only layer. Full1672x941 canvas. Wherever source is transparent paint solid BLACK. Wherever source contains water paint WHITE. No depicted texture, no scene, no foliage, no gray noise. ONLY single white water footprint in BOTTOM RIGHT. Entire upper 520 rows BLACK, entire left 740 columns BLACK. Along the water footprint boundary fade white inward over 20px to black so effect stays strictly inside water. Bottom/right edges remain white wherever water touches image edge, no fade there. All submerged stones included white. Preserve water footprint absolute coordinates precisely.
+
+Create a flat opaque grayscale water-effect mask matching this lagoon cave image at EXACT1672x941. Upper scene absolutely BLACK. Water below shoreline WHITE. CRITICAL safe contour: entire rows0 through540 MUST be BLACK across whole image (no white humps reaching up onto boulders). From x0 to1150 shoreline mask becomes white gradually ONLY between y545 and570. Then follow cave landing: start white transition at y570 for x1200, y590 for x1450, y660 for x1600 and y680 at right edge. Keep black above this line, smooth gray20px fade BELOW line then pure WHITE water. Bottom-right above-water boulder at x1550-1672,y875-941 BLACK with soft edge inside water. Rest of bottom edge WHITE. No water texture, no noise, no text, no alpha, just black/white mask. Do not make whole rock silhouettes white. Conservative water-only region for animating light, rocks MUST remain black.

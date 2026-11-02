@@ -185,6 +185,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public bool holdGround;
     [Tooltip("Kombo menee loppuun: tavallinen (kaatamaton) isku ei katkaise sitä, vain kaatava.")]
     public bool comboArmor;
+    [Tooltip("Tarttuminen, nosto ja heitto eivät katkea iskuihin (vahinko menee läpi, pomo).")]
+    public bool grabArmor;
     [Tooltip("Väliaikainen: kirjoittaa Consoleen kombojen alun, jatkon ja katkeamisen syyn.")]
     public bool debugCombos;
     void ComboLog(string msg) { /* lokitus pois: kymmenet viholliset kirjoittivat Consoleen joka iskulla ja hidastivat editoria (piirakkasota) */ }
@@ -402,6 +404,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool ShoutIsSpeech => shoutsAsSpeech || displayName == "Rusty";
     [Tooltip("Oma ääni kaatuessa ja ylös noustessa (Horhe).")]
     public AudioClip fallVoice, getUpVoice;
+    [Tooltip("Ylösnousuäänen todennäköisyys ja vähimmäisväli (s): harvemmin, ettei toista itseään.")]
+    public float getUpVoiceChance = 1f, getUpVoiceGap = 0f;
+    float nextGetUpVoice;
     [Tooltip("Toinen ylösnousuääni: arvotaan getUpVoicen kanssa (tyhjä = vain getUpVoice).")]
     public AudioClip getUpVoiceAlt;
     [Tooltip("Toinen kaatumisääni: arvotaan fallVoicen kanssa (tyhjä = vain fallVoice).")]
@@ -1183,7 +1188,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (fallVoice == null) fallVoice = Resources.Load<AudioClip>("Sfx/pensalenkkari/pensalenkkari_fall");
             talksWhenCalm = true;
         }
-        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Yakuza-pomo" || displayName == "Don Kurinai" || displayName == "Rottakeisari" || displayName == "Pierre") isBoss = true;
+        if (displayName == "Horhe" || displayName == "Metsuri" || displayName == "Kapteeni" || displayName == "Romuukko" || displayName == "Deacon" || displayName == "Gustav" || displayName == "Joulupukki" || displayName == "Yakuza-pomo" || displayName == "Don Kurinai" || displayName == "Rottakeisari" || displayName == "Pierre" || displayName == "Timppa") isBoss = true;
         if (displayName == "Horhe")
         {
             // repliikit horhe_speak1, 2, … vuorotellen; kipuäänet horhe_grunt1, 2, … osumista
@@ -1242,9 +1247,30 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var knPain = KV("pain"); if (knPain.Length > 0) { hurtSounds = knPain; hurtVolume = 1f; }
             var knFall = KV("fall"); if (knFall.Length > 0) fallVoice = knFall[0]; else if (knPain.Length > 0) fallVoice = knPain[knPain.Length - 1];
             var knHit = KV("hit"); if (knHit.Length > 0) { attackSounds = knHit; attackSoundChance = 1f; attackVolume = 1f; }
-            var knUp = KV("nousu"); if (knUp.Length > 0) getUpVoice = knUp[0];
+            var knUp = KV("nousu"); if (knUp.Length > 0) { getUpVoice = knUp[0]; getUpVoiceChance = 0.15f; getUpVoiceGap = 25f; }   // Eldo sanoo nousurepliikin vain harvoin
             var knWin = KV("voitto"); if (knWin.Length > 0) { heroDownLaugh = knWin[0]; knockdownShoutChance = 0.4f; }
             var knTalk = KV("speak"); if (knTalk.Length > 0) { tauntSounds = knTalk; tauntPause = new Vector2(7f, 14f); tauntNoRepeat = true; tauntOnWakeChance = 0f; talksWhenCalm = false; ownTauntTimer = true; }
+        }
+        if (displayName == "Luurankosoturi")   // äänet Resources/Sfx/Luuranko: kipu, iskut (hit), potku, ilmalento, voitto, puhe, räjähdys; luunheitto ja hyppypotku soitetaan SkeletonBrainista. Joukossa ääniä rajataan (harva puhe).
+        {
+            var sk = Resources.LoadAll<AudioClip>("Sfx/Luuranko");
+            AudioClip[] SV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in sk) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var skPain = SV("pain"); if (skPain.Length > 0) { hurtSounds = skPain; hurtVolume = 0.3f; fallVoice = skPain[skPain.Length - 1]; }
+            var skHit = SV("hit"); if (skHit.Length > 0) { attackSounds = skHit; attackSoundChance = 0.5f; attackVolume = 0.55f; }
+            var skKick = SV("potku"); if (skKick.Length > 0) punch3WindupSounds = skKick;
+            var skFly = SV("ilmalento"); if (skFly.Length > 0) { launchVoice = skFly[0]; launchVoiceVolume = 0.3f; fallVoiceVolume = 0.3f; }
+            var skWin = SV("voitto"); if (skWin.Length > 0) { heroDownLaugh = skWin[Random.Range(0, skWin.Length)]; knockdownShoutChance = 0.25f; }
+            var skTalk = SV("speak"); if (skTalk.Length > 0) { tauntSounds = skTalk; tauntVolume = 0.75f; tauntPause = new Vector2(10f, 22f); tauntNoRepeat = true; tauntOnWakeChance = 0f; talksWhenCalm = false; ownTauntTimer = true; }
+            var skBurst = SV("rajahdys"); if (skBurst.Length > 0) burstSounds = skBurst;
+        }
+        if (displayName == "Timppa")   // äänet Resources/Sfx/Timppa: kipu (pain1-3), iskut (hit1-3), heitto (myös vasaran veto) ja puhe (speak)
+        {
+            var tp = Resources.LoadAll<AudioClip>("Sfx/Timppa");
+            AudioClip[] TPV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in tp) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var tpPain = TPV("pain"); if (tpPain.Length > 0) { hurtSounds = tpPain; hurtVolume = 1f; fallVoice = tpPain[tpPain.Length - 1]; }
+            var tpHit = TPV("hit"); if (tpHit.Length > 0) { attackSounds = tpHit; attackSoundChance = 0.7f; attackVolume = 1f; }
+            var tpThrow = TPV("heitto"); if (tpThrow.Length > 0) { throwSounds = tpThrow; altWindupSounds = tpThrow; }
+            var tpTalk = TPV("speak"); if (tpTalk.Length > 0) { tauntSounds = tpTalk; tauntPause = new Vector2(8f, 16f); tauntNoRepeat = true; tauntOnWakeChance = 0.8f; talksWhenCalm = false; ownTauntTimer = true; }
         }
         if (displayName == "Betty")   // äänet Resources/Sfx/Betty: kipu, iskut (hit + polvipotku), taklaus, kaatuminen, ylösnousu, voitto ja puhe; sama kaikissa sceneissä
         {
@@ -1816,6 +1842,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     }
                     if (!thudDone && displayName == "Amatsoni") HitFx.OnLand();   // tömähdys lattiaan osuessa
                     LandDust();
+                    if (health <= 0 && Has(burstSprites) && !undying && !sparring)
+                    {   // heitolla/kovalla iskulla kuollut luuranko hajoaa heti maahan osuessaan (ei vasta makuun jälkeen)
+                        burstOffset = 1; slideLand = false; Enter(State.Dead); PlayBurstSound();
+                        BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, knockVel.x >= 0f ? 1f : -1f);
+                        bool rareB = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
+                        break;
+                    }
                     Enter(State.Down);
                 }
                 break;
@@ -1838,7 +1871,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0 && undying) { health = 1; undyingFallen = true; }   // muu kuolemantie (heitto, ote): sama kuin iskussa
-                    if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); if (isBoss) Clues.BossDown(displayName); }
+                    if (health <= 0 && Has(burstSprites)) { burstOffset = 1; Enter(State.Dead); PlayBurstSound(); BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, knockVel.x >= 0f ? 1f : -1f); bool rareL = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareL ? stackValue : noteValue, rareL); if (isBoss) Clues.BossDown(displayName); }
+                    else if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); if (isBoss) Clues.BossDown(displayName); }
                     else
                     {
                         rollFirst = Has(getUpRollSprites) && (slamLanded || flipLanded);   // heitosta selälleen: ensin vatsalleen
@@ -1935,6 +1969,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 break;
 
             case State.Dead:
+                if (Has(burstSprites))
+                {
+                    float endT = burstSprites.Length * burstFrameTime + burstHold;
+                    if (body != null) body.enabled = stateTime < endT || Mathf.FloorToInt(stateTime * 12f) % 2 == 0;
+                    if (stateTime > endT + 0.8f) Destroy(gameObject);
+                    break;
+                }
                 // vilkkuu ja katoaa
                 if (body != null) body.enabled = Mathf.FloorToInt(stateTime * 12f) % 2 == 0;
                 if (stateTime > 1.2f) Destroy(gameObject);
@@ -2569,7 +2610,11 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
     void Enter(State s)
     {
-        if (s == State.Airborne && state != State.Airborne) airHits = 0;   // uusi lento: ilmaosumien laskuri nollaan
+        if (s == State.Airborne && state != State.Airborne)
+        {
+            airHits = 0;   // uusi lento: ilmaosumien laskuri nollaan
+            if (displayName == "Luurankosoturi" && launchVoice != null && audioSource != null && Random.value < 0.33f) { audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(launchVoice, launchVoiceVolume, true); }   // luuranko huutaa lentoon lähtiessä vain noin joka kolmannella kerralla
+        }
         if (s == State.GetUp || s == State.Chase || s == State.Idle) thrownByEnemy = false;
         if (s != State.Windup && s != State.Punch && s != State.Recover) burstTackle = false;   // pysäyttämätön taklaus päättyy
         if (s != State.Hurt) hurtOverride = 0f;   // counter-iskun pidennetty horjahdus päättyy aina tilan vaihtuessa
@@ -2580,7 +2625,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         {
             // haymakerin lataus: veto kestää yhtä kauan kuin latausmurahdus, käsi lähtee kun murahdus loppuu
             var c = PlayClipFrom(punch3WindupSounds, punch3Volume);
-            punch3WindupNow = c != null ? Mathf.Clamp(c.length - 0.05f, 0.7f, 1.4f) : punch3WindupTime;
+            punch3WindupNow = c != null && displayName != "Luurankosoturi" ? Mathf.Clamp(c.length - 0.05f, 0.7f, 1.4f) : punch3WindupTime;   // luurangon potku on nopea (ei odota murahdusta)
         }
         if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) { secondHitDone = false; altExtraDone = 0; }
@@ -2603,7 +2648,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.Airborne && state != State.Airborne) PickFallVariant();
         if (s == State.Airborne && fallVoice != null && state != State.Airborne && audioSource != null && VoiceGate("fall")) audioSource.PlayOneShotLeveled(fallVoiceAlt != null && Random.value < 0.5f ? fallVoiceAlt : fallVoice, fallVoiceVolume, ShoutIsSpeech);
         if (s == State.Dead && state != State.Dead && deathVoice != null && audioSource != null && VoiceGate("death")) { audioSource.pitch = 1f; audioSource.PlayOneShotLeveled(deathVoice, deathVoiceVolume); }
-        if (s == State.GetUp && getUpVoice != null && audioSource != null) audioSource.PlayOneShotLeveled(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f);
+        if (s == State.GetUp && getUpVoice != null && audioSource != null && Random.value < getUpVoiceChance && Time.time >= nextGetUpVoice) { nextGetUpVoice = Time.time + getUpVoiceGap; audioSource.PlayOneShotLeveled(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f); }
         if (s == State.Slaps)
         {
             slapsDone = 0;
@@ -3618,6 +3663,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
             flashTimer = 0.1f; shakeUntil = HitFx.ShakeUntil(false); PlayHurtSound();
             return true;
         }
+        // pomon ylivoima: heitto (tarttuminen, nosto, heitto) ja Timpan pääpusku eivät katkea mihinkään (kaatavaankaan iskuun); vahinko menee läpi
+        if (health > damage && ((grabArmor && (state == State.GrabReach || state == State.GrabLift || state == State.GrabThrow))
+            || (brain is TimppaBrain tpArm && tpArm.Active && (state == State.Windup || state == State.Punch || state == State.Recover))))
+        {
+            awake = true; health -= damage; LastHit = this; LastHitTime = Time.time; JustBlocked = false;
+            flashTimer = 0.1f; shakeUntil = HitFx.ShakeUntil(false); PlayHurtSound();
+            return true;
+        }
         // kombon aikana tavallinen isku uppoaa, mutta ei katkaise sarjaa (vasen–oikea–vasen menee loppuun)
         if (!chainLock && ((comboArmor && comboSeq != null) || (usingAlt && altHitAllAround && altExtraImpactFrames != null) || counterActive || (brain != null && brain.ArmorNow)) && (!knockdown || (brain is KingBrain kingArmor && kingArmor.Active)) && health > damage   // pyörähdyspotku (erikoisliike) ei katkea tavalliseen iskuun: 1,1 s lataus katkesi aina ennen osumaa
             && (state == State.Windup || state == State.Punch || state == State.Recover))
@@ -3751,6 +3804,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         flashTimer = 0.1f;
         shakeUntil = HitFx.ShakeUntil(knockdown || health <= 0);   // tärisee osumapysäytyksen ajan
         PlayHurtSound();
+        if (health <= 0 && Has(burstSprites) && !undying && !sparring)
+        {   // räjähtää kappaleiksi heti osuman jälkeen
+            knockVel = Vector2.zero; moving = false;
+            burstOffset = 0; Enter(State.Dead); PlayBurstSound();
+            BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, fromLeft ? 1f : -1f);
+            bool rareB = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
+            return true;
+        }
         if (isBoss && health > 0 && !chainLock && BossBreakout(knockdown)) return true;   // pomo pääsee irti, kun sitä hakataan nurkassa
 
         if (knockdown || health <= 0)
@@ -4076,7 +4137,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         spinRot = 0f;
         spinCenter = 1.5f;
         heldPose = -1;
-        heldAsIdle = false;
+        heldAsIdle = false; heldLying = false;
         Enter(State.Held);
     }
 
@@ -4106,6 +4167,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     bool launched;
     /// Otteessa näytetään seisova perusasento osumakuvan (pää taakse) sijaan: päät yhteen -liike.
     [System.NonSerialized] public bool heldAsIdle;
+    [System.NonSerialized] public bool heldLying;   // toisen vihun heittämänä (ei omia otekuvia): näytetään kaatumiskuva eikä seisoma-asentoa
+
     [System.NonSerialized] public bool thrownByEnemy;   // toisen vihun heittämä (portsari): ei kameran tärähdystä
     [System.NonSerialized] public Enemy thrownBy;       // heittäjä (Tom): heitetty vihu ei kaada häntä lentoreitillään
 
@@ -4185,6 +4248,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         Enter(State.Airborne);
     }
 
+    /// Ilmassa näytettävien kaatumiskuvien enimmäismäärä: luurangolla vain pystymmät kuvat (ei makuuasentoa kesken lennon).
+    int AirFrameCap => displayName == "Luurankosoturi" ? 4 : 999;
     int lastAttackSound = -1;
     float punch3WindupNow = 0.9f;
 
@@ -4331,8 +4396,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
     float xCarry;   // Move: x-askeleen pyöristysjäännös (float-tarkkuus suurilla x-arvoilla)
     static bool OnIceNow => Area.Current != null && Area.Current.slippery;
     Vector2 iceVel; int iceFrame = -1;   // liukas pinta (Area.slippery): nykyinen vauhti
+    /// Kahlaus (LagoonWading): 1 = normaali, alle 1 = hidastaa liikettä.
+    [System.NonSerialized] public float wadeMul = 1f;
+    [Tooltip("Räjähdyskuolema (esim. luurankosoturi): tappavan osuman jälkeen sarja toistetaan heti (ensimmäinen kuva = osumapose), viimeinen kuva jää hetkeksi maahan ja katoaa.")]
+    public Sprite[] burstSprites; public float burstFrameTime = 0.09f, burstHold = 1.4f; int burstOffset;
+    public AudioClip[] burstSounds;
+    void PlayBurstSound() { if (burstSounds != null && burstSounds.Length > 0 && audioSource != null) audioSource.PlayOneShotLeveled(burstSounds[Random.Range(0, burstSounds.Length)], 1f, true); }
     void Move(Vector2 delta)
     {
+        delta *= wadeMul;
         bool locomotion = (state == State.Idle || state == State.Chase) && NoExternalBrain;   // ulkoinen aivo (Deacon) liikkuu vapaasti
         bool skating = skatePass && !boardLost;
         var iceArea = Area.Current;
@@ -4646,13 +4718,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     return artSet[Mathf.Min(artFlightPose + fi, artSet.Length - 1)];
                 }
                 if (thrownByPlayer && Has(knockdownSprites))   // heitetty ilman omaa heittokuvaa: lentää kaatumiskuvissa (ei osumakuvassa)
-                    return knockdownSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.02f, airFrameTime)), Mathf.Max(1, knockdownSprites.Length - 1) - 1)];
+                    return knockdownSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.02f, airFrameTime)), Mathf.Max(1, knockdownSprites.Length - 1) - 1)];   // heitetty: lentää kaatumiskuvissa aina makuuasentoon asti
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (hoverHurtPose && chainHover && !launched && Has(hurtSprites))
                     return hurtSprites[Mathf.Clamp((int)((Time.time - lastHitTime) / 0.07f), 0, hurtSprites.Length - 1)];
                 if (Has(knockdownSprites))
                 {
-                    int airFrames = Mathf.Max(1, knockdownSprites.Length - 1);
+                    int airFrames = Mathf.Min(Mathf.Max(1, knockdownSprites.Length - 1), AirFrameCap);
                     return knockdownSprites[Mathf.Min((int)(stateTime / airFrameTime), airFrames - 1)];
                 }
                 rot = Mathf.Lerp(20f, 80f, Mathf.Clamp01(stateTime / 0.35f));
@@ -4674,6 +4746,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Held:
                 if (heldPose >= 0) return artSet[Mathf.Clamp(heldPose, 0, artSpinPose)];
+                if (heldLying && Has(knockdownSprites)) return knockdownSprites[Mathf.Clamp(knockdownSprites.Length / 4, 1, knockdownSprites.Length - 1)];   // heitettävänä: kaatuvan asento, ei pystyssä
                 if (heldAsIdle) return FirstIdle();   // pää pystyssä (osumakuvissa pää kallistuu taakse)
                 return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
 
@@ -4683,6 +4756,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
 
             case State.Down:
             case State.Dead:
+                if (state == State.Dead && Has(burstSprites)) return burstSprites[Mathf.Min(burstOffset + (int)(stateTime / burstFrameTime), burstSprites.Length - 1)];
                 if (ringFall && HasRingArt)
                     return ringedSprites[Mathf.Min(4 + (int)((state == State.Down ? stateTime : 99f) / 0.1f), 7)];
                 if (Has(landSprites) && !slamLanded && !flipLanded)

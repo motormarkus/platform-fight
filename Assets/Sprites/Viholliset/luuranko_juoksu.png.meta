@@ -1,0 +1,718 @@
+fileFormatVersion: 2
+guid: 25bb7575ea5142f48b92fa198a137c18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3610358414083010701
+    second: luuranko_juoksu_0
+  - first:
+      213: 3099069663740484199
+    second: luuranko_juoksu_1
+  - first:
+      213: 8576561823990050105
+    second: luuranko_juoksu_2
+  - first:
+      213: 7201851581231436906
+    second: luuranko_juoksu_3
+  - first:
+      213: 4350304085951747496
+    second: luuranko_juoksu_4
+  - first:
+      213: -5931860514717408714
+    second: luuranko_juoksu_5
+  - first:
+      213: 3121886749607272408
+    second: luuranko_juoksu_6
+  - first:
+      213: -8166847631580439104
+    second: luuranko_juoksu_7
+  - first:
+      213: 4323321495028327158
+    second: luuranko_juoksu_8
+  - first:
+      213: 1248870715842440340
+    second: luuranko_juoksu_9
+  - first:
+      213: -5615325115008972354
+    second: luuranko_juoksu_10
+  - first:
+      213: -5188388771838665162
+    second: luuranko_juoksu_11
+  - first:
+      213: -725018146636832739
+    second: luuranko_juoksu_12
+  - first:
+      213: -2649149788073766041
+    second: luuranko_juoksu_13
+  - first:
+      213: -6432079098144074873
+    second: luuranko_juoksu_14
+  - first:
+      213: 1610799113944037522
+    second: luuranko_juoksu_15
+  - first:
+      213: -3106041074377957797
+    second: luuranko_juoksu_16
+  - first:
+      213: -4820161689598642739
+    second: luuranko_juoksu_17
+  - first:
+      213: -729534525129859772
+    second: luuranko_juoksu_18
+  - first:
+      213: -558771338209939511
+    second: luuranko_juoksu_19
+  - first:
+      213: 5791744187623593469
+    second: luuranko_juoksu_20
+  - first:
+      213: -1516900802277419410
+    second: luuranko_juoksu_21
+  - first:
+      213: -779635882117061963
+    second: luuranko_juoksu_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: luuranko_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f4db0a62e65edc0800000000000000
+      internalID: -3610358414083010701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ad079807b120b20800000000000000
+      internalID: 3099069663740484199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d6a11d981160770800000000000000
+      internalID: 8576561823990050105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6492682bdd12f360800000000000000
+      internalID: 7201851581231436906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5951c64826f5c30800000000000000
+      internalID: 4350304085951747496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6326a1b4a4ccdada0800000000000000
+      internalID: -5931860514717408714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df1753557b235b20800000000000000
+      internalID: 3121886749607272408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd58e0595789ae80800000000000000
+      internalID: -8166847631580439104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f269f86ef58ffb30800000000000000
+      internalID: 4323321495028327158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c2d2c9c41e45110800000000000000
+      internalID: 1248870715842440340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb98f852f8b5212b0800000000000000
+      internalID: -5615325115008972354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e5ee9b6e32ff7b0800000000000000
+      internalID: -5188388771838665162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10eff146d730f5f0800000000000000
+      internalID: -725018146636832739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763df05bd445c3bd0800000000000000
+      internalID: -2649149788073766041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78358eb832aacb6a0800000000000000
+      internalID: -6432079098144074873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298f52f7245ba5610800000000000000
+      internalID: 1610799113944037522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5eddef691025e4d0800000000000000
+      internalID: -3106041074377957797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5b68b4b785b1db0800000000000000
+      internalID: -4820161689598642739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d5042f63c20e5f0800000000000000
+      internalID: -729534525129859772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cfa35bad68de38f0800000000000000
+      internalID: -558771338209939511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5dc3517a8606050800000000000000
+      internalID: 5791744187623593469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_juoksu_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66dfb8d1c2e2fae0800000000000000
+      internalID: -1516900802277419410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3309bde0fd4b1e841942d636fd2d2e95
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      luuranko_juoksu_0: -3610358414083010701
+      luuranko_juoksu_1: 3099069663740484199
+      luuranko_juoksu_10: -5615325115008972354
+      luuranko_juoksu_11: -5188388771838665162
+      luuranko_juoksu_12: -725018146636832739
+      luuranko_juoksu_13: -2649149788073766041
+      luuranko_juoksu_14: -6432079098144074873
+      luuranko_juoksu_15: 1610799113944037522
+      luuranko_juoksu_16: -3106041074377957797
+      luuranko_juoksu_17: -4820161689598642739
+      luuranko_juoksu_18: -729534525129859772
+      luuranko_juoksu_19: -558771338209939511
+      luuranko_juoksu_2: 8576561823990050105
+      luuranko_juoksu_20: 5791744187623593469
+      luuranko_juoksu_21: -1516900802277419410
+      luuranko_juoksu_3: 7201851581231436906
+      luuranko_juoksu_4: 4350304085951747496
+      luuranko_juoksu_5: -5931860514717408714
+      luuranko_juoksu_6: 3121886749607272408
+      luuranko_juoksu_7: -8166847631580439104
+      luuranko_juoksu_8: 4323321495028327158
+      luuranko_juoksu_9: 1248870715842440340
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

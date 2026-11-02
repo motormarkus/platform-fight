@@ -5401,8 +5401,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         }
     }
 
+    /// Kahlaus (LagoonWading): 1 = normaali, alle 1 = hidastaa maaliikkeen.
+    public float wadeMul = 1f;
     void MoveOnGround(Vector2 delta)
     {
+        delta *= wadeMul;
         Vector3 p = transform.position;
         p.x += delta.x;
         // ei kävellä alueen taustakuvan ulkopuolelle (kameran rajat + puoli ruutua, hahmo kokonaan ruudussa)

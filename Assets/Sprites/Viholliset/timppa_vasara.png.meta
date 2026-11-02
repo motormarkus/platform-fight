@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 62c05a6468f86204e8fdf4715ceeec59
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5261246050703647253
+    second: timppa_vasara_0
+  - first:
+      213: 4385602836760396714
+    second: timppa_vasara_1
+  - first:
+      213: -4500707941421211503
+    second: timppa_vasara_2
+  - first:
+      213: -1013860214788894429
+    second: timppa_vasara_3
+  - first:
+      213: 4552948690156329443
+    second: timppa_vasara_4
+  - first:
+      213: 5371880213117664882
+    second: timppa_vasara_5
+  - first:
+      213: 8208939196670090032
+    second: timppa_vasara_6
+  - first:
+      213: -6297961710067886361
+    second: timppa_vasara_7
+  - first:
+      213: -7637240934502404293
+    second: timppa_vasara_8
+  - first:
+      213: -3418998011998832383
+    second: timppa_vasara_9
+  - first:
+      213: 7124386185928861756
+    second: timppa_vasara_10
+  - first:
+      213: 6888893759050840752
+    second: timppa_vasara_11
+  - first:
+      213: 8453348374789703802
+    second: timppa_vasara_12
+  - first:
+      213: -7549613615433805596
+    second: timppa_vasara_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: timppa_vasara_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5122e186863b30940800000000000000
+      internalID: 5261246050703647253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2688
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa38c0b4b8accdc30800000000000000
+      internalID: 4385602836760396714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2688
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1902fc919f54a81c0800000000000000
+      internalID: -4500707941421211503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2688
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3215b9d918b0ee1f0800000000000000
+      internalID: -1013860214788894429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e9195d06b25f2f30800000000000000
+      internalID: 4552948690156329443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ef3d6a790cc8a40800000000000000
+      internalID: 5371880213117664882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_6
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1792
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b1d40e4b20ce170800000000000000
+      internalID: 8208939196670090032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_7
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1792
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e6546651352998a0800000000000000
+      internalID: -6297961710067886361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f69ea75d1130690800000000000000
+      internalID: -7637240934502404293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109fa073c674d80d0800000000000000
+      internalID: -3418998011998832383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 896
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c386dfe4d77eed260800000000000000
+      internalID: 7124386185928861756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_11
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 896
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba71abff544a9f50800000000000000
+      internalID: 6888893759050840752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7847f12f83505570800000000000000
+      internalID: 8453348374789703802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_vasara_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 896
+      alignment: 9
+      pivot: {x: 0.37109375, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e09d949a626a3790800000000000000
+      internalID: -7549613615433805596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fe5efeea3be36db4689917e7301dfe2b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      timppa_vasara_0: 5261246050703647253
+      timppa_vasara_1: 4385602836760396714
+      timppa_vasara_10: 7124386185928861756
+      timppa_vasara_11: 6888893759050840752
+      timppa_vasara_12: 8453348374789703802
+      timppa_vasara_13: -7549613615433805596
+      timppa_vasara_2: -4500707941421211503
+      timppa_vasara_3: -1013860214788894429
+      timppa_vasara_4: 4552948690156329443
+      timppa_vasara_5: 5371880213117664882
+      timppa_vasara_6: 8208939196670090032
+      timppa_vasara_7: -6297961710067886361
+      timppa_vasara_8: -7637240934502404293
+      timppa_vasara_9: -3418998011998832383
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

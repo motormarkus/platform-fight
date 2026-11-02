@@ -299,6 +299,7 @@ public class Jerrycan : MonoBehaviour
             if (air) ang = 0f;   // kannossa pystyssä
             else if (moving) ang -= Mathf.Sign(vx) * Mathf.Abs(vx) * dt * 95f;   // vierii eteenpäin
             else { float tgt = Mathf.Round(ang / 90f) * 90f; ang = Mathf.MoveTowards(ang, tgt, 420f * dt); }   // asettuu pystyyn / kyljelleen / ylösalaisin
+            if (canSpr == null) EnsureSprites();   // alueen vaihdon muistinvapautus voi tuhota staattisen kuvan
             var sp = sprites != null && sprites.Length > 0 ? sprites[0] : canSpr;
             body.sprite = sp; body.flipX = false;
             var q = Quaternion.Euler(0f, 0f, ang);

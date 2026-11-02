@@ -154,7 +154,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
+        y: 768
         width: 768
         height: 768
       alignment: 9
@@ -176,7 +176,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 1536
+        y: 768
         width: 768
         height: 768
       alignment: 9
@@ -198,7 +198,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 1536
+        y: 768
         width: 768
         height: 768
       alignment: 9
@@ -220,7 +220,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2304
-        y: 1536
+        y: 768
         width: 768
         height: 768
       alignment: 9
@@ -242,7 +242,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
+        y: 0
         width: 768
         height: 768
       alignment: 9
@@ -264,7 +264,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 768
+        y: 0
         width: 768
         height: 768
       alignment: 9
@@ -286,7 +286,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 768
+        y: 0
         width: 768
         height: 768
       alignment: 9
@@ -308,7 +308,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2304
-        y: 768
+        y: 0
         width: 768
         height: 768
       alignment: 9
@@ -321,28 +321,6 @@ TextureImporter:
       bones: []
       spriteID: e2b36073601eb2890800000000000000
       internalID: -7481638939136738514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kuningas_osuma_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 768
-        height: 768
-      alignment: 9
-      pivot: {x: 0.390625, y: 0.020833334}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: beddc10b782bfe7d0800000000000000
-      internalID: -2886892540276187669
       vertices: []
       indices: 
       edges: []
@@ -369,7 +347,6 @@ TextureImporter:
       kuningas_osuma_5: -5398471917983633096
       kuningas_osuma_6: 3848078372005881069
       kuningas_osuma_7: -7481638939136738514
-      kuningas_osuma_8: -2886892540276187669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

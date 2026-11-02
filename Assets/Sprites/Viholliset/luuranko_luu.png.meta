@@ -1,0 +1,701 @@
+fileFormatVersion: 2
+guid: cd0dadaafc859b245b6c13f884732039
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6218530274694251916
+    second: luuranko_luu_0
+  - first:
+      213: -2931383830622204210
+    second: luuranko_luu_1
+  - first:
+      213: 8143882322623955918
+    second: luuranko_luu_2
+  - first:
+      213: -4566843558857709987
+    second: luuranko_luu_3
+  - first:
+      213: -4829325700859480058
+    second: luuranko_luu_4
+  - first:
+      213: -2430526833126618114
+    second: luuranko_luu_5
+  - first:
+      213: -8685099653811935799
+    second: luuranko_luu_6
+  - first:
+      213: -6749389496826607022
+    second: luuranko_luu_7
+  - first:
+      213: -6744071624478727336
+    second: luuranko_luu_8
+  - first:
+      213: 4679936897530000334
+    second: luuranko_luu_9
+  - first:
+      213: -6572760979378229391
+    second: luuranko_luu_10
+  - first:
+      213: 2927860843174060263
+    second: luuranko_luu_11
+  - first:
+      213: 7901277722372998381
+    second: luuranko_luu_12
+  - first:
+      213: 8110021820709394518
+    second: luuranko_luu_13
+  - first:
+      213: -1646838394853318101
+    second: luuranko_luu_14
+  - first:
+      213: -8209802117463429852
+    second: luuranko_luu_15
+  - first:
+      213: 9167358198875660171
+    second: luuranko_luu_16
+  - first:
+      213: -3322692665271301041
+    second: luuranko_luu_17
+  - first:
+      213: 8885430540817026458
+    second: luuranko_luu_18
+  - first:
+      213: 1812592704185167304
+    second: luuranko_luu_19
+  - first:
+      213: 6875305728930231850
+    second: luuranko_luu_20
+  - first:
+      213: 7793002468791651203
+    second: luuranko_luu_21
+  - first:
+      213: 47371284173315498
+    second: luuranko_luu_22
+  - first:
+      213: 8919370288204719991
+    second: luuranko_luu_23
+  - first:
+      213: -8379231333007010362
+    second: luuranko_luu_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: luuranko_luu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a36df89a753b9a0800000000000000
+      internalID: -6218530274694251916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 4160
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece807befe1a157d0800000000000000
+      internalID: -2931383830622204210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4160
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3859403d1e40170800000000000000
+      internalID: 8143882322623955918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4160
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d566189baff4f90c0800000000000000
+      internalID: -4566843558857709987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3328
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6083b97acd9cafcb0800000000000000
+      internalID: -4829325700859480058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3328
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efbce6609b8054ed0800000000000000
+      internalID: -2430526833126618114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3328
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5eba761e3587780800000000000000
+      internalID: -8685099653811935799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3328
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ac5ee230a5552a0800000000000000
+      internalID: -6749389496826607022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8536723d69e3862a0800000000000000
+      internalID: -6744071624478727336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2496
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3f48c10d972f040800000000000000
+      internalID: 4679936897530000334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2496
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fac9696bcd8c4a0800000000000000
+      internalID: -6572760979378229391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2496
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e06a25ace9d1a820800000000000000
+      internalID: 2927860843174060263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1664
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de400c9c93af6ad60800000000000000
+      internalID: 7901277722372998381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1664
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658dc0090e59c8070800000000000000
+      internalID: 8110021820709394518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1664
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b222b4884314529e0800000000000000
+      internalID: -1646838394853318101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1664
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42da758b87ce01e80800000000000000
+      internalID: -8209802117463429852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f9fbc06bff83f70800000000000000
+      internalID: 9167358198875660171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 832
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c45b410ac63e1d0800000000000000
+      internalID: -3322692665271301041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 832
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d4ec5fff36f4b70800000000000000
+      internalID: 8885430540817026458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_19
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 832
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdeb6ff57f972910800000000000000
+      internalID: 1812592704185167304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_luu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 832
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26381f222ef96f50800000000000000
+      internalID: 6875305728930231850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 551465b41c114714b8fde29114c18ebf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      luuranko_luu_0: -6218530274694251916
+      luuranko_luu_1: -2931383830622204210
+      luuranko_luu_10: -6572760979378229391
+      luuranko_luu_11: 2927860843174060263
+      luuranko_luu_12: 7901277722372998381
+      luuranko_luu_13: 8110021820709394518
+      luuranko_luu_14: -1646838394853318101
+      luuranko_luu_15: -8209802117463429852
+      luuranko_luu_16: 9167358198875660171
+      luuranko_luu_17: -3322692665271301041
+      luuranko_luu_18: 8885430540817026458
+      luuranko_luu_19: 1812592704185167304
+      luuranko_luu_2: 8143882322623955918
+      luuranko_luu_20: 6875305728930231850
+      luuranko_luu_3: -4566843558857709987
+      luuranko_luu_4: -4829325700859480058
+      luuranko_luu_5: -2430526833126618114
+      luuranko_luu_6: -8685099653811935799
+      luuranko_luu_7: -6749389496826607022
+      luuranko_luu_8: -6744071624478727336
+      luuranko_luu_9: 4679936897530000334
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

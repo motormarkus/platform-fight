@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: d17f2cfacf131a34abae13b6b36d89fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5342049601990348938
+    second: mainari_idle_0
+  - first:
+      213: -2018959672949196182
+    second: mainari_idle_1
+  - first:
+      213: -3127582187407651213
+    second: mainari_idle_2
+  - first:
+      213: 2069027692450087941
+    second: mainari_idle_3
+  - first:
+      213: -2700176168607215979
+    second: mainari_idle_4
+  - first:
+      213: 5015173930914463265
+    second: mainari_idle_5
+  - first:
+      213: 8627237583429969884
+    second: mainari_idle_6
+  - first:
+      213: -524659409368476126
+    second: mainari_idle_7
+  - first:
+      213: -6687479844107062386
+    second: mainari_idle_8
+  - first:
+      213: -2587535368846162903
+    second: mainari_idle_9
+  - first:
+      213: -4337555957723704938
+    second: mainari_idle_10
+  - first:
+      213: -1401136995115007099
+    second: mainari_idle_11
+  - first:
+      213: -6765949192754162549
+    second: mainari_idle_12
+  - first:
+      213: 1532790771594498817
+    second: mainari_idle_13
+  - first:
+      213: -5559483240986587126
+    second: mainari_idle_14
+  - first:
+      213: 6836871949453414893
+    second: mainari_idle_15
+  - first:
+      213: -407080595895580060
+    second: mainari_idle_16
+  - first:
+      213: -7202781000123861682
+    second: mainari_idle_17
+  - first:
+      213: -6899946993659609470
+    second: mainari_idle_18
+  - first:
+      213: -6092545536797954561
+    second: mainari_idle_19
+  - first:
+      213: -5561985282707846919
+    second: mainari_idle_20
+  - first:
+      213: 8396333187021395263
+    second: mainari_idle_21
+  - first:
+      213: 7374463057040273918
+    second: mainari_idle_22
+  - first:
+      213: -6095521355210905479
+    second: mainari_idle_23
+  - first:
+      213: 6003005763493975411
+    second: mainari_idle_24
+  - first:
+      213: 6664262127900805452
+    second: mainari_idle_25
+  - first:
+      213: 1196921640019853268
+    second: mainari_idle_26
+  - first:
+      213: 2763192423068933320
+    second: mainari_idle_27
+  - first:
+      213: 4589370524997067953
+    second: mainari_idle_28
+  - first:
+      213: -6874805882213681101
+    second: mainari_idle_29
+  - first:
+      213: -3373141172916650691
+    second: mainari_idle_30
+  - first:
+      213: -5089996913934899105
+    second: mainari_idle_31
+  - first:
+      213: 2698869320328966448
+    second: mainari_idle_32
+  - first:
+      213: 3354474426617955981
+    second: mainari_idle_33
+  - first:
+      213: 3268516236842210900
+    second: mainari_idle_34
+  - first:
+      213: 379769846281360105
+    second: mainari_idle_35
+  - first:
+      213: -1667084945107238388
+    second: mainari_idle_36
+  - first:
+      213: 6274844493795184848
+    second: mainari_idle_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mainari_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6912
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f29dcb03a3dd5b0800000000000000
+      internalID: -5342049601990348938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6912
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a3606dfd63bf3e0800000000000000
+      internalID: -2018959672949196182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6912
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e4ab932989894d0800000000000000
+      internalID: -3127582187407651213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6912
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5040fee59b9a6bc10800000000000000
+      internalID: 2069027692450087941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e013fa41c078ad0800000000000000
+      internalID: -2700176168607215979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12eb4fe5e1a799540800000000000000
+      internalID: 5015173930914463265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd72e318fda1ab770800000000000000
+      internalID: 8627237583429969884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22696840c0908b8f0800000000000000
+      internalID: -524659409368476126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83f969738c4133a0800000000000000
+      internalID: -6687479844107062386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9244a289a4a371cd0800000000000000
+      internalID: -2587535368846162903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691df7a76d7edc3c0800000000000000
+      internalID: -4337555957723704938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583038493592e8ce0800000000000000
+      internalID: -1401136995115007099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b841c858e058a12a0800000000000000
+      internalID: -6765949192754162549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10313efe511954510800000000000000
+      internalID: 1532790771594498817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00d14e927fb8d2b0800000000000000
+      internalID: -5559483240986587126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1d00290d271ee50800000000000000
+      internalID: 6836871949453414893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a80b6da52c95af0800000000000000
+      internalID: -407080595895580060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e453fa4a7d49a0c90800000000000000
+      internalID: -7202781000123861682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ef4e944c67e30a0800000000000000
+      internalID: -6899946993659609470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd244d2d1ee27ba0800000000000000
+      internalID: -6092545536797954561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f88f32aadbdfc2b0800000000000000
+      internalID: -5561985282707846919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35db344c84c58470800000000000000
+      internalID: 8396333187021395263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1702c241b575660800000000000000
+      internalID: 7374463057040273918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978a8d57f9b586ba0800000000000000
+      internalID: -6095521355210905479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3755ea5cfe5fe4350800000000000000
+      internalID: 6003005763493975411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49cd97b8173c7c50800000000000000
+      internalID: 6664262127900805452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df7c59d3e15c9010800000000000000
+      internalID: 1196921640019853268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc13176ed4d85620800000000000000
+      internalID: 2763192423068933320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4291d4d28b0bf30800000000000000
+      internalID: 4589370524997067953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33833e27978c790a0800000000000000
+      internalID: -6874805882213681101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3dfe0399f13031d0800000000000000
+      internalID: -3373141172916650691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58631556c2bc59b0800000000000000
+      internalID: -5089996913934899105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031786df85f447520800000000000000
+      internalID: 2698869320328966448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_33
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8602bed7bc7d8e20800000000000000
+      internalID: 3354474426617955981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_34
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4569397333a1c5d20800000000000000
+      internalID: 3268516236842210900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_35
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e25100c9a6354500800000000000000
+      internalID: 379769846281360105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c024b7433135dd8e0800000000000000
+      internalID: -1667084945107238388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_idle_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d05a7152d9b41750800000000000000
+      internalID: 6274844493795184848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fb84362b26161d04bad4589050750970
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mainari_idle_0: -5342049601990348938
+      mainari_idle_1: -2018959672949196182
+      mainari_idle_10: -4337555957723704938
+      mainari_idle_11: -1401136995115007099
+      mainari_idle_12: -6765949192754162549
+      mainari_idle_13: 1532790771594498817
+      mainari_idle_14: -5559483240986587126
+      mainari_idle_15: 6836871949453414893
+      mainari_idle_16: -407080595895580060
+      mainari_idle_17: -7202781000123861682
+      mainari_idle_18: -6899946993659609470
+      mainari_idle_19: -6092545536797954561
+      mainari_idle_2: -3127582187407651213
+      mainari_idle_20: -5561985282707846919
+      mainari_idle_21: 8396333187021395263
+      mainari_idle_22: 7374463057040273918
+      mainari_idle_23: -6095521355210905479
+      mainari_idle_24: 6003005763493975411
+      mainari_idle_25: 6664262127900805452
+      mainari_idle_26: 1196921640019853268
+      mainari_idle_27: 2763192423068933320
+      mainari_idle_28: 4589370524997067953
+      mainari_idle_29: -6874805882213681101
+      mainari_idle_3: 2069027692450087941
+      mainari_idle_30: -3373141172916650691
+      mainari_idle_31: -5089996913934899105
+      mainari_idle_32: 2698869320328966448
+      mainari_idle_33: 3354474426617955981
+      mainari_idle_34: 3268516236842210900
+      mainari_idle_35: 379769846281360105
+      mainari_idle_36: -1667084945107238388
+      mainari_idle_37: 6274844493795184848
+      mainari_idle_4: -2700176168607215979
+      mainari_idle_5: 5015173930914463265
+      mainari_idle_6: 8627237583429969884
+      mainari_idle_7: -524659409368476126
+      mainari_idle_8: -6687479844107062386
+      mainari_idle_9: -2587535368846162903
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -411,18 +411,22 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         {
             if (Mathf.Abs(grabFoe.transform.position.x - me.x) > grabRange + 0.8f || !grabFoe.CanBeGrabbed) { Abort(); e.BrainPhaseSet(Enemy.BrainPhase.Chase); return; }
             grabFoe.BeginHeldByPlayer(me.x);
+            grabFoe.heldLying = true;
             holding = true;
         }
         if (holding && i < grabThrowFrame)
         {
             float u = Mathf.Clamp01((i - grabCatchFrame) / (float)(grabThrowFrame - grabCatchFrame));
             float lift = Mathf.Lerp(0.5f, 2.7f, u * u), x = me.x + face * Mathf.Lerp(1.0f, 0.2f, u);
-            grabFoe.SetHeldByPlayer(new Vector3(x, me.y - 0.02f, 0f), lift, 0f, 0);
+            bool foeArt = grabFoe.HasFlipArt || grabFoe.HasHeadlockArt;   // omat otekuvat, tai muuten kierto kuten pelaajan heitossa (ei jää seisoma-asentoon)
+            float spin = 0f;   // ei pyöritetä pystyssä: käytetään kaatumiskuvaa
+            grabFoe.SetHeldByPlayer(new Vector3(x, me.y - 0.02f, 0f), lift, spin, foeArt ? (u < 0.5f ? 1 : 2) : -1);
         }
         else if (holding)
         {
             holding = false; Shout();
             grabFoe.thrownByEnemy = true;
+            grabFoe.thrownBy = e;   // heitetty vihu ei kaada heittäjää itseään (sama kuin Tomilla)
             grabFoe.ReleaseThrow(face * throwSpeed, throwUp, grabDamage, true, throwSlide);   // liukuu maassa kuin hero
             grabFoe = null;
         }

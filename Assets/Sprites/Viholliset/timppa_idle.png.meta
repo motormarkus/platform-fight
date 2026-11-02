@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: b4cf1a2fd284b4849a8b33b0091defea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6029491468715433719
+    second: timppa_idle_0
+  - first:
+      213: 7574503361891589304
+    second: timppa_idle_1
+  - first:
+      213: -5451862630988808422
+    second: timppa_idle_2
+  - first:
+      213: 8524032111298764371
+    second: timppa_idle_3
+  - first:
+      213: 2050627572665818934
+    second: timppa_idle_4
+  - first:
+      213: 8907824739939694194
+    second: timppa_idle_5
+  - first:
+      213: 3968966105627043610
+    second: timppa_idle_6
+  - first:
+      213: 5871192415457343912
+    second: timppa_idle_7
+  - first:
+      213: 6836688826120095180
+    second: timppa_idle_8
+  - first:
+      213: 5993751977242612885
+    second: timppa_idle_9
+  - first:
+      213: -7856395010080866800
+    second: timppa_idle_10
+  - first:
+      213: -4162834761888890044
+    second: timppa_idle_11
+  - first:
+      213: -20952772251940912
+    second: timppa_idle_12
+  - first:
+      213: -5829472728576612317
+    second: timppa_idle_13
+  - first:
+      213: -2800649479574182348
+    second: timppa_idle_14
+  - first:
+      213: -6465379887973050998
+    second: timppa_idle_15
+  - first:
+      213: 7960541170311131867
+    second: timppa_idle_16
+  - first:
+      213: 4218693653404721056
+    second: timppa_idle_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: timppa_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe18019b8e0da350800000000000000
+      internalID: 6029491468715433719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bcdc8b1daa0e1960800000000000000
+      internalID: 7574503361891589304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f7fa382d71754b0800000000000000
+      internalID: -5451862630988808422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3584
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e5cfffa027b4670800000000000000
+      internalID: 8524032111298764371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f1e53a9ea457c10800000000000000
+      internalID: 2050627572665818934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 276ba81c763fe9b70800000000000000
+      internalID: 8907824739939694194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17277305a9941730800000000000000
+      internalID: 3968966105627043610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2688
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a97d4b156aaa7150800000000000000
+      internalID: 5871192415457343912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc545c8d34cc0ee50800000000000000
+      internalID: 6836688826120095180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5945753caa51e2350800000000000000
+      internalID: 5993751977242612885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e7af00d5a78f290800000000000000
+      internalID: -7856395010080866800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_11
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44307f6f6d3aa36c0800000000000000
+      internalID: -4162834761888890044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d70ddc809f85bff0800000000000000
+      internalID: -20952772251940912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3282d51707d891fa0800000000000000
+      internalID: -5829472728576612317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436299503281229d0800000000000000
+      internalID: -2800649479574182348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8559673f3b5646a0800000000000000
+      internalID: -6465379887973050998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd274448406897e60800000000000000
+      internalID: 7960541170311131867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timppa_idle_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 896
+      alignment: 9
+      pivot: {x: 0.5, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af1263b68fcb8a30800000000000000
+      internalID: 4218693653404721056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 232f62be934d81c4ebbb94d15a64e330
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      timppa_idle_0: 6029491468715433719
+      timppa_idle_1: 7574503361891589304
+      timppa_idle_10: -7856395010080866800
+      timppa_idle_11: -4162834761888890044
+      timppa_idle_12: -20952772251940912
+      timppa_idle_13: -5829472728576612317
+      timppa_idle_14: -2800649479574182348
+      timppa_idle_15: -6465379887973050998
+      timppa_idle_16: 7960541170311131867
+      timppa_idle_17: 4218693653404721056
+      timppa_idle_2: -5451862630988808422
+      timppa_idle_3: 8524032111298764371
+      timppa_idle_4: 2050627572665818934
+      timppa_idle_5: 8907824739939694194
+      timppa_idle_6: 3968966105627043610
+      timppa_idle_7: 5871192415457343912
+      timppa_idle_8: 6836688826120095180
+      timppa_idle_9: 5993751977242612885
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

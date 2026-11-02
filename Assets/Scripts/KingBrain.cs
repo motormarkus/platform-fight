@@ -35,6 +35,31 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     public float throwSpeed = 12f, throwUp = 7f, throwSlide = 1.2f, holdLift = 3.4f;
     bool holding; AudioClip throwSfx;
 
+    [Header("Luurankojen kutsu")]
+    [Tooltip("Luurankosoturin malli (passiivinen, SkeletonRiser mukana, triggerDistance suuri); kutsutaan kun elämää on alle summonBelow.")]
+    public GameObject summonTemplate;
+    public float summonBelow = 0.25f; public int summonCount = 2; public float summonSpread = 4f;
+    bool summoned;
+
+    void Summon()
+    {
+        summoned = true;
+        if (summonTemplate == null) return;
+        var area = Area.Current;
+        float face = e.FacingRight ? 1f : -1f;
+        for (int i = 0; i < summonCount; i++)
+        {
+            float side = i % 2 == 0 ? 1f : -1f, x = transform.position.x + side * summonSpread * (1f + 0.4f * (i / 2));
+            if (area != null) x = Mathf.Clamp(x, area.walkMinX + 1.5f, area.walkMaxX - 1.5f);
+            float y = transform.position.y + (i % 2 == 0 ? -0.6f : 0.6f);
+            if (area != null) y = Mathf.Clamp(y, Mathf.Max(area.MinDepthAtX(x, area.minDepthY), area.minDepthY) + 0.1f, Mathf.Min(area.MaxDepthAtX(x, area.maxDepthY), area.maxDepthY) - 0.1f);
+            var c = Instantiate(summonTemplate, summonTemplate.transform.parent);
+            c.name = "Luurankosoturi (kutsuttu " + (i + 1) + ")";
+            c.transform.position = new Vector3(x, y, 0f);
+            c.SetActive(true);
+        }
+    }
+
     enum Phase { None, Fireball, Slam, Grab }
     Phase phase;
     Enemy e; float t, nextCast = 3f, nextSlam = 6f, nextGrab = 2f, lastTick; bool fired;
@@ -68,6 +93,7 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         if (phase != Phase.None && Time.time - lastTick > 0.25f) { Abort(); return; }   // väliin tuli kaatuminen tms.
         if (!welcomed && e != null && e.IsAwake && !e.IsDead) { welcomed = true; Voice(welcomeVoice); }   // tervehdys kun taistelu alkaa
         if (phase != Phase.None || e == null || e.Hero == null || !e.IsAwake || !e.BrainIdleOrChase || e.IsDead) return;
+        if (!summoned && e.HealthFraction <= summonBelow) { Summon(); return; }
         float dx = Mathf.Abs(e.Hero.transform.position.x - transform.position.x), dy = Mathf.Abs(e.Hero.transform.position.y - transform.position.y);
         // heitto: heron ollessa käden ulottuvilla
         if (grab != null && grab.Length > grabThrowFrame && Time.time >= nextGrab && dx <= grabRange && dy <= e.depthTolerance + 0.1f && !e.Hero.IsFloored && !e.Hero.IsGrabbed && e.Hero.AirHeight <= 0.5f && e.BrainIdleOrChase

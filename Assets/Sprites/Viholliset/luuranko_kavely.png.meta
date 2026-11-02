@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 6e94b5bc802fea14d97233777f358d27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5998891558061824840
+    second: luuranko_kavely_0
+  - first:
+      213: 1394266334718523702
+    second: luuranko_kavely_1
+  - first:
+      213: 1947011444541856267
+    second: luuranko_kavely_2
+  - first:
+      213: 3090720653615854049
+    second: luuranko_kavely_3
+  - first:
+      213: 2756633801644226979
+    second: luuranko_kavely_4
+  - first:
+      213: 6381743379774039189
+    second: luuranko_kavely_5
+  - first:
+      213: -9140446167459362766
+    second: luuranko_kavely_6
+  - first:
+      213: 4431470905747880924
+    second: luuranko_kavely_7
+  - first:
+      213: 7520111394909147898
+    second: luuranko_kavely_8
+  - first:
+      213: 7761863371860327118
+    second: luuranko_kavely_9
+  - first:
+      213: 8839807533704623331
+    second: luuranko_kavely_10
+  - first:
+      213: -460988003320579980
+    second: luuranko_kavely_11
+  - first:
+      213: 4752326463239601762
+    second: luuranko_kavely_12
+  - first:
+      213: 4085938801275448070
+    second: luuranko_kavely_13
+  - first:
+      213: -3178913046094452315
+    second: luuranko_kavely_14
+  - first:
+      213: 7041576355623395200
+    second: luuranko_kavely_15
+  - first:
+      213: 7702697583507463495
+    second: luuranko_kavely_16
+  - first:
+      213: 1708387543030661141
+    second: luuranko_kavely_17
+  - first:
+      213: 293299328450662236
+    second: luuranko_kavely_18
+  - first:
+      213: -6151641783485153721
+    second: luuranko_kavely_19
+  - first:
+      213: -1383277269177505984
+    second: luuranko_kavely_20
+  - first:
+      213: 760693819701412520
+    second: luuranko_kavely_21
+  - first:
+      213: 8538496058833603337
+    second: luuranko_kavely_22
+  - first:
+      213: 3453034443860907674
+    second: luuranko_kavely_23
+  - first:
+      213: -4334217935670322584
+    second: luuranko_kavely_24
+  - first:
+      213: -3486195082383487980
+    second: luuranko_kavely_25
+  - first:
+      213: -3306818667349671411
+    second: luuranko_kavely_26
+  - first:
+      213: -4235336456628474002
+    second: luuranko_kavely_27
+  - first:
+      213: 6036247202980872857
+    second: luuranko_kavely_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: luuranko_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b5d5ca618504350800000000000000
+      internalID: 5998891558061824840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639fe2328dd695310800000000000000
+      internalID: 1394266334718523702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a9985d79c250b10800000000000000
+      internalID: 1947011444541856267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e17cb22f0274ea20800000000000000
+      internalID: 3090720653615854049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9b6da56d7814620800000000000000
+      internalID: 2756633801644226979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594e12fbac1809850800000000000000
+      internalID: 6381743379774039189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238010c83ac962180800000000000000
+      internalID: -9140446167459362766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbb4915f4fbf7d30800000000000000
+      internalID: 4431470905747880924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af25dec687dcc5860800000000000000
+      internalID: 7520111394909147898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecab9d2dc9da7bb60800000000000000
+      internalID: 7761863371860327118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e43949dd1e4daa70800000000000000
+      internalID: 8839807533704623331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4783c587add3a99f0800000000000000
+      internalID: -460988003320579980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26eb51a4db7a3f140800000000000000
+      internalID: 4752326463239601762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b220801bb24b830800000000000000
+      internalID: 4085938801275448070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a96fab5d6b32e3d0800000000000000
+      internalID: -3178913046094452315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fd8b73364b8b160800000000000000
+      internalID: 7041576355623395200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74dd83d34aa75ea60800000000000000
+      internalID: 7702697583507463495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5108b014b6965b710800000000000000
+      internalID: 1708387543030661141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f892d6f22021400800000000000000
+      internalID: 293299328450662236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ebae5046af0aaa0800000000000000
+      internalID: -6151641783485153721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0476dc017ac9dcce0800000000000000
+      internalID: -1383277269177505984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2432aaff68e8a00800000000000000
+      internalID: 760693819701412520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b89d63de4de7670800000000000000
+      internalID: 8538496058833603337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96948f1884abef20800000000000000
+      internalID: 3453034443860907674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a5e3d40c3c9d3c0800000000000000
+      internalID: -4334217935670322584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c81d01b0c8e9fc0800000000000000
+      internalID: -3486195082383487980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d020efb31f1db12d0800000000000000
+      internalID: -3306818667349671411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fe566beef0935c0800000000000000
+      internalID: -4235336456628474002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luuranko_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992ce1689de05c350800000000000000
+      internalID: 6036247202980872857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 577f1d767e3cca146ab0d1ab9861231f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      luuranko_kavely_0: 5998891558061824840
+      luuranko_kavely_1: 1394266334718523702
+      luuranko_kavely_10: 8839807533704623331
+      luuranko_kavely_11: -460988003320579980
+      luuranko_kavely_12: 4752326463239601762
+      luuranko_kavely_13: 4085938801275448070
+      luuranko_kavely_14: -3178913046094452315
+      luuranko_kavely_15: 7041576355623395200
+      luuranko_kavely_16: 7702697583507463495
+      luuranko_kavely_17: 1708387543030661141
+      luuranko_kavely_18: 293299328450662236
+      luuranko_kavely_19: -6151641783485153721
+      luuranko_kavely_2: 1947011444541856267
+      luuranko_kavely_20: -1383277269177505984
+      luuranko_kavely_21: 760693819701412520
+      luuranko_kavely_22: 8538496058833603337
+      luuranko_kavely_23: 3453034443860907674
+      luuranko_kavely_24: -4334217935670322584
+      luuranko_kavely_25: -3486195082383487980
+      luuranko_kavely_26: -3306818667349671411
+      luuranko_kavely_27: -4235336456628474002
+      luuranko_kavely_28: 6036247202980872857
+      luuranko_kavely_3: 3090720653615854049
+      luuranko_kavely_4: 2756633801644226979
+      luuranko_kavely_5: 6381743379774039189
+      luuranko_kavely_6: -9140446167459362766
+      luuranko_kavely_7: 4431470905747880924
+      luuranko_kavely_8: 7520111394909147898
+      luuranko_kavely_9: 7761863371860327118
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

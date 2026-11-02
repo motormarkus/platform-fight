@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: 242b1585f7d7b644f8c690a813996da4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 621082340928980192
+    second: mainari_kavely_0
+  - first:
+      213: 1161272327762955227
+    second: mainari_kavely_1
+  - first:
+      213: 2007953998247916849
+    second: mainari_kavely_2
+  - first:
+      213: -6174186163083884448
+    second: mainari_kavely_3
+  - first:
+      213: 4654769922951722246
+    second: mainari_kavely_4
+  - first:
+      213: 9119892058685058382
+    second: mainari_kavely_5
+  - first:
+      213: 3121480994754768509
+    second: mainari_kavely_6
+  - first:
+      213: -4341037726784735131
+    second: mainari_kavely_7
+  - first:
+      213: 453914969102132401
+    second: mainari_kavely_8
+  - first:
+      213: 4363494181815818525
+    second: mainari_kavely_9
+  - first:
+      213: 106383346176730469
+    second: mainari_kavely_10
+  - first:
+      213: 5396373955157305220
+    second: mainari_kavely_11
+  - first:
+      213: 2325835835900543840
+    second: mainari_kavely_12
+  - first:
+      213: -4119427387813691828
+    second: mainari_kavely_13
+  - first:
+      213: -5015247045490784208
+    second: mainari_kavely_14
+  - first:
+      213: -6057276555943334128
+    second: mainari_kavely_15
+  - first:
+      213: 1963698605442606239
+    second: mainari_kavely_16
+  - first:
+      213: 4115198583645032818
+    second: mainari_kavely_17
+  - first:
+      213: 1749305496267752557
+    second: mainari_kavely_18
+  - first:
+      213: 3291824359386560233
+    second: mainari_kavely_19
+  - first:
+      213: -6904678497669005471
+    second: mainari_kavely_20
+  - first:
+      213: -5353592067197235952
+    second: mainari_kavely_21
+  - first:
+      213: 4441536322353078644
+    second: mainari_kavely_22
+  - first:
+      213: -7239528645832492657
+    second: mainari_kavely_23
+  - first:
+      213: -945819747414681043
+    second: mainari_kavely_24
+  - first:
+      213: 3107998334156674281
+    second: mainari_kavely_25
+  - first:
+      213: 4227818045007720876
+    second: mainari_kavely_26
+  - first:
+      213: 3803016901226828342
+    second: mainari_kavely_27
+  - first:
+      213: 7024727669871928490
+    second: mainari_kavely_28
+  - first:
+      213: -3546610652326434923
+    second: mainari_kavely_29
+  - first:
+      213: 6631662150615410216
+    second: mainari_kavely_30
+  - first:
+      213: -4539100292695472696
+    second: mainari_kavely_31
+  - first:
+      213: -7181673207438062018
+    second: mainari_kavely_32
+  - first:
+      213: 2706241852245188256
+    second: mainari_kavely_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mainari_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4075339178e9800800000000000000
+      internalID: 621082340928980192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb4dc7870bad1010800000000000000
+      internalID: 1161272327762955227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13574e6d58faddb10800000000000000
+      internalID: 2007953998247916849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068c04c9562e05aa0800000000000000
+      internalID: -6174186163083884448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 605b5b83590199040800000000000000
+      internalID: 4654769922951722246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d24d3128d509e70800000000000000
+      internalID: 9119892058685058382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ead792d6ab15b20800000000000000
+      internalID: 3121480994754768509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5683d62ff2981c3c0800000000000000
+      internalID: -4341037726784735131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4a09b6241ac4600800000000000000
+      internalID: 453914969102132401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d199d9ee6de3e8c30800000000000000
+      internalID: 4363494181815818525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565a1e6f613f97100800000000000000
+      internalID: 106383346176730469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48722506585c3ea40800000000000000
+      internalID: 5396373955157305220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063c9b4be57074020800000000000000
+      internalID: 2325835835900543840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e795fcd9ad4d6c0800000000000000
+      internalID: -4119427387813691828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038c1b05263466ab0800000000000000
+      internalID: -5015247045490784208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f22b0b01b30fba0800000000000000
+      internalID: -6057276555943334128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94265f3a75704b10800000000000000
+      internalID: 1963698605442606239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2715a5efe4f1c1930800000000000000
+      internalID: 4115198583645032818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d648da4a418c64810800000000000000
+      internalID: 1749305496267752557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6b63460d8eead20800000000000000
+      internalID: 3291824359386560233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f392a2d77ad20a0800000000000000
+      internalID: -6904678497669005471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d0c52216834b5b0800000000000000
+      internalID: -5353592067197235952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471a9deb0c183ad30800000000000000
+      internalID: 4441536322353078644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89b3e3ad07088b90800000000000000
+      internalID: -7239528645832492657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a5ccd63f5cfd2f0800000000000000
+      internalID: -945819747414681043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e41aed9404d12b20800000000000000
+      internalID: 3107998334156674281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1fbabac1a3caa30800000000000000
+      internalID: 4227818045007720876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6329e60f8b707c430800000000000000
+      internalID: 3803016901226828342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4e29ed898dc7160800000000000000
+      internalID: 7024727669871928490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59767770768e7cec0800000000000000
+      internalID: -3546610652326434923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826a5d50795680c50800000000000000
+      internalID: 6631662150615410216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5c30e3550e101c0800000000000000
+      internalID: -4539100292695472696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ec6b99442955c90800000000000000
+      internalID: -7181673207438062018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainari_kavely_33
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae9e5750a08e8520800000000000000
+      internalID: 2706241852245188256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 35ca9b634e6e8e048b135a113bb63c1f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mainari_kavely_0: 621082340928980192
+      mainari_kavely_1: 1161272327762955227
+      mainari_kavely_10: 106383346176730469
+      mainari_kavely_11: 5396373955157305220
+      mainari_kavely_12: 2325835835900543840
+      mainari_kavely_13: -4119427387813691828
+      mainari_kavely_14: -5015247045490784208
+      mainari_kavely_15: -6057276555943334128
+      mainari_kavely_16: 1963698605442606239
+      mainari_kavely_17: 4115198583645032818
+      mainari_kavely_18: 1749305496267752557
+      mainari_kavely_19: 3291824359386560233
+      mainari_kavely_2: 2007953998247916849
+      mainari_kavely_20: -6904678497669005471
+      mainari_kavely_21: -5353592067197235952
+      mainari_kavely_22: 4441536322353078644
+      mainari_kavely_23: -7239528645832492657
+      mainari_kavely_24: -945819747414681043
+      mainari_kavely_25: 3107998334156674281
+      mainari_kavely_26: 4227818045007720876
+      mainari_kavely_27: 3803016901226828342
+      mainari_kavely_28: 7024727669871928490
+      mainari_kavely_29: -3546610652326434923
+      mainari_kavely_3: -6174186163083884448
+      mainari_kavely_30: 6631662150615410216
+      mainari_kavely_31: -4539100292695472696
+      mainari_kavely_32: -7181673207438062018
+      mainari_kavely_33: 2706241852245188256
+      mainari_kavely_4: 4654769922951722246
+      mainari_kavely_5: 9119892058685058382
+      mainari_kavely_6: 3121480994754768509
+      mainari_kavely_7: -4341037726784735131
+      mainari_kavely_8: 453914969102132401
+      mainari_kavely_9: 4363494181815818525
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
