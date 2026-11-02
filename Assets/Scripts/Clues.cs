@@ -42,14 +42,15 @@ public static class Clues
     public static float LaunchMul => Has(Belt) ? 1.5f : 1f;
     public static void WinBelt() { Add(Belt, "Mestaruusvyö", "Voitit Marcuksen kehässä. Vyö antaa lyönneillesi lisää voimaa: viholliset lentävät 50 % pidemmälle."); }
 
-    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko";
+    public const string BikeKey = "avain_pyora", ShipTicket = "lippu_laiva", PlaneTicket = "lippu_lentokone", ClubInvite = "kutsu_klubi", JungleTicket = "lippu_viidakko", WallTicket = "lippu_muuri";
 
-    /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu, Joulupukki -> viidakkolippu.
+    /// Pomo kaatui: antaa tarinaesineen. Metsuri -> moottoripyörän avaimet, Horhe -> laivalippu, Joulupukki -> viidakkolippu, Timppa -> muurin lippu.
     public static void BossDown(string boss)
     {
         if (boss == "Metsuri") Add(BikeKey, "Moottoripyörän avaimet", "Metsurin taskusta löytyi moottoripyörän avaimet. Nyt pääset ajamaan.");
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
         else if (boss == "Joulupukki") Add(JungleTicket, "Eldoraaton lippu", "Joulupukin säkistä löytyi lentolippu Eldoraatoon. Korvatunturin kiitotiellä kone vie sinne.");
+        else if (boss == "Timppa") Add(WallTicket, "Muurin lippu", "Timpan taskusta löytyi lentolippu Kiinan muurille. Maailmanpallolta (F8) pääsee matkaamaan sinne.");
         else if (boss == "Yakuza-pomo" || boss == "Don Kurinai") Add(PlaneTicket, "Lentolippu", "Don Kurinain taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 

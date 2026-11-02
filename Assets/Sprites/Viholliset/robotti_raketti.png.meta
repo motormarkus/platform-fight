@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 03a05332db605394c9dbb59bee55b669
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3531013341572414455
+    second: robotti_raketti_0
+  - first:
+      213: -4231917807466366439
+    second: robotti_raketti_1
+  - first:
+      213: 3465298322540383426
+    second: robotti_raketti_2
+  - first:
+      213: 4677587384556708049
+    second: robotti_raketti_3
+  - first:
+      213: -6944740567233664398
+    second: robotti_raketti_4
+  - first:
+      213: -6489218098959410375
+    second: robotti_raketti_5
+  - first:
+      213: -2501687047111809856
+    second: robotti_raketti_6
+  - first:
+      213: -9115094862116956515
+    second: robotti_raketti_7
+  - first:
+      213: 7170108855231229652
+    second: robotti_raketti_8
+  - first:
+      213: 6841642086530134159
+    second: robotti_raketti_9
+  - first:
+      213: 544383222929852503
+    second: robotti_raketti_10
+  - first:
+      213: 8990709649624795832
+    second: robotti_raketti_11
+  - first:
+      213: 7630351127912329133
+    second: robotti_raketti_12
+  - first:
+      213: -3483486511062075275
+    second: robotti_raketti_13
+  - first:
+      213: 5038308864617638605
+    second: robotti_raketti_14
+  - first:
+      213: 8484035424671068647
+    second: robotti_raketti_15
+  - first:
+      213: -123612748052249937
+    second: robotti_raketti_16
+  - first:
+      213: -736700988649161134
+    second: robotti_raketti_17
+  - first:
+      213: 3068468897624296756
+    second: robotti_raketti_18
+  - first:
+      213: 1965369292745437931
+    second: robotti_raketti_19
+  - first:
+      213: 1147162391504632874
+    second: robotti_raketti_20
+  - first:
+      213: -6043607961268614056
+    second: robotti_raketti_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robotti_raketti_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904496ee2125ffec0800000000000000
+      internalID: -3531013341572414455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_1
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 4480
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a315ffc253545c0800000000000000
+      internalID: -4231917807466366439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_2
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 4480
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ccc6c3e676371030800000000000000
+      internalID: 3465298322540383426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_3
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 4480
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0e95e71f02ae040800000000000000
+      internalID: 4677587384556708049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27aeac8bf335f9f90800000000000000
+      internalID: -6944740567233664398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_5
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 3584
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b1d75358aa1f5a0800000000000000
+      internalID: -6489218098959410375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_6
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 3584
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c464b992e8384dd0800000000000000
+      internalID: -2501687047111809856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_7
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 3584
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96d789448da08180800000000000000
+      internalID: -9115094862116956515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dea0f4d308518360800000000000000
+      internalID: 7170108855231229652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_9
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 2688
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f80bdf7aa3562fe50800000000000000
+      internalID: 6841642086530134159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_10
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 2688
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7588a6038a90e8700800000000000000
+      internalID: 544383222929852503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_11
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 2688
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba0090aaca65cc70800000000000000
+      internalID: 8990709649624795832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf27ba6ce374e960800000000000000
+      internalID: 7630351127912329133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_13
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1792
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578b748797b28afc0800000000000000
+      internalID: -3483486511062075275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_14
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1792
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca6c30e73babe540800000000000000
+      internalID: 5038308864617638605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_15
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 1792
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e17955b4495db570800000000000000
+      internalID: 8484035424671068647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2c2ae4cd6d84ef0800000000000000
+      internalID: -123612748052249937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_17
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 896
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e33e1aa56b6c5f0800000000000000
+      internalID: -736700988649161134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_18
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 896
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d0b377434659a20800000000000000
+      internalID: 3068468897624296756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_19
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 896
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be27d8275f4664b10800000000000000
+      internalID: 1965369292745437931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c325dfd1a8bef00800000000000000
+      internalID: 1147162391504632874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_raketti_21
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 1408
+        height: 896
+      alignment: 9
+      pivot: {x: 0.39772728, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c8cd2649ac02ca0800000000000000
+      internalID: -6043607961268614056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae85d38e7c429da4a82a67de23db6b15
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      robotti_raketti_0: -3531013341572414455
+      robotti_raketti_1: -4231917807466366439
+      robotti_raketti_10: 544383222929852503
+      robotti_raketti_11: 8990709649624795832
+      robotti_raketti_12: 7630351127912329133
+      robotti_raketti_13: -3483486511062075275
+      robotti_raketti_14: 5038308864617638605
+      robotti_raketti_15: 8484035424671068647
+      robotti_raketti_16: -123612748052249937
+      robotti_raketti_17: -736700988649161134
+      robotti_raketti_18: 3068468897624296756
+      robotti_raketti_19: 1965369292745437931
+      robotti_raketti_2: 3465298322540383426
+      robotti_raketti_20: 1147162391504632874
+      robotti_raketti_21: -6043607961268614056
+      robotti_raketti_3: 4677587384556708049
+      robotti_raketti_4: -6944740567233664398
+      robotti_raketti_5: -6489218098959410375
+      robotti_raketti_6: -2501687047111809856
+      robotti_raketti_7: -9115094862116956515
+      robotti_raketti_8: 7170108855231229652
+      robotti_raketti_9: 6841642086530134159
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

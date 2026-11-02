@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     [Tooltip("Hypyn lähtönopeus. Korkeus = nopeus² / (2 × painovoima): 12.5 → n. 2.6 yksikköä.")]
     public float jumpVelocity = 12.5f;
     public float gravity = 30f;
+    float AirTimeScale => Mathf.Sqrt(Area.Current != null ? Area.Current.gravityScale : 1f);   // heikossa painovoimassa ilmaliikkeet (saksipotku, hyppypotku) hidastuvat samassa suhteessa kuin hyppy
+    float G => gravity * (Area.Current != null ? Area.Current.gravityScale : 1f);
     public float jumpSquatTime = 0.08f;
     public float landingTime = 0.14f;
 
@@ -2115,7 +2117,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Air:
                 MoveOnGround(airVel * dt);
                 // saksipotkun aikana leijutaan laskussa hetki, jotta molemmat potkut ehtivät (ei nosta lisää korkeutta)
-                float g = scissor && scissorTime < ScissorKick2End && verticalVel < 0f ? gravity * scissorGravityScale : gravity;
+                float g = scissor && scissorTime < ScissorKick2End && verticalVel < 0f ? G * scissorGravityScale : G;
                 verticalVel -= g * dt;
                 height += verticalVel * dt;
                 // laudalta tuplapotku (pudotuspotku): hyppy + lyönti yhtä aikaa; lauta jatkaa matkaa
@@ -2136,7 +2138,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 else if (!jumpKick && !scissor && (kickPressed || punchPressed)) { jumpKick = true; jumpKickTime = 0f; attackHit = false; PlayGrunt(); }
                 if (scissor)
                 {
-                    scissorTime += dt;
+                    scissorTime += dt * Mathf.Sqrt(AirTimeScale);   // hitaampi kuin hyppypotku: vihun tyrmäys (0,35 s) kestää vielä toiseen potkuun asti
                     float k1 = ScissorKick1Start, k2 = ScissorKick2Start;
                     if (!scissorHit1 && scissorTime >= k1 && scissorTime <= k1 + scissorKickHold)
                         scissorHit1 = AttackEnemies(scissorReach, scissorDamage1, false, 2.6f);
@@ -2147,7 +2149,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 }
                 if (jumpKick)
                 {
-                    jumpKickTime += dt;
+                    jumpKickTime += dt * AirTimeScale;
                     if (!attackHit && jumpKickTime >= 0.08f && jumpKickTime <= 0.45f)
                         attackHit = AttackEnemies(jumpKickReach, jumpKickDamage, true, 2.2f);
                 }
@@ -3075,7 +3077,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
                 if (height > 0f)   // osuma ilmassa: pudotaan maahan
                 {
-                    verticalVel -= gravity * dt;
+                    verticalVel -= G * dt;
                     height = Mathf.Max(0f, height + verticalVel * dt);
                 }
                 if (stateTime >= (dazeLen > 0f ? dazeLen : hurtTime) && height <= 0f) { dazeLen = 0f; Enter(State.Ground); }
@@ -3086,7 +3088,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
                 hurtVel = Vector2.MoveTowards(hurtVel, Vector2.zero, 10f * dt);
                 if (height > 0f)
                 {
-                    verticalVel -= gravity * dt;
+                    verticalVel -= G * dt;
                     height = Mathf.Max(0f, height + verticalVel * dt);
                 }
                 if (stateTime >= PieHitTimes[0] + PieHitTimes[1] + PieHitTimes[2] && height <= 0f) Enter(State.Ground);
@@ -4130,6 +4132,14 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         skateVel = Vector2.zero;
     }
 
+    /// Inventaarion rullalauta (taukovalikon "Ota rullalauta"): lauta putoaa jalkojen eteen, siihen astutaan päälle.
+    public void DropBoardInFront()
+    {
+        if (boardSprite == null || Skating) return;
+        var b = LooseBoard.Spawn(boardSprite, transform.position + Vector3.right * (facingRight ? 1.4f : -1.4f), 0f, null);
+        b.persistent = true;
+    }
+
     /// Potkuliike ilmasta: lauta jää ajamaan omaa matkaansa maata pitkin eikä hero putoa sen päälle.
     void LaunchBoard()
     {
@@ -4343,7 +4353,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             case State.Air:
             {
                 if (!KickflipArt || jumpKick || scissor) return null;
-                float u = Mathf.Clamp01(stateTime / (2f * Mathf.Max(skateJumpV, jumpVelocity) / gravity));
+                float u = Mathf.Clamp01(stateTime / (2f * Mathf.Max(skateJumpV, jumpVelocity) / G));
                 int airN = FlipArt.Length - 12;   // ilmakuvien määrä (Rocco 6, Ruby 8); 0-4 kyykky, 5-7 ponnistus, lopussa 4 laskua
                 return FlipArt[u < 0.1f ? 5 + Mathf.Min(2, (int)(u * 30f)) : 8 + Mathf.Min(airN - 1, (int)((u - 0.1f) / 0.8f * airN))];
             }

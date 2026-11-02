@@ -27,8 +27,10 @@ public class CameraFollow : MonoBehaviour
 
     float GoalY()
     {
-        if (riseY <= 0f || target == null || depthMax <= depthMin) return baseY + offY;
-        return baseY + offY + riseY * Mathf.InverseLerp(depthMin, depthMax, target.position.y);
+        float lift = 0f;
+        if (target != null && Area.Current != null && Area.Current.camJumpLift > 0f) { var pc = target.GetComponent<PlayerController>(); if (pc != null) lift = Mathf.Max(0f, pc.AirHeight - 1.5f) * Area.Current.camJumpLift; }
+        if (riseY <= 0f || target == null || depthMax <= depthMin) return baseY + offY + lift;
+        return baseY + offY + lift + riseY * Mathf.InverseLerp(depthMin, depthMax, target.position.y);
     }
 
     void Awake()

@@ -1,0 +1,5577 @@
+fileFormatVersion: 2
+guid: a6017f605425c3748a82845f32aca4a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9182945394982483765
+    second: viidakko_kaivos_5_0
+  - first:
+      213: 1201814833992692255
+    second: viidakko_kaivos_5_1
+  - first:
+      213: 3994695540775249772
+    second: viidakko_kaivos_5_2
+  - first:
+      213: -6811462605281765752
+    second: viidakko_kaivos_5_3
+  - first:
+      213: 6250209510938354200
+    second: viidakko_kaivos_5_4
+  - first:
+      213: -538480614036798533
+    second: viidakko_kaivos_5_5
+  - first:
+      213: -5044519885910488200
+    second: viidakko_kaivos_5_6
+  - first:
+      213: -199396096887464310
+    second: viidakko_kaivos_5_7
+  - first:
+      213: -2839599203276703521
+    second: viidakko_kaivos_5_8
+  - first:
+      213: -4258057117040562836
+    second: viidakko_kaivos_5_9
+  - first:
+      213: 4207773167825429902
+    second: viidakko_kaivos_5_10
+  - first:
+      213: -5072084083934416567
+    second: viidakko_kaivos_5_11
+  - first:
+      213: 6854538370447538513
+    second: viidakko_kaivos_5_12
+  - first:
+      213: -2874864616176166872
+    second: viidakko_kaivos_5_13
+  - first:
+      213: -4698556168177631447
+    second: viidakko_kaivos_5_14
+  - first:
+      213: 1085063286339773502
+    second: viidakko_kaivos_5_15
+  - first:
+      213: -6886009110525085270
+    second: viidakko_kaivos_5_16
+  - first:
+      213: -8650701800646594538
+    second: viidakko_kaivos_5_17
+  - first:
+      213: 5938925195557264105
+    second: viidakko_kaivos_5_18
+  - first:
+      213: -3338959645490501522
+    second: viidakko_kaivos_5_19
+  - first:
+      213: -470044040358241379
+    second: viidakko_kaivos_5_20
+  - first:
+      213: -1004557566867787119
+    second: viidakko_kaivos_5_21
+  - first:
+      213: -3605761042279536081
+    second: viidakko_kaivos_5_22
+  - first:
+      213: -230880867764306987
+    second: viidakko_kaivos_5_23
+  - first:
+      213: 1253569177003460201
+    second: viidakko_kaivos_5_24
+  - first:
+      213: 4569678767398202654
+    second: viidakko_kaivos_5_25
+  - first:
+      213: 6512447376880701919
+    second: viidakko_kaivos_5_26
+  - first:
+      213: 8277000122456463677
+    second: viidakko_kaivos_5_27
+  - first:
+      213: 5704505886535560615
+    second: viidakko_kaivos_5_28
+  - first:
+      213: 898079490425350472
+    second: viidakko_kaivos_5_29
+  - first:
+      213: 2305247600757947465
+    second: viidakko_kaivos_5_30
+  - first:
+      213: -4696548778426252409
+    second: viidakko_kaivos_5_31
+  - first:
+      213: 8291127135967671626
+    second: viidakko_kaivos_5_32
+  - first:
+      213: 4953838299769940195
+    second: viidakko_kaivos_5_33
+  - first:
+      213: 1842142183919527754
+    second: viidakko_kaivos_5_34
+  - first:
+      213: -8099239643595875798
+    second: viidakko_kaivos_5_35
+  - first:
+      213: 5547750346499606064
+    second: viidakko_kaivos_5_36
+  - first:
+      213: -8215121229086469654
+    second: viidakko_kaivos_5_37
+  - first:
+      213: -2215976223949782009
+    second: viidakko_kaivos_5_38
+  - first:
+      213: 3258473343112862611
+    second: viidakko_kaivos_5_39
+  - first:
+      213: 1774710490703351423
+    second: viidakko_kaivos_5_40
+  - first:
+      213: 8863609293070962454
+    second: viidakko_kaivos_5_41
+  - first:
+      213: -6907669372376308136
+    second: viidakko_kaivos_5_42
+  - first:
+      213: 1156053841423234708
+    second: viidakko_kaivos_5_43
+  - first:
+      213: -3462446184792017338
+    second: viidakko_kaivos_5_44
+  - first:
+      213: -5041816158265803304
+    second: viidakko_kaivos_5_45
+  - first:
+      213: 8541909186546654270
+    second: viidakko_kaivos_5_46
+  - first:
+      213: -7212965020018736744
+    second: viidakko_kaivos_5_47
+  - first:
+      213: 7968473783472511516
+    second: viidakko_kaivos_5_48
+  - first:
+      213: -1921500740400471650
+    second: viidakko_kaivos_5_49
+  - first:
+      213: -5196306851583133783
+    second: viidakko_kaivos_5_50
+  - first:
+      213: -4703019507938914392
+    second: viidakko_kaivos_5_51
+  - first:
+      213: -4383309725303144820
+    second: viidakko_kaivos_5_52
+  - first:
+      213: 1843764404762069341
+    second: viidakko_kaivos_5_53
+  - first:
+      213: -7541585089477822308
+    second: viidakko_kaivos_5_54
+  - first:
+      213: -185758814011738386
+    second: viidakko_kaivos_5_55
+  - first:
+      213: -8479286182002453975
+    second: viidakko_kaivos_5_56
+  - first:
+      213: -8425510703415684924
+    second: viidakko_kaivos_5_57
+  - first:
+      213: 3633680271097063131
+    second: viidakko_kaivos_5_58
+  - first:
+      213: -622148225667856334
+    second: viidakko_kaivos_5_59
+  - first:
+      213: -5806953457928413332
+    second: viidakko_kaivos_5_60
+  - first:
+      213: -7331701077216343010
+    second: viidakko_kaivos_5_61
+  - first:
+      213: -1018754924923406509
+    second: viidakko_kaivos_5_62
+  - first:
+      213: 2676024902632776639
+    second: viidakko_kaivos_5_63
+  - first:
+      213: 8009479691808088968
+    second: viidakko_kaivos_5_64
+  - first:
+      213: -4408060199911439618
+    second: viidakko_kaivos_5_65
+  - first:
+      213: -1702029580422671241
+    second: viidakko_kaivos_5_66
+  - first:
+      213: 2031956333168376913
+    second: viidakko_kaivos_5_67
+  - first:
+      213: -7782353600975484101
+    second: viidakko_kaivos_5_68
+  - first:
+      213: 4469674023440852446
+    second: viidakko_kaivos_5_69
+  - first:
+      213: 8787561171730568610
+    second: viidakko_kaivos_5_70
+  - first:
+      213: -7597415440514202498
+    second: viidakko_kaivos_5_71
+  - first:
+      213: 1565872315994196633
+    second: viidakko_kaivos_5_72
+  - first:
+      213: -278318399446327519
+    second: viidakko_kaivos_5_73
+  - first:
+      213: -6088939911158334517
+    second: viidakko_kaivos_5_74
+  - first:
+      213: 6425445533392925351
+    second: viidakko_kaivos_5_75
+  - first:
+      213: 4021664637580051773
+    second: viidakko_kaivos_5_76
+  - first:
+      213: -4600290763621926698
+    second: viidakko_kaivos_5_77
+  - first:
+      213: 6571088257535569410
+    second: viidakko_kaivos_5_78
+  - first:
+      213: -3531432928623449864
+    second: viidakko_kaivos_5_79
+  - first:
+      213: -3396002981728749081
+    second: viidakko_kaivos_5_80
+  - first:
+      213: -8314802338976295710
+    second: viidakko_kaivos_5_81
+  - first:
+      213: 5135055565591992662
+    second: viidakko_kaivos_5_82
+  - first:
+      213: -1419761819951174824
+    second: viidakko_kaivos_5_83
+  - first:
+      213: 3771082853519016731
+    second: viidakko_kaivos_5_84
+  - first:
+      213: 3612864519881865645
+    second: viidakko_kaivos_5_85
+  - first:
+      213: -6879134355997981260
+    second: viidakko_kaivos_5_86
+  - first:
+      213: -8661743692094872845
+    second: viidakko_kaivos_5_87
+  - first:
+      213: 8188201433795641813
+    second: viidakko_kaivos_5_88
+  - first:
+      213: -7135754827709129963
+    second: viidakko_kaivos_5_89
+  - first:
+      213: 120135371996099406
+    second: viidakko_kaivos_5_90
+  - first:
+      213: 8207082940565236638
+    second: viidakko_kaivos_5_91
+  - first:
+      213: 4329564384132674778
+    second: viidakko_kaivos_5_92
+  - first:
+      213: 4090023451001836060
+    second: viidakko_kaivos_5_93
+  - first:
+      213: 24723961268603950
+    second: viidakko_kaivos_5_94
+  - first:
+      213: 3467771221369699991
+    second: viidakko_kaivos_5_95
+  - first:
+      213: 8097300946036897493
+    second: viidakko_kaivos_5_96
+  - first:
+      213: 1908485487122986749
+    second: viidakko_kaivos_5_97
+  - first:
+      213: -2326480449394825580
+    second: viidakko_kaivos_5_98
+  - first:
+      213: -3274146389232091239
+    second: viidakko_kaivos_5_99
+  - first:
+      213: -4797728407226199778
+    second: viidakko_kaivos_5_100
+  - first:
+      213: 9046823986810949957
+    second: viidakko_kaivos_5_101
+  - first:
+      213: 665920541576927227
+    second: viidakko_kaivos_5_102
+  - first:
+      213: 8370937085997191257
+    second: viidakko_kaivos_5_103
+  - first:
+      213: -7873097759545578510
+    second: viidakko_kaivos_5_104
+  - first:
+      213: 7633999357466600150
+    second: viidakko_kaivos_5_105
+  - first:
+      213: 7031517490856762961
+    second: viidakko_kaivos_5_106
+  - first:
+      213: 2915435361269823607
+    second: viidakko_kaivos_5_107
+  - first:
+      213: -24711573975158078
+    second: viidakko_kaivos_5_108
+  - first:
+      213: 509123990834170120
+    second: viidakko_kaivos_5_109
+  - first:
+      213: 8698677644892143513
+    second: viidakko_kaivos_5_110
+  - first:
+      213: 7648980808953228989
+    second: viidakko_kaivos_5_111
+  - first:
+      213: 6704090699338172587
+    second: viidakko_kaivos_5_112
+  - first:
+      213: -5247955621749130387
+    second: viidakko_kaivos_5_113
+  - first:
+      213: 2167620428890245153
+    second: viidakko_kaivos_5_114
+  - first:
+      213: -3137784314575891971
+    second: viidakko_kaivos_5_115
+  - first:
+      213: -7250251704989331345
+    second: viidakko_kaivos_5_116
+  - first:
+      213: 8966299389999631867
+    second: viidakko_kaivos_5_117
+  - first:
+      213: 1837106534376701909
+    second: viidakko_kaivos_5_118
+  - first:
+      213: -4024519240077453825
+    second: viidakko_kaivos_5_119
+  - first:
+      213: -1492122295594999839
+    second: viidakko_kaivos_5_120
+  - first:
+      213: -1087791396342744364
+    second: viidakko_kaivos_5_121
+  - first:
+      213: 8037329502715188194
+    second: viidakko_kaivos_5_122
+  - first:
+      213: 2280315187356064852
+    second: viidakko_kaivos_5_123
+  - first:
+      213: -7214848189465031527
+    second: viidakko_kaivos_5_124
+  - first:
+      213: 7862296216709911894
+    second: viidakko_kaivos_5_125
+  - first:
+      213: -2559895588233664524
+    second: viidakko_kaivos_5_126
+  - first:
+      213: 4230185194398644025
+    second: viidakko_kaivos_5_127
+  - first:
+      213: 2584889665602358277
+    second: viidakko_kaivos_5_128
+  - first:
+      213: -409460211307417123
+    second: viidakko_kaivos_5_129
+  - first:
+      213: -6513418947517942793
+    second: viidakko_kaivos_5_130
+  - first:
+      213: 236440533528396377
+    second: viidakko_kaivos_5_131
+  - first:
+      213: 7294859979626466201
+    second: viidakko_kaivos_5_132
+  - first:
+      213: -1583376601842471398
+    second: viidakko_kaivos_5_133
+  - first:
+      213: -8107100541752936882
+    second: viidakko_kaivos_5_134
+  - first:
+      213: -2042026783804375055
+    second: viidakko_kaivos_5_135
+  - first:
+      213: -4290191854139750283
+    second: viidakko_kaivos_5_136
+  - first:
+      213: 4456189288680314973
+    second: viidakko_kaivos_5_137
+  - first:
+      213: -9194365625287023595
+    second: viidakko_kaivos_5_138
+  - first:
+      213: -8837709698464861381
+    second: viidakko_kaivos_5_139
+  - first:
+      213: 7860525218088573751
+    second: viidakko_kaivos_5_140
+  - first:
+      213: -6616089038344095603
+    second: viidakko_kaivos_5_141
+  - first:
+      213: -8229216177221378853
+    second: viidakko_kaivos_5_142
+  - first:
+      213: 7759633697980735675
+    second: viidakko_kaivos_5_143
+  - first:
+      213: -6000712904918138481
+    second: viidakko_kaivos_5_144
+  - first:
+      213: -6042344897501342505
+    second: viidakko_kaivos_5_145
+  - first:
+      213: 8297647344584754017
+    second: viidakko_kaivos_5_146
+  - first:
+      213: -7913944860578582465
+    second: viidakko_kaivos_5_147
+  - first:
+      213: 6090652017493605235
+    second: viidakko_kaivos_5_148
+  - first:
+      213: 7222012606318336228
+    second: viidakko_kaivos_5_149
+  - first:
+      213: 5096292773221877232
+    second: viidakko_kaivos_5_150
+  - first:
+      213: -6148703011280606737
+    second: viidakko_kaivos_5_151
+  - first:
+      213: -4901508261939593697
+    second: viidakko_kaivos_5_152
+  - first:
+      213: 8297604307605176160
+    second: viidakko_kaivos_5_153
+  - first:
+      213: -492744796806725519
+    second: viidakko_kaivos_5_154
+  - first:
+      213: -2468066283825500123
+    second: viidakko_kaivos_5_155
+  - first:
+      213: 3903648670988143094
+    second: viidakko_kaivos_5_156
+  - first:
+      213: 1165005367537723466
+    second: viidakko_kaivos_5_157
+  - first:
+      213: -1821801840835988023
+    second: viidakko_kaivos_5_158
+  - first:
+      213: 5011133027777283631
+    second: viidakko_kaivos_5_159
+  - first:
+      213: 6471394717189659623
+    second: viidakko_kaivos_5_160
+  - first:
+      213: 4136071318455131327
+    second: viidakko_kaivos_5_161
+  - first:
+      213: -1673917786831014779
+    second: viidakko_kaivos_5_162
+  - first:
+      213: -902168825400170681
+    second: viidakko_kaivos_5_163
+  - first:
+      213: 7033187011945927308
+    second: viidakko_kaivos_5_164
+  - first:
+      213: -657401067117973450
+    second: viidakko_kaivos_5_165
+  - first:
+      213: -5819690249908520092
+    second: viidakko_kaivos_5_166
+  - first:
+      213: -7713608939479171461
+    second: viidakko_kaivos_5_167
+  - first:
+      213: -4278082517895444919
+    second: viidakko_kaivos_5_168
+  - first:
+      213: 1597492280253645129
+    second: viidakko_kaivos_5_169
+  - first:
+      213: 2607540673208514760
+    second: viidakko_kaivos_5_170
+  - first:
+      213: 4885470777443187655
+    second: viidakko_kaivos_5_171
+  - first:
+      213: 7801117432751252042
+    second: viidakko_kaivos_5_172
+  - first:
+      213: -8087798172546834504
+    second: viidakko_kaivos_5_173
+  - first:
+      213: -7380321582478878728
+    second: viidakko_kaivos_5_174
+  - first:
+      213: -3546068484079751213
+    second: viidakko_kaivos_5_175
+  - first:
+      213: -4749213841223690559
+    second: viidakko_kaivos_5_176
+  - first:
+      213: -7115209583033673569
+    second: viidakko_kaivos_5_177
+  - first:
+      213: 8862889241526725955
+    second: viidakko_kaivos_5_178
+  - first:
+      213: 5786569867084966375
+    second: viidakko_kaivos_5_179
+  - first:
+      213: 4316646837737497841
+    second: viidakko_kaivos_5_180
+  - first:
+      213: -8401979315661885011
+    second: viidakko_kaivos_5_181
+  - first:
+      213: -70862298380535738
+    second: viidakko_kaivos_5_182
+  - first:
+      213: 7262675115388626033
+    second: viidakko_kaivos_5_183
+  - first:
+      213: -1715658348370335087
+    second: viidakko_kaivos_5_184
+  - first:
+      213: 3069412998392235028
+    second: viidakko_kaivos_5_185
+  - first:
+      213: 4012412929791137565
+    second: viidakko_kaivos_5_186
+  - first:
+      213: 7150793127619455106
+    second: viidakko_kaivos_5_187
+  - first:
+      213: 239928013369339160
+    second: viidakko_kaivos_5_188
+  - first:
+      213: 6361267597150801291
+    second: viidakko_kaivos_5_189
+  - first:
+      213: 8651869085638113792
+    second: viidakko_kaivos_5_190
+  - first:
+      213: 8596501690452962109
+    second: viidakko_kaivos_5_191
+  - first:
+      213: -4499727666643626853
+    second: viidakko_kaivos_5_192
+  - first:
+      213: 8213158992534988684
+    second: viidakko_kaivos_5_193
+  - first:
+      213: -1060719997225419896
+    second: viidakko_kaivos_5_194
+  - first:
+      213: -6712669246450164238
+    second: viidakko_kaivos_5_195
+  - first:
+      213: -4530224191593063302
+    second: viidakko_kaivos_5_196
+  - first:
+      213: -2897381065612241597
+    second: viidakko_kaivos_5_197
+  - first:
+      213: -859172829621853930
+    second: viidakko_kaivos_5_198
+  - first:
+      213: -1600972734144104369
+    second: viidakko_kaivos_5_199
+  - first:
+      213: -3327492655541823646
+    second: viidakko_kaivos_5_200
+  - first:
+      213: 1039802454842827527
+    second: viidakko_kaivos_5_201
+  - first:
+      213: 3494541558139489740
+    second: viidakko_kaivos_5_202
+  - first:
+      213: -628407992510594963
+    second: viidakko_kaivos_5_203
+  - first:
+      213: 2816561005548449781
+    second: viidakko_kaivos_5_204
+  - first:
+      213: -1765838892991408537
+    second: viidakko_kaivos_5_205
+  - first:
+      213: 1231857684344263836
+    second: viidakko_kaivos_5_206
+  - first:
+      213: 2469708101310712537
+    second: viidakko_kaivos_5_207
+  - first:
+      213: -2894809591233517903
+    second: viidakko_kaivos_5_208
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 437
+        width: 1672
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5377db3fe20607f70800000000000000
+      internalID: 9182945394982483765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12fde95934bda010800000000000000
+      internalID: 1201814833992692255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67eeb5fd62007730800000000000000
+      internalID: 3994695540775249772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 632
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886d25369d2d871a0800000000000000
+      internalID: -6811462605281765752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 598
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 812af376f643db650800000000000000
+      internalID: 6250209510938354200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 632
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb307e90cbee688f0800000000000000
+      internalID: -538480614036798533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 583
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b49e904e34ef9b0800000000000000
+      internalID: -5044519885910488200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 582
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e5c6b6e4a9b3df0800000000000000
+      internalID: -199396096887464310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 707
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8b538c197b798d0800000000000000
+      internalID: -2839599203276703521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_9
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 700
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d2979bc9758e4c0800000000000000
+      internalID: -4258057117040562836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 680
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85a7a30763056a30800000000000000
+      internalID: 4207773167825429902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_11
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 682
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9413d2216665c99b0800000000000000
+      internalID: -5072084083934416567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 575
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1597fcdb456302f50800000000000000
+      internalID: 6854538370447538513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_13
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 737
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828da7ffcdd6a18d0800000000000000
+      internalID: -2874864616176166872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 715
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f3d8e1f006bceb0800000000000000
+      internalID: -4698556168177631447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 670
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34a91d5f4bee0f00800000000000000
+      internalID: 1085063286339773502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 632
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa97c07923bff60a0800000000000000
+      internalID: -6886009110525085270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 599
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610b0a2bb8882f780800000000000000
+      internalID: -8650701800646594538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_18
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 598
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eadec4effc4b6250800000000000000
+      internalID: 5938925195557264105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 737
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68ac2b94e1a9a1d0800000000000000
+      internalID: -3338959645490501522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 731
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b58a98f611a79f0800000000000000
+      internalID: -470044040358241379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_21
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 562
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1923a6e17381f02f0800000000000000
+      internalID: -1004557566867787119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 695
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2a6cf9af63c5fdc0800000000000000
+      internalID: -3605761042279536081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_23
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 744
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db7973f21fbbccf0800000000000000
+      internalID: -230880867764306987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_24
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 597
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9668ba85682956110800000000000000
+      internalID: 1253569177003460201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_25
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 593
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d2a64b0a2ca6f30800000000000000
+      internalID: 4569678767398202654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_26
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 759
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd11665826cd06a50800000000000000
+      internalID: 6512447376880701919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_27
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 610
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d39d1e802cfcdd270800000000000000
+      internalID: 8277000122456463677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_28
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 745
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ada31a41e97a2f40800000000000000
+      internalID: 5704505886535560615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_29
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 566
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849eddec98e967c00800000000000000
+      internalID: 898079490425350472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_30
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 502
+        width: 55
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94cbf7aaa72edff10800000000000000
+      internalID: 2305247600757947465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_31
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 751
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783cb97f4c182deb0800000000000000
+      internalID: -4696548778426252409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_32
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 757
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4574fea330001370800000000000000
+      internalID: 8291127135967671626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_33
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 747
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e82384efa19fb440800000000000000
+      internalID: 4953838299769940195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_34
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 570
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4729426e8a909910800000000000000
+      internalID: 1842142183919527754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_35
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 632
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ad4bca478b99f80800000000000000
+      internalID: -8099239643595875798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_36
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 575
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036c8a10c819dfc40800000000000000
+      internalID: 5547750346499606064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_37
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 713
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1d78984c60efd80800000000000000
+      internalID: -8215121229086469654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_38
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 575
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70403c47d554f31e0800000000000000
+      internalID: -2215976223949782009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_39
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 518
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b525ecd3c683d20800000000000000
+      internalID: 3258473343112862611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_40
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 767
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e4889d9c901a810800000000000000
+      internalID: 1774710490703351423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_41
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 751
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f885dc0bdd10b70800000000000000
+      internalID: 8863609293070962454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_42
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 751
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8562aa1ed470320a0800000000000000
+      internalID: -6907669372376308136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_43
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 583
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496f14ff7d02b0010800000000000000
+      internalID: 1156053841423234708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_44
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 583
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646b09d2a8be2ffc0800000000000000
+      internalID: -3462446184792017338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_45
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 686
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ddfdbfaaeed70ab0800000000000000
+      internalID: -5041816158265803304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_46
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 655
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c52cfe525fa8670800000000000000
+      internalID: 8541909186546654270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_47
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 520
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891077cb78666eb90800000000000000
+      internalID: -7212965020018736744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_48
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 721
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a54e1ffa4b59e60800000000000000
+      internalID: 7968473783472511516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_49
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 757
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91a7c4d1457555e0800000000000000
+      internalID: -1921500740400471650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_50
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 534
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a7757f137203e7b0800000000000000
+      internalID: -5196306851583133783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_51
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 587
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af8199dca48bbeb0800000000000000
+      internalID: -4703019507938914392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 478
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e7ac2570b5b23c0800000000000000
+      internalID: -4383309725303144820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_53
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 711
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d594a5b15fd569910800000000000000
+      internalID: 1843764404762069341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_54
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 534
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98ba427158e65790800000000000000
+      internalID: -7541585089477822308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_55
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 472
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6bee4c75d0c6df0800000000000000
+      internalID: -185758814011738386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_56
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 496
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9229dd48426835a80800000000000000
+      internalID: -8479286182002453975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_57
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 703
+        width: 89
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c018afc7a2921b80800000000000000
+      internalID: -8425510703415684924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_58
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 686
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6e51a54fc6d6230800000000000000
+      internalID: 3633680271097063131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_59
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 486
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2388d6b2c7fad57f0800000000000000
+      internalID: -622148225667856334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_60
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 488
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f53f8b89e896fa0800000000000000
+      internalID: -5806953457928413332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_61
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 692
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ccb2d17b0904a90800000000000000
+      internalID: -7331701077216343010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_62
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 502
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357b2ca1bc7acd1f0800000000000000
+      internalID: -1018754924923406509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_63
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 524
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3a6838876232520800000000000000
+      internalID: 2676024902632776639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_64
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 532
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8832de9f753672f60800000000000000
+      internalID: 8009479691808088968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_65
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 534
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2cdb36a9c63d2c0800000000000000
+      internalID: -4408060199911439618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_66
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 713
+        width: 53
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77413b54d1d2168e0800000000000000
+      internalID: -1702029580422671241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_67
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 473
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c3b9de485f23c10800000000000000
+      internalID: 2031956333168376913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_68
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 443
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3bcf51f1a68ff390800000000000000
+      internalID: -7782353600975484101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_69
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 451
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5abfcc7d8770e30800000000000000
+      internalID: 4469674023440852446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_70
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 488
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a51403c350b3f970800000000000000
+      internalID: 8787561171730568610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_71
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 719
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e744511e8ee809690800000000000000
+      internalID: -7597415440514202498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_72
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 615
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ac37633981bb510800000000000000
+      internalID: 1565872315994196633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_73
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 613
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fdb8ae3e6332cf0800000000000000
+      internalID: -278318399446327519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_74
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 447
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb75b0596dbf7ba0800000000000000
+      internalID: -6088939911158334517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_75
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 654
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2718d4ba4cb2950800000000000000
+      internalID: 6425445533392925351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_76
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 542
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3585b02ea2dfc730800000000000000
+      internalID: 4021664637580051773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_77
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 697
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8fdc28ceb7820c0800000000000000
+      internalID: -4600290763621926698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_78
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 439
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ee52284f1313b50800000000000000
+      internalID: 6571088257535569410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_79
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 445
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f828453674ddfec0800000000000000
+      internalID: -3531432928623449864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_80
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 686
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9f3e9e749fed0d0800000000000000
+      internalID: -3396002981728749081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_81
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 656
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e41bbf8353eb9c80800000000000000
+      internalID: -8314802338976295710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_82
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 431
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659d00984d1634740800000000000000
+      internalID: 5135055565591992662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_83
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 656
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85be520a52efb4ce0800000000000000
+      internalID: -1419761819951174824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_84
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 538
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13419e00e3955430800000000000000
+      internalID: 3771082853519016731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_85
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 455
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9bb299329732230800000000000000
+      internalID: 3612864519881865645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_86
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 630
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b50e8c10c76880a0800000000000000
+      internalID: -6879134355997981260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_87
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 455
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f26431010e4bc780800000000000000
+      internalID: -8661743692094872845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_88
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 453
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d1cbb232d552a170800000000000000
+      internalID: 8188201433795641813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_89
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 646
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51b5e128ac4b8fc90800000000000000
+      internalID: -7135754827709129963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_90
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 618
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4379ccfb7ecaa100800000000000000
+      internalID: 120135371996099406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_91
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 632
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b2f82937a65e170800000000000000
+      internalID: 8207082940565236638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_92
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 423
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4396c4ed3b51c30800000000000000
+      internalID: 4329564384132674778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_93
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 516
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c125bf7a8aea2c830800000000000000
+      internalID: 4090023451001836060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_94
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 666
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c0bd0df46d75000800000000000000
+      internalID: 24723961268603950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_95
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 651
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e30148d8fff1030800000000000000
+      internalID: 3467771221369699991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_96
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 666
+        width: 38
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d6b6ff1f446f5070800000000000000
+      internalID: 8097300946036897493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_97
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 453
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df634fe507d4c7a10800000000000000
+      internalID: 1908485487122986749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_98
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 631
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4962ee48b5ea6bfd0800000000000000
+      internalID: -2326480449394825580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_99
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 676
+        width: 86
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f7137c435ef82d0800000000000000
+      internalID: -3274146389232091239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_100
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 743
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e115b7ede6b0b6db0800000000000000
+      internalID: -4797728407226199778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_101
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 429
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541995fdb76cc8d70800000000000000
+      internalID: 9046823986810949957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_102
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 465
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf714515433dd3900800000000000000
+      internalID: 665920541576927227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_103
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 534
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9509108bdea8b2470800000000000000
+      internalID: 8370937085997191257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_104
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 526
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbac581d432db290800000000000000
+      internalID: -7873097759545578510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_105
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 668
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d26b5d08f961f960800000000000000
+      internalID: 7633999357466600150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_106
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 542
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e967247e7f49160800000000000000
+      internalID: 7031517490856762961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_107
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 557
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778b912b305b57820800000000000000
+      internalID: 2915435361269823607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_108
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 451
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2be5354f438aff0800000000000000
+      internalID: -24711573975158078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_109
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 506
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809cc4c7295c01700800000000000000
+      internalID: 509123990834170120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_110
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 447
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f7d6ffa39e7b870800000000000000
+      internalID: 8698677644892143513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_111
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 494
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbeef6b0583a62a60800000000000000
+      internalID: 7648980808953228989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_112
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 487
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba84d04a8f6b90d50800000000000000
+      internalID: 6704090699338172587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_113
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 761
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6bf0a8ba248b27b0800000000000000
+      internalID: -5247955621749130387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_114
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 723
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12802e7ab4fe41e10800000000000000
+      internalID: 2167620428890245153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_115
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 455
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df159e36ac95474d0800000000000000
+      internalID: -3137784314575891971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_116
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 501
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60d0ffdc7ee16b90800000000000000
+      internalID: -7250251704989331345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_117
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 433
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdcaba2ac1be6c70800000000000000
+      internalID: 8966299389999631867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_118
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 421
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df721cd8a6be7910800000000000000
+      internalID: 1837106534376701909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_119
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 451
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5557fe2190628c0800000000000000
+      internalID: -4024519240077453825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_120
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 681
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef9e918daaea4be0800000000000000
+      internalID: -1492122295594999839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_121
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 712
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dab3470d7367e0f0800000000000000
+      internalID: -1087791396342744364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_122
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 761
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e31b1069945a8f60800000000000000
+      internalID: 8037329502715188194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_123
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 709
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45c594ec49e45af10800000000000000
+      internalID: 2280315187356064852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_124
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 469
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c019e2cc5bfdb90800000000000000
+      internalID: -7214848189465031527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_125
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 688
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65554ebb0cc7c1d60800000000000000
+      internalID: 7862296216709911894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_126
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 451
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f72e31868c697cd0800000000000000
+      internalID: -2559895588233664524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_127
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 672
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9377f369503a4ba30800000000000000
+      internalID: 4230185194398644025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_128
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 720
+        width: 20
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50c8ecd947f5fd320800000000000000
+      internalID: 2584889665602358277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_129
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 506
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd17d537b1e415af0800000000000000
+      internalID: -409460211307417123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_130
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 501
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3f4ef0affab95a0800000000000000
+      internalID: -6513418947517942793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_131
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 449
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952c67b9961084300800000000000000
+      internalID: 236440533528396377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_132
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 486
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b49db608c8c3560800000000000000
+      internalID: 7294859979626466201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_133
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 463
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ea385ae57b60ae0800000000000000
+      internalID: -1583376601842471398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_134
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 699
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e467072b20bcd7f80800000000000000
+      internalID: -8107100541752936882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_135
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 460
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ffb181957349a3e0800000000000000
+      internalID: -2042026783804375055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_136
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 699
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578c9b33d3d2674c0800000000000000
+      internalID: -4290191854139750283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_137
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 502
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58d0b35c8097dd30800000000000000
+      internalID: 4456189288680314973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_138
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 453
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51464b97d2d076080800000000000000
+      internalID: -9194365625287023595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_139
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 761
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b333afa7ad52a5580800000000000000
+      internalID: -8837709698464861381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_140
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 753
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b5b2cf902361d60800000000000000
+      internalID: 7860525218088573751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_141
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 455
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88f42bb21eee24a0800000000000000
+      internalID: -6616089038344095603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_142
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 453
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc52d0bc73fbcd80800000000000000
+      internalID: -8229216177221378853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_143
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 482
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb0ea4b6cb1cfab60800000000000000
+      internalID: 7759633697980735675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_144
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 463
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f818047f76f29bca0800000000000000
+      internalID: -6000712904918138481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_145
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 713
+        width: 104
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4d9065457452ca0800000000000000
+      internalID: -6042344897501342505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_146
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 463
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 163007d0c4a272370800000000000000
+      internalID: 8297647344584754017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_147
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 453
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f307f2544150c2290800000000000000
+      internalID: -7913944860578582465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_148
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 441
+        width: 100
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bf8318db7568450800000000000000
+      internalID: 6090652017493605235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_149
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 702
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e85ffa933eb93460800000000000000
+      internalID: 7222012606318336228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_150
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 532
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5c743a64ba9b640800000000000000
+      internalID: 5096292773221877232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_151
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 526
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9ae3f303b6baaa0800000000000000
+      internalID: -6148703011280606737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_152
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 528
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1eb27f74385afbb0800000000000000
+      internalID: -4901508261939593697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_153
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 695
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fbe89b723072370800000000000000
+      internalID: 8297604307605176160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_154
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 757
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170c96dc73b6929f0800000000000000
+      internalID: -492744796806725519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_155
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 538
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520767e8acaafbdd0800000000000000
+      internalID: -2468066283825500123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_156
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 731
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f98c2aa8cb8c2630800000000000000
+      internalID: 3903648670988143094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_157
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 682
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a486285953eea2010800000000000000
+      internalID: 1165005367537723466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_158
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 766
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c571d9c0e8a7b6e0800000000000000
+      internalID: -1821801840835988023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_159
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 712
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2684ea40fe1b8540800000000000000
+      internalID: 5011133027777283631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_160
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 697
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebdd6755330fc950800000000000000
+      internalID: 6471394717189659623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_161
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 526
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc133643f6466930800000000000000
+      internalID: 4136071318455131327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_162
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 668
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584bab444ac05c8e0800000000000000
+      internalID: -1673917786831014779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_163
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 534
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7476792bb3ada73f0800000000000000
+      internalID: -902168825400170681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_164
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 680
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c829dede256ea9160800000000000000
+      internalID: 7033187011945927308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_165
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 618
+        width: 57
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6307877663170e6f0800000000000000
+      internalID: -657401067117973450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_166
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 431
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bf56f3d8e4c3fa0800000000000000
+      internalID: -5819690249908520092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_167
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 428
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ef01ab981c3f490800000000000000
+      internalID: -7713608939479171461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_168
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 557
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9468801cd9231a4c0800000000000000
+      internalID: -4278082517895444919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_169
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 614
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94182f7d3ce6b2610800000000000000
+      internalID: 1597492280253645129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_170
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 672
+        width: 212
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8f9fb4d68df2420800000000000000
+      internalID: 2607540673208514760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_171
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 650
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb7d0aa9cdacc340800000000000000
+      internalID: 4885470777443187655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_172
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 521
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42ee3619f2234c60800000000000000
+      internalID: 7801117432751252042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_173
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 591
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bfda4eb96e52cf80800000000000000
+      internalID: -8087798172546834504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_174
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 551
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f792349f94d39990800000000000000
+      internalID: -7380321582478878728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_175
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 550
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dfe7396085d9cec0800000000000000
+      internalID: -3546068484079751213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_176
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 626
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c65e7f7c27671eb0800000000000000
+      internalID: -4749213841223690559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_177
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 663
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9892dc0592b14d90800000000000000
+      internalID: -7115209583033673569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_178
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 617
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34de4dcbece4ffa70800000000000000
+      internalID: 8862889241526725955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_179
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 569
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e92493b2a60e4050800000000000000
+      internalID: 5786569867084966375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_180
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 686
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f42828ad6fc7eb30800000000000000
+      internalID: 4316646837737497841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_181
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 550
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da13bc7f35c266b80800000000000000
+      internalID: -8401979315661885011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_182
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 503
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6487f057d1f340ff0800000000000000
+      internalID: -70862298380535738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_183
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 548
+        width: 17
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174eec3c9843ac460800000000000000
+      internalID: 7262675115388626033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_184
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 713
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ae37572d1c038e0800000000000000
+      internalID: -1715658348370335087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_185
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 504
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414c22e0cdeb89a20800000000000000
+      internalID: 3069412998392235028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_186
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 585
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17926c0d44fea730800000000000000
+      internalID: 4012412929791137565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_187
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 534
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 288ef0a8678bc3360800000000000000
+      internalID: 7150793127619455106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_188
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 502
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d6b88c145645300800000000000000
+      internalID: 239928013369339160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_189
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 548
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d40691d23c74850800000000000000
+      internalID: 6361267597150801291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_190
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 761
+        width: 48
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ab4a4081d911870800000000000000
+      internalID: 8651869085638113792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_191
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 605
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b6e72cdb8ec4770800000000000000
+      internalID: 8596501690452962109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_192
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 589
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9495bb1781cd81c0800000000000000
+      internalID: -4499727666643626853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_193
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 536
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c876ad9a6900bf170800000000000000
+      internalID: 8213158992534988684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_194
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 695
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bb93f48c09741f0800000000000000
+      internalID: -1060719997225419896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_195
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 537
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd16a6b2eec7d2a0800000000000000
+      internalID: -6712669246450164238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_196
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 695
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cd63399196121c0800000000000000
+      internalID: -4530224191593063302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_197
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 666
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3455d35954f6ac7d0800000000000000
+      internalID: -2897381065612241597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_198
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 591
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611e8b11dda9314f0800000000000000
+      internalID: -859172829621853930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_199
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 634
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f483146d7c338c9e0800000000000000
+      internalID: -1600972734144104369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_200
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 692
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26755b14f0f52d1d0800000000000000
+      internalID: -3327492655541823646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_201
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 703
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7036c75d2de1e6e00800000000000000
+      internalID: 1039802454842827527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_202
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 729
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd8eb1480b1f7030800000000000000
+      internalID: 3494541558139489740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_203
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 753
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60c360a2427747f0800000000000000
+      internalID: -628407992510594963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_204
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 721
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffaeefcf4f661720800000000000000
+      internalID: 2816561005548449781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_205
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 694
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7669da4f1ea7e77e0800000000000000
+      internalID: -1765838892991408537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_206
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 563
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94dc298900781110800000000000000
+      internalID: 1231857684344263836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_207
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 692
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da878dde6a264220800000000000000
+      internalID: 2469708101310712537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viidakko_kaivos_5_208
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 745
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6e12e930293d7d0800000000000000
+      internalID: -2894809591233517903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      viidakko_kaivos_5_0: 9182945394982483765
+      viidakko_kaivos_5_1: 1201814833992692255
+      viidakko_kaivos_5_10: 4207773167825429902
+      viidakko_kaivos_5_100: -4797728407226199778
+      viidakko_kaivos_5_101: 9046823986810949957
+      viidakko_kaivos_5_102: 665920541576927227
+      viidakko_kaivos_5_103: 8370937085997191257
+      viidakko_kaivos_5_104: -7873097759545578510
+      viidakko_kaivos_5_105: 7633999357466600150
+      viidakko_kaivos_5_106: 7031517490856762961
+      viidakko_kaivos_5_107: 2915435361269823607
+      viidakko_kaivos_5_108: -24711573975158078
+      viidakko_kaivos_5_109: 509123990834170120
+      viidakko_kaivos_5_11: -5072084083934416567
+      viidakko_kaivos_5_110: 8698677644892143513
+      viidakko_kaivos_5_111: 7648980808953228989
+      viidakko_kaivos_5_112: 6704090699338172587
+      viidakko_kaivos_5_113: -5247955621749130387
+      viidakko_kaivos_5_114: 2167620428890245153
+      viidakko_kaivos_5_115: -3137784314575891971
+      viidakko_kaivos_5_116: -7250251704989331345
+      viidakko_kaivos_5_117: 8966299389999631867
+      viidakko_kaivos_5_118: 1837106534376701909
+      viidakko_kaivos_5_119: -4024519240077453825
+      viidakko_kaivos_5_12: 6854538370447538513
+      viidakko_kaivos_5_120: -1492122295594999839
+      viidakko_kaivos_5_121: -1087791396342744364
+      viidakko_kaivos_5_122: 8037329502715188194
+      viidakko_kaivos_5_123: 2280315187356064852
+      viidakko_kaivos_5_124: -7214848189465031527
+      viidakko_kaivos_5_125: 7862296216709911894
+      viidakko_kaivos_5_126: -2559895588233664524
+      viidakko_kaivos_5_127: 4230185194398644025
+      viidakko_kaivos_5_128: 2584889665602358277
+      viidakko_kaivos_5_129: -409460211307417123
+      viidakko_kaivos_5_13: -2874864616176166872
+      viidakko_kaivos_5_130: -6513418947517942793
+      viidakko_kaivos_5_131: 236440533528396377
+      viidakko_kaivos_5_132: 7294859979626466201
+      viidakko_kaivos_5_133: -1583376601842471398
+      viidakko_kaivos_5_134: -8107100541752936882
+      viidakko_kaivos_5_135: -2042026783804375055
+      viidakko_kaivos_5_136: -4290191854139750283
+      viidakko_kaivos_5_137: 4456189288680314973
+      viidakko_kaivos_5_138: -9194365625287023595
+      viidakko_kaivos_5_139: -8837709698464861381
+      viidakko_kaivos_5_14: -4698556168177631447
+      viidakko_kaivos_5_140: 7860525218088573751
+      viidakko_kaivos_5_141: -6616089038344095603
+      viidakko_kaivos_5_142: -8229216177221378853
+      viidakko_kaivos_5_143: 7759633697980735675
+      viidakko_kaivos_5_144: -6000712904918138481
+      viidakko_kaivos_5_145: -6042344897501342505
+      viidakko_kaivos_5_146: 8297647344584754017
+      viidakko_kaivos_5_147: -7913944860578582465
+      viidakko_kaivos_5_148: 6090652017493605235
+      viidakko_kaivos_5_149: 7222012606318336228
+      viidakko_kaivos_5_15: 1085063286339773502
+      viidakko_kaivos_5_150: 5096292773221877232
+      viidakko_kaivos_5_151: -6148703011280606737
+      viidakko_kaivos_5_152: -4901508261939593697
+      viidakko_kaivos_5_153: 8297604307605176160
+      viidakko_kaivos_5_154: -492744796806725519
+      viidakko_kaivos_5_155: -2468066283825500123
+      viidakko_kaivos_5_156: 3903648670988143094
+      viidakko_kaivos_5_157: 1165005367537723466
+      viidakko_kaivos_5_158: -1821801840835988023
+      viidakko_kaivos_5_159: 5011133027777283631
+      viidakko_kaivos_5_16: -6886009110525085270
+      viidakko_kaivos_5_160: 6471394717189659623
+      viidakko_kaivos_5_161: 4136071318455131327
+      viidakko_kaivos_5_162: -1673917786831014779
+      viidakko_kaivos_5_163: -902168825400170681
+      viidakko_kaivos_5_164: 7033187011945927308
+      viidakko_kaivos_5_165: -657401067117973450
+      viidakko_kaivos_5_166: -5819690249908520092
+      viidakko_kaivos_5_167: -7713608939479171461
+      viidakko_kaivos_5_168: -4278082517895444919
+      viidakko_kaivos_5_169: 1597492280253645129
+      viidakko_kaivos_5_17: -8650701800646594538
+      viidakko_kaivos_5_170: 2607540673208514760
+      viidakko_kaivos_5_171: 4885470777443187655
+      viidakko_kaivos_5_172: 7801117432751252042
+      viidakko_kaivos_5_173: -8087798172546834504
+      viidakko_kaivos_5_174: -7380321582478878728
+      viidakko_kaivos_5_175: -3546068484079751213
+      viidakko_kaivos_5_176: -4749213841223690559
+      viidakko_kaivos_5_177: -7115209583033673569
+      viidakko_kaivos_5_178: 8862889241526725955
+      viidakko_kaivos_5_179: 5786569867084966375
+      viidakko_kaivos_5_18: 5938925195557264105
+      viidakko_kaivos_5_180: 4316646837737497841
+      viidakko_kaivos_5_181: -8401979315661885011
+      viidakko_kaivos_5_182: -70862298380535738
+      viidakko_kaivos_5_183: 7262675115388626033
+      viidakko_kaivos_5_184: -1715658348370335087
+      viidakko_kaivos_5_185: 3069412998392235028
+      viidakko_kaivos_5_186: 4012412929791137565
+      viidakko_kaivos_5_187: 7150793127619455106
+      viidakko_kaivos_5_188: 239928013369339160
+      viidakko_kaivos_5_189: 6361267597150801291
+      viidakko_kaivos_5_19: -3338959645490501522
+      viidakko_kaivos_5_190: 8651869085638113792
+      viidakko_kaivos_5_191: 8596501690452962109
+      viidakko_kaivos_5_192: -4499727666643626853
+      viidakko_kaivos_5_193: 8213158992534988684
+      viidakko_kaivos_5_194: -1060719997225419896
+      viidakko_kaivos_5_195: -6712669246450164238
+      viidakko_kaivos_5_196: -4530224191593063302
+      viidakko_kaivos_5_197: -2897381065612241597
+      viidakko_kaivos_5_198: -859172829621853930
+      viidakko_kaivos_5_199: -1600972734144104369
+      viidakko_kaivos_5_2: 3994695540775249772
+      viidakko_kaivos_5_20: -470044040358241379
+      viidakko_kaivos_5_200: -3327492655541823646
+      viidakko_kaivos_5_201: 1039802454842827527
+      viidakko_kaivos_5_202: 3494541558139489740
+      viidakko_kaivos_5_203: -628407992510594963
+      viidakko_kaivos_5_204: 2816561005548449781
+      viidakko_kaivos_5_205: -1765838892991408537
+      viidakko_kaivos_5_206: 1231857684344263836
+      viidakko_kaivos_5_207: 2469708101310712537
+      viidakko_kaivos_5_208: -2894809591233517903
+      viidakko_kaivos_5_21: -1004557566867787119
+      viidakko_kaivos_5_22: -3605761042279536081
+      viidakko_kaivos_5_23: -230880867764306987
+      viidakko_kaivos_5_24: 1253569177003460201
+      viidakko_kaivos_5_25: 4569678767398202654
+      viidakko_kaivos_5_26: 6512447376880701919
+      viidakko_kaivos_5_27: 8277000122456463677
+      viidakko_kaivos_5_28: 5704505886535560615
+      viidakko_kaivos_5_29: 898079490425350472
+      viidakko_kaivos_5_3: -6811462605281765752
+      viidakko_kaivos_5_30: 2305247600757947465
+      viidakko_kaivos_5_31: -4696548778426252409
+      viidakko_kaivos_5_32: 8291127135967671626
+      viidakko_kaivos_5_33: 4953838299769940195
+      viidakko_kaivos_5_34: 1842142183919527754
+      viidakko_kaivos_5_35: -8099239643595875798
+      viidakko_kaivos_5_36: 5547750346499606064
+      viidakko_kaivos_5_37: -8215121229086469654
+      viidakko_kaivos_5_38: -2215976223949782009
+      viidakko_kaivos_5_39: 3258473343112862611
+      viidakko_kaivos_5_4: 6250209510938354200
+      viidakko_kaivos_5_40: 1774710490703351423
+      viidakko_kaivos_5_41: 8863609293070962454
+      viidakko_kaivos_5_42: -6907669372376308136
+      viidakko_kaivos_5_43: 1156053841423234708
+      viidakko_kaivos_5_44: -3462446184792017338
+      viidakko_kaivos_5_45: -5041816158265803304
+      viidakko_kaivos_5_46: 8541909186546654270
+      viidakko_kaivos_5_47: -7212965020018736744
+      viidakko_kaivos_5_48: 7968473783472511516
+      viidakko_kaivos_5_49: -1921500740400471650
+      viidakko_kaivos_5_5: -538480614036798533
+      viidakko_kaivos_5_50: -5196306851583133783
+      viidakko_kaivos_5_51: -4703019507938914392
+      viidakko_kaivos_5_52: -4383309725303144820
+      viidakko_kaivos_5_53: 1843764404762069341
+      viidakko_kaivos_5_54: -7541585089477822308
+      viidakko_kaivos_5_55: -185758814011738386
+      viidakko_kaivos_5_56: -8479286182002453975
+      viidakko_kaivos_5_57: -8425510703415684924
+      viidakko_kaivos_5_58: 3633680271097063131
+      viidakko_kaivos_5_59: -622148225667856334
+      viidakko_kaivos_5_6: -5044519885910488200
+      viidakko_kaivos_5_60: -5806953457928413332
+      viidakko_kaivos_5_61: -7331701077216343010
+      viidakko_kaivos_5_62: -1018754924923406509
+      viidakko_kaivos_5_63: 2676024902632776639
+      viidakko_kaivos_5_64: 8009479691808088968
+      viidakko_kaivos_5_65: -4408060199911439618
+      viidakko_kaivos_5_66: -1702029580422671241
+      viidakko_kaivos_5_67: 2031956333168376913
+      viidakko_kaivos_5_68: -7782353600975484101
+      viidakko_kaivos_5_69: 4469674023440852446
+      viidakko_kaivos_5_7: -199396096887464310
+      viidakko_kaivos_5_70: 8787561171730568610
+      viidakko_kaivos_5_71: -7597415440514202498
+      viidakko_kaivos_5_72: 1565872315994196633
+      viidakko_kaivos_5_73: -278318399446327519
+      viidakko_kaivos_5_74: -6088939911158334517
+      viidakko_kaivos_5_75: 6425445533392925351
+      viidakko_kaivos_5_76: 4021664637580051773
+      viidakko_kaivos_5_77: -4600290763621926698
+      viidakko_kaivos_5_78: 6571088257535569410
+      viidakko_kaivos_5_79: -3531432928623449864
+      viidakko_kaivos_5_8: -2839599203276703521
+      viidakko_kaivos_5_80: -3396002981728749081
+      viidakko_kaivos_5_81: -8314802338976295710
+      viidakko_kaivos_5_82: 5135055565591992662
+      viidakko_kaivos_5_83: -1419761819951174824
+      viidakko_kaivos_5_84: 3771082853519016731
+      viidakko_kaivos_5_85: 3612864519881865645
+      viidakko_kaivos_5_86: -6879134355997981260
+      viidakko_kaivos_5_87: -8661743692094872845
+      viidakko_kaivos_5_88: 8188201433795641813
+      viidakko_kaivos_5_89: -7135754827709129963
+      viidakko_kaivos_5_9: -4258057117040562836
+      viidakko_kaivos_5_90: 120135371996099406
+      viidakko_kaivos_5_91: 8207082940565236638
+      viidakko_kaivos_5_92: 4329564384132674778
+      viidakko_kaivos_5_93: 4090023451001836060
+      viidakko_kaivos_5_94: 24723961268603950
+      viidakko_kaivos_5_95: 3467771221369699991
+      viidakko_kaivos_5_96: 8097300946036897493
+      viidakko_kaivos_5_97: 1908485487122986749
+      viidakko_kaivos_5_98: -2326480449394825580
+      viidakko_kaivos_5_99: -3274146389232091239
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

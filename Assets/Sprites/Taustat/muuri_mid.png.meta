@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: e81eb68a125ee74498d0c5e5b0932d43
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6753813690501155336
+    second: muuri_mid_0
+  - first:
+      213: 2577972726044551784
+    second: muuri_mid_1
+  - first:
+      213: -5650006190609768975
+    second: muuri_mid_2
+  - first:
+      213: 1488545627981062970
+    second: muuri_mid_3
+  - first:
+      213: 3767541383589391517
+    second: muuri_mid_4
+  - first:
+      213: -3447309279046852064
+    second: muuri_mid_5
+  - first:
+      213: -6366211973029231150
+    second: muuri_mid_6
+  - first:
+      213: -8848925867278505104
+    second: muuri_mid_7
+  - first:
+      213: 4650384183114756805
+    second: muuri_mid_8
+  - first:
+      213: -2282076460715215072
+    second: muuri_mid_9
+  - first:
+      213: 1605852457693559663
+    second: muuri_mid_10
+  - first:
+      213: -8372963439796130813
+    second: muuri_mid_11
+  - first:
+      213: -6845731612177833120
+    second: muuri_mid_12
+  - first:
+      213: 705657447578516778
+    second: muuri_mid_13
+  - first:
+      213: 3008712956224565371
+    second: muuri_mid_14
+  - first:
+      213: 1112350896731457696
+    second: muuri_mid_15
+  - first:
+      213: 8954342898730791327
+    second: muuri_mid_16
+  - first:
+      213: 1535543996846272371
+    second: muuri_mid_17
+  - first:
+      213: -2862440882184061626
+    second: muuri_mid_18
+  - first:
+      213: 32503609086356298
+    second: muuri_mid_19
+  - first:
+      213: -2211447965944430074
+    second: muuri_mid_20
+  - first:
+      213: 6443940732286430045
+    second: muuri_mid_21
+  - first:
+      213: 5638555519574464479
+    second: muuri_mid_22
+  - first:
+      213: 9111402633190060006
+    second: muuri_mid_23
+  - first:
+      213: -1954058963120132747
+    second: muuri_mid_24
+  - first:
+      213: 4839036806516407260
+    second: muuri_mid_25
+  - first:
+      213: -1531218436440011907
+    second: muuri_mid_26
+  - first:
+      213: -7212274504594049966
+    second: muuri_mid_27
+  - first:
+      213: 8187604005485034478
+    second: muuri_mid_28
+  - first:
+      213: 6726966568915030845
+    second: muuri_mid_29
+  - first:
+      213: -517613202352169482
+    second: muuri_mid_30
+  - first:
+      213: -1818571604523173251
+    second: muuri_mid_31
+  - first:
+      213: 5627549658812702252
+    second: muuri_mid_32
+  - first:
+      213: -7489728622583425567
+    second: muuri_mid_33
+  - first:
+      213: -9089332290223569088
+    second: muuri_mid_34
+  - first:
+      213: 4865603330903788994
+    second: muuri_mid_35
+  - first:
+      213: -3990647635700703624
+    second: muuri_mid_36
+  - first:
+      213: -7171909670608764271
+    second: muuri_mid_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: muuri_mid_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 622
+        width: 128
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f532825b32a542a0800000000000000
+      internalID: -6753813690501155336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 652
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ae780298cc6c320800000000000000
+      internalID: 2577972726044551784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 680
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd52fdfd452791b0800000000000000
+      internalID: -5650006190609768975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_3
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 617
+        width: 192
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33a5cbac5068a410800000000000000
+      internalID: 1488545627981062970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_4
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 575
+        width: 751
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ced655deef84430800000000000000
+      internalID: 3767541383589391517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_5
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 634
+        width: 102
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022218fa972b820d0800000000000000
+      internalID: -3447309279046852064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_6
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 650
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d501cea0fba6a7a0800000000000000
+      internalID: -6366211973029231150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 664
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b691daecc423580800000000000000
+      internalID: -8848925867278505104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_8
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 632
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c276a796cb798040800000000000000
+      internalID: 4650384183114756805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_9
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 651
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027f9c8cc8f6450e0800000000000000
+      internalID: -2282076460715215072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_10
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 576
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b33865d42294610800000000000000
+      internalID: 1605852457693559663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_11
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 601
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c6e950d124dcb80800000000000000
+      internalID: -8372963439796130813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_12
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 617
+        width: 38
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0636a747e531ff0a0800000000000000
+      internalID: -6845731612177833120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 599
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2db608b5bffac900800000000000000
+      internalID: 705657447578516778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 584
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7071ea2e7811c920800000000000000
+      internalID: 3008712956224565371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_15
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 574
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a804414f3ddf6f00800000000000000
+      internalID: 1112350896731457696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_16
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 569
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91f3eb9c67344c70800000000000000
+      internalID: 8954342898730791327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_17
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 583
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f610521295f4510800000000000000
+      internalID: 1535543996846272371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_18
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 569
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64dfcdafe219648d0800000000000000
+      internalID: -2862440882184061626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_19
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 575
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ba2893cd9737000800000000000000
+      internalID: 32503609086356298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_20
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 559
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6024f9eaacb5f41e0800000000000000
+      internalID: -2211447965944430074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_21
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 559
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b6a9d54f97d6950800000000000000
+      internalID: 6443940732286430045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_22
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 567
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7dd86ee5c204e40800000000000000
+      internalID: 5638555519574464479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_23
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 551
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef2adcab64327e70800000000000000
+      internalID: 9111402633190060006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_24
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 542
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d6e01e9b9c1e4e0800000000000000
+      internalID: -1954058963120132747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_25
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 553
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb73735656b72340800000000000000
+      internalID: 4839036806516407260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_26
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 543
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7bc67ed1f400cae0800000000000000
+      internalID: -1531218436440011907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_27
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 524
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254b013ec8ad8eb90800000000000000
+      internalID: -7212274504594049966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_28
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 515
+        width: 53
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeb3084967630a170800000000000000
+      internalID: 8187604005485034478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_29
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 548
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33db14147cfa5d50800000000000000
+      internalID: 6726966568915030845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_30
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 553
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd1fbee88111d8f0800000000000000
+      internalID: -517613202352169482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_31
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 542
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ab8c9c2c223c6e0800000000000000
+      internalID: -1818571604523173251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_32
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 518
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ed6614992191e40800000000000000
+      internalID: 5627549658812702252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_33
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 534
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5d6d200832f0890800000000000000
+      internalID: -7489728622583425567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_34
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 542
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0478cbb70743cd180800000000000000
+      internalID: -9089332290223569088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_35
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 534
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd4a7c4378168340800000000000000
+      internalID: 4865603330903788994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_36
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 534
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e9e426e1f5e98c0800000000000000
+      internalID: -3990647635700703624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_mid_37
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 533
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1920d2a2722487c90800000000000000
+      internalID: -7171909670608764271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      muuri_mid_0: -6753813690501155336
+      muuri_mid_1: 2577972726044551784
+      muuri_mid_10: 1605852457693559663
+      muuri_mid_11: -8372963439796130813
+      muuri_mid_12: -6845731612177833120
+      muuri_mid_13: 705657447578516778
+      muuri_mid_14: 3008712956224565371
+      muuri_mid_15: 1112350896731457696
+      muuri_mid_16: 8954342898730791327
+      muuri_mid_17: 1535543996846272371
+      muuri_mid_18: -2862440882184061626
+      muuri_mid_19: 32503609086356298
+      muuri_mid_2: -5650006190609768975
+      muuri_mid_20: -2211447965944430074
+      muuri_mid_21: 6443940732286430045
+      muuri_mid_22: 5638555519574464479
+      muuri_mid_23: 9111402633190060006
+      muuri_mid_24: -1954058963120132747
+      muuri_mid_25: 4839036806516407260
+      muuri_mid_26: -1531218436440011907
+      muuri_mid_27: -7212274504594049966
+      muuri_mid_28: 8187604005485034478
+      muuri_mid_29: 6726966568915030845
+      muuri_mid_3: 1488545627981062970
+      muuri_mid_30: -517613202352169482
+      muuri_mid_31: -1818571604523173251
+      muuri_mid_32: 5627549658812702252
+      muuri_mid_33: -7489728622583425567
+      muuri_mid_34: -9089332290223569088
+      muuri_mid_35: 4865603330903788994
+      muuri_mid_36: -3990647635700703624
+      muuri_mid_37: -7171909670608764271
+      muuri_mid_4: 3767541383589391517
+      muuri_mid_5: -3447309279046852064
+      muuri_mid_6: -6366211973029231150
+      muuri_mid_7: -8848925867278505104
+      muuri_mid_8: 4650384183114756805
+      muuri_mid_9: -2282076460715215072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

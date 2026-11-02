@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 61baabcc57fe29248939195428c6f086
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3682031132502739486
+    second: mongoli_potku3_0
+  - first:
+      213: -3722234789305132851
+    second: mongoli_potku3_1
+  - first:
+      213: 3609525285013390364
+    second: mongoli_potku3_2
+  - first:
+      213: 8060489083035110675
+    second: mongoli_potku3_3
+  - first:
+      213: -3679811268432177093
+    second: mongoli_potku3_4
+  - first:
+      213: -7033915191501575279
+    second: mongoli_potku3_5
+  - first:
+      213: 8741235456592875873
+    second: mongoli_potku3_6
+  - first:
+      213: -6561442620721832911
+    second: mongoli_potku3_7
+  - first:
+      213: -4528351997275935753
+    second: mongoli_potku3_8
+  - first:
+      213: -7412812490436599680
+    second: mongoli_potku3_9
+  - first:
+      213: -8193820047701377360
+    second: mongoli_potku3_10
+  - first:
+      213: -2051545255199731704
+    second: mongoli_potku3_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mongoli_potku3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a41c88ec3391330800000000000000
+      internalID: 3682031132502739486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1792
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8dddc2e27f75cc0800000000000000
+      internalID: -3722234789305132851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1483056f1c971230800000000000000
+      internalID: 3609525285013390364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 1792
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31dc83e5d1c9cdf60800000000000000
+      internalID: 8060489083035110675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38de98d52faeecc0800000000000000
+      internalID: -3679811268432177093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b235e8663826e90800000000000000
+      internalID: -7033915191501575279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 896
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1619440b55b1f4970800000000000000
+      internalID: 8741235456592875873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_7
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 896
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13c54c153b211f4a0800000000000000
+      internalID: -6561442620721832911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fbef68c9df0821c0800000000000000
+      internalID: -4528351997275935753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080a2f09056602990800000000000000
+      internalID: -7412812490436599680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_10
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bef84f4414b94e80800000000000000
+      internalID: -8193820047701377360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mongoli_potku3_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 1152
+        height: 896
+      alignment: 9
+      pivot: {x: 0.3888889, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8009e2fb5727783e0800000000000000
+      internalID: -2051545255199731704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9bc8640a1b3f15b43ab8e19e8794a4cf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mongoli_potku3_0: 3682031132502739486
+      mongoli_potku3_1: -3722234789305132851
+      mongoli_potku3_10: -8193820047701377360
+      mongoli_potku3_11: -2051545255199731704
+      mongoli_potku3_2: 3609525285013390364
+      mongoli_potku3_3: 8060489083035110675
+      mongoli_potku3_4: -3679811268432177093
+      mongoli_potku3_5: -7033915191501575279
+      mongoli_potku3_6: 8741235456592875873
+      mongoli_potku3_7: -6561442620721832911
+      mongoli_potku3_8: -4528351997275935753
+      mongoli_potku3_9: -7412812490436599680
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Areas/Viidakko.unity
     guid: 71c78ec4f33a2e84da46cb9c03c831f1
+  - enabled: 1
+    path: Assets/Scenes/Areas/Muuri.unity
+    guid: 6b507f29476b77b40a3276c6cfd19f04
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

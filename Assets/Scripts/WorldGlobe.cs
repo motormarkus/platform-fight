@@ -20,6 +20,7 @@ public class WorldGlobe : MonoBehaviour
         new Place { name = "Slidaho",    lat = 37.2f, lon = -111.5f,   color = new Color(1f, 0.6f, 0.2f), scene = "Aavikko", area = "Aavikko", start = new Vector2(78013.68f, -1.78f) },   // kopterin laskeutumispaikka
         new Place { name = "Thaitown",   lat = 13.7f, lon = 100.5f, color = new Color(1f, 0.3f, 0.7f), scene = "Thaitown", area = "Thaitown laituri", start = new Vector2(106006.5f, -2.28f) },   // junalaituri
         new Place { name = "Eldoraato",  lat = 5f,    lon = -73.8f,   color = new Color(0.3f, 1f, 0.4f), scene = "Viidakko", area = "Viidakon kiitotie", start = new Vector2(53004f, -1f) },   // kiitotien alku (valikko 305)
+        new Place { name = "Kiinan muuri", lat = 40.4f, lon = 116.0f, color = new Color(1f, 0.25f, 0.2f), scene = "Muuri", area = "Muurin kiitotie", start = new Vector2(76206f, -2.5f) },   // kiitotien vasen pää (valikko 327)
         new Place { name = "Uccopulco",  lat = 16.5f, lon = -100f,  color = Color.white, scene = "UccoLaiva", area = "Uccopulco", start = new Vector2(8966f, -1f) },
     };
 
@@ -174,6 +175,7 @@ public class WorldGlobe : MonoBehaviour
     void Travel(Place p)
     {
         if (string.IsNullOrEmpty(p.area)) { notice = p.name + ": ei vielä kenttää"; noticeUntil = Time.unscaledTime + 2f; return; }
+        if (p.name == "Kiinan muuri" && !Clues.Open(Clues.WallTicket)) { notice = "Tarvitset Kiinan muurin lipun (Timppa)"; noticeUntil = Time.unscaledTime + 2f; return; }
         string scene = p.scene, area = p.area; Vector2 start = p.start;
         Close();
         ScreenFader.Host.StartCoroutine(TravelRoutine(scene, area, start));   // ajetaan fader-isännässä: vanha scene puretaan matkalla

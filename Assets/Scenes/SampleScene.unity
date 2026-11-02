@@ -598,6 +598,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -606,6 +611,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -1291,12 +1297,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -2952,6 +2964,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -2960,6 +2977,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -4242,10 +4260,16 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: cddcde7a932a82b45af901b773257baa, type: 3}
   - {fileID: 8300000, guid: 23cfbc3d363c9664a83f1857a25bb198, type: 3}
+  alternateHurt: 0
   hurtVolume: 1
   attackSounds:
   - {fileID: 8300000, guid: dccb1db4bb7d1ca4891eae63e21ba759, type: 3}
@@ -5656,6 +5680,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -0.76153046
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -7114,6 +7140,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -7122,6 +7153,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -8030,12 +8062,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -8554,6 +8592,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -8562,6 +8605,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -9362,12 +9406,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -11993,6 +12043,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -4.2
   maxDepthY: -0.8030769
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 1
   sidewalkHeight: 0.42307693
   curbDepthY: -1.2038462
@@ -12567,12 +12619,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -13571,12 +13629,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -14266,6 +14330,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -14274,6 +14343,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -15071,6 +15141,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -15079,6 +15154,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -16973,12 +17049,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -17914,6 +17996,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -17922,6 +18009,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -18448,6 +18536,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -18456,6 +18549,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -20308,6 +20402,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -20316,6 +20415,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -20913,12 +21013,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -21531,6 +21637,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -21539,6 +21650,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -22154,6 +22266,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -22162,6 +22279,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -25216,12 +25334,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -27160,6 +27284,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -27168,6 +27297,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -28171,12 +28301,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -29433,6 +29569,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -29441,6 +29582,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -30083,10 +30225,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -31307,6 +31455,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -31315,6 +31468,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -32128,6 +32282,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -0.70000005
   maxDepthY: -0.611052
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -33791,6 +33947,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -33799,6 +33960,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -35319,12 +35481,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -37266,10 +37434,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -37839,6 +38013,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -37847,6 +38026,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -41654,6 +41834,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -41662,6 +41847,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -45073,6 +45259,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -45081,6 +45272,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -45683,12 +45875,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -48384,6 +48582,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -48392,6 +48595,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -48902,12 +49106,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -50204,12 +50414,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -51203,6 +51419,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -51211,6 +51432,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -51826,6 +52048,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -51834,6 +52061,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -52358,6 +52586,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -52366,6 +52599,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -53706,6 +53940,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -2.3799999
   maxDepthY: 1.3263938
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -54557,6 +54793,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -54565,6 +54806,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -55281,10 +55523,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -57007,6 +57255,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -57015,6 +57268,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -57606,11 +57860,17 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 5fee65dfe34820c4fa5657dc2398b35a, type: 3}
   - {fileID: 8300000, guid: 266f8344212808442b6640995971f1b3, type: 3}
   - {fileID: 8300000, guid: 552fa75389ddc7c4681be4aa63a96ed3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 5fee65dfe34820c4fa5657dc2398b35a, type: 3}
@@ -59010,12 +59270,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -60358,6 +60624,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -60366,6 +60637,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -61054,6 +61326,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -61062,6 +61339,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -62556,10 +62834,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -64961,6 +65245,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -64969,6 +65258,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -65574,12 +65864,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -66348,8 +66644,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -67375,8 +67677,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -68223,10 +68531,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -69241,6 +69555,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -69249,6 +69568,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -71643,6 +71963,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -71651,6 +71976,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -72593,6 +72919,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -72601,6 +72932,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -73299,6 +73631,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -73307,6 +73644,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -74516,6 +74854,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -74524,6 +74867,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -75374,6 +75718,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -75382,6 +75731,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -76237,10 +76587,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -78279,6 +78635,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -78287,6 +78648,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -79150,6 +79512,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -79158,6 +79525,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -80191,6 +80559,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -80199,6 +80572,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -81158,6 +81532,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -81166,6 +81545,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -83201,6 +83581,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -83209,6 +83594,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -83858,6 +84244,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.6705884
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -84808,6 +85196,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -84816,6 +85209,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -85364,6 +85758,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -85372,6 +85771,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -85887,6 +86287,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -85895,6 +86300,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -86663,6 +87069,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -86671,6 +87082,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -87432,8 +87844,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -88138,6 +88556,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -88146,6 +88569,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -89144,6 +89568,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -89152,6 +89581,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -92862,6 +93292,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -92870,6 +93305,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -93587,12 +94023,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -93782,6 +94224,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.2380953
   maxDepthY: 2.9238093
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -94514,6 +94958,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -94522,6 +94971,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -95245,6 +95695,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -0.39999962
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -95827,6 +96279,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -95835,6 +96292,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -96573,6 +97031,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -96581,6 +97044,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -97125,12 +97589,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -98127,8 +98597,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -99810,6 +100286,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -7.6634417
   maxDepthY: 1.2637994
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -100967,6 +101445,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -100975,6 +101458,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -103577,6 +104061,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -103585,6 +104074,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -104293,8 +104783,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -105711,11 +106207,17 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: bdb1e393c98e5e945bb2ccdf905fce22, type: 3}
   - {fileID: 8300000, guid: 92757a95f17d4a04fb293ab1b7ed8352, type: 3}
   - {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
+  alternateHurt: 0
   hurtVolume: 1
   attackSounds: []
   attackVolume: 0.9
@@ -108782,12 +109284,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -109585,6 +110093,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -109593,6 +110106,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -110100,6 +110614,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -110108,6 +110627,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -110632,6 +111152,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -110640,6 +111165,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -111634,67 +112160,6 @@ MonoBehaviour:
   kickLaunch: 0
   kickFlySpeed: 11
   kickFlyUp: 3
---- !u!1 &1550839862
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1550839865}
-  - component: {fileID: 1550839864}
-  - component: {fileID: 1550839863}
-  m_Layer: 0
-  m_Name: Aloituskohta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1550839863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550839862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc0b39a169aa4147a80603dd9fc3f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AmazonStartAlly
---- !u!114 &1550839864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550839862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStart
-  area: {fileID: 0}
-  position: {x: 55240.383, y: -2.230765}
-  areaName: Viidakon katu
-  sceneName: Viidakko
---- !u!4 &1550839865
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550839862}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551687395
 GameObject:
   m_ObjectHideFlags: 0
@@ -112149,12 +112614,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -112699,6 +113170,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -112707,6 +113183,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -113313,6 +113790,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -113321,6 +113803,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -114162,8 +114645,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -115466,6 +115955,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -115474,6 +115968,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -116261,6 +116756,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -116269,6 +116769,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -117653,6 +118154,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -117661,6 +118167,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -118602,12 +119109,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -119504,10 +120017,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -121716,6 +122235,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -121724,6 +122248,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -124022,6 +124547,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -124030,6 +124560,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -125852,12 +126383,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -126911,6 +127448,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -126919,6 +127461,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -128435,12 +128978,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -129081,12 +129630,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -130215,6 +130770,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -130223,6 +130783,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -131504,6 +132065,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -131512,6 +132078,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -132848,6 +133415,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -132856,6 +133428,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -135680,12 +136253,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -136461,12 +137040,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -137329,6 +137914,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -137337,6 +137927,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -138159,8 +138750,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -139673,6 +140270,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -139681,6 +140283,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -140643,6 +141246,54 @@ MonoBehaviour:
   keepDebris: 0
   alwaysBreak: 0
   thrownBy: {fileID: 0}
+--- !u!1 &1932791957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932791959}
+  - component: {fileID: 1932791958}
+  m_Layer: 0
+  m_Name: Aloituskohta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1932791958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932791957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81faa752d4174f743b7b29906d4c676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStart
+  area: {fileID: 0}
+  position: {x: 77369.44, y: -2.6638045}
+  areaName: Muurin kuuasema
+  sceneName: Muuri
+--- !u!4 &1932791959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932791957}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935529521
 GameObject:
   m_ObjectHideFlags: 0
@@ -141543,12 +142194,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -142084,6 +142741,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -142092,6 +142754,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -143238,12 +143901,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -143574,6 +144243,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.7
   maxDepthY: -0.82857144
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -144375,8 +145046,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -144584,6 +145261,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -4.2
   maxDepthY: -0.8030769
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 1
   sidewalkHeight: 0.42307693
   curbDepthY: -1.2038462
@@ -145880,6 +146559,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -145888,6 +146572,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -147579,12 +148264,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -148887,12 +149578,18 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: efa46417de5016949aa96b990031ddb5, type: 3}
   - {fileID: 8300000, guid: ef04c957dcbb7674c9519c6733003839, type: 3}
   - {fileID: 8300000, guid: 0fa729b7988f9314e93a30237652fc05, type: 3}
   - {fileID: 8300000, guid: ba01b7a14f739ec42b54e04ed12db067, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.79
   attackSounds:
   - {fileID: 8300000, guid: 764e29631be5380469ef668ee3073e6b, type: 3}
@@ -149522,6 +150219,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -149530,6 +150232,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -150701,6 +151404,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -150709,6 +151417,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -152634,10 +153343,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae9370da092a50844a3757712df7c990, type: 3}
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 9c0709e5efd8e8b488209694a82812e6, type: 3}
   - {fileID: 8300000, guid: df5abbecef85f9d4e930fcfe2d4aa639, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.9
   attackSounds:
   - {fileID: 8300000, guid: c374677844abae5498ac430b4d4611b2, type: 3}
@@ -153800,6 +154515,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -153808,6 +154528,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -154846,6 +155567,11 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -154854,6 +155580,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -155718,8 +156445,14 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -156568,4 +157301,4 @@ SceneRoots:
   - {fileID: 840874164}
   - {fileID: 192042734}
   - {fileID: 510467432}
-  - {fileID: 1550839865}
+  - {fileID: 1932791959}

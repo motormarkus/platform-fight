@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc555e7fca1abe74e9a41ef2a72a54f0
+guid: e9fb25a7a58b7bc4fae83b5078e72db6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9131117239319314529
-    second: viidakko_kaivos_ulos_1_0
+      213: 2034216200738256819
+    second: muuri_yla_pano_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: viidakko_kaivos_ulos_1_0
+      name: muuri_yla_pano_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1672
+        width: 3147
         height: 941
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 160c21c10ce38be70800000000000000
-      internalID: 9131117239319314529
+      spriteID: 3b739595bdcfa3c10800000000000000
+      internalID: 2034216200738256819
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      viidakko_kaivos_ulos_1_0: 9131117239319314529
+      muuri_yla_pano_0: 2034216200738256819
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -109,6 +109,8 @@ public class Area : MonoBehaviour
     public float maxDepthY = -0.8f;
 
     [Header("Jalkakäytävä")]
+    [Tooltip("Painovoiman kerroin tällä alueella (1 = normaali; kuun pinta 0.4).")] public float gravityScale = 1f;
+    [Tooltip("Kamera seuraa korkeita hyppyjä: nousu = (hypyn korkeus - 1,5) * tämä. 0 = ei.")] public float camJumpLift = 0f;
     public bool useSidewalk = true;
     public float sidewalkHeight = 0.42f;
     public float curbDepthY = -1.2f;
