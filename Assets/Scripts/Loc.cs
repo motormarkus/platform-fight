@@ -37,6 +37,7 @@ public static class Loc
     static readonly Dictionary<string, string> En = new Dictionary<string, string>
     {
         { "Suutele Auroraa", "Kiss Aurora" },
+        { "Vapauta olio", "Release beast" }, { "Jätä olio rauhaan", "Leave the beast" }, { "Vapautetaanko olio?", "Release the beast?" }, { "Robotti on liian vahva! Vapauta olio ovesta.", "The robot is too strong! Release the beast from the door." }, { "Kuuluu jytinää ja karjuntaa oven takaa...", "Thuds and roars come from behind the door..." },
         // --- Valikot ---
         { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "FPS-laskuri", "FPS counter" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },
         { "Lyönti", "Punch" }, { "Potku", "Kick" }, { "Hyppy", "Jump" }, { "Juoksu", "Run" }, { "Juoksu (pidä pohjassa)", "Run (hold)" },

@@ -29,6 +29,9 @@ public static partial class BeatEmUpSetup
     static Sprite[] SeqRange(Sprite[] sheet, int first, int last) => Enumerable.Range(first, last - first + 1).Select(c => sheet[Mathf.Clamp(c, 0, sheet.Length - 1)]).ToArray();
 
     /// <summary>Luo alienin (Enemy + AlienBrain) annettuun paikkaan. Aggressiivinen pomo: nopea, käy kaikkien (herojen ja vihujen) kimppuun.</summary>
+    // suun (leukojen) kohta kuvassa 0-39 (alien_puraisu), yksikköä jalkojen kohdasta, kasvot oikealle; mitattu kuvista (harmaan esineen vasen pää)
+    static readonly Vector2[] MouthPts40 = new[] { new Vector2(1.67f, 1.19f), new Vector2(1.67f, 1.19f), new Vector2(1.67f, 1.19f), new Vector2(1.67f, 1.19f), new Vector2(1.67f, 1.19f), new Vector2(1.67f, 1.19f), new Vector2(1.43f, 1.18f), new Vector2(1.42f, 1.17f), new Vector2(1.42f, 1.17f), new Vector2(1.66f, 1.15f), new Vector2(1.66f, 1.15f), new Vector2(1.66f, 1.16f), new Vector2(1.66f, 1.15f), new Vector2(1.36f, 1.21f), new Vector2(1.27f, 1.28f), new Vector2(1.02f, 1.40f), new Vector2(0.77f, 1.53f), new Vector2(0.61f, 1.65f), new Vector2(1.03f, 1.46f), new Vector2(1.47f, 1.52f), new Vector2(1.02f, 1.44f), new Vector2(0.46f, 1.75f), new Vector2(0.68f, 1.58f), new Vector2(1.22f, 1.49f), new Vector2(1.21f, 1.48f), new Vector2(0.65f, 1.55f), new Vector2(0.45f, 1.75f), new Vector2(0.91f, 1.46f), new Vector2(1.40f, 1.42f), new Vector2(1.00f, 1.39f), new Vector2(0.35f, 1.43f), new Vector2(-0.07f, 1.66f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f), new Vector2(-0.00f, 1.70f) };
+
     static Enemy MakeAlien(Transform parent, Vector3 pos, Dictionary<string, Sprite[]> s)
     {
         var go = new GameObject("Koe-olento");
@@ -41,8 +44,8 @@ public static partial class BeatEmUpSetup
         e.visualScale = 1f; e.attackArtScale = 1f; e.knockArtScale = 1f; e.walkArtScale = 1f;
         e.idleSprites = s["idle"]; e.idleFrameTime = 0.1f;
         e.walkSprites = s["kavely"]; e.walkFrameTime = 0.05f;
-        e.runSprites = s["laukka"]; e.runFrameTime = 0.04f; e.runSpeedMultiplier = 2.0f; e.runDistance = 4.5f;
-        e.maxHealth = 650; e.moveSpeedX = 4.6f; e.moveSpeedY = 3.4f; e.attackRange = 3.0f; e.attackCooldown = 0.35f; e.wakeDistance = 24f; e.depthTolerance = 0.55f;
+        e.runSprites = s["laukka"]; e.runFrameTime = 0.04f; e.runSpeedMultiplier = 2.2f; e.runDistance = 4.5f;
+        e.maxHealth = 650; e.moveSpeedX = 5.6f; e.moveSpeedY = 4.0f; e.attackRange = 3.0f; e.attackCooldown = 0.2f; e.wakeDistance = 24f; e.depthTolerance = 0.55f;
         // tavallinen isku = raapaisu (raapimisen alku)
         const float F = 0.045f;
         e.punchSprites = SeqRange(s["raapiminen"], 0, 9); e.punchImpactFrame = 4; e.windupTime = 4 * F; e.punchRecoverTime = 6 * F; e.punchDamage = 11;
@@ -62,6 +65,7 @@ public static partial class BeatEmUpSetup
             name = "karjaisu", sprites = s["karjaisu"], frameTimes = roarTimes, armor = true, allAround = true, reach = 5f, damage = 5,
             windows = new[] { 7, 8, 12, 13 }, shakeFrame = 7, sound = roarClip, soundFrame = 0, cooldown = 30f, maxRange = 99f,
         };
+        brain.attackVoices = new[] { "attack1", "attack2" }.Select(n => AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Resources/Sfx/Alien/" + n + ".wav")).Where(c => c != null).ToArray();
         brain.moves = new[]
         {
             // pusku paikalta: kyykky, syöksy (kuvat 4-8), kaataa
@@ -72,7 +76,7 @@ public static partial class BeatEmUpSetup
                 minRange = 5f, maxRange = 13f, weight = 1.2f, cooldown = 4f, armor = true, moveFrom = 3, moveTo = 10, moveSpeed = 22f, stopOnHit = true },
             // loikka: ponnistus, lento kohteen päälle ja laskeutuminen tallaa maahan (kuvat 19-21)
             new AlienBrain.Move { name = "loikka", sprites = SeqRange(s["loikka"], 2, 27), frameTime = F, windows = new[] { 19, 21 }, damage = 30, knockFromWindow = 0, reach = 2.6f, allAround = true,
-                minRange = 3.2f, maxRange = 9.5f, weight = 1.1f, cooldown = 5f, armor = true, moveFrom = 3, moveTo = 18, moveSpeed = 13f, homing = true, shakeFrame = 19 },
+                minRange = 2.2f, maxRange = 11f, weight = 2.4f, cooldown = 2.5f, armor = true, moveFrom = 3, moveTo = 18, moveSpeed = 13f, homing = true, shakeFrame = 19 },
             // häntähuitaisu: osuu molemmin puolin, toinen osuma kaataa
             new AlienBrain.Move { name = "hantahuitaisu", sprites = s["hantahuitaisu"], frameTime = 0.04f, windows = new[] { 8, 10, 11, 15 }, windowDamage = new[] { 12, 20 }, knockFromWindow = 1, reach = 3.8f, allAround = true,
                 minRange = 0f, maxRange = 3.8f, weight = 1.2f, cooldown = 3.5f, armor = true },
@@ -87,9 +91,12 @@ public static partial class BeatEmUpSetup
             int nb = biteSheet.Length, gf = nb == 40 ? 5 : Mathf.RoundToInt(nb * 0.25f), rf = nb == 40 ? 33 : Mathf.RoundToInt(nb * 0.75f);   // 40 kuvaa: leuat sulkeutuvat kuvassa 5, ravistus 6-32, heitto kuvassa 33
             var list = brain.moves.ToList();
             list.Add(new AlienBrain.Move { name = "puraisu", sprites = biteSheet, frameTime = F, grabFrame = gf, releaseFrame = rf, reach = 2.6f, minRange = 0f, maxRange = 3.2f, weight = 1.4f, cooldown = 6f, armor = true,
-                moveFrom = 2, moveTo = gf, moveSpeed = 7f, mouthDx = 2.4f, mouthLift = 1.2f, tickEvery = 0.3f, tickDamage = 4, throwSpeed = 12f, throwUp = 6f, throwDamage = 22 });
+                moveFrom = 2, moveTo = gf, moveSpeed = 7f, mouthDx = 2.4f, mouthLift = 1.2f, mouthPts = nb == 40 ? MouthPts40 : null, tickEvery = 0.3f, tickDamage = 4, throwSpeed = 22f, throwUp = 8f, throwDamage = 28 });
             brain.moves = list.ToArray();
         }
+        // raivoisempi: tiheämpi hyökkäysrytmi, lyhyemmät jäähyt, raivo alkaa jo 75 % elämistä ja on nopeampi
+        brain.chancePerSec = 5.5f; brain.globalCooldown = 0.25f; brain.rageFraction = 0.75f; brain.rageSpeed = 1.5f;
+        foreach (var mv in brain.moves) mv.cooldown *= 0.7f;
         go.transform.position = pos;
         EditorUtility.SetDirty(e); EditorUtility.SetDirty(brain);
         return e;

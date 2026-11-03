@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 27f18ddaea28a484e9331f7a367681a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2879094925029463400
+    second: alien_laukka_0
+  - first:
+      213: 6699234537423183300
+    second: alien_laukka_1
+  - first:
+      213: 9214075279291469022
+    second: alien_laukka_2
+  - first:
+      213: 3880478785618693035
+    second: alien_laukka_3
+  - first:
+      213: 7720177142541534056
+    second: alien_laukka_4
+  - first:
+      213: 151639749383004687
+    second: alien_laukka_5
+  - first:
+      213: -1611821212196667947
+    second: alien_laukka_6
+  - first:
+      213: 506931560565715713
+    second: alien_laukka_7
+  - first:
+      213: -2916381716469666940
+    second: alien_laukka_8
+  - first:
+      213: 2819740552316390728
+    second: alien_laukka_9
+  - first:
+      213: -6939158370829161040
+    second: alien_laukka_10
+  - first:
+      213: -3177399476443676349
+    second: alien_laukka_11
+  - first:
+      213: -7860012402856518942
+    second: alien_laukka_12
+  - first:
+      213: -6692408617405104144
+    second: alien_laukka_13
+  - first:
+      213: -1179212505084299434
+    second: alien_laukka_14
+  - first:
+      213: -1606382645593801239
+    second: alien_laukka_15
+  - first:
+      213: -3575781403030751155
+    second: alien_laukka_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_laukka_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a2df67b666b08d0800000000000000
+      internalID: -2879094925029463400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2816
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd1326515678fc50800000000000000
+      internalID: 6699234537423183300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_2
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2816
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc40e3f5a8fedf70800000000000000
+      internalID: 9214075279291469022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_3
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2816
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: babcd3755ea3ad530800000000000000
+      internalID: 3880478785618693035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86347483534932b60800000000000000
+      internalID: 7720177142541534056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2112
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02adc37c8bba1200800000000000000
+      internalID: 151639749383004687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_6
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2112
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddf395b529a1a9e0800000000000000
+      internalID: -1611821212196667947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_7
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2112
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10334f8819bf80700800000000000000
+      internalID: 506931560565715713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ba160d74ee687d0800000000000000
+      internalID: -2916381716469666940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_9
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1408
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d059bb71bb12720800000000000000
+      internalID: 2819740552316390728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1408
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bdac8a1a3823bf90800000000000000
+      internalID: -6939158370829161040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_11
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1408
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3410011c20c97e3d0800000000000000
+      internalID: -3177399476443676349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea929d1d50abe290800000000000000
+      internalID: -7860012402856518942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 704
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff3ec302d9cf13a0800000000000000
+      internalID: -6692408617405104144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_14
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 704
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65770cf697892afe0800000000000000
+      internalID: -1179212505084299434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 704
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed770cae7bf4b9e0800000000000000
+      internalID: -1606382645593801239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_laukka_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1280
+        height: 704
+      alignment: 9
+      pivot: {x: 0.609375, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4877ed52c5406ec0800000000000000
+      internalID: -3575781403030751155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 60b52118198edf046b0293a2efe8c721
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_laukka_0: -2879094925029463400
+      alien_laukka_1: 6699234537423183300
+      alien_laukka_10: -6939158370829161040
+      alien_laukka_11: -3177399476443676349
+      alien_laukka_12: -7860012402856518942
+      alien_laukka_13: -6692408617405104144
+      alien_laukka_14: -1179212505084299434
+      alien_laukka_15: -1606382645593801239
+      alien_laukka_16: -3575781403030751155
+      alien_laukka_2: 9214075279291469022
+      alien_laukka_3: 3880478785618693035
+      alien_laukka_4: 7720177142541534056
+      alien_laukka_5: 151639749383004687
+      alien_laukka_6: -1611821212196667947
+      alien_laukka_7: 506931560565715713
+      alien_laukka_8: -2916381716469666940
+      alien_laukka_9: 2819740552316390728
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

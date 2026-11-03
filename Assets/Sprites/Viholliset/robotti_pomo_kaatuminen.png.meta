@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 3803c899c3ef681458cd543c56470aad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1519948352528667614
+    second: robotti_pomo_kaatuminen_0
+  - first:
+      213: -1492730256232381608
+    second: robotti_pomo_kaatuminen_1
+  - first:
+      213: 325544140182414664
+    second: robotti_pomo_kaatuminen_2
+  - first:
+      213: -4759205894764465758
+    second: robotti_pomo_kaatuminen_3
+  - first:
+      213: 3150498044981327089
+    second: robotti_pomo_kaatuminen_4
+  - first:
+      213: 5667282955009054403
+    second: robotti_pomo_kaatuminen_5
+  - first:
+      213: 5195950939414429881
+    second: robotti_pomo_kaatuminen_6
+  - first:
+      213: -489695233495629207
+    second: robotti_pomo_kaatuminen_7
+  - first:
+      213: -292847077804858419
+    second: robotti_pomo_kaatuminen_8
+  - first:
+      213: -8758468079114972670
+    second: robotti_pomo_kaatuminen_9
+  - first:
+      213: -2588794246977040220
+    second: robotti_pomo_kaatuminen_10
+  - first:
+      213: -6895309996825255889
+    second: robotti_pomo_kaatuminen_11
+  - first:
+      213: -7096215128497036446
+    second: robotti_pomo_kaatuminen_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3596d39f0f71510800000000000000
+      internalID: 1519948352528667614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8538ac3adb1c84be0800000000000000
+      internalID: -1492730256232381608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8456842bba0948400800000000000000
+      internalID: 325544140182414664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a17e9d3477e3fdb0800000000000000
+      internalID: -4759205894764465758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4bca4a741d8bb20800000000000000
+      internalID: 3150498044981327089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c6d0fe22db36ae40800000000000000
+      internalID: 5667282955009054403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b0872e99d9bb1840800000000000000
+      internalID: 5195950939414429881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9628a4797c04439f0800000000000000
+      internalID: -489695233495629207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc32ee162299febf0800000000000000
+      internalID: -292847077804858419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20211c7bfaba37680800000000000000
+      internalID: -8758468079114972670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0db503951c21cd0800000000000000
+      internalID: -2588794246977040220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20e70f3710fe40a0800000000000000
+      internalID: -6895309996825255889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2636e2020fd258d90800000000000000
+      internalID: -7096215128497036446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1797d4873161c134192c31c5b01664d4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      robotti_pomo_kaatuminen_0: 1519948352528667614
+      robotti_pomo_kaatuminen_1: -1492730256232381608
+      robotti_pomo_kaatuminen_10: -2588794246977040220
+      robotti_pomo_kaatuminen_11: -6895309996825255889
+      robotti_pomo_kaatuminen_12: -7096215128497036446
+      robotti_pomo_kaatuminen_2: 325544140182414664
+      robotti_pomo_kaatuminen_3: -4759205894764465758
+      robotti_pomo_kaatuminen_4: 3150498044981327089
+      robotti_pomo_kaatuminen_5: 5667282955009054403
+      robotti_pomo_kaatuminen_6: 5195950939414429881
+      robotti_pomo_kaatuminen_7: -489695233495629207
+      robotti_pomo_kaatuminen_8: -292847077804858419
+      robotti_pomo_kaatuminen_9: -8758468079114972670
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

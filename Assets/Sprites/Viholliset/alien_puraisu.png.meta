@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 2b6858752be4a08458ec0444dbcb2c47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7699268169761012711
+    second: alien_puraisu_0
+  - first:
+      213: 7486005133006405476
+    second: alien_puraisu_1
+  - first:
+      213: 1616858325242303279
+    second: alien_puraisu_2
+  - first:
+      213: -8990683944240058304
+    second: alien_puraisu_3
+  - first:
+      213: 5243297446511618948
+    second: alien_puraisu_4
+  - first:
+      213: -7016873002794539836
+    second: alien_puraisu_5
+  - first:
+      213: 8914867169363263541
+    second: alien_puraisu_6
+  - first:
+      213: 1853365942407421088
+    second: alien_puraisu_7
+  - first:
+      213: -6329120414727535417
+    second: alien_puraisu_8
+  - first:
+      213: -5946037741168672638
+    second: alien_puraisu_9
+  - first:
+      213: -7608661189942374649
+    second: alien_puraisu_10
+  - first:
+      213: 2312877314995623259
+    second: alien_puraisu_11
+  - first:
+      213: -6598332248405011731
+    second: alien_puraisu_12
+  - first:
+      213: 7923199432716401912
+    second: alien_puraisu_13
+  - first:
+      213: 3149550152955564392
+    second: alien_puraisu_14
+  - first:
+      213: -1661606023404378791
+    second: alien_puraisu_15
+  - first:
+      213: 4637525347626661921
+    second: alien_puraisu_16
+  - first:
+      213: 4542212224554199006
+    second: alien_puraisu_17
+  - first:
+      213: 500846946963183803
+    second: alien_puraisu_18
+  - first:
+      213: 8656263417353916717
+    second: alien_puraisu_19
+  - first:
+      213: -8697968888944128742
+    second: alien_puraisu_20
+  - first:
+      213: 768890120232725792
+    second: alien_puraisu_21
+  - first:
+      213: 7954952976859950793
+    second: alien_puraisu_22
+  - first:
+      213: 3971699203351220366
+    second: alien_puraisu_23
+  - first:
+      213: -4738090070404670772
+    second: alien_puraisu_24
+  - first:
+      213: 2498562920220996028
+    second: alien_puraisu_25
+  - first:
+      213: 3380819645114177978
+    second: alien_puraisu_26
+  - first:
+      213: -2375672113647205644
+    second: alien_puraisu_27
+  - first:
+      213: -4398328658589391090
+    second: alien_puraisu_28
+  - first:
+      213: 5323820329825592390
+    second: alien_puraisu_29
+  - first:
+      213: 3349694846804294380
+    second: alien_puraisu_30
+  - first:
+      213: 3291076943492910304
+    second: alien_puraisu_31
+  - first:
+      213: 7777524059295310674
+    second: alien_puraisu_32
+  - first:
+      213: -8004294100598375976
+    second: alien_puraisu_33
+  - first:
+      213: 7371387423632579196
+    second: alien_puraisu_34
+  - first:
+      213: 3079831746332362731
+    second: alien_puraisu_35
+  - first:
+      213: -1384445412921598565
+    second: alien_puraisu_36
+  - first:
+      213: 1777043336373521146
+    second: alien_puraisu_37
+  - first:
+      213: -2659036373518910429
+    second: alien_puraisu_38
+  - first:
+      213: -8183251158046521629
+    second: alien_puraisu_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_puraisu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6336
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9144cee5464b62590800000000000000
+      internalID: -7699268169761012711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_1
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 6336
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ff8938102a3e760800000000000000
+      internalID: 7486005133006405476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_2
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 6336
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f235330941c307610800000000000000
+      internalID: 1616858325242303279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_3
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 6336
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04073cf569caa3380800000000000000
+      internalID: -8990683944240058304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5632
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ba9075f3fe3c840800000000000000
+      internalID: 5243297446511618948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_5
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 5632
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c427625e2f0f9e90800000000000000
+      internalID: -7016873002794539836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_6
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 5632
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53080b12578f7bb70800000000000000
+      internalID: 8914867169363263541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_7
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 5632
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac500c418a78b910800000000000000
+      internalID: 1853365942407421088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4928
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c40e7314827a28a0800000000000000
+      internalID: -6329120414727535417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_9
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 4928
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28043988d2e6b7da0800000000000000
+      internalID: -5946037741168672638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_10
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 4928
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f0f2dc5fa986690800000000000000
+      internalID: -7608661189942374649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_11
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 4928
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b559f51f9adf81020800000000000000
+      internalID: 2312877314995623259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4224
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de290df87c30e64a0800000000000000
+      internalID: -6598332248405011731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 4224
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc33a7b7ebd4fd60800000000000000
+      internalID: 7923199432716401912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_14
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 4224
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86191355d2375bb20800000000000000
+      internalID: 3149550152955564392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_15
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 4224
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9552552102ac0f8e0800000000000000
+      internalID: -1661606023404378791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1283826abbccb5040800000000000000
+      internalID: 4637525347626661921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_17
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 3520
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed76dfad3fd290f30800000000000000
+      internalID: 4542212224554199006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_18
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 3520
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8549805ad53f600800000000000000
+      internalID: 500846946963183803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_19
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 3520
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21d69917b9312870800000000000000
+      internalID: 8656263417353916717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d061b116b9a4780800000000000000
+      internalID: -8697968888944128742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_21
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 2816
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d67c79d75abaa00800000000000000
+      internalID: 768890120232725792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_22
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 2816
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce6ca6d59ba56e60800000000000000
+      internalID: 7954952976859950793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_23
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 2816
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80937ae16f4e1730800000000000000
+      internalID: 3971699203351220366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca59b73f2cee3eb0800000000000000
+      internalID: -4738090070404670772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_25
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 2112
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb13cbcecbdaca220800000000000000
+      internalID: 2498562920220996028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_26
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 2112
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab951bc0e851bee20800000000000000
+      internalID: 3380819645114177978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_27
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 2112
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2c14baccae70fd0800000000000000
+      internalID: -2375672113647205644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07eb5b636ff5f2c0800000000000000
+      internalID: -4398328658589391090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_29
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1408
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644e147126202e940800000000000000
+      internalID: 5323820329825592390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_30
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1408
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceaf9b937b18c7e20800000000000000
+      internalID: 3349694846804294380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_31
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 1408
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec8f511b014cad20800000000000000
+      internalID: 3291076943492910304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253e952cce05feb60800000000000000
+      internalID: 7777524059295310674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_33
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 704
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d934109ce80be090800000000000000
+      internalID: -8004294100598375976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_34
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 704
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ad6677ecd6c4660800000000000000
+      internalID: 7371387423632579196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_35
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 704
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be78c18d7a2cdba20800000000000000
+      internalID: 3079831746332362731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d93e76b3679cce0800000000000000
+      internalID: -1384445412921598565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_37
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afac40fcf7359a810800000000000000
+      internalID: 1777043336373521146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_38
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32cff87a184391bd0800000000000000
+      internalID: -2659036373518910429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_puraisu_39
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 0
+        width: 1664
+        height: 704
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e645d0bd604f6e80800000000000000
+      internalID: -8183251158046521629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1824505eca706ff4295bdd167c98bb87
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_puraisu_0: -7699268169761012711
+      alien_puraisu_1: 7486005133006405476
+      alien_puraisu_10: -7608661189942374649
+      alien_puraisu_11: 2312877314995623259
+      alien_puraisu_12: -6598332248405011731
+      alien_puraisu_13: 7923199432716401912
+      alien_puraisu_14: 3149550152955564392
+      alien_puraisu_15: -1661606023404378791
+      alien_puraisu_16: 4637525347626661921
+      alien_puraisu_17: 4542212224554199006
+      alien_puraisu_18: 500846946963183803
+      alien_puraisu_19: 8656263417353916717
+      alien_puraisu_2: 1616858325242303279
+      alien_puraisu_20: -8697968888944128742
+      alien_puraisu_21: 768890120232725792
+      alien_puraisu_22: 7954952976859950793
+      alien_puraisu_23: 3971699203351220366
+      alien_puraisu_24: -4738090070404670772
+      alien_puraisu_25: 2498562920220996028
+      alien_puraisu_26: 3380819645114177978
+      alien_puraisu_27: -2375672113647205644
+      alien_puraisu_28: -4398328658589391090
+      alien_puraisu_29: 5323820329825592390
+      alien_puraisu_3: -8990683944240058304
+      alien_puraisu_30: 3349694846804294380
+      alien_puraisu_31: 3291076943492910304
+      alien_puraisu_32: 7777524059295310674
+      alien_puraisu_33: -8004294100598375976
+      alien_puraisu_34: 7371387423632579196
+      alien_puraisu_35: 3079831746332362731
+      alien_puraisu_36: -1384445412921598565
+      alien_puraisu_37: 1777043336373521146
+      alien_puraisu_38: -2659036373518910429
+      alien_puraisu_39: -8183251158046521629
+      alien_puraisu_4: 5243297446511618948
+      alien_puraisu_5: -7016873002794539836
+      alien_puraisu_6: 8914867169363263541
+      alien_puraisu_7: 1853365942407421088
+      alien_puraisu_8: -6329120414727535417
+      alien_puraisu_9: -5946037741168672638
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

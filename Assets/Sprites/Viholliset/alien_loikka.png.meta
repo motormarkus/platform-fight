@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 1aee5dc16b4e5dc41a99963d78405da4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5788813563178513595
+    second: alien_loikka_0
+  - first:
+      213: 580754007959398074
+    second: alien_loikka_1
+  - first:
+      213: 795762433645323309
+    second: alien_loikka_2
+  - first:
+      213: -1053336041446873809
+    second: alien_loikka_3
+  - first:
+      213: 8115421182299421143
+    second: alien_loikka_4
+  - first:
+      213: -8053755284778027348
+    second: alien_loikka_5
+  - first:
+      213: 8954420770988252923
+    second: alien_loikka_6
+  - first:
+      213: -1126792120257606519
+    second: alien_loikka_7
+  - first:
+      213: 9153218245576521764
+    second: alien_loikka_8
+  - first:
+      213: 8239892950829565940
+    second: alien_loikka_9
+  - first:
+      213: -2998590348877239067
+    second: alien_loikka_10
+  - first:
+      213: 676841292596462210
+    second: alien_loikka_11
+  - first:
+      213: 3040958742531589303
+    second: alien_loikka_12
+  - first:
+      213: 4410429324821813550
+    second: alien_loikka_13
+  - first:
+      213: 6119399427283024444
+    second: alien_loikka_14
+  - first:
+      213: 2428074749680655136
+    second: alien_loikka_15
+  - first:
+      213: 6973063531237337559
+    second: alien_loikka_16
+  - first:
+      213: -7883327335897946535
+    second: alien_loikka_17
+  - first:
+      213: -7445485763199169505
+    second: alien_loikka_18
+  - first:
+      213: -9194487773593800120
+    second: alien_loikka_19
+  - first:
+      213: -351192698059549384
+    second: alien_loikka_20
+  - first:
+      213: 3533133085945104295
+    second: alien_loikka_21
+  - first:
+      213: 1176294428113728384
+    second: alien_loikka_22
+  - first:
+      213: -5086106807657056122
+    second: alien_loikka_23
+  - first:
+      213: 3838773426330876698
+    second: alien_loikka_24
+  - first:
+      213: -7347238333521671539
+    second: alien_loikka_25
+  - first:
+      213: -6329179888285812889
+    second: alien_loikka_26
+  - first:
+      213: -2521975992506574198
+    second: alien_loikka_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_loikka_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b08c71cb00aafa0800000000000000
+      internalID: -5788813563178513595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_1
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 5760
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6ed4a71b04f0800800000000000000
+      internalID: 580754007959398074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_2
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 5760
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24a70f97bd1b0b00800000000000000
+      internalID: 795762433645323309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_3
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 5760
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25617c737cc161f0800000000000000
+      internalID: -1053336041446873809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d933a56194cf9070800000000000000
+      internalID: 8115421182299421143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_5
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4800
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca671e63d305b3090800000000000000
+      internalID: -8053755284778027348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4800
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe5228af3e744c70800000000000000
+      internalID: 8954420770988252923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_7
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 4800
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c06506984dc50f0800000000000000
+      internalID: -1126792120257606519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428763f9f73c60f70800000000000000
+      internalID: 9153218245576521764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3840
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f701716bfaf95270800000000000000
+      internalID: 8239892950829565940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3840
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ece14407fdd266d0800000000000000
+      internalID: -2998590348877239067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_11
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 3840
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282478ec19f946900800000000000000
+      internalID: 676841292596462210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4c6395dd7a33a20800000000000000
+      internalID: 3040958742531589303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2880
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2958fc7a1ef43d30800000000000000
+      internalID: 4410429324821813550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2880
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3afeed6b597ce450800000000000000
+      internalID: 6119399427283024444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_15
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 2880
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b9fcece1142b120800000000000000
+      internalID: 2428074749680655136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d9e1a7365c45c060800000000000000
+      internalID: 6973063531237337559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1920
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9562daf3e8bc89290800000000000000
+      internalID: -7883327335897946535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_18
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1920
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c094075225ca890800000000000000
+      internalID: -7445485763199169505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_19
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1920
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842f44b951e966080800000000000000
+      internalID: -9194487773593800120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83513701a10502bf0800000000000000
+      internalID: -351192698059549384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_21
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 960
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a700f382d5380130800000000000000
+      internalID: 3533133085945104295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 960
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0837df2dc89035010800000000000000
+      internalID: 1176294428113728384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_23
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 960
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688b7e74ec48a69b0800000000000000
+      internalID: -5086106807657056122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b39a1b710164530800000000000000
+      internalID: 3838773426330876698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_25
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ace4ab9ad590a90800000000000000
+      internalID: -7347238333521671539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_26
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7677d2fcc6c3a28a0800000000000000
+      internalID: -6329179888285812889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_loikka_27
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 1536
+        height: 960
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.016666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a15926234200dd0800000000000000
+      internalID: -2521975992506574198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 01849444acee5bc4f8d5d6ba48ca7e5e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_loikka_0: -5788813563178513595
+      alien_loikka_1: 580754007959398074
+      alien_loikka_10: -2998590348877239067
+      alien_loikka_11: 676841292596462210
+      alien_loikka_12: 3040958742531589303
+      alien_loikka_13: 4410429324821813550
+      alien_loikka_14: 6119399427283024444
+      alien_loikka_15: 2428074749680655136
+      alien_loikka_16: 6973063531237337559
+      alien_loikka_17: -7883327335897946535
+      alien_loikka_18: -7445485763199169505
+      alien_loikka_19: -9194487773593800120
+      alien_loikka_2: 795762433645323309
+      alien_loikka_20: -351192698059549384
+      alien_loikka_21: 3533133085945104295
+      alien_loikka_22: 1176294428113728384
+      alien_loikka_23: -5086106807657056122
+      alien_loikka_24: 3838773426330876698
+      alien_loikka_25: -7347238333521671539
+      alien_loikka_26: -6329179888285812889
+      alien_loikka_27: -2521975992506574198
+      alien_loikka_3: -1053336041446873809
+      alien_loikka_4: 8115421182299421143
+      alien_loikka_5: -8053755284778027348
+      alien_loikka_6: 8954420770988252923
+      alien_loikka_7: -1126792120257606519
+      alien_loikka_8: 9153218245576521764
+      alien_loikka_9: 8239892950829565940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

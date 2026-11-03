@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: a8fd07b63ecd6bb418d9d97ada3b2100
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2076098877579068626
+    second: robotti_pomo_liukutaklaus_0
+  - first:
+      213: -1364201082262764078
+    second: robotti_pomo_liukutaklaus_1
+  - first:
+      213: 7336773785926225436
+    second: robotti_pomo_liukutaklaus_2
+  - first:
+      213: 5961396713116745441
+    second: robotti_pomo_liukutaklaus_3
+  - first:
+      213: -5726057065350423897
+    second: robotti_pomo_liukutaklaus_4
+  - first:
+      213: -1533458598270303517
+    second: robotti_pomo_liukutaklaus_5
+  - first:
+      213: 2996021432864837407
+    second: robotti_pomo_liukutaklaus_6
+  - first:
+      213: 5014937666701363958
+    second: robotti_pomo_liukutaklaus_7
+  - first:
+      213: 2840546475891685067
+    second: robotti_pomo_liukutaklaus_8
+  - first:
+      213: 791129969089668609
+    second: robotti_pomo_liukutaklaus_9
+  - first:
+      213: -1726261654889804683
+    second: robotti_pomo_liukutaklaus_10
+  - first:
+      213: -5042436974402696468
+    second: robotti_pomo_liukutaklaus_11
+  - first:
+      213: 4121552847798695569
+    second: robotti_pomo_liukutaklaus_12
+  - first:
+      213: -5688218109545417037
+    second: robotti_pomo_liukutaklaus_13
+  - first:
+      213: 856757655403786906
+    second: robotti_pomo_liukutaklaus_14
+  - first:
+      213: 3343461110807907847
+    second: robotti_pomo_liukutaklaus_15
+  - first:
+      213: 7223937612916652125
+    second: robotti_pomo_liukutaklaus_16
+  - first:
+      213: 8306766080852647520
+    second: robotti_pomo_liukutaklaus_17
+  - first:
+      213: -4802060175913780629
+    second: robotti_pomo_liukutaklaus_18
+  - first:
+      213: 22306712409640095
+    second: robotti_pomo_liukutaklaus_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d400b4fde8cfcc10800000000000000
+      internalID: 2076098877579068626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_1
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3584
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d54681f752611de0800000000000000
+      internalID: -1364201082262764078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_2
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3584
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ec78be2e471d560800000000000000
+      internalID: 7336773785926225436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_3
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 3584
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee318ac9b22bb250800000000000000
+      internalID: 5961396713116745441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa1c20ef65f880b0800000000000000
+      internalID: -5726057065350423897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_5
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2688
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2845c878f08bae0800000000000000
+      internalID: -1533458598270303517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_6
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2688
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1f8d5d9e91049920800000000000000
+      internalID: 2996021432864837407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_7
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 2688
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa0672dc33a89540800000000000000
+      internalID: 5014937666701363958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6f28f48f5ab6720800000000000000
+      internalID: 2840546475891685067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_9
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10661cae388aafa00800000000000000
+      internalID: 791129969089668609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_10
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1792
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c4ae6cb261b08e0800000000000000
+      internalID: -1726261654889804683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_11
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 1792
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea8e6aa94aa50ab0800000000000000
+      internalID: -5042436974402696468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1967a086a72b23930800000000000000
+      internalID: 4121552847798695569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_13
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 896
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b6f99f44c36f01b0800000000000000
+      internalID: -5688218109545417037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 896
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9270fc5c80d3eb00800000000000000
+      internalID: 856757655403786906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_15
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 896
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ec9067a2c566e20800000000000000
+      internalID: 3343461110807907847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58fa712cf4904460800000000000000
+      internalID: 7223937612916652125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_17
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e5c794dbf874370800000000000000
+      internalID: 8306766080852647520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_18
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6afb9066b7ab5db0800000000000000
+      internalID: -4802060175913780629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_liukutaklaus_19
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 0
+        width: 1792
+        height: 896
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.017857144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c884536df3f4000800000000000000
+      internalID: 22306712409640095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ba80f4cb528a0154296be6abc7d02e56
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      robotti_pomo_liukutaklaus_0: 2076098877579068626
+      robotti_pomo_liukutaklaus_1: -1364201082262764078
+      robotti_pomo_liukutaklaus_10: -1726261654889804683
+      robotti_pomo_liukutaklaus_11: -5042436974402696468
+      robotti_pomo_liukutaklaus_12: 4121552847798695569
+      robotti_pomo_liukutaklaus_13: -5688218109545417037
+      robotti_pomo_liukutaklaus_14: 856757655403786906
+      robotti_pomo_liukutaklaus_15: 3343461110807907847
+      robotti_pomo_liukutaklaus_16: 7223937612916652125
+      robotti_pomo_liukutaklaus_17: 8306766080852647520
+      robotti_pomo_liukutaklaus_18: -4802060175913780629
+      robotti_pomo_liukutaklaus_19: 22306712409640095
+      robotti_pomo_liukutaklaus_2: 7336773785926225436
+      robotti_pomo_liukutaklaus_3: 5961396713116745441
+      robotti_pomo_liukutaklaus_4: -5726057065350423897
+      robotti_pomo_liukutaklaus_5: -1533458598270303517
+      robotti_pomo_liukutaklaus_6: 2996021432864837407
+      robotti_pomo_liukutaklaus_7: 5014937666701363958
+      robotti_pomo_liukutaklaus_8: 2840546475891685067
+      robotti_pomo_liukutaklaus_9: 791129969089668609
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

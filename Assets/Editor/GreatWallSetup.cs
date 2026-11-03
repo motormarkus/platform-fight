@@ -10,17 +10,17 @@ using UnityEngine;
 public static partial class BeatEmUpSetup
 {
     const float WallRunX0 = 76200f, WallTermX0 = 76400f, WallX0 = 77000f;   // vapaa väli 76100–77990 (Kopteri 76060 asti, Aavikko alkaa 77998)
-    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77300f, WallSurfX0 = 77450f, WallLabX0 = 77800f;
+    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77700f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
     const float SurfBasePx = 2385f;   // kuun pinnan vasemmassa päässä oleva tukikohdan ulkokuva (muuri_kuuasema_ulko, leveys px); loput kuun pinnasta alkavat tämän jälkeen
     const string WallScenePath = "Assets/Scenes/Areas/Muuri.unity";
-    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio" };
+    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio", "Muurin käytävä", "Muurin olion huone" };
 
     [MenuItem("Beat em up/327. Kiinan muuri: oma scene (kiitotie, terminaali, yläkerta, muuri, kuuhissi)", false, 327)]
     static void AddGreatWall()
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "muuri_kiitotie_torni", "muuri_terminaali_pano", "muuri_terminaali_tiski", "muuri_alku_torni", "muuri_main", "muuri_main_peili", "muuri_front", "muuri_front_peili", "muuri_far_x2", "muuri_mid_x2", "muuri_yla_pano", "muuri_yla_tiski", "muuri_rotko", "muuri_lankku", "muuri_hissi_paaty", "muuri_hissi_sisa", "muuri_taivas_pysty", "muuri_kuu_pinta", "muuri_kuuasema_pano", "muuri_kuuasema_tiski", "muuri_avaruus", "muuri_kuupinta_a", "muuri_kuupinta_b", "muuri_kuupinta_far", "muuri_kuupinta_tahdet", "muuri_kuuasema_ulko", "muuri_laboratorio_pano" })
+        foreach (var f in new[] { "muuri_kiitotie_torni", "muuri_terminaali_pano", "muuri_terminaali_tiski", "muuri_alku_torni", "muuri_main", "muuri_main_peili", "muuri_front", "muuri_front_peili", "muuri_far_x2", "muuri_mid_x2", "muuri_yla_pano", "muuri_yla_tiski", "muuri_rotko", "muuri_lankku", "muuri_hissi_paaty", "muuri_hissi_sisa", "muuri_taivas_pysty", "muuri_kuu_pinta", "muuri_kuuasema_pano", "muuri_kuuasema_tiski", "muuri_avaruus", "muuri_kuupinta_a", "muuri_kuupinta_b", "muuri_kuupinta_far", "muuri_kuupinta_tahdet", "muuri_kuuasema_ulko", "muuri_laboratorio_pano", "muuri_laboratorio_pano_b", "muuri_kaytava_pano", "muuri_kaytava_ovi", "muuri_laboratorio_ikkuna", "muuri_olion_huone_ikkuna", "muuri_olion_huone_pano" })
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat)."); return; }
         var opened = new List<UnityEngine.SceneManagement.Scene>();
         UnityEngine.SceneManagement.Scene Open(string path)
@@ -47,7 +47,7 @@ public static partial class BeatEmUpSetup
             var ucco = Open(UccoLaivaScenePath); var alp = Open(AlpineScenePathNow); var thai = Open(ThaitownScenePath);
             var sample = Open("Assets/Scenes/SampleScene.unity"); var desert = Open("Assets/Scenes/Areas/Aavikko.unity");
             var report = new List<string>();
-            foreach (var n in new[] { "Muurin kiitotie", "Muurin terminaali", "Muuri", "Muurin ovet", "Alue: Muurin kiitotie", "Alue: Muurin terminaali", "Alue: Muuri", "Muurin kuuhissi", "Alue: Muurin kuuhissi", "Muurin laboratorio", "Alue: Muurin laboratorio", "Muurin kuuasema", "Alue: Muurin kuuasema", "Muurin kuun pinta", "Alue: Muurin kuun pinta", "Muurin kuuaseman sisus", "Muurin kanikonttori", "Alue: Muurin kanikonttori", "Muurin terminaalin sisus", "Muurin terminaalin väki", "Muurin terminaalin tappelu" })
+            foreach (var n in new[] { "Muurin kiitotie", "Muurin terminaali", "Muuri", "Muurin ovet", "Alue: Muurin kiitotie", "Alue: Muurin terminaali", "Alue: Muuri", "Muurin kuuhissi", "Alue: Muurin kuuhissi", "Muurin laboratorio", "Alue: Muurin laboratorio", "Muurin käytävä", "Alue: Muurin käytävä", "Muurin olion huone", "Alue: Muurin olion huone", "Muurin käytävä 2", "Alue: Muurin käytävä 2", "Muurin kuuasema", "Alue: Muurin kuuasema", "Muurin kuun pinta", "Alue: Muurin kuun pinta", "Muurin kuuaseman sisus", "Muurin kanikonttori", "Alue: Muurin kanikonttori", "Muurin terminaalin sisus", "Muurin terminaalin väki", "Muurin terminaalin tappelu" })
                 foreach (var o in jungle.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
 
             float ppu = 941f / (2f * CamHalf), H = 941f / ppu, W = 1672f / ppu;
@@ -76,6 +76,14 @@ public static partial class BeatEmUpSetup
                 a.camMinX = x0 + W * 0.5f; a.camMaxX = Mathf.Max(a.camMinX, x0 + widthPx / ppu - W * 0.5f);
                 a.camSize = CamHalf; a.camRiseY = 0f; a.camOffsetY = 0f; a.backScale = 1f; a.depthLimits = new Vector2[0];
                 a.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Viidakko.mp3"); a.musicGain = a.music != null ? JungleMusicGain : 1f;
+                // kuun musiikit: tukikohta (laboratorio, käytävät, olion huone) Lunar Base, kuuasema ja kuun pinta Kuu Main; tasaus MusicPlayer.MusicRms
+                string moonTrack = areaName == "Muurin laboratorio" || areaName == "Muurin käytävä" || areaName == "Muurin käytävä 2" || areaName == "Muurin olion huone" ? "Lunar Base"
+                    : areaName == "Muurin kuuasema" || areaName == "Muurin kuun pinta" ? "Kuu Main" : null;
+                if (moonTrack != null)
+                {
+                    var mc = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/" + moonTrack + ".mp3");
+                    if (mc != null) { a.music = mc; a.musicGain = 1f; }
+                }
                 return a;
             }
             // yksi kuva (leveys px) alueen vasemmasta reunasta alkaen
@@ -85,14 +93,15 @@ public static partial class BeatEmUpSetup
                 if (sp == null) { Debug.LogWarning("Kiinan muuri: kuvan tuonti epäonnistui: " + file); return null; }
                 return Put(parent, name, sp, new Vector3(x0 + leftPx / ppu + sp.bounds.size.x * 0.5f, cy, 0f), order);
             }
-            void Para(Transform parent, Area area, string name, string file, float factor, int order, float dy = 0f)
+            SpriteRenderer Para(Transform parent, Area area, string name, string file, float factor, int order, float dy = 0f)
             {
                 var sp = ImportShipSprite(T + file + ".png", ppu, false, SpriteAlignment.Center);
-                if (sp == null) return;
+                if (sp == null) return null;
                 float left = area.camMinX - W * 0.5f;
                 var sr = Put(parent, name, sp, new Vector3(left + sp.bounds.size.x * 0.5f, cy + dy, 0f), order);
                 var pl = sr.gameObject.AddComponent<ParallaxLayer>();
                 pl.factor = factor; pl.startCamX = area.camMinX; pl.minX = area.camMinX - 2f; pl.maxX = area.camMaxX + 2f;
+            return sr;
             }
             var doorRoot = NewRoot("Muurin ovet");
             Door MakeDoor(string name, string prompt, Area here, Area target, Vector3 pos, Vector2 spawn)
@@ -216,14 +225,63 @@ public static partial class BeatEmUpSetup
             MakeDoor("Kuun pinta: asemalle", "Mene asemalle", surf, moon, new Vector3(WallSurfX0 + SurfDoorPx / ppu, surf.maxDepthY, 0f), new Vector2(WallMoonX0 + (MoonLeftDoorPx + 130f) / ppu, Mathf.Lerp(moon.maxDepthY, moon.minDepthY, 0.3f)));
 
             // ---- laboratorio (tukikohdan sisällä): kaksi ensimmäistä ruutua, kuvat yhdistettynä (korkeus 941); ikkunat läpinäkyviä: taakse avaruus ----
-            const float LabWallPx = 700f, LabDoorPx = 235f;
+            const float LabWallPx = 700f, LabDoorPx = 235f, LabCorDoorPx = 8267f;   // LabCorDoorPx: toinen käytäväaukko panon loppupäässä (oikea käytävä)
             var labRoot = NewRoot("Muurin laboratorio");
             var labImg = Image(labRoot.transform, "Laboratorio", "muuri_laboratorio_pano", WallLabX0, 0f, -10000);
-            float labPx = labImg != null ? labImg.sprite.rect.width : 4408f;
+            var labImgB = Image(labRoot.transform, "Laboratorio 2", "muuri_laboratorio_pano_b", WallLabX0, 4408f, -10000);   // pano jaettu kahtia (enimmäisleveys 8192)
+            float labPx = 4408f + (labImgB != null ? labImgB.sprite.rect.width : 4376f);
             var lab = MakeArea("Alue: Muurin laboratorio", "Muurin laboratorio", WallLabX0, LabWallPx, labPx);
-            Para(labRoot.transform, lab, "Ikkunoiden avaruus", "muuri_avaruus", 0.02f, -10150);
+            lab.walkMaxX = WallLabX0 + (labPx - 330f) / ppu;   // kulmaseinä oikealla
+            Para(labRoot.transform, lab, "Ikkunoiden takahuone", "muuri_laboratorio_ikkuna", 0.05f, -10150);   // ikkunoista näkyy toinen laboratorio
             MakeDoor("Kuun pinta: tukikohtaan", "Mene tukikohtaan", surf, lab, new Vector3(WallSurfX0 + BaseDoorPx / ppu, surf.maxDepthY, 0f), new Vector2(WallLabX0 + (LabDoorPx + 130f) / ppu, Mathf.Lerp(lab.maxDepthY, lab.minDepthY, 0.3f)));
             MakeDoor("Laboratorio: ulos", "Ulos kuun pinnalle", lab, surf, new Vector3(WallLabX0 + LabDoorPx / ppu, lab.maxDepthY, 0f), new Vector2(WallSurfX0 + BaseDoorPx / ppu, Mathf.Lerp(surf.maxDepthY, surf.minDepthY, 0.3f)));
+
+            {   // ovet peittävät laboratorion perspektiiviaukot: ensimmäinen (x 1640, koristeovi) ja toinen (x 8004, oikea käytävä)
+                var dsp = ImportShipSprite(T + "muuri_kaytava_ovi.png", ppu, false, SpriteAlignment.Center);
+                if (dsp != null)
+                {
+                    var dr = Put(labRoot.transform, "Käytävän ovi 1", dsp, new Vector3(WallLabX0 + 1640f / ppu, top - 472f / ppu, 0f), -9990);
+                    dr.transform.localScale = new Vector3(390f / 1045f, 345f / 1051f, 1f);
+                    var dr2 = Put(labRoot.transform, "Käytävän ovi 2", dsp, new Vector3(WallLabX0 + LabCorDoorPx / ppu, top - 487f / ppu, 0f), -9990);
+                    dr2.transform.localScale = new Vector3(376f / 1045f, 360f / 1051f, 1f);
+                }
+            }
+            // ---- käytävä (laboratorion pohjoinen aukko, px 1620): lopussa varoitusovi, jonka takana olio (valikko 333) ----
+            const float CorWallPx = 680f, CorDoorPx = 175f;
+            var corRoot = NewRoot("Muurin käytävä");
+            var corImg = Image(corRoot.transform, "Käytävä", "muuri_kaytava_pano", WallCorX0, 0f, -10000);
+            float corPx = corImg != null ? corImg.sprite.rect.width : 6579f;
+            var cor = MakeArea("Alue: Muurin käytävä", "Muurin käytävä", WallCorX0, CorWallPx, corPx);
+            cor.walkMinX = WallCorX0 + 330f / ppu;
+            Para(corRoot.transform, cor, "Ikkunan takahuone", "muuri_olion_huone_ikkuna", 0.05f, -10150);   // ikkunasta näkyy pedon huone
+            MakeDoor("Laboratorio: käytävään", "Mene käytävään", lab, cor, new Vector3(WallLabX0 + LabCorDoorPx / ppu, lab.maxDepthY, 0f), new Vector2(WallCorX0 + (CorDoorPx + 140f) / ppu, Mathf.Lerp(cor.maxDepthY, cor.minDepthY, 0.3f)));
+            var corBackDoor = MakeDoor("Käytävä: laboratorioon", "Takaisin laboratorioon", cor, lab, new Vector3(WallCorX0 + CorDoorPx / ppu, cor.maxDepthY, 0f), new Vector2(WallLabX0 + LabCorDoorPx / ppu, Mathf.Lerp(lab.maxDepthY, lab.minDepthY, 0.3f)));
+            corBackDoor.halfWidth = (cor.walkMinX - (WallCorX0 + CorDoorPx / ppu)) + 1.2f;   // käytävän vasen pää on rajattu (pomo tulee takaa): ovi on kävelyalueen ulkopuolella, joten ovialue ulotetaan sinne asti
+
+            // ---- olion huone (käytävän varoitusoven takana; ovi avautuu vasta, kun olio on vapautettu, valikko 333): sisäänkäynti vasemmalla, rikottu häkki, varoitusovi oikeassa päässä (koriste) ----
+            const float BeastWallPx = 700f, BeastDoorPx = 230f;
+            var beastRoot = NewRoot("Muurin olion huone");
+            var beastImg = Image(beastRoot.transform, "Olion huone", "muuri_olion_huone_pano", WallBeastX0, 0f, -10000);
+            float beastPx = beastImg != null ? beastImg.sprite.rect.width : 4633f;
+            var beastRoom = MakeArea("Alue: Muurin olion huone", "Muurin olion huone", WallBeastX0, BeastWallPx, beastPx);
+            beastRoom.walkMinX = WallBeastX0 + 330f / ppu; beastRoom.walkMaxX = WallBeastX0 + (beastPx - 330f) / ppu;
+            Para(beastRoot.transform, beastRoom, "Ikkunan takahuone", "muuri_laboratorio_ikkuna", 0.05f, -10150);
+            var beastIn = MakeDoor("Käytävä: olion huoneeseen", "Mene olion huoneeseen", cor, beastRoom, new Vector3(WallCorX0 + 3829f / ppu, cor.maxDepthY, 0f), new Vector2(WallBeastX0 + (BeastDoorPx + 140f) / ppu, Mathf.Lerp(beastRoom.maxDepthY, beastRoom.minDepthY, 0.3f)));
+            beastIn.gameObject.SetActive(false);   // BeastCage avaa oven, kun olio on vapautettu
+            MakeDoor("Olion huone: käytävään", "Takaisin käytävään", beastRoom, cor, new Vector3(WallBeastX0 + BeastDoorPx / ppu, beastRoom.maxDepthY, 0f), new Vector2(WallCorX0 + (3829f - 140f) / ppu, Mathf.Lerp(cor.maxDepthY, cor.minDepthY, 0.3f)));
+
+            // ---- käytävä 2 (laboratorion ensimmäisen ruudun aukko, px 1640): sama käytäväkuva kierrätettynä; punainen ovi (px 3829) vie olion huoneen oikeaan päähän, päätyseinä sulkee käytävän ----
+            const float Cor2BeastDoorPx = 3829f, BeastExitPx = 4384f;
+            var cor2Root = NewRoot("Muurin käytävä 2");
+            Image(cor2Root.transform, "Käytävä 2", "muuri_kaytava_pano", WallCor2X0, 0f, -10000);
+            var cor2 = MakeArea("Alue: Muurin käytävä 2", "Muurin käytävä 2", WallCor2X0, CorWallPx, corPx);
+            cor2.walkMinX = WallCor2X0 + 330f / ppu;
+            Para(cor2Root.transform, cor2, "Ikkunan takahuone", "muuri_olion_huone_ikkuna", 0.05f, -10150);
+            MakeDoor("Laboratorio: käytävään 2", "Mene käytävään", lab, cor2, new Vector3(WallLabX0 + 1640f / ppu, lab.maxDepthY, 0f), new Vector2(WallCor2X0 + (CorDoorPx + 140f) / ppu, Mathf.Lerp(cor2.maxDepthY, cor2.minDepthY, 0.3f)));
+            var cor2BackDoor = MakeDoor("Käytävä 2: laboratorioon", "Takaisin laboratorioon", cor2, lab, new Vector3(WallCor2X0 + CorDoorPx / ppu, cor2.maxDepthY, 0f), new Vector2(WallLabX0 + 1640f / ppu, Mathf.Lerp(lab.maxDepthY, lab.minDepthY, 0.3f)));
+            cor2BackDoor.halfWidth = (cor2.walkMinX - (WallCor2X0 + CorDoorPx / ppu)) + 1.2f;   // sama kuin käytävässä 1: ovi on rajatun kävelyalueen ulkopuolella (walkMinX 330 px), ovialue ulotetaan reunaan
+            MakeDoor("Olion huone: käytävään 2", "Mene käytävään", beastRoom, cor2, new Vector3(WallBeastX0 + BeastExitPx / ppu, beastRoom.maxDepthY, 0f), new Vector2(WallCor2X0 + (Cor2BeastDoorPx - 140f) / ppu, Mathf.Lerp(cor2.maxDepthY, cor2.minDepthY, 0.3f)));
+            MakeDoor("Käytävä 2: olion huoneeseen", "Mene olion huoneeseen", cor2, beastRoom, new Vector3(WallCor2X0 + Cor2BeastDoorPx / ppu, cor2.maxDepthY, 0f), new Vector2(WallBeastX0 + (BeastExitPx - 140f) / ppu, Mathf.Lerp(beastRoom.maxDepthY, beastRoom.minDepthY, 0.3f)));
 
             // ---- yläkerta: Kanikonttori (kuvat 1 ja 2 yhdistettynä), Helvi tiskin takana ----
             const float PawnPx = 3147f, PawnWallPx = 725f, PawnDoorPx = 115f, PawnCounterLeftPx = 1440f, PawnCounterTopPx = 505f, PawnCounterBottomPx = 715f, StairsPx = 2765f;

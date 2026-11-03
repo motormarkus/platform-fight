@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: a280fae96d002284691423fcc4ddc0a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7762494894268721623
+    second: alien_hantahuitaisu_0
+  - first:
+      213: -241352752069737933
+    second: alien_hantahuitaisu_1
+  - first:
+      213: -2367279260406264943
+    second: alien_hantahuitaisu_2
+  - first:
+      213: -729709416922127799
+    second: alien_hantahuitaisu_3
+  - first:
+      213: 7526437544394195493
+    second: alien_hantahuitaisu_4
+  - first:
+      213: 5481598204944128899
+    second: alien_hantahuitaisu_5
+  - first:
+      213: 8661551987661686913
+    second: alien_hantahuitaisu_6
+  - first:
+      213: 8400915787167828053
+    second: alien_hantahuitaisu_7
+  - first:
+      213: -950851185634929521
+    second: alien_hantahuitaisu_8
+  - first:
+      213: -2362789184670835436
+    second: alien_hantahuitaisu_9
+  - first:
+      213: -7349259493978638962
+    second: alien_hantahuitaisu_10
+  - first:
+      213: 1216138064153891870
+    second: alien_hantahuitaisu_11
+  - first:
+      213: -4006258517516569153
+    second: alien_hantahuitaisu_12
+  - first:
+      213: 6525280805863314743
+    second: alien_hantahuitaisu_13
+  - first:
+      213: -8106826031410644663
+    second: alien_hantahuitaisu_14
+  - first:
+      213: 6905286215889879956
+    second: alien_hantahuitaisu_15
+  - first:
+      213: -6591409704850347125
+    second: alien_hantahuitaisu_16
+  - first:
+      213: -1623517239152584923
+    second: alien_hantahuitaisu_17
+  - first:
+      213: -7860404400525519047
+    second: alien_hantahuitaisu_18
+  - first:
+      213: -415493679444794276
+    second: alien_hantahuitaisu_19
+  - first:
+      213: 8285207131480015571
+    second: alien_hantahuitaisu_20
+  - first:
+      213: -5703795250446067010
+    second: alien_hantahuitaisu_21
+  - first:
+      213: 6138576828648581846
+    second: alien_hantahuitaisu_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d9aba79afbe9bb60800000000000000
+      internalID: 7762494894268721623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_1
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3520
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332025363fa86acf0800000000000000
+      internalID: -241352752069737933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_2
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3520
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19bc5571e0cb52fd0800000000000000
+      internalID: -2367279260406264943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_3
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 3520
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9426917c62d8fd5f0800000000000000
+      internalID: -729709416922127799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52287c1e117437860800000000000000
+      internalID: 7526437544394195493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_5
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2816
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b1d1f468c821c40800000000000000
+      internalID: 5481598204944128899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_6
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2816
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188472454a3043870800000000000000
+      internalID: 8661551987661686913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_7
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 2816
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5580c12066c069470800000000000000
+      internalID: 8400915787167828053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8498fd62e5edc2f0800000000000000
+      internalID: -950851185634929521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_9
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2112
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d5f8051cfa53fd0800000000000000
+      internalID: -2362789184670835436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_10
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2112
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e857c33ad6f220a90800000000000000
+      internalID: -7349259493978638962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_11
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 2112
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1459bf302790e010800000000000000
+      internalID: 1216138064153891870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5ba09ba19e668c0800000000000000
+      internalID: -4006258517516569153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_13
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1408
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735582d02547e8a50800000000000000
+      internalID: 6525280805863314743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1408
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949f0ed1da4ce7f80800000000000000
+      internalID: -8106826031410644663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_15
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 1408
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49384824a3184df50800000000000000
+      internalID: 6905286215889879956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b2555dbcb9684a0800000000000000
+      internalID: -6591409704850347125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_17
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 704
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52756993cab1879e0800000000000000
+      internalID: -1623517239152584923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_18
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 704
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93752cb08db3ae290800000000000000
+      internalID: -7860404400525519047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_19
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 704
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c54e54e23bedb3af0800000000000000
+      internalID: -415493679444794276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2466a3df7faf270800000000000000
+      internalID: 8285207131480015571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_21
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba1a91907c08d0b0800000000000000
+      internalID: -5703795250446067010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_hantahuitaisu_22
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 1792
+        height: 704
+      alignment: 9
+      pivot: {x: 0.50223213, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6daea022a1b903550800000000000000
+      internalID: 6138576828648581846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a93610fc1a6a95c40b1d5ea76e2ba813
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_hantahuitaisu_0: 7762494894268721623
+      alien_hantahuitaisu_1: -241352752069737933
+      alien_hantahuitaisu_10: -7349259493978638962
+      alien_hantahuitaisu_11: 1216138064153891870
+      alien_hantahuitaisu_12: -4006258517516569153
+      alien_hantahuitaisu_13: 6525280805863314743
+      alien_hantahuitaisu_14: -8106826031410644663
+      alien_hantahuitaisu_15: 6905286215889879956
+      alien_hantahuitaisu_16: -6591409704850347125
+      alien_hantahuitaisu_17: -1623517239152584923
+      alien_hantahuitaisu_18: -7860404400525519047
+      alien_hantahuitaisu_19: -415493679444794276
+      alien_hantahuitaisu_2: -2367279260406264943
+      alien_hantahuitaisu_20: 8285207131480015571
+      alien_hantahuitaisu_21: -5703795250446067010
+      alien_hantahuitaisu_22: 6138576828648581846
+      alien_hantahuitaisu_3: -729709416922127799
+      alien_hantahuitaisu_4: 7526437544394195493
+      alien_hantahuitaisu_5: 5481598204944128899
+      alien_hantahuitaisu_6: 8661551987661686913
+      alien_hantahuitaisu_7: 8400915787167828053
+      alien_hantahuitaisu_8: -950851185634929521
+      alien_hantahuitaisu_9: -2362789184670835436
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

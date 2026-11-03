@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 942ad0e12fc902a47b88ab99ed6f9c35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7209090634107627019
+    second: alien_raapiminen_0
+  - first:
+      213: 6634128711206388413
+    second: alien_raapiminen_1
+  - first:
+      213: -1437949661274385906
+    second: alien_raapiminen_2
+  - first:
+      213: -3668359808488011209
+    second: alien_raapiminen_3
+  - first:
+      213: -2143333547816640641
+    second: alien_raapiminen_4
+  - first:
+      213: 144156260420303580
+    second: alien_raapiminen_5
+  - first:
+      213: 6405350927066874755
+    second: alien_raapiminen_6
+  - first:
+      213: -83114910607929992
+    second: alien_raapiminen_7
+  - first:
+      213: 4902325071036294141
+    second: alien_raapiminen_8
+  - first:
+      213: 4887271821800143015
+    second: alien_raapiminen_9
+  - first:
+      213: -2848454431651741739
+    second: alien_raapiminen_10
+  - first:
+      213: 4157415234882810514
+    second: alien_raapiminen_11
+  - first:
+      213: 2429994560583028909
+    second: alien_raapiminen_12
+  - first:
+      213: 107480212189811104
+    second: alien_raapiminen_13
+  - first:
+      213: -553942984988845451
+    second: alien_raapiminen_14
+  - first:
+      213: 2173904730059128028
+    second: alien_raapiminen_15
+  - first:
+      213: 5131486612571685549
+    second: alien_raapiminen_16
+  - first:
+      213: -56277050839340757
+    second: alien_raapiminen_17
+  - first:
+      213: 6104909956225021768
+    second: alien_raapiminen_18
+  - first:
+      213: -2756371451485184408
+    second: alien_raapiminen_19
+  - first:
+      213: 8225775529200278044
+    second: alien_raapiminen_20
+  - first:
+      213: 2925104207736867288
+    second: alien_raapiminen_21
+  - first:
+      213: 2237613683835700646
+    second: alien_raapiminen_22
+  - first:
+      213: 5401380178091603642
+    second: alien_raapiminen_23
+  - first:
+      213: 298231950807507519
+    second: alien_raapiminen_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_raapiminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4224
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f95b60834a24fb90800000000000000
+      internalID: -7209090634107627019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_1
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4224
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db24da9e9e8211c50800000000000000
+      internalID: 6634128711206388413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_2
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4224
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02d8d2d6606b0ce0800000000000000
+      internalID: -1437949661274385906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_3
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 4224
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a80c2a03e571dc0800000000000000
+      internalID: -3668359808488011209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f163f7e795142e0800000000000000
+      internalID: -2143333547816640641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_5
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3520
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda3086ea55200200800000000000000
+      internalID: 144156260420303580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3520
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3834a8d2bb064e850800000000000000
+      internalID: 6405350927066874755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_7
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 3520
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d0daddd67b8def0800000000000000
+      internalID: -83114910607929992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2816
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df32c90bdae880440800000000000000
+      internalID: 4902325071036294141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2816
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a87c2bf3d313d340800000000000000
+      internalID: 4887271821800143015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2816
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfb28249c14878d0800000000000000
+      internalID: -2848454431651741739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_11
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 2816
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 292bcf2112b12b930800000000000000
+      internalID: 4157415234882810514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0dead9d2319b120800000000000000
+      internalID: 2429994560583028909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2112
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a115fbfea8dd7100800000000000000
+      internalID: 107480212189811104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2112
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a9be14acfff48f0800000000000000
+      internalID: -553942984988845451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_15
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 2112
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc37ba85d24b2e10800000000000000
+      internalID: 2173904730059128028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da20208e2e3b63740800000000000000
+      internalID: 5131486612571685549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1408
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29e6b70250183ff0800000000000000
+      internalID: -56277050839340757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_18
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1408
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847b98e824ff8b450800000000000000
+      internalID: 6104909956225021768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_19
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1408
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e923dc4c66fb9d0800000000000000
+      internalID: -2756371451485184408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a55140343d72270800000000000000
+      internalID: 8225775529200278044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_21
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 704
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9082177ce089820800000000000000
+      internalID: 2925104207736867288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 704
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a584914ac99d0f10800000000000000
+      internalID: 2237613683835700646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_23
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 704
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab67cfb77ae85fa40800000000000000
+      internalID: 5401380178091603642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_raapiminen_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.022727273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32ad801168832400800000000000000
+      internalID: 298231950807507519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 58cbb4372f9fff642bf752d4c04d25c5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_raapiminen_0: -7209090634107627019
+      alien_raapiminen_1: 6634128711206388413
+      alien_raapiminen_10: -2848454431651741739
+      alien_raapiminen_11: 4157415234882810514
+      alien_raapiminen_12: 2429994560583028909
+      alien_raapiminen_13: 107480212189811104
+      alien_raapiminen_14: -553942984988845451
+      alien_raapiminen_15: 2173904730059128028
+      alien_raapiminen_16: 5131486612571685549
+      alien_raapiminen_17: -56277050839340757
+      alien_raapiminen_18: 6104909956225021768
+      alien_raapiminen_19: -2756371451485184408
+      alien_raapiminen_2: -1437949661274385906
+      alien_raapiminen_20: 8225775529200278044
+      alien_raapiminen_21: 2925104207736867288
+      alien_raapiminen_22: 2237613683835700646
+      alien_raapiminen_23: 5401380178091603642
+      alien_raapiminen_24: 298231950807507519
+      alien_raapiminen_3: -3668359808488011209
+      alien_raapiminen_4: -2143333547816640641
+      alien_raapiminen_5: 144156260420303580
+      alien_raapiminen_6: 6405350927066874755
+      alien_raapiminen_7: -83114910607929992
+      alien_raapiminen_8: 4902325071036294141
+      alien_raapiminen_9: 4887271821800143015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

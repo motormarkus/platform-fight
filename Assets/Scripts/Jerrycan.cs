@@ -18,6 +18,7 @@ public class Jerrycan : MonoBehaviour
     public float fuse = 3f;
     public float blastRadiusX = 3.2f, blastRadiusY = 1.6f;
     public int blastDamage = 40, heroDamage = 25, bossDamage = 12;
+    [Tooltip("Laboratorion Robottipomo kärsii räjähdyksestä paljon (heron lyönnit eivät tehoa siihen ennen olion vapautusta); ohittaa heroDamageMul:n.")] public int robotBossDamage = 110;
     public float ignitePickRange = 1.3f;
     [Tooltip("Kuvan koko (1 = 200 px/yksikkö: kanisteri 1 yksikön korkuinen).")]
     public float artScale = 1.2f;
@@ -230,7 +231,8 @@ public class Jerrycan : MonoBehaviour
             float near = 1f - Mathf.Clamp01(Mathf.Abs(q.x - me.x) / blastRadiusX);   // 1 = keskellä, 0 = reunalla
             bool center = Mathf.Abs(q.x - me.x) < blastRadiusX * 0.4f && Mathf.Abs(q.y - me.y) < blastRadiusY * 0.6f;
             int dmg = boss ? bossDamage : Mathf.RoundToInt(blastDamage * (center ? 1.5f : 1f));
-            e.TakeHit(dmg, me.x, true);
+            if (e.displayName == "Robottipomo") { float keep = e.heroDamageMul; e.heroDamageMul = 1f; e.TakeHit(robotBossDamage, me.x, true); e.heroDamageMul = keep; }
+            else e.TakeHit(dmg, me.x, true);
             float dir = Mathf.Abs(q.x - me.x) < 0.3f ? (Random.value < 0.5f ? -1f : 1f) : Mathf.Sign(q.x - me.x);
             // keskelle osunut lentää ruudun laidoille asti, reunalla oleva vain pienen matkan
             float vx = boss ? 5f : center ? 22f : Mathf.Lerp(7f, 16f, near);

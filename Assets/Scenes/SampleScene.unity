@@ -599,6 +599,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -624,8 +625,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -1298,6 +1304,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -1324,8 +1331,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -2965,6 +2977,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -2990,8 +3003,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -4261,6 +4279,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -4284,8 +4303,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -7141,6 +7165,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -7166,8 +7191,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -8063,6 +8093,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -8089,8 +8120,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -8593,6 +8629,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -8618,8 +8655,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -9407,6 +9449,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -9433,8 +9476,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -12620,6 +12668,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -12646,8 +12695,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -13630,6 +13684,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -13656,8 +13711,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -14331,6 +14391,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -14356,8 +14417,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -15142,6 +15208,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -15167,8 +15234,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -17050,6 +17122,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -17076,8 +17149,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -17997,6 +18075,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -18022,8 +18101,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -18537,6 +18621,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -18562,8 +18647,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -20403,6 +20493,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -20428,8 +20519,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -21014,6 +21110,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -21040,8 +21137,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -21638,6 +21740,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -21663,8 +21766,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -22267,6 +22375,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -22292,8 +22401,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -25335,6 +25449,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -25361,8 +25476,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -27285,6 +27405,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -27310,8 +27431,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -28302,6 +28428,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -28328,8 +28455,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -29570,6 +29702,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -29595,8 +29728,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -30226,6 +30364,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -30249,8 +30388,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -31456,6 +31600,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -31481,8 +31626,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -33948,6 +34098,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -33973,8 +34124,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -35482,6 +35638,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -35508,8 +35665,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -37435,6 +37597,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -37458,8 +37621,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -38014,6 +38182,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -38039,8 +38208,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -38211,6 +38385,7 @@ MonoBehaviour:
   blastDamage: 40
   heroDamage: 25
   bossDamage: 12
+  robotBossDamage: 110
   ignitePickRange: 1.3
   artScale: 0.8
 --- !u!114 &510467431
@@ -41835,6 +42010,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -41860,8 +42036,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -45260,6 +45441,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -45285,8 +45467,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -45876,6 +46063,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -45902,8 +46090,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -48583,6 +48776,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -48608,8 +48802,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -49107,6 +49306,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -49133,8 +49333,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -50415,6 +50620,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -50441,8 +50647,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -51420,6 +51631,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -51445,8 +51657,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -52049,6 +52266,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -52074,8 +52292,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -52587,6 +52810,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -52612,8 +52836,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -54794,6 +55023,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -54819,8 +55049,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -55524,6 +55759,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -55547,8 +55783,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -57256,6 +57497,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -57281,8 +57523,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -57861,6 +58108,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -57886,8 +58134,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -59271,6 +59524,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -59297,8 +59551,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -60625,6 +60884,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -60650,8 +60910,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -61327,6 +61592,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -61352,8 +61618,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -62835,6 +63106,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -62858,8 +63130,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -65246,6 +65523,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -65271,8 +65549,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -65865,6 +66148,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -65891,8 +66175,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -66645,6 +66934,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -66664,8 +66954,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -67678,6 +67973,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -67697,8 +67993,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -68532,6 +68833,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -68555,8 +68857,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -69556,6 +69863,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -69581,8 +69889,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -71964,6 +72277,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -71989,8 +72303,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -72920,6 +73239,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -72945,8 +73265,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -73632,6 +73957,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -73657,8 +73983,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -74855,6 +75186,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -74880,8 +75212,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -75719,6 +76056,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -75744,8 +76082,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -76588,6 +76931,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -76611,8 +76955,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -78636,6 +78985,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -78661,8 +79011,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -79513,6 +79868,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -79538,8 +79894,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -80560,6 +80921,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -80585,8 +80947,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -81533,6 +81900,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -81558,8 +81926,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -83582,6 +83955,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -83607,8 +83981,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -85197,6 +85576,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -85222,8 +85602,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -85759,6 +86144,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -85784,8 +86170,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -86288,6 +86679,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -86313,8 +86705,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -87070,6 +87467,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -87095,8 +87493,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -87845,6 +88248,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -87864,8 +88268,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -88557,6 +88966,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -88582,8 +88992,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -89569,6 +89984,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -89594,8 +90010,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -93293,6 +93714,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -93318,8 +93740,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -94024,6 +94451,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -94050,8 +94478,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -94959,6 +95392,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -94984,8 +95418,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -96280,6 +96719,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -96305,8 +96745,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -97032,6 +97477,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -97057,8 +97503,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -97590,6 +98041,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -97616,8 +98068,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -98598,6 +99055,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -98617,8 +99075,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -101446,6 +101909,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -101471,8 +101935,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -104062,6 +104531,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -104087,8 +104557,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -104784,6 +105259,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -104803,8 +105279,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -106208,6 +106689,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 8300000, guid: 97b2c29f563afd143b3396c13925f36e, type: 3}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -106230,8 +106712,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -109285,6 +109772,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -109311,8 +109799,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -110094,6 +110587,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -110119,8 +110613,13 @@ MonoBehaviour:
   knockArtScale: 1.03
   walkArtScale: 0.967
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -110615,6 +111114,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -110640,8 +111140,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -111153,6 +111658,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -111178,8 +111684,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -112615,6 +113126,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -112641,8 +113153,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -113171,6 +113688,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -113196,8 +113714,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -113791,6 +114314,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -113816,8 +114340,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -114646,6 +115175,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -114665,8 +115195,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -115956,6 +116491,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -115981,8 +116517,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -116757,6 +117298,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -116782,8 +117324,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -118155,6 +118702,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -118180,8 +118728,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -119110,6 +119663,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -119136,8 +119690,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -120018,6 +120577,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -120041,8 +120601,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -122236,6 +122801,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -122261,8 +122827,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -124548,6 +125119,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -124573,8 +125145,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -126384,6 +126961,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -126410,8 +126988,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -127449,6 +128032,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -127474,8 +128058,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -128979,6 +129568,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -129005,8 +129595,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -129631,6 +130226,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -129657,8 +130253,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -130771,6 +131372,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -130796,8 +131398,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -132066,6 +132673,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -132091,8 +132699,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -133416,6 +134029,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -133441,8 +134055,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -136254,6 +136873,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -136280,8 +136900,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -137041,6 +137666,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -137067,8 +137693,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -137915,6 +138546,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -137940,8 +138572,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -138751,6 +139388,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -138770,8 +139408,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -140271,6 +140914,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -140296,8 +140940,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -142195,6 +142844,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -142221,8 +142871,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -142742,6 +143397,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -142767,8 +143423,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -143902,6 +144563,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -143928,8 +144590,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -145047,6 +145714,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -145066,8 +145734,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -146560,6 +147233,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -146585,8 +147259,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -148265,6 +148944,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -148291,8 +148971,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -149579,6 +150264,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -149605,8 +150291,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -150220,6 +150911,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -150245,8 +150937,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -151405,6 +152102,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -151430,8 +152128,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -153344,6 +154047,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -153367,8 +154071,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -154516,6 +155225,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -154541,8 +155251,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -155568,6 +156283,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -155593,8 +156309,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -156446,6 +157167,7 @@ MonoBehaviour:
   doubleKickSounds: []
   deathVoice: {fileID: 0}
   lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
   damagedIdleSprites: []
   damagedTauntSounds: []
   damagedFraction: 0.3
@@ -156465,8 +157187,13 @@ MonoBehaviour:
   knockArtScale: 1
   walkArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12

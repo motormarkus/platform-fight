@@ -314,6 +314,14 @@ public static partial class BeatEmUpSetup
             case "alien_puraisu": return new Vector3(1664, 704, 780f / 1664f);
             case "alien_karjaisu": case "alien_raapiminen": return new Vector3(1536, 704, 780f / 1536f);
             case "robotti_raketti": return new Vector3(1408, 896, 560f / 1408f);
+            case "robotti_pomo_kavely": return new Vector3(768, 768, 384f / 768f);
+            case "robotti_pomo_erikoisisku": return new Vector3(1280, 768, 512f / 1280f);
+            case "robotti_pomo_lyonti1": case "robotti_pomo_lyonti2": return new Vector3(1024, 768, 400f / 1024f);
+            case "robotti_pomo_idle": return new Vector3(768, 768, 0.5f);
+            case "robotti_pomo_osuma": return new Vector3(1024, 768, 480f / 1024f);
+            case "robotti_pomo_kaatuminen": return new Vector3(1152, 1024, 576f / 1152f);
+            case "robotti_pomo_maahan": case "robotti_pomo_nousu": return new Vector3(1152, 768, 576f / 1152f);
+            case "robotti_pomo_liukutaklaus": return new Vector3(1792, 896, 832f / 1792f);
             case "mainari_jab": return new Vector3(768, 768, 300f / 768f);
             case "mainari_osuma": return new Vector3(896, 768, 420f / 896f);
             case "mainari_kaatuminen": case "mainari_maahan": case "mainari_nousu": case "mainari_kuper_loppu": return new Vector3(1024, 768, 0.5f);

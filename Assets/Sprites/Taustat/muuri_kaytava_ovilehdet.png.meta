@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: fac907869265ea6418dc7b50c5223a1b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 119992719184177395
+    second: muuri_kaytava_ovilehdet_0
+  - first:
+      213: -336681247820548837
+    second: muuri_kaytava_ovilehdet_1
+  - first:
+      213: 8750018367127193406
+    second: muuri_kaytava_ovilehdet_2
+  - first:
+      213: -2126283420562406538
+    second: muuri_kaytava_ovilehdet_3
+  - first:
+      213: -6540059287436039626
+    second: muuri_kaytava_ovilehdet_4
+  - first:
+      213: -4602791689097081080
+    second: muuri_kaytava_ovilehdet_5
+  - first:
+      213: 18378025822327595
+    second: muuri_kaytava_ovilehdet_6
+  - first:
+      213: 2868658364237128859
+    second: muuri_kaytava_ovilehdet_7
+  - first:
+      213: 7896714928785697680
+    second: muuri_kaytava_ovilehdet_8
+  - first:
+      213: 8272667948238779499
+    second: muuri_kaytava_ovilehdet_9
+  - first:
+      213: 6454979812697192408
+    second: muuri_kaytava_ovilehdet_10
+  - first:
+      213: 6042149042322129502
+    second: muuri_kaytava_ovilehdet_11
+  - first:
+      213: 4900329727660911812
+    second: muuri_kaytava_ovilehdet_12
+  - first:
+      213: 715911551714054302
+    second: muuri_kaytava_ovilehdet_13
+  - first:
+      213: -9036193852386640304
+    second: muuri_kaytava_ovilehdet_14
+  - first:
+      213: -3665922298474391459
+    second: muuri_kaytava_ovilehdet_15
+  - first:
+      213: 8498094288752160327
+    second: muuri_kaytava_ovilehdet_16
+  - first:
+      213: -4320652796409525496
+    second: muuri_kaytava_ovilehdet_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 78.416664
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_0
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1243
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f82b9a0ebc4aa100800000000000000
+      internalID: 119992719184177395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 1169
+        height: 1238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15fe1d503ed35bf0800000000000000
+      internalID: -336681247820548837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1195
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3782c6685f4e6970800000000000000
+      internalID: 8750018367127193406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1229
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67343999e7ced72e0800000000000000
+      internalID: -2126283420562406538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_4
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 1228
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a61629aba0d35a0800000000000000
+      internalID: -6540059287436039626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_5
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1213
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f8f3c68599f10c0800000000000000
+      internalID: -4602791689097081080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_6
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1212
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2310d497ba414000800000000000000
+      internalID: 18378025822327595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_7
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1188
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94ae4e55958fc720800000000000000
+      internalID: 2868658364237128859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_8
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1189
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09babce9364c69d60800000000000000
+      internalID: 7896714928785697680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_9
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1189
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64388f1bab6ec270800000000000000
+      internalID: 8272667948238779499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_10
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1189
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7322090f1b49950800000000000000
+      internalID: 6454979812697192408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_11
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1197
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52c3939a860ad350800000000000000
+      internalID: 6042149042322129502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_12
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1189
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cce38b9ce7710440800000000000000
+      internalID: 4900329727660911812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_13
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1189
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90d38263cd6fe900800000000000000
+      internalID: 715911551714054302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_14
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1191
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05efcea219df89280800000000000000
+      internalID: -9036193852386640304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_15
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1181
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d581049a717002dc0800000000000000
+      internalID: -3665922298474391459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_16
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1181
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e29d41bbb4fe570800000000000000
+      internalID: 8498094288752160327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muuri_kaytava_ovilehdet_17
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1167
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b46386c25f904c0800000000000000
+      internalID: -4320652796409525496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      muuri_kaytava_ovilehdet_0: 119992719184177395
+      muuri_kaytava_ovilehdet_1: -336681247820548837
+      muuri_kaytava_ovilehdet_10: 6454979812697192408
+      muuri_kaytava_ovilehdet_11: 6042149042322129502
+      muuri_kaytava_ovilehdet_12: 4900329727660911812
+      muuri_kaytava_ovilehdet_13: 715911551714054302
+      muuri_kaytava_ovilehdet_14: -9036193852386640304
+      muuri_kaytava_ovilehdet_15: -3665922298474391459
+      muuri_kaytava_ovilehdet_16: 8498094288752160327
+      muuri_kaytava_ovilehdet_17: -4320652796409525496
+      muuri_kaytava_ovilehdet_2: 8750018367127193406
+      muuri_kaytava_ovilehdet_3: -2126283420562406538
+      muuri_kaytava_ovilehdet_4: -6540059287436039626
+      muuri_kaytava_ovilehdet_5: -4602791689097081080
+      muuri_kaytava_ovilehdet_6: 18378025822327595
+      muuri_kaytava_ovilehdet_7: 2868658364237128859
+      muuri_kaytava_ovilehdet_8: 7896714928785697680
+      muuri_kaytava_ovilehdet_9: 8272667948238779499
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

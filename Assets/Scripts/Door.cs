@@ -52,6 +52,13 @@ public class Door : MonoBehaviour
         if (name == "Thaitown: Klubin ovi") { requiredClue = Clues.ClubInvite; lockedClueText = "Ovimiehet eivät päästä sisään. Tarvitset kutsun."; }   // kutsun pudottaa katon viimeinen yakuza (ThaiFinale.CheckInviteDrop)
         if (name == "Thaitown: Nouse koneeseen") { requiredClue = Clues.PlaneTicket; lockedClueText = "Tarvitset lentolipun."; }   // lippu tulee klubin yläkerran yakuza-pomolta
     }
+    void Start()
+    {
+        // ovi on alueen kävelyrajan (walkMinX/walkMaxX) ulkopuolella (esim. muurin tukikohdan käytävät): ulotetaan ovialue rajalle, muuten ovea ei voi käyttää
+        if (here == null || onGround) return;
+        float x = transform.position.x, gap = Mathf.Max(here.walkMinX - x, x - here.walkMaxX);
+        if (gap > 0f && gap + 1.2f > halfWidth) halfWidth = gap + 1.2f;
+    }
     bool ClueLocked => !string.IsNullOrEmpty(requiredClue) && !Clues.Open(requiredClue);
 
     bool GuardsAlive

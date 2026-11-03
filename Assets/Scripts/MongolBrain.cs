@@ -19,6 +19,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         public int damage = 20; public bool knockdown;
         [Tooltip("Eteenliike kuvaindeksien välillä (hyppypotku): nopeus yksikköä/s; -1 = ei liikettä.")] public int moveFrom = -1, moveTo = -1; public float moveSpeed = 8f;
         [Tooltip("Kivenheitto: kuvaindeksi, jossa kivi irtoaa kädestä (-1 = ei kiveä).")] public int releaseFrame = -1;
+        [Tooltip("Liikkeen alkaessa soitettava ääni (esim. liukutaklauksen raapaisu).")] public AudioClip sound, hitSound; public float soundVolume = 1f;
         [HideInInspector] public float nextTime;
     }
 
@@ -27,7 +28,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     public float globalCooldown = 1.6f, chancePerSec = 0.9f, rockSpeed = 12f; public int rockDamage = 18;
     public float rockHeight = 1.45f;
 
-    Enemy e; Move cur; float t, lastTick, nextAny = 2f; bool hitDone, released; float dirSign = 1f;
+    Enemy e; Move cur; float t, lastTick, nextAny = 2f; bool hitDone, hitSoundDone, released; float dirSign = 1f;
 
     public bool Active => cur != null;
     public Sprite CurrentSprite { get; private set; }
@@ -62,14 +63,14 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
 
     void Begin(Move m)
     {
-        cur = m; t = 0f; hitDone = false; released = false; lastTick = Time.time;
+        cur = m; t = 0f; hitDone = false; hitSoundDone = false; released = false; lastTick = Time.time;
         e.FacingRight = e.Hero.transform.position.x > transform.position.x;
         dirSign = e.FacingRight ? 1f : -1f;
         m.nextTime = Time.time + m.cooldown * Random.Range(0.8f, 1.3f);
         nextAny = Time.time + globalCooldown * Random.Range(0.8f, 1.4f) + m.sprites.Length * m.frameTime;
         CurrentSprite = m.sprites[0];
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
-        if (m.releaseFrame < 0) HitFx.PlayWhoosh();
+        if (m.sound != null) e.PlayExtraSound(m.sound, m.soundVolume); else if (m.releaseFrame < 0) HitFx.PlayWhoosh();
     }
 
     void End()
@@ -98,6 +99,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             }
             return;
         }
+        if (cur.hitSound != null && !hitSoundDone && i >= cur.hitFrom) { hitSoundDone = true; e.PlayExtraSound(cur.hitSound, cur.soundVolume); }
         if (hero == null || hitDone || i < cur.hitFrom || i > cur.hitTo) return;
         Vector3 hp = hero.transform.position, mp = transform.position;
         float ahead = (hp.x - mp.x) * dirSign;

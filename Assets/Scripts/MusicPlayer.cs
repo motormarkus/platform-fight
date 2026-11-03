@@ -57,7 +57,7 @@ public class MusicPlayer : MonoBehaviour
     static readonly System.Collections.Generic.Dictionary<string, float> MusicRms = new System.Collections.Generic.Dictionary<string, float>
     {
         { "Aavikko", -16.3f }, { "Aavikkobaari", -17.4f }, { "Blade Anthem", -16.4f }, { "S-Club", -15.8f }, { "Shadows in the Neon", -18.1f }, { "Sini ja Dinan asunto", -18.2f },
-        { "Thaitown", -16.7f }, { "Turpaan vaan", -16.4f }, { "Uccopulco", -14.0f }, { "Viemari", -19.7f }, { "tanssi_tausta", -17.8f }, { "Alppikyla", -19.3f },
+        { "Thaitown", -16.7f }, { "Turpaan vaan", -16.4f }, { "Uccopulco", -14.0f }, { "Viemari", -19.7f }, { "tanssi_tausta", -17.8f }, { "Alppikyla", -19.3f }, { "Lunar Base", -17.1f }, { "Kuu Main", -18.7f },
     };
     static float ClipGain(AudioClip c) => c != null && MusicRms.TryGetValue(c.name, out float db) ? Mathf.Pow(10f, (MusicTargetDb - db) / 20f) : 1f;
     MusicBoost mainBoost, areaBoost;

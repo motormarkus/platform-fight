@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: ab746a633d8ea6c4c99bd8466e7f1753
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7678809760153796196
+    second: robotti_pomo_nousu_0
+  - first:
+      213: -8717478397820897635
+    second: robotti_pomo_nousu_1
+  - first:
+      213: 1238809663081866933
+    second: robotti_pomo_nousu_2
+  - first:
+      213: 1097810676930757467
+    second: robotti_pomo_nousu_3
+  - first:
+      213: -1428551144729470066
+    second: robotti_pomo_nousu_4
+  - first:
+      213: 7802602532910816499
+    second: robotti_pomo_nousu_5
+  - first:
+      213: -8692834192416260104
+    second: robotti_pomo_nousu_6
+  - first:
+      213: 395063773830701161
+    second: robotti_pomo_nousu_7
+  - first:
+      213: 8405510673675803493
+    second: robotti_pomo_nousu_8
+  - first:
+      213: -2335444594615254482
+    second: robotti_pomo_nousu_9
+  - first:
+      213: 3504341469356431729
+    second: robotti_pomo_nousu_10
+  - first:
+      213: 2000236245609731712
+    second: robotti_pomo_nousu_11
+  - first:
+      213: -4082002301483568794
+    second: robotti_pomo_nousu_12
+  - first:
+      213: -6694275532869845925
+    second: robotti_pomo_nousu_13
+  - first:
+      213: 4637798491455028712
+    second: robotti_pomo_nousu_14
+  - first:
+      213: 7756138604255799993
+    second: robotti_pomo_nousu_15
+  - first:
+      213: -7585308687947676814
+    second: robotti_pomo_nousu_16
+  - first:
+      213: 6885135275231520181
+    second: robotti_pomo_nousu_17
+  - first:
+      213: -1334389896810832899
+    second: robotti_pomo_nousu_18
+  - first:
+      213: 5659607389307308800
+    second: robotti_pomo_nousu_19
+  - first:
+      213: -8359546851604115403
+    second: robotti_pomo_nousu_20
+  - first:
+      213: -5853657896006016919
+    second: robotti_pomo_nousu_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ef4c3facc909a60800000000000000
+      internalID: 7678809760153796196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d967eb8959b450780800000000000000
+      internalID: -8717478397820897635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6e05833d2213110800000000000000
+      internalID: 1238809663081866933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 3840
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53c6158ef43c3f00800000000000000
+      internalID: 1097810676930757467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b1cea7d44cc2ce0800000000000000
+      internalID: -1428551144729470066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc56b9e9a9684c60800000000000000
+      internalID: 7802602532910816499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ffb8adcb59dc5780800000000000000
+      internalID: -8692834192416260104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960edceb86c8b7500800000000000000
+      internalID: 395063773830701161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b53346c6f56a470800000000000000
+      internalID: 8405510673675803493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e220a51d385d69fd0800000000000000
+      internalID: -2335444594615254482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17919a4effbe1a030800000000000000
+      internalID: 3504341469356431729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 2304
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086dd66844442cb10800000000000000
+      internalID: 2000236245609731712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661bebfb880d957c0800000000000000
+      internalID: -4082002301483568794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c34b2eed72913a0800000000000000
+      internalID: -6694275532869845925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8edf407e725cc5040800000000000000
+      internalID: 4637798491455028712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 1536
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba6c5f77f653ab60800000000000000
+      internalID: 7756138604255799993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273c13fdfe19bb690800000000000000
+      internalID: -7585308687947676814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b5afa6cd0aec8f50800000000000000
+      internalID: 6885135275231520181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb58b0757b4b7de0800000000000000
+      internalID: -1334389896810832899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_19
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 768
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b86d74fe6fa8e40800000000000000
+      internalID: 5659607389307308800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530d6e2ed6cecfb80800000000000000
+      internalID: -8359546851604115403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotti_pomo_nousu_21
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960a6e75821a3cea0800000000000000
+      internalID: -5853657896006016919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 51c0a001b6cbb904d8767dfdcc5fcd1d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      robotti_pomo_nousu_0: 7678809760153796196
+      robotti_pomo_nousu_1: -8717478397820897635
+      robotti_pomo_nousu_10: 3504341469356431729
+      robotti_pomo_nousu_11: 2000236245609731712
+      robotti_pomo_nousu_12: -4082002301483568794
+      robotti_pomo_nousu_13: -6694275532869845925
+      robotti_pomo_nousu_14: 4637798491455028712
+      robotti_pomo_nousu_15: 7756138604255799993
+      robotti_pomo_nousu_16: -7585308687947676814
+      robotti_pomo_nousu_17: 6885135275231520181
+      robotti_pomo_nousu_18: -1334389896810832899
+      robotti_pomo_nousu_19: 5659607389307308800
+      robotti_pomo_nousu_2: 1238809663081866933
+      robotti_pomo_nousu_20: -8359546851604115403
+      robotti_pomo_nousu_21: -5853657896006016919
+      robotti_pomo_nousu_3: 1097810676930757467
+      robotti_pomo_nousu_4: -1428551144729470066
+      robotti_pomo_nousu_5: 7802602532910816499
+      robotti_pomo_nousu_6: -8692834192416260104
+      robotti_pomo_nousu_7: 395063773830701161
+      robotti_pomo_nousu_8: 8405510673675803493
+      robotti_pomo_nousu_9: -2335444594615254482
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

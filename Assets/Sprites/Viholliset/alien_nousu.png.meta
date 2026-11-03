@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: c759db5893fe64e4ebed51c9b5c85c86
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4582767158736374256
+    second: alien_nousu_0
+  - first:
+      213: 5102889695239171690
+    second: alien_nousu_1
+  - first:
+      213: 5788635020354469307
+    second: alien_nousu_2
+  - first:
+      213: 164733012976413180
+    second: alien_nousu_3
+  - first:
+      213: 5588030475229357834
+    second: alien_nousu_4
+  - first:
+      213: 3009728954654305605
+    second: alien_nousu_5
+  - first:
+      213: 2680032277954063223
+    second: alien_nousu_6
+  - first:
+      213: 7509820553232253716
+    second: alien_nousu_7
+  - first:
+      213: -6110227272340298960
+    second: alien_nousu_8
+  - first:
+      213: 6290211900776877780
+    second: alien_nousu_9
+  - first:
+      213: -8730205932382051912
+    second: alien_nousu_10
+  - first:
+      213: 7227406431048311880
+    second: alien_nousu_11
+  - first:
+      213: -2217371257143768324
+    second: alien_nousu_12
+  - first:
+      213: -921957574242654396
+    second: alien_nousu_13
+  - first:
+      213: -6884633198423473096
+    second: alien_nousu_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alien_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0163137bc8db660c0800000000000000
+      internalID: -4582767158736374256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2496
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e6bbc342b11d640800000000000000
+      internalID: 5102889695239171690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2496
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd3d9aa1ec555050800000000000000
+      internalID: 5788635020354469307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 2496
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf92d317dcf394200800000000000000
+      internalID: 164733012976413180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1664
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a076a1e4c1cac8d40800000000000000
+      internalID: 5588030475229357834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1664
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54da06cb984b4c920800000000000000
+      internalID: 3009728954654305605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1664
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b680a4823613520800000000000000
+      internalID: 2680032277954063223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1664
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4130652210e383860800000000000000
+      internalID: 7509820553232253716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033a04f4bac143ba0800000000000000
+      internalID: -6110227272340298960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 832
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de8db395625b4750800000000000000
+      internalID: 6290211900776877780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 832
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b12c5885f318d680800000000000000
+      internalID: -8730205932382051912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 832
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844220a4bd7ec4460800000000000000
+      internalID: 7227406431048311880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfac8caf6905a31e0800000000000000
+      internalID: -2217371257143768324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4472941987c8433f0800000000000000
+      internalID: -921957574242654396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alien_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1536
+        height: 832
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.01923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8348b17159ed470a0800000000000000
+      internalID: -6884633198423473096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e0c7795f3150f34468cd3068d05a31e7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alien_nousu_0: -4582767158736374256
+      alien_nousu_1: 5102889695239171690
+      alien_nousu_10: -8730205932382051912
+      alien_nousu_11: 7227406431048311880
+      alien_nousu_12: -2217371257143768324
+      alien_nousu_13: -921957574242654396
+      alien_nousu_14: -6884633198423473096
+      alien_nousu_2: 5788635020354469307
+      alien_nousu_3: 164733012976413180
+      alien_nousu_4: 5588030475229357834
+      alien_nousu_5: 3009728954654305605
+      alien_nousu_6: 2680032277954063223
+      alien_nousu_7: 7509820553232253716
+      alien_nousu_8: -6110227272340298960
+      alien_nousu_9: 6290211900776877780
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

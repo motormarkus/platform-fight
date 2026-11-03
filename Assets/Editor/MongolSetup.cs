@@ -57,9 +57,9 @@ public static partial class BeatEmUpSetup
                 // äänet: Enemy.cs antaa Mongolisoturille Jakuzan äänet (Resources/Sfx/Jakuza)
                 // suorat (J, S) ja etupotku (K)
                 var j = sheets["suora1"]; var s = sheets["suora2"]; var k = sheets["potku1"];
-                e.punchSprites = j; e.punchImpactFrame = 4; e.windupTime = 4 * F; e.punchRecoverTime = (j.Length - 4) * F; e.punchDamage = 14;
-                e.punch2Sprites = s; e.punch2ImpactFrame = 3; e.punch2Damage = 16; e.punch2Knockdown = false; e.punch2Chance = 0.4f;
-                e.punch3Sprites = k; e.punch3ImpactFrame = 3; e.punch3Damage = 22; e.punch3Knockdown = true; e.punch3Chance = 0.3f; e.punch3WindupTime = 0.12f; e.punch3RecoverTime = 0.22f; e.punch3Reach = 3.0f;
+                e.punchSprites = j; e.punchImpactFrame = 4; e.windupTime = 4 * F; e.punchRecoverTime = (j.Length - 4) * F; e.punchDamage = 10;
+                e.punch2Sprites = s; e.punch2ImpactFrame = 3; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.4f;
+                e.punch3Sprites = k; e.punch3ImpactFrame = 3; e.punch3Damage = 16; e.punch3Knockdown = true; e.punch3Chance = 0.3f; e.punch3WindupTime = 0.12f; e.punch3RecoverTime = 0.22f; e.punch3Reach = 3.0f;
                 e.combos = new[] { "JS", "JSK", "J" }; e.comboChance = 0.6f; e.comboWindupScale = 0.6f; e.comboRecoverFraction = 0.6f;
                 e.blockSprites = sheets["suoja"]; e.blockChance = 0.4f; e.maxBlocksInRow = 2; e.blockTime = 0.4f;
                 e.hurtSprites = sheets["osuma"]; e.hurtTime = 0.3f;
@@ -67,12 +67,12 @@ public static partial class BeatEmUpSetup
                 e.landSprites = sheets["maahan"]; e.landFrameTime = 0.07f;
                 e.getUpSprites = sheets["nousu"]; e.getUpTime = sheets["nousu"].Length / 15f;
                 var brain = go.AddComponent<MongolBrain>();
-                brain.rockSprite = rockArr[0]; brain.rockDamage = 18;
+                brain.rockSprite = rockArr[0]; brain.rockDamage = 13;
                 brain.moves = new[]
                 {
-                    new MongolBrain.Move { name = "vaakapotku", sprites = sheets["potku2"], frameTime = 0.045f, hitFrom = 3, hitTo = 5, reach = 3.3f, minRange = 1.8f, maxRange = 3.6f, weight = 1f, cooldown = 3f, damage = 24 },
-                    new MongolBrain.Move { name = "pyöräytyspotku", sprites = sheets["potku3"], frameTime = 0.05f, hitFrom = 6, hitTo = 8, reach = 3.0f, minRange = 1.5f, maxRange = 3.2f, weight = 1f, cooldown = 4f, damage = 30, knockdown = true },
-                    new MongolBrain.Move { name = "hyppypotku", sprites = sheets["hyppypotku"], frameTime = 0.05f, hitFrom = 6, hitTo = 10, reach = 2.6f, minRange = 4f, maxRange = 11f, weight = 1f, cooldown = 5f, damage = 28, knockdown = true, moveFrom = 3, moveTo = 9, moveSpeed = 9f },
+                    new MongolBrain.Move { name = "vaakapotku", sprites = sheets["potku2"], frameTime = 0.045f, hitFrom = 3, hitTo = 5, reach = 3.3f, minRange = 1.8f, maxRange = 3.6f, weight = 1f, cooldown = 3f, damage = 18 },
+                    new MongolBrain.Move { name = "pyöräytyspotku", sprites = sheets["potku3"], frameTime = 0.05f, hitFrom = 6, hitTo = 8, reach = 3.0f, minRange = 1.5f, maxRange = 3.2f, weight = 1f, cooldown = 4f, damage = 23, knockdown = true },
+                    new MongolBrain.Move { name = "hyppypotku", sprites = sheets["hyppypotku"], frameTime = 0.05f, hitFrom = 6, hitTo = 10, reach = 2.6f, minRange = 4f, maxRange = 11f, weight = 1f, cooldown = 5f, damage = 21, knockdown = true, moveFrom = 3, moveTo = 9, moveSpeed = 9f },
                     new MongolBrain.Move { name = "kivenheitto", sprites = sheets["heitto"], frameTime = 0.045f, releaseFrame = 9, minRange = 6f, maxRange = 16f, weight = 1f, cooldown = 6f },
                 };
                 go.transform.position = pos;

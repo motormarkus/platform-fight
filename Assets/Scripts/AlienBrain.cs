@@ -31,6 +31,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         [Tooltip("Ääni, joka soitetaan tästä kuvaindeksistä (-1 = ei).")] public AudioClip sound; public int soundFrame = -1;
         [Header("Puraisu (tarttuu hampailla, ravistaa ja heittää): grabFrame = kuva, jossa leuat sulkeutuvat (-1 = ei tartuntaa); ote kestää kuvaan releaseFrame, jolloin heitto")]
         public int grabFrame = -1, releaseFrame = -1;
+        public Vector2[] mouthPts;   // suun kohta kuvittain (dx eteen, dy ylös jaloista); jos annettu, uhri seuraa sitä
         public float mouthDx = 1.7f, mouthLift = 1.0f, tickEvery = 0.3f, throwSpeed = 12f, throwUp = 6f;
         public int tickDamage = 4, throwDamage = 22;
         [System.NonSerialized] public float nextTime;
@@ -38,6 +39,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     }
 
     public Move[] moves;
+    [Tooltip("Hyökkäyshuudot: soitetaan satunnaisesti liikkeen alussa (ei karjaisussa).")] public AudioClip[] attackVoices; public float attackVoiceChance = 0.75f;
     [Tooltip("Karjaisu: sisääntulo, sitten 50 % ja 25 % elämistä.")] public Move roar;
     public float globalCooldown = 0.5f, chancePerSec = 3.5f;
     [Range(0f, 1f)] public float rageFraction = 0.5f;
@@ -49,16 +51,31 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     readonly HashSet<long> hitDone = new HashSet<long>();
     readonly List<Enemy> tmp = new List<Enemy>();
 
+    [Header("Pako (Enemy.undying: energia loppuessa ei kuole vaan juoksee pois ruudulta)")]
+    public float fleeSpeed = 11f, fleeMaxTime = 4f;
+    bool fleeing; float fleeT, fleeDir = 1f; Move fleeMove;
+
     public bool Active => cur != null;
     public Sprite CurrentSprite { get; private set; }
     public bool HasSprite => cur != null && CurrentSprite != null;
     public bool ArmorNow => cur != null && cur.armor;
+    /// Puraisu (tartunta ja heitto) ei katkea mihinkään iskuun, kaatavaankaan: vahinko menee läpi, mutta liike jatkuu loppuun.
+    public bool SuperArmor => cur != null && cur.grabFrame >= 0;
     public bool InterceptHit(int damage, float attackerX, bool knockdown) => false;
     float Speed => e != null && e.HealthFraction <= rageFraction ? rageSpeed : 1f;
 
-    void Awake() { e = GetComponent<Enemy>(); nextAny = Random.Range(0.3f, 0.8f); }
+    void Awake()
+    {
+        e = GetComponent<Enemy>(); nextAny = Random.Range(0.3f, 0.8f);
+        if (attackVoices == null || attackVoices.Length == 0)   // jo rakennettu alien saa huudot ilman valikon uudelleenajoa
+        {
+            var l = new List<AudioClip>();
+            foreach (var c in Resources.LoadAll<AudioClip>("Sfx/Alien")) if (c != null && c.name.StartsWith("attack")) l.Add(c);
+            attackVoices = l.ToArray();
+        }
+    }
 
-    void OnDisable() { ReleaseVictim(false); cur = null; CurrentSprite = null; }
+    void OnDisable() { ReleaseVictim(false); cur = null; CurrentSprite = null; fleeing = false; }
 
     static void Build(Move m)
     {
@@ -79,17 +96,57 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     }
 
     /// <summary>Kohde: tavallisen tekoälyn valitsema vihu (fightsEveryone) tai muuten lähin hero.</summary>
+    bool targetIsFoe;   // kohde on toinen vihu (esim. Kuurobotti): puraisu ja heitto suositaan
+    float W(Move m)
+    {
+        float w = targetIsFoe && m.grabFrame >= 0 ? m.weight * 5f : m.weight;
+        if (m.allAround && m.name == "hantahuitaisu") w *= 1f + 1.2f * Mathf.Max(0, CountNear(m.reach) - 1);   // häntähuitaisu osuu kaikkiin ympärillä: tehokkaampi, mitä enemmän väkeä
+        return w;
+    }
+
+    /// Heroja ja muita vihuja (ei omaa lajia) etäisyydellä r.
+    int CountNear(float r)
+    {
+        int n = 0; Vector3 mp = transform.position;
+        foreach (var h in Players.All)
+            if (h != null && h.isActiveAndEnabled && Mathf.Abs(h.transform.position.x - mp.x) <= r && Mathf.Abs(h.transform.position.y - mp.y) <= e.depthTolerance + 0.5f) n++;
+        foreach (var f in Enemy.All)
+            if (f != null && f != e && f.isActiveAndEnabled && !f.IsDownOrDead && f.displayName != e.displayName && Mathf.Abs(f.transform.position.x - mp.x) <= r && Mathf.Abs(f.transform.position.y - mp.y) <= e.depthTolerance + 0.5f) n++;
+        return n;
+    }
+
     bool PickTarget(out Vector3 pos)
     {
         var foe = e.TargetEnemy;
-        if (foe != null && foe.isActiveAndEnabled && !foe.IsDownOrDead) { pos = foe.transform.position; return true; }
+        targetIsFoe = false;
+        if (foe != null && foe.isActiveAndEnabled && !foe.IsDownOrDead) { pos = foe.transform.position; targetIsFoe = true; return true; }
         var h = e.Hero;
         if (h != null) { pos = h.transform.position; return true; }
         pos = Vector3.zero; return false;
     }
 
+    void StartFlee()
+    {
+        e.ClearUndyingFallen();
+        fleeing = true; fleeT = 0f;
+        var h = e.Hero; fleeDir = h != null && h.transform.position.x > transform.position.x ? -1f : 1f;   // pois heroista
+        var run = e.runSprites != null && e.runSprites.Length > 0 ? e.runSprites : e.walkSprites;
+        fleeMove = new Move { name = "pako", sprites = run, frameTime = Mathf.Max(0.02f, e.runFrameTime), armor = true };
+        Build(fleeMove);
+        cur = fleeMove; t = 0f; lastTick = Time.time;
+        e.IsAwake = false;   // ei hyökkää enää
+    }
+
+    void Vanish()
+    {
+        fleeing = false; cur = null; CurrentSprite = null;
+        BeastCage.BeastDefeated = true;   // peto on voitettu
+        gameObject.SetActive(false);
+    }
+
     void Update()
     {
+        if (!fleeing && e != null && e.UndyingFallen && !e.IsDead && e.BrainIdleOrChase && cur == null) StartFlee();
         if (cur != null && Time.time - lastTick > 0.25f) { End(); return; }   // väliin tuli kaatuminen tms.
         if (cur != null || e == null || !e.IsAwake || e.IsDead || !e.BrainIdleOrChase || moves == null) return;
         if (!PickTarget(out Vector3 tp)) return;
@@ -108,18 +165,37 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
                 return;
             }
         }
-        if (Time.time < nextAny || dy > e.depthTolerance + 0.8f) return;
+        if (Time.time < nextAny) return;
         if (Random.value > chancePerSec * Time.deltaTime) return;
+        // puraisu: jos otettavissa oleva vihu (esim. Kuurobotti) on lähellä, purenta valitaan ensisijaisesti kohteesta riippumatta
+        foreach (var bm in moves)
+            if (bm != null && bm.grabFrame >= 0 && bm.sprites != null && bm.sprites.Length > 0 && Time.time >= bm.nextTime && FindBiteFoe(bm, out Vector3 fp) && Random.value < 0.7f)
+            { targetIsFoe = true; Begin(bm, fp); return; }
+        if (dy > e.depthTolerance + 0.8f) return;
         float total = 0f;
-        foreach (var m in moves) if (Eligible(m, dx)) total += m.weight;
+        foreach (var m in moves) if (Eligible(m, dx)) total += W(m);
         if (total <= 0f) return;
         float r = Random.value * total;
         foreach (var m in moves)
         {
             if (!Eligible(m, dx)) continue;
-            r -= m.weight;
+            r -= W(m);
             if (r <= 0f) { Begin(m, tp); return; }
         }
+    }
+
+    /// Lähin purtavissa oleva vihu (ei omaa lajia) puraisun ulottuvilla.
+    bool FindBiteFoe(Move m, out Vector3 pos)
+    {
+        pos = Vector3.zero; float best = float.MaxValue; Vector3 mp = transform.position;
+        foreach (var f in Enemy.All)
+        {
+            if (f == null || f == e || !f.isActiveAndEnabled || f.IsDownOrDead || f.displayName == e.displayName || !f.CanBeGrabbed) continue;
+            Vector3 fp = f.transform.position; float adx = Mathf.Abs(fp.x - mp.x);
+            if (adx > m.maxRange || adx < m.minRange || Mathf.Abs(fp.y - mp.y) > e.depthTolerance + 0.3f || adx >= best) continue;
+            best = adx; pos = fp;
+        }
+        return best < float.MaxValue;
     }
 
     bool Eligible(Move m, float dx) => m != null && m.sprites != null && m.sprites.Length > 0 && Time.time >= m.nextTime && dx >= m.minRange && dx <= m.maxRange;
@@ -135,6 +211,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         m.nextTime = Time.time + m.cooldown * Random.Range(0.7f, 1.1f) / sp;
         nextAny = Time.time + (globalCooldown * Random.Range(0.6f, 1.2f) + m.cum[m.sprites.Length]) / sp;
         hv = m.moveSpeed;
+        if (m != roar && attackVoices != null && attackVoices.Length > 0 && e.Audio != null && Random.value < attackVoiceChance) { e.Audio.pitch = 1f; e.Audio.PlayOneShotLeveled(attackVoices[Random.Range(0, attackVoices.Length)], 0.891f, true); }
         if (m.homing && m.moveFrom >= 0)
         {
             int to = Mathf.Min(m.moveTo + 1, m.sprites.Length);
@@ -157,6 +234,20 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     public void Tick(float dt)
     {
         if (cur == null) return;
+        if (fleeing)
+        {
+            lastTick = Time.time; fleeT += dt;
+            e.FacingRight = fleeDir > 0f;
+            e.BrainPhaseSet(Enemy.BrainPhase.Chase);
+            Vector3 before = transform.position;
+            e.BrainMove(new Vector2(fleeDir * fleeSpeed * dt, 0f));
+            var rs = fleeMove.sprites;
+            CurrentSprite = rs[(int)(fleeT / fleeMove.frameTime) % rs.Length];
+            var hero = e.Hero;
+            bool stuck = fleeT > 0.6f && Mathf.Abs(transform.position.x - before.x) < 0.2f * fleeSpeed * dt;
+            if (fleeT >= fleeMaxTime || stuck || (hero != null && Mathf.Abs(transform.position.x - hero.transform.position.x) > 20f)) Vanish();
+            return;
+        }
         lastTick = Time.time; t += dt * Speed;
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
         int n = cur.sprites.Length;
@@ -166,7 +257,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         if (!soundDone && cur.sound != null && cur.soundFrame >= 0 && i >= cur.soundFrame)
         {
             soundDone = true;
-            if (e.Audio != null) { e.Audio.pitch = 1f; e.Audio.PlayOneShotLeveled(cur.sound, 1f); }
+            if (e.Audio != null) { e.Audio.pitch = 1f; e.Audio.PlayOneShotLeveled(cur.sound, 0.891f); }
         }
         if (!shaken && cur.shakeFrame >= 0 && i >= cur.shakeFrame)
         {
@@ -196,7 +287,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             if (heldHero != null || heldFoe != null)
             {
                 if (i >= cur.releaseFrame) ReleaseVictim(true);
-                else HoldVictim();
+                else HoldVictim(i);
             }
         }
         if (cur.windows == null) return;
@@ -230,7 +321,7 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     }
 
     /// Uhri roikkuu suussa: paikka suun kohdalla, ravistus sivuttain ja pieni pomppu; heroon osuu vahinkoa tasaisin välein.
-    void HoldVictim()
+    void HoldVictim(int fi)
     {
         Vector3 mp = transform.position;
         float sh = Mathf.Sin(t * 26f);
@@ -249,7 +340,17 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
                 if (!heldHero.IsGrabbed) heldHero = null;
             }
         }
-        else if (heldFoe != null) heldFoe.SetHeldByPlayer(pos, lift, rot, -1);
+        else if (heldFoe != null)
+        {
+            if (cur.mouthPts != null && cur.mouthPts.Length > 0)
+            {
+                // kierto kehon keskipisteen (1,5 jaloista) ympäri: keskipiste suun kohtaan, ravistus tulee kuvien mukana
+                Vector2 mpt = cur.mouthPts[Mathf.Clamp(fi, 0, cur.mouthPts.Length - 1)];
+                pos = new Vector3(mp.x + dirSign * (mpt.x + 0.25f), mp.y - 0.02f, 0f);
+                lift = mpt.y - 1.5f;
+            }
+            heldFoe.SetHeldByPlayer(pos, lift, rot, -1);
+        }
     }
 
     /// Heitto (throwIt) tai pelkkä irtipäästö (liike keskeytyi): heittona lentävä uhri kaataa muita reitillään.
