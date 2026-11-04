@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: 710abf3332c7c1840887a9a92d862d00
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1523048959359266747
+    second: gestapo_kavely_0
+  - first:
+      213: 8839041920983329028
+    second: gestapo_kavely_1
+  - first:
+      213: -8548166096371753579
+    second: gestapo_kavely_2
+  - first:
+      213: -4584149207181516172
+    second: gestapo_kavely_3
+  - first:
+      213: -5271510886742799449
+    second: gestapo_kavely_4
+  - first:
+      213: -7020829437339526723
+    second: gestapo_kavely_5
+  - first:
+      213: 7190215360781269413
+    second: gestapo_kavely_6
+  - first:
+      213: 5009331600883751963
+    second: gestapo_kavely_7
+  - first:
+      213: 1576260752298160755
+    second: gestapo_kavely_8
+  - first:
+      213: -6587370026035268550
+    second: gestapo_kavely_9
+  - first:
+      213: 5601154577547102033
+    second: gestapo_kavely_10
+  - first:
+      213: 5547252037243613178
+    second: gestapo_kavely_11
+  - first:
+      213: 2663387189777987829
+    second: gestapo_kavely_12
+  - first:
+      213: -6621785130626628525
+    second: gestapo_kavely_13
+  - first:
+      213: 7750449330317320180
+    second: gestapo_kavely_14
+  - first:
+      213: -2389271990477934499
+    second: gestapo_kavely_15
+  - first:
+      213: 5570790493906255164
+    second: gestapo_kavely_16
+  - first:
+      213: -7552193930720685758
+    second: gestapo_kavely_17
+  - first:
+      213: 1116521788375772210
+    second: gestapo_kavely_18
+  - first:
+      213: 3705981854217745895
+    second: gestapo_kavely_19
+  - first:
+      213: -2718063578862107846
+    second: gestapo_kavely_20
+  - first:
+      213: -4472681917170052366
+    second: gestapo_kavely_21
+  - first:
+      213: -386590692388512890
+    second: gestapo_kavely_22
+  - first:
+      213: 8449382942496922021
+    second: gestapo_kavely_23
+  - first:
+      213: -1142985220207699519
+    second: gestapo_kavely_24
+  - first:
+      213: 7558634800866640063
+    second: gestapo_kavely_25
+  - first:
+      213: -1341963789070152571
+    second: gestapo_kavely_26
+  - first:
+      213: 7280848327551166933
+    second: gestapo_kavely_27
+  - first:
+      213: -6089317345451518558
+    second: gestapo_kavely_28
+  - first:
+      213: -8821755906694843538
+    second: gestapo_kavely_29
+  - first:
+      213: 3963464711068871225
+    second: gestapo_kavely_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gestapo_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf232685f4f22510800000000000000
+      internalID: 1523048959359266747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4096ffebbc59aaa70800000000000000
+      internalID: 8839041920983329028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d59b8b930de5980800000000000000
+      internalID: -8548166096371753579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472ae8c7594d160c0800000000000000
+      internalID: -4584149207181516172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab471637c4d7d6b0800000000000000
+      internalID: -5271510886742799449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db995ce13d0019e90800000000000000
+      internalID: -7020829437339526723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9bce576c6c8c360800000000000000
+      internalID: 7190215360781269413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c90d8ec88b48540800000000000000
+      internalID: 5009331600883751963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3723f168dc000e510800000000000000
+      internalID: 1576260752298160755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34bc1adcd5f494a0800000000000000
+      internalID: -6587370026035268550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1578fbe796c4bbd40800000000000000
+      internalID: 5601154577547102033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: affa777565ccbfc40800000000000000
+      internalID: 5547252037243613178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8fa02b98046f420800000000000000
+      internalID: 2663387189777987829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3544906e181ba14a0800000000000000
+      internalID: -6621785130626628525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff5a3f2a902f8b60800000000000000
+      internalID: 7750449330317320180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50b5c798c997ded0800000000000000
+      internalID: -2389271990477934499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3db76b507c6f4d40800000000000000
+      internalID: 5570790493906255164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241588c12a7313790800000000000000
+      internalID: -7552193930720685758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23c2f14a6aeae7f00800000000000000
+      internalID: 1116521788375772210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e531bc7cda4e6330800000000000000
+      internalID: 3705981854217745895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a334ff0739f774ad0800000000000000
+      internalID: -2718063578862107846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f214cd5e77dde1c0800000000000000
+      internalID: -4472681917170052366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bd5b240dd82aaf0800000000000000
+      internalID: -386590692388512890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a916caf40d324570800000000000000
+      internalID: 8449382942496922021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c99ffd7ffc4320f0800000000000000
+      internalID: -1142985220207699519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0cf84dd4aa5e860800000000000000
+      internalID: 7558634800866640063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c490b3b03606de0800000000000000
+      internalID: -1341963789070152571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d92f237af4ca0560800000000000000
+      internalID: 7280848327551166933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a5dcbb03266e7ba0800000000000000
+      internalID: -6089317345451518558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e63ff361eb3d29580800000000000000
+      internalID: -8821755906694843538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kavely_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a6e07c72e010730800000000000000
+      internalID: 3963464711068871225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9ae544c670c59714d9b78397ee8347fa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gestapo_kavely_0: 1523048959359266747
+      gestapo_kavely_1: 8839041920983329028
+      gestapo_kavely_10: 5601154577547102033
+      gestapo_kavely_11: 5547252037243613178
+      gestapo_kavely_12: 2663387189777987829
+      gestapo_kavely_13: -6621785130626628525
+      gestapo_kavely_14: 7750449330317320180
+      gestapo_kavely_15: -2389271990477934499
+      gestapo_kavely_16: 5570790493906255164
+      gestapo_kavely_17: -7552193930720685758
+      gestapo_kavely_18: 1116521788375772210
+      gestapo_kavely_19: 3705981854217745895
+      gestapo_kavely_2: -8548166096371753579
+      gestapo_kavely_20: -2718063578862107846
+      gestapo_kavely_21: -4472681917170052366
+      gestapo_kavely_22: -386590692388512890
+      gestapo_kavely_23: 8449382942496922021
+      gestapo_kavely_24: -1142985220207699519
+      gestapo_kavely_25: 7558634800866640063
+      gestapo_kavely_26: -1341963789070152571
+      gestapo_kavely_27: 7280848327551166933
+      gestapo_kavely_28: -6089317345451518558
+      gestapo_kavely_29: -8821755906694843538
+      gestapo_kavely_3: -4584149207181516172
+      gestapo_kavely_30: 3963464711068871225
+      gestapo_kavely_4: -5271510886742799449
+      gestapo_kavely_5: -7020829437339526723
+      gestapo_kavely_6: 7190215360781269413
+      gestapo_kavely_7: 5009331600883751963
+      gestapo_kavely_8: 1576260752298160755
+      gestapo_kavely_9: -6587370026035268550
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

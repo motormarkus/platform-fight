@@ -769,6 +769,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float knockArtScale = 1f;
     [Tooltip("Lisäkerroin kävelykuville (jos kävely on piirretty eri kokoon, esim. videosta).")]
     public float walkArtScale = 1f;
+    [Tooltip("Lisäkerroin nosto-, kurkotus- ja heittokuville (pöydän/vihun/heron nosto ja heitto), jos ne on piirretty pienempään kokoon kuin muut kuvat.")]
+    public float throwArtScale = 1f;
 
     enum State { Idle, Block, Belly, BarrelLift, BarrelThrow, CarryWalk, BottlePick, BottleThrow, Chase, Windup, Punch, Recover, Hurt, Airborne, Down, GetUp, Dead, GrabReach, GrabLift, GrabThrow, Held, Ringed, Clinch, Slaps, BarThrow, KickCombo, SlideTackle, Yanked, PieHit, CarryPie }
     bool grabIntent;   // seuraava hyökkäys on heittoyritys
@@ -1192,7 +1194,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
             ownTauntTimer = true; tauntPause = new Vector2(3.5f, 7f); oneSpeakerPerKind = false; tauntNoRepeat = true;   // puhuu usein, vaikka muita puhujia olisi paikalla
             if (altVariants != null) foreach (var v in altVariants) if (v != null && v.hitAllAround) v.weight = Mathf.Max(v.weight, 2.5f);   // pyörähdyspotku useammin (45 % potkuista)
         }
-        if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwArtMirrored = true;   // noston ja heiton kuvat katsoivat väärään suuntaan: peilataan (lentosuunta pysyy katsomissuuntana)
+        if (displayName == "Prätkäjätkä" || displayName == "Rekkamies") throwArtMirrored = true;
+        if (displayName == "Rekkamies") throwArtScale = 1.35f;   // pöydän nosto- ja heittokuvat on piirretty n. 30 % pienemmiksi kuin taisteluasento: ei kutistu heittäessä (säädettävissä pelin aikana)   // noston ja heiton kuvat katsoivat väärään suuntaan: peilataan (lentosuunta pysyy katsomissuuntana)
         if (displayName == "Horhe" || displayName == "Puliukko")
         {
             // avokämmenläimäykset (Resources/Sfx/horhe/slap1–3): puliukon kaikki iskut, Horhen läpsykombo
@@ -1315,6 +1318,17 @@ public class Enemy : MonoBehaviour, IBottleHolder
             var btFly = BV("ilmalento"); if (btFly.Length > 0) launchVoice = btFly[0];
             var btWin = BV("voitto"); if (btWin.Length > 0) { heroDownLaugh = btWin[0]; knockdownShoutChance = 0.3f; }
             var btTalk = BV("speak"); if (btTalk.Length > 0) { tauntSounds = btTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
+        }
+        if (displayName == "Gestapo")   // omat äänet Resources/Sfx/Gestapo: kipu, iskut, ilmalento, ylösnousu, voitto ja puhe
+        {
+            var gp = Resources.LoadAll<AudioClip>("Sfx/Gestapo");
+            AudioClip[] GV(string pre) { var l = new System.Collections.Generic.List<AudioClip>(); foreach (var c in gp) if (c != null && c.name.StartsWith(pre)) l.Add(c); return l.ToArray(); }
+            var gpPain = GV("pain"); if (gpPain.Length > 0) { hurtSounds = gpPain; hurtVolume = 1f; fallVoice = gpPain[gpPain.Length - 1]; }
+            var gpHit = GV("hit"); if (gpHit.Length > 0) { attackSounds = gpHit; attackSoundChance = 0.85f; }
+            var gpFly = GV("ilmalento"); if (gpFly.Length > 0) launchVoice = gpFly[0];
+            var gpUp = GV("nousu"); if (gpUp.Length > 0) getUpVoice = gpUp[0];
+            var gpWin = GV("voitto"); if (gpWin.Length > 0) { heroDownLaugh = gpWin[0]; knockdownShoutChance = 0.3f; }
+            var gpTalk = GV("speak"); if (gpTalk.Length > 0) { tauntSounds = gpTalk; tauntPause = new Vector2(6f, 12f); tauntNoRepeat = true; tauntOnWakeChance = 0.6f; talksWhenCalm = true; ownTauntTimer = true; }
         }
         if (displayName == "Jakuza" || displayName == "Mongolisoturi")   // Mongolisoturilla samat äänet kuin Jakuzalla. Äänet Resources/Sfx/Jakuza: kipu, iskut, kampitus (sweepkick = liukupotku), ilmalento, ylösnousu, voitto ja puhe; sama kaikissa sceneissä
         {
@@ -4339,7 +4353,19 @@ public class Enemy : MonoBehaviour, IBottleHolder
     }
 
     /// Ilmassa näytettävien kaatumiskuvien enimmäismäärä: luurangolla vain pystymmät kuvat (ei makuuasentoa kesken lennon).
-    int AirFrameCap => displayName == "Luurankosoturi" ? 4 : 999;
+    bool LiesInAir => displayName == "Kuurobotti" && knockdownSprites != null && knockdownSprites.Length >= 8;
+    Sprite FallingAirFrame()
+    {
+        if (stateTime < 0.12f && Has(hurtSprites)) return hurtSprites[0];   // lähtö osumakuvalla
+        // kuvat etenevät lennon etenemän mukaan (kuun heikossa painovoimassa lento on pitkä): litteä makuukuva vain maassa
+        float g = 30f * (Area.Current != null ? Area.Current.gravityScale : 1f);
+        float remaining = (verticalVel + Mathf.Sqrt(Mathf.Max(0f, verticalVel * verticalVel + 2f * g * Mathf.Max(0f, height)))) / g;
+        float progress = Mathf.Clamp01(stateTime / Mathf.Max(0.05f, stateTime + remaining));
+        int last = knockdownSprites.Length - 4;   // ilmassa ei koskaan litteää makuukuvaa (kolme viimeistä kuvaa = maassa makaava asento)
+        return knockdownSprites[Mathf.Clamp(Mathf.RoundToInt(progress * last), 0, last)];
+    }
+    // ilmassa ei näytetä maassa makaavaa asentoa: kuvien määrä ilmassa (mitattu kaatumisarkeista, litteät kuvat jäävät maahan)
+    int AirFrameCap => displayName == "Luurankosoturi" ? 4 : displayName == "Koe-olento" ? 6 : displayName == "Mongolisoturi" ? 12 : displayName == "Mainari" ? 13 : displayName == "Timppa" ? 7 : 999;
     int lastAttackSound = -1;
     float punch3WindupNow = 0.9f;
 
@@ -4610,6 +4636,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 return knockArtScale;
             case State.Chase: case State.CarryPie:
                 return moving && Has(walkSprites) ? walkArtScale : 1f;
+            case State.GrabReach: case State.GrabLift: case State.GrabThrow: case State.BarrelLift: case State.BarrelThrow:
+                return throwArtScale;
             default: return 1f;
         }
     }
@@ -4807,8 +4835,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     int fi = Mathf.Min((int)((stateTime - ArtSpinTime) / Mathf.Max(0.01f, flipFlightFrameTime)), nf - 1);
                     return artSet[Mathf.Min(artFlightPose + fi, artSet.Length - 1)];
                 }
+                if (LiesInAir && Has(knockdownSprites)) return FallingAirFrame();   // Kuurobotti: lähtö osumakuvalla, sitten kaatumiskuvat jakautuvat koko lennon ajalle (makuuasento vasta maassa)
                 if (thrownByPlayer && Has(knockdownSprites))   // heitetty ilman omaa heittokuvaa: lentää kaatumiskuvissa (ei osumakuvassa)
-                    return knockdownSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.02f, airFrameTime / AirAnimScale)), Mathf.Max(1, knockdownSprites.Length - 1) - 1)];   // heitetty: lentää kaatumiskuvissa aina makuuasentoon asti
+                    return knockdownSprites[Mathf.Min((int)(stateTime / Mathf.Max(0.02f, airFrameTime / AirAnimScale)), Mathf.Min(Mathf.Max(1, knockdownSprites.Length - 1), AirFrameCap) - 1)];   // heitetty: lentää kaatumiskuvissa, mutta ei maassa makaavassa asennossa
                 if (thrownByPlayer) return Has(hurtSprites) ? hurtSprites[0] : FirstIdle();
                 if (hoverHurtPose && chainHover && !launched && Has(hurtSprites))
                     return hurtSprites[Mathf.Clamp((int)((Time.time - lastHitTime) / 0.07f), 0, hurtSprites.Length - 1)];

@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 7fc5dbba2d31e4c478a53bd174d82a79
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -297036297840852101
+    second: gestapo_suora1_0
+  - first:
+      213: 493425859273737772
+    second: gestapo_suora1_1
+  - first:
+      213: -4501346753047163398
+    second: gestapo_suora1_2
+  - first:
+      213: 9049902668290043824
+    second: gestapo_suora1_3
+  - first:
+      213: -8896769143359605918
+    second: gestapo_suora1_4
+  - first:
+      213: 9183818890836838884
+    second: gestapo_suora1_5
+  - first:
+      213: -3269260214934816295
+    second: gestapo_suora1_6
+  - first:
+      213: -3633090027330191983
+    second: gestapo_suora1_7
+  - first:
+      213: 2784076632815953513
+    second: gestapo_suora1_8
+  - first:
+      213: -4723166607673873482
+    second: gestapo_suora1_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gestapo_suora1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b738cc59f07b0ebf0800000000000000
+      internalID: -297036297840852101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26c009643009d600800000000000000
+      internalID: 493425859273737772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_2
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd04cd2af00881c0800000000000000
+      internalID: -4501346753047163398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_3
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfa9434786b79d70800000000000000
+      internalID: 9049902668290043824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263f469e993588480800000000000000
+      internalID: -8896769143359605918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_5
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e90add8f9a737f70800000000000000
+      internalID: 9183818890836838884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_6
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d93e72e72141a2d0800000000000000
+      internalID: -3269260214934816295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d38fb7edba49dc0800000000000000
+      internalID: -3633090027330191983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966e57662f603a620800000000000000
+      internalID: 2784076632815953513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_suora1_9
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.35714287, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbac96aef0f37eb0800000000000000
+      internalID: -4723166607673873482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 513de9c2bcc3cbc41ae194ced8d66f7a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gestapo_suora1_0: -297036297840852101
+      gestapo_suora1_1: 493425859273737772
+      gestapo_suora1_2: -4501346753047163398
+      gestapo_suora1_3: 9049902668290043824
+      gestapo_suora1_4: -8896769143359605918
+      gestapo_suora1_5: 9183818890836838884
+      gestapo_suora1_6: -3269260214934816295
+      gestapo_suora1_7: -3633090027330191983
+      gestapo_suora1_8: 2784076632815953513
+      gestapo_suora1_9: -4723166607673873482
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

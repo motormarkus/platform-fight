@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 4953618a9a7a5aa4aa6ff8d07d38f85e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7782493338473940242
+    second: gestapo_kaatuminen_0
+  - first:
+      213: 9209409114468644204
+    second: gestapo_kaatuminen_1
+  - first:
+      213: 678201381187869832
+    second: gestapo_kaatuminen_2
+  - first:
+      213: 6121665236106665211
+    second: gestapo_kaatuminen_3
+  - first:
+      213: 3782336396534386191
+    second: gestapo_kaatuminen_4
+  - first:
+      213: 5850400449343535014
+    second: gestapo_kaatuminen_5
+  - first:
+      213: -1960634331248087201
+    second: gestapo_kaatuminen_6
+  - first:
+      213: 3478791813760000522
+    second: gestapo_kaatuminen_7
+  - first:
+      213: -7074224074990843024
+    second: gestapo_kaatuminen_8
+  - first:
+      213: 3315888893000601231
+    second: gestapo_kaatuminen_9
+  - first:
+      213: 560751117885622763
+    second: gestapo_kaatuminen_10
+  - first:
+      213: 190416700420305330
+    second: gestapo_kaatuminen_11
+  - first:
+      213: 1756738116493405770
+    second: gestapo_kaatuminen_12
+  - first:
+      213: 5607836981344314438
+    second: gestapo_kaatuminen_13
+  - first:
+      213: -8483099453937391580
+    second: gestapo_kaatuminen_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeaba65ca870ff390800000000000000
+      internalID: -7782493338473940242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65f52bcbc46ecf70800000000000000
+      internalID: 9209409114468644204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88cd1eb1094796900800000000000000
+      internalID: 678201381187869832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcdef7291684f450800000000000000
+      internalID: 6121665236106665211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e8678b9ee8d7430800000000000000
+      internalID: 3782336396534386191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a738e0463cc03150800000000000000
+      internalID: 5850400449343535014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fa58fa67d6ac4e0800000000000000
+      internalID: -1960634331248087201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02a3b229b6274030800000000000000
+      internalID: 3478791813760000522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b87a44fae43dd90800000000000000
+      internalID: -7074224074990843024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ec6fd3167640e20800000000000000
+      internalID: 3315888893000601231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be9c9f4bb2038c700800000000000000
+      internalID: 560751117885622763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1badbeafe74a200800000000000000
+      internalID: 190416700420305330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e6af46200316810800000000000000
+      internalID: 1756738116493405770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644a35fd50a03dd40800000000000000
+      internalID: 5607836981344314438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.5, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42860c5fdf9f54a80800000000000000
+      internalID: -8483099453937391580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c95b3b38d1d084641933ed146502e5d8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gestapo_kaatuminen_0: -7782493338473940242
+      gestapo_kaatuminen_1: 9209409114468644204
+      gestapo_kaatuminen_10: 560751117885622763
+      gestapo_kaatuminen_11: 190416700420305330
+      gestapo_kaatuminen_12: 1756738116493405770
+      gestapo_kaatuminen_13: 5607836981344314438
+      gestapo_kaatuminen_14: -8483099453937391580
+      gestapo_kaatuminen_2: 678201381187869832
+      gestapo_kaatuminen_3: 6121665236106665211
+      gestapo_kaatuminen_4: 3782336396534386191
+      gestapo_kaatuminen_5: 5850400449343535014
+      gestapo_kaatuminen_6: -1960634331248087201
+      gestapo_kaatuminen_7: 3478791813760000522
+      gestapo_kaatuminen_8: -7074224074990843024
+      gestapo_kaatuminen_9: 3315888893000601231
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

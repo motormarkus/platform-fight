@@ -1,0 +1,388 @@
+fileFormatVersion: 2
+guid: f466c3992467dea4eb0ee7c2e23db294
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7381528611079284269
+    second: pullo_tuoppi_olut_0
+  - first:
+      213: 3163568430543689774
+    second: pullo_tuoppi_olut_1
+  - first:
+      213: 2538758882279174191
+    second: pullo_tuoppi_olut_2
+  - first:
+      213: -8777444495145123115
+    second: pullo_tuoppi_olut_3
+  - first:
+      213: -4508990280922044085
+    second: pullo_tuoppi_olut_4
+  - first:
+      213: -5828498508812614538
+    second: pullo_tuoppi_olut_5
+  - first:
+      213: 3162031492433722381
+    second: pullo_tuoppi_olut_6
+  - first:
+      213: 3404644858216047135
+    second: pullo_tuoppi_olut_7
+  - first:
+      213: 7234648717954955464
+    second: pullo_tuoppi_olut_8
+  - first:
+      213: -8528036727540718892
+    second: pullo_tuoppi_olut_9
+  - first:
+      213: -9107694771642978537
+    second: pullo_tuoppi_olut_10
+  - first:
+      213: -8982338489315716366
+    second: pullo_tuoppi_olut_11
+  - first:
+      213: -9171194055128162711
+    second: pullo_tuoppi_olut_12
+  - first:
+      213: -3971027239585630744
+    second: pullo_tuoppi_olut_13
+  - first:
+      213: -2786037627939662025
+    second: pullo_tuoppi_olut_14
+  - first:
+      213: 6249187606454779707
+    second: pullo_tuoppi_olut_15
+  - first:
+      213: -7999672222406902979
+    second: pullo_tuoppi_olut_16
+  - first:
+      213: -6207027419249891497
+    second: pullo_tuoppi_olut_17
+  - first:
+      213: -7241888207914561085
+    second: pullo_tuoppi_olut_18
+  - first:
+      213: 2377270213352896050
+    second: pullo_tuoppi_olut_19
+  - first:
+      213: -4750821232936056969
+    second: pullo_tuoppi_olut_20
+  - first:
+      213: -2408687964405254436
+    second: pullo_tuoppi_olut_21
+  - first:
+      213: -7148319322343239988
+    second: pullo_tuoppi_olut_22
+  - first:
+      213: 5470880325710273322
+    second: pullo_tuoppi_olut_23
+  - first:
+      213: 6765564551604501127
+    second: pullo_tuoppi_olut_24
+  - first:
+      213: 8535136791561924641
+    second: pullo_tuoppi_olut_25
+  - first:
+      213: 9060297167130664672
+    second: pullo_tuoppi_olut_26
+  - first:
+      213: -4769648690911687723
+    second: pullo_tuoppi_olut_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2663caa925707660800000000000000
+      internalID: 7381528611079284269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e28523de9b047eb20800000000000000
+      internalID: 3163568430543689774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f203e94a0cb7b3320800000000000000
+      internalID: 2538758882279174191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2ca2f8cb0403680800000000000000
+      internalID: -8777444495145123115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49e3f9aa39dc61c0800000000000000
+      internalID: -4508990280922044085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6748458ac730d1fa0800000000000000
+      internalID: -5828498508812614538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pullo_tuoppi_olut_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c3c13a3eac1eb20800000000000000
+      internalID: 3162031492433722381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7f0e9d28112872744acb5755830daa7a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pullo_tuoppi_olut_0: 7381528611079284269
+      pullo_tuoppi_olut_1: 3163568430543689774
+      pullo_tuoppi_olut_2: 2538758882279174191
+      pullo_tuoppi_olut_3: -8777444495145123115
+      pullo_tuoppi_olut_4: -4508990280922044085
+      pullo_tuoppi_olut_5: -5828498508812614538
+      pullo_tuoppi_olut_6: 3162031492433722381
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

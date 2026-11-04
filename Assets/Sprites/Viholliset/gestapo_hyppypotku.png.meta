@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 03a116dd370b1da4a98871aafba4c805
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -439397183881574994
+    second: gestapo_hyppypotku_0
+  - first:
+      213: -6082299524049717055
+    second: gestapo_hyppypotku_1
+  - first:
+      213: 665252316243943509
+    second: gestapo_hyppypotku_2
+  - first:
+      213: -4270487828545377231
+    second: gestapo_hyppypotku_3
+  - first:
+      213: -1101758468957929696
+    second: gestapo_hyppypotku_4
+  - first:
+      213: 7814964748921455034
+    second: gestapo_hyppypotku_5
+  - first:
+      213: 6977975605427390094
+    second: gestapo_hyppypotku_6
+  - first:
+      213: -5386756507936666981
+    second: gestapo_hyppypotku_7
+  - first:
+      213: -1857396659875615436
+    second: gestapo_hyppypotku_8
+  - first:
+      213: -3822971426871632643
+    second: gestapo_hyppypotku_9
+  - first:
+      213: -7473807404671380007
+    second: gestapo_hyppypotku_10
+  - first:
+      213: 1879996048863268957
+    second: gestapo_hyppypotku_11
+  - first:
+      213: 679030358738103426
+    second: gestapo_hyppypotku_12
+  - first:
+      213: -2552993088160526935
+    second: gestapo_hyppypotku_13
+  - first:
+      213: 5338921560787914384
+    second: gestapo_hyppypotku_14
+  - first:
+      213: -6839359565687021157
+    second: gestapo_hyppypotku_15
+  - first:
+      213: -2980164007486725092
+    second: gestapo_hyppypotku_16
+  - first:
+      213: 3506802611834256176
+    second: gestapo_hyppypotku_17
+  - first:
+      213: 5132474290393894652
+    second: gestapo_hyppypotku_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea58e6bd692f6e9f0800000000000000
+      internalID: -439397183881574994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c83d7beec4579ba0800000000000000
+      internalID: -6082299524049717055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550e9bbf4737b3900800000000000000
+      internalID: 665252316243943509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 4096
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13c6ce922fd2cb4c0800000000000000
+      internalID: -4270487828545377231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ffb758284c5b0f0800000000000000
+      internalID: -1101758468957929696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1c9af9805547c60800000000000000
+      internalID: 7814964748921455034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8647dc97dfb6d060800000000000000
+      internalID: 6977975605427390094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_7
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 3072
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a49ec0f756e35b0800000000000000
+      internalID: -5386756507936666981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ded1924933936e0800000000000000
+      internalID: -1857396659875615436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc19d20eb312fac0800000000000000
+      internalID: -3822971426871632643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_10
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5d0ec63c3b74890800000000000000
+      internalID: -7473807404671380007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 2048
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5012af1276171a10800000000000000
+      internalID: 1879996048863268957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c6a4c73866c6900800000000000000
+      internalID: 679030358738103426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_13
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad0a2a0052f19cd0800000000000000
+      internalID: -2552993088160526935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_14
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e007a6fd8a71a40800000000000000
+      internalID: 5338921560787914384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_15
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 1024
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b912e0426b6b511a0800000000000000
+      internalID: -6839359565687021157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c146951ff9454a6d0800000000000000
+      internalID: -2980164007486725092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_17
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03bfac7456aaaa030800000000000000
+      internalID: 3506802611834256176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_hyppypotku_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 1152
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfec0c19c263a3740800000000000000
+      internalID: 5132474290393894652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: acada5a14cc389941af165bc7110af2d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gestapo_hyppypotku_0: -439397183881574994
+      gestapo_hyppypotku_1: -6082299524049717055
+      gestapo_hyppypotku_10: -7473807404671380007
+      gestapo_hyppypotku_11: 1879996048863268957
+      gestapo_hyppypotku_12: 679030358738103426
+      gestapo_hyppypotku_13: -2552993088160526935
+      gestapo_hyppypotku_14: 5338921560787914384
+      gestapo_hyppypotku_15: -6839359565687021157
+      gestapo_hyppypotku_16: -2980164007486725092
+      gestapo_hyppypotku_17: 3506802611834256176
+      gestapo_hyppypotku_18: 5132474290393894652
+      gestapo_hyppypotku_2: 665252316243943509
+      gestapo_hyppypotku_3: -4270487828545377231
+      gestapo_hyppypotku_4: -1101758468957929696
+      gestapo_hyppypotku_5: 7814964748921455034
+      gestapo_hyppypotku_6: 6977975605427390094
+      gestapo_hyppypotku_7: -5386756507936666981
+      gestapo_hyppypotku_8: -1857396659875615436
+      gestapo_hyppypotku_9: -3822971426871632643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

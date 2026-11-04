@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 4cface0fa2473434aae4c54327a9681b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8952719590061178424
+    second: gestapo_juoksu_0
+  - first:
+      213: -937244909693814690
+    second: gestapo_juoksu_1
+  - first:
+      213: 3196185026683210840
+    second: gestapo_juoksu_2
+  - first:
+      213: 4408799885630228019
+    second: gestapo_juoksu_3
+  - first:
+      213: 523632044322564593
+    second: gestapo_juoksu_4
+  - first:
+      213: -6705914793962574509
+    second: gestapo_juoksu_5
+  - first:
+      213: 5617135753882764106
+    second: gestapo_juoksu_6
+  - first:
+      213: 7545098395711552029
+    second: gestapo_juoksu_7
+  - first:
+      213: 1460043289221092832
+    second: gestapo_juoksu_8
+  - first:
+      213: 9198398656187891067
+    second: gestapo_juoksu_9
+  - first:
+      213: -2878255483043736133
+    second: gestapo_juoksu_10
+  - first:
+      213: 3064280235455880659
+    second: gestapo_juoksu_11
+  - first:
+      213: 7016143596253527627
+    second: gestapo_juoksu_12
+  - first:
+      213: 1916000353444889239
+    second: gestapo_juoksu_13
+  - first:
+      213: 8848157162459741408
+    second: gestapo_juoksu_14
+  - first:
+      213: 6227359004611819843
+    second: gestapo_juoksu_15
+  - first:
+      213: 2889086076583480312
+    second: gestapo_juoksu_16
+  - first:
+      213: -755881755340744414
+    second: gestapo_juoksu_17
+  - first:
+      213: 2299180194960669657
+    second: gestapo_juoksu_18
+  - first:
+      213: 4840599452561271657
+    second: gestapo_juoksu_19
+  - first:
+      213: -1754676389086686296
+    second: gestapo_juoksu_20
+  - first:
+      213: -6409310007361377280
+    second: gestapo_juoksu_21
+  - first:
+      213: -81279450800188251
+    second: gestapo_juoksu_22
+  - first:
+      213: -4740102881624548158
+    second: gestapo_juoksu_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gestapo_juoksu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ef64b98037e3c70800000000000000
+      internalID: 8952719590061178424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58382a68bc3ef2f0800000000000000
+      internalID: -937244909693814690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_2
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c00eff8512b5c20800000000000000
+      internalID: 3196185026683210840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_3
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3840
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336c5cc13243f2d30800000000000000
+      internalID: 4408799885630228019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9abdae190544700800000000000000
+      internalID: 523632044322564593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_5
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35de2db360ecfe2a0800000000000000
+      internalID: -6705914793962574509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_6
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a430451153314fd40800000000000000
+      internalID: 5617135753882764106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3072
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ab1c7e30395b860800000000000000
+      internalID: 7545098395711552029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e557bac2ad134410800000000000000
+      internalID: 1460043289221092832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_9
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d7284b7d647af70800000000000000
+      internalID: 9198398656187891067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_10
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb59b5843e16e08d0800000000000000
+      internalID: -2878255483043736133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_11
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2304
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd199e83a2868a20800000000000000
+      internalID: 3064280235455880659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4eb2db7d695e5160800000000000000
+      internalID: 7016143596253527627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7920b988b20079a10800000000000000
+      internalID: 1916000353444889239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ecbd394f08faca70800000000000000
+      internalID: 8848157162459741408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_15
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1536
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349b7be45060c6650800000000000000
+      internalID: 6227359004611819843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb0948ca78181820800000000000000
+      internalID: 2889086076583480312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_17
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22957b06c819285f0800000000000000
+      internalID: -755881755340744414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_18
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db7e3ba43458ef10800000000000000
+      internalID: 2299180194960669657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_19
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 768
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b6dd53e834d2340800000000000000
+      internalID: 4840599452561271657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a319bcee1326a7e0800000000000000
+      internalID: -1754676389086686296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_21
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c6edb918e8d07a0800000000000000
+      internalID: -6409310007361377280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_22
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4148725cc3fdef0800000000000000
+      internalID: -81279450800188251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gestapo_juoksu_23
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 896
+        height: 768
+      alignment: 9
+      pivot: {x: 0.44642857, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc96f51b85c73eb0800000000000000
+      internalID: -4740102881624548158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eafeba73a3bdabe4cad43b95b0e6f34a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gestapo_juoksu_0: 8952719590061178424
+      gestapo_juoksu_1: -937244909693814690
+      gestapo_juoksu_10: -2878255483043736133
+      gestapo_juoksu_11: 3064280235455880659
+      gestapo_juoksu_12: 7016143596253527627
+      gestapo_juoksu_13: 1916000353444889239
+      gestapo_juoksu_14: 8848157162459741408
+      gestapo_juoksu_15: 6227359004611819843
+      gestapo_juoksu_16: 2889086076583480312
+      gestapo_juoksu_17: -755881755340744414
+      gestapo_juoksu_18: 2299180194960669657
+      gestapo_juoksu_19: 4840599452561271657
+      gestapo_juoksu_2: 3196185026683210840
+      gestapo_juoksu_20: -1754676389086686296
+      gestapo_juoksu_21: -6409310007361377280
+      gestapo_juoksu_22: -81279450800188251
+      gestapo_juoksu_23: -4740102881624548158
+      gestapo_juoksu_3: 4408799885630228019
+      gestapo_juoksu_4: 523632044322564593
+      gestapo_juoksu_5: -6705914793962574509
+      gestapo_juoksu_6: 5617135753882764106
+      gestapo_juoksu_7: 7545098395711552029
+      gestapo_juoksu_8: 1460043289221092832
+      gestapo_juoksu_9: 9198398656187891067
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

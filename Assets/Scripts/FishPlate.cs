@@ -17,9 +17,9 @@ public class FishPlate : MonoBehaviour
     [Tooltip("Ranskalaisten ja lisukkeiden määrän kerroin (aamiainen: 3 pekonia ja 2 paahtoleipää, ei kymmeniä paloja).")]
     public float countMul = 1f;
 
-    class Set { public Sprite plate; public Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks; }
+    class Set { public Sprite plate; public Sprite[] rinkeli, burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks; }
     static readonly Dictionary<string, Set> sets = new Dictionary<string, Set>();
-    Sprite plate; Sprite[] burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks;
+    Sprite plate; Sprite[] rinkeli, burst, fish, fries, shards, lemons, veg1, veg2, splat, sticks;
     enum S { OnTable, Tipping, Burst, Done }
     S state = S.OnTable;
     SpriteRenderer sr;
@@ -30,7 +30,7 @@ public class FishPlate : MonoBehaviour
     {
         string key = string.IsNullOrEmpty(spriteSet) ? "Kala" : spriteSet;
         if (!sets.TryGetValue(key, out var set)) { set = LoadSet(key); sets[key] = set; }
-        sticks = set.sticks; plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2; splat = set.splat;
+        sticks = set.sticks; rinkeli = set.rinkeli; plate = set.plate; burst = set.burst; fish = set.fish; fries = set.fries; shards = set.shards; lemons = set.lemons; veg1 = set.veg1; veg2 = set.veg2; splat = set.splat;
     }
 
     static Set LoadSet(string folder)
@@ -47,6 +47,7 @@ public class FishPlate : MonoBehaviour
         foreach (var s in all) if (s.name == "annos") set.plate = s;
         set.burst = Pick("hajoaa_"); set.fish = Pick("kala_"); set.fries = Pick("ranska_"); set.shards = Pick("sirpale_"); set.lemons = Pick("sitruuna_");
         set.sticks = Pick("tikku_");
+        set.rinkeli = Pick("rinkeli_");   // rinkeli lentää yhtenä kuvasarjana (eri kuvakulmat pyörivät)
         set.splat = Pick("roiske_");   // särkyneen kalan (munan) lattiaroiske
         set.veg1 = Pick("parsa_"); set.veg2 = Pick("peruna_");   // lentokuvat (pyörivät kuvasarjana)
         return set;
@@ -184,6 +185,13 @@ public class FishPlate : MonoBehaviour
             FoodDebris.Spawn(new[] { shards[Random.Range(0, shards.Length)] }, p, h, s,
                 Random.Range(-1f, 1f) * (violent ? 4f : 1.5f), violent ? Random.Range(3f, 7f) : Random.Range(0.5f, 1.5f),
                 Random.Range(-0.6f, 0.4f), Random.Range(-600f, 600f), false, 0f);
+        if (rinkeli != null && rinkeli.Length > 0)
+        {
+            int nr = violent ? Random.Range(1, 3) : 1;
+            for (int i = 0; i < nr; i++)
+                FoodDebris.Spawn(rinkeli, p, h, s, Random.Range(-1f, 1f) * (violent ? 4f : 1f) + dir, violent ? Random.Range(5f, 9f) : Random.Range(0.5f, 1.5f),
+                    Random.Range(-0.5f, 0.3f), Random.Range(-700f, 700f), false, 0f);
+        }
         int nl = violent ? Random.Range(1, 3) : 1;
         for (int i = 0; i < nl && lemons.Length > 0; i++)
             FoodDebris.Spawn(new[] { lemons[Random.Range(0, lemons.Length)] }, p, h, s,

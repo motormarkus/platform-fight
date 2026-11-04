@@ -10,17 +10,20 @@ using UnityEngine;
 public static partial class BeatEmUpSetup
 {
     const float WallRunX0 = 76200f, WallTermX0 = 76400f, WallX0 = 77000f;   // vapaa väli 76100–77990 (Kopteri 76060 asti, Aavikko alkaa 77998)
-    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77700f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
-    const float SurfBasePx = 2385f;   // kuun pinnan vasemmassa päässä oleva tukikohdan ulkokuva (muuri_kuuasema_ulko, leveys px); loput kuun pinnasta alkavat tämän jälkeen
+    const float HallZoom = 1f, HallFloorRow = 700f, HallCamK = 1.3f;   // juhlasali: kuvat alkuperäisessä koossa (tarkat), kamera 1,5 x kauempana: hahmot ja pöydät pienempiä, lattiaa enemmän
+    static float HallPpu => 941f / (2f * CamHalf) / (HallZoom * HallCamK);   // salin kuvapikselin (alkuperäisen) muunnos yksiköiksi
+    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77700f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f, WallHallX0 = 79000f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
+    const float SurfExtraPx = 7153f;   // kuun pinnan jatko linnakkeelle (3 kuvaa ennen tukikohdan ulkokuvaa: 2384+2384+2385)
+    const float SurfBasePx = SurfExtraPx + 2385f;   // kuun pinnan vasemmassa päässä oleva tukikohdan ulkokuva (muuri_kuuasema_ulko, leveys px); loput kuun pinnasta alkavat tämän jälkeen
     const string WallScenePath = "Assets/Scenes/Areas/Muuri.unity";
-    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio", "Muurin käytävä", "Muurin olion huone" };
+    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio", "Muurin käytävä", "Muurin olion huone", "Muurin juhlahalli" };
 
     [MenuItem("Beat em up/327. Kiinan muuri: oma scene (kiitotie, terminaali, yläkerta, muuri, kuuhissi)", false, 327)]
     static void AddGreatWall()
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "muuri_kiitotie_torni", "muuri_terminaali_pano", "muuri_terminaali_tiski", "muuri_alku_torni", "muuri_main", "muuri_main_peili", "muuri_front", "muuri_front_peili", "muuri_far_x2", "muuri_mid_x2", "muuri_yla_pano", "muuri_yla_tiski", "muuri_rotko", "muuri_lankku", "muuri_hissi_paaty", "muuri_hissi_sisa", "muuri_taivas_pysty", "muuri_kuu_pinta", "muuri_kuuasema_pano", "muuri_kuuasema_tiski", "muuri_avaruus", "muuri_kuupinta_a", "muuri_kuupinta_b", "muuri_kuupinta_far", "muuri_kuupinta_tahdet", "muuri_kuuasema_ulko", "muuri_laboratorio_pano", "muuri_laboratorio_pano_b", "muuri_kaytava_pano", "muuri_kaytava_ovi", "muuri_laboratorio_ikkuna", "muuri_olion_huone_ikkuna", "muuri_olion_huone_pano" })
+        foreach (var f in new[] { "muuri_kiitotie_torni", "muuri_terminaali_pano", "muuri_terminaali_tiski", "muuri_alku_torni", "muuri_main", "muuri_main_peili", "muuri_front", "muuri_front_peili", "muuri_far_x2", "muuri_mid_x2", "muuri_yla_pano", "muuri_yla_tiski", "muuri_rotko", "muuri_lankku", "muuri_hissi_paaty", "muuri_hissi_sisa", "muuri_taivas_pysty", "muuri_kuu_pinta", "muuri_kuuasema_pano", "muuri_kuuasema_tiski", "muuri_avaruus", "muuri_kuupinta_a", "muuri_kuupinta_b", "muuri_kuupinta_far", "muuri_kuupinta_tahdet", "muuri_kuuasema_ulko", "muuri_laboratorio_pano", "muuri_laboratorio_pano_b", "muuri_kaytava_pano", "muuri_kaytava_ovi", "muuri_laboratorio_ikkuna", "muuri_olion_huone_ikkuna", "muuri_olion_huone_pano", "muuri_kuupinta_vasen1", "muuri_kuupinta_vasen2", "muuri_kuupinta_vasen3", "muuri_kuupinta_linnake", "muuri_juhlahalli_a", "muuri_juhlahalli_b", "muuri_juhlahalli_c", "muuri_juhlahalli_d", "muuri_juhlahalli_e" })
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat)."); return; }
         var opened = new List<UnityEngine.SceneManagement.Scene>();
         UnityEngine.SceneManagement.Scene Open(string path)
@@ -47,7 +50,7 @@ public static partial class BeatEmUpSetup
             var ucco = Open(UccoLaivaScenePath); var alp = Open(AlpineScenePathNow); var thai = Open(ThaitownScenePath);
             var sample = Open("Assets/Scenes/SampleScene.unity"); var desert = Open("Assets/Scenes/Areas/Aavikko.unity");
             var report = new List<string>();
-            foreach (var n in new[] { "Muurin kiitotie", "Muurin terminaali", "Muuri", "Muurin ovet", "Alue: Muurin kiitotie", "Alue: Muurin terminaali", "Alue: Muuri", "Muurin kuuhissi", "Alue: Muurin kuuhissi", "Muurin laboratorio", "Alue: Muurin laboratorio", "Muurin käytävä", "Alue: Muurin käytävä", "Muurin olion huone", "Alue: Muurin olion huone", "Muurin käytävä 2", "Alue: Muurin käytävä 2", "Muurin kuuasema", "Alue: Muurin kuuasema", "Muurin kuun pinta", "Alue: Muurin kuun pinta", "Muurin kuuaseman sisus", "Muurin kanikonttori", "Alue: Muurin kanikonttori", "Muurin terminaalin sisus", "Muurin terminaalin väki", "Muurin terminaalin tappelu" })
+            foreach (var n in new[] { "Muurin kiitotie", "Muurin terminaali", "Muuri", "Muurin ovet", "Alue: Muurin kiitotie", "Alue: Muurin terminaali", "Alue: Muuri", "Muurin kuuhissi", "Alue: Muurin kuuhissi", "Muurin laboratorio", "Alue: Muurin laboratorio", "Muurin käytävä", "Alue: Muurin käytävä", "Muurin olion huone", "Alue: Muurin olion huone", "Muurin käytävä 2", "Alue: Muurin käytävä 2", "Muurin kuuasema", "Alue: Muurin kuuasema", "Muurin kuun pinta", "Alue: Muurin kuun pinta", "Muurin juhlahalli", "Alue: Muurin juhlahalli", "Muurin kuuaseman sisus", "Muurin kanikonttori", "Alue: Muurin kanikonttori", "Muurin terminaalin sisus", "Muurin terminaalin väki", "Muurin terminaalin tappelu" })
                 foreach (var o in jungle.GetRootGameObjects().Where(g => g.name == n).ToArray()) Undo.DestroyObjectImmediate(o);
 
             float ppu = 941f / (2f * CamHalf), H = 941f / ppu, W = 1672f / ppu;
@@ -210,9 +213,12 @@ public static partial class BeatEmUpSetup
             MakeDoor("Kuuasema: hissiin", "Mene hissiin", moon, elev, new Vector3(WallMoonX0 + MoonElevDoorPx / ppu, moon.maxDepthY, 0f), new Vector2(WallElevX0 + 600f / ppu, Mathf.Lerp(elev.maxDepthY, elev.minDepthY, 0.4f)));
 
             // ---- kuun pinta: kuljetaan oikealta vasemmalle; asema-ovi oikeassa päässä (kuvat 1+2 yhdistettynä, korkeus 941) ----
-            const float SurfWallPx = 660f, SurfDoorPx = 8663f + SurfBasePx, SurfDoorBasePx = 700f, SurfWalkMaxPx = 8810f + SurfBasePx, BaseDoorPx = 1155f;   // BaseDoorPx: tukikohdan ovi ulkokuvassa
+            const float SurfWallPx = 660f, SurfDoorPx = 8663f + SurfBasePx, SurfDoorBasePx = 700f, SurfWalkMaxPx = 8810f + SurfBasePx, BaseDoorPx = 1155f + SurfExtraPx;   // BaseDoorPx: tukikohdan ovi ulkokuvassa
             var surfRoot = NewRoot("Muurin kuun pinta");
-            Image(surfRoot.transform, "Tukikohta (ulko)", "muuri_kuuasema_ulko", WallSurfX0, 0f, -10000);
+            Image(surfRoot.transform, "Tie linnakkeelle 3", "muuri_kuupinta_vasen3", WallSurfX0, 0f, -10000);   // tie kääntyy kohti linnaketta (vasen pää)
+            Image(surfRoot.transform, "Tie linnakkeelle 2", "muuri_kuupinta_vasen2", WallSurfX0, 2384f, -10000);
+            Image(surfRoot.transform, "Tie linnakkeelle 1", "muuri_kuupinta_vasen1", WallSurfX0, 4768f, -10000);
+            Image(surfRoot.transform, "Tukikohta (ulko)", "muuri_kuuasema_ulko", WallSurfX0, SurfExtraPx, -10000);
             var surfImgA = Image(surfRoot.transform, "Kuun pinta 1", "muuri_kuupinta_a", WallSurfX0, SurfBasePx, -10000);   // kuva jaettu kahtia (enimmäisleveys 8192)
             float surfHalfPx = surfImgA != null ? surfImgA.sprite.rect.width : 4558f;
             var surfImgB = Image(surfRoot.transform, "Kuun pinta 2", "muuri_kuupinta_b", WallSurfX0, SurfBasePx + surfHalfPx, -10000);
@@ -220,7 +226,8 @@ public static partial class BeatEmUpSetup
             var surf = MakeArea("Alue: Muurin kuun pinta", "Muurin kuun pinta", WallSurfX0, SurfWallPx, surfPx);
             surf.walkMaxX = WallSurfX0 + SurfWalkMaxPx / ppu; surf.gravityScale = 0.4f; surf.camJumpLift = 0.6f;   // kuun heikko painovoima
             Para(surfRoot.transform, surf, "Tähdet", "muuri_kuupinta_tahdet", 0.02f, -10150, H * 0.5f);   // kuva on kaksinkertaisen korkea (peilattu ylös), koska kamera nousee hypyssä
-            Para(surfRoot.transform, surf, "Kaukaiset kraatterit", "muuri_kuupinta_far", 0.07f, -10100);   // 0.07: kuva (2389 px) riittää pidentyneelle pinnalle
+            Para(surfRoot.transform, surf, "Kaukaiset kraatterit", "muuri_kuupinta_far", 0.04f, -10100);   // 0.04: kuva (2389 px) riittää pinnan pituudelle (~18600 px)
+            Para(surfRoot.transform, surf, "Linnake", "muuri_kuupinta_linnake", 0.2f, -10050);   // linnake horisontissa maan takana; liukuu esiin kun kävelee vasemmalle, valmis kuva (3344 px: linnake vasemmassa osassa)
             MakeDoor("Kuuasema: kuun pinnalle", "Ulos kuun pinnalle", moon, surf, new Vector3(WallMoonX0 + MoonLeftDoorPx / ppu, moon.maxDepthY, 0f), new Vector2(WallSurfX0 + (SurfDoorPx - 170f) / ppu, Mathf.Lerp(surf.maxDepthY, surf.minDepthY, 0.35f)));
             MakeDoor("Kuun pinta: asemalle", "Mene asemalle", surf, moon, new Vector3(WallSurfX0 + SurfDoorPx / ppu, surf.maxDepthY, 0f), new Vector2(WallMoonX0 + (MoonLeftDoorPx + 130f) / ppu, Mathf.Lerp(moon.maxDepthY, moon.minDepthY, 0.3f)));
 
@@ -235,6 +242,8 @@ public static partial class BeatEmUpSetup
             Para(labRoot.transform, lab, "Ikkunoiden takahuone", "muuri_laboratorio_ikkuna", 0.05f, -10150);   // ikkunoista näkyy toinen laboratorio
             MakeDoor("Kuun pinta: tukikohtaan", "Mene tukikohtaan", surf, lab, new Vector3(WallSurfX0 + BaseDoorPx / ppu, surf.maxDepthY, 0f), new Vector2(WallLabX0 + (LabDoorPx + 130f) / ppu, Mathf.Lerp(lab.maxDepthY, lab.minDepthY, 0.3f)));
             MakeDoor("Laboratorio: ulos", "Ulos kuun pinnalle", lab, surf, new Vector3(WallLabX0 + LabDoorPx / ppu, lab.maxDepthY, 0f), new Vector2(WallSurfX0 + BaseDoorPx / ppu, Mathf.Lerp(surf.maxDepthY, surf.minDepthY, 0.3f)));
+
+            BuildFortressHall(new FortressCtx { jungle = jungle, alp = alp, ucco = ucco, ppu = ppu, H = H, W = W, bottom = bottom, top = top, cy = cy, T = T, surf = surf, NewRoot = NewRoot, Put = Put, MakeArea = MakeArea, Para = Para, MakeDoor = MakeDoor });   // linnake (halli, ovet, pöydät): sama koodi kuin valikossa 340
 
             {   // ovet peittävät laboratorion perspektiiviaukot: ensimmäinen (x 1640, koristeovi) ja toinen (x 8004, oikea käytävä)
                 var dsp = ImportShipSprite(T + "muuri_kaytava_ovi.png", ppu, false, SpriteAlignment.Center);
@@ -594,5 +603,38 @@ public static partial class BeatEmUpSetup
         Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
         EditorSceneManager.MarkSceneDirty(go.scene);
         Info("Peli alkaa nyt kuuasemalta hissin ovelta (x ≈ " + sx.ToString("0.0") + "). Vasen ovi vie kuun pinnalle. Aja 330 ensin, jos muuria ei ole rakennettu. Muissa kentissä tätä ei tarvitse poistaa: aloituskohta korvautuu seuraavalla aloitusvalikolla (esim. 283).");
+    }
+
+    [MenuItem("Beat em up/338. Aloita peli linnakkeen edestä (testaus)", false, 338)]
+    static void StartAtFortress() { WithLevelScenes(StartAtFortressImpl); }
+
+    static void StartAtFortressImpl()
+    {
+        if (PlayModeBlocked()) return;
+        const string areaName = "Muurin kuun pinta";
+        var area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == areaName);
+        string sceneName = null; UnityEngine.SceneManagement.Scene opened = default;
+        if (area == null)
+        {
+            sceneName = AreaSceneName(areaName);
+            if (sceneName != null)
+            {
+                opened = EditorSceneManager.OpenScene("Assets/Scenes/Areas/" + sceneName + ".unity", OpenSceneMode.Additive);
+                area = Object.FindObjectsByType<Area>(FindObjectsSortMode.None).FirstOrDefault(a => a.areaName == areaName);
+            }
+        }
+        if (area == null) { Info("Aluetta \"" + areaName + "\" ei ole: aja valikko 330 (Kiinan muuri kerralla)."); return; }
+        var old = GameObject.Find("Aloituskohta");
+        if (old != null) Undo.DestroyObjectImmediate(old);
+        var go = new GameObject("Aloituskohta");
+        var start = go.AddComponent<GameStart>();
+        float ppu = 941f / (2f * CamHalf);
+        float sx = WallSurfX0 + 1000f / ppu;   // linnakkeen oven (px 640) edessä
+        start.position = new Vector2(sx, Mathf.Lerp(area.maxDepthY, area.minDepthY, 0.4f));
+        if (sceneName == null) start.area = area;
+        else { start.areaName = areaName; start.sceneName = sceneName; EditorSceneManager.CloseScene(opened, true); }
+        Undo.RegisterCreatedObjectUndo(go, "Aloituskohta");
+        EditorSceneManager.MarkSceneDirty(go.scene);
+        Info("Peli alkaa nyt kuun pinnalta linnakkeen oven edestä (x ≈ " + sx.ToString("0.0") + "). Ovi on vasemmalla: Mene linnakkeeseen. Aja 330 ensin, jos muuria ei ole rakennettu.");
     }
 }
