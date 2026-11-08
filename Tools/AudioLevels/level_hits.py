@@ -1,4 +1,4 @@
-# Osuma-, kipu- ja gasp-äänten tasaus suoraan tiedostoihin.
+# Osuma-, kipu- ja gasp-äänten sekä puheiden tasaus suoraan tiedostoihin (kolme ryhmää, kukin omalle tasolleen).
 # Mittaa kaikki hit/isku/osuma- ja pain/kipu/gasp/grunt/aah-äänet (puheet eivät kuulu mukaan) ja skaalaa jokaisen tiedoston
 # oman ryhmänsä tavoitetasolle (ryhmän mediaani). Hiljaisia nostetaan enintään MAX_GAIN, mutta huippu pysyy alle 0 dBFS (ei säröä).
 # Tasaus tehdään tiedostoihin, koska pelin tasaustaulukko (AudioLevels.json) tunnistaa äänet vain nimen ja keston perusteella:
@@ -17,12 +17,14 @@ SCAN = ["Assets/Audio", "Assets/Resources"]
 SKIP_DIRS = ("Musiikki", "vehicles")
 HIT = ("hit", "isku", "osuma", "slap", "punch", "impact")
 PAIN = ("pain", "kipu", "gasp", "grunt", "aah", "hurt", "ouch")
-NOT = ("lataus", "speak", "puhe", "welcome", "taunt", "voice", "say")
+SPEECH = ("speak", "puhe", "welcome", "repliikki", "tervetuloa")   # puheet (oma ryhmä)
+NOT = ("lataus", "taunt", "voice", "say")
 MAX_GAIN, MIN_GAIN, PEAK_MAX = 4.0, 0.2, 0.97
 BACKUP = "Tools/AudioLevels/alkuperaiset"
 
 def group(name):
     n = name.lower()
+    if any(k in n for k in SPEECH): return "puhe"
     if any(k in n for k in NOT): return None
     if any(k in n for k in PAIN): return "kipu"
     if any(k in n for k in HIT): return "osuma"
@@ -48,7 +50,7 @@ def main():
                               key=name + "|" + str(int(round(len(d) / sr * 100)))))
     with open("Assets/Resources/AudioLevels.json", encoding="utf-8") as f: table = json.load(f)
     old = dict(zip(table["names"], table["gains"]))
-    for g in ("osuma", "kipu"):
+    for g in ("osuma", "kipu", "puhe"):
         grp = [i for i in items if i["group"] == g]
         if not grp: continue
         target = float(np.median([i["db"] for i in grp]))
