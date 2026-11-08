@@ -40,7 +40,7 @@ public static class AudioLevels
     public static float Gain(AudioClip clip)
     {
         if (!Enabled || clip == null) return 1f;
-        if (clip.name.StartsWith("latkafani_")) return clip.name.StartsWith("latkafani_puhe") || clip.name.StartsWith("latkafani_voitto") ? 1.2f : 0.5f;   // vain puheet täydellä; kaikki muu (isku, kipu, heitto, voitonhuuto) puoleen: olivat liian kovia
+        if (clip.name.StartsWith("latkafani_") && !clip.name.StartsWith("latkafani_pain")) return   // kipuäänet on tasattu tiedostoihin (Tools/AudioLevels/level_hits.py) clip.name.StartsWith("latkafani_puhe") || clip.name.StartsWith("latkafani_voitto") ? 1.2f : 0.5f;   // vain puheet täydellä; kaikki muu (isku, kipu, heitto, voitonhuuto) puoleen: olivat liian kovia
         if (table == null) Load();
         if (!table.TryGetValue(clip.name, out var l) || l.Count == 0) return 1f;
         float best = 1f, bestD = 0.2f;   // samannimisistä valitaan lähin kesto (enintään 0,2 s ero)

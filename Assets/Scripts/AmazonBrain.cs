@@ -475,7 +475,7 @@ public class AmazonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             if (t >= dodge.Length * dodgeFrameTime) { phase = Phase.Counter; t = 0f; Shout(); e.FacingRight = hero.transform.position.x > transform.position.x; }
             return;
         }
-        int k = Mathf.Min((int)(t / counterFrameTime), counter.Length - 1);
+        int k = Mathf.Min(AttackEase.Frame(t, counterFrameTime, counterImpactFrame), counter.Length - 1);   // vastaiskun veto kiihtyy
         CurrentSprite = counter[k];
         if (!counterHit && k >= counterImpactFrame)
         {

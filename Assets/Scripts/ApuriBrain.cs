@@ -286,7 +286,7 @@ public class ApuriBrain : MonoBehaviour, IEnemyBrain
         e.BrainPhaseSet(t >= wind - 0.05f && t < wind + 0.12f ? Enemy.BrainPhase.Punch : Enemy.BrainPhase.Windup);
         if (t < wind)
         {   // lataus lähellä: kuvat 0..impact-1 vauhdissa eteenpäin
-            CurrentSprite = tackle[Mathf.Min((int)(t / tackleFrameTime), imp - 1)];
+            CurrentSprite = tackle[AttackEase.Wind(t, wind, imp)];   // lataus kiihtyy
             e.BrainMove(new Vector2(face * glideV * dt, 0f));
             float dy = hero.transform.position.y - transform.position.y;
             if (Mathf.Abs(dy) > e.depthTolerance * 0.6f) e.BrainMove(new Vector2(0f, Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), depthSpeed * 0.8f * dt)));
@@ -368,7 +368,7 @@ public class ApuriBrain : MonoBehaviour, IEnemyBrain
         var seq = (jabStep % 2 == 0) ? jab1 : (Has(jab2) ? jab2 : jab1);
         int imp = (jabStep % 2 == 0) ? jab1Impact : jab2Impact; imp = Mathf.Min(imp, seq.Length - 2);
         float wind = imp * jabFrameTime * (jabStep > 0 ? 0.7f : 1f);
-        int pos = jabT < wind ? Mathf.Min((int)(jabT / Mathf.Max(0.001f, wind) * imp), imp - 1 < 0 ? 0 : imp - 1)
+        int pos = jabT < wind ? AttackEase.Wind(jabT, wind, imp)
                               : Mathf.Min(imp + (int)((jabT - wind) / jabFrameTime), seq.Length - 1);
         CurrentSprite = seq[Mathf.Max(0, pos)];
         e.BrainPhaseSet(jabT >= wind - 0.04f && jabT < wind + 0.1f ? Enemy.BrainPhase.Punch : Enemy.BrainPhase.Windup);

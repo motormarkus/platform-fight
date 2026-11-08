@@ -601,6 +601,7 @@ public class ArcadeSini : MonoBehaviour
         stage = 0; mood = 20f; sel = 0; lastY = 0f;
         coffeePages = false;
         treeMode = false;
+        dqStep = 0; dqChoose = false;
         if (persona == Persona.Sini && home && coffeeVisits == 0) { BeginTree(false); return; }
         if (persona == Persona.Sini && home) { coffeePages = true; pages = BuildCoffeePages(); page = 0; phaseT = 0f; return; }
         if (persona == Persona.Dina) { pages = BuildDinaPages(); page = 0; phaseT = 0f; return; }
@@ -617,6 +618,8 @@ public class ArcadeSini : MonoBehaviour
         int hi = BestScore();
         if (hi > dinaRecord && !Claimed)
             return new[] { "Hetkinen... " + hi.ToString("N0") + " pistettä? Sinä rikoit ennätykseni!", "Reilusti voitettu. Sovittu on sovittu: tämä on sinulle." + (rewardMoney > 0 ? " (+" + rewardMoney + ")" : "") };
+        if (LaundryQuest.KeyGiven && !home)
+            return new[] { "Pyykkitupa on sinun käsissäsi. Avain on sinulla, Bricktown Ave 13. Kiitos jo etukäteen!" };
         if (Claimed)
             return new[] { "Sinä olet nyt Tähtipyssyn kuningas. Ennätys on sinun: " + hi.ToString("N0") + ".", "Minä harjoittelen vielä. Kyllä minä sen vielä takaisin otan." };
         return new[] {
@@ -864,25 +867,78 @@ public class ArcadeSini : MonoBehaviour
         coffeeVisits++;
     }
 
+    // ---------- Dina: pyykkitupa-sivutehtävä (valinta jutun jälkeen) ----------
+    // dqStep: 0 ei käynnissä, 1 pyyntö, 2 myönnetty (Dina selittää), 3 Rocco vastaa (valinta), 4 avain, 5 kieltäytyminen
+    int dqStep; bool dqChoose; string[] dqOpts; int dqSel; float dqLastY;
+
+    void DqPages(int step, params string[] p) { dqStep = step; pages = p; page = 0; phaseT = 0f; dqChoose = false; }
+
+    /// Dinan sivut loppuivat. Palauttaa true, jos tehtävädialogi jatkuu (juttelu ei vielä pääty).
+    bool DinaQuestPagesEnded()
+    {
+        if (persona != Persona.Dina || home || coffeePages) return false;
+        switch (dqStep)
+        {
+            case 0:
+                if (LaundryQuest.KeyGiven) return false;
+                DqPages(1, "Äitini ei uskalla mennä mellakoiden takia pyykkituvalle. Voisitko kenties auttaa?");
+                page = 0; return true;
+            case 1:
+                page = pages.Length - 1; dqChoose = true; dqSel = 0; dqLastY = 0f; phaseT = 0f;
+                dqOpts = new[] { "Tottakai, kerro mitä pitää tehdä.", "Joku toinen kerta, on vähän kiire." };
+                return true;
+            case 2:
+                page = pages.Length - 1; dqChoose = true; dqSel = 0; dqLastY = 0f; phaseT = 0f;
+                dqOpts = new[] { "Tiedän, asun siellä! Tarkistan pyykkituvan heti, minulla ei tosin ole avainta sinne…" };
+                dqStep = 3; return true;
+            case 4:
+                LaundryQuest.GiveKey();
+                dqStep = 0; return false;   // normaali lopetus
+            case 5:
+                dqStep = 0; return false;
+        }
+        return false;
+    }
+
+    void DinaQuestChoose(int i)
+    {
+        int n = dqOpts.Length;
+        float y = CoopInput.Move(i).y;
+        if (y > 0.6f && dqLastY <= 0.6f) dqSel = (dqSel + n - 1) % n;
+        else if (y < -0.6f && dqLastY >= -0.6f) dqSel = (dqSel + 1) % n;
+        dqLastY = y;
+        if (phaseT <= 0.25f || !(CoopInput.Pick(i) || CoopInput.Punch(i))) return;
+        dqChoose = false;
+        if (dqStep == 1)
+        {
+            if (dqSel == 0) DqPages(2, "Mahtavaa, olet niin huippu tyyppi Rocco! Äitini kerrostalon pyykkitupa on jengiläisten vallassa. Jos saisit heidät häädettyä sieltä? Osoite on Bricktown Ave 13, tiedätkö missä se on?");
+            else DqPages(5, "…jeps.");
+        }
+        else if (dqStep == 3)
+            DqPages(4, "Tässä on avain sinne. Kiitos tosi paljon!");
+    }
+
     void UpdateChatDina(Vector3 p)
     {
         if (chatPc == null) { Set(S.Idle); return; }
         int i = chatPc.playerIndex;
         if (Has(talk)) body.sprite = Loop(talk, t, talkFrameTime);
-        if (CoopInput.Kick(i)) { EndChat("Nähdään!", false); return; }
+        if (CoopInput.Kick(i)) { dqStep = 0; dqChoose = false; EndChat("Nähdään!", false); return; }
+        if (dqChoose) { DinaQuestChoose(i); return; }
         if (phaseT > 0.3f && (CoopInput.Pick(i) || CoopInput.Punch(i)))
         {
             page++; phaseT = 0f;
             if (page >= pages.Length)
             {
-                if (coffeePages) Coffee(chatPc);
-                else if (BestScore() > dinaRecord && !Claimed)
+                if (dqStep == 0 && !coffeePages && BestScore() > dinaRecord && !Claimed)
                 {
                     var pc = chatPc;
                     PlayerPrefs.SetInt(ClaimKey, 1); PlayerPrefs.Save();
                     if (rewardMoney > 0) pc.AddMoney(rewardMoney);
                     RecordBeaten?.Invoke(pc);
                 }
+                if (DinaQuestPagesEnded()) return;
+                if (coffeePages) Coffee(chatPc);
                 EndChat("Nähdään!", false);
                 return;   // EndChat nollaa chatPc:n
             }
@@ -895,6 +951,19 @@ public class ArcadeSini : MonoBehaviour
         if (pages == null || page >= pages.Length) return;
         float w = H * 1.15f, x = (W - w) * 0.5f, lh = H * 0.075f, y = H * 0.66f;
         GUI.Box(new Rect(x, y, w, lh * 1.7f), npcName + ": " + Loc.T(pages[page]), box);
+        if (dqChoose && dqOpts != null)
+        {
+            y += lh * 1.8f;
+            for (int k = 0; k < dqOpts.Length; k++)
+            {
+                var old = GUI.backgroundColor;
+                GUI.backgroundColor = k == dqSel ? new Color(1f, 0.85f, 0.3f) : new Color(0.3f, 0.3f, 0.35f);
+                GUI.Box(new Rect(x, y, w, lh * 1.3f), (k == dqSel ? "▶  " : "    ") + Loc.T(dqOpts[k]), small);
+                GUI.backgroundColor = old;
+                y += lh * 1.35f;
+            }
+            return;
+        }
         GUI.Label(new Rect(x, y + lh * 1.75f, w, lh * 0.8f), Loc.T("E jatka, K poistuu"), small);
     }
 

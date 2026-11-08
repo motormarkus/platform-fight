@@ -434,6 +434,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float runSpeedMultiplier = 1.3f;
     [Tooltip("Kuinka usein lähin vihu kiertää pelaajan selän taakse (0–1).")]
     [Range(0f, 1f)] public float flankChance = 0.25f;
+    [Tooltip("Iskun jälkeen todennäköisyys kiertää heron selän taakse ja iskeä heti uudestaan (Punkkari).")]
+    [Range(0f, 1f)] public float postHitFlankChance = 0f;
+    bool forcedFlank;
     [Tooltip("Kierrettäessä kaarretaan syvyyssuunnassa näin kauas pelaajan ohi.")]
     public float flankArcDepth = 1.3f;
     [Tooltip("Kuinka usein hyökkäyksen jälkeen perääntyy hetkeksi (0–1).")]
@@ -470,6 +473,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float slapWindup = 1.0f, slapTime = 0.2f, slapStep = 0.16f, slapReach = 2.2f;
     [Tooltip("Läpsykombo liukuu tasaisesti eteenpäin koko sarjan ajan (Horhe: slapStep per läpsy).")]
     public bool slapGlide;
+    [Tooltip("Suojan murto: näin monen torjutun läpsyn jälkeen suoja murtuu (hero horjuu) ja loput läpsyt osuvat. 0 = ei murru.")]
+    public int slapGuardBreak;
     [Tooltip("Läpsykombon latauksen ääni (tyhjä: punch3WindupSounds).")]
     public AudioClip[] slapWindupSounds;
     [Tooltip("Nauru, kun tämä vihu (tai kuka tahansa lähellä) kaataa heron.")]
@@ -543,7 +548,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public int kickDamage1 = 14, kickDamage2 = 20;
     public float kickReach = 3.9f, kickStartRange = 3.6f;
     public AudioClip[] kickComboSounds;
-    static readonly float[] KickTimes = { 0.08f, 0.08f, 0.08f, 0.09f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f,
+    static readonly float[] KickTimes = { 0.13f, 0.08f, 0.04f, 0.09f,   // lataus kiihtyy (0–2), osuma 3
+                                          0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f, 0.08f,
                                           0.1f, 0.1f, 0.1f, 0.09f, 0.09f, 0.09f, 0.09f, 0.1f };
     const int KickHit1 = 3, KickHit2 = 14;
     int kicksDone; bool kickSoundPlayed;
@@ -1166,9 +1172,51 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public void WakeUp() { awake = true; }
     void OnDisable() { All.Remove(this); if (heldBottle != null) { heldBottle.Drop(); heldBottle = null; } }   // pois pelistä: kädessä oleva piirakka ei jää jumiin
 
+    static Sprite[] punkCrossShared; static bool punkCrossTried;
+    /// Punkkarin takakäden suora (Resources/Punkkari/punk_takasuora: 5 kuvaa 512 x 384). Palautus: jatkokuva 4, sitten kuvat 3, 2, 1.
+    static Sprite[] PunkCrossSprites()
+    {
+        if (!punkCrossTried)
+        {
+            punkCrossTried = true;
+            var tx = Resources.Load<Texture2D>("Punkkari/punk_takasuora");
+            if (tx != null && tx.width >= 2560 && tx.height >= 384)
+            {
+                var f = new Sprite[5];
+                for (int i = 0; i < 5; i++) { f[i] = Sprite.Create(tx, new Rect(i * 512, 0, 512, 384), new Vector2(0.5f, 0f), 100f, 0, SpriteMeshType.FullRect); f[i].name = "punk_takasuora_" + i; }
+                // veto kiihtyy (kuva 0 pitkään, 1 lyhyemmin, 2 hetken), osuma kuvassa indeksi 6, jatkokuva, paluu
+                // jatkokuva (4) pidetään kuusinkertaisena: ojennettu isku näkyy pitkään ja iskee tehokkaammin
+                punkCrossShared = new[] { f[0], f[0], f[0], f[1], f[1], f[2], f[3], f[4], f[4], f[4], f[4], f[4], f[4], f[3], f[2], f[1] };
+            }
+        }
+        return punkCrossShared;
+    }
+
+    /// Punkkarin kombot: jab + takakäden suora (JS) ja jab + suora + pusku (JSP); iskun jälkeen joskus kierto selän taakse.
+    void SetupPunkCombos()
+    {
+        var cross = PunkCrossSprites();
+        if (cross == null || Has(punch2Sprites)) return;
+        punch2Sprites = cross; punch2ImpactFrame = 6; punch2TimeScale = 0.7f; punch2Damage = 11; punch2Knockdown = false; punch2Chance = 0.15f; punch2LaunchUp = 0f;
+        combos = new[] { "JS", "JS", "JSP" }; comboChance = 0.4f; comboWindupScale = 0.6f; comboGap = 0.08f;
+        altChance = Mathf.Min(altChance, 0.3f);
+        postHitFlankChance = 0.3f;
+    }
+
+    /// Lippiksen takasuora ja kombo JSP (jab, takasuora, potku); väistö ja counter tulevat LippisBrainista.
+    void SetupLippis()
+    {
+        var cross = LippisBrain.Cross;
+        if (cross == null || Has(punch2Sprites)) return;
+        punch2Sprites = cross; punch2ImpactFrame = 6; punch2TimeScale = 0.65f; punch2Damage = 12; punch2Knockdown = false; punch2Chance = 0.15f; punch2LaunchUp = 0f;
+        combos = new[] { "JSP" }; comboChance = 0.35f; comboWindupScale = 0.6f; comboGap = 0.08f;
+        altChance = Mathf.Min(altChance, 0.3f);
+    }
+
     void Awake()
     {
         health = maxHealth;
+        if (displayName == "Lippis" && GetComponent<LippisBrain>() == null && LippisBrain.Cross != null) gameObject.AddComponent<LippisBrain>();
         brain = GetComponent<IEnemyBrain>();
         // uusi rokkimimmi (valikko 73) asetti herätysetäisyydeksi -1 (rauhallinen baarin asiakas): dinerin, peltihallin ja junan rokkimimmit hyökkäävät kuten muut vihut
         if (displayName == "Rokkimimmi" && wakeDistance < 0f && (name.StartsWith("Dinerin") || name.StartsWith("Peltihallin") || name.Contains("(vaunu"))) { wakeDistance = name.Contains("(vaunu") ? 8f : 12f; wakeOnFightRadius = 0f; }
@@ -1243,7 +1291,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
             punch2Uppercut = true; punch2Damage = Mathf.Max(punch2Damage, 16); punch2Chance = Mathf.Max(punch2Chance, 0.45f);
             hammerArt = true; punch3Unblockable = true; punch3WindupTime = Mathf.Max(punch3WindupTime, 0.75f);
             // läpsykombo liukuu reilusti eteen (10 läpsyä ≈ 5 yksikköä)
-            slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.6f);
+            slapGlide = true; slapStep = Mathf.Max(slapStep, 0.5f); slapReach = Mathf.Max(slapReach, 2.9f);
+            // vaarallisempi läpsykombo: nopeammat ja kovemmat läpsyt, 12 kpl, viimeinen kaataa lujaa; suoja murtuu viidennestä torjutusta läpsystä
+            slapCount = Mathf.Max(slapCount, 12); slapDamage = Mathf.Max(slapDamage, 5); slapFinalDamage = Mathf.Max(slapFinalDamage, 18);
+            slapTime = Mathf.Min(slapTime, 0.16f); slapWindup = Mathf.Min(slapWindup, 0.85f); slapGuardBreak = 5;
             // tuplanyrkkivasaran ääni myös läpsykombon lataukseen
             var hv = Resources.Load<AudioClip>("Sfx/horhe/horhe_vasara");
             if (hv != null) { slapWindupSounds = new[] { hv }; punch3WindupSounds = new[] { hv }; }
@@ -1469,6 +1520,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         SortAnimationFrames(headlockThrownSprites);
         SortAnimationFrames(headlockFlightSprites);
         SortAnimationFrames(kneeHeldSprites);
+        if (displayName == "Punkkari") SetupPunkCombos();
+        if (displayName == "Lippis") SetupLippis();
         if (shadow != null && shadow.sprite == null) shadow.sprite = PlayerController.CreateShadowSprite();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
@@ -1707,7 +1760,13 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 if (stateTime >= CurrentRecover)
                 {
                     cooldown = attackCooldown * Random.Range(0.7f, 1.3f);
-                    if (Random.value < retreatChance) retreatTimer = retreatTime;   // iske ja vetäydy
+                    if (postHitFlankChance > 0f && !ComboContinues && player != null && Random.value < postHitFlankChance)
+                    {
+                        // iske ja kierrä: selän taakse ja heti uusi isku
+                        forcedFlank = true; flanking = true; retreatTimer = 0f;
+                        cooldown = Mathf.Min(cooldown, 0.55f);
+                    }
+                    else if (Random.value < retreatChance) retreatTimer = retreatTime;   // iske ja vetäydy
                     Enter(State.Idle);
                 }
                 break;
@@ -1950,7 +2009,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     {   // heitolla/kovalla iskulla kuollut luuranko hajoaa heti maahan osuessaan (ei vasta makuun jälkeen)
                         burstOffset = 1; slideLand = false; Enter(State.Dead); PlayBurstSound();
                         BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, knockVel.x >= 0f ? 1f : -1f);
-                        bool rareB = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
+                        bool rareB = LaundryQuest.RollBigMoney(stackChance); Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
                         break;
                     }
                     Enter(State.Down);
@@ -1975,8 +2034,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     if (ringFall && health > 0) { DropRing(0.3f); ringFall = false; }
                     if (health <= 0 && undying) { health = 1; undyingFallen = true; }   // muu kuolemantie (heitto, ote): sama kuin iskussa
-                    if (health <= 0 && Has(burstSprites)) { burstOffset = 1; Enter(State.Dead); PlayBurstSound(); BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, knockVel.x >= 0f ? 1f : -1f); bool rareL = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareL ? stackValue : noteValue, rareL); if (isBoss) Clues.BossDown(displayName); }
-                    else if (health <= 0) { Enter(State.Dead); bool rare = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); if (isBoss) Clues.BossDown(displayName); }
+                    if (health <= 0 && Has(burstSprites)) { burstOffset = 1; Enter(State.Dead); PlayBurstSound(); BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, knockVel.x >= 0f ? 1f : -1f); bool rareL = LaundryQuest.RollBigMoney(stackChance); Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareL ? stackValue : noteValue, rareL); if (isBoss) Clues.BossDown(displayName); }
+                    else if (health <= 0) { Enter(State.Dead); bool rare = LaundryQuest.RollBigMoney(stackChance); Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rare ? stackValue : noteValue, rare); if (isBoss) Clues.BossDown(displayName); }
                     else
                     {
                         rollFirst = Has(getUpRollSprites) && (slamLanded || flipLanded);   // heitosta selälleen: ensin vatsalleen
@@ -2300,7 +2359,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int BarFrame() => ThrowPose.Index(usingTireThrow ? tireThrowTimes : BarThrowTimes, stateTime);
 
     bool HasSlaps => slapSprites != null && slapSprites.Length >= 8;
-    int slapsDone;
+    int slapsDone, slapsBlocked;
 
     /// Läpsykombo: lataus (takakäsi taakse, tärisee), sitten slapCount läpsyä vuorokäsin, joka läpsyllä askel eteen.
     /// Osuu torjumatta jäävään joka kerta (pelaaja jää osumatilaan), viimeinen kaataa. Suojaus torjuu kaikki.
@@ -2324,6 +2383,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     PlaySlap();   // läimäys osuessa ja torjuttaessa
                     bool last = slapsDone >= slapCount;
+                    if (slapGuardBreak > 0 && !last && player.BlocksFrom(transform.position.x) && ++slapsBlocked >= slapGuardBreak)
+                    {   // suoja murtuu: hero horjuu, ja loput läpsyt osuvat (viimeinen kaataa)
+                        slapsBlocked = -999;
+                        player.TakeHit(slapDamage, transform.position.x, this, true);
+                        player.Daze(0.5f);
+                        HitFx.PlayWhoosh();
+                        if (CameraFollow.Instance != null) CameraFollow.Shake(0.2f, 0.2f);
+                        return;
+                    }
                     if (last) player.TakeKnockdown(slapFinalDamage, transform.position.x, 6f, 4f, this);
                     else player.TakeHit(slapDamage, transform.position.x, this, true);
                 }
@@ -2755,7 +2823,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (s == State.GetUp && getUpVoice != null && audioSource != null && Random.value < getUpVoiceChance && Time.time >= nextGetUpVoice) { nextGetUpVoice = Time.time + getUpVoiceGap; audioSource.PlayOneShotLeveled(getUpVoiceAlt != null && Random.value < 0.5f ? getUpVoiceAlt : getUpVoice, 1f); }
         if (s == State.Slaps)
         {
-            slapsDone = 0;
+            slapsDone = 0; slapsBlocked = 0;
             shakeUntil = Time.unscaledTime + slapWindup * 0.85f;   // lataus: tärisee (varoitus, ehtii suojata)
             PlayClipFrom(slapWindupSounds != null && slapWindupSounds.Length > 0 ? slapWindupSounds : punch3WindupSounds, punch3Volume);
         }
@@ -3023,7 +3091,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (cooldown <= 0f && !attackRolled)
         {
             grabIntent = grabsHero && Has(grabSprites) && Random.value < grabChance;
-            flanking = otherFighterVisible && Random.value < flankChance;
+            flanking = otherFighterVisible && (forcedFlank || Random.value < flankChance);
+            forcedFlank = false;
             attackRolled = true;
         }
         float dist = grabIntent ? grabRange * 0.6f : attackRange * 0.8f;   // heittoa varten mennään aivan viereen
@@ -3333,10 +3402,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (player == null) return;
         Vector3 p = player.transform.position, me = transform.position;
         float dx = p.x - me.x;
+        bool burst = true;   // jokainen töytäisy lennättää: anteliaampi osumaetäisyys (hero hakkaa pomoa lähietäisyydeltä seinää vasten), suunta käännetään iskuhetkellä
+        if (burst) facingRight = dx >= 0f;
         bool front = facingRight ? dx >= -0.3f : dx <= 0.3f;
-        if (!front || Mathf.Abs(dx) > bellyRange + 0.3f || Mathf.Abs(p.y - me.y) > depthTolerance) return;
-        if (player.AirHeight > 0.9f) return;
-        player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this, true);   // vatsatöytäisyä ei voi torjua
+        float rangeX = bellyRange + (burst ? 1.0f : 0.3f), tolY = depthTolerance * (burst ? 1.5f : 1f);
+        if (!front || Mathf.Abs(dx) > rangeX || Mathf.Abs(p.y - me.y) > tolY) { if (burst) Debug.Log("[Purkaus] töytäisy meni ohi: dx=" + dx.ToString("0.0") + " dy=" + (p.y - me.y).ToString("0.0")); return; }
+        if (player.AirHeight > (burst ? 2.2f : 0.9f)) return;
+        if (!player.TakeKnockdown(bellyDamage, me.x, bellyKnockSpeed, bellyKnockUp, this, true) && burst)   // vatsatöytäisyä ei voi torjua
+            Debug.Log("[Purkaus] hero ei lentänyt (tila: iskunkestävä tai jo kaatumassa)");
     }
 
     // ---------------- Vihut toisiaan vastaan ----------------
@@ -3859,6 +3932,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             if (bellyPressure >= (chainLock ? (pinned ? 6 : 9) : (pinned ? 3 : 5)) && Time.time >= (pinned ? bellyBurstCd - 1f : bellyBurstCd))   // kymmenen iskun ketjussa vasta lähes lopussa
             {
                 bellyPressure = 0; bellyBurstCd = Time.time + 3.5f; comboHits = 0; tackleAfterBelly = Has(altAttackSprites);
+                breakoutUntil = Time.time + BellyTotalTime;   // purkaustöytäisy läpäisee suojat ja lennättää heron kauas (CornerBurstOn)
                 Debug.Log("[Purkaus] " + displayName + ": vatsatöytäisy + taklaus" + (tackleAfterBelly ? "" : " (ei taklauskuvia)"));
                 JustBlocked = true;
                 shakeUntil = HitFx.ShakeUntil(false);
@@ -3913,7 +3987,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
             knockVel = Vector2.zero; moving = false;
             burstOffset = 0; Enter(State.Dead); PlayBurstSound();
             BoneBurst.Spawn(transform.position, Mathf.Max(0.1f, visualScale), Mathf.RoundToInt(-transform.position.y * 100f) + 10, fromLeft ? 1f : -1f);
-            bool rareB = Random.value < stackChance; Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
+            bool rareB = LaundryQuest.RollBigMoney(stackChance); Pickup.DropFromEnemy(transform.position, isBoss, displayName); Pickup.SpawnMoney(transform.position, rareB ? stackValue : noteValue, rareB); if (isBoss) Clues.BossDown(displayName);
             return true;
         }
         if (isBoss && health > 0 && !chainLock && BossBreakout(knockdown)) return true;   // pomo pääsee irti, kun sitä hakataan nurkassa
@@ -3954,6 +4028,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
     // Kapteeni kierrepotku, Romuukko erikoisisku, Deacon vimmattu sarja (aivo), Gustav kirves + takapotku (aivo).
     float bossPressure, bossPressureAt = -9f, breakoutUntil, breakoutCd;
     public bool CornerBurstOn => Time.time < breakoutUntil;
+    public bool IsBellying => state == State.Belly;
 
     /// Aivo käynnistää purkauksen itse (ei nurkassa): iskut lennättävät heron sivuun dur sekunnin ajan.
     public void BeginBurstWindow(float dur)
@@ -4029,8 +4104,14 @@ public class Enemy : MonoBehaviour, IBottleHolder
         flashTimer = 0.3f;
         float dur = 2.8f;
         var cb = brain as ICornerBurstBrain;
-        if (cb != null && brain.enabled) { cb.CornerBurst(); dur = 3.4f; }
-        else
+        bool brainBurst = false;
+        if (cb != null && brain.enabled)
+        {
+            cb.CornerBurst();
+            brainBurst = !(brain is IPartialBrain pb) || pb.Active;   // osittainen aivo ei aina aloita liikettä (ei sopivaa): silloin tavallinen purkaus
+            if (brainBurst) dur = 3.4f;
+        }
+        if (!brainBurst)
         {
             string seq = BurstSeq();
             usingCap = usingCapCross = usingAlt = usingPunch2 = usingPunch3 = usingUppercut = usingDoubleKick = false;
@@ -4744,7 +4825,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
                 {
                     // veto taakse: kuvat ennen iskun liikettä (esim. 0 ja 1), jaettuna vetoajalle
                     int wind = Mathf.Clamp(PunchImpact - 1, 1, AtkSprites.Length);
-                    return AtkSprites[Mathf.Min((int)(stateTime / CurrentWindup * wind), wind - 1)];
+                    return AtkSprites[AttackEase.Wind(stateTime, CurrentWindup, wind)];
                 }
                 rot = 10f * Mathf.Clamp01(stateTime / Mathf.Max(0.01f, CurrentWindup));   // ei iskukuvia: nojaa taakse vetäessä
                 return IdleFrame();
@@ -4956,8 +5037,10 @@ public class Enemy : MonoBehaviour, IBottleHolder
     Sprite[] AtkSprites => usingCap ? capSprites : usingCapCross ? capCrossSprites : usingDoubleKick ? doubleKickSprites : usingAlt ? altAttackSprites : usingUppercut ? uppercutSprites : usingPunch3 ? punch3Sprites : usingPunch2 ? punch2Sprites : punchSprites;
     int PunchImpact => Mathf.Clamp(usingCap ? capImpactFrame : usingCapCross ? capCrossImpactFrame : usingDoubleKick ? doubleKickImpactFrame : usingAlt ? altImpactFrame : usingUppercut ? uppercutImpactFrame : usingPunch3 ? punch3ImpactFrame : usingPunch2 ? punch2ImpactFrame : punchImpactFrame, 0, AtkSprites.Length - 1);
     float CurrentWindup => (usingCap ? capWindupTime : usingCapCross ? capCrossWindup : usingDoubleKick ? Mathf.Max(0.1f, doubleKickImpactFrame * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, altImpactFrame * altAnimationFrameTime) : (windupTime + altExtraWindup) * altTimeScale) : usingUppercut ? (ChargedUppercut ? uppercutChargeTime : uppercutWindupTime) : usingPunch3 ? punch3WindupNow : windupTime)
-                           * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f);
-    float CurrentRecover => usingCap ? capRecoverTime : usingCapCross ? capCrossRecover + CapPickTime : usingDoubleKick ? Mathf.Max(0.1f, (doubleKickSprites.Length - doubleKickImpactFrame) * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, (altAttackSprites.Length - altImpactFrame) * altAnimationFrameTime) : punchRecoverTime * altTimeScale) : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
+                           * (comboSeq != null && comboPos > 0 ? comboWindupScale : 1f) * (counterActive ? 0.6f : 1f) * (usingPunch2 && !usingAlt && !usingUppercut && !usingPunch3 ? punch2TimeScale : 1f);
+    [Tooltip("Toisen iskun (S, suora) vedon ja palautuksen aikakerroin; alle 1 = nopeampi.")] public float punch2TimeScale = 1f;
+    float CurrentRecover => (usingPunch2 && !usingAlt && !usingUppercut && !usingPunch3 && !usingCap && !usingCapCross && !usingDoubleKick ? punch2TimeScale : 1f) * CurrentRecoverBase;
+    float CurrentRecoverBase => usingCap ? capRecoverTime : usingCapCross ? capCrossRecover + CapPickTime : usingDoubleKick ? Mathf.Max(0.1f, (doubleKickSprites.Length - doubleKickImpactFrame) * Mathf.Max(0.01f, doubleKickFrameTime)) : usingAlt ? (altAnimationFrameTime > 0f ? Mathf.Max(0.01f, (altAttackSprites.Length - altImpactFrame) * altAnimationFrameTime) : punchRecoverTime * altTimeScale) : usingUppercut ? uppercutRecoverTime : usingPunch3 ? punch3RecoverTime : punchRecoverTime;
     float CurrentReach => usingCap ? capReach : usingCapCross ? attackRange + 0.4f : usingDoubleKick ? doubleKickReach : usingAlt ? altReach : usingUppercut ? uppercutReach : usingPunch3 ? punch3Reach : attackRange;
 
 

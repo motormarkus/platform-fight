@@ -9,7 +9,7 @@ using UnityEngine;
 /// Kuvat katsovat oikealle. Kuvajärjestykset tulevat editorivalikosta (282).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class SantaBrain : MonoBehaviour, IEnemyBrain
+public class SantaBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 {
     [Header("Kuvat (editori täyttää)")]
     public Sprite[] idle, walk, run;
@@ -142,7 +142,7 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
     static float[] Dur(int n, float wind, int impact, float hold, float rec)
     {
         var d = new float[n];
-        for (int i = 0; i < n; i++) d[i] = i < impact ? wind : i == impact ? hold : rec;
+        for (int i = 0; i < n; i++) d[i] = i < impact ? wind * AttackEase.Weight(i, impact) : i == impact ? hold : rec;   // veto kiihtyy
         return d;
     }
     static float[] DurRange(int n, (int a, int b, float ft)[] parts)
@@ -419,6 +419,19 @@ public class SantaBrain : MonoBehaviour, IEnemyBrain
         plan.RemoveAll(s => s.kind != Kind.Grab && s.kind != Kind.Drink && !atks.ContainsKey(s.kind));
         comboRunning = plan.Count > 1;
         decisionTimer = Random.Range(decisionPause.x, decisionPause.y) * (berserk ? 0.25f : 1f);
+    }
+
+    /// Nurkkapurkaus (Enemy.BossBreakout): mahatöytäisy ja perään kaatava isku; iskut lennättävät heron toiseen laitaan.
+    public void CornerBurst()
+    {
+        if (mode == Mode.Dormant || mode == Mode.Entrance || e.Hero == null) return;
+        plan = new List<Step>();
+        if (atks.ContainsKey(Kind.Bump)) plan.Add(new Step(Kind.Bump));
+        if (atks.ContainsKey(Kind.P6)) plan.Add(new Step(Kind.P6, true)); else if (atks.ContainsKey(Kind.P2)) plan.Add(new Step(Kind.P2, true));
+        if (plan.Count == 0) return;
+        planPos = 0; comboRunning = plan.Count > 1;
+        lastTick = Time.time;
+        StartStep(e.Hero);
     }
 
     // ---------------- toiminnan suoritus ----------------

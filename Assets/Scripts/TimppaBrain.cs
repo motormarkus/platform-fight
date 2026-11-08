@@ -7,7 +7,7 @@ using UnityEngine;
 /// Kuvat: timppa_puskupaa (8 kuvaa: 0-1 kurotus, 2-7 sarja; osumakuva = impactFrame).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class TimppaBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
+public class TimppaBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBurstBrain
 {
     public Sprite[] buttSprites;
     public int impactFrame = 6;
@@ -65,6 +65,14 @@ public class TimppaBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         Begin();
     }
 
+    /// Nurkkapurkaus: pääpuskusarja heti.
+    public void CornerBurst()
+    {
+        if (active || e == null || e.Hero == null || buttSprites == null || buttSprites.Length <= impactFrame) return;
+        nextButt = Time.time + cooldown; hitTimes.Clear();
+        Begin();
+    }
+
     void Begin()
     {
         active = true; hitDone = false; t = 0f; lastTick = Time.time;
@@ -76,7 +84,7 @@ public class TimppaBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     int FrameAt(float time)
     {
         float reachT = 2f * reachFrameTime;
-        if (time < reachT) return Mathf.Min(1, (int)(time / reachFrameTime));
+        if (time < reachT) return AttackEase.Wind(time, reachT, 2);   // veto kiihtyy
         return Mathf.Min(buttSprites.Length - 1, 2 + (int)((time - reachT) / seriesFrameTime));
     }
 

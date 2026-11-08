@@ -4003,10 +4003,11 @@ public class PlayerController : MonoBehaviour, IBottleHolder
             return true;
         }
         if (state == State.Block && !unblockable) return TakeHit(damage, attackerX, attacker);
-        if (state == State.Hurt || state == State.PieHit || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick || state == State.WhipCatch) return false;
+        bool bellyHit = attacker != null && attacker.IsBellying;   // vatsatöytäisy lennättää aina, vaikka hero olisi kipuasennossa tai suojattu
+        if ((!bellyHit && (state == State.Hurt || state == State.PieHit)) || state == State.Special || state == State.CounterThrow || state == State.Pummel || state == State.HeadCrush || state == State.SplitKick || state == State.WhipCatch) return false;
         damage = GameSettings.ScaleToPlayer(damage);   // vaikeustaso
         if (state == State.Grabbed || state == State.Thrown || state == State.Down || state == State.KipUp) return false;
-        if (GameOver || invulnTimer > 0f) return false;
+        if (GameOver || (invulnTimer > 0f && !bellyHit)) return false;
         bool fromRight = attackerX > transform.position.x;
         if (state == State.Block) Enter(State.Ground);   // torjumaton isku: suoja murtuu
         DropCrate();

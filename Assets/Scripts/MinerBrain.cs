@@ -93,7 +93,7 @@ public class MinerBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
             case Ph.Windup:
             {
                 int count = windupSprites.Length - windupStart;
-                int i = Mathf.Min(windupStart + (int)(t / windupTime), windupSprites.Length - 1);
+                int i = Mathf.Min(windupStart + AttackEase.Wind(t, count * windupTime, count), windupSprites.Length - 1);   // veto kiihtyy
                 CurrentSprite = windupSprites[i];
                 if (fromRun) e.BrainMove(new Vector2(dirSign * runWindupSpeed * dt, 0f));
                 if (hero != null) { e.FacingRight = hero.transform.position.x > transform.position.x; dirSign = e.FacingRight ? 1f : -1f; }

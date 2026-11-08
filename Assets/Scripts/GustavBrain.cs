@@ -362,7 +362,7 @@ public class GustavBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
             if (Mathf.Abs(dy) > e.depthTolerance * 0.6f) e.BrainMove(new Vector2(0f, Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), DepthFollow * 0.8f * dt)));
         }
         int pos;
-        if (t < tWind) pos = a.impact > 0 ? Mathf.Min((int)(t / Mathf.Max(0.001f, tWind) * a.impact), a.impact - 1) : 0;
+        if (t < tWind) pos = a.impact > 0 ? AttackEase.Wind(t, tWind, a.impact) : 0;
         else if (t < tWind + tHold) pos = a.impact;
         else pos = Mathf.Min(a.impact + 1 + (int)((t - tWind - tHold) / Mathf.Max(0.001f, tRec)), a.order.Length - 1);
         CurrentSprite = a.frames[a.order[pos]];

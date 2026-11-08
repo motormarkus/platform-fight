@@ -55,7 +55,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         // ovi on alueen kävelyrajan (walkMinX/walkMaxX) ulkopuolella (esim. muurin tukikohdan käytävät): ulotetaan ovialue rajalle, muuten ovea ei voi käyttää
-        if (here == null || onGround) return;
+        if (here == null || onGround || here.walkMaxX <= here.walkMinX) return;   // ei kävelyrajoja (esim. katu, S-Club: 0/0) = ei rajausta, muuten ovialue kasvaisi tuhansiin yksiköihin
         float x = transform.position.x, gap = Mathf.Max(here.walkMinX - x, x - here.walkMaxX);
         if (gap > 0f && gap + 1.2f > halfWidth) halfWidth = gap + 1.2f;
     }
@@ -103,12 +103,23 @@ public class Door : MonoBehaviour
     public float arrivalOffsetY;
     public float arrivalTime = 0.7f;
 
+    [Tooltip("Piilotettu ovi: ei kehotetta eikä omaa tunnistusta; siirtymän käynnistää koodi (hissin kerrosvalinta) kutsulla Trigger.")]
+    public bool manualOnly;
+    /// Käynnistää siirtymän annetulle pelaajalle (manualOnly-ovet, esim. hissi).
+    public void Trigger(PlayerController who)
+    {
+        if (who == null || busy) return;
+        pc = who;
+        ScreenFader.Host.StartCoroutine(Go());
+    }
+
     PlayerController pc;
     bool near;
     float fade { get { return ScreenFader.Alpha; } set { ScreenFader.Alpha = value; } }   // 0 = näkyvä, 1 = musta; pysyvä pimennys (ScreenFader)
 
     void Update()
     {
+        if (manualOnly) return;
         if (PokerService.BlocksCombat) return;
         if (busy) { near = false; confirming = false; return; }
         if (!confirming)
@@ -312,6 +323,7 @@ public class Door : MonoBehaviour
 
     void OnGUI()
     {
+        if (manualOnly) return;
         if (autoTrigger) { if (Time.unscaledTime < partnerMsgUntil) DrawPartnerHint(); return; }
         if (!near && !confirming) return;
         if (style == null)

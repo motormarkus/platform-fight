@@ -319,7 +319,7 @@ public class TomBrain : MonoBehaviour, IEnemyBrain, IBottleHolder
         e.BrainPhaseSet(active ? Enemy.BrainPhase.Punch : Enemy.BrainPhase.Windup);
         if (t < tWind && tWind > 0.01f && Mathf.Abs(hp.x - me.x) > 1.2f) e.BrainMove(new Vector2(face * a.lunge / tWind * dt, 0f));
         int idx;
-        if (t < tWind) idx = Mathf.Min((int)(t / Mathf.Max(0.001f, tWind) * a.impact), a.impact - 1);
+        if (t < tWind) idx = AttackEase.Wind(t, tWind, a.impact);
         else if (t < tWind + tHold) idx = a.impact;
         else idx = Mathf.Min(a.impact + 1 + (int)((t - tWind - tHold) / tRec), a.frames.Length - 1);
         CurrentSprite = a.frames[idx];

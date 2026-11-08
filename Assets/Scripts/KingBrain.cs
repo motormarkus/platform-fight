@@ -7,7 +7,7 @@ using UnityEngine;
 /// Kuvat: kuningas_tulipallo (latausta releaseFrame kuvaa, sitten toipuminen) ja kuningas_hyppy (12 kuvaa 0,1 s, loput 1/15 s; maahanisku kuvassa slamFrame).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
+public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBurstBrain
 {
     public Sprite[] cast;
     public int releaseFrame = 24;
@@ -84,7 +84,7 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     float SlamTimeAt(int idx) => idx <= slamWindupFrames ? idx * slamWindupTime : slamWindupFrames * slamWindupTime + (idx - slamWindupFrames) * slamFrameTime;
     int SlamIndex(float time)
     {
-        if (time < slamWindupFrames * slamWindupTime) return (int)(time / slamWindupTime);
+        if (time < slamWindupFrames * slamWindupTime) return AttackEase.Wind(time, slamWindupFrames * slamWindupTime, slamWindupFrames);   // veto kiihtyy
         return slamWindupFrames + (int)((time - slamWindupFrames * slamWindupTime) / slamFrameTime);
     }
 
@@ -118,6 +118,19 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         Begin(Phase.Fireball); CurrentSprite = cast[0]; Voice(castVoice);
     }
 
+    /// Nurkkapurkaus: tärisyttävä hyppy (osuu kaikkiin maassa oleviin), muuten heitto.
+    public void CornerBurst()
+    {
+        if (e == null || e.Hero == null || phase != Phase.None) return;
+        if (slam != null && slam.Length > slamFrame)
+        {
+            nextSlam = Time.time + slamCooldown;
+            Begin(Phase.Slam); CurrentSprite = slam[0];
+            if (slamSfx != null && e.Audio != null) e.Audio.PlayOneShot(slamSfx, 1f);
+        }
+        else if (grab != null && grab.Length > grabThrowFrame) { nextGrab = Time.time + grabCooldown; Begin(Phase.Grab); holding = false; CurrentSprite = grab[0]; Voice(throwVoice); }
+    }
+
     void Begin(Phase p)
     {
         phase = p; fired = false; t = 0f; lastTick = Time.time;
@@ -132,7 +145,7 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
         if (phase == Phase.Slam) { SlamTick(); return; }
         if (phase == Phase.Grab) { GrabTick(); return; }
-        int i = Mathf.Min((int)(t / frameTime), cast.Length - 1);
+        int i = Mathf.Min(AttackEase.Frame(t, frameTime, releaseFrame), cast.Length - 1);
         CurrentSprite = cast[i];
         if (!fired && i >= releaseFrame)
         {

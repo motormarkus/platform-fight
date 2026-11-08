@@ -37,6 +37,21 @@ public static class Loc
     static readonly Dictionary<string, string> En = new Dictionary<string, string>
     {
         { "Suutele Auroraa", "Kiss Aurora" },
+        { "Äitini ei uskalla mennä mellakoiden takia pyykkituvalle. Voisitko kenties auttaa?", "My mom is too scared to go to the laundry room because of the riots. Could you maybe help?" },
+        { "Tottakai, kerro mitä pitää tehdä.", "Of course, tell me what to do." },
+        { "Joku toinen kerta, on vähän kiire.", "Some other time, I'm in a bit of a hurry." },
+        { "…jeps.", "…yep." },
+        { "Dinan äiti", "Dina's mom" }, { "Puhu Dinan äidille", "Talk to Dina's mom" },
+        { "Voi kiitos, kultaseni! Sinä ajoit ne roistot pois.", "Oh thank you, dear! You drove those thugs away." },
+        { "Dina kertoi, että tuntee yhden kunnollisen pojan. Hän oli oikeassa.", "Dina said she knows one decent young man. She was right." },
+        { "Tässä, ota tämä onnenamuletti. Se on kulkenut suvussamme sukupolvia.", "Here, take this lucky amulet. It has been in our family for generations." },
+        { "Se tuo onnea: viholliset pudottavat isoja rahanippuja useammin. (Onnenamuletti saatu!)", "It brings luck: enemies drop big wads of cash more often. (Lucky amulet received!)" },
+        { "Pyykit pyörivät taas rauhassa. Kiitos vielä, kultaseni!", "The laundry is spinning in peace again. Thanks once more, dear!" },
+        { "Mahtavaa, olet niin huippu tyyppi Rocco! Äitini kerrostalon pyykkitupa on jengiläisten vallassa. Jos saisit heidät häädettyä sieltä? Osoite on Bricktown Ave 13, tiedätkö missä se on?", "Awesome, you're such a great guy, Rocco! The laundry room in my mom's building has been taken over by gang members. Could you drive them out? The address is 13 Bricktown Ave, do you know where that is?" },
+        { "Tiedän, asun siellä! Tarkistan pyykkituvan heti, minulla ei tosin ole avainta sinne…", "I know it, I live there! I'll check the laundry room right away, though I don't have a key…" },
+        { "Tässä on avain sinne. Kiitos tosi paljon!", "Here's the key. Thanks so much!" },
+        { "Pyykkitupa on sinun käsissäsi. Avain on sinulla, Bricktown Ave 13. Kiitos jo etukäteen!", "The laundry room is in your hands. You have the key, 13 Bricktown Ave. Thanks in advance!" },
+        { "Katso TV", "Watch TV" }, { "Hissi", "Elevator" }, { "Valitse kerros", "Select floor" }, { "täällä", "here" }, { "lukossa", "locked" }, { "Kellarin hissipainike ei toimi.", "The basement button does not work." },
         { "Vapauta olio", "Release beast" }, { "Jätä olio rauhaan", "Leave the beast" }, { "Vapautetaanko olio?", "Release the beast?" }, { "Robotti on liian vahva! Vapauta olio ovesta.", "The robot is too strong! Release the beast from the door." }, { "Kuuluu jytinää ja karjuntaa oven takaa...", "Thuds and roars come from behind the door..." },
         // --- Valikot ---
         { "Aloita peli", "Start game" }, { "Pelaajia", "Players" }, { "FPS-laskuri", "FPS counter" }, { "Ohjaus", "Controls" }, { "OHJAUS", "CONTROLS" }, { "Pelaaja", "Player" },

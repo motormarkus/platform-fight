@@ -469,7 +469,7 @@ public class YakuzaBrain : MonoBehaviour, IEnemyBrain, ICornerBurstBrain, ISelfT
             if (Mathf.Abs(dy) > e.depthTolerance * 0.6f) e.BrainMove(new Vector2(0f, Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), DepthFollow * 0.8f * dt)));
         }
         int pos;
-        if (t < tWind) pos = a.impact > 0 ? (HasDur(a.windDur, a.impact) ? IndexAt(a.windDur, t / windScale, a.impact - 1) : Mathf.Min((int)(t / Mathf.Max(0.001f, tWind) * a.impact), a.impact - 1)) : 0;
+        if (t < tWind) pos = a.impact > 0 ? (HasDur(a.windDur, a.impact) ? IndexAt(a.windDur, t / windScale, a.impact - 1) : AttackEase.Wind(t, tWind, a.impact)) : 0;
         else if (t < tWind + tHold) pos = a.impact;
         else if (HasDur(a.recDur, a.frames.Length - 1 - a.impact)) pos = a.impact + 1 + IndexAt(a.recDur, t - tWind - tHold, a.frames.Length - 2 - a.impact);
         else pos = Mathf.Min(a.impact + 1 + (int)((t - tWind - tHold) / Mathf.Max(0.001f, tRec)), a.frames.Length - 1);

@@ -8,7 +8,7 @@ using UnityEngine;
 /// Liikkeen kuvat ovat valmiiksi piirretty (loikan korkeus mukana): aivo liikuttaa vain vaakasuunnassa (ja syvyyssuunnassa kohdetta kohti).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
+public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBurstBrain
 {
     [System.Serializable]
     public class Move
@@ -82,7 +82,10 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         if (m.cum != null && m.cum.Length == m.sprites.Length + 1) return;
         var c = new float[m.sprites.Length + 1];
         for (int k = 0; k < m.sprites.Length; k++)
-            c[k + 1] = c[k] + (m.frameTimes != null && k < m.frameTimes.Length && m.frameTimes[k] > 0f ? m.frameTimes[k] : m.frameTime);
+        {
+            int hit = m.windows != null && m.windows.Length > 0 && (m.moveFrom < 0 || m.moveFrom >= m.windows[0]) ? m.windows[0] : 0;   // veto (ennen ensimmäistä osumaikkunaa) kiihtyy
+            c[k + 1] = c[k] + (m.frameTimes != null && k < m.frameTimes.Length && m.frameTimes[k] > 0f ? m.frameTimes[k] : m.frameTime * (k < hit ? AttackEase.Weight(k, hit) : 1f));
+        }
         m.cum = c;
     }
 
@@ -199,6 +202,17 @@ public class AlienBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
     }
 
     bool Eligible(Move m, float dx) => m != null && m.sprites != null && m.sprites.Length > 0 && Time.time >= m.nextTime && dx >= m.minRange && dx <= m.maxRange;
+
+    /// Nurkkapurkaus: häntähuitaisu (osuu kaikkiin ympärillä), muuten karjaisu tai vahvin kaatava liike.
+    public void CornerBurst()
+    {
+        if (e == null || e.Hero == null || moves == null || cur != null) return;
+        Move pick = null;
+        foreach (var m in moves) if (m != null && m.sprites != null && m.sprites.Length > 0 && m.name == "hantahuitaisu") pick = m;
+        if (pick == null) foreach (var m in moves) if (m != null && m.sprites != null && m.sprites.Length > 0 && m.name == "karjaisu") pick = m;
+        if (pick == null) foreach (var m in moves) if (m != null && m.sprites != null && m.sprites.Length > 0 && m.grabFrame < 0 && m.knockFromWindow < 99 && (pick == null || m.damage > pick.damage)) pick = m;
+        if (pick != null) Begin(pick, e.Hero.transform.position);
+    }
 
     void Begin(Move m, Vector3 tp)
     {

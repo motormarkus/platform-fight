@@ -6,7 +6,7 @@ using UnityEngine;
 /// Jokaisella liikkeellä on etäisyysalue, paino, jäähtyminen ja osumaikkuna (kuvaindeksit).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
+public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBurstBrain
 {
     [System.Serializable]
     public class Move
@@ -61,6 +61,17 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
 
     bool Eligible(Move m, float dx) => m != null && m.sprites != null && m.sprites.Length > 0 && Time.time >= m.nextTime && dx >= m.minRange && dx <= m.maxRange && (m.releaseFrame < 0 || rockSprite != null);
 
+    /// Nurkkapurkaus (pomo, esim. robottipomo): vahvin kaatava liike heti, jäähtymisestä ja etäisyydestä välittämättä.
+    public void CornerBurst()
+    {
+        if (e == null || e.Hero == null || moves == null || cur != null) return;
+        Move best = null;
+        foreach (var m in moves)
+            if (m != null && m.sprites != null && m.sprites.Length > 0 && m.releaseFrame < 0
+                && (best == null || (m.knockdown && !best.knockdown) || (m.knockdown == best.knockdown && m.damage > best.damage))) best = m;
+        if (best != null) Begin(best);
+    }
+
     void Begin(Move m)
     {
         cur = m; t = 0f; hitDone = false; hitSoundDone = false; released = false; lastTick = Time.time;
@@ -84,7 +95,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         if (cur == null) return;
         lastTick = Time.time; t += dt;
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
-        int i = (int)(t / cur.frameTime);
+        int i = AttackEase.Frame(t, cur.frameTime, cur.releaseFrame >= 0 ? cur.releaseFrame : cur.hitFrom);   // veto kiihtyy osumaa kohti
         if (i >= cur.sprites.Length) { End(); return; }
         CurrentSprite = cur.sprites[i];
         var hero = e.Hero;

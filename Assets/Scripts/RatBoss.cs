@@ -11,7 +11,7 @@ using UnityEngine;
 /// Kuvat katsovat oikealle. Kuvajärjestykset tulevat editorivalikosta (157).
 /// </summary>
 [RequireComponent(typeof(Enemy))]
-public class RatBoss : MonoBehaviour, IEnemyBrain
+public class RatBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
 {
     [Header("Kuvat (editori täyttää)")]
     public Sprite[] calm;        // idle1: rauhallinen odotus (edestakaisin)
@@ -381,6 +381,19 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
 
     // ---------------- toiminnan suoritus ----------------
 
+    /// Nurkkapurkaus (Enemy.BossBreakout): koukku ja kaatava potku; iskut lennättävät heron toiseen laitaan.
+    public void CornerBurst()
+    {
+        if (mode == Mode.Dormant || e.Hero == null) return;
+        plan = new List<Step>();
+        if (atks.ContainsKey(Kind.Hook)) plan.Add(new Step(Kind.Hook));
+        if (atks.ContainsKey(Kind.Kick)) plan.Add(new Step(Kind.Kick, true));
+        if (plan.Count == 0) return;
+        planPos = 0; comboRunning = plan.Count > 1;
+        lastTick = Time.time;
+        StartStep(e.Hero);
+    }
+
     void StartAct(Kind k, bool finisher)
     {
         plan = new List<Step> { new Step(k, finisher) };
@@ -461,7 +474,7 @@ public class RatBoss : MonoBehaviour, IEnemyBrain
             if (Mathf.Abs(dy) > e.depthTolerance * 0.6f) e.BrainMove(new Vector2(0f, Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), depthSpeed * 0.3f * dt)));
         }
         int idx;
-        if (t < tWind) idx = curImpact > 0 ? Mathf.Min((int)(t / Mathf.Max(0.001f, tWind) * curImpact), curImpact - 1) : 0;
+        if (t < tWind) idx = curImpact > 0 ? AttackEase.Wind(t, tWind, curImpact) : 0;
         else if (t < tWind + tHold) idx = curImpact;
         else idx = Mathf.Min(curImpact + 1 + (int)((t - tWind - tHold) / Mathf.Max(0.001f, tRecFrame)), curFrames - 1);
         CurrentSprite = a.frames[idx];

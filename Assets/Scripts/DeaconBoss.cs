@@ -409,7 +409,7 @@ public class DeaconBoss : MonoBehaviour, IEnemyBrain, ICornerBurstBrain
             if (Mathf.Abs(dy) > e.depthTolerance * 0.6f) e.BrainMove(new Vector2(0f, Mathf.Sign(dy) * Mathf.Min(Mathf.Abs(dy), DepthFollow * (prevWasDodge ? 1.6f : 0.8f) * dt)));
         }
         int idx;
-        if (t < tWind) idx = curImpactPos > 0 ? Mathf.Min((int)(t / Mathf.Max(0.001f, tWind) * curImpactPos), curImpactPos - 1) : 0;
+        if (t < tWind) idx = curImpactPos > 0 ? AttackEase.Wind(t, tWind, curImpactPos) : 0;
         else if (t < tWind + tHold) idx = curImpactPos;
         else idx = Mathf.Min(curImpactPos + 1 + (int)((t - tWind - tHold) / Mathf.Max(0.001f, tRecFrame)), curFrames - 1);
         CurrentSprite = a.frames[a.order[idx]];

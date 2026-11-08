@@ -9,14 +9,14 @@ using UnityEngine;
 /// Terminaalissa Sohvi tiskin takana (kauppa), nuudelipöydät, pullot ja väki; ovet: kiitotie ↔ terminaali ↔ muuri. Portaat ylös -kuvat tulevat myöhemmin.</summary>
 public static partial class BeatEmUpSetup
 {
-    const float WallRunX0 = 76200f, WallTermX0 = 76400f, WallX0 = 77000f;   // vapaa väli 76100–77990 (Kopteri 76060 asti, Aavikko alkaa 77998)
+    const float WallRunX0 = 76200f, WallTermX0 = 76400f, WallX0 = 79300f;   // muuri on nyt 17 ruutua (~362 yks): vapaa väli 79110–79990 (hallin jälkeen, ennen Alppikylää 80000)
     const float HallZoom = 1f, HallFloorRow = 700f, HallCamK = 1.3f;   // juhlasali: kuvat alkuperäisessä koossa (tarkat), kamera 1,5 x kauempana: hahmot ja pöydät pienempiä, lattiaa enemmän
     static float HallPpu => 941f / (2f * CamHalf) / (HallZoom * HallCamK);   // salin kuvapikselin (alkuperäisen) muunnos yksiköiksi
     const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77700f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f, WallHallX0 = 79000f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
     const float SurfExtraPx = 7153f;   // kuun pinnan jatko linnakkeelle (3 kuvaa ennen tukikohdan ulkokuvaa: 2384+2384+2385)
     const float SurfBasePx = SurfExtraPx + 2385f;   // kuun pinnan vasemmassa päässä oleva tukikohdan ulkokuva (muuri_kuuasema_ulko, leveys px); loput kuun pinnasta alkavat tämän jälkeen
     const string WallScenePath = "Assets/Scenes/Areas/Muuri.unity";
-    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio", "Muurin käytävä", "Muurin olion huone", "Muurin juhlahalli" };
+    static readonly string[] WallAreaNames = { "Muurin kiitotie", "Muurin terminaali", "Muurin kanikonttori", "Muuri", "Muurin kuuhissi", "Muurin kuuasema", "Muurin kuun pinta", "Muurin laboratorio", "Muurin käytävä", "Muurin olion huone", "Muurin juhlahalli", "Muurin torni (alakerta)", "Muurin torni (yläkerta)", "Muurin torni (katto)" };
 
     [MenuItem("Beat em up/327. Kiinan muuri: oma scene (kiitotie, terminaali, yläkerta, muuri, kuuhissi)", false, 327)]
     static void AddGreatWall()
@@ -137,7 +137,9 @@ public static partial class BeatEmUpSetup
             // ---- muuri: torni + kaksi ruutua (toinen peilikuva); etumuuri liikkuu nopeammin ----
             const float WallWallPx = 775f, WallDoorPx = 300f;
             var wallRoot = NewRoot("Muuri");
-            string[] wallTiles = { "muuri_alku_torni", "muuri_main", "muuri_rotko", "muuri_main", "muuri_main_peili", "muuri_main", "muuri_hissi_paaty" };   // kuvan 3 rotko: muurin korkeus sovitettu naapureihin; sen yli hypätään rullalaudalla
+            string[] wallTiles = { "muuri_alku_torni", "muuri_main", "muuri_rotko", "muuri_main", "muuri_main_peili", "muuri_main", "muuri_main_peili",
+                "muuri_alku_torni_peili", "muuri_alku_torni",   // kaksoistorni muurin puolivälissä (peilikuva + alkutorni: sauma on peilisymmetrinen)
+                "muuri_main", "muuri_main_peili", "muuri_main", "muuri_main_peili", "muuri_main", "muuri_main_peili", "muuri_main", "muuri_hissi_paaty" };   // kuvan 3 rotko: muurin korkeus sovitettu naapureihin; sen yli hypätään rullalaudalla
             for (int i = 0; i < wallTiles.Length; i++) Image(wallRoot.transform, "Muuri " + (i + 1), wallTiles[i], WallX0, i * 1672f, -10000);
             var wall = MakeArea("Alue: Muuri", "Muuri", WallX0, WallWallPx, wallTiles.Length * 1672f);
             wall.walkMinX = WallX0 + 240f / ppu; wall.minDepthY = bottom + 60f / ppu;   // etumuuri laskettu 100 px: muurin kävelykaista on nyt ~105 px (775–880)
@@ -164,9 +166,13 @@ public static partial class BeatEmUpSetup
             }
             {
                 const float f = 1.3f;
-                string[] frontTiles = { "muuri_front", "muuri_front", "muuri_front_peili", "muuri_front" };
-                int[] frontAt = { 1, 3, 4, 5 };
-                for (int i = 0; i < frontTiles.Length; i++)
+                var frontTiles = new List<string>(); var frontAt = new List<int>();
+                for (int i = 0; i < wallTiles.Length; i++)   // etumuuri vain tavallisten ruutujen alle (ei torneille, rotkolle eikä hissin päädylle)
+                {
+                    if (wallTiles[i] == "muuri_main") { frontTiles.Add("muuri_front"); frontAt.Add(i); }
+                    else if (wallTiles[i] == "muuri_main_peili") { frontTiles.Add("muuri_front_peili"); frontAt.Add(i); }
+                }
+                for (int i = 0; i < frontTiles.Count; i++)
                 {
                     var fsp = ImportShipSprite(T + frontTiles[i] + ".png", ppu, false, SpriteAlignment.BottomCenter);
                     if (fsp == null) continue;
@@ -207,7 +213,7 @@ public static partial class BeatEmUpSetup
             MakeDoor("Terminaali: kiitotielle", "Ulos kiitotielle", term, run, new Vector3(WallTermX0 + TermLeftDoorPx / ppu, term.maxDepthY, 0f), new Vector2(WallRunX0 + (RunDoorPx - 130f) / ppu, Mathf.Lerp(run.maxDepthY, run.minDepthY, 0.3f)));
             MakeDoor("Terminaali: muurille", "Ulos muurille", term, wall, new Vector3(WallTermX0 + TermRightDoorPx / ppu, term.maxDepthY, 0f), new Vector2(WallX0 + (WallDoorPx + 120f) / ppu, Mathf.Lerp(wall.maxDepthY, wall.minDepthY, 0.4f)));
             MakeDoor("Muuri: terminaaliin", "Mene terminaaliin", wall, term, new Vector3(WallX0 + WallDoorPx / ppu, wall.maxDepthY, 0f), new Vector2(WallTermX0 + (TermRightDoorPx - 120f) / ppu, Mathf.Lerp(term.maxDepthY, term.minDepthY, 0.3f)));
-            float elevDoorX = WallX0 + (6f * 1672f + ElevDoorPx) / ppu;
+            float elevDoorX = WallX0 + ((wallTiles.Length - 1) * 1672f + ElevDoorPx) / ppu;
             MakeDoor("Muuri: kuuhissiin", "Mene kuuhissiin", wall, elev, new Vector3(elevDoorX, wall.maxDepthY, 0f), new Vector2(WallElevX0 + 1800f / ppu, Mathf.Lerp(elev.maxDepthY, elev.minDepthY, 0.4f)));
             MakeDoor("Kuuhissi: kuuasemalle", "Ulos kuuasemalle", elev, moon, new Vector3(WallElevX0 + 165f / ppu, top - 795f / ppu, 0f), new Vector2(WallMoonX0 + (MoonElevDoorPx - 330f) / ppu, Mathf.Lerp(moon.maxDepthY, moon.minDepthY, 0.4f)));   // lukossa taistelun ajan (valikko 328)
             MakeDoor("Kuuasema: hissiin", "Mene hissiin", moon, elev, new Vector3(WallMoonX0 + MoonElevDoorPx / ppu, moon.maxDepthY, 0f), new Vector2(WallElevX0 + 600f / ppu, Mathf.Lerp(elev.maxDepthY, elev.minDepthY, 0.4f)));
@@ -561,6 +567,7 @@ public static partial class BeatEmUpSetup
             brawl.calmSeconds = 60f; brawl.crowd = made.ToArray(); brawl.sailors = null; brawl.rogues = null;
             EditorUtility.SetDirty(brawl); EditorUtility.SetDirty(term); EditorUtility.SetDirty(pawn); EditorUtility.SetDirty(run); EditorUtility.SetDirty(wall);
 
+            if (File.Exists("Assets/Sprites/Taustat/muuri_torni_ala.png")) BuildWallTower(jungle);   // keskitornin alakerta (ovet katosivat, kun ovijuuri luotiin uudelleen)
             // alueet scenen alueluetteloon (areas.txt) ja Viidakko Build Settingsiin on jo valikon 305 jäljiltä
             File.WriteAllLines(WallScenePath.Replace(".unity", ".areas.txt"), WallAreaNames);
             var buildScenes = EditorBuildSettings.scenes.ToList();

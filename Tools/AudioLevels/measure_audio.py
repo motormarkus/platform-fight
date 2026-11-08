@@ -30,6 +30,10 @@ def loudness_db(x, sr):
     val = float(np.sqrt((rms[act] ** 2).mean())) if act.any() else float(rms.max())
     return 20 * np.log10(max(val, 1e-6)), peak
 
+def hit_group(name):
+    from level_hits import group
+    return group(name)
+
 def category(name):
     n = name.lower()
     if any(k in n for k in ("speak", "welcome", "taunt", "puhe", "voice", "say", "huuto", "gasp", "grunt", "pain", "fall")): return "puhe"
@@ -50,6 +54,7 @@ def main():
             if any(("/" + s + "/") in norm for s in SKIP_DIRS): continue
             name = os.path.splitext(os.path.basename(path))[0]
             if any(w in name.lower() for w in SKIP_WORDS): continue
+            if hit_group(name) is not None: continue   # osuma- ja kipuäänet on tasattu tiedostoihin (level_hits.py)
             try:
                 x, sr = load_mono(path)
             except Exception as e:
