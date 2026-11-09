@@ -12,7 +12,7 @@ public static partial class BeatEmUpSetup
     const float WallRunX0 = 76200f, WallTermX0 = 76400f, WallX0 = 79300f;   // muuri on nyt 17 ruutua (~362 yks): vapaa väli 79110–79990 (hallin jälkeen, ennen Alppikylää 80000)
     const float HallZoom = 1f, HallFloorRow = 700f, HallCamK = 1.3f;   // juhlasali: kuvat alkuperäisessä koossa (tarkat), kamera 1,5 x kauempana: hahmot ja pöydät pienempiä, lattiaa enemmän
     static float HallPpu => 941f / (2f * CamHalf) / (HallZoom * HallCamK);   // salin kuvapikselin (alkuperäisen) muunnos yksiköiksi
-    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77700f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f, WallHallX0 = 79000f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
+    const float WallPawnX0 = 76600f, WallElevX0 = 76800f, WallMoonX0 = 77400f, WallSurfX0 = 77500f, WallLabX0 = 77800f, WallCorX0 = 76900f, WallBeastX0 = 77280f, WallCor2X0 = 77170f, WallHallX0 = 79000f;   // leveydet (yks): muuri 77000-77149, käytävä 2 77170-77255, olion huone 77280-77339, kuuasema 77400-77476, pinta 77500-77616, labra 77700-77814 (ei päällekkäin)
     const float SurfExtraPx = 7153f;   // kuun pinnan jatko linnakkeelle (3 kuvaa ennen tukikohdan ulkokuvaa: 2384+2384+2385)
     const float SurfBasePx = SurfExtraPx + 2385f;   // kuun pinnan vasemmassa päässä oleva tukikohdan ulkokuva (muuri_kuuasema_ulko, leveys px); loput kuun pinnasta alkavat tämän jälkeen
     const string WallScenePath = "Assets/Scenes/Areas/Muuri.unity";

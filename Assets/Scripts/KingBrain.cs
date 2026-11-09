@@ -121,7 +121,8 @@ public class KingBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBurst
     /// Nurkkapurkaus: tärisyttävä hyppy (osuu kaikkiin maassa oleviin), muuten heitto.
     public void CornerBurst()
     {
-        if (e == null || e.Hero == null || phase != Phase.None) return;
+        if (e == null || e.Hero == null) return;
+        if (phase != Phase.None) Abort();   // kesken olevan heiton/tulipallon saa katkaista: purkaus ei saa jäädä väliin
         if (slam != null && slam.Length > slamFrame)
         {
             nextSlam = Time.time + slamCooldown;

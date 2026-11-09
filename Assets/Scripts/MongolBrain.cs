@@ -17,6 +17,7 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
         [Tooltip("Osumaikkuna: kuvaindeksit (mukaan lukien).")] public int hitFrom = 3, hitTo = 4;
         public float reach = 2.4f, minRange = 1.5f, maxRange = 3.5f, weight = 1f, cooldown = 3f;
         public int damage = 20; public bool knockdown;
+        [Tooltip("Osumahetken pidätys (s): osumakuva pysyy hetken ruudulla ennen jatkoa. Liikkeissä, joissa on eteenliike (hyppypotku, syöksy), ei käytetä. -1 = oletus (0,08 s, kun ei liikettä).")] public float impactHold = -1f;
         [Tooltip("Eteenliike kuvaindeksien välillä (hyppypotku): nopeus yksikköä/s; -1 = ei liikettä.")] public int moveFrom = -1, moveTo = -1; public float moveSpeed = 8f;
         [Tooltip("Kivenheitto: kuvaindeksi, jossa kivi irtoaa kädestä (-1 = ei kiveä).")] public int releaseFrame = -1;
         [Tooltip("Liikkeen alkaessa soitettava ääni (esim. liukutaklauksen raapaisu).")] public AudioClip sound, hitSound; public float soundVolume = 1f;
@@ -95,7 +96,12 @@ public class MongolBrain : MonoBehaviour, IEnemyBrain, IPartialBrain, ICornerBur
         if (cur == null) return;
         lastTick = Time.time; t += dt;
         e.BrainPhaseSet(Enemy.BrainPhase.Windup);
-        int i = AttackEase.Frame(t, cur.frameTime, cur.releaseFrame >= 0 ? cur.releaseFrame : cur.hitFrom);   // veto kiihtyy osumaa kohti
+        // veto kiihtyy osumaa kohti ja osumakuva pidätetään hetki (impactHold); osuman ajoitus ei muutu
+        int impactIdx = cur.releaseFrame >= 0 ? cur.releaseFrame : cur.hitFrom;
+        float hold = cur.releaseFrame >= 0 || cur.moveFrom >= 0 ? 0f : (cur.impactHold >= 0f ? cur.impactHold : 0.08f);
+        float windTime = impactIdx * Mathf.Max(0.001f, cur.frameTime), tt = t;
+        if (hold > 0f && t >= windTime) tt = t < windTime + hold ? windTime : t - hold;
+        int i = AttackEase.Frame(tt, cur.frameTime, impactIdx);
         if (i >= cur.sprites.Length) { End(); return; }
         CurrentSprite = cur.sprites[i];
         var hero = e.Hero;

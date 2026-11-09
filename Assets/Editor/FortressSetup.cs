@@ -26,7 +26,7 @@ public static partial class BeatEmUpSetup
         var jungle = fc.jungle; var alp = fc.alp; var ucco = fc.ucco; float ppu = fc.ppu, H = fc.H, W = fc.W, bottom = fc.bottom, top = fc.top, cy = fc.cy; string T = fc.T; var surf = fc.surf;
         var NewRoot = fc.NewRoot; var Put = fc.Put; var MakeArea = fc.MakeArea; var Para = fc.Para; var MakeDoor = fc.MakeDoor;
             // ---- linnakkeen juhlahalli (oktoberfest): viisi kuvaa (1672 px) peräkkäin; vasemmalla ovi, tiski, lava, kaarikäytävä ja ikkunat, oikealla tutka- ja karttahuone (ikkunat läpinäkyviä: taakse avaruus) ----
-            const float HallWallPx = 700f, HallDoorPx = 235f, SurfFortDoorPx = 640f;
+            const float HallWallPx = 700f, HallDoorPx = 235f, SurfFortDoorPx = 1000f;
             var hallRoot = NewRoot("Muurin juhlahalli");
             // sali: kuvat alkuperäisessä tarkkuudessa (1 kuvapikseli = 1 ruutupikseli), kamera kauempana (HallCamK): hahmot, pöydät ja esineet näyttävät pienemmiltä ja lattiaa on enemmän
             float K = HallCamK, Zs = HallZoom, Zw = Zs * K;   // Zw = kuvan skaala maailmayksiköissä (kuva tuodaan ppu:lla)

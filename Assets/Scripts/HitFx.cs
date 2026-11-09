@@ -122,7 +122,7 @@ public class HitFx : MonoBehaviour
     public static void OnHit(bool heavy)
     {
         var fx = Instance;
-        fx.PlayImpact();
+        fx.PlayImpact(heavy);
         CameraFollow.Shake(heavy ? fx.heavyShake : fx.lightShake, heavy ? 0.2f : 0.12f);
         fx.Hitstop(heavy ? fx.heavyHitstop : fx.lightHitstop);
     }
@@ -241,8 +241,28 @@ public class HitFx : MonoBehaviour
     }
 
     bool warnedNoImpact;
-    void PlayImpact()
+    AudioClip knockdownClip; bool extraLoaded;
+    /// Kaatavan iskun oma läsähdys soi noin joka toisella kaatavalla iskulla (ei joka kerta).
+    public float knockdownChance = 0.5f;
+
+    void LoadExtraImpacts()
     {
+        extraLoaded = true;
+        var l = new System.Collections.Generic.List<AudioClip>(impactSounds ?? new AudioClip[0]);
+        var c4 = Resources.Load<AudioClip>("Sfx/Hit/hit4"); if (c4 != null && !l.Contains(c4)) l.Add(c4);   // lisäläsähdys arvontaan
+        impactSounds = l.ToArray();
+        knockdownClip = Resources.Load<AudioClip>("Sfx/Hit/hit_kaatava");
+    }
+
+    void PlayImpact(bool heavy = false)
+    {
+        if (!extraLoaded) LoadExtraImpacts();
+        if (heavy && knockdownClip != null && Random.value < knockdownChance)
+        {
+            source.pitch = Random.Range(0.97f, 1.03f);
+            source.PlayOneShotLeveled(knockdownClip, impactVolume);
+            return;
+        }
         if (impactSounds == null || impactSounds.Length == 0) { if (!warnedNoImpact) { warnedNoImpact = true; Debug.LogWarning("[HitFx] ei osumaääniä (impactSounds tyhjä)"); } return; }
         int i = Random.Range(0, impactSounds.Length);
         if (impactSounds.Length > 1 && i == lastSound) i = (i + 1) % impactSounds.Length;

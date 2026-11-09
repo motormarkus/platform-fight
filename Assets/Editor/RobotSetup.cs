@@ -62,6 +62,7 @@ public static partial class BeatEmUpSetup
                 int before = batchLog.Count;
                 try { run(); }
                 catch (System.Exception ex) { batchLog.Add("VIRHE: " + ex.Message); Debug.LogException(ex); }
+                EditorUtility.UnloadUnusedAssetsImmediate(); System.GC.Collect();   // vapauttaa vaiheen tekstuurit: pitkä ajo (esim. 330) loppui muistin täyttymiseen (Unity kaatui)
                 var lines = batchLog.Skip(before).ToList();
                 string first = lines.Count > 0 ? lines[0].Split('\n')[0] : "(ei ilmoitusta)";
                 summary.Add("- " + name + ": " + (first.Length > 150 ? first.Substring(0, 150) + "..." : first));

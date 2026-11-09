@@ -40,7 +40,7 @@ public class SkeletonBrain : MonoBehaviour, IEnemyBrain, IPartialBrain
         e = GetComponent<Enemy>(); nextThrow = Random.Range(0.1f, 0.6f); nextLeap = Random.Range(2f, 6f);
         throwVoice = Resources.Load<AudioClip>("Sfx/Luuranko/luunheitto"); leapVoice = Resources.Load<AudioClip>("Sfx/Luuranko/potku");
     }
-    void Voice(AudioClip c) { if (c != null && e != null && e.Audio != null) e.Audio.PlayOneShotLeveled(c, 0.55f, true); }
+    void Voice(AudioClip c) { if (c != null && e != null && e.Audio != null) e.Audio.PlayOneShotLeveled(c, c == throwVoice ? 1f : 0.55f, true); }   // luunheitto täydellä (kuuluu), hyppypotkun huuto hiljaisemmin
 
     void Update()
     {

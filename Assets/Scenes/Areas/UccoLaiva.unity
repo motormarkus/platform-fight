@@ -2011,6 +2011,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -2040,6 +2041,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -2176,6 +2178,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -2184,6 +2192,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -2195,9 +2204,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -2238,6 +2253,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &36177286
@@ -2967,6 +2983,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &43558131
 Transform:
   m_ObjectHideFlags: 0
@@ -3374,6 +3391,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -3416,6 +3434,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -3546,6 +3565,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -3553,6 +3578,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -3569,9 +3595,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -3612,6 +3644,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &46868412
@@ -4195,6 +4228,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -4237,6 +4271,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -4367,6 +4402,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -4374,6 +4415,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -4390,9 +4432,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -4433,6 +4481,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &57236346
@@ -4884,6 +4933,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -4913,6 +4963,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -5049,6 +5100,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -5057,6 +5114,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -5068,9 +5126,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -5111,6 +5175,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &62153825
@@ -5729,6 +5794,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &77736204
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,6 +6108,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -6071,6 +6138,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -6261,6 +6329,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -6269,6 +6343,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -6280,9 +6355,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -6323,6 +6404,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &79007888
@@ -7190,6 +7272,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -7219,6 +7302,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -7409,6 +7493,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -7417,6 +7507,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -7428,9 +7519,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -7471,6 +7568,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &106448245
@@ -7694,6 +7792,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -4
   maxDepthY: -0.123911
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -8222,6 +8322,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -8251,6 +8352,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -8382,6 +8484,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -8390,6 +8498,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -8401,9 +8510,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -8444,6 +8559,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &122606967
@@ -8968,6 +9084,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -9005,6 +9122,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -9133,6 +9251,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -9141,6 +9265,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -9152,9 +9277,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -9195,6 +9326,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &132033041
@@ -10728,6 +10860,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1
   flankChance: 0
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -10757,6 +10890,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -10888,6 +11022,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -10896,6 +11036,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -10907,9 +11048,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -10963,6 +11110,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &153219148
@@ -11731,6 +11879,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 2.2
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.2
   retreatTime: 0.7
@@ -11766,6 +11915,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -11900,8 +12050,15 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -11913,9 +12070,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -11956,6 +12119,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &158641606
@@ -13062,6 +13226,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &181579611
 GameObject:
   m_ObjectHideFlags: 0
@@ -13438,6 +13603,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.95
   flankChance: 0.15
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -13467,6 +13633,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -13605,6 +13772,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -13613,6 +13786,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 1
   attackSounds: []
   attackVolume: 0.9
@@ -13624,9 +13798,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -13667,6 +13847,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &182267477
@@ -14259,6 +14440,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -14298,6 +14480,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -14426,6 +14609,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -14434,6 +14623,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -14445,9 +14635,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -14488,6 +14684,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &194744360
@@ -16180,6 +16377,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1
   flankChance: 0
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -16209,6 +16407,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -16340,6 +16539,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -16348,6 +16553,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -16359,9 +16565,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -16415,6 +16627,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &209977440
@@ -17674,6 +17887,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 1.463004
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -18032,6 +18247,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -18074,6 +18290,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -18204,6 +18421,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -18211,6 +18434,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -18227,9 +18451,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -18270,6 +18500,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &238439543
@@ -19582,6 +19813,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -19621,6 +19853,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -19749,6 +19982,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -19757,6 +19996,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -19768,9 +20008,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -19811,6 +20057,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &275161538
@@ -20326,6 +20573,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &286114097
 GameObject:
   m_ObjectHideFlags: 0
@@ -20727,6 +20975,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -20769,6 +21018,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -20899,6 +21149,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -20906,6 +21162,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -20922,9 +21179,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -20965,6 +21228,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &287545560
@@ -21701,6 +21965,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -21743,6 +22008,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -21873,6 +22139,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -21880,6 +22152,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -21896,9 +22169,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -21939,6 +22218,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &293127577
@@ -22258,6 +22538,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -22287,6 +22568,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -22418,6 +22700,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -22426,6 +22714,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -22437,9 +22726,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -22480,6 +22775,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &293717212
@@ -23430,6 +23726,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -23459,6 +23756,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -23649,6 +23947,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -23657,6 +23961,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -23668,9 +23973,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -23711,6 +24022,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &320848864
@@ -24185,6 +24497,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -24224,6 +24537,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -24352,6 +24666,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -24360,6 +24680,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -24371,9 +24692,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -24414,6 +24741,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &326457332
@@ -24654,6 +24982,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &330458228
 GameObject:
   m_ObjectHideFlags: 0
@@ -26398,6 +26727,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -26427,6 +26757,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -26617,6 +26948,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -26625,6 +26962,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -26636,9 +26974,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -26679,6 +27023,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &355494106
@@ -26757,6 +27102,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &356409788
 GameObject:
   m_ObjectHideFlags: 0
@@ -27734,6 +28080,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -27776,6 +28123,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -27906,6 +28254,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -27913,6 +28267,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -27929,9 +28284,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -27972,6 +28333,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &366153021
@@ -28379,6 +28741,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -28416,6 +28779,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -28544,6 +28908,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -28552,6 +28922,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -28563,9 +28934,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -28606,6 +28983,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &371053376
@@ -29250,6 +29628,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.1
   retreatTime: 0.7
@@ -29287,6 +29666,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -29422,8 +29802,15 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -29435,9 +29822,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -29491,6 +29884,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &373190213
@@ -30306,6 +30700,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -30348,6 +30743,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -30478,6 +30874,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -30485,6 +30887,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -30501,9 +30904,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -30544,6 +30953,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &393585253
@@ -32806,6 +33216,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -32845,6 +33256,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -32973,6 +33385,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -32981,6 +33399,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -32992,9 +33411,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -33035,6 +33460,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &426826702
@@ -33454,6 +33880,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -33483,6 +33910,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -33619,6 +34047,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -33627,6 +34061,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -33638,9 +34073,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -33681,6 +34122,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &428385180
@@ -34375,6 +34817,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -34404,6 +34847,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -34594,6 +35038,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -34602,6 +35052,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -34613,9 +35064,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -34656,6 +35113,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &442980413
@@ -35111,6 +35569,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -35153,6 +35612,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -35283,6 +35743,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -35290,6 +35756,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -35306,9 +35773,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -35349,6 +35822,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &450908014
@@ -35669,6 +36143,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -35708,6 +36183,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -35836,6 +36312,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -35844,6 +36326,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -35855,9 +36338,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -35898,6 +36387,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &452097302
@@ -36657,6 +37147,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -36694,6 +37185,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -36822,6 +37314,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -36830,6 +37328,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -36841,9 +37340,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -36884,6 +37389,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &472578347
@@ -37455,6 +37961,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -37492,6 +37999,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -37620,6 +38128,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -37628,6 +38142,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -37639,9 +38154,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -37682,6 +38203,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &475321690
@@ -38184,6 +38706,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -38226,6 +38749,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -38356,6 +38880,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -38363,6 +38893,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -38379,9 +38910,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -38422,6 +38959,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &480081092
@@ -39420,6 +39958,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -39449,6 +39988,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -39580,6 +40120,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -39588,6 +40134,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -39599,9 +40146,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -39642,6 +40195,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &499846782
@@ -40504,6 +41058,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -40546,6 +41101,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -40676,6 +41232,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -40683,6 +41245,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -40699,9 +41262,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -40742,6 +41311,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &518336350
@@ -41391,6 +41961,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -41430,6 +42001,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -41558,6 +42130,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -41566,6 +42144,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -41577,9 +42156,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -41620,6 +42205,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &536080416
@@ -41735,6 +42321,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &537083475
 Transform:
   m_ObjectHideFlags: 0
@@ -43567,6 +44154,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &573633858
 GameObject:
   m_ObjectHideFlags: 0
@@ -44098,6 +44686,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &584891302
 GameObject:
   m_ObjectHideFlags: 0
@@ -44861,6 +45450,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -44890,6 +45480,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -45021,6 +45612,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -45029,6 +45626,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -45040,9 +45638,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -45083,6 +45687,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &587558947
@@ -45706,6 +46311,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -45743,6 +46349,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -45871,6 +46478,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -45879,6 +46492,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -45890,9 +46504,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -45933,6 +46553,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &599553666
@@ -48923,6 +49544,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -48962,6 +49584,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -49090,6 +49713,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -49098,6 +49727,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -49109,9 +49739,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -49152,6 +49788,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &636060816
@@ -49637,6 +50274,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -49679,6 +50317,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -49809,6 +50448,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -49816,6 +50461,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -49832,9 +50478,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -49875,6 +50527,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &644963610
@@ -50451,6 +51104,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.47328058
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -51458,6 +52113,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -51509,6 +52165,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -51666,6 +52323,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -51674,6 +52337,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -51685,9 +52349,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -51728,6 +52398,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &667373730
@@ -52434,6 +53105,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.41168955
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -52916,6 +53589,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -52958,6 +53632,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -53088,6 +53763,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -53095,6 +53776,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -53111,9 +53793,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -53154,6 +53842,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &681307861
@@ -53634,6 +54323,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -53676,6 +54366,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -53806,6 +54497,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -53813,6 +54510,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -53829,9 +54527,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -53872,6 +54576,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &686460454
@@ -54353,6 +55058,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -54390,6 +55096,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -54518,6 +55225,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -54526,6 +55239,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -54537,9 +55251,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -54580,6 +55300,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &691453443
@@ -54984,6 +55705,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.56798184
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -56341,6 +57064,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -56380,6 +57104,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -56508,6 +57233,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -56516,6 +57247,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -56527,9 +57259,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -56570,6 +57308,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &710584476
@@ -57247,6 +57986,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -57276,6 +58016,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -57412,6 +58153,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -57420,6 +58167,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -57431,9 +58179,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -57474,6 +58228,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &735810142
@@ -57537,6 +58292,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &735810144
 Transform:
   m_ObjectHideFlags: 0
@@ -57983,6 +58739,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &741661812
 GameObject:
   m_ObjectHideFlags: 0
@@ -58954,6 +59711,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -58983,6 +59741,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -59119,6 +59878,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -59127,6 +59892,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -59138,9 +59904,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -59181,6 +59953,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &750916403
@@ -59744,6 +60517,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -59786,6 +60560,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -59916,6 +60691,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -59923,6 +60704,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -59939,9 +60721,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -59982,6 +60770,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &773877133
@@ -60813,6 +61602,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -60850,6 +61640,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -60978,6 +61769,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -60986,6 +61783,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -60997,9 +61795,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -61040,6 +61844,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &782668963
@@ -61550,6 +62355,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 2.2
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.2
   retreatTime: 0.7
@@ -61585,6 +62391,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -61719,8 +62526,15 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -61732,9 +62546,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -61775,6 +62595,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &783947846
@@ -63850,6 +64671,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -63879,6 +64701,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -64010,6 +64833,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -64018,6 +64847,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -64029,9 +64859,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -64072,6 +64908,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &828285187
@@ -65122,6 +65959,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -65159,6 +65997,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -65287,6 +66126,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -65295,6 +66140,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -65306,9 +66152,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -65349,6 +66201,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &851499668
@@ -65938,6 +66791,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -0.5143181
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -66095,6 +66950,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &874226691
 GameObject:
   m_ObjectHideFlags: 0
@@ -68348,6 +69204,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.1
   retreatTime: 0.7
@@ -68385,6 +69242,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -68520,8 +69378,15 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -68533,9 +69398,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -68589,6 +69460,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &914922685
@@ -69501,6 +70373,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -69543,6 +70416,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -69673,6 +70547,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -69680,6 +70560,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -69696,9 +70577,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -69739,6 +70626,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &925438813
@@ -70191,6 +71079,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 2.2
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.2
   retreatTime: 0.7
@@ -70226,6 +71115,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -70360,8 +71250,15 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds: []
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -70373,9 +71270,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -70416,6 +71319,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &926757409
@@ -71287,6 +72191,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -71329,6 +72234,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -71459,6 +72365,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -71466,6 +72378,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -71482,9 +72395,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -71525,6 +72444,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &940634516
@@ -72673,6 +73593,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1
   flankChance: 0
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -72702,6 +73623,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -72833,6 +73755,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -72841,6 +73769,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -72852,9 +73781,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -72908,6 +73843,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &960764265
@@ -73272,6 +74208,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -73314,6 +74251,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -73444,6 +74382,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -73451,6 +74395,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -73467,9 +74412,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -73510,6 +74461,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &963846353
@@ -73933,6 +74885,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -73975,6 +74928,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -74105,6 +75059,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -74112,6 +75072,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -74128,9 +75089,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -74171,6 +75138,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &967171146
@@ -75706,6 +76674,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -75735,6 +76704,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -75871,6 +76841,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -75879,6 +76855,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -75890,9 +76867,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -75933,6 +76916,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1009199111
@@ -76370,6 +77354,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -76412,6 +77397,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -76542,6 +77528,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -76549,6 +77541,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -76565,9 +77558,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -76608,6 +77607,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1026449880
@@ -77107,6 +78107,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -77136,6 +78137,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -77272,6 +78274,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -77280,6 +78288,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -77291,9 +78300,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -77334,6 +78349,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1028384305
@@ -78565,6 +79581,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -78602,6 +79619,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -78730,6 +79748,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -78738,6 +79762,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -78749,9 +79774,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -78792,6 +79823,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1042688138
@@ -80127,6 +81159,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -80169,6 +81202,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -80299,6 +81333,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -80306,6 +81346,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -80322,9 +81363,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -80365,6 +81412,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1076548353
@@ -81521,6 +82569,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -4.223529
   maxDepthY: 2.2470589
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -84447,6 +85497,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1
   flankChance: 0
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -84476,6 +85527,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -84607,6 +85659,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -84615,6 +85673,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -84626,9 +85685,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -84682,6 +85747,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1146013976
@@ -85940,6 +87006,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -85982,6 +87049,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -86112,6 +87180,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -86119,6 +87193,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -86135,9 +87210,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -86178,6 +87259,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1167058557
@@ -86749,6 +87831,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -86791,6 +87874,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -86921,6 +88005,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -86928,6 +88018,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -86944,9 +88035,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -86987,6 +88084,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1176922933
@@ -87250,6 +88348,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &1181486922
 GameObject:
   m_ObjectHideFlags: 0
@@ -87856,6 +88955,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &1189577568
 GameObject:
   m_ObjectHideFlags: 0
@@ -90840,6 +91940,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -90877,6 +91978,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -91005,6 +92107,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -91013,6 +92121,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -91024,9 +92133,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -91067,6 +92182,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1263452068
@@ -91676,6 +92792,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -91705,6 +92822,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -91836,6 +92954,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -91844,6 +92968,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -91855,9 +92980,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -91898,6 +93029,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1269377312
@@ -93266,6 +94398,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &1318384917
 GameObject:
   m_ObjectHideFlags: 0
@@ -94304,6 +95437,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!213 &1352332686
 Sprite:
   m_ObjectHideFlags: 0
@@ -95839,6 +96973,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -95881,6 +97016,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -96011,6 +97147,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -96018,6 +97160,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -96034,9 +97177,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -96077,6 +97226,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1381718625
@@ -96989,6 +98139,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.57127064
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -99248,6 +100400,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -99287,6 +100440,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -99415,6 +100569,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -99423,6 +100583,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -99434,9 +100595,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -99477,6 +100644,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1441416501
@@ -99867,6 +101035,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.2
   retreatTime: 0.7
@@ -99896,6 +101065,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -100027,10 +101197,17 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: cddcde7a932a82b45af901b773257baa, type: 3}
   - {fileID: 8300000, guid: 23cfbc3d363c9664a83f1857a25bb198, type: 3}
+  alternateHurt: 0
   hurtVolume: 1
   attackSounds:
   - {fileID: 8300000, guid: dccb1db4bb7d1ca4891eae63e21ba759, type: 3}
@@ -100044,9 +101221,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -100087,6 +101270,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1441504385
@@ -101176,6 +102360,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -101218,6 +102403,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -101348,6 +102534,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -101355,6 +102547,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -101371,9 +102564,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -101414,6 +102613,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1455166689
@@ -102026,6 +103226,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &1472762709
 Transform:
   m_ObjectHideFlags: 0
@@ -103006,6 +104207,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -103035,6 +104237,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -103171,6 +104374,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -103179,6 +104388,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -103190,9 +104400,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -103233,6 +104449,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1487216640
@@ -104117,6 +105334,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -104154,6 +105372,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -104282,6 +105501,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -104290,6 +105515,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -104301,9 +105527,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -104344,6 +105576,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1512502306
@@ -106266,6 +107499,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -106295,6 +107529,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -106431,6 +107666,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -106439,6 +107680,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -106450,9 +107692,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -106493,6 +107741,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1548755616
@@ -107231,6 +108480,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -107273,6 +108523,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -107403,6 +108654,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -107410,6 +108667,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -107426,9 +108684,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -107469,6 +108733,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1558441157
@@ -108335,6 +109600,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -108377,6 +109643,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -108507,6 +109774,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -108514,6 +109787,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -108530,9 +109804,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -108573,6 +109853,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1569431163
@@ -110401,6 +111682,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -110443,6 +111725,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -110573,6 +111856,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -110580,6 +111869,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -110596,9 +111886,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -110639,6 +111935,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1599749471
@@ -111090,6 +112387,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -111119,6 +112417,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -111255,6 +112554,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -111263,6 +112568,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -111274,9 +112580,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -111317,6 +112629,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1602788129
@@ -111643,6 +112956,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -111672,6 +112986,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -111808,6 +113123,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -111816,6 +113137,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -111827,9 +113149,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -111870,6 +113198,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1602788131
@@ -114097,6 +115426,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &1656912124
 GameObject:
   m_ObjectHideFlags: 0
@@ -114540,6 +115870,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -114569,6 +115900,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -114700,6 +116032,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -114708,6 +116046,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -114719,9 +116058,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -114762,6 +116107,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1660685092
@@ -115257,6 +116603,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -115294,6 +116641,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -115422,6 +116770,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -115430,6 +116784,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -115441,9 +116796,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -115484,6 +116845,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1667382220
@@ -116171,6 +117533,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -116208,6 +117571,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -116336,6 +117700,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -116344,6 +117714,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -116355,9 +117726,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -116398,6 +117775,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1681236298
@@ -118015,6 +119393,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -118044,6 +119423,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -118180,6 +119560,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -118188,6 +119574,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -118199,9 +119586,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -118242,6 +119635,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1700945627
@@ -118460,6 +119854,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: -2.0976305
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -119786,6 +121182,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -119815,6 +121212,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -119951,6 +121349,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -119959,6 +121363,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -119970,9 +121375,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -120013,6 +121424,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1728769625
@@ -121758,6 +123170,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -121795,6 +123208,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -121923,6 +123337,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -121931,6 +123351,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -121942,9 +123363,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -121985,6 +123412,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1765965889
@@ -122297,6 +123725,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1
   flankChance: 0
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -122326,6 +123755,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -122457,6 +123887,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -122465,6 +123901,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -122476,9 +123913,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -122532,6 +123975,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1768600098
@@ -124213,6 +125657,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.5
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.4
   retreatTime: 0.7
@@ -124252,6 +125697,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -124380,6 +125826,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -124388,6 +125840,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -124399,9 +125852,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -124442,6 +125901,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1796738296
@@ -124837,6 +126297,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -124866,6 +126327,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -125002,6 +126464,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -125010,6 +126478,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -125021,9 +126490,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -125064,6 +126539,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1800598647
@@ -125940,6 +127416,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.6667374
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -126423,6 +127901,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -126460,6 +127939,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -126588,6 +128068,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -126596,6 +128082,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -126607,9 +128094,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -126650,6 +128143,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1827995917
@@ -127073,6 +128567,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -127115,6 +128610,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -127245,6 +128741,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -127252,6 +128754,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -127268,9 +128771,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -127311,6 +128820,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1828631401
@@ -127632,6 +129142,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -127661,6 +129172,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -127792,6 +129304,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -127800,6 +129318,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -127811,9 +129330,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -127854,6 +129379,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1831000847
@@ -129493,6 +131019,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -129535,6 +131062,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -129665,6 +131193,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -129672,6 +131206,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -129688,9 +131223,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -129731,6 +131272,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1854739552
@@ -129789,6 +131331,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 2.0439956
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -130012,6 +131556,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &1860878212
 GameObject:
   m_ObjectHideFlags: 0
@@ -130966,6 +132511,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &1882131680
 Transform:
   m_ObjectHideFlags: 0
@@ -131396,6 +132942,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -131425,6 +132972,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -131561,6 +133109,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -131569,6 +133123,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -131580,9 +133135,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -131623,6 +133184,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1885750295
@@ -131863,6 +133425,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 0.42507982
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 0
   sidewalkHeight: 0.42
   curbDepthY: -1.2
@@ -134848,6 +136412,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -134890,6 +136455,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -135020,6 +136586,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -135027,6 +136599,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -135043,9 +136616,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -135086,6 +136665,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1970343180
@@ -135597,6 +137177,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -135639,6 +137220,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -135769,6 +137351,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -135776,6 +137364,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -135792,9 +137381,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -135835,6 +137430,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1975752029
@@ -136272,6 +137868,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -136314,6 +137911,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -136444,6 +138042,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -136451,6 +138055,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -136467,9 +138072,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -136510,6 +138121,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &1979148144
@@ -136929,6 +138541,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -136971,6 +138584,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -137101,6 +138715,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -137108,6 +138728,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -137124,9 +138745,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -137167,6 +138794,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &1981792392
@@ -137490,6 +139118,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!4 &1989644221
 Transform:
   m_ObjectHideFlags: 0
@@ -137817,6 +139446,8 @@ MonoBehaviour:
   iceGlide: 3.5
   minDepthY: -3.4
   maxDepthY: 1.6340473
+  gravityScale: 1
+  camJumpLift: 0
   useSidewalk: 1
   sidewalkHeight: 0.5328246
   curbDepthY: 1.3498741
@@ -139565,6 +141196,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -139607,6 +141239,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -139737,6 +141370,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -139744,6 +141383,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -139760,9 +141400,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -139803,6 +141449,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2040283110
@@ -140132,6 +141779,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -140174,6 +141822,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -140304,6 +141953,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -140311,6 +141966,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -140327,9 +141983,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -140370,6 +142032,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2040796037
@@ -141657,6 +143320,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.3
   flankChance: 0.4
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0.45
   retreatTime: 0.7
@@ -141686,6 +143350,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -141876,6 +143541,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -141884,6 +143555,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds: []
   attackVolume: 0.9
@@ -141895,9 +143567,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -141938,6 +143616,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &2066989936
@@ -142264,6 +143943,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -142293,6 +143973,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -142429,6 +144110,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -142437,6 +144124,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -142448,9 +144136,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -142491,6 +144185,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2066989938
@@ -143393,6 +145088,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -143435,6 +145131,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -143565,6 +145262,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -143572,6 +145275,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -143588,9 +145292,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -143631,6 +145341,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2079979393
@@ -144043,6 +145754,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -144085,6 +145797,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -144215,6 +145928,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -144222,6 +145941,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -144238,9 +145958,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -144281,6 +146007,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2082487213
@@ -144600,6 +146327,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.1
   flankChance: 0.05
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -144629,6 +146357,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -144760,6 +146489,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -144768,6 +146503,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.99
   attackSounds: []
   attackVolume: 0.9
@@ -144779,9 +146515,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -144822,6 +146564,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2086938876
@@ -145090,6 +146833,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &2094763070
 GameObject:
   m_ObjectHideFlags: 0
@@ -146047,6 +147791,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.15
   flankChance: 0.1
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -146089,6 +147834,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -146219,6 +147965,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: 854d605edcfea2d4e903240707c07cae, type: 3}
@@ -146226,6 +147978,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17cd139f84ab8344d82e04e5649ece51, type: 3}
   - {fileID: 8300000, guid: dfb95ae7881ed2b4bb3d617df6e03373, type: 3}
   - {fileID: 8300000, guid: fd8c852a58cb9954196a2740d5b607c1, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.95
   attackSounds:
   - {fileID: 8300000, guid: 62a08d156bbb0f8488655131ec7e6df9, type: 3}
@@ -146242,9 +147995,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -146285,6 +148044,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!1 &2116697623
@@ -146611,6 +148371,7 @@ MonoBehaviour:
   tauntPause: {x: 4, y: 9}
   runSpeedMultiplier: 1.5
   flankChance: 0.25
+  postHitFlankChance: 0
   flankArcDepth: 1.3
   retreatChance: 0
   retreatTime: 0.7
@@ -146640,6 +148401,7 @@ MonoBehaviour:
   slapStep: 0.16
   slapReach: 2.2
   slapGlide: 0
+  slapGuardBreak: 0
   slapWindupSounds: []
   heroDownLaugh: {fileID: 0}
   helpShout: {fileID: 0}
@@ -146776,6 +148538,12 @@ MonoBehaviour:
   altWindupSounds: []
   doubleKickSounds: []
   deathVoice: {fileID: 0}
+  lowHealthVoice: {fileID: 0}
+  lowHealthVolume: 1
+  damagedIdleSprites: []
+  damagedTauntSounds: []
+  damagedFraction: 0.3
+  damagedIdleFrameTime: 0.1
   launchVoice: {fileID: 0}
   hurtSounds:
   - {fileID: 8300000, guid: fbe867c0c8ae71b449d80af122f2fd38, type: 3}
@@ -146784,6 +148552,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57e81935989b83044ba480e76bc0391d, type: 3}
   - {fileID: 8300000, guid: 124b3fa0ff9a22c40b8b9292e7578e80, type: 3}
   - {fileID: 8300000, guid: 6a9e99b94fd20a242846db77009925e3, type: 3}
+  alternateHurt: 0
   hurtVolume: 0.8
   attackSounds: []
   attackVolume: 0.9
@@ -146795,9 +148564,15 @@ MonoBehaviour:
   attackArtScale: 1
   knockArtScale: 1
   walkArtScale: 1
+  throwArtScale: 1
   redFlash: 0
+  stepSounds: []
+  stepFrame: 2
+  stepVolume: 0.8
+  stepHearDistance: 20
   isBoss: 0
   damageTakenMul: 1
+  heroDamageMul: 1
   lightweight: 0
   lightLaunchMul: 1.6
   lightUppercutUp: 12
@@ -146838,6 +148613,7 @@ MonoBehaviour:
   burstFrameTime: 0.09
   burstHold: 1.4
   burstSounds: []
+  punch2TimeScale: 1
   LastBlockTime: -99
   LastGetUpTime: -99
 --- !u!4 &2116697625
@@ -147960,6 +149736,7 @@ MonoBehaviour:
   emergeManhole: {fileID: 0}
   arrivalOffsetY: 0
   arrivalTime: 0.7
+  manualOnly: 0
 --- !u!1 &2137505634
 GameObject:
   m_ObjectHideFlags: 0

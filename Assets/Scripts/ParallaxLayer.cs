@@ -24,6 +24,14 @@ public class ParallaxLayer : MonoBehaviour
 
     void Awake() { sr = GetComponent<SpriteRenderer>(); }
 
+    void Start()
+    {
+        // Kerros näkyy koko alueen kameraväli: jos kerros luotiin ennen kuin alueen kameran oikea reuna asetettiin (pitkä kenttä, esim. Kaivos),
+        // sen maxX jäi liian pieneksi ja kerros katosi yhtäkkiä kesken kentän. Haetaan alue, jonka kameran vasen reuna on kerroksen aloituskohta.
+        foreach (var a in FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (a != null && Mathf.Abs(a.camMinX - startCamX) < 0.01f && a.camMaxX + 2f > maxX) { maxX = a.camMaxX + 2f; break; }
+    }
+
     void LateUpdate()
     {
         var cam = Camera.main;
