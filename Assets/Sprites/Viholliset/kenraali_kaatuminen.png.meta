@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 0b21a0e4448b67744a17d795aa41c88e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5920133829236561363
+    second: kenraali_kaatuminen_0
+  - first:
+      213: -3351933199514371102
+    second: kenraali_kaatuminen_1
+  - first:
+      213: -2527280803585790183
+    second: kenraali_kaatuminen_2
+  - first:
+      213: -1388782210459078236
+    second: kenraali_kaatuminen_3
+  - first:
+      213: -2623397248401274173
+    second: kenraali_kaatuminen_4
+  - first:
+      213: 6754200333117518636
+    second: kenraali_kaatuminen_5
+  - first:
+      213: -4588548256198578340
+    second: kenraali_kaatuminen_6
+  - first:
+      213: 1778175582228065063
+    second: kenraali_kaatuminen_7
+  - first:
+      213: 2975243054180403690
+    second: kenraali_kaatuminen_8
+  - first:
+      213: -3283772755854119288
+    second: kenraali_kaatuminen_9
+  - first:
+      213: 3751445046603912123
+    second: kenraali_kaatuminen_10
+  - first:
+      213: 6270794040637548163
+    second: kenraali_kaatuminen_11
+  - first:
+      213: -7219102027904441497
+    second: kenraali_kaatuminen_12
+  - first:
+      213: -190954028263887817
+    second: kenraali_kaatuminen_13
+  - first:
+      213: 4875245104362942073
+    second: kenraali_kaatuminen_14
+  - first:
+      213: -1793326045614669518
+    second: kenraali_kaatuminen_15
+  - first:
+      213: 2001292858522445312
+    second: kenraali_kaatuminen_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3110
+        width: 839
+        height: 734
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d51b6af95a882250800000000000000
+      internalID: 5920133829236561363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 3181
+        width: 921
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb7b1ca38a8b71d0800000000000000
+      internalID: -3351933199514371102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2674
+        y: 3277
+        width: 964
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fea9ecf7b4decd0800000000000000
+      internalID: -2527280803585790183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3936
+        y: 3287
+        width: 978
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1743b00fd0abce0800000000000000
+      internalID: -1388782210459078236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 2263
+        width: 981
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca0e481a12d79bd0800000000000000
+      internalID: -2623397248401274173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_5
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 2261
+        width: 981
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c237b4dea6dbbbd50800000000000000
+      internalID: 6754200333117518636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_6
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 2232
+        width: 906
+        height: 593
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5fab821ca33250c0800000000000000
+      internalID: -4588548256198578340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_7
+      rect:
+        serializedVersion: 2
+        x: 4111
+        y: 2122
+        width: 679
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72b2af655495da810800000000000000
+      internalID: 1778175582228065063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1055
+        width: 563
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae90fd45bcf2a4920800000000000000
+      internalID: 2975243054180403690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_9
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1101
+        width: 803
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ea534a312bd62d0800000000000000
+      internalID: -3283772755854119288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_10
+      rect:
+        serializedVersion: 2
+        x: 2740
+        y: 1100
+        width: 873
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb39935d46fcf0430800000000000000
+      internalID: 3751445046603912123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_11
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 1047
+        width: 832
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38666d3b4f5560750800000000000000
+      internalID: 6270794040637548163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 959
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763247d34f890db90800000000000000
+      internalID: -7219102027904441497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_13
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 28
+        width: 975
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ca6e0b258995df0800000000000000
+      internalID: -190954028263887817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_14
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 31
+        width: 1024
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ee38e979958a340800000000000000
+      internalID: 4875245104362942073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_15
+      rect:
+        serializedVersion: 2
+        x: 3936
+        y: 24
+        width: 1051
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2318ea48673dc17e0800000000000000
+      internalID: -1793326045614669518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kaatuminen_16
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006a1c3604506cb10800000000000000
+      internalID: 2001292858522445312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kenraali_kaatuminen_0: 5920133829236561363
+      kenraali_kaatuminen_1: -3351933199514371102
+      kenraali_kaatuminen_10: 3751445046603912123
+      kenraali_kaatuminen_11: 6270794040637548163
+      kenraali_kaatuminen_12: -7219102027904441497
+      kenraali_kaatuminen_13: -190954028263887817
+      kenraali_kaatuminen_14: 4875245104362942073
+      kenraali_kaatuminen_15: -1793326045614669518
+      kenraali_kaatuminen_16: 2001292858522445312
+      kenraali_kaatuminen_2: -2527280803585790183
+      kenraali_kaatuminen_3: -1388782210459078236
+      kenraali_kaatuminen_4: -2623397248401274173
+      kenraali_kaatuminen_5: 6754200333117518636
+      kenraali_kaatuminen_6: -4588548256198578340
+      kenraali_kaatuminen_7: 1778175582228065063
+      kenraali_kaatuminen_8: 2975243054180403690
+      kenraali_kaatuminen_9: -3283772755854119288
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: e04c96a2ee5e23a448c0fba3813ae52a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4712067360706011516
+    second: rex_ylapotku_0
+  - first:
+      213: -1889953668494252043
+    second: rex_ylapotku_1
+  - first:
+      213: -1536495596313320063
+    second: rex_ylapotku_2
+  - first:
+      213: -359246149270817331
+    second: rex_ylapotku_3
+  - first:
+      213: 3863763343335018823
+    second: rex_ylapotku_4
+  - first:
+      213: 5957800175753396019
+    second: rex_ylapotku_5
+  - first:
+      213: 9215044691015960112
+    second: rex_ylapotku_6
+  - first:
+      213: 4493368926924927548
+    second: rex_ylapotku_7
+  - first:
+      213: 4711663176871277689
+    second: rex_ylapotku_8
+  - first:
+      213: -8185909323775868895
+    second: rex_ylapotku_9
+  - first:
+      213: 8863824904990763579
+    second: rex_ylapotku_10
+  - first:
+      213: -2487584945375524558
+    second: rex_ylapotku_11
+  - first:
+      213: -2485711872923919383
+    second: rex_ylapotku_12
+  - first:
+      213: -6617764763821455384
+    second: rex_ylapotku_13
+  - first:
+      213: -2118237585089543198
+    second: rex_ylapotku_14
+  - first:
+      213: 1595173848947488523
+    second: rex_ylapotku_15
+  - first:
+      213: -7561282432242255351
+    second: rex_ylapotku_16
+  - first:
+      213: -773568879341253104
+    second: rex_ylapotku_17
+  - first:
+      213: -8984107912015833378
+    second: rex_ylapotku_18
+  - first:
+      213: -7976365021447499043
+    second: rex_ylapotku_19
+  - first:
+      213: 6597390433198849566
+    second: rex_ylapotku_20
+  - first:
+      213: 7636352492116155864
+    second: rex_ylapotku_21
+  - first:
+      213: -4261625027311894228
+    second: rex_ylapotku_22
+  - first:
+      213: -8206826341790741016
+    second: rex_ylapotku_23
+  - first:
+      213: -8545288918581578465
+    second: rex_ylapotku_24
+  - first:
+      213: -1601069876083424500
+    second: rex_ylapotku_25
+  - first:
+      213: 4052137968816265016
+    second: rex_ylapotku_26
+  - first:
+      213: -5455779411763347249
+    second: rex_ylapotku_27
+  - first:
+      213: -2614802669676740552
+    second: rex_ylapotku_28
+  - first:
+      213: 7676356763597510867
+    second: rex_ylapotku_29
+  - first:
+      213: -4564736293353716088
+    second: rex_ylapotku_30
+  - first:
+      213: 3188879847139740608
+    second: rex_ylapotku_31
+  - first:
+      213: 5075110682801196953
+    second: rex_ylapotku_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rex_ylapotku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7128988c40a46140800000000000000
+      internalID: 4712067360706011516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f72473e62985c5e0800000000000000
+      internalID: -1889953668494252043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 185eac655654daae0800000000000000
+      internalID: -1536495596313320063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc539c5d783b30bf0800000000000000
+      internalID: -359246149270817331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741d8a72a48de9530800000000000000
+      internalID: 3863763343335018823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33f7a8ea1bb5ea250800000000000000
+      internalID: 5957800175753396019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0360b55b25a62ef70800000000000000
+      internalID: 9215044691015960112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rex_ylapotku_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32732e6b37ab5e30800000000000000
+      internalID: 4493368926924927548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b6a7ec146758d8a49b5da26e01632142
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rex_ylapotku_0: 4712067360706011516
+      rex_ylapotku_1: -1889953668494252043
+      rex_ylapotku_2: -1536495596313320063
+      rex_ylapotku_3: -359246149270817331
+      rex_ylapotku_4: 3863763343335018823
+      rex_ylapotku_5: 5957800175753396019
+      rex_ylapotku_6: 9215044691015960112
+      rex_ylapotku_7: 4493368926924927548
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

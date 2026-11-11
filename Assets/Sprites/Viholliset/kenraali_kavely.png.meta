@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 0e79f652f4b10e14bbd3ec45b372a442
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3302748012151190423
+    second: kenraali_kavely_0
+  - first:
+      213: -7716877581773552268
+    second: kenraali_kavely_1
+  - first:
+      213: 7286127549140601721
+    second: kenraali_kavely_2
+  - first:
+      213: -7271146760453017083
+    second: kenraali_kavely_3
+  - first:
+      213: 4923775244830266019
+    second: kenraali_kavely_4
+  - first:
+      213: 1676881211858274722
+    second: kenraali_kavely_5
+  - first:
+      213: 3459072751728853857
+    second: kenraali_kavely_6
+  - first:
+      213: 6704214102828318770
+    second: kenraali_kavely_7
+  - first:
+      213: 6179205831955067895
+    second: kenraali_kavely_8
+  - first:
+      213: 7664852668466477462
+    second: kenraali_kavely_9
+  - first:
+      213: 3637365779721649463
+    second: kenraali_kavely_10
+  - first:
+      213: 8211785090468289203
+    second: kenraali_kavely_11
+  - first:
+      213: 4226873442774845563
+    second: kenraali_kavely_12
+  - first:
+      213: 1159031003860210602
+    second: kenraali_kavely_13
+  - first:
+      213: -2712494716811145447
+    second: kenraali_kavely_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kenraali_kavely_0
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 2315
+        width: 285
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96cc9118e284a22d0800000000000000
+      internalID: -3302748012151190423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_1
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 2316
+        width: 316
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4754633a9b428e490800000000000000
+      internalID: -7716877581773552268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_2
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 2317
+        width: 378
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b86b207668d1560800000000000000
+      internalID: 7286127549140601721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_3
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 2317
+        width: 448
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5023779ab82b71b90800000000000000
+      internalID: -7271146760453017083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1549
+        width: 467
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a258f57f73c45440800000000000000
+      internalID: 4923775244830266019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_5
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1550
+        width: 433
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9c653e39a754710800000000000000
+      internalID: 1676881211858274722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_6
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 1554
+        width: 344
+        height: 685
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 163080b3758110030800000000000000
+      internalID: 3459072751728853857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_7
+      rect:
+        serializedVersion: 2
+        x: 2092
+        y: 1554
+        width: 280
+        height: 692
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2300f31c4372a0d50800000000000000
+      internalID: 6704214102828318770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_8
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 786
+        width: 314
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f334bf17f2f0c550800000000000000
+      internalID: 6179205831955067895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_9
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 785
+        width: 374
+        height: 695
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69936af44e60f5a60800000000000000
+      internalID: 7664852668466477462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_10
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 785
+        width: 431
+        height: 688
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d7872b7e48a7230800000000000000
+      internalID: 3637365779721649463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_11
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 783
+        width: 433
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba1639280f16f170800000000000000
+      internalID: 8211785090468289203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_12
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 12
+        width: 445
+        height: 683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b788023500fd8aa30800000000000000
+      internalID: 4226873442774845563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_13
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 10
+        width: 403
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa390c4ae84b51010800000000000000
+      internalID: 1159031003860210602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_kavely_14
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 10
+        width: 311
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f095d2d684b5ad0800000000000000
+      internalID: -2712494716811145447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kenraali_kavely_0: -3302748012151190423
+      kenraali_kavely_1: -7716877581773552268
+      kenraali_kavely_10: 3637365779721649463
+      kenraali_kavely_11: 8211785090468289203
+      kenraali_kavely_12: 4226873442774845563
+      kenraali_kavely_13: 1159031003860210602
+      kenraali_kavely_14: -2712494716811145447
+      kenraali_kavely_2: 7286127549140601721
+      kenraali_kavely_3: -7271146760453017083
+      kenraali_kavely_4: 4923775244830266019
+      kenraali_kavely_5: 1676881211858274722
+      kenraali_kavely_6: 3459072751728853857
+      kenraali_kavely_7: 6704214102828318770
+      kenraali_kavely_8: 6179205831955067895
+      kenraali_kavely_9: 7664852668466477462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

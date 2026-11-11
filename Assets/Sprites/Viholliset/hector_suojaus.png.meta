@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: 2b89a8d204f0a5d4094207b626ef2bad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9204469384393198082
+    second: hector_suojaus_0
+  - first:
+      213: -7098146369725633596
+    second: hector_suojaus_1
+  - first:
+      213: 2302417520440255816
+    second: hector_suojaus_2
+  - first:
+      213: -8946492577306459911
+    second: hector_suojaus_3
+  - first:
+      213: -4731323055709821127
+    second: hector_suojaus_4
+  - first:
+      213: 4245276641764922574
+    second: hector_suojaus_5
+  - first:
+      213: 1484452080207519518
+    second: hector_suojaus_6
+  - first:
+      213: 5286000304417986712
+    second: hector_suojaus_7
+  - first:
+      213: 9026317719176303151
+    second: hector_suojaus_8
+  - first:
+      213: -5518140768454781648
+    second: hector_suojaus_9
+  - first:
+      213: 8779918816732219612
+    second: hector_suojaus_10
+  - first:
+      213: -2238695695703906494
+    second: hector_suojaus_11
+  - first:
+      213: 7092440241946470510
+    second: hector_suojaus_12
+  - first:
+      213: 5398263383408872145
+    second: hector_suojaus_13
+  - first:
+      213: -5266011120698694641
+    second: hector_suojaus_14
+  - first:
+      213: 4295702043786658504
+    second: hector_suojaus_15
+  - first:
+      213: 4455649507715764857
+    second: hector_suojaus_16
+  - first:
+      213: -7718543184071242757
+    second: hector_suojaus_17
+  - first:
+      213: 1406886270886036088
+    second: hector_suojaus_18
+  - first:
+      213: 8177241171676299963
+    second: hector_suojaus_19
+  - first:
+      213: -5323097092997526162
+    second: hector_suojaus_20
+  - first:
+      213: 4343520438590085636
+    second: hector_suojaus_21
+  - first:
+      213: -5008874609842173708
+    second: hector_suojaus_22
+  - first:
+      213: -5353625914198776262
+    second: hector_suojaus_23
+  - first:
+      213: 6246902091041926543
+    second: hector_suojaus_24
+  - first:
+      213: -6524772984703282542
+    second: hector_suojaus_25
+  - first:
+      213: 904554120537721385
+    second: hector_suojaus_26
+  - first:
+      213: -6623057730539217093
+    second: hector_suojaus_27
+  - first:
+      213: 5495722573300030593
+    second: hector_suojaus_28
+  - first:
+      213: 8222387967970120804
+    second: hector_suojaus_29
+  - first:
+      213: 4166855331282535651
+    second: hector_suojaus_30
+  - first:
+      213: 709795545429183750
+    second: hector_suojaus_31
+  - first:
+      213: -1964421287321707303
+    second: hector_suojaus_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hector_suojaus_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a07b24328dcbf70800000000000000
+      internalID: 9204469384393198082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_suojaus_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb66ccfb715e7d90800000000000000
+      internalID: -7098146369725633596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_suojaus_2
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8452a7e3984d3ff10800000000000000
+      internalID: 2302417520440255816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_suojaus_3
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 768
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0caf7c66ca7d380800000000000000
+      internalID: -8946492577306459911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_suojaus_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937ecca9fb6f65eb0800000000000000
+      internalID: -4731323055709821127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_suojaus_5
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 576
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec459adfc904aea30800000000000000
+      internalID: 4245276641764922574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c2091063a1289254aa14388fa4703328
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hector_suojaus_0: 9204469384393198082
+      hector_suojaus_1: -7098146369725633596
+      hector_suojaus_2: 2302417520440255816
+      hector_suojaus_3: -8946492577306459911
+      hector_suojaus_4: -4731323055709821127
+      hector_suojaus_5: 4245276641764922574
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

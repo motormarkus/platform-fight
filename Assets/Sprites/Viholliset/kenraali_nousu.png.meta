@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: dd27345773151b54883166fd343dc283
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5690610711100520621
+    second: kenraali_nousu_0
+  - first:
+      213: -2900893227222457627
+    second: kenraali_nousu_1
+  - first:
+      213: 2081779358550280056
+    second: kenraali_nousu_2
+  - first:
+      213: 5985719522081198710
+    second: kenraali_nousu_3
+  - first:
+      213: -1011798032928666166
+    second: kenraali_nousu_4
+  - first:
+      213: -1114284850629193363
+    second: kenraali_nousu_5
+  - first:
+      213: 446615135354510815
+    second: kenraali_nousu_6
+  - first:
+      213: -6502067593077135337
+    second: kenraali_nousu_7
+  - first:
+      213: -4719718372707352271
+    second: kenraali_nousu_8
+  - first:
+      213: 2798984842258427966
+    second: kenraali_nousu_9
+  - first:
+      213: 5230328931838476077
+    second: kenraali_nousu_10
+  - first:
+      213: 2373262372430107469
+    second: kenraali_nousu_11
+  - first:
+      213: -3694061136277765075
+    second: kenraali_nousu_12
+  - first:
+      213: -3617616181526563912
+    second: kenraali_nousu_13
+  - first:
+      213: -8631472067079656959
+    second: kenraali_nousu_14
+  - first:
+      213: -19754482837418576
+    second: kenraali_nousu_15
+  - first:
+      213: 8615713473314684811
+    second: kenraali_nousu_16
+  - first:
+      213: 4352119023004107019
+    second: kenraali_nousu_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kenraali_nousu_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 3086
+        width: 1044
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da8fd26aa4c19fe40800000000000000
+      internalID: 5690610711100520621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_1
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 3073
+        width: 1001
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2a11cbaf4fdb7d0800000000000000
+      internalID: -2900893227222457627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_2
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 3081
+        width: 1006
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877412ffb47f3ec10800000000000000
+      internalID: 2081779358550280056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_3
+      rect:
+        serializedVersion: 2
+        x: 4021
+        y: 3083
+        width: 984
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67255ce013c811350800000000000000
+      internalID: 5985719522081198710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 2313
+        width: 959
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd09debc0f55f1f0800000000000000
+      internalID: -1011798032928666166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 2313
+        width: 955
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61d5a305d34980f0800000000000000
+      internalID: -1114284850629193363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_6
+      rect:
+        serializedVersion: 2
+        x: 2742
+        y: 2313
+        width: 954
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd5e1e6912b23600800000000000000
+      internalID: 446615135354510815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_7
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 2311
+        width: 954
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718ee0939f304c5a0800000000000000
+      internalID: -6502067593077135337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_8
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1542
+        width: 961
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131c4ea6521308eb0800000000000000
+      internalID: -4719718372707352271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1543
+        width: 961
+        height: 471
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e30348662edf7d620800000000000000
+      internalID: 2798984842258427966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_10
+      rect:
+        serializedVersion: 2
+        x: 2726
+        y: 1545
+        width: 963
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f3ea8b37cd59840800000000000000
+      internalID: 5230328931838476077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_11
+      rect:
+        serializedVersion: 2
+        x: 4017
+        y: 1564
+        width: 964
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d435f7bbd858fe020800000000000000
+      internalID: 2373262372430107469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_12
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 793
+        width: 911
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d248691f7fe0cbcc0800000000000000
+      internalID: -3694061136277765075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_13
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 798
+        width: 756
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b37766ff35abcdc0800000000000000
+      internalID: -3617616181526563912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_14
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 788
+        width: 638
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10aa201f2e9d63880800000000000000
+      internalID: -8631472067079656959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_15
+      rect:
+        serializedVersion: 2
+        x: 4118
+        y: 780
+        width: 557
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd01cb0761d9bff0800000000000000
+      internalID: -19754482837418576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_16
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 11
+        width: 485
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ff77781c9219770800000000000000
+      internalID: 8615713473314684811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kenraali_nousu_17
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 11
+        width: 477
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0141626135d56c30800000000000000
+      internalID: 4352119023004107019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kenraali_nousu_0: 5690610711100520621
+      kenraali_nousu_1: -2900893227222457627
+      kenraali_nousu_10: 5230328931838476077
+      kenraali_nousu_11: 2373262372430107469
+      kenraali_nousu_12: -3694061136277765075
+      kenraali_nousu_13: -3617616181526563912
+      kenraali_nousu_14: -8631472067079656959
+      kenraali_nousu_15: -19754482837418576
+      kenraali_nousu_16: 8615713473314684811
+      kenraali_nousu_17: 4352119023004107019
+      kenraali_nousu_2: 2081779358550280056
+      kenraali_nousu_3: 5985719522081198710
+      kenraali_nousu_4: -1011798032928666166
+      kenraali_nousu_5: -1114284850629193363
+      kenraali_nousu_6: 446615135354510815
+      kenraali_nousu_7: -6502067593077135337
+      kenraali_nousu_8: -4719718372707352271
+      kenraali_nousu_9: 2798984842258427966
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

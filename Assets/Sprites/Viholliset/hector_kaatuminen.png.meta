@@ -1,0 +1,331 @@
+fileFormatVersion: 2
+guid: 63ec778d6557efc449ae086202ce9d85
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5591948051105575261
+    second: hector_kaatuminen_0
+  - first:
+      213: -2101167455236308079
+    second: hector_kaatuminen_1
+  - first:
+      213: 1598954701875158477
+    second: hector_kaatuminen_2
+  - first:
+      213: 5449179698629837520
+    second: hector_kaatuminen_3
+  - first:
+      213: 8608455890190944553
+    second: hector_kaatuminen_4
+  - first:
+      213: 711079883494466739
+    second: hector_kaatuminen_5
+  - first:
+      213: 8769917295959348343
+    second: hector_kaatuminen_6
+  - first:
+      213: 3514929890055708283
+    second: hector_kaatuminen_7
+  - first:
+      213: 302811944371268545
+    second: hector_kaatuminen_8
+  - first:
+      213: 5369580320842807665
+    second: hector_kaatuminen_9
+  - first:
+      213: -6949253239477800993
+    second: hector_kaatuminen_10
+  - first:
+      213: -1663358626925951305
+    second: hector_kaatuminen_11
+  - first:
+      213: 5819138420114540310
+    second: hector_kaatuminen_12
+  - first:
+      213: 3605995071040590828
+    second: hector_kaatuminen_13
+  - first:
+      213: 2306857405595091353
+    second: hector_kaatuminen_14
+  - first:
+      213: 4713613150497583091
+    second: hector_kaatuminen_15
+  - first:
+      213: 1378655541192074265
+    second: hector_kaatuminen_16
+  - first:
+      213: 9040310343125700177
+    second: hector_kaatuminen_17
+  - first:
+      213: 7761882242337700384
+    second: hector_kaatuminen_18
+  - first:
+      213: -6737825035122897297
+    second: hector_kaatuminen_19
+  - first:
+      213: -2263068040686598304
+    second: hector_kaatuminen_20
+  - first:
+      213: 8382564483502866271
+    second: hector_kaatuminen_21
+  - first:
+      213: 7333891243051615341
+    second: hector_kaatuminen_22
+  - first:
+      213: -3022037838893512006
+    second: hector_kaatuminen_23
+  - first:
+      213: -9150422845207924328
+    second: hector_kaatuminen_24
+  - first:
+      213: -2325663641885234014
+    second: hector_kaatuminen_25
+  - first:
+      213: 1305360502581950417
+    second: hector_kaatuminen_26
+  - first:
+      213: -6608243775350168462
+    second: hector_kaatuminen_27
+  - first:
+      213: 4286442148986247431
+    second: hector_kaatuminen_28
+  - first:
+      213: 4074695417863244551
+    second: hector_kaatuminen_29
+  - first:
+      213: -1957261819344560401
+    second: hector_kaatuminen_30
+  - first:
+      213: -3216151708454987838
+    second: hector_kaatuminen_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hector_kaatuminen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae0a6bffd86562b0800000000000000
+      internalID: -5591948051105575261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_kaatuminen_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1934709f45727d2e0800000000000000
+      internalID: -2101167455236308079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_kaatuminen_2
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd953964d0a03610800000000000000
+      internalID: 1598954701875158477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hector_kaatuminen_3
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 1152
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d20a1e90106f9b40800000000000000
+      internalID: 5449179698629837520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b43d27daafa6314449343bfc736211ee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hector_kaatuminen_0: -5591948051105575261
+      hector_kaatuminen_1: -2101167455236308079
+      hector_kaatuminen_2: 1598954701875158477
+      hector_kaatuminen_3: 5449179698629837520
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

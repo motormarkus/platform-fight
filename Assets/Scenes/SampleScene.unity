@@ -291,6 +291,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -1001,6 +1002,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -1991,6 +1993,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -3250,6 +3253,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -4672,6 +4676,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -7537,6 +7542,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -8470,6 +8476,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -9026,6 +9033,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -9979,6 +9987,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -10591,6 +10600,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &97818407
 Transform:
   m_ObjectHideFlags: 0
@@ -10993,6 +11003,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &102351313
 Transform:
   m_ObjectHideFlags: 0
@@ -13280,6 +13291,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -13919,6 +13931,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &162310320
 Transform:
   m_ObjectHideFlags: 0
@@ -14154,6 +14167,7 @@ MonoBehaviour:
   arrivalOffsetY: -1.1
   arrivalTime: 0.8
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &165018171
 GameObject:
   m_ObjectHideFlags: 0
@@ -14302,6 +14316,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -15104,6 +15119,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -15925,6 +15941,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -16573,6 +16590,7 @@ MonoBehaviour:
   arrivalOffsetY: 3
   arrivalTime: 0.8
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!114 &184512053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17533,6 +17551,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &208666884
 GameObject:
   m_ObjectHideFlags: 0
@@ -17845,6 +17864,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -18801,6 +18821,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -19358,6 +19379,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -20747,6 +20769,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &245668392
 Transform:
   m_ObjectHideFlags: 0
@@ -21298,6 +21321,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -22011,6 +22035,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -22644,6 +22669,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -23284,6 +23310,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -24029,6 +24056,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -25459,6 +25487,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &318235441
 GameObject:
   m_ObjectHideFlags: 0
@@ -25788,6 +25817,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -27745,6 +27775,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -28226,6 +28257,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &352977085
 GameObject:
   m_ObjectHideFlags: 0
@@ -29712,6 +29744,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -30340,6 +30373,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &380508875
 Transform:
   m_ObjectHideFlags: 0
@@ -30734,6 +30768,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -32119,6 +32154,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -32749,6 +32785,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -34068,6 +34105,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -34848,6 +34886,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &409454110
 Transform:
   m_ObjectHideFlags: 0
@@ -36695,6 +36734,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -38450,6 +38490,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -39308,6 +39349,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &478650950
 Transform:
   m_ObjectHideFlags: 0
@@ -40706,6 +40748,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -41314,6 +41357,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -43928,6 +43972,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -44476,6 +44521,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &559691874
 Transform:
   m_ObjectHideFlags: 0
@@ -45914,6 +45960,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -46827,6 +46874,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &610304091
 Transform:
   m_ObjectHideFlags: 0
@@ -47949,6 +47997,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &633102985
 GameObject:
   m_ObjectHideFlags: 0
@@ -49447,6 +49496,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -50128,6 +50178,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -53134,6 +53185,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -53652,6 +53704,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -54542,6 +54595,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -55538,6 +55592,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -56597,6 +56652,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -57283,6 +57339,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -57831,6 +57888,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -59968,6 +60026,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -60768,6 +60827,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -61444,6 +61504,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &804775261
 GameObject:
   m_ObjectHideFlags: 0
@@ -61612,6 +61673,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &805822438
 GameObject:
   m_ObjectHideFlags: 0
@@ -62485,6 +62547,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -63149,6 +63212,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -63595,6 +63659,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &826560125
 Transform:
   m_ObjectHideFlags: 0
@@ -64389,6 +64454,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &840874164
 Transform:
   m_ObjectHideFlags: 0
@@ -64569,6 +64635,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -65869,6 +65936,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &852557272
 GameObject:
   m_ObjectHideFlags: 0
@@ -66041,6 +66109,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -66770,6 +66839,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -68252,6 +68322,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -70896,6 +70967,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -71519,6 +71591,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -72290,6 +72363,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -73333,6 +73407,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -74196,6 +74271,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -75266,6 +75342,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -75806,6 +75883,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &984811883
 Transform:
   m_ObjectHideFlags: 0
@@ -76263,6 +76341,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -77043,6 +77122,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &1003377374
 GameObject:
   m_ObjectHideFlags: 0
@@ -78409,6 +78489,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -79209,6 +79290,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1050408868
 Transform:
   m_ObjectHideFlags: 0
@@ -79624,6 +79706,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -80345,6 +80428,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -81578,6 +81662,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -82459,6 +82544,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -83312,6 +83398,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -83791,6 +83878,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1086603556
 Transform:
   m_ObjectHideFlags: 0
@@ -85387,6 +85475,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -86353,6 +86442,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -87411,6 +87501,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -88501,6 +88592,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -90544,6 +90636,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -92185,6 +92278,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -92757,6 +92851,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -93296,6 +93391,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -94017,6 +94113,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -94838,6 +94935,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -95676,6 +95774,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -96758,6 +96857,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -97943,6 +98043,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -100197,6 +100298,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &1277454966
 GameObject:
   m_ObjectHideFlags: 0
@@ -101275,6 +101377,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -102000,6 +102103,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -102890,6 +102994,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -104366,6 +104471,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -105145,6 +105251,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -105697,6 +105804,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -106696,6 +106804,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -109119,6 +109228,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &1393151925
 GameObject:
   m_ObjectHideFlags: 0
@@ -109530,6 +109640,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -110169,6 +110280,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -111003,6 +111115,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &1408939159
 Transform:
   m_ObjectHideFlags: 0
@@ -112165,6 +112278,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &1430258507
 GameObject:
   m_ObjectHideFlags: 0
@@ -112819,6 +112933,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -113636,6 +113751,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -114366,6 +114482,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -115187,6 +115304,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1457622512
 Transform:
   m_ObjectHideFlags: 0
@@ -115837,6 +115955,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -117166,6 +117285,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1474673952
 Transform:
   m_ObjectHideFlags: 0
@@ -118984,6 +119104,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -119795,6 +119916,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -120334,6 +120456,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -120882,6 +121005,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -122408,6 +122532,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -122974,6 +123099,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -123620,6 +123746,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -124430,6 +124557,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 1
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -125896,6 +126024,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -126636,6 +126765,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -128099,6 +128229,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -128926,6 +129057,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &1599857627
 GameObject:
   m_ObjectHideFlags: 0
@@ -129156,6 +129288,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -130054,6 +130187,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -132409,6 +132543,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -132842,6 +132977,7 @@ MonoBehaviour:
   arrivalOffsetY: 3
   arrivalTime: 0.8
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!114 &1649333408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133434,6 +133570,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -134622,6 +134759,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -135929,6 +136067,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -137914,6 +138053,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -138861,6 +139001,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1733441196
 Transform:
   m_ObjectHideFlags: 0
@@ -139110,6 +139251,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -140788,6 +140930,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -141450,6 +141593,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -142616,6 +142760,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -143065,6 +143210,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1782840038
 Transform:
   m_ObjectHideFlags: 0
@@ -143922,6 +144068,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -145265,6 +145412,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -148296,6 +148444,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -149093,6 +149242,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -149977,6 +150127,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -150588,6 +150739,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!4 &1886293627
 Transform:
   m_ObjectHideFlags: 0
@@ -150805,6 +150957,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -152353,6 +152506,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -152884,6 +153038,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &1916169330
 Transform:
   m_ObjectHideFlags: 0
@@ -154247,6 +154402,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -154873,6 +155029,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -155446,6 +155603,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -156691,6 +156849,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -157951,6 +158110,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -159404,6 +159564,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -160148,6 +160309,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -160967,6 +161129,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -161791,6 +161954,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -162971,6 +163135,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -164295,6 +164460,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -164945,6 +165111,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -166141,6 +166308,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -166786,6 +166954,7 @@ MonoBehaviour:
   arrivalOffsetY: -1.1
   arrivalTime: 0.8
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &2090499903
 GameObject:
   m_ObjectHideFlags: 0
@@ -167036,6 +167205,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 0
+  alreadyBlack: 0
 --- !u!1 &2094729514
 GameObject:
   m_ObjectHideFlags: 0
@@ -168072,6 +168242,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -168568,6 +168739,7 @@ MonoBehaviour:
   arrivalOffsetY: 0
   arrivalTime: 0.7
   manualOnly: 1
+  alreadyBlack: 0
 --- !u!4 &2116566441
 Transform:
   m_ObjectHideFlags: 0
@@ -169350,6 +169522,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -170412,6 +170585,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 0
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []
@@ -171282,6 +171456,7 @@ MonoBehaviour:
   comboRecoverFraction: 0
   holdGround: 0
   comboArmor: 1
+  comboArmorMinLength: 0
   grabArmor: 0
   debugCombos: 0
   walkTalkSprites: []

@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: 47e6345fc67aae54cbfe751445d1293f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5565235410971008730
+    second: rekka_0
+  - first:
+      213: 1336781852364596941
+    second: rekka_1
+  - first:
+      213: -4126237410944443188
+    second: rekka_2
+  - first:
+      213: 6658901139936542668
+    second: rekka_3
+  - first:
+      213: 3356617171890452364
+    second: rekka_4
+  - first:
+      213: 8678872608664877690
+    second: rekka_5
+  - first:
+      213: -4935504773953410302
+    second: rekka_6
+  - first:
+      213: -4220593432456605606
+    second: rekka_7
+  - first:
+      213: 1842599945160078125
+    second: rekka_8
+  - first:
+      213: -2787312640158881078
+    second: rekka_9
+  - first:
+      213: 1217932078543517946
+    second: rekka_10
+  - first:
+      213: -6108584134442305787
+    second: rekka_11
+  - first:
+      213: -4096997901721486797
+    second: rekka_12
+  - first:
+      213: 4121421633602992039
+    second: rekka_13
+  - first:
+      213: -5553172954238141830
+    second: rekka_14
+  - first:
+      213: -329693804540745570
+    second: rekka_15
+  - first:
+      213: 8330703914171811119
+    second: rekka_16
+  - first:
+      213: 1062529507543754328
+    second: rekka_17
+  - first:
+      213: -940620707926020108
+    second: rekka_18
+  - first:
+      213: 1915767791827688196
+    second: rekka_19
+  - first:
+      213: -6258482498780751996
+    second: rekka_20
+  - first:
+      213: 1421957345421062203
+    second: rekka_21
+  - first:
+      213: -5040825101062446502
+    second: rekka_22
+  - first:
+      213: -3296978606751659765
+    second: rekka_23
+  - first:
+      213: -9011422914217156370
+    second: rekka_24
+  - first:
+      213: -5938549938196087038
+    second: rekka_25
+  - first:
+      213: -9064430414715715200
+    second: rekka_26
+  - first:
+      213: 4690534606482038163
+    second: rekka_27
+  - first:
+      213: -1726478077830659199
+    second: rekka_28
+  - first:
+      213: 8414401170903445625
+    second: rekka_29
+  - first:
+      213: -7500980082063116094
+    second: rekka_30
+  - first:
+      213: -1477362446438480718
+    second: rekka_31
+  - first:
+      213: 8726041165771011971
+    second: rekka_32
+  - first:
+      213: -3216215412796264173
+    second: rekka_33
+  - first:
+      213: 6258057172783879128
+    second: rekka_34
+  - first:
+      213: 4128492145344962938
+    second: rekka_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rekka_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 2156
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621e5ad21ef44c2b0800000000000000
+      internalID: -5565235410971008730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_1
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 670
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc6616c13043d8210800000000000000
+      internalID: 1336781852364596941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_2
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 691
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc9abdbfe8acb6c0800000000000000
+      internalID: -4126237410944443188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_3
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 684
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf7c507e4b296c50800000000000000
+      internalID: 6658901139936542668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_4
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 661
+        width: 9
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87b181a889159e20800000000000000
+      internalID: 3356617171890452364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_5
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 677
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a765aa7ac817870800000000000000
+      internalID: 8678872608664877690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_6
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 675
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b2349be80918bb0800000000000000
+      internalID: -4935504773953410302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_7
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 681
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50d31582a07d65c0800000000000000
+      internalID: -4220593432456605606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_8
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 686
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23bb6a33ea329910800000000000000
+      internalID: 1842599945160078125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_9
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 681
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acaaf5debe97159d0800000000000000
+      internalID: -2787312640158881078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_10
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 677
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8b326c5c6f6e010800000000000000
+      internalID: 1217932078543517946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_11
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 672
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 507baf92813f93ba0800000000000000
+      internalID: -6108584134442305787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_12
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 669
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33abe5e7d1a8427c0800000000000000
+      internalID: -4096997901721486797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_13
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 675
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a73488b32b323930800000000000000
+      internalID: 4121421633602992039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_14
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 673
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a345ebe9a2fe2b0800000000000000
+      internalID: -5553172954238141830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_15
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 667
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98a3b74b31bc6bf0800000000000000
+      internalID: -329693804540745570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_16
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 653
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25ca2d621b9c9370800000000000000
+      internalID: 8330703914171811119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_17
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 67
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856248425fcdebe00800000000000000
+      internalID: 1062529507543754328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_18
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 47
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff61b3237e32f2f0800000000000000
+      internalID: -940620707926020108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_19
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 63
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b160018ac269a10800000000000000
+      internalID: 1915767791827688196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_20
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 59
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4879c2383576529a0800000000000000
+      internalID: -6258482498780751996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_21
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 34
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30749bfbaecbb310800000000000000
+      internalID: 1421957345421062203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_22
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 39
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52ec4c27446b0ab0800000000000000
+      internalID: -5040825101062446502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_23
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 41
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b094180ec67ce32d0800000000000000
+      internalID: -3296978606751659765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_24
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 47
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee06545aa9ef0f280800000000000000
+      internalID: -9011422914217156370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_25
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 37
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f77e48b48069da0800000000000000
+      internalID: -5938549938196087038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_26
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 41
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0818f9f209ca43280800000000000000
+      internalID: -9064430414715715200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_27
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 31
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39dd9028f50281140800000000000000
+      internalID: 4690534606482038163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 45
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1838762e5515a08e0800000000000000
+      internalID: -1726478077830659199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_29
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 31
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970b4559845f5c470800000000000000
+      internalID: 8414401170903445625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_30
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 31
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c8f8557b5a27e790800000000000000
+      internalID: -7500980082063116094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_31
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 17
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4488faeaa5f7be0800000000000000
+      internalID: -1477362446438480718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_32
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 25
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387773d2530291970800000000000000
+      internalID: 8726041165771011971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_33
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311742f4f15bd53d0800000000000000
+      internalID: -3216215412796264173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_34
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 15
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d35edf87d519d650800000000000000
+      internalID: 6258057172783879128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rekka_35
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 15
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71e6458bb95b4930800000000000000
+      internalID: 4128492145344962938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rekka_0: -5565235410971008730
+      rekka_1: 1336781852364596941
+      rekka_10: 1217932078543517946
+      rekka_11: -6108584134442305787
+      rekka_12: -4096997901721486797
+      rekka_13: 4121421633602992039
+      rekka_14: -5553172954238141830
+      rekka_15: -329693804540745570
+      rekka_16: 8330703914171811119
+      rekka_17: 1062529507543754328
+      rekka_18: -940620707926020108
+      rekka_19: 1915767791827688196
+      rekka_2: -4126237410944443188
+      rekka_20: -6258482498780751996
+      rekka_21: 1421957345421062203
+      rekka_22: -5040825101062446502
+      rekka_23: -3296978606751659765
+      rekka_24: -9011422914217156370
+      rekka_25: -5938549938196087038
+      rekka_26: -9064430414715715200
+      rekka_27: 4690534606482038163
+      rekka_28: -1726478077830659199
+      rekka_29: 8414401170903445625
+      rekka_3: 6658901139936542668
+      rekka_30: -7500980082063116094
+      rekka_31: -1477362446438480718
+      rekka_32: 8726041165771011971
+      rekka_33: -3216215412796264173
+      rekka_34: 6258057172783879128
+      rekka_35: 4128492145344962938
+      rekka_4: 3356617171890452364
+      rekka_5: 8678872608664877690
+      rekka_6: -4935504773953410302
+      rekka_7: -4220593432456605606
+      rekka_8: 1842599945160078125
+      rekka_9: -2787312640158881078
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

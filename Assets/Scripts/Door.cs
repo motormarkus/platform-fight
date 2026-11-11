@@ -105,6 +105,8 @@ public class Door : MonoBehaviour
 
     [Tooltip("Piilotettu ovi: ei kehotetta eikä omaa tunnistusta; siirtymän käynnistää koodi (hissin kerrosvalinta) kutsulla Trigger.")]
     public bool manualOnly;
+    [Tooltip("Ruutu on jo musta, kun siirtymä alkaa (kohtaus pimensi ruudun itse): pimennys ei aloita alusta.")]
+    public bool alreadyBlack;
     /// Käynnistää siirtymän annetulle pelaajalle (manualOnly-ovet, esim. hissi).
     public void Trigger(PlayerController who)
     {
@@ -248,7 +250,7 @@ public class Door : MonoBehaviour
                 yield return null;
             }
         }
-        else
+        else if (!alreadyBlack)
             for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime) { fade = t / fadeTime; yield return null; }
         fade = 1f;
 
