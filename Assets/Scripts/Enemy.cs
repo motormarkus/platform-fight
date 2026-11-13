@@ -297,12 +297,15 @@ public class Enemy : MonoBehaviour, IBottleHolder
     public float altReach = 2.3f;
     [Tooltip("Askel eteenpäin jokaisessa iskussa (yksikköä/s, 0 = ei): vetovaiheen jälkipuoliskolla ja iskuhetkellä, kunnes ollaan lähellä kohdetta.")]
     public float strikeStep = 0f;
+    [Tooltip("Alakoukun liuku eteen (yksikköä/s) latauksen loppuosan aikana; 0 = käytetään strikeStep-arvoa. Pysähtyy kohteen eteen.")]
+    public float uppercutStep = 0f;
     void StrikeStep(float dt)
     {
-        if (strikeStep <= 0f) return;
+        float step = usingUppercut && !usingAlt && uppercutStep > 0f ? uppercutStep : strikeStep;   // alakoukulla oma liuku eteen (Tankki-Tony)
+        if (step <= 0f) return;
         Transform tt = enemyTarget != null ? enemyTarget.transform : player != null ? player.transform : null;
         if (tt == null || Mathf.Abs(tt.position.x - transform.position.x) < 1.4f) return;
-        Move(new Vector2((facingRight ? 1f : -1f) * strikeStep * dt, 0f));
+        Move(new Vector2((facingRight ? 1f : -1f) * step * dt, 0f));
     }
     [Tooltip("Toisen hyökkäyksen syöksy eteen (yksikköä/s). 0 = ei syöksyä. Syöksy pysähtyy osumaan.")]
     public float altLungeSpeed = 0f;
@@ -551,6 +554,93 @@ public class Enemy : MonoBehaviour, IBottleHolder
         float d = facingRight ? 1f : -1f;
         ThrownTire.SpawnDropped(tireAirSprite, transform.position + new Vector3(d * 0.5f, -0.02f, 0f), 1.3f, d, tireFloorSprite, tireRollingSprite);
     }
+
+    [Header("Ständi (Melvin)")]
+    [Tooltip("Ständi kädessä: idle/kävely/juoksu/osuma ja hyökkäykset (swingi = yläisku, taklaus = rynnäkkö) vaihtuvat ständikuviin, kunnes vihu kaatuu; silloin ständi putoaa ja tavalliset (ständittömät) iskut palaavat.")]
+    public bool startsWithStand;
+    public Sprite[] standIdle, standWalk, standRun, standHurt, standSwing, standTackle;
+    public Sprite standAirSprite;
+    public int standSwingImpact = 10, standSwingDamage = 24, standTackleImpact = 12, standTackleDamage = 22;
+    public float standSwingWindup = 0.45f, standSwingRecover = 0.5f, standSwingStep = 1.5f, standSwingReach = 3f;
+    public float standTackleFrameTime = 0.035f, standTackleLunge = 10f, standTackleLungeTime = 0.4f, standTackleReach = 3.2f, standTackleKnockSpeed = 14f, standTackleKnockUp = 3f;
+    public float standChargeRange = 14f, standChargeMinRange = 3.5f, standTackleNearChance = 0.3f;
+    public AudioClip[] standHitSounds;
+    bool hasStand;
+    Sprite[] stIdle, stWalk, stRun, stHurt, stUpper, stAlt; int stUpImpact, stAltImpact, stUpDamage, stAltDamage; float stUpWind, stUpRec, stUpChance, stUpStep, stUpReach, stAltFrame, stAltReach, stAltKS, stAltKU, stAltLunge, stAltLungeTime, stAltChance, stAltNear, stCharge, stChargeMin, stAttackSoundChance;
+    bool stAltKnock; AudioClip[] stAttackSounds; AltVariant[] stAltVariants;
+    void SetStand(bool on)
+    {
+        if (on == hasStand || !Has(standIdle) || !Has(standSwing) || !Has(standTackle)) return;
+        if (on)
+        {
+            stIdle = idleSprites; stWalk = walkSprites; stRun = runSprites; stHurt = hurtSprites;
+            stUpper = uppercutSprites; stUpImpact = uppercutImpactFrame; stUpDamage = uppercutDamage; stUpWind = uppercutWindupTime; stUpRec = uppercutRecoverTime; stUpChance = uppercutChance; stUpStep = uppercutStep; stUpReach = uppercutReach;
+            stAlt = altAttackSprites; stAltImpact = altImpactFrame; stAltDamage = altDamage; stAltFrame = altAnimationFrameTime; stAltReach = altReach; stAltKS = altKnockSpeed; stAltKU = altKnockUp; stAltLunge = altLungeSpeed; stAltLungeTime = altLungeTime; stAltChance = altChance; stAltNear = altNearChance; stCharge = chargeRange; stChargeMin = chargeMinRange; stAltKnock = altKnockdown; stAltVariants = altVariants;
+            stAttackSounds = attackSounds; stAttackSoundChance = attackSoundChance;
+            idleSprites = standIdle; if (Has(standWalk)) walkSprites = standWalk; if (Has(standRun)) runSprites = standRun; if (Has(standHurt)) hurtSprites = standHurt;
+            uppercutSprites = standSwing; uppercutImpactFrame = standSwingImpact; uppercutDamage = standSwingDamage; uppercutWindupTime = standSwingWindup; uppercutRecoverTime = standSwingRecover; uppercutChance = 1f; uppercutStep = standSwingStep; uppercutReach = standSwingReach;
+            altVariants = null; altAttackSprites = standTackle; altImpactFrame = standTackleImpact; altDamage = standTackleDamage; altAnimationFrameTime = standTackleFrameTime; altReach = standTackleReach; altKnockdown = true; altKnockSpeed = standTackleKnockSpeed; altKnockUp = standTackleKnockUp;
+            altLungeSpeed = standTackleLunge; altLungeTime = standTackleLungeTime; altChance = 0.9f; altNearChance = standTackleNearChance; chargeRange = standChargeRange; chargeMinRange = standChargeMinRange;
+            if (standHitSounds != null && standHitSounds.Length > 0) { attackSounds = standHitSounds; attackSoundChance = 1f; }
+        }
+        else
+        {
+            idleSprites = stIdle; walkSprites = stWalk; runSprites = stRun; hurtSprites = stHurt;
+            uppercutSprites = stUpper; uppercutImpactFrame = stUpImpact; uppercutDamage = stUpDamage; uppercutWindupTime = stUpWind; uppercutRecoverTime = stUpRec; uppercutChance = stUpChance; uppercutStep = stUpStep; uppercutReach = stUpReach;
+            altAttackSprites = stAlt; altImpactFrame = stAltImpact; altDamage = stAltDamage; altAnimationFrameTime = stAltFrame; altReach = stAltReach; altKnockSpeed = stAltKS; altKnockUp = stAltKU; altLungeSpeed = stAltLunge; altLungeTime = stAltLungeTime; altChance = stAltChance; altNearChance = stAltNear; chargeRange = stCharge; chargeMinRange = stChargeMin; altKnockdown = stAltKnock; altVariants = stAltVariants;
+            attackSounds = stAttackSounds; attackSoundChance = stAttackSoundChance;
+        }
+        hasStand = on;
+    }
+    /// Ständi pois käsistä (kaatuminen, heitto tms.): putoaa maahan.
+    void DropStand()
+    {
+        if (!hasStand) return;
+        SetStand(false);
+        if (standAirSprite != null)
+        {
+            float d = facingRight ? 1f : -1f;
+            ThrownTire.SpawnDroppedProp(standAirSprite, transform.position + new Vector3(d * 0.5f, -0.02f, 0f), 1.3f, d);   // makaa hetken, välkkyy ja häviää
+        }
+    }
+    // Saattue (Don + Tankki-Tonyt): vartijat suojaavat johtajaa, johtaja pysyy vartijoiden takana kunnes ne kaatuvat
+    [Header("Saattue")] public Enemy guardOf; public Enemy[] guards; public float escortShieldDist = 2.4f, escortFightRange = 6.5f, escortStandoff = 8f;
+    bool escortMoving;
+    bool EscortStep(float dt)
+    {
+        Vector3 p = player.transform.position, me = transform.position;
+        Vector2 spot; float startD, stopD;
+        if (guardOf != null && !guardOf.IsDead)
+        {
+            var v = guardOf.transform.position;
+            if (Mathf.Abs(p.x - v.x) <= escortFightRange || Mathf.Abs(p.x - me.x) <= 3.5f) return false;   // pelaaja lähellä johtajaa: taistelemaan
+            int idx = System.Array.IndexOf(guardOf.guards, this);
+            float sgn = p.x >= v.x ? 1f : -1f;
+            spot = new Vector2(v.x + sgn * escortShieldDist, v.y + (idx == 0 ? 0.7f : -0.7f)); startD = 0.9f; stopD = 0.35f;
+        }
+        else if (guards != null && guards.Length > 0 && System.Array.Exists(guards, g => g != null && !g.IsDead))
+        {
+            float dx = me.x - p.x, ad = Mathf.Abs(dx);
+            if (ad <= 3.5f) return false;   // pelaaja kimpussa: Don puolustautuu
+            float sgn = dx >= 0f ? 1f : -1f;
+            if (ad < escortStandoff - 3f) spot = new Vector2(p.x + sgn * escortStandoff, me.y);   // liian lähellä: peruuttaa vartijoiden taakse
+            else if (ad > escortStandoff + 1.5f) spot = new Vector2(p.x + sgn * escortStandoff, p.y);   // kaukana: lähestyy
+            else { moving = false; running = false; escortMoving = false; facingRight = p.x > me.x; return true; }
+            startD = 0.9f; stopD = 0.35f;
+        }
+        else return false;
+        Vector2 to = spot - (Vector2)me;
+        escortMoving = escortMoving ? to.magnitude > stopD : to.magnitude > startD;
+        if (!escortMoving) { moving = false; running = false; facingRight = p.x > me.x; return true; }
+        moving = true; facingRight = Mathf.Abs(to.x) > 0.3f ? to.x > 0f : facingRight;
+        Vector2 dir = to.normalized;
+        float run = LocomotionMultiplier(Mathf.Abs(to.x) > (running ? 2.2f : 5f));
+        Vector2 step = new Vector2(dir.x * moveSpeedX, dir.y * moveSpeedY) * run * dt;
+        step.x = Mathf.Sign(to.x) * Mathf.Min(Mathf.Abs(to.x), Mathf.Abs(step.x)); step.y = Mathf.Sign(to.y) * Mathf.Min(Mathf.Abs(to.y), Mathf.Abs(step.y));
+        Move(step);
+        return true;
+    }
+
     bool barReleased;
     bool rushAfterBar; float rushUntil;   // harkon jälkeen juostaan lähelle ja aloitetaan läpsy- tai potkukombo
 
@@ -628,6 +718,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
     int KickFrame() => ThrowPose.Index(KickTimes, stateTime);
     [Tooltip("Kuinka usein hyökkäys on heitto (0–1).")]
     [Range(0f, 1f)] public float grabChance = 0.3f;
+    [Tooltip("Heittoyrityksen todennäköisyys, kun hero torjuu (suojaa) Tonya kohti; 0 = ei erikseen.")]
+    [Range(0f, 1f)] public float grabVsBlockChance = 0f;
     [Tooltip("Kuinka läheltä tarttuminen onnistuu.")]
     public float grabRange = 1.3f;
     public float grabReachTime = 0.3f;
@@ -1583,6 +1675,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         SortAnimationFrames(runSprites);
         if (displayName == "Prätkäjätkä" && runSprites != null && runSprites.Length == 27 && runSprites[0] != null && runSprites[0].name.StartsWith("motoristi_juoksu_uusi_")) runFrameTime = 1f / 30f;
         if (startsWithTire) SetTire(true);
+        if (startsWithStand) SetStand(true);
         SortAnimationFrames(punch2Sprites);
         SortAnimationFrames(walkTalkSprites);
         SortAnimationFrames(punchSprites);
@@ -1756,7 +1849,9 @@ public class Enemy : MonoBehaviour, IBottleHolder
                     awake = true;
                     if (tauntOnWakeChance > 0f && Random.value < tauntOnWakeChance) SayTaunt();   // sanoo jotain ruudulle tullessa
                 }
-                if (!awake && wakeOnFightRadius > 0f && FightNearby()) awake = true;   // tappelu syntyi lähellä: mukaan
+                if (!awake && wakeOnFightRadius > 0f && FightNearby()) awake = true;
+                if (!awake && guardOf != null && guardOf.awake) awake = true;   // saattue herää yhdessä
+                if (!awake && guards != null && System.Array.Exists(guards, g => g != null && g.awake)) awake = true;   // tappelu syntyi lähellä: mukaan
                 if (awake && stateTime > 0.3f) Enter(State.Chase);
                 break;
 
@@ -2887,6 +2982,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         }
         if (s == State.Airborne || s == State.Held || s == State.Yanked) DropBoard();
         if (s == State.Punch) { secondHitDone = false; altExtraDone = 0; }
+        if (hasStand && (s == State.Airborne || s == State.Down || s == State.Dead || s == State.Held || s == State.Yanked || s == State.Ringed || s == State.GrabThrow)) DropStand();   // kaatuminen: ständi tippuu käsistä
         if (hasTire && !KeepsTire(s)) DropTire();   // lyöminen, osuma tms.: rengas putoaa käsistä
         if (s != State.BarrelLift && s != State.BarrelThrow && s != State.CarryWalk) DropBarrel();   // osuma tms. keskeyttää: tynnyri putoaa
         if (s != State.BottlePick && s != State.BottleThrow && s != State.CarryPie && heldBottle != null) { heldBottle.Drop(); heldBottle = null; }
@@ -3058,6 +3154,7 @@ public class Enemy : MonoBehaviour, IBottleHolder
         if (player == null) { moving = false; return; }
         MaybeTaunt();
         if (UpdateEnemyTarget()) { ChaseEnemy(dt); return; }   // portsari tai kosto: toisen vihun kimppuun
+        if ((guardOf != null || guards != null) && !ally && EscortStep(dt)) return;
         if (ally)
         {
             // liittolainen ilman vihua: pysyttelee pelaajan lähellä. Hystereesi (lähtö kauempaa kuin pysähtyminen, juoksu/kävely omilla rajoillaan) ja katseen kuolleet kulmat estävät värisemisen.
@@ -3183,7 +3280,8 @@ public class Enemy : MonoBehaviour, IBottleHolder
         // kun hyökkäys on taas mahdollinen, arvotaan kerran: lyönti vai heittoyritys
         if (cooldown <= 0f && !attackRolled)
         {
-            grabIntent = grabsHero && Has(grabSprites) && Random.value < grabChance;
+            bool heroBlocks = player != null && grabVsBlockChance > 0f && player.BlocksFrom(transform.position.x);   // torjuva hero napataan herkemmin
+            grabIntent = grabsHero && Has(grabSprites) && Random.value < (heroBlocks ? Mathf.Max(grabChance, grabVsBlockChance) : grabChance);
             flanking = otherFighterVisible && (forcedFlank || Random.value < flankChance);
             forcedFlank = false;
             attackRolled = true;

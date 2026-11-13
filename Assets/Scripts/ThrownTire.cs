@@ -12,6 +12,7 @@ public class ThrownTire : MonoBehaviour
     float dir, height, vy, vx, travelled, rot, spin, landedTime;
     bool flying, falling, landed;
     Enemy thrower;
+    bool lying;   // pudonnut esine (ständi): jää makaamaan lattialle eikä häivy heti
     Sprite floorSprite, rollingSprite, airSprite;   // lattialle jäävä rengas (poimittava)
     PlayerController pc;
 
@@ -29,6 +30,15 @@ public class ThrownTire : MonoBehaviour
         var t = Create(sprite, groundPos, height, dir);
         t.floorSprite = floor; t.rollingSprite = rolling; t.airSprite = sprite;
         t.falling = true; t.vx = dir * 1.5f; t.vy = 2f; t.spin = -dir * 300f;
+        return t;
+    }
+
+    /// Pudonnut esine (esim. mikkiständi): putoaa, pomppaa lattialle ja jää makaamaan hetkeksi (1,5 s), välkkyy ja häviää.
+    public static ThrownTire SpawnDroppedProp(Sprite sprite, Vector3 groundPos, float height, float dir)
+    {
+        var t = SpawnDropped(sprite, groundPos, height, dir);
+        t.lying = true; t.vx = dir * 2.5f; t.spin = -dir * 500f;
+        if (t.body != null) t.body.flipX = false;
         return t;
     }
 
@@ -91,14 +101,25 @@ public class ThrownTire : MonoBehaviour
             landedTime += dt;
             vx = Mathf.MoveTowards(vx, 0f, 4f * dt);
             p.x += vx * dt; transform.position = p;
-            rot += vx * 120f * dt;
-            float a = Mathf.Clamp01(1f - (landedTime - 1.5f) / 1f);
-            if (body != null) body.color = new Color(1f, 1f, 1f, a);
-            if (landedTime > 2.5f) { Destroy(gameObject); return; }
+            if (lying)
+            {
+                rot = Mathf.MoveTowards(Mathf.DeltaAngle(0f, rot), 0f, 600f * dt);   // asettuu vaakasuoraan
+                // makaa hetken, välkkyy ja häviää
+                bool blink = landedTime > 1.5f && Mathf.FloorToInt(landedTime * 14f) % 2 == 0;
+                if (body != null) body.color = new Color(1f, 1f, 1f, blink ? 0.15f : 1f);
+                if (landedTime > 3.2f) { Destroy(gameObject); return; }
+            }
+            else
+            {
+                rot += vx * 120f * dt;
+                float a = Mathf.Clamp01(1f - (landedTime - 1.5f) / 1f);
+                if (body != null) body.color = new Color(1f, 1f, 1f, a);
+                if (landedTime > 2.5f) { Destroy(gameObject); return; }
+            }
         }
         if (body != null)
         {
-            body.transform.localPosition = new Vector3(0f, height + (landed ? 0.9f : 0f), 0f);
+            body.transform.localPosition = new Vector3(0f, height + (landed ? (lying ? 0.25f : 0.9f) : 0f), 0f);
             body.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
             body.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100f) + 3;
         }
