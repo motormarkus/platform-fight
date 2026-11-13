@@ -1,0 +1,11 @@
+AVAINKAAPPI - 10 RUUDUN AVAUTUMINEN
+
+01 = suljettu, 10 = avoin viitekuvan asentoon.
+Jokainen PNG: 1536 x 1088, aito alpha-lapinakyvyys.
+Kaapin sijainti ja ankkuripiste ovat samat kaikissa ruuduissa.
+Spritearkki: 5 saraketta, 2 rivia; jarjestys vasemmalta oikealle, ylhaalta alas.
+Kayta samaa pivotia jokaisessa ruudussa, esimerkiksi (0.5, 0.5).
+12 fps on sopiva lahtokohta. Pysayta viimeiseen ruutuun; sulkeminen toimii kaanteisessa jarjestyksessa.
+avautuminen-esikatselu.png on liikkuva APNG-esikatselu.
+Oven etu- ja sisapinnan kuvamateriaalit ovat image_gen-tyokalulla valmisteltuja.
+Runko ja avaimet on kiinnitetty yhteen tasoon; ovi on saranoitu ja kuvattu samoilla materiaaleilla kaikkiin ruutuihin.

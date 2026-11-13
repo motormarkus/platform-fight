@@ -4,8 +4,12 @@ using UnityEngine;
 /// <summary>Testialoitus: kun peli alkaa, heron rinnalle ilmestyy lahjottu amatsoni (kuin otsapanta olisi annettu). Lisätään "Aloituskohta"-olioon valikosta 318.</summary>
 public class AmazonStartAlly : MonoBehaviour
 {
+    [Tooltip("Pois päältä (oletus): amatsoni ei liity heron mukaan pelin alussa. Kytke päälle, kun haluat testata hänen kanssaan.")]
+    public bool joinAtStart = false;
+
     IEnumerator Start()
     {
+        if (!joinAtStart) yield break;
         yield return null; yield return null;   // odotetaan, että hero ja alue on asetettu
         if (AmazonBrain.HasAlly) yield break;
         PlayerController hero = null;

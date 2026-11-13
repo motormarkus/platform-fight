@@ -1,17 +1,19 @@
 """Lentokapteeni (vihu): kolmesta videosta (A idle + kävely, B iskut ja potkut, C osuma + kaatuminen + ylösnousu) ja suojauskuvasta kuvasarjat
-Assets/Sprites/Viholliset/lentokapteeni_<nimi>.png (4 saraketta, ruutu 768 x 448, seisova hahmo 300 px, jalat 8 px ylös, pivot alhaalla keskellä; hahmo katsoo oikealle).
+Assets/Sprites/Viholliset/lentokapteeni_<nimi>.png (4 saraketta, ruutu 1536 x 896, seisova hahmo 640 px (ppu 200), jalat 16 px ylös, pivot alhaalla keskellä; hahmo katsoo oikealle).
 Kaatuminen ja osuma ovat videossa oikein päin: ei peilausta. Viimeinen ylösnousukuva on idle oikealle.
 Ajo: python Tools/CaptainAssets/make_captain_sheets.py <videot-kansio> <suojauskuva.png> <ulos> <heittokuva.png> <puskukuva.png>   (videot: A=2_15PM, B=2_36PM, C=2_58PM)"""
 import os, sys, glob
 import cv2, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "GymAssets"))
-from key_video import key_frame
+from key_video import key_frame as _key_frame
+from edge_smooth import smooth_edges
+def key_frame(*a, **k): return smooth_edges(_key_frame(*a, **k))   # siistityt reunat
 
-CELL_W, CELL_H, COLS = 768, 448, 4
-TARGET_H, FOOT_MARGIN = 300.0, 8
+CELL_W, CELL_H, COLS = 1536, 896, 4
+TARGET_H, FOOT_MARGIN = 640.0, 16
 VID = {"A": "279d2c1d", "B": "2939cb56", "C": "7d521db3"}
 FLIP_FROM, FLIP_TO = 9999, 9999      # ei peilausta
-KB = TARGET_H / 590.0                 # kaikki videot 720p: seisova hahmo n. 590 px -> 300 px
+KB = TARGET_H / 590.0                 # kaikki videot 720p: seisova hahmo n. 590 px -> 640 px
 
 def R(a, b, s=1): return list(range(a, b, s))
 # (nimi, lähde, ruudut, ankkuri)   ankkuri: low = jalat, torso = vartalo (kävely), com = painopiste (kaatuminen)

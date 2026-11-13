@@ -8,6 +8,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "KingAssets")); sys.path.insert(0, os.path.join(HERE, "..", "GymAssets"))
 import make_king_sheets as m
 m.TARGET_H = 640.0
+from make_warden_uppercut import load_soft   # pehmeä vihreäavain (pehmeät reunat)
+m.load = load_soft
 # nimi -> (ruudun leveys, ankkurin x, korkeus); sama taulukko BeatEmUpSetup.SkelCell:ssä
 CELLS = {"isku1": (1024, 320, 768), "isku2": (1024, 320, 768), "isku3": (1024, 320, 768), "potku1": (1280, 320, 768), "potku2": (1152, 320, 768),
          "hyppypotku": (1408, 384, 1024), "liukutaklaus": (1408, 448, 768)}

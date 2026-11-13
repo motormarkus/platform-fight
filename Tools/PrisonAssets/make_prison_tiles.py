@@ -105,7 +105,8 @@ def main():
     for i, im in enumerate(raw):
         w, h = im.size
         if i > 0:
-            im = im.crop((120, 0, w, h)); w -= 120
+            cut = 152 if i == 1 else 120   # kuva 1 -> 2 päällekkäisyys mitattu 152 px (kuva 2 -> 3: 121 px); 120:lla sauma heitti 32 px
+            im = im.crop((cut, 0, w, h)); w -= cut
         dy = ledge[0] - ledge[i]          # + = tyhjää ylös, - = leikataan ylhäältä
         body = Image.new("RGBA", (w, TH), (0, 0, 0, 0))
         if dy >= 0:

@@ -1,0 +1,33 @@
+Mode: built-in image_gen. Two edits of kasino-sisatilat-oikea-v2-alkuperainen.png.
+Foreground: background-extraction, true alpha. Background: clean plate with occluded areas reconstructed.
+
+FOREGROUND PROMPT
+Use case: background-extraction.
+This is an EXACT foreground extraction of the provided image, not a redesign. Preserve original full canvas, aspect ratio 2087:753 (target export5120:1844), composition, camera, ALL retained objects' locations, scale, colours and textures. Do not zoom, crop, reposition, straighten or redraw retained objects.
+Make one full-width transparent PNG foreground layer for 2D game parallax.
+
+KEEP ONLY these near-layer elements in their exact source positions:
+1. The whole continuous foreground plum carpet from the thin gold horizontal carpet-border at about65.3% image height down to the bottom edge. This is the unobstructed 35% walking lane. Keep that gold border. This full-width lower strip is fully opaque.
+2. The FOUR closest large slot machines and their FOUR red stools on the left, their shared low walnut/brass plinth/counter and immediate contact shadows. They occupy roughly x4%..26%, y32%..65%.
+3. The TWO closest large slot machines and TWO stools on the right, including their shared low walnut/brass surround, roughly x65%..79%, y30%..65%.
+4. The two very nearest large walnut/gold columns: the tall column behind the left machine bank at x12%..18%, and the tall column behind the right bank at x74%..80%. Keep their warm sconces and caps, to the original top edge. Do NOT retain the smaller farther columns.
+5. The complete broad elevator structure on the right, its two doors, call panel, warm lamp, burgundy/brass surrounding right wall and oblique terminating wall. These remain at exactly their existing coordinates from aboutx80% to the right edge, including their original top edge and floor junction.
+
+REMOVE TO TRUE ALPHA TRANSPARENCY everything else above the foreground carpet: ALL distant or middle-distance casino, gaming tables, chairs at those tables, distant slot machines, palms, far walls, ALL ceiling coffers and background chandeliers, the small/far columns, all receding background floor behind the foreground gold line. In particular the large open central area between left and right foreground machines must be COMPLETELY TRANSPARENT from top edge down to the thin foreground gold border. No green felt tables or little machines remain in the middle. In the gaps around machines, preserve only actual retained foreground silhouettes.
+Do not add black/white/checkerboard/green backdrops, halos, or a replacement background: actual alpha=0 in every removed region. No new elements or text. Retained objects remain fully opaque. ONE full-size aligned foreground PNG.
+
+BACKGROUND PROMPT
+Use case: precise-object-edit / background clean plate reconstruction.
+The attached casino is being split into two parallax layers. Make ONLY the full-width BACKGROUND CLEAN PLATE. Preserve the full original canvas and exact wide aspect2087:753, target export5120:1844. Keep the original camera, point of view, and positions of existing distant and middle-distance features. This is an extraction/inpainting of the same scene, not a different casino.
+
+KEEP the expansive receding casino hall: its coffered ceiling and warm chandeliers, the smaller and middle-distance walnut/gold columns with lamps, distant walls, distant slot-machine banks, middle-distance green-felt roulette/blackjack tables and stools, distant palms and the receding plum carpet. Preserve their recognizable arrangement and clean painting style, warm burgundy and brass colours. Keep the long open central aisle.
+
+REMOVE the NEAREST foreground objects and invisibly reconstruct the casino that was occluded behind them:
+- The four large slot machines, four stools and low surround/plinth in the left foreground (x4%..26%, y32%..65%).
+- The two large slot machines, two stools and their surround in the right foreground (x65%..79%, y30%..65%).
+- The two very nearest tall massive columns at x12%..18% and x74%..80%, including their sconces. Retain the smaller receding columns.
+- The entire elevator, its frame/light/call buttons and the large right closing wall, roughly rightmost20%. Reconstruct a CONTINUING OPEN CASINO HALL there, not a blank wall, black gap or another elevator. Continue ceiling and carpet with a few distant machines in the same existing scale, restrained spacing. It must be a complete useful background across the FULL WIDTH.
+- Remove the thin gold foreground carpet-border at y65.3%. The carpet must continue naturally into the lower image without a fixed foreground line.
+
+Fill all formerly hidden areas consistently: no transparent holes, no blank cutouts, no ghosts, no duplicated close machines, no foreground elevator. The lower35% may be simple continuous plum carpet, because the separate opaque foreground floor will cover it. Extend background coverage all the way to every edge so mild parallax motion never reveals empty holes.
+Lighting and colours remain exactly consistent with the source, no new light direction or haze. Clean stylized hand-painted game art, not photoreal, no noisy textures. No people, no text, no UI. ONE fully opaque full-canvas background clean plate, never a contact sheet or split view.

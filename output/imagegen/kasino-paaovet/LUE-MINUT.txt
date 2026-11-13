@@ -1,0 +1,9 @@
+Kasinon vasen pääty ja pääovet
+
+Pelikuva: 03-etuala-paaovet-5120x1844.png. RGBA PNG, 5120 x 1844.
+Aseta tämä lattiajatkopalan VASEMMALLE puolelle: pääovet -> lattiajatko -> baari -> baccarat/ruletti -> hissipala.
+Pidä sama PPU, skaala, pivot ja korkeus. Älä rajaa läpinäkyviä marginaaleja.
+Vasemmalla on sulkeva seinä ja leveät pääovet. Avoin yläosa on läpinäkyvä parallaksia varten. Lattian yläreuna avoimessa osassa on y=1195.
+Esikatselujen ruudukko on vain esikatseluissa.
+Tekotapa: sisäänrakennettu image_gen, alkuperäinen 2089x753; sen jälkeen skaalaus, lattian korkeuden kohdistus sekä peilattu lattia aiemmasta lattiajatkosta. 5120 x 1844 on vientikoko, ei generoinnin natiivikoko.
+Edellisiä kuvia ei muutettu.

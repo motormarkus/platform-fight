@@ -1,0 +1,26 @@
+Mode: built-in image_gen
+Intent: new two-panel room, part 1/2.
+Target: 5120x1844 PNG, alpha window openings.
+References: library/canteen style and staff-corridor warden door design.
+
+Use case: stylized-concept. Asset: prison warden's private office, LEFT HALF of a two-image horizontally joined 2D game room.
+Create ONE extra-wide image at the highest available native resolution, target final export 5120x1844, aspect about 2.7766:1. This is only the LEFT half of a larger room; the second image will extend its RIGHT edge.
+REFERENCES: Image 1 (library/canteen) is the hand-painted game ART STYLE, warm wood quality, comfortable lighting, single-storey side camera and open-floor reference, NOT a layout to copy. Image 2 (staff corridor end) shows the warden's handsome mahogany double office doors; use that door design from inside at this room's LEFT entrance. Do not depict either reference room's functions.
+ROOM / CAMERA:
+A substantial, authoritative but lived-in prison director's office. One storey, front-on 2D side-view, very shallow sensible furniture depth, no isometric view, no distant vanishing-point corridor. No visible ceiling. The LEFT end is enclosed by a full-height mildly oblique end wall, with a closed pair of elegant paneled dark mahogany office doors, brass handles and substantial trim. Doors entirely visible and accessible.
+RIGHT EDGE STAYS OPEN FOR CONTINUATION. No right end wall. In the final 12% of image width, leave a plain continuous wall/wainscot/floor section; do not cut a window, cabinet, desk or doorway at the join. The wall meets the floor at exactly 65% of image height, leaving the bottom 35% as CLEAR continuous playable floor. The plain rightmost strip makes the next tile join straightforward. No objects in the walking route.
+MAIN FURNISHING:
+One LARGE, heavy, broad MAHOGANY EXECUTIVE DESK, the focal point in the center-right, roughly x43%-79%, with a thick polished-but-not-mirror top, well-constructed twin drawer pedestals, brass drawer handles and a paneled front. The desk rests on the rear part of the floor and does NOT crowd the foreground walking area. Desk size and height credible for an adult.
+Behind the desk a tall dark green/brown leather director's chair. On the desktop, deliberate readable props: two or three ring binders/folders, a small orderly paper stack, an open file, a classic green-shaded banker's lamp, a simple office telephone and pen holder. A closed folder may show color only, no readable writing. Do not bury the desktop under clutter.
+To the left of the desk, substantial matching mahogany bookshelves filled with orderly varied hardcover books and several clearly recognizable ring binders, with solid closed lower cupboards. Real shelves with depth and consistent spacing; books with straight coherent spines. A leafy plant near the door or bookshelf adds life. A small framed certificate or subdued landscape picture can hang in a free wall space, but no legible lettering or labels.
+One broad tall exterior WINDOW behind/near the desk, or two matching windows with enough opaque wall between them. Keep furniture fully visible. Rich wooden window frames with slim muntins; curtain side panels may be restrained and drawn completely away from the openings.
+MATERIALS / LIGHT:
+Warm greige plaster upper walls, dark reddish-brown mahogany wainscoting across the lower wall, continuous horizontal trim and baseboard, muted taupe matte carpet with very subtle non-directional texture. No noisy patterned carpet, no large rug crossing the next-tile join. Warm wall sconces plus banker's lamp, readable balanced light, composed dignified office rather than a palace. Same clean hand-painted 2D game rendering as references: deliberate shapes, coherent cabinetry and hardware, restrained natural grain, minimal wear.
+WINDOW ALPHA:
+All exterior window pane openings must be true transparent alpha, to reveal a separate parallax background. Opaque frames/muntins/curtains and furniture; clear empty holes between them. No painted sky, buildings, mountains, glass reflections, tinted backing, white backdrop, checkerboard or black painted glass. Everything except the window holes remains opaque.
+No people, weapons, text, logos, UI, prison bars inside this office, cafeteria counters, kitchen equipment, stairs, second floor or extra desks. No excessive grime, grunge noise, fake microdetail or distorted bookcases. Keep sharp coherent detail suitable for later zoom, with clean hand-painted surfaces.
+Deliver this LEFT PART only, preserving the empty continuation strip at its right edge, matching the long room's floor and wainscot height exactly.
+
+Raw source: C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-3f50bf68-cc8f-4dcc-80df-c24cb994f9da.png
+Native dimensions: 2087x753
+Delivery: 5120x1844 PNG resampled, alpha normalized and transparent RGB cleared.

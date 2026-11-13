@@ -1,0 +1,15 @@
+KASINON SISÄTILAT – KOLME PARALLAKSIKERROSTA
+
+01-kaukotausta: kauimmainen sali, katto ja pienet peliautomaatit. Täysin peittävä.
+02-keskitaso: pelipöydät, kaksi pylvästä, palmut ja suuri kattovalaisin. Ympäristö on läpinäkyvä.
+03-etuala: noin 35 % kävelylattiaa, lähimmät peliautomaatit, pylväät, hissi ja oikea päätyseinä. Salin alue on läpinäkyvä.
+
+Kaikki kuvat ovat 5120 × 1844. Käytä samaa lähtösijaintia, pixels-per-unit-arvoa ja pivotia (0.5, 0.5). Piirtojärjestys takaa eteen: 01, 02, 03. Säilytä läpinäkyvät marginaalit.
+Liikenopeuksien lähtöarvot suhteessa etualaan: 0.2, 0.5 ja 1.0. Säädä ne pelin kameran mukaan.
+Unity-projektiin ei ole tehty asetuksia tai koodimuutoksia.
+
+Kuvat on erotettu ja peittyneet tausta-alueet täydennetty sisäänrakennetulla image_gen-työkalulla. Kerrokset eivät muodosta pikselilleen alkuperäistä kuvaa. Lopputiedostot on suurennettu noin 2086 × 754:n generointikoosta kokoon 5120 × 1844.
+
+koottu-esikatselu.png näyttää kerrokset yhdessä. liike-esikatselu.png näyttää pienen sivuttaisen parallaksisiirtymän. Ruutukuvio näkyy vain kerrosesikatseluissa, ei varsinaisissa PNG-tiedostoissa.
+Taustaa ei ole vahvistettu saumattomaksi silmukaksi. Sovita taustan peitto pelin kameran koko liikealueelle.
+Generointikehotteet: generointiohjeet.txt. Mitta- ja läpinäkyvyystarkistukset: tarkistus.txt.

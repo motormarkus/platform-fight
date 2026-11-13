@@ -1,0 +1,24 @@
+KASINON BAARI JA RUOKAILUTILA – VASEN JATKO KOLMEEN KERROKSEEN
+
+01-kaukotausta-baari-5120x1844.png: kaukainen ruokailusali, pöydät ja loosit, kasinon arkkitehtuuri ja katto. Peittävä.
+02-keskitaso-baari-5120x1844.png: ruokailupöydät, tuolit, kattovalaisin, pylväät ja kasvi. Ympäristö aidosti läpinäkyvä.
+03-etuala-baari-5120x1844.png: pitkä baaritiski, pullohylly, jakkarat ja kävelylattia. Salin alue läpinäkyvä. Noin 35 % alareunasta avointa kävelyalaa.
+
+SIJOITTELU VASEMMALTA OIKEALLE
+Uusi baaripala → aiempi baccarat/rulettipala → alkuperäinen hissipala.
+Uuden oikea reuna liittyy baccarat/rulettipalan vasempaan reunaan. Kolme kerrosta vastaavat numeroittain aiemman kasino-sisatilat-vasen-parallaksi-3tasoa-paketin kerroksia.
+Käytä kaikissa samaa pixels-per-unit-arvoa ja pivotia (0.5, 0.5). Baaripalan keskipiste on 5120 / pixels-per-unit peliyksikköä baccarat/rulettipalan keskipisteen vasemmalla puolella, Y-koordinaatti sama. Säilytä läpinäkyvät marginaalit.
+Piirtojärjestys takaa eteen: 01, 02, 03. Parallaksin suhteelliset lähtöarvot: 0.2, 0.5, 1.0.
+
+ESIKATSELUT
+baari-koottu-esikatselu.png: vain uusi baaripala.
+koottu-liitos-esikatselu.png: baari vasemmalla, baccarat/rulettipala oikealla.
+liitos-lahikuva.png: liitoskohta läheltä.
+liike-liitos-esikatselu.png: kerroksille eri sivuttaissiirtymät.
+koko-kasino-esikatselu.png: kaikki kolme tähän mennessä tehtyä aluetta yhdessä.
+Kerroskohtaisissa esikatseluissa harmaa on läpinäkyvyyden havainnollistus. Harmaata ei ole varsinaisissa pelikerroksissa.
+
+TOTEUTUS
+Jokainen pelikerros on 5120 × 1844 PNG. Tiedostot on suurennettu noin 2K:n generointikoosta.
+Kuvat luotu sisäänrakennetulla image_gen-työkalulla, kehotteet generointiohjeet.txt. Etualan korkeus kohdistettu. Kaukotaustan liitos käyttää viereisen kuvan peilattua reunakaistaletta ja sisältöä seuraavaa kapeaa saumaa; lattian sävy sovitettu paikallisesti.
+Aikaisempia pelipaloja ei ole muutettu. Tarkistukset tiedostossa tarkistus.txt.

@@ -3990,13 +3990,13 @@ public class PlayerController : MonoBehaviour, IBottleHolder
 
     public bool TakeKnockdown(int damage, float attackerX, float speed, float up, Enemy attacker = null, bool unblockable = false)
     {
-        if (attacker != null && attacker.CornerBurstOn) { damage = Mathf.Min(damage, 6); speed = Mathf.Max(speed, 9.5f); up = Mathf.Max(up, 6.5f); unblockable = true; }   // pomon nurkkapurkaus
+        if (attacker != null && attacker.CornerBurstOn) { damage = Mathf.Min(damage, 6); speed = Mathf.Max(speed, attacker.BurstLaunchSpeed); up = Mathf.Max(up, attacker.BurstLaunchUp); unblockable = true; }   // pomon nurkkapurkaus
         if (Riding || state == State.Drink || state == State.Counter) return false;   // ryypyn ja counter-iskun aikana iskut eivät osu
         if (Ducking) return false;   // alasväistö: isku menee yli
         if (ChainArmorHit(damage, attackerX, attacker)) return true;
         // haymaker: ei voi torjua, mutta ajoitetulla kurotuksella lyövästä kädestä saa kiinni ja heitettyä
         // (vain ojennuksessa: kurotus painettava juuri ennen kuin käsi lähtee, latauksen aikana painettu menee ohi)
-        if (state == State.Catch && stateTime <= haymakerCatchWindow && (attackerX > transform.position.x) == facingRight
+        if (state == State.Catch && stateTime <= (attacker != null && attacker.KnockdownHeavy ? haymakerCatchWindow : catchWindowTime) && (attackerX > transform.position.x) == facingRight
             && attacker != null && attacker.CanBeCaught && attacker.KnockdownCatchable && !GameOver)
         {
             StartCounterThrow(attacker);
@@ -4035,7 +4035,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
     public bool TakeUppercut(int damage, float attackerX, float up, Enemy attacker)
     {
         if (Riding || state == State.Counter) return false;
-        if (attacker != null && attacker.CornerBurstOn) return TakeKnockdown(damage, attackerX, 9.5f, 6.5f, attacker, true);   // nurkkapurkaus lennättää sivuun, ei ylös
+        if (attacker != null && attacker.CornerBurstOn) return TakeKnockdown(damage, attackerX, attacker.BurstLaunchSpeed, attacker.BurstLaunchUp, attacker, true);   // nurkkapurkaus lennättää sivuun, ei ylös
         if (ChainArmorHit(damage, attackerX, attacker)) return true;
         if (state == State.Catch && stateTime <= catchWindowTime && (attackerX > transform.position.x) == facingRight
             && attacker != null && attacker.CanBeCaught && !GameOver)
@@ -4394,7 +4394,7 @@ public class PlayerController : MonoBehaviour, IBottleHolder
         if (attacker != null && attacker.CornerBurstOn && !burstLaunching && !Riding)
         {
             burstLaunching = true;
-            bool launched = TakeKnockdown(damage, attackerX, 9.5f, 6.5f, attacker, true);
+            bool launched = TakeKnockdown(damage, attackerX, attacker.BurstLaunchSpeed, attacker.BurstLaunchUp, attacker, true);
             burstLaunching = false;
             if (launched) return true;
         }

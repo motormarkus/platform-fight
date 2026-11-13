@@ -1,0 +1,27 @@
+Mode: built-in image_gen
+Intent: new environment; previous corridor is style and geometry reference.
+Requested delivery: 5120x1844 PNG, transparent window openings.
+
+Use case: stylized-concept. Create a new 2D side-scrolling game environment: LEFT END of the PRISON STAFF FACILITIES, with TWO COMPLETE STOREYS shown simultaneously.
+REFERENCE IMAGE: style, camera distance, floor heights, overall architectural proportions, muted palette, LEFT DOUBLE ENTRY DOORS, and STRICT SIDE-PROFILE STAIR GEOMETRY. Replace the prison cell functions with staff changing and break-room facilities. This is a new room, not a cell corridor.
+Canvas: same very wide 5120x1844 target proportions (approximately 2.7766:1), highest available native resolution. Keep everything in a front-on flat side elevation. No isometric room, no receding central corridor. Only the closing end wall at far left has the same mild oblique angle as the reference. No visible ceiling. Right edge remains OPEN for a later horizontal extension.
+ARCHITECTURE:
+- Exactly TWO storeys, with clearly visible, unobstructed walkable floors on BOTH.
+- Upper rear floor line about y40%, a visible broad walkway surface from y40% to y47%, steel front fascia about y48%. Continue upper walkway horizontally to the right edge at exactly constant height. Sparse slender open metal front railing, unobtrusive.
+- Lower wall ends around y87%, a clear concrete walking surface covers the bottom 13%. Keep furniture against the back wall, never blocking this route.
+- Far left full-height closing wall, with closed gray double entry doors on LOWER level near x4-12%.
+- One straight steel staircase immediately after the doors, from x16%, y89% to x34%, y46%. It ascends diagonally UP RIGHT, IN STRICT ORTHOGRAPHIC SIDE PROFILE, exactly like the corrected reference staircase: sawtooth outline, each step a horizontal thin line and vertical riser, one diagonal side stringer and one simple handrail. NO WIDE TREADS IN PERSPECTIVE, no visible receding stair width, no zigzag flights or spiral. Upper and lower attachments physically meet the two walking surfaces.
+LOWER STOREY — CHANGING AREA:
+Past the staircase on the right, two or three clearly recognizable private CHANGING CUBICLES with simple solid blue-gray doors, short partition walls, and modest ventilation gaps. These are staff changing booths, NOT barred prison cell doors.
+Beside them a small orderly bank of tall steel clothes lockers with narrow vents and handles, a short wooden changing bench close to the wall, a few restrained wall hooks. One folded towel or hanging plain staff jacket is enough to communicate use. Leave generous clear floor. A high horizontal framed window above part of the lockers/cubicles. No clutter piles.
+UPPER STOREY — STAFF KITCHEN / BREAK AREA:
+A compact functional kitchen on the back wall across the middle and right: lower cabinets with a worktop, stainless sink and faucet, small stove with simple extractor, a few upper cupboards, kettle or coffee maker and two cups, one modest refrigerator. Kitchen is directly visible, with coherent appliance proportions and functional spacing. At least one large clear window between the kitchen fixtures, and a second framed window where space allows. Keep the elevated walking surface clear of dining tables, chairs, and objects. Do not overcrowd the room.
+WINDOW TRANSPARENCY:
+All exterior window OPENINGS must be actual alpha transparency. Keep window frames and thin mullions opaque, but nothing behind them: no sky, clouds, landscape, gradients, glass reflections, checkerboard or white backdrop painted into the holes. These windows will reveal a separately moving parallax layer. ONLY window holes are transparent. Walls, floors, fixtures and appliances remain completely opaque. Door panels stay opaque.
+STYLE:
+Match reference's hand-painted 2D game environment finish: restrained clear shapes, gray worn plaster/concrete, blue-gray industrial steel, subdued mustard yellow safety stripe visible in free wall areas on each floor, warm protected wall lights, slim exposed conduit. A little warmer and more lived-in than the cellblock, but still institutional. Restrained wear in broad patches; subtle concrete floor texture. Crisp coherent cabinet edges, plumbing and stair joints. No dense scratch noise, no artificial grunge speckles, no warped hardware, no faceted noisy AI texture.
+No people, no cell bars on changing-room doors, no readable text, numbers, logos or UI. No extra floor. No closing wall at right. Preserve the same distant camera scale as the reference so both levels are fully visible.
+
+Raw source: C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-5be596ad-f950-47c0-9dee-0d6519fb17d9.png
+Native dimensions: 2087x753
+Delivery: 5120x1844 PNG resampled, alpha normalized and transparent RGB cleared.

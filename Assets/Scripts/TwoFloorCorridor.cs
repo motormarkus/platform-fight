@@ -14,8 +14,10 @@ public class TwoFloorCorridor : MonoBehaviour
     public Area area;
     public float lowerMin, lowerMax, upperMin, upperMax;
     public Stair[] stairs;
+    [Tooltip("Kameran pystysiirros ala- ja yläkerrassa (Area.camOffsetY:n lisäksi ei; nämä korvaavat sen): molemmat 0 = ei käytössä.")]
+    public float lowerOffsetY, upperOffsetY;
 
-    class St { public int stair = -1; public float[] prev; public float lastX = float.NaN; }
+    class St { public int stair = -1; public float[] prev; public float lastX = float.NaN; public bool tumble; }
     readonly Dictionary<Transform, St> state = new Dictionary<Transform, St>();
 
     /// Onko y yläkerrassa (kulkusillalla).
@@ -31,6 +33,8 @@ public class TwoFloorCorridor : MonoBehaviour
         float split = 0.5f * (lowerMax + upperMin);
         foreach (var pl in Players.All)
             if (pl != null) Step(pl.transform, null, split);
+        var prim = Players.Primary;
+        if (prim != null && CameraFollow.Instance != null && (lowerOffsetY != 0f || upperOffsetY != 0f)) CameraFollow.Instance.OffsetY = IsUpper(prim.transform.position.y) ? upperOffsetY : lowerOffsetY;   // kamera ylös yläkerrassa, alas alakerrassa
         // viholliset ja liittolaiset: samat portaat, mutta kulkevat itse, kun hero on toisessa kerroksessa
         float cx = 0.5f * (area.walkMinX + area.walkMaxX), half = 0.5f * (area.walkMaxX - area.walkMinX) + 4f;
         foreach (var en in Enemy.All)
@@ -91,12 +95,25 @@ public class TwoFloorCorridor : MonoBehaviour
             }
         }
 
+        // portailla kaatunut/lentävä vihu pyörii portaat alas (ilmalentokuvat) eikä leiju paikallaan eikä kävele takaisin ylös
+        if (en != null && st.stair >= 0 && !en.IsDead)
+        {
+            if (!st.tumble && (en.IsAirborneNow || en.IsDownNow) && !en.IsHeldNow && !en.ThrownByPlayerNow) { st.tumble = true; en.BeginStairTumble(); }
+            if (st.tumble)
+            {
+                var ts = stairs[st.stair];
+                float dirDown = Mathf.Sign(ts.xBottom - ts.xTop);
+                float baseX = float.IsNaN(st.lastX) ? p.x : st.lastX;
+                p.x = baseX + dirDown * 5.4f * Time.deltaTime;
+                en.FacingRight = dirDown > 0f;
+            }
+        }
         if (st.stair >= 0)
         {
             var s = stairs[st.stair];
             float t = T(s, p.x);
-            if (t >= 1f) { st.stair = -1; p.y = Mathf.Clamp(s.yTop, upperMin, upperMax); }
-            else if (t <= 0f) { st.stair = -1; p.y = Mathf.Clamp(s.yBottom, lowerMin, lowerMax); }
+            if (t >= 1f) { st.stair = -1; p.y = Mathf.Clamp(s.yTop, upperMin, upperMax); if (st.tumble) { st.tumble = false; if (en != null) en.EndStairTumble(0f); } }
+            else if (t <= 0f) { st.stair = -1; p.y = Mathf.Clamp(s.yBottom, lowerMin, lowerMax); if (st.tumble) { st.tumble = false; if (en != null) en.EndStairTumble(Mathf.Sign(s.xBottom - s.xTop)); } }
             else p.y = Mathf.Lerp(s.yBottom, s.yTop, t);
             for (int i = 0; i < stairs.Length; i++) st.prev[i] = T(stairs[i], p.x);
             pc.position = p; st.lastX = p.x;
@@ -114,6 +131,15 @@ public class TwoFloorCorridor : MonoBehaviour
                 { st.stair = i; p.y = Mathf.Lerp(s.yBottom, s.yTop, t); break; }   // alapäästä ylös
                 if (upper && pt >= 1f && t < 1f && t > 0.5f)
                 { st.stair = i; p.y = Mathf.Lerp(s.yBottom, s.yTop, t); break; }   // yläpäästä alas
+            }
+        else if (!en.IsDead && upper && (en.IsAirborneNow || en.IsDownNow) && !en.IsHeldNow && !en.ThrownByPlayerNow)
+            for (int i = 0; i < stairs.Length; i++)
+            {
+                // yläkerrassa lyöty/kaatunut vihu lentää portaiden yläpään yli -> putoaa portaisiin ja pyörii alas (tumble-koodi ylempänä)
+                var s = stairs[i];
+                float t = T(s, p.x), pt = st.prev[i];
+                if (float.IsNaN(pt)) continue;
+                if (pt >= 1f && t < 1f && t > 0.5f) { st.stair = i; p.y = Mathf.Lerp(s.yBottom, s.yTop, t); break; }
             }
         for (int i = 0; i < stairs.Length; i++) st.prev[i] = T(stairs[i], p.x);
         pc.position = p; st.lastX = p.x;

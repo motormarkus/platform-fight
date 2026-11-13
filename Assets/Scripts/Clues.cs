@@ -51,6 +51,7 @@ public static class Clues
         else if (boss == "Horhe") Add(ShipTicket, "Laivalippu", "Horhen taskusta löytyi lippu laivaan. Satamassa se avaa tien laivalle.");
         else if (boss == "Joulupukki") Add(JungleTicket, "Eldoraaton lippu", "Joulupukin säkistä löytyi lentolippu Eldoraatoon. Korvatunturin kiitotiellä kone vie sinne.");
         else if (boss == "Timppa") Add(WallTicket, "Muurin lippu", "Timpan taskusta löytyi lentolippu Kiinan muurille. Maailmanpallolta (F8) pääsee matkaamaan sinne.");
+        else if (boss == "Warden") Add("Vankila: hissin avain", "Hissin avain", "Wardenin taskusta löytyi henkilökunnan hissin avain. Hissi vie katolle.");
         else if (boss == "Yakuza-pomo" || boss == "Don Kurinai") Add(PlaneTicket, "Lentolippu", "Don Kurinain taskusta löytyi lentolippu. Lentokentän kiitotiellä se avaa oven koneeseen.");
     }
 

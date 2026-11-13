@@ -1,0 +1,11 @@
+Left extension. All three new layers are5120x1844; existing right-side files are unchanged.
+Built-in image_gen, followed by mechanical crop, scale registration, alpha cleanup and seam blending.
+Far layer uses a reflected registered collar from the existing adjacent layer to continue ceiling/wall patterns. Foreground gold border is vertically registered, carpet tone matched locally, and a narrow reflected collar joins the boundary.
+Middle-distance contents are uniformly scaled to84% within the unchanged canvas to preserve depth. Native generated detail is about2K; final files are resampled.
+01-kaukotausta native=2167x726; RGBA boundary errors=0; transparent pixels=0; hidden RGB errors=0; region errors=0
+02-keskitaso native=2087x753; RGBA boundary errors=0; transparent pixels=8622713; hidden RGB errors=0; region errors=0
+03-etuala native=2167x726; RGBA boundary errors=0; transparent pixels=4956247; hidden RGB errors=0; region errors=0
+Visual review: all three assembled layers, separate far-background join and close seam crop. Wide crossfade ghosting removed with a narrow content-aware quilting path.
+Saved boundary RGBA values match for all1844 rows in each corresponding layer. Foreground gold border and floor height are visually continuous.
+Existing right-hand asset files are read-only inputs throughout this workflow.
+Shifted three-layer join preview also inspected: continuous floor and background coverage at the join.

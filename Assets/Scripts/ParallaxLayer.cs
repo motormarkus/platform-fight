@@ -20,9 +20,50 @@ public class ParallaxLayer : MonoBehaviour
     public float bobAmplitude;
     float baseY = float.NaN;
 
-    SpriteRenderer sr;
+    [Tooltip("Peilikopiot: kuva jatkuu oikealle peilattuina kopioina (kuva, peilikuva, kuva...), jolloin sauma on aina yhteensopiva. 0 = ei.")]
+    public int mirrorCopies;
 
-    void Awake() { sr = GetComponent<SpriteRenderer>(); }
+    [Tooltip("Lisäkuvat: jatkuvat peilikopioiden jälkeen oikealle perätysten (eri levyisiä, korkeus sovitettava tuonnissa).")]
+    public Sprite[] extraSprites;
+
+    [Tooltip("Lisää kerroksen loppuun yksi peilattu kopio viimeisestä kuvasta (sauma täsmää, koska peilataan liitosreunan yli).")]
+    public bool mirrorEnd;
+
+    SpriteRenderer sr;
+    SpriteRenderer[] copies;
+    float totalLocalW;   // koko kerroksen leveys paikallisina yksikköinä
+
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        if (sr.sprite == null) return;
+        float w = sr.sprite.bounds.size.x;   // paikallinen leveys (skaala periytyy lapsille)
+        float right = w * 0.5f;              // oikea reuna juuren keskipisteestä
+        var list = new System.Collections.Generic.List<SpriteRenderer>();
+        SpriteRenderer Add(string n, Sprite sp, bool flip)
+        {
+            float ew = sp.bounds.size.x;
+            var go = new GameObject(n);
+            go.transform.SetParent(transform, false);
+            go.transform.localPosition = new Vector3(right + ew * 0.5f, 0f, 0f);
+            var c = go.AddComponent<SpriteRenderer>();
+            c.sprite = sp; c.color = sr.color; c.sharedMaterial = sr.sharedMaterial;
+            c.sortingLayerID = sr.sortingLayerID; c.sortingOrder = sr.sortingOrder; c.flipX = flip;
+            right += ew;
+            list.Add(c);
+            return c;
+        }
+        for (int i = 0; i < mirrorCopies; i++) Add("Peili " + (i + 1), sr.sprite, (i % 2 == 0) ? !sr.flipX : sr.flipX);   // 1. kopio peilattu, 2. alkuperäinen suunta, ...
+        if (extraSprites != null) for (int i = 0; i < extraSprites.Length; i++) if (extraSprites[i] != null) Add("Jatko " + (i + 1), extraSprites[i], false);
+        if (mirrorEnd)
+        {
+            Sprite last = sr.sprite;
+            if (extraSprites != null) for (int i = extraSprites.Length - 1; i >= 0; i--) if (extraSprites[i] != null) { last = extraSprites[i]; break; }
+            Add("Peili loppu", last, true);
+        }
+        totalLocalW = right + w * 0.5f;
+        if (list.Count > 0) copies = list.ToArray();
+    }
 
     void Start()
     {
@@ -39,12 +80,14 @@ public class ParallaxLayer : MonoBehaviour
         float cx = cam.transform.position.x;
         bool show = cx >= minX - 1f && cx <= maxX + 1f;
         sr.enabled = show;
+        if (copies != null) foreach (var c in copies) if (c != null) c.enabled = show;
         if (!show) return;
         float halfScreen = cam.orthographicSize * cam.aspect;
-        float halfW = sr.bounds.extents.x;
+        float halfW = sr.bounds.extents.x;                                   // ensimmäisen kuvan puolikas (juuri on sen keskellä)
+        float totalW = totalLocalW * Mathf.Abs(transform.lossyScale.x);
         // vasen reuna ruudun vasempaan reunaan aloituskohdassa; sitten liukuu hitaasti vasemmalle
         float shift = (cx - startCamX) * factor;
-        shift = Mathf.Clamp(shift, 0f, Mathf.Max(0f, 2f * halfW - 2f * halfScreen));   // kuva ei lopu kesken
+        shift = Mathf.Clamp(shift, 0f, Mathf.Max(0f, totalW - 2f * halfScreen));   // kuva ei lopu kesken
         if (autoSpeed != 0f)
         {
             float tile = sr.sprite.bounds.size.x * Mathf.Abs(transform.lossyScale.x);

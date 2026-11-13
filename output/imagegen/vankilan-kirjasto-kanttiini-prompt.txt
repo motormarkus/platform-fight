@@ -1,0 +1,29 @@
+Mode: built-in image_gen
+Intent: one new full-width room, library and canteen, both ends closed.
+Reference: vankilan-ruokala-korkea-tiski-5120x1844.png, style/camera only.
+Target export: 5120x1844 PNG; transparent window panes.
+
+Use case: stylized-concept.
+Create ONE finished extra-wide 2D side-scrolling game background: a prison LIBRARY AND CANTEEN in a single connected ground-floor room, fully enclosed at BOTH ends. A little more comfortable and welcoming than the industrial prison rooms.
+Reference image: STYLE AND GAME CAMERA REFERENCE ONLY. Match its restrained hand-painted 2D realism, readable shapes, adult-scale door/furniture proportions, shallow side-view depth and open foreground. Do NOT copy its kitchen or left-only composition.
+OUTPUT: one coherent panorama, final target 5120x1844 (approximately 2.7766:1). Produce the highest available NATIVE resolution. Sharp, controlled edge definition and legible individual book spines, joinery, handles and fixtures; detail must be drawn coherently, not simulated with grain or sharpening halos.
+CAMERA AND ROOM:
+- Single storey only. Front-on side-view framing for a 2D beat-em-up. No isometric room, no corridor vanishing point, no upstairs or staircase.
+- Left AND right edges are closed by solid full-height mildly oblique end walls running from the top edge down to the floor. A closed pair of doors in EACH oblique end wall, both fully visible and accessible. The left doors angle gently into the scene, and the right doors mirror them. No open image ends and no cropped door leaves.
+- Use institutional double doors with wood-toned or warm gray panels, dark metal frames and clear simple matching handles. Both doors match in size and adult scale; no elevator.
+- Back wall floor junction around 64-65% image height, with the bottom 35% a broad continuous CLEAR WALKABLE FLOOR from left doors to right doors.
+- No visible ceiling. No game characters, text, labels, logo or UI. No loose furniture blocking the foreground.
+LEFT HALF — LIBRARY:
+Several substantial wooden bookcases against the rear wall, packed with orderly but varied books in muted burgundy, green, ochre and navy. Individual straight book spines, coherent shelves with visible thickness and sensible spacing. No invented readable book titles.
+A low closed book cabinet or narrow librarian's desk against the back wall, not standing in the walking route. Beside the shelves, a small comfortable reading nook with a dark green cushioned wall bench, a soft warm wall lamp and one leafy potted plant. Bookshelves should clearly dominate this half. No freestanding reading tables or dining tables; they can be separate game sprites.
+RIGHT HALF — CANTEEN / SMALL COFFEE AND SNACK COUNTER:
+An inviting staffed-service area, currently empty of people: a substantial waist-high counter with a warm wood front and tidy light worktop, a small glass display of a few pastries or sandwiches, a coffee machine with clear coherent parts, mugs, a simple till. Behind it, modest shelves of neatly arranged snack packets, a few jars and plain packaged supplies, a small glass-door drinks refrigerator. This is a compact prison canteen/commissary cafe, not the large industrial hot-meal kitchen shown in the reference.
+The service counter ends before the right-hand doors, leaving their access clear. No large extractor hood, giant stove or meal-production kitchen. No sprawling clutter or piles.
+WINDOWS AND MATERIALS:
+Include two large framed windows integrated sensibly between the library and canteen fittings. Their pane openings must be truly transparent alpha for a later parallax background. Frames and simple mullions opaque. NO exterior scenery, sky, tint, reflections, painted white/black backing, or checkerboard inside openings. ONLY these window panes transparent; walls, furnishings, food, bottles, floor and both end walls stay opaque.
+Warm muted cream plaster, restrained sage or warm gray lower wall trim, medium oak/walnut shelving and counter fronts, matte gray-beige floor with very subtle texture. Still recognizably part of the same prison, gently worn and practical, but better cared for than the cellblock. Soft amber wall/pendant lamps illuminate both sections evenly; warm readable scene, not dark. A few plants and comfortable materials create the welcoming feeling. No decorative fantasy tavern elements.
+ART QUALITY: coherent construction, deliberate clean shapes, precise shelf alignment, consistent door hinges, simple clear materials. Avoid muddy generated textures, excessive grunge speckles, cracked wood everywhere, random microdetail, illegible signage, huge empty gray wall, shiny plastic look, photorealistic noise and oversharpening. Balance both areas with some breathing room. Deliver a SINGLE wide complete room with matching oblique double-door end walls on both sides.
+
+Raw source: C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-c2a51819-3b69-4d79-a99a-8154f51a261a.png
+Native dimensions: 2087x753
+Delivery: 5120x1844 PNG resampled, alpha normalized and transparent RGB cleared.

@@ -1,0 +1,31 @@
+{
+  "canvasHeight": 1844,
+  "canvasWidth": 5120,
+  "layersBackToFront": [
+    {
+      "nativeHeight": 754,
+      "width": 5120,
+      "height": 1844,
+      "nativeWidth": 2087,
+      "transparent": false,
+      "file": "01-yotaivas-5120x1844.png"
+    },
+    {
+      "nativeHeight": 754,
+      "width": 5120,
+      "height": 1844,
+      "nativeWidth": 2087,
+      "transparent": true,
+      "file": "02-hotellit-ja-rakennukset-5120x1844.png"
+    },
+    {
+      "nativeHeight": 754,
+      "width": 5120,
+      "height": 1844,
+      "nativeWidth": 2086,
+      "transparent": true,
+      "file": "03-kasvillisuus-5120x1844.png"
+    }
+  ],
+  "repeatPattern": "A, horizontal mirror of A, A"
+}

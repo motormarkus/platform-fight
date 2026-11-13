@@ -1,0 +1,12 @@
+Vankilan lähiparallaksi: hiekkasoramaa
+
+Pelikuva: vankila-lahimaa-hiekka-sora-5120x1844.png, RGBA PNG.
+Tasainen hiekkasoramaa, muutamia pieniä kiviä ja niukat matalat ruohotuppaat. Yläosa on läpinäkyvä; maa jatkuu täysin peittävänä kuvan alareunaan. Ei tietä tai rakennuksia kuvassa.
+
+Sijoita maakerros nykyisen tien taakse ja kaukaisen vankilataustan eteen. Jätä maata reilusti tien alle: maan alareunan pitää ulottua tien alareunaa alemmas myös kameran liikkuessa. Älä trimmaa läpinäkyviä marginaaleja automaattisesti.
+Limitysesikatselussa kuvan korkeus on sovitettu tien 941 px korkeuteen, maakuvaa siirretty 300 px alaspäin ja asfaltti piirretty sen päälle. Esikatselu on rajattu maahan ja tiehen; nämä ovat sommitteluarvot, eivät Unityyn tehdyt muutokset.
+Toisto: kuva A, vaakasuunnassa peilattu A, A, peilattu A. Molemmat liitokset vastaavat RGBA-arvoiltaan toisiaan. Tiedostoa voi peilata SpriteRenderer.flipX-asetuksella. Normaali A/A-toisto ei ole tämän kuvan tarkoitettu toistotapa.
+Liikenopeudeksi voi kokeilla nykyisen vankilataustan ja tien väliin sijoittuvaa arvoa. Kamera- ja sijaintisovitus tarkistetaan pelissä. Tämän toimituksen aikana Unityn sceneä tai asetuksia ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, yksi pohjagenerointi ja maapinnan laajennus samasta kuvasta. Natiivikoko 2089x753; 5120 x 1844 on skaalattu vientikoko. Lähes läpinäkyvä reunaväri siivottu ennen skaalausta. PNG:n alfa ja peilausliitokset tarkistettu.
+Esikatseluissa on harmaa ruudukko; sitä ei ole varsinaisessa PNG:ssä.

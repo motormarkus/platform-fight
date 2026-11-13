@@ -1,0 +1,53 @@
+[
+  {
+    "sortingOrder": 0,
+    "description": "Kauimmainen sali, katto, pienet peliautomaatit ja kaukaiset valaisimet.",
+    "suggestedRelativeMotion": 0.2,
+    "file": "01-kaukotausta-5120x1844.png",
+    "transparent": false,
+    "width": 5120,
+    "nativeSize": [
+      2086,
+      754
+    ],
+    "sharedPivot": [
+      0.5,
+      0.5
+    ],
+    "height": 1844
+  },
+  {
+    "sortingOrder": 1,
+    "description": "Pelipoydat, kaksi pylvasta, palmut ja suuri kattovalaisin. Lapinakyva ymparisto.",
+    "suggestedRelativeMotion": 0.5,
+    "file": "02-keskitaso-5120x1844.png",
+    "transparent": true,
+    "width": 5120,
+    "nativeSize": [
+      2086,
+      754
+    ],
+    "sharedPivot": [
+      0.5,
+      0.5
+    ],
+    "height": 1844
+  },
+  {
+    "sortingOrder": 2,
+    "description": "Kavelylattia, lahimmat peliautomaatit, pylvaat, hissi ja oikea paatyseina.",
+    "suggestedRelativeMotion": 1.0,
+    "file": "03-etuala-5120x1844.png",
+    "transparent": true,
+    "width": 5120,
+    "nativeSize": [
+      2087,
+      754
+    ],
+    "sharedPivot": [
+      0.5,
+      0.5
+    ],
+    "height": 1844
+  }
+]

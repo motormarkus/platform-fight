@@ -38,7 +38,7 @@ public static partial class BeatEmUpSetup
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
             Undo.RegisterCreatedObjectUndo(root, "Ruokalan pöydät");
 
-            const int cols = 6; const float f0 = 0.30f, f1 = 1.78f, tableScale = 1.1f, plateScale = 1f;
+            const int cols = 6; const float f0 = 0.30f, f1 = 1.78f, tableScale = 1.1f, plateScale = 0.7f;   // makkara-annokset 30 % pienemmiksi (oli 1)
             float colW = (f1 - f0) / cols;
             float[] depths = { 0.22f, 0.78f };   // kaksi riviä (0 = lattian takareuna, 1 = etureuna)
             int tables = 0;

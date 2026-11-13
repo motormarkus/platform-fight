@@ -1,0 +1,80 @@
+VANKILAJOHTAJAN HUONE - TWO CONNECTED PANELS
+Mode: built-in image_gen
+Both final PNG files: 5120x1844; resampled from generated originals.
+
+PART 1 - LEFT
+Mode: built-in image_gen
+Intent: new two-panel room, part 1/2.
+Target: 5120x1844 PNG, alpha window openings.
+References: library/canteen style and staff-corridor warden door design.
+
+Use case: stylized-concept. Asset: prison warden's private office, LEFT HALF of a two-image horizontally joined 2D game room.
+Create ONE extra-wide image at the highest available native resolution, target final export 5120x1844, aspect about 2.7766:1. This is only the LEFT half of a larger room; the second image will extend its RIGHT edge.
+REFERENCES: Image 1 (library/canteen) is the hand-painted game ART STYLE, warm wood quality, comfortable lighting, single-storey side camera and open-floor reference, NOT a layout to copy. Image 2 (staff corridor end) shows the warden's handsome mahogany double office doors; use that door design from inside at this room's LEFT entrance. Do not depict either reference room's functions.
+ROOM / CAMERA:
+A substantial, authoritative but lived-in prison director's office. One storey, front-on 2D side-view, very shallow sensible furniture depth, no isometric view, no distant vanishing-point corridor. No visible ceiling. The LEFT end is enclosed by a full-height mildly oblique end wall, with a closed pair of elegant paneled dark mahogany office doors, brass handles and substantial trim. Doors entirely visible and accessible.
+RIGHT EDGE STAYS OPEN FOR CONTINUATION. No right end wall. In the final 12% of image width, leave a plain continuous wall/wainscot/floor section; do not cut a window, cabinet, desk or doorway at the join. The wall meets the floor at exactly 65% of image height, leaving the bottom 35% as CLEAR continuous playable floor. The plain rightmost strip makes the next tile join straightforward. No objects in the walking route.
+MAIN FURNISHING:
+One LARGE, heavy, broad MAHOGANY EXECUTIVE DESK, the focal point in the center-right, roughly x43%-79%, with a thick polished-but-not-mirror top, well-constructed twin drawer pedestals, brass drawer handles and a paneled front. The desk rests on the rear part of the floor and does NOT crowd the foreground walking area. Desk size and height credible for an adult.
+Behind the desk a tall dark green/brown leather director's chair. On the desktop, deliberate readable props: two or three ring binders/folders, a small orderly paper stack, an open file, a classic green-shaded banker's lamp, a simple office telephone and pen holder. A closed folder may show color only, no readable writing. Do not bury the desktop under clutter.
+To the left of the desk, substantial matching mahogany bookshelves filled with orderly varied hardcover books and several clearly recognizable ring binders, with solid closed lower cupboards. Real shelves with depth and consistent spacing; books with straight coherent spines. A leafy plant near the door or bookshelf adds life. A small framed certificate or subdued landscape picture can hang in a free wall space, but no legible lettering or labels.
+One broad tall exterior WINDOW behind/near the desk, or two matching windows with enough opaque wall between them. Keep furniture fully visible. Rich wooden window frames with slim muntins; curtain side panels may be restrained and drawn completely away from the openings.
+MATERIALS / LIGHT:
+Warm greige plaster upper walls, dark reddish-brown mahogany wainscoting across the lower wall, continuous horizontal trim and baseboard, muted taupe matte carpet with very subtle non-directional texture. No noisy patterned carpet, no large rug crossing the next-tile join. Warm wall sconces plus banker's lamp, readable balanced light, composed dignified office rather than a palace. Same clean hand-painted 2D game rendering as references: deliberate shapes, coherent cabinetry and hardware, restrained natural grain, minimal wear.
+WINDOW ALPHA:
+All exterior window pane openings must be true transparent alpha, to reveal a separate parallax background. Opaque frames/muntins/curtains and furniture; clear empty holes between them. No painted sky, buildings, mountains, glass reflections, tinted backing, white backdrop, checkerboard or black painted glass. Everything except the window holes remains opaque.
+No people, weapons, text, logos, UI, prison bars inside this office, cafeteria counters, kitchen equipment, stairs, second floor or extra desks. No excessive grime, grunge noise, fake microdetail or distorted bookcases. Keep sharp coherent detail suitable for later zoom, with clean hand-painted surfaces.
+Deliver this LEFT PART only, preserving the empty continuation strip at its right edge, matching the long room's floor and wainscot height exactly.
+
+Raw source: C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-3f50bf68-cc8f-4dcc-80df-c24cb994f9da.png
+Native dimensions: 2087x753
+Delivery: 5120x1844 PNG resampled, alpha normalized and transparent RGB cleared.
+
+
+PART 2 - RIGHT
+Mode: built-in image_gen
+Intent: seamless outpainting, part 2/2 and closed right end.
+Inputs: vankilajohtaja-oikea-ohje.png (96px overlap), vankilajohtajan-huone-vasen-alkuperainen.png.
+Final delivery: 5120x1844 PNG after overlap crop/alignment.
+
+Use case: compositing / seamless game environment outpainting.
+Create the RIGHT HALF and CLOSED RIGHT END of the prison warden's private office. It will connect directly to Image 2.
+Image 1 is the EDIT TARGET: 1376x461 wide canvas, with a FINISHED 96-pixel overlap strip at its far left. Gray placeholder to its right must be filled. Preserve this strip and continue its exact architecture and color. Image 2 is the complete finished LEFT HALF, serving as style, furniture scale, and lighting reference, NOT content to copy.
+Return one full approximately 2.985:1 canvas including the overlap, highest native resolution. No camera move, zoom, new perspective, split panels or montage.
+EXACT JOIN GEOMETRY IN IMAGE 1:
+Plain warm greige plaster from y0 to y238.
+Top mahogany wainscot cap begins y238, small cap shadows near y245-247.
+Raised panel upper inset molding near y254-257.
+Panel bottom inset molding near y312-313.
+Baseboard upper bands around y320-324.
+Bottom of baseboard and wall-floor junction at y338-339.
+Muted taupe matte carpet from y339 to bottom y461.
+Continue every horizontal trim line level, at exactly the same thickness, and continue the repeating raised panel pattern in phase across the seam. Preserve the colors and subtle texture. Do not put a post, object, doorway or new window across x96. Keep the first small new area plain to let the office join cleanly.
+NEW RIGHT-HALF CONTENT:
+- A continuation of the director's PRIVATE OFFICE, not another main office or a new room.
+- Tall handsome mahogany bookcases with coherent shelves, muted leather-bound books and clearly recognizable office ring binders. Include a matched low archival/file cabinet with brass handles and a few neatly organized folders. Concentrate these against the back wall, with space between distinct groups.
+- Two substantial exterior windows, same tall six-pane mahogany frame style as Image 2, placed sensibly between cabinets. Their clear pane areas must be actual transparent alpha for a parallax backdrop.
+- A modest private conversation/reading corner: two dark olive leather armchairs beside a small low wooden side table with two closed books and a simple shaded lamp. Keep this furniture toward the back wall, leaving a continuous OPEN foreground walking strip. No giant dining table, no second executive desk, no desk duplication.
+- One leafy potted plant and a small restrained framed certificate/picture are enough; no busy decorative clutter. Quiet, dignified, functional warden office with a warm comfortable character.
+- At the far RIGHT, a solid full-height closing wall, slightly oblique to the camera, reaches from top edge to floor and clearly ends the room. Matching paneling and baseboard wrap around the corner coherently. NO extra doorway here; this private office's entrance is already in the previous left part. No corridor beyond.
+CAMERA AND SCALE:
+ONE storey, front-on side-view 2D game art. No visible ceiling, stairs, upper floors, vanishing-point corridor or isometric furniture. Adult-scale furniture matching the previous image. Library and office objects have only shallow sensible depth. Same soft warm illumination, rich but restrained reddish mahogany, greige plaster, olive leather and taupe carpet.
+Large empty foreground carpet area must continue from the left image without steps, rugs, floor seams or obstacles. The new furniture must not invade the playable foreground.
+TRANSPARENCY:
+Only exterior window pane openings transparent. Preserve opaque wooden frames, muntins and any furniture in front of windows. No sky, landscape, room backdrop, reflections, glass tint, black painted fill, white fill or checkerboard in openings. All the rest of the image remains opaque.
+ART QUALITY:
+Clean coherent hand-painted 2D game detail, same controlled wood grain, clear books and brass handles as reference. No noisy microtextures, rough AI grunge, warped book spines, random scratches or harsh oversharpening. No people, weapons, text, logos or UI.
+Deliver this new RIGHT END plus the preserved overlap, ready for cropping off the overlap to form one continuous two-image office.
+
+Second image_gen pass, local repair:
+Edit this existing extra-wide 2167x726 game-room image with MAXIMUM geometry preservation. Same exact framing, pixels scale, floor height and furniture arrangement.
+TWO STRICT LOCAL CORRECTIONS ONLY:
+1. The twelve window panes currently contain opaque pale gray/white checkerboard-like fill. REMOVE THE FILL ENTIRELY from every visible pane in both windows. Make the pane openings genuine fully transparent alpha=0. A drawn checkerboard or white background is NOT transparency. Retain all dark wooden frames, horizontal and vertical muntins exactly as they are. Preserve the leather armchair where it overlaps the lower-right window: the chair stays fully opaque. No sky, scenery, reflections or tint in windows.
+2. At the TOP LEFT there is a thin horizontal electrical conduit starting near x115,y55. Shorten ONLY its left end: remove the pipe segment and shadow between x105 and x270, fill its former footprint with the same warm plaster, and make the pipe begin at x270 with a neat small end cap. This leaves the top-left 12% of canvas plain for the seamless join. Keep the entire remaining conduit, wall lamps and every other element in place.
+Everything else unchanged: same books, binders, cabinets, chair shapes, lamp, plant, picture, certificate, mahogany wainscot panels, floor texture, right closing wall, warm lighting and colors. No redraw, no additional furniture, no zoom, no new perspective, no framing changes, no text. Transparent background option applies ONLY to the real window pane cutouts, NOT walls or floor.
+
+Initial generated source: exec-bafe4039-9862-46b7-bdd3-7c00e980993e.png.
+Repaired source: exec-3e8616d9-5523-47e8-8f2c-4dda1be01931.png, 2167x726.
+Final processing: alpha normalization; adaptive left crop at x129 to match wainscot panel phase; vertical molding/floor registration; spatially smoothed seam color matching. Exported as 5120x1844 PNG, resampled rather than native 5K.
+Saved seam verification: all 1844 RGBA edge pixels identical. All twelve right-window pane-center samples fully transparent. Full pair and close-up inspected.
+

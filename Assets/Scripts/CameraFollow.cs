@@ -25,6 +25,9 @@ public class CameraFollow : MonoBehaviour
         basePos.y = GoalY(); yVel = 0f;   // aluevaihto pimennyksessä: heti oikealle korkeudelle
     }
 
+    /// Alueen pystysuuntainen siirros (esim. kaksikerroksinen käytävä: ylä- ja alakerran kamerakorkeus); kamera siirtyy sinne pehmeästi.
+    public float OffsetY { get { return offY; } set { offY = value; } }
+
     float GoalY()
     {
         float lift = 0f;

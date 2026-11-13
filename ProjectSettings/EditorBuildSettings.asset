@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Areas/Vankila.unity
     guid: 91a58dff03a36f947bbf0c204b00aab4
+  - enabled: 1
+    path: Assets/Scenes/Areas/Vegas.unity
+    guid: 2ff4b262e4c9968468c875b5ba571500
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

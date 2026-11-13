@@ -1,0 +1,11 @@
+Mode: built-in image_gen edit with transparent_background=true.
+Reference: kasino-sisatilat-baari-parallaksi-3tasoa/03-etuala-baari-5120x1844.png
+
+Use case: precise-object-edit.
+Asset type: transparent foreground layer for a side-scrolling 2D casino game, a new floor-only panel that will be placed immediately to the LEFT of the attached bar foreground panel.
+Input image 1 is the exact existing adjacent foreground layer, 5120 x 1844 aspect ratio. Match that very wide aspect ratio and the exact framing.
+Remove the bar, all bar contents, stools, column, shelves, foot rail, and every other object. Extend ONLY the existing deep muted plum/burgundy casino carpet and its very narrow straight horizontal gold trim across the full image width.
+Critical geometry: the top edge of the floor and thin gold trim remain perfectly horizontal, at EXACTLY the same vertical level as the reference: y=1195 of 1844, about 64.8 percent down from the top. Floor occupies the bottom 35.2 percent of the canvas. Do not move the floor up or down. The lower edge of the carpet continues beyond the bottom edge of the image. Both left and right edges are open and level for a side-scrolling game.
+All space above that floor edge must be truly transparent alpha, no black, no white, no checkerboard painted into the pixels. No objects, no walls, no ceiling, no lighting fixtures, no tables, no new room.
+Keep the same subtle hand-painted carpet texture, soft restrained warm shading, dark plum palette, very fine clean low-contrast texture, and exact narrow gold border thickness and geometry. Match the far LEFT edge of the reference at the new panel's RIGHT edge, because this new panel extends leftward. No random muddy mottling, no heavy noise, no extra decorative motifs or gold floor outlines, no people, no text, no cast shadows from removed furniture. Orthographic side view, flat framing.
+Output one clean floor-only RGBA panel, same wide 5120:1844 proportions.

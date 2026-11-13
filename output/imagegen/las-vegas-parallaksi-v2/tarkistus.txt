@@ -1,0 +1,15 @@
+Three matching 5120 x 1844 layers. Exports are resampled, not native 5K detail.
+01-yotaivas: native 2086x754; export 5120x1844
+alpha0=0, alpha255=9441280, antialias=0
+Transparent pixels=0; top30% or opaque-sky errors=0; hidden RGB errors=0
+Mirrored A / flip(A) / A joins: 0 RGBA mismatches.
+02-hotellit-ja-rakennukset: native 2086x754; export 5120x1844
+alpha0=5826794, alpha255=3547988, antialias=66498
+Transparent pixels=5826794; top30% or opaque-sky errors=0; hidden RGB errors=0
+Mirrored A / flip(A) / A joins: 0 RGBA mismatches.
+03-kasvillisuus: native 2086x754; export 5120x1844
+alpha0=8165198, alpha255=1155890, antialias=120192
+Transparent pixels=8165198; top30% or opaque-sky errors=0; hidden RGB errors=0
+Mirrored A / flip(A) / A joins: 0 RGBA mismatches.
+Vegetation SHA256 identical to original delivery.
+Visual review passed for combined scene and mirrored repetition.

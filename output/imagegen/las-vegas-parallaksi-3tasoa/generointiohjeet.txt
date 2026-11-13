@@ -1,0 +1,36 @@
+Mode: built-in image_gen. Three coordinated parallax layers, 5120 x 1844 exports.
+
+LAYER 3 - VEGETATION
+Use case: stylized-concept.
+Create ONE transparent FOREGROUND VEGETATION parallax layer for the same side-scrolling Las Vegas Strip night scene. Wide canvas aspect ratio 5120:1844 (2.7766:1), same framing and painted simplicity as the references. Image1 is the night SKY palette reference; image2 is the hotel BUILDING layer for scale and complementary style only. Do not reproduce either sky or buildings.
+Only ornamental desert-city vegetation: FOUR sparse elegant palm trees at approximately x=15%,40%,65%,87%, mixed with a few broad low rounded shrub masses and two simple agave clumps. Vary the palm heights gently. Palm fronds begin NO HIGHER than y=50% of canvas; tops mostly y=55% to65%, while trunks extend to bottom edge. Shrubs occupy only the bottom10% to16%. Plants emerge from the bottom image edge; no floating root balls. Large open transparent gaps across most of the canvas.
+Style: simplified hand-painted 2D game art, crisp soft-edged silhouettes, 2 or3 muted colour masses per plant. Deep desaturated blue-green and muted olive leaves, navy-brown slender trunks. A subtle hint of cyan/magenta night rim light on a few leaf edges, very restrained and no neon glowing plants. Each palm crown uses only about 7 to10 broad simple frond shapes. NO individual tiny leaflets, no fine bark texture, no decorative microdetail, no tangled foliage, no noisy grass. Readable silhouettes, not black featureless cutouts, but darker and calmer than the lit hotels.
+MIRROR-REPEAT: plants are spread widely, not piled in the centre. Keep the outermost 3% at BOTH sides completely transparent, with every palm and main shrub silhouette inside the edges, so mirroring never creates a cut palm or a conspicuous central feature. Baseline at bottom; moderate uneven shrub silhouettes without strong directional flow. Do not add text or asymmetrical signs.
+Everything that is not the actual plants must have alpha=0, including between fronds and trunks and between shrubs. NO sky, buildings, pavement, road, fence, planter pots, ground/soil stripe, horizon, people, vehicles, lamps, moon, white fill, black fill or painted checkerboard. Deliver just ONE isolated vegetation layer on true transparency, not a composite scene or sprite grid.
+
+LAYER 2 - HOTELS AND BUILDINGS
+Use case: stylized-concept.
+Create ONE isolated MIDDLE-DISTANCE BUILDING layer for a 2D side-scrolling game on the Las Vegas Strip at night. Wide 5120:1844 (2.7766:1) landscape canvas. The reference SKY is for colour and night mood only; do NOT include the sky in this building layer.
+Art style: clean simple hand-painted game art, broad readable architectural forms, low detail, restrained shading. Soft midnight-blue and muted violet buildings, a small amount of warm golden window light with restrained cyan and magenta neon accents. Night but readable. No photo-realism, no noisy AI textures, no elaborate tiny decorations.
+Composition: a continuous distant line of about SIX main resort hotel/building masses, spaced rhythmically across the full width. A few tall broad rectangular hotel towers, one softly rounded-front resort, a lower stepped Art Deco block, and simple low connecting casino/resort podiums. Front-on orthographic side view; no dramatic aerial/isometric perspective. Large simplified facades with only 6 to 9 broad repeated window bands per tall building, not hundreds of tiny bright individual windows. The buildings should suggest a bright Vegas resort district without specific named landmarks.
+Tallest rooftops around y=35% to45% of image height; other roofs around50% to70%. ALL building bases reach the bottom image edge at y=100%, creating a dark architectural podium band at the very bottom. Upper third of canvas remains completely transparent. Open gaps between taller towers are also transparent, never filled with sky. A few small gaps of sky can reach lower between building groups.
+MIRROR-REPEAT requirement: this layer will alternate with its horizontal mirror. Use simple, calm outer 8% on both sides: low flat anonymous building wings, no tower or important object cut by the edges, no extreme diagonal roof, no strong unique feature close to the edges. No readable text, no names, no casino logos, no letters, no numerals, no clock faces or one-way symbols, no unique famous landmark or giant sign. Avoid excessive detail that becomes obvious in mirrored repetition.
+Buildings ONLY on actual alpha=0 background. No sky, no mountain, no street, no road, no ground strip separate from the architecture, no cars, no people, no palm trees or other vegetation, no moon. Keep lighting glow mainly on the building surfaces, not giant halos. One building layer only, no collage or mockup.
+Mirror-repeat design: A, horizontally flipped A, A. Sparse features and no text/logos.
+
+LAYER 1 - NIGHT SKY
+Use case: stylized-concept.
+Create ONE farthest-background sky layer for a side-scrolling 2D game set on the Las Vegas Strip at night. Wide landscape aspect ratio 5120:1844 (2.7766:1). Full opaque canvas, edge-to-edge sky.
+Art direction: clean restrained hand-painted game environment, broad smooth colour masses, very low detail, quiet atmospheric depth. Rich deep midnight navy at the top fading gently into muted dusty violet and a soft subdued amber-violet city glow near the bottom. Night-time but readable, not pitch black, no dramatic sunset. Only about 8 to 12 very small faint stars, dispersed with generous empty space. At most two very faint broad horizontal wisps of haze, soft and almost invisible.
+This image will be alternated with horizontally mirrored copies for scrolling. Both edges should be visually calm and generic, with the same vertical colour progression and no prominent features near either edge. No strong diagonals, no strong central glow, no singular landmark feature. A quiet nearly uniform night-sky gradient with a little painterly atmosphere.
+ONLY SKY: no buildings, no skyline, no mountains, no ground, no vegetation, no moon, no sun, no clouds with sharply defined forms, no beams, no fireworks, no aircraft, no text, no logos, no UI. No noise/grain texture, no tiny busy stars, no photoreal photographic detail. Do not show three layers or a collage: deliver this single sky layer.
+
+EXPORT AND VERIFICATION
+Sky raw: exec-48907b20-6f04-48ee-9d8d-b22417e7c06b.png; native 2087 x 754.
+Buildings raw: exec-6b895797-2c96-4089-943f-be355952ec5b.png; native 2087 x 754.
+Vegetation raw: exec-b4089630-0e40-412d-a876-32b58032b6a5.png; native 2086 x 754.
+Delivery: three 5120 x 1844 PNG images resampled from native generation, not native 5K detail.
+Sky fully opaque; buildings and vegetation contain true alpha transparency. Low-alpha RGB fringe cleaned.
+Composited scene and A / mirrored A / A repetition visually inspected.
+Both mirrored boundaries verified: zero RGBA mismatches for each layer.
+Mode: built-in image_gen. Exports use System.Drawing for resizing, alpha cleanup, and preview composition.

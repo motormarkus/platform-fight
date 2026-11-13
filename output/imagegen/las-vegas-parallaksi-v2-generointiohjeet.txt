@@ -1,0 +1,22 @@
+Mode: built-in image_gen. Revision: a few more visible stars and many smaller hotel/casino lights. Existing vegetation preserved.
+
+SKY EDIT
+Edit ONLY the stars in this existing night-sky parallax image. Preserve its exact wide composition, smooth deep navy-to-violet gradient, restrained amber-violet horizon haze, and quiet hand-painted 2D game style.
+The previous stars are too faint to read in the game. Make a modest sparse field of roughly 35 to45 clearly visible small stars across the upper two-thirds. They should look like tiny clean cool-white pinpoints, mostly small, with slight variation in brightness; just a few slightly brighter points. Plenty of empty sky between them. Visible when downsampled, but still restrained: not a dense starfield, not glitter, no constellation shapes, no giant starbursts, no Milky Way, no moon.
+Keep the side edges calm so horizontal mirror repetition remains natural. Do not add buildings, vegetation, mountains, cloud shapes, searchlights, text or any other objects. The whole sky canvas remains opaque. Same aspect ratio 5120:1844; change nothing else.
+
+BUILDING EDIT
+Edit this isolated hotel/building parallax layer so it reads much more strongly as the brightly illuminated LAS VEGAS STRIP AT NIGHT.
+Main issue to fix: the current wide horizontal luminous bands make the towers look like empty parking garages. Replace the broad window-light smears with MANY SMALL INDIVIDUAL HOTEL WINDOW LIGHTS in neat, plausible facade grids. Tall hotel faces should show roughly20 to26 rows and12 to20 columns of small rectangular windows, with a pleasing irregular mixture of warm gold, pale amber, a few cool-white lights and many dark windows. Each light is small and distinct, not a huge glowing stripe. The curved hotel gets the same fine window grid following its curved facade.
+Strengthen the Vegas resort/casino atmosphere through lighting: richer narrow cyan, magenta and warm-gold neon roof outlines; a few fine vertical neon accents along tower corners; small golden marquee bulbs in tidy dotted rows around the lower casino entrances and roof cornices. The stepped central Art Deco building has a warm illuminated crown, slim gold vertical accents and smaller windows. Lower resort podiums get lively small pinlights, modest decorative lit panels and clear entrances. Lighting should feel festive and sophisticated, with restrained local bloom, not smeared or overexposed.
+KEEP the existing six main building masses, positions, heights, roof silhouettes, baseline, canvas proportions and calm low building wings at both side edges. Keep the architecture visually simple and reusable for mirrored parallax: extra detail belongs primarily in the smaller lights, not in dense architectural ornament. Maintain the clean hand-painted 2D game-art style and muted navy/violet structural colours; facades may be a little darker to give the tiny lights contrast. Front-on view as before.
+CRITICAL: retain TRUE TRANSPARENCY in all sky areas and gaps. No sky painted behind, no stars in this building asset, no ground/road added, no vegetation, people or cars. Do not add readable words, hotel names, casino logos, letters or numerals, so the image works mirrored. No famous landmark silhouettes. No huge central sign or directional beams. Entire upper third stays alpha=0. Preserve the same 5120:1844 wide aspect and full-width building layer. This is one edited building layer, not a composite with sky.
+
+EXPORT AND VERIFICATION
+Sky raw: exec-e68b5c93-e51a-4e75-9298-65bdb98836e5.png; native 2086 x 754.
+Buildings raw: exec-40563e5b-a341-4f7c-9424-1a6b3d7440ec.png; native 2086 x 754.
+Vegetation unchanged from previous version; exported PNG verified by identical SHA256.
+All three delivery layers: 5120 x 1844, resampled from native generation; not native 5K detail.
+Sky opaque. Buildings/vegetation alpha normalized and hidden RGB cleared.
+Combined scene and A / mirrored A / A repeat visually inspected; mirrored-edge RGBA errors=0.
+Mode: built-in image_gen edits; deterministic export, alpha cleanup and preview compositing.

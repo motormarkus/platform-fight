@@ -251,6 +251,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -567,6 +568,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -962,6 +967,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -1277,6 +1283,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -1948,6 +1958,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -2252,6 +2263,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -3208,6 +3223,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -3512,6 +3528,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -4631,6 +4651,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -4927,6 +4948,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -7502,6 +7527,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -7818,6 +7844,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -8436,6 +8466,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -8751,6 +8782,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -8988,6 +9023,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -9292,6 +9328,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -9947,6 +9987,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -10262,6 +10303,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -13251,6 +13296,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -13566,6 +13612,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -14276,6 +14326,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -14591,6 +14642,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -15079,6 +15134,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -15394,6 +15450,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -15901,6 +15961,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -16216,6 +16277,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -17824,6 +17889,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -18139,6 +18205,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -18781,6 +18851,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -19097,6 +19168,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -19338,6 +19413,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.1
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -19648,6 +19724,10 @@ MonoBehaviour:
   landFrameTime: 0.14
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -21281,6 +21361,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -21597,6 +21678,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -21995,6 +22080,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -22310,6 +22396,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -22629,6 +22719,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -22945,6 +23036,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -23270,6 +23365,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -23585,6 +23681,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -24011,6 +24111,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -24315,6 +24416,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -25777,6 +25882,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -26092,6 +26198,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -27735,6 +27845,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -28050,6 +28161,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -29703,6 +29818,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.1
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -30013,6 +30129,10 @@ MonoBehaviour:
   landFrameTime: 0.14
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -30728,6 +30848,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -31043,6 +31164,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -32109,6 +32234,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -32413,6 +32539,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -32745,6 +32875,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -33079,6 +33210,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -34049,6 +34184,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 3.2
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -34412,6 +34548,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -36689,6 +36829,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -36993,6 +37134,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -38450,6 +38595,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -38765,6 +38911,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -40708,6 +40858,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -41042,6 +41193,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -41317,6 +41472,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -41633,6 +41789,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -43932,6 +44092,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -44247,6 +44408,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -45915,6 +46080,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -46219,6 +46385,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -49456,6 +49626,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -49770,6 +49941,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -50138,6 +50313,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -50453,6 +50629,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -50764,6 +50944,7 @@ MonoBehaviour:
   maxDistanceFromWall: 1
   keeperHalfWidth: 2
   soundVolume: 0.9
+  refillAllies: 0
 --- !u!4 &667591972
 Transform:
   m_ObjectHideFlags: 0
@@ -53140,6 +53321,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -53444,6 +53626,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -53664,6 +53850,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -53979,6 +54166,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -54555,6 +54746,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -54870,6 +55062,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -55552,6 +55748,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -55867,6 +56064,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -56612,6 +56813,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -56926,6 +57128,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -57299,6 +57505,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -57614,6 +57821,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -57848,6 +58059,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -58163,6 +58375,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -59985,6 +60201,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.3
   punch3Reach: 2.8
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -60381,6 +60598,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -60787,6 +61008,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -61121,6 +61343,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -62507,6 +62733,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -62821,6 +63048,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -63154,6 +63385,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.7
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 1
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -63485,6 +63717,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -64595,6 +64831,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -64910,6 +65147,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -66069,6 +66310,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -66385,6 +66627,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -66794,6 +67040,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -67098,6 +67345,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -68282,6 +68533,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -68616,6 +68868,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -70926,6 +71182,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.1
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -71236,6 +71493,10 @@ MonoBehaviour:
   landFrameTime: 0.14
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -71551,6 +71812,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -71866,6 +72128,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -72321,6 +72587,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -72653,6 +72920,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -73365,6 +73636,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -73697,6 +73969,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -74231,6 +74507,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -74565,6 +74842,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -75297,6 +75578,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -75601,6 +75883,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -76296,6 +76582,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -76600,6 +76887,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -78444,6 +78735,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -78748,6 +79040,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -79197,6 +79493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc0b39a169aa4147a80603dd9fc3f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmazonStartAlly
+  joinAtStart: 0
 --- !u!114 &1049666816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79666,6 +79963,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -79981,6 +80279,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -80388,6 +80690,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -80704,6 +81007,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -81622,6 +81929,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -81938,6 +82246,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -82503,6 +82815,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.1
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -82813,6 +83126,10 @@ MonoBehaviour:
   landFrameTime: 0.14
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -83358,6 +83675,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -83692,6 +84010,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -85434,6 +85756,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.3
   punch3Reach: 2.8
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -85830,6 +86153,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -86402,6 +86729,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -86718,6 +87046,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -87461,6 +87793,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -87776,6 +88109,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -88547,6 +88884,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -88851,6 +89189,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -90596,6 +90938,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -90911,6 +91254,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -92233,6 +92580,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -92537,6 +92885,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -92806,6 +93158,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -93110,6 +93463,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -93346,6 +93703,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -93650,6 +94008,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -94073,6 +94435,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -94387,6 +94750,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -94893,6 +95260,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -95225,6 +95593,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -95733,6 +96105,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.1
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -96043,6 +96416,10 @@ MonoBehaviour:
   landFrameTime: 0.14
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -96812,6 +97189,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -97116,6 +97494,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -98003,6 +98385,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -98318,6 +98701,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -101332,6 +101719,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -101636,6 +102024,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -102063,6 +102455,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -102378,6 +102771,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -102954,6 +103351,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -103268,6 +103666,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -104431,6 +104833,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -104747,6 +105150,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -105206,6 +105613,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -105510,6 +105918,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -105764,6 +106176,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -106079,6 +106492,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -106762,6 +107179,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -107094,6 +107512,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -109600,6 +110022,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -109915,6 +110338,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -110240,6 +110667,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -110555,6 +110983,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -112893,6 +113325,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -113208,6 +113641,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -113706,6 +114143,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -114010,6 +114448,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -114440,6 +114882,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -114772,6 +115215,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -115915,6 +116362,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -116213,6 +116661,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -118714,6 +119166,7 @@ MonoBehaviour:
   maxDistanceFromWall: 1
   keeperHalfWidth: 2
   soundVolume: 0.9
+  refillAllies: 0
 --- !u!4 &1511833330
 Transform:
   m_ObjectHideFlags: 0
@@ -119064,6 +119517,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -119379,6 +119833,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -119859,6 +120317,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.45
   punch3Reach: 2.8
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -120199,6 +120658,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -120416,6 +120879,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -120731,6 +121195,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -120965,6 +121433,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -121280,6 +121749,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -122492,6 +122965,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -122807,6 +123281,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -123059,6 +123537,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -123374,6 +123853,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -123701,6 +124184,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -124005,6 +124489,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -124505,6 +124993,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.34
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -124871,6 +125360,10 @@ MonoBehaviour:
   landFrameTime: 0.11
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -125979,6 +126472,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -126283,6 +126777,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -126725,6 +127223,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -127039,6 +127538,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -128179,6 +128682,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.4
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -128504,6 +129008,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -129248,6 +129756,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -129563,6 +130072,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -130147,6 +130660,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -130481,6 +130995,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -132235,6 +132753,7 @@ MonoBehaviour:
   maxDistanceFromWall: 1
   keeperHalfWidth: 2
   soundVolume: 0.9
+  refillAllies: 0
 --- !u!4 &1647479562
 Transform:
   m_ObjectHideFlags: 0
@@ -132498,6 +133017,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -132802,6 +133322,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -133525,6 +134049,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -133829,6 +134354,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -134702,6 +135231,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.45
   punch3Reach: 2.8
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -135042,6 +135572,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -136027,6 +136561,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -136341,6 +136876,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -138013,6 +138552,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -138328,6 +138868,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -139211,6 +139755,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -139525,6 +140070,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites:
   - {fileID: -1871316488632973028, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
   - {fileID: 2441476932999013872, guid: 17eaae12cefb69f4eabc8bef2e0690aa, type: 3}
@@ -140890,6 +141439,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -141205,6 +141755,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -141553,6 +142107,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -141868,6 +142423,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -142715,6 +143274,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -143019,6 +143579,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -144023,6 +144587,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -144327,6 +144892,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -145372,6 +145941,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -145688,6 +146258,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -148404,6 +148978,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -148719,6 +149294,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -149202,6 +149781,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -149517,6 +150097,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -150077,6 +150661,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.4
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -150402,6 +150987,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -150915,6 +151504,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -151247,6 +151837,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -152466,6 +153060,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -152782,6 +153377,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -154357,6 +154956,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -154661,6 +155261,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -154989,6 +155593,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -155304,6 +155909,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -155558,6 +156167,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -155862,6 +156472,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -156809,6 +157423,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -157124,6 +157739,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -158068,6 +158687,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -158400,6 +159020,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -159524,6 +160148,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -159839,6 +160464,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -160264,6 +160893,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -160568,6 +161198,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -161084,6 +161718,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.6
   punch3Reach: 2.6
   punch3Heavy: 1
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds:
   - {fileID: 8300000, guid: 474db42468c98d74cbdf315052a43a56, type: 3}
@@ -161388,6 +162023,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -161914,6 +162553,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -162229,6 +162869,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -163095,6 +163739,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -163410,6 +164055,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -164420,6 +165069,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -164735,6 +165385,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -165071,6 +165725,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -165387,6 +166042,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -166268,6 +166927,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -166583,6 +167243,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -168202,6 +168866,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -168536,6 +169201,10 @@ MonoBehaviour:
   landFrameTime: 0.12
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -169482,6 +170151,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -169798,6 +170468,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -170545,6 +171219,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.5
   punch3Reach: 2.4
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -170861,6 +171536,10 @@ MonoBehaviour:
   landFrameTime: 0.08
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []
@@ -171414,6 +172093,7 @@ MonoBehaviour:
   punch3RecoverTime: 0.55
   punch3Reach: 2.5
   punch3Heavy: 0
+  punch3IsPunch: 0
   punch3Unblockable: 0
   punch3WindupSounds: []
   punch3SwingSounds: []
@@ -171746,6 +172426,10 @@ MonoBehaviour:
   landFrameTime: 0.1
   landDustSize: 0
   airFrameTime: 0.1
+  thrownStartFrames: 
+  thrownLoopFrames: 
+  thrownLandFrames: 
+  thrownFrameTime: 0.07
   footIdleSprites: []
   footWalkSprites: []
   footPunchSprites: []

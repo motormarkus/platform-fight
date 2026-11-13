@@ -1,0 +1,26 @@
+Mode: built-in image_gen
+Intent: replace the rejected close-camera concept with a farther camera and a solid left closing wall.
+User's latest correction supersedes the suggested diagonal roof-edge closure. No left dropoff/parapet closure.
+Target: 5120x1844 PNG, transparent air, roof continues at right.
+
+Edit/redesign the attached prison ROOFTOP game layer according to the user's corrections. Preserve the same clean hand-painted gray-concrete / blue-gray industrial-metal style, but CHANGE THE CAMERA SCALE AND LEFT BOUNDARY.
+Final target canvas 5120x1844 (2.7766:1), highest available native resolution.
+ESSENTIAL CAMERA CORRECTION:
+Move the orthographic camera substantially farther away, approximately 1.6x the former camera distance. All usable objects must be only about 60-65% of their previous on-screen size. The elevator doorway was nearly half the image height; now make it about 28-30% of image height. The HVAC boxes and searchlights must likewise be clearly smaller. Show more rooftop with generous gaps and open playable space, not a tighter shot of the same objects.
+ESSENTIAL LEFT BOUNDARY CORRECTION:
+The LEFT end of the rooftop is CLOSED BY A SOLID CONCRETE WALL, not a diagonal roof edge or parapet. A substantial near architectural wall occupies the far left edge from the TOP of the frame down to the roof/floor and the lower left corner. Show a mildly oblique return face so this is unmistakably the enclosing left end wall. The roof surface meets this wall; it does not drop off into empty space at the left edge. This wall is foreground architecture, NOT a distant background wall across the scene.
+Integrate the roof elevator access into this left-side concrete service structure: clearly visible closed center-opening brushed steel ELEVATOR DOORS, thick steel surround, small call-button panel and protected utility lamp. Door threshold rests on the rooftop rear walking line around y65%. Door top around y35%; door width about 8-10% of total image width. Keep the doorway wholly visible and clear of obstructions. No hinged handles, no swinging entrance doors, no staircase. Avoid a huge close-up elevator headhouse dominating the whole picture.
+ROOFTOP:
+A broad flat matte-gray rooftop occupies the lower approximately 35% of the image, with an unobstructed horizontal walking route. Equipment belongs along the rear edge, with gaps around it.
+Two small/medium industrial security searchlights on steel swivel stands, separated across the scene. Sensible lamp lenses, brackets and short posts, only about 24-28% of image height, readable but not gigantic. Warm lit lenses, NO painted long light beams in air.
+Two modest HVAC units, one larger louvered box with a coherent circular fan grille and one smaller companion with a simple capped curved vent. About 18-24% of image height, sitting on short feet at the rear of the roof. Simple short connecting conduits, no tangled piping. Keep the quieter widely spaced composition.
+A low STRAIGHT rear curb behind the equipment is fine, but it is not the left boundary. The far left must be the SOLID WALL specified above. The RIGHT edge is OPEN FOR A FUTURE IMAGE EXTENSION: flat roof and optional low straight rear curb continue horizontally offscreen. Keep the last 12-15% of right edge free of equipment and end posts. No right closing wall.
+CAMERA: 2D game orthographic SIDE VIEW, flat framing. No isometric roof, no perspective convergence. Only the left closing wall is mildly oblique. No visible ceiling over the roof.
+TRANSPARENT BACKGROUND:
+All sky/air above and between objects must be true alpha transparency, including the empty area to the right of the left wall. No cityscape, sky, buildings, distant prison walls, clouds, fog, mountains, horizon, black painted backing, white backing, checkerboard or matte halo. The left concrete end wall, elevator structure, all equipment, rear curb and roof floor are opaque foreground. Do not erase the left wall as if it were background.
+QUALITY: same restrained hand-painted game art as reference, simple coherent solid construction, crisp silhouettes, quiet concrete and metal textures. No excessive grunge, noise, random scratches or fake detail. No characters, labels, text, logos, flags, vehicles, weapons, furniture or new clutter.
+This revision must visibly show the camera farther away and a concrete WALL closing the LEFT side. Do not simply repaint the original close-up composition.
+
+Raw source: C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-5a410511-0389-4626-be7c-3115b59a1da5.png
+Native dimensions: 2089x753
+Delivery: 5120x1844 PNG resampled, alpha normalized and transparent RGB cleared.

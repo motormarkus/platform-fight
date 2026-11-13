@@ -1,0 +1,9 @@
+Vegasin Strip, kasinon ulkopuoli v2 – enemmän asfalttia
+
+Pelikuva: vegas-strip-kasino-ulkoa-v2-5120x1844.png, RGBA PNG.
+Jalkakäytävä on kapeampi ja reunakynnys matalampi. Asfaltti alkaa noin y1410 eli vie noin 23,5% koko kuvan korkeudesta. Koko kävelyalue säilyy noin 35%:ssa.
+Alkuperäiset rivit y0–1235 säilyvät täsmälleen samoina kaikissa RGBA-kanavissa. Rakennus, pariovet, kyltti, valaistus, taustan läpinäkyvyys ja kävelyalueen takareuna eivät muuttuneet.
+Korvaa ulkoalueen aiempi etualakuva tällä samoilla PPU-, pivot- ja sijaintiasetuksilla. Vanhaa kuvatiedostoa ei ole korvattu.
+Parallaksien esikatselu on vain sommitteluesimerkki; varsinaisessa PNG:ssä kaukotausta on läpinäkyvä. Unityn sceneä tai asetuksia ei muutettu.
+
+Tekotapa: sisäänrakennetun image_gen-työkalun kohdennettu editointi, natiivikoko 2089x753. Lopullisessa 5120 x 1844 viennissä alkuperäinen yläosa on palautettu sellaisenaan ja alareunan materiaaleja on kohdistettu. Uusi katupinta on skaalattu generointikoosta.

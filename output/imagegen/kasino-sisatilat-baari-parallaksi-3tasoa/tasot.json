@@ -1,0 +1,77 @@
+[
+  {
+    "width": 5120,
+    "suggestedRelativeMotion": 0.2,
+    "positionRelativeToElevatorPanelInPixels": [
+      -10240,
+      0
+    ],
+    "height": 1844,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "file": "01-kaukotausta-baari-5120x1844.png",
+    "sortingOrder": 0,
+    "transparent": false,
+    "positionRelativeToExistingInPixels": [
+      -5120,
+      0
+    ],
+    "join": {
+      "existingFile": "../kasino-sisatilat-vasen-parallaksi-3tasoa/01-kaukotausta-vasen-5120x1844.png",
+      "newEdge": "right",
+      "existingEdge": "left"
+    }
+  },
+  {
+    "width": 5120,
+    "suggestedRelativeMotion": 0.5,
+    "positionRelativeToElevatorPanelInPixels": [
+      -10240,
+      0
+    ],
+    "height": 1844,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "file": "02-keskitaso-baari-5120x1844.png",
+    "sortingOrder": 1,
+    "transparent": true,
+    "positionRelativeToExistingInPixels": [
+      -5120,
+      0
+    ],
+    "join": {
+      "existingFile": "../kasino-sisatilat-vasen-parallaksi-3tasoa/02-keskitaso-vasen-5120x1844.png",
+      "newEdge": "right",
+      "existingEdge": "left"
+    }
+  },
+  {
+    "width": 5120,
+    "suggestedRelativeMotion": 1.0,
+    "positionRelativeToElevatorPanelInPixels": [
+      -10240,
+      0
+    ],
+    "height": 1844,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "file": "03-etuala-baari-5120x1844.png",
+    "sortingOrder": 2,
+    "transparent": true,
+    "positionRelativeToExistingInPixels": [
+      -5120,
+      0
+    ],
+    "join": {
+      "existingFile": "../kasino-sisatilat-vasen-parallaksi-3tasoa/03-etuala-vasen-5120x1844.png",
+      "newEdge": "right",
+      "existingEdge": "left"
+    }
+  }
+]

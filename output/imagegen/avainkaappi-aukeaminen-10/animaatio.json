@@ -1,0 +1,89 @@
+{
+  "frameCount": 10,
+  "frameWidth": 1536,
+  "frameHeight": 1088,
+  "sheetColumns": 5,
+  "sheetRows": 2,
+  "ordering": "left to right, top row then bottom row",
+  "normalizedPivot": [
+    0.5,
+    0.5
+  ],
+  "doorHingePixelFromTopLeft": [
+    406,
+    561
+  ],
+  "recommendedFps": 12,
+  "frames": [
+    {
+      "sheetX": 0,
+      "frame": 1,
+      "doorAngleDegrees": 0.0,
+      "sheetYTop": 0,
+      "file": "avainkaappi-01.png"
+    },
+    {
+      "sheetX": 1536,
+      "frame": 2,
+      "doorAngleDegrees": 12.0,
+      "sheetYTop": 0,
+      "file": "avainkaappi-02.png"
+    },
+    {
+      "sheetX": 3072,
+      "frame": 3,
+      "doorAngleDegrees": 24.0,
+      "sheetYTop": 0,
+      "file": "avainkaappi-03.png"
+    },
+    {
+      "sheetX": 4608,
+      "frame": 4,
+      "doorAngleDegrees": 36.0,
+      "sheetYTop": 0,
+      "file": "avainkaappi-04.png"
+    },
+    {
+      "sheetX": 6144,
+      "frame": 5,
+      "doorAngleDegrees": 48.0,
+      "sheetYTop": 0,
+      "file": "avainkaappi-05.png"
+    },
+    {
+      "sheetX": 0,
+      "frame": 6,
+      "doorAngleDegrees": 60.0,
+      "sheetYTop": 1088,
+      "file": "avainkaappi-06.png"
+    },
+    {
+      "sheetX": 1536,
+      "frame": 7,
+      "doorAngleDegrees": 72.0,
+      "sheetYTop": 1088,
+      "file": "avainkaappi-07.png"
+    },
+    {
+      "sheetX": 3072,
+      "frame": 8,
+      "doorAngleDegrees": 84.0,
+      "sheetYTop": 1088,
+      "file": "avainkaappi-08.png"
+    },
+    {
+      "sheetX": 4608,
+      "frame": 9,
+      "doorAngleDegrees": 96.0,
+      "sheetYTop": 1088,
+      "file": "avainkaappi-09.png"
+    },
+    {
+      "sheetX": 6144,
+      "frame": 10,
+      "doorAngleDegrees": 107.932,
+      "sheetYTop": 1088,
+      "file": "avainkaappi-10.png"
+    }
+  ]
+}

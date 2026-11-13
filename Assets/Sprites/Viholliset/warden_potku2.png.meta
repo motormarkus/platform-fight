@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 3b7d8f84d4fa21d4fbf54b7baba5a322
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1451586082978370507
+    second: warden_potku2_0
+  - first:
+      213: -2265156539547911957
+    second: warden_potku2_1
+  - first:
+      213: 4148323688410697342
+    second: warden_potku2_2
+  - first:
+      213: 3883551875324323546
+    second: warden_potku2_3
+  - first:
+      213: -8412554807973105067
+    second: warden_potku2_4
+  - first:
+      213: 6535881637576567603
+    second: warden_potku2_5
+  - first:
+      213: -5653557757340916647
+    second: warden_potku2_6
+  - first:
+      213: -1613880701664790840
+    second: warden_potku2_7
+  - first:
+      213: -561784784376818913
+    second: warden_potku2_8
+  - first:
+      213: 646471803731260926
+    second: warden_potku2_9
+  - first:
+      213: -865524882966793274
+    second: warden_potku2_10
+  - first:
+      213: -2085371013910228573
+    second: warden_potku2_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: warden_potku2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc393d40ad1152410800000000000000
+      internalID: 1451586082978370507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_1
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1536
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8f79be02c8090e0800000000000000
+      internalID: -2265156539547911957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_2
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1536
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ece057a6ec19930800000000000000
+      internalID: 4148323688410697342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_3
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 1536
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6228bcad525e530800000000000000
+      internalID: 3883551875324323546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 552324949f9904b80800000000000000
+      internalID: -8412554807973105067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_5
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 768
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33befb588bd14ba50800000000000000
+      internalID: 6535881637576567603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_6
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 768
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9546a8c6c278a81b0800000000000000
+      internalID: -5653557757340916647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_7
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 768
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c679637d085a99e0800000000000000
+      internalID: -1613880701664790840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f13100f07b32438f0800000000000000
+      internalID: -561784784376818913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_9
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef535ba2eaab8f800800000000000000
+      internalID: 646471803731260926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_10
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3b08664b90df3f0800000000000000
+      internalID: -865524882966793274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warden_potku2_11
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 0
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.22727273, y: 0.020833334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a11cf29c164f03e0800000000000000
+      internalID: -2085371013910228573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 573fbd9be75d65c42a5a185dac070da1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      warden_potku2_0: 1451586082978370507
+      warden_potku2_1: -2265156539547911957
+      warden_potku2_10: -865524882966793274
+      warden_potku2_11: -2085371013910228573
+      warden_potku2_2: 4148323688410697342
+      warden_potku2_3: 3883551875324323546
+      warden_potku2_4: -8412554807973105067
+      warden_potku2_5: 6535881637576567603
+      warden_potku2_6: -5653557757340916647
+      warden_potku2_7: -1613880701664790840
+      warden_potku2_8: -561784784376818913
+      warden_potku2_9: 646471803731260926
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

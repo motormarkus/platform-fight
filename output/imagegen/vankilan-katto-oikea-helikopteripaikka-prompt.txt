@@ -1,0 +1,30 @@
+Mode: built-in image_gen
+Intent: seamless right continuation and roof end.
+Inputs: katto-helikopteripaikka-ohje.png (96px finished overlap), vankilan-katto-vasen-levea-hissi-tyopohja.png.
+Final output: 5120x1844 PNG, transparent background, empty helipad.
+
+Use case: seamless environment outpainting.
+Create the RIGHT CONTINUATION AND FINAL RIGHT END of this prison rooftop game layer, with an EMPTY HELICOPTER LANDING PAD toward its right end.
+IMAGE 1 IS THE EDIT TARGET: 1376x461 canvas, finished 96-pixel strip at LEFT and gray placeholder to the right. Preserve the finished strip exactly and replace the gray with the continuation. The black-looking region in the finished strip is transparent air. Output the full same approximately 2.985:1 canvas including the overlap.
+IMAGE 2 is the previous complete rooftop layer, a STYLE, OBJECT SCALE and CAMERA reference. Do not reproduce its elevator, closing left wall or existing HVAC arrangement. This is the next image to its RIGHT.
+EXACT SEAM:
+At the left join, the low rear concrete curb begins at y319-320, cap and upper highlights at y320-322, curb bottom/shadow y330-332. Roof walking surface continues from y332 to the image bottom y461. Match these heights, thickness, colors and quiet surface texture exactly. Continue the curb and roof perfectly horizontally. All space above y319 at the seam is clear alpha. Do not put new equipment or markings across the left join.
+CAMERA:
+Same distant front-on orthographic 2D side view and shallow view of the roof TOP as Image 2. No zoom in, no top-down aerial camera, no isometric roof, no vanishing-point view. The low curb stays low. The roof continues straight and level, with the same generous clear foreground walking surface.
+COMPOSITION:
+- Left half of the NEW area: mostly open roof, with at most one modest low ventilation box and one security searchlight on a steel swivel post, matching the SMALL scale of Image 2. Space them along the rear edge, well away from the landing pad. No new elevator or tall structure.
+- RIGHT HALF: a clear, adequately broad EMPTY HELICOPTER LANDING AREA painted on the same roof surface. A large crisp white H inside a simple white circular outline, clearly foreshortened into a wide shallow ellipse because of the existing side-view camera. The painted H lies FLAT ON THE ROOF, not vertical or floating. Use clean solid practical paint with very restrained wear; no illegible lettering. The entire marking must be visible within this panel, not cut by the join or right boundary.
+- Landing marking approximately centered around x965,y389 in the full 1376x461 guide canvas; oval outline about x700..1230 and y342..444. Keep the scale and shape consistent with the shallow roof plane. A few tiny low-profile amber landing lights can mark the outer corners, clear of the H and walking route.
+- No helicopter: the aircraft will be a separate sprite. No people, vehicles, rotor blades, helipad furniture, cones or clutter.
+FAR RIGHT END:
+Show the ACTUAL END/EDGE OF THE ROOF at the far right. A low concrete edge coping and visible shallow exterior slab/fascia face turns gently diagonally from the rear-right corner toward the front-right, clearly ending the playable roof. For example the right boundary runs from around x1260,y320 toward x1350,y450, with the area beyond it transparent. Keep the edge in the final 8-12% of the image, leaving the helipad clear.
+This right boundary is a LOW ROOF EDGE, NOT a tall wall, not an enclosed room, not another large building. No continuation of floor beyond the right boundary. No huge foreground railing obscuring the landing marking. The rear curb wraps coherently around the right end.
+ALPHA BACKGROUND:
+All sky/air, space between equipment, and visible void beyond the roof edge are genuinely transparent alpha=0. No distant background, prison buildings, cityscape, sky, clouds, mountains, horizon, fog, black paint, white paint or checkerboard. Roof, coping, fascia, equipment, lamps and painted landing mark remain opaque. All equipment cutout gaps correctly transparent.
+STYLE:
+Exactly the same subdued gray concrete and blue-gray industrial metal as Image 2. Clean controlled hand-painted 2D game art, coherent construction, readable fan/vents and simple hardware, subtle soft surface wear. No noisy AI grunge, random scratches, faceted texture, excessive sharpness or new art style. Readable neutral lighting with small warm lamp lenses, no large searchlight beams painted in the transparent air.
+Only visible character is the helipad marking H. No other text, logos, UI, banners or labels. Prioritize a correct seamless roof join, distant camera, spacious uncluttered empty landing pad, and the clear low RIGHT ROOF EDGE.
+
+Raw image_gen source: exec-b945174c-3fef-4981-bf94-f42d5982aa06.png, 2167x726 including overlap.
+Final processing: transparent RGB/alpha normalization, overlap crop, vertical curb-height alignment, smooth edge color matching, PNG export 5120x1844 (resampled, not native 5K).
+Saved file verification: 0 RGBA mismatches across all 1844 joining-edge pixels; rear curb top and base profiles at 64 pixels into new tile have 0-pixel vertical offset; sky and void beyond roof edge alpha=0; roof and H marking alpha=255. Full joined preview and seam close-up inspected.

@@ -1,0 +1,11 @@
+Vegasin Strip – kasino ulkopuolelta
+
+Pelikuva: vegas-strip-kasino-ulkoa-5120x1844.png. RGBA PNG, 5120 x 1844.
+Kasinon julkisivu, sisäpuolen ovien mallia vastaavat pariovet, valaistu CASINO-katos, jalkakäytävä, matala reunakynnys ja asfaltin etuala. Yläosa rakennuksen oikealla puolella on läpinäkyvä olemassa oleville Vegas-parallakseille.
+Kävelyalue alkaa noin 65% kuvan korkeudesta (y1199), joten alimmainen noin 35% muodostuu jalkakäytävästä, reunakynnyksestä ja asfaltista. Ovien oma ohut kynnys on jalkakäytävän tasalla.
+Kuva on uusi ulkoalueen etualapala; sillä ei ole kuvallista saumaa sisätilan mattoon. Liitos sisätilaan tehdään pelissä ovensiirtymällä. Julkisivu jatkuu vasemman kuvarajan ulkopuolelle, kävelyala ja reunakiveys jatkuvat kumpaankin sivuun.
+
+Piirtojärjestys: 01-yotaivas, 02-hotellit-ja-rakennukset, 03-kasvillisuus, tämän kuvan etuala. Tiedostossa strip-parallakseilla-esikatselu.png näkyy yksi sommitteluesimerkki nykyisillä Vegas-tasoilla; varsinainen pelikuva sisältää vain etualan.
+Tämän toimituksen aikana Unityn sceneä tai tuontiasetuksia ei muutettu.
+
+Tekotapa: sisäänrakennettu image_gen, referensseinä kasinon pääovet ja Vegas-parallaksien koottu esikatselu. Natiivikuva 2089x753. Skaalattu vientikokoon, kävelyalueen korkeus kohdistettu, lähes läpinäkyvät reunavärit siivottu. 5120 x 1844 ei ole generoinnin natiivikoko.

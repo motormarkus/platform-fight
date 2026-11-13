@@ -1,0 +1,8 @@
+Kasinon etualan lattiajatko vasemmalle
+
+03-etuala-lattiajatko-5120x1844.png on varsinainen pelikuva. Aseta se baaripalan 03-etuala-baari-5120x1844.png vasemmalle puolelle samoilla skaala-, PPU- ja pivot-asetuksilla. Älä rajaa läpinäkyvää yläosaa pois.
+Koko 5120 x 1844, RGBA PNG. Yläosa on aidosti läpinäkyvä. Lattian yläreuna y=1195, sama kuin baaripalan vasemmassa reunassa. Lattiaa noin 35 prosenttia kuvan korkeudesta.
+Tämä sisältää vain lattian ja vanhan kuvan kanssa kohdistetun kapean kultareunuksen. Uusia esineitä ei ole.
+Esikatselujen harmaa ruudukko on vain esikatseluissa. Liitos-esikatselussa uusi pala on vasemmalla ja alkuperäinen baaripala oikealla.
+Tekotapa: sisäänrakennettu image_gen, sen jälkeen koon sovitus, reunan kohdistus ja kapea liitosalueen värisovitus. Generoitu alkuperäinen oli 2089x753; 5120 x 1844 on skaalattu vientikoko.
+Alkuperäistä baarikuvaa ei muutettu.

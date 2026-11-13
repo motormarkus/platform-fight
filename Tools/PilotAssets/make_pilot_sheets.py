@@ -1,18 +1,20 @@
 """Lentoperämies (vihu): kolmesta videosta (A idle + kävely, B iskut ja potkut, C osuma + kaatuminen + ylösnousu) ja suojauskuvasta kuvasarjat
-Assets/Sprites/Viholliset/lentoperamies_<nimi>.png (4 saraketta, ruutu 768 x 448, seisova hahmo 300 px, jalat 8 px ylös, pivot alhaalla keskellä; hahmo katsoo oikealle).
+Assets/Sprites/Viholliset/lentoperamies_<nimi>.png (4 saraketta, ruutu 1536 x 896, seisova hahmo 640 px (ppu 200), jalat 16 px ylös, pivot alhaalla keskellä; hahmo katsoo oikealle).
 Kaatuminen: generaattori käänsi putoamisen väärään suuntaan, joten videon C ruudut 41-157 peilataan (hahmo kaatuu taaksepäin, makaa pää vasemmalla ja nousee vasemmalle päin);
 viimeinen ylösnousukuva on alkuperäinen (idle oikealle), jolloin käännös tuskin huomataan.
 Ajo: python Tools/PilotAssets/make_pilot_sheets.py <videot-kansio> <suojauskuva.png> <ulos>   (videot: A=2_15PM, B=2_36PM, C=2_58PM)"""
 import os, sys, glob
 import cv2, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "GymAssets"))
-from key_video import key_frame
+from key_video import key_frame as _key_frame
+from edge_smooth import smooth_edges
+def key_frame(*a, **k): return smooth_edges(_key_frame(*a, **k))   # siistityt reunat
 
-CELL_W, CELL_H, COLS = 768, 448, 4
-TARGET_H, FOOT_MARGIN = 300.0, 8
+CELL_W, CELL_H, COLS = 1536, 896, 4
+TARGET_H, FOOT_MARGIN = 640.0, 16
 VID = {"A": "5718e81e", "B": "70e8cc9f", "C": "62bfd445"}
 FLIP_FROM, FLIP_TO = 41, 157          # videon C ruudut, jotka peilataan
-KB = TARGET_H / 590.0                 # B/C (720p): seisova hahmo n. 590 px -> 300 px; A (360p) on puolet pienempi -> 2 x
+KB = TARGET_H / 590.0                 # B/C (720p): seisova hahmo n. 590 px -> 640 px; A (360p) on puolet pienempi -> 2 x
 
 NEW_WIDEN = {'idle': 1.07, 'kavely': 1.13}
 def R(a, b, s=1): return list(range(a, b, s))

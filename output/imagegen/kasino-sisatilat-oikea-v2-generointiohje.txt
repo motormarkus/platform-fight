@@ -1,0 +1,28 @@
+Mode: built-in image_gen edit. Reference: kasino-sisatilat-oikea-alkuperainen.png. New sibling version; original preserved.
+
+Use case: precise-object-edit / scene composition revision.
+Edit the supplied casino interior into a SPACIOUS DEEP CASINO GAMING HALL. The user rejects the current image because it looks like a narrow corridor with machines lined against a flat wall. Completely rework the upper 65% into a large casino room with clear visible DEPTH, while preserving the playable foreground floor and the right-end elevator function.
+
+One continuous wide 2D side-scrolling game environment panel, aspect ratio 5120:1844 (2.7766:1), highest available native resolution. Same clean hand-painted stylized art and coherent controlled textures, burgundy/plum, walnut, antique brass and warm lights, small cyan/magenta slot-machine lights.
+
+PRIMARY CORRECTION: THERE MUST BE A LOT OF VISIBLE CASINO INTERIOR BEHIND THE FRONT PLAY AREA.
+- Remove the dominant close flat back wall from the left and middle 80% of the image. Reveal a large open gaming hall extending far behind the player.
+- At least THREE clearly separated depths of casino furniture: nearest banks of full-size slot machines on either side of an open central sightline; mid-distance green-felt blackjack and roulette tables and other separated banks of slots; a visibly smaller distant row of machines beneath an elegant tall rear wall. Show open aisles between the groups so the depth is legible.
+- The nearest slot machines stand around y=55..64% at their bases, middle tables around y=45..55%, distant machine bases around y=35..43%. They are different distances, NOT a single straight row glued to a wall.
+- Tall widely spaced elegant columns in the middle and rear distances frame broad openings. Several warm Art Deco hanging lamps/chandeliers at different distances and a high coffered ceiling/upper cornice add generous hall volume. Keep their forms clean, no tangled ornamental noise.
+- The eye can see into the gaming hall through the centre of the composition, with clear open space around the tables. Background depth should occupy most of the image ABOVE the walking floor, not be a small insert or a dark doorway.
+- Show rich warm casino atmosphere and readable spatial layers without people, smoke, blur or excessive detail. Strong enough lighting to see the distant room.
+- Foreground game camera remains pulled-back side view with level horizontal framing. The foreground movement plane and architectural floor edge remain horizontal; allow gentle architectural perspective INSIDE THE RECEDING BACKGROUND to show the hall volume. Do not make the whole scene isometric or tilt the game camera.
+
+KEEP: a broad elevator at far right with two equal brushed-metal sliding doors, elegant brass frame and call button. Its doorway sill aligns with the playable floor at about65% frame height. Far-right solid wall closes this end in a mildly oblique plane. LEFT END stays open to continue the casino later, no left closing wall.
+The entire bottom35% remains unobstructed walkable plum carpet, with restrained low-contrast texture. No slot machine, chair, table, column or loose prop on this foreground strip. The hall opens BEHIND this strip.
+No people, no readable text, no logos, no UI, no outside scenery. Fully opaque indoor environment. Do not retain the corridor layout, the single wall of machines, or the small shallow room feeling. Output just ONE revised right-end room panel.
+
+EXPORT AND VALIDATION
+Mode: built-in image_gen edit; spacious gaming hall revision.
+Native generation: 2087 x 753.
+Final export: 5120 x 1844 PNG, resampled with HighQualityBicubic; not native 5K detail.
+Visual check: spacious receding hall with multiple layers of slot machines and gaming tables, columns and chandeliers; broad elevator and closing wall at right, no people.
+Open floor begins approximately at 65% of image height, leaving approximately 35% open walking area.
+Left edge remains open for a later continuation; no adjoining panel has yet been generated.
+Final saved path: G:\unity pelit\mopopeli\platform fight\output\imagegen\kasino-sisatilat-oikea-v2-5120x1844.png

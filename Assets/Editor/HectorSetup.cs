@@ -73,7 +73,7 @@ public static partial class BeatEmUpSetup
                 // suojaus: kuvat 1–5 jakautuvat suojausajalle; osuma: kuvat 1–3 (pää taakse); kaatuminen: 4 kuvaa (ilmassa 3, viimeinen makuu); nousu: 8 kuvaa
                 e.blockSprites = s["suojaus"].Skip(1).ToArray(); e.blockChance = 0.25f;
                 e.hurtSprites = s["osuma"].Skip(1).ToArray(); e.hurtTime = 0.32f;
-                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.12f; e.getUpSprites = s["nousu"]; e.getUpTime = 0.95f;
+                e.knockdownSprites = s["kaatuminen"]; e.airFrameTime = 0.12f; e.thrownStartFrames = new[] { 0 }; e.thrownLoopFrames = new[] { 0, 1 }; e.thrownLandFrames = new[] { 1, 2, 3 }; e.thrownFrameTime = 0.11f; e.getUpSprites = s["nousu"]; e.getUpTime = 0.95f;   // heitettynä: pyörähtää ilmassa (kuten vartija)
                 go.transform.position = pos;
                 EditorUtility.SetDirty(e);
                 return e;

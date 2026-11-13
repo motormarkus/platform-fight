@@ -61,7 +61,7 @@ public static partial class BeatEmUpSetup
             var doorRoot = scene.GetRootGameObjects().FirstOrDefault(g => g.name == "Vankilan ovet");
             float inDoorX = X0 + 0.925f * imgW, midCell = Mathf.Lerp(cell.maxDepthY, cell.minDepthY, 0.5f);
             corrDoor.target = cell; corrDoor.spawnPoint = new Vector2(inDoorX - 3.2f, midCell);
-            corrDoor.requiredClue = ""; corrDoor.lockedClueText = "";   // auki toistaiseksi: avaimen hankinta tehdään myöhemmin
+            corrDoor.requiredClue = "Vankila: sellin E13 avain"; corrDoor.lockedClueText = "Sellin ovi on lukossa. Avain on valvontahuoneen kaapissa.";   // avain valvontahuoneesta (valikko 375)
             EditorUtility.SetDirty(corrDoor);
             var back = new GameObject("Selli E13: ulos").AddComponent<Door>();
             back.transform.SetParent(doorRoot != null ? doorRoot.transform : root.transform, false); back.transform.position = new Vector3(inDoorX, cell.maxDepthY, 0f);
@@ -81,13 +81,13 @@ public static partial class BeatEmUpSetup
             e.idleSprites = s["idle"]; e.idleFrameTime = 1f / 12f;
             e.walkSprites = s["kavely"]; e.walkFrameTime = 1f / 12f;
             e.runSprites = s["juoksu"]; e.runFrameTime = 1f / 24f; e.runSpeedMultiplier = 1.9f; e.runDistance = 5f;
-            e.maxHealth = 260; e.moveSpeedX = 3.6f; e.moveSpeedY = 2.5f; e.depthTolerance = 0.45f; e.attackCooldown = 0.5f; e.wakeDistance = 0f;
+            e.maxHealth = 520; e.moveSpeedX = 3.6f; e.moveSpeedY = 2.5f; e.depthTolerance = 0.45f; e.attackCooldown = 0.5f; e.wakeDistance = 0f;
             e.comboChance = 0.6f; e.comboWindupScale = 0.6f; e.comboRecoverFraction = 0.6f;
             e.attackRange = 2.4f;
             // J = tupla-jabi, S = jabi, K = takasuora (kaataa); osumakuvat videosta
             e.punchSprites = s["isku1"]; e.punchImpactFrame = 3; e.secondImpactFrame = 5; e.windupTime = 3 * F; e.punchRecoverTime = (s["isku1"].Length - 3) * F; e.punchActiveTime = 0.14f; e.punchDamage = 10;
             e.punch2Sprites = s["isku2"]; e.punch2ImpactFrame = 3; e.punch2Damage = 12; e.punch2Knockdown = false; e.punch2Chance = 0.4f;
-            e.punch3Sprites = s["isku3"]; e.punch3ImpactFrame = 3; e.punch3Damage = 22; e.punch3Knockdown = true; e.punch3Chance = 0.3f; e.punch3WindupTime = 3 * F; e.punch3RecoverTime = (s["isku3"].Length - 3) * F; e.punch3Reach = 3.0f;
+            e.punch3Sprites = s["isku3"]; e.punch3ImpactFrame = 3; e.punch3Damage = 22; e.punch3Knockdown = true; e.punch3IsPunch = true; e.punch3Chance = 0.3f; e.punch3WindupTime = 3 * F; e.punch3RecoverTime = (s["isku3"].Length - 3) * F; e.punch3Reach = 3.0f;
             // potkut: vaihtoehtoinen isku (alt), arvotaan korkea potku 1, korkea potku 2 tai etupotku
             e.altChance = 0.35f; e.altExtraWindup = 0.1f;
             e.altVariants = new[]

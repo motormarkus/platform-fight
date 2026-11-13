@@ -6,6 +6,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "KingAssets")); sys.path.insert(0, os.path.join(HERE, "..", "GymAssets"))
 import make_king_sheets as m
 m.TARGET_H = 640.0
+from make_warden_uppercut import load_soft   # pehmeä vihreäavain (pehmeät reunat)
+m.load = load_soft
 m.DIMS.update({"v_idle": (640, 320, 768), "v_kavely": (640, 320, 768), "v_juoksu": (896, 384, 768)})
 
 def main(video, outs):

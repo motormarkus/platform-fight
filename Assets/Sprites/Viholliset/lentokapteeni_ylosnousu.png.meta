@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -166,9 +166,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1344
-        width: 768
-        height: 448
+        y: 2688
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_1
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1344
-        width: 768
-        height: 448
+        x: 1536
+        y: 2688
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_2
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1344
-        width: 768
-        height: 448
+        x: 3072
+        y: 2688
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_3
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 1344
-        width: 768
-        height: 448
+        x: 4608
+        y: 2688
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,9 +254,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 896
-        width: 768
-        height: 448
+        y: 1792
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_5
       rect:
         serializedVersion: 2
-        x: 768
-        y: 896
-        width: 768
-        height: 448
+        x: 1536
+        y: 1792
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_6
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 896
-        width: 768
-        height: 448
+        x: 3072
+        y: 1792
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +319,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_7
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 896
-        width: 768
-        height: 448
+        x: 4608
+        y: 1792
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,9 +342,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 768
-        height: 448
+        y: 896
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,10 +363,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_9
       rect:
         serializedVersion: 2
-        x: 768
-        y: 448
-        width: 768
-        height: 448
+        x: 1536
+        y: 896
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +385,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_10
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 448
-        width: 768
-        height: 448
+        x: 3072
+        y: 896
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,10 +407,10 @@ TextureImporter:
       name: lentokapteeni_ylosnousu_11
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 448
-        width: 768
-        height: 448
+        x: 4608
+        y: 896
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,8 +431,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 768
-        height: 448
+        width: 1536
+        height: 896
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

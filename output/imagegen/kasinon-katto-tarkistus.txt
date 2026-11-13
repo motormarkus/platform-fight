@@ -1,0 +1,13 @@
+LEFT native=2089x753; export=5120x1844
+
+EXPORT AND VALIDATION
+Mode: built-in image_gen, followed by mechanical alpha normalization, resizing and seam registration.
+LEFT native generated image: 2089 x 753, exec-253e6781-38bb-4e57-b876-1dcec7cd95b2.png.
+RIGHT native generated image: 2167 x 726 including guide overlap, exec-83e59760-f356-41ba-9b13-0a1b717c06cf.png.
+Both final foreground files are 5120 x 1844 RGBA PNG exports. These are resampled, not native 5K generated detail.
+The right guide overlap was removed; structure heights and seam colours were registered to the left panel. See build-kasinon-katto-oikea.ps1 for mapping.
+Sky areas are alpha=0 and walking roof alpha=255 at checked samples in BOTH panels.
+Joining edge: 0 differing RGBA pixels out of 1844 rows. Cyan neon and parapet-base profile offsets=0 px; cap profile=-1 px, visually continuous at native inspection scale.
+Combined view and seam close-up visually reviewed: no visible height step, floor and neon continue through the join.
+The night preview composites the accepted Vegas sky only for viewing. Neither delivered roof PNG contains that background.
+Layout: left helipad; right wide elevator, visible hoist machinery and tall closing end wall.

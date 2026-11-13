@@ -1,0 +1,22 @@
+Mode: built-in image_gen
+Intent: new rooftop foreground layer, left end.
+Reference: prison courtyard end, style only.
+Target: 5120x1844 PNG with actual transparent sky/air.
+
+Use case: stylized-concept. Create a new 2D side-scrolling game FOREGROUND ENVIRONMENT LAYER: the LEFT END of a prison rooftop.
+Reference image is ART STYLE ONLY: the same restrained hand-painted game realism, gray concrete, blue-gray industrial metal, clear sturdy construction and subtle wear. Do not copy its courtyard, exercise equipment or hinged doors.
+Output one extra-wide image, aspect 5120:1844 (approximately 2.7766:1), highest available native resolution, for a final 5120x1844 PNG.
+VIEW AND GAMEPLAY:
+Front-on orthographic side view, flat horizontal framing, no isometric rooftop and no vanishing-point corridor. A broad flat rooftop surface runs across the lower 35% of the image. Rear floor line at approximately y65%. Keep the entire foreground walking strip open from left to right; all equipment stands along the rear portion of the roof. Quiet matte concrete/roofing membrane texture, no busy gravel, no dense scratches or noise. Roof continues flat out of the RIGHT edge for a later adjoining tile.
+LEFT END / ELEVATOR:
+At the far LEFT, a compact concrete elevator shaft headhouse forms the starting end of the scene, about the left 20% of the width. One slightly oblique end face is fine, matching the shallow end-wall treatment of the reference; the rest remains straight side-view.
+Clearly recognizable LARGE CLOSED METALLIC ELEVATOR DOORS on this rooftop headhouse: two center-opening brushed steel sliding panels, straight center seam, substantial dark steel surround, recessed threshold at roof level, a small call-button panel to the right and one protected warm utility lamp above. NO hinged handles, NO swinging double doors, NO open elevator car. Door height approximately 36-42% of image height, sensible adult scale. Concrete headhouse extends up around the doors with a simple practical flat cap/roof. Not a towering office building.
+ROOFTOP EQUIPMENT:
+Two industrial security floodlights/searchlights spaced apart along the rear edge. Steel pole or robust swivel stands, readable lamp housings and support brackets, aimed outward across the prison. Slight warm light at their lenses and subtle light on nearby surfaces, but NO giant painted light beams in the empty background.
+Two clear HVAC/air-conditioning units to the middle/right: one larger boxy blue-gray sheet-metal unit with coherent ventilation louvers and a visible circular fan grille, and one smaller lower companion unit with a simple curved ventilation duct or short capped vent stack. Sensible bolts, access panels and sturdy short bases. Simple connections and conduits, not a maze of pipes. Leave gaps between the machines and lights. Do not fill the roof with equipment.
+A LOW concrete rear parapet/edge curb can run horizontally behind the equipment, never tall enough to block the open background. Keep the last 10% of the RIGHT EDGE free of fixtures: only level roof surface and the low continuous parapet, ready for a seamless extension. No closing wall or railing post at right edge. No equipment cut by the right frame.
+TRANSPARENCY IS ESSENTIAL:
+There is NO distant background. All sky/air above and between the foreground objects is genuinely transparent alpha. This must be a usable cutout layer over separate parallax scenery. NO sky, clouds, distant buildings, prison towers, mountains, horizon, background wall, fog, painted white/black fill or checkerboard. All headhouse, doors, floodlight poles, HVAC units, parapet and roof surfaces remain opaque. Preserve cutout gaps between pipes, supports and lamp brackets. No matte color halo.
+MATERIALS / QUALITY:
+Muted gray concrete and weathered blue-gray metal, readable neutral illumination with a few warm lights. Painterly surfaces with deliberate coherent shapes, crisp architectural edges, restrained scuffs and slight rust only at plausible joints. Stable metal panels, straight parallel louvers, clear fan grille. No overly detailed AI grunge, faceted rubble, incoherent pipes, busy microtextures or heavy black comic outlines.
+No people, vehicles, weapons, signs, text, logos, UI, loose clutter, plants or exercise equipment. No interior room, no ceiling over the rooftop, no furniture. One useful spacious roof segment with the elevator at the left end, floodlights and ventilation equipment, open continuation to the right.

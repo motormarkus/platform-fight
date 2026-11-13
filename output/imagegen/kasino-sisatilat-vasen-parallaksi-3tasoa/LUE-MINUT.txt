@@ -1,0 +1,22 @@
+KASINON VASEN JATKO – KOLME KERROSTA
+
+01-kaukotausta-vasen-5120x1844.png: kaukainen kasinosali, pieniä pelipöytiä ja automaatteja. Peittävä.
+02-keskitaso-vasen-5120x1844.png: baccarat- ja rulettipöytiä, pylväät, palmut ja valaisin. Aito läpinäkyvyys.
+03-etuala-vasen-5120x1844.png: lähimmät baccarat- ja rulettipöydät sekä noin 35 % avointa kävelylattiaa. Taustan alue läpinäkyvä.
+
+LIITTÄMINEN
+Aseta uusi pala VANHAN VASEMMALLE puolelle. Uuden oikea reuna liittyy vanhan vasempaan reunaan. Kerrokset vastaavat numeroittain aiemman kasino-sisatilat-parallaksi-3tasoa-paketin kerroksia.
+Sama pixels-per-unit ja pivot (0.5, 0.5) kaikissa. Uuden palan keskipiste on 5120 / pixels-per-unit peliyksikköä vanhan keskipisteen vasemmalla puolella. Y-koordinaatti sama. Säilytä läpinäkyvät marginaalit.
+Piirtojärjestys takaa eteen: 01, 02, 03. Parallaksin aiemmat suhteelliset lähtöarvot 0.2, 0.5, 1.0 sopivat myös uusille paloille.
+
+ESIKATSELUT
+koottu-liitos-esikatselu.png: uusi vasemmalla, aiempi hissipala oikealla.
+vasen-koottu-esikatselu.png: vain uuden palan kolme kerrosta yhdessä.
+liitos-lahikuva.png: liitosalue läheltä.
+liike-liitos-esikatselu.png: kerroksille eri sivuttaissiirtymät.
+Kerroskohtaisissa esikatseluissa harmaa alue merkitsee läpinäkyvyyttä; harmaata ei ole varsinaisissa PNG-kuvissa.
+
+KOKO JA TOTEUTUS
+Jokainen pelikuva on 5120 × 1844 PNG. Nämä ovat suurennettuja vientitiedostoja noin 2K:n generoinneista.
+Kuvat luotu sisäänrakennetulla image_gen-työkalulla, kehotteet generointiohjeet.txt. Reunat sovitettu, etualan korkeus kohdistettu ja läpinäkyvyys tarkistettu. Kaukotaustan liitosalue käyttää viereisen kuvan peilattua reunakaistaletta sekä sisältöä seuraavaa kapeaa saumaa.
+Alkuperäisiä oikean puolen tiedostoja ei muutettu. Vasemman reunan jatko jää avoimeksi.

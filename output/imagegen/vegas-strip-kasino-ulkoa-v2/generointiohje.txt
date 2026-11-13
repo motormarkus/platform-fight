@@ -1,0 +1,10 @@
+Mode: built-in image_gen edit; transparent_background=true.
+Reference: vegas-strip-kasino-ulkoa/vegas-strip-kasino-ulkoa-5120x1844.png
+
+Use case: precise-object-edit.
+Edit ONLY the ground at the bottom of this casino exterior foreground image. The user approves this scene and wants MORE ASPHALT and a slightly SMALLER SIDEWALK / CURB area.
+Keep the whole casino building, double doors, windows, CASINO sign, all lights, color palette, facade scale, framing, transparent open background, canvas size and camera EXACTLY unchanged.
+The overall ground / playable band stays the bottom 35% of the image, beginning at y=1199 of 1844 (65% down). Keep the building and door bases at exactly their existing height. Do NOT move the building or shrink the whole scene.
+Within this lower band, reduce the visible DEPTH of the pale paved sidewalk by about one third, moving its front curb UPWARD toward the building. Keep enough clear pavement immediately in front of the doors. Make the curb a little lower and visually slimmer. Target: sidewalk from 65% to about 74.5% down the image; low curb about 1.5% of image height; asphalt from about 76% down ALL THE WAY to the bottom. So approximately the bottom 24% of the entire canvas becomes dark asphalt.
+Extend the exact existing quiet dark gray-purple asphalt upward to meet the new curb. Preserve the same pavement slab material, fine joints, warm casino-light reflections and restrained matte road texture. Keep the sidewalk, low curb and asphalt perfectly level horizontally across the full width. No steps, no extra objects, no lane markings, no road shine, no new background.
+The result must look like the same approved image with only the sidewalk/curb depth reduced and the asphalt area enlarged. Genuine alpha transparency remains above the ground to the right of the building. One wide RGBA PNG, original 5120:1844 proportions.

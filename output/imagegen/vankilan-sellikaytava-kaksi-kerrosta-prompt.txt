@@ -1,0 +1,22 @@
+Mode: built-in image_gen
+Intent: new image; prior single-storey corridor is a style reference.
+Native source: exec-62670eb6-a6f8-4858-8e73-184813f6871c.png
+Export: 5120x1844 PNG, HighQualityBicubic resampling; no added native detail.
+
+Create a NEW TWO-STOREY PRISON CELLBLOCK LEFT END for a 2D side-scrolling beat-em-up game. Reference image is STYLE ONLY: same old gray concrete, muted yellow stripe, heavy steel cell doors with small barred viewing windows, soft warm industrial lamps, restrained hand-painted finish.
+IMPORTANT: this is not the old single floor with extra doors. The camera is approximately TWICE AS FAR AWAY, showing TWO COMPLETE VERTICALLY STACKED STOREYS and TWO CLEAR WALKABLE HORIZONTAL FLOOR SURFACES simultaneously.
+Desired final canvas5120x1844 (2.7766:1). Render at the highest available native resolution, with crisp coherent door hardware, floor edges, steps and railings that remain legible in a close-up. Do not imitate detail with noise.
+COMPOSITION AND GAMEPLAY GEOMETRY:
+- Front-on side-view of a long two-level cell wall, no central vanishing-point corridor, no isometric view. Only the left closing end wall has a mild oblique plane. No visible ceiling, top of tall upper wall cropped by frame.
+- Lower storey: one continuous wide CLEAR FLOOR at about y82% of image, extending to bottom100%. At least four clearly visible lower cell doors to the right of stairs, all with feet on this lower floor. Cell doors roughly22–25% of total image height, same consistent adult scale.
+- Upper storey: a REAL elevated catwalk with a clearly VISIBLE WALKABLE TOP SURFACE running from the stair landing all the way off the RIGHT EDGE, around y42% to49% of image height. This must be a broad playable walkway, not just a thin line or a railing. Its front fascia around y49% visibly supports the upper floor, with coherent steel beams underneath. Upper cell doors end at the BACK EDGE of this upper walking surface around y42%. At least four upper doors. Keep the upper floor's surface clear and readable.
+- A restrained slender protective front railing with simple sparse uprights can run at the outer edge of the upper catwalk; use an OPEN front railing that does not visually obscure the full walkable top surface or upper door thresholds. No dense wire mesh. Upper route is continuous.
+LEFT END:
+- Solid closing wall at far left extends from TOP to BOTTOM of image, enclosing both levels.
+- Closed steel DOUBLE ENTRY DOORS at the left end on LOWER level, near left5–12% of image, proportioned to the lower cell doors. Leave a small clear space after those double doors.
+- Immediately after the double doors, near left18–33% of canvas, ONE visible straight steel staircase rises DIAGONALLY UP TO THE RIGHT from the lower floor to the upper catwalk. It must physically connect both walkable levels: bottom around x18%,y84%, upper landing around x34%,y45%. Sensible even risers, continuous handrails, no gaps or impossible branching, no spiral stairs. Staircase is side-on with modest tread depth. Keep the double doors accessible, not hidden behind the stair.
+- Do not add an extra floor or extra staircase. Exactly TWO playable levels.
+CELL WALLS:
+Aligned rows of closed blue-gray steel cell doors, each one with a small dark barred inspection window, hinges and a lock/handle. Same door design as reference. No cell numbers or signage. Muted yellow painted stripe along EACH storey's rear wall, interrupted by door openings. Structural steel posts, sparse conduits and warm protected wall lamps on both levels. Broad controlled worn-paint patches, subtle damp near base, sparse hairline cracks; light subtle floor texture.
+RIGHT EDGE remains OPEN FOR FUTURE CONTINUATION: both horizontal walkable levels and both cell rows continue offscreen. No closing wall at right.
+Room is empty of people and loose props. No tables, crates, benches, equipment, rubbish, text, labels, logos or UI. No photoreal noise, dense scratches, fake microdetail or comic outlines. Neutral readable illumination on BOTH levels, no crushed shadows. Fully opaque interior game background.

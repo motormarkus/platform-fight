@@ -47,7 +47,7 @@ public static partial class BeatEmUpSetup
                 var shadow = new GameObject("Shadow").AddComponent<SpriteRenderer>(); shadow.transform.SetParent(go.transform, false);
                 var e = go.AddComponent<Enemy>();
                 e.body = visual; e.shadow = shadow; visual.sprite = sheets["pamppu_idle"][0];
-                e.displayName = "Vartija";
+                e.displayName = "Vartija"; e.bigBody = true;   // iso vihu: Rocco heittää kuperkeikalla
                 e.visualScale = GuardScale; e.attackArtScale = 1f; e.knockArtScale = 1f; e.walkArtScale = 1f;   // vartija 15 % isommaksi
                 e.idleSprites = sheets["pamppu_idle"]; e.idleFrameTime = 1f / 12f;
                 e.walkSprites = sheets["kavely"]; e.walkFrameTime = 1f / 12f;
@@ -57,7 +57,8 @@ public static partial class BeatEmUpSetup
                 e.blockSprites = null; e.blockChance = 0f;
                 e.brawlGroup = "Vartijat"; e.huntsBrawlers = true;   // vartijat käyvät vankien (Hector, fightsEveryone) kimppuun
                 e.hurtSprites = sheets["osuma"]; e.hurtTime = 0.3f;
-                e.knockdownSprites = sheets["kaatuminen"]; e.airFrameTime = 0.05f;   // heitettynä näytetään samat kaatumiskuvat
+                e.knockdownSprites = sheets["kaatuminen"]; e.airFrameTime = 0.05f;   // heitettynä: lähtö kuvat 1–3, ilmassa silmukka 5–7, alas tullessa alarivi 9–12 (1-pohjaiset numerot)
+                e.thrownStartFrames = new[] { 0, 1, 2 }; e.thrownLoopFrames = new[] { 4, 5, 6 }; e.thrownLandFrames = new[] { 8, 9, 10, 11 }; e.thrownFrameTime = 0.11f;   // lähtö hitaammin, ilmalento kiihtyy   // heitettynä näytetään samat kaatumiskuvat
                 e.landSprites = sheets["maahan"]; e.landFrameTime = 0.1f;
                 e.getUpSprites = sheets["nousu"]; e.getUpTime = sheets["nousu"].Length / 14f;
                 var brain = go.AddComponent<VartijaBrain>();
@@ -91,6 +92,8 @@ public static partial class BeatEmUpSetup
                 ("Vankilan ruokala", new[] { 0.30f, 0.55f, 0.80f }, new[] { 0.35f, 0.65f, 0.45f }),
                 ("Vankilan kuntopiha", new[] { 0.28f, 0.55f, 0.80f }, new[] { 0.6f, 0.35f, 0.55f }),
                 ("Vankilan henkilökunta", new[] { 0.40f, 0.62f, 0.82f }, new[] { 0.5f, 0.35f, 0.6f }),
+                ("Vankilan valvontahuone", new[] { 0.45f, 0.65f, 0.85f }, new[] { 0.5f, 0.35f, 0.6f }),   // valvontahuone (valikko 375)
+                ("Vankilan katto", new[] { 0.34f, 0.46f, 0.58f, 0.68f, 0.78f, 0.88f }, new[] { 0.5f, 0.3f, 0.65f, 0.4f, 0.7f, 0.35f }),   // 6 vartijaa vastassa (valikko 372)
             };
             var report = new List<string>();
             foreach (var (an, fr, depth) in plan)

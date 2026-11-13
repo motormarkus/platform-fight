@@ -269,9 +269,13 @@ public class ShopCounter : MonoBehaviour
     }
 
     /// Avaa valikon kaikille tiskin edessä oleville pelaajille (yksinpelissä vain P1).
+    [Tooltip("Tiskille tultaessa heron liittolaiset (Rex) saavat elämänsä täyteen.")]
+    public bool refillAllies;
     void OpenAll()
     {
         sessions.Clear();
+        if (refillAllies || name.StartsWith("Vankilan kanttiinin"))
+            foreach (var al in Enemy.All) if (al != null && al.ally && !al.IsDead && al.Health < al.maxHealth) al.RefillHealth();   // Rex tankkaa täyteen Sohvin tiskillä
         if (Players.Count > 1)
         {
             foreach (var q in Players.All)

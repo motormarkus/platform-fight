@@ -11,6 +11,7 @@ using UnityEngine;
 public static partial class BeatEmUpSetup
 {
     const string PrisonScenePath = "Assets/Scenes/Areas/Vankila.unity";
+    const float PrisonMusicGain = 1.2f;   // +1,6 dB: Vankila.mp3 mitattu -18,1 dBFS (RMS), muu musiikki n. -16,5 dBFS
     const float PrisonX0 = 85000f, PrisonGroundPx = 710f, PrisonMouthPx = 1250f;
 
     [MenuItem("Beat em up/353. Vankila: sisäpiha (portti, tietä, terminaalin suu, parallaksit)", false, 353)]
@@ -72,7 +73,7 @@ public static partial class BeatEmUpSetup
             area.walkMinX = X0 + 1.5f; area.walkMaxX = X0 + 4f * W - 1.2f;
             area.camMinX = X0 + W * 0.5f; area.camMaxX = X0 + 4f * W - W * 0.5f;
             area.camSize = CamHalf; area.camRiseY = 0f; area.camOffsetY = 0f; area.backScale = 1f; area.depthLimits = new Vector2[0];
-            area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Viidakko.mp3"); area.musicGain = area.music != null ? JungleMusicGain : 1f;   // väliaikainen musiikki
+            area.music = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Musiikki/Vankila.mp3"); area.musicGain = area.music != null ? PrisonMusicGain : 1f;   // Jammin' in the Groove
 
             // parallaksit: taivas (hitain), sen edessä vankilan piha-kuva
             SpriteRenderer Para(string name, string file, float factor, int order, float scale)
@@ -215,8 +216,8 @@ public static partial class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "vankila_kaytava_d1", "vankila_kaytava_d1b" })
-            if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat). Aja python Tools/PrisonAssets/make_prison_tiles.py."); return; }
+        foreach (var f in new[] { "vankila_kaytava_d1_iso", "vankila_kaytava_d1b_iso" })
+            if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat). Aja python Tools/PrisonAssets/make_prison_tiles.py ja make_hall_floor_ext.py."); return; }
         if (!File.Exists(PrisonScenePath)) { Info("Aja ensin valikot 353 ja 354 (pihan ja terminaalin alueet)."); return; }
         var scene = EditorSceneManager.GetSceneByPath(PrisonScenePath);
         bool openedHere = false;
@@ -232,33 +233,33 @@ public static partial class BeatEmUpSetup
                 Undo.DestroyObjectImmediate(dd.gameObject);
 
             float H = 2f * CamHalf, cy = CamY, top = cy + CamHalf, X0 = PrisonCorrX0;
-            float ppu = CorrImgH / H, img1 = CorrImgW / ppu, imgW = 2f * img1, W = 1672f / (941f / H);   // osio = kuva + sen peilikuva
+            float ppu = CorrImgH / H / PrisonHallZoom, imgH = CorrImgH + HallFloorExt, Hh = CorrImgH / ppu, img1 = CorrImgW / ppu, imgW = 2f * img1, W = 1672f / (941f / H);   // osio = kuva + sen peilikuva
             var root = new GameObject("Vankilan D-osasto");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
             Undo.RegisterCreatedObjectUndo(root, "Vankila");
             for (int i = 0; i < 2; i++)
             {
-                var sp = ImportShipSprite(T + (i == 0 ? "vankila_kaytava_d1" : "vankila_kaytava_d1b") + ".png", ppu, false, SpriteAlignment.Center);
+                var sp = ImportShipSprite(T + (i == 0 ? "vankila_kaytava_d1_iso" : "vankila_kaytava_d1b_iso") + ".png", ppu, false, SpriteAlignment.Center);
                 if (sp == null) { Info("Kuvan tuonti epäonnistui (D-osasto " + (i + 1) + ")."); return; }
                 var sr = new GameObject("D-osasto " + (i + 1)).AddComponent<SpriteRenderer>();
                 sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
-                sr.transform.position = new Vector3(X0 + img1 * (i + 0.5f), cy, 0f);
+                sr.transform.position = new Vector3(X0 + img1 * (i + 0.5f), top - imgH / (2f * ppu), 0f);
                 sr.transform.localScale = new Vector3(1.0012f, 1f, 1f);
             }
 
             var hall = ReuseArea("Alue: Vankilan D-osasto");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(hall.gameObject, scene);
             hall.areaName = "Vankilan D-osasto"; hall.useSidewalk = false;
-            float lowMax = top - 0.905f * H, lowMin = top - 0.99f * H, upMax = top - 0.415f * H, upMin = top - 0.47f * H;   // alakerran lattia / yläkerran kulkusilta
+            float lowMax = top - 0.905f * Hh, lowMin = top - (imgH - 9.2f) / ppu, upMax = top - 0.415f * Hh, upMin = top - 0.47f * Hh, lowerOff = -(imgH / ppu - H);   // alakerran lattia / yläkerran kulkusilta
             hall.maxDepthY = lowMax; hall.minDepthY = lowMin;
             hall.walkMinX = X0 + 1.5f; hall.walkMaxX = X0 + imgW - 1.5f;
             hall.camMinX = X0 + W * 0.5f; hall.camMaxX = Mathf.Max(hall.camMinX, X0 + imgW - W * 0.5f);
-            hall.camSize = CamHalf; hall.camRiseY = 0f; hall.camOffsetY = 0f; hall.backScale = 1f; hall.depthLimits = new[] { new Vector2(X0, upMax), new Vector2(X0 + imgW, upMax) }; hall.depthLimitsExceedMax = true;
+            hall.camSize = CamHalf; hall.camRiseY = 0f; hall.camOffsetY = lowerOff; hall.backScale = 1f; hall.depthLimits = new[] { new Vector2(X0, upMax), new Vector2(X0 + imgW, upMax) }; hall.depthLimitsExceedMax = true;
             hall.music = term.music; hall.musicGain = term.musicGain;
-            var tf = root.AddComponent<TwoFloorCorridor>(); tf.area = hall; tf.lowerMin = lowMin; tf.lowerMax = lowMax; tf.upperMin = upMin; tf.upperMax = upMax;
+            var tf = root.AddComponent<TwoFloorCorridor>(); tf.area = hall; tf.lowerMin = lowMin; tf.lowerMax = lowMax; tf.upperMin = upMin; tf.upperMax = upMax; tf.lowerOffsetY = lowerOff; tf.upperOffsetY = 0f;
             tf.stairs = new[] {
-                new TwoFloorCorridor.Stair { xBottom = X0 + 0.17f * img1, xTop = X0 + 0.345f * img1, yBottom = top - 0.91f * H, yTop = top - 0.44f * H },
-                new TwoFloorCorridor.Stair { xBottom = X0 + 1.83f * img1, xTop = X0 + 1.655f * img1, yBottom = top - 0.91f * H, yTop = top - 0.44f * H } };   // vinot portaat molemmissa päissä
+                new TwoFloorCorridor.Stair { xBottom = X0 + 0.17f * img1, xTop = X0 + 0.345f * img1, yBottom = top - 0.91f * Hh, yTop = top - 0.44f * Hh },
+                new TwoFloorCorridor.Stair { xBottom = X0 + 1.83f * img1, xTop = X0 + 1.655f * img1, yBottom = top - 0.91f * Hh, yTop = top - 0.44f * Hh } };   // vinot portaat molemmissa päissä
 
             var doorRoot = scene.GetRootGameObjects().FirstOrDefault(g => g.name == "Vankilan ovet");
             if (doorRoot == null) { doorRoot = new GameObject("Vankilan ovet"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doorRoot, scene); }
@@ -400,7 +401,7 @@ public static partial class BeatEmUpSetup
                 EditorUtility.SetDirty(d); return d;
             }
             float H = 2f * CamHalf;
-            float ppuT = TermImgH / H, img1T = TermImgW / ppuT, ppuD = CorrImgH / H, img1D = CorrImgW / ppuD;
+            float ppuT = TermImgH / H, img1T = TermImgW / ppuT, ppuD = CorrImgH / H / PrisonHallZoom, img1D = CorrImgW / ppuD;
             float midRoom = Mathf.Lerp(room.maxDepthY, room.minDepthY, 0.45f), midYard = Mathf.Lerp(yard.maxDepthY, yard.minDepthY, 0.45f), midHall = Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.5f);
             var mouth = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(x => x != null && x.gameObject.scene == scene && x.name == "Vankila: terminaaliin");
             float mouthX = mouth != null ? mouth.transform.position.x : yard.walkMaxX - 4f;
@@ -547,6 +548,32 @@ public static partial class BeatEmUpSetup
             shop.camSize = CamHalf; shop.camRiseY = 0f; shop.camOffsetY = 0f; shop.backScale = 1f; shop.depthLimits = new Vector2[0];
             shop.music = hall.music; shop.musicGain = hall.musicGain;
 
+            // ikkunan läpi näkyy vankilan piha: taivas + piha-kuva parallaksina kuvan takana (kuvan ikkunan raot ovat läpinäkyvät)
+            {
+                float pp = 922f / H;
+                var psk = ImportShipSprite(T + "kone_taivas.png", pp, false, SpriteAlignment.Center);
+                if (psk != null)
+                {
+                    float scale = 1.25f, left = shop.camMinX - W * 0.5f;
+                    var sr = new GameObject("Työpajan taivas").AddComponent<SpriteRenderer>();
+                    sr.transform.SetParent(root.transform, false); sr.sprite = psk; sr.sortingOrder = -10100;
+                    sr.transform.position = new Vector3(left + psk.bounds.size.x * scale * 0.5f, cy, 0f);
+                    sr.transform.localScale = new Vector3(scale, scale, 1f);
+                    var pl = sr.gameObject.AddComponent<ParallaxLayer>();
+                    pl.factor = 0.02f; pl.startCamX = shop.camMinX; pl.minX = shop.camMinX - 2f; pl.maxX = shop.camMaxX + 2f;
+                }
+                var ppy = ImportShipSprite(T + "vankila_piha_taka.png", pp, false, SpriteAlignment.Center);
+                if (ppy != null)
+                {
+                    float left2 = shop.camMinX - W * 0.5f;
+                    var sr2 = new GameObject("Työpajan vankilan piha").AddComponent<SpriteRenderer>();
+                    sr2.transform.SetParent(root.transform, false); sr2.sprite = ppy; sr2.sortingOrder = -10050;
+                    sr2.transform.position = new Vector3(left2 + ppy.bounds.size.x * 0.5f, cy, 0f);
+                    var pl2 = sr2.gameObject.AddComponent<ParallaxLayer>();
+                    pl2.factor = 0.3f; pl2.startCamX = shop.camMinX; pl2.minX = shop.camMinX - 2f; pl2.maxX = shop.camMaxX + 2f;
+                }
+            }
+
             var doorRoot = scene.GetRootGameObjects().FirstOrDefault(g => g.name == "Vankilan ovet");
             if (doorRoot == null) { doorRoot = new GameObject("Vankilan ovet"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doorRoot, scene); }
             Door MakeDoor(string name, string prompt, Area here, Area target, Vector3 pos, Vector2 spawn)
@@ -557,7 +584,7 @@ public static partial class BeatEmUpSetup
                 return d;
             }
             float midShop = Mathf.Lerp(shop.maxDepthY, shop.minDepthY, 0.5f), midHall = Mathf.Lerp(hall.maxDepthY, hall.minDepthY, 0.5f);
-            float inX = X0 + 0.09f * img1, outX = X0 + img1 * 1.905f;   // vasen kaksoisovi (kuva 1) ja oikea kaksoisovi (kuva 2)
+            float inX = X0 + 0.06f * img1, outX = X0 + img1 * 1.94f;   // vasen kaksoisovi (kuva 1) ja oikea kaksoisovi (kuva 2)
             var next = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(x => x != null && x.gameObject.scene == scene && x.name == "D-osasto: seuraava osio");
             if (next != null)
             {
@@ -601,7 +628,7 @@ public static partial class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "vankila_kaytava_e1", "vankila_kaytava_e1b" })
+        foreach (var f in new[] { "vankila_kaytava_e1_iso", "vankila_kaytava_e1b_iso" })
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat). Aja python Tools/PrisonAssets/make_prison_tiles.py."); return; }
         if (!File.Exists(PrisonScenePath)) { Info("Aja ensin valikot 353–357."); return; }
         var scene = EditorSceneManager.GetSceneByPath(PrisonScenePath);
@@ -619,32 +646,32 @@ public static partial class BeatEmUpSetup
                 Undo.DestroyObjectImmediate(dd.gameObject);
 
             float H = 2f * CamHalf, cy = CamY, top = cy + CamHalf, X0 = PrisonEX0;
-            float ppu = CorrImgH / H, img1 = CorrImgW / ppu, imgW = 2f * img1, W = 1672f / (941f / H);
+            float ppu = CorrImgH / H / PrisonHallZoom, imgH = CorrImgH + HallFloorExt, Hh = CorrImgH / ppu, img1 = CorrImgW / ppu, imgW = 2f * img1, W = 1672f / (941f / H);
             var root = new GameObject("Vankilan E-osasto");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
             Undo.RegisterCreatedObjectUndo(root, "Vankila");
             for (int i = 0; i < 2; i++)
             {
-                var sp = ImportShipSprite(T + (i == 0 ? "vankila_kaytava_e1" : "vankila_kaytava_e1b") + ".png", ppu, false, SpriteAlignment.Center);
+                var sp = ImportShipSprite(T + (i == 0 ? "vankila_kaytava_e1_iso" : "vankila_kaytava_e1b_iso") + ".png", ppu, false, SpriteAlignment.Center);
                 if (sp == null) { Info("Kuvan tuonti epäonnistui (E-osasto " + (i + 1) + ")."); return; }
                 var sr = new GameObject("E-osasto " + (i + 1)).AddComponent<SpriteRenderer>();
                 sr.transform.SetParent(root.transform, false); sr.sprite = sp; sr.sortingOrder = -10000;
-                sr.transform.position = new Vector3(X0 + img1 * (i + 0.5f), cy, 0f);
+                sr.transform.position = new Vector3(X0 + img1 * (i + 0.5f), top - imgH / (2f * ppu), 0f);
                 sr.transform.localScale = new Vector3(1.0012f, 1f, 1f);
             }
             var hall = ReuseArea("Alue: Vankilan E-osasto");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(hall.gameObject, scene);
             hall.areaName = "Vankilan E-osasto"; hall.useSidewalk = false;
-            float lowMax = top - 0.905f * H, lowMin = top - 0.99f * H, upMax = top - 0.415f * H, upMin = top - 0.47f * H;   // alakerran lattia / yläkerran kulkusilta
+            float lowMax = top - 0.905f * Hh, lowMin = top - (imgH - 9.2f) / ppu, upMax = top - 0.415f * Hh, upMin = top - 0.47f * Hh, lowerOff = -(imgH / ppu - H);   // alakerran lattia / yläkerran kulkusilta
             hall.maxDepthY = lowMax; hall.minDepthY = lowMin;
             hall.walkMinX = X0 + 1.5f; hall.walkMaxX = X0 + imgW - 1.5f;
             hall.camMinX = X0 + W * 0.5f; hall.camMaxX = Mathf.Max(hall.camMinX, X0 + imgW - W * 0.5f);
-            hall.camSize = CamHalf; hall.camRiseY = 0f; hall.camOffsetY = 0f; hall.backScale = 1f; hall.depthLimits = new[] { new Vector2(X0, upMax), new Vector2(X0 + imgW, upMax) }; hall.depthLimitsExceedMax = true;
+            hall.camSize = CamHalf; hall.camRiseY = 0f; hall.camOffsetY = lowerOff; hall.backScale = 1f; hall.depthLimits = new[] { new Vector2(X0, upMax), new Vector2(X0 + imgW, upMax) }; hall.depthLimitsExceedMax = true;
             hall.music = hallD.music; hall.musicGain = hallD.musicGain;
-            var tf = root.AddComponent<TwoFloorCorridor>(); tf.area = hall; tf.lowerMin = lowMin; tf.lowerMax = lowMax; tf.upperMin = upMin; tf.upperMax = upMax;
+            var tf = root.AddComponent<TwoFloorCorridor>(); tf.area = hall; tf.lowerMin = lowMin; tf.lowerMax = lowMax; tf.upperMin = upMin; tf.upperMax = upMax; tf.lowerOffsetY = lowerOff; tf.upperOffsetY = 0f;
             tf.stairs = new[] {
-                new TwoFloorCorridor.Stair { xBottom = X0 + 0.17f * img1, xTop = X0 + 0.345f * img1, yBottom = top - 0.91f * H, yTop = top - 0.44f * H },
-                new TwoFloorCorridor.Stair { xBottom = X0 + 1.83f * img1, xTop = X0 + 1.655f * img1, yBottom = top - 0.91f * H, yTop = top - 0.44f * H } };   // vinot portaat molemmissa päissä
+                new TwoFloorCorridor.Stair { xBottom = X0 + 0.17f * img1, xTop = X0 + 0.345f * img1, yBottom = top - 0.91f * Hh, yTop = top - 0.44f * Hh },
+                new TwoFloorCorridor.Stair { xBottom = X0 + 1.83f * img1, xTop = X0 + 1.655f * img1, yBottom = top - 0.91f * Hh, yTop = top - 0.44f * Hh } };   // vinot portaat molemmissa päissä
 
             var doorRoot = scene.GetRootGameObjects().FirstOrDefault(g => g.name == "Vankilan ovet");
             if (doorRoot == null) { doorRoot = new GameObject("Vankilan ovet"); UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(doorRoot, scene); }
@@ -802,7 +829,7 @@ public static partial class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "vankila_piha_1", "vankila_piha_2", "vankila_piha_3", "kone_taivas" })
+        foreach (var f in new[] { "vankila_piha_1", "vankila_piha_2", "vankila_piha_3", "kone_taivas", "vankila_piha_taka" })
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat). Aja python Tools/PrisonAssets/make_prison_tiles.py."); return; }
         if (!File.Exists(PrisonScenePath)) { Info("Aja ensin valikot 353–359."); return; }
         var scene = EditorSceneManager.GetSceneByPath(PrisonScenePath);
@@ -820,7 +847,7 @@ public static partial class BeatEmUpSetup
 
             float H = 2f * CamHalf, cy = CamY, top = cy + CamHalf, X0 = PrisonYardX0;
             float ppu = 922f / H, W = 1672f / (941f / H);
-            float[] tw = { 2560f / ppu, 2406f / ppu, 2406f / ppu };   // kuvien leveydet (kuva 2 ja 3 on leikattu päällekkäisyyden verran)
+            float[] tw = { 2560f / ppu, 2365f / ppu, 2406f / ppu };   // kuvien leveydet (kuva 2 leikattu 152 px, kuva 3 120 px päällekkäisyyden verran)
             float totalW = tw[0] + tw[1] + tw[2];
             var root = new GameObject("Vankilan kuntopiha");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
@@ -857,6 +884,17 @@ public static partial class BeatEmUpSetup
                     sr.transform.localScale = new Vector3(scale, scale, 1f);
                     var pl = sr.gameObject.AddComponent<ParallaxLayer>();
                     pl.factor = 0.02f; pl.startCamX = yard.camMinX; pl.minX = yard.camMinX - 2f; pl.maxX = yard.camMaxX + 2f;
+                }
+                // sen edessä lähempi parallaksi: vankilan piha-kuva (sama kuin etupihalla: vankila_piha_taka, kerroin 0,3)
+                var sp2 = ImportShipSprite(T + "vankila_piha_taka.png", ppu, false, SpriteAlignment.Center);
+                if (sp2 != null)
+                {
+                    float left2 = yard.camMinX - W * 0.5f;
+                    var sr2 = new GameObject("Kuntopihan vankilan piha").AddComponent<SpriteRenderer>();
+                    sr2.transform.SetParent(root.transform, false); sr2.sprite = sp2; sr2.sortingOrder = -10050;
+                    sr2.transform.position = new Vector3(left2 + sp2.bounds.size.x * 0.5f, cy, 0f);
+                    var pl2 = sr2.gameObject.AddComponent<ParallaxLayer>();
+                    pl2.factor = 0.3f; pl2.startCamX = yard.camMinX; pl2.minX = yard.camMinX - 2f; pl2.maxX = yard.camMaxX + 2f;
                 }
             }
 
@@ -1046,7 +1084,7 @@ public static partial class BeatEmUpSetup
     {
         if (PlayModeBlocked()) return;
         const string T = "Assets/Sprites/Taustat/";
-        foreach (var f in new[] { "vankila_kirjasto", "kone_taivas" })
+        foreach (var f in new[] { "vankila_kirjasto", "vankila_kirjasto_tiski", "kone_taivas" })
             if (!File.Exists(T + f + ".png")) { Info("Puuttuu kuva " + f + ".png (Assets/Sprites/Taustat). Aja python Tools/PrisonAssets/make_prison_tiles.py."); return; }
         if (!File.Exists(PrisonScenePath)) { Info("Aja ensin valikot 353–360."); return; }
         var scene = EditorSceneManager.GetSceneByPath(PrisonScenePath);
@@ -1120,6 +1158,17 @@ public static partial class BeatEmUpSetup
             else Info("Kuntopihan oikeaa kaksoisovea ei löytynyt (valikko 360); kirjastoa ei yhdistetty.");
             var exit = MakeDoor("Kirjasto: oikea ovi", "Mene eteenpäin", lib, lib, new Vector3(outX, doorY, 0f), new Vector2(outX - 3.2f, midLib));
             exit.requiredClue = "Vankila: kirjaston oven avain"; exit.lockedClueText = "Ovi on lukossa.";   // valikko 362 liittää henkilökunnan tilat tähän
+            {   // jos henkilökunnan tilat on jo rakennettu (valikko 362), liitetään ovi niihin heti: tämän valikon uudelleenajo ei saa lukita pelaajaa kanttiiniin
+                var hallS = areas.FirstOrDefault(ar => ar.areaName == "Vankilan henkilökunta");
+                var backS = Object.FindObjectsByType<Door>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(x => x != null && x.gameObject.scene == scene && x.name == "Henkilökunta: takaisin kirjastoon");
+                if (hallS != null && backS != null)
+                {
+                    exit.target = hallS; exit.requiredClue = ""; exit.lockedClueText = ""; exit.prompt = "Mene henkilökunnan tiloihin";
+                    exit.spawnPoint = new Vector2(backS.transform.position.x + 1.6f, backS.transform.position.y - 1.3f);
+                    backS.here = hallS; backS.target = lib; backS.spawnPoint = new Vector2(outX - 3.4f, midLib);
+                    EditorUtility.SetDirty(backS);
+                }
+            }
 
             // Sohvi myyjäksi kanttiinin tiskin taakse (mallit Alppikylän afterski-baarista)
             string sohviInfo = "";
@@ -1131,16 +1180,25 @@ public static partial class BeatEmUpSetup
                 var counterT = Object.FindObjectsByType<ShopCounter>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(c => c.gameObject.scene == alpine && c.name == "Afterski-baarin tiski (Sohvi)");
                 if (sohviT != null && counterT != null)
                 {
-                    float hx = wx(1475f), hy = top - 0.495f * H;   // tiskin pinta ~ rivi 357/722
+                    float hx = wx(1475f), hy = top - 540f / ppu;   // jalat tiskin etulevyn takana (rivi 540/922; tiskin pinta rivi ~440), etulevy piirretään Sohvin eteen
                     var sg = Object.Instantiate(sohviT.gameObject); sg.name = "Sohvi (vankilan kanttiini)";
                     UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sg, scene); sg.transform.SetParent(root.transform, false);
                     sg.transform.position = new Vector3(hx, hy, 0f); sg.transform.localScale = Vector3.one * LibSohviScale;
                     var rS = sg.GetComponentInChildren<SpriteRenderer>(); if (rS != null) rS.sortingOrder = Mathf.RoundToInt(-hy * 100f);
+                    {   // tiskin etulevy (kuvan oma tiski, px 1488–2290 x 438–602) Sohvin eteen: jalat piilossa
+                        var csp = ImportShipSprite(T + "vankila_kirjasto_tiski.png", ppu, false, SpriteAlignment.Center);
+                        if (csp != null)
+                        {
+                            var cov = new GameObject("Tiskin etu (kanttiini)").AddComponent<SpriteRenderer>();
+                            cov.transform.SetParent(root.transform, false); cov.sprite = csp; cov.sortingOrder = Mathf.RoundToInt(-hy * 100f) + 5;
+                            cov.transform.position = new Vector3(X0 + (1488f + 401f) / ppu, top - (438f + 82f) / ppu, 0f);
+                        }
+                    }
                     var shopGo = Object.Instantiate(counterT.gameObject); shopGo.name = "Vankilan kanttiinin tiski (Sohvi)";
                     UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(shopGo, scene); shopGo.transform.SetParent(root.transform, false);
                     shopGo.transform.position = new Vector3(hx, lib.maxDepthY, 0f);
                     var sc = shopGo.GetComponent<ShopCounter>();
-                    sc.here = lib; sc.title = "VANKILAN KANTTIINI"; sc.npcName = "Sohvi"; sc.prompt = "Puhu Sohville";
+                    sc.here = lib; sc.refillAllies = true; sc.title = "VANKILAN KANTTIINI"; sc.npcName = "Sohvi"; sc.prompt = "Puhu Sohville";
                     sc.halfWidth = 4.2f; sc.maxDistanceFromWall = 1.5f; sc.ownItemsOnly = false;
                     sc.items = new[]
                     {

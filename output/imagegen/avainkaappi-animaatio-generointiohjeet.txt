@@ -1,0 +1,18 @@
+Mode: built-in image_gen for sprite layer preparation; aligned animation-frame export.
+Source references: avainkaappi-avoin-referenssi.png and avainkaappi-suljettu-sprite.png.
+Goal: 10 transparent frames, fixed cabinet, left-hinged door opens to reference pose.
+
+OPEN ENDPOINT ALPHA EXTRACTION
+Use case: background-extraction / precise-object-edit.
+Extract the EXACT open key cabinet in this image as a transparent 2D game sprite. Preserve the entire cabinet absolutely unchanged: ALL 30 keys and coloured tags in the same places, same metal frame and screws, same door opened to the left, same papers and latch on inside of that door, identical lighting, exact proportions, coordinates and perspective. Do NOT close or change the door. Do NOT redraw or redesign anything.
+Keep the same 1360:960 canvas ratio and the existing cabinet positioning: outer opened door begins near x=35,y=45, its hinge side is near x=350; cabinet box extends from x=315,y=74 to x=1297,y=906. Only remove wall and yellow stripe, wall shadow and the small telephone fragment below cabinet. Everything outside the physical cabinet and open door must be true alpha=0. No drop shadow outside silhouette, no white or black backing, no checkerboard. Interior behind keys remains opaque dark grey. Deliver just this exact open cabinet cutout.
+
+ANIMATION ASSEMBLY
+Accepted closed cabinet supplies the outside door texture. image_gen extracted the open reference on alpha for the interior and inside door texture.
+One fixed cabinet/key layer is reused unchanged. The door is projected about the left hinge at angles 0,12,24,36,48,60,72,84,96,107.932 degrees.
+Camera and perspective are calibrated to the open reference pose. No frame-to-frame AI regeneration of keys or cabinet.
+10 individual transparent PNGs: 1536 x 1088; common canvas, fixed pivot (0.5,0.5).
+Sprite sheet: 7680 x 2176; 5 columns x 2 rows.
+APNG preview: 768 x 544, first/last holds for viewing.
+Generated open reference: exec-655b8e43-b788-458a-8eaf-2cd97d19f791.png.
+Mode: built-in image_gen for sprite-layer editing; deterministic projection/compositing for stable animation export.

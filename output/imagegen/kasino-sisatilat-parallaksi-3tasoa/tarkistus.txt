@@ -1,0 +1,7 @@
+Three full-canvas aligned 5120x1844 PNG layers. Built-in image_gen edits followed by alpha cleanup and resizing.
+Original visible scene is the reference; hidden regions are reconstructed. The layers are not a pixel-identical reconstruction of the original image.
+Final exports are resampled, not native 5K detail.
+01-kaukotausta: native=2086x754; Transparent=0; opaque=9441280; hidden RGB errors=0; checked-region errors=0
+02-keskitaso: native=2086x754; Transparent=8728386; opaque=593252; hidden RGB errors=0; checked-region errors=0
+03-etuala: native=2087x754; Transparent=3603980; opaque=5799199; hidden RGB errors=0; checked-region errors=0
+Visual review completed: aligned composite, shifted composite and both alpha-layer checker previews. No opaque cutout backdrop, no visible holes left behind extracted objects in the reviewed shift.

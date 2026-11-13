@@ -1,0 +1,7 @@
+Native=2089x753
+Export=5120x1844 RGBA PNG
+Native alpha cleanup: clear=583353; opaque=985299
+Export alpha cleanup: clear=3499656; opaque=5913704
+Transparent pixels=3499656; hidden RGB errors=0; upper quarter clear; lower half fully opaque; first terrain/vegetation pixels range y=646..690.
+A / mirrored A / A: RGBA boundary differences=0 at both seams, all 1844 rows.
+Original road unchanged: SHA256 399E6DF4333F0824F141B6A9FFFC0A43B01FA8167961FCDB9B1616F5993A878B

@@ -1,0 +1,10 @@
+Mode: built-in image_gen, precise-object-edit.
+Input: 512x512 crop at (280,210) of native 2089x753 image.
+Delivery: locally composite edited staircase into original 5120x1844 PNG, preserving original pixels outside local mask.
+
+Edit ONLY the steel staircase in this provided 512x512 cropped detail of an existing 2D prison game background. Return the EXACT SAME SQUARE CROP and framing; this is a local replacement patch for a larger image.
+The stairs are currently drawn with conspicuous three-quarter perspective and broad visible treads. Redraw just the staircase in STRICT ORTHOGRAPHIC SIDE ELEVATION, ascending from lower left to upper right. We should see a flat two-dimensional sawtooth silhouette: horizontal step tops seen EDGE-ON as thin lines and vertical risers, no trapezoidal treads, no front/back vanishing lines, no skew into depth, no change of tread size with height. All treads have uniform dimensions. One consistent steel diagonal stringer beneath, simple iron upright railing posts and a single diagonal handrail exactly parallel to the stair slope; no separate receding rear railing.
+Keep original dark blue-gray industrial steel, restrained bolts and painterly shading. This is not a ladder: a normal staircase, visibly evenly stepped in full side profile.
+Keep the same stair attachment location at the upper walkway around pixel (440,130), and the same stair foot area around pixel (100,470). Keep the rise and run, overall placement and overall size close to the original. Upper handrail joins the existing horizontal walkway railing near (440,35).
+Where the old staircase's perspective silhouette is removed, repair only the small exposed areas with the SAME wall, yellow stripe, or concrete floor that was behind it.
+PRESERVE EVERYTHING ELSE EXACTLY: do not change camera, crop, background wall texture, yellow stripe height, lamp or conduit at left, horizontal steel beam at y110-135, right vertical structural pillar, upper walkway and its horizontal railing, floor, lighting or colors. No new props, no people, no text. No global re-rendering or redesign. Only correct the staircase perspective.

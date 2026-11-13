@@ -1,0 +1,19 @@
+Mode: built-in image_gen, precise object edit with alpha background extraction.
+Source: vankilan-vartiohuone-viihtyisa-vasen-alkuperainen.png; native crop (264,136,340,240) enlarged fourfold as reference.
+
+Use case: precise-object-edit and background-extraction.
+Edit the EXACT wall-mounted KEY CABINET in the reference into its CLOSED state and isolate it as a transparent 2D game sprite. This is the very same cabinet, not a redesigned or similar new cabinet.
+Keep the existing rectangular cabinet BODY and its outer frame fixed: same width/height, shallow thickness, slightly rounded corners, narrow bevels, little screw heads, olive-grey painted steel colour, restrained wear, and warm upper-left lighting. Orthographic straight-on view, identical to the reference. The body currently occupies approximately x=23.2% to95.4% and y=7.6% to94.3% of this canvas. Keep that body size and position on a canvas of the same 1360:960 aspect.
+The left-hinged door that is currently swung open to the left must now be rotated CLOSED flush over the key storage compartment. It is ONE solid olive-grey metal door, not a pair of doors, not glass, not a shutter. Retain the same thin inset rectangular door moulding/bevel style and small hinge hardware from the reference. Place the existing modest latch/lock on the RIGHT edge of the closed door, around mid-height. Door exterior is plain metal. Keys, tags and clipped papers are INSIDE and completely hidden when closed. Nothing remains protruding to the left as an open door.
+Preserve the original hand-painted game-art finish and metal shade, not shiny photorealism, not reimagined industrial hardware. The closed door panel must fit inside the SAME outer cabinet frame. Do not add a big handle, label, keypad, vents, window, bolts or stickers.
+REMOVE everything outside the cabinet to actual alpha=0 transparency: wall, yellow stripe, wall shadow, phone fragment, all background. No ground or cast shadow outside the cutout. Clean anti-aliased silhouette. Entire closed cabinet fully visible with a small transparent margin, no cropped corners. No text, no green, no white or checkerboard background. Transparent PNG sprite.
+
+OUTPUT
+Raw source: 
+C:\Users\marku\.codex\generated_images\01a19137-3c84-7223-9249-58aae914b472\exec-a7f5c767-deea-4c88-98f3-51fb97e29226.png
+Generated canvas: 1493x1054
+Generated object bounds: 309,79,1091,917
+High resolution sprite: 1123x949, 16 px transparent padding.
+Room-scale sprite: 628x535; cabinet 604x511, 12 px transparent padding.
+All outer edge pixels alpha=0; closed door centre alpha=255.
+Original room artwork unchanged.

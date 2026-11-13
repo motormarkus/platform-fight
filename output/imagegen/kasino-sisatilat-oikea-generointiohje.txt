@@ -1,0 +1,29 @@
+Mode: built-in image_gen. New image, stylized-concept. Target export 5120 x 1844.
+
+Use case: stylized-concept.
+Asset type: a production environment panel for a 2D side-scrolling game, the RIGHT END of a casino interior; one continuous panorama, NOT a collage or spritesheet.
+Canvas: 5120 x 1844 target format, aspect ratio 2.7766:1. Use the highest available native resolution at this aspect ratio. Landscape, flat horizontal framing.
+
+Scene and style: an inviting Las Vegas casino interior, clean controlled hand-painted game art consistent with the previous casino rooftop: slate-violet and plum tones, dark walnut, antique brass/gold trim, soft warm lighting, restrained cyan and pink accents on machines. Crisp readable forms, accurate repeated machine hardware and deliberate simplified textures. No photorealism, no grain, no mottled AI texture, no blurry filigree.
+
+CAMERA AND WALKABLE SPACE: pulled-back orthographic side view. The long back wall is parallel to the image plane, front faces of machines are seen straight-on. A modest amount of top surface may be visible to show floor depth, but no isometric or deep-perspective view. The back-wall/floor baseline and the bottoms of all furniture are around y=64% of the frame. The entire bottom 35% (y=65% to 100%) is OPEN WALKABLE FLOOR from left to right, with very subtle smooth low-contrast carpet texture, dark plum with muted gold geometric accents only near the back edge. No table, stool, plant, machine, column, decorative rope or other obstacle in this open foreground strip. Do not fill the picture with floor patterns.
+
+RIGHT END: at x=84%..96%, a wide closed elevator with two equal brushed-steel sliding door leaves, a generous elegant brass frame, subtle warm rectangular lamp over the doors and a small call button panel alongside. The elevator is the focal architectural feature at the far RIGHT end; not in the middle. Its sill is flush with the floor baseline. The outermost right edge is closed by a full-height solid casino wall shown in a shallow oblique plane, from the top of the frame to the foreground bottom-right. Keep the elevator broad enough for game characters. No machinery visible inside this interior room.
+
+CASINO CONTENT along the back wall, all behind the walkable foreground:
+- A readable row of four classic upright slot machines across the left third, with rich dark bodies, brass trim, luminous cyan/magenta edging and clear simple cherry, bell and seven reel symbols. Small low round upholstered stools neatly tucked against them.
+- A pair of slightly different tall slot machines toward the middle, same plausible adult scale, with coherent controls and coin trays.
+- One compact green-felt roulette table set back between these machines and the elevator, wheel and a few orderly chips visible, without any people. It does not extend into the foreground walking strip.
+- Muted burgundy wall panels, pilasters, a few warm Art Deco sconces, gold wall bands; tasteful casino atmosphere, generous spacing and visual clarity. Show only wall/trim at the top, no hanging ceiling foreground blocking the view.
+
+LEFT EDGE MUST REMAIN OPEN FOR A FUTURE PANEL: no closing wall, no door, no thick column at the left edge. Back-wall dado line and floor extend perfectly horizontally through the left border. The first 5% width is simple continuous wall and floor; the first machine starts farther inside. No framing border or vignette.
+Fully opaque interior; no exterior scenery and no windows are necessary. No people, no characters, no helicopter, no readable advertising, no logos, no watermarks, no UI. Only ONE right-hand room panel.
+
+EXPORT AND VALIDATION
+Mode: built-in image_gen, new image.
+Native generation: 2087 x 753.
+Final export: 5120 x 1844 PNG, resampled with HighQualityBicubic; not native 5K detail.
+Visual check: elevator at right, right closing wall, six slot machines, roulette table, no people.
+Open floor begins approximately at 65% of image height, leaving approximately 35% open walking area.
+Left edge remains open for a later continuation; no adjoining panel has yet been generated.
+Final saved path: G:\unity pelit\mopopeli\platform fight\output\imagegen\kasino-sisatilat-oikea-5120x1844.png

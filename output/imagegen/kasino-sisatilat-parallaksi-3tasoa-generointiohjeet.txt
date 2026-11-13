@@ -1,0 +1,28 @@
+Mode: built-in image_gen. Additional split of generated background clean plate exec-273de8db-2648-4aec-b0c2-60609b43ec9b.png.
+Three total layers: far room opaque, middle objects transparent, foreground transparent.
+
+MIDDLE PROMPT
+Use case: background-extraction.
+Extract ONLY the intermediate-depth objects from this exact casino BACKGROUND CLEAN PLATE. Keep full original 2087:753 wide canvas and ALL object locations, sizes, silhouettes, lighting and painting unchanged. Target export5120x1844, one full-canvas aligned transparent PNG. Do not crop or recenter.
+RETAIN ONLY:
+- All FOUR green-felt gaming tables and their attached groups of red stools: the two large closer tables at approxx26%-38% andx53%-65%, bases atabout57% height, and the two smaller tables behind atx36%-43% andx48%-55%, bases around47%.
+- The TWO dominant mid-distance dark-wood columns with gold caps/bases and wall sconces, aroundx27%-32% andx58%-63%, from near12% imageheight toaround46%. Exactly these two taller nearer columns. Do not keep smaller far columns.
+- The two potted palms behind the small tables nearx38% andx51%.
+- The large central Art Deco chandelier and its suspension chain from the top centre aroundx40%-49%, down toabout21%.
+- Fine gold floor-outline markings directly surrounding the TWO large gaming tables and their subtle immediate contact shadows may remain, but NOT solid rectangular carpet patches.
+ALL OTHER PIXELS become true alpha transparency: remove the entire ceiling and cornices, entire distant wall, ALL distant slot machines, every smaller far column, all other smaller far chandeliers, ALL carpet except the tiny gold markings and object contact shadows mentioned above. No full-width floor strip. The whole lower40% must be transparent. Background visible between every chair, table leg, palm leaf and column is transparent.
+Critical: no elevator, no foreground slot machines, no repositioned objects, no additional furnishings, no replacements. Preserve exact source alignment. No black, white or checkerboard background: real transparent alpha.
+
+FAR PROMPT
+Use case: precise-object-edit / background clean plate reconstruction.
+This source is the casino background clean plate. Split off its intermediate layer and reconstruct ONLY the FARTHEST room background. Keep full original2087:753 canvas (targetexport5120x1844), viewpoint, colours and ALL retained far background features' coordinates unchanged.
+
+REMOVE these exact intermediate objects and invisibly fill behind them:
+- ALL FOUR green-felt gaming tables, ALL their red stools, table shadows and the gold floor outline markings around the two nearest tables.
+- TWO dominant middle-distance walnut/gold support columns atx27%-32% andx58%-63% including their sconces, caps and bases. Keep the smaller far columns.
+- TWO potted palms nearx38% andx51%.
+- The ONE large central Art Deco chandelier atx40%-49% including its chain; restore uninterrupted coffered ceiling behind it.
+
+RETAIN the FAR casino architecture: the original high coffered ceiling/cornices and all SMALL distant hanging lamps, the distant walls, all SMALL FAR columns, all little distant slot-machine banks along the walls, the central rear gold Art Deco wall ornament. Preserve their scale, shape, positions and light. Fill the areas previously obscured by the removed middle objects with coherent ceiling, the same distant wall and a few modest far-away slots where appropriate, and the existing plum carpet. Do not bring objects forward or redesign the room. The result should still look like the same distant room.
+The carpet is now open and empty across the whole bottom portion. There are NO gaming tables, no palms, no large central chandelier, no large near columns, no elevator, no foreground slots.
+Cover the FULL WIDTH, including left and right edges, with a complete opaque room. No holes, transparency, black areas or masks. This layer will sit behind extracted middle objects and the original foreground. No people, no text, no UI. One image.
