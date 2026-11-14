@@ -59,6 +59,28 @@ public static partial class BeatEmUpSetup
             var xs = r.GetComponentsInChildren<Transform>(true).Select(t => t.position.x).Where(x => Mathf.Abs(x) > 1f).OrderBy(x => x).ToList();
             level[r] = xs.Count == 0 ? WallMainScene : WallLevelOfX(xs[xs.Count / 2]);
         }
+        // paikattomat juuret (esim. "Juhlahallin tappelu": SalsaBrawl ilman omaa x:ää) seuraavat viittaustensa kohteita: enemmistön scene
+        var unplaced = roots.Where(r => r.GetComponent<Area>() == null && !r.GetComponentsInChildren<Transform>(true).Any(t => Mathf.Abs(t.position.x) > 1f)).ToList();
+        for (int pass = 0; pass < 2; pass++)
+            foreach (var r in unplaced)
+            {
+                var votes = new Dictionary<string, int>();
+                foreach (var c in r.GetComponentsInChildren<Component>(true))
+                {
+                    if (c == null) continue;
+                    var p0 = new SerializedObject(c).GetIterator();
+                    while (p0.NextVisible(true))
+                    {
+                        if (p0.propertyType != SerializedPropertyType.ObjectReference || p0.objectReferenceValue == null) continue;
+                        var o0 = p0.objectReferenceValue; var g0 = o0 is Component oc0 ? oc0.gameObject : o0 as GameObject;
+                        if (g0 == null || !g0.scene.IsValid() || g0.scene != main) continue;
+                        var rt0 = g0.transform.root.gameObject;
+                        if (rt0 == r || !level.TryGetValue(rt0, out var lv1)) continue;
+                        votes[lv1] = votes.TryGetValue(lv1, out int n1) ? n1 + 1 : 1;
+                    }
+                }
+                if (votes.Count > 0) level[r] = votes.OrderByDescending(kv => kv.Value).First().Key;
+            }
         string LevelOf(GameObject go) { var rt = go.transform.root.gameObject; return level.TryGetValue(rt, out var l) ? l : WallMainScene; }
 
         // 2) viittaukset sceneltä toiselle: oven kohde, kyydin kohde ja aloituskohta korvataan nimellä; kaikki muu keskeyttää (mitään ei muuteta)

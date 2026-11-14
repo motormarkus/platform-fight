@@ -15,16 +15,20 @@ public static partial class BeatEmUpSetup
         var scene = EditorSceneManager.GetSceneByPath(VegasScenePath);
         bool openedHere = false;
         if (!scene.IsValid() || !scene.isLoaded) { scene = EditorSceneManager.OpenScene(VegasScenePath, OpenSceneMode.Additive); openedHere = true; }
-        UnityEngine.SceneManagement.Scene wallScene = default; bool wallSceneOpened = false;
+        var srcOpened = new System.Collections.Generic.List<UnityEngine.SceneManagement.Scene>();
         try
         {
             var bar = Object.FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(a => a.gameObject.scene == scene && a.areaName == "Vegasin baari");
             if (bar == null) { Info("Alue \"Vegasin baari\" puuttuu: aja valikko 379."); return; }
-            string dp = WallScenePath;
-            if (!File.Exists(dp)) { Info("Muuri-scene puuttuu: aja valikko 327."); return; }
-            wallScene = EditorSceneManager.GetSceneByPath(dp);
-            if (!wallScene.IsValid() || !wallScene.isLoaded) { wallScene = EditorSceneManager.OpenScene(dp, OpenSceneMode.Additive); wallSceneOpened = true; }
-            var tmpl = Object.FindObjectsByType<NpcStroller>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(w => w != null && w.gameObject.scene == wallScene && w.name == "Violetti");
+            // Violetti on linnakkeen juhlahallissa: Muuri.unity tai (Muurin jaon 349 jälkeen) Linnake.unity
+            var srcPaths = new[] { WallScenePath, WallPartPath(WallFortScene) }.Where(File.Exists).Distinct().ToArray();
+            if (srcPaths.Length == 0) { Info("Muuri-scene puuttuu: aja valikko 327."); return; }
+            foreach (var sp0 in srcPaths)
+            {
+                var sc0 = EditorSceneManager.GetSceneByPath(sp0);
+                if (!sc0.IsValid() || !sc0.isLoaded) { sc0 = EditorSceneManager.OpenScene(sp0, OpenSceneMode.Additive); srcOpened.Add(sc0); }
+            }
+            var tmpl = Object.FindObjectsByType<NpcStroller>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(w => w != null && w.gameObject.scene != scene && w.name == "Violetti");
             if (tmpl == null) { Info("Violettia ei löytynyt Muurin scenestä: aja valikko 336."); return; }
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "Vegasin Violetti").ToArray()) Undo.DestroyObjectImmediate(old);
             var go = Object.Instantiate(tmpl.gameObject);
@@ -43,7 +47,7 @@ public static partial class BeatEmUpSetup
         }
         finally
         {
-            if (wallSceneOpened && wallScene.IsValid()) EditorSceneManager.CloseScene(wallScene, true);
+            foreach (var so in srcOpened) if (so.IsValid()) EditorSceneManager.CloseScene(so, true);
             if (openedHere && scene.IsValid()) EditorSceneManager.CloseScene(scene, true);
         }
     }

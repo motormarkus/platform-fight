@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Areas/Vegas.unity
     guid: 2ff4b262e4c9968468c875b5ba571500
+  - enabled: 1
+    path: Assets/Scenes/Areas/Kuu.unity
+    guid: 12aeca547357ff443a524e01907fe477
+  - enabled: 1
+    path: Assets/Scenes/Areas/Linnake.unity
+    guid: 89c41c26aac96174b9ee17838e15b0d4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
